@@ -38,53 +38,53 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->regionId_ == nullptr
-        && return this->resourceType_ == nullptr && return this->serviceCode_ == nullptr && return this->serviceDesc_ == nullptr && return this->serviceName_ == nullptr; };
+        && this->resourceType_ == nullptr && this->serviceCode_ == nullptr && this->serviceDesc_ == nullptr && this->serviceName_ == nullptr; };
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ModifyServiceInfoRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceType Field Functions 
     bool hasResourceType() const { return this->resourceType_ != nullptr;};
     void deleteResourceType() { this->resourceType_ = nullptr;};
-    inline string resourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
+    inline string getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
     inline ModifyServiceInfoRequest& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
 
 
     // serviceCode Field Functions 
     bool hasServiceCode() const { return this->serviceCode_ != nullptr;};
     void deleteServiceCode() { this->serviceCode_ = nullptr;};
-    inline string serviceCode() const { DARABONBA_PTR_GET_DEFAULT(serviceCode_, "") };
+    inline string getServiceCode() const { DARABONBA_PTR_GET_DEFAULT(serviceCode_, "") };
     inline ModifyServiceInfoRequest& setServiceCode(string serviceCode) { DARABONBA_PTR_SET_VALUE(serviceCode_, serviceCode) };
 
 
     // serviceDesc Field Functions 
     bool hasServiceDesc() const { return this->serviceDesc_ != nullptr;};
     void deleteServiceDesc() { this->serviceDesc_ = nullptr;};
-    inline string serviceDesc() const { DARABONBA_PTR_GET_DEFAULT(serviceDesc_, "") };
+    inline string getServiceDesc() const { DARABONBA_PTR_GET_DEFAULT(serviceDesc_, "") };
     inline ModifyServiceInfoRequest& setServiceDesc(string serviceDesc) { DARABONBA_PTR_SET_VALUE(serviceDesc_, serviceDesc) };
 
 
     // serviceName Field Functions 
     bool hasServiceName() const { return this->serviceName_ != nullptr;};
     void deleteServiceName() { this->serviceName_ = nullptr;};
-    inline string serviceName() const { DARABONBA_PTR_GET_DEFAULT(serviceName_, "") };
+    inline string getServiceName() const { DARABONBA_PTR_GET_DEFAULT(serviceName_, "") };
     inline ModifyServiceInfoRequest& setServiceName(string serviceName) { DARABONBA_PTR_SET_VALUE(serviceName_, serviceName) };
 
 
   protected:
     // Region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // Resource type.
-    std::shared_ptr<string> resourceType_ = nullptr;
+    shared_ptr<string> resourceType_ {};
     // Service code.
-    std::shared_ptr<string> serviceCode_ = nullptr;
+    shared_ptr<string> serviceCode_ {};
     // Service description.
-    std::shared_ptr<string> serviceDesc_ = nullptr;
+    shared_ptr<string> serviceDesc_ {};
     // Service name.
-    std::shared_ptr<string> serviceName_ = nullptr;
+    shared_ptr<string> serviceName_ {};
   };
 
   } // namespace Models

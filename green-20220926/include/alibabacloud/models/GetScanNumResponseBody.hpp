@@ -38,53 +38,53 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->limitNumber_ == nullptr
-        && return this->requestId_ == nullptr && return this->scanNumber_ == nullptr && return this->sumNumber_ == nullptr && return this->tag_ == nullptr; };
+        && this->requestId_ == nullptr && this->scanNumber_ == nullptr && this->sumNumber_ == nullptr && this->tag_ == nullptr; };
     // limitNumber Field Functions 
     bool hasLimitNumber() const { return this->limitNumber_ != nullptr;};
     void deleteLimitNumber() { this->limitNumber_ = nullptr;};
-    inline int64_t limitNumber() const { DARABONBA_PTR_GET_DEFAULT(limitNumber_, 0L) };
+    inline int64_t getLimitNumber() const { DARABONBA_PTR_GET_DEFAULT(limitNumber_, 0L) };
     inline GetScanNumResponseBody& setLimitNumber(int64_t limitNumber) { DARABONBA_PTR_SET_VALUE(limitNumber_, limitNumber) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetScanNumResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // scanNumber Field Functions 
     bool hasScanNumber() const { return this->scanNumber_ != nullptr;};
     void deleteScanNumber() { this->scanNumber_ = nullptr;};
-    inline int64_t scanNumber() const { DARABONBA_PTR_GET_DEFAULT(scanNumber_, 0L) };
+    inline int64_t getScanNumber() const { DARABONBA_PTR_GET_DEFAULT(scanNumber_, 0L) };
     inline GetScanNumResponseBody& setScanNumber(int64_t scanNumber) { DARABONBA_PTR_SET_VALUE(scanNumber_, scanNumber) };
 
 
     // sumNumber Field Functions 
     bool hasSumNumber() const { return this->sumNumber_ != nullptr;};
     void deleteSumNumber() { this->sumNumber_ = nullptr;};
-    inline int64_t sumNumber() const { DARABONBA_PTR_GET_DEFAULT(sumNumber_, 0L) };
+    inline int64_t getSumNumber() const { DARABONBA_PTR_GET_DEFAULT(sumNumber_, 0L) };
     inline GetScanNumResponseBody& setSumNumber(int64_t sumNumber) { DARABONBA_PTR_SET_VALUE(sumNumber_, sumNumber) };
 
 
     // tag Field Functions 
     bool hasTag() const { return this->tag_ != nullptr;};
     void deleteTag() { this->tag_ = nullptr;};
-    inline bool tag() const { DARABONBA_PTR_GET_DEFAULT(tag_, false) };
+    inline bool getTag() const { DARABONBA_PTR_GET_DEFAULT(tag_, false) };
     inline GetScanNumResponseBody& setTag(bool tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
 
 
   protected:
     // Upper limit of the quantity.
-    std::shared_ptr<int64_t> limitNumber_ = nullptr;
+    shared_ptr<int64_t> limitNumber_ {};
     // ID assigned by the backend, used to uniquely identify a request. Can be used for troubleshooting.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Total number of files pending inspection.
-    std::shared_ptr<int64_t> scanNumber_ = nullptr;
+    shared_ptr<int64_t> scanNumber_ {};
     // Total number of files.
-    std::shared_ptr<int64_t> sumNumber_ = nullptr;
+    shared_ptr<int64_t> sumNumber_ {};
     // Whether it is a whitelist user.
-    std::shared_ptr<bool> tag_ = nullptr;
+    shared_ptr<bool> tag_ {};
   };
 
   } // namespace Models

@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->feedback_ == nullptr
-        && return this->items_ == nullptr && return this->parentTaskId_ == nullptr; };
+        && this->items_ == nullptr && this->parentTaskId_ == nullptr; };
     // feedback Field Functions 
     bool hasFeedback() const { return this->feedback_ != nullptr;};
     void deleteFeedback() { this->feedback_ = nullptr;};
-    inline string feedback() const { DARABONBA_PTR_GET_DEFAULT(feedback_, "") };
+    inline string getFeedback() const { DARABONBA_PTR_GET_DEFAULT(feedback_, "") };
     inline UpdateOssCheckResultsBatchFeedbackRequest& setFeedback(string feedback) { DARABONBA_PTR_SET_VALUE(feedback_, feedback) };
 
 
     // items Field Functions 
     bool hasItems() const { return this->items_ != nullptr;};
     void deleteItems() { this->items_ = nullptr;};
-    inline string items() const { DARABONBA_PTR_GET_DEFAULT(items_, "") };
+    inline string getItems() const { DARABONBA_PTR_GET_DEFAULT(items_, "") };
     inline UpdateOssCheckResultsBatchFeedbackRequest& setItems(string items) { DARABONBA_PTR_SET_VALUE(items_, items) };
 
 
     // parentTaskId Field Functions 
     bool hasParentTaskId() const { return this->parentTaskId_ != nullptr;};
     void deleteParentTaskId() { this->parentTaskId_ = nullptr;};
-    inline string parentTaskId() const { DARABONBA_PTR_GET_DEFAULT(parentTaskId_, "") };
+    inline string getParentTaskId() const { DARABONBA_PTR_GET_DEFAULT(parentTaskId_, "") };
     inline UpdateOssCheckResultsBatchFeedbackRequest& setParentTaskId(string parentTaskId) { DARABONBA_PTR_SET_VALUE(parentTaskId_, parentTaskId) };
 
 
   protected:
-    std::shared_ptr<string> feedback_ = nullptr;
-    std::shared_ptr<string> items_ = nullptr;
-    std::shared_ptr<string> parentTaskId_ = nullptr;
+    shared_ptr<string> feedback_ {};
+    shared_ptr<string> items_ {};
+    shared_ptr<string> parentTaskId_ {};
   };
 
   } // namespace Models

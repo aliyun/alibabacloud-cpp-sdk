@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ids_ == nullptr
-        && return this->libId_ == nullptr && return this->regionId_ == nullptr; };
+        && this->libId_ == nullptr && this->regionId_ == nullptr; };
     // ids Field Functions 
     bool hasIds() const { return this->ids_ != nullptr;};
     void deleteIds() { this->ids_ = nullptr;};
-    inline string ids() const { DARABONBA_PTR_GET_DEFAULT(ids_, "") };
+    inline string getIds() const { DARABONBA_PTR_GET_DEFAULT(ids_, "") };
     inline DeleteAnswerSampleRequest& setIds(string ids) { DARABONBA_PTR_SET_VALUE(ids_, ids) };
 
 
     // libId Field Functions 
     bool hasLibId() const { return this->libId_ != nullptr;};
     void deleteLibId() { this->libId_ = nullptr;};
-    inline string libId() const { DARABONBA_PTR_GET_DEFAULT(libId_, "") };
+    inline string getLibId() const { DARABONBA_PTR_GET_DEFAULT(libId_, "") };
     inline DeleteAnswerSampleRequest& setLibId(string libId) { DARABONBA_PTR_SET_VALUE(libId_, libId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteAnswerSampleRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
-    std::shared_ptr<string> ids_ = nullptr;
-    std::shared_ptr<string> libId_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> ids_ {};
+    shared_ptr<string> libId_ {};
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

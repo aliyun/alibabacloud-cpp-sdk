@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->keywords_ == nullptr
-        && return this->keywordsObject_ == nullptr && return this->libId_ == nullptr && return this->regionId_ == nullptr; };
+        && this->keywordsObject_ == nullptr && this->libId_ == nullptr && this->regionId_ == nullptr; };
     // keywords Field Functions 
     bool hasKeywords() const { return this->keywords_ != nullptr;};
     void deleteKeywords() { this->keywords_ = nullptr;};
-    inline string keywords() const { DARABONBA_PTR_GET_DEFAULT(keywords_, "") };
+    inline string getKeywords() const { DARABONBA_PTR_GET_DEFAULT(keywords_, "") };
     inline AddKeywordsRequest& setKeywords(string keywords) { DARABONBA_PTR_SET_VALUE(keywords_, keywords) };
 
 
     // keywordsObject Field Functions 
     bool hasKeywordsObject() const { return this->keywordsObject_ != nullptr;};
     void deleteKeywordsObject() { this->keywordsObject_ = nullptr;};
-    inline string keywordsObject() const { DARABONBA_PTR_GET_DEFAULT(keywordsObject_, "") };
+    inline string getKeywordsObject() const { DARABONBA_PTR_GET_DEFAULT(keywordsObject_, "") };
     inline AddKeywordsRequest& setKeywordsObject(string keywordsObject) { DARABONBA_PTR_SET_VALUE(keywordsObject_, keywordsObject) };
 
 
     // libId Field Functions 
     bool hasLibId() const { return this->libId_ != nullptr;};
     void deleteLibId() { this->libId_ = nullptr;};
-    inline string libId() const { DARABONBA_PTR_GET_DEFAULT(libId_, "") };
+    inline string getLibId() const { DARABONBA_PTR_GET_DEFAULT(libId_, "") };
     inline AddKeywordsRequest& setLibId(string libId) { DARABONBA_PTR_SET_VALUE(libId_, libId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline AddKeywordsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
     // The keywords to be added.
-    std::shared_ptr<string> keywords_ = nullptr;
+    shared_ptr<string> keywords_ {};
     // The name of the keyword file.
-    std::shared_ptr<string> keywordsObject_ = nullptr;
+    shared_ptr<string> keywordsObject_ {};
     // The id of keyword library.
-    std::shared_ptr<string> libId_ = nullptr;
+    shared_ptr<string> libId_ {};
     // Region ID
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

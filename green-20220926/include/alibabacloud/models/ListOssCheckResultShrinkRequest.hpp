@@ -46,90 +46,90 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->currentPage_ == nullptr
-        && return this->endDate_ == nullptr && return this->finishNum_ == nullptr && return this->pageSize_ == nullptr && return this->query_ == nullptr && return this->regionId_ == nullptr
-        && return this->sortShrink_ == nullptr && return this->startDate_ == nullptr && return this->status_ == nullptr; };
+        && this->endDate_ == nullptr && this->finishNum_ == nullptr && this->pageSize_ == nullptr && this->query_ == nullptr && this->regionId_ == nullptr
+        && this->sortShrink_ == nullptr && this->startDate_ == nullptr && this->status_ == nullptr; };
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline ListOssCheckResultShrinkRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // endDate Field Functions 
     bool hasEndDate() const { return this->endDate_ != nullptr;};
     void deleteEndDate() { this->endDate_ = nullptr;};
-    inline string endDate() const { DARABONBA_PTR_GET_DEFAULT(endDate_, "") };
+    inline string getEndDate() const { DARABONBA_PTR_GET_DEFAULT(endDate_, "") };
     inline ListOssCheckResultShrinkRequest& setEndDate(string endDate) { DARABONBA_PTR_SET_VALUE(endDate_, endDate) };
 
 
     // finishNum Field Functions 
     bool hasFinishNum() const { return this->finishNum_ != nullptr;};
     void deleteFinishNum() { this->finishNum_ = nullptr;};
-    inline int64_t finishNum() const { DARABONBA_PTR_GET_DEFAULT(finishNum_, 0L) };
+    inline int64_t getFinishNum() const { DARABONBA_PTR_GET_DEFAULT(finishNum_, 0L) };
     inline ListOssCheckResultShrinkRequest& setFinishNum(int64_t finishNum) { DARABONBA_PTR_SET_VALUE(finishNum_, finishNum) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListOssCheckResultShrinkRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // query Field Functions 
     bool hasQuery() const { return this->query_ != nullptr;};
     void deleteQuery() { this->query_ = nullptr;};
-    inline string query() const { DARABONBA_PTR_GET_DEFAULT(query_, "") };
+    inline string getQuery() const { DARABONBA_PTR_GET_DEFAULT(query_, "") };
     inline ListOssCheckResultShrinkRequest& setQuery(string query) { DARABONBA_PTR_SET_VALUE(query_, query) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ListOssCheckResultShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // sortShrink Field Functions 
     bool hasSortShrink() const { return this->sortShrink_ != nullptr;};
     void deleteSortShrink() { this->sortShrink_ = nullptr;};
-    inline string sortShrink() const { DARABONBA_PTR_GET_DEFAULT(sortShrink_, "") };
+    inline string getSortShrink() const { DARABONBA_PTR_GET_DEFAULT(sortShrink_, "") };
     inline ListOssCheckResultShrinkRequest& setSortShrink(string sortShrink) { DARABONBA_PTR_SET_VALUE(sortShrink_, sortShrink) };
 
 
     // startDate Field Functions 
     bool hasStartDate() const { return this->startDate_ != nullptr;};
     void deleteStartDate() { this->startDate_ = nullptr;};
-    inline string startDate() const { DARABONBA_PTR_GET_DEFAULT(startDate_, "") };
+    inline string getStartDate() const { DARABONBA_PTR_GET_DEFAULT(startDate_, "") };
     inline ListOssCheckResultShrinkRequest& setStartDate(string startDate) { DARABONBA_PTR_SET_VALUE(startDate_, startDate) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline int32_t status() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
+    inline int32_t getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
     inline ListOssCheckResultShrinkRequest& setStatus(int32_t status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
   protected:
     // Current page number.
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
+    shared_ptr<int32_t> currentPage_ {};
     // End date.
-    std::shared_ptr<string> endDate_ = nullptr;
+    shared_ptr<string> endDate_ {};
     // Number of completed tasks.
-    std::shared_ptr<int64_t> finishNum_ = nullptr;
+    shared_ptr<int64_t> finishNum_ {};
     // Page size.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // Search condition.
-    std::shared_ptr<string> query_ = nullptr;
+    shared_ptr<string> query_ {};
     // Region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // Sort field.
-    std::shared_ptr<string> sortShrink_ = nullptr;
+    shared_ptr<string> sortShrink_ {};
     // Start date.
-    std::shared_ptr<string> startDate_ = nullptr;
+    shared_ptr<string> startDate_ {};
     // Task status.
-    std::shared_ptr<int32_t> status_ = nullptr;
+    shared_ptr<int32_t> status_ {};
   };
 
   } // namespace Models

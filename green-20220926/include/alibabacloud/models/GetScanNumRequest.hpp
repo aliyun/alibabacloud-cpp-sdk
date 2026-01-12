@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->buckets_ == nullptr
-        && return this->mediaType_ == nullptr && return this->regionId_ == nullptr; };
+        && this->mediaType_ == nullptr && this->regionId_ == nullptr; };
     // buckets Field Functions 
     bool hasBuckets() const { return this->buckets_ != nullptr;};
     void deleteBuckets() { this->buckets_ = nullptr;};
-    inline string buckets() const { DARABONBA_PTR_GET_DEFAULT(buckets_, "") };
+    inline string getBuckets() const { DARABONBA_PTR_GET_DEFAULT(buckets_, "") };
     inline GetScanNumRequest& setBuckets(string buckets) { DARABONBA_PTR_SET_VALUE(buckets_, buckets) };
 
 
     // mediaType Field Functions 
     bool hasMediaType() const { return this->mediaType_ != nullptr;};
     void deleteMediaType() { this->mediaType_ = nullptr;};
-    inline int32_t mediaType() const { DARABONBA_PTR_GET_DEFAULT(mediaType_, 0) };
+    inline int32_t getMediaType() const { DARABONBA_PTR_GET_DEFAULT(mediaType_, 0) };
     inline GetScanNumRequest& setMediaType(int32_t mediaType) { DARABONBA_PTR_SET_VALUE(mediaType_, mediaType) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline GetScanNumRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
     // Storage space.
-    std::shared_ptr<string> buckets_ = nullptr;
+    shared_ptr<string> buckets_ {};
     // Media type.
-    std::shared_ptr<int32_t> mediaType_ = nullptr;
+    shared_ptr<int32_t> mediaType_ {};
     // Region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

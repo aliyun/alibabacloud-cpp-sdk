@@ -36,40 +36,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->libId_ == nullptr
-        && return this->regionId_ == nullptr && return this->sampleObject_ == nullptr && return this->samples_ == nullptr; };
+        && this->regionId_ == nullptr && this->sampleObject_ == nullptr && this->samples_ == nullptr; };
     // libId Field Functions 
     bool hasLibId() const { return this->libId_ != nullptr;};
     void deleteLibId() { this->libId_ = nullptr;};
-    inline string libId() const { DARABONBA_PTR_GET_DEFAULT(libId_, "") };
+    inline string getLibId() const { DARABONBA_PTR_GET_DEFAULT(libId_, "") };
     inline AddAnswerSampleRequest& setLibId(string libId) { DARABONBA_PTR_SET_VALUE(libId_, libId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline AddAnswerSampleRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // sampleObject Field Functions 
     bool hasSampleObject() const { return this->sampleObject_ != nullptr;};
     void deleteSampleObject() { this->sampleObject_ = nullptr;};
-    inline string sampleObject() const { DARABONBA_PTR_GET_DEFAULT(sampleObject_, "") };
+    inline string getSampleObject() const { DARABONBA_PTR_GET_DEFAULT(sampleObject_, "") };
     inline AddAnswerSampleRequest& setSampleObject(string sampleObject) { DARABONBA_PTR_SET_VALUE(sampleObject_, sampleObject) };
 
 
     // samples Field Functions 
     bool hasSamples() const { return this->samples_ != nullptr;};
     void deleteSamples() { this->samples_ = nullptr;};
-    inline string samples() const { DARABONBA_PTR_GET_DEFAULT(samples_, "") };
+    inline string getSamples() const { DARABONBA_PTR_GET_DEFAULT(samples_, "") };
     inline AddAnswerSampleRequest& setSamples(string samples) { DARABONBA_PTR_SET_VALUE(samples_, samples) };
 
 
   protected:
-    std::shared_ptr<string> libId_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> sampleObject_ = nullptr;
-    std::shared_ptr<string> samples_ = nullptr;
+    shared_ptr<string> libId_ {};
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> sampleObject_ {};
+    shared_ptr<string> samples_ {};
   };
 
   } // namespace Models

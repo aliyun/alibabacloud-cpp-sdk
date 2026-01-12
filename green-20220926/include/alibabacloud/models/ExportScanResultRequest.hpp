@@ -45,34 +45,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->currentPage_ == nullptr
-        && return this->endDate_ == nullptr && return this->pageSize_ == nullptr && return this->query_ == nullptr && return this->regionId_ == nullptr && return this->resourceType_ == nullptr
-        && return this->sort_ == nullptr && return this->startDate_ == nullptr; };
+        && this->endDate_ == nullptr && this->pageSize_ == nullptr && this->query_ == nullptr && this->regionId_ == nullptr && this->resourceType_ == nullptr
+        && this->sort_ == nullptr && this->startDate_ == nullptr; };
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline ExportScanResultRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // endDate Field Functions 
     bool hasEndDate() const { return this->endDate_ != nullptr;};
     void deleteEndDate() { this->endDate_ = nullptr;};
-    inline string endDate() const { DARABONBA_PTR_GET_DEFAULT(endDate_, "") };
+    inline string getEndDate() const { DARABONBA_PTR_GET_DEFAULT(endDate_, "") };
     inline ExportScanResultRequest& setEndDate(string endDate) { DARABONBA_PTR_SET_VALUE(endDate_, endDate) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ExportScanResultRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // query Field Functions 
     bool hasQuery() const { return this->query_ != nullptr;};
     void deleteQuery() { this->query_ = nullptr;};
-    inline const map<string, string> & query() const { DARABONBA_PTR_GET_CONST(query_, map<string, string>) };
-    inline map<string, string> query() { DARABONBA_PTR_GET(query_, map<string, string>) };
+    inline const map<string, string> & getQuery() const { DARABONBA_PTR_GET_CONST(query_, map<string, string>) };
+    inline map<string, string> getQuery() { DARABONBA_PTR_GET(query_, map<string, string>) };
     inline ExportScanResultRequest& setQuery(const map<string, string> & query) { DARABONBA_PTR_SET_VALUE(query_, query) };
     inline ExportScanResultRequest& setQuery(map<string, string> && query) { DARABONBA_PTR_SET_RVALUE(query_, query) };
 
@@ -80,22 +80,22 @@ namespace Models
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ExportScanResultRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceType Field Functions 
     bool hasResourceType() const { return this->resourceType_ != nullptr;};
     void deleteResourceType() { this->resourceType_ = nullptr;};
-    inline string resourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
+    inline string getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
     inline ExportScanResultRequest& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
 
 
     // sort Field Functions 
     bool hasSort() const { return this->sort_ != nullptr;};
     void deleteSort() { this->sort_ = nullptr;};
-    inline const map<string, string> & sort() const { DARABONBA_PTR_GET_CONST(sort_, map<string, string>) };
-    inline map<string, string> sort() { DARABONBA_PTR_GET(sort_, map<string, string>) };
+    inline const map<string, string> & getSort() const { DARABONBA_PTR_GET_CONST(sort_, map<string, string>) };
+    inline map<string, string> getSort() { DARABONBA_PTR_GET(sort_, map<string, string>) };
     inline ExportScanResultRequest& setSort(const map<string, string> & sort) { DARABONBA_PTR_SET_VALUE(sort_, sort) };
     inline ExportScanResultRequest& setSort(map<string, string> && sort) { DARABONBA_PTR_SET_RVALUE(sort_, sort) };
 
@@ -103,27 +103,27 @@ namespace Models
     // startDate Field Functions 
     bool hasStartDate() const { return this->startDate_ != nullptr;};
     void deleteStartDate() { this->startDate_ = nullptr;};
-    inline string startDate() const { DARABONBA_PTR_GET_DEFAULT(startDate_, "") };
+    inline string getStartDate() const { DARABONBA_PTR_GET_DEFAULT(startDate_, "") };
     inline ExportScanResultRequest& setStartDate(string startDate) { DARABONBA_PTR_SET_VALUE(startDate_, startDate) };
 
 
   protected:
     // Current page number.
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
+    shared_ptr<int32_t> currentPage_ {};
     // End time of the query, in the format yyyy-MM-dd HH:mm:ss.
-    std::shared_ptr<string> endDate_ = nullptr;
+    shared_ptr<string> endDate_ {};
     // Page size.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // Query content.
-    std::shared_ptr<map<string, string>> query_ = nullptr;
+    shared_ptr<map<string, string>> query_ {};
     // Region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // Resource type.
-    std::shared_ptr<string> resourceType_ = nullptr;
+    shared_ptr<string> resourceType_ {};
     // Sort fields.
-    std::shared_ptr<map<string, string>> sort_ = nullptr;
+    shared_ptr<map<string, string>> sort_ {};
     // Start time of the query, in the format yyyy-MM-dd HH:mm:ss.
-    std::shared_ptr<string> startDate_ = nullptr;
+    shared_ptr<string> startDate_ {};
   };
 
   } // namespace Models

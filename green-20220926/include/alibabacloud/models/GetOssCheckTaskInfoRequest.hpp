@@ -33,12 +33,12 @@ namespace Models
     // parentTaskId Field Functions 
     bool hasParentTaskId() const { return this->parentTaskId_ != nullptr;};
     void deleteParentTaskId() { this->parentTaskId_ = nullptr;};
-    inline string parentTaskId() const { DARABONBA_PTR_GET_DEFAULT(parentTaskId_, "") };
+    inline string getParentTaskId() const { DARABONBA_PTR_GET_DEFAULT(parentTaskId_, "") };
     inline GetOssCheckTaskInfoRequest& setParentTaskId(string parentTaskId) { DARABONBA_PTR_SET_VALUE(parentTaskId_, parentTaskId) };
 
 
   protected:
-    std::shared_ptr<string> parentTaskId_ = nullptr;
+    shared_ptr<string> parentTaskId_ {};
   };
 
   } // namespace Models

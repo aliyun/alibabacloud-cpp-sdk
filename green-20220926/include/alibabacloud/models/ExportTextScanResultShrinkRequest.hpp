@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->endDate_ == nullptr
-        && return this->queryShrink_ == nullptr && return this->regionId_ == nullptr && return this->startDate_ == nullptr; };
+        && this->queryShrink_ == nullptr && this->regionId_ == nullptr && this->startDate_ == nullptr; };
     // endDate Field Functions 
     bool hasEndDate() const { return this->endDate_ != nullptr;};
     void deleteEndDate() { this->endDate_ = nullptr;};
-    inline string endDate() const { DARABONBA_PTR_GET_DEFAULT(endDate_, "") };
+    inline string getEndDate() const { DARABONBA_PTR_GET_DEFAULT(endDate_, "") };
     inline ExportTextScanResultShrinkRequest& setEndDate(string endDate) { DARABONBA_PTR_SET_VALUE(endDate_, endDate) };
 
 
     // queryShrink Field Functions 
     bool hasQueryShrink() const { return this->queryShrink_ != nullptr;};
     void deleteQueryShrink() { this->queryShrink_ = nullptr;};
-    inline string queryShrink() const { DARABONBA_PTR_GET_DEFAULT(queryShrink_, "") };
+    inline string getQueryShrink() const { DARABONBA_PTR_GET_DEFAULT(queryShrink_, "") };
     inline ExportTextScanResultShrinkRequest& setQueryShrink(string queryShrink) { DARABONBA_PTR_SET_VALUE(queryShrink_, queryShrink) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ExportTextScanResultShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // startDate Field Functions 
     bool hasStartDate() const { return this->startDate_ != nullptr;};
     void deleteStartDate() { this->startDate_ = nullptr;};
-    inline string startDate() const { DARABONBA_PTR_GET_DEFAULT(startDate_, "") };
+    inline string getStartDate() const { DARABONBA_PTR_GET_DEFAULT(startDate_, "") };
     inline ExportTextScanResultShrinkRequest& setStartDate(string startDate) { DARABONBA_PTR_SET_VALUE(startDate_, startDate) };
 
 
   protected:
     // End time of the query, in the format yyyy-MM-dd HH:mm:ss.
-    std::shared_ptr<string> endDate_ = nullptr;
+    shared_ptr<string> endDate_ {};
     // Query conditions.
-    std::shared_ptr<string> queryShrink_ = nullptr;
+    shared_ptr<string> queryShrink_ {};
     // Region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // Start time of the query, in the format yyyy-MM-dd HH:mm:ss.
-    std::shared_ptr<string> startDate_ = nullptr;
+    shared_ptr<string> startDate_ {};
   };
 
   } // namespace Models

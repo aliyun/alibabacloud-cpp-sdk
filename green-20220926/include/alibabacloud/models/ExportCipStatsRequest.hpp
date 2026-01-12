@@ -48,99 +48,99 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->byMonth_ == nullptr
-        && return this->endDate_ == nullptr && return this->exportType_ == nullptr && return this->label_ == nullptr && return this->regionId_ == nullptr && return this->resourceType_ == nullptr
-        && return this->serviceCode_ == nullptr && return this->startDate_ == nullptr && return this->subUid_ == nullptr && return this->type_ == nullptr; };
+        && this->endDate_ == nullptr && this->exportType_ == nullptr && this->label_ == nullptr && this->regionId_ == nullptr && this->resourceType_ == nullptr
+        && this->serviceCode_ == nullptr && this->startDate_ == nullptr && this->subUid_ == nullptr && this->type_ == nullptr; };
     // byMonth Field Functions 
     bool hasByMonth() const { return this->byMonth_ != nullptr;};
     void deleteByMonth() { this->byMonth_ = nullptr;};
-    inline bool byMonth() const { DARABONBA_PTR_GET_DEFAULT(byMonth_, false) };
+    inline bool getByMonth() const { DARABONBA_PTR_GET_DEFAULT(byMonth_, false) };
     inline ExportCipStatsRequest& setByMonth(bool byMonth) { DARABONBA_PTR_SET_VALUE(byMonth_, byMonth) };
 
 
     // endDate Field Functions 
     bool hasEndDate() const { return this->endDate_ != nullptr;};
     void deleteEndDate() { this->endDate_ = nullptr;};
-    inline string endDate() const { DARABONBA_PTR_GET_DEFAULT(endDate_, "") };
+    inline string getEndDate() const { DARABONBA_PTR_GET_DEFAULT(endDate_, "") };
     inline ExportCipStatsRequest& setEndDate(string endDate) { DARABONBA_PTR_SET_VALUE(endDate_, endDate) };
 
 
     // exportType Field Functions 
     bool hasExportType() const { return this->exportType_ != nullptr;};
     void deleteExportType() { this->exportType_ = nullptr;};
-    inline string exportType() const { DARABONBA_PTR_GET_DEFAULT(exportType_, "") };
+    inline string getExportType() const { DARABONBA_PTR_GET_DEFAULT(exportType_, "") };
     inline ExportCipStatsRequest& setExportType(string exportType) { DARABONBA_PTR_SET_VALUE(exportType_, exportType) };
 
 
     // label Field Functions 
     bool hasLabel() const { return this->label_ != nullptr;};
     void deleteLabel() { this->label_ = nullptr;};
-    inline string label() const { DARABONBA_PTR_GET_DEFAULT(label_, "") };
+    inline string getLabel() const { DARABONBA_PTR_GET_DEFAULT(label_, "") };
     inline ExportCipStatsRequest& setLabel(string label) { DARABONBA_PTR_SET_VALUE(label_, label) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ExportCipStatsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceType Field Functions 
     bool hasResourceType() const { return this->resourceType_ != nullptr;};
     void deleteResourceType() { this->resourceType_ = nullptr;};
-    inline string resourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
+    inline string getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
     inline ExportCipStatsRequest& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
 
 
     // serviceCode Field Functions 
     bool hasServiceCode() const { return this->serviceCode_ != nullptr;};
     void deleteServiceCode() { this->serviceCode_ = nullptr;};
-    inline string serviceCode() const { DARABONBA_PTR_GET_DEFAULT(serviceCode_, "") };
+    inline string getServiceCode() const { DARABONBA_PTR_GET_DEFAULT(serviceCode_, "") };
     inline ExportCipStatsRequest& setServiceCode(string serviceCode) { DARABONBA_PTR_SET_VALUE(serviceCode_, serviceCode) };
 
 
     // startDate Field Functions 
     bool hasStartDate() const { return this->startDate_ != nullptr;};
     void deleteStartDate() { this->startDate_ = nullptr;};
-    inline string startDate() const { DARABONBA_PTR_GET_DEFAULT(startDate_, "") };
+    inline string getStartDate() const { DARABONBA_PTR_GET_DEFAULT(startDate_, "") };
     inline ExportCipStatsRequest& setStartDate(string startDate) { DARABONBA_PTR_SET_VALUE(startDate_, startDate) };
 
 
     // subUid Field Functions 
     bool hasSubUid() const { return this->subUid_ != nullptr;};
     void deleteSubUid() { this->subUid_ = nullptr;};
-    inline string subUid() const { DARABONBA_PTR_GET_DEFAULT(subUid_, "") };
+    inline string getSubUid() const { DARABONBA_PTR_GET_DEFAULT(subUid_, "") };
     inline ExportCipStatsRequest& setSubUid(string subUid) { DARABONBA_PTR_SET_VALUE(subUid_, subUid) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline ExportCipStatsRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
     // Whether to support monthly indexing. Values: -**true**: Supported. -**false**: Not supported.
-    std::shared_ptr<bool> byMonth_ = nullptr;
+    shared_ptr<bool> byMonth_ {};
     // The end time of the query, in the format yyyy-MM-dd HH:mm:ss.
-    std::shared_ptr<string> endDate_ = nullptr;
+    shared_ptr<string> endDate_ {};
     // Export type. Values: -**level**: Export by risk level. -**label**: Export by label.
-    std::shared_ptr<string> exportType_ = nullptr;
+    shared_ptr<string> exportType_ {};
     // The label of the task to be exported.
-    std::shared_ptr<string> label_ = nullptr;
+    shared_ptr<string> label_ {};
     // Region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // Resource type.
-    std::shared_ptr<string> resourceType_ = nullptr;
+    shared_ptr<string> resourceType_ {};
     // Service code.
-    std::shared_ptr<string> serviceCode_ = nullptr;
+    shared_ptr<string> serviceCode_ {};
     // The start time of the query, in the format yyyy-MM-dd HH:mm:ss.
-    std::shared_ptr<string> startDate_ = nullptr;
+    shared_ptr<string> startDate_ {};
     // Sub-account UID.
-    std::shared_ptr<string> subUid_ = nullptr;
+    shared_ptr<string> subUid_ {};
     // Type, values: -**cip**: Content Security Invocation Count Statistics. -**risk_level**: Content Security Risk Level Statistics. -**content_moderation**: AI Safety Guardrail Content Compliance Risk Level and Label Statistics. -**sensitive_data**: AI Safety Guardrail Sensitive Data Risk Level and Label Statistics. -**prompt_attack**: AI Safety Guardrail Prompt Word Risk Level and Label Statistics.
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

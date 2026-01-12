@@ -40,56 +40,56 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->answer_ == nullptr
-        && return this->currentPage_ == nullptr && return this->libId_ == nullptr && return this->pageSize_ == nullptr && return this->regionId_ == nullptr && return this->sortShrink_ == nullptr; };
+        && this->currentPage_ == nullptr && this->libId_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->sortShrink_ == nullptr; };
     // answer Field Functions 
     bool hasAnswer() const { return this->answer_ != nullptr;};
     void deleteAnswer() { this->answer_ = nullptr;};
-    inline string answer() const { DARABONBA_PTR_GET_DEFAULT(answer_, "") };
+    inline string getAnswer() const { DARABONBA_PTR_GET_DEFAULT(answer_, "") };
     inline QueryAnswerSampleByPageShrinkRequest& setAnswer(string answer) { DARABONBA_PTR_SET_VALUE(answer_, answer) };
 
 
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline QueryAnswerSampleByPageShrinkRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // libId Field Functions 
     bool hasLibId() const { return this->libId_ != nullptr;};
     void deleteLibId() { this->libId_ = nullptr;};
-    inline string libId() const { DARABONBA_PTR_GET_DEFAULT(libId_, "") };
+    inline string getLibId() const { DARABONBA_PTR_GET_DEFAULT(libId_, "") };
     inline QueryAnswerSampleByPageShrinkRequest& setLibId(string libId) { DARABONBA_PTR_SET_VALUE(libId_, libId) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline QueryAnswerSampleByPageShrinkRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline QueryAnswerSampleByPageShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // sortShrink Field Functions 
     bool hasSortShrink() const { return this->sortShrink_ != nullptr;};
     void deleteSortShrink() { this->sortShrink_ = nullptr;};
-    inline string sortShrink() const { DARABONBA_PTR_GET_DEFAULT(sortShrink_, "") };
+    inline string getSortShrink() const { DARABONBA_PTR_GET_DEFAULT(sortShrink_, "") };
     inline QueryAnswerSampleByPageShrinkRequest& setSortShrink(string sortShrink) { DARABONBA_PTR_SET_VALUE(sortShrink_, sortShrink) };
 
 
   protected:
-    std::shared_ptr<string> answer_ = nullptr;
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
-    std::shared_ptr<string> libId_ = nullptr;
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> sortShrink_ = nullptr;
+    shared_ptr<string> answer_ {};
+    shared_ptr<int32_t> currentPage_ {};
+    shared_ptr<string> libId_ {};
+    shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> sortShrink_ {};
   };
 
   } // namespace Models

@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dataId_ == nullptr
-        && return this->resourceType_ == nullptr && return this->serviceCode_ == nullptr && return this->url_ == nullptr; };
+        && this->resourceType_ == nullptr && this->serviceCode_ == nullptr && this->url_ == nullptr; };
     // dataId Field Functions 
     bool hasDataId() const { return this->dataId_ != nullptr;};
     void deleteDataId() { this->dataId_ = nullptr;};
-    inline string dataId() const { DARABONBA_PTR_GET_DEFAULT(dataId_, "") };
+    inline string getDataId() const { DARABONBA_PTR_GET_DEFAULT(dataId_, "") };
     inline CreateOnlineTestRequest& setDataId(string dataId) { DARABONBA_PTR_SET_VALUE(dataId_, dataId) };
 
 
     // resourceType Field Functions 
     bool hasResourceType() const { return this->resourceType_ != nullptr;};
     void deleteResourceType() { this->resourceType_ = nullptr;};
-    inline string resourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
+    inline string getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
     inline CreateOnlineTestRequest& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
 
 
     // serviceCode Field Functions 
     bool hasServiceCode() const { return this->serviceCode_ != nullptr;};
     void deleteServiceCode() { this->serviceCode_ = nullptr;};
-    inline string serviceCode() const { DARABONBA_PTR_GET_DEFAULT(serviceCode_, "") };
+    inline string getServiceCode() const { DARABONBA_PTR_GET_DEFAULT(serviceCode_, "") };
     inline CreateOnlineTestRequest& setServiceCode(string serviceCode) { DARABONBA_PTR_SET_VALUE(serviceCode_, serviceCode) };
 
 
     // url Field Functions 
     bool hasUrl() const { return this->url_ != nullptr;};
     void deleteUrl() { this->url_ = nullptr;};
-    inline string url() const { DARABONBA_PTR_GET_DEFAULT(url_, "") };
+    inline string getUrl() const { DARABONBA_PTR_GET_DEFAULT(url_, "") };
     inline CreateOnlineTestRequest& setUrl(string url) { DARABONBA_PTR_SET_VALUE(url_, url) };
 
 
   protected:
     // Data ID
-    std::shared_ptr<string> dataId_ = nullptr;
+    shared_ptr<string> dataId_ {};
     // Resource Type
-    std::shared_ptr<string> resourceType_ = nullptr;
+    shared_ptr<string> resourceType_ {};
     // Service Code
-    std::shared_ptr<string> serviceCode_ = nullptr;
+    shared_ptr<string> serviceCode_ {};
     // Detection URL
-    std::shared_ptr<string> url_ = nullptr;
+    shared_ptr<string> url_ {};
   };
 
   } // namespace Models

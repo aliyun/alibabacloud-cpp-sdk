@@ -2,7 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_GETKEYWORDIMPORTRESULTRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_GETKEYWORDIMPORTRESULTRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/GetKeywordImportResultResponseBodyData.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -38,56 +38,206 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(I18nKey, i18nKey_);
+        DARABONBA_PTR_TO_JSON(IllegalLengthKeywords, illegalLengthKeywords_);
+        DARABONBA_PTR_TO_JSON(InvalidCount, invalidCount_);
+        DARABONBA_PTR_TO_JSON(InvalidKeywords, invalidKeywords_);
+        DARABONBA_PTR_TO_JSON(LibId, libId_);
+        DARABONBA_PTR_TO_JSON(Progress, progress_);
+        DARABONBA_PTR_TO_JSON(RepeatCount, repeatCount_);
+        DARABONBA_PTR_TO_JSON(RepeatKeywords, repeatKeywords_);
+        DARABONBA_PTR_TO_JSON(SuccessCount, successCount_);
+        DARABONBA_PTR_TO_JSON(Tips, tips_);
+        DARABONBA_PTR_TO_JSON(TotalCount, totalCount_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(I18nKey, i18nKey_);
+        DARABONBA_PTR_FROM_JSON(IllegalLengthKeywords, illegalLengthKeywords_);
+        DARABONBA_PTR_FROM_JSON(InvalidCount, invalidCount_);
+        DARABONBA_PTR_FROM_JSON(InvalidKeywords, invalidKeywords_);
+        DARABONBA_PTR_FROM_JSON(LibId, libId_);
+        DARABONBA_PTR_FROM_JSON(Progress, progress_);
+        DARABONBA_PTR_FROM_JSON(RepeatCount, repeatCount_);
+        DARABONBA_PTR_FROM_JSON(RepeatKeywords, repeatKeywords_);
+        DARABONBA_PTR_FROM_JSON(SuccessCount, successCount_);
+        DARABONBA_PTR_FROM_JSON(Tips, tips_);
+        DARABONBA_PTR_FROM_JSON(TotalCount, totalCount_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->i18nKey_ == nullptr
+        && this->illegalLengthKeywords_ == nullptr && this->invalidCount_ == nullptr && this->invalidKeywords_ == nullptr && this->libId_ == nullptr && this->progress_ == nullptr
+        && this->repeatCount_ == nullptr && this->repeatKeywords_ == nullptr && this->successCount_ == nullptr && this->tips_ == nullptr && this->totalCount_ == nullptr; };
+      // i18nKey Field Functions 
+      bool hasI18nKey() const { return this->i18nKey_ != nullptr;};
+      void deleteI18nKey() { this->i18nKey_ = nullptr;};
+      inline string getI18nKey() const { DARABONBA_PTR_GET_DEFAULT(i18nKey_, "") };
+      inline Data& setI18nKey(string i18nKey) { DARABONBA_PTR_SET_VALUE(i18nKey_, i18nKey) };
+
+
+      // illegalLengthKeywords Field Functions 
+      bool hasIllegalLengthKeywords() const { return this->illegalLengthKeywords_ != nullptr;};
+      void deleteIllegalLengthKeywords() { this->illegalLengthKeywords_ = nullptr;};
+      inline const vector<string> & getIllegalLengthKeywords() const { DARABONBA_PTR_GET_CONST(illegalLengthKeywords_, vector<string>) };
+      inline vector<string> getIllegalLengthKeywords() { DARABONBA_PTR_GET(illegalLengthKeywords_, vector<string>) };
+      inline Data& setIllegalLengthKeywords(const vector<string> & illegalLengthKeywords) { DARABONBA_PTR_SET_VALUE(illegalLengthKeywords_, illegalLengthKeywords) };
+      inline Data& setIllegalLengthKeywords(vector<string> && illegalLengthKeywords) { DARABONBA_PTR_SET_RVALUE(illegalLengthKeywords_, illegalLengthKeywords) };
+
+
+      // invalidCount Field Functions 
+      bool hasInvalidCount() const { return this->invalidCount_ != nullptr;};
+      void deleteInvalidCount() { this->invalidCount_ = nullptr;};
+      inline int32_t getInvalidCount() const { DARABONBA_PTR_GET_DEFAULT(invalidCount_, 0) };
+      inline Data& setInvalidCount(int32_t invalidCount) { DARABONBA_PTR_SET_VALUE(invalidCount_, invalidCount) };
+
+
+      // invalidKeywords Field Functions 
+      bool hasInvalidKeywords() const { return this->invalidKeywords_ != nullptr;};
+      void deleteInvalidKeywords() { this->invalidKeywords_ = nullptr;};
+      inline const vector<string> & getInvalidKeywords() const { DARABONBA_PTR_GET_CONST(invalidKeywords_, vector<string>) };
+      inline vector<string> getInvalidKeywords() { DARABONBA_PTR_GET(invalidKeywords_, vector<string>) };
+      inline Data& setInvalidKeywords(const vector<string> & invalidKeywords) { DARABONBA_PTR_SET_VALUE(invalidKeywords_, invalidKeywords) };
+      inline Data& setInvalidKeywords(vector<string> && invalidKeywords) { DARABONBA_PTR_SET_RVALUE(invalidKeywords_, invalidKeywords) };
+
+
+      // libId Field Functions 
+      bool hasLibId() const { return this->libId_ != nullptr;};
+      void deleteLibId() { this->libId_ = nullptr;};
+      inline string getLibId() const { DARABONBA_PTR_GET_DEFAULT(libId_, "") };
+      inline Data& setLibId(string libId) { DARABONBA_PTR_SET_VALUE(libId_, libId) };
+
+
+      // progress Field Functions 
+      bool hasProgress() const { return this->progress_ != nullptr;};
+      void deleteProgress() { this->progress_ = nullptr;};
+      inline int32_t getProgress() const { DARABONBA_PTR_GET_DEFAULT(progress_, 0) };
+      inline Data& setProgress(int32_t progress) { DARABONBA_PTR_SET_VALUE(progress_, progress) };
+
+
+      // repeatCount Field Functions 
+      bool hasRepeatCount() const { return this->repeatCount_ != nullptr;};
+      void deleteRepeatCount() { this->repeatCount_ = nullptr;};
+      inline int32_t getRepeatCount() const { DARABONBA_PTR_GET_DEFAULT(repeatCount_, 0) };
+      inline Data& setRepeatCount(int32_t repeatCount) { DARABONBA_PTR_SET_VALUE(repeatCount_, repeatCount) };
+
+
+      // repeatKeywords Field Functions 
+      bool hasRepeatKeywords() const { return this->repeatKeywords_ != nullptr;};
+      void deleteRepeatKeywords() { this->repeatKeywords_ = nullptr;};
+      inline const vector<string> & getRepeatKeywords() const { DARABONBA_PTR_GET_CONST(repeatKeywords_, vector<string>) };
+      inline vector<string> getRepeatKeywords() { DARABONBA_PTR_GET(repeatKeywords_, vector<string>) };
+      inline Data& setRepeatKeywords(const vector<string> & repeatKeywords) { DARABONBA_PTR_SET_VALUE(repeatKeywords_, repeatKeywords) };
+      inline Data& setRepeatKeywords(vector<string> && repeatKeywords) { DARABONBA_PTR_SET_RVALUE(repeatKeywords_, repeatKeywords) };
+
+
+      // successCount Field Functions 
+      bool hasSuccessCount() const { return this->successCount_ != nullptr;};
+      void deleteSuccessCount() { this->successCount_ = nullptr;};
+      inline int32_t getSuccessCount() const { DARABONBA_PTR_GET_DEFAULT(successCount_, 0) };
+      inline Data& setSuccessCount(int32_t successCount) { DARABONBA_PTR_SET_VALUE(successCount_, successCount) };
+
+
+      // tips Field Functions 
+      bool hasTips() const { return this->tips_ != nullptr;};
+      void deleteTips() { this->tips_ = nullptr;};
+      inline string getTips() const { DARABONBA_PTR_GET_DEFAULT(tips_, "") };
+      inline Data& setTips(string tips) { DARABONBA_PTR_SET_VALUE(tips_, tips) };
+
+
+      // totalCount Field Functions 
+      bool hasTotalCount() const { return this->totalCount_ != nullptr;};
+      void deleteTotalCount() { this->totalCount_ = nullptr;};
+      inline int32_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
+      inline Data& setTotalCount(int32_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
+
+
+    protected:
+      // Internationalization key.
+      shared_ptr<string> i18nKey_ {};
+      // List of keywords with illegal length (too long or too short).
+      shared_ptr<vector<string>> illegalLengthKeywords_ {};
+      // Invalid count.
+      shared_ptr<int32_t> invalidCount_ {};
+      // List of invalid keywords.
+      shared_ptr<vector<string>> invalidKeywords_ {};
+      // Keyword library ID.
+      shared_ptr<string> libId_ {};
+      // Task progress percentage.
+      shared_ptr<int32_t> progress_ {};
+      // Repeat count.
+      shared_ptr<int32_t> repeatCount_ {};
+      // List of repeated keywords.
+      shared_ptr<vector<string>> repeatKeywords_ {};
+      // Success count.
+      shared_ptr<int32_t> successCount_ {};
+      // Tips message.
+      shared_ptr<string> tips_ {};
+      // Total count.
+      shared_ptr<int32_t> totalCount_ {};
+    };
+
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->data_ == nullptr && return this->msg_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr; };
+        && this->data_ == nullptr && this->msg_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline int32_t code() const { DARABONBA_PTR_GET_DEFAULT(code_, 0) };
+    inline int32_t getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, 0) };
     inline GetKeywordImportResultResponseBody& setCode(int32_t code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const GetKeywordImportResultResponseBodyData & data() const { DARABONBA_PTR_GET_CONST(data_, GetKeywordImportResultResponseBodyData) };
-    inline GetKeywordImportResultResponseBodyData data() { DARABONBA_PTR_GET(data_, GetKeywordImportResultResponseBodyData) };
-    inline GetKeywordImportResultResponseBody& setData(const GetKeywordImportResultResponseBodyData & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline GetKeywordImportResultResponseBody& setData(GetKeywordImportResultResponseBodyData && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const GetKeywordImportResultResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, GetKeywordImportResultResponseBody::Data) };
+    inline GetKeywordImportResultResponseBody::Data getData() { DARABONBA_PTR_GET(data_, GetKeywordImportResultResponseBody::Data) };
+    inline GetKeywordImportResultResponseBody& setData(const GetKeywordImportResultResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline GetKeywordImportResultResponseBody& setData(GetKeywordImportResultResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // msg Field Functions 
     bool hasMsg() const { return this->msg_ != nullptr;};
     void deleteMsg() { this->msg_ = nullptr;};
-    inline string msg() const { DARABONBA_PTR_GET_DEFAULT(msg_, "") };
+    inline string getMsg() const { DARABONBA_PTR_GET_DEFAULT(msg_, "") };
     inline GetKeywordImportResultResponseBody& setMsg(string msg) { DARABONBA_PTR_SET_VALUE(msg_, msg) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetKeywordImportResultResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline GetKeywordImportResultResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
     // Error code.
-    std::shared_ptr<int32_t> code_ = nullptr;
+    shared_ptr<int32_t> code_ {};
     // Returned data.
-    std::shared_ptr<GetKeywordImportResultResponseBodyData> data_ = nullptr;
+    shared_ptr<GetKeywordImportResultResponseBody::Data> data_ {};
     // Further description of the error code.
-    std::shared_ptr<string> msg_ = nullptr;
+    shared_ptr<string> msg_ {};
     // ID assigned by the backend to uniquely identify a request, which can be used for troubleshooting.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Success indicator.
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

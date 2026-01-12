@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->backupConfig_ == nullptr
-        && return this->regionId_ == nullptr && return this->resourceType_ == nullptr && return this->serviceCode_ == nullptr; };
+        && this->regionId_ == nullptr && this->resourceType_ == nullptr && this->serviceCode_ == nullptr; };
     // backupConfig Field Functions 
     bool hasBackupConfig() const { return this->backupConfig_ != nullptr;};
     void deleteBackupConfig() { this->backupConfig_ = nullptr;};
-    inline string backupConfig() const { DARABONBA_PTR_GET_DEFAULT(backupConfig_, "") };
+    inline string getBackupConfig() const { DARABONBA_PTR_GET_DEFAULT(backupConfig_, "") };
     inline UpdateBackupConfigRequest& setBackupConfig(string backupConfig) { DARABONBA_PTR_SET_VALUE(backupConfig_, backupConfig) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline UpdateBackupConfigRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceType Field Functions 
     bool hasResourceType() const { return this->resourceType_ != nullptr;};
     void deleteResourceType() { this->resourceType_ = nullptr;};
-    inline string resourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
+    inline string getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
     inline UpdateBackupConfigRequest& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
 
 
     // serviceCode Field Functions 
     bool hasServiceCode() const { return this->serviceCode_ != nullptr;};
     void deleteServiceCode() { this->serviceCode_ = nullptr;};
-    inline string serviceCode() const { DARABONBA_PTR_GET_DEFAULT(serviceCode_, "") };
+    inline string getServiceCode() const { DARABONBA_PTR_GET_DEFAULT(serviceCode_, "") };
     inline UpdateBackupConfigRequest& setServiceCode(string serviceCode) { DARABONBA_PTR_SET_VALUE(serviceCode_, serviceCode) };
 
 
   protected:
     // Evidence backup configuration.
-    std::shared_ptr<string> backupConfig_ = nullptr;
+    shared_ptr<string> backupConfig_ {};
     // Region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // Resource type.
-    std::shared_ptr<string> resourceType_ = nullptr;
+    shared_ptr<string> resourceType_ {};
     // Service code.
-    std::shared_ptr<string> serviceCode_ = nullptr;
+    shared_ptr<string> serviceCode_ {};
   };
 
   } // namespace Models

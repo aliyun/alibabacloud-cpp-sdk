@@ -1132,7 +1132,7 @@ namespace Green20220926
        * @param runtime runtime options for this request RuntimeOptions
        * @return LlmStreamChatResponse
        */
-      FutrueGenerator<Models::LlmStreamChatResponse> llmStreamChatWithSSE(const Models::LlmStreamChatRequest &request, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::LlmStreamChatResponse> llmStreamChatWithSSE(const Models::LlmStreamChatRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Use SSE interface to stream large model calls

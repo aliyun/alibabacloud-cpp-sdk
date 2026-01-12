@@ -52,122 +52,122 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->classify_ == nullptr
-        && return this->code_ == nullptr && return this->customServiceConf_ == nullptr && return this->gmtModified_ == nullptr && return this->msg_ == nullptr && return this->option_ == nullptr
-        && return this->requestId_ == nullptr && return this->resourceType_ == nullptr && return this->serviceCode_ == nullptr && return this->serviceType_ == nullptr && return this->success_ == nullptr
-        && return this->uid_ == nullptr; };
+        && this->code_ == nullptr && this->customServiceConf_ == nullptr && this->gmtModified_ == nullptr && this->msg_ == nullptr && this->option_ == nullptr
+        && this->requestId_ == nullptr && this->resourceType_ == nullptr && this->serviceCode_ == nullptr && this->serviceType_ == nullptr && this->success_ == nullptr
+        && this->uid_ == nullptr; };
     // classify Field Functions 
     bool hasClassify() const { return this->classify_ != nullptr;};
     void deleteClassify() { this->classify_ = nullptr;};
-    inline string classify() const { DARABONBA_PTR_GET_DEFAULT(classify_, "") };
+    inline string getClassify() const { DARABONBA_PTR_GET_DEFAULT(classify_, "") };
     inline GetServiceConfResponseBody& setClassify(string classify) { DARABONBA_PTR_SET_VALUE(classify_, classify) };
 
 
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline int32_t code() const { DARABONBA_PTR_GET_DEFAULT(code_, 0) };
+    inline int32_t getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, 0) };
     inline GetServiceConfResponseBody& setCode(int32_t code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // customServiceConf Field Functions 
     bool hasCustomServiceConf() const { return this->customServiceConf_ != nullptr;};
     void deleteCustomServiceConf() { this->customServiceConf_ = nullptr;};
-    inline     const Darabonba::Json & customServiceConf() const { DARABONBA_GET(customServiceConf_) };
-    Darabonba::Json & customServiceConf() { DARABONBA_GET(customServiceConf_) };
+    inline     const Darabonba::Json & getCustomServiceConf() const { DARABONBA_GET(customServiceConf_) };
+    Darabonba::Json & getCustomServiceConf() { DARABONBA_GET(customServiceConf_) };
     inline GetServiceConfResponseBody& setCustomServiceConf(const Darabonba::Json & customServiceConf) { DARABONBA_SET_VALUE(customServiceConf_, customServiceConf) };
-    inline GetServiceConfResponseBody& setCustomServiceConf(Darabonba::Json & customServiceConf) { DARABONBA_SET_RVALUE(customServiceConf_, customServiceConf) };
+    inline GetServiceConfResponseBody& setCustomServiceConf(Darabonba::Json && customServiceConf) { DARABONBA_SET_RVALUE(customServiceConf_, customServiceConf) };
 
 
     // gmtModified Field Functions 
     bool hasGmtModified() const { return this->gmtModified_ != nullptr;};
     void deleteGmtModified() { this->gmtModified_ = nullptr;};
-    inline string gmtModified() const { DARABONBA_PTR_GET_DEFAULT(gmtModified_, "") };
+    inline string getGmtModified() const { DARABONBA_PTR_GET_DEFAULT(gmtModified_, "") };
     inline GetServiceConfResponseBody& setGmtModified(string gmtModified) { DARABONBA_PTR_SET_VALUE(gmtModified_, gmtModified) };
 
 
     // msg Field Functions 
     bool hasMsg() const { return this->msg_ != nullptr;};
     void deleteMsg() { this->msg_ = nullptr;};
-    inline string msg() const { DARABONBA_PTR_GET_DEFAULT(msg_, "") };
+    inline string getMsg() const { DARABONBA_PTR_GET_DEFAULT(msg_, "") };
     inline GetServiceConfResponseBody& setMsg(string msg) { DARABONBA_PTR_SET_VALUE(msg_, msg) };
 
 
     // option Field Functions 
     bool hasOption() const { return this->option_ != nullptr;};
     void deleteOption() { this->option_ = nullptr;};
-    inline     const Darabonba::Json & option() const { DARABONBA_GET(option_) };
-    Darabonba::Json & option() { DARABONBA_GET(option_) };
+    inline     const Darabonba::Json & getOption() const { DARABONBA_GET(option_) };
+    Darabonba::Json & getOption() { DARABONBA_GET(option_) };
     inline GetServiceConfResponseBody& setOption(const Darabonba::Json & option) { DARABONBA_SET_VALUE(option_, option) };
-    inline GetServiceConfResponseBody& setOption(Darabonba::Json & option) { DARABONBA_SET_RVALUE(option_, option) };
+    inline GetServiceConfResponseBody& setOption(Darabonba::Json && option) { DARABONBA_SET_RVALUE(option_, option) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetServiceConfResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // resourceType Field Functions 
     bool hasResourceType() const { return this->resourceType_ != nullptr;};
     void deleteResourceType() { this->resourceType_ = nullptr;};
-    inline string resourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
+    inline string getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
     inline GetServiceConfResponseBody& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
 
 
     // serviceCode Field Functions 
     bool hasServiceCode() const { return this->serviceCode_ != nullptr;};
     void deleteServiceCode() { this->serviceCode_ = nullptr;};
-    inline string serviceCode() const { DARABONBA_PTR_GET_DEFAULT(serviceCode_, "") };
+    inline string getServiceCode() const { DARABONBA_PTR_GET_DEFAULT(serviceCode_, "") };
     inline GetServiceConfResponseBody& setServiceCode(string serviceCode) { DARABONBA_PTR_SET_VALUE(serviceCode_, serviceCode) };
 
 
     // serviceType Field Functions 
     bool hasServiceType() const { return this->serviceType_ != nullptr;};
     void deleteServiceType() { this->serviceType_ = nullptr;};
-    inline string serviceType() const { DARABONBA_PTR_GET_DEFAULT(serviceType_, "") };
+    inline string getServiceType() const { DARABONBA_PTR_GET_DEFAULT(serviceType_, "") };
     inline GetServiceConfResponseBody& setServiceType(string serviceType) { DARABONBA_PTR_SET_VALUE(serviceType_, serviceType) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline GetServiceConfResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
     // uid Field Functions 
     bool hasUid() const { return this->uid_ != nullptr;};
     void deleteUid() { this->uid_ = nullptr;};
-    inline string uid() const { DARABONBA_PTR_GET_DEFAULT(uid_, "") };
+    inline string getUid() const { DARABONBA_PTR_GET_DEFAULT(uid_, "") };
     inline GetServiceConfResponseBody& setUid(string uid) { DARABONBA_PTR_SET_VALUE(uid_, uid) };
 
 
   protected:
     // Classification.
-    std::shared_ptr<string> classify_ = nullptr;
+    shared_ptr<string> classify_ {};
     // Error code, consistent with HTTP status.
-    std::shared_ptr<int32_t> code_ = nullptr;
+    shared_ptr<int32_t> code_ {};
     // Service details
-    Darabonba::Json customServiceConf_ = nullptr;
+    Darabonba::Json customServiceConf_ {};
     // Modification time.
-    std::shared_ptr<string> gmtModified_ = nullptr;
+    shared_ptr<string> gmtModified_ {};
     // Further description of the error code.
-    std::shared_ptr<string> msg_ = nullptr;
+    shared_ptr<string> msg_ {};
     // Options.
-    Darabonba::Json option_ = nullptr;
+    Darabonba::Json option_ {};
     // ID assigned by the backend to uniquely identify a request. Can be used for troubleshooting.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Resource type.
-    std::shared_ptr<string> resourceType_ = nullptr;
+    shared_ptr<string> resourceType_ {};
     // Service code.
-    std::shared_ptr<string> serviceCode_ = nullptr;
+    shared_ptr<string> serviceCode_ {};
     // Service type.
-    std::shared_ptr<string> serviceType_ = nullptr;
+    shared_ptr<string> serviceType_ {};
     // Success indicator
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<bool> success_ {};
     // UID.
-    std::shared_ptr<string> uid_ = nullptr;
+    shared_ptr<string> uid_ {};
   };
 
   } // namespace Models

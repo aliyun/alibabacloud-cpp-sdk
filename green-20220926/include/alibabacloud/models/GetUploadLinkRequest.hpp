@@ -33,12 +33,12 @@ namespace Models
     // uploadUrl Field Functions 
     bool hasUploadUrl() const { return this->uploadUrl_ != nullptr;};
     void deleteUploadUrl() { this->uploadUrl_ = nullptr;};
-    inline string uploadUrl() const { DARABONBA_PTR_GET_DEFAULT(uploadUrl_, "") };
+    inline string getUploadUrl() const { DARABONBA_PTR_GET_DEFAULT(uploadUrl_, "") };
     inline GetUploadLinkRequest& setUploadUrl(string uploadUrl) { DARABONBA_PTR_SET_VALUE(uploadUrl_, uploadUrl) };
 
 
   protected:
-    std::shared_ptr<string> uploadUrl_ = nullptr;
+    shared_ptr<string> uploadUrl_ {};
   };
 
   } // namespace Models

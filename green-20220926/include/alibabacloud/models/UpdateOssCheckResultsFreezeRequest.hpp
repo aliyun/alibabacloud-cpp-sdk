@@ -42,65 +42,65 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->endDate_ == nullptr
-        && return this->freezeItems_ == nullptr && return this->freezeRestorePath_ == nullptr && return this->freezeType_ == nullptr && return this->regionId_ == nullptr && return this->startDate_ == nullptr
-        && return this->taskId_ == nullptr; };
+        && this->freezeItems_ == nullptr && this->freezeRestorePath_ == nullptr && this->freezeType_ == nullptr && this->regionId_ == nullptr && this->startDate_ == nullptr
+        && this->taskId_ == nullptr; };
     // endDate Field Functions 
     bool hasEndDate() const { return this->endDate_ != nullptr;};
     void deleteEndDate() { this->endDate_ = nullptr;};
-    inline string endDate() const { DARABONBA_PTR_GET_DEFAULT(endDate_, "") };
+    inline string getEndDate() const { DARABONBA_PTR_GET_DEFAULT(endDate_, "") };
     inline UpdateOssCheckResultsFreezeRequest& setEndDate(string endDate) { DARABONBA_PTR_SET_VALUE(endDate_, endDate) };
 
 
     // freezeItems Field Functions 
     bool hasFreezeItems() const { return this->freezeItems_ != nullptr;};
     void deleteFreezeItems() { this->freezeItems_ = nullptr;};
-    inline string freezeItems() const { DARABONBA_PTR_GET_DEFAULT(freezeItems_, "") };
+    inline string getFreezeItems() const { DARABONBA_PTR_GET_DEFAULT(freezeItems_, "") };
     inline UpdateOssCheckResultsFreezeRequest& setFreezeItems(string freezeItems) { DARABONBA_PTR_SET_VALUE(freezeItems_, freezeItems) };
 
 
     // freezeRestorePath Field Functions 
     bool hasFreezeRestorePath() const { return this->freezeRestorePath_ != nullptr;};
     void deleteFreezeRestorePath() { this->freezeRestorePath_ = nullptr;};
-    inline string freezeRestorePath() const { DARABONBA_PTR_GET_DEFAULT(freezeRestorePath_, "") };
+    inline string getFreezeRestorePath() const { DARABONBA_PTR_GET_DEFAULT(freezeRestorePath_, "") };
     inline UpdateOssCheckResultsFreezeRequest& setFreezeRestorePath(string freezeRestorePath) { DARABONBA_PTR_SET_VALUE(freezeRestorePath_, freezeRestorePath) };
 
 
     // freezeType Field Functions 
     bool hasFreezeType() const { return this->freezeType_ != nullptr;};
     void deleteFreezeType() { this->freezeType_ = nullptr;};
-    inline string freezeType() const { DARABONBA_PTR_GET_DEFAULT(freezeType_, "") };
+    inline string getFreezeType() const { DARABONBA_PTR_GET_DEFAULT(freezeType_, "") };
     inline UpdateOssCheckResultsFreezeRequest& setFreezeType(string freezeType) { DARABONBA_PTR_SET_VALUE(freezeType_, freezeType) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline UpdateOssCheckResultsFreezeRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // startDate Field Functions 
     bool hasStartDate() const { return this->startDate_ != nullptr;};
     void deleteStartDate() { this->startDate_ = nullptr;};
-    inline string startDate() const { DARABONBA_PTR_GET_DEFAULT(startDate_, "") };
+    inline string getStartDate() const { DARABONBA_PTR_GET_DEFAULT(startDate_, "") };
     inline UpdateOssCheckResultsFreezeRequest& setStartDate(string startDate) { DARABONBA_PTR_SET_VALUE(startDate_, startDate) };
 
 
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline string taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+    inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
     inline UpdateOssCheckResultsFreezeRequest& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
   protected:
-    std::shared_ptr<string> endDate_ = nullptr;
-    std::shared_ptr<string> freezeItems_ = nullptr;
-    std::shared_ptr<string> freezeRestorePath_ = nullptr;
-    std::shared_ptr<string> freezeType_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> startDate_ = nullptr;
-    std::shared_ptr<string> taskId_ = nullptr;
+    shared_ptr<string> endDate_ {};
+    shared_ptr<string> freezeItems_ {};
+    shared_ptr<string> freezeRestorePath_ {};
+    shared_ptr<string> freezeType_ {};
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> startDate_ {};
+    shared_ptr<string> taskId_ {};
   };
 
   } // namespace Models

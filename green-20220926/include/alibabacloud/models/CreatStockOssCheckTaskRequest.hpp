@@ -84,265 +84,265 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->buckets_ == nullptr
-        && return this->callbackId_ == nullptr && return this->distinctHistoryTasks_ == nullptr && return this->endTime_ == nullptr && return this->executeDate_ == nullptr && return this->executeTime_ == nullptr
-        && return this->freeze_ == nullptr && return this->freezeHighRisk1_ == nullptr && return this->freezeHighRisk2_ == nullptr && return this->freezeMediumRisk1_ == nullptr && return this->freezeMediumRisk2_ == nullptr
-        && return this->freezeRestorePath_ == nullptr && return this->freezeType_ == nullptr && return this->isInc_ == nullptr && return this->mediaType_ == nullptr && return this->prefixFilterType_ == nullptr
-        && return this->prefixFilters_ == nullptr && return this->priority_ == nullptr && return this->referer_ == nullptr && return this->regionId_ == nullptr && return this->scanLimit_ == nullptr
-        && return this->scanNoFileType_ == nullptr && return this->scanResourceType_ == nullptr && return this->scanService_ == nullptr && return this->startTime_ == nullptr && return this->taskCycle_ == nullptr
-        && return this->taskName_ == nullptr && return this->taskType_ == nullptr; };
+        && this->callbackId_ == nullptr && this->distinctHistoryTasks_ == nullptr && this->endTime_ == nullptr && this->executeDate_ == nullptr && this->executeTime_ == nullptr
+        && this->freeze_ == nullptr && this->freezeHighRisk1_ == nullptr && this->freezeHighRisk2_ == nullptr && this->freezeMediumRisk1_ == nullptr && this->freezeMediumRisk2_ == nullptr
+        && this->freezeRestorePath_ == nullptr && this->freezeType_ == nullptr && this->isInc_ == nullptr && this->mediaType_ == nullptr && this->prefixFilterType_ == nullptr
+        && this->prefixFilters_ == nullptr && this->priority_ == nullptr && this->referer_ == nullptr && this->regionId_ == nullptr && this->scanLimit_ == nullptr
+        && this->scanNoFileType_ == nullptr && this->scanResourceType_ == nullptr && this->scanService_ == nullptr && this->startTime_ == nullptr && this->taskCycle_ == nullptr
+        && this->taskName_ == nullptr && this->taskType_ == nullptr; };
     // buckets Field Functions 
     bool hasBuckets() const { return this->buckets_ != nullptr;};
     void deleteBuckets() { this->buckets_ = nullptr;};
-    inline string buckets() const { DARABONBA_PTR_GET_DEFAULT(buckets_, "") };
+    inline string getBuckets() const { DARABONBA_PTR_GET_DEFAULT(buckets_, "") };
     inline CreatStockOssCheckTaskRequest& setBuckets(string buckets) { DARABONBA_PTR_SET_VALUE(buckets_, buckets) };
 
 
     // callbackId Field Functions 
     bool hasCallbackId() const { return this->callbackId_ != nullptr;};
     void deleteCallbackId() { this->callbackId_ = nullptr;};
-    inline string callbackId() const { DARABONBA_PTR_GET_DEFAULT(callbackId_, "") };
+    inline string getCallbackId() const { DARABONBA_PTR_GET_DEFAULT(callbackId_, "") };
     inline CreatStockOssCheckTaskRequest& setCallbackId(string callbackId) { DARABONBA_PTR_SET_VALUE(callbackId_, callbackId) };
 
 
     // distinctHistoryTasks Field Functions 
     bool hasDistinctHistoryTasks() const { return this->distinctHistoryTasks_ != nullptr;};
     void deleteDistinctHistoryTasks() { this->distinctHistoryTasks_ = nullptr;};
-    inline bool distinctHistoryTasks() const { DARABONBA_PTR_GET_DEFAULT(distinctHistoryTasks_, false) };
+    inline bool getDistinctHistoryTasks() const { DARABONBA_PTR_GET_DEFAULT(distinctHistoryTasks_, false) };
     inline CreatStockOssCheckTaskRequest& setDistinctHistoryTasks(bool distinctHistoryTasks) { DARABONBA_PTR_SET_VALUE(distinctHistoryTasks_, distinctHistoryTasks) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline CreatStockOssCheckTaskRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // executeDate Field Functions 
     bool hasExecuteDate() const { return this->executeDate_ != nullptr;};
     void deleteExecuteDate() { this->executeDate_ = nullptr;};
-    inline int32_t executeDate() const { DARABONBA_PTR_GET_DEFAULT(executeDate_, 0) };
+    inline int32_t getExecuteDate() const { DARABONBA_PTR_GET_DEFAULT(executeDate_, 0) };
     inline CreatStockOssCheckTaskRequest& setExecuteDate(int32_t executeDate) { DARABONBA_PTR_SET_VALUE(executeDate_, executeDate) };
 
 
     // executeTime Field Functions 
     bool hasExecuteTime() const { return this->executeTime_ != nullptr;};
     void deleteExecuteTime() { this->executeTime_ = nullptr;};
-    inline string executeTime() const { DARABONBA_PTR_GET_DEFAULT(executeTime_, "") };
+    inline string getExecuteTime() const { DARABONBA_PTR_GET_DEFAULT(executeTime_, "") };
     inline CreatStockOssCheckTaskRequest& setExecuteTime(string executeTime) { DARABONBA_PTR_SET_VALUE(executeTime_, executeTime) };
 
 
     // freeze Field Functions 
     bool hasFreeze() const { return this->freeze_ != nullptr;};
     void deleteFreeze() { this->freeze_ = nullptr;};
-    inline bool freeze() const { DARABONBA_PTR_GET_DEFAULT(freeze_, false) };
+    inline bool getFreeze() const { DARABONBA_PTR_GET_DEFAULT(freeze_, false) };
     inline CreatStockOssCheckTaskRequest& setFreeze(bool freeze) { DARABONBA_PTR_SET_VALUE(freeze_, freeze) };
 
 
     // freezeHighRisk1 Field Functions 
     bool hasFreezeHighRisk1() const { return this->freezeHighRisk1_ != nullptr;};
     void deleteFreezeHighRisk1() { this->freezeHighRisk1_ = nullptr;};
-    inline bool freezeHighRisk1() const { DARABONBA_PTR_GET_DEFAULT(freezeHighRisk1_, false) };
+    inline bool getFreezeHighRisk1() const { DARABONBA_PTR_GET_DEFAULT(freezeHighRisk1_, false) };
     inline CreatStockOssCheckTaskRequest& setFreezeHighRisk1(bool freezeHighRisk1) { DARABONBA_PTR_SET_VALUE(freezeHighRisk1_, freezeHighRisk1) };
 
 
     // freezeHighRisk2 Field Functions 
     bool hasFreezeHighRisk2() const { return this->freezeHighRisk2_ != nullptr;};
     void deleteFreezeHighRisk2() { this->freezeHighRisk2_ = nullptr;};
-    inline bool freezeHighRisk2() const { DARABONBA_PTR_GET_DEFAULT(freezeHighRisk2_, false) };
+    inline bool getFreezeHighRisk2() const { DARABONBA_PTR_GET_DEFAULT(freezeHighRisk2_, false) };
     inline CreatStockOssCheckTaskRequest& setFreezeHighRisk2(bool freezeHighRisk2) { DARABONBA_PTR_SET_VALUE(freezeHighRisk2_, freezeHighRisk2) };
 
 
     // freezeMediumRisk1 Field Functions 
     bool hasFreezeMediumRisk1() const { return this->freezeMediumRisk1_ != nullptr;};
     void deleteFreezeMediumRisk1() { this->freezeMediumRisk1_ = nullptr;};
-    inline bool freezeMediumRisk1() const { DARABONBA_PTR_GET_DEFAULT(freezeMediumRisk1_, false) };
+    inline bool getFreezeMediumRisk1() const { DARABONBA_PTR_GET_DEFAULT(freezeMediumRisk1_, false) };
     inline CreatStockOssCheckTaskRequest& setFreezeMediumRisk1(bool freezeMediumRisk1) { DARABONBA_PTR_SET_VALUE(freezeMediumRisk1_, freezeMediumRisk1) };
 
 
     // freezeMediumRisk2 Field Functions 
     bool hasFreezeMediumRisk2() const { return this->freezeMediumRisk2_ != nullptr;};
     void deleteFreezeMediumRisk2() { this->freezeMediumRisk2_ = nullptr;};
-    inline bool freezeMediumRisk2() const { DARABONBA_PTR_GET_DEFAULT(freezeMediumRisk2_, false) };
+    inline bool getFreezeMediumRisk2() const { DARABONBA_PTR_GET_DEFAULT(freezeMediumRisk2_, false) };
     inline CreatStockOssCheckTaskRequest& setFreezeMediumRisk2(bool freezeMediumRisk2) { DARABONBA_PTR_SET_VALUE(freezeMediumRisk2_, freezeMediumRisk2) };
 
 
     // freezeRestorePath Field Functions 
     bool hasFreezeRestorePath() const { return this->freezeRestorePath_ != nullptr;};
     void deleteFreezeRestorePath() { this->freezeRestorePath_ = nullptr;};
-    inline string freezeRestorePath() const { DARABONBA_PTR_GET_DEFAULT(freezeRestorePath_, "") };
+    inline string getFreezeRestorePath() const { DARABONBA_PTR_GET_DEFAULT(freezeRestorePath_, "") };
     inline CreatStockOssCheckTaskRequest& setFreezeRestorePath(string freezeRestorePath) { DARABONBA_PTR_SET_VALUE(freezeRestorePath_, freezeRestorePath) };
 
 
     // freezeType Field Functions 
     bool hasFreezeType() const { return this->freezeType_ != nullptr;};
     void deleteFreezeType() { this->freezeType_ = nullptr;};
-    inline string freezeType() const { DARABONBA_PTR_GET_DEFAULT(freezeType_, "") };
+    inline string getFreezeType() const { DARABONBA_PTR_GET_DEFAULT(freezeType_, "") };
     inline CreatStockOssCheckTaskRequest& setFreezeType(string freezeType) { DARABONBA_PTR_SET_VALUE(freezeType_, freezeType) };
 
 
     // isInc Field Functions 
     bool hasIsInc() const { return this->isInc_ != nullptr;};
     void deleteIsInc() { this->isInc_ = nullptr;};
-    inline bool isInc() const { DARABONBA_PTR_GET_DEFAULT(isInc_, false) };
+    inline bool getIsInc() const { DARABONBA_PTR_GET_DEFAULT(isInc_, false) };
     inline CreatStockOssCheckTaskRequest& setIsInc(bool isInc) { DARABONBA_PTR_SET_VALUE(isInc_, isInc) };
 
 
     // mediaType Field Functions 
     bool hasMediaType() const { return this->mediaType_ != nullptr;};
     void deleteMediaType() { this->mediaType_ = nullptr;};
-    inline int32_t mediaType() const { DARABONBA_PTR_GET_DEFAULT(mediaType_, 0) };
+    inline int32_t getMediaType() const { DARABONBA_PTR_GET_DEFAULT(mediaType_, 0) };
     inline CreatStockOssCheckTaskRequest& setMediaType(int32_t mediaType) { DARABONBA_PTR_SET_VALUE(mediaType_, mediaType) };
 
 
     // prefixFilterType Field Functions 
     bool hasPrefixFilterType() const { return this->prefixFilterType_ != nullptr;};
     void deletePrefixFilterType() { this->prefixFilterType_ = nullptr;};
-    inline string prefixFilterType() const { DARABONBA_PTR_GET_DEFAULT(prefixFilterType_, "") };
+    inline string getPrefixFilterType() const { DARABONBA_PTR_GET_DEFAULT(prefixFilterType_, "") };
     inline CreatStockOssCheckTaskRequest& setPrefixFilterType(string prefixFilterType) { DARABONBA_PTR_SET_VALUE(prefixFilterType_, prefixFilterType) };
 
 
     // prefixFilters Field Functions 
     bool hasPrefixFilters() const { return this->prefixFilters_ != nullptr;};
     void deletePrefixFilters() { this->prefixFilters_ = nullptr;};
-    inline string prefixFilters() const { DARABONBA_PTR_GET_DEFAULT(prefixFilters_, "") };
+    inline string getPrefixFilters() const { DARABONBA_PTR_GET_DEFAULT(prefixFilters_, "") };
     inline CreatStockOssCheckTaskRequest& setPrefixFilters(string prefixFilters) { DARABONBA_PTR_SET_VALUE(prefixFilters_, prefixFilters) };
 
 
     // priority Field Functions 
     bool hasPriority() const { return this->priority_ != nullptr;};
     void deletePriority() { this->priority_ = nullptr;};
-    inline int32_t priority() const { DARABONBA_PTR_GET_DEFAULT(priority_, 0) };
+    inline int32_t getPriority() const { DARABONBA_PTR_GET_DEFAULT(priority_, 0) };
     inline CreatStockOssCheckTaskRequest& setPriority(int32_t priority) { DARABONBA_PTR_SET_VALUE(priority_, priority) };
 
 
     // referer Field Functions 
     bool hasReferer() const { return this->referer_ != nullptr;};
     void deleteReferer() { this->referer_ = nullptr;};
-    inline string referer() const { DARABONBA_PTR_GET_DEFAULT(referer_, "") };
+    inline string getReferer() const { DARABONBA_PTR_GET_DEFAULT(referer_, "") };
     inline CreatStockOssCheckTaskRequest& setReferer(string referer) { DARABONBA_PTR_SET_VALUE(referer_, referer) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreatStockOssCheckTaskRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // scanLimit Field Functions 
     bool hasScanLimit() const { return this->scanLimit_ != nullptr;};
     void deleteScanLimit() { this->scanLimit_ = nullptr;};
-    inline int64_t scanLimit() const { DARABONBA_PTR_GET_DEFAULT(scanLimit_, 0L) };
+    inline int64_t getScanLimit() const { DARABONBA_PTR_GET_DEFAULT(scanLimit_, 0L) };
     inline CreatStockOssCheckTaskRequest& setScanLimit(int64_t scanLimit) { DARABONBA_PTR_SET_VALUE(scanLimit_, scanLimit) };
 
 
     // scanNoFileType Field Functions 
     bool hasScanNoFileType() const { return this->scanNoFileType_ != nullptr;};
     void deleteScanNoFileType() { this->scanNoFileType_ = nullptr;};
-    inline bool scanNoFileType() const { DARABONBA_PTR_GET_DEFAULT(scanNoFileType_, false) };
+    inline bool getScanNoFileType() const { DARABONBA_PTR_GET_DEFAULT(scanNoFileType_, false) };
     inline CreatStockOssCheckTaskRequest& setScanNoFileType(bool scanNoFileType) { DARABONBA_PTR_SET_VALUE(scanNoFileType_, scanNoFileType) };
 
 
     // scanResourceType Field Functions 
     bool hasScanResourceType() const { return this->scanResourceType_ != nullptr;};
     void deleteScanResourceType() { this->scanResourceType_ = nullptr;};
-    inline string scanResourceType() const { DARABONBA_PTR_GET_DEFAULT(scanResourceType_, "") };
+    inline string getScanResourceType() const { DARABONBA_PTR_GET_DEFAULT(scanResourceType_, "") };
     inline CreatStockOssCheckTaskRequest& setScanResourceType(string scanResourceType) { DARABONBA_PTR_SET_VALUE(scanResourceType_, scanResourceType) };
 
 
     // scanService Field Functions 
     bool hasScanService() const { return this->scanService_ != nullptr;};
     void deleteScanService() { this->scanService_ = nullptr;};
-    inline string scanService() const { DARABONBA_PTR_GET_DEFAULT(scanService_, "") };
+    inline string getScanService() const { DARABONBA_PTR_GET_DEFAULT(scanService_, "") };
     inline CreatStockOssCheckTaskRequest& setScanService(string scanService) { DARABONBA_PTR_SET_VALUE(scanService_, scanService) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline CreatStockOssCheckTaskRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // taskCycle Field Functions 
     bool hasTaskCycle() const { return this->taskCycle_ != nullptr;};
     void deleteTaskCycle() { this->taskCycle_ = nullptr;};
-    inline int32_t taskCycle() const { DARABONBA_PTR_GET_DEFAULT(taskCycle_, 0) };
+    inline int32_t getTaskCycle() const { DARABONBA_PTR_GET_DEFAULT(taskCycle_, 0) };
     inline CreatStockOssCheckTaskRequest& setTaskCycle(int32_t taskCycle) { DARABONBA_PTR_SET_VALUE(taskCycle_, taskCycle) };
 
 
     // taskName Field Functions 
     bool hasTaskName() const { return this->taskName_ != nullptr;};
     void deleteTaskName() { this->taskName_ = nullptr;};
-    inline string taskName() const { DARABONBA_PTR_GET_DEFAULT(taskName_, "") };
+    inline string getTaskName() const { DARABONBA_PTR_GET_DEFAULT(taskName_, "") };
     inline CreatStockOssCheckTaskRequest& setTaskName(string taskName) { DARABONBA_PTR_SET_VALUE(taskName_, taskName) };
 
 
     // taskType Field Functions 
     bool hasTaskType() const { return this->taskType_ != nullptr;};
     void deleteTaskType() { this->taskType_ = nullptr;};
-    inline string taskType() const { DARABONBA_PTR_GET_DEFAULT(taskType_, "") };
+    inline string getTaskType() const { DARABONBA_PTR_GET_DEFAULT(taskType_, "") };
     inline CreatStockOssCheckTaskRequest& setTaskType(string taskType) { DARABONBA_PTR_SET_VALUE(taskType_, taskType) };
 
 
   protected:
     // OSS buckets
-    std::shared_ptr<string> buckets_ = nullptr;
+    shared_ptr<string> buckets_ {};
     // Callback ID
-    std::shared_ptr<string> callbackId_ = nullptr;
+    shared_ptr<string> callbackId_ {};
     // Flag for deduplicating against previously detected tasks.
-    std::shared_ptr<bool> distinctHistoryTasks_ = nullptr;
+    shared_ptr<bool> distinctHistoryTasks_ {};
     // The end time of the task.
-    std::shared_ptr<string> endTime_ = nullptr;
+    shared_ptr<string> endTime_ {};
     // Execute date of scheduled task.
-    std::shared_ptr<int32_t> executeDate_ = nullptr;
+    shared_ptr<int32_t> executeDate_ {};
     // Execute time of scheduled task.
-    std::shared_ptr<string> executeTime_ = nullptr;
+    shared_ptr<string> executeTime_ {};
     // Freeze indicator
-    std::shared_ptr<bool> freeze_ = nullptr;
+    shared_ptr<bool> freeze_ {};
     // Freeze High-Risk Images
-    std::shared_ptr<bool> freezeHighRisk1_ = nullptr;
+    shared_ptr<bool> freezeHighRisk1_ {};
     // Freeze High-Risk Audio and Text
-    std::shared_ptr<bool> freezeHighRisk2_ = nullptr;
+    shared_ptr<bool> freezeHighRisk2_ {};
     // Freeze Medium-Risk Images
-    std::shared_ptr<bool> freezeMediumRisk1_ = nullptr;
+    shared_ptr<bool> freezeMediumRisk1_ {};
     // Freeze Medium-Risk Audio and Text
-    std::shared_ptr<bool> freezeMediumRisk2_ = nullptr;
+    shared_ptr<bool> freezeMediumRisk2_ {};
     // Freeze Restore Path
-    std::shared_ptr<string> freezeRestorePath_ = nullptr;
+    shared_ptr<string> freezeRestorePath_ {};
     // Freeze type
-    std::shared_ptr<string> freezeType_ = nullptr;
+    shared_ptr<string> freezeType_ {};
     // Indicator for scheduled task.
-    std::shared_ptr<bool> isInc_ = nullptr;
+    shared_ptr<bool> isInc_ {};
     // Media type.
-    std::shared_ptr<int32_t> mediaType_ = nullptr;
+    shared_ptr<int32_t> mediaType_ {};
     // Prefix filter type.
-    std::shared_ptr<string> prefixFilterType_ = nullptr;
+    shared_ptr<string> prefixFilterType_ {};
     // Prefix filters
-    std::shared_ptr<string> prefixFilters_ = nullptr;
+    shared_ptr<string> prefixFilters_ {};
     // The priority of the task.
-    std::shared_ptr<int32_t> priority_ = nullptr;
+    shared_ptr<int32_t> priority_ {};
     // Referer.
-    std::shared_ptr<string> referer_ = nullptr;
+    shared_ptr<string> referer_ {};
     // Region ID
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The scan limit of the task.
-    std::shared_ptr<int64_t> scanLimit_ = nullptr;
+    shared_ptr<int64_t> scanLimit_ {};
     // Indicator for scanning files without file type.
-    std::shared_ptr<bool> scanNoFileType_ = nullptr;
+    shared_ptr<bool> scanNoFileType_ {};
     // Scan resource type.
-    std::shared_ptr<string> scanResourceType_ = nullptr;
+    shared_ptr<string> scanResourceType_ {};
     // The code of scan service.
-    std::shared_ptr<string> scanService_ = nullptr;
+    shared_ptr<string> scanService_ {};
     // The start time of the task.
-    std::shared_ptr<string> startTime_ = nullptr;
+    shared_ptr<string> startTime_ {};
     // Task Cycle
-    std::shared_ptr<int32_t> taskCycle_ = nullptr;
+    shared_ptr<int32_t> taskCycle_ {};
     // The name of the task.
-    std::shared_ptr<string> taskName_ = nullptr;
+    shared_ptr<string> taskName_ {};
     // Task type.
-    std::shared_ptr<string> taskType_ = nullptr;
+    shared_ptr<string> taskType_ {};
   };
 
   } // namespace Models

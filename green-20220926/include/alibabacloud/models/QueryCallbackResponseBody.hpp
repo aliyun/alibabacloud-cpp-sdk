@@ -50,108 +50,108 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cryptType_ == nullptr
-        && return this->existsOssCheckTask_ == nullptr && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr && return this->id_ == nullptr && return this->name_ == nullptr
-        && return this->requestId_ == nullptr && return this->scope_ == nullptr && return this->seed_ == nullptr && return this->uid_ == nullptr && return this->url_ == nullptr; };
+        && this->existsOssCheckTask_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->id_ == nullptr && this->name_ == nullptr
+        && this->requestId_ == nullptr && this->scope_ == nullptr && this->seed_ == nullptr && this->uid_ == nullptr && this->url_ == nullptr; };
     // cryptType Field Functions 
     bool hasCryptType() const { return this->cryptType_ != nullptr;};
     void deleteCryptType() { this->cryptType_ = nullptr;};
-    inline string cryptType() const { DARABONBA_PTR_GET_DEFAULT(cryptType_, "") };
+    inline string getCryptType() const { DARABONBA_PTR_GET_DEFAULT(cryptType_, "") };
     inline QueryCallbackResponseBody& setCryptType(string cryptType) { DARABONBA_PTR_SET_VALUE(cryptType_, cryptType) };
 
 
     // existsOssCheckTask Field Functions 
     bool hasExistsOssCheckTask() const { return this->existsOssCheckTask_ != nullptr;};
     void deleteExistsOssCheckTask() { this->existsOssCheckTask_ = nullptr;};
-    inline bool existsOssCheckTask() const { DARABONBA_PTR_GET_DEFAULT(existsOssCheckTask_, false) };
+    inline bool getExistsOssCheckTask() const { DARABONBA_PTR_GET_DEFAULT(existsOssCheckTask_, false) };
     inline QueryCallbackResponseBody& setExistsOssCheckTask(bool existsOssCheckTask) { DARABONBA_PTR_SET_VALUE(existsOssCheckTask_, existsOssCheckTask) };
 
 
     // gmtCreate Field Functions 
     bool hasGmtCreate() const { return this->gmtCreate_ != nullptr;};
     void deleteGmtCreate() { this->gmtCreate_ = nullptr;};
-    inline string gmtCreate() const { DARABONBA_PTR_GET_DEFAULT(gmtCreate_, "") };
+    inline string getGmtCreate() const { DARABONBA_PTR_GET_DEFAULT(gmtCreate_, "") };
     inline QueryCallbackResponseBody& setGmtCreate(string gmtCreate) { DARABONBA_PTR_SET_VALUE(gmtCreate_, gmtCreate) };
 
 
     // gmtModified Field Functions 
     bool hasGmtModified() const { return this->gmtModified_ != nullptr;};
     void deleteGmtModified() { this->gmtModified_ = nullptr;};
-    inline string gmtModified() const { DARABONBA_PTR_GET_DEFAULT(gmtModified_, "") };
+    inline string getGmtModified() const { DARABONBA_PTR_GET_DEFAULT(gmtModified_, "") };
     inline QueryCallbackResponseBody& setGmtModified(string gmtModified) { DARABONBA_PTR_SET_VALUE(gmtModified_, gmtModified) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline int64_t id() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+    inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
     inline QueryCallbackResponseBody& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline QueryCallbackResponseBody& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline QueryCallbackResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // scope Field Functions 
     bool hasScope() const { return this->scope_ != nullptr;};
     void deleteScope() { this->scope_ = nullptr;};
-    inline string scope() const { DARABONBA_PTR_GET_DEFAULT(scope_, "") };
+    inline string getScope() const { DARABONBA_PTR_GET_DEFAULT(scope_, "") };
     inline QueryCallbackResponseBody& setScope(string scope) { DARABONBA_PTR_SET_VALUE(scope_, scope) };
 
 
     // seed Field Functions 
     bool hasSeed() const { return this->seed_ != nullptr;};
     void deleteSeed() { this->seed_ = nullptr;};
-    inline string seed() const { DARABONBA_PTR_GET_DEFAULT(seed_, "") };
+    inline string getSeed() const { DARABONBA_PTR_GET_DEFAULT(seed_, "") };
     inline QueryCallbackResponseBody& setSeed(string seed) { DARABONBA_PTR_SET_VALUE(seed_, seed) };
 
 
     // uid Field Functions 
     bool hasUid() const { return this->uid_ != nullptr;};
     void deleteUid() { this->uid_ = nullptr;};
-    inline string uid() const { DARABONBA_PTR_GET_DEFAULT(uid_, "") };
+    inline string getUid() const { DARABONBA_PTR_GET_DEFAULT(uid_, "") };
     inline QueryCallbackResponseBody& setUid(string uid) { DARABONBA_PTR_SET_VALUE(uid_, uid) };
 
 
     // url Field Functions 
     bool hasUrl() const { return this->url_ != nullptr;};
     void deleteUrl() { this->url_ = nullptr;};
-    inline string url() const { DARABONBA_PTR_GET_DEFAULT(url_, "") };
+    inline string getUrl() const { DARABONBA_PTR_GET_DEFAULT(url_, "") };
     inline QueryCallbackResponseBody& setUrl(string url) { DARABONBA_PTR_SET_VALUE(url_, url) };
 
 
   protected:
     // Encryption algorithm.
-    std::shared_ptr<string> cryptType_ = nullptr;
+    shared_ptr<string> cryptType_ {};
     // Whether there is an OSS detection task.
-    std::shared_ptr<bool> existsOssCheckTask_ = nullptr;
+    shared_ptr<bool> existsOssCheckTask_ {};
     // Creation time.
-    std::shared_ptr<string> gmtCreate_ = nullptr;
+    shared_ptr<string> gmtCreate_ {};
     // Modification time.
-    std::shared_ptr<string> gmtModified_ = nullptr;
+    shared_ptr<string> gmtModified_ {};
     // Primary key ID.
-    std::shared_ptr<int64_t> id_ = nullptr;
+    shared_ptr<int64_t> id_ {};
     // Name.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // ID assigned by the backend, used to uniquely identify a request. Can be used for troubleshooting.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Result scope.
-    std::shared_ptr<string> scope_ = nullptr;
+    shared_ptr<string> scope_ {};
     // Seed.
-    std::shared_ptr<string> seed_ = nullptr;
+    shared_ptr<string> seed_ {};
     // UID.
-    std::shared_ptr<string> uid_ = nullptr;
+    shared_ptr<string> uid_ {};
     // Callback URL.
-    std::shared_ptr<string> url_ = nullptr;
+    shared_ptr<string> url_ {};
   };
 
   } // namespace Models

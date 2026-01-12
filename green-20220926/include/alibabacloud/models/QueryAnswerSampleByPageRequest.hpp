@@ -41,58 +41,58 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->answer_ == nullptr
-        && return this->currentPage_ == nullptr && return this->libId_ == nullptr && return this->pageSize_ == nullptr && return this->regionId_ == nullptr && return this->sort_ == nullptr; };
+        && this->currentPage_ == nullptr && this->libId_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->sort_ == nullptr; };
     // answer Field Functions 
     bool hasAnswer() const { return this->answer_ != nullptr;};
     void deleteAnswer() { this->answer_ = nullptr;};
-    inline string answer() const { DARABONBA_PTR_GET_DEFAULT(answer_, "") };
+    inline string getAnswer() const { DARABONBA_PTR_GET_DEFAULT(answer_, "") };
     inline QueryAnswerSampleByPageRequest& setAnswer(string answer) { DARABONBA_PTR_SET_VALUE(answer_, answer) };
 
 
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline QueryAnswerSampleByPageRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // libId Field Functions 
     bool hasLibId() const { return this->libId_ != nullptr;};
     void deleteLibId() { this->libId_ = nullptr;};
-    inline string libId() const { DARABONBA_PTR_GET_DEFAULT(libId_, "") };
+    inline string getLibId() const { DARABONBA_PTR_GET_DEFAULT(libId_, "") };
     inline QueryAnswerSampleByPageRequest& setLibId(string libId) { DARABONBA_PTR_SET_VALUE(libId_, libId) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline QueryAnswerSampleByPageRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline QueryAnswerSampleByPageRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // sort Field Functions 
     bool hasSort() const { return this->sort_ != nullptr;};
     void deleteSort() { this->sort_ = nullptr;};
-    inline const map<string, string> & sort() const { DARABONBA_PTR_GET_CONST(sort_, map<string, string>) };
-    inline map<string, string> sort() { DARABONBA_PTR_GET(sort_, map<string, string>) };
+    inline const map<string, string> & getSort() const { DARABONBA_PTR_GET_CONST(sort_, map<string, string>) };
+    inline map<string, string> getSort() { DARABONBA_PTR_GET(sort_, map<string, string>) };
     inline QueryAnswerSampleByPageRequest& setSort(const map<string, string> & sort) { DARABONBA_PTR_SET_VALUE(sort_, sort) };
     inline QueryAnswerSampleByPageRequest& setSort(map<string, string> && sort) { DARABONBA_PTR_SET_RVALUE(sort_, sort) };
 
 
   protected:
-    std::shared_ptr<string> answer_ = nullptr;
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
-    std::shared_ptr<string> libId_ = nullptr;
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<map<string, string>> sort_ = nullptr;
+    shared_ptr<string> answer_ {};
+    shared_ptr<int32_t> currentPage_ {};
+    shared_ptr<string> libId_ {};
+    shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<string> regionId_ {};
+    shared_ptr<map<string, string>> sort_ {};
   };
 
   } // namespace Models

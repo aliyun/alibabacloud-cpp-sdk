@@ -42,72 +42,72 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bucket_ == nullptr
-        && return this->mediaType_ == nullptr && return this->object_ == nullptr && return this->parentTaskId_ == nullptr && return this->queryRequestId_ == nullptr && return this->regionId_ == nullptr
-        && return this->serviceCode_ == nullptr; };
+        && this->mediaType_ == nullptr && this->object_ == nullptr && this->parentTaskId_ == nullptr && this->queryRequestId_ == nullptr && this->regionId_ == nullptr
+        && this->serviceCode_ == nullptr; };
     // bucket Field Functions 
     bool hasBucket() const { return this->bucket_ != nullptr;};
     void deleteBucket() { this->bucket_ = nullptr;};
-    inline string bucket() const { DARABONBA_PTR_GET_DEFAULT(bucket_, "") };
+    inline string getBucket() const { DARABONBA_PTR_GET_DEFAULT(bucket_, "") };
     inline GetOssCheckResultDetailRequest& setBucket(string bucket) { DARABONBA_PTR_SET_VALUE(bucket_, bucket) };
 
 
     // mediaType Field Functions 
     bool hasMediaType() const { return this->mediaType_ != nullptr;};
     void deleteMediaType() { this->mediaType_ = nullptr;};
-    inline int32_t mediaType() const { DARABONBA_PTR_GET_DEFAULT(mediaType_, 0) };
+    inline int32_t getMediaType() const { DARABONBA_PTR_GET_DEFAULT(mediaType_, 0) };
     inline GetOssCheckResultDetailRequest& setMediaType(int32_t mediaType) { DARABONBA_PTR_SET_VALUE(mediaType_, mediaType) };
 
 
     // object Field Functions 
     bool hasObject() const { return this->object_ != nullptr;};
     void deleteObject() { this->object_ = nullptr;};
-    inline string object() const { DARABONBA_PTR_GET_DEFAULT(object_, "") };
+    inline string getObject() const { DARABONBA_PTR_GET_DEFAULT(object_, "") };
     inline GetOssCheckResultDetailRequest& setObject(string object) { DARABONBA_PTR_SET_VALUE(object_, object) };
 
 
     // parentTaskId Field Functions 
     bool hasParentTaskId() const { return this->parentTaskId_ != nullptr;};
     void deleteParentTaskId() { this->parentTaskId_ = nullptr;};
-    inline string parentTaskId() const { DARABONBA_PTR_GET_DEFAULT(parentTaskId_, "") };
+    inline string getParentTaskId() const { DARABONBA_PTR_GET_DEFAULT(parentTaskId_, "") };
     inline GetOssCheckResultDetailRequest& setParentTaskId(string parentTaskId) { DARABONBA_PTR_SET_VALUE(parentTaskId_, parentTaskId) };
 
 
     // queryRequestId Field Functions 
     bool hasQueryRequestId() const { return this->queryRequestId_ != nullptr;};
     void deleteQueryRequestId() { this->queryRequestId_ = nullptr;};
-    inline string queryRequestId() const { DARABONBA_PTR_GET_DEFAULT(queryRequestId_, "") };
+    inline string getQueryRequestId() const { DARABONBA_PTR_GET_DEFAULT(queryRequestId_, "") };
     inline GetOssCheckResultDetailRequest& setQueryRequestId(string queryRequestId) { DARABONBA_PTR_SET_VALUE(queryRequestId_, queryRequestId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline GetOssCheckResultDetailRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // serviceCode Field Functions 
     bool hasServiceCode() const { return this->serviceCode_ != nullptr;};
     void deleteServiceCode() { this->serviceCode_ = nullptr;};
-    inline string serviceCode() const { DARABONBA_PTR_GET_DEFAULT(serviceCode_, "") };
+    inline string getServiceCode() const { DARABONBA_PTR_GET_DEFAULT(serviceCode_, "") };
     inline GetOssCheckResultDetailRequest& setServiceCode(string serviceCode) { DARABONBA_PTR_SET_VALUE(serviceCode_, serviceCode) };
 
 
   protected:
     // Bucket name.
-    std::shared_ptr<string> bucket_ = nullptr;
+    shared_ptr<string> bucket_ {};
     // Media type.
-    std::shared_ptr<int32_t> mediaType_ = nullptr;
+    shared_ptr<int32_t> mediaType_ {};
     // Object name.
-    std::shared_ptr<string> object_ = nullptr;
+    shared_ptr<string> object_ {};
     // Parent task ID.
-    std::shared_ptr<string> parentTaskId_ = nullptr;
+    shared_ptr<string> parentTaskId_ {};
     // Query request ID.
-    std::shared_ptr<string> queryRequestId_ = nullptr;
+    shared_ptr<string> queryRequestId_ {};
     // Region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // Service code.
-    std::shared_ptr<string> serviceCode_ = nullptr;
+    shared_ptr<string> serviceCode_ {};
   };
 
   } // namespace Models
