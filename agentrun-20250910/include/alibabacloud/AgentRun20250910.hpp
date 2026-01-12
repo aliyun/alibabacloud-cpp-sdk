@@ -145,6 +145,24 @@ namespace AgentRun20250910
       Models::CreateCredentialResponse createCredential(const Models::CreateCredentialRequest &request);
 
       /**
+       * @summary 创建知识库
+       *
+       * @param request CreateKnowledgeBaseRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateKnowledgeBaseResponse
+       */
+      Models::CreateKnowledgeBaseResponse createKnowledgeBaseWithOptions(const Models::CreateKnowledgeBaseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建知识库
+       *
+       * @param request CreateKnowledgeBaseRequest
+       * @return CreateKnowledgeBaseResponse
+       */
+      Models::CreateKnowledgeBaseResponse createKnowledgeBase(const Models::CreateKnowledgeBaseRequest &request);
+
+      /**
        * @summary 新增模型
        *
        * @param request CreateModelProxyRequest
@@ -315,6 +333,22 @@ namespace AgentRun20250910
        * @return DeleteCredentialResponse
        */
       Models::DeleteCredentialResponse deleteCredential(const string &credentialName);
+
+      /**
+       * @summary 删除知识库
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteKnowledgeBaseResponse
+       */
+      Models::DeleteKnowledgeBaseResponse deleteKnowledgeBaseWithOptions(const string &knowledgeBaseName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除知识库
+       *
+       * @return DeleteKnowledgeBaseResponse
+       */
+      Models::DeleteKnowledgeBaseResponse deleteKnowledgeBase(const string &knowledgeBaseName);
 
       /**
        * @summary 删除模型
@@ -495,6 +529,22 @@ namespace AgentRun20250910
        * @return GetCredentialResponse
        */
       Models::GetCredentialResponse getCredential(const string &credentialName);
+
+      /**
+       * @summary 获取知识库
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetKnowledgeBaseResponse
+       */
+      Models::GetKnowledgeBaseResponse getKnowledgeBaseWithOptions(const string &knowledgeBaseName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取知识库
+       *
+       * @return GetKnowledgeBaseResponse
+       */
+      Models::GetKnowledgeBaseResponse getKnowledgeBase(const string &knowledgeBaseName);
 
       /**
        * @summary 查看model
@@ -691,6 +741,24 @@ namespace AgentRun20250910
        * @return ListCredentialsResponse
        */
       Models::ListCredentialsResponse listCredentials(const Models::ListCredentialsRequest &request);
+
+      /**
+       * @summary 列出知识库
+       *
+       * @param request ListKnowledgeBasesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListKnowledgeBasesResponse
+       */
+      Models::ListKnowledgeBasesResponse listKnowledgeBasesWithOptions(const Models::ListKnowledgeBasesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 列出知识库
+       *
+       * @param request ListKnowledgeBasesRequest
+       * @return ListKnowledgeBasesResponse
+       */
+      Models::ListKnowledgeBasesResponse listKnowledgeBases(const Models::ListKnowledgeBasesRequest &request);
 
       /**
        * @summary 查询支持的模型提供商及其模型
@@ -905,6 +973,24 @@ namespace AgentRun20250910
        * @return UpdateCredentialResponse
        */
       Models::UpdateCredentialResponse updateCredential(const string &credentialName, const Models::UpdateCredentialRequest &request);
+
+      /**
+       * @summary 更新知识库
+       *
+       * @param request UpdateKnowledgeBaseRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateKnowledgeBaseResponse
+       */
+      Models::UpdateKnowledgeBaseResponse updateKnowledgeBaseWithOptions(const string &knowledgeBaseName, const Models::UpdateKnowledgeBaseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新知识库
+       *
+       * @param request UpdateKnowledgeBaseRequest
+       * @return UpdateKnowledgeBaseResponse
+       */
+      Models::UpdateKnowledgeBaseResponse updateKnowledgeBase(const string &knowledgeBaseName, const Models::UpdateKnowledgeBaseRequest &request);
 
       /**
        * @summary 更新模型

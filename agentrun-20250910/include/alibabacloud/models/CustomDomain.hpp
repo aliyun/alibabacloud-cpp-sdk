@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(createdAt, createdAt_);
       DARABONBA_PTR_TO_JSON(description, description_);
       DARABONBA_PTR_TO_JSON(domainName, domainName_);
+      DARABONBA_PTR_TO_JSON(domainType, domainType_);
       DARABONBA_PTR_TO_JSON(protocol, protocol_);
       DARABONBA_PTR_TO_JSON(routeConfig, routeConfig_);
       DARABONBA_PTR_TO_JSON(tlsConfig, tlsConfig_);
@@ -30,6 +31,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(createdAt, createdAt_);
       DARABONBA_PTR_FROM_JSON(description, description_);
       DARABONBA_PTR_FROM_JSON(domainName, domainName_);
+      DARABONBA_PTR_FROM_JSON(domainType, domainType_);
       DARABONBA_PTR_FROM_JSON(protocol, protocol_);
       DARABONBA_PTR_FROM_JSON(routeConfig, routeConfig_);
       DARABONBA_PTR_FROM_JSON(tlsConfig, tlsConfig_);
@@ -47,8 +49,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->certConfig_ == nullptr
-        && this->createdAt_ == nullptr && this->description_ == nullptr && this->domainName_ == nullptr && this->protocol_ == nullptr && this->routeConfig_ == nullptr
-        && this->tlsConfig_ == nullptr && this->updatedAt_ == nullptr; };
+        && this->createdAt_ == nullptr && this->description_ == nullptr && this->domainName_ == nullptr && this->domainType_ == nullptr && this->protocol_ == nullptr
+        && this->routeConfig_ == nullptr && this->tlsConfig_ == nullptr && this->updatedAt_ == nullptr; };
     // certConfig Field Functions 
     bool hasCertConfig() const { return this->certConfig_ != nullptr;};
     void deleteCertConfig() { this->certConfig_ = nullptr;};
@@ -77,6 +79,13 @@ namespace Models
     void deleteDomainName() { this->domainName_ = nullptr;};
     inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline CustomDomain& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
+
+
+    // domainType Field Functions 
+    bool hasDomainType() const { return this->domainType_ != nullptr;};
+    void deleteDomainType() { this->domainType_ = nullptr;};
+    inline string getDomainType() const { DARABONBA_PTR_GET_DEFAULT(domainType_, "") };
+    inline CustomDomain& setDomainType(string domainType) { DARABONBA_PTR_SET_VALUE(domainType_, domainType) };
 
 
     // protocol Field Functions 
@@ -120,6 +129,7 @@ namespace Models
     shared_ptr<string> description_ {};
     // 域名。填写已在阿里云备案或接入备案的自定义域名名称。
     shared_ptr<string> domainName_ {};
+    shared_ptr<string> domainType_ {};
     // 域名支持的协议类型：● HTTP：仅支持 HTTP 协议。● HTTPS：仅支持 HTTPS 协议。● HTTP,HTTPS：支持 HTTP 及 HTTPS 协议。
     shared_ptr<string> protocol_ {};
     // 路由表：自定义域名访问时的 PATH 到 资源 的映射。

@@ -302,6 +302,46 @@ CreateCredentialResponse Client::createCredential(const CreateCredentialRequest 
 }
 
 /**
+ * @summary 创建知识库
+ *
+ * @param request CreateKnowledgeBaseRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateKnowledgeBaseResponse
+ */
+CreateKnowledgeBaseResponse Client::createKnowledgeBaseWithOptions(const CreateKnowledgeBaseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateKnowledgeBase"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/knowledgebases")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateKnowledgeBaseResponse>();
+}
+
+/**
+ * @summary 创建知识库
+ *
+ * @param request CreateKnowledgeBaseRequest
+ * @return CreateKnowledgeBaseResponse
+ */
+CreateKnowledgeBaseResponse Client::createKnowledgeBase(const CreateKnowledgeBaseRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createKnowledgeBaseWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 新增模型
  *
  * @param request CreateModelProxyRequest
@@ -659,6 +699,42 @@ DeleteCredentialResponse Client::deleteCredential(const string &credentialName) 
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return deleteCredentialWithOptions(credentialName, headers, runtime);
+}
+
+/**
+ * @summary 删除知识库
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteKnowledgeBaseResponse
+ */
+DeleteKnowledgeBaseResponse Client::deleteKnowledgeBaseWithOptions(const string &knowledgeBaseName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteKnowledgeBase"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/knowledgebases/" , Darabonba::Encode::Encoder::percentEncode(knowledgeBaseName))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteKnowledgeBaseResponse>();
+}
+
+/**
+ * @summary 删除知识库
+ *
+ * @return DeleteKnowledgeBaseResponse
+ */
+DeleteKnowledgeBaseResponse Client::deleteKnowledgeBase(const string &knowledgeBaseName) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteKnowledgeBaseWithOptions(knowledgeBaseName, headers, runtime);
 }
 
 /**
@@ -1061,6 +1137,42 @@ GetCredentialResponse Client::getCredential(const string &credentialName) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getCredentialWithOptions(credentialName, headers, runtime);
+}
+
+/**
+ * @summary 获取知识库
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetKnowledgeBaseResponse
+ */
+GetKnowledgeBaseResponse Client::getKnowledgeBaseWithOptions(const string &knowledgeBaseName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetKnowledgeBase"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/knowledgebases/" , Darabonba::Encode::Encoder::percentEncode(knowledgeBaseName))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetKnowledgeBaseResponse>();
+}
+
+/**
+ * @summary 获取知识库
+ *
+ * @return GetKnowledgeBaseResponse
+ */
+GetKnowledgeBaseResponse Client::getKnowledgeBase(const string &knowledgeBaseName) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getKnowledgeBaseWithOptions(knowledgeBaseName, headers, runtime);
 }
 
 /**
@@ -1575,6 +1687,59 @@ ListCredentialsResponse Client::listCredentials(const ListCredentialsRequest &re
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listCredentialsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 列出知识库
+ *
+ * @param request ListKnowledgeBasesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListKnowledgeBasesResponse
+ */
+ListKnowledgeBasesResponse Client::listKnowledgeBasesWithOptions(const ListKnowledgeBasesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasProvider()) {
+    query["provider"] = request.getProvider();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListKnowledgeBases"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/knowledgebases")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListKnowledgeBasesResponse>();
+}
+
+/**
+ * @summary 列出知识库
+ *
+ * @param request ListKnowledgeBasesRequest
+ * @return ListKnowledgeBasesResponse
+ */
+ListKnowledgeBasesResponse Client::listKnowledgeBases(const ListKnowledgeBasesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listKnowledgeBasesWithOptions(request, headers, runtime);
 }
 
 /**
@@ -2128,6 +2293,46 @@ UpdateCredentialResponse Client::updateCredential(const string &credentialName, 
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateCredentialWithOptions(credentialName, request, headers, runtime);
+}
+
+/**
+ * @summary 更新知识库
+ *
+ * @param request UpdateKnowledgeBaseRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateKnowledgeBaseResponse
+ */
+UpdateKnowledgeBaseResponse Client::updateKnowledgeBaseWithOptions(const string &knowledgeBaseName, const UpdateKnowledgeBaseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateKnowledgeBase"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/knowledgebases/" , Darabonba::Encode::Encoder::percentEncode(knowledgeBaseName))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateKnowledgeBaseResponse>();
+}
+
+/**
+ * @summary 更新知识库
+ *
+ * @param request UpdateKnowledgeBaseRequest
+ * @return UpdateKnowledgeBaseResponse
+ */
+UpdateKnowledgeBaseResponse Client::updateKnowledgeBase(const string &knowledgeBaseName, const UpdateKnowledgeBaseRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateKnowledgeBaseWithOptions(knowledgeBaseName, request, headers, runtime);
 }
 
 /**
