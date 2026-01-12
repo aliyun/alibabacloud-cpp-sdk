@@ -15,6 +15,8 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ListInstancesShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AcceleratorType, acceleratorType_);
       DARABONBA_PTR_TO_JSON(Accessibility, accessibility_);
+      DARABONBA_PTR_TO_JSON(CreateTimeAfter, createTimeAfter_);
+      DARABONBA_PTR_TO_JSON(CreateTimeBefore, createTimeBefore_);
       DARABONBA_PTR_TO_JSON(CreateUserId, createUserId_);
       DARABONBA_PTR_TO_JSON(GpuType, gpuType_);
       DARABONBA_PTR_TO_JSON(ImageName, imageName_);
@@ -44,6 +46,8 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, ListInstancesShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AcceleratorType, acceleratorType_);
       DARABONBA_PTR_FROM_JSON(Accessibility, accessibility_);
+      DARABONBA_PTR_FROM_JSON(CreateTimeAfter, createTimeAfter_);
+      DARABONBA_PTR_FROM_JSON(CreateTimeBefore, createTimeBefore_);
       DARABONBA_PTR_FROM_JSON(CreateUserId, createUserId_);
       DARABONBA_PTR_FROM_JSON(GpuType, gpuType_);
       DARABONBA_PTR_FROM_JSON(ImageName, imageName_);
@@ -82,12 +86,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->acceleratorType_ == nullptr
-        && this->accessibility_ == nullptr && this->createUserId_ == nullptr && this->gpuType_ == nullptr && this->imageName_ == nullptr && this->instanceId_ == nullptr
-        && this->instanceName_ == nullptr && this->labelsShrink_ == nullptr && this->maxCpu_ == nullptr && this->maxGpu_ == nullptr && this->maxGpuMemory_ == nullptr
-        && this->maxMemory_ == nullptr && this->minCpu_ == nullptr && this->minGpu_ == nullptr && this->minGpuMemory_ == nullptr && this->minMemory_ == nullptr
-        && this->order_ == nullptr && this->oversoldInfo_ == nullptr && this->oversoldType_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
-        && this->paymentType_ == nullptr && this->resourceId_ == nullptr && this->sortBy_ == nullptr && this->status_ == nullptr && this->tagShrink_ == nullptr
-        && this->workspaceId_ == nullptr; };
+        && this->accessibility_ == nullptr && this->createTimeAfter_ == nullptr && this->createTimeBefore_ == nullptr && this->createUserId_ == nullptr && this->gpuType_ == nullptr
+        && this->imageName_ == nullptr && this->instanceId_ == nullptr && this->instanceName_ == nullptr && this->labelsShrink_ == nullptr && this->maxCpu_ == nullptr
+        && this->maxGpu_ == nullptr && this->maxGpuMemory_ == nullptr && this->maxMemory_ == nullptr && this->minCpu_ == nullptr && this->minGpu_ == nullptr
+        && this->minGpuMemory_ == nullptr && this->minMemory_ == nullptr && this->order_ == nullptr && this->oversoldInfo_ == nullptr && this->oversoldType_ == nullptr
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->paymentType_ == nullptr && this->resourceId_ == nullptr && this->sortBy_ == nullptr
+        && this->status_ == nullptr && this->tagShrink_ == nullptr && this->workspaceId_ == nullptr; };
     // acceleratorType Field Functions 
     bool hasAcceleratorType() const { return this->acceleratorType_ != nullptr;};
     void deleteAcceleratorType() { this->acceleratorType_ = nullptr;};
@@ -100,6 +104,20 @@ namespace Models
     void deleteAccessibility() { this->accessibility_ = nullptr;};
     inline string getAccessibility() const { DARABONBA_PTR_GET_DEFAULT(accessibility_, "") };
     inline ListInstancesShrinkRequest& setAccessibility(string accessibility) { DARABONBA_PTR_SET_VALUE(accessibility_, accessibility) };
+
+
+    // createTimeAfter Field Functions 
+    bool hasCreateTimeAfter() const { return this->createTimeAfter_ != nullptr;};
+    void deleteCreateTimeAfter() { this->createTimeAfter_ = nullptr;};
+    inline string getCreateTimeAfter() const { DARABONBA_PTR_GET_DEFAULT(createTimeAfter_, "") };
+    inline ListInstancesShrinkRequest& setCreateTimeAfter(string createTimeAfter) { DARABONBA_PTR_SET_VALUE(createTimeAfter_, createTimeAfter) };
+
+
+    // createTimeBefore Field Functions 
+    bool hasCreateTimeBefore() const { return this->createTimeBefore_ != nullptr;};
+    void deleteCreateTimeBefore() { this->createTimeBefore_ = nullptr;};
+    inline string getCreateTimeBefore() const { DARABONBA_PTR_GET_DEFAULT(createTimeBefore_, "") };
+    inline ListInstancesShrinkRequest& setCreateTimeBefore(string createTimeBefore) { DARABONBA_PTR_SET_VALUE(createTimeBefore_, createTimeBefore) };
 
 
     // createUserId Field Functions 
@@ -288,6 +306,8 @@ namespace Models
     // *   PRIVATE (default): The instances are accessible only to you and the administrator of the workspace.
     // *   PUBLIC: The instances are accessible only to all members in the workspace.
     shared_ptr<string> accessibility_ {};
+    shared_ptr<string> createTimeAfter_ {};
+    shared_ptr<string> createTimeBefore_ {};
     // The UID of the creator.
     shared_ptr<string> createUserId_ {};
     // The GPU type.

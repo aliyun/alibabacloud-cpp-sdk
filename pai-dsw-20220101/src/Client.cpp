@@ -1537,6 +1537,14 @@ ListInstancesResponse Client::listInstancesWithOptions(const ListInstancesReques
     query["Accessibility"] = request.getAccessibility();
   }
 
+  if (!!request.hasCreateTimeAfter()) {
+    query["CreateTimeAfter"] = request.getCreateTimeAfter();
+  }
+
+  if (!!request.hasCreateTimeBefore()) {
+    query["CreateTimeBefore"] = request.getCreateTimeBefore();
+  }
+
   if (!!request.hasCreateUserId()) {
     query["CreateUserId"] = request.getCreateUserId();
   }
