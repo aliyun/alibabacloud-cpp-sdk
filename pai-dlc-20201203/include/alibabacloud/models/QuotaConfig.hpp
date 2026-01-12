@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->allowedMaxPriority_ == nullptr
-        && return this->enableDLC_ == nullptr && return this->enableDSW_ == nullptr && return this->enableTideResource_ == nullptr && return this->resourceLevel_ == nullptr; };
+        && this->enableDLC_ == nullptr && this->enableDSW_ == nullptr && this->enableTideResource_ == nullptr && this->resourceLevel_ == nullptr; };
     // allowedMaxPriority Field Functions 
     bool hasAllowedMaxPriority() const { return this->allowedMaxPriority_ != nullptr;};
     void deleteAllowedMaxPriority() { this->allowedMaxPriority_ = nullptr;};
-    inline int32_t allowedMaxPriority() const { DARABONBA_PTR_GET_DEFAULT(allowedMaxPriority_, 0) };
+    inline int32_t getAllowedMaxPriority() const { DARABONBA_PTR_GET_DEFAULT(allowedMaxPriority_, 0) };
     inline QuotaConfig& setAllowedMaxPriority(int32_t allowedMaxPriority) { DARABONBA_PTR_SET_VALUE(allowedMaxPriority_, allowedMaxPriority) };
 
 
     // enableDLC Field Functions 
     bool hasEnableDLC() const { return this->enableDLC_ != nullptr;};
     void deleteEnableDLC() { this->enableDLC_ = nullptr;};
-    inline bool enableDLC() const { DARABONBA_PTR_GET_DEFAULT(enableDLC_, false) };
+    inline bool getEnableDLC() const { DARABONBA_PTR_GET_DEFAULT(enableDLC_, false) };
     inline QuotaConfig& setEnableDLC(bool enableDLC) { DARABONBA_PTR_SET_VALUE(enableDLC_, enableDLC) };
 
 
     // enableDSW Field Functions 
     bool hasEnableDSW() const { return this->enableDSW_ != nullptr;};
     void deleteEnableDSW() { this->enableDSW_ = nullptr;};
-    inline bool enableDSW() const { DARABONBA_PTR_GET_DEFAULT(enableDSW_, false) };
+    inline bool getEnableDSW() const { DARABONBA_PTR_GET_DEFAULT(enableDSW_, false) };
     inline QuotaConfig& setEnableDSW(bool enableDSW) { DARABONBA_PTR_SET_VALUE(enableDSW_, enableDSW) };
 
 
     // enableTideResource Field Functions 
     bool hasEnableTideResource() const { return this->enableTideResource_ != nullptr;};
     void deleteEnableTideResource() { this->enableTideResource_ = nullptr;};
-    inline bool enableTideResource() const { DARABONBA_PTR_GET_DEFAULT(enableTideResource_, false) };
+    inline bool getEnableTideResource() const { DARABONBA_PTR_GET_DEFAULT(enableTideResource_, false) };
     inline QuotaConfig& setEnableTideResource(bool enableTideResource) { DARABONBA_PTR_SET_VALUE(enableTideResource_, enableTideResource) };
 
 
     // resourceLevel Field Functions 
     bool hasResourceLevel() const { return this->resourceLevel_ != nullptr;};
     void deleteResourceLevel() { this->resourceLevel_ = nullptr;};
-    inline string resourceLevel() const { DARABONBA_PTR_GET_DEFAULT(resourceLevel_, "") };
+    inline string getResourceLevel() const { DARABONBA_PTR_GET_DEFAULT(resourceLevel_, "") };
     inline QuotaConfig& setResourceLevel(string resourceLevel) { DARABONBA_PTR_SET_VALUE(resourceLevel_, resourceLevel) };
 
 
   protected:
-    std::shared_ptr<int32_t> allowedMaxPriority_ = nullptr;
-    std::shared_ptr<bool> enableDLC_ = nullptr;
-    std::shared_ptr<bool> enableDSW_ = nullptr;
-    std::shared_ptr<bool> enableTideResource_ = nullptr;
-    std::shared_ptr<string> resourceLevel_ = nullptr;
+    shared_ptr<int32_t> allowedMaxPriority_ {};
+    shared_ptr<bool> enableDLC_ {};
+    shared_ptr<bool> enableDSW_ {};
+    shared_ptr<bool> enableTideResource_ {};
+    shared_ptr<string> resourceLevel_ {};
   };
 
   } // namespace Models

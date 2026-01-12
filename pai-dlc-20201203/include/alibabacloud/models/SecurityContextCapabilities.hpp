@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->add_ == nullptr
-        && return this->drop_ == nullptr; };
+        && this->drop_ == nullptr; };
     // add Field Functions 
     bool hasAdd() const { return this->add_ != nullptr;};
     void deleteAdd() { this->add_ = nullptr;};
-    inline const vector<string> & add() const { DARABONBA_PTR_GET_CONST(add_, vector<string>) };
-    inline vector<string> add() { DARABONBA_PTR_GET(add_, vector<string>) };
+    inline const vector<string> & getAdd() const { DARABONBA_PTR_GET_CONST(add_, vector<string>) };
+    inline vector<string> getAdd() { DARABONBA_PTR_GET(add_, vector<string>) };
     inline SecurityContextCapabilities& setAdd(const vector<string> & add) { DARABONBA_PTR_SET_VALUE(add_, add) };
     inline SecurityContextCapabilities& setAdd(vector<string> && add) { DARABONBA_PTR_SET_RVALUE(add_, add) };
 
@@ -46,15 +46,15 @@ namespace Models
     // drop Field Functions 
     bool hasDrop() const { return this->drop_ != nullptr;};
     void deleteDrop() { this->drop_ = nullptr;};
-    inline const vector<string> & drop() const { DARABONBA_PTR_GET_CONST(drop_, vector<string>) };
-    inline vector<string> drop() { DARABONBA_PTR_GET(drop_, vector<string>) };
+    inline const vector<string> & getDrop() const { DARABONBA_PTR_GET_CONST(drop_, vector<string>) };
+    inline vector<string> getDrop() { DARABONBA_PTR_GET(drop_, vector<string>) };
     inline SecurityContextCapabilities& setDrop(const vector<string> & drop) { DARABONBA_PTR_SET_VALUE(drop_, drop) };
     inline SecurityContextCapabilities& setDrop(vector<string> && drop) { DARABONBA_PTR_SET_RVALUE(drop_, drop) };
 
 
   protected:
-    std::shared_ptr<vector<string>> add_ = nullptr;
-    std::shared_ptr<vector<string>> drop_ = nullptr;
+    shared_ptr<vector<string>> add_ {};
+    shared_ptr<vector<string>> drop_ {};
   };
 
   } // namespace Models

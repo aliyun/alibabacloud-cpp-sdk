@@ -33,7 +33,7 @@ namespace Models
     // order Field Functions 
     bool hasOrder() const { return this->order_ != nullptr;};
     void deleteOrder() { this->order_ = nullptr;};
-    inline string order() const { DARABONBA_PTR_GET_DEFAULT(order_, "") };
+    inline string getOrder() const { DARABONBA_PTR_GET_DEFAULT(order_, "") };
     inline ListJobSanityCheckResultsRequest& setOrder(string order) { DARABONBA_PTR_SET_VALUE(order_, order) };
 
 
@@ -42,7 +42,7 @@ namespace Models
     // 
     // *   desc: descending order
     // *   asc: ascending order
-    std::shared_ptr<string> order_ = nullptr;
+    shared_ptr<string> order_ {};
   };
 
   } // namespace Models

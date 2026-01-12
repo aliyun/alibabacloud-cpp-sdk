@@ -36,19 +36,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestID_ == nullptr
-        && return this->sanityCheckResults_ == nullptr && return this->totalCount_ == nullptr; };
+        && this->sanityCheckResults_ == nullptr && this->totalCount_ == nullptr; };
     // requestID Field Functions 
     bool hasRequestID() const { return this->requestID_ != nullptr;};
     void deleteRequestID() { this->requestID_ = nullptr;};
-    inline string requestID() const { DARABONBA_PTR_GET_DEFAULT(requestID_, "") };
+    inline string getRequestID() const { DARABONBA_PTR_GET_DEFAULT(requestID_, "") };
     inline ListJobSanityCheckResultsResponseBody& setRequestID(string requestID) { DARABONBA_PTR_SET_VALUE(requestID_, requestID) };
 
 
     // sanityCheckResults Field Functions 
     bool hasSanityCheckResults() const { return this->sanityCheckResults_ != nullptr;};
     void deleteSanityCheckResults() { this->sanityCheckResults_ = nullptr;};
-    inline const vector<vector<SanityCheckResultItem>> & sanityCheckResults() const { DARABONBA_PTR_GET_CONST(sanityCheckResults_, vector<vector<SanityCheckResultItem>>) };
-    inline vector<vector<SanityCheckResultItem>> sanityCheckResults() { DARABONBA_PTR_GET(sanityCheckResults_, vector<vector<SanityCheckResultItem>>) };
+    inline const vector<vector<SanityCheckResultItem>> & getSanityCheckResults() const { DARABONBA_PTR_GET_CONST(sanityCheckResults_, vector<vector<SanityCheckResultItem>>) };
+    inline vector<vector<SanityCheckResultItem>> getSanityCheckResults() { DARABONBA_PTR_GET(sanityCheckResults_, vector<vector<SanityCheckResultItem>>) };
     inline ListJobSanityCheckResultsResponseBody& setSanityCheckResults(const vector<vector<SanityCheckResultItem>> & sanityCheckResults) { DARABONBA_PTR_SET_VALUE(sanityCheckResults_, sanityCheckResults) };
     inline ListJobSanityCheckResultsResponseBody& setSanityCheckResults(vector<vector<SanityCheckResultItem>> && sanityCheckResults) { DARABONBA_PTR_SET_RVALUE(sanityCheckResults_, sanityCheckResults) };
 
@@ -56,17 +56,17 @@ namespace Models
     // totalCount Field Functions 
     bool hasTotalCount() const { return this->totalCount_ != nullptr;};
     void deleteTotalCount() { this->totalCount_ = nullptr;};
-    inline int32_t totalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
+    inline int32_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
     inline ListJobSanityCheckResultsResponseBody& setTotalCount(int32_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
 
 
   protected:
     // The request ID.
-    std::shared_ptr<string> requestID_ = nullptr;
+    shared_ptr<string> requestID_ {};
     // The sanity check results.
-    std::shared_ptr<vector<vector<SanityCheckResultItem>>> sanityCheckResults_ = nullptr;
+    shared_ptr<vector<vector<SanityCheckResultItem>>> sanityCheckResults_ {};
     // The total number of results that meet the filter conditions.
-    std::shared_ptr<int32_t> totalCount_ = nullptr;
+    shared_ptr<int32_t> totalCount_ {};
   };
 
   } // namespace Models

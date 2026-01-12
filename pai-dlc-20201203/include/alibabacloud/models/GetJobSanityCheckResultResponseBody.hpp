@@ -36,37 +36,37 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->jobId_ == nullptr
-        && return this->requestID_ == nullptr && return this->sanityCheckResult_ == nullptr; };
+        && this->requestID_ == nullptr && this->sanityCheckResult_ == nullptr; };
     // jobId Field Functions 
     bool hasJobId() const { return this->jobId_ != nullptr;};
     void deleteJobId() { this->jobId_ = nullptr;};
-    inline string jobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
+    inline string getJobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
     inline GetJobSanityCheckResultResponseBody& setJobId(string jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
 
 
     // requestID Field Functions 
     bool hasRequestID() const { return this->requestID_ != nullptr;};
     void deleteRequestID() { this->requestID_ = nullptr;};
-    inline string requestID() const { DARABONBA_PTR_GET_DEFAULT(requestID_, "") };
+    inline string getRequestID() const { DARABONBA_PTR_GET_DEFAULT(requestID_, "") };
     inline GetJobSanityCheckResultResponseBody& setRequestID(string requestID) { DARABONBA_PTR_SET_VALUE(requestID_, requestID) };
 
 
     // sanityCheckResult Field Functions 
     bool hasSanityCheckResult() const { return this->sanityCheckResult_ != nullptr;};
     void deleteSanityCheckResult() { this->sanityCheckResult_ = nullptr;};
-    inline const vector<SanityCheckResultItem> & sanityCheckResult() const { DARABONBA_PTR_GET_CONST(sanityCheckResult_, vector<SanityCheckResultItem>) };
-    inline vector<SanityCheckResultItem> sanityCheckResult() { DARABONBA_PTR_GET(sanityCheckResult_, vector<SanityCheckResultItem>) };
+    inline const vector<SanityCheckResultItem> & getSanityCheckResult() const { DARABONBA_PTR_GET_CONST(sanityCheckResult_, vector<SanityCheckResultItem>) };
+    inline vector<SanityCheckResultItem> getSanityCheckResult() { DARABONBA_PTR_GET(sanityCheckResult_, vector<SanityCheckResultItem>) };
     inline GetJobSanityCheckResultResponseBody& setSanityCheckResult(const vector<SanityCheckResultItem> & sanityCheckResult) { DARABONBA_PTR_SET_VALUE(sanityCheckResult_, sanityCheckResult) };
     inline GetJobSanityCheckResultResponseBody& setSanityCheckResult(vector<SanityCheckResultItem> && sanityCheckResult) { DARABONBA_PTR_SET_RVALUE(sanityCheckResult_, sanityCheckResult) };
 
 
   protected:
     // The job ID.
-    std::shared_ptr<string> jobId_ = nullptr;
+    shared_ptr<string> jobId_ {};
     // The request ID.
-    std::shared_ptr<string> requestID_ = nullptr;
+    shared_ptr<string> requestID_ {};
     // The job sanity check result.
-    std::shared_ptr<vector<SanityCheckResultItem>> sanityCheckResult_ = nullptr;
+    shared_ptr<vector<SanityCheckResultItem>> sanityCheckResult_ {};
   };
 
   } // namespace Models

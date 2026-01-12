@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->isShared_ == nullptr
-        && return this->podUid_ == nullptr; };
+        && this->podUid_ == nullptr; };
     // isShared Field Functions 
     bool hasIsShared() const { return this->isShared_ != nullptr;};
     void deleteIsShared() { this->isShared_ = nullptr;};
-    inline bool isShared() const { DARABONBA_PTR_GET_DEFAULT(isShared_, false) };
+    inline bool getIsShared() const { DARABONBA_PTR_GET_DEFAULT(isShared_, false) };
     inline GetWebTerminalRequest& setIsShared(bool isShared) { DARABONBA_PTR_SET_VALUE(isShared_, isShared) };
 
 
     // podUid Field Functions 
     bool hasPodUid() const { return this->podUid_ != nullptr;};
     void deletePodUid() { this->podUid_ = nullptr;};
-    inline string podUid() const { DARABONBA_PTR_GET_DEFAULT(podUid_, "") };
+    inline string getPodUid() const { DARABONBA_PTR_GET_DEFAULT(podUid_, "") };
     inline GetWebTerminalRequest& setPodUid(string podUid) { DARABONBA_PTR_SET_VALUE(podUid_, podUid) };
 
 
@@ -52,9 +52,9 @@ namespace Models
     // 
     // *   true: returns a shareable link to access the container. The link will expire after 30 seconds and can only be used once. After you access the container by using the link, other requests that use this link to access the container become invalid.
     // *   false: returns a common shareable link to access the container. If you use a common shareable link to access a container, Alibaba Cloud identity authentication is required. The link will expire after 30 seconds.
-    std::shared_ptr<bool> isShared_ = nullptr;
+    shared_ptr<bool> isShared_ {};
     // The pod UID.
-    std::shared_ptr<string> podUid_ = nullptr;
+    shared_ptr<string> podUid_ {};
   };
 
   } // namespace Models

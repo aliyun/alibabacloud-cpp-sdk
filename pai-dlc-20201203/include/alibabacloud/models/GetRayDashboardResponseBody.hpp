@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->metricsEnabled_ == nullptr
-        && return this->url_ == nullptr; };
+        && this->url_ == nullptr; };
     // metricsEnabled Field Functions 
     bool hasMetricsEnabled() const { return this->metricsEnabled_ != nullptr;};
     void deleteMetricsEnabled() { this->metricsEnabled_ = nullptr;};
-    inline string metricsEnabled() const { DARABONBA_PTR_GET_DEFAULT(metricsEnabled_, "") };
+    inline string getMetricsEnabled() const { DARABONBA_PTR_GET_DEFAULT(metricsEnabled_, "") };
     inline GetRayDashboardResponseBody& setMetricsEnabled(string metricsEnabled) { DARABONBA_PTR_SET_VALUE(metricsEnabled_, metricsEnabled) };
 
 
     // url Field Functions 
     bool hasUrl() const { return this->url_ != nullptr;};
     void deleteUrl() { this->url_ = nullptr;};
-    inline string url() const { DARABONBA_PTR_GET_DEFAULT(url_, "") };
+    inline string getUrl() const { DARABONBA_PTR_GET_DEFAULT(url_, "") };
     inline GetRayDashboardResponseBody& setUrl(string url) { DARABONBA_PTR_SET_VALUE(url_, url) };
 
 
   protected:
     // Indicates whether the dashboard has been integrated with CloudMonitor and supports ray metrics
-    std::shared_ptr<string> metricsEnabled_ = nullptr;
+    shared_ptr<string> metricsEnabled_ {};
     // The Ray Dashboard URL
-    std::shared_ptr<string> url_ = nullptr;
+    shared_ptr<string> url_ {};
   };
 
   } // namespace Models

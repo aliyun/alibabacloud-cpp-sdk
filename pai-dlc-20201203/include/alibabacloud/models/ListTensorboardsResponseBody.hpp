@@ -36,19 +36,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->tensorboards_ == nullptr && return this->totalCount_ == nullptr; };
+        && this->tensorboards_ == nullptr && this->totalCount_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListTensorboardsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // tensorboards Field Functions 
     bool hasTensorboards() const { return this->tensorboards_ != nullptr;};
     void deleteTensorboards() { this->tensorboards_ = nullptr;};
-    inline const vector<Tensorboard> & tensorboards() const { DARABONBA_PTR_GET_CONST(tensorboards_, vector<Tensorboard>) };
-    inline vector<Tensorboard> tensorboards() { DARABONBA_PTR_GET(tensorboards_, vector<Tensorboard>) };
+    inline const vector<Tensorboard> & getTensorboards() const { DARABONBA_PTR_GET_CONST(tensorboards_, vector<Tensorboard>) };
+    inline vector<Tensorboard> getTensorboards() { DARABONBA_PTR_GET(tensorboards_, vector<Tensorboard>) };
     inline ListTensorboardsResponseBody& setTensorboards(const vector<Tensorboard> & tensorboards) { DARABONBA_PTR_SET_VALUE(tensorboards_, tensorboards) };
     inline ListTensorboardsResponseBody& setTensorboards(vector<Tensorboard> && tensorboards) { DARABONBA_PTR_SET_RVALUE(tensorboards_, tensorboards) };
 
@@ -56,17 +56,17 @@ namespace Models
     // totalCount Field Functions 
     bool hasTotalCount() const { return this->totalCount_ != nullptr;};
     void deleteTotalCount() { this->totalCount_ = nullptr;};
-    inline int64_t totalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0L) };
+    inline int64_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0L) };
     inline ListTensorboardsResponseBody& setTotalCount(int64_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
 
 
   protected:
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The TensorBoard instances.
-    std::shared_ptr<vector<Tensorboard>> tensorboards_ = nullptr;
+    shared_ptr<vector<Tensorboard>> tensorboards_ {};
     // The total number of data sources that meet the conditions.
-    std::shared_ptr<int64_t> totalCount_ = nullptr;
+    shared_ptr<int64_t> totalCount_ {};
   };
 
   } // namespace Models

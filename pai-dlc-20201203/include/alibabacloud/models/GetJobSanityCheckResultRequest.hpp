@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->sanityCheckNumber_ == nullptr
-        && return this->sanityCheckPhase_ == nullptr && return this->token_ == nullptr; };
+        && this->sanityCheckPhase_ == nullptr && this->token_ == nullptr; };
     // sanityCheckNumber Field Functions 
     bool hasSanityCheckNumber() const { return this->sanityCheckNumber_ != nullptr;};
     void deleteSanityCheckNumber() { this->sanityCheckNumber_ = nullptr;};
-    inline int32_t sanityCheckNumber() const { DARABONBA_PTR_GET_DEFAULT(sanityCheckNumber_, 0) };
+    inline int32_t getSanityCheckNumber() const { DARABONBA_PTR_GET_DEFAULT(sanityCheckNumber_, 0) };
     inline GetJobSanityCheckResultRequest& setSanityCheckNumber(int32_t sanityCheckNumber) { DARABONBA_PTR_SET_VALUE(sanityCheckNumber_, sanityCheckNumber) };
 
 
     // sanityCheckPhase Field Functions 
     bool hasSanityCheckPhase() const { return this->sanityCheckPhase_ != nullptr;};
     void deleteSanityCheckPhase() { this->sanityCheckPhase_ = nullptr;};
-    inline string sanityCheckPhase() const { DARABONBA_PTR_GET_DEFAULT(sanityCheckPhase_, "") };
+    inline string getSanityCheckPhase() const { DARABONBA_PTR_GET_DEFAULT(sanityCheckPhase_, "") };
     inline GetJobSanityCheckResultRequest& setSanityCheckPhase(string sanityCheckPhase) { DARABONBA_PTR_SET_VALUE(sanityCheckPhase_, sanityCheckPhase) };
 
 
     // token Field Functions 
     bool hasToken() const { return this->token_ != nullptr;};
     void deleteToken() { this->token_ = nullptr;};
-    inline string token() const { DARABONBA_PTR_GET_DEFAULT(token_, "") };
+    inline string getToken() const { DARABONBA_PTR_GET_DEFAULT(token_, "") };
     inline GetJobSanityCheckResultRequest& setToken(string token) { DARABONBA_PTR_SET_VALUE(token_, token) };
 
 
@@ -60,7 +60,7 @@ namespace Models
     // The nth time for which the job sanity check is performed.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> sanityCheckNumber_ = nullptr;
+    shared_ptr<int32_t> sanityCheckNumber_ {};
     // The phase in which the job sanity check is performed.
     // 
     // *   CheckInit
@@ -68,9 +68,9 @@ namespace Models
     // *   SingleNodeCommCheck
     // *   TwoNodeCommCheck
     // *   AllNodeCommCheck
-    std::shared_ptr<string> sanityCheckPhase_ = nullptr;
+    shared_ptr<string> sanityCheckPhase_ {};
     // The token information for job sharing. For more information about how to obtain the token information, see [GetToken](https://help.aliyun.com/document_detail/2557812.html).
-    std::shared_ptr<string> token_ = nullptr;
+    shared_ptr<string> token_ {};
   };
 
   } // namespace Models

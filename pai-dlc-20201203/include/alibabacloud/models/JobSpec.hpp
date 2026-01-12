@@ -11,6 +11,7 @@
 #include <alibabacloud/models/ResourceConfig.hpp>
 #include <alibabacloud/models/ServiceSpec.hpp>
 #include <alibabacloud/models/SpotSpec.hpp>
+#include <alibabacloud/models/StartupDependency.hpp>
 #include <alibabacloud/models/SystemDisk.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -37,6 +38,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RestartPolicy, restartPolicy_);
       DARABONBA_PTR_TO_JSON(ServiceSpec, serviceSpec_);
       DARABONBA_PTR_TO_JSON(SpotSpec, spotSpec_);
+      DARABONBA_PTR_TO_JSON(StartupDependencies, startupDependencies_);
       DARABONBA_PTR_TO_JSON(SystemDisk, systemDisk_);
       DARABONBA_PTR_TO_JSON(Type, type_);
       DARABONBA_PTR_TO_JSON(UseSpotInstance, useSpotInstance_);
@@ -56,6 +58,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RestartPolicy, restartPolicy_);
       DARABONBA_PTR_FROM_JSON(ServiceSpec, serviceSpec_);
       DARABONBA_PTR_FROM_JSON(SpotSpec, spotSpec_);
+      DARABONBA_PTR_FROM_JSON(StartupDependencies, startupDependencies_);
       DARABONBA_PTR_FROM_JSON(SystemDisk, systemDisk_);
       DARABONBA_PTR_FROM_JSON(Type, type_);
       DARABONBA_PTR_FROM_JSON(UseSpotInstance, useSpotInstance_);
@@ -72,15 +75,15 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->assignNodeSpec_ == nullptr
-        && return this->autoScalingSpec_ == nullptr && return this->ecsSpec_ == nullptr && return this->extraPodSpec_ == nullptr && return this->image_ == nullptr && return this->imageConfig_ == nullptr
-        && return this->isCheif_ == nullptr && return this->isChief_ == nullptr && return this->localMountSpecs_ == nullptr && return this->podCount_ == nullptr && return this->resourceConfig_ == nullptr
-        && return this->restartPolicy_ == nullptr && return this->serviceSpec_ == nullptr && return this->spotSpec_ == nullptr && return this->systemDisk_ == nullptr && return this->type_ == nullptr
-        && return this->useSpotInstance_ == nullptr; };
+        && this->autoScalingSpec_ == nullptr && this->ecsSpec_ == nullptr && this->extraPodSpec_ == nullptr && this->image_ == nullptr && this->imageConfig_ == nullptr
+        && this->isCheif_ == nullptr && this->isChief_ == nullptr && this->localMountSpecs_ == nullptr && this->podCount_ == nullptr && this->resourceConfig_ == nullptr
+        && this->restartPolicy_ == nullptr && this->serviceSpec_ == nullptr && this->spotSpec_ == nullptr && this->startupDependencies_ == nullptr && this->systemDisk_ == nullptr
+        && this->type_ == nullptr && this->useSpotInstance_ == nullptr; };
     // assignNodeSpec Field Functions 
     bool hasAssignNodeSpec() const { return this->assignNodeSpec_ != nullptr;};
     void deleteAssignNodeSpec() { this->assignNodeSpec_ = nullptr;};
-    inline const AssignNodeSpec & assignNodeSpec() const { DARABONBA_PTR_GET_CONST(assignNodeSpec_, AssignNodeSpec) };
-    inline AssignNodeSpec assignNodeSpec() { DARABONBA_PTR_GET(assignNodeSpec_, AssignNodeSpec) };
+    inline const AssignNodeSpec & getAssignNodeSpec() const { DARABONBA_PTR_GET_CONST(assignNodeSpec_, AssignNodeSpec) };
+    inline AssignNodeSpec getAssignNodeSpec() { DARABONBA_PTR_GET(assignNodeSpec_, AssignNodeSpec) };
     inline JobSpec& setAssignNodeSpec(const AssignNodeSpec & assignNodeSpec) { DARABONBA_PTR_SET_VALUE(assignNodeSpec_, assignNodeSpec) };
     inline JobSpec& setAssignNodeSpec(AssignNodeSpec && assignNodeSpec) { DARABONBA_PTR_SET_RVALUE(assignNodeSpec_, assignNodeSpec) };
 
@@ -88,8 +91,8 @@ namespace Models
     // autoScalingSpec Field Functions 
     bool hasAutoScalingSpec() const { return this->autoScalingSpec_ != nullptr;};
     void deleteAutoScalingSpec() { this->autoScalingSpec_ = nullptr;};
-    inline const AutoScalingSpec & autoScalingSpec() const { DARABONBA_PTR_GET_CONST(autoScalingSpec_, AutoScalingSpec) };
-    inline AutoScalingSpec autoScalingSpec() { DARABONBA_PTR_GET(autoScalingSpec_, AutoScalingSpec) };
+    inline const AutoScalingSpec & getAutoScalingSpec() const { DARABONBA_PTR_GET_CONST(autoScalingSpec_, AutoScalingSpec) };
+    inline AutoScalingSpec getAutoScalingSpec() { DARABONBA_PTR_GET(autoScalingSpec_, AutoScalingSpec) };
     inline JobSpec& setAutoScalingSpec(const AutoScalingSpec & autoScalingSpec) { DARABONBA_PTR_SET_VALUE(autoScalingSpec_, autoScalingSpec) };
     inline JobSpec& setAutoScalingSpec(AutoScalingSpec && autoScalingSpec) { DARABONBA_PTR_SET_RVALUE(autoScalingSpec_, autoScalingSpec) };
 
@@ -97,15 +100,15 @@ namespace Models
     // ecsSpec Field Functions 
     bool hasEcsSpec() const { return this->ecsSpec_ != nullptr;};
     void deleteEcsSpec() { this->ecsSpec_ = nullptr;};
-    inline string ecsSpec() const { DARABONBA_PTR_GET_DEFAULT(ecsSpec_, "") };
+    inline string getEcsSpec() const { DARABONBA_PTR_GET_DEFAULT(ecsSpec_, "") };
     inline JobSpec& setEcsSpec(string ecsSpec) { DARABONBA_PTR_SET_VALUE(ecsSpec_, ecsSpec) };
 
 
     // extraPodSpec Field Functions 
     bool hasExtraPodSpec() const { return this->extraPodSpec_ != nullptr;};
     void deleteExtraPodSpec() { this->extraPodSpec_ = nullptr;};
-    inline const ExtraPodSpec & extraPodSpec() const { DARABONBA_PTR_GET_CONST(extraPodSpec_, ExtraPodSpec) };
-    inline ExtraPodSpec extraPodSpec() { DARABONBA_PTR_GET(extraPodSpec_, ExtraPodSpec) };
+    inline const ExtraPodSpec & getExtraPodSpec() const { DARABONBA_PTR_GET_CONST(extraPodSpec_, ExtraPodSpec) };
+    inline ExtraPodSpec getExtraPodSpec() { DARABONBA_PTR_GET(extraPodSpec_, ExtraPodSpec) };
     inline JobSpec& setExtraPodSpec(const ExtraPodSpec & extraPodSpec) { DARABONBA_PTR_SET_VALUE(extraPodSpec_, extraPodSpec) };
     inline JobSpec& setExtraPodSpec(ExtraPodSpec && extraPodSpec) { DARABONBA_PTR_SET_RVALUE(extraPodSpec_, extraPodSpec) };
 
@@ -113,15 +116,15 @@ namespace Models
     // image Field Functions 
     bool hasImage() const { return this->image_ != nullptr;};
     void deleteImage() { this->image_ = nullptr;};
-    inline string image() const { DARABONBA_PTR_GET_DEFAULT(image_, "") };
+    inline string getImage() const { DARABONBA_PTR_GET_DEFAULT(image_, "") };
     inline JobSpec& setImage(string image) { DARABONBA_PTR_SET_VALUE(image_, image) };
 
 
     // imageConfig Field Functions 
     bool hasImageConfig() const { return this->imageConfig_ != nullptr;};
     void deleteImageConfig() { this->imageConfig_ = nullptr;};
-    inline const ImageConfig & imageConfig() const { DARABONBA_PTR_GET_CONST(imageConfig_, ImageConfig) };
-    inline ImageConfig imageConfig() { DARABONBA_PTR_GET(imageConfig_, ImageConfig) };
+    inline const ImageConfig & getImageConfig() const { DARABONBA_PTR_GET_CONST(imageConfig_, ImageConfig) };
+    inline ImageConfig getImageConfig() { DARABONBA_PTR_GET(imageConfig_, ImageConfig) };
     inline JobSpec& setImageConfig(const ImageConfig & imageConfig) { DARABONBA_PTR_SET_VALUE(imageConfig_, imageConfig) };
     inline JobSpec& setImageConfig(ImageConfig && imageConfig) { DARABONBA_PTR_SET_RVALUE(imageConfig_, imageConfig) };
 
@@ -129,22 +132,22 @@ namespace Models
     // isCheif Field Functions 
     bool hasIsCheif() const { return this->isCheif_ != nullptr;};
     void deleteIsCheif() { this->isCheif_ = nullptr;};
-    inline bool isCheif() const { DARABONBA_PTR_GET_DEFAULT(isCheif_, false) };
+    inline bool getIsCheif() const { DARABONBA_PTR_GET_DEFAULT(isCheif_, false) };
     inline JobSpec& setIsCheif(bool isCheif) { DARABONBA_PTR_SET_VALUE(isCheif_, isCheif) };
 
 
     // isChief Field Functions 
     bool hasIsChief() const { return this->isChief_ != nullptr;};
     void deleteIsChief() { this->isChief_ = nullptr;};
-    inline bool isChief() const { DARABONBA_PTR_GET_DEFAULT(isChief_, false) };
+    inline bool getIsChief() const { DARABONBA_PTR_GET_DEFAULT(isChief_, false) };
     inline JobSpec& setIsChief(bool isChief) { DARABONBA_PTR_SET_VALUE(isChief_, isChief) };
 
 
     // localMountSpecs Field Functions 
     bool hasLocalMountSpecs() const { return this->localMountSpecs_ != nullptr;};
     void deleteLocalMountSpecs() { this->localMountSpecs_ = nullptr;};
-    inline const vector<LocalMountSpec> & localMountSpecs() const { DARABONBA_PTR_GET_CONST(localMountSpecs_, vector<LocalMountSpec>) };
-    inline vector<LocalMountSpec> localMountSpecs() { DARABONBA_PTR_GET(localMountSpecs_, vector<LocalMountSpec>) };
+    inline const vector<LocalMountSpec> & getLocalMountSpecs() const { DARABONBA_PTR_GET_CONST(localMountSpecs_, vector<LocalMountSpec>) };
+    inline vector<LocalMountSpec> getLocalMountSpecs() { DARABONBA_PTR_GET(localMountSpecs_, vector<LocalMountSpec>) };
     inline JobSpec& setLocalMountSpecs(const vector<LocalMountSpec> & localMountSpecs) { DARABONBA_PTR_SET_VALUE(localMountSpecs_, localMountSpecs) };
     inline JobSpec& setLocalMountSpecs(vector<LocalMountSpec> && localMountSpecs) { DARABONBA_PTR_SET_RVALUE(localMountSpecs_, localMountSpecs) };
 
@@ -152,15 +155,15 @@ namespace Models
     // podCount Field Functions 
     bool hasPodCount() const { return this->podCount_ != nullptr;};
     void deletePodCount() { this->podCount_ = nullptr;};
-    inline int64_t podCount() const { DARABONBA_PTR_GET_DEFAULT(podCount_, 0L) };
+    inline int64_t getPodCount() const { DARABONBA_PTR_GET_DEFAULT(podCount_, 0L) };
     inline JobSpec& setPodCount(int64_t podCount) { DARABONBA_PTR_SET_VALUE(podCount_, podCount) };
 
 
     // resourceConfig Field Functions 
     bool hasResourceConfig() const { return this->resourceConfig_ != nullptr;};
     void deleteResourceConfig() { this->resourceConfig_ = nullptr;};
-    inline const ResourceConfig & resourceConfig() const { DARABONBA_PTR_GET_CONST(resourceConfig_, ResourceConfig) };
-    inline ResourceConfig resourceConfig() { DARABONBA_PTR_GET(resourceConfig_, ResourceConfig) };
+    inline const ResourceConfig & getResourceConfig() const { DARABONBA_PTR_GET_CONST(resourceConfig_, ResourceConfig) };
+    inline ResourceConfig getResourceConfig() { DARABONBA_PTR_GET(resourceConfig_, ResourceConfig) };
     inline JobSpec& setResourceConfig(const ResourceConfig & resourceConfig) { DARABONBA_PTR_SET_VALUE(resourceConfig_, resourceConfig) };
     inline JobSpec& setResourceConfig(ResourceConfig && resourceConfig) { DARABONBA_PTR_SET_RVALUE(resourceConfig_, resourceConfig) };
 
@@ -168,15 +171,15 @@ namespace Models
     // restartPolicy Field Functions 
     bool hasRestartPolicy() const { return this->restartPolicy_ != nullptr;};
     void deleteRestartPolicy() { this->restartPolicy_ = nullptr;};
-    inline string restartPolicy() const { DARABONBA_PTR_GET_DEFAULT(restartPolicy_, "") };
+    inline string getRestartPolicy() const { DARABONBA_PTR_GET_DEFAULT(restartPolicy_, "") };
     inline JobSpec& setRestartPolicy(string restartPolicy) { DARABONBA_PTR_SET_VALUE(restartPolicy_, restartPolicy) };
 
 
     // serviceSpec Field Functions 
     bool hasServiceSpec() const { return this->serviceSpec_ != nullptr;};
     void deleteServiceSpec() { this->serviceSpec_ = nullptr;};
-    inline const ServiceSpec & serviceSpec() const { DARABONBA_PTR_GET_CONST(serviceSpec_, ServiceSpec) };
-    inline ServiceSpec serviceSpec() { DARABONBA_PTR_GET(serviceSpec_, ServiceSpec) };
+    inline const ServiceSpec & getServiceSpec() const { DARABONBA_PTR_GET_CONST(serviceSpec_, ServiceSpec) };
+    inline ServiceSpec getServiceSpec() { DARABONBA_PTR_GET(serviceSpec_, ServiceSpec) };
     inline JobSpec& setServiceSpec(const ServiceSpec & serviceSpec) { DARABONBA_PTR_SET_VALUE(serviceSpec_, serviceSpec) };
     inline JobSpec& setServiceSpec(ServiceSpec && serviceSpec) { DARABONBA_PTR_SET_RVALUE(serviceSpec_, serviceSpec) };
 
@@ -184,17 +187,26 @@ namespace Models
     // spotSpec Field Functions 
     bool hasSpotSpec() const { return this->spotSpec_ != nullptr;};
     void deleteSpotSpec() { this->spotSpec_ = nullptr;};
-    inline const SpotSpec & spotSpec() const { DARABONBA_PTR_GET_CONST(spotSpec_, SpotSpec) };
-    inline SpotSpec spotSpec() { DARABONBA_PTR_GET(spotSpec_, SpotSpec) };
+    inline const SpotSpec & getSpotSpec() const { DARABONBA_PTR_GET_CONST(spotSpec_, SpotSpec) };
+    inline SpotSpec getSpotSpec() { DARABONBA_PTR_GET(spotSpec_, SpotSpec) };
     inline JobSpec& setSpotSpec(const SpotSpec & spotSpec) { DARABONBA_PTR_SET_VALUE(spotSpec_, spotSpec) };
     inline JobSpec& setSpotSpec(SpotSpec && spotSpec) { DARABONBA_PTR_SET_RVALUE(spotSpec_, spotSpec) };
+
+
+    // startupDependencies Field Functions 
+    bool hasStartupDependencies() const { return this->startupDependencies_ != nullptr;};
+    void deleteStartupDependencies() { this->startupDependencies_ = nullptr;};
+    inline const vector<StartupDependency> & getStartupDependencies() const { DARABONBA_PTR_GET_CONST(startupDependencies_, vector<StartupDependency>) };
+    inline vector<StartupDependency> getStartupDependencies() { DARABONBA_PTR_GET(startupDependencies_, vector<StartupDependency>) };
+    inline JobSpec& setStartupDependencies(const vector<StartupDependency> & startupDependencies) { DARABONBA_PTR_SET_VALUE(startupDependencies_, startupDependencies) };
+    inline JobSpec& setStartupDependencies(vector<StartupDependency> && startupDependencies) { DARABONBA_PTR_SET_RVALUE(startupDependencies_, startupDependencies) };
 
 
     // systemDisk Field Functions 
     bool hasSystemDisk() const { return this->systemDisk_ != nullptr;};
     void deleteSystemDisk() { this->systemDisk_ = nullptr;};
-    inline const SystemDisk & systemDisk() const { DARABONBA_PTR_GET_CONST(systemDisk_, SystemDisk) };
-    inline SystemDisk systemDisk() { DARABONBA_PTR_GET(systemDisk_, SystemDisk) };
+    inline const SystemDisk & getSystemDisk() const { DARABONBA_PTR_GET_CONST(systemDisk_, SystemDisk) };
+    inline SystemDisk getSystemDisk() { DARABONBA_PTR_GET(systemDisk_, SystemDisk) };
     inline JobSpec& setSystemDisk(const SystemDisk & systemDisk) { DARABONBA_PTR_SET_VALUE(systemDisk_, systemDisk) };
     inline JobSpec& setSystemDisk(SystemDisk && systemDisk) { DARABONBA_PTR_SET_RVALUE(systemDisk_, systemDisk) };
 
@@ -202,35 +214,36 @@ namespace Models
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline JobSpec& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
     // useSpotInstance Field Functions 
     bool hasUseSpotInstance() const { return this->useSpotInstance_ != nullptr;};
     void deleteUseSpotInstance() { this->useSpotInstance_ = nullptr;};
-    inline bool useSpotInstance() const { DARABONBA_PTR_GET_DEFAULT(useSpotInstance_, false) };
+    inline bool getUseSpotInstance() const { DARABONBA_PTR_GET_DEFAULT(useSpotInstance_, false) };
     inline JobSpec& setUseSpotInstance(bool useSpotInstance) { DARABONBA_PTR_SET_VALUE(useSpotInstance_, useSpotInstance) };
 
 
   protected:
-    std::shared_ptr<AssignNodeSpec> assignNodeSpec_ = nullptr;
-    std::shared_ptr<AutoScalingSpec> autoScalingSpec_ = nullptr;
-    std::shared_ptr<string> ecsSpec_ = nullptr;
-    std::shared_ptr<ExtraPodSpec> extraPodSpec_ = nullptr;
-    std::shared_ptr<string> image_ = nullptr;
-    std::shared_ptr<ImageConfig> imageConfig_ = nullptr;
-    std::shared_ptr<bool> isCheif_ = nullptr;
-    std::shared_ptr<bool> isChief_ = nullptr;
-    std::shared_ptr<vector<LocalMountSpec>> localMountSpecs_ = nullptr;
-    std::shared_ptr<int64_t> podCount_ = nullptr;
-    std::shared_ptr<ResourceConfig> resourceConfig_ = nullptr;
-    std::shared_ptr<string> restartPolicy_ = nullptr;
-    std::shared_ptr<ServiceSpec> serviceSpec_ = nullptr;
-    std::shared_ptr<SpotSpec> spotSpec_ = nullptr;
-    std::shared_ptr<SystemDisk> systemDisk_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
-    std::shared_ptr<bool> useSpotInstance_ = nullptr;
+    shared_ptr<AssignNodeSpec> assignNodeSpec_ {};
+    shared_ptr<AutoScalingSpec> autoScalingSpec_ {};
+    shared_ptr<string> ecsSpec_ {};
+    shared_ptr<ExtraPodSpec> extraPodSpec_ {};
+    shared_ptr<string> image_ {};
+    shared_ptr<ImageConfig> imageConfig_ {};
+    shared_ptr<bool> isCheif_ {};
+    shared_ptr<bool> isChief_ {};
+    shared_ptr<vector<LocalMountSpec>> localMountSpecs_ {};
+    shared_ptr<int64_t> podCount_ {};
+    shared_ptr<ResourceConfig> resourceConfig_ {};
+    shared_ptr<string> restartPolicy_ {};
+    shared_ptr<ServiceSpec> serviceSpec_ {};
+    shared_ptr<SpotSpec> spotSpec_ {};
+    shared_ptr<vector<StartupDependency>> startupDependencies_ {};
+    shared_ptr<SystemDisk> systemDisk_ {};
+    shared_ptr<string> type_ {};
+    shared_ptr<bool> useSpotInstance_ {};
   };
 
   } // namespace Models

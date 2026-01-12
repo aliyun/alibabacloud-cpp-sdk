@@ -39,12 +39,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->events_ == nullptr
-        && return this->jobId_ == nullptr && return this->podId_ == nullptr && return this->podUid_ == nullptr && return this->requestId_ == nullptr; };
+        && this->jobId_ == nullptr && this->podId_ == nullptr && this->podUid_ == nullptr && this->requestId_ == nullptr; };
     // events Field Functions 
     bool hasEvents() const { return this->events_ != nullptr;};
     void deleteEvents() { this->events_ = nullptr;};
-    inline const vector<string> & events() const { DARABONBA_PTR_GET_CONST(events_, vector<string>) };
-    inline vector<string> events() { DARABONBA_PTR_GET(events_, vector<string>) };
+    inline const vector<string> & getEvents() const { DARABONBA_PTR_GET_CONST(events_, vector<string>) };
+    inline vector<string> getEvents() { DARABONBA_PTR_GET(events_, vector<string>) };
     inline GetPodEventsResponseBody& setEvents(const vector<string> & events) { DARABONBA_PTR_SET_VALUE(events_, events) };
     inline GetPodEventsResponseBody& setEvents(vector<string> && events) { DARABONBA_PTR_SET_RVALUE(events_, events) };
 
@@ -52,44 +52,44 @@ namespace Models
     // jobId Field Functions 
     bool hasJobId() const { return this->jobId_ != nullptr;};
     void deleteJobId() { this->jobId_ = nullptr;};
-    inline string jobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
+    inline string getJobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
     inline GetPodEventsResponseBody& setJobId(string jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
 
 
     // podId Field Functions 
     bool hasPodId() const { return this->podId_ != nullptr;};
     void deletePodId() { this->podId_ = nullptr;};
-    inline string podId() const { DARABONBA_PTR_GET_DEFAULT(podId_, "") };
+    inline string getPodId() const { DARABONBA_PTR_GET_DEFAULT(podId_, "") };
     inline GetPodEventsResponseBody& setPodId(string podId) { DARABONBA_PTR_SET_VALUE(podId_, podId) };
 
 
     // podUid Field Functions 
     bool hasPodUid() const { return this->podUid_ != nullptr;};
     void deletePodUid() { this->podUid_ = nullptr;};
-    inline string podUid() const { DARABONBA_PTR_GET_DEFAULT(podUid_, "") };
+    inline string getPodUid() const { DARABONBA_PTR_GET_DEFAULT(podUid_, "") };
     inline GetPodEventsResponseBody& setPodUid(string podUid) { DARABONBA_PTR_SET_VALUE(podUid_, podUid) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetPodEventsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The events returned.
-    std::shared_ptr<vector<string>> events_ = nullptr;
+    shared_ptr<vector<string>> events_ {};
     // The job ID.
-    std::shared_ptr<string> jobId_ = nullptr;
+    shared_ptr<string> jobId_ {};
     // The node ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> podId_ = nullptr;
+    shared_ptr<string> podId_ {};
     // The node UID.
-    std::shared_ptr<string> podUid_ = nullptr;
+    shared_ptr<string> podUid_ {};
     // The request ID, which can be used for troubleshooting.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

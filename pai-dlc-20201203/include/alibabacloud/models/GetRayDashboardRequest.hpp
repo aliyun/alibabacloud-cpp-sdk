@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->isShared_ == nullptr
-        && return this->token_ == nullptr; };
+        && this->token_ == nullptr; };
     // isShared Field Functions 
     bool hasIsShared() const { return this->isShared_ != nullptr;};
     void deleteIsShared() { this->isShared_ = nullptr;};
-    inline bool isShared() const { DARABONBA_PTR_GET_DEFAULT(isShared_, false) };
+    inline bool getIsShared() const { DARABONBA_PTR_GET_DEFAULT(isShared_, false) };
     inline GetRayDashboardRequest& setIsShared(bool isShared) { DARABONBA_PTR_SET_VALUE(isShared_, isShared) };
 
 
     // token Field Functions 
     bool hasToken() const { return this->token_ != nullptr;};
     void deleteToken() { this->token_ = nullptr;};
-    inline string token() const { DARABONBA_PTR_GET_DEFAULT(token_, "") };
+    inline string getToken() const { DARABONBA_PTR_GET_DEFAULT(token_, "") };
     inline GetRayDashboardRequest& setToken(string token) { DARABONBA_PTR_SET_VALUE(token_, token) };
 
 
@@ -54,9 +54,9 @@ namespace Models
     // 
     // *   true
     // *   false
-    std::shared_ptr<bool> isShared_ = nullptr;
+    shared_ptr<bool> isShared_ {};
     // The token obtained from GetToken
-    std::shared_ptr<string> token_ = nullptr;
+    shared_ptr<string> token_ {};
   };
 
   } // namespace Models

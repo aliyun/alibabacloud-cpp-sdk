@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->CPU_ == nullptr
-        && return this->GPU_ == nullptr && return this->GPUType_ == nullptr && return this->memory_ == nullptr && return this->sharedMemory_ == nullptr; };
+        && this->GPU_ == nullptr && this->GPUType_ == nullptr && this->memory_ == nullptr && this->sharedMemory_ == nullptr; };
     // CPU Field Functions 
     bool hasCPU() const { return this->CPU_ != nullptr;};
     void deleteCPU() { this->CPU_ = nullptr;};
-    inline string CPU() const { DARABONBA_PTR_GET_DEFAULT(CPU_, "") };
+    inline string getCPU() const { DARABONBA_PTR_GET_DEFAULT(CPU_, "") };
     inline ResourceConfig& setCPU(string CPU) { DARABONBA_PTR_SET_VALUE(CPU_, CPU) };
 
 
     // GPU Field Functions 
     bool hasGPU() const { return this->GPU_ != nullptr;};
     void deleteGPU() { this->GPU_ = nullptr;};
-    inline string GPU() const { DARABONBA_PTR_GET_DEFAULT(GPU_, "") };
+    inline string getGPU() const { DARABONBA_PTR_GET_DEFAULT(GPU_, "") };
     inline ResourceConfig& setGPU(string GPU) { DARABONBA_PTR_SET_VALUE(GPU_, GPU) };
 
 
     // GPUType Field Functions 
     bool hasGPUType() const { return this->GPUType_ != nullptr;};
     void deleteGPUType() { this->GPUType_ = nullptr;};
-    inline string GPUType() const { DARABONBA_PTR_GET_DEFAULT(GPUType_, "") };
+    inline string getGPUType() const { DARABONBA_PTR_GET_DEFAULT(GPUType_, "") };
     inline ResourceConfig& setGPUType(string GPUType) { DARABONBA_PTR_SET_VALUE(GPUType_, GPUType) };
 
 
     // memory Field Functions 
     bool hasMemory() const { return this->memory_ != nullptr;};
     void deleteMemory() { this->memory_ = nullptr;};
-    inline string memory() const { DARABONBA_PTR_GET_DEFAULT(memory_, "") };
+    inline string getMemory() const { DARABONBA_PTR_GET_DEFAULT(memory_, "") };
     inline ResourceConfig& setMemory(string memory) { DARABONBA_PTR_SET_VALUE(memory_, memory) };
 
 
     // sharedMemory Field Functions 
     bool hasSharedMemory() const { return this->sharedMemory_ != nullptr;};
     void deleteSharedMemory() { this->sharedMemory_ = nullptr;};
-    inline string sharedMemory() const { DARABONBA_PTR_GET_DEFAULT(sharedMemory_, "") };
+    inline string getSharedMemory() const { DARABONBA_PTR_GET_DEFAULT(sharedMemory_, "") };
     inline ResourceConfig& setSharedMemory(string sharedMemory) { DARABONBA_PTR_SET_VALUE(sharedMemory_, sharedMemory) };
 
 
   protected:
-    std::shared_ptr<string> CPU_ = nullptr;
-    std::shared_ptr<string> GPU_ = nullptr;
-    std::shared_ptr<string> GPUType_ = nullptr;
-    std::shared_ptr<string> memory_ = nullptr;
-    std::shared_ptr<string> sharedMemory_ = nullptr;
+    shared_ptr<string> CPU_ {};
+    shared_ptr<string> GPU_ {};
+    shared_ptr<string> GPUType_ {};
+    shared_ptr<string> memory_ {};
+    shared_ptr<string> sharedMemory_ {};
   };
 
   } // namespace Models

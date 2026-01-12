@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->metricName_ == nullptr
-        && return this->targetValue_ == nullptr; };
+        && this->targetValue_ == nullptr; };
     // metricName Field Functions 
     bool hasMetricName() const { return this->metricName_ != nullptr;};
     void deleteMetricName() { this->metricName_ = nullptr;};
-    inline string metricName() const { DARABONBA_PTR_GET_DEFAULT(metricName_, "") };
+    inline string getMetricName() const { DARABONBA_PTR_GET_DEFAULT(metricName_, "") };
     inline AutoscalingMetricSpec& setMetricName(string metricName) { DARABONBA_PTR_SET_VALUE(metricName_, metricName) };
 
 
     // targetValue Field Functions 
     bool hasTargetValue() const { return this->targetValue_ != nullptr;};
     void deleteTargetValue() { this->targetValue_ = nullptr;};
-    inline int32_t targetValue() const { DARABONBA_PTR_GET_DEFAULT(targetValue_, 0) };
+    inline int32_t getTargetValue() const { DARABONBA_PTR_GET_DEFAULT(targetValue_, 0) };
     inline AutoscalingMetricSpec& setTargetValue(int32_t targetValue) { DARABONBA_PTR_SET_VALUE(targetValue_, targetValue) };
 
 
   protected:
-    std::shared_ptr<string> metricName_ = nullptr;
-    std::shared_ptr<int32_t> targetValue_ = nullptr;
+    shared_ptr<string> metricName_ {};
+    shared_ptr<int32_t> targetValue_ {};
   };
 
   } // namespace Models

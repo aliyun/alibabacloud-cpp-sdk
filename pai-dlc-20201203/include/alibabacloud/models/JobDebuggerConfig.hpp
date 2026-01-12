@@ -36,40 +36,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->debuggerConfigContent_ == nullptr
-        && return this->debuggerConfigId_ == nullptr && return this->gmtCreateTime_ == nullptr && return this->jobId_ == nullptr; };
+        && this->debuggerConfigId_ == nullptr && this->gmtCreateTime_ == nullptr && this->jobId_ == nullptr; };
     // debuggerConfigContent Field Functions 
     bool hasDebuggerConfigContent() const { return this->debuggerConfigContent_ != nullptr;};
     void deleteDebuggerConfigContent() { this->debuggerConfigContent_ = nullptr;};
-    inline string debuggerConfigContent() const { DARABONBA_PTR_GET_DEFAULT(debuggerConfigContent_, "") };
+    inline string getDebuggerConfigContent() const { DARABONBA_PTR_GET_DEFAULT(debuggerConfigContent_, "") };
     inline JobDebuggerConfig& setDebuggerConfigContent(string debuggerConfigContent) { DARABONBA_PTR_SET_VALUE(debuggerConfigContent_, debuggerConfigContent) };
 
 
     // debuggerConfigId Field Functions 
     bool hasDebuggerConfigId() const { return this->debuggerConfigId_ != nullptr;};
     void deleteDebuggerConfigId() { this->debuggerConfigId_ = nullptr;};
-    inline string debuggerConfigId() const { DARABONBA_PTR_GET_DEFAULT(debuggerConfigId_, "") };
+    inline string getDebuggerConfigId() const { DARABONBA_PTR_GET_DEFAULT(debuggerConfigId_, "") };
     inline JobDebuggerConfig& setDebuggerConfigId(string debuggerConfigId) { DARABONBA_PTR_SET_VALUE(debuggerConfigId_, debuggerConfigId) };
 
 
     // gmtCreateTime Field Functions 
     bool hasGmtCreateTime() const { return this->gmtCreateTime_ != nullptr;};
     void deleteGmtCreateTime() { this->gmtCreateTime_ = nullptr;};
-    inline string gmtCreateTime() const { DARABONBA_PTR_GET_DEFAULT(gmtCreateTime_, "") };
+    inline string getGmtCreateTime() const { DARABONBA_PTR_GET_DEFAULT(gmtCreateTime_, "") };
     inline JobDebuggerConfig& setGmtCreateTime(string gmtCreateTime) { DARABONBA_PTR_SET_VALUE(gmtCreateTime_, gmtCreateTime) };
 
 
     // jobId Field Functions 
     bool hasJobId() const { return this->jobId_ != nullptr;};
     void deleteJobId() { this->jobId_ = nullptr;};
-    inline string jobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
+    inline string getJobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
     inline JobDebuggerConfig& setJobId(string jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
 
 
   protected:
-    std::shared_ptr<string> debuggerConfigContent_ = nullptr;
-    std::shared_ptr<string> debuggerConfigId_ = nullptr;
-    std::shared_ptr<string> gmtCreateTime_ = nullptr;
-    std::shared_ptr<string> jobId_ = nullptr;
+    shared_ptr<string> debuggerConfigContent_ {};
+    shared_ptr<string> debuggerConfigId_ {};
+    shared_ptr<string> gmtCreateTime_ {};
+    shared_ptr<string> jobId_ {};
   };
 
   } // namespace Models

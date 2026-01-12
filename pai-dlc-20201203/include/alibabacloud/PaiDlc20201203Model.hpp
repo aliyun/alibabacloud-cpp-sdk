@@ -2,8 +2,9 @@
 #ifndef ALIBABACLOUD_PAIDLC20201203MODEL_HPP_
 #define ALIBABACLOUD_PAIDLC20201203MODEL_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/AiMasterMessage.hpp>
+#include <alibabacloud/models/AIMasterMessage.hpp>
 #include <alibabacloud/models/AliyunAccounts.hpp>
+#include <alibabacloud/models/HyperNodeSpec.hpp>
 #include <alibabacloud/models/AssignNodeSpec.hpp>
 #include <alibabacloud/models/AssumeUserInfo.hpp>
 #include <alibabacloud/models/AutoscalingMetricSpec.hpp>
@@ -15,6 +16,7 @@
 #include <alibabacloud/models/CredentialRole.hpp>
 #include <alibabacloud/models/CredentialConfigItem.hpp>
 #include <alibabacloud/models/CredentialConfig.hpp>
+#include <alibabacloud/models/ResourceLimit.hpp>
 #include <alibabacloud/models/DataJuicerConfig.hpp>
 #include <alibabacloud/models/DataSourceItem.hpp>
 #include <alibabacloud/models/DebuggerConfig.hpp>
@@ -28,16 +30,17 @@
 #include <alibabacloud/models/FreeResourceClusterControlItem.hpp>
 #include <alibabacloud/models/FreeResourceDetail.hpp>
 #include <alibabacloud/models/FreeResourceItem.hpp>
-#include <alibabacloud/models/GpuDetail.hpp>
+#include <alibabacloud/models/GPUDetail.hpp>
 #include <alibabacloud/models/ImageConfig.hpp>
 #include <alibabacloud/models/ImageItem.hpp>
 #include <alibabacloud/models/JobDebuggerConfig.hpp>
 #include <alibabacloud/models/JobElasticSpec.hpp>
+#include <alibabacloud/models/ResourceConfig.hpp>
 #include <alibabacloud/models/JobReplicaStatus.hpp>
 #include <alibabacloud/models/LocalMountSpec.hpp>
-#include <alibabacloud/models/ResourceConfig.hpp>
 #include <alibabacloud/models/ServiceSpec.hpp>
 #include <alibabacloud/models/SpotSpec.hpp>
+#include <alibabacloud/models/StartupDependency.hpp>
 #include <alibabacloud/models/SystemDisk.hpp>
 #include <alibabacloud/models/JobSpec.hpp>
 #include <alibabacloud/models/PodNetworkInterface.hpp>
@@ -138,22 +141,5 @@
 #include <alibabacloud/models/UpdateTensorboardRequest.hpp>
 #include <alibabacloud/models/UpdateTensorboardResponseBody.hpp>
 #include <alibabacloud/models/UpdateTensorboardResponse.hpp>
-#include <alibabacloud/models/JobItemCodeSource.hpp>
-#include <alibabacloud/models/JobItemDataSources.hpp>
-#include <alibabacloud/models/JobItemUserVpc.hpp>
-#include <alibabacloud/models/LifecyclePostStartExec.hpp>
-#include <alibabacloud/models/LifecyclePostStart.hpp>
-#include <alibabacloud/models/LifecyclePreStopExec.hpp>
-#include <alibabacloud/models/LifecyclePreStop.hpp>
-#include <alibabacloud/models/CreateJobRequestCodeSource.hpp>
-#include <alibabacloud/models/CreateJobRequestDataSources.hpp>
-#include <alibabacloud/models/CreateJobRequestUserVpc.hpp>
-#include <alibabacloud/models/GetJobResponseBodyCodeSource.hpp>
-#include <alibabacloud/models/GetJobResponseBodyDataSources.hpp>
-#include <alibabacloud/models/GetJobResponseBodyPodsHistoryPods.hpp>
-#include <alibabacloud/models/GetJobResponseBodyPods.hpp>
-#include <alibabacloud/models/GetJobResponseBodyRestartRecordDetailErrorInfoList.hpp>
-#include <alibabacloud/models/GetJobResponseBodyRestartRecord.hpp>
-#include <alibabacloud/models/GetJobResponseBodyUserVpc.hpp>
 
 #endif

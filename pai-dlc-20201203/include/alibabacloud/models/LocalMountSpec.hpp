@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->localPath_ == nullptr
-        && return this->mountMode_ == nullptr && return this->mountPath_ == nullptr; };
+        && this->mountMode_ == nullptr && this->mountPath_ == nullptr; };
     // localPath Field Functions 
     bool hasLocalPath() const { return this->localPath_ != nullptr;};
     void deleteLocalPath() { this->localPath_ = nullptr;};
-    inline string localPath() const { DARABONBA_PTR_GET_DEFAULT(localPath_, "") };
+    inline string getLocalPath() const { DARABONBA_PTR_GET_DEFAULT(localPath_, "") };
     inline LocalMountSpec& setLocalPath(string localPath) { DARABONBA_PTR_SET_VALUE(localPath_, localPath) };
 
 
     // mountMode Field Functions 
     bool hasMountMode() const { return this->mountMode_ != nullptr;};
     void deleteMountMode() { this->mountMode_ = nullptr;};
-    inline string mountMode() const { DARABONBA_PTR_GET_DEFAULT(mountMode_, "") };
+    inline string getMountMode() const { DARABONBA_PTR_GET_DEFAULT(mountMode_, "") };
     inline LocalMountSpec& setMountMode(string mountMode) { DARABONBA_PTR_SET_VALUE(mountMode_, mountMode) };
 
 
     // mountPath Field Functions 
     bool hasMountPath() const { return this->mountPath_ != nullptr;};
     void deleteMountPath() { this->mountPath_ = nullptr;};
-    inline string mountPath() const { DARABONBA_PTR_GET_DEFAULT(mountPath_, "") };
+    inline string getMountPath() const { DARABONBA_PTR_GET_DEFAULT(mountPath_, "") };
     inline LocalMountSpec& setMountPath(string mountPath) { DARABONBA_PTR_SET_VALUE(mountPath_, mountPath) };
 
 
   protected:
-    std::shared_ptr<string> localPath_ = nullptr;
-    std::shared_ptr<string> mountMode_ = nullptr;
-    std::shared_ptr<string> mountPath_ = nullptr;
+    shared_ptr<string> localPath_ {};
+    shared_ptr<string> mountMode_ {};
+    shared_ptr<string> mountPath_ {};
   };
 
   } // namespace Models

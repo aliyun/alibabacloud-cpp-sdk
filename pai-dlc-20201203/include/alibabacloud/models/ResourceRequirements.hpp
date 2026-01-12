@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->limits_ == nullptr
-        && return this->requests_ == nullptr; };
+        && this->requests_ == nullptr; };
     // limits Field Functions 
     bool hasLimits() const { return this->limits_ != nullptr;};
     void deleteLimits() { this->limits_ = nullptr;};
-    inline const map<string, string> & limits() const { DARABONBA_PTR_GET_CONST(limits_, map<string, string>) };
-    inline map<string, string> limits() { DARABONBA_PTR_GET(limits_, map<string, string>) };
+    inline const map<string, string> & getLimits() const { DARABONBA_PTR_GET_CONST(limits_, map<string, string>) };
+    inline map<string, string> getLimits() { DARABONBA_PTR_GET(limits_, map<string, string>) };
     inline ResourceRequirements& setLimits(const map<string, string> & limits) { DARABONBA_PTR_SET_VALUE(limits_, limits) };
     inline ResourceRequirements& setLimits(map<string, string> && limits) { DARABONBA_PTR_SET_RVALUE(limits_, limits) };
 
@@ -46,15 +46,15 @@ namespace Models
     // requests Field Functions 
     bool hasRequests() const { return this->requests_ != nullptr;};
     void deleteRequests() { this->requests_ = nullptr;};
-    inline const map<string, string> & requests() const { DARABONBA_PTR_GET_CONST(requests_, map<string, string>) };
-    inline map<string, string> requests() { DARABONBA_PTR_GET(requests_, map<string, string>) };
+    inline const map<string, string> & getRequests() const { DARABONBA_PTR_GET_CONST(requests_, map<string, string>) };
+    inline map<string, string> getRequests() { DARABONBA_PTR_GET(requests_, map<string, string>) };
     inline ResourceRequirements& setRequests(const map<string, string> & requests) { DARABONBA_PTR_SET_VALUE(requests_, requests) };
     inline ResourceRequirements& setRequests(map<string, string> && requests) { DARABONBA_PTR_SET_RVALUE(requests_, requests) };
 
 
   protected:
-    std::shared_ptr<map<string, string>> limits_ = nullptr;
-    std::shared_ptr<map<string, string>> requests_ = nullptr;
+    shared_ptr<map<string, string>> limits_ {};
+    shared_ptr<map<string, string>> requests_ {};
   };
 
   } // namespace Models

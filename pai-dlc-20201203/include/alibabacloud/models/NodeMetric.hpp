@@ -34,12 +34,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->metrics_ == nullptr
-        && return this->nodeName_ == nullptr; };
+        && this->nodeName_ == nullptr; };
     // metrics Field Functions 
     bool hasMetrics() const { return this->metrics_ != nullptr;};
     void deleteMetrics() { this->metrics_ = nullptr;};
-    inline const vector<Metric> & metrics() const { DARABONBA_PTR_GET_CONST(metrics_, vector<Metric>) };
-    inline vector<Metric> metrics() { DARABONBA_PTR_GET(metrics_, vector<Metric>) };
+    inline const vector<Metric> & getMetrics() const { DARABONBA_PTR_GET_CONST(metrics_, vector<Metric>) };
+    inline vector<Metric> getMetrics() { DARABONBA_PTR_GET(metrics_, vector<Metric>) };
     inline NodeMetric& setMetrics(const vector<Metric> & metrics) { DARABONBA_PTR_SET_VALUE(metrics_, metrics) };
     inline NodeMetric& setMetrics(vector<Metric> && metrics) { DARABONBA_PTR_SET_RVALUE(metrics_, metrics) };
 
@@ -47,13 +47,13 @@ namespace Models
     // nodeName Field Functions 
     bool hasNodeName() const { return this->nodeName_ != nullptr;};
     void deleteNodeName() { this->nodeName_ = nullptr;};
-    inline string nodeName() const { DARABONBA_PTR_GET_DEFAULT(nodeName_, "") };
+    inline string getNodeName() const { DARABONBA_PTR_GET_DEFAULT(nodeName_, "") };
     inline NodeMetric& setNodeName(string nodeName) { DARABONBA_PTR_SET_VALUE(nodeName_, nodeName) };
 
 
   protected:
-    std::shared_ptr<vector<Metric>> metrics_ = nullptr;
-    std::shared_ptr<string> nodeName_ = nullptr;
+    shared_ptr<vector<Metric>> metrics_ {};
+    shared_ptr<string> nodeName_ {};
   };
 
   } // namespace Models

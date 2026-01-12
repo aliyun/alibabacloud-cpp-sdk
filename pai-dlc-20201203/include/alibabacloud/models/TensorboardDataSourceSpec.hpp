@@ -44,73 +44,73 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dataSourceType_ == nullptr
-        && return this->directoryName_ == nullptr && return this->fullSummaryPath_ == nullptr && return this->id_ == nullptr && return this->name_ == nullptr && return this->sourceType_ == nullptr
-        && return this->summaryPath_ == nullptr && return this->uri_ == nullptr; };
+        && this->directoryName_ == nullptr && this->fullSummaryPath_ == nullptr && this->id_ == nullptr && this->name_ == nullptr && this->sourceType_ == nullptr
+        && this->summaryPath_ == nullptr && this->uri_ == nullptr; };
     // dataSourceType Field Functions 
     bool hasDataSourceType() const { return this->dataSourceType_ != nullptr;};
     void deleteDataSourceType() { this->dataSourceType_ = nullptr;};
-    inline string dataSourceType() const { DARABONBA_PTR_GET_DEFAULT(dataSourceType_, "") };
+    inline string getDataSourceType() const { DARABONBA_PTR_GET_DEFAULT(dataSourceType_, "") };
     inline TensorboardDataSourceSpec& setDataSourceType(string dataSourceType) { DARABONBA_PTR_SET_VALUE(dataSourceType_, dataSourceType) };
 
 
     // directoryName Field Functions 
     bool hasDirectoryName() const { return this->directoryName_ != nullptr;};
     void deleteDirectoryName() { this->directoryName_ = nullptr;};
-    inline string directoryName() const { DARABONBA_PTR_GET_DEFAULT(directoryName_, "") };
+    inline string getDirectoryName() const { DARABONBA_PTR_GET_DEFAULT(directoryName_, "") };
     inline TensorboardDataSourceSpec& setDirectoryName(string directoryName) { DARABONBA_PTR_SET_VALUE(directoryName_, directoryName) };
 
 
     // fullSummaryPath Field Functions 
     bool hasFullSummaryPath() const { return this->fullSummaryPath_ != nullptr;};
     void deleteFullSummaryPath() { this->fullSummaryPath_ = nullptr;};
-    inline string fullSummaryPath() const { DARABONBA_PTR_GET_DEFAULT(fullSummaryPath_, "") };
+    inline string getFullSummaryPath() const { DARABONBA_PTR_GET_DEFAULT(fullSummaryPath_, "") };
     inline TensorboardDataSourceSpec& setFullSummaryPath(string fullSummaryPath) { DARABONBA_PTR_SET_VALUE(fullSummaryPath_, fullSummaryPath) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline string id() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+    inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline TensorboardDataSourceSpec& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline TensorboardDataSourceSpec& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // sourceType Field Functions 
     bool hasSourceType() const { return this->sourceType_ != nullptr;};
     void deleteSourceType() { this->sourceType_ = nullptr;};
-    inline string sourceType() const { DARABONBA_PTR_GET_DEFAULT(sourceType_, "") };
+    inline string getSourceType() const { DARABONBA_PTR_GET_DEFAULT(sourceType_, "") };
     inline TensorboardDataSourceSpec& setSourceType(string sourceType) { DARABONBA_PTR_SET_VALUE(sourceType_, sourceType) };
 
 
     // summaryPath Field Functions 
     bool hasSummaryPath() const { return this->summaryPath_ != nullptr;};
     void deleteSummaryPath() { this->summaryPath_ = nullptr;};
-    inline string summaryPath() const { DARABONBA_PTR_GET_DEFAULT(summaryPath_, "") };
+    inline string getSummaryPath() const { DARABONBA_PTR_GET_DEFAULT(summaryPath_, "") };
     inline TensorboardDataSourceSpec& setSummaryPath(string summaryPath) { DARABONBA_PTR_SET_VALUE(summaryPath_, summaryPath) };
 
 
     // uri Field Functions 
     bool hasUri() const { return this->uri_ != nullptr;};
     void deleteUri() { this->uri_ = nullptr;};
-    inline string uri() const { DARABONBA_PTR_GET_DEFAULT(uri_, "") };
+    inline string getUri() const { DARABONBA_PTR_GET_DEFAULT(uri_, "") };
     inline TensorboardDataSourceSpec& setUri(string uri) { DARABONBA_PTR_SET_VALUE(uri_, uri) };
 
 
   protected:
-    std::shared_ptr<string> dataSourceType_ = nullptr;
-    std::shared_ptr<string> directoryName_ = nullptr;
-    std::shared_ptr<string> fullSummaryPath_ = nullptr;
-    std::shared_ptr<string> id_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> sourceType_ = nullptr;
-    std::shared_ptr<string> summaryPath_ = nullptr;
-    std::shared_ptr<string> uri_ = nullptr;
+    shared_ptr<string> dataSourceType_ {};
+    shared_ptr<string> directoryName_ {};
+    shared_ptr<string> fullSummaryPath_ {};
+    shared_ptr<string> id_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<string> sourceType_ {};
+    shared_ptr<string> summaryPath_ {};
+    shared_ptr<string> uri_ {};
   };
 
   } // namespace Models

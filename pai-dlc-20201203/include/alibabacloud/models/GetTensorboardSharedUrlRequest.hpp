@@ -33,13 +33,13 @@ namespace Models
     // expireTimeSeconds Field Functions 
     bool hasExpireTimeSeconds() const { return this->expireTimeSeconds_ != nullptr;};
     void deleteExpireTimeSeconds() { this->expireTimeSeconds_ = nullptr;};
-    inline string expireTimeSeconds() const { DARABONBA_PTR_GET_DEFAULT(expireTimeSeconds_, "") };
+    inline string getExpireTimeSeconds() const { DARABONBA_PTR_GET_DEFAULT(expireTimeSeconds_, "") };
     inline GetTensorboardSharedUrlRequest& setExpireTimeSeconds(string expireTimeSeconds) { DARABONBA_PTR_SET_VALUE(expireTimeSeconds_, expireTimeSeconds) };
 
 
   protected:
     // The validity period of the shareable link. Unit: seconds. Maximum value: 604800.
-    std::shared_ptr<string> expireTimeSeconds_ = nullptr;
+    shared_ptr<string> expireTimeSeconds_ {};
   };
 
   } // namespace Models

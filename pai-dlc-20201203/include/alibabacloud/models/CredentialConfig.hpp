@@ -36,19 +36,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aliyunEnvRoleKey_ == nullptr
-        && return this->credentialConfigItems_ == nullptr && return this->enableCredentialInject_ == nullptr; };
+        && this->credentialConfigItems_ == nullptr && this->enableCredentialInject_ == nullptr; };
     // aliyunEnvRoleKey Field Functions 
     bool hasAliyunEnvRoleKey() const { return this->aliyunEnvRoleKey_ != nullptr;};
     void deleteAliyunEnvRoleKey() { this->aliyunEnvRoleKey_ = nullptr;};
-    inline string aliyunEnvRoleKey() const { DARABONBA_PTR_GET_DEFAULT(aliyunEnvRoleKey_, "") };
+    inline string getAliyunEnvRoleKey() const { DARABONBA_PTR_GET_DEFAULT(aliyunEnvRoleKey_, "") };
     inline CredentialConfig& setAliyunEnvRoleKey(string aliyunEnvRoleKey) { DARABONBA_PTR_SET_VALUE(aliyunEnvRoleKey_, aliyunEnvRoleKey) };
 
 
     // credentialConfigItems Field Functions 
     bool hasCredentialConfigItems() const { return this->credentialConfigItems_ != nullptr;};
     void deleteCredentialConfigItems() { this->credentialConfigItems_ = nullptr;};
-    inline const vector<CredentialConfigItem> & credentialConfigItems() const { DARABONBA_PTR_GET_CONST(credentialConfigItems_, vector<CredentialConfigItem>) };
-    inline vector<CredentialConfigItem> credentialConfigItems() { DARABONBA_PTR_GET(credentialConfigItems_, vector<CredentialConfigItem>) };
+    inline const vector<CredentialConfigItem> & getCredentialConfigItems() const { DARABONBA_PTR_GET_CONST(credentialConfigItems_, vector<CredentialConfigItem>) };
+    inline vector<CredentialConfigItem> getCredentialConfigItems() { DARABONBA_PTR_GET(credentialConfigItems_, vector<CredentialConfigItem>) };
     inline CredentialConfig& setCredentialConfigItems(const vector<CredentialConfigItem> & credentialConfigItems) { DARABONBA_PTR_SET_VALUE(credentialConfigItems_, credentialConfigItems) };
     inline CredentialConfig& setCredentialConfigItems(vector<CredentialConfigItem> && credentialConfigItems) { DARABONBA_PTR_SET_RVALUE(credentialConfigItems_, credentialConfigItems) };
 
@@ -56,14 +56,14 @@ namespace Models
     // enableCredentialInject Field Functions 
     bool hasEnableCredentialInject() const { return this->enableCredentialInject_ != nullptr;};
     void deleteEnableCredentialInject() { this->enableCredentialInject_ = nullptr;};
-    inline bool enableCredentialInject() const { DARABONBA_PTR_GET_DEFAULT(enableCredentialInject_, false) };
+    inline bool getEnableCredentialInject() const { DARABONBA_PTR_GET_DEFAULT(enableCredentialInject_, false) };
     inline CredentialConfig& setEnableCredentialInject(bool enableCredentialInject) { DARABONBA_PTR_SET_VALUE(enableCredentialInject_, enableCredentialInject) };
 
 
   protected:
-    std::shared_ptr<string> aliyunEnvRoleKey_ = nullptr;
-    std::shared_ptr<vector<CredentialConfigItem>> credentialConfigItems_ = nullptr;
-    std::shared_ptr<bool> enableCredentialInject_ = nullptr;
+    shared_ptr<string> aliyunEnvRoleKey_ {};
+    shared_ptr<vector<CredentialConfigItem>> credentialConfigItems_ {};
+    shared_ptr<bool> enableCredentialInject_ {};
   };
 
   } // namespace Models

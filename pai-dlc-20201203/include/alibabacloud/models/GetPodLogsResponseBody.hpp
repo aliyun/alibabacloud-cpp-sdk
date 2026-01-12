@@ -39,19 +39,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->jobId_ == nullptr
-        && return this->logs_ == nullptr && return this->podId_ == nullptr && return this->podUid_ == nullptr && return this->requestId_ == nullptr; };
+        && this->logs_ == nullptr && this->podId_ == nullptr && this->podUid_ == nullptr && this->requestId_ == nullptr; };
     // jobId Field Functions 
     bool hasJobId() const { return this->jobId_ != nullptr;};
     void deleteJobId() { this->jobId_ = nullptr;};
-    inline string jobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
+    inline string getJobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
     inline GetPodLogsResponseBody& setJobId(string jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
 
 
     // logs Field Functions 
     bool hasLogs() const { return this->logs_ != nullptr;};
     void deleteLogs() { this->logs_ = nullptr;};
-    inline const vector<string> & logs() const { DARABONBA_PTR_GET_CONST(logs_, vector<string>) };
-    inline vector<string> logs() { DARABONBA_PTR_GET(logs_, vector<string>) };
+    inline const vector<string> & getLogs() const { DARABONBA_PTR_GET_CONST(logs_, vector<string>) };
+    inline vector<string> getLogs() { DARABONBA_PTR_GET(logs_, vector<string>) };
     inline GetPodLogsResponseBody& setLogs(const vector<string> & logs) { DARABONBA_PTR_SET_VALUE(logs_, logs) };
     inline GetPodLogsResponseBody& setLogs(vector<string> && logs) { DARABONBA_PTR_SET_RVALUE(logs_, logs) };
 
@@ -59,35 +59,35 @@ namespace Models
     // podId Field Functions 
     bool hasPodId() const { return this->podId_ != nullptr;};
     void deletePodId() { this->podId_ = nullptr;};
-    inline string podId() const { DARABONBA_PTR_GET_DEFAULT(podId_, "") };
+    inline string getPodId() const { DARABONBA_PTR_GET_DEFAULT(podId_, "") };
     inline GetPodLogsResponseBody& setPodId(string podId) { DARABONBA_PTR_SET_VALUE(podId_, podId) };
 
 
     // podUid Field Functions 
     bool hasPodUid() const { return this->podUid_ != nullptr;};
     void deletePodUid() { this->podUid_ = nullptr;};
-    inline string podUid() const { DARABONBA_PTR_GET_DEFAULT(podUid_, "") };
+    inline string getPodUid() const { DARABONBA_PTR_GET_DEFAULT(podUid_, "") };
     inline GetPodLogsResponseBody& setPodUid(string podUid) { DARABONBA_PTR_SET_VALUE(podUid_, podUid) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetPodLogsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The job ID.
-    std::shared_ptr<string> jobId_ = nullptr;
+    shared_ptr<string> jobId_ {};
     // The logs.
-    std::shared_ptr<vector<string>> logs_ = nullptr;
+    shared_ptr<vector<string>> logs_ {};
     // The node ID.
-    std::shared_ptr<string> podId_ = nullptr;
+    shared_ptr<string> podId_ {};
     // The instance UID.
-    std::shared_ptr<string> podUid_ = nullptr;
+    shared_ptr<string> podUid_ {};
     // The request ID which is used for diagnostics and Q\\&A.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

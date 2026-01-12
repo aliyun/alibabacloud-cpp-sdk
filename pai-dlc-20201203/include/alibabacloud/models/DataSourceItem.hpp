@@ -52,106 +52,106 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dataSourceId_ == nullptr
-        && return this->dataSourceType_ == nullptr && return this->description_ == nullptr && return this->displayName_ == nullptr && return this->endpoint_ == nullptr && return this->fileSystemId_ == nullptr
-        && return this->gmtCreateTime_ == nullptr && return this->gmtModifyTime_ == nullptr && return this->mountPath_ == nullptr && return this->options_ == nullptr && return this->path_ == nullptr
-        && return this->userId_ == nullptr; };
+        && this->dataSourceType_ == nullptr && this->description_ == nullptr && this->displayName_ == nullptr && this->endpoint_ == nullptr && this->fileSystemId_ == nullptr
+        && this->gmtCreateTime_ == nullptr && this->gmtModifyTime_ == nullptr && this->mountPath_ == nullptr && this->options_ == nullptr && this->path_ == nullptr
+        && this->userId_ == nullptr; };
     // dataSourceId Field Functions 
     bool hasDataSourceId() const { return this->dataSourceId_ != nullptr;};
     void deleteDataSourceId() { this->dataSourceId_ = nullptr;};
-    inline string dataSourceId() const { DARABONBA_PTR_GET_DEFAULT(dataSourceId_, "") };
+    inline string getDataSourceId() const { DARABONBA_PTR_GET_DEFAULT(dataSourceId_, "") };
     inline DataSourceItem& setDataSourceId(string dataSourceId) { DARABONBA_PTR_SET_VALUE(dataSourceId_, dataSourceId) };
 
 
     // dataSourceType Field Functions 
     bool hasDataSourceType() const { return this->dataSourceType_ != nullptr;};
     void deleteDataSourceType() { this->dataSourceType_ = nullptr;};
-    inline string dataSourceType() const { DARABONBA_PTR_GET_DEFAULT(dataSourceType_, "") };
+    inline string getDataSourceType() const { DARABONBA_PTR_GET_DEFAULT(dataSourceType_, "") };
     inline DataSourceItem& setDataSourceType(string dataSourceType) { DARABONBA_PTR_SET_VALUE(dataSourceType_, dataSourceType) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline DataSourceItem& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // displayName Field Functions 
     bool hasDisplayName() const { return this->displayName_ != nullptr;};
     void deleteDisplayName() { this->displayName_ = nullptr;};
-    inline string displayName() const { DARABONBA_PTR_GET_DEFAULT(displayName_, "") };
+    inline string getDisplayName() const { DARABONBA_PTR_GET_DEFAULT(displayName_, "") };
     inline DataSourceItem& setDisplayName(string displayName) { DARABONBA_PTR_SET_VALUE(displayName_, displayName) };
 
 
     // endpoint Field Functions 
     bool hasEndpoint() const { return this->endpoint_ != nullptr;};
     void deleteEndpoint() { this->endpoint_ = nullptr;};
-    inline string endpoint() const { DARABONBA_PTR_GET_DEFAULT(endpoint_, "") };
+    inline string getEndpoint() const { DARABONBA_PTR_GET_DEFAULT(endpoint_, "") };
     inline DataSourceItem& setEndpoint(string endpoint) { DARABONBA_PTR_SET_VALUE(endpoint_, endpoint) };
 
 
     // fileSystemId Field Functions 
     bool hasFileSystemId() const { return this->fileSystemId_ != nullptr;};
     void deleteFileSystemId() { this->fileSystemId_ = nullptr;};
-    inline string fileSystemId() const { DARABONBA_PTR_GET_DEFAULT(fileSystemId_, "") };
+    inline string getFileSystemId() const { DARABONBA_PTR_GET_DEFAULT(fileSystemId_, "") };
     inline DataSourceItem& setFileSystemId(string fileSystemId) { DARABONBA_PTR_SET_VALUE(fileSystemId_, fileSystemId) };
 
 
     // gmtCreateTime Field Functions 
     bool hasGmtCreateTime() const { return this->gmtCreateTime_ != nullptr;};
     void deleteGmtCreateTime() { this->gmtCreateTime_ = nullptr;};
-    inline string gmtCreateTime() const { DARABONBA_PTR_GET_DEFAULT(gmtCreateTime_, "") };
+    inline string getGmtCreateTime() const { DARABONBA_PTR_GET_DEFAULT(gmtCreateTime_, "") };
     inline DataSourceItem& setGmtCreateTime(string gmtCreateTime) { DARABONBA_PTR_SET_VALUE(gmtCreateTime_, gmtCreateTime) };
 
 
     // gmtModifyTime Field Functions 
     bool hasGmtModifyTime() const { return this->gmtModifyTime_ != nullptr;};
     void deleteGmtModifyTime() { this->gmtModifyTime_ = nullptr;};
-    inline string gmtModifyTime() const { DARABONBA_PTR_GET_DEFAULT(gmtModifyTime_, "") };
+    inline string getGmtModifyTime() const { DARABONBA_PTR_GET_DEFAULT(gmtModifyTime_, "") };
     inline DataSourceItem& setGmtModifyTime(string gmtModifyTime) { DARABONBA_PTR_SET_VALUE(gmtModifyTime_, gmtModifyTime) };
 
 
     // mountPath Field Functions 
     bool hasMountPath() const { return this->mountPath_ != nullptr;};
     void deleteMountPath() { this->mountPath_ = nullptr;};
-    inline string mountPath() const { DARABONBA_PTR_GET_DEFAULT(mountPath_, "") };
+    inline string getMountPath() const { DARABONBA_PTR_GET_DEFAULT(mountPath_, "") };
     inline DataSourceItem& setMountPath(string mountPath) { DARABONBA_PTR_SET_VALUE(mountPath_, mountPath) };
 
 
     // options Field Functions 
     bool hasOptions() const { return this->options_ != nullptr;};
     void deleteOptions() { this->options_ = nullptr;};
-    inline string options() const { DARABONBA_PTR_GET_DEFAULT(options_, "") };
+    inline string getOptions() const { DARABONBA_PTR_GET_DEFAULT(options_, "") };
     inline DataSourceItem& setOptions(string options) { DARABONBA_PTR_SET_VALUE(options_, options) };
 
 
     // path Field Functions 
     bool hasPath() const { return this->path_ != nullptr;};
     void deletePath() { this->path_ = nullptr;};
-    inline string path() const { DARABONBA_PTR_GET_DEFAULT(path_, "") };
+    inline string getPath() const { DARABONBA_PTR_GET_DEFAULT(path_, "") };
     inline DataSourceItem& setPath(string path) { DARABONBA_PTR_SET_VALUE(path_, path) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline DataSourceItem& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
   protected:
-    std::shared_ptr<string> dataSourceId_ = nullptr;
-    std::shared_ptr<string> dataSourceType_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<string> displayName_ = nullptr;
-    std::shared_ptr<string> endpoint_ = nullptr;
-    std::shared_ptr<string> fileSystemId_ = nullptr;
-    std::shared_ptr<string> gmtCreateTime_ = nullptr;
-    std::shared_ptr<string> gmtModifyTime_ = nullptr;
-    std::shared_ptr<string> mountPath_ = nullptr;
-    std::shared_ptr<string> options_ = nullptr;
-    std::shared_ptr<string> path_ = nullptr;
-    std::shared_ptr<string> userId_ = nullptr;
+    shared_ptr<string> dataSourceId_ {};
+    shared_ptr<string> dataSourceType_ {};
+    shared_ptr<string> description_ {};
+    shared_ptr<string> displayName_ {};
+    shared_ptr<string> endpoint_ {};
+    shared_ptr<string> fileSystemId_ {};
+    shared_ptr<string> gmtCreateTime_ {};
+    shared_ptr<string> gmtModifyTime_ {};
+    shared_ptr<string> mountPath_ {};
+    shared_ptr<string> options_ {};
+    shared_ptr<string> path_ {};
+    shared_ptr<string> userId_ {};
   };
 
   } // namespace Models

@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->interfaceName_ == nullptr
-        && return this->ip_ == nullptr; };
+        && this->ip_ == nullptr; };
     // interfaceName Field Functions 
     bool hasInterfaceName() const { return this->interfaceName_ != nullptr;};
     void deleteInterfaceName() { this->interfaceName_ = nullptr;};
-    inline string interfaceName() const { DARABONBA_PTR_GET_DEFAULT(interfaceName_, "") };
+    inline string getInterfaceName() const { DARABONBA_PTR_GET_DEFAULT(interfaceName_, "") };
     inline PodNetworkInterface& setInterfaceName(string interfaceName) { DARABONBA_PTR_SET_VALUE(interfaceName_, interfaceName) };
 
 
     // ip Field Functions 
     bool hasIp() const { return this->ip_ != nullptr;};
     void deleteIp() { this->ip_ = nullptr;};
-    inline string ip() const { DARABONBA_PTR_GET_DEFAULT(ip_, "") };
+    inline string getIp() const { DARABONBA_PTR_GET_DEFAULT(ip_, "") };
     inline PodNetworkInterface& setIp(string ip) { DARABONBA_PTR_SET_VALUE(ip_, ip) };
 
 
   protected:
-    std::shared_ptr<string> interfaceName_ = nullptr;
-    std::shared_ptr<string> ip_ = nullptr;
+    shared_ptr<string> interfaceName_ {};
+    shared_ptr<string> ip_ {};
   };
 
   } // namespace Models

@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->endTime_ == nullptr
-        && return this->maxEventsNum_ == nullptr && return this->startTime_ == nullptr; };
+        && this->maxEventsNum_ == nullptr && this->startTime_ == nullptr; };
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline GetJobEventsRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // maxEventsNum Field Functions 
     bool hasMaxEventsNum() const { return this->maxEventsNum_ != nullptr;};
     void deleteMaxEventsNum() { this->maxEventsNum_ = nullptr;};
-    inline int32_t maxEventsNum() const { DARABONBA_PTR_GET_DEFAULT(maxEventsNum_, 0) };
+    inline int32_t getMaxEventsNum() const { DARABONBA_PTR_GET_DEFAULT(maxEventsNum_, 0) };
     inline GetJobEventsRequest& setMaxEventsNum(int32_t maxEventsNum) { DARABONBA_PTR_SET_VALUE(maxEventsNum_, maxEventsNum) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline GetJobEventsRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
   protected:
     // The end time (UTC) of the time range for querying events. The default value is the current time.
-    std::shared_ptr<string> endTime_ = nullptr;
+    shared_ptr<string> endTime_ {};
     // The maximum number of events that can be returned. Default value: 2000.
-    std::shared_ptr<int32_t> maxEventsNum_ = nullptr;
+    shared_ptr<int32_t> maxEventsNum_ {};
     // The start time (UTC) of the time range for querying events. The default value is 7 days ago.
-    std::shared_ptr<string> startTime_ = nullptr;
+    shared_ptr<string> startTime_ {};
   };
 
   } // namespace Models

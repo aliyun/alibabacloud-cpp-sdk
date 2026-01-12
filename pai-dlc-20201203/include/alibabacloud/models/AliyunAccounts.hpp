@@ -36,40 +36,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aliyunUid_ == nullptr
-        && return this->employeeId_ == nullptr && return this->gmtCreateTime_ == nullptr && return this->gmtModifyTime_ == nullptr; };
+        && this->employeeId_ == nullptr && this->gmtCreateTime_ == nullptr && this->gmtModifyTime_ == nullptr; };
     // aliyunUid Field Functions 
     bool hasAliyunUid() const { return this->aliyunUid_ != nullptr;};
     void deleteAliyunUid() { this->aliyunUid_ = nullptr;};
-    inline string aliyunUid() const { DARABONBA_PTR_GET_DEFAULT(aliyunUid_, "") };
+    inline string getAliyunUid() const { DARABONBA_PTR_GET_DEFAULT(aliyunUid_, "") };
     inline AliyunAccounts& setAliyunUid(string aliyunUid) { DARABONBA_PTR_SET_VALUE(aliyunUid_, aliyunUid) };
 
 
     // employeeId Field Functions 
     bool hasEmployeeId() const { return this->employeeId_ != nullptr;};
     void deleteEmployeeId() { this->employeeId_ = nullptr;};
-    inline string employeeId() const { DARABONBA_PTR_GET_DEFAULT(employeeId_, "") };
+    inline string getEmployeeId() const { DARABONBA_PTR_GET_DEFAULT(employeeId_, "") };
     inline AliyunAccounts& setEmployeeId(string employeeId) { DARABONBA_PTR_SET_VALUE(employeeId_, employeeId) };
 
 
     // gmtCreateTime Field Functions 
     bool hasGmtCreateTime() const { return this->gmtCreateTime_ != nullptr;};
     void deleteGmtCreateTime() { this->gmtCreateTime_ = nullptr;};
-    inline string gmtCreateTime() const { DARABONBA_PTR_GET_DEFAULT(gmtCreateTime_, "") };
+    inline string getGmtCreateTime() const { DARABONBA_PTR_GET_DEFAULT(gmtCreateTime_, "") };
     inline AliyunAccounts& setGmtCreateTime(string gmtCreateTime) { DARABONBA_PTR_SET_VALUE(gmtCreateTime_, gmtCreateTime) };
 
 
     // gmtModifyTime Field Functions 
     bool hasGmtModifyTime() const { return this->gmtModifyTime_ != nullptr;};
     void deleteGmtModifyTime() { this->gmtModifyTime_ = nullptr;};
-    inline string gmtModifyTime() const { DARABONBA_PTR_GET_DEFAULT(gmtModifyTime_, "") };
+    inline string getGmtModifyTime() const { DARABONBA_PTR_GET_DEFAULT(gmtModifyTime_, "") };
     inline AliyunAccounts& setGmtModifyTime(string gmtModifyTime) { DARABONBA_PTR_SET_VALUE(gmtModifyTime_, gmtModifyTime) };
 
 
   protected:
-    std::shared_ptr<string> aliyunUid_ = nullptr;
-    std::shared_ptr<string> employeeId_ = nullptr;
-    std::shared_ptr<string> gmtCreateTime_ = nullptr;
-    std::shared_ptr<string> gmtModifyTime_ = nullptr;
+    shared_ptr<string> aliyunUid_ {};
+    shared_ptr<string> employeeId_ {};
+    shared_ptr<string> gmtCreateTime_ {};
+    shared_ptr<string> gmtModifyTime_ {};
   };
 
   } // namespace Models

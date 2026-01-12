@@ -33,13 +33,13 @@ namespace Models
     // needDetail Field Functions 
     bool hasNeedDetail() const { return this->needDetail_ != nullptr;};
     void deleteNeedDetail() { this->needDetail_ = nullptr;};
-    inline bool needDetail() const { DARABONBA_PTR_GET_DEFAULT(needDetail_, false) };
+    inline bool getNeedDetail() const { DARABONBA_PTR_GET_DEFAULT(needDetail_, false) };
     inline GetJobRequest& setNeedDetail(bool needDetail) { DARABONBA_PTR_SET_VALUE(needDetail_, needDetail) };
 
 
   protected:
     // Specifies whether to return the job details. Default value: true.
-    std::shared_ptr<bool> needDetail_ = nullptr;
+    shared_ptr<bool> needDetail_ {};
   };
 
   } // namespace Models

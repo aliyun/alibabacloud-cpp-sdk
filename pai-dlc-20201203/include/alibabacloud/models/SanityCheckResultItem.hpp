@@ -40,56 +40,56 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->checkNumber_ == nullptr
-        && return this->finishedAt_ == nullptr && return this->message_ == nullptr && return this->phase_ == nullptr && return this->startedAt_ == nullptr && return this->status_ == nullptr; };
+        && this->finishedAt_ == nullptr && this->message_ == nullptr && this->phase_ == nullptr && this->startedAt_ == nullptr && this->status_ == nullptr; };
     // checkNumber Field Functions 
     bool hasCheckNumber() const { return this->checkNumber_ != nullptr;};
     void deleteCheckNumber() { this->checkNumber_ = nullptr;};
-    inline int32_t checkNumber() const { DARABONBA_PTR_GET_DEFAULT(checkNumber_, 0) };
+    inline int32_t getCheckNumber() const { DARABONBA_PTR_GET_DEFAULT(checkNumber_, 0) };
     inline SanityCheckResultItem& setCheckNumber(int32_t checkNumber) { DARABONBA_PTR_SET_VALUE(checkNumber_, checkNumber) };
 
 
     // finishedAt Field Functions 
     bool hasFinishedAt() const { return this->finishedAt_ != nullptr;};
     void deleteFinishedAt() { this->finishedAt_ = nullptr;};
-    inline string finishedAt() const { DARABONBA_PTR_GET_DEFAULT(finishedAt_, "") };
+    inline string getFinishedAt() const { DARABONBA_PTR_GET_DEFAULT(finishedAt_, "") };
     inline SanityCheckResultItem& setFinishedAt(string finishedAt) { DARABONBA_PTR_SET_VALUE(finishedAt_, finishedAt) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline SanityCheckResultItem& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // phase Field Functions 
     bool hasPhase() const { return this->phase_ != nullptr;};
     void deletePhase() { this->phase_ = nullptr;};
-    inline string phase() const { DARABONBA_PTR_GET_DEFAULT(phase_, "") };
+    inline string getPhase() const { DARABONBA_PTR_GET_DEFAULT(phase_, "") };
     inline SanityCheckResultItem& setPhase(string phase) { DARABONBA_PTR_SET_VALUE(phase_, phase) };
 
 
     // startedAt Field Functions 
     bool hasStartedAt() const { return this->startedAt_ != nullptr;};
     void deleteStartedAt() { this->startedAt_ = nullptr;};
-    inline string startedAt() const { DARABONBA_PTR_GET_DEFAULT(startedAt_, "") };
+    inline string getStartedAt() const { DARABONBA_PTR_GET_DEFAULT(startedAt_, "") };
     inline SanityCheckResultItem& setStartedAt(string startedAt) { DARABONBA_PTR_SET_VALUE(startedAt_, startedAt) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline SanityCheckResultItem& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
   protected:
-    std::shared_ptr<int32_t> checkNumber_ = nullptr;
-    std::shared_ptr<string> finishedAt_ = nullptr;
-    std::shared_ptr<string> message_ = nullptr;
-    std::shared_ptr<string> phase_ = nullptr;
-    std::shared_ptr<string> startedAt_ = nullptr;
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<int32_t> checkNumber_ {};
+    shared_ptr<string> finishedAt_ {};
+    shared_ptr<string> message_ {};
+    shared_ptr<string> phase_ {};
+    shared_ptr<string> startedAt_ {};
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models

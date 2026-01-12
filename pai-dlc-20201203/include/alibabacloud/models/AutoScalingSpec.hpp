@@ -40,12 +40,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoscalingMetricSpec_ == nullptr
-        && return this->maxReplicas_ == nullptr && return this->minReplicas_ == nullptr && return this->podsToDelete_ == nullptr && return this->scalingStrategy_ == nullptr; };
+        && this->maxReplicas_ == nullptr && this->minReplicas_ == nullptr && this->podsToDelete_ == nullptr && this->scalingStrategy_ == nullptr; };
     // autoscalingMetricSpec Field Functions 
     bool hasAutoscalingMetricSpec() const { return this->autoscalingMetricSpec_ != nullptr;};
     void deleteAutoscalingMetricSpec() { this->autoscalingMetricSpec_ = nullptr;};
-    inline const AutoscalingMetricSpec & autoscalingMetricSpec() const { DARABONBA_PTR_GET_CONST(autoscalingMetricSpec_, AutoscalingMetricSpec) };
-    inline AutoscalingMetricSpec autoscalingMetricSpec() { DARABONBA_PTR_GET(autoscalingMetricSpec_, AutoscalingMetricSpec) };
+    inline const AutoscalingMetricSpec & getAutoscalingMetricSpec() const { DARABONBA_PTR_GET_CONST(autoscalingMetricSpec_, AutoscalingMetricSpec) };
+    inline AutoscalingMetricSpec getAutoscalingMetricSpec() { DARABONBA_PTR_GET(autoscalingMetricSpec_, AutoscalingMetricSpec) };
     inline AutoScalingSpec& setAutoscalingMetricSpec(const AutoscalingMetricSpec & autoscalingMetricSpec) { DARABONBA_PTR_SET_VALUE(autoscalingMetricSpec_, autoscalingMetricSpec) };
     inline AutoScalingSpec& setAutoscalingMetricSpec(AutoscalingMetricSpec && autoscalingMetricSpec) { DARABONBA_PTR_SET_RVALUE(autoscalingMetricSpec_, autoscalingMetricSpec) };
 
@@ -53,22 +53,22 @@ namespace Models
     // maxReplicas Field Functions 
     bool hasMaxReplicas() const { return this->maxReplicas_ != nullptr;};
     void deleteMaxReplicas() { this->maxReplicas_ = nullptr;};
-    inline int32_t maxReplicas() const { DARABONBA_PTR_GET_DEFAULT(maxReplicas_, 0) };
+    inline int32_t getMaxReplicas() const { DARABONBA_PTR_GET_DEFAULT(maxReplicas_, 0) };
     inline AutoScalingSpec& setMaxReplicas(int32_t maxReplicas) { DARABONBA_PTR_SET_VALUE(maxReplicas_, maxReplicas) };
 
 
     // minReplicas Field Functions 
     bool hasMinReplicas() const { return this->minReplicas_ != nullptr;};
     void deleteMinReplicas() { this->minReplicas_ = nullptr;};
-    inline int32_t minReplicas() const { DARABONBA_PTR_GET_DEFAULT(minReplicas_, 0) };
+    inline int32_t getMinReplicas() const { DARABONBA_PTR_GET_DEFAULT(minReplicas_, 0) };
     inline AutoScalingSpec& setMinReplicas(int32_t minReplicas) { DARABONBA_PTR_SET_VALUE(minReplicas_, minReplicas) };
 
 
     // podsToDelete Field Functions 
     bool hasPodsToDelete() const { return this->podsToDelete_ != nullptr;};
     void deletePodsToDelete() { this->podsToDelete_ = nullptr;};
-    inline const vector<string> & podsToDelete() const { DARABONBA_PTR_GET_CONST(podsToDelete_, vector<string>) };
-    inline vector<string> podsToDelete() { DARABONBA_PTR_GET(podsToDelete_, vector<string>) };
+    inline const vector<string> & getPodsToDelete() const { DARABONBA_PTR_GET_CONST(podsToDelete_, vector<string>) };
+    inline vector<string> getPodsToDelete() { DARABONBA_PTR_GET(podsToDelete_, vector<string>) };
     inline AutoScalingSpec& setPodsToDelete(const vector<string> & podsToDelete) { DARABONBA_PTR_SET_VALUE(podsToDelete_, podsToDelete) };
     inline AutoScalingSpec& setPodsToDelete(vector<string> && podsToDelete) { DARABONBA_PTR_SET_RVALUE(podsToDelete_, podsToDelete) };
 
@@ -76,16 +76,16 @@ namespace Models
     // scalingStrategy Field Functions 
     bool hasScalingStrategy() const { return this->scalingStrategy_ != nullptr;};
     void deleteScalingStrategy() { this->scalingStrategy_ = nullptr;};
-    inline string scalingStrategy() const { DARABONBA_PTR_GET_DEFAULT(scalingStrategy_, "") };
+    inline string getScalingStrategy() const { DARABONBA_PTR_GET_DEFAULT(scalingStrategy_, "") };
     inline AutoScalingSpec& setScalingStrategy(string scalingStrategy) { DARABONBA_PTR_SET_VALUE(scalingStrategy_, scalingStrategy) };
 
 
   protected:
-    std::shared_ptr<AutoscalingMetricSpec> autoscalingMetricSpec_ = nullptr;
-    std::shared_ptr<int32_t> maxReplicas_ = nullptr;
-    std::shared_ptr<int32_t> minReplicas_ = nullptr;
-    std::shared_ptr<vector<string>> podsToDelete_ = nullptr;
-    std::shared_ptr<string> scalingStrategy_ = nullptr;
+    shared_ptr<AutoscalingMetricSpec> autoscalingMetricSpec_ {};
+    shared_ptr<int32_t> maxReplicas_ {};
+    shared_ptr<int32_t> minReplicas_ {};
+    shared_ptr<vector<string>> podsToDelete_ {};
+    shared_ptr<string> scalingStrategy_ {};
   };
 
   } // namespace Models

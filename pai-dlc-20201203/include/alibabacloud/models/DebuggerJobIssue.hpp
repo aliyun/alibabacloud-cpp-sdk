@@ -42,65 +42,65 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->debuggerJobIssue_ == nullptr
-        && return this->gmtCreateTime_ == nullptr && return this->jobDebuggerIssueId_ == nullptr && return this->jobId_ == nullptr && return this->reasonCode_ == nullptr && return this->reasonMessage_ == nullptr
-        && return this->ruleName_ == nullptr; };
+        && this->gmtCreateTime_ == nullptr && this->jobDebuggerIssueId_ == nullptr && this->jobId_ == nullptr && this->reasonCode_ == nullptr && this->reasonMessage_ == nullptr
+        && this->ruleName_ == nullptr; };
     // debuggerJobIssue Field Functions 
     bool hasDebuggerJobIssue() const { return this->debuggerJobIssue_ != nullptr;};
     void deleteDebuggerJobIssue() { this->debuggerJobIssue_ = nullptr;};
-    inline string debuggerJobIssue() const { DARABONBA_PTR_GET_DEFAULT(debuggerJobIssue_, "") };
+    inline string getDebuggerJobIssue() const { DARABONBA_PTR_GET_DEFAULT(debuggerJobIssue_, "") };
     inline DebuggerJobIssue& setDebuggerJobIssue(string debuggerJobIssue) { DARABONBA_PTR_SET_VALUE(debuggerJobIssue_, debuggerJobIssue) };
 
 
     // gmtCreateTime Field Functions 
     bool hasGmtCreateTime() const { return this->gmtCreateTime_ != nullptr;};
     void deleteGmtCreateTime() { this->gmtCreateTime_ = nullptr;};
-    inline string gmtCreateTime() const { DARABONBA_PTR_GET_DEFAULT(gmtCreateTime_, "") };
+    inline string getGmtCreateTime() const { DARABONBA_PTR_GET_DEFAULT(gmtCreateTime_, "") };
     inline DebuggerJobIssue& setGmtCreateTime(string gmtCreateTime) { DARABONBA_PTR_SET_VALUE(gmtCreateTime_, gmtCreateTime) };
 
 
     // jobDebuggerIssueId Field Functions 
     bool hasJobDebuggerIssueId() const { return this->jobDebuggerIssueId_ != nullptr;};
     void deleteJobDebuggerIssueId() { this->jobDebuggerIssueId_ = nullptr;};
-    inline string jobDebuggerIssueId() const { DARABONBA_PTR_GET_DEFAULT(jobDebuggerIssueId_, "") };
+    inline string getJobDebuggerIssueId() const { DARABONBA_PTR_GET_DEFAULT(jobDebuggerIssueId_, "") };
     inline DebuggerJobIssue& setJobDebuggerIssueId(string jobDebuggerIssueId) { DARABONBA_PTR_SET_VALUE(jobDebuggerIssueId_, jobDebuggerIssueId) };
 
 
     // jobId Field Functions 
     bool hasJobId() const { return this->jobId_ != nullptr;};
     void deleteJobId() { this->jobId_ = nullptr;};
-    inline string jobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
+    inline string getJobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
     inline DebuggerJobIssue& setJobId(string jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
 
 
     // reasonCode Field Functions 
     bool hasReasonCode() const { return this->reasonCode_ != nullptr;};
     void deleteReasonCode() { this->reasonCode_ = nullptr;};
-    inline string reasonCode() const { DARABONBA_PTR_GET_DEFAULT(reasonCode_, "") };
+    inline string getReasonCode() const { DARABONBA_PTR_GET_DEFAULT(reasonCode_, "") };
     inline DebuggerJobIssue& setReasonCode(string reasonCode) { DARABONBA_PTR_SET_VALUE(reasonCode_, reasonCode) };
 
 
     // reasonMessage Field Functions 
     bool hasReasonMessage() const { return this->reasonMessage_ != nullptr;};
     void deleteReasonMessage() { this->reasonMessage_ = nullptr;};
-    inline string reasonMessage() const { DARABONBA_PTR_GET_DEFAULT(reasonMessage_, "") };
+    inline string getReasonMessage() const { DARABONBA_PTR_GET_DEFAULT(reasonMessage_, "") };
     inline DebuggerJobIssue& setReasonMessage(string reasonMessage) { DARABONBA_PTR_SET_VALUE(reasonMessage_, reasonMessage) };
 
 
     // ruleName Field Functions 
     bool hasRuleName() const { return this->ruleName_ != nullptr;};
     void deleteRuleName() { this->ruleName_ = nullptr;};
-    inline string ruleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
+    inline string getRuleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
     inline DebuggerJobIssue& setRuleName(string ruleName) { DARABONBA_PTR_SET_VALUE(ruleName_, ruleName) };
 
 
   protected:
-    std::shared_ptr<string> debuggerJobIssue_ = nullptr;
-    std::shared_ptr<string> gmtCreateTime_ = nullptr;
-    std::shared_ptr<string> jobDebuggerIssueId_ = nullptr;
-    std::shared_ptr<string> jobId_ = nullptr;
-    std::shared_ptr<string> reasonCode_ = nullptr;
-    std::shared_ptr<string> reasonMessage_ = nullptr;
-    std::shared_ptr<string> ruleName_ = nullptr;
+    shared_ptr<string> debuggerJobIssue_ {};
+    shared_ptr<string> gmtCreateTime_ {};
+    shared_ptr<string> jobDebuggerIssueId_ {};
+    shared_ptr<string> jobId_ {};
+    shared_ptr<string> reasonCode_ {};
+    shared_ptr<string> reasonMessage_ {};
+    shared_ptr<string> ruleName_ {};
   };
 
   } // namespace Models

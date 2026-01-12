@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->events_ == nullptr
-        && return this->jobId_ == nullptr && return this->requestId_ == nullptr; };
+        && this->jobId_ == nullptr && this->requestId_ == nullptr; };
     // events Field Functions 
     bool hasEvents() const { return this->events_ != nullptr;};
     void deleteEvents() { this->events_ = nullptr;};
-    inline const vector<string> & events() const { DARABONBA_PTR_GET_CONST(events_, vector<string>) };
-    inline vector<string> events() { DARABONBA_PTR_GET(events_, vector<string>) };
+    inline const vector<string> & getEvents() const { DARABONBA_PTR_GET_CONST(events_, vector<string>) };
+    inline vector<string> getEvents() { DARABONBA_PTR_GET(events_, vector<string>) };
     inline GetJobEventsResponseBody& setEvents(const vector<string> & events) { DARABONBA_PTR_SET_VALUE(events_, events) };
     inline GetJobEventsResponseBody& setEvents(vector<string> && events) { DARABONBA_PTR_SET_RVALUE(events_, events) };
 
@@ -48,24 +48,24 @@ namespace Models
     // jobId Field Functions 
     bool hasJobId() const { return this->jobId_ != nullptr;};
     void deleteJobId() { this->jobId_ = nullptr;};
-    inline string jobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
+    inline string getJobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
     inline GetJobEventsResponseBody& setJobId(string jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetJobEventsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The events.
-    std::shared_ptr<vector<string>> events_ = nullptr;
+    shared_ptr<vector<string>> events_ {};
     // The job ID.
-    std::shared_ptr<string> jobId_ = nullptr;
+    shared_ptr<string> jobId_ {};
     // The request ID, which can be used for troubleshooting.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

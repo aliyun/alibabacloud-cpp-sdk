@@ -44,73 +44,73 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->availableNumber_ == nullptr
-        && return this->clusterID_ == nullptr && return this->clusterName_ == nullptr && return this->freeResourceId_ == nullptr && return this->gmtCreateTime_ == nullptr && return this->gmtModifyTime_ == nullptr
-        && return this->regionID_ == nullptr && return this->resourceType_ == nullptr; };
+        && this->clusterID_ == nullptr && this->clusterName_ == nullptr && this->freeResourceId_ == nullptr && this->gmtCreateTime_ == nullptr && this->gmtModifyTime_ == nullptr
+        && this->regionID_ == nullptr && this->resourceType_ == nullptr; };
     // availableNumber Field Functions 
     bool hasAvailableNumber() const { return this->availableNumber_ != nullptr;};
     void deleteAvailableNumber() { this->availableNumber_ = nullptr;};
-    inline int64_t availableNumber() const { DARABONBA_PTR_GET_DEFAULT(availableNumber_, 0L) };
+    inline int64_t getAvailableNumber() const { DARABONBA_PTR_GET_DEFAULT(availableNumber_, 0L) };
     inline FreeResourceItem& setAvailableNumber(int64_t availableNumber) { DARABONBA_PTR_SET_VALUE(availableNumber_, availableNumber) };
 
 
     // clusterID Field Functions 
     bool hasClusterID() const { return this->clusterID_ != nullptr;};
     void deleteClusterID() { this->clusterID_ = nullptr;};
-    inline string clusterID() const { DARABONBA_PTR_GET_DEFAULT(clusterID_, "") };
+    inline string getClusterID() const { DARABONBA_PTR_GET_DEFAULT(clusterID_, "") };
     inline FreeResourceItem& setClusterID(string clusterID) { DARABONBA_PTR_SET_VALUE(clusterID_, clusterID) };
 
 
     // clusterName Field Functions 
     bool hasClusterName() const { return this->clusterName_ != nullptr;};
     void deleteClusterName() { this->clusterName_ = nullptr;};
-    inline string clusterName() const { DARABONBA_PTR_GET_DEFAULT(clusterName_, "") };
+    inline string getClusterName() const { DARABONBA_PTR_GET_DEFAULT(clusterName_, "") };
     inline FreeResourceItem& setClusterName(string clusterName) { DARABONBA_PTR_SET_VALUE(clusterName_, clusterName) };
 
 
     // freeResourceId Field Functions 
     bool hasFreeResourceId() const { return this->freeResourceId_ != nullptr;};
     void deleteFreeResourceId() { this->freeResourceId_ = nullptr;};
-    inline string freeResourceId() const { DARABONBA_PTR_GET_DEFAULT(freeResourceId_, "") };
+    inline string getFreeResourceId() const { DARABONBA_PTR_GET_DEFAULT(freeResourceId_, "") };
     inline FreeResourceItem& setFreeResourceId(string freeResourceId) { DARABONBA_PTR_SET_VALUE(freeResourceId_, freeResourceId) };
 
 
     // gmtCreateTime Field Functions 
     bool hasGmtCreateTime() const { return this->gmtCreateTime_ != nullptr;};
     void deleteGmtCreateTime() { this->gmtCreateTime_ = nullptr;};
-    inline string gmtCreateTime() const { DARABONBA_PTR_GET_DEFAULT(gmtCreateTime_, "") };
+    inline string getGmtCreateTime() const { DARABONBA_PTR_GET_DEFAULT(gmtCreateTime_, "") };
     inline FreeResourceItem& setGmtCreateTime(string gmtCreateTime) { DARABONBA_PTR_SET_VALUE(gmtCreateTime_, gmtCreateTime) };
 
 
     // gmtModifyTime Field Functions 
     bool hasGmtModifyTime() const { return this->gmtModifyTime_ != nullptr;};
     void deleteGmtModifyTime() { this->gmtModifyTime_ = nullptr;};
-    inline string gmtModifyTime() const { DARABONBA_PTR_GET_DEFAULT(gmtModifyTime_, "") };
+    inline string getGmtModifyTime() const { DARABONBA_PTR_GET_DEFAULT(gmtModifyTime_, "") };
     inline FreeResourceItem& setGmtModifyTime(string gmtModifyTime) { DARABONBA_PTR_SET_VALUE(gmtModifyTime_, gmtModifyTime) };
 
 
     // regionID Field Functions 
     bool hasRegionID() const { return this->regionID_ != nullptr;};
     void deleteRegionID() { this->regionID_ = nullptr;};
-    inline string regionID() const { DARABONBA_PTR_GET_DEFAULT(regionID_, "") };
+    inline string getRegionID() const { DARABONBA_PTR_GET_DEFAULT(regionID_, "") };
     inline FreeResourceItem& setRegionID(string regionID) { DARABONBA_PTR_SET_VALUE(regionID_, regionID) };
 
 
     // resourceType Field Functions 
     bool hasResourceType() const { return this->resourceType_ != nullptr;};
     void deleteResourceType() { this->resourceType_ = nullptr;};
-    inline string resourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
+    inline string getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
     inline FreeResourceItem& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
 
 
   protected:
-    std::shared_ptr<int64_t> availableNumber_ = nullptr;
-    std::shared_ptr<string> clusterID_ = nullptr;
-    std::shared_ptr<string> clusterName_ = nullptr;
-    std::shared_ptr<string> freeResourceId_ = nullptr;
-    std::shared_ptr<string> gmtCreateTime_ = nullptr;
-    std::shared_ptr<string> gmtModifyTime_ = nullptr;
-    std::shared_ptr<string> regionID_ = nullptr;
-    std::shared_ptr<string> resourceType_ = nullptr;
+    shared_ptr<int64_t> availableNumber_ {};
+    shared_ptr<string> clusterID_ {};
+    shared_ptr<string> clusterName_ {};
+    shared_ptr<string> freeResourceId_ {};
+    shared_ptr<string> gmtCreateTime_ {};
+    shared_ptr<string> gmtModifyTime_ {};
+    shared_ptr<string> regionID_ {};
+    shared_ptr<string> resourceType_ {};
   };
 
   } // namespace Models

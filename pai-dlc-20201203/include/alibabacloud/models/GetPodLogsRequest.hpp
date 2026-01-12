@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->downloadToFile_ == nullptr
-        && return this->endTime_ == nullptr && return this->maxLines_ == nullptr && return this->podUid_ == nullptr && return this->startTime_ == nullptr; };
+        && this->endTime_ == nullptr && this->maxLines_ == nullptr && this->podUid_ == nullptr && this->startTime_ == nullptr; };
     // downloadToFile Field Functions 
     bool hasDownloadToFile() const { return this->downloadToFile_ != nullptr;};
     void deleteDownloadToFile() { this->downloadToFile_ = nullptr;};
-    inline bool downloadToFile() const { DARABONBA_PTR_GET_DEFAULT(downloadToFile_, false) };
+    inline bool getDownloadToFile() const { DARABONBA_PTR_GET_DEFAULT(downloadToFile_, false) };
     inline GetPodLogsRequest& setDownloadToFile(bool downloadToFile) { DARABONBA_PTR_SET_VALUE(downloadToFile_, downloadToFile) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline GetPodLogsRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // maxLines Field Functions 
     bool hasMaxLines() const { return this->maxLines_ != nullptr;};
     void deleteMaxLines() { this->maxLines_ = nullptr;};
-    inline int32_t maxLines() const { DARABONBA_PTR_GET_DEFAULT(maxLines_, 0) };
+    inline int32_t getMaxLines() const { DARABONBA_PTR_GET_DEFAULT(maxLines_, 0) };
     inline GetPodLogsRequest& setMaxLines(int32_t maxLines) { DARABONBA_PTR_SET_VALUE(maxLines_, maxLines) };
 
 
     // podUid Field Functions 
     bool hasPodUid() const { return this->podUid_ != nullptr;};
     void deletePodUid() { this->podUid_ = nullptr;};
-    inline string podUid() const { DARABONBA_PTR_GET_DEFAULT(podUid_, "") };
+    inline string getPodUid() const { DARABONBA_PTR_GET_DEFAULT(podUid_, "") };
     inline GetPodLogsRequest& setPodUid(string podUid) { DARABONBA_PTR_SET_VALUE(podUid_, podUid) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline GetPodLogsRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
@@ -79,15 +79,15 @@ namespace Models
     // 
     // *   false
     // *   true
-    std::shared_ptr<bool> downloadToFile_ = nullptr;
+    shared_ptr<bool> downloadToFile_ {};
     // The end time of the query. Default value: current time.
-    std::shared_ptr<string> endTime_ = nullptr;
+    shared_ptr<string> endTime_ {};
     // The maximum number of log entries. Default value: 2000.
-    std::shared_ptr<int32_t> maxLines_ = nullptr;
+    shared_ptr<int32_t> maxLines_ {};
     // The node UID. For more information about how to obtain a node UID, see [GetJob](https://help.aliyun.com/document_detail/459677.html).
-    std::shared_ptr<string> podUid_ = nullptr;
+    shared_ptr<string> podUid_ {};
     // The start time of the query. Default value: 7 days ago.
-    std::shared_ptr<string> startTime_ = nullptr;
+    shared_ptr<string> startTime_ {};
   };
 
   } // namespace Models

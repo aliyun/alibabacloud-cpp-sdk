@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dataSourceId_ == nullptr
-        && return this->jobId_ == nullptr && return this->requestId_ == nullptr && return this->tensorboardId_ == nullptr; };
+        && this->jobId_ == nullptr && this->requestId_ == nullptr && this->tensorboardId_ == nullptr; };
     // dataSourceId Field Functions 
     bool hasDataSourceId() const { return this->dataSourceId_ != nullptr;};
     void deleteDataSourceId() { this->dataSourceId_ = nullptr;};
-    inline string dataSourceId() const { DARABONBA_PTR_GET_DEFAULT(dataSourceId_, "") };
+    inline string getDataSourceId() const { DARABONBA_PTR_GET_DEFAULT(dataSourceId_, "") };
     inline CreateTensorboardResponseBody& setDataSourceId(string dataSourceId) { DARABONBA_PTR_SET_VALUE(dataSourceId_, dataSourceId) };
 
 
     // jobId Field Functions 
     bool hasJobId() const { return this->jobId_ != nullptr;};
     void deleteJobId() { this->jobId_ = nullptr;};
-    inline string jobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
+    inline string getJobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
     inline CreateTensorboardResponseBody& setJobId(string jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateTensorboardResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // tensorboardId Field Functions 
     bool hasTensorboardId() const { return this->tensorboardId_ != nullptr;};
     void deleteTensorboardId() { this->tensorboardId_ = nullptr;};
-    inline string tensorboardId() const { DARABONBA_PTR_GET_DEFAULT(tensorboardId_, "") };
+    inline string getTensorboardId() const { DARABONBA_PTR_GET_DEFAULT(tensorboardId_, "") };
     inline CreateTensorboardResponseBody& setTensorboardId(string tensorboardId) { DARABONBA_PTR_SET_VALUE(tensorboardId_, tensorboardId) };
 
 
   protected:
     // The dataset ID.
-    std::shared_ptr<string> dataSourceId_ = nullptr;
+    shared_ptr<string> dataSourceId_ {};
     // The job ID.
-    std::shared_ptr<string> jobId_ = nullptr;
+    shared_ptr<string> jobId_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // TensorBoard ID
-    std::shared_ptr<string> tensorboardId_ = nullptr;
+    shared_ptr<string> tensorboardId_ {};
   };
 
   } // namespace Models

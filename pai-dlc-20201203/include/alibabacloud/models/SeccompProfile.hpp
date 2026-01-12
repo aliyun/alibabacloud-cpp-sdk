@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->localhostProfile_ == nullptr
-        && return this->type_ == nullptr; };
+        && this->type_ == nullptr; };
     // localhostProfile Field Functions 
     bool hasLocalhostProfile() const { return this->localhostProfile_ != nullptr;};
     void deleteLocalhostProfile() { this->localhostProfile_ = nullptr;};
-    inline string localhostProfile() const { DARABONBA_PTR_GET_DEFAULT(localhostProfile_, "") };
+    inline string getLocalhostProfile() const { DARABONBA_PTR_GET_DEFAULT(localhostProfile_, "") };
     inline SeccompProfile& setLocalhostProfile(string localhostProfile) { DARABONBA_PTR_SET_VALUE(localhostProfile_, localhostProfile) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline SeccompProfile& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
-    std::shared_ptr<string> localhostProfile_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> localhostProfile_ {};
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

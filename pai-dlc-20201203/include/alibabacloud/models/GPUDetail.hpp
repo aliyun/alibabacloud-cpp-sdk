@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->GPU_ == nullptr
-        && return this->GPUType_ == nullptr && return this->GPUTypeFullName_ == nullptr; };
+        && this->GPUType_ == nullptr && this->GPUTypeFullName_ == nullptr; };
     // GPU Field Functions 
     bool hasGPU() const { return this->GPU_ != nullptr;};
     void deleteGPU() { this->GPU_ = nullptr;};
-    inline string GPU() const { DARABONBA_PTR_GET_DEFAULT(GPU_, "") };
+    inline string getGPU() const { DARABONBA_PTR_GET_DEFAULT(GPU_, "") };
     inline GPUDetail& setGPU(string GPU) { DARABONBA_PTR_SET_VALUE(GPU_, GPU) };
 
 
     // GPUType Field Functions 
     bool hasGPUType() const { return this->GPUType_ != nullptr;};
     void deleteGPUType() { this->GPUType_ = nullptr;};
-    inline string GPUType() const { DARABONBA_PTR_GET_DEFAULT(GPUType_, "") };
+    inline string getGPUType() const { DARABONBA_PTR_GET_DEFAULT(GPUType_, "") };
     inline GPUDetail& setGPUType(string GPUType) { DARABONBA_PTR_SET_VALUE(GPUType_, GPUType) };
 
 
     // GPUTypeFullName Field Functions 
     bool hasGPUTypeFullName() const { return this->GPUTypeFullName_ != nullptr;};
     void deleteGPUTypeFullName() { this->GPUTypeFullName_ = nullptr;};
-    inline string GPUTypeFullName() const { DARABONBA_PTR_GET_DEFAULT(GPUTypeFullName_, "") };
+    inline string getGPUTypeFullName() const { DARABONBA_PTR_GET_DEFAULT(GPUTypeFullName_, "") };
     inline GPUDetail& setGPUTypeFullName(string GPUTypeFullName) { DARABONBA_PTR_SET_VALUE(GPUTypeFullName_, GPUTypeFullName) };
 
 
   protected:
-    std::shared_ptr<string> GPU_ = nullptr;
-    std::shared_ptr<string> GPUType_ = nullptr;
-    std::shared_ptr<string> GPUTypeFullName_ = nullptr;
+    shared_ptr<string> GPU_ {};
+    shared_ptr<string> GPUType_ {};
+    shared_ptr<string> GPUTypeFullName_ {};
   };
 
   } // namespace Models

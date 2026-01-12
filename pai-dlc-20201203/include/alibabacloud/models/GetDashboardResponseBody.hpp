@@ -33,13 +33,13 @@ namespace Models
     // url Field Functions 
     bool hasUrl() const { return this->url_ != nullptr;};
     void deleteUrl() { this->url_ = nullptr;};
-    inline string url() const { DARABONBA_PTR_GET_DEFAULT(url_, "") };
+    inline string getUrl() const { DARABONBA_PTR_GET_DEFAULT(url_, "") };
     inline GetDashboardResponseBody& setUrl(string url) { DARABONBA_PTR_SET_VALUE(url_, url) };
 
 
   protected:
     // The Dashboard URL
-    std::shared_ptr<string> url_ = nullptr;
+    shared_ptr<string> url_ {};
   };
 
   } // namespace Models

@@ -44,73 +44,73 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterID_ == nullptr
-        && return this->clusterName_ == nullptr && return this->crossClusters_ == nullptr && return this->enableFreeResource_ == nullptr && return this->freeResourceClusterControlId_ == nullptr && return this->gmtCreateTime_ == nullptr
-        && return this->gmtModifyTime_ == nullptr && return this->regionID_ == nullptr; };
+        && this->clusterName_ == nullptr && this->crossClusters_ == nullptr && this->enableFreeResource_ == nullptr && this->freeResourceClusterControlId_ == nullptr && this->gmtCreateTime_ == nullptr
+        && this->gmtModifyTime_ == nullptr && this->regionID_ == nullptr; };
     // clusterID Field Functions 
     bool hasClusterID() const { return this->clusterID_ != nullptr;};
     void deleteClusterID() { this->clusterID_ = nullptr;};
-    inline string clusterID() const { DARABONBA_PTR_GET_DEFAULT(clusterID_, "") };
+    inline string getClusterID() const { DARABONBA_PTR_GET_DEFAULT(clusterID_, "") };
     inline FreeResourceClusterControlItem& setClusterID(string clusterID) { DARABONBA_PTR_SET_VALUE(clusterID_, clusterID) };
 
 
     // clusterName Field Functions 
     bool hasClusterName() const { return this->clusterName_ != nullptr;};
     void deleteClusterName() { this->clusterName_ = nullptr;};
-    inline string clusterName() const { DARABONBA_PTR_GET_DEFAULT(clusterName_, "") };
+    inline string getClusterName() const { DARABONBA_PTR_GET_DEFAULT(clusterName_, "") };
     inline FreeResourceClusterControlItem& setClusterName(string clusterName) { DARABONBA_PTR_SET_VALUE(clusterName_, clusterName) };
 
 
     // crossClusters Field Functions 
     bool hasCrossClusters() const { return this->crossClusters_ != nullptr;};
     void deleteCrossClusters() { this->crossClusters_ = nullptr;};
-    inline bool crossClusters() const { DARABONBA_PTR_GET_DEFAULT(crossClusters_, false) };
+    inline bool getCrossClusters() const { DARABONBA_PTR_GET_DEFAULT(crossClusters_, false) };
     inline FreeResourceClusterControlItem& setCrossClusters(bool crossClusters) { DARABONBA_PTR_SET_VALUE(crossClusters_, crossClusters) };
 
 
     // enableFreeResource Field Functions 
     bool hasEnableFreeResource() const { return this->enableFreeResource_ != nullptr;};
     void deleteEnableFreeResource() { this->enableFreeResource_ = nullptr;};
-    inline bool enableFreeResource() const { DARABONBA_PTR_GET_DEFAULT(enableFreeResource_, false) };
+    inline bool getEnableFreeResource() const { DARABONBA_PTR_GET_DEFAULT(enableFreeResource_, false) };
     inline FreeResourceClusterControlItem& setEnableFreeResource(bool enableFreeResource) { DARABONBA_PTR_SET_VALUE(enableFreeResource_, enableFreeResource) };
 
 
     // freeResourceClusterControlId Field Functions 
     bool hasFreeResourceClusterControlId() const { return this->freeResourceClusterControlId_ != nullptr;};
     void deleteFreeResourceClusterControlId() { this->freeResourceClusterControlId_ = nullptr;};
-    inline string freeResourceClusterControlId() const { DARABONBA_PTR_GET_DEFAULT(freeResourceClusterControlId_, "") };
+    inline string getFreeResourceClusterControlId() const { DARABONBA_PTR_GET_DEFAULT(freeResourceClusterControlId_, "") };
     inline FreeResourceClusterControlItem& setFreeResourceClusterControlId(string freeResourceClusterControlId) { DARABONBA_PTR_SET_VALUE(freeResourceClusterControlId_, freeResourceClusterControlId) };
 
 
     // gmtCreateTime Field Functions 
     bool hasGmtCreateTime() const { return this->gmtCreateTime_ != nullptr;};
     void deleteGmtCreateTime() { this->gmtCreateTime_ = nullptr;};
-    inline string gmtCreateTime() const { DARABONBA_PTR_GET_DEFAULT(gmtCreateTime_, "") };
+    inline string getGmtCreateTime() const { DARABONBA_PTR_GET_DEFAULT(gmtCreateTime_, "") };
     inline FreeResourceClusterControlItem& setGmtCreateTime(string gmtCreateTime) { DARABONBA_PTR_SET_VALUE(gmtCreateTime_, gmtCreateTime) };
 
 
     // gmtModifyTime Field Functions 
     bool hasGmtModifyTime() const { return this->gmtModifyTime_ != nullptr;};
     void deleteGmtModifyTime() { this->gmtModifyTime_ = nullptr;};
-    inline string gmtModifyTime() const { DARABONBA_PTR_GET_DEFAULT(gmtModifyTime_, "") };
+    inline string getGmtModifyTime() const { DARABONBA_PTR_GET_DEFAULT(gmtModifyTime_, "") };
     inline FreeResourceClusterControlItem& setGmtModifyTime(string gmtModifyTime) { DARABONBA_PTR_SET_VALUE(gmtModifyTime_, gmtModifyTime) };
 
 
     // regionID Field Functions 
     bool hasRegionID() const { return this->regionID_ != nullptr;};
     void deleteRegionID() { this->regionID_ = nullptr;};
-    inline string regionID() const { DARABONBA_PTR_GET_DEFAULT(regionID_, "") };
+    inline string getRegionID() const { DARABONBA_PTR_GET_DEFAULT(regionID_, "") };
     inline FreeResourceClusterControlItem& setRegionID(string regionID) { DARABONBA_PTR_SET_VALUE(regionID_, regionID) };
 
 
   protected:
-    std::shared_ptr<string> clusterID_ = nullptr;
-    std::shared_ptr<string> clusterName_ = nullptr;
-    std::shared_ptr<bool> crossClusters_ = nullptr;
-    std::shared_ptr<bool> enableFreeResource_ = nullptr;
-    std::shared_ptr<string> freeResourceClusterControlId_ = nullptr;
-    std::shared_ptr<string> gmtCreateTime_ = nullptr;
-    std::shared_ptr<string> gmtModifyTime_ = nullptr;
-    std::shared_ptr<string> regionID_ = nullptr;
+    shared_ptr<string> clusterID_ {};
+    shared_ptr<string> clusterName_ {};
+    shared_ptr<bool> crossClusters_ {};
+    shared_ptr<bool> enableFreeResource_ {};
+    shared_ptr<string> freeResourceClusterControlId_ {};
+    shared_ptr<string> gmtCreateTime_ {};
+    shared_ptr<string> gmtModifyTime_ {};
+    shared_ptr<string> regionID_ {};
   };
 
   } // namespace Models

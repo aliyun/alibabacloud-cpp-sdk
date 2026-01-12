@@ -36,40 +36,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessKeyId_ == nullptr
-        && return this->id_ == nullptr && return this->securityToken_ == nullptr && return this->type_ == nullptr; };
+        && this->id_ == nullptr && this->securityToken_ == nullptr && this->type_ == nullptr; };
     // accessKeyId Field Functions 
     bool hasAccessKeyId() const { return this->accessKeyId_ != nullptr;};
     void deleteAccessKeyId() { this->accessKeyId_ = nullptr;};
-    inline string accessKeyId() const { DARABONBA_PTR_GET_DEFAULT(accessKeyId_, "") };
+    inline string getAccessKeyId() const { DARABONBA_PTR_GET_DEFAULT(accessKeyId_, "") };
     inline AssumeUserInfo& setAccessKeyId(string accessKeyId) { DARABONBA_PTR_SET_VALUE(accessKeyId_, accessKeyId) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline string id() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+    inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline AssumeUserInfo& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
-    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
     inline AssumeUserInfo& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline AssumeUserInfo& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
-    std::shared_ptr<string> accessKeyId_ = nullptr;
-    std::shared_ptr<string> id_ = nullptr;
-    std::shared_ptr<string> securityToken_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> accessKeyId_ {};
+    shared_ptr<string> id_ {};
+    shared_ptr<string> securityToken_ {};
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

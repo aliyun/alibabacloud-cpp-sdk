@@ -33,12 +33,12 @@ namespace Models
     // modelName Field Functions 
     bool hasModelName() const { return this->modelName_ != nullptr;};
     void deleteModelName() { this->modelName_ = nullptr;};
-    inline string modelName() const { DARABONBA_PTR_GET_DEFAULT(modelName_, "") };
+    inline string getModelName() const { DARABONBA_PTR_GET_DEFAULT(modelName_, "") };
     inline ModelConfig& setModelName(string modelName) { DARABONBA_PTR_SET_VALUE(modelName_, modelName) };
 
 
   protected:
-    std::shared_ptr<string> modelName_ = nullptr;
+    shared_ptr<string> modelName_ {};
   };
 
   } // namespace Models

@@ -36,19 +36,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->key_ == nullptr
-        && return this->roles_ == nullptr && return this->type_ == nullptr; };
+        && this->roles_ == nullptr && this->type_ == nullptr; };
     // key Field Functions 
     bool hasKey() const { return this->key_ != nullptr;};
     void deleteKey() { this->key_ = nullptr;};
-    inline string key() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+    inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
     inline CredentialConfigItem& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
 
 
     // roles Field Functions 
     bool hasRoles() const { return this->roles_ != nullptr;};
     void deleteRoles() { this->roles_ = nullptr;};
-    inline const vector<CredentialRole> & roles() const { DARABONBA_PTR_GET_CONST(roles_, vector<CredentialRole>) };
-    inline vector<CredentialRole> roles() { DARABONBA_PTR_GET(roles_, vector<CredentialRole>) };
+    inline const vector<CredentialRole> & getRoles() const { DARABONBA_PTR_GET_CONST(roles_, vector<CredentialRole>) };
+    inline vector<CredentialRole> getRoles() { DARABONBA_PTR_GET(roles_, vector<CredentialRole>) };
     inline CredentialConfigItem& setRoles(const vector<CredentialRole> & roles) { DARABONBA_PTR_SET_VALUE(roles_, roles) };
     inline CredentialConfigItem& setRoles(vector<CredentialRole> && roles) { DARABONBA_PTR_SET_RVALUE(roles_, roles) };
 
@@ -56,14 +56,14 @@ namespace Models
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline CredentialConfigItem& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
-    std::shared_ptr<string> key_ = nullptr;
-    std::shared_ptr<vector<CredentialRole>> roles_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> key_ {};
+    shared_ptr<vector<CredentialRole>> roles_ {};
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

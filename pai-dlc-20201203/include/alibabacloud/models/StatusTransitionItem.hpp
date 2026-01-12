@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->endTime_ == nullptr
-        && return this->reasonCode_ == nullptr && return this->reasonMessage_ == nullptr && return this->startTime_ == nullptr && return this->status_ == nullptr; };
+        && this->reasonCode_ == nullptr && this->reasonMessage_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr; };
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline StatusTransitionItem& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // reasonCode Field Functions 
     bool hasReasonCode() const { return this->reasonCode_ != nullptr;};
     void deleteReasonCode() { this->reasonCode_ = nullptr;};
-    inline string reasonCode() const { DARABONBA_PTR_GET_DEFAULT(reasonCode_, "") };
+    inline string getReasonCode() const { DARABONBA_PTR_GET_DEFAULT(reasonCode_, "") };
     inline StatusTransitionItem& setReasonCode(string reasonCode) { DARABONBA_PTR_SET_VALUE(reasonCode_, reasonCode) };
 
 
     // reasonMessage Field Functions 
     bool hasReasonMessage() const { return this->reasonMessage_ != nullptr;};
     void deleteReasonMessage() { this->reasonMessage_ = nullptr;};
-    inline string reasonMessage() const { DARABONBA_PTR_GET_DEFAULT(reasonMessage_, "") };
+    inline string getReasonMessage() const { DARABONBA_PTR_GET_DEFAULT(reasonMessage_, "") };
     inline StatusTransitionItem& setReasonMessage(string reasonMessage) { DARABONBA_PTR_SET_VALUE(reasonMessage_, reasonMessage) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline StatusTransitionItem& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline StatusTransitionItem& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
   protected:
-    std::shared_ptr<string> endTime_ = nullptr;
-    std::shared_ptr<string> reasonCode_ = nullptr;
-    std::shared_ptr<string> reasonMessage_ = nullptr;
-    std::shared_ptr<string> startTime_ = nullptr;
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> endTime_ {};
+    shared_ptr<string> reasonCode_ {};
+    shared_ptr<string> reasonMessage_ {};
+    shared_ptr<string> startTime_ {};
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models

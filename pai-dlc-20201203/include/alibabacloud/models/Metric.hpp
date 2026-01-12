@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->time_ == nullptr
-        && return this->value_ == nullptr; };
+        && this->value_ == nullptr; };
     // time Field Functions 
     bool hasTime() const { return this->time_ != nullptr;};
     void deleteTime() { this->time_ = nullptr;};
-    inline int64_t time() const { DARABONBA_PTR_GET_DEFAULT(time_, 0L) };
+    inline int64_t getTime() const { DARABONBA_PTR_GET_DEFAULT(time_, 0L) };
     inline Metric& setTime(int64_t time) { DARABONBA_PTR_SET_VALUE(time_, time) };
 
 
     // value Field Functions 
     bool hasValue() const { return this->value_ != nullptr;};
     void deleteValue() { this->value_ = nullptr;};
-    inline float value() const { DARABONBA_PTR_GET_DEFAULT(value_, 0.0) };
+    inline float getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, 0.0) };
     inline Metric& setValue(float value) { DARABONBA_PTR_SET_VALUE(value_, value) };
 
 
   protected:
-    std::shared_ptr<int64_t> time_ = nullptr;
-    std::shared_ptr<float> value_ = nullptr;
+    shared_ptr<int64_t> time_ {};
+    shared_ptr<float> value_ {};
   };
 
   } // namespace Models
