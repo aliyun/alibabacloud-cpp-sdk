@@ -37,35 +37,35 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 发送对话消息
+ * @summary Sends chat messages.
  *
  * @param tmpReq ChatMessagesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ChatMessagesResponse
  */
-FutrueGenerator<ChatMessagesResponse> Client::chatMessagesWithSSE(const ChatMessagesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+FutureGenerator<ChatMessagesResponse> Client::chatMessagesWithSSE(const ChatMessagesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
   tmpReq.validate();
   ChatMessagesShrinkRequest request = ChatMessagesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasInputs()) {
-    request.setInputsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.inputs(), "Inputs", "json"));
+    request.setInputsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getInputs(), "Inputs", "json"));
   }
 
   json query = {};
   if (!!request.hasConversationId()) {
-    query["ConversationId"] = request.conversationId();
+    query["ConversationId"] = request.getConversationId();
   }
 
   if (!!request.hasInputsShrink()) {
-    query["Inputs"] = request.inputsShrink();
+    query["Inputs"] = request.getInputsShrink();
   }
 
   if (!!request.hasParentMessageId()) {
-    query["ParentMessageId"] = request.parentMessageId();
+    query["ParentMessageId"] = request.getParentMessageId();
   }
 
   if (!!request.hasQuery()) {
-    query["Query"] = request.query();
+    query["Query"] = request.getQuery();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -82,23 +82,23 @@ FutrueGenerator<ChatMessagesResponse> Client::chatMessagesWithSSE(const ChatMess
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
   for (SSEResponse resp : sseResp) {
-    json data = json(json::parse(resp.event().data()));
+    json data = json(json::parse(resp.getEvent().getData()));
 json     __retrun = json(json({
-      {"statusCode" , resp.statusCode()},
-      {"headers" , resp.headers()},
+      {"statusCode" , resp.getStatusCode()},
+      {"headers" , resp.getHeaders()},
       {"body" , Darabonba::Core::merge(data,
-          {"RequestId" , resp.event().id()},
-          {"Message" , resp.event().event()}
+          {"RequestId" , resp.getEvent().getId()},
+          {"Message" , resp.getEvent().getEvent()}
       )}
     })).get<ChatMessagesResponse>();
-return Darbaonba::FutureGenerator<json>(__retrun);
+return Darabonba::FutureGenerator<json>(__retrun);
   }
 }
 
 /**
- * @summary 发送对话消息
+ * @summary Sends chat messages.
  *
  * @param tmpReq ChatMessagesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -109,24 +109,24 @@ ChatMessagesResponse Client::chatMessagesWithOptions(const ChatMessagesRequest &
   ChatMessagesShrinkRequest request = ChatMessagesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasInputs()) {
-    request.setInputsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.inputs(), "Inputs", "json"));
+    request.setInputsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getInputs(), "Inputs", "json"));
   }
 
   json query = {};
   if (!!request.hasConversationId()) {
-    query["ConversationId"] = request.conversationId();
+    query["ConversationId"] = request.getConversationId();
   }
 
   if (!!request.hasInputsShrink()) {
-    query["Inputs"] = request.inputsShrink();
+    query["Inputs"] = request.getInputsShrink();
   }
 
   if (!!request.hasParentMessageId()) {
-    query["ParentMessageId"] = request.parentMessageId();
+    query["ParentMessageId"] = request.getParentMessageId();
   }
 
   if (!!request.hasQuery()) {
-    query["Query"] = request.query();
+    query["Query"] = request.getQuery();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -147,7 +147,7 @@ ChatMessagesResponse Client::chatMessagesWithOptions(const ChatMessagesRequest &
 }
 
 /**
- * @summary 发送对话消息
+ * @summary Sends chat messages.
  *
  * @param request ChatMessagesRequest
  * @return ChatMessagesResponse
@@ -158,7 +158,7 @@ ChatMessagesResponse Client::chatMessages(const ChatMessagesRequest &request) {
 }
 
 /**
- * @summary 停止对话
+ * @summary Stops a conversation.
  *
  * @param request ChatMessagesTaskStopRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -168,7 +168,7 @@ ChatMessagesTaskStopResponse Client::chatMessagesTaskStopWithOptions(const ChatM
   request.validate();
   json query = {};
   if (!!request.hasTaskId()) {
-    query["TaskId"] = request.taskId();
+    query["TaskId"] = request.getTaskId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -189,7 +189,7 @@ ChatMessagesTaskStopResponse Client::chatMessagesTaskStopWithOptions(const ChatM
 }
 
 /**
- * @summary 停止对话
+ * @summary Stops a conversation.
  *
  * @param request ChatMessagesTaskStopRequest
  * @return ChatMessagesTaskStopResponse
@@ -200,7 +200,13 @@ ChatMessagesTaskStopResponse Client::chatMessagesTaskStop(const ChatMessagesTask
 }
 
 /**
- * @summary 创建应用服务实例
+ * @summary Creates an RDS Supabase instance.
+ *
+ * @description ### [](#)Supported database engine
+ * RDS PostgreSQL
+ * ### [](#)References
+ * >  Fees of an instance are changed if the call is successful. Before you call this operation, carefully read the related topics.
+ * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param tmpReq CreateAppInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -211,68 +217,68 @@ CreateAppInstanceResponse Client::createAppInstanceWithOptions(const CreateAppIn
   CreateAppInstanceShrinkRequest request = CreateAppInstanceShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDBInstanceConfig()) {
-    request.setDBInstanceConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.DBInstanceConfig(), "DBInstanceConfig", "json"));
+    request.setDBInstanceConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDBInstanceConfig(), "DBInstanceConfig", "json"));
   }
 
   json query = {};
   if (!!request.hasAppName()) {
-    query["AppName"] = request.appName();
+    query["AppName"] = request.getAppName();
   }
 
   if (!!request.hasAppType()) {
-    query["AppType"] = request.appType();
+    query["AppType"] = request.getAppType();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDBInstanceConfigShrink()) {
-    query["DBInstanceConfig"] = request.DBInstanceConfigShrink();
+    query["DBInstanceConfig"] = request.getDBInstanceConfigShrink();
   }
 
   if (!!request.hasDBInstanceName()) {
-    query["DBInstanceName"] = request.DBInstanceName();
+    query["DBInstanceName"] = request.getDBInstanceName();
   }
 
   if (!!request.hasDashboardPassword()) {
-    query["DashboardPassword"] = request.dashboardPassword();
+    query["DashboardPassword"] = request.getDashboardPassword();
   }
 
   if (!!request.hasDashboardUsername()) {
-    query["DashboardUsername"] = request.dashboardUsername();
+    query["DashboardUsername"] = request.getDashboardUsername();
   }
 
   if (!!request.hasDatabasePassword()) {
-    query["DatabasePassword"] = request.databasePassword();
+    query["DatabasePassword"] = request.getDatabasePassword();
   }
 
   if (!!request.hasInitializeWithExistingData()) {
-    query["InitializeWithExistingData"] = request.initializeWithExistingData();
+    query["InitializeWithExistingData"] = request.getInitializeWithExistingData();
   }
 
   if (!!request.hasInstanceClass()) {
-    query["InstanceClass"] = request.instanceClass();
+    query["InstanceClass"] = request.getInstanceClass();
   }
 
   if (!!request.hasPublicEndpointEnabled()) {
-    query["PublicEndpointEnabled"] = request.publicEndpointEnabled();
+    query["PublicEndpointEnabled"] = request.getPublicEndpointEnabled();
   }
 
   if (!!request.hasPublicNetworkAccessEnabled()) {
-    query["PublicNetworkAccessEnabled"] = request.publicNetworkAccessEnabled();
+    query["PublicNetworkAccessEnabled"] = request.getPublicNetworkAccessEnabled();
   }
 
   if (!!request.hasRAGEnabled()) {
-    query["RAGEnabled"] = request.RAGEnabled();
+    query["RAGEnabled"] = request.getRAGEnabled();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasVSwitchId()) {
-    query["VSwitchId"] = request.vSwitchId();
+    query["VSwitchId"] = request.getVSwitchId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -293,7 +299,13 @@ CreateAppInstanceResponse Client::createAppInstanceWithOptions(const CreateAppIn
 }
 
 /**
- * @summary 创建应用服务实例
+ * @summary Creates an RDS Supabase instance.
+ *
+ * @description ### [](#)Supported database engine
+ * RDS PostgreSQL
+ * ### [](#)References
+ * >  Fees of an instance are changed if the call is successful. Before you call this operation, carefully read the related topics.
+ * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request CreateAppInstanceRequest
  * @return CreateAppInstanceResponse
@@ -304,7 +316,7 @@ CreateAppInstanceResponse Client::createAppInstance(const CreateAppInstanceReque
 }
 
 /**
- * @summary 创建自定义agent
+ * @summary Creates a dedicated agent.
  *
  * @param tmpReq CreateCustomAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -315,24 +327,24 @@ CreateCustomAgentResponse Client::createCustomAgentWithOptions(const CreateCusto
   CreateCustomAgentShrinkRequest request = CreateCustomAgentShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasTools()) {
-    request.setToolsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tools(), "Tools", "json"));
+    request.setToolsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTools(), "Tools", "json"));
   }
 
   json query = {};
   if (!!request.hasEnableTools()) {
-    query["EnableTools"] = request.enableTools();
+    query["EnableTools"] = request.getEnableTools();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasSystemPrompt()) {
-    query["SystemPrompt"] = request.systemPrompt();
+    query["SystemPrompt"] = request.getSystemPrompt();
   }
 
   if (!!request.hasToolsShrink()) {
-    query["Tools"] = request.toolsShrink();
+    query["Tools"] = request.getToolsShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -353,7 +365,7 @@ CreateCustomAgentResponse Client::createCustomAgentWithOptions(const CreateCusto
 }
 
 /**
- * @summary 创建自定义agent
+ * @summary Creates a dedicated agent.
  *
  * @param request CreateCustomAgentRequest
  * @return CreateCustomAgentResponse
@@ -364,7 +376,14 @@ CreateCustomAgentResponse Client::createCustomAgent(const CreateCustomAgentReque
 }
 
 /**
- * @summary 删除应用服务实例
+ * @summary Deletes an RDS Supabase instance.
+ *
+ * @description ### [](#)Supported database engine
+ * RDS PostgreSQL
+ * ### [](#)References
+ * >  Fees of an instance are changed if the call is successful. Before you call this operation, carefully read the related topics.
+ * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
+ * >  If you delete an RDS Supabase instance, the created RDS for PostgreSQL instance and the created NAT gateway are not automatically deleted. You must manually release the instance and delete the Internet NAT gateway and EIP.
  *
  * @param request DeleteAppInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -374,15 +393,15 @@ DeleteAppInstanceResponse Client::deleteAppInstanceWithOptions(const DeleteAppIn
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasInstanceName()) {
-    query["InstanceName"] = request.instanceName();
+    query["InstanceName"] = request.getInstanceName();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -403,7 +422,14 @@ DeleteAppInstanceResponse Client::deleteAppInstanceWithOptions(const DeleteAppIn
 }
 
 /**
- * @summary 删除应用服务实例
+ * @summary Deletes an RDS Supabase instance.
+ *
+ * @description ### [](#)Supported database engine
+ * RDS PostgreSQL
+ * ### [](#)References
+ * >  Fees of an instance are changed if the call is successful. Before you call this operation, carefully read the related topics.
+ * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
+ * >  If you delete an RDS Supabase instance, the created RDS for PostgreSQL instance and the created NAT gateway are not automatically deleted. You must manually release the instance and delete the Internet NAT gateway and EIP.
  *
  * @param request DeleteAppInstanceRequest
  * @return DeleteAppInstanceResponse
@@ -414,7 +440,7 @@ DeleteAppInstanceResponse Client::deleteAppInstance(const DeleteAppInstanceReque
 }
 
 /**
- * @summary 删除Custom Agent
+ * @summary Deletes the dedicated agent created by a user.
  *
  * @param request DeleteCustomAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -424,7 +450,7 @@ DeleteCustomAgentResponse Client::deleteCustomAgentWithOptions(const DeleteCusto
   request.validate();
   json query = {};
   if (!!request.hasCustomAgentId()) {
-    query["CustomAgentId"] = request.customAgentId();
+    query["CustomAgentId"] = request.getCustomAgentId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -445,7 +471,7 @@ DeleteCustomAgentResponse Client::deleteCustomAgentWithOptions(const DeleteCusto
 }
 
 /**
- * @summary 删除Custom Agent
+ * @summary Deletes the dedicated agent created by a user.
  *
  * @param request DeleteCustomAgentRequest
  * @return DeleteCustomAgentResponse
@@ -456,7 +482,12 @@ DeleteCustomAgentResponse Client::deleteCustomAgent(const DeleteCustomAgentReque
 }
 
 /**
- * @summary 查询应用服务详情
+ * @summary Queries the details of an RDS Supabase instance.
+ *
+ * @description ### [](#)Supported database engine
+ * RDS PostgreSQL
+ * ### [](#)References
+ * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request DescribeAppInstanceAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -466,11 +497,11 @@ DescribeAppInstanceAttributeResponse Client::describeAppInstanceAttributeWithOpt
   request.validate();
   json query = {};
   if (!!request.hasInstanceName()) {
-    query["InstanceName"] = request.instanceName();
+    query["InstanceName"] = request.getInstanceName();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -491,7 +522,12 @@ DescribeAppInstanceAttributeResponse Client::describeAppInstanceAttributeWithOpt
 }
 
 /**
- * @summary 查询应用服务详情
+ * @summary Queries the details of an RDS Supabase instance.
+ *
+ * @description ### [](#)Supported database engine
+ * RDS PostgreSQL
+ * ### [](#)References
+ * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request DescribeAppInstanceAttributeRequest
  * @return DescribeAppInstanceAttributeResponse
@@ -502,7 +538,12 @@ DescribeAppInstanceAttributeResponse Client::describeAppInstanceAttribute(const 
 }
 
 /**
- * @summary 查询应用服务列表
+ * @summary Queries the RDS Supabase instances.
+ *
+ * @description ### [](#)Supported database engine
+ * RDS PostgreSQL
+ * ### [](#)References
+ * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request DescribeAppInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -512,23 +553,23 @@ DescribeAppInstancesResponse Client::describeAppInstancesWithOptions(const Descr
   request.validate();
   json query = {};
   if (!!request.hasAppType()) {
-    query["AppType"] = request.appType();
+    query["AppType"] = request.getAppType();
   }
 
   if (!!request.hasDBInstanceName()) {
-    query["DBInstanceName"] = request.DBInstanceName();
+    query["DBInstanceName"] = request.getDBInstanceName();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -549,7 +590,12 @@ DescribeAppInstancesResponse Client::describeAppInstancesWithOptions(const Descr
 }
 
 /**
- * @summary 查询应用服务列表
+ * @summary Queries the RDS Supabase instances.
+ *
+ * @description ### [](#)Supported database engine
+ * RDS PostgreSQL
+ * ### [](#)References
+ * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request DescribeAppInstancesRequest
  * @return DescribeAppInstancesResponse
@@ -560,7 +606,7 @@ DescribeAppInstancesResponse Client::describeAppInstances(const DescribeAppInsta
 }
 
 /**
- * @summary 查询事件信息列表
+ * @summary Queries the events.
  *
  * @param request DescribeEventsListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -570,27 +616,27 @@ DescribeEventsListResponse Client::describeEventsListWithOptions(const DescribeE
   request.validate();
   json query = {};
   if (!!request.hasEndTime()) {
-    query["EndTime"] = request.endTime();
+    query["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasInstanceIdList()) {
-    query["InstanceIdList"] = request.instanceIdList();
+    query["InstanceIdList"] = request.getInstanceIdList();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasStartTime()) {
-    query["StartTime"] = request.startTime();
+    query["StartTime"] = request.getStartTime();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -611,7 +657,7 @@ DescribeEventsListResponse Client::describeEventsListWithOptions(const DescribeE
 }
 
 /**
- * @summary 查询事件信息列表
+ * @summary Queries the events.
  *
  * @param request DescribeEventsListRequest
  * @return DescribeEventsListResponse
@@ -622,7 +668,12 @@ DescribeEventsListResponse Client::describeEventsList(const DescribeEventsListRe
 }
 
 /**
- * @summary 查看实例认证信息
+ * @summary Queries the authentication information about an RDS Supabase instance.
+ *
+ * @description ### [](#)Supported database engine
+ * RDS PostgreSQL
+ * ### [](#)References
+ * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request DescribeInstanceAuthInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -632,11 +683,11 @@ DescribeInstanceAuthInfoResponse Client::describeInstanceAuthInfoWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasInstanceName()) {
-    query["InstanceName"] = request.instanceName();
+    query["InstanceName"] = request.getInstanceName();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -657,7 +708,12 @@ DescribeInstanceAuthInfoResponse Client::describeInstanceAuthInfoWithOptions(con
 }
 
 /**
- * @summary 查看实例认证信息
+ * @summary Queries the authentication information about an RDS Supabase instance.
+ *
+ * @description ### [](#)Supported database engine
+ * RDS PostgreSQL
+ * ### [](#)References
+ * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request DescribeInstanceAuthInfoRequest
  * @return DescribeInstanceAuthInfoResponse
@@ -668,7 +724,12 @@ DescribeInstanceAuthInfoResponse Client::describeInstanceAuthInfo(const Describe
 }
 
 /**
- * @summary 查看服务连接信息
+ * @summary Queries the endpoint of an RDS Supabase instance.
+ *
+ * @description ### [](#)Supported database engine
+ * RDS PostgreSQL
+ * ### [](#)References
+ * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request DescribeInstanceEndpointsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -678,11 +739,11 @@ DescribeInstanceEndpointsResponse Client::describeInstanceEndpointsWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasInstanceName()) {
-    query["InstanceName"] = request.instanceName();
+    query["InstanceName"] = request.getInstanceName();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -703,7 +764,12 @@ DescribeInstanceEndpointsResponse Client::describeInstanceEndpointsWithOptions(c
 }
 
 /**
- * @summary 查看服务连接信息
+ * @summary Queries the endpoint of an RDS Supabase instance.
+ *
+ * @description ### [](#)Supported database engine
+ * RDS PostgreSQL
+ * ### [](#)References
+ * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request DescribeInstanceEndpointsRequest
  * @return DescribeInstanceEndpointsResponse
@@ -714,7 +780,12 @@ DescribeInstanceEndpointsResponse Client::describeInstanceEndpoints(const Descri
 }
 
 /**
- * @summary 查询服务白名单
+ * @summary Queries the IP address whitelists of an RDS Supabase instance.
+ *
+ * @description ### [](#)Supported database engine
+ * RDS PostgreSQL
+ * ### [](#)References
+ * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request DescribeInstanceIpWhitelistRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -723,12 +794,16 @@ DescribeInstanceEndpointsResponse Client::describeInstanceEndpoints(const Descri
 DescribeInstanceIpWhitelistResponse Client::describeInstanceIpWhitelistWithOptions(const DescribeInstanceIpWhitelistRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasGroupName()) {
+    query["GroupName"] = request.getGroupName();
+  }
+
   if (!!request.hasInstanceName()) {
-    query["InstanceName"] = request.instanceName();
+    query["InstanceName"] = request.getInstanceName();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -749,7 +824,12 @@ DescribeInstanceIpWhitelistResponse Client::describeInstanceIpWhitelistWithOptio
 }
 
 /**
- * @summary 查询服务白名单
+ * @summary Queries the IP address whitelists of an RDS Supabase instance.
+ *
+ * @description ### [](#)Supported database engine
+ * RDS PostgreSQL
+ * ### [](#)References
+ * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request DescribeInstanceIpWhitelistRequest
  * @return DescribeInstanceIpWhitelistResponse
@@ -760,7 +840,7 @@ DescribeInstanceIpWhitelistResponse Client::describeInstanceIpWhitelist(const De
 }
 
 /**
- * @summary 查看实例RAG配置
+ * @summary Queries the RAG agent configurations of an RDS Supabase instance.
  *
  * @param request DescribeInstanceRAGConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -770,11 +850,11 @@ DescribeInstanceRAGConfigResponse Client::describeInstanceRAGConfigWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasInstanceName()) {
-    query["InstanceName"] = request.instanceName();
+    query["InstanceName"] = request.getInstanceName();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -795,7 +875,7 @@ DescribeInstanceRAGConfigResponse Client::describeInstanceRAGConfigWithOptions(c
 }
 
 /**
- * @summary 查看实例RAG配置
+ * @summary Queries the RAG agent configurations of an RDS Supabase instance.
  *
  * @param request DescribeInstanceRAGConfigRequest
  * @return DescribeInstanceRAGConfigResponse
@@ -806,7 +886,12 @@ DescribeInstanceRAGConfigResponse Client::describeInstanceRAGConfig(const Descri
 }
 
 /**
- * @summary 查看实例SSL配置
+ * @summary Queries the SSL settings of an RDS Supabase instance.
+ *
+ * @description ### [](#)Supported database engine
+ * RDS PostgreSQL
+ * ### [](#)References
+ * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request DescribeInstanceSSLRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -816,11 +901,11 @@ DescribeInstanceSSLResponse Client::describeInstanceSSLWithOptions(const Describ
   request.validate();
   json query = {};
   if (!!request.hasInstanceName()) {
-    query["InstanceName"] = request.instanceName();
+    query["InstanceName"] = request.getInstanceName();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -841,7 +926,12 @@ DescribeInstanceSSLResponse Client::describeInstanceSSLWithOptions(const Describ
 }
 
 /**
- * @summary 查看实例SSL配置
+ * @summary Queries the SSL settings of an RDS Supabase instance.
+ *
+ * @description ### [](#)Supported database engine
+ * RDS PostgreSQL
+ * ### [](#)References
+ * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request DescribeInstanceSSLRequest
  * @return DescribeInstanceSSLResponse
@@ -852,7 +942,13 @@ DescribeInstanceSSLResponse Client::describeInstanceSSL(const DescribeInstanceSS
 }
 
 /**
- * @summary 查看实例存储配置
+ * @summary Queries the storage configurations of an RDS Supabase instance.
+ *
+ * @description ### [](#)Supported database engine
+ * RDS PostgreSQL
+ * ### [](#)References
+ * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
+ * >  Only Object Storage Service (OSS) is supported for the storage of RDS Supabase.
  *
  * @param request DescribeInstanceStorageConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -862,11 +958,11 @@ DescribeInstanceStorageConfigResponse Client::describeInstanceStorageConfigWithO
   request.validate();
   json query = {};
   if (!!request.hasInstanceName()) {
-    query["InstanceName"] = request.instanceName();
+    query["InstanceName"] = request.getInstanceName();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -887,7 +983,13 @@ DescribeInstanceStorageConfigResponse Client::describeInstanceStorageConfigWithO
 }
 
 /**
- * @summary 查看实例存储配置
+ * @summary Queries the storage configurations of an RDS Supabase instance.
+ *
+ * @description ### [](#)Supported database engine
+ * RDS PostgreSQL
+ * ### [](#)References
+ * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
+ * >  Only Object Storage Service (OSS) is supported for the storage of RDS Supabase.
  *
  * @param request DescribeInstanceStorageConfigRequest
  * @return DescribeInstanceStorageConfigResponse
@@ -898,7 +1000,7 @@ DescribeInstanceStorageConfigResponse Client::describeInstanceStorageConfig(cons
 }
 
 /**
- * @summary 获取会话列表
+ * @summary Queries the history conversations of a user.
  *
  * @param request GetConversationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -908,19 +1010,19 @@ GetConversationsResponse Client::getConversationsWithOptions(const GetConversati
   request.validate();
   json query = {};
   if (!!request.hasLastId()) {
-    query["LastId"] = request.lastId();
+    query["LastId"] = request.getLastId();
   }
 
   if (!!request.hasLimit()) {
-    query["Limit"] = request.limit();
+    query["Limit"] = request.getLimit();
   }
 
   if (!!request.hasPinned()) {
-    query["Pinned"] = request.pinned();
+    query["Pinned"] = request.getPinned();
   }
 
   if (!!request.hasSortBy()) {
-    query["SortBy"] = request.sortBy();
+    query["SortBy"] = request.getSortBy();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -941,7 +1043,7 @@ GetConversationsResponse Client::getConversationsWithOptions(const GetConversati
 }
 
 /**
- * @summary 获取会话列表
+ * @summary Queries the history conversations of a user.
  *
  * @param request GetConversationsRequest
  * @return GetConversationsResponse
@@ -952,7 +1054,7 @@ GetConversationsResponse Client::getConversations(const GetConversationsRequest 
 }
 
 /**
- * @summary 查询CustomAgent
+ * @summary Queries the dedicated agents created by a user.
  *
  * @param request GetCustomAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -962,7 +1064,7 @@ GetCustomAgentResponse Client::getCustomAgentWithOptions(const GetCustomAgentReq
   request.validate();
   json query = {};
   if (!!request.hasCustomAgentId()) {
-    query["CustomAgentId"] = request.customAgentId();
+    query["CustomAgentId"] = request.getCustomAgentId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -983,7 +1085,7 @@ GetCustomAgentResponse Client::getCustomAgentWithOptions(const GetCustomAgentReq
 }
 
 /**
- * @summary 查询CustomAgent
+ * @summary Queries the dedicated agents created by a user.
  *
  * @param request GetCustomAgentRequest
  * @return GetCustomAgentResponse
@@ -994,7 +1096,7 @@ GetCustomAgentResponse Client::getCustomAgent(const GetCustomAgentRequest &reque
 }
 
 /**
- * @summary 获取会话历史消息
+ * @summary Queries specific conversation messages.
  *
  * @param request GetMessagesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1004,15 +1106,15 @@ GetMessagesResponse Client::getMessagesWithOptions(const GetMessagesRequest &req
   request.validate();
   json query = {};
   if (!!request.hasConversationId()) {
-    query["ConversationId"] = request.conversationId();
+    query["ConversationId"] = request.getConversationId();
   }
 
   if (!!request.hasFirstId()) {
-    query["FirstId"] = request.firstId();
+    query["FirstId"] = request.getFirstId();
   }
 
   if (!!request.hasLimit()) {
-    query["Limit"] = request.limit();
+    query["Limit"] = request.getLimit();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1033,7 +1135,7 @@ GetMessagesResponse Client::getMessagesWithOptions(const GetMessagesRequest &req
 }
 
 /**
- * @summary 获取会话历史消息
+ * @summary Queries specific conversation messages.
  *
  * @param request GetMessagesRequest
  * @return GetMessagesResponse
@@ -1044,7 +1146,7 @@ GetMessagesResponse Client::getMessages(const GetMessagesRequest &request) {
 }
 
 /**
- * @summary 获取Custom Agent列表
+ * @summary Queries the dedicated agents created by a user.
  *
  * @param request ListCustomAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1054,11 +1156,11 @@ ListCustomAgentResponse Client::listCustomAgentWithOptions(const ListCustomAgent
   request.validate();
   json query = {};
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1079,7 +1181,7 @@ ListCustomAgentResponse Client::listCustomAgentWithOptions(const ListCustomAgent
 }
 
 /**
- * @summary 获取Custom Agent列表
+ * @summary Queries the dedicated agents created by a user.
  *
  * @param request ListCustomAgentRequest
  * @return ListCustomAgentResponse
@@ -1090,7 +1192,7 @@ ListCustomAgentResponse Client::listCustomAgent(const ListCustomAgentRequest &re
 }
 
 /**
- * @summary 获取专属Agent可用工具
+ * @summary Queries the custom agent tools of the user.
  *
  * @param request ListCustomAgentToolsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1113,7 +1215,7 @@ ListCustomAgentToolsResponse Client::listCustomAgentToolsWithOptions(const Darab
 }
 
 /**
- * @summary 获取专属Agent可用工具
+ * @summary Queries the custom agent tools of the user.
  *
  * @return ListCustomAgentToolsResponse
  */
@@ -1123,7 +1225,12 @@ ListCustomAgentToolsResponse Client::listCustomAgentTools() {
 }
 
 /**
- * @summary 修改Supabase Auth相关配置
+ * @summary Modifies the authentication configurations of an RDS Supabase instance.
+ *
+ * @description ### [](#)Supported database engine
+ * RDS PostgreSQL
+ * ### [](#)References
+ * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param tmpReq ModifyInstanceAuthConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1134,20 +1241,20 @@ ModifyInstanceAuthConfigResponse Client::modifyInstanceAuthConfigWithOptions(con
   ModifyInstanceAuthConfigShrinkRequest request = ModifyInstanceAuthConfigShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasConfigList()) {
-    request.setConfigListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.configList(), "ConfigList", "json"));
+    request.setConfigListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getConfigList(), "ConfigList", "json"));
   }
 
   json query = {};
   if (!!request.hasConfigListShrink()) {
-    query["ConfigList"] = request.configListShrink();
+    query["ConfigList"] = request.getConfigListShrink();
   }
 
   if (!!request.hasInstanceName()) {
-    query["InstanceName"] = request.instanceName();
+    query["InstanceName"] = request.getInstanceName();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1168,7 +1275,12 @@ ModifyInstanceAuthConfigResponse Client::modifyInstanceAuthConfigWithOptions(con
 }
 
 /**
- * @summary 修改Supabase Auth相关配置
+ * @summary Modifies the authentication configurations of an RDS Supabase instance.
+ *
+ * @description ### [](#)Supported database engine
+ * RDS PostgreSQL
+ * ### [](#)References
+ * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request ModifyInstanceAuthConfigRequest
  * @return ModifyInstanceAuthConfigResponse
@@ -1179,7 +1291,7 @@ ModifyInstanceAuthConfigResponse Client::modifyInstanceAuthConfig(const ModifyIn
 }
 
 /**
- * @summary 修改实例RAG配置
+ * @summary Modifies the general configurations of an instance, such as the EIP and NAT settings.
  *
  * @param request ModifyInstanceConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1189,23 +1301,23 @@ ModifyInstanceConfigResponse Client::modifyInstanceConfigWithOptions(const Modif
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasConfigName()) {
-    query["ConfigName"] = request.configName();
+    query["ConfigName"] = request.getConfigName();
   }
 
   if (!!request.hasConfigValue()) {
-    query["ConfigValue"] = request.configValue();
+    query["ConfigValue"] = request.getConfigValue();
   }
 
   if (!!request.hasInstanceName()) {
-    query["InstanceName"] = request.instanceName();
+    query["InstanceName"] = request.getInstanceName();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1226,7 +1338,7 @@ ModifyInstanceConfigResponse Client::modifyInstanceConfigWithOptions(const Modif
 }
 
 /**
- * @summary 修改实例RAG配置
+ * @summary Modifies the general configurations of an instance, such as the EIP and NAT settings.
  *
  * @param request ModifyInstanceConfigRequest
  * @return ModifyInstanceConfigResponse
@@ -1237,7 +1349,12 @@ ModifyInstanceConfigResponse Client::modifyInstanceConfig(const ModifyInstanceCo
 }
 
 /**
- * @summary 修改服务白名单
+ * @summary Modifies the IP address whitelist of an RDS Supabase instance.
+ *
+ * @description ### [](#)Supported database engine
+ * RDS PostgreSQL
+ * ### [](#)References
+ * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request ModifyInstanceIpWhitelistRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1247,27 +1364,27 @@ ModifyInstanceIpWhitelistResponse Client::modifyInstanceIpWhitelistWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasGroupName()) {
-    query["GroupName"] = request.groupName();
+    query["GroupName"] = request.getGroupName();
   }
 
   if (!!request.hasInstanceName()) {
-    query["InstanceName"] = request.instanceName();
+    query["InstanceName"] = request.getInstanceName();
   }
 
   if (!!request.hasIpWhitelist()) {
-    query["IpWhitelist"] = request.ipWhitelist();
+    query["IpWhitelist"] = request.getIpWhitelist();
   }
 
   if (!!request.hasModifyMode()) {
-    query["ModifyMode"] = request.modifyMode();
+    query["ModifyMode"] = request.getModifyMode();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1288,7 +1405,12 @@ ModifyInstanceIpWhitelistResponse Client::modifyInstanceIpWhitelistWithOptions(c
 }
 
 /**
- * @summary 修改服务白名单
+ * @summary Modifies the IP address whitelist of an RDS Supabase instance.
+ *
+ * @description ### [](#)Supported database engine
+ * RDS PostgreSQL
+ * ### [](#)References
+ * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request ModifyInstanceIpWhitelistRequest
  * @return ModifyInstanceIpWhitelistResponse
@@ -1299,7 +1421,7 @@ ModifyInstanceIpWhitelistResponse Client::modifyInstanceIpWhitelist(const Modify
 }
 
 /**
- * @summary 修改实例RAG配置
+ * @summary Modifies the RAG agent configurations of an RDS Supabase instance.
  *
  * @param tmpReq ModifyInstanceRAGConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1310,28 +1432,28 @@ ModifyInstanceRAGConfigResponse Client::modifyInstanceRAGConfigWithOptions(const
   ModifyInstanceRAGConfigShrinkRequest request = ModifyInstanceRAGConfigShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasConfigList()) {
-    request.setConfigListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.configList(), "ConfigList", "json"));
+    request.setConfigListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getConfigList(), "ConfigList", "json"));
   }
 
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasConfigListShrink()) {
-    query["ConfigList"] = request.configListShrink();
+    query["ConfigList"] = request.getConfigListShrink();
   }
 
   if (!!request.hasInstanceName()) {
-    query["InstanceName"] = request.instanceName();
+    query["InstanceName"] = request.getInstanceName();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasStatus()) {
-    query["Status"] = request.status();
+    query["Status"] = request.getStatus();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1352,7 +1474,7 @@ ModifyInstanceRAGConfigResponse Client::modifyInstanceRAGConfigWithOptions(const
 }
 
 /**
- * @summary 修改实例RAG配置
+ * @summary Modifies the RAG agent configurations of an RDS Supabase instance.
  *
  * @param request ModifyInstanceRAGConfigRequest
  * @return ModifyInstanceRAGConfigResponse
@@ -1363,7 +1485,12 @@ ModifyInstanceRAGConfigResponse Client::modifyInstanceRAGConfig(const ModifyInst
 }
 
 /**
- * @summary 修改实例SSL配置
+ * @summary Modifies the SSL settings of an RDS Supabase instance.
+ *
+ * @description ### [](#)Supported database engine
+ * RDS PostgreSQL
+ * ### [](#)References
+ * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request ModifyInstanceSSLRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1373,27 +1500,27 @@ ModifyInstanceSSLResponse Client::modifyInstanceSSLWithOptions(const ModifyInsta
   request.validate();
   json query = {};
   if (!!request.hasCAType()) {
-    query["CAType"] = request.CAType();
+    query["CAType"] = request.getCAType();
   }
 
   if (!!request.hasInstanceName()) {
-    query["InstanceName"] = request.instanceName();
+    query["InstanceName"] = request.getInstanceName();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasSSLEnabled()) {
-    query["SSLEnabled"] = request.SSLEnabled();
+    query["SSLEnabled"] = request.getSSLEnabled();
   }
 
   if (!!request.hasServerCert()) {
-    query["ServerCert"] = request.serverCert();
+    query["ServerCert"] = request.getServerCert();
   }
 
   if (!!request.hasServerKey()) {
-    query["ServerKey"] = request.serverKey();
+    query["ServerKey"] = request.getServerKey();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1414,7 +1541,12 @@ ModifyInstanceSSLResponse Client::modifyInstanceSSLWithOptions(const ModifyInsta
 }
 
 /**
- * @summary 修改实例SSL配置
+ * @summary Modifies the SSL settings of an RDS Supabase instance.
+ *
+ * @description ### [](#)Supported database engine
+ * RDS PostgreSQL
+ * ### [](#)References
+ * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request ModifyInstanceSSLRequest
  * @return ModifyInstanceSSLResponse
@@ -1425,7 +1557,13 @@ ModifyInstanceSSLResponse Client::modifyInstanceSSL(const ModifyInstanceSSLReque
 }
 
 /**
- * @summary 修改实例存储配置
+ * @summary Modifies the storage configurations of an RDS Supabase instance.
+ *
+ * @description ### [](#)Supported database engine
+ * RDS PostgreSQL
+ * ### [](#)References
+ * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
+ * >  Only Object Storage Service (OSS) is supported for the storage of RDS Supabase.
  *
  * @param tmpReq ModifyInstanceStorageConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1436,24 +1574,24 @@ ModifyInstanceStorageConfigResponse Client::modifyInstanceStorageConfigWithOptio
   ModifyInstanceStorageConfigShrinkRequest request = ModifyInstanceStorageConfigShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasConfigList()) {
-    request.setConfigListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.configList(), "ConfigList", "json"));
+    request.setConfigListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getConfigList(), "ConfigList", "json"));
   }
 
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasConfigListShrink()) {
-    query["ConfigList"] = request.configListShrink();
+    query["ConfigList"] = request.getConfigListShrink();
   }
 
   if (!!request.hasInstanceName()) {
-    query["InstanceName"] = request.instanceName();
+    query["InstanceName"] = request.getInstanceName();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1474,7 +1612,13 @@ ModifyInstanceStorageConfigResponse Client::modifyInstanceStorageConfigWithOptio
 }
 
 /**
- * @summary 修改实例存储配置
+ * @summary Modifies the storage configurations of an RDS Supabase instance.
+ *
+ * @description ### [](#)Supported database engine
+ * RDS PostgreSQL
+ * ### [](#)References
+ * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
+ * >  Only Object Storage Service (OSS) is supported for the storage of RDS Supabase.
  *
  * @param request ModifyInstanceStorageConfigRequest
  * @return ModifyInstanceStorageConfigResponse
@@ -1485,7 +1629,7 @@ ModifyInstanceStorageConfigResponse Client::modifyInstanceStorageConfig(const Mo
 }
 
 /**
- * @summary 消息终端用户反馈、点赞/点踩
+ * @summary Modifies the returned messages.
  *
  * @param request ModifyMessagesFeedbacksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1495,15 +1639,15 @@ ModifyMessagesFeedbacksResponse Client::modifyMessagesFeedbacksWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasContent()) {
-    query["Content"] = request.content();
+    query["Content"] = request.getContent();
   }
 
   if (!!request.hasMessageId()) {
-    query["MessageId"] = request.messageId();
+    query["MessageId"] = request.getMessageId();
   }
 
   if (!!request.hasRating()) {
-    query["Rating"] = request.rating();
+    query["Rating"] = request.getRating();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1524,7 +1668,7 @@ ModifyMessagesFeedbacksResponse Client::modifyMessagesFeedbacksWithOptions(const
 }
 
 /**
- * @summary 消息终端用户反馈、点赞/点踩
+ * @summary Modifies the returned messages.
  *
  * @param request ModifyMessagesFeedbacksRequest
  * @return ModifyMessagesFeedbacksResponse
@@ -1535,7 +1679,13 @@ ModifyMessagesFeedbacksResponse Client::modifyMessagesFeedbacks(const ModifyMess
 }
 
 /**
- * @summary 重置实例密码
+ * @summary Resets the logon password of the RDS Supabase instance and the access password of the database.
+ *
+ * @description ### [](#)Supported database engine
+ * RDS PostgreSQL
+ * ### [](#)References
+ * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
+ * >  You can only change the password of a RDS Supabase Dashboard user.
  *
  * @param request ResetInstancePasswordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1545,19 +1695,19 @@ ResetInstancePasswordResponse Client::resetInstancePasswordWithOptions(const Res
   request.validate();
   json query = {};
   if (!!request.hasDashboardPassword()) {
-    query["DashboardPassword"] = request.dashboardPassword();
+    query["DashboardPassword"] = request.getDashboardPassword();
   }
 
   if (!!request.hasDatabasePassword()) {
-    query["DatabasePassword"] = request.databasePassword();
+    query["DatabasePassword"] = request.getDatabasePassword();
   }
 
   if (!!request.hasInstanceName()) {
-    query["InstanceName"] = request.instanceName();
+    query["InstanceName"] = request.getInstanceName();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1578,7 +1728,13 @@ ResetInstancePasswordResponse Client::resetInstancePasswordWithOptions(const Res
 }
 
 /**
- * @summary 重置实例密码
+ * @summary Resets the logon password of the RDS Supabase instance and the access password of the database.
+ *
+ * @description ### [](#)Supported database engine
+ * RDS PostgreSQL
+ * ### [](#)References
+ * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
+ * >  You can only change the password of a RDS Supabase Dashboard user.
  *
  * @param request ResetInstancePasswordRequest
  * @return ResetInstancePasswordResponse
@@ -1589,7 +1745,12 @@ ResetInstancePasswordResponse Client::resetInstancePassword(const ResetInstanceP
 }
 
 /**
- * @summary 重启实例
+ * @summary Restarts an RDS Supabase instance that is in the Running state.
+ *
+ * @description ### [](#)Supported database engine
+ * RDS PostgreSQL
+ * ### [](#)References
+ * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request RestartInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1599,11 +1760,11 @@ RestartInstanceResponse Client::restartInstanceWithOptions(const RestartInstance
   request.validate();
   json query = {};
   if (!!request.hasInstanceName()) {
-    query["InstanceName"] = request.instanceName();
+    query["InstanceName"] = request.getInstanceName();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1624,7 +1785,12 @@ RestartInstanceResponse Client::restartInstanceWithOptions(const RestartInstance
 }
 
 /**
- * @summary 重启实例
+ * @summary Restarts an RDS Supabase instance that is in the Running state.
+ *
+ * @description ### [](#)Supported database engine
+ * RDS PostgreSQL
+ * ### [](#)References
+ * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request RestartInstanceRequest
  * @return RestartInstanceResponse
@@ -1635,7 +1801,12 @@ RestartInstanceResponse Client::restartInstance(const RestartInstanceRequest &re
 }
 
 /**
- * @summary 启动实例
+ * @summary Starts a stopped RDS Supabase instance.
+ *
+ * @description ### [](#)Supported database engine
+ * RDS PostgreSQL
+ * ### [](#)References
+ * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request StartInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1645,11 +1816,11 @@ StartInstanceResponse Client::startInstanceWithOptions(const StartInstanceReques
   request.validate();
   json query = {};
   if (!!request.hasInstanceName()) {
-    query["InstanceName"] = request.instanceName();
+    query["InstanceName"] = request.getInstanceName();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1670,7 +1841,12 @@ StartInstanceResponse Client::startInstanceWithOptions(const StartInstanceReques
 }
 
 /**
- * @summary 启动实例
+ * @summary Starts a stopped RDS Supabase instance.
+ *
+ * @description ### [](#)Supported database engine
+ * RDS PostgreSQL
+ * ### [](#)References
+ * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request StartInstanceRequest
  * @return StartInstanceResponse
@@ -1681,7 +1857,12 @@ StartInstanceResponse Client::startInstance(const StartInstanceRequest &request)
 }
 
 /**
- * @summary 暂停实例
+ * @summary Stops a running RDS Supabase instance.
+ *
+ * @description ### [](#)Supported database engine
+ * RDS PostgreSQL
+ * ### [](#)References
+ * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request StopInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1691,11 +1872,11 @@ StopInstanceResponse Client::stopInstanceWithOptions(const StopInstanceRequest &
   request.validate();
   json query = {};
   if (!!request.hasInstanceName()) {
-    query["InstanceName"] = request.instanceName();
+    query["InstanceName"] = request.getInstanceName();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1716,7 +1897,12 @@ StopInstanceResponse Client::stopInstanceWithOptions(const StopInstanceRequest &
 }
 
 /**
- * @summary 暂停实例
+ * @summary Stops a running RDS Supabase instance.
+ *
+ * @description ### [](#)Supported database engine
+ * RDS PostgreSQL
+ * ### [](#)References
+ * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request StopInstanceRequest
  * @return StopInstanceResponse
@@ -1727,7 +1913,7 @@ StopInstanceResponse Client::stopInstance(const StopInstanceRequest &request) {
 }
 
 /**
- * @summary 更新Custom Agent
+ * @summary Updates the custom agent.
  *
  * @param tmpReq UpdateCustomAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1738,28 +1924,28 @@ UpdateCustomAgentResponse Client::updateCustomAgentWithOptions(const UpdateCusto
   UpdateCustomAgentShrinkRequest request = UpdateCustomAgentShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasTools()) {
-    request.setToolsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tools(), "Tools", "json"));
+    request.setToolsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTools(), "Tools", "json"));
   }
 
   json query = {};
   if (!!request.hasCustomAgentId()) {
-    query["CustomAgentId"] = request.customAgentId();
+    query["CustomAgentId"] = request.getCustomAgentId();
   }
 
   if (!!request.hasEnableTools()) {
-    query["EnableTools"] = request.enableTools();
+    query["EnableTools"] = request.getEnableTools();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasSystemPrompt()) {
-    query["SystemPrompt"] = request.systemPrompt();
+    query["SystemPrompt"] = request.getSystemPrompt();
   }
 
   if (!!request.hasToolsShrink()) {
-    query["Tools"] = request.toolsShrink();
+    query["Tools"] = request.getToolsShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1780,7 +1966,7 @@ UpdateCustomAgentResponse Client::updateCustomAgentWithOptions(const UpdateCusto
 }
 
 /**
- * @summary 更新Custom Agent
+ * @summary Updates the custom agent.
  *
  * @param request UpdateCustomAgentRequest
  * @return UpdateCustomAgentResponse

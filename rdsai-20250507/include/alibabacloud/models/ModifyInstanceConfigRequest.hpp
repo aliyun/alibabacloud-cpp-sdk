@@ -38,49 +38,55 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && return this->configName_ == nullptr && return this->configValue_ == nullptr && return this->instanceName_ == nullptr && return this->regionId_ == nullptr; };
+        && this->configName_ == nullptr && this->configValue_ == nullptr && this->instanceName_ == nullptr && this->regionId_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline ModifyInstanceConfigRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // configName Field Functions 
     bool hasConfigName() const { return this->configName_ != nullptr;};
     void deleteConfigName() { this->configName_ = nullptr;};
-    inline string configName() const { DARABONBA_PTR_GET_DEFAULT(configName_, "") };
+    inline string getConfigName() const { DARABONBA_PTR_GET_DEFAULT(configName_, "") };
     inline ModifyInstanceConfigRequest& setConfigName(string configName) { DARABONBA_PTR_SET_VALUE(configName_, configName) };
 
 
     // configValue Field Functions 
     bool hasConfigValue() const { return this->configValue_ != nullptr;};
     void deleteConfigValue() { this->configValue_ = nullptr;};
-    inline string configValue() const { DARABONBA_PTR_GET_DEFAULT(configValue_, "") };
+    inline string getConfigValue() const { DARABONBA_PTR_GET_DEFAULT(configValue_, "") };
     inline ModifyInstanceConfigRequest& setConfigValue(string configValue) { DARABONBA_PTR_SET_VALUE(configValue_, configValue) };
 
 
     // instanceName Field Functions 
     bool hasInstanceName() const { return this->instanceName_ != nullptr;};
     void deleteInstanceName() { this->instanceName_ = nullptr;};
-    inline string instanceName() const { DARABONBA_PTR_GET_DEFAULT(instanceName_, "") };
+    inline string getInstanceName() const { DARABONBA_PTR_GET_DEFAULT(instanceName_, "") };
     inline ModifyInstanceConfigRequest& setInstanceName(string instanceName) { DARABONBA_PTR_SET_VALUE(instanceName_, instanceName) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ModifyInstanceConfigRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
-    std::shared_ptr<string> clientToken_ = nullptr;
-    std::shared_ptr<string> configName_ = nullptr;
-    std::shared_ptr<string> configValue_ = nullptr;
+    // The ID of the RDS Supabase instance.
+    shared_ptr<string> clientToken_ {};
+    // The client token that is used to ensure the idempotence of the request.
+    shared_ptr<string> configName_ {};
+    // The name of the configuration item that you want to modify. Configure this parameter together with the ConfigValue parameter.
+    shared_ptr<string> configValue_ {};
+    // The region ID of the instance.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> instanceName_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> instanceName_ {};
+    // The operation that you want to perform. Set the value to **ModifyInstanceConfig**.
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

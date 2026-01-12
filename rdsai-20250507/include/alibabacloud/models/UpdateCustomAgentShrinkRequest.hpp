@@ -38,51 +38,55 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->customAgentId_ == nullptr
-        && return this->enableTools_ == nullptr && return this->name_ == nullptr && return this->systemPrompt_ == nullptr && return this->toolsShrink_ == nullptr; };
+        && this->enableTools_ == nullptr && this->name_ == nullptr && this->systemPrompt_ == nullptr && this->toolsShrink_ == nullptr; };
     // customAgentId Field Functions 
     bool hasCustomAgentId() const { return this->customAgentId_ != nullptr;};
     void deleteCustomAgentId() { this->customAgentId_ = nullptr;};
-    inline string customAgentId() const { DARABONBA_PTR_GET_DEFAULT(customAgentId_, "") };
+    inline string getCustomAgentId() const { DARABONBA_PTR_GET_DEFAULT(customAgentId_, "") };
     inline UpdateCustomAgentShrinkRequest& setCustomAgentId(string customAgentId) { DARABONBA_PTR_SET_VALUE(customAgentId_, customAgentId) };
 
 
     // enableTools Field Functions 
     bool hasEnableTools() const { return this->enableTools_ != nullptr;};
     void deleteEnableTools() { this->enableTools_ = nullptr;};
-    inline bool enableTools() const { DARABONBA_PTR_GET_DEFAULT(enableTools_, false) };
+    inline bool getEnableTools() const { DARABONBA_PTR_GET_DEFAULT(enableTools_, false) };
     inline UpdateCustomAgentShrinkRequest& setEnableTools(bool enableTools) { DARABONBA_PTR_SET_VALUE(enableTools_, enableTools) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline UpdateCustomAgentShrinkRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // systemPrompt Field Functions 
     bool hasSystemPrompt() const { return this->systemPrompt_ != nullptr;};
     void deleteSystemPrompt() { this->systemPrompt_ = nullptr;};
-    inline string systemPrompt() const { DARABONBA_PTR_GET_DEFAULT(systemPrompt_, "") };
+    inline string getSystemPrompt() const { DARABONBA_PTR_GET_DEFAULT(systemPrompt_, "") };
     inline UpdateCustomAgentShrinkRequest& setSystemPrompt(string systemPrompt) { DARABONBA_PTR_SET_VALUE(systemPrompt_, systemPrompt) };
 
 
     // toolsShrink Field Functions 
     bool hasToolsShrink() const { return this->toolsShrink_ != nullptr;};
     void deleteToolsShrink() { this->toolsShrink_ = nullptr;};
-    inline string toolsShrink() const { DARABONBA_PTR_GET_DEFAULT(toolsShrink_, "") };
+    inline string getToolsShrink() const { DARABONBA_PTR_GET_DEFAULT(toolsShrink_, "") };
     inline UpdateCustomAgentShrinkRequest& setToolsShrink(string toolsShrink) { DARABONBA_PTR_SET_VALUE(toolsShrink_, toolsShrink) };
 
 
   protected:
-    // AgentId。
+    // The operation that you want to perform. Set the value to **UpdateCustomAgent**.
     // 
     // This parameter is required.
-    std::shared_ptr<string> customAgentId_ = nullptr;
-    std::shared_ptr<bool> enableTools_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> systemPrompt_ = nullptr;
-    std::shared_ptr<string> toolsShrink_ = nullptr;
+    shared_ptr<string> customAgentId_ {};
+    // The system prompts.
+    shared_ptr<bool> enableTools_ {};
+    // The ID of the agent.
+    shared_ptr<string> name_ {};
+    // The name of the agent.
+    shared_ptr<string> systemPrompt_ {};
+    // Specifies whether to enable tools.
+    shared_ptr<string> toolsShrink_ {};
   };
 
   } // namespace Models

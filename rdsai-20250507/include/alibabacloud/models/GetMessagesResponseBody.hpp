@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_GETMESSAGESRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/GetMessagesResponseBodyData.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -37,43 +36,149 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(Answer, answer_);
+        DARABONBA_PTR_TO_JSON(ConversationId, conversationId_);
+        DARABONBA_PTR_TO_JSON(CreatedAt, createdAt_);
+        DARABONBA_PTR_TO_JSON(Feedback, feedback_);
+        DARABONBA_PTR_TO_JSON(Id, id_);
+        DARABONBA_PTR_TO_JSON(Query, query_);
+        DARABONBA_PTR_TO_JSON(RetrieverResources, retrieverResources_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(Answer, answer_);
+        DARABONBA_PTR_FROM_JSON(ConversationId, conversationId_);
+        DARABONBA_PTR_FROM_JSON(CreatedAt, createdAt_);
+        DARABONBA_PTR_FROM_JSON(Feedback, feedback_);
+        DARABONBA_PTR_FROM_JSON(Id, id_);
+        DARABONBA_PTR_FROM_JSON(Query, query_);
+        DARABONBA_PTR_FROM_JSON(RetrieverResources, retrieverResources_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->answer_ == nullptr
+        && this->conversationId_ == nullptr && this->createdAt_ == nullptr && this->feedback_ == nullptr && this->id_ == nullptr && this->query_ == nullptr
+        && this->retrieverResources_ == nullptr; };
+      // answer Field Functions 
+      bool hasAnswer() const { return this->answer_ != nullptr;};
+      void deleteAnswer() { this->answer_ = nullptr;};
+      inline string getAnswer() const { DARABONBA_PTR_GET_DEFAULT(answer_, "") };
+      inline Data& setAnswer(string answer) { DARABONBA_PTR_SET_VALUE(answer_, answer) };
+
+
+      // conversationId Field Functions 
+      bool hasConversationId() const { return this->conversationId_ != nullptr;};
+      void deleteConversationId() { this->conversationId_ = nullptr;};
+      inline string getConversationId() const { DARABONBA_PTR_GET_DEFAULT(conversationId_, "") };
+      inline Data& setConversationId(string conversationId) { DARABONBA_PTR_SET_VALUE(conversationId_, conversationId) };
+
+
+      // createdAt Field Functions 
+      bool hasCreatedAt() const { return this->createdAt_ != nullptr;};
+      void deleteCreatedAt() { this->createdAt_ = nullptr;};
+      inline string getCreatedAt() const { DARABONBA_PTR_GET_DEFAULT(createdAt_, "") };
+      inline Data& setCreatedAt(string createdAt) { DARABONBA_PTR_SET_VALUE(createdAt_, createdAt) };
+
+
+      // feedback Field Functions 
+      bool hasFeedback() const { return this->feedback_ != nullptr;};
+      void deleteFeedback() { this->feedback_ = nullptr;};
+      inline string getFeedback() const { DARABONBA_PTR_GET_DEFAULT(feedback_, "") };
+      inline Data& setFeedback(string feedback) { DARABONBA_PTR_SET_VALUE(feedback_, feedback) };
+
+
+      // id Field Functions 
+      bool hasId() const { return this->id_ != nullptr;};
+      void deleteId() { this->id_ = nullptr;};
+      inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+      inline Data& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+      // query Field Functions 
+      bool hasQuery() const { return this->query_ != nullptr;};
+      void deleteQuery() { this->query_ = nullptr;};
+      inline string getQuery() const { DARABONBA_PTR_GET_DEFAULT(query_, "") };
+      inline Data& setQuery(string query) { DARABONBA_PTR_SET_VALUE(query_, query) };
+
+
+      // retrieverResources Field Functions 
+      bool hasRetrieverResources() const { return this->retrieverResources_ != nullptr;};
+      void deleteRetrieverResources() { this->retrieverResources_ = nullptr;};
+      inline const vector<Darabonba::Json> & getRetrieverResources() const { DARABONBA_PTR_GET_CONST(retrieverResources_, vector<Darabonba::Json>) };
+      inline vector<Darabonba::Json> getRetrieverResources() { DARABONBA_PTR_GET(retrieverResources_, vector<Darabonba::Json>) };
+      inline Data& setRetrieverResources(const vector<Darabonba::Json> & retrieverResources) { DARABONBA_PTR_SET_VALUE(retrieverResources_, retrieverResources) };
+      inline Data& setRetrieverResources(vector<Darabonba::Json> && retrieverResources) { DARABONBA_PTR_SET_RVALUE(retrieverResources_, retrieverResources) };
+
+
+    protected:
+      // The response to the query.
+      shared_ptr<string> answer_ {};
+      // The ID of the conversation.
+      shared_ptr<string> conversationId_ {};
+      // The creation time of the conversation.
+      shared_ptr<string> createdAt_ {};
+      // The feedback.
+      shared_ptr<string> feedback_ {};
+      // The message ID.
+      shared_ptr<string> id_ {};
+      // The query statement.
+      shared_ptr<string> query_ {};
+      // The retriever resources.
+      shared_ptr<vector<Darabonba::Json>> retrieverResources_ {};
+    };
+
     virtual bool empty() const override { return this->data_ == nullptr
-        && return this->hasMore_ == nullptr && return this->limit_ == nullptr && return this->requestId_ == nullptr; };
+        && this->hasMore_ == nullptr && this->limit_ == nullptr && this->requestId_ == nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const vector<GetMessagesResponseBodyData> & data() const { DARABONBA_PTR_GET_CONST(data_, vector<GetMessagesResponseBodyData>) };
-    inline vector<GetMessagesResponseBodyData> data() { DARABONBA_PTR_GET(data_, vector<GetMessagesResponseBodyData>) };
-    inline GetMessagesResponseBody& setData(const vector<GetMessagesResponseBodyData> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline GetMessagesResponseBody& setData(vector<GetMessagesResponseBodyData> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const vector<GetMessagesResponseBody::Data> & getData() const { DARABONBA_PTR_GET_CONST(data_, vector<GetMessagesResponseBody::Data>) };
+    inline vector<GetMessagesResponseBody::Data> getData() { DARABONBA_PTR_GET(data_, vector<GetMessagesResponseBody::Data>) };
+    inline GetMessagesResponseBody& setData(const vector<GetMessagesResponseBody::Data> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline GetMessagesResponseBody& setData(vector<GetMessagesResponseBody::Data> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // hasMore Field Functions 
     bool hasHasMore() const { return this->hasMore_ != nullptr;};
     void deleteHasMore() { this->hasMore_ = nullptr;};
-    inline bool hasMore() const { DARABONBA_PTR_GET_DEFAULT(hasMore_, false) };
+    inline bool getHasMore() const { DARABONBA_PTR_GET_DEFAULT(hasMore_, false) };
     inline GetMessagesResponseBody& setHasMore(bool hasMore) { DARABONBA_PTR_SET_VALUE(hasMore_, hasMore) };
 
 
     // limit Field Functions 
     bool hasLimit() const { return this->limit_ != nullptr;};
     void deleteLimit() { this->limit_ = nullptr;};
-    inline int64_t limit() const { DARABONBA_PTR_GET_DEFAULT(limit_, 0L) };
+    inline int64_t getLimit() const { DARABONBA_PTR_GET_DEFAULT(limit_, 0L) };
     inline GetMessagesResponseBody& setLimit(int64_t limit) { DARABONBA_PTR_SET_VALUE(limit_, limit) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetMessagesResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<vector<GetMessagesResponseBodyData>> data_ = nullptr;
-    std::shared_ptr<bool> hasMore_ = nullptr;
-    std::shared_ptr<int64_t> limit_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    // The returned results.
+    shared_ptr<vector<GetMessagesResponseBody::Data>> data_ {};
+    // Indicates whether the current page is followed by a page.
+    shared_ptr<bool> hasMore_ {};
+    // The maximum number of entries to return.
+    shared_ptr<int64_t> limit_ {};
+    // The request ID.
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

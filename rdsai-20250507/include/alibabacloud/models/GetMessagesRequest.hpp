@@ -34,32 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->conversationId_ == nullptr
-        && return this->firstId_ == nullptr && return this->limit_ == nullptr; };
+        && this->firstId_ == nullptr && this->limit_ == nullptr; };
     // conversationId Field Functions 
     bool hasConversationId() const { return this->conversationId_ != nullptr;};
     void deleteConversationId() { this->conversationId_ = nullptr;};
-    inline string conversationId() const { DARABONBA_PTR_GET_DEFAULT(conversationId_, "") };
+    inline string getConversationId() const { DARABONBA_PTR_GET_DEFAULT(conversationId_, "") };
     inline GetMessagesRequest& setConversationId(string conversationId) { DARABONBA_PTR_SET_VALUE(conversationId_, conversationId) };
 
 
     // firstId Field Functions 
     bool hasFirstId() const { return this->firstId_ != nullptr;};
     void deleteFirstId() { this->firstId_ = nullptr;};
-    inline string firstId() const { DARABONBA_PTR_GET_DEFAULT(firstId_, "") };
+    inline string getFirstId() const { DARABONBA_PTR_GET_DEFAULT(firstId_, "") };
     inline GetMessagesRequest& setFirstId(string firstId) { DARABONBA_PTR_SET_VALUE(firstId_, firstId) };
 
 
     // limit Field Functions 
     bool hasLimit() const { return this->limit_ != nullptr;};
     void deleteLimit() { this->limit_ = nullptr;};
-    inline int64_t limit() const { DARABONBA_PTR_GET_DEFAULT(limit_, 0L) };
+    inline int64_t getLimit() const { DARABONBA_PTR_GET_DEFAULT(limit_, 0L) };
     inline GetMessagesRequest& setLimit(int64_t limit) { DARABONBA_PTR_SET_VALUE(limit_, limit) };
 
 
   protected:
-    std::shared_ptr<string> conversationId_ = nullptr;
-    std::shared_ptr<string> firstId_ = nullptr;
-    std::shared_ptr<int64_t> limit_ = nullptr;
+    // The operation that you want to perform. Set the value to **GetMessages**.
+    shared_ptr<string> conversationId_ {};
+    // The ID of the conversation.
+    shared_ptr<string> firstId_ {};
+    // The ID of the first message.
+    shared_ptr<int64_t> limit_ {};
   };
 
   } // namespace Models

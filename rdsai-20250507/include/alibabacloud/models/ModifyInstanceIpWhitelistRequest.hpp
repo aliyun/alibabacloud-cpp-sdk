@@ -40,56 +40,72 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && return this->groupName_ == nullptr && return this->instanceName_ == nullptr && return this->ipWhitelist_ == nullptr && return this->modifyMode_ == nullptr && return this->regionId_ == nullptr; };
+        && this->groupName_ == nullptr && this->instanceName_ == nullptr && this->ipWhitelist_ == nullptr && this->modifyMode_ == nullptr && this->regionId_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline ModifyInstanceIpWhitelistRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // groupName Field Functions 
     bool hasGroupName() const { return this->groupName_ != nullptr;};
     void deleteGroupName() { this->groupName_ = nullptr;};
-    inline string groupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
+    inline string getGroupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
     inline ModifyInstanceIpWhitelistRequest& setGroupName(string groupName) { DARABONBA_PTR_SET_VALUE(groupName_, groupName) };
 
 
     // instanceName Field Functions 
     bool hasInstanceName() const { return this->instanceName_ != nullptr;};
     void deleteInstanceName() { this->instanceName_ = nullptr;};
-    inline string instanceName() const { DARABONBA_PTR_GET_DEFAULT(instanceName_, "") };
+    inline string getInstanceName() const { DARABONBA_PTR_GET_DEFAULT(instanceName_, "") };
     inline ModifyInstanceIpWhitelistRequest& setInstanceName(string instanceName) { DARABONBA_PTR_SET_VALUE(instanceName_, instanceName) };
 
 
     // ipWhitelist Field Functions 
     bool hasIpWhitelist() const { return this->ipWhitelist_ != nullptr;};
     void deleteIpWhitelist() { this->ipWhitelist_ = nullptr;};
-    inline string ipWhitelist() const { DARABONBA_PTR_GET_DEFAULT(ipWhitelist_, "") };
+    inline string getIpWhitelist() const { DARABONBA_PTR_GET_DEFAULT(ipWhitelist_, "") };
     inline ModifyInstanceIpWhitelistRequest& setIpWhitelist(string ipWhitelist) { DARABONBA_PTR_SET_VALUE(ipWhitelist_, ipWhitelist) };
 
 
     // modifyMode Field Functions 
     bool hasModifyMode() const { return this->modifyMode_ != nullptr;};
     void deleteModifyMode() { this->modifyMode_ = nullptr;};
-    inline string modifyMode() const { DARABONBA_PTR_GET_DEFAULT(modifyMode_, "") };
+    inline string getModifyMode() const { DARABONBA_PTR_GET_DEFAULT(modifyMode_, "") };
     inline ModifyInstanceIpWhitelistRequest& setModifyMode(string modifyMode) { DARABONBA_PTR_SET_VALUE(modifyMode_, modifyMode) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ModifyInstanceIpWhitelistRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
-    std::shared_ptr<string> clientToken_ = nullptr;
-    std::shared_ptr<string> groupName_ = nullptr;
-    std::shared_ptr<string> instanceName_ = nullptr;
-    std::shared_ptr<string> ipWhitelist_ = nullptr;
-    std::shared_ptr<string> modifyMode_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    // The method that is used to modify the IP address whitelist. Valid values:
+    // 
+    // *   **Cover** (default): Uses the IP addresses and CIDR blocks that are specified in the **IpWhitelist** parameter to **overwrite** the existing ones in the current whitelist.
+    // *   **Append**: **Appends** the IP addresses and CIDR blocks that are specified in the **IpWhitelist** parameter to the current whitelist.
+    // *   **Delete**: **Deletes** the IP addresses and CIDR blocks that are specified in the **IpWhitelist** parameter from the current whitelist. You must retain at least one IP address or CIDR block.
+    shared_ptr<string> clientToken_ {};
+    // The idempotency token. The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.
+    shared_ptr<string> groupName_ {};
+    // The region ID.
+    shared_ptr<string> instanceName_ {};
+    // The ID of the RDS Supabase instance.
+    shared_ptr<string> ipWhitelist_ {};
+    // The IP address whitelist. Before you modify the IP address whitelist, call the DescribeInstanceIpWhitelist operation to query the existing IP address whitelist of the instance.
+    // 
+    // **Configuration rules**
+    // 
+    // *   You can configure IP addresses (such as 10.23.XXX.XXX) or CIDR blocks (such as 10.23.XXX.XXX/24).
+    // *   Separate multiple IP addresses or CIDR blocks with commas (,) and do not add spaces preceding or following the commas.
+    // *   You can configure up to 1,000 IP addresses and CIDR blocks in total for each instance. If you want to add a large number of IP addresses, we recommend that you merge the IP addresses into CIDR blocks, such as 10.23.XXX.XXX/24.
+    shared_ptr<string> modifyMode_ {};
+    // The operation that you want to perform. Set the value to **ModifyInstanceIpWhitelist**.
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

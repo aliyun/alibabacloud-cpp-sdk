@@ -36,41 +36,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->conversationId_ == nullptr
-        && return this->inputsShrink_ == nullptr && return this->parentMessageId_ == nullptr && return this->query_ == nullptr; };
+        && this->inputsShrink_ == nullptr && this->parentMessageId_ == nullptr && this->query_ == nullptr; };
     // conversationId Field Functions 
     bool hasConversationId() const { return this->conversationId_ != nullptr;};
     void deleteConversationId() { this->conversationId_ = nullptr;};
-    inline string conversationId() const { DARABONBA_PTR_GET_DEFAULT(conversationId_, "") };
+    inline string getConversationId() const { DARABONBA_PTR_GET_DEFAULT(conversationId_, "") };
     inline ChatMessagesShrinkRequest& setConversationId(string conversationId) { DARABONBA_PTR_SET_VALUE(conversationId_, conversationId) };
 
 
     // inputsShrink Field Functions 
     bool hasInputsShrink() const { return this->inputsShrink_ != nullptr;};
     void deleteInputsShrink() { this->inputsShrink_ = nullptr;};
-    inline string inputsShrink() const { DARABONBA_PTR_GET_DEFAULT(inputsShrink_, "") };
+    inline string getInputsShrink() const { DARABONBA_PTR_GET_DEFAULT(inputsShrink_, "") };
     inline ChatMessagesShrinkRequest& setInputsShrink(string inputsShrink) { DARABONBA_PTR_SET_VALUE(inputsShrink_, inputsShrink) };
 
 
     // parentMessageId Field Functions 
     bool hasParentMessageId() const { return this->parentMessageId_ != nullptr;};
     void deleteParentMessageId() { this->parentMessageId_ = nullptr;};
-    inline string parentMessageId() const { DARABONBA_PTR_GET_DEFAULT(parentMessageId_, "") };
+    inline string getParentMessageId() const { DARABONBA_PTR_GET_DEFAULT(parentMessageId_, "") };
     inline ChatMessagesShrinkRequest& setParentMessageId(string parentMessageId) { DARABONBA_PTR_SET_VALUE(parentMessageId_, parentMessageId) };
 
 
     // query Field Functions 
     bool hasQuery() const { return this->query_ != nullptr;};
     void deleteQuery() { this->query_ = nullptr;};
-    inline string query() const { DARABONBA_PTR_GET_DEFAULT(query_, "") };
+    inline string getQuery() const { DARABONBA_PTR_GET_DEFAULT(query_, "") };
     inline ChatMessagesShrinkRequest& setQuery(string query) { DARABONBA_PTR_SET_VALUE(query_, query) };
 
 
   protected:
-    std::shared_ptr<string> conversationId_ = nullptr;
-    std::shared_ptr<string> inputsShrink_ = nullptr;
-    std::shared_ptr<string> parentMessageId_ = nullptr;
+    // The query content.
+    shared_ptr<string> conversationId_ {};
+    // The ID of the parent message.
+    shared_ptr<string> inputsShrink_ {};
+    // The ID of the conversation.
+    shared_ptr<string> parentMessageId_ {};
+    // The operation that you want to perform. Set the value to **ChatMessages**.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> query_ = nullptr;
+    shared_ptr<string> query_ {};
   };
 
   } // namespace Models

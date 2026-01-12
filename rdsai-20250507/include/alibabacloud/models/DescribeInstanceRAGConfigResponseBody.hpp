@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_DESCRIBEINSTANCESTORAGECONFIGRESPONSEBODY_HPP_
-#define ALIBABACLOUD_MODELS_DESCRIBEINSTANCESTORAGECONFIGRESPONSEBODY_HPP_
+#ifndef ALIBABACLOUD_MODELS_DESCRIBEINSTANCERAGCONFIGRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_DESCRIBEINSTANCERAGCONFIGRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
 using namespace std;
@@ -11,25 +11,27 @@ namespace RdsAi20250507
 {
 namespace Models
 {
-  class DescribeInstanceStorageConfigResponseBody : public Darabonba::Model {
+  class DescribeInstanceRAGConfigResponseBody : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const DescribeInstanceStorageConfigResponseBody& obj) { 
+    friend void to_json(Darabonba::Json& j, const DescribeInstanceRAGConfigResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(ConfigList, configList_);
       DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(Status, status_);
     };
-    friend void from_json(const Darabonba::Json& j, DescribeInstanceStorageConfigResponseBody& obj) { 
+    friend void from_json(const Darabonba::Json& j, DescribeInstanceRAGConfigResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(ConfigList, configList_);
       DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(Status, status_);
     };
-    DescribeInstanceStorageConfigResponseBody() = default ;
-    DescribeInstanceStorageConfigResponseBody(const DescribeInstanceStorageConfigResponseBody &) = default ;
-    DescribeInstanceStorageConfigResponseBody(DescribeInstanceStorageConfigResponseBody &&) = default ;
-    DescribeInstanceStorageConfigResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~DescribeInstanceStorageConfigResponseBody() = default ;
-    DescribeInstanceStorageConfigResponseBody& operator=(const DescribeInstanceStorageConfigResponseBody &) = default ;
-    DescribeInstanceStorageConfigResponseBody& operator=(DescribeInstanceStorageConfigResponseBody &&) = default ;
+    DescribeInstanceRAGConfigResponseBody() = default ;
+    DescribeInstanceRAGConfigResponseBody(const DescribeInstanceRAGConfigResponseBody &) = default ;
+    DescribeInstanceRAGConfigResponseBody(DescribeInstanceRAGConfigResponseBody &&) = default ;
+    DescribeInstanceRAGConfigResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~DescribeInstanceRAGConfigResponseBody() = default ;
+    DescribeInstanceRAGConfigResponseBody& operator=(const DescribeInstanceRAGConfigResponseBody &) = default ;
+    DescribeInstanceRAGConfigResponseBody& operator=(DescribeInstanceRAGConfigResponseBody &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -72,52 +74,56 @@ namespace Models
 
 
     protected:
-      // The configuration item name. Valid values:
-      // 
-      // *   **AWS_SESSION_TOKEN**: temporary OSS access token (session token).
-      // *   **AWS_ACCESS_KEY_ID**: the AccessKey ID of OSS.
-      // *   **AWS_SECRET_ACCESS_KEY**: the AccessKey secret of OSS.
-      // *   **GLOBAL_S3_BUCKET**: the name of the OSS bucket.
-      // *   **TENANT_ID**: the tenant ID of the OSS Prefix (prefix or directory).
-      // *   **GLOBAL_S3_ENDPOINT**: the endpoint of OSS.
-      // *   **REGION**: the region of OSS.
+      // The name of the configuration item.
       shared_ptr<string> name_ {};
       // The value of the configuration item.
       shared_ptr<string> value_ {};
     };
 
     virtual bool empty() const override { return this->configList_ == nullptr
-        && this->instanceName_ == nullptr && this->requestId_ == nullptr; };
+        && this->instanceName_ == nullptr && this->requestId_ == nullptr && this->status_ == nullptr; };
     // configList Field Functions 
     bool hasConfigList() const { return this->configList_ != nullptr;};
     void deleteConfigList() { this->configList_ = nullptr;};
-    inline const vector<DescribeInstanceStorageConfigResponseBody::ConfigList> & getConfigList() const { DARABONBA_PTR_GET_CONST(configList_, vector<DescribeInstanceStorageConfigResponseBody::ConfigList>) };
-    inline vector<DescribeInstanceStorageConfigResponseBody::ConfigList> getConfigList() { DARABONBA_PTR_GET(configList_, vector<DescribeInstanceStorageConfigResponseBody::ConfigList>) };
-    inline DescribeInstanceStorageConfigResponseBody& setConfigList(const vector<DescribeInstanceStorageConfigResponseBody::ConfigList> & configList) { DARABONBA_PTR_SET_VALUE(configList_, configList) };
-    inline DescribeInstanceStorageConfigResponseBody& setConfigList(vector<DescribeInstanceStorageConfigResponseBody::ConfigList> && configList) { DARABONBA_PTR_SET_RVALUE(configList_, configList) };
+    inline const vector<DescribeInstanceRAGConfigResponseBody::ConfigList> & getConfigList() const { DARABONBA_PTR_GET_CONST(configList_, vector<DescribeInstanceRAGConfigResponseBody::ConfigList>) };
+    inline vector<DescribeInstanceRAGConfigResponseBody::ConfigList> getConfigList() { DARABONBA_PTR_GET(configList_, vector<DescribeInstanceRAGConfigResponseBody::ConfigList>) };
+    inline DescribeInstanceRAGConfigResponseBody& setConfigList(const vector<DescribeInstanceRAGConfigResponseBody::ConfigList> & configList) { DARABONBA_PTR_SET_VALUE(configList_, configList) };
+    inline DescribeInstanceRAGConfigResponseBody& setConfigList(vector<DescribeInstanceRAGConfigResponseBody::ConfigList> && configList) { DARABONBA_PTR_SET_RVALUE(configList_, configList) };
 
 
     // instanceName Field Functions 
     bool hasInstanceName() const { return this->instanceName_ != nullptr;};
     void deleteInstanceName() { this->instanceName_ = nullptr;};
     inline string getInstanceName() const { DARABONBA_PTR_GET_DEFAULT(instanceName_, "") };
-    inline DescribeInstanceStorageConfigResponseBody& setInstanceName(string instanceName) { DARABONBA_PTR_SET_VALUE(instanceName_, instanceName) };
+    inline DescribeInstanceRAGConfigResponseBody& setInstanceName(string instanceName) { DARABONBA_PTR_SET_VALUE(instanceName_, instanceName) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
-    inline DescribeInstanceStorageConfigResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+    inline DescribeInstanceRAGConfigResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+
+
+    // status Field Functions 
+    bool hasStatus() const { return this->status_ != nullptr;};
+    void deleteStatus() { this->status_ = nullptr;};
+    inline bool getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, false) };
+    inline DescribeInstanceRAGConfigResponseBody& setStatus(bool status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
   protected:
-    // The storage configurations.
-    shared_ptr<vector<DescribeInstanceStorageConfigResponseBody::ConfigList>> configList_ {};
+    // The RAG agent configurations.
+    shared_ptr<vector<DescribeInstanceRAGConfigResponseBody::ConfigList>> configList_ {};
     // The ID of the RDS Supabase instance.
     shared_ptr<string> instanceName_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
+    // The status of the RAG agent.
+    // 
+    // *   **true**: RAG agent is enabled.
+    // *   **false**: RAG agent is disabled.
+    shared_ptr<bool> status_ {};
   };
 
   } // namespace Models

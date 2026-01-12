@@ -38,49 +38,58 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && return this->configListShrink_ == nullptr && return this->instanceName_ == nullptr && return this->regionId_ == nullptr && return this->status_ == nullptr; };
+        && this->configListShrink_ == nullptr && this->instanceName_ == nullptr && this->regionId_ == nullptr && this->status_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline ModifyInstanceRAGConfigShrinkRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // configListShrink Field Functions 
     bool hasConfigListShrink() const { return this->configListShrink_ != nullptr;};
     void deleteConfigListShrink() { this->configListShrink_ = nullptr;};
-    inline string configListShrink() const { DARABONBA_PTR_GET_DEFAULT(configListShrink_, "") };
+    inline string getConfigListShrink() const { DARABONBA_PTR_GET_DEFAULT(configListShrink_, "") };
     inline ModifyInstanceRAGConfigShrinkRequest& setConfigListShrink(string configListShrink) { DARABONBA_PTR_SET_VALUE(configListShrink_, configListShrink) };
 
 
     // instanceName Field Functions 
     bool hasInstanceName() const { return this->instanceName_ != nullptr;};
     void deleteInstanceName() { this->instanceName_ = nullptr;};
-    inline string instanceName() const { DARABONBA_PTR_GET_DEFAULT(instanceName_, "") };
+    inline string getInstanceName() const { DARABONBA_PTR_GET_DEFAULT(instanceName_, "") };
     inline ModifyInstanceRAGConfigShrinkRequest& setInstanceName(string instanceName) { DARABONBA_PTR_SET_VALUE(instanceName_, instanceName) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ModifyInstanceRAGConfigShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline bool status() const { DARABONBA_PTR_GET_DEFAULT(status_, false) };
+    inline bool getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, false) };
     inline ModifyInstanceRAGConfigShrinkRequest& setStatus(bool status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
   protected:
-    std::shared_ptr<string> clientToken_ = nullptr;
-    std::shared_ptr<string> configListShrink_ = nullptr;
+    // The value of the configuration item.
+    shared_ptr<string> clientToken_ {};
+    // Specifies whether to enable the RAG agent. If you do not configure this parameter, the RAG agent state remains unchanged. Valid values:
+    // 
+    // *   **true**
+    // *   **false**
+    shared_ptr<string> configListShrink_ {};
+    // The region ID.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> instanceName_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<bool> status_ = nullptr;
+    shared_ptr<string> instanceName_ {};
+    // The operation that you want to perform. Set the value to **ModifyInstanceRAGConfig**.
+    shared_ptr<string> regionId_ {};
+    // The ID of the RDS Supabase instance.
+    shared_ptr<bool> status_ {};
   };
 
   } // namespace Models
