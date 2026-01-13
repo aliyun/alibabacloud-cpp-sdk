@@ -47,36 +47,36 @@ AddImageResponse Client::addImageWithOptions(const AddImageRequest &tmpReq, cons
   AddImageShrinkRequest request = AddImageShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasContainerImageSpec()) {
-    request.setContainerImageSpecShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.containerImageSpec(), "ContainerImageSpec", "json"));
+    request.setContainerImageSpecShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getContainerImageSpec(), "ContainerImageSpec", "json"));
   }
 
   if (!!tmpReq.hasVMImageSpec()) {
-    request.setVMImageSpecShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.VMImageSpec(), "VMImageSpec", "json"));
+    request.setVMImageSpecShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getVMImageSpec(), "VMImageSpec", "json"));
   }
 
   json query = {};
   if (!!request.hasContainerImageSpecShrink()) {
-    query["ContainerImageSpec"] = request.containerImageSpecShrink();
+    query["ContainerImageSpec"] = request.getContainerImageSpecShrink();
   }
 
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasImageType()) {
-    query["ImageType"] = request.imageType();
+    query["ImageType"] = request.getImageType();
   }
 
   if (!!request.hasImageVersion()) {
-    query["ImageVersion"] = request.imageVersion();
+    query["ImageVersion"] = request.getImageVersion();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasVMImageSpecShrink()) {
-    query["VMImageSpec"] = request.VMImageSpecShrink();
+    query["VMImageSpec"] = request.getVMImageSpecShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -121,52 +121,56 @@ CreateActionPlanResponse Client::createActionPlanWithOptions(const CreateActionP
   CreateActionPlanShrinkRequest request = CreateActionPlanShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasRegions()) {
-    request.setRegionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.regions(), "Regions", "json"));
+    request.setRegionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRegions(), "Regions", "json"));
   }
 
   if (!!tmpReq.hasResources()) {
-    request.setResourcesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.resources(), "Resources", "json"));
+    request.setResourcesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getResources(), "Resources", "json"));
   }
 
   json query = {};
   if (!!request.hasActionPlanName()) {
-    query["ActionPlanName"] = request.actionPlanName();
+    query["ActionPlanName"] = request.getActionPlanName();
   }
 
   if (!!request.hasAllocationSpec()) {
-    query["AllocationSpec"] = request.allocationSpec();
+    query["AllocationSpec"] = request.getAllocationSpec();
   }
 
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasDesiredCapacity()) {
-    query["DesiredCapacity"] = request.desiredCapacity();
+    query["DesiredCapacity"] = request.getDesiredCapacity();
+  }
+
+  if (!!request.hasIntervalMinutes()) {
+    query["IntervalMinutes"] = request.getIntervalMinutes();
   }
 
   if (!!request.hasLevel()) {
-    query["Level"] = request.level();
+    query["Level"] = request.getLevel();
   }
 
   if (!!request.hasPrologScript()) {
-    query["PrologScript"] = request.prologScript();
+    query["PrologScript"] = request.getPrologScript();
   }
 
   if (!!request.hasRegionsShrink()) {
-    query["Regions"] = request.regionsShrink();
+    query["Regions"] = request.getRegionsShrink();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasResourcesShrink()) {
-    query["Resources"] = request.resourcesShrink();
+    query["Resources"] = request.getResourcesShrink();
   }
 
   if (!!request.hasScript()) {
-    query["Script"] = request.script();
+    query["Script"] = request.getScript();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -211,48 +215,48 @@ CreateJobResponse Client::createJobWithOptions(const CreateJobRequest &tmpReq, c
   CreateJobShrinkRequest request = CreateJobShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDependencyPolicy()) {
-    request.setDependencyPolicyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.dependencyPolicy(), "DependencyPolicy", "json"));
+    request.setDependencyPolicyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDependencyPolicy(), "DependencyPolicy", "json"));
   }
 
   if (!!tmpReq.hasDeploymentPolicy()) {
-    request.setDeploymentPolicyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.deploymentPolicy(), "DeploymentPolicy", "json"));
+    request.setDeploymentPolicyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeploymentPolicy(), "DeploymentPolicy", "json"));
   }
 
   if (!!tmpReq.hasSecurityPolicy()) {
-    request.setSecurityPolicyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.securityPolicy(), "SecurityPolicy", "json"));
+    request.setSecurityPolicyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSecurityPolicy(), "SecurityPolicy", "json"));
   }
 
   if (!!tmpReq.hasTasks()) {
-    request.setTasksShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tasks(), "Tasks", "json"));
+    request.setTasksShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTasks(), "Tasks", "json"));
   }
 
   json query = {};
   if (!!request.hasDependencyPolicyShrink()) {
-    query["DependencyPolicy"] = request.dependencyPolicyShrink();
+    query["DependencyPolicy"] = request.getDependencyPolicyShrink();
   }
 
   if (!!request.hasDeploymentPolicyShrink()) {
-    query["DeploymentPolicy"] = request.deploymentPolicyShrink();
+    query["DeploymentPolicy"] = request.getDeploymentPolicyShrink();
   }
 
   if (!!request.hasJobDescription()) {
-    query["JobDescription"] = request.jobDescription();
+    query["JobDescription"] = request.getJobDescription();
   }
 
   if (!!request.hasJobName()) {
-    query["JobName"] = request.jobName();
+    query["JobName"] = request.getJobName();
   }
 
   if (!!request.hasJobScheduler()) {
-    query["JobScheduler"] = request.jobScheduler();
+    query["JobScheduler"] = request.getJobScheduler();
   }
 
   if (!!request.hasSecurityPolicyShrink()) {
-    query["SecurityPolicy"] = request.securityPolicyShrink();
+    query["SecurityPolicy"] = request.getSecurityPolicyShrink();
   }
 
   if (!!request.hasTasksShrink()) {
-    query["Tasks"] = request.tasksShrink();
+    query["Tasks"] = request.getTasksShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -295,20 +299,20 @@ CreatePoolResponse Client::createPoolWithOptions(const CreatePoolRequest &tmpReq
   CreatePoolShrinkRequest request = CreatePoolShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasResourceLimits()) {
-    request.setResourceLimitsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.resourceLimits(), "ResourceLimits", "json"));
+    request.setResourceLimitsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getResourceLimits(), "ResourceLimits", "json"));
   }
 
   json query = {};
   if (!!request.hasPoolName()) {
-    query["PoolName"] = request.poolName();
+    query["PoolName"] = request.getPoolName();
   }
 
   if (!!request.hasPriority()) {
-    query["Priority"] = request.priority();
+    query["Priority"] = request.getPriority();
   }
 
   if (!!request.hasResourceLimitsShrink()) {
-    query["ResourceLimits"] = request.resourceLimitsShrink();
+    query["ResourceLimits"] = request.getResourceLimitsShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -353,7 +357,7 @@ DeleteActionPlanResponse Client::deleteActionPlanWithOptions(const DeleteActionP
   request.validate();
   json query = {};
   if (!!request.hasActionPlanId()) {
-    query["ActionPlanId"] = request.actionPlanId();
+    query["ActionPlanId"] = request.getActionPlanId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -399,12 +403,12 @@ DeleteJobRecordsResponse Client::deleteJobRecordsWithOptions(const DeleteJobReco
   DeleteJobRecordsShrinkRequest request = DeleteJobRecordsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasJobIds()) {
-    request.setJobIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.jobIds(), "JobIds", "json"));
+    request.setJobIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getJobIds(), "JobIds", "json"));
   }
 
   json query = {};
   if (!!request.hasJobIdsShrink()) {
-    query["JobIds"] = request.jobIdsShrink();
+    query["JobIds"] = request.getJobIdsShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -447,24 +451,24 @@ DeleteJobsResponse Client::deleteJobsWithOptions(const DeleteJobsRequest &tmpReq
   DeleteJobsShrinkRequest request = DeleteJobsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasExecutorIds()) {
-    request.setExecutorIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.executorIds(), "ExecutorIds", "json"));
+    request.setExecutorIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExecutorIds(), "ExecutorIds", "json"));
   }
 
   if (!!tmpReq.hasJobSpec()) {
-    request.setJobSpecShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.jobSpec(), "JobSpec", "json"));
+    request.setJobSpecShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getJobSpec(), "JobSpec", "json"));
   }
 
   json query = {};
   if (!!request.hasExecutorIdsShrink()) {
-    query["ExecutorIds"] = request.executorIdsShrink();
+    query["ExecutorIds"] = request.getExecutorIdsShrink();
   }
 
   if (!!request.hasJobScheduler()) {
-    query["JobScheduler"] = request.jobScheduler();
+    query["JobScheduler"] = request.getJobScheduler();
   }
 
   if (!!request.hasJobSpecShrink()) {
-    query["JobSpec"] = request.jobSpecShrink();
+    query["JobSpec"] = request.getJobSpecShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -506,7 +510,7 @@ DeletePoolResponse Client::deletePoolWithOptions(const DeletePoolRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasPoolName()) {
-    query["PoolName"] = request.poolName();
+    query["PoolName"] = request.getPoolName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -549,24 +553,24 @@ DescribeJobMetricDataResponse Client::describeJobMetricDataWithOptions(const Des
   DescribeJobMetricDataShrinkRequest request = DescribeJobMetricDataShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasArrayIndex()) {
-    request.setArrayIndexShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.arrayIndex(), "ArrayIndex", "json"));
+    request.setArrayIndexShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getArrayIndex(), "ArrayIndex", "json"));
   }
 
   json query = {};
   if (!!request.hasArrayIndexShrink()) {
-    query["ArrayIndex"] = request.arrayIndexShrink();
+    query["ArrayIndex"] = request.getArrayIndexShrink();
   }
 
   if (!!request.hasJobId()) {
-    query["JobId"] = request.jobId();
+    query["JobId"] = request.getJobId();
   }
 
   if (!!request.hasMetricName()) {
-    query["MetricName"] = request.metricName();
+    query["MetricName"] = request.getMetricName();
   }
 
   if (!!request.hasTaskName()) {
-    query["TaskName"] = request.taskName();
+    query["TaskName"] = request.getTaskName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -609,20 +613,20 @@ DescribeJobMetricLastResponse Client::describeJobMetricLastWithOptions(const Des
   DescribeJobMetricLastShrinkRequest request = DescribeJobMetricLastShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasArrayIndex()) {
-    request.setArrayIndexShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.arrayIndex(), "ArrayIndex", "json"));
+    request.setArrayIndexShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getArrayIndex(), "ArrayIndex", "json"));
   }
 
   json query = {};
   if (!!request.hasArrayIndexShrink()) {
-    query["ArrayIndex"] = request.arrayIndexShrink();
+    query["ArrayIndex"] = request.getArrayIndexShrink();
   }
 
   if (!!request.hasJobId()) {
-    query["JobId"] = request.jobId();
+    query["JobId"] = request.getJobId();
   }
 
   if (!!request.hasTaskName()) {
-    query["TaskName"] = request.taskName();
+    query["TaskName"] = request.getTaskName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -664,7 +668,7 @@ GetActionPlanResponse Client::getActionPlanWithOptions(const GetActionPlanReques
   request.validate();
   json query = {};
   if (!!request.hasActionPlanId()) {
-    query["ActionPlanId"] = request.actionPlanId();
+    query["ActionPlanId"] = request.getActionPlanId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -706,23 +710,23 @@ GetAppVersionsResponse Client::getAppVersionsWithOptions(const GetAppVersionsReq
   request.validate();
   json query = {};
   if (!!request.hasAppName()) {
-    query["AppName"] = request.appName();
+    query["AppName"] = request.getAppName();
   }
 
   if (!!request.hasImageCategory()) {
-    query["ImageCategory"] = request.imageCategory();
+    query["ImageCategory"] = request.getImageCategory();
   }
 
   if (!!request.hasImageType()) {
-    query["ImageType"] = request.imageType();
+    query["ImageType"] = request.getImageType();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -765,24 +769,24 @@ GetImageResponse Client::getImageWithOptions(const GetImageRequest &tmpReq, cons
   GetImageShrinkRequest request = GetImageShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasAdditionalRegionIds()) {
-    request.setAdditionalRegionIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.additionalRegionIds(), "AdditionalRegionIds", "json"));
+    request.setAdditionalRegionIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAdditionalRegionIds(), "AdditionalRegionIds", "json"));
   }
 
   json query = {};
   if (!!request.hasAdditionalRegionIdsShrink()) {
-    query["AdditionalRegionIds"] = request.additionalRegionIdsShrink();
+    query["AdditionalRegionIds"] = request.getAdditionalRegionIdsShrink();
   }
 
   if (!!request.hasImageCategory()) {
-    query["ImageCategory"] = request.imageCategory();
+    query["ImageCategory"] = request.getImageCategory();
   }
 
   if (!!request.hasImageId()) {
-    query["ImageId"] = request.imageId();
+    query["ImageId"] = request.getImageId();
   }
 
   if (!!request.hasImageType()) {
-    query["ImageType"] = request.imageType();
+    query["ImageType"] = request.getImageType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -824,7 +828,7 @@ GetJobResponse Client::getJobWithOptions(const GetJobRequest &request, const Dar
   request.validate();
   json query = {};
   if (!!request.hasJobId()) {
-    query["JobId"] = request.jobId();
+    query["JobId"] = request.getJobId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -866,7 +870,7 @@ GetPoolResponse Client::getPoolWithOptions(const GetPoolRequest &request, const 
   request.validate();
   json query = {};
   if (!!request.hasPoolName()) {
-    query["PoolName"] = request.poolName();
+    query["PoolName"] = request.getPoolName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -908,15 +912,15 @@ ListActionPlanActivitiesResponse Client::listActionPlanActivitiesWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasActionPlanId()) {
-    query["ActionPlanId"] = request.actionPlanId();
+    query["ActionPlanId"] = request.getActionPlanId();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -959,20 +963,20 @@ ListActionPlansResponse Client::listActionPlansWithOptions(const ListActionPlans
   ListActionPlansShrinkRequest request = ListActionPlansShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasActionPlanIds()) {
-    request.setActionPlanIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.actionPlanIds(), "ActionPlanIds", "json"));
+    request.setActionPlanIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getActionPlanIds(), "ActionPlanIds", "json"));
   }
 
   json query = {};
   if (!!request.hasActionPlanIdsShrink()) {
-    query["ActionPlanIds"] = request.actionPlanIdsShrink();
+    query["ActionPlanIds"] = request.getActionPlanIdsShrink();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1004,7 +1008,9 @@ ListActionPlansResponse Client::listActionPlans(const ListActionPlansRequest &re
 }
 
 /**
- * @summary 查询Executor的事件信息
+ * @summary Queries the running event list of one or more executers.
+ *
+ * @description Queries job executor information.
  *
  * @param tmpReq ListExecutorEventsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1015,20 +1021,20 @@ ListExecutorEventsResponse Client::listExecutorEventsWithOptions(const ListExecu
   ListExecutorEventsShrinkRequest request = ListExecutorEventsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasFilter()) {
-    request.setFilterShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.filter(), "Filter", "json"));
+    request.setFilterShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFilter(), "Filter", "json"));
   }
 
   json query = {};
   if (!!request.hasFilterShrink()) {
-    query["Filter"] = request.filterShrink();
+    query["Filter"] = request.getFilterShrink();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1049,7 +1055,9 @@ ListExecutorEventsResponse Client::listExecutorEventsWithOptions(const ListExecu
 }
 
 /**
- * @summary 查询Executor的事件信息
+ * @summary Queries the running event list of one or more executers.
+ *
+ * @description Queries job executor information.
  *
  * @param request ListExecutorEventsRequest
  * @return ListExecutorEventsResponse
@@ -1071,20 +1079,20 @@ ListExecutorsResponse Client::listExecutorsWithOptions(const ListExecutorsReques
   ListExecutorsShrinkRequest request = ListExecutorsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasFilter()) {
-    request.setFilterShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.filter(), "Filter", "json"));
+    request.setFilterShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFilter(), "Filter", "json"));
   }
 
   json query = {};
   if (!!request.hasFilterShrink()) {
-    query["Filter"] = request.filterShrink();
+    query["Filter"] = request.getFilterShrink();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1127,40 +1135,40 @@ ListImagesResponse Client::listImagesWithOptions(const ListImagesRequest &tmpReq
   ListImagesShrinkRequest request = ListImagesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasImageIds()) {
-    request.setImageIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.imageIds(), "ImageIds", "json"));
+    request.setImageIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getImageIds(), "ImageIds", "json"));
   }
 
   if (!!tmpReq.hasImageNames()) {
-    request.setImageNamesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.imageNames(), "ImageNames", "json"));
+    request.setImageNamesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getImageNames(), "ImageNames", "json"));
   }
 
   json query = {};
   if (!!request.hasImageCategory()) {
-    query["ImageCategory"] = request.imageCategory();
+    query["ImageCategory"] = request.getImageCategory();
   }
 
   if (!!request.hasImageIdsShrink()) {
-    query["ImageIds"] = request.imageIdsShrink();
+    query["ImageIds"] = request.getImageIdsShrink();
   }
 
   if (!!request.hasImageNamesShrink()) {
-    query["ImageNames"] = request.imageNamesShrink();
+    query["ImageNames"] = request.getImageNamesShrink();
   }
 
   if (!!request.hasImageType()) {
-    query["ImageType"] = request.imageType();
+    query["ImageType"] = request.getImageType();
   }
 
   if (!!request.hasMode()) {
-    query["Mode"] = request.mode();
+    query["Mode"] = request.getMode();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1204,19 +1212,19 @@ ListJobExecutorsResponse Client::listJobExecutorsWithOptions(const ListJobExecut
   request.validate();
   json query = {};
   if (!!request.hasJobId()) {
-    query["JobId"] = request.jobId();
+    query["JobId"] = request.getJobId();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasTaskName()) {
-    query["TaskName"] = request.taskName();
+    query["TaskName"] = request.getTaskName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1261,28 +1269,28 @@ ListJobsResponse Client::listJobsWithOptions(const ListJobsRequest &tmpReq, cons
   ListJobsShrinkRequest request = ListJobsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasFilter()) {
-    request.setFilterShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.filter(), "Filter", "json"));
+    request.setFilterShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFilter(), "Filter", "json"));
   }
 
   if (!!tmpReq.hasSortBy()) {
-    request.setSortByShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.sortBy(), "SortBy", "json"));
+    request.setSortByShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSortBy(), "SortBy", "json"));
   }
 
   json query = {};
   if (!!request.hasFilterShrink()) {
-    query["Filter"] = request.filterShrink();
+    query["Filter"] = request.getFilterShrink();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasSortByShrink()) {
-    query["SortBy"] = request.sortByShrink();
+    query["SortBy"] = request.getSortByShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1325,20 +1333,20 @@ ListPoolsResponse Client::listPoolsWithOptions(const ListPoolsRequest &tmpReq, c
   ListPoolsShrinkRequest request = ListPoolsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasFilter()) {
-    request.setFilterShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.filter(), "Filter", "json"));
+    request.setFilterShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFilter(), "Filter", "json"));
   }
 
   json query = {};
   if (!!request.hasFilterShrink()) {
-    query["Filter"] = request.filterShrink();
+    query["Filter"] = request.getFilterShrink();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1380,23 +1388,23 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
   request.validate();
   json query = {};
   if (!!request.hasMaxResult()) {
-    query["MaxResult"] = request.maxResult();
+    query["MaxResult"] = request.getMaxResult();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasResourceId()) {
-    query["ResourceId"] = request.resourceId();
+    query["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1438,11 +1446,11 @@ RemoveImageResponse Client::removeImageWithOptions(const RemoveImageRequest &req
   request.validate();
   json query = {};
   if (!!request.hasImageId()) {
-    query["ImageId"] = request.imageId();
+    query["ImageId"] = request.getImageId();
   }
 
   if (!!request.hasImageType()) {
-    query["ImageType"] = request.imageType();
+    query["ImageType"] = request.getImageType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1485,16 +1493,16 @@ SynchronizeAppResponse Client::synchronizeAppWithOptions(const SynchronizeAppReq
   SynchronizeAppShrinkRequest request = SynchronizeAppShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasTargetRegionIds()) {
-    request.setTargetRegionIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.targetRegionIds(), "TargetRegionIds", "json"));
+    request.setTargetRegionIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTargetRegionIds(), "TargetRegionIds", "json"));
   }
 
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasTargetRegionIdsShrink()) {
-    query["TargetRegionIds"] = request.targetRegionIdsShrink();
+    query["TargetRegionIds"] = request.getTargetRegionIdsShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1536,15 +1544,15 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
   request.validate();
   json query = {};
   if (!!request.hasResourceId()) {
-    query["ResourceId"] = request.resourceId();
+    query["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1586,19 +1594,19 @@ UnTagResourcesResponse Client::unTagResourcesWithOptions(const UnTagResourcesReq
   request.validate();
   json query = {};
   if (!!request.hasAll()) {
-    query["All"] = request.all();
+    query["All"] = request.getAll();
   }
 
   if (!!request.hasResourceId()) {
-    query["ResourceId"] = request.resourceId();
+    query["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTagKey()) {
-    query["TagKey"] = request.tagKey();
+    query["TagKey"] = request.getTagKey();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1640,15 +1648,19 @@ UpdateActionPlanResponse Client::updateActionPlanWithOptions(const UpdateActionP
   request.validate();
   json query = {};
   if (!!request.hasActionPlanId()) {
-    query["ActionPlanId"] = request.actionPlanId();
+    query["ActionPlanId"] = request.getActionPlanId();
   }
 
   if (!!request.hasDesiredCapacity()) {
-    query["DesiredCapacity"] = request.desiredCapacity();
+    query["DesiredCapacity"] = request.getDesiredCapacity();
   }
 
   if (!!request.hasEnabled()) {
-    query["Enabled"] = request.enabled();
+    query["Enabled"] = request.getEnabled();
+  }
+
+  if (!!request.hasIntervalMinutes()) {
+    query["IntervalMinutes"] = request.getIntervalMinutes();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1691,20 +1703,20 @@ UpdatePoolResponse Client::updatePoolWithOptions(const UpdatePoolRequest &tmpReq
   UpdatePoolShrinkRequest request = UpdatePoolShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasResourceLimits()) {
-    request.setResourceLimitsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.resourceLimits(), "ResourceLimits", "json"));
+    request.setResourceLimitsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getResourceLimits(), "ResourceLimits", "json"));
   }
 
   json query = {};
   if (!!request.hasPoolName()) {
-    query["PoolName"] = request.poolName();
+    query["PoolName"] = request.getPoolName();
   }
 
   if (!!request.hasPriority()) {
-    query["Priority"] = request.priority();
+    query["Priority"] = request.getPriority();
   }
 
   if (!!request.hasResourceLimitsShrink()) {
-    query["ResourceLimits"] = request.resourceLimitsShrink();
+    query["ResourceLimits"] = request.getResourceLimitsShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

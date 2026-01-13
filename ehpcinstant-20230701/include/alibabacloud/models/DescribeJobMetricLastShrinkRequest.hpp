@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->arrayIndexShrink_ == nullptr
-        && return this->jobId_ == nullptr && return this->taskName_ == nullptr; };
+        && this->jobId_ == nullptr && this->taskName_ == nullptr; };
     // arrayIndexShrink Field Functions 
     bool hasArrayIndexShrink() const { return this->arrayIndexShrink_ != nullptr;};
     void deleteArrayIndexShrink() { this->arrayIndexShrink_ = nullptr;};
-    inline string arrayIndexShrink() const { DARABONBA_PTR_GET_DEFAULT(arrayIndexShrink_, "") };
+    inline string getArrayIndexShrink() const { DARABONBA_PTR_GET_DEFAULT(arrayIndexShrink_, "") };
     inline DescribeJobMetricLastShrinkRequest& setArrayIndexShrink(string arrayIndexShrink) { DARABONBA_PTR_SET_VALUE(arrayIndexShrink_, arrayIndexShrink) };
 
 
     // jobId Field Functions 
     bool hasJobId() const { return this->jobId_ != nullptr;};
     void deleteJobId() { this->jobId_ = nullptr;};
-    inline string jobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
+    inline string getJobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
     inline DescribeJobMetricLastShrinkRequest& setJobId(string jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
 
 
     // taskName Field Functions 
     bool hasTaskName() const { return this->taskName_ != nullptr;};
     void deleteTaskName() { this->taskName_ = nullptr;};
-    inline string taskName() const { DARABONBA_PTR_GET_DEFAULT(taskName_, "") };
+    inline string getTaskName() const { DARABONBA_PTR_GET_DEFAULT(taskName_, "") };
     inline DescribeJobMetricLastShrinkRequest& setTaskName(string taskName) { DARABONBA_PTR_SET_VALUE(taskName_, taskName) };
 
 
   protected:
     // The list of array job indexes.
-    std::shared_ptr<string> arrayIndexShrink_ = nullptr;
+    shared_ptr<string> arrayIndexShrink_ {};
     // The job ID.
-    std::shared_ptr<string> jobId_ = nullptr;
+    shared_ptr<string> jobId_ {};
     // The name of the task.
-    std::shared_ptr<string> taskName_ = nullptr;
+    shared_ptr<string> taskName_ {};
   };
 
   } // namespace Models

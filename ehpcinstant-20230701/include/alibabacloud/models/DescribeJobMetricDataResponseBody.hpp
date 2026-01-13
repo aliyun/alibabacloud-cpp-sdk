@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dataPoints_ == nullptr
-        && return this->period_ == nullptr && return this->requestId_ == nullptr; };
+        && this->period_ == nullptr && this->requestId_ == nullptr; };
     // dataPoints Field Functions 
     bool hasDataPoints() const { return this->dataPoints_ != nullptr;};
     void deleteDataPoints() { this->dataPoints_ = nullptr;};
-    inline string dataPoints() const { DARABONBA_PTR_GET_DEFAULT(dataPoints_, "") };
+    inline string getDataPoints() const { DARABONBA_PTR_GET_DEFAULT(dataPoints_, "") };
     inline DescribeJobMetricDataResponseBody& setDataPoints(string dataPoints) { DARABONBA_PTR_SET_VALUE(dataPoints_, dataPoints) };
 
 
     // period Field Functions 
     bool hasPeriod() const { return this->period_ != nullptr;};
     void deletePeriod() { this->period_ = nullptr;};
-    inline int32_t period() const { DARABONBA_PTR_GET_DEFAULT(period_, 0) };
+    inline int32_t getPeriod() const { DARABONBA_PTR_GET_DEFAULT(period_, 0) };
     inline DescribeJobMetricDataResponseBody& setPeriod(int32_t period) { DARABONBA_PTR_SET_VALUE(period_, period) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeJobMetricDataResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // Monitoring statistics points.
-    std::shared_ptr<string> dataPoints_ = nullptr;
+    shared_ptr<string> dataPoints_ {};
     // The statistical period of the monitoring data. Valid values: 15, 60, 900, and 3600. Unit: seconds.
-    std::shared_ptr<int32_t> period_ = nullptr;
+    shared_ptr<int32_t> period_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

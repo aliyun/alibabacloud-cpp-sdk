@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->poolName_ == nullptr
-        && return this->priority_ == nullptr && return this->resourceLimitsShrink_ == nullptr; };
+        && this->priority_ == nullptr && this->resourceLimitsShrink_ == nullptr; };
     // poolName Field Functions 
     bool hasPoolName() const { return this->poolName_ != nullptr;};
     void deletePoolName() { this->poolName_ = nullptr;};
-    inline string poolName() const { DARABONBA_PTR_GET_DEFAULT(poolName_, "") };
+    inline string getPoolName() const { DARABONBA_PTR_GET_DEFAULT(poolName_, "") };
     inline CreatePoolShrinkRequest& setPoolName(string poolName) { DARABONBA_PTR_SET_VALUE(poolName_, poolName) };
 
 
     // priority Field Functions 
     bool hasPriority() const { return this->priority_ != nullptr;};
     void deletePriority() { this->priority_ = nullptr;};
-    inline int32_t priority() const { DARABONBA_PTR_GET_DEFAULT(priority_, 0) };
+    inline int32_t getPriority() const { DARABONBA_PTR_GET_DEFAULT(priority_, 0) };
     inline CreatePoolShrinkRequest& setPriority(int32_t priority) { DARABONBA_PTR_SET_VALUE(priority_, priority) };
 
 
     // resourceLimitsShrink Field Functions 
     bool hasResourceLimitsShrink() const { return this->resourceLimitsShrink_ != nullptr;};
     void deleteResourceLimitsShrink() { this->resourceLimitsShrink_ = nullptr;};
-    inline string resourceLimitsShrink() const { DARABONBA_PTR_GET_DEFAULT(resourceLimitsShrink_, "") };
+    inline string getResourceLimitsShrink() const { DARABONBA_PTR_GET_DEFAULT(resourceLimitsShrink_, "") };
     inline CreatePoolShrinkRequest& setResourceLimitsShrink(string resourceLimitsShrink) { DARABONBA_PTR_SET_VALUE(resourceLimitsShrink_, resourceLimitsShrink) };
 
 
@@ -63,14 +63,14 @@ namespace Models
     // *   It can contain digits, uppercase letters, lowercase letters, underscores (_), and dots (.).
     // 
     // This parameter is required.
-    std::shared_ptr<string> poolName_ = nullptr;
+    shared_ptr<string> poolName_ {};
     // The priority of the resource pool.
     // 
     // *   You can set a priority in the range of 1 to 99. The default value is 1, which is the lowest priority.
     // *   Jobs submitted to a resource pool with a higher priority level value will be scheduled before pending jobs in a resource pool with a lower priority level value, and the priority level of the resource pool takes precedence over the priority of the job.
-    std::shared_ptr<int32_t> priority_ = nullptr;
+    shared_ptr<int32_t> priority_ {};
     // The quota of resources that users are allowed to concurrently use in a resource pool.
-    std::shared_ptr<string> resourceLimitsShrink_ = nullptr;
+    shared_ptr<string> resourceLimitsShrink_ {};
   };
 
   } // namespace Models

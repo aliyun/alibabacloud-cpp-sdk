@@ -33,13 +33,13 @@ namespace Models
     // jobIdsShrink Field Functions 
     bool hasJobIdsShrink() const { return this->jobIdsShrink_ != nullptr;};
     void deleteJobIdsShrink() { this->jobIdsShrink_ = nullptr;};
-    inline string jobIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(jobIdsShrink_, "") };
+    inline string getJobIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(jobIdsShrink_, "") };
     inline DeleteJobRecordsShrinkRequest& setJobIdsShrink(string jobIdsShrink) { DARABONBA_PTR_SET_VALUE(jobIdsShrink_, jobIdsShrink) };
 
 
   protected:
     // The list of job IDs.
-    std::shared_ptr<string> jobIdsShrink_ = nullptr;
+    shared_ptr<string> jobIdsShrink_ {};
   };
 
   } // namespace Models

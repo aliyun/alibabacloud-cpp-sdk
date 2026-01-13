@@ -320,7 +320,9 @@ namespace EhpcInstant20230701
       Models::ListActionPlansResponse listActionPlans(const Models::ListActionPlansRequest &request);
 
       /**
-       * @summary 查询Executor的事件信息
+       * @summary Queries the running event list of one or more executers.
+       *
+       * @description Queries job executor information.
        *
        * @param tmpReq ListExecutorEventsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -329,7 +331,9 @@ namespace EhpcInstant20230701
       Models::ListExecutorEventsResponse listExecutorEventsWithOptions(const Models::ListExecutorEventsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询Executor的事件信息
+       * @summary Queries the running event list of one or more executers.
+       *
+       * @description Queries job executor information.
        *
        * @param request ListExecutorEventsRequest
        * @return ListExecutorEventsResponse

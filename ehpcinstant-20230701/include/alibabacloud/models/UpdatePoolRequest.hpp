@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_UPDATEPOOLREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_UPDATEPOOLREQUEST_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/UpdatePoolRequestResourceLimits.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -34,29 +33,61 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class ResourceLimits : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const ResourceLimits& obj) { 
+        DARABONBA_PTR_TO_JSON(MaxExectorNum, maxExectorNum_);
+      };
+      friend void from_json(const Darabonba::Json& j, ResourceLimits& obj) { 
+        DARABONBA_PTR_FROM_JSON(MaxExectorNum, maxExectorNum_);
+      };
+      ResourceLimits() = default ;
+      ResourceLimits(const ResourceLimits &) = default ;
+      ResourceLimits(ResourceLimits &&) = default ;
+      ResourceLimits(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~ResourceLimits() = default ;
+      ResourceLimits& operator=(const ResourceLimits &) = default ;
+      ResourceLimits& operator=(ResourceLimits &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->maxExectorNum_ == nullptr; };
+      // maxExectorNum Field Functions 
+      bool hasMaxExectorNum() const { return this->maxExectorNum_ != nullptr;};
+      void deleteMaxExectorNum() { this->maxExectorNum_ = nullptr;};
+      inline int32_t getMaxExectorNum() const { DARABONBA_PTR_GET_DEFAULT(maxExectorNum_, 0) };
+      inline ResourceLimits& setMaxExectorNum(int32_t maxExectorNum) { DARABONBA_PTR_SET_VALUE(maxExectorNum_, maxExectorNum) };
+
+
+    protected:
+      // The maximum number of concurrent execution nodes in a resource pool.
+      shared_ptr<int32_t> maxExectorNum_ {};
+    };
+
     virtual bool empty() const override { return this->poolName_ == nullptr
-        && return this->priority_ == nullptr && return this->resourceLimits_ == nullptr; };
+        && this->priority_ == nullptr && this->resourceLimits_ == nullptr; };
     // poolName Field Functions 
     bool hasPoolName() const { return this->poolName_ != nullptr;};
     void deletePoolName() { this->poolName_ = nullptr;};
-    inline string poolName() const { DARABONBA_PTR_GET_DEFAULT(poolName_, "") };
+    inline string getPoolName() const { DARABONBA_PTR_GET_DEFAULT(poolName_, "") };
     inline UpdatePoolRequest& setPoolName(string poolName) { DARABONBA_PTR_SET_VALUE(poolName_, poolName) };
 
 
     // priority Field Functions 
     bool hasPriority() const { return this->priority_ != nullptr;};
     void deletePriority() { this->priority_ = nullptr;};
-    inline int32_t priority() const { DARABONBA_PTR_GET_DEFAULT(priority_, 0) };
+    inline int32_t getPriority() const { DARABONBA_PTR_GET_DEFAULT(priority_, 0) };
     inline UpdatePoolRequest& setPriority(int32_t priority) { DARABONBA_PTR_SET_VALUE(priority_, priority) };
 
 
     // resourceLimits Field Functions 
     bool hasResourceLimits() const { return this->resourceLimits_ != nullptr;};
     void deleteResourceLimits() { this->resourceLimits_ = nullptr;};
-    inline const UpdatePoolRequestResourceLimits & resourceLimits() const { DARABONBA_PTR_GET_CONST(resourceLimits_, UpdatePoolRequestResourceLimits) };
-    inline UpdatePoolRequestResourceLimits resourceLimits() { DARABONBA_PTR_GET(resourceLimits_, UpdatePoolRequestResourceLimits) };
-    inline UpdatePoolRequest& setResourceLimits(const UpdatePoolRequestResourceLimits & resourceLimits) { DARABONBA_PTR_SET_VALUE(resourceLimits_, resourceLimits) };
-    inline UpdatePoolRequest& setResourceLimits(UpdatePoolRequestResourceLimits && resourceLimits) { DARABONBA_PTR_SET_RVALUE(resourceLimits_, resourceLimits) };
+    inline const UpdatePoolRequest::ResourceLimits & getResourceLimits() const { DARABONBA_PTR_GET_CONST(resourceLimits_, UpdatePoolRequest::ResourceLimits) };
+    inline UpdatePoolRequest::ResourceLimits getResourceLimits() { DARABONBA_PTR_GET(resourceLimits_, UpdatePoolRequest::ResourceLimits) };
+    inline UpdatePoolRequest& setResourceLimits(const UpdatePoolRequest::ResourceLimits & resourceLimits) { DARABONBA_PTR_SET_VALUE(resourceLimits_, resourceLimits) };
+    inline UpdatePoolRequest& setResourceLimits(UpdatePoolRequest::ResourceLimits && resourceLimits) { DARABONBA_PTR_SET_RVALUE(resourceLimits_, resourceLimits) };
 
 
   protected:
@@ -66,14 +97,14 @@ namespace Models
     // *   It can contain digits, uppercase letters, lowercase letters, underscores (_), and dots (.).
     // 
     // This parameter is required.
-    std::shared_ptr<string> poolName_ = nullptr;
+    shared_ptr<string> poolName_ {};
     // The priority of the resource pool.
     // 
     // *   You can set a priority in the range of 1 to 99. The default value is 1, which is the lowest priority.
     // *   Jobs submitted to a resource pool with a higher priority level value will be scheduled before pending jobs in a resource pool with a lower priority level value, and the priority level of the resource pool takes precedence over the priority of the job.
-    std::shared_ptr<int32_t> priority_ = nullptr;
+    shared_ptr<int32_t> priority_ {};
     // The quota of resources that users are allowed to concurrently use in a resource pool.
-    std::shared_ptr<UpdatePoolRequestResourceLimits> resourceLimits_ = nullptr;
+    shared_ptr<UpdatePoolRequest::ResourceLimits> resourceLimits_ {};
   };
 
   } // namespace Models

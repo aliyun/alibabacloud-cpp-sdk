@@ -34,40 +34,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->executorIdsShrink_ == nullptr
-        && return this->jobScheduler_ == nullptr && return this->jobSpecShrink_ == nullptr; };
+        && this->jobScheduler_ == nullptr && this->jobSpecShrink_ == nullptr; };
     // executorIdsShrink Field Functions 
     bool hasExecutorIdsShrink() const { return this->executorIdsShrink_ != nullptr;};
     void deleteExecutorIdsShrink() { this->executorIdsShrink_ = nullptr;};
-    inline string executorIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(executorIdsShrink_, "") };
+    inline string getExecutorIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(executorIdsShrink_, "") };
     inline DeleteJobsShrinkRequest& setExecutorIdsShrink(string executorIdsShrink) { DARABONBA_PTR_SET_VALUE(executorIdsShrink_, executorIdsShrink) };
 
 
     // jobScheduler Field Functions 
     bool hasJobScheduler() const { return this->jobScheduler_ != nullptr;};
     void deleteJobScheduler() { this->jobScheduler_ = nullptr;};
-    inline string jobScheduler() const { DARABONBA_PTR_GET_DEFAULT(jobScheduler_, "") };
+    inline string getJobScheduler() const { DARABONBA_PTR_GET_DEFAULT(jobScheduler_, "") };
     inline DeleteJobsShrinkRequest& setJobScheduler(string jobScheduler) { DARABONBA_PTR_SET_VALUE(jobScheduler_, jobScheduler) };
 
 
     // jobSpecShrink Field Functions 
     bool hasJobSpecShrink() const { return this->jobSpecShrink_ != nullptr;};
     void deleteJobSpecShrink() { this->jobSpecShrink_ = nullptr;};
-    inline string jobSpecShrink() const { DARABONBA_PTR_GET_DEFAULT(jobSpecShrink_, "") };
+    inline string getJobSpecShrink() const { DARABONBA_PTR_GET_DEFAULT(jobSpecShrink_, "") };
     inline DeleteJobsShrinkRequest& setJobSpecShrink(string jobSpecShrink) { DARABONBA_PTR_SET_VALUE(jobSpecShrink_, jobSpecShrink) };
 
 
   protected:
     // The list of executor IDs. A maximum of 100 IDs are supported.
-    std::shared_ptr<string> executorIdsShrink_ = nullptr;
+    shared_ptr<string> executorIdsShrink_ {};
     // The type of the job scheduler.
     // 
     // *   HPC
     // *   K8S
     // 
     // Default value: HPC
-    std::shared_ptr<string> jobScheduler_ = nullptr;
+    shared_ptr<string> jobScheduler_ {};
     // The information about the job to be deleted.
-    std::shared_ptr<string> jobSpecShrink_ = nullptr;
+    shared_ptr<string> jobSpecShrink_ {};
   };
 
   } // namespace Models

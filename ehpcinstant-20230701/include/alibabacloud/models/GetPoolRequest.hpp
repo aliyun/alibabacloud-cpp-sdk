@@ -33,7 +33,7 @@ namespace Models
     // poolName Field Functions 
     bool hasPoolName() const { return this->poolName_ != nullptr;};
     void deletePoolName() { this->poolName_ = nullptr;};
-    inline string poolName() const { DARABONBA_PTR_GET_DEFAULT(poolName_, "") };
+    inline string getPoolName() const { DARABONBA_PTR_GET_DEFAULT(poolName_, "") };
     inline GetPoolRequest& setPoolName(string poolName) { DARABONBA_PTR_SET_VALUE(poolName_, poolName) };
 
 
@@ -44,7 +44,7 @@ namespace Models
     // *   It can contain digits, uppercase letters, lowercase letters, underscores (_), and dots (.).
     // 
     // This parameter is required.
-    std::shared_ptr<string> poolName_ = nullptr;
+    shared_ptr<string> poolName_ {};
   };
 
   } // namespace Models

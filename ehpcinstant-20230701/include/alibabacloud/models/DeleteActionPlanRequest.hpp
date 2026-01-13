@@ -33,13 +33,13 @@ namespace Models
     // actionPlanId Field Functions 
     bool hasActionPlanId() const { return this->actionPlanId_ != nullptr;};
     void deleteActionPlanId() { this->actionPlanId_ = nullptr;};
-    inline string actionPlanId() const { DARABONBA_PTR_GET_DEFAULT(actionPlanId_, "") };
+    inline string getActionPlanId() const { DARABONBA_PTR_GET_DEFAULT(actionPlanId_, "") };
     inline DeleteActionPlanRequest& setActionPlanId(string actionPlanId) { DARABONBA_PTR_SET_VALUE(actionPlanId_, actionPlanId) };
 
 
   protected:
     // The ID of the execution plan.
-    std::shared_ptr<string> actionPlanId_ = nullptr;
+    shared_ptr<string> actionPlanId_ {};
   };
 
   } // namespace Models

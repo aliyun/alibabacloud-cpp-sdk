@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->targetRegionIdsShrink_ == nullptr; };
+        && this->targetRegionIdsShrink_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline SynchronizeAppShrinkRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // targetRegionIdsShrink Field Functions 
     bool hasTargetRegionIdsShrink() const { return this->targetRegionIdsShrink_ != nullptr;};
     void deleteTargetRegionIdsShrink() { this->targetRegionIdsShrink_ = nullptr;};
-    inline string targetRegionIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(targetRegionIdsShrink_, "") };
+    inline string getTargetRegionIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(targetRegionIdsShrink_, "") };
     inline SynchronizeAppShrinkRequest& setTargetRegionIdsShrink(string targetRegionIdsShrink) { DARABONBA_PTR_SET_VALUE(targetRegionIdsShrink_, targetRegionIdsShrink) };
 
 
@@ -51,9 +51,9 @@ namespace Models
     // The application ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The list of arrays that are synchronized to the specified region. If \\"all\\" is included, it is synchronized to all other unsynchronized regions by default.
-    std::shared_ptr<string> targetRegionIdsShrink_ = nullptr;
+    shared_ptr<string> targetRegionIdsShrink_ {};
   };
 
   } // namespace Models

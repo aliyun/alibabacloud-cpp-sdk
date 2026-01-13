@@ -43,20 +43,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->imageCategory_ == nullptr
-        && return this->imageIds_ == nullptr && return this->imageNames_ == nullptr && return this->imageType_ == nullptr && return this->mode_ == nullptr && return this->pageNumber_ == nullptr
-        && return this->pageSize_ == nullptr; };
+        && this->imageIds_ == nullptr && this->imageNames_ == nullptr && this->imageType_ == nullptr && this->mode_ == nullptr && this->pageNumber_ == nullptr
+        && this->pageSize_ == nullptr; };
     // imageCategory Field Functions 
     bool hasImageCategory() const { return this->imageCategory_ != nullptr;};
     void deleteImageCategory() { this->imageCategory_ = nullptr;};
-    inline string imageCategory() const { DARABONBA_PTR_GET_DEFAULT(imageCategory_, "") };
+    inline string getImageCategory() const { DARABONBA_PTR_GET_DEFAULT(imageCategory_, "") };
     inline ListImagesRequest& setImageCategory(string imageCategory) { DARABONBA_PTR_SET_VALUE(imageCategory_, imageCategory) };
 
 
     // imageIds Field Functions 
     bool hasImageIds() const { return this->imageIds_ != nullptr;};
     void deleteImageIds() { this->imageIds_ = nullptr;};
-    inline const vector<string> & imageIds() const { DARABONBA_PTR_GET_CONST(imageIds_, vector<string>) };
-    inline vector<string> imageIds() { DARABONBA_PTR_GET(imageIds_, vector<string>) };
+    inline const vector<string> & getImageIds() const { DARABONBA_PTR_GET_CONST(imageIds_, vector<string>) };
+    inline vector<string> getImageIds() { DARABONBA_PTR_GET(imageIds_, vector<string>) };
     inline ListImagesRequest& setImageIds(const vector<string> & imageIds) { DARABONBA_PTR_SET_VALUE(imageIds_, imageIds) };
     inline ListImagesRequest& setImageIds(vector<string> && imageIds) { DARABONBA_PTR_SET_RVALUE(imageIds_, imageIds) };
 
@@ -64,8 +64,8 @@ namespace Models
     // imageNames Field Functions 
     bool hasImageNames() const { return this->imageNames_ != nullptr;};
     void deleteImageNames() { this->imageNames_ = nullptr;};
-    inline const vector<string> & imageNames() const { DARABONBA_PTR_GET_CONST(imageNames_, vector<string>) };
-    inline vector<string> imageNames() { DARABONBA_PTR_GET(imageNames_, vector<string>) };
+    inline const vector<string> & getImageNames() const { DARABONBA_PTR_GET_CONST(imageNames_, vector<string>) };
+    inline vector<string> getImageNames() { DARABONBA_PTR_GET(imageNames_, vector<string>) };
     inline ListImagesRequest& setImageNames(const vector<string> & imageNames) { DARABONBA_PTR_SET_VALUE(imageNames_, imageNames) };
     inline ListImagesRequest& setImageNames(vector<string> && imageNames) { DARABONBA_PTR_SET_RVALUE(imageNames_, imageNames) };
 
@@ -73,28 +73,28 @@ namespace Models
     // imageType Field Functions 
     bool hasImageType() const { return this->imageType_ != nullptr;};
     void deleteImageType() { this->imageType_ = nullptr;};
-    inline string imageType() const { DARABONBA_PTR_GET_DEFAULT(imageType_, "") };
+    inline string getImageType() const { DARABONBA_PTR_GET_DEFAULT(imageType_, "") };
     inline ListImagesRequest& setImageType(string imageType) { DARABONBA_PTR_SET_VALUE(imageType_, imageType) };
 
 
     // mode Field Functions 
     bool hasMode() const { return this->mode_ != nullptr;};
     void deleteMode() { this->mode_ = nullptr;};
-    inline string mode() const { DARABONBA_PTR_GET_DEFAULT(mode_, "") };
+    inline string getMode() const { DARABONBA_PTR_GET_DEFAULT(mode_, "") };
     inline ListImagesRequest& setMode(string mode) { DARABONBA_PTR_SET_VALUE(mode_, mode) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int64_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0L) };
+    inline int64_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0L) };
     inline ListImagesRequest& setPageNumber(int64_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int64_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
+    inline int64_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
     inline ListImagesRequest& setPageSize(int64_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
@@ -103,29 +103,29 @@ namespace Models
     // 
     // *   Public: public images provided by Alibaba Cloud.
     // *   Custom: the custom image that you added.
-    std::shared_ptr<string> imageCategory_ = nullptr;
+    shared_ptr<string> imageCategory_ {};
     // The array of image IDs.
-    std::shared_ptr<vector<string>> imageIds_ = nullptr;
+    shared_ptr<vector<string>> imageIds_ {};
     // The array of image names.
-    std::shared_ptr<vector<string>> imageNames_ = nullptr;
+    shared_ptr<vector<string>> imageNames_ {};
     // The type of the images. Valid values:
     // 
     // *   VM: virtual machine image.
     // *   Container: the container image.
     // 
     // Default value: VM
-    std::shared_ptr<string> imageType_ = nullptr;
+    shared_ptr<string> imageType_ {};
     // The query mode. Valid values:
     // 
     // *   List: queries the list of all corresponding image versions.
     // *   Merge: merges images to query the latest version list.
-    std::shared_ptr<string> mode_ = nullptr;
+    shared_ptr<string> mode_ {};
     // The number of the page to return.\\
     // Default value: 1.
-    std::shared_ptr<int64_t> pageNumber_ = nullptr;
+    shared_ptr<int64_t> pageNumber_ {};
     // The number of pieces per page.\\
     // Default value: 20.
-    std::shared_ptr<int64_t> pageSize_ = nullptr;
+    shared_ptr<int64_t> pageSize_ {};
   };
 
   } // namespace Models

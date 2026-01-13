@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->imageId_ == nullptr
-        && return this->imageType_ == nullptr; };
+        && this->imageType_ == nullptr; };
     // imageId Field Functions 
     bool hasImageId() const { return this->imageId_ != nullptr;};
     void deleteImageId() { this->imageId_ = nullptr;};
-    inline string imageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
+    inline string getImageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
     inline RemoveImageRequest& setImageId(string imageId) { DARABONBA_PTR_SET_VALUE(imageId_, imageId) };
 
 
     // imageType Field Functions 
     bool hasImageType() const { return this->imageType_ != nullptr;};
     void deleteImageType() { this->imageType_ = nullptr;};
-    inline string imageType() const { DARABONBA_PTR_GET_DEFAULT(imageType_, "") };
+    inline string getImageType() const { DARABONBA_PTR_GET_DEFAULT(imageType_, "") };
     inline RemoveImageRequest& setImageType(string imageType) { DARABONBA_PTR_SET_VALUE(imageType_, imageType) };
 
 
@@ -51,12 +51,12 @@ namespace Models
     // The image ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> imageId_ = nullptr;
+    shared_ptr<string> imageId_ {};
     // The type of the images. Valid values:
     // 
     // *   VM: Virtual Machine Image
     // *   Container: container image
-    std::shared_ptr<string> imageType_ = nullptr;
+    shared_ptr<string> imageType_ {};
   };
 
   } // namespace Models

@@ -33,19 +33,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->targetRegionIds_ == nullptr; };
+        && this->targetRegionIds_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline SynchronizeAppRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // targetRegionIds Field Functions 
     bool hasTargetRegionIds() const { return this->targetRegionIds_ != nullptr;};
     void deleteTargetRegionIds() { this->targetRegionIds_ = nullptr;};
-    inline const vector<string> & targetRegionIds() const { DARABONBA_PTR_GET_CONST(targetRegionIds_, vector<string>) };
-    inline vector<string> targetRegionIds() { DARABONBA_PTR_GET(targetRegionIds_, vector<string>) };
+    inline const vector<string> & getTargetRegionIds() const { DARABONBA_PTR_GET_CONST(targetRegionIds_, vector<string>) };
+    inline vector<string> getTargetRegionIds() { DARABONBA_PTR_GET(targetRegionIds_, vector<string>) };
     inline SynchronizeAppRequest& setTargetRegionIds(const vector<string> & targetRegionIds) { DARABONBA_PTR_SET_VALUE(targetRegionIds_, targetRegionIds) };
     inline SynchronizeAppRequest& setTargetRegionIds(vector<string> && targetRegionIds) { DARABONBA_PTR_SET_RVALUE(targetRegionIds_, targetRegionIds) };
 
@@ -54,9 +54,9 @@ namespace Models
     // The application ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The list of arrays that are synchronized to the specified region. If \\"all\\" is included, it is synchronized to all other unsynchronized regions by default.
-    std::shared_ptr<vector<string>> targetRegionIds_ = nullptr;
+    shared_ptr<vector<string>> targetRegionIds_ {};
   };
 
   } // namespace Models

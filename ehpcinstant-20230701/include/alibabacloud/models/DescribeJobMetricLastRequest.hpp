@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->arrayIndex_ == nullptr
-        && return this->jobId_ == nullptr && return this->taskName_ == nullptr; };
+        && this->jobId_ == nullptr && this->taskName_ == nullptr; };
     // arrayIndex Field Functions 
     bool hasArrayIndex() const { return this->arrayIndex_ != nullptr;};
     void deleteArrayIndex() { this->arrayIndex_ = nullptr;};
-    inline const vector<int32_t> & arrayIndex() const { DARABONBA_PTR_GET_CONST(arrayIndex_, vector<int32_t>) };
-    inline vector<int32_t> arrayIndex() { DARABONBA_PTR_GET(arrayIndex_, vector<int32_t>) };
+    inline const vector<int32_t> & getArrayIndex() const { DARABONBA_PTR_GET_CONST(arrayIndex_, vector<int32_t>) };
+    inline vector<int32_t> getArrayIndex() { DARABONBA_PTR_GET(arrayIndex_, vector<int32_t>) };
     inline DescribeJobMetricLastRequest& setArrayIndex(const vector<int32_t> & arrayIndex) { DARABONBA_PTR_SET_VALUE(arrayIndex_, arrayIndex) };
     inline DescribeJobMetricLastRequest& setArrayIndex(vector<int32_t> && arrayIndex) { DARABONBA_PTR_SET_RVALUE(arrayIndex_, arrayIndex) };
 
@@ -48,24 +48,24 @@ namespace Models
     // jobId Field Functions 
     bool hasJobId() const { return this->jobId_ != nullptr;};
     void deleteJobId() { this->jobId_ = nullptr;};
-    inline string jobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
+    inline string getJobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
     inline DescribeJobMetricLastRequest& setJobId(string jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
 
 
     // taskName Field Functions 
     bool hasTaskName() const { return this->taskName_ != nullptr;};
     void deleteTaskName() { this->taskName_ = nullptr;};
-    inline string taskName() const { DARABONBA_PTR_GET_DEFAULT(taskName_, "") };
+    inline string getTaskName() const { DARABONBA_PTR_GET_DEFAULT(taskName_, "") };
     inline DescribeJobMetricLastRequest& setTaskName(string taskName) { DARABONBA_PTR_SET_VALUE(taskName_, taskName) };
 
 
   protected:
     // The list of array job indexes.
-    std::shared_ptr<vector<int32_t>> arrayIndex_ = nullptr;
+    shared_ptr<vector<int32_t>> arrayIndex_ {};
     // The job ID.
-    std::shared_ptr<string> jobId_ = nullptr;
+    shared_ptr<string> jobId_ {};
     // The name of the task.
-    std::shared_ptr<string> taskName_ = nullptr;
+    shared_ptr<string> taskName_ {};
   };
 
   } // namespace Models

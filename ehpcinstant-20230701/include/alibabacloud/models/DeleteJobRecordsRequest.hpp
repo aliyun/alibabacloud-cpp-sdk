@@ -34,15 +34,15 @@ namespace Models
     // jobIds Field Functions 
     bool hasJobIds() const { return this->jobIds_ != nullptr;};
     void deleteJobIds() { this->jobIds_ = nullptr;};
-    inline const vector<string> & jobIds() const { DARABONBA_PTR_GET_CONST(jobIds_, vector<string>) };
-    inline vector<string> jobIds() { DARABONBA_PTR_GET(jobIds_, vector<string>) };
+    inline const vector<string> & getJobIds() const { DARABONBA_PTR_GET_CONST(jobIds_, vector<string>) };
+    inline vector<string> getJobIds() { DARABONBA_PTR_GET(jobIds_, vector<string>) };
     inline DeleteJobRecordsRequest& setJobIds(const vector<string> & jobIds) { DARABONBA_PTR_SET_VALUE(jobIds_, jobIds) };
     inline DeleteJobRecordsRequest& setJobIds(vector<string> && jobIds) { DARABONBA_PTR_SET_RVALUE(jobIds_, jobIds) };
 
 
   protected:
     // The list of job IDs.
-    std::shared_ptr<vector<string>> jobIds_ = nullptr;
+    shared_ptr<vector<string>> jobIds_ {};
   };
 
   } // namespace Models

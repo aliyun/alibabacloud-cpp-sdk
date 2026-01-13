@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->actionPlanIds_ == nullptr
-        && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr; };
+        && this->maxResults_ == nullptr && this->nextToken_ == nullptr; };
     // actionPlanIds Field Functions 
     bool hasActionPlanIds() const { return this->actionPlanIds_ != nullptr;};
     void deleteActionPlanIds() { this->actionPlanIds_ = nullptr;};
-    inline const vector<string> & actionPlanIds() const { DARABONBA_PTR_GET_CONST(actionPlanIds_, vector<string>) };
-    inline vector<string> actionPlanIds() { DARABONBA_PTR_GET(actionPlanIds_, vector<string>) };
+    inline const vector<string> & getActionPlanIds() const { DARABONBA_PTR_GET_CONST(actionPlanIds_, vector<string>) };
+    inline vector<string> getActionPlanIds() { DARABONBA_PTR_GET(actionPlanIds_, vector<string>) };
     inline ListActionPlansRequest& setActionPlanIds(const vector<string> & actionPlanIds) { DARABONBA_PTR_SET_VALUE(actionPlanIds_, actionPlanIds) };
     inline ListActionPlansRequest& setActionPlanIds(vector<string> && actionPlanIds) { DARABONBA_PTR_SET_RVALUE(actionPlanIds_, actionPlanIds) };
 
@@ -48,28 +48,28 @@ namespace Models
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListActionPlansRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListActionPlansRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
   protected:
     // The IDs of the execution plans to be queried.
-    std::shared_ptr<vector<string>> actionPlanIds_ = nullptr;
+    shared_ptr<vector<string>> actionPlanIds_ {};
     // The maximum number of entries per page.
     // 
     // Valid values: 1 to 100.
     // 
     // Default value: 20.
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
     // A pagination token.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
   };
 
   } // namespace Models
