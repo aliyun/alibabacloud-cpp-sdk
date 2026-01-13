@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->backupMode_ == nullptr
-        && return this->DBInstanceId_ == nullptr; };
+        && this->DBInstanceId_ == nullptr; };
     // backupMode Field Functions 
     bool hasBackupMode() const { return this->backupMode_ != nullptr;};
     void deleteBackupMode() { this->backupMode_ = nullptr;};
-    inline string backupMode() const { DARABONBA_PTR_GET_DEFAULT(backupMode_, "") };
+    inline string getBackupMode() const { DARABONBA_PTR_GET_DEFAULT(backupMode_, "") };
     inline ListBackupJobsRequest& setBackupMode(string backupMode) { DARABONBA_PTR_SET_VALUE(backupMode_, backupMode) };
 
 
     // DBInstanceId Field Functions 
     bool hasDBInstanceId() const { return this->DBInstanceId_ != nullptr;};
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
-    inline string DBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
+    inline string getDBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
     inline ListBackupJobsRequest& setDBInstanceId(string DBInstanceId) { DARABONBA_PTR_SET_VALUE(DBInstanceId_, DBInstanceId) };
 
 
@@ -54,13 +54,13 @@ namespace Models
     // *   Manual
     // 
     // If you do not specify this parameter, all backup sets are returned.
-    std::shared_ptr<string> backupMode_ = nullptr;
+    shared_ptr<string> backupMode_ {};
     // The instance ID.
     // 
     // >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBInstanceId_ = nullptr;
+    shared_ptr<string> DBInstanceId_ {};
   };
 
   } // namespace Models

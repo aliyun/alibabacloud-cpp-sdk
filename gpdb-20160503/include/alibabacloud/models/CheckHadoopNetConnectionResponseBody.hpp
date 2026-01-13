@@ -34,39 +34,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->connectionMessage_ == nullptr
-        && return this->connectionStatus_ == nullptr && return this->requestId_ == nullptr; };
+        && this->connectionStatus_ == nullptr && this->requestId_ == nullptr; };
     // connectionMessage Field Functions 
     bool hasConnectionMessage() const { return this->connectionMessage_ != nullptr;};
     void deleteConnectionMessage() { this->connectionMessage_ = nullptr;};
-    inline string connectionMessage() const { DARABONBA_PTR_GET_DEFAULT(connectionMessage_, "") };
+    inline string getConnectionMessage() const { DARABONBA_PTR_GET_DEFAULT(connectionMessage_, "") };
     inline CheckHadoopNetConnectionResponseBody& setConnectionMessage(string connectionMessage) { DARABONBA_PTR_SET_VALUE(connectionMessage_, connectionMessage) };
 
 
     // connectionStatus Field Functions 
     bool hasConnectionStatus() const { return this->connectionStatus_ != nullptr;};
     void deleteConnectionStatus() { this->connectionStatus_ = nullptr;};
-    inline string connectionStatus() const { DARABONBA_PTR_GET_DEFAULT(connectionStatus_, "") };
+    inline string getConnectionStatus() const { DARABONBA_PTR_GET_DEFAULT(connectionStatus_, "") };
     inline CheckHadoopNetConnectionResponseBody& setConnectionStatus(string connectionStatus) { DARABONBA_PTR_SET_VALUE(connectionStatus_, connectionStatus) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CheckHadoopNetConnectionResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // Return message: Returns error information if the connection fails, otherwise returns an empty string ("").
-    std::shared_ptr<string> connectionMessage_ = nullptr;
+    shared_ptr<string> connectionMessage_ {};
     // Connection status:
     // 
     // - Network connected: Success
     // 
     // - Network not connected: Failed
-    std::shared_ptr<string> connectionStatus_ = nullptr;
+    shared_ptr<string> connectionStatus_ {};
     // Request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

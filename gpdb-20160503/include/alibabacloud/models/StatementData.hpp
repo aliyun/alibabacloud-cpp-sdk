@@ -47,34 +47,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->createdAt_ == nullptr
-        && return this->database_ == nullptr && return this->id_ == nullptr && return this->parameters_ == nullptr && return this->secretArn_ == nullptr && return this->sql_ == nullptr
-        && return this->sqls_ == nullptr && return this->status_ == nullptr && return this->updatedAt_ == nullptr; };
+        && this->database_ == nullptr && this->id_ == nullptr && this->parameters_ == nullptr && this->secretArn_ == nullptr && this->sql_ == nullptr
+        && this->sqls_ == nullptr && this->status_ == nullptr && this->updatedAt_ == nullptr; };
     // createdAt Field Functions 
     bool hasCreatedAt() const { return this->createdAt_ != nullptr;};
     void deleteCreatedAt() { this->createdAt_ = nullptr;};
-    inline string createdAt() const { DARABONBA_PTR_GET_DEFAULT(createdAt_, "") };
+    inline string getCreatedAt() const { DARABONBA_PTR_GET_DEFAULT(createdAt_, "") };
     inline StatementData& setCreatedAt(string createdAt) { DARABONBA_PTR_SET_VALUE(createdAt_, createdAt) };
 
 
     // database Field Functions 
     bool hasDatabase() const { return this->database_ != nullptr;};
     void deleteDatabase() { this->database_ = nullptr;};
-    inline string database() const { DARABONBA_PTR_GET_DEFAULT(database_, "") };
+    inline string getDatabase() const { DARABONBA_PTR_GET_DEFAULT(database_, "") };
     inline StatementData& setDatabase(string database) { DARABONBA_PTR_SET_VALUE(database_, database) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline string id() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+    inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline StatementData& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // parameters Field Functions 
     bool hasParameters() const { return this->parameters_ != nullptr;};
     void deleteParameters() { this->parameters_ = nullptr;};
-    inline const vector<string> & parameters() const { DARABONBA_PTR_GET_CONST(parameters_, vector<string>) };
-    inline vector<string> parameters() { DARABONBA_PTR_GET(parameters_, vector<string>) };
+    inline const vector<string> & getParameters() const { DARABONBA_PTR_GET_CONST(parameters_, vector<string>) };
+    inline vector<string> getParameters() { DARABONBA_PTR_GET(parameters_, vector<string>) };
     inline StatementData& setParameters(const vector<string> & parameters) { DARABONBA_PTR_SET_VALUE(parameters_, parameters) };
     inline StatementData& setParameters(vector<string> && parameters) { DARABONBA_PTR_SET_RVALUE(parameters_, parameters) };
 
@@ -82,22 +82,22 @@ namespace Models
     // secretArn Field Functions 
     bool hasSecretArn() const { return this->secretArn_ != nullptr;};
     void deleteSecretArn() { this->secretArn_ = nullptr;};
-    inline string secretArn() const { DARABONBA_PTR_GET_DEFAULT(secretArn_, "") };
+    inline string getSecretArn() const { DARABONBA_PTR_GET_DEFAULT(secretArn_, "") };
     inline StatementData& setSecretArn(string secretArn) { DARABONBA_PTR_SET_VALUE(secretArn_, secretArn) };
 
 
     // sql Field Functions 
     bool hasSql() const { return this->sql_ != nullptr;};
     void deleteSql() { this->sql_ = nullptr;};
-    inline string sql() const { DARABONBA_PTR_GET_DEFAULT(sql_, "") };
+    inline string getSql() const { DARABONBA_PTR_GET_DEFAULT(sql_, "") };
     inline StatementData& setSql(string sql) { DARABONBA_PTR_SET_VALUE(sql_, sql) };
 
 
     // sqls Field Functions 
     bool hasSqls() const { return this->sqls_ != nullptr;};
     void deleteSqls() { this->sqls_ = nullptr;};
-    inline const vector<string> & sqls() const { DARABONBA_PTR_GET_CONST(sqls_, vector<string>) };
-    inline vector<string> sqls() { DARABONBA_PTR_GET(sqls_, vector<string>) };
+    inline const vector<string> & getSqls() const { DARABONBA_PTR_GET_CONST(sqls_, vector<string>) };
+    inline vector<string> getSqls() { DARABONBA_PTR_GET(sqls_, vector<string>) };
     inline StatementData& setSqls(const vector<string> & sqls) { DARABONBA_PTR_SET_VALUE(sqls_, sqls) };
     inline StatementData& setSqls(vector<string> && sqls) { DARABONBA_PTR_SET_RVALUE(sqls_, sqls) };
 
@@ -105,27 +105,27 @@ namespace Models
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline StatementData& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // updatedAt Field Functions 
     bool hasUpdatedAt() const { return this->updatedAt_ != nullptr;};
     void deleteUpdatedAt() { this->updatedAt_ = nullptr;};
-    inline string updatedAt() const { DARABONBA_PTR_GET_DEFAULT(updatedAt_, "") };
+    inline string getUpdatedAt() const { DARABONBA_PTR_GET_DEFAULT(updatedAt_, "") };
     inline StatementData& setUpdatedAt(string updatedAt) { DARABONBA_PTR_SET_VALUE(updatedAt_, updatedAt) };
 
 
   protected:
-    std::shared_ptr<string> createdAt_ = nullptr;
-    std::shared_ptr<string> database_ = nullptr;
-    std::shared_ptr<string> id_ = nullptr;
-    std::shared_ptr<vector<string>> parameters_ = nullptr;
-    std::shared_ptr<string> secretArn_ = nullptr;
-    std::shared_ptr<string> sql_ = nullptr;
-    std::shared_ptr<vector<string>> sqls_ = nullptr;
-    std::shared_ptr<string> status_ = nullptr;
-    std::shared_ptr<string> updatedAt_ = nullptr;
+    shared_ptr<string> createdAt_ {};
+    shared_ptr<string> database_ {};
+    shared_ptr<string> id_ {};
+    shared_ptr<vector<string>> parameters_ {};
+    shared_ptr<string> secretArn_ {};
+    shared_ptr<string> sql_ {};
+    shared_ptr<vector<string>> sqls_ {};
+    shared_ptr<string> status_ {};
+    shared_ptr<string> updatedAt_ {};
   };
 
   } // namespace Models

@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBInstanceId_ == nullptr
-        && return this->forceRestartInstance_ == nullptr && return this->parameters_ == nullptr; };
+        && this->forceRestartInstance_ == nullptr && this->parameters_ == nullptr; };
     // DBInstanceId Field Functions 
     bool hasDBInstanceId() const { return this->DBInstanceId_ != nullptr;};
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
-    inline string DBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
+    inline string getDBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
     inline ModifyParametersRequest& setDBInstanceId(string DBInstanceId) { DARABONBA_PTR_SET_VALUE(DBInstanceId_, DBInstanceId) };
 
 
     // forceRestartInstance Field Functions 
     bool hasForceRestartInstance() const { return this->forceRestartInstance_ != nullptr;};
     void deleteForceRestartInstance() { this->forceRestartInstance_ = nullptr;};
-    inline bool forceRestartInstance() const { DARABONBA_PTR_GET_DEFAULT(forceRestartInstance_, false) };
+    inline bool getForceRestartInstance() const { DARABONBA_PTR_GET_DEFAULT(forceRestartInstance_, false) };
     inline ModifyParametersRequest& setForceRestartInstance(bool forceRestartInstance) { DARABONBA_PTR_SET_VALUE(forceRestartInstance_, forceRestartInstance) };
 
 
     // parameters Field Functions 
     bool hasParameters() const { return this->parameters_ != nullptr;};
     void deleteParameters() { this->parameters_ = nullptr;};
-    inline string parameters() const { DARABONBA_PTR_GET_DEFAULT(parameters_, "") };
+    inline string getParameters() const { DARABONBA_PTR_GET_DEFAULT(parameters_, "") };
     inline ModifyParametersRequest& setParameters(string parameters) { DARABONBA_PTR_SET_VALUE(parameters_, parameters) };
 
 
@@ -62,18 +62,18 @@ namespace Models
     // >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including instance IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBInstanceId_ = nullptr;
+    shared_ptr<string> DBInstanceId_ {};
     // Specifies whether to forcibly restart the instance. Valid values:
     // 
     // *   **true**
     // *   **false**
-    std::shared_ptr<bool> forceRestartInstance_ = nullptr;
+    shared_ptr<bool> forceRestartInstance_ {};
     // The name and value of the parameter to be modified. Specify the parameter in the `<Parameter name>:<Parameter value>` format.
     // 
     // You can call the [DescribeParameters](https://help.aliyun.com/document_detail/208310.html) operation to query the parameters that can be modified.
     // 
     // This parameter is required.
-    std::shared_ptr<string> parameters_ = nullptr;
+    shared_ptr<string> parameters_ {};
   };
 
   } // namespace Models

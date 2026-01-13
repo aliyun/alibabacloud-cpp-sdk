@@ -44,61 +44,61 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBInstanceId_ == nullptr
-        && return this->database_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr && return this->schema_ == nullptr && return this->secretArn_ == nullptr
-        && return this->table_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->database_ == nullptr && this->ownerId_ == nullptr && this->regionId_ == nullptr && this->schema_ == nullptr && this->secretArn_ == nullptr
+        && this->table_ == nullptr && this->workspaceId_ == nullptr; };
     // DBInstanceId Field Functions 
     bool hasDBInstanceId() const { return this->DBInstanceId_ != nullptr;};
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
-    inline string DBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
+    inline string getDBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
     inline DescribeTableRequest& setDBInstanceId(string DBInstanceId) { DARABONBA_PTR_SET_VALUE(DBInstanceId_, DBInstanceId) };
 
 
     // database Field Functions 
     bool hasDatabase() const { return this->database_ != nullptr;};
     void deleteDatabase() { this->database_ = nullptr;};
-    inline string database() const { DARABONBA_PTR_GET_DEFAULT(database_, "") };
+    inline string getDatabase() const { DARABONBA_PTR_GET_DEFAULT(database_, "") };
     inline DescribeTableRequest& setDatabase(string database) { DARABONBA_PTR_SET_VALUE(database_, database) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline DescribeTableRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeTableRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // schema Field Functions 
     bool hasSchema() const { return this->schema_ != nullptr;};
     void deleteSchema() { this->schema_ = nullptr;};
-    inline string schema() const { DARABONBA_PTR_GET_DEFAULT(schema_, "") };
+    inline string getSchema() const { DARABONBA_PTR_GET_DEFAULT(schema_, "") };
     inline DescribeTableRequest& setSchema(string schema) { DARABONBA_PTR_SET_VALUE(schema_, schema) };
 
 
     // secretArn Field Functions 
     bool hasSecretArn() const { return this->secretArn_ != nullptr;};
     void deleteSecretArn() { this->secretArn_ = nullptr;};
-    inline string secretArn() const { DARABONBA_PTR_GET_DEFAULT(secretArn_, "") };
+    inline string getSecretArn() const { DARABONBA_PTR_GET_DEFAULT(secretArn_, "") };
     inline DescribeTableRequest& setSecretArn(string secretArn) { DARABONBA_PTR_SET_VALUE(secretArn_, secretArn) };
 
 
     // table Field Functions 
     bool hasTable() const { return this->table_ != nullptr;};
     void deleteTable() { this->table_ = nullptr;};
-    inline string table() const { DARABONBA_PTR_GET_DEFAULT(table_, "") };
+    inline string getTable() const { DARABONBA_PTR_GET_DEFAULT(table_, "") };
     inline DescribeTableRequest& setTable(string table) { DARABONBA_PTR_SET_VALUE(table_, table) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline DescribeTableRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
@@ -106,31 +106,31 @@ namespace Models
     // The instance ID.
     // 
     // >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
-    std::shared_ptr<string> DBInstanceId_ = nullptr;
+    shared_ptr<string> DBInstanceId_ {};
     // The name of the database.
     // 
     // This parameter is required.
-    std::shared_ptr<string> database_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<string> database_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // The region ID of the instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The name of the schema to which the table belongs.
     // 
     // This parameter is required.
-    std::shared_ptr<string> schema_ = nullptr;
+    shared_ptr<string> schema_ {};
     // The Alibaba Cloud Resource Name (ARN) of the access credential for the created Data API account. You can call the CreateSecret operation to create an access credential.
     // 
     // >  To call the DescribeTable operation as a Resource Access Management (RAM) user, the RAM user must have the permissions to call the UseSecret or GetSecretValue operation on the ARN of the access credential.
     // 
     // This parameter is required.
-    std::shared_ptr<string> secretArn_ = nullptr;
+    shared_ptr<string> secretArn_ {};
     // The name of the table.
     // 
     // This parameter is required.
-    std::shared_ptr<string> table_ = nullptr;
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> table_ {};
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

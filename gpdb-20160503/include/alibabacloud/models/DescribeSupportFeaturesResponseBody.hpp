@@ -34,38 +34,38 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBInstanceId_ == nullptr
-        && return this->requestId_ == nullptr && return this->supportFeatureList_ == nullptr; };
+        && this->requestId_ == nullptr && this->supportFeatureList_ == nullptr; };
     // DBInstanceId Field Functions 
     bool hasDBInstanceId() const { return this->DBInstanceId_ != nullptr;};
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
-    inline string DBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
+    inline string getDBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
     inline DescribeSupportFeaturesResponseBody& setDBInstanceId(string DBInstanceId) { DARABONBA_PTR_SET_VALUE(DBInstanceId_, DBInstanceId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeSupportFeaturesResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // supportFeatureList Field Functions 
     bool hasSupportFeatureList() const { return this->supportFeatureList_ != nullptr;};
     void deleteSupportFeatureList() { this->supportFeatureList_ = nullptr;};
-    inline string supportFeatureList() const { DARABONBA_PTR_GET_DEFAULT(supportFeatureList_, "") };
+    inline string getSupportFeatureList() const { DARABONBA_PTR_GET_DEFAULT(supportFeatureList_, "") };
     inline DescribeSupportFeaturesResponseBody& setSupportFeatureList(string supportFeatureList) { DARABONBA_PTR_SET_VALUE(supportFeatureList_, supportFeatureList) };
 
 
   protected:
     // The ID of the instance.
-    std::shared_ptr<string> DBInstanceId_ = nullptr;
+    shared_ptr<string> DBInstanceId_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The features supported by the instance. Valid values:
     // 
     // *   sample_data: sample dataset. For more information, see [Sample dataset](https://help.aliyun.com/document_detail/452278.html).
     // *   diagnose_and_optimize: diagnostics and optimization. For more information, see [Diagnostics and optimization](https://help.aliyun.com/document_detail/323453.html).
-    std::shared_ptr<string> supportFeatureList_ = nullptr;
+    shared_ptr<string> supportFeatureList_ {};
   };
 
   } // namespace Models

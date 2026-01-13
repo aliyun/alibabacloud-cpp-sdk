@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_DESCRIBECREATEINDEXJOBRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_DESCRIBECREATEINDEXJOBRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/DescribeCreateIndexJobResponseBodyJob.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -36,50 +35,159 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Job : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Job& obj) { 
+        DARABONBA_PTR_TO_JSON(Completed, completed_);
+        DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
+        DARABONBA_PTR_TO_JSON(Error, error_);
+        DARABONBA_PTR_TO_JSON(Id, id_);
+        DARABONBA_PTR_TO_JSON(Progress, progress_);
+        DARABONBA_PTR_TO_JSON(Status, status_);
+        DARABONBA_PTR_TO_JSON(UpdateTime, updateTime_);
+      };
+      friend void from_json(const Darabonba::Json& j, Job& obj) { 
+        DARABONBA_PTR_FROM_JSON(Completed, completed_);
+        DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
+        DARABONBA_PTR_FROM_JSON(Error, error_);
+        DARABONBA_PTR_FROM_JSON(Id, id_);
+        DARABONBA_PTR_FROM_JSON(Progress, progress_);
+        DARABONBA_PTR_FROM_JSON(Status, status_);
+        DARABONBA_PTR_FROM_JSON(UpdateTime, updateTime_);
+      };
+      Job() = default ;
+      Job(const Job &) = default ;
+      Job(Job &&) = default ;
+      Job(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Job() = default ;
+      Job& operator=(const Job &) = default ;
+      Job& operator=(Job &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->completed_ == nullptr
+        && this->createTime_ == nullptr && this->error_ == nullptr && this->id_ == nullptr && this->progress_ == nullptr && this->status_ == nullptr
+        && this->updateTime_ == nullptr; };
+      // completed Field Functions 
+      bool hasCompleted() const { return this->completed_ != nullptr;};
+      void deleteCompleted() { this->completed_ = nullptr;};
+      inline bool getCompleted() const { DARABONBA_PTR_GET_DEFAULT(completed_, false) };
+      inline Job& setCompleted(bool completed) { DARABONBA_PTR_SET_VALUE(completed_, completed) };
+
+
+      // createTime Field Functions 
+      bool hasCreateTime() const { return this->createTime_ != nullptr;};
+      void deleteCreateTime() { this->createTime_ = nullptr;};
+      inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
+      inline Job& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
+
+
+      // error Field Functions 
+      bool hasError() const { return this->error_ != nullptr;};
+      void deleteError() { this->error_ = nullptr;};
+      inline string getError() const { DARABONBA_PTR_GET_DEFAULT(error_, "") };
+      inline Job& setError(string error) { DARABONBA_PTR_SET_VALUE(error_, error) };
+
+
+      // id Field Functions 
+      bool hasId() const { return this->id_ != nullptr;};
+      void deleteId() { this->id_ = nullptr;};
+      inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+      inline Job& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+      // progress Field Functions 
+      bool hasProgress() const { return this->progress_ != nullptr;};
+      void deleteProgress() { this->progress_ = nullptr;};
+      inline int32_t getProgress() const { DARABONBA_PTR_GET_DEFAULT(progress_, 0) };
+      inline Job& setProgress(int32_t progress) { DARABONBA_PTR_SET_VALUE(progress_, progress) };
+
+
+      // status Field Functions 
+      bool hasStatus() const { return this->status_ != nullptr;};
+      void deleteStatus() { this->status_ = nullptr;};
+      inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+      inline Job& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+      // updateTime Field Functions 
+      bool hasUpdateTime() const { return this->updateTime_ != nullptr;};
+      void deleteUpdateTime() { this->updateTime_ = nullptr;};
+      inline string getUpdateTime() const { DARABONBA_PTR_GET_DEFAULT(updateTime_, "") };
+      inline Job& setUpdateTime(string updateTime) { DARABONBA_PTR_SET_VALUE(updateTime_, updateTime) };
+
+
+    protected:
+      // Indicates whether the operation is complete.
+      shared_ptr<bool> completed_ {};
+      // The job creation time.
+      shared_ptr<string> createTime_ {};
+      // The error message that is returned when the current operation is abnormal or fails.
+      shared_ptr<string> error_ {};
+      // The job ID.
+      shared_ptr<string> id_ {};
+      // The progress of the index creation job. Unit: %. A value of 100 indicates that the job is complete.
+      // 
+      // > 
+      // 
+      // *   Only AnalyticDB for PostgreSQL V7.0 supports the Progress parameter.
+      shared_ptr<int32_t> progress_ {};
+      // The status of the job. Valid values:
+      // 
+      // *   **Success.**
+      // *   **Failed** (See the Error parameter for failure reasons).
+      // *   **Cancelled.**
+      // *   **Running.
+      shared_ptr<string> status_ {};
+      // The job last updated time.
+      shared_ptr<string> updateTime_ {};
+    };
+
     virtual bool empty() const override { return this->job_ == nullptr
-        && return this->message_ == nullptr && return this->requestId_ == nullptr && return this->status_ == nullptr; };
+        && this->message_ == nullptr && this->requestId_ == nullptr && this->status_ == nullptr; };
     // job Field Functions 
     bool hasJob() const { return this->job_ != nullptr;};
     void deleteJob() { this->job_ = nullptr;};
-    inline const DescribeCreateIndexJobResponseBodyJob & job() const { DARABONBA_PTR_GET_CONST(job_, DescribeCreateIndexJobResponseBodyJob) };
-    inline DescribeCreateIndexJobResponseBodyJob job() { DARABONBA_PTR_GET(job_, DescribeCreateIndexJobResponseBodyJob) };
-    inline DescribeCreateIndexJobResponseBody& setJob(const DescribeCreateIndexJobResponseBodyJob & job) { DARABONBA_PTR_SET_VALUE(job_, job) };
-    inline DescribeCreateIndexJobResponseBody& setJob(DescribeCreateIndexJobResponseBodyJob && job) { DARABONBA_PTR_SET_RVALUE(job_, job) };
+    inline const DescribeCreateIndexJobResponseBody::Job & getJob() const { DARABONBA_PTR_GET_CONST(job_, DescribeCreateIndexJobResponseBody::Job) };
+    inline DescribeCreateIndexJobResponseBody::Job getJob() { DARABONBA_PTR_GET(job_, DescribeCreateIndexJobResponseBody::Job) };
+    inline DescribeCreateIndexJobResponseBody& setJob(const DescribeCreateIndexJobResponseBody::Job & job) { DARABONBA_PTR_SET_VALUE(job_, job) };
+    inline DescribeCreateIndexJobResponseBody& setJob(DescribeCreateIndexJobResponseBody::Job && job) { DARABONBA_PTR_SET_RVALUE(job_, job) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline DescribeCreateIndexJobResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeCreateIndexJobResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline DescribeCreateIndexJobResponseBody& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
   protected:
     // The details of the index creation job.
-    std::shared_ptr<DescribeCreateIndexJobResponseBodyJob> job_ = nullptr;
+    shared_ptr<DescribeCreateIndexJobResponseBody::Job> job_ {};
     // The returned message.
-    std::shared_ptr<string> message_ = nullptr;
+    shared_ptr<string> message_ {};
     // The unique ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The status of the operation. Valid values:
     // 
     // *   **success**.
     // *   **fail**.
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models

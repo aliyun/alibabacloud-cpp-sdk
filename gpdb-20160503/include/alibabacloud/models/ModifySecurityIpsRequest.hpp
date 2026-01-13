@@ -40,70 +40,70 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBInstanceIPArrayAttribute_ == nullptr
-        && return this->DBInstanceIPArrayName_ == nullptr && return this->DBInstanceId_ == nullptr && return this->modifyMode_ == nullptr && return this->resourceGroupId_ == nullptr && return this->securityIPList_ == nullptr; };
+        && this->DBInstanceIPArrayName_ == nullptr && this->DBInstanceId_ == nullptr && this->modifyMode_ == nullptr && this->resourceGroupId_ == nullptr && this->securityIPList_ == nullptr; };
     // DBInstanceIPArrayAttribute Field Functions 
     bool hasDBInstanceIPArrayAttribute() const { return this->DBInstanceIPArrayAttribute_ != nullptr;};
     void deleteDBInstanceIPArrayAttribute() { this->DBInstanceIPArrayAttribute_ = nullptr;};
-    inline string DBInstanceIPArrayAttribute() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceIPArrayAttribute_, "") };
+    inline string getDBInstanceIPArrayAttribute() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceIPArrayAttribute_, "") };
     inline ModifySecurityIpsRequest& setDBInstanceIPArrayAttribute(string DBInstanceIPArrayAttribute) { DARABONBA_PTR_SET_VALUE(DBInstanceIPArrayAttribute_, DBInstanceIPArrayAttribute) };
 
 
     // DBInstanceIPArrayName Field Functions 
     bool hasDBInstanceIPArrayName() const { return this->DBInstanceIPArrayName_ != nullptr;};
     void deleteDBInstanceIPArrayName() { this->DBInstanceIPArrayName_ = nullptr;};
-    inline string DBInstanceIPArrayName() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceIPArrayName_, "") };
+    inline string getDBInstanceIPArrayName() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceIPArrayName_, "") };
     inline ModifySecurityIpsRequest& setDBInstanceIPArrayName(string DBInstanceIPArrayName) { DARABONBA_PTR_SET_VALUE(DBInstanceIPArrayName_, DBInstanceIPArrayName) };
 
 
     // DBInstanceId Field Functions 
     bool hasDBInstanceId() const { return this->DBInstanceId_ != nullptr;};
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
-    inline string DBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
+    inline string getDBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
     inline ModifySecurityIpsRequest& setDBInstanceId(string DBInstanceId) { DARABONBA_PTR_SET_VALUE(DBInstanceId_, DBInstanceId) };
 
 
     // modifyMode Field Functions 
     bool hasModifyMode() const { return this->modifyMode_ != nullptr;};
     void deleteModifyMode() { this->modifyMode_ = nullptr;};
-    inline string modifyMode() const { DARABONBA_PTR_GET_DEFAULT(modifyMode_, "") };
+    inline string getModifyMode() const { DARABONBA_PTR_GET_DEFAULT(modifyMode_, "") };
     inline ModifySecurityIpsRequest& setModifyMode(string modifyMode) { DARABONBA_PTR_SET_VALUE(modifyMode_, modifyMode) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline ModifySecurityIpsRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // securityIPList Field Functions 
     bool hasSecurityIPList() const { return this->securityIPList_ != nullptr;};
     void deleteSecurityIPList() { this->securityIPList_ = nullptr;};
-    inline string securityIPList() const { DARABONBA_PTR_GET_DEFAULT(securityIPList_, "") };
+    inline string getSecurityIPList() const { DARABONBA_PTR_GET_DEFAULT(securityIPList_, "") };
     inline ModifySecurityIpsRequest& setSecurityIPList(string securityIPList) { DARABONBA_PTR_SET_VALUE(securityIPList_, securityIPList) };
 
 
   protected:
     // The attribute of the IP address whitelist. By default, this parameter is empty. A whitelist with the `hidden` attribute does not appear in the console.
-    std::shared_ptr<string> DBInstanceIPArrayAttribute_ = nullptr;
+    shared_ptr<string> DBInstanceIPArrayAttribute_ {};
     // The name of the whitelist. If you do not enter a name, IP addresses are added to the default whitelist.
     // 
     // >  You can create up to 50 whitelists for an instance.
-    std::shared_ptr<string> DBInstanceIPArrayName_ = nullptr;
+    shared_ptr<string> DBInstanceIPArrayName_ {};
     // The ID of the instance.
     // 
     // >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the instance IDs of all AnalyticDB for PostgreSQL instances in a specific region.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBInstanceId_ = nullptr;
+    shared_ptr<string> DBInstanceId_ {};
     // The method of modification. Valid values:
     // 
     // *   **Cover**: overwrites the whitelist.
     // *   **Append**: appends data to the whitelist.
     // *   **Delete**: deletes the whitelist.
-    std::shared_ptr<string> modifyMode_ = nullptr;
+    shared_ptr<string> modifyMode_ {};
     // The ID of the resource group to which the instance belongs. For more information about how to obtain the ID of a resource group, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // The IP addresses listed in the whitelist. You can add up to 1,000 IP addresses to the whitelist. Separate multiple IP addresses with commas (,). The IP addresses must use one of the following formats:
     // 
     // *   0.0.0.0/0
@@ -111,7 +111,7 @@ namespace Models
     // *   10.23.12.24/24. This is a CIDR block. The value `/24` indicates that the prefix of the CIDR block is 24-bit long. You can replace 24 with a value in the range of `1 to 32`.
     // 
     // This parameter is required.
-    std::shared_ptr<string> securityIPList_ = nullptr;
+    shared_ptr<string> securityIPList_ {};
   };
 
   } // namespace Models

@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->backupJobId_ == nullptr
-        && return this->DBInstanceId_ == nullptr; };
+        && this->DBInstanceId_ == nullptr; };
     // backupJobId Field Functions 
     bool hasBackupJobId() const { return this->backupJobId_ != nullptr;};
     void deleteBackupJobId() { this->backupJobId_ = nullptr;};
-    inline int64_t backupJobId() const { DARABONBA_PTR_GET_DEFAULT(backupJobId_, 0L) };
+    inline int64_t getBackupJobId() const { DARABONBA_PTR_GET_DEFAULT(backupJobId_, 0L) };
     inline DescribeBackupJobRequest& setBackupJobId(int64_t backupJobId) { DARABONBA_PTR_SET_VALUE(backupJobId_, backupJobId) };
 
 
     // DBInstanceId Field Functions 
     bool hasDBInstanceId() const { return this->DBInstanceId_ != nullptr;};
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
-    inline string DBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
+    inline string getDBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
     inline DescribeBackupJobRequest& setDBInstanceId(string DBInstanceId) { DARABONBA_PTR_SET_VALUE(DBInstanceId_, DBInstanceId) };
 
 
@@ -51,13 +51,13 @@ namespace Models
     // The backup job ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> backupJobId_ = nullptr;
+    shared_ptr<int64_t> backupJobId_ {};
     // The instance ID.
     // 
     // >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBInstanceId_ = nullptr;
+    shared_ptr<string> DBInstanceId_ {};
   };
 
   } // namespace Models

@@ -42,54 +42,54 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->characterSetName_ == nullptr
-        && return this->collate_ == nullptr && return this->ctype_ == nullptr && return this->DBInstanceId_ == nullptr && return this->databaseName_ == nullptr && return this->description_ == nullptr
-        && return this->owner_ == nullptr; };
+        && this->collate_ == nullptr && this->ctype_ == nullptr && this->DBInstanceId_ == nullptr && this->databaseName_ == nullptr && this->description_ == nullptr
+        && this->owner_ == nullptr; };
     // characterSetName Field Functions 
     bool hasCharacterSetName() const { return this->characterSetName_ != nullptr;};
     void deleteCharacterSetName() { this->characterSetName_ = nullptr;};
-    inline string characterSetName() const { DARABONBA_PTR_GET_DEFAULT(characterSetName_, "") };
+    inline string getCharacterSetName() const { DARABONBA_PTR_GET_DEFAULT(characterSetName_, "") };
     inline CreateDatabaseRequest& setCharacterSetName(string characterSetName) { DARABONBA_PTR_SET_VALUE(characterSetName_, characterSetName) };
 
 
     // collate Field Functions 
     bool hasCollate() const { return this->collate_ != nullptr;};
     void deleteCollate() { this->collate_ = nullptr;};
-    inline string collate() const { DARABONBA_PTR_GET_DEFAULT(collate_, "") };
+    inline string getCollate() const { DARABONBA_PTR_GET_DEFAULT(collate_, "") };
     inline CreateDatabaseRequest& setCollate(string collate) { DARABONBA_PTR_SET_VALUE(collate_, collate) };
 
 
     // ctype Field Functions 
     bool hasCtype() const { return this->ctype_ != nullptr;};
     void deleteCtype() { this->ctype_ = nullptr;};
-    inline string ctype() const { DARABONBA_PTR_GET_DEFAULT(ctype_, "") };
+    inline string getCtype() const { DARABONBA_PTR_GET_DEFAULT(ctype_, "") };
     inline CreateDatabaseRequest& setCtype(string ctype) { DARABONBA_PTR_SET_VALUE(ctype_, ctype) };
 
 
     // DBInstanceId Field Functions 
     bool hasDBInstanceId() const { return this->DBInstanceId_ != nullptr;};
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
-    inline string DBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
+    inline string getDBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
     inline CreateDatabaseRequest& setDBInstanceId(string DBInstanceId) { DARABONBA_PTR_SET_VALUE(DBInstanceId_, DBInstanceId) };
 
 
     // databaseName Field Functions 
     bool hasDatabaseName() const { return this->databaseName_ != nullptr;};
     void deleteDatabaseName() { this->databaseName_ = nullptr;};
-    inline string databaseName() const { DARABONBA_PTR_GET_DEFAULT(databaseName_, "") };
+    inline string getDatabaseName() const { DARABONBA_PTR_GET_DEFAULT(databaseName_, "") };
     inline CreateDatabaseRequest& setDatabaseName(string databaseName) { DARABONBA_PTR_SET_VALUE(databaseName_, databaseName) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateDatabaseRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // owner Field Functions 
     bool hasOwner() const { return this->owner_ != nullptr;};
     void deleteOwner() { this->owner_ = nullptr;};
-    inline string owner() const { DARABONBA_PTR_GET_DEFAULT(owner_, "") };
+    inline string getOwner() const { DARABONBA_PTR_GET_DEFAULT(owner_, "") };
     inline CreateDatabaseRequest& setOwner(string owner) { DARABONBA_PTR_SET_VALUE(owner_, owner) };
 
 
@@ -99,7 +99,7 @@ namespace Models
     // For more information about the value range, see Document [https://www.postgresql.org/docs/current/multibyte.html](url).
     // 
     // Default value: UTF-8.
-    std::shared_ptr<string> characterSetName_ = nullptr;
+    shared_ptr<string> characterSetName_ {};
     // Database locale parameter (specifies string comparison/sorting rules).
     // 
     // > 
@@ -107,7 +107,7 @@ namespace Models
     // *   The locale must be compatible with the character set specified by the CharacterSetName parameter.
     // 
     // *   Valid values for the Collate field: You can execute the SELECT DISTINCT collname FROM pg_collation; statement to obtain the field value. The default value is en_US.utf8.
-    std::shared_ptr<string> collate_ = nullptr;
+    shared_ptr<string> collate_ {};
     // Database locale parameter (defines character classification/case conversion rules).
     // 
     // > 
@@ -115,13 +115,13 @@ namespace Models
     // *   The locale must be compatible with the character set specified by the CharacterSetName parameter.
     // 
     // *   You can execute the SELECT DISTINCT collctype FROM pg_collation; statement to obtain the field value. The default value is en_US.utf8.
-    std::shared_ptr<string> ctype_ = nullptr;
+    shared_ptr<string> ctype_ {};
     // The cluster ID.
     // 
     // > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBInstanceId_ = nullptr;
+    shared_ptr<string> DBInstanceId_ {};
     // The name of the database.
     // 
     // *   Only contains letters, digits, and underscores (_).
@@ -129,14 +129,14 @@ namespace Models
     // *   Up to 63 characters in length.
     // 
     // This parameter is required.
-    std::shared_ptr<string> databaseName_ = nullptr;
+    shared_ptr<string> databaseName_ {};
     // The description of the database.
     // 
     // *   Must start with a letter.
     // *   Cannot start with http:// or https://.
     // *   Only contains letters, underscores (_), hyphens (-), and digits.
     // *   Must be 2 to 256 characters in length.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The owner of the table.
     // 
     // *   Only contains lowercase letters, digits, and underscores (_).
@@ -145,7 +145,7 @@ namespace Models
     // *   Must be 2 to 16 characters in length.
     // 
     // This parameter is required.
-    std::shared_ptr<string> owner_ = nullptr;
+    shared_ptr<string> owner_ {};
   };
 
   } // namespace Models

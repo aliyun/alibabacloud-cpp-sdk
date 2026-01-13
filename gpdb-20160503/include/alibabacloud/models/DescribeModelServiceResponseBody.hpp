@@ -53,14 +53,14 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aiNodes_ == nullptr
-        && return this->apiKey_ == nullptr && return this->createTime_ == nullptr && return this->description_ == nullptr && return this->modelName_ == nullptr && return this->modelParams_ == nullptr
-        && return this->modelServiceId_ == nullptr && return this->privateConnectUrl_ == nullptr && return this->publicConnectUrl_ == nullptr && return this->requestId_ == nullptr && return this->securityIpList_ == nullptr
-        && return this->status_ == nullptr; };
+        && this->apiKey_ == nullptr && this->createTime_ == nullptr && this->description_ == nullptr && this->modelName_ == nullptr && this->modelParams_ == nullptr
+        && this->modelServiceId_ == nullptr && this->privateConnectUrl_ == nullptr && this->publicConnectUrl_ == nullptr && this->requestId_ == nullptr && this->securityIpList_ == nullptr
+        && this->status_ == nullptr; };
     // aiNodes Field Functions 
     bool hasAiNodes() const { return this->aiNodes_ != nullptr;};
     void deleteAiNodes() { this->aiNodes_ = nullptr;};
-    inline const vector<string> & aiNodes() const { DARABONBA_PTR_GET_CONST(aiNodes_, vector<string>) };
-    inline vector<string> aiNodes() { DARABONBA_PTR_GET(aiNodes_, vector<string>) };
+    inline const vector<string> & getAiNodes() const { DARABONBA_PTR_GET_CONST(aiNodes_, vector<string>) };
+    inline vector<string> getAiNodes() { DARABONBA_PTR_GET(aiNodes_, vector<string>) };
     inline DescribeModelServiceResponseBody& setAiNodes(const vector<string> & aiNodes) { DARABONBA_PTR_SET_VALUE(aiNodes_, aiNodes) };
     inline DescribeModelServiceResponseBody& setAiNodes(vector<string> && aiNodes) { DARABONBA_PTR_SET_RVALUE(aiNodes_, aiNodes) };
 
@@ -68,107 +68,107 @@ namespace Models
     // apiKey Field Functions 
     bool hasApiKey() const { return this->apiKey_ != nullptr;};
     void deleteApiKey() { this->apiKey_ = nullptr;};
-    inline string apiKey() const { DARABONBA_PTR_GET_DEFAULT(apiKey_, "") };
+    inline string getApiKey() const { DARABONBA_PTR_GET_DEFAULT(apiKey_, "") };
     inline DescribeModelServiceResponseBody& setApiKey(string apiKey) { DARABONBA_PTR_SET_VALUE(apiKey_, apiKey) };
 
 
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
-    inline string createTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
+    inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
     inline DescribeModelServiceResponseBody& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline DescribeModelServiceResponseBody& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // modelName Field Functions 
     bool hasModelName() const { return this->modelName_ != nullptr;};
     void deleteModelName() { this->modelName_ = nullptr;};
-    inline string modelName() const { DARABONBA_PTR_GET_DEFAULT(modelName_, "") };
+    inline string getModelName() const { DARABONBA_PTR_GET_DEFAULT(modelName_, "") };
     inline DescribeModelServiceResponseBody& setModelName(string modelName) { DARABONBA_PTR_SET_VALUE(modelName_, modelName) };
 
 
     // modelParams Field Functions 
     bool hasModelParams() const { return this->modelParams_ != nullptr;};
     void deleteModelParams() { this->modelParams_ = nullptr;};
-    inline     const Darabonba::Json & modelParams() const { DARABONBA_GET(modelParams_) };
-    Darabonba::Json & modelParams() { DARABONBA_GET(modelParams_) };
+    inline     const Darabonba::Json & getModelParams() const { DARABONBA_GET(modelParams_) };
+    Darabonba::Json & getModelParams() { DARABONBA_GET(modelParams_) };
     inline DescribeModelServiceResponseBody& setModelParams(const Darabonba::Json & modelParams) { DARABONBA_SET_VALUE(modelParams_, modelParams) };
-    inline DescribeModelServiceResponseBody& setModelParams(Darabonba::Json & modelParams) { DARABONBA_SET_RVALUE(modelParams_, modelParams) };
+    inline DescribeModelServiceResponseBody& setModelParams(Darabonba::Json && modelParams) { DARABONBA_SET_RVALUE(modelParams_, modelParams) };
 
 
     // modelServiceId Field Functions 
     bool hasModelServiceId() const { return this->modelServiceId_ != nullptr;};
     void deleteModelServiceId() { this->modelServiceId_ = nullptr;};
-    inline string modelServiceId() const { DARABONBA_PTR_GET_DEFAULT(modelServiceId_, "") };
+    inline string getModelServiceId() const { DARABONBA_PTR_GET_DEFAULT(modelServiceId_, "") };
     inline DescribeModelServiceResponseBody& setModelServiceId(string modelServiceId) { DARABONBA_PTR_SET_VALUE(modelServiceId_, modelServiceId) };
 
 
     // privateConnectUrl Field Functions 
     bool hasPrivateConnectUrl() const { return this->privateConnectUrl_ != nullptr;};
     void deletePrivateConnectUrl() { this->privateConnectUrl_ = nullptr;};
-    inline string privateConnectUrl() const { DARABONBA_PTR_GET_DEFAULT(privateConnectUrl_, "") };
+    inline string getPrivateConnectUrl() const { DARABONBA_PTR_GET_DEFAULT(privateConnectUrl_, "") };
     inline DescribeModelServiceResponseBody& setPrivateConnectUrl(string privateConnectUrl) { DARABONBA_PTR_SET_VALUE(privateConnectUrl_, privateConnectUrl) };
 
 
     // publicConnectUrl Field Functions 
     bool hasPublicConnectUrl() const { return this->publicConnectUrl_ != nullptr;};
     void deletePublicConnectUrl() { this->publicConnectUrl_ = nullptr;};
-    inline string publicConnectUrl() const { DARABONBA_PTR_GET_DEFAULT(publicConnectUrl_, "") };
+    inline string getPublicConnectUrl() const { DARABONBA_PTR_GET_DEFAULT(publicConnectUrl_, "") };
     inline DescribeModelServiceResponseBody& setPublicConnectUrl(string publicConnectUrl) { DARABONBA_PTR_SET_VALUE(publicConnectUrl_, publicConnectUrl) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeModelServiceResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // securityIpList Field Functions 
     bool hasSecurityIpList() const { return this->securityIpList_ != nullptr;};
     void deleteSecurityIpList() { this->securityIpList_ = nullptr;};
-    inline string securityIpList() const { DARABONBA_PTR_GET_DEFAULT(securityIpList_, "") };
+    inline string getSecurityIpList() const { DARABONBA_PTR_GET_DEFAULT(securityIpList_, "") };
     inline DescribeModelServiceResponseBody& setSecurityIpList(string securityIpList) { DARABONBA_PTR_SET_VALUE(securityIpList_, securityIpList) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline DescribeModelServiceResponseBody& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
   protected:
     // The list of AI nodes.
-    std::shared_ptr<vector<string>> aiNodes_ = nullptr;
+    shared_ptr<vector<string>> aiNodes_ {};
     // The API key.
-    std::shared_ptr<string> apiKey_ = nullptr;
+    shared_ptr<string> apiKey_ {};
     // The creation time.
-    std::shared_ptr<string> createTime_ = nullptr;
+    shared_ptr<string> createTime_ {};
     // The description.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The model name.
-    std::shared_ptr<string> modelName_ = nullptr;
+    shared_ptr<string> modelName_ {};
     // Model parameters.
-    Darabonba::Json modelParams_ = nullptr;
+    Darabonba::Json modelParams_ {};
     // The model service ID.
-    std::shared_ptr<string> modelServiceId_ = nullptr;
+    shared_ptr<string> modelServiceId_ {};
     // The internal endpoint.
-    std::shared_ptr<string> privateConnectUrl_ = nullptr;
+    shared_ptr<string> privateConnectUrl_ {};
     // The public endpoint.
-    std::shared_ptr<string> publicConnectUrl_ = nullptr;
+    shared_ptr<string> publicConnectUrl_ {};
     // Request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // A comma-separated list of IP addresses and CIDR blocks allowed to connect.
-    std::shared_ptr<string> securityIpList_ = nullptr;
+    shared_ptr<string> securityIpList_ {};
     // The status of the model service.
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models

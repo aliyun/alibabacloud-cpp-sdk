@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBInstanceId_ == nullptr
-        && return this->dataSourceId_ == nullptr && return this->emrInstanceId_ == nullptr && return this->regionId_ == nullptr; };
+        && this->dataSourceId_ == nullptr && this->emrInstanceId_ == nullptr && this->regionId_ == nullptr; };
     // DBInstanceId Field Functions 
     bool hasDBInstanceId() const { return this->DBInstanceId_ != nullptr;};
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
-    inline string DBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
+    inline string getDBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
     inline CheckHadoopNetConnectionRequest& setDBInstanceId(string DBInstanceId) { DARABONBA_PTR_SET_VALUE(DBInstanceId_, DBInstanceId) };
 
 
     // dataSourceId Field Functions 
     bool hasDataSourceId() const { return this->dataSourceId_ != nullptr;};
     void deleteDataSourceId() { this->dataSourceId_ = nullptr;};
-    inline string dataSourceId() const { DARABONBA_PTR_GET_DEFAULT(dataSourceId_, "") };
+    inline string getDataSourceId() const { DARABONBA_PTR_GET_DEFAULT(dataSourceId_, "") };
     inline CheckHadoopNetConnectionRequest& setDataSourceId(string dataSourceId) { DARABONBA_PTR_SET_VALUE(dataSourceId_, dataSourceId) };
 
 
     // emrInstanceId Field Functions 
     bool hasEmrInstanceId() const { return this->emrInstanceId_ != nullptr;};
     void deleteEmrInstanceId() { this->emrInstanceId_ = nullptr;};
-    inline string emrInstanceId() const { DARABONBA_PTR_GET_DEFAULT(emrInstanceId_, "") };
+    inline string getEmrInstanceId() const { DARABONBA_PTR_GET_DEFAULT(emrInstanceId_, "") };
     inline CheckHadoopNetConnectionRequest& setEmrInstanceId(string emrInstanceId) { DARABONBA_PTR_SET_VALUE(emrInstanceId_, emrInstanceId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CheckHadoopNetConnectionRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -69,15 +69,15 @@ namespace Models
     // Instance ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBInstanceId_ = nullptr;
+    shared_ptr<string> DBInstanceId_ {};
     // 1. Either DataSourceId or EmrInstanceId must be specified as input, otherwise an error will occur.
     // 2. If both of the above parameters are specified, EmrInstanceId will be used preferentially.
     // 3. If the data source specified by DataSourceId is a self-built Hadoop cluster, an error will occur directly.
-    std::shared_ptr<string> dataSourceId_ = nullptr;
+    shared_ptr<string> dataSourceId_ {};
     // EMR instance ID.
-    std::shared_ptr<string> emrInstanceId_ = nullptr;
+    shared_ptr<string> emrInstanceId_ {};
     // Region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

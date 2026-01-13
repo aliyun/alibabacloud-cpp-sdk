@@ -46,68 +46,68 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->backupId_ == nullptr
-        && return this->backupMode_ == nullptr && return this->backupStatus_ == nullptr && return this->DBInstanceId_ == nullptr && return this->dataType_ == nullptr && return this->endTime_ == nullptr
-        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->startTime_ == nullptr; };
+        && this->backupMode_ == nullptr && this->backupStatus_ == nullptr && this->DBInstanceId_ == nullptr && this->dataType_ == nullptr && this->endTime_ == nullptr
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->startTime_ == nullptr; };
     // backupId Field Functions 
     bool hasBackupId() const { return this->backupId_ != nullptr;};
     void deleteBackupId() { this->backupId_ = nullptr;};
-    inline string backupId() const { DARABONBA_PTR_GET_DEFAULT(backupId_, "") };
+    inline string getBackupId() const { DARABONBA_PTR_GET_DEFAULT(backupId_, "") };
     inline DescribeDataBackupsRequest& setBackupId(string backupId) { DARABONBA_PTR_SET_VALUE(backupId_, backupId) };
 
 
     // backupMode Field Functions 
     bool hasBackupMode() const { return this->backupMode_ != nullptr;};
     void deleteBackupMode() { this->backupMode_ = nullptr;};
-    inline string backupMode() const { DARABONBA_PTR_GET_DEFAULT(backupMode_, "") };
+    inline string getBackupMode() const { DARABONBA_PTR_GET_DEFAULT(backupMode_, "") };
     inline DescribeDataBackupsRequest& setBackupMode(string backupMode) { DARABONBA_PTR_SET_VALUE(backupMode_, backupMode) };
 
 
     // backupStatus Field Functions 
     bool hasBackupStatus() const { return this->backupStatus_ != nullptr;};
     void deleteBackupStatus() { this->backupStatus_ = nullptr;};
-    inline string backupStatus() const { DARABONBA_PTR_GET_DEFAULT(backupStatus_, "") };
+    inline string getBackupStatus() const { DARABONBA_PTR_GET_DEFAULT(backupStatus_, "") };
     inline DescribeDataBackupsRequest& setBackupStatus(string backupStatus) { DARABONBA_PTR_SET_VALUE(backupStatus_, backupStatus) };
 
 
     // DBInstanceId Field Functions 
     bool hasDBInstanceId() const { return this->DBInstanceId_ != nullptr;};
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
-    inline string DBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
+    inline string getDBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
     inline DescribeDataBackupsRequest& setDBInstanceId(string DBInstanceId) { DARABONBA_PTR_SET_VALUE(DBInstanceId_, DBInstanceId) };
 
 
     // dataType Field Functions 
     bool hasDataType() const { return this->dataType_ != nullptr;};
     void deleteDataType() { this->dataType_ = nullptr;};
-    inline string dataType() const { DARABONBA_PTR_GET_DEFAULT(dataType_, "") };
+    inline string getDataType() const { DARABONBA_PTR_GET_DEFAULT(dataType_, "") };
     inline DescribeDataBackupsRequest& setDataType(string dataType) { DARABONBA_PTR_SET_VALUE(dataType_, dataType) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline DescribeDataBackupsRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline DescribeDataBackupsRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DescribeDataBackupsRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline DescribeDataBackupsRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
@@ -115,38 +115,38 @@ namespace Models
     // The ID of the backup set. If you specify BackupId, the details of the backup set are returned.
     // 
     // > You can call the [DescribeDataBackups](https://help.aliyun.com/document_detail/210093.html) operation to query the information about all backup sets of an instance, including backup set IDs.
-    std::shared_ptr<string> backupId_ = nullptr;
+    shared_ptr<string> backupId_ {};
     // The backup mode. Valid values:
     // 
     // *   Automated
     // *   Manual
     // 
     // If you do not specify this parameter, all backup sets are returned.
-    std::shared_ptr<string> backupMode_ = nullptr;
+    shared_ptr<string> backupMode_ {};
     // The state of the backup set. Valid values:
     // 
     // *   Success
     // *   Failed
     // 
     // If you do not specify this parameter, all backup sets are returned.
-    std::shared_ptr<string> backupStatus_ = nullptr;
+    shared_ptr<string> backupStatus_ {};
     // The instance ID.
     // 
     // > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBInstanceId_ = nullptr;
+    shared_ptr<string> DBInstanceId_ {};
     // The backup type. Valid values:
     // 
     // *   **DATA**: full backup.
     // *   **RESTOREPOI**: point-in-time recovery backup.
     // 
     // If you do not specify this parameter, the backup sets of full backup are returned.
-    std::shared_ptr<string> dataType_ = nullptr;
+    shared_ptr<string> dataType_ {};
     // The end of the time range to query. The end time must be later than the start time. Specify the time in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
-    std::shared_ptr<string> endTime_ = nullptr;
+    shared_ptr<string> endTime_ {};
     // The page number. Pages start from page 1. Default value: 1
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Valid values:
     // 
     // *   30
@@ -154,9 +154,9 @@ namespace Models
     // *   100
     // 
     // Default value: 30.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The beginning of the time range to query. Specify the time in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
-    std::shared_ptr<string> startTime_ = nullptr;
+    shared_ptr<string> startTime_ {};
   };
 
   } // namespace Models

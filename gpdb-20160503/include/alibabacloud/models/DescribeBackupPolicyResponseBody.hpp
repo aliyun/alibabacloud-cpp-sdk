@@ -40,57 +40,57 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->backupRetentionPeriod_ == nullptr
-        && return this->enableRecoveryPoint_ == nullptr && return this->preferredBackupPeriod_ == nullptr && return this->preferredBackupTime_ == nullptr && return this->recoveryPointPeriod_ == nullptr && return this->requestId_ == nullptr; };
+        && this->enableRecoveryPoint_ == nullptr && this->preferredBackupPeriod_ == nullptr && this->preferredBackupTime_ == nullptr && this->recoveryPointPeriod_ == nullptr && this->requestId_ == nullptr; };
     // backupRetentionPeriod Field Functions 
     bool hasBackupRetentionPeriod() const { return this->backupRetentionPeriod_ != nullptr;};
     void deleteBackupRetentionPeriod() { this->backupRetentionPeriod_ = nullptr;};
-    inline int32_t backupRetentionPeriod() const { DARABONBA_PTR_GET_DEFAULT(backupRetentionPeriod_, 0) };
+    inline int32_t getBackupRetentionPeriod() const { DARABONBA_PTR_GET_DEFAULT(backupRetentionPeriod_, 0) };
     inline DescribeBackupPolicyResponseBody& setBackupRetentionPeriod(int32_t backupRetentionPeriod) { DARABONBA_PTR_SET_VALUE(backupRetentionPeriod_, backupRetentionPeriod) };
 
 
     // enableRecoveryPoint Field Functions 
     bool hasEnableRecoveryPoint() const { return this->enableRecoveryPoint_ != nullptr;};
     void deleteEnableRecoveryPoint() { this->enableRecoveryPoint_ = nullptr;};
-    inline bool enableRecoveryPoint() const { DARABONBA_PTR_GET_DEFAULT(enableRecoveryPoint_, false) };
+    inline bool getEnableRecoveryPoint() const { DARABONBA_PTR_GET_DEFAULT(enableRecoveryPoint_, false) };
     inline DescribeBackupPolicyResponseBody& setEnableRecoveryPoint(bool enableRecoveryPoint) { DARABONBA_PTR_SET_VALUE(enableRecoveryPoint_, enableRecoveryPoint) };
 
 
     // preferredBackupPeriod Field Functions 
     bool hasPreferredBackupPeriod() const { return this->preferredBackupPeriod_ != nullptr;};
     void deletePreferredBackupPeriod() { this->preferredBackupPeriod_ = nullptr;};
-    inline string preferredBackupPeriod() const { DARABONBA_PTR_GET_DEFAULT(preferredBackupPeriod_, "") };
+    inline string getPreferredBackupPeriod() const { DARABONBA_PTR_GET_DEFAULT(preferredBackupPeriod_, "") };
     inline DescribeBackupPolicyResponseBody& setPreferredBackupPeriod(string preferredBackupPeriod) { DARABONBA_PTR_SET_VALUE(preferredBackupPeriod_, preferredBackupPeriod) };
 
 
     // preferredBackupTime Field Functions 
     bool hasPreferredBackupTime() const { return this->preferredBackupTime_ != nullptr;};
     void deletePreferredBackupTime() { this->preferredBackupTime_ = nullptr;};
-    inline string preferredBackupTime() const { DARABONBA_PTR_GET_DEFAULT(preferredBackupTime_, "") };
+    inline string getPreferredBackupTime() const { DARABONBA_PTR_GET_DEFAULT(preferredBackupTime_, "") };
     inline DescribeBackupPolicyResponseBody& setPreferredBackupTime(string preferredBackupTime) { DARABONBA_PTR_SET_VALUE(preferredBackupTime_, preferredBackupTime) };
 
 
     // recoveryPointPeriod Field Functions 
     bool hasRecoveryPointPeriod() const { return this->recoveryPointPeriod_ != nullptr;};
     void deleteRecoveryPointPeriod() { this->recoveryPointPeriod_ = nullptr;};
-    inline string recoveryPointPeriod() const { DARABONBA_PTR_GET_DEFAULT(recoveryPointPeriod_, "") };
+    inline string getRecoveryPointPeriod() const { DARABONBA_PTR_GET_DEFAULT(recoveryPointPeriod_, "") };
     inline DescribeBackupPolicyResponseBody& setRecoveryPointPeriod(string recoveryPointPeriod) { DARABONBA_PTR_SET_VALUE(recoveryPointPeriod_, recoveryPointPeriod) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeBackupPolicyResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The number of days for which data backup files are retained.
-    std::shared_ptr<int32_t> backupRetentionPeriod_ = nullptr;
+    shared_ptr<int32_t> backupRetentionPeriod_ {};
     // Indicates whether automatic point-in-time backup is enabled. Valid values:
     // 
     // *   **true**: Automatic point-in-time backup is enabled.
     // *   **false**: Automatic point-in-time backup is disabled.
-    std::shared_ptr<bool> enableRecoveryPoint_ = nullptr;
+    shared_ptr<bool> enableRecoveryPoint_ {};
     // The cycle based on which backups are performed. If more than one day of the week is specified, the days of the week are separated by commas (,). Valid values:
     // 
     // *   **Monday**
@@ -100,18 +100,18 @@ namespace Models
     // *   **Friday**
     // *   **Saturday**
     // *   **Sunday**
-    std::shared_ptr<string> preferredBackupPeriod_ = nullptr;
+    shared_ptr<string> preferredBackupPeriod_ {};
     // The backup time. The time is in the HH:mmZ-HH:mmZ format. The time is displayed in UTC.
-    std::shared_ptr<string> preferredBackupTime_ = nullptr;
+    shared_ptr<string> preferredBackupTime_ {};
     // The frequency of the point-in-time backup. Valid values:
     // 
     // *   **1**: per hour
     // *   **2**: per 2 hours
     // *   **4**: per 4 hours
     // *   **8**: per 8 hours
-    std::shared_ptr<string> recoveryPointPeriod_ = nullptr;
+    shared_ptr<string> recoveryPointPeriod_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

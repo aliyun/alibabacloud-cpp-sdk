@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBInstanceId_ == nullptr
-        && return this->DBNames_ == nullptr && return this->extension_ == nullptr && return this->regionId_ == nullptr; };
+        && this->DBNames_ == nullptr && this->extension_ == nullptr && this->regionId_ == nullptr; };
     // DBInstanceId Field Functions 
     bool hasDBInstanceId() const { return this->DBInstanceId_ != nullptr;};
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
-    inline string DBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
+    inline string getDBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
     inline DeleteExtensionRequest& setDBInstanceId(string DBInstanceId) { DARABONBA_PTR_SET_VALUE(DBInstanceId_, DBInstanceId) };
 
 
     // DBNames Field Functions 
     bool hasDBNames() const { return this->DBNames_ != nullptr;};
     void deleteDBNames() { this->DBNames_ = nullptr;};
-    inline string DBNames() const { DARABONBA_PTR_GET_DEFAULT(DBNames_, "") };
+    inline string getDBNames() const { DARABONBA_PTR_GET_DEFAULT(DBNames_, "") };
     inline DeleteExtensionRequest& setDBNames(string DBNames) { DARABONBA_PTR_SET_VALUE(DBNames_, DBNames) };
 
 
     // extension Field Functions 
     bool hasExtension() const { return this->extension_ != nullptr;};
     void deleteExtension() { this->extension_ = nullptr;};
-    inline string extension() const { DARABONBA_PTR_GET_DEFAULT(extension_, "") };
+    inline string getExtension() const { DARABONBA_PTR_GET_DEFAULT(extension_, "") };
     inline DeleteExtensionRequest& setExtension(string extension) { DARABONBA_PTR_SET_VALUE(extension_, extension) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteExtensionRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -71,17 +71,17 @@ namespace Models
     // >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances in a specific region.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBInstanceId_ = nullptr;
+    shared_ptr<string> DBInstanceId_ {};
     // The name of the database.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBNames_ = nullptr;
+    shared_ptr<string> DBNames_ {};
     // The name of the extension.
     // 
     // This parameter is required.
-    std::shared_ptr<string> extension_ = nullptr;
+    shared_ptr<string> extension_ {};
     // The region ID of the instance.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

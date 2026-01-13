@@ -56,104 +56,104 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->collection_ == nullptr
-        && return this->DBInstanceId_ == nullptr && return this->dimension_ == nullptr && return this->externalStorage_ == nullptr && return this->hnswEfConstruction_ == nullptr && return this->hnswM_ == nullptr
-        && return this->managerAccount_ == nullptr && return this->managerAccountPassword_ == nullptr && return this->metrics_ == nullptr && return this->namespace_ == nullptr && return this->ownerId_ == nullptr
-        && return this->pqEnable_ == nullptr && return this->regionId_ == nullptr && return this->type_ == nullptr; };
+        && this->DBInstanceId_ == nullptr && this->dimension_ == nullptr && this->externalStorage_ == nullptr && this->hnswEfConstruction_ == nullptr && this->hnswM_ == nullptr
+        && this->managerAccount_ == nullptr && this->managerAccountPassword_ == nullptr && this->metrics_ == nullptr && this->namespace_ == nullptr && this->ownerId_ == nullptr
+        && this->pqEnable_ == nullptr && this->regionId_ == nullptr && this->type_ == nullptr; };
     // collection Field Functions 
     bool hasCollection() const { return this->collection_ != nullptr;};
     void deleteCollection() { this->collection_ = nullptr;};
-    inline string collection() const { DARABONBA_PTR_GET_DEFAULT(collection_, "") };
+    inline string getCollection() const { DARABONBA_PTR_GET_DEFAULT(collection_, "") };
     inline CreateVectorIndexRequest& setCollection(string collection) { DARABONBA_PTR_SET_VALUE(collection_, collection) };
 
 
     // DBInstanceId Field Functions 
     bool hasDBInstanceId() const { return this->DBInstanceId_ != nullptr;};
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
-    inline string DBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
+    inline string getDBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
     inline CreateVectorIndexRequest& setDBInstanceId(string DBInstanceId) { DARABONBA_PTR_SET_VALUE(DBInstanceId_, DBInstanceId) };
 
 
     // dimension Field Functions 
     bool hasDimension() const { return this->dimension_ != nullptr;};
     void deleteDimension() { this->dimension_ = nullptr;};
-    inline int32_t dimension() const { DARABONBA_PTR_GET_DEFAULT(dimension_, 0) };
+    inline int32_t getDimension() const { DARABONBA_PTR_GET_DEFAULT(dimension_, 0) };
     inline CreateVectorIndexRequest& setDimension(int32_t dimension) { DARABONBA_PTR_SET_VALUE(dimension_, dimension) };
 
 
     // externalStorage Field Functions 
     bool hasExternalStorage() const { return this->externalStorage_ != nullptr;};
     void deleteExternalStorage() { this->externalStorage_ = nullptr;};
-    inline int32_t externalStorage() const { DARABONBA_PTR_GET_DEFAULT(externalStorage_, 0) };
+    inline int32_t getExternalStorage() const { DARABONBA_PTR_GET_DEFAULT(externalStorage_, 0) };
     inline CreateVectorIndexRequest& setExternalStorage(int32_t externalStorage) { DARABONBA_PTR_SET_VALUE(externalStorage_, externalStorage) };
 
 
     // hnswEfConstruction Field Functions 
     bool hasHnswEfConstruction() const { return this->hnswEfConstruction_ != nullptr;};
     void deleteHnswEfConstruction() { this->hnswEfConstruction_ = nullptr;};
-    inline int32_t hnswEfConstruction() const { DARABONBA_PTR_GET_DEFAULT(hnswEfConstruction_, 0) };
+    inline int32_t getHnswEfConstruction() const { DARABONBA_PTR_GET_DEFAULT(hnswEfConstruction_, 0) };
     inline CreateVectorIndexRequest& setHnswEfConstruction(int32_t hnswEfConstruction) { DARABONBA_PTR_SET_VALUE(hnswEfConstruction_, hnswEfConstruction) };
 
 
     // hnswM Field Functions 
     bool hasHnswM() const { return this->hnswM_ != nullptr;};
     void deleteHnswM() { this->hnswM_ = nullptr;};
-    inline int32_t hnswM() const { DARABONBA_PTR_GET_DEFAULT(hnswM_, 0) };
+    inline int32_t getHnswM() const { DARABONBA_PTR_GET_DEFAULT(hnswM_, 0) };
     inline CreateVectorIndexRequest& setHnswM(int32_t hnswM) { DARABONBA_PTR_SET_VALUE(hnswM_, hnswM) };
 
 
     // managerAccount Field Functions 
     bool hasManagerAccount() const { return this->managerAccount_ != nullptr;};
     void deleteManagerAccount() { this->managerAccount_ = nullptr;};
-    inline string managerAccount() const { DARABONBA_PTR_GET_DEFAULT(managerAccount_, "") };
+    inline string getManagerAccount() const { DARABONBA_PTR_GET_DEFAULT(managerAccount_, "") };
     inline CreateVectorIndexRequest& setManagerAccount(string managerAccount) { DARABONBA_PTR_SET_VALUE(managerAccount_, managerAccount) };
 
 
     // managerAccountPassword Field Functions 
     bool hasManagerAccountPassword() const { return this->managerAccountPassword_ != nullptr;};
     void deleteManagerAccountPassword() { this->managerAccountPassword_ = nullptr;};
-    inline string managerAccountPassword() const { DARABONBA_PTR_GET_DEFAULT(managerAccountPassword_, "") };
+    inline string getManagerAccountPassword() const { DARABONBA_PTR_GET_DEFAULT(managerAccountPassword_, "") };
     inline CreateVectorIndexRequest& setManagerAccountPassword(string managerAccountPassword) { DARABONBA_PTR_SET_VALUE(managerAccountPassword_, managerAccountPassword) };
 
 
     // metrics Field Functions 
     bool hasMetrics() const { return this->metrics_ != nullptr;};
     void deleteMetrics() { this->metrics_ = nullptr;};
-    inline string metrics() const { DARABONBA_PTR_GET_DEFAULT(metrics_, "") };
+    inline string getMetrics() const { DARABONBA_PTR_GET_DEFAULT(metrics_, "") };
     inline CreateVectorIndexRequest& setMetrics(string metrics) { DARABONBA_PTR_SET_VALUE(metrics_, metrics) };
 
 
     // namespace Field Functions 
     bool hasNamespace() const { return this->namespace_ != nullptr;};
     void deleteNamespace() { this->namespace_ = nullptr;};
-    inline string _namespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
+    inline string getNamespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
     inline CreateVectorIndexRequest& setNamespace(string _namespace) { DARABONBA_PTR_SET_VALUE(namespace_, _namespace) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline CreateVectorIndexRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // pqEnable Field Functions 
     bool hasPqEnable() const { return this->pqEnable_ != nullptr;};
     void deletePqEnable() { this->pqEnable_ = nullptr;};
-    inline int32_t pqEnable() const { DARABONBA_PTR_GET_DEFAULT(pqEnable_, 0) };
+    inline int32_t getPqEnable() const { DARABONBA_PTR_GET_DEFAULT(pqEnable_, 0) };
     inline CreateVectorIndexRequest& setPqEnable(int32_t pqEnable) { DARABONBA_PTR_SET_VALUE(pqEnable_, pqEnable) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreateVectorIndexRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline CreateVectorIndexRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
@@ -162,23 +162,23 @@ namespace Models
     // > You can use the [ListCollections](https://help.aliyun.com/document_detail/2401503.html) API to view the list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> collection_ = nullptr;
+    shared_ptr<string> collection_ {};
     // Instance ID.
     // 
     // > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) API to view details of all AnalyticDB PostgreSQL instances in the target region, including the instance ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBInstanceId_ = nullptr;
+    shared_ptr<string> DBInstanceId_ {};
     // Vector dimension.
     // > This value must be consistent with the length of the vector data (Rows. Vector) uploaded via the [UpsertCollectionData](https://help.aliyun.com/document_detail/2401493.html) API.
-    std::shared_ptr<int32_t> dimension_ = nullptr;
+    shared_ptr<int32_t> dimension_ {};
     // Whether to use mmap to build the HNSW index, default is 0. If the data does not need to be deleted and there are performance requirements for uploading data, it is recommended to set this to 1.
     // 
     // > 
     // > - When set to 0, the segment-page storage mode is used to build the index, which can use the shared_buffer in PostgreSQL for caching and supports deletion and update operations.
     // > - When set to 1, the index is built using mmap, which does not support deletion and update operations.
-    std::shared_ptr<int32_t> externalStorage_ = nullptr;
-    std::shared_ptr<int32_t> hnswEfConstruction_ = nullptr;
+    shared_ptr<int32_t> externalStorage_ {};
+    shared_ptr<int32_t> hnswEfConstruction_ {};
     // The maximum number of neighbors in the HNSW algorithm, ranging from 1 to 1000. The API will automatically set this value based on the vector dimension, and it generally does not need to be manually set.
     // 
     // > It is suggested to set this based on the vector dimension as follows:
@@ -186,36 +186,36 @@ namespace Models
     // > - Greater than 384 and less than or equal to 768: 32
     // > - Greater than 768 and less than or equal to 1024: 64
     // > - Greater than 1024: 128
-    std::shared_ptr<int32_t> hnswM_ = nullptr;
+    shared_ptr<int32_t> hnswM_ {};
     // Name of the management account with rds_superuser permissions.
     // 
     // > You can create an account through the console -> Account Management, or by using the [CreateAccount](https://help.aliyun.com/document_detail/2361789.html) API.
     // 
     // This parameter is required.
-    std::shared_ptr<string> managerAccount_ = nullptr;
+    shared_ptr<string> managerAccount_ {};
     // Management account password.
     // 
     // This parameter is required.
-    std::shared_ptr<string> managerAccountPassword_ = nullptr;
+    shared_ptr<string> managerAccountPassword_ {};
     // Method used for building the vector index. Value description:
     // - l2: Euclidean distance.
     // - ip: Inner product (dot product) distance.
     // - cosine: Cosine similarity.
-    std::shared_ptr<string> metrics_ = nullptr;
+    shared_ptr<string> metrics_ {};
     // Namespace, default is public.
     // 
     // > You can use the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) API to view the list.
-    std::shared_ptr<string> namespace_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<string> namespace_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // Whether to enable PQ (Product Quantization) algorithm acceleration for the index. It is recommended to enable this when the data volume exceeds 500,000. Value description:
     // - 0: Disabled.
     // - 1: Enabled (default).
-    std::shared_ptr<int32_t> pqEnable_ = nullptr;
+    shared_ptr<int32_t> pqEnable_ {};
     // Region ID where the instance is located.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

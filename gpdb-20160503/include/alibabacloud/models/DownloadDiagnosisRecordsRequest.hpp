@@ -44,61 +44,61 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBInstanceId_ == nullptr
-        && return this->database_ == nullptr && return this->endTime_ == nullptr && return this->lang_ == nullptr && return this->queryCondition_ == nullptr && return this->resourceGroupId_ == nullptr
-        && return this->startTime_ == nullptr && return this->user_ == nullptr; };
+        && this->database_ == nullptr && this->endTime_ == nullptr && this->lang_ == nullptr && this->queryCondition_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->startTime_ == nullptr && this->user_ == nullptr; };
     // DBInstanceId Field Functions 
     bool hasDBInstanceId() const { return this->DBInstanceId_ != nullptr;};
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
-    inline string DBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
+    inline string getDBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
     inline DownloadDiagnosisRecordsRequest& setDBInstanceId(string DBInstanceId) { DARABONBA_PTR_SET_VALUE(DBInstanceId_, DBInstanceId) };
 
 
     // database Field Functions 
     bool hasDatabase() const { return this->database_ != nullptr;};
     void deleteDatabase() { this->database_ = nullptr;};
-    inline string database() const { DARABONBA_PTR_GET_DEFAULT(database_, "") };
+    inline string getDatabase() const { DARABONBA_PTR_GET_DEFAULT(database_, "") };
     inline DownloadDiagnosisRecordsRequest& setDatabase(string database) { DARABONBA_PTR_SET_VALUE(database_, database) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline DownloadDiagnosisRecordsRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DownloadDiagnosisRecordsRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // queryCondition Field Functions 
     bool hasQueryCondition() const { return this->queryCondition_ != nullptr;};
     void deleteQueryCondition() { this->queryCondition_ = nullptr;};
-    inline string queryCondition() const { DARABONBA_PTR_GET_DEFAULT(queryCondition_, "") };
+    inline string getQueryCondition() const { DARABONBA_PTR_GET_DEFAULT(queryCondition_, "") };
     inline DownloadDiagnosisRecordsRequest& setQueryCondition(string queryCondition) { DARABONBA_PTR_SET_VALUE(queryCondition_, queryCondition) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline DownloadDiagnosisRecordsRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline DownloadDiagnosisRecordsRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // user Field Functions 
     bool hasUser() const { return this->user_ != nullptr;};
     void deleteUser() { this->user_ = nullptr;};
-    inline string user() const { DARABONBA_PTR_GET_DEFAULT(user_, "") };
+    inline string getUser() const { DARABONBA_PTR_GET_DEFAULT(user_, "") };
     inline DownloadDiagnosisRecordsRequest& setUser(string user) { DARABONBA_PTR_SET_VALUE(user_, user) };
 
 
@@ -108,20 +108,20 @@ namespace Models
     // >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including instance IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBInstanceId_ = nullptr;
+    shared_ptr<string> DBInstanceId_ {};
     // The name of the database.
     // 
     // This parameter is required.
-    std::shared_ptr<string> database_ = nullptr;
+    shared_ptr<string> database_ {};
     // The end of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
-    std::shared_ptr<string> endTime_ = nullptr;
+    shared_ptr<string> endTime_ {};
     // The language of the file that contains the query diagnostic information. Valid values:
     // 
     // *   **zh**: simplified Chinese
     // *   **en**: English
     // *   **ja**: Japanese
     // *   **zh-tw**: traditional Chinese
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The filter condition on queries. The value is in the JSON format. Valid values:
     // 
     // *   `{"Type":"maxCost", "Value":"100"}`: filters the top 100 queries that are the most time-consuming.
@@ -131,13 +131,13 @@ namespace Models
     // *   `{"Type":"cost","Min":"200","Max":"60000"}`: filters the queries that consume 200 milliseconds or more and less than 1 minute.
     // *   `{"Type":"cost","Min":"60000"}`: filters the queries that consume 1 minute or more.
     // *   `{"Type":"cost","Min":"30","Max":"50"}`: filters the queries that consume 30 milliseconds or more and less than 50 milliseconds. You can customize a filter condition by setting **Min** and **Max**.
-    std::shared_ptr<string> queryCondition_ = nullptr;
+    shared_ptr<string> queryCondition_ {};
     // The ID of the resource group to which the instance belongs. For more information about how to obtain the ID of a resource group, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // The beginning of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
-    std::shared_ptr<string> startTime_ = nullptr;
+    shared_ptr<string> startTime_ {};
     // The name of the database account.
-    std::shared_ptr<string> user_ = nullptr;
+    shared_ptr<string> user_ {};
   };
 
   } // namespace Models

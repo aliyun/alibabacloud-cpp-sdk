@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountDescription_ == nullptr
-        && return this->accountName_ == nullptr && return this->accountStatus_ == nullptr && return this->accountType_ == nullptr && return this->DBInstanceId_ == nullptr && return this->requestId_ == nullptr; };
+        && this->accountName_ == nullptr && this->accountStatus_ == nullptr && this->accountType_ == nullptr && this->DBInstanceId_ == nullptr && this->requestId_ == nullptr; };
     // accountDescription Field Functions 
     bool hasAccountDescription() const { return this->accountDescription_ != nullptr;};
     void deleteAccountDescription() { this->accountDescription_ = nullptr;};
-    inline string accountDescription() const { DARABONBA_PTR_GET_DEFAULT(accountDescription_, "") };
+    inline string getAccountDescription() const { DARABONBA_PTR_GET_DEFAULT(accountDescription_, "") };
     inline GetAccountResponseBody& setAccountDescription(string accountDescription) { DARABONBA_PTR_SET_VALUE(accountDescription_, accountDescription) };
 
 
     // accountName Field Functions 
     bool hasAccountName() const { return this->accountName_ != nullptr;};
     void deleteAccountName() { this->accountName_ = nullptr;};
-    inline string accountName() const { DARABONBA_PTR_GET_DEFAULT(accountName_, "") };
+    inline string getAccountName() const { DARABONBA_PTR_GET_DEFAULT(accountName_, "") };
     inline GetAccountResponseBody& setAccountName(string accountName) { DARABONBA_PTR_SET_VALUE(accountName_, accountName) };
 
 
     // accountStatus Field Functions 
     bool hasAccountStatus() const { return this->accountStatus_ != nullptr;};
     void deleteAccountStatus() { this->accountStatus_ = nullptr;};
-    inline string accountStatus() const { DARABONBA_PTR_GET_DEFAULT(accountStatus_, "") };
+    inline string getAccountStatus() const { DARABONBA_PTR_GET_DEFAULT(accountStatus_, "") };
     inline GetAccountResponseBody& setAccountStatus(string accountStatus) { DARABONBA_PTR_SET_VALUE(accountStatus_, accountStatus) };
 
 
     // accountType Field Functions 
     bool hasAccountType() const { return this->accountType_ != nullptr;};
     void deleteAccountType() { this->accountType_ = nullptr;};
-    inline string accountType() const { DARABONBA_PTR_GET_DEFAULT(accountType_, "") };
+    inline string getAccountType() const { DARABONBA_PTR_GET_DEFAULT(accountType_, "") };
     inline GetAccountResponseBody& setAccountType(string accountType) { DARABONBA_PTR_SET_VALUE(accountType_, accountType) };
 
 
     // DBInstanceId Field Functions 
     bool hasDBInstanceId() const { return this->DBInstanceId_ != nullptr;};
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
-    inline string DBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
+    inline string getDBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
     inline GetAccountResponseBody& setDBInstanceId(string DBInstanceId) { DARABONBA_PTR_SET_VALUE(DBInstanceId_, DBInstanceId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetAccountResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
@@ -90,29 +90,29 @@ namespace Models
     // *   The description cannot start with `http://` or `https://`.
     // *   The description can contain letters, underscores (_), hyphens (-), and digits.
     // *   The description must be 2 to 256 characters in length.
-    std::shared_ptr<string> accountDescription_ = nullptr;
+    shared_ptr<string> accountDescription_ {};
     // The name of the initial account.
     // 
     // *   The name can contain lowercase letters, digits, and underscores (_).
     // *   The name must start with a lowercase letter and end with a lowercase letter or a digit.
     // *   The name cannot start with gp.
     // *   The name must be 2 to 16 characters in length.
-    std::shared_ptr<string> accountName_ = nullptr;
+    shared_ptr<string> accountName_ {};
     // The status of the member that you want to query.
     // 
     // *   **enabled**: managed.
     // *   **disabled**: not managed.
     // *   **disabling**: being deleted.
-    std::shared_ptr<string> accountStatus_ = nullptr;
+    shared_ptr<string> accountStatus_ {};
     // *   Normal: standard account
     // *   Super: privileged account
-    std::shared_ptr<string> accountType_ = nullptr;
+    shared_ptr<string> accountType_ {};
     // The instance ID.
     // 
     // >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
-    std::shared_ptr<string> DBInstanceId_ = nullptr;
+    shared_ptr<string> DBInstanceId_ {};
     // Id of the request
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

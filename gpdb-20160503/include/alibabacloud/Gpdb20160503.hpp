@@ -195,7 +195,7 @@ namespace Gpdb20160503
        * @param runtime runtime options for this request RuntimeOptions
        * @return ChatWithKnowledgeBaseStreamResponse
        */
-      FutrueGenerator<Models::ChatWithKnowledgeBaseStreamResponse> chatWithKnowledgeBaseStreamWithSSE(const Models::ChatWithKnowledgeBaseStreamRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::ChatWithKnowledgeBaseStreamResponse> chatWithKnowledgeBaseStreamWithSSE(const Models::ChatWithKnowledgeBaseStreamRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Provides intelligent question-and-answer services by combining a knowledge base with a large language model. A streaming API, which is called by using the SSE or the Java asynchronous SDK.
@@ -893,7 +893,7 @@ namespace Gpdb20160503
       Models::DeleteDBInstanceResponse deleteDBInstance(const Models::DeleteDBInstanceRequest &request);
 
       /**
-       * @summary 删除IP分组
+       * @summary Deletes an IP whitelist group from an instance.
        *
        * @param request DeleteDBInstanceIPArrayRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -902,7 +902,7 @@ namespace Gpdb20160503
       Models::DeleteDBInstanceIPArrayResponse deleteDBInstanceIPArrayWithOptions(const Models::DeleteDBInstanceIPArrayRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除IP分组
+       * @summary Deletes an IP whitelist group from an instance.
        *
        * @param request DeleteDBInstanceIPArrayRequest
        * @return DeleteDBInstanceIPArrayResponse
@@ -952,7 +952,7 @@ namespace Gpdb20160503
       Models::DeleteDBResourceGroupResponse deleteDBResourceGroup(const Models::DeleteDBResourceGroupRequest &request);
 
       /**
-       * @summary 删除数据库
+       * @summary Deletes a database from an instance.
        *
        * @param request DeleteDatabaseRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -961,7 +961,7 @@ namespace Gpdb20160503
       Models::DeleteDatabaseResponse deleteDatabaseWithOptions(const Models::DeleteDatabaseRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除数据库
+       * @summary Deletes a database from an instance.
        *
        * @param request DeleteDatabaseRequest
        * @return DeleteDatabaseResponse
@@ -1126,7 +1126,7 @@ namespace Gpdb20160503
       Models::DeleteNamespaceResponse deleteNamespace(const Models::DeleteNamespaceRequest &request);
 
       /**
-       * @summary 关闭私有RAG服务
+       * @summary Deletes a private RAG service.
        *
        * @param request DeletePrivateRAGServiceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1135,7 +1135,7 @@ namespace Gpdb20160503
       Models::DeletePrivateRAGServiceResponse deletePrivateRAGServiceWithOptions(const Models::DeletePrivateRAGServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 关闭私有RAG服务
+       * @summary Deletes a private RAG service.
        *
        * @param request DeletePrivateRAGServiceRequest
        * @return DeletePrivateRAGServiceResponse
@@ -1266,7 +1266,10 @@ namespace Gpdb20160503
       Models::DeleteVectorIndexResponse deleteVectorIndex(const Models::DeleteVectorIndexRequest &request);
 
       /**
-       * @summary 部署私有RAG服务
+       * @summary Deploy a private RAG service.
+       *
+       * @description 1.  Before you deploy the private RAG service, create an initial account.
+       * 2.  The private RAG service supports vector interfaces. When you call this operation, you must configure a CA certificate.
        *
        * @param request DeployPrivateRAGServiceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1275,7 +1278,10 @@ namespace Gpdb20160503
       Models::DeployPrivateRAGServiceResponse deployPrivateRAGServiceWithOptions(const Models::DeployPrivateRAGServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 部署私有RAG服务
+       * @summary Deploy a private RAG service.
+       *
+       * @description 1.  Before you deploy the private RAG service, create an initial account.
+       * 2.  The private RAG service supports vector interfaces. When you call this operation, you must configure a CA certificate.
        *
        * @param request DeployPrivateRAGServiceRequest
        * @return DeployPrivateRAGServiceResponse
@@ -1898,7 +1904,7 @@ namespace Gpdb20160503
       Models::DescribeDataSharePerformanceResponse describeDataSharePerformance(const Models::DescribeDataSharePerformanceRequest &request);
 
       /**
-       * @summary 描述数据库
+       * @summary Describes the basic information about an AnalyticDB for PostgreSQL database.
        *
        * @param request DescribeDatabaseRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1907,7 +1913,7 @@ namespace Gpdb20160503
       Models::DescribeDatabaseResponse describeDatabaseWithOptions(const Models::DescribeDatabaseRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 描述数据库
+       * @summary Describes the basic information about an AnalyticDB for PostgreSQL database.
        *
        * @param request DescribeDatabaseRequest
        * @return DescribeDatabaseResponse
@@ -2070,7 +2076,7 @@ namespace Gpdb20160503
       Models::DescribeDownloadSQLLogsResponse describeDownloadSQLLogs(const Models::DescribeDownloadSQLLogsRequest &request);
 
       /**
-       * @summary 获取安装在某个数据库上的插件信息
+       * @summary Describes the extension information.
        *
        * @param request DescribeExtensionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2079,7 +2085,7 @@ namespace Gpdb20160503
       Models::DescribeExtensionResponse describeExtensionWithOptions(const Models::DescribeExtensionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取安装在某个数据库上的插件信息
+       * @summary Describes the extension information.
        *
        * @param request DescribeExtensionRequest
        * @return DescribeExtensionResponse
@@ -2334,7 +2340,7 @@ namespace Gpdb20160503
       Models::DescribeParametersResponse describeParameters(const Models::DescribeParametersRequest &request);
 
       /**
-       * @summary 获取私有RAG服务详情
+       * @summary Obtains the details of a private RAG service.
        *
        * @param request DescribePrivateRAGServiceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2343,7 +2349,7 @@ namespace Gpdb20160503
       Models::DescribePrivateRAGServiceResponse describePrivateRAGServiceWithOptions(const Models::DescribePrivateRAGServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取私有RAG服务详情
+       * @summary Obtains the details of a private RAG service.
        *
        * @param request DescribePrivateRAGServiceRequest
        * @return DescribePrivateRAGServiceResponse
@@ -2717,7 +2723,7 @@ namespace Gpdb20160503
       Models::DescribeWaitingSQLRecordsResponse describeWaitingSQLRecords(const Models::DescribeWaitingSQLRecordsRequest &request);
 
       /**
-       * @summary 获取私有RAG服务可部署可用区
+       * @summary Obtains the deployable zone of the private RAG service.
        *
        * @param request DescribeZonesPrivateRAGServiceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2726,7 +2732,7 @@ namespace Gpdb20160503
       Models::DescribeZonesPrivateRAGServiceResponse describeZonesPrivateRAGServiceWithOptions(const Models::DescribeZonesPrivateRAGServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取私有RAG服务可部署可用区
+       * @summary Obtains the deployable zone of the private RAG service.
        *
        * @param request DescribeZonesPrivateRAGServiceRequest
        * @return DescribeZonesPrivateRAGServiceResponse
@@ -3164,7 +3170,7 @@ namespace Gpdb20160503
       Models::ListCollectionsResponse listCollections(const Models::ListCollectionsRequest &request);
 
       /**
-       * @summary 获取安装在某个数据库上的所有插件信息
+       * @summary List all extensions installed in the instance.
        *
        * @param request ListDatabaseExtensionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3173,7 +3179,7 @@ namespace Gpdb20160503
       Models::ListDatabaseExtensionsResponse listDatabaseExtensionsWithOptions(const Models::ListDatabaseExtensionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取安装在某个数据库上的所有插件信息
+       * @summary List all extensions installed in the instance.
        *
        * @param request ListDatabaseExtensionsRequest
        * @return ListDatabaseExtensionsResponse
@@ -3283,7 +3289,7 @@ namespace Gpdb20160503
       Models::ListIndicesResponse listIndices(const Models::ListIndicesRequest &request);
 
       /**
-       * @summary 列举数据库
+       * @summary List all databases in an AnalyticDB for PostgreSQL instance.
        *
        * @param request ListInstanceDatabasesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3292,7 +3298,7 @@ namespace Gpdb20160503
       Models::ListInstanceDatabasesResponse listInstanceDatabasesWithOptions(const Models::ListInstanceDatabasesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列举数据库
+       * @summary List all databases in an AnalyticDB for PostgreSQL instance.
        *
        * @param request ListInstanceDatabasesRequest
        * @return ListInstanceDatabasesResponse

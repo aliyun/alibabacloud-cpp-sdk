@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->addressType_ == nullptr
-        && return this->currentConnectionString_ == nullptr && return this->DBInstanceId_ == nullptr; };
+        && this->currentConnectionString_ == nullptr && this->DBInstanceId_ == nullptr; };
     // addressType Field Functions 
     bool hasAddressType() const { return this->addressType_ != nullptr;};
     void deleteAddressType() { this->addressType_ = nullptr;};
-    inline string addressType() const { DARABONBA_PTR_GET_DEFAULT(addressType_, "") };
+    inline string getAddressType() const { DARABONBA_PTR_GET_DEFAULT(addressType_, "") };
     inline ReleaseInstancePublicConnectionRequest& setAddressType(string addressType) { DARABONBA_PTR_SET_VALUE(addressType_, addressType) };
 
 
     // currentConnectionString Field Functions 
     bool hasCurrentConnectionString() const { return this->currentConnectionString_ != nullptr;};
     void deleteCurrentConnectionString() { this->currentConnectionString_ = nullptr;};
-    inline string currentConnectionString() const { DARABONBA_PTR_GET_DEFAULT(currentConnectionString_, "") };
+    inline string getCurrentConnectionString() const { DARABONBA_PTR_GET_DEFAULT(currentConnectionString_, "") };
     inline ReleaseInstancePublicConnectionRequest& setCurrentConnectionString(string currentConnectionString) { DARABONBA_PTR_SET_VALUE(currentConnectionString_, currentConnectionString) };
 
 
     // DBInstanceId Field Functions 
     bool hasDBInstanceId() const { return this->DBInstanceId_ != nullptr;};
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
-    inline string DBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
+    inline string getDBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
     inline ReleaseInstancePublicConnectionRequest& setDBInstanceId(string DBInstanceId) { DARABONBA_PTR_SET_VALUE(DBInstanceId_, DBInstanceId) };
 
 
@@ -61,19 +61,19 @@ namespace Models
     // 
     // *   **primary**: primary endpoint.
     // *   **cluster**: cluster endpoint. This type of endpoints can be created only for instances that have multiple coordinator nodes.
-    std::shared_ptr<string> addressType_ = nullptr;
+    shared_ptr<string> addressType_ {};
     // The public endpoint of the instance.
     // 
     // You can log on to the AnalyticDB for PostgreSQL console and go to the **Basic Information** page of the instance to view the **public endpoint** in the **Database Connection** section.
     // 
     // This parameter is required.
-    std::shared_ptr<string> currentConnectionString_ = nullptr;
+    shared_ptr<string> currentConnectionString_ {};
     // The ID of the instance.
     // 
     // >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including instance IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBInstanceId_ = nullptr;
+    shared_ptr<string> DBInstanceId_ {};
   };
 
   } // namespace Models

@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->hasServiceLinkedRole_ == nullptr
-        && return this->regionId_ == nullptr && return this->requestId_ == nullptr; };
+        && this->regionId_ == nullptr && this->requestId_ == nullptr; };
     // hasServiceLinkedRole Field Functions 
     bool hasHasServiceLinkedRole() const { return this->hasServiceLinkedRole_ != nullptr;};
     void deleteHasServiceLinkedRole() { this->hasServiceLinkedRole_ = nullptr;};
-    inline string hasServiceLinkedRole() const { DARABONBA_PTR_GET_DEFAULT(hasServiceLinkedRole_, "") };
+    inline string getHasServiceLinkedRole() const { DARABONBA_PTR_GET_DEFAULT(hasServiceLinkedRole_, "") };
     inline CheckServiceLinkedRoleResponseBody& setHasServiceLinkedRole(string hasServiceLinkedRole) { DARABONBA_PTR_SET_VALUE(hasServiceLinkedRole_, hasServiceLinkedRole) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CheckServiceLinkedRoleResponseBody& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CheckServiceLinkedRoleResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // Indicates whether an SLR is created.
-    std::shared_ptr<string> hasServiceLinkedRole_ = nullptr;
+    shared_ptr<string> hasServiceLinkedRole_ {};
     // The ID of the region.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

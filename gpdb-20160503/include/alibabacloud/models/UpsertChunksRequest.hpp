@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_UPSERTCHUNKSREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/UpsertChunksRequestTextChunks.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -49,79 +48,149 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class TextChunks : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const TextChunks& obj) { 
+        DARABONBA_PTR_TO_JSON(Content, content_);
+        DARABONBA_PTR_TO_JSON(Filter, filter_);
+        DARABONBA_PTR_TO_JSON(Id, id_);
+        DARABONBA_ANY_TO_JSON(Metadata, metadata_);
+      };
+      friend void from_json(const Darabonba::Json& j, TextChunks& obj) { 
+        DARABONBA_PTR_FROM_JSON(Content, content_);
+        DARABONBA_PTR_FROM_JSON(Filter, filter_);
+        DARABONBA_PTR_FROM_JSON(Id, id_);
+        DARABONBA_ANY_FROM_JSON(Metadata, metadata_);
+      };
+      TextChunks() = default ;
+      TextChunks(const TextChunks &) = default ;
+      TextChunks(TextChunks &&) = default ;
+      TextChunks(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~TextChunks() = default ;
+      TextChunks& operator=(const TextChunks &) = default ;
+      TextChunks& operator=(TextChunks &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->content_ == nullptr
+        && this->filter_ == nullptr && this->id_ == nullptr && this->metadata_ == nullptr; };
+      // content Field Functions 
+      bool hasContent() const { return this->content_ != nullptr;};
+      void deleteContent() { this->content_ = nullptr;};
+      inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
+      inline TextChunks& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
+
+
+      // filter Field Functions 
+      bool hasFilter() const { return this->filter_ != nullptr;};
+      void deleteFilter() { this->filter_ = nullptr;};
+      inline string getFilter() const { DARABONBA_PTR_GET_DEFAULT(filter_, "") };
+      inline TextChunks& setFilter(string filter) { DARABONBA_PTR_SET_VALUE(filter_, filter) };
+
+
+      // id Field Functions 
+      bool hasId() const { return this->id_ != nullptr;};
+      void deleteId() { this->id_ = nullptr;};
+      inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+      inline TextChunks& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+      // metadata Field Functions 
+      bool hasMetadata() const { return this->metadata_ != nullptr;};
+      void deleteMetadata() { this->metadata_ = nullptr;};
+      inline       const Darabonba::Json & getMetadata() const { DARABONBA_GET(metadata_) };
+      Darabonba::Json & getMetadata() { DARABONBA_GET(metadata_) };
+      inline TextChunks& setMetadata(const Darabonba::Json & metadata) { DARABONBA_SET_VALUE(metadata_, metadata) };
+      inline TextChunks& setMetadata(Darabonba::Json && metadata) { DARABONBA_SET_RVALUE(metadata_, metadata) };
+
+
+    protected:
+      // The content of the document.
+      // 
+      // This parameter is required.
+      shared_ptr<string> content_ {};
+      // The condition that is used to filter the data to be updated. Specify this parameter in a format that is the same as the WHERE clause.
+      shared_ptr<string> filter_ {};
+      // The unique ID of the vector data.
+      shared_ptr<string> id_ {};
+      // The metadata.
+      Darabonba::Json metadata_ {};
+    };
+
     virtual bool empty() const override { return this->allowInsertWithFilter_ == nullptr
-        && return this->collection_ == nullptr && return this->DBInstanceId_ == nullptr && return this->fileName_ == nullptr && return this->namespace_ == nullptr && return this->namespacePassword_ == nullptr
-        && return this->ownerId_ == nullptr && return this->regionId_ == nullptr && return this->shouldReplaceFile_ == nullptr && return this->textChunks_ == nullptr; };
+        && this->collection_ == nullptr && this->DBInstanceId_ == nullptr && this->fileName_ == nullptr && this->namespace_ == nullptr && this->namespacePassword_ == nullptr
+        && this->ownerId_ == nullptr && this->regionId_ == nullptr && this->shouldReplaceFile_ == nullptr && this->textChunks_ == nullptr; };
     // allowInsertWithFilter Field Functions 
     bool hasAllowInsertWithFilter() const { return this->allowInsertWithFilter_ != nullptr;};
     void deleteAllowInsertWithFilter() { this->allowInsertWithFilter_ = nullptr;};
-    inline bool allowInsertWithFilter() const { DARABONBA_PTR_GET_DEFAULT(allowInsertWithFilter_, false) };
+    inline bool getAllowInsertWithFilter() const { DARABONBA_PTR_GET_DEFAULT(allowInsertWithFilter_, false) };
     inline UpsertChunksRequest& setAllowInsertWithFilter(bool allowInsertWithFilter) { DARABONBA_PTR_SET_VALUE(allowInsertWithFilter_, allowInsertWithFilter) };
 
 
     // collection Field Functions 
     bool hasCollection() const { return this->collection_ != nullptr;};
     void deleteCollection() { this->collection_ = nullptr;};
-    inline string collection() const { DARABONBA_PTR_GET_DEFAULT(collection_, "") };
+    inline string getCollection() const { DARABONBA_PTR_GET_DEFAULT(collection_, "") };
     inline UpsertChunksRequest& setCollection(string collection) { DARABONBA_PTR_SET_VALUE(collection_, collection) };
 
 
     // DBInstanceId Field Functions 
     bool hasDBInstanceId() const { return this->DBInstanceId_ != nullptr;};
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
-    inline string DBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
+    inline string getDBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
     inline UpsertChunksRequest& setDBInstanceId(string DBInstanceId) { DARABONBA_PTR_SET_VALUE(DBInstanceId_, DBInstanceId) };
 
 
     // fileName Field Functions 
     bool hasFileName() const { return this->fileName_ != nullptr;};
     void deleteFileName() { this->fileName_ = nullptr;};
-    inline string fileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
+    inline string getFileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
     inline UpsertChunksRequest& setFileName(string fileName) { DARABONBA_PTR_SET_VALUE(fileName_, fileName) };
 
 
     // namespace Field Functions 
     bool hasNamespace() const { return this->namespace_ != nullptr;};
     void deleteNamespace() { this->namespace_ = nullptr;};
-    inline string _namespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
+    inline string getNamespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
     inline UpsertChunksRequest& setNamespace(string _namespace) { DARABONBA_PTR_SET_VALUE(namespace_, _namespace) };
 
 
     // namespacePassword Field Functions 
     bool hasNamespacePassword() const { return this->namespacePassword_ != nullptr;};
     void deleteNamespacePassword() { this->namespacePassword_ = nullptr;};
-    inline string namespacePassword() const { DARABONBA_PTR_GET_DEFAULT(namespacePassword_, "") };
+    inline string getNamespacePassword() const { DARABONBA_PTR_GET_DEFAULT(namespacePassword_, "") };
     inline UpsertChunksRequest& setNamespacePassword(string namespacePassword) { DARABONBA_PTR_SET_VALUE(namespacePassword_, namespacePassword) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline UpsertChunksRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline UpsertChunksRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // shouldReplaceFile Field Functions 
     bool hasShouldReplaceFile() const { return this->shouldReplaceFile_ != nullptr;};
     void deleteShouldReplaceFile() { this->shouldReplaceFile_ = nullptr;};
-    inline bool shouldReplaceFile() const { DARABONBA_PTR_GET_DEFAULT(shouldReplaceFile_, false) };
+    inline bool getShouldReplaceFile() const { DARABONBA_PTR_GET_DEFAULT(shouldReplaceFile_, false) };
     inline UpsertChunksRequest& setShouldReplaceFile(bool shouldReplaceFile) { DARABONBA_PTR_SET_VALUE(shouldReplaceFile_, shouldReplaceFile) };
 
 
     // textChunks Field Functions 
     bool hasTextChunks() const { return this->textChunks_ != nullptr;};
     void deleteTextChunks() { this->textChunks_ = nullptr;};
-    inline const vector<UpsertChunksRequestTextChunks> & textChunks() const { DARABONBA_PTR_GET_CONST(textChunks_, vector<UpsertChunksRequestTextChunks>) };
-    inline vector<UpsertChunksRequestTextChunks> textChunks() { DARABONBA_PTR_GET(textChunks_, vector<UpsertChunksRequestTextChunks>) };
-    inline UpsertChunksRequest& setTextChunks(const vector<UpsertChunksRequestTextChunks> & textChunks) { DARABONBA_PTR_SET_VALUE(textChunks_, textChunks) };
-    inline UpsertChunksRequest& setTextChunks(vector<UpsertChunksRequestTextChunks> && textChunks) { DARABONBA_PTR_SET_RVALUE(textChunks_, textChunks) };
+    inline const vector<UpsertChunksRequest::TextChunks> & getTextChunks() const { DARABONBA_PTR_GET_CONST(textChunks_, vector<UpsertChunksRequest::TextChunks>) };
+    inline vector<UpsertChunksRequest::TextChunks> getTextChunks() { DARABONBA_PTR_GET(textChunks_, vector<UpsertChunksRequest::TextChunks>) };
+    inline UpsertChunksRequest& setTextChunks(const vector<UpsertChunksRequest::TextChunks> & textChunks) { DARABONBA_PTR_SET_VALUE(textChunks_, textChunks) };
+    inline UpsertChunksRequest& setTextChunks(vector<UpsertChunksRequest::TextChunks> && textChunks) { DARABONBA_PTR_SET_RVALUE(textChunks_, textChunks) };
 
 
   protected:
@@ -132,38 +201,38 @@ namespace Models
     // If AllowInsertWithFilter = false, no action is performed if the filter does not match any data.
     // 
     // Default value: true.
-    std::shared_ptr<bool> allowInsertWithFilter_ = nullptr;
+    shared_ptr<bool> allowInsertWithFilter_ {};
     // The name of the document collection.
     // 
     // > You can call the [CreateDocumentCollection](https://help.aliyun.com/document_detail/2618448.html) operation to create a document collection and call the [ListDocumentCollections](https://help.aliyun.com/document_detail/2618452.html) operation to query a list of document collections.
     // 
     // This parameter is required.
-    std::shared_ptr<string> collection_ = nullptr;
+    shared_ptr<string> collection_ {};
     // The cluster ID.
     // 
     // > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBInstanceId_ = nullptr;
+    shared_ptr<string> DBInstanceId_ {};
     // The file name of the document.
     // 
     // > When a non-empty filename is specified, the system will decide whether to overwrite the data associated with that filename based on the value of the ShouldReplaceFile parameter. If you leave this parameter empty, the data of chunks is appended to the document collection.
-    std::shared_ptr<string> fileName_ = nullptr;
+    shared_ptr<string> fileName_ {};
     // The name of the namespace. Default value: public.
     // 
     // > You can call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation to create a namespace and call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to query a list of namespaces.
-    std::shared_ptr<string> namespace_ = nullptr;
+    shared_ptr<string> namespace_ {};
     // The password of the namespace.
     // 
     // > The value of this parameter is specified when you call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation.
     // 
     // This parameter is required.
-    std::shared_ptr<string> namespacePassword_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<string> namespacePassword_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // The region ID of the cluster.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // Specifies whether to overwrite the data associated with the file name specified by the FileName parameter.
     // 
     // If you set ShouldReplaceFile to true, the system deletes all data associated with the file name and then inserts new data.
@@ -171,9 +240,9 @@ namespace Models
     // If you set ShouldReplaceFile to false, the system does not delete the data associated with the file name, but inserts or updates the data of chunks based on the TextChunks parameter.
     // 
     // Default value: true.
-    std::shared_ptr<bool> shouldReplaceFile_ = nullptr;
+    shared_ptr<bool> shouldReplaceFile_ {};
     // List of document chunks after splitting.
-    std::shared_ptr<vector<UpsertChunksRequestTextChunks>> textChunks_ = nullptr;
+    shared_ptr<vector<UpsertChunksRequest::TextChunks>> textChunks_ {};
   };
 
   } // namespace Models

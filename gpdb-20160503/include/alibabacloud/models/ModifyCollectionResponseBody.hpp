@@ -36,38 +36,38 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->message_ == nullptr
-        && return this->metadata_ == nullptr && return this->requestId_ == nullptr && return this->status_ == nullptr; };
+        && this->metadata_ == nullptr && this->requestId_ == nullptr && this->status_ == nullptr; };
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline ModifyCollectionResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // metadata Field Functions 
     bool hasMetadata() const { return this->metadata_ != nullptr;};
     void deleteMetadata() { this->metadata_ = nullptr;};
-    inline string metadata() const { DARABONBA_PTR_GET_DEFAULT(metadata_, "") };
+    inline string getMetadata() const { DARABONBA_PTR_GET_DEFAULT(metadata_, "") };
     inline ModifyCollectionResponseBody& setMetadata(string metadata) { DARABONBA_PTR_SET_VALUE(metadata_, metadata) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ModifyCollectionResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline ModifyCollectionResponseBody& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
   protected:
     // The returned message.
-    std::shared_ptr<string> message_ = nullptr;
+    shared_ptr<string> message_ {};
     // The metadata of the vector data, which is a JSON string in the MAP format. The key specifies the field name, and the value specifies the data type.
     // 
     // > 
@@ -75,14 +75,14 @@ namespace Models
     // *   For information about the supported data types, see [Data types](https://help.aliyun.com/document_detail/424383.html).
     // 
     // *   The money data type is not supported.
-    std::shared_ptr<string> metadata_ = nullptr;
+    shared_ptr<string> metadata_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
     // *   **false**
     // *   **true**
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models

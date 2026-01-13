@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBInstanceId_ == nullptr
-        && return this->downloadTaskType_ == nullptr; };
+        && this->downloadTaskType_ == nullptr; };
     // DBInstanceId Field Functions 
     bool hasDBInstanceId() const { return this->DBInstanceId_ != nullptr;};
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
-    inline string DBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
+    inline string getDBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
     inline DescribeDownloadRecordsRequest& setDBInstanceId(string DBInstanceId) { DARABONBA_PTR_SET_VALUE(DBInstanceId_, DBInstanceId) };
 
 
     // downloadTaskType Field Functions 
     bool hasDownloadTaskType() const { return this->downloadTaskType_ != nullptr;};
     void deleteDownloadTaskType() { this->downloadTaskType_ = nullptr;};
-    inline string downloadTaskType() const { DARABONBA_PTR_GET_DEFAULT(downloadTaskType_, "") };
+    inline string getDownloadTaskType() const { DARABONBA_PTR_GET_DEFAULT(downloadTaskType_, "") };
     inline DescribeDownloadRecordsRequest& setDownloadTaskType(string downloadTaskType) { DARABONBA_PTR_SET_VALUE(downloadTaskType_, downloadTaskType) };
 
 
@@ -53,8 +53,8 @@ namespace Models
     // > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBInstanceId_ = nullptr;
-    std::shared_ptr<string> downloadTaskType_ = nullptr;
+    shared_ptr<string> DBInstanceId_ {};
+    shared_ptr<string> downloadTaskType_ {};
   };
 
   } // namespace Models

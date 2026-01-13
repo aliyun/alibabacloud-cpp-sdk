@@ -38,53 +38,53 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dashboardPassword_ == nullptr
-        && return this->dashboardUsername_ == nullptr && return this->projectId_ == nullptr && return this->projectName_ == nullptr && return this->requestId_ == nullptr; };
+        && this->dashboardUsername_ == nullptr && this->projectId_ == nullptr && this->projectName_ == nullptr && this->requestId_ == nullptr; };
     // dashboardPassword Field Functions 
     bool hasDashboardPassword() const { return this->dashboardPassword_ != nullptr;};
     void deleteDashboardPassword() { this->dashboardPassword_ = nullptr;};
-    inline string dashboardPassword() const { DARABONBA_PTR_GET_DEFAULT(dashboardPassword_, "") };
+    inline string getDashboardPassword() const { DARABONBA_PTR_GET_DEFAULT(dashboardPassword_, "") };
     inline GetSupabaseProjectDashboardAccountResponseBody& setDashboardPassword(string dashboardPassword) { DARABONBA_PTR_SET_VALUE(dashboardPassword_, dashboardPassword) };
 
 
     // dashboardUsername Field Functions 
     bool hasDashboardUsername() const { return this->dashboardUsername_ != nullptr;};
     void deleteDashboardUsername() { this->dashboardUsername_ = nullptr;};
-    inline string dashboardUsername() const { DARABONBA_PTR_GET_DEFAULT(dashboardUsername_, "") };
+    inline string getDashboardUsername() const { DARABONBA_PTR_GET_DEFAULT(dashboardUsername_, "") };
     inline GetSupabaseProjectDashboardAccountResponseBody& setDashboardUsername(string dashboardUsername) { DARABONBA_PTR_SET_VALUE(dashboardUsername_, dashboardUsername) };
 
 
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline string projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, "") };
+    inline string getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, "") };
     inline GetSupabaseProjectDashboardAccountResponseBody& setProjectId(string projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
     // projectName Field Functions 
     bool hasProjectName() const { return this->projectName_ != nullptr;};
     void deleteProjectName() { this->projectName_ = nullptr;};
-    inline string projectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
+    inline string getProjectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
     inline GetSupabaseProjectDashboardAccountResponseBody& setProjectName(string projectName) { DARABONBA_PTR_SET_VALUE(projectName_, projectName) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetSupabaseProjectDashboardAccountResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The username for accessing the project\\"s dashboard.
-    std::shared_ptr<string> dashboardPassword_ = nullptr;
+    shared_ptr<string> dashboardPassword_ {};
     // The password associated with the dashboard username.
-    std::shared_ptr<string> dashboardUsername_ = nullptr;
+    shared_ptr<string> dashboardUsername_ {};
     // The ID of the Supabase project.
-    std::shared_ptr<string> projectId_ = nullptr;
+    shared_ptr<string> projectId_ {};
     // The name of the Supabase project.
-    std::shared_ptr<string> projectName_ = nullptr;
+    shared_ptr<string> projectName_ {};
     // The unique ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

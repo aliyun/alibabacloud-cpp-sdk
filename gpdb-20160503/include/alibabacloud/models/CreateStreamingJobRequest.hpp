@@ -73,44 +73,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->account_ == nullptr
-        && return this->consistency_ == nullptr && return this->DBInstanceId_ == nullptr && return this->dataSourceId_ == nullptr && return this->destColumns_ == nullptr && return this->destDatabase_ == nullptr
-        && return this->destSchema_ == nullptr && return this->destTable_ == nullptr && return this->errorLimitCount_ == nullptr && return this->fallbackOffset_ == nullptr && return this->groupName_ == nullptr
-        && return this->jobConfig_ == nullptr && return this->jobDescription_ == nullptr && return this->jobName_ == nullptr && return this->matchColumns_ == nullptr && return this->mode_ == nullptr
-        && return this->password_ == nullptr && return this->regionId_ == nullptr && return this->srcColumns_ == nullptr && return this->tryRun_ == nullptr && return this->updateColumns_ == nullptr
-        && return this->writeMode_ == nullptr; };
+        && this->consistency_ == nullptr && this->DBInstanceId_ == nullptr && this->dataSourceId_ == nullptr && this->destColumns_ == nullptr && this->destDatabase_ == nullptr
+        && this->destSchema_ == nullptr && this->destTable_ == nullptr && this->errorLimitCount_ == nullptr && this->fallbackOffset_ == nullptr && this->groupName_ == nullptr
+        && this->jobConfig_ == nullptr && this->jobDescription_ == nullptr && this->jobName_ == nullptr && this->matchColumns_ == nullptr && this->mode_ == nullptr
+        && this->password_ == nullptr && this->regionId_ == nullptr && this->srcColumns_ == nullptr && this->tryRun_ == nullptr && this->updateColumns_ == nullptr
+        && this->writeMode_ == nullptr; };
     // account Field Functions 
     bool hasAccount() const { return this->account_ != nullptr;};
     void deleteAccount() { this->account_ = nullptr;};
-    inline string account() const { DARABONBA_PTR_GET_DEFAULT(account_, "") };
+    inline string getAccount() const { DARABONBA_PTR_GET_DEFAULT(account_, "") };
     inline CreateStreamingJobRequest& setAccount(string account) { DARABONBA_PTR_SET_VALUE(account_, account) };
 
 
     // consistency Field Functions 
     bool hasConsistency() const { return this->consistency_ != nullptr;};
     void deleteConsistency() { this->consistency_ = nullptr;};
-    inline string consistency() const { DARABONBA_PTR_GET_DEFAULT(consistency_, "") };
+    inline string getConsistency() const { DARABONBA_PTR_GET_DEFAULT(consistency_, "") };
     inline CreateStreamingJobRequest& setConsistency(string consistency) { DARABONBA_PTR_SET_VALUE(consistency_, consistency) };
 
 
     // DBInstanceId Field Functions 
     bool hasDBInstanceId() const { return this->DBInstanceId_ != nullptr;};
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
-    inline string DBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
+    inline string getDBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
     inline CreateStreamingJobRequest& setDBInstanceId(string DBInstanceId) { DARABONBA_PTR_SET_VALUE(DBInstanceId_, DBInstanceId) };
 
 
     // dataSourceId Field Functions 
     bool hasDataSourceId() const { return this->dataSourceId_ != nullptr;};
     void deleteDataSourceId() { this->dataSourceId_ = nullptr;};
-    inline string dataSourceId() const { DARABONBA_PTR_GET_DEFAULT(dataSourceId_, "") };
+    inline string getDataSourceId() const { DARABONBA_PTR_GET_DEFAULT(dataSourceId_, "") };
     inline CreateStreamingJobRequest& setDataSourceId(string dataSourceId) { DARABONBA_PTR_SET_VALUE(dataSourceId_, dataSourceId) };
 
 
     // destColumns Field Functions 
     bool hasDestColumns() const { return this->destColumns_ != nullptr;};
     void deleteDestColumns() { this->destColumns_ = nullptr;};
-    inline const vector<string> & destColumns() const { DARABONBA_PTR_GET_CONST(destColumns_, vector<string>) };
-    inline vector<string> destColumns() { DARABONBA_PTR_GET(destColumns_, vector<string>) };
+    inline const vector<string> & getDestColumns() const { DARABONBA_PTR_GET_CONST(destColumns_, vector<string>) };
+    inline vector<string> getDestColumns() { DARABONBA_PTR_GET(destColumns_, vector<string>) };
     inline CreateStreamingJobRequest& setDestColumns(const vector<string> & destColumns) { DARABONBA_PTR_SET_VALUE(destColumns_, destColumns) };
     inline CreateStreamingJobRequest& setDestColumns(vector<string> && destColumns) { DARABONBA_PTR_SET_RVALUE(destColumns_, destColumns) };
 
@@ -118,71 +118,71 @@ namespace Models
     // destDatabase Field Functions 
     bool hasDestDatabase() const { return this->destDatabase_ != nullptr;};
     void deleteDestDatabase() { this->destDatabase_ = nullptr;};
-    inline string destDatabase() const { DARABONBA_PTR_GET_DEFAULT(destDatabase_, "") };
+    inline string getDestDatabase() const { DARABONBA_PTR_GET_DEFAULT(destDatabase_, "") };
     inline CreateStreamingJobRequest& setDestDatabase(string destDatabase) { DARABONBA_PTR_SET_VALUE(destDatabase_, destDatabase) };
 
 
     // destSchema Field Functions 
     bool hasDestSchema() const { return this->destSchema_ != nullptr;};
     void deleteDestSchema() { this->destSchema_ = nullptr;};
-    inline string destSchema() const { DARABONBA_PTR_GET_DEFAULT(destSchema_, "") };
+    inline string getDestSchema() const { DARABONBA_PTR_GET_DEFAULT(destSchema_, "") };
     inline CreateStreamingJobRequest& setDestSchema(string destSchema) { DARABONBA_PTR_SET_VALUE(destSchema_, destSchema) };
 
 
     // destTable Field Functions 
     bool hasDestTable() const { return this->destTable_ != nullptr;};
     void deleteDestTable() { this->destTable_ = nullptr;};
-    inline string destTable() const { DARABONBA_PTR_GET_DEFAULT(destTable_, "") };
+    inline string getDestTable() const { DARABONBA_PTR_GET_DEFAULT(destTable_, "") };
     inline CreateStreamingJobRequest& setDestTable(string destTable) { DARABONBA_PTR_SET_VALUE(destTable_, destTable) };
 
 
     // errorLimitCount Field Functions 
     bool hasErrorLimitCount() const { return this->errorLimitCount_ != nullptr;};
     void deleteErrorLimitCount() { this->errorLimitCount_ = nullptr;};
-    inline int64_t errorLimitCount() const { DARABONBA_PTR_GET_DEFAULT(errorLimitCount_, 0L) };
+    inline int64_t getErrorLimitCount() const { DARABONBA_PTR_GET_DEFAULT(errorLimitCount_, 0L) };
     inline CreateStreamingJobRequest& setErrorLimitCount(int64_t errorLimitCount) { DARABONBA_PTR_SET_VALUE(errorLimitCount_, errorLimitCount) };
 
 
     // fallbackOffset Field Functions 
     bool hasFallbackOffset() const { return this->fallbackOffset_ != nullptr;};
     void deleteFallbackOffset() { this->fallbackOffset_ = nullptr;};
-    inline string fallbackOffset() const { DARABONBA_PTR_GET_DEFAULT(fallbackOffset_, "") };
+    inline string getFallbackOffset() const { DARABONBA_PTR_GET_DEFAULT(fallbackOffset_, "") };
     inline CreateStreamingJobRequest& setFallbackOffset(string fallbackOffset) { DARABONBA_PTR_SET_VALUE(fallbackOffset_, fallbackOffset) };
 
 
     // groupName Field Functions 
     bool hasGroupName() const { return this->groupName_ != nullptr;};
     void deleteGroupName() { this->groupName_ = nullptr;};
-    inline string groupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
+    inline string getGroupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
     inline CreateStreamingJobRequest& setGroupName(string groupName) { DARABONBA_PTR_SET_VALUE(groupName_, groupName) };
 
 
     // jobConfig Field Functions 
     bool hasJobConfig() const { return this->jobConfig_ != nullptr;};
     void deleteJobConfig() { this->jobConfig_ = nullptr;};
-    inline string jobConfig() const { DARABONBA_PTR_GET_DEFAULT(jobConfig_, "") };
+    inline string getJobConfig() const { DARABONBA_PTR_GET_DEFAULT(jobConfig_, "") };
     inline CreateStreamingJobRequest& setJobConfig(string jobConfig) { DARABONBA_PTR_SET_VALUE(jobConfig_, jobConfig) };
 
 
     // jobDescription Field Functions 
     bool hasJobDescription() const { return this->jobDescription_ != nullptr;};
     void deleteJobDescription() { this->jobDescription_ = nullptr;};
-    inline string jobDescription() const { DARABONBA_PTR_GET_DEFAULT(jobDescription_, "") };
+    inline string getJobDescription() const { DARABONBA_PTR_GET_DEFAULT(jobDescription_, "") };
     inline CreateStreamingJobRequest& setJobDescription(string jobDescription) { DARABONBA_PTR_SET_VALUE(jobDescription_, jobDescription) };
 
 
     // jobName Field Functions 
     bool hasJobName() const { return this->jobName_ != nullptr;};
     void deleteJobName() { this->jobName_ = nullptr;};
-    inline string jobName() const { DARABONBA_PTR_GET_DEFAULT(jobName_, "") };
+    inline string getJobName() const { DARABONBA_PTR_GET_DEFAULT(jobName_, "") };
     inline CreateStreamingJobRequest& setJobName(string jobName) { DARABONBA_PTR_SET_VALUE(jobName_, jobName) };
 
 
     // matchColumns Field Functions 
     bool hasMatchColumns() const { return this->matchColumns_ != nullptr;};
     void deleteMatchColumns() { this->matchColumns_ = nullptr;};
-    inline const vector<string> & matchColumns() const { DARABONBA_PTR_GET_CONST(matchColumns_, vector<string>) };
-    inline vector<string> matchColumns() { DARABONBA_PTR_GET(matchColumns_, vector<string>) };
+    inline const vector<string> & getMatchColumns() const { DARABONBA_PTR_GET_CONST(matchColumns_, vector<string>) };
+    inline vector<string> getMatchColumns() { DARABONBA_PTR_GET(matchColumns_, vector<string>) };
     inline CreateStreamingJobRequest& setMatchColumns(const vector<string> & matchColumns) { DARABONBA_PTR_SET_VALUE(matchColumns_, matchColumns) };
     inline CreateStreamingJobRequest& setMatchColumns(vector<string> && matchColumns) { DARABONBA_PTR_SET_RVALUE(matchColumns_, matchColumns) };
 
@@ -190,29 +190,29 @@ namespace Models
     // mode Field Functions 
     bool hasMode() const { return this->mode_ != nullptr;};
     void deleteMode() { this->mode_ = nullptr;};
-    inline string mode() const { DARABONBA_PTR_GET_DEFAULT(mode_, "") };
+    inline string getMode() const { DARABONBA_PTR_GET_DEFAULT(mode_, "") };
     inline CreateStreamingJobRequest& setMode(string mode) { DARABONBA_PTR_SET_VALUE(mode_, mode) };
 
 
     // password Field Functions 
     bool hasPassword() const { return this->password_ != nullptr;};
     void deletePassword() { this->password_ = nullptr;};
-    inline string password() const { DARABONBA_PTR_GET_DEFAULT(password_, "") };
+    inline string getPassword() const { DARABONBA_PTR_GET_DEFAULT(password_, "") };
     inline CreateStreamingJobRequest& setPassword(string password) { DARABONBA_PTR_SET_VALUE(password_, password) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreateStreamingJobRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // srcColumns Field Functions 
     bool hasSrcColumns() const { return this->srcColumns_ != nullptr;};
     void deleteSrcColumns() { this->srcColumns_ = nullptr;};
-    inline const vector<string> & srcColumns() const { DARABONBA_PTR_GET_CONST(srcColumns_, vector<string>) };
-    inline vector<string> srcColumns() { DARABONBA_PTR_GET(srcColumns_, vector<string>) };
+    inline const vector<string> & getSrcColumns() const { DARABONBA_PTR_GET_CONST(srcColumns_, vector<string>) };
+    inline vector<string> getSrcColumns() { DARABONBA_PTR_GET(srcColumns_, vector<string>) };
     inline CreateStreamingJobRequest& setSrcColumns(const vector<string> & srcColumns) { DARABONBA_PTR_SET_VALUE(srcColumns_, srcColumns) };
     inline CreateStreamingJobRequest& setSrcColumns(vector<string> && srcColumns) { DARABONBA_PTR_SET_RVALUE(srcColumns_, srcColumns) };
 
@@ -220,15 +220,15 @@ namespace Models
     // tryRun Field Functions 
     bool hasTryRun() const { return this->tryRun_ != nullptr;};
     void deleteTryRun() { this->tryRun_ = nullptr;};
-    inline bool tryRun() const { DARABONBA_PTR_GET_DEFAULT(tryRun_, false) };
+    inline bool getTryRun() const { DARABONBA_PTR_GET_DEFAULT(tryRun_, false) };
     inline CreateStreamingJobRequest& setTryRun(bool tryRun) { DARABONBA_PTR_SET_VALUE(tryRun_, tryRun) };
 
 
     // updateColumns Field Functions 
     bool hasUpdateColumns() const { return this->updateColumns_ != nullptr;};
     void deleteUpdateColumns() { this->updateColumns_ = nullptr;};
-    inline const vector<string> & updateColumns() const { DARABONBA_PTR_GET_CONST(updateColumns_, vector<string>) };
-    inline vector<string> updateColumns() { DARABONBA_PTR_GET(updateColumns_, vector<string>) };
+    inline const vector<string> & getUpdateColumns() const { DARABONBA_PTR_GET_CONST(updateColumns_, vector<string>) };
+    inline vector<string> getUpdateColumns() { DARABONBA_PTR_GET(updateColumns_, vector<string>) };
     inline CreateStreamingJobRequest& setUpdateColumns(const vector<string> & updateColumns) { DARABONBA_PTR_SET_VALUE(updateColumns_, updateColumns) };
     inline CreateStreamingJobRequest& setUpdateColumns(vector<string> && updateColumns) { DARABONBA_PTR_SET_RVALUE(updateColumns_, updateColumns) };
 
@@ -236,61 +236,61 @@ namespace Models
     // writeMode Field Functions 
     bool hasWriteMode() const { return this->writeMode_ != nullptr;};
     void deleteWriteMode() { this->writeMode_ = nullptr;};
-    inline string writeMode() const { DARABONBA_PTR_GET_DEFAULT(writeMode_, "") };
+    inline string getWriteMode() const { DARABONBA_PTR_GET_DEFAULT(writeMode_, "") };
     inline CreateStreamingJobRequest& setWriteMode(string writeMode) { DARABONBA_PTR_SET_VALUE(writeMode_, writeMode) };
 
 
   protected:
     // Target database account.
-    std::shared_ptr<string> account_ = nullptr;
+    shared_ptr<string> account_ {};
     // Delivery guarantee.
-    std::shared_ptr<string> consistency_ = nullptr;
+    shared_ptr<string> consistency_ {};
     // Instance ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBInstanceId_ = nullptr;
+    shared_ptr<string> DBInstanceId_ {};
     // Data source ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> dataSourceId_ = nullptr;
+    shared_ptr<string> dataSourceId_ {};
     // Target data table mapping field list.
-    std::shared_ptr<vector<string>> destColumns_ = nullptr;
+    shared_ptr<vector<string>> destColumns_ {};
     // Target database name.
-    std::shared_ptr<string> destDatabase_ = nullptr;
+    shared_ptr<string> destDatabase_ {};
     // Target namespace.
-    std::shared_ptr<string> destSchema_ = nullptr;
+    shared_ptr<string> destSchema_ {};
     // Target table name.
-    std::shared_ptr<string> destTable_ = nullptr;
+    shared_ptr<string> destTable_ {};
     // When data in Kafka does not match the ADBPG target table, it will cause a write failure. This value is the number of error rows allowed; exceeding this will cause the task to fail.
-    std::shared_ptr<int64_t> errorLimitCount_ = nullptr;
+    shared_ptr<int64_t> errorLimitCount_ {};
     // FallbackOffset, fallback offset
     // 
     // - The FallbackOffset parameter defines the behavior when the consumer does not request a specific offset or the requested offset exceeds the current Kafka cluster\\"s recorded offset information. You can choose to start consuming from the earliest (newest) or latest (oldest) offset.
-    std::shared_ptr<string> fallbackOffset_ = nullptr;
+    shared_ptr<string> fallbackOffset_ {};
     // Kafka group name
-    std::shared_ptr<string> groupName_ = nullptr;
+    shared_ptr<string> groupName_ {};
     // Job configuration file, required for professional mode.
-    std::shared_ptr<string> jobConfig_ = nullptr;
+    shared_ptr<string> jobConfig_ {};
     // Job description.
-    std::shared_ptr<string> jobDescription_ = nullptr;
+    shared_ptr<string> jobDescription_ {};
     // Job name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> jobName_ = nullptr;
+    shared_ptr<string> jobName_ {};
     // Match columns, usually all primary key columns of the target table. If all column values in this configuration are the same, the two rows of data are considered duplicates.
-    std::shared_ptr<vector<string>> matchColumns_ = nullptr;
+    shared_ptr<vector<string>> matchColumns_ {};
     // Configuration mode
     // 1. Basic mode requires specifying some configuration fields
     // 1. Professional mode supports submitting a YAML file
-    std::shared_ptr<string> mode_ = nullptr;
+    shared_ptr<string> mode_ {};
     // Target database password.
-    std::shared_ptr<string> password_ = nullptr;
+    shared_ptr<string> password_ {};
     // Region ID.
     // 
     // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) API to view available region IDs.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // Source data field list.
-    std::shared_ptr<vector<string>> srcColumns_ = nullptr;
+    shared_ptr<vector<string>> srcColumns_ {};
     // Whether to test the real-time task, values:
     // 
     // - true
@@ -298,11 +298,11 @@ namespace Models
     // - false
     // 
     // Default value: false.
-    std::shared_ptr<bool> tryRun_ = nullptr;
+    shared_ptr<bool> tryRun_ {};
     // Update columns, usually all non-primary key columns of the target table. When data is determined to be duplicate through MatchColumns, updating the UpdateColumns column values will result in new data overwriting old data.
-    std::shared_ptr<vector<string>> updateColumns_ = nullptr;
+    shared_ptr<vector<string>> updateColumns_ {};
     // Write mode.
-    std::shared_ptr<string> writeMode_ = nullptr;
+    shared_ptr<string> writeMode_ {};
   };
 
   } // namespace Models

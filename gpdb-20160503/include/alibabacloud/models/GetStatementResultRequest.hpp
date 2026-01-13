@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBInstanceId_ == nullptr
-        && return this->database_ == nullptr && return this->id_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr && return this->secretArn_ == nullptr; };
+        && this->database_ == nullptr && this->id_ == nullptr && this->ownerId_ == nullptr && this->regionId_ == nullptr && this->secretArn_ == nullptr; };
     // DBInstanceId Field Functions 
     bool hasDBInstanceId() const { return this->DBInstanceId_ != nullptr;};
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
-    inline string DBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
+    inline string getDBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
     inline GetStatementResultRequest& setDBInstanceId(string DBInstanceId) { DARABONBA_PTR_SET_VALUE(DBInstanceId_, DBInstanceId) };
 
 
     // database Field Functions 
     bool hasDatabase() const { return this->database_ != nullptr;};
     void deleteDatabase() { this->database_ = nullptr;};
-    inline string database() const { DARABONBA_PTR_GET_DEFAULT(database_, "") };
+    inline string getDatabase() const { DARABONBA_PTR_GET_DEFAULT(database_, "") };
     inline GetStatementResultRequest& setDatabase(string database) { DARABONBA_PTR_SET_VALUE(database_, database) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline string id() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+    inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline GetStatementResultRequest& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline GetStatementResultRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline GetStatementResultRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // secretArn Field Functions 
     bool hasSecretArn() const { return this->secretArn_ != nullptr;};
     void deleteSecretArn() { this->secretArn_ = nullptr;};
-    inline string secretArn() const { DARABONBA_PTR_GET_DEFAULT(secretArn_, "") };
+    inline string getSecretArn() const { DARABONBA_PTR_GET_DEFAULT(secretArn_, "") };
     inline GetStatementResultRequest& setSecretArn(string secretArn) { DARABONBA_PTR_SET_VALUE(secretArn_, secretArn) };
 
 
@@ -87,24 +87,24 @@ namespace Models
     // Instance ID. Can be obtained by calling DescribeDBInstances.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBInstanceId_ = nullptr;
+    shared_ptr<string> DBInstanceId_ {};
     // Database name.
-    std::shared_ptr<string> database_ = nullptr;
+    shared_ptr<string> database_ {};
     // Task ID for asynchronous SQL execution.
     // 
     // This parameter is required.
-    std::shared_ptr<string> id_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<string> id_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // Region ID where the instance is located.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // Access credential. Created through the CreateSecret interface.
     // 
     // > When accessing this interface with a sub-account, the sub-account must have the UseSecret or GetSecretValue permission for this SecretArn.
     // 
     // This parameter is required.
-    std::shared_ptr<string> secretArn_ = nullptr;
+    shared_ptr<string> secretArn_ {};
   };
 
   } // namespace Models
