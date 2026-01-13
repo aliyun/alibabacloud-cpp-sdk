@@ -4756,6 +4756,84 @@ DescribeCloudResourceAccessedPortsResponse Client::describeCloudResourceAccessed
 }
 
 /**
+ * @summary 查询云产品接入资源列表
+ *
+ * @param request DescribeCloudResourceListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeCloudResourceListResponse
+ */
+DescribeCloudResourceListResponse Client::describeCloudResourceListWithOptions(const DescribeCloudResourceListRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCloudResourceId()) {
+    query["CloudResourceId"] = request.getCloudResourceId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasOwnerUserId()) {
+    query["OwnerUserId"] = request.getOwnerUserId();
+  }
+
+  if (!!request.hasPort()) {
+    query["Port"] = request.getPort();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceInstanceId()) {
+    query["ResourceInstanceId"] = request.getResourceInstanceId();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.getResourceManagerResourceGroupId();
+  }
+
+  if (!!request.hasResourceProduct()) {
+    query["ResourceProduct"] = request.getResourceProduct();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeCloudResourceList"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeCloudResourceListResponse>();
+}
+
+/**
+ * @summary 查询云产品接入资源列表
+ *
+ * @param request DescribeCloudResourceListRequest
+ * @return DescribeCloudResourceListResponse
+ */
+DescribeCloudResourceListResponse Client::describeCloudResourceList(const DescribeCloudResourceListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeCloudResourceListWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries cloud service resources that are added to Web Application Firewall (WAF).
  *
  * @param request DescribeCloudResourcesRequest
@@ -10875,6 +10953,64 @@ DescribeThreatEventDetailResponse Client::describeThreatEventDetailWithOptions(c
 DescribeThreatEventDetailResponse Client::describeThreatEventDetail(const DescribeThreatEventDetailRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeThreatEventDetailWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询安全事件Top攻击统计数据
+ *
+ * @param request DescribeThreatEventTopMetricRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeThreatEventTopMetricResponse
+ */
+DescribeThreatEventTopMetricResponse Client::describeThreatEventTopMetricWithOptions(const DescribeThreatEventTopMetricRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEventId()) {
+    query["EventId"] = request.getEventId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasMetric()) {
+    query["Metric"] = request.getMetric();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.getResourceManagerResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeThreatEventTopMetric"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeThreatEventTopMetricResponse>();
+}
+
+/**
+ * @summary 查询安全事件Top攻击统计数据
+ *
+ * @param request DescribeThreatEventTopMetricRequest
+ * @return DescribeThreatEventTopMetricResponse
+ */
+DescribeThreatEventTopMetricResponse Client::describeThreatEventTopMetric(const DescribeThreatEventTopMetricRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeThreatEventTopMetricWithOptions(request, runtime);
 }
 
 /**

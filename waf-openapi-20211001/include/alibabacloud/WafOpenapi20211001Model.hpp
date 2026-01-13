@@ -68,9 +68,9 @@
 #include <alibabacloud/models/CreatePostpaidInstanceRequest.hpp>
 #include <alibabacloud/models/CreatePostpaidInstanceResponseBody.hpp>
 #include <alibabacloud/models/CreatePostpaidInstanceResponse.hpp>
-#include <alibabacloud/models/CreateSm2CertRequest.hpp>
-#include <alibabacloud/models/CreateSm2CertResponseBody.hpp>
-#include <alibabacloud/models/CreateSm2CertResponse.hpp>
+#include <alibabacloud/models/CreateSM2CertRequest.hpp>
+#include <alibabacloud/models/CreateSM2CertResponseBody.hpp>
+#include <alibabacloud/models/CreateSM2CertResponse.hpp>
 #include <alibabacloud/models/DeleteAddressRequest.hpp>
 #include <alibabacloud/models/DeleteAddressResponseBody.hpp>
 #include <alibabacloud/models/DeleteAddressResponse.hpp>
@@ -218,6 +218,9 @@
 #include <alibabacloud/models/DescribeCloudResourceAccessedPortsRequest.hpp>
 #include <alibabacloud/models/DescribeCloudResourceAccessedPortsResponseBody.hpp>
 #include <alibabacloud/models/DescribeCloudResourceAccessedPortsResponse.hpp>
+#include <alibabacloud/models/DescribeCloudResourceListRequest.hpp>
+#include <alibabacloud/models/DescribeCloudResourceListResponseBody.hpp>
+#include <alibabacloud/models/DescribeCloudResourceListResponse.hpp>
 #include <alibabacloud/models/DescribeCloudResourcesRequest.hpp>
 #include <alibabacloud/models/DescribeCloudResourcesResponseBody.hpp>
 #include <alibabacloud/models/DescribeCloudResourcesResponse.hpp>
@@ -288,9 +291,9 @@
 #include <alibabacloud/models/DescribeDefenseTemplatesRequest.hpp>
 #include <alibabacloud/models/DescribeDefenseTemplatesResponseBody.hpp>
 #include <alibabacloud/models/DescribeDefenseTemplatesResponse.hpp>
-#include <alibabacloud/models/DescribeDomainDnsRecordRequest.hpp>
-#include <alibabacloud/models/DescribeDomainDnsRecordResponseBody.hpp>
-#include <alibabacloud/models/DescribeDomainDnsRecordResponse.hpp>
+#include <alibabacloud/models/DescribeDomainDNSRecordRequest.hpp>
+#include <alibabacloud/models/DescribeDomainDNSRecordResponseBody.hpp>
+#include <alibabacloud/models/DescribeDomainDNSRecordResponse.hpp>
 #include <alibabacloud/models/DescribeDomainDetailRequest.hpp>
 #include <alibabacloud/models/DescribeDomainDetailResponseBody.hpp>
 #include <alibabacloud/models/DescribeDomainDetailResponse.hpp>
@@ -518,6 +521,9 @@
 #include <alibabacloud/models/DescribeThreatEventDetailRequest.hpp>
 #include <alibabacloud/models/DescribeThreatEventDetailResponseBody.hpp>
 #include <alibabacloud/models/DescribeThreatEventDetailResponse.hpp>
+#include <alibabacloud/models/DescribeThreatEventTopMetricRequest.hpp>
+#include <alibabacloud/models/DescribeThreatEventTopMetricResponseBody.hpp>
+#include <alibabacloud/models/DescribeThreatEventTopMetricResponse.hpp>
 #include <alibabacloud/models/DescribeUserAbnormalTrendRequest.hpp>
 #include <alibabacloud/models/DescribeUserAbnormalTrendResponseBody.hpp>
 #include <alibabacloud/models/DescribeUserAbnormalTrendResponse.hpp>

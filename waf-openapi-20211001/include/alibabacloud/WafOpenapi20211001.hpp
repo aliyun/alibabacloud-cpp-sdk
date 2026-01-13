@@ -1232,6 +1232,23 @@ namespace WafOpenapi20211001
       Models::DescribeCloudResourceAccessedPortsResponse describeCloudResourceAccessedPorts(const Models::DescribeCloudResourceAccessedPortsRequest &request);
 
       /**
+       * @summary 查询云产品接入资源列表
+       *
+       * @param request DescribeCloudResourceListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeCloudResourceListResponse
+       */
+      Models::DescribeCloudResourceListResponse describeCloudResourceListWithOptions(const Models::DescribeCloudResourceListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询云产品接入资源列表
+       *
+       * @param request DescribeCloudResourceListRequest
+       * @return DescribeCloudResourceListResponse
+       */
+      Models::DescribeCloudResourceListResponse describeCloudResourceList(const Models::DescribeCloudResourceListRequest &request);
+
+      /**
        * @summary Queries cloud service resources that are added to Web Application Firewall (WAF).
        *
        * @param request DescribeCloudResourcesRequest
@@ -2926,6 +2943,23 @@ namespace WafOpenapi20211001
        * @return DescribeThreatEventDetailResponse
        */
       Models::DescribeThreatEventDetailResponse describeThreatEventDetail(const Models::DescribeThreatEventDetailRequest &request);
+
+      /**
+       * @summary 查询安全事件Top攻击统计数据
+       *
+       * @param request DescribeThreatEventTopMetricRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeThreatEventTopMetricResponse
+       */
+      Models::DescribeThreatEventTopMetricResponse describeThreatEventTopMetricWithOptions(const Models::DescribeThreatEventTopMetricRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询安全事件Top攻击统计数据
+       *
+       * @param request DescribeThreatEventTopMetricRequest
+       * @return DescribeThreatEventTopMetricResponse
+       */
+      Models::DescribeThreatEventTopMetricResponse describeThreatEventTopMetric(const Models::DescribeThreatEventTopMetricRequest &request);
 
       /**
        * @summary Queries the trends of API security risks.
