@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->queueName_ == nullptr
-        && return this->sessionClusterId_ == nullptr && return this->regionId_ == nullptr; };
+        && this->sessionClusterId_ == nullptr && this->regionId_ == nullptr; };
     // queueName Field Functions 
     bool hasQueueName() const { return this->queueName_ != nullptr;};
     void deleteQueueName() { this->queueName_ = nullptr;};
-    inline string queueName() const { DARABONBA_PTR_GET_DEFAULT(queueName_, "") };
+    inline string getQueueName() const { DARABONBA_PTR_GET_DEFAULT(queueName_, "") };
     inline StartSessionClusterRequest& setQueueName(string queueName) { DARABONBA_PTR_SET_VALUE(queueName_, queueName) };
 
 
     // sessionClusterId Field Functions 
     bool hasSessionClusterId() const { return this->sessionClusterId_ != nullptr;};
     void deleteSessionClusterId() { this->sessionClusterId_ = nullptr;};
-    inline string sessionClusterId() const { DARABONBA_PTR_GET_DEFAULT(sessionClusterId_, "") };
+    inline string getSessionClusterId() const { DARABONBA_PTR_GET_DEFAULT(sessionClusterId_, "") };
     inline StartSessionClusterRequest& setSessionClusterId(string sessionClusterId) { DARABONBA_PTR_SET_VALUE(sessionClusterId_, sessionClusterId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline StartSessionClusterRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
     // The queue name.
-    std::shared_ptr<string> queueName_ = nullptr;
+    shared_ptr<string> queueName_ {};
     // The session ID.
-    std::shared_ptr<string> sessionClusterId_ = nullptr;
+    shared_ptr<string> sessionClusterId_ {};
     // The region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

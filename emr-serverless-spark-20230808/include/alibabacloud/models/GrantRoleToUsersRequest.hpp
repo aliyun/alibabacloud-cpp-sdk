@@ -35,19 +35,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->roleArn_ == nullptr
-        && return this->userArns_ == nullptr && return this->regionId_ == nullptr; };
+        && this->userArns_ == nullptr && this->regionId_ == nullptr; };
     // roleArn Field Functions 
     bool hasRoleArn() const { return this->roleArn_ != nullptr;};
     void deleteRoleArn() { this->roleArn_ = nullptr;};
-    inline string roleArn() const { DARABONBA_PTR_GET_DEFAULT(roleArn_, "") };
+    inline string getRoleArn() const { DARABONBA_PTR_GET_DEFAULT(roleArn_, "") };
     inline GrantRoleToUsersRequest& setRoleArn(string roleArn) { DARABONBA_PTR_SET_VALUE(roleArn_, roleArn) };
 
 
     // userArns Field Functions 
     bool hasUserArns() const { return this->userArns_ != nullptr;};
     void deleteUserArns() { this->userArns_ = nullptr;};
-    inline const vector<string> & userArns() const { DARABONBA_PTR_GET_CONST(userArns_, vector<string>) };
-    inline vector<string> userArns() { DARABONBA_PTR_GET(userArns_, vector<string>) };
+    inline const vector<string> & getUserArns() const { DARABONBA_PTR_GET_CONST(userArns_, vector<string>) };
+    inline vector<string> getUserArns() { DARABONBA_PTR_GET(userArns_, vector<string>) };
     inline GrantRoleToUsersRequest& setUserArns(const vector<string> & userArns) { DARABONBA_PTR_SET_VALUE(userArns_, userArns) };
     inline GrantRoleToUsersRequest& setUserArns(vector<string> && userArns) { DARABONBA_PTR_SET_RVALUE(userArns_, userArns) };
 
@@ -55,17 +55,17 @@ namespace Models
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline GrantRoleToUsersRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
     // The Alibaba Cloud Resource Name (ARN) of the RAM role.
-    std::shared_ptr<string> roleArn_ = nullptr;
+    shared_ptr<string> roleArn_ {};
     // The user ARNs.
-    std::shared_ptr<vector<string>> userArns_ = nullptr;
+    shared_ptr<vector<string>> userArns_ {};
     // The region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

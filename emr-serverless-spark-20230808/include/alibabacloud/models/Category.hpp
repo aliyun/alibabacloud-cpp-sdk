@@ -44,80 +44,80 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizId_ == nullptr
-        && return this->creator_ == nullptr && return this->gmtCreated_ == nullptr && return this->gmtModified_ == nullptr && return this->modifier_ == nullptr && return this->name_ == nullptr
-        && return this->parentBizId_ == nullptr && return this->type_ == nullptr; };
+        && this->creator_ == nullptr && this->gmtCreated_ == nullptr && this->gmtModified_ == nullptr && this->modifier_ == nullptr && this->name_ == nullptr
+        && this->parentBizId_ == nullptr && this->type_ == nullptr; };
     // bizId Field Functions 
     bool hasBizId() const { return this->bizId_ != nullptr;};
     void deleteBizId() { this->bizId_ = nullptr;};
-    inline string bizId() const { DARABONBA_PTR_GET_DEFAULT(bizId_, "") };
+    inline string getBizId() const { DARABONBA_PTR_GET_DEFAULT(bizId_, "") };
     inline Category& setBizId(string bizId) { DARABONBA_PTR_SET_VALUE(bizId_, bizId) };
 
 
     // creator Field Functions 
     bool hasCreator() const { return this->creator_ != nullptr;};
     void deleteCreator() { this->creator_ = nullptr;};
-    inline int64_t creator() const { DARABONBA_PTR_GET_DEFAULT(creator_, 0L) };
+    inline int64_t getCreator() const { DARABONBA_PTR_GET_DEFAULT(creator_, 0L) };
     inline Category& setCreator(int64_t creator) { DARABONBA_PTR_SET_VALUE(creator_, creator) };
 
 
     // gmtCreated Field Functions 
     bool hasGmtCreated() const { return this->gmtCreated_ != nullptr;};
     void deleteGmtCreated() { this->gmtCreated_ = nullptr;};
-    inline string gmtCreated() const { DARABONBA_PTR_GET_DEFAULT(gmtCreated_, "") };
+    inline string getGmtCreated() const { DARABONBA_PTR_GET_DEFAULT(gmtCreated_, "") };
     inline Category& setGmtCreated(string gmtCreated) { DARABONBA_PTR_SET_VALUE(gmtCreated_, gmtCreated) };
 
 
     // gmtModified Field Functions 
     bool hasGmtModified() const { return this->gmtModified_ != nullptr;};
     void deleteGmtModified() { this->gmtModified_ = nullptr;};
-    inline string gmtModified() const { DARABONBA_PTR_GET_DEFAULT(gmtModified_, "") };
+    inline string getGmtModified() const { DARABONBA_PTR_GET_DEFAULT(gmtModified_, "") };
     inline Category& setGmtModified(string gmtModified) { DARABONBA_PTR_SET_VALUE(gmtModified_, gmtModified) };
 
 
     // modifier Field Functions 
     bool hasModifier() const { return this->modifier_ != nullptr;};
     void deleteModifier() { this->modifier_ = nullptr;};
-    inline int64_t modifier() const { DARABONBA_PTR_GET_DEFAULT(modifier_, 0L) };
+    inline int64_t getModifier() const { DARABONBA_PTR_GET_DEFAULT(modifier_, 0L) };
     inline Category& setModifier(int64_t modifier) { DARABONBA_PTR_SET_VALUE(modifier_, modifier) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline Category& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // parentBizId Field Functions 
     bool hasParentBizId() const { return this->parentBizId_ != nullptr;};
     void deleteParentBizId() { this->parentBizId_ = nullptr;};
-    inline string parentBizId() const { DARABONBA_PTR_GET_DEFAULT(parentBizId_, "") };
+    inline string getParentBizId() const { DARABONBA_PTR_GET_DEFAULT(parentBizId_, "") };
     inline Category& setParentBizId(string parentBizId) { DARABONBA_PTR_SET_VALUE(parentBizId_, parentBizId) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline Category& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> bizId_ = nullptr;
+    shared_ptr<string> bizId_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> creator_ = nullptr;
+    shared_ptr<int64_t> creator_ {};
     // This parameter is required.
-    std::shared_ptr<string> gmtCreated_ = nullptr;
+    shared_ptr<string> gmtCreated_ {};
     // This parameter is required.
-    std::shared_ptr<string> gmtModified_ = nullptr;
+    shared_ptr<string> gmtModified_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> modifier_ = nullptr;
+    shared_ptr<int64_t> modifier_ {};
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> parentBizId_ = nullptr;
+    shared_ptr<string> name_ {};
+    shared_ptr<string> parentBizId_ {};
     // This parameter is required.
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

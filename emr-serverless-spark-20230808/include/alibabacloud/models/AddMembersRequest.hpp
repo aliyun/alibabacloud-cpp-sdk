@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->memberArns_ == nullptr
-        && return this->workspaceId_ == nullptr && return this->regionId_ == nullptr; };
+        && this->workspaceId_ == nullptr && this->regionId_ == nullptr; };
     // memberArns Field Functions 
     bool hasMemberArns() const { return this->memberArns_ != nullptr;};
     void deleteMemberArns() { this->memberArns_ = nullptr;};
-    inline const vector<string> & memberArns() const { DARABONBA_PTR_GET_CONST(memberArns_, vector<string>) };
-    inline vector<string> memberArns() { DARABONBA_PTR_GET(memberArns_, vector<string>) };
+    inline const vector<string> & getMemberArns() const { DARABONBA_PTR_GET_CONST(memberArns_, vector<string>) };
+    inline vector<string> getMemberArns() { DARABONBA_PTR_GET(memberArns_, vector<string>) };
     inline AddMembersRequest& setMemberArns(const vector<string> & memberArns) { DARABONBA_PTR_SET_VALUE(memberArns_, memberArns) };
     inline AddMembersRequest& setMemberArns(vector<string> && memberArns) { DARABONBA_PTR_SET_RVALUE(memberArns_, memberArns) };
 
@@ -48,26 +48,26 @@ namespace Models
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline AddMembersRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline AddMembersRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<vector<string>> memberArns_ = nullptr;
+    shared_ptr<vector<string>> memberArns_ {};
     // The workspace ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> workspaceId_ {};
     // The region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

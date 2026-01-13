@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fileName_ == nullptr
-        && return this->length_ == nullptr && return this->offset_ == nullptr && return this->regionId_ == nullptr; };
+        && this->length_ == nullptr && this->offset_ == nullptr && this->regionId_ == nullptr; };
     // fileName Field Functions 
     bool hasFileName() const { return this->fileName_ != nullptr;};
     void deleteFileName() { this->fileName_ = nullptr;};
-    inline string fileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
+    inline string getFileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
     inline ListLogContentsRequest& setFileName(string fileName) { DARABONBA_PTR_SET_VALUE(fileName_, fileName) };
 
 
     // length Field Functions 
     bool hasLength() const { return this->length_ != nullptr;};
     void deleteLength() { this->length_ = nullptr;};
-    inline int32_t length() const { DARABONBA_PTR_GET_DEFAULT(length_, 0) };
+    inline int32_t getLength() const { DARABONBA_PTR_GET_DEFAULT(length_, 0) };
     inline ListLogContentsRequest& setLength(int32_t length) { DARABONBA_PTR_SET_VALUE(length_, length) };
 
 
     // offset Field Functions 
     bool hasOffset() const { return this->offset_ != nullptr;};
     void deleteOffset() { this->offset_ = nullptr;};
-    inline int32_t offset() const { DARABONBA_PTR_GET_DEFAULT(offset_, 0) };
+    inline int32_t getOffset() const { DARABONBA_PTR_GET_DEFAULT(offset_, 0) };
     inline ListLogContentsRequest& setOffset(int32_t offset) { DARABONBA_PTR_SET_VALUE(offset_, offset) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ListLogContentsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
     // Full path of the file.
-    std::shared_ptr<string> fileName_ = nullptr;
+    shared_ptr<string> fileName_ {};
     // Length of the log.
-    std::shared_ptr<int32_t> length_ = nullptr;
+    shared_ptr<int32_t> length_ {};
     // Start line for query.
-    std::shared_ptr<int32_t> offset_ = nullptr;
+    shared_ptr<int32_t> offset_ {};
     // Region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

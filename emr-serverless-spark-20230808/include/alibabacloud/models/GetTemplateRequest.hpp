@@ -34,39 +34,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->regionId_ == nullptr
-        && return this->templateBizId_ == nullptr && return this->templateType_ == nullptr; };
+        && this->templateBizId_ == nullptr && this->templateType_ == nullptr; };
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline GetTemplateRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // templateBizId Field Functions 
     bool hasTemplateBizId() const { return this->templateBizId_ != nullptr;};
     void deleteTemplateBizId() { this->templateBizId_ = nullptr;};
-    inline string templateBizId() const { DARABONBA_PTR_GET_DEFAULT(templateBizId_, "") };
+    inline string getTemplateBizId() const { DARABONBA_PTR_GET_DEFAULT(templateBizId_, "") };
     inline GetTemplateRequest& setTemplateBizId(string templateBizId) { DARABONBA_PTR_SET_VALUE(templateBizId_, templateBizId) };
 
 
     // templateType Field Functions 
     bool hasTemplateType() const { return this->templateType_ != nullptr;};
     void deleteTemplateType() { this->templateType_ = nullptr;};
-    inline string templateType() const { DARABONBA_PTR_GET_DEFAULT(templateType_, "") };
+    inline string getTemplateType() const { DARABONBA_PTR_GET_DEFAULT(templateType_, "") };
     inline GetTemplateRequest& setTemplateType(string templateType) { DARABONBA_PTR_SET_VALUE(templateType_, templateType) };
 
 
   protected:
     // The region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> templateBizId_ = nullptr;
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> templateBizId_ {};
     // The template type.
     // 
     // Valid values:
     // 
     // *   TASK
     // *   SESSION
-    std::shared_ptr<string> templateType_ = nullptr;
+    shared_ptr<string> templateType_ {};
   };
 
   } // namespace Models

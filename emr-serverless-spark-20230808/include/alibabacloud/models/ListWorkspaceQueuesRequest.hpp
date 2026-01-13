@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->environment_ == nullptr
-        && return this->regionId_ == nullptr; };
+        && this->regionId_ == nullptr; };
     // environment Field Functions 
     bool hasEnvironment() const { return this->environment_ != nullptr;};
     void deleteEnvironment() { this->environment_ = nullptr;};
-    inline string environment() const { DARABONBA_PTR_GET_DEFAULT(environment_, "") };
+    inline string getEnvironment() const { DARABONBA_PTR_GET_DEFAULT(environment_, "") };
     inline ListWorkspaceQueuesRequest& setEnvironment(string environment) { DARABONBA_PTR_SET_VALUE(environment_, environment) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ListWorkspaceQueuesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -54,9 +54,9 @@ namespace Models
     // 
     // *   dev
     // *   production
-    std::shared_ptr<string> environment_ = nullptr;
+    shared_ptr<string> environment_ {};
     // The region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

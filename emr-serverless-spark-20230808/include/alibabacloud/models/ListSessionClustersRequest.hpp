@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->kind_ == nullptr
-        && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->queueName_ == nullptr && return this->regionId_ == nullptr && return this->sessionClusterId_ == nullptr; };
+        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->queueName_ == nullptr && this->regionId_ == nullptr && this->sessionClusterId_ == nullptr; };
     // kind Field Functions 
     bool hasKind() const { return this->kind_ != nullptr;};
     void deleteKind() { this->kind_ = nullptr;};
-    inline string kind() const { DARABONBA_PTR_GET_DEFAULT(kind_, "") };
+    inline string getKind() const { DARABONBA_PTR_GET_DEFAULT(kind_, "") };
     inline ListSessionClustersRequest& setKind(string kind) { DARABONBA_PTR_SET_VALUE(kind_, kind) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListSessionClustersRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListSessionClustersRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // queueName Field Functions 
     bool hasQueueName() const { return this->queueName_ != nullptr;};
     void deleteQueueName() { this->queueName_ = nullptr;};
-    inline string queueName() const { DARABONBA_PTR_GET_DEFAULT(queueName_, "") };
+    inline string getQueueName() const { DARABONBA_PTR_GET_DEFAULT(queueName_, "") };
     inline ListSessionClustersRequest& setQueueName(string queueName) { DARABONBA_PTR_SET_VALUE(queueName_, queueName) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ListSessionClustersRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // sessionClusterId Field Functions 
     bool hasSessionClusterId() const { return this->sessionClusterId_ != nullptr;};
     void deleteSessionClusterId() { this->sessionClusterId_ = nullptr;};
-    inline string sessionClusterId() const { DARABONBA_PTR_GET_DEFAULT(sessionClusterId_, "") };
+    inline string getSessionClusterId() const { DARABONBA_PTR_GET_DEFAULT(sessionClusterId_, "") };
     inline ListSessionClustersRequest& setSessionClusterId(string sessionClusterId) { DARABONBA_PTR_SET_VALUE(sessionClusterId_, sessionClusterId) };
 
 
@@ -91,17 +91,17 @@ namespace Models
     // *   NOTEBOOK
     // *   THRIFT
     // *   SQL
-    std::shared_ptr<string> kind_ = nullptr;
+    shared_ptr<string> kind_ {};
     // The maximum number of entries to return.
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
     // The pagination token that is used in the request to retrieve a new page of results.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The name of the queue.
-    std::shared_ptr<string> queueName_ = nullptr;
+    shared_ptr<string> queueName_ {};
     // The region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The name of the job.
-    std::shared_ptr<string> sessionClusterId_ = nullptr;
+    shared_ptr<string> sessionClusterId_ {};
   };
 
   } // namespace Models

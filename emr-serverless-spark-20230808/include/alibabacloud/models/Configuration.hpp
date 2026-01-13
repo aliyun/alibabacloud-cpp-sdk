@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->configFileName_ == nullptr
-        && return this->configItemKey_ == nullptr && return this->configItemValue_ == nullptr; };
+        && this->configItemKey_ == nullptr && this->configItemValue_ == nullptr; };
     // configFileName Field Functions 
     bool hasConfigFileName() const { return this->configFileName_ != nullptr;};
     void deleteConfigFileName() { this->configFileName_ = nullptr;};
-    inline string configFileName() const { DARABONBA_PTR_GET_DEFAULT(configFileName_, "") };
+    inline string getConfigFileName() const { DARABONBA_PTR_GET_DEFAULT(configFileName_, "") };
     inline Configuration& setConfigFileName(string configFileName) { DARABONBA_PTR_SET_VALUE(configFileName_, configFileName) };
 
 
     // configItemKey Field Functions 
     bool hasConfigItemKey() const { return this->configItemKey_ != nullptr;};
     void deleteConfigItemKey() { this->configItemKey_ = nullptr;};
-    inline string configItemKey() const { DARABONBA_PTR_GET_DEFAULT(configItemKey_, "") };
+    inline string getConfigItemKey() const { DARABONBA_PTR_GET_DEFAULT(configItemKey_, "") };
     inline Configuration& setConfigItemKey(string configItemKey) { DARABONBA_PTR_SET_VALUE(configItemKey_, configItemKey) };
 
 
     // configItemValue Field Functions 
     bool hasConfigItemValue() const { return this->configItemValue_ != nullptr;};
     void deleteConfigItemValue() { this->configItemValue_ = nullptr;};
-    inline string configItemValue() const { DARABONBA_PTR_GET_DEFAULT(configItemValue_, "") };
+    inline string getConfigItemValue() const { DARABONBA_PTR_GET_DEFAULT(configItemValue_, "") };
     inline Configuration& setConfigItemValue(string configItemValue) { DARABONBA_PTR_SET_VALUE(configItemValue_, configItemValue) };
 
 
   protected:
-    std::shared_ptr<string> configFileName_ = nullptr;
-    std::shared_ptr<string> configItemKey_ = nullptr;
-    std::shared_ptr<string> configItemValue_ = nullptr;
+    shared_ptr<string> configFileName_ {};
+    shared_ptr<string> configItemKey_ {};
+    shared_ptr<string> configItemValue_ {};
   };
 
   } // namespace Models

@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->actionArn_ == nullptr
-        && return this->principalArn_ == nullptr; };
+        && this->principalArn_ == nullptr; };
     // actionArn Field Functions 
     bool hasActionArn() const { return this->actionArn_ != nullptr;};
     void deleteActionArn() { this->actionArn_ = nullptr;};
-    inline string actionArn() const { DARABONBA_PTR_GET_DEFAULT(actionArn_, "") };
+    inline string getActionArn() const { DARABONBA_PTR_GET_DEFAULT(actionArn_, "") };
     inline PrincipalAction& setActionArn(string actionArn) { DARABONBA_PTR_SET_VALUE(actionArn_, actionArn) };
 
 
     // principalArn Field Functions 
     bool hasPrincipalArn() const { return this->principalArn_ != nullptr;};
     void deletePrincipalArn() { this->principalArn_ = nullptr;};
-    inline string principalArn() const { DARABONBA_PTR_GET_DEFAULT(principalArn_, "") };
+    inline string getPrincipalArn() const { DARABONBA_PTR_GET_DEFAULT(principalArn_, "") };
     inline PrincipalAction& setPrincipalArn(string principalArn) { DARABONBA_PTR_SET_VALUE(principalArn_, principalArn) };
 
 
   protected:
-    std::shared_ptr<string> actionArn_ = nullptr;
-    std::shared_ptr<string> principalArn_ = nullptr;
+    shared_ptr<string> actionArn_ {};
+    shared_ptr<string> principalArn_ {};
   };
 
   } // namespace Models

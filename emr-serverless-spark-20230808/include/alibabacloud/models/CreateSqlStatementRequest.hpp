@@ -42,71 +42,71 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->codeContent_ == nullptr
-        && return this->defaultCatalog_ == nullptr && return this->defaultDatabase_ == nullptr && return this->limit_ == nullptr && return this->sqlComputeId_ == nullptr && return this->taskBizId_ == nullptr
-        && return this->regionId_ == nullptr; };
+        && this->defaultCatalog_ == nullptr && this->defaultDatabase_ == nullptr && this->limit_ == nullptr && this->sqlComputeId_ == nullptr && this->taskBizId_ == nullptr
+        && this->regionId_ == nullptr; };
     // codeContent Field Functions 
     bool hasCodeContent() const { return this->codeContent_ != nullptr;};
     void deleteCodeContent() { this->codeContent_ = nullptr;};
-    inline string codeContent() const { DARABONBA_PTR_GET_DEFAULT(codeContent_, "") };
+    inline string getCodeContent() const { DARABONBA_PTR_GET_DEFAULT(codeContent_, "") };
     inline CreateSqlStatementRequest& setCodeContent(string codeContent) { DARABONBA_PTR_SET_VALUE(codeContent_, codeContent) };
 
 
     // defaultCatalog Field Functions 
     bool hasDefaultCatalog() const { return this->defaultCatalog_ != nullptr;};
     void deleteDefaultCatalog() { this->defaultCatalog_ = nullptr;};
-    inline string defaultCatalog() const { DARABONBA_PTR_GET_DEFAULT(defaultCatalog_, "") };
+    inline string getDefaultCatalog() const { DARABONBA_PTR_GET_DEFAULT(defaultCatalog_, "") };
     inline CreateSqlStatementRequest& setDefaultCatalog(string defaultCatalog) { DARABONBA_PTR_SET_VALUE(defaultCatalog_, defaultCatalog) };
 
 
     // defaultDatabase Field Functions 
     bool hasDefaultDatabase() const { return this->defaultDatabase_ != nullptr;};
     void deleteDefaultDatabase() { this->defaultDatabase_ = nullptr;};
-    inline string defaultDatabase() const { DARABONBA_PTR_GET_DEFAULT(defaultDatabase_, "") };
+    inline string getDefaultDatabase() const { DARABONBA_PTR_GET_DEFAULT(defaultDatabase_, "") };
     inline CreateSqlStatementRequest& setDefaultDatabase(string defaultDatabase) { DARABONBA_PTR_SET_VALUE(defaultDatabase_, defaultDatabase) };
 
 
     // limit Field Functions 
     bool hasLimit() const { return this->limit_ != nullptr;};
     void deleteLimit() { this->limit_ = nullptr;};
-    inline int32_t limit() const { DARABONBA_PTR_GET_DEFAULT(limit_, 0) };
+    inline int32_t getLimit() const { DARABONBA_PTR_GET_DEFAULT(limit_, 0) };
     inline CreateSqlStatementRequest& setLimit(int32_t limit) { DARABONBA_PTR_SET_VALUE(limit_, limit) };
 
 
     // sqlComputeId Field Functions 
     bool hasSqlComputeId() const { return this->sqlComputeId_ != nullptr;};
     void deleteSqlComputeId() { this->sqlComputeId_ = nullptr;};
-    inline string sqlComputeId() const { DARABONBA_PTR_GET_DEFAULT(sqlComputeId_, "") };
+    inline string getSqlComputeId() const { DARABONBA_PTR_GET_DEFAULT(sqlComputeId_, "") };
     inline CreateSqlStatementRequest& setSqlComputeId(string sqlComputeId) { DARABONBA_PTR_SET_VALUE(sqlComputeId_, sqlComputeId) };
 
 
     // taskBizId Field Functions 
     bool hasTaskBizId() const { return this->taskBizId_ != nullptr;};
     void deleteTaskBizId() { this->taskBizId_ = nullptr;};
-    inline string taskBizId() const { DARABONBA_PTR_GET_DEFAULT(taskBizId_, "") };
+    inline string getTaskBizId() const { DARABONBA_PTR_GET_DEFAULT(taskBizId_, "") };
     inline CreateSqlStatementRequest& setTaskBizId(string taskBizId) { DARABONBA_PTR_SET_VALUE(taskBizId_, taskBizId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreateSqlStatementRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
     // The SQL code. You can specify one or more SQL statements.
-    std::shared_ptr<string> codeContent_ = nullptr;
+    shared_ptr<string> codeContent_ {};
     // The default Data Lake Formation (DLF) catalog ID.
-    std::shared_ptr<string> defaultCatalog_ = nullptr;
+    shared_ptr<string> defaultCatalog_ {};
     // The name of the default database.
-    std::shared_ptr<string> defaultDatabase_ = nullptr;
+    shared_ptr<string> defaultDatabase_ {};
     // The maximum number of entries to return. Valid values: 1 to 10000.
-    std::shared_ptr<int32_t> limit_ = nullptr;
+    shared_ptr<int32_t> limit_ {};
     // The SQL session ID. You can create an SQL session in the workspace created in EMR Serverless Spark.
-    std::shared_ptr<string> sqlComputeId_ = nullptr;
-    std::shared_ptr<string> taskBizId_ = nullptr;
+    shared_ptr<string> sqlComputeId_ {};
+    shared_ptr<string> taskBizId_ {};
     // The region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_UPDATEKYUUBITOKENREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_UPDATEKYUUBITOKENREQUEST_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/UpdateKyuubiTokenRequestAutoExpireConfiguration.hpp>
 #include <vector>
 using namespace std;
 using json = nlohmann::json;
@@ -39,22 +38,64 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class AutoExpireConfiguration : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const AutoExpireConfiguration& obj) { 
+        DARABONBA_PTR_TO_JSON(enable, enable_);
+        DARABONBA_PTR_TO_JSON(expireDays, expireDays_);
+      };
+      friend void from_json(const Darabonba::Json& j, AutoExpireConfiguration& obj) { 
+        DARABONBA_PTR_FROM_JSON(enable, enable_);
+        DARABONBA_PTR_FROM_JSON(expireDays, expireDays_);
+      };
+      AutoExpireConfiguration() = default ;
+      AutoExpireConfiguration(const AutoExpireConfiguration &) = default ;
+      AutoExpireConfiguration(AutoExpireConfiguration &&) = default ;
+      AutoExpireConfiguration(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~AutoExpireConfiguration() = default ;
+      AutoExpireConfiguration& operator=(const AutoExpireConfiguration &) = default ;
+      AutoExpireConfiguration& operator=(AutoExpireConfiguration &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->enable_ == nullptr
+        && this->expireDays_ == nullptr; };
+      // enable Field Functions 
+      bool hasEnable() const { return this->enable_ != nullptr;};
+      void deleteEnable() { this->enable_ = nullptr;};
+      inline bool getEnable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
+      inline AutoExpireConfiguration& setEnable(bool enable) { DARABONBA_PTR_SET_VALUE(enable_, enable) };
+
+
+      // expireDays Field Functions 
+      bool hasExpireDays() const { return this->expireDays_ != nullptr;};
+      void deleteExpireDays() { this->expireDays_ = nullptr;};
+      inline int32_t getExpireDays() const { DARABONBA_PTR_GET_DEFAULT(expireDays_, 0) };
+      inline AutoExpireConfiguration& setExpireDays(int32_t expireDays) { DARABONBA_PTR_SET_VALUE(expireDays_, expireDays) };
+
+
+    protected:
+      shared_ptr<bool> enable_ {};
+      shared_ptr<int32_t> expireDays_ {};
+    };
+
     virtual bool empty() const override { return this->autoExpireConfiguration_ == nullptr
-        && return this->memberArns_ == nullptr && return this->name_ == nullptr && return this->token_ == nullptr && return this->regionId_ == nullptr; };
+        && this->memberArns_ == nullptr && this->name_ == nullptr && this->token_ == nullptr && this->regionId_ == nullptr; };
     // autoExpireConfiguration Field Functions 
     bool hasAutoExpireConfiguration() const { return this->autoExpireConfiguration_ != nullptr;};
     void deleteAutoExpireConfiguration() { this->autoExpireConfiguration_ = nullptr;};
-    inline const UpdateKyuubiTokenRequestAutoExpireConfiguration & autoExpireConfiguration() const { DARABONBA_PTR_GET_CONST(autoExpireConfiguration_, UpdateKyuubiTokenRequestAutoExpireConfiguration) };
-    inline UpdateKyuubiTokenRequestAutoExpireConfiguration autoExpireConfiguration() { DARABONBA_PTR_GET(autoExpireConfiguration_, UpdateKyuubiTokenRequestAutoExpireConfiguration) };
-    inline UpdateKyuubiTokenRequest& setAutoExpireConfiguration(const UpdateKyuubiTokenRequestAutoExpireConfiguration & autoExpireConfiguration) { DARABONBA_PTR_SET_VALUE(autoExpireConfiguration_, autoExpireConfiguration) };
-    inline UpdateKyuubiTokenRequest& setAutoExpireConfiguration(UpdateKyuubiTokenRequestAutoExpireConfiguration && autoExpireConfiguration) { DARABONBA_PTR_SET_RVALUE(autoExpireConfiguration_, autoExpireConfiguration) };
+    inline const UpdateKyuubiTokenRequest::AutoExpireConfiguration & getAutoExpireConfiguration() const { DARABONBA_PTR_GET_CONST(autoExpireConfiguration_, UpdateKyuubiTokenRequest::AutoExpireConfiguration) };
+    inline UpdateKyuubiTokenRequest::AutoExpireConfiguration getAutoExpireConfiguration() { DARABONBA_PTR_GET(autoExpireConfiguration_, UpdateKyuubiTokenRequest::AutoExpireConfiguration) };
+    inline UpdateKyuubiTokenRequest& setAutoExpireConfiguration(const UpdateKyuubiTokenRequest::AutoExpireConfiguration & autoExpireConfiguration) { DARABONBA_PTR_SET_VALUE(autoExpireConfiguration_, autoExpireConfiguration) };
+    inline UpdateKyuubiTokenRequest& setAutoExpireConfiguration(UpdateKyuubiTokenRequest::AutoExpireConfiguration && autoExpireConfiguration) { DARABONBA_PTR_SET_RVALUE(autoExpireConfiguration_, autoExpireConfiguration) };
 
 
     // memberArns Field Functions 
     bool hasMemberArns() const { return this->memberArns_ != nullptr;};
     void deleteMemberArns() { this->memberArns_ = nullptr;};
-    inline const vector<string> & memberArns() const { DARABONBA_PTR_GET_CONST(memberArns_, vector<string>) };
-    inline vector<string> memberArns() { DARABONBA_PTR_GET(memberArns_, vector<string>) };
+    inline const vector<string> & getMemberArns() const { DARABONBA_PTR_GET_CONST(memberArns_, vector<string>) };
+    inline vector<string> getMemberArns() { DARABONBA_PTR_GET(memberArns_, vector<string>) };
     inline UpdateKyuubiTokenRequest& setMemberArns(const vector<string> & memberArns) { DARABONBA_PTR_SET_VALUE(memberArns_, memberArns) };
     inline UpdateKyuubiTokenRequest& setMemberArns(vector<string> && memberArns) { DARABONBA_PTR_SET_RVALUE(memberArns_, memberArns) };
 
@@ -62,30 +103,30 @@ namespace Models
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline UpdateKyuubiTokenRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // token Field Functions 
     bool hasToken() const { return this->token_ != nullptr;};
     void deleteToken() { this->token_ = nullptr;};
-    inline string token() const { DARABONBA_PTR_GET_DEFAULT(token_, "") };
+    inline string getToken() const { DARABONBA_PTR_GET_DEFAULT(token_, "") };
     inline UpdateKyuubiTokenRequest& setToken(string token) { DARABONBA_PTR_SET_VALUE(token_, token) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline UpdateKyuubiTokenRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
-    std::shared_ptr<UpdateKyuubiTokenRequestAutoExpireConfiguration> autoExpireConfiguration_ = nullptr;
-    std::shared_ptr<vector<string>> memberArns_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> token_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<UpdateKyuubiTokenRequest::AutoExpireConfiguration> autoExpireConfiguration_ {};
+    shared_ptr<vector<string>> memberArns_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<string> token_ {};
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

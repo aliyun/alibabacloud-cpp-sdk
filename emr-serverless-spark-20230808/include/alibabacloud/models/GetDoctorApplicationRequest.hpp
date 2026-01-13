@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->locale_ == nullptr
-        && return this->queryTime_ == nullptr && return this->regionId_ == nullptr; };
+        && this->queryTime_ == nullptr && this->regionId_ == nullptr; };
     // locale Field Functions 
     bool hasLocale() const { return this->locale_ != nullptr;};
     void deleteLocale() { this->locale_ = nullptr;};
-    inline string locale() const { DARABONBA_PTR_GET_DEFAULT(locale_, "") };
+    inline string getLocale() const { DARABONBA_PTR_GET_DEFAULT(locale_, "") };
     inline GetDoctorApplicationRequest& setLocale(string locale) { DARABONBA_PTR_SET_VALUE(locale_, locale) };
 
 
     // queryTime Field Functions 
     bool hasQueryTime() const { return this->queryTime_ != nullptr;};
     void deleteQueryTime() { this->queryTime_ = nullptr;};
-    inline string queryTime() const { DARABONBA_PTR_GET_DEFAULT(queryTime_, "") };
+    inline string getQueryTime() const { DARABONBA_PTR_GET_DEFAULT(queryTime_, "") };
     inline GetDoctorApplicationRequest& setQueryTime(string queryTime) { DARABONBA_PTR_SET_VALUE(queryTime_, queryTime) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline GetDoctorApplicationRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
     // The language of diagnostic information.
-    std::shared_ptr<string> locale_ = nullptr;
+    shared_ptr<string> locale_ {};
     // The query time.
-    std::shared_ptr<string> queryTime_ = nullptr;
+    shared_ptr<string> queryTime_ {};
     // The region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

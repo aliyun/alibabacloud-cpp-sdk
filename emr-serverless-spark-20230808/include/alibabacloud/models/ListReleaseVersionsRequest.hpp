@@ -40,71 +40,71 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->regionId_ == nullptr
-        && return this->releaseType_ == nullptr && return this->releaseVersion_ == nullptr && return this->releaseVersionStatus_ == nullptr && return this->serviceFilter_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->releaseType_ == nullptr && this->releaseVersion_ == nullptr && this->releaseVersionStatus_ == nullptr && this->serviceFilter_ == nullptr && this->workspaceId_ == nullptr; };
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ListReleaseVersionsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // releaseType Field Functions 
     bool hasReleaseType() const { return this->releaseType_ != nullptr;};
     void deleteReleaseType() { this->releaseType_ = nullptr;};
-    inline string releaseType() const { DARABONBA_PTR_GET_DEFAULT(releaseType_, "") };
+    inline string getReleaseType() const { DARABONBA_PTR_GET_DEFAULT(releaseType_, "") };
     inline ListReleaseVersionsRequest& setReleaseType(string releaseType) { DARABONBA_PTR_SET_VALUE(releaseType_, releaseType) };
 
 
     // releaseVersion Field Functions 
     bool hasReleaseVersion() const { return this->releaseVersion_ != nullptr;};
     void deleteReleaseVersion() { this->releaseVersion_ = nullptr;};
-    inline string releaseVersion() const { DARABONBA_PTR_GET_DEFAULT(releaseVersion_, "") };
+    inline string getReleaseVersion() const { DARABONBA_PTR_GET_DEFAULT(releaseVersion_, "") };
     inline ListReleaseVersionsRequest& setReleaseVersion(string releaseVersion) { DARABONBA_PTR_SET_VALUE(releaseVersion_, releaseVersion) };
 
 
     // releaseVersionStatus Field Functions 
     bool hasReleaseVersionStatus() const { return this->releaseVersionStatus_ != nullptr;};
     void deleteReleaseVersionStatus() { this->releaseVersionStatus_ = nullptr;};
-    inline string releaseVersionStatus() const { DARABONBA_PTR_GET_DEFAULT(releaseVersionStatus_, "") };
+    inline string getReleaseVersionStatus() const { DARABONBA_PTR_GET_DEFAULT(releaseVersionStatus_, "") };
     inline ListReleaseVersionsRequest& setReleaseVersionStatus(string releaseVersionStatus) { DARABONBA_PTR_SET_VALUE(releaseVersionStatus_, releaseVersionStatus) };
 
 
     // serviceFilter Field Functions 
     bool hasServiceFilter() const { return this->serviceFilter_ != nullptr;};
     void deleteServiceFilter() { this->serviceFilter_ = nullptr;};
-    inline string serviceFilter() const { DARABONBA_PTR_GET_DEFAULT(serviceFilter_, "") };
+    inline string getServiceFilter() const { DARABONBA_PTR_GET_DEFAULT(serviceFilter_, "") };
     inline ListReleaseVersionsRequest& setServiceFilter(string serviceFilter) { DARABONBA_PTR_SET_VALUE(serviceFilter_, serviceFilter) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline ListReleaseVersionsRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
     // The region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The type of the version.
     // 
     // Valid values:
     // 
     // *   stable
     // *   Beta
-    std::shared_ptr<string> releaseType_ = nullptr;
+    shared_ptr<string> releaseType_ {};
     // The version of EMR Serverless Spark.
-    std::shared_ptr<string> releaseVersion_ = nullptr;
+    shared_ptr<string> releaseVersion_ {};
     // The status of the version.
     // 
     // Valid values:
     // 
     // *   ONLINE
     // *   OFFLINE
-    std::shared_ptr<string> releaseVersionStatus_ = nullptr;
-    std::shared_ptr<string> serviceFilter_ = nullptr;
+    shared_ptr<string> releaseVersionStatus_ {};
+    shared_ptr<string> serviceFilter_ {};
     // The workspace ID.
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

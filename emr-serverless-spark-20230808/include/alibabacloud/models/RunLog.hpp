@@ -36,40 +36,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->driverStartup_ == nullptr
-        && return this->driverStdError_ == nullptr && return this->driverStdOut_ == nullptr && return this->driverSyslog_ == nullptr; };
+        && this->driverStdError_ == nullptr && this->driverStdOut_ == nullptr && this->driverSyslog_ == nullptr; };
     // driverStartup Field Functions 
     bool hasDriverStartup() const { return this->driverStartup_ != nullptr;};
     void deleteDriverStartup() { this->driverStartup_ = nullptr;};
-    inline string driverStartup() const { DARABONBA_PTR_GET_DEFAULT(driverStartup_, "") };
+    inline string getDriverStartup() const { DARABONBA_PTR_GET_DEFAULT(driverStartup_, "") };
     inline RunLog& setDriverStartup(string driverStartup) { DARABONBA_PTR_SET_VALUE(driverStartup_, driverStartup) };
 
 
     // driverStdError Field Functions 
     bool hasDriverStdError() const { return this->driverStdError_ != nullptr;};
     void deleteDriverStdError() { this->driverStdError_ = nullptr;};
-    inline string driverStdError() const { DARABONBA_PTR_GET_DEFAULT(driverStdError_, "") };
+    inline string getDriverStdError() const { DARABONBA_PTR_GET_DEFAULT(driverStdError_, "") };
     inline RunLog& setDriverStdError(string driverStdError) { DARABONBA_PTR_SET_VALUE(driverStdError_, driverStdError) };
 
 
     // driverStdOut Field Functions 
     bool hasDriverStdOut() const { return this->driverStdOut_ != nullptr;};
     void deleteDriverStdOut() { this->driverStdOut_ = nullptr;};
-    inline string driverStdOut() const { DARABONBA_PTR_GET_DEFAULT(driverStdOut_, "") };
+    inline string getDriverStdOut() const { DARABONBA_PTR_GET_DEFAULT(driverStdOut_, "") };
     inline RunLog& setDriverStdOut(string driverStdOut) { DARABONBA_PTR_SET_VALUE(driverStdOut_, driverStdOut) };
 
 
     // driverSyslog Field Functions 
     bool hasDriverSyslog() const { return this->driverSyslog_ != nullptr;};
     void deleteDriverSyslog() { this->driverSyslog_ = nullptr;};
-    inline string driverSyslog() const { DARABONBA_PTR_GET_DEFAULT(driverSyslog_, "") };
+    inline string getDriverSyslog() const { DARABONBA_PTR_GET_DEFAULT(driverSyslog_, "") };
     inline RunLog& setDriverSyslog(string driverSyslog) { DARABONBA_PTR_SET_VALUE(driverSyslog_, driverSyslog) };
 
 
   protected:
-    std::shared_ptr<string> driverStartup_ = nullptr;
-    std::shared_ptr<string> driverStdError_ = nullptr;
-    std::shared_ptr<string> driverStdOut_ = nullptr;
-    std::shared_ptr<string> driverSyslog_ = nullptr;
+    shared_ptr<string> driverStartup_ {};
+    shared_ptr<string> driverStdError_ {};
+    shared_ptr<string> driverStdOut_ {};
+    shared_ptr<string> driverSyslog_ {};
   };
 
   } // namespace Models

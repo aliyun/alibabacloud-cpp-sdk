@@ -45,48 +45,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizId_ == nullptr
-        && return this->creator_ == nullptr && return this->fenixRunId_ == nullptr && return this->gmtCreated_ == nullptr && return this->taskBizId_ == nullptr && return this->taskInfo_ == nullptr
-        && return this->taskStatus_ == nullptr && return this->workspaceBizId_ == nullptr; };
+        && this->creator_ == nullptr && this->fenixRunId_ == nullptr && this->gmtCreated_ == nullptr && this->taskBizId_ == nullptr && this->taskInfo_ == nullptr
+        && this->taskStatus_ == nullptr && this->workspaceBizId_ == nullptr; };
     // bizId Field Functions 
     bool hasBizId() const { return this->bizId_ != nullptr;};
     void deleteBizId() { this->bizId_ = nullptr;};
-    inline string bizId() const { DARABONBA_PTR_GET_DEFAULT(bizId_, "") };
+    inline string getBizId() const { DARABONBA_PTR_GET_DEFAULT(bizId_, "") };
     inline TaskInstance& setBizId(string bizId) { DARABONBA_PTR_SET_VALUE(bizId_, bizId) };
 
 
     // creator Field Functions 
     bool hasCreator() const { return this->creator_ != nullptr;};
     void deleteCreator() { this->creator_ = nullptr;};
-    inline int64_t creator() const { DARABONBA_PTR_GET_DEFAULT(creator_, 0L) };
+    inline int64_t getCreator() const { DARABONBA_PTR_GET_DEFAULT(creator_, 0L) };
     inline TaskInstance& setCreator(int64_t creator) { DARABONBA_PTR_SET_VALUE(creator_, creator) };
 
 
     // fenixRunId Field Functions 
     bool hasFenixRunId() const { return this->fenixRunId_ != nullptr;};
     void deleteFenixRunId() { this->fenixRunId_ = nullptr;};
-    inline string fenixRunId() const { DARABONBA_PTR_GET_DEFAULT(fenixRunId_, "") };
+    inline string getFenixRunId() const { DARABONBA_PTR_GET_DEFAULT(fenixRunId_, "") };
     inline TaskInstance& setFenixRunId(string fenixRunId) { DARABONBA_PTR_SET_VALUE(fenixRunId_, fenixRunId) };
 
 
     // gmtCreated Field Functions 
     bool hasGmtCreated() const { return this->gmtCreated_ != nullptr;};
     void deleteGmtCreated() { this->gmtCreated_ = nullptr;};
-    inline string gmtCreated() const { DARABONBA_PTR_GET_DEFAULT(gmtCreated_, "") };
+    inline string getGmtCreated() const { DARABONBA_PTR_GET_DEFAULT(gmtCreated_, "") };
     inline TaskInstance& setGmtCreated(string gmtCreated) { DARABONBA_PTR_SET_VALUE(gmtCreated_, gmtCreated) };
 
 
     // taskBizId Field Functions 
     bool hasTaskBizId() const { return this->taskBizId_ != nullptr;};
     void deleteTaskBizId() { this->taskBizId_ = nullptr;};
-    inline string taskBizId() const { DARABONBA_PTR_GET_DEFAULT(taskBizId_, "") };
+    inline string getTaskBizId() const { DARABONBA_PTR_GET_DEFAULT(taskBizId_, "") };
     inline TaskInstance& setTaskBizId(string taskBizId) { DARABONBA_PTR_SET_VALUE(taskBizId_, taskBizId) };
 
 
     // taskInfo Field Functions 
     bool hasTaskInfo() const { return this->taskInfo_ != nullptr;};
     void deleteTaskInfo() { this->taskInfo_ = nullptr;};
-    inline const Task & taskInfo() const { DARABONBA_PTR_GET_CONST(taskInfo_, Task) };
-    inline Task taskInfo() { DARABONBA_PTR_GET(taskInfo_, Task) };
+    inline const Task & getTaskInfo() const { DARABONBA_PTR_GET_CONST(taskInfo_, Task) };
+    inline Task getTaskInfo() { DARABONBA_PTR_GET(taskInfo_, Task) };
     inline TaskInstance& setTaskInfo(const Task & taskInfo) { DARABONBA_PTR_SET_VALUE(taskInfo_, taskInfo) };
     inline TaskInstance& setTaskInfo(Task && taskInfo) { DARABONBA_PTR_SET_RVALUE(taskInfo_, taskInfo) };
 
@@ -94,26 +94,26 @@ namespace Models
     // taskStatus Field Functions 
     bool hasTaskStatus() const { return this->taskStatus_ != nullptr;};
     void deleteTaskStatus() { this->taskStatus_ = nullptr;};
-    inline string taskStatus() const { DARABONBA_PTR_GET_DEFAULT(taskStatus_, "") };
+    inline string getTaskStatus() const { DARABONBA_PTR_GET_DEFAULT(taskStatus_, "") };
     inline TaskInstance& setTaskStatus(string taskStatus) { DARABONBA_PTR_SET_VALUE(taskStatus_, taskStatus) };
 
 
     // workspaceBizId Field Functions 
     bool hasWorkspaceBizId() const { return this->workspaceBizId_ != nullptr;};
     void deleteWorkspaceBizId() { this->workspaceBizId_ = nullptr;};
-    inline string workspaceBizId() const { DARABONBA_PTR_GET_DEFAULT(workspaceBizId_, "") };
+    inline string getWorkspaceBizId() const { DARABONBA_PTR_GET_DEFAULT(workspaceBizId_, "") };
     inline TaskInstance& setWorkspaceBizId(string workspaceBizId) { DARABONBA_PTR_SET_VALUE(workspaceBizId_, workspaceBizId) };
 
 
   protected:
-    std::shared_ptr<string> bizId_ = nullptr;
-    std::shared_ptr<int64_t> creator_ = nullptr;
-    std::shared_ptr<string> fenixRunId_ = nullptr;
-    std::shared_ptr<string> gmtCreated_ = nullptr;
-    std::shared_ptr<string> taskBizId_ = nullptr;
-    std::shared_ptr<Task> taskInfo_ = nullptr;
-    std::shared_ptr<string> taskStatus_ = nullptr;
-    std::shared_ptr<string> workspaceBizId_ = nullptr;
+    shared_ptr<string> bizId_ {};
+    shared_ptr<int64_t> creator_ {};
+    shared_ptr<string> fenixRunId_ {};
+    shared_ptr<string> gmtCreated_ {};
+    shared_ptr<string> taskBizId_ {};
+    shared_ptr<Task> taskInfo_ {};
+    shared_ptr<string> taskStatus_ {};
+    shared_ptr<string> workspaceBizId_ {};
   };
 
   } // namespace Models

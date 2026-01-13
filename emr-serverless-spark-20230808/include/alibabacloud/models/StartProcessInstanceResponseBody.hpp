@@ -42,74 +42,74 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->data_ == nullptr && return this->failed_ == nullptr && return this->httpStatusCode_ == nullptr && return this->msg_ == nullptr && return this->requestId_ == nullptr
-        && return this->success_ == nullptr; };
+        && this->data_ == nullptr && this->failed_ == nullptr && this->httpStatusCode_ == nullptr && this->msg_ == nullptr && this->requestId_ == nullptr
+        && this->success_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline int32_t code() const { DARABONBA_PTR_GET_DEFAULT(code_, 0) };
+    inline int32_t getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, 0) };
     inline StartProcessInstanceResponseBody& setCode(int32_t code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline     const Darabonba::Json & data() const { DARABONBA_GET(data_) };
-    Darabonba::Json & data() { DARABONBA_GET(data_) };
+    inline     const Darabonba::Json & getData() const { DARABONBA_GET(data_) };
+    Darabonba::Json & getData() { DARABONBA_GET(data_) };
     inline StartProcessInstanceResponseBody& setData(const Darabonba::Json & data) { DARABONBA_SET_VALUE(data_, data) };
-    inline StartProcessInstanceResponseBody& setData(Darabonba::Json & data) { DARABONBA_SET_RVALUE(data_, data) };
+    inline StartProcessInstanceResponseBody& setData(Darabonba::Json && data) { DARABONBA_SET_RVALUE(data_, data) };
 
 
     // failed Field Functions 
     bool hasFailed() const { return this->failed_ != nullptr;};
     void deleteFailed() { this->failed_ = nullptr;};
-    inline bool failed() const { DARABONBA_PTR_GET_DEFAULT(failed_, false) };
+    inline bool getFailed() const { DARABONBA_PTR_GET_DEFAULT(failed_, false) };
     inline StartProcessInstanceResponseBody& setFailed(bool failed) { DARABONBA_PTR_SET_VALUE(failed_, failed) };
 
 
     // httpStatusCode Field Functions 
     bool hasHttpStatusCode() const { return this->httpStatusCode_ != nullptr;};
     void deleteHttpStatusCode() { this->httpStatusCode_ = nullptr;};
-    inline int32_t httpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
+    inline int32_t getHttpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
     inline StartProcessInstanceResponseBody& setHttpStatusCode(int32_t httpStatusCode) { DARABONBA_PTR_SET_VALUE(httpStatusCode_, httpStatusCode) };
 
 
     // msg Field Functions 
     bool hasMsg() const { return this->msg_ != nullptr;};
     void deleteMsg() { this->msg_ = nullptr;};
-    inline string msg() const { DARABONBA_PTR_GET_DEFAULT(msg_, "") };
+    inline string getMsg() const { DARABONBA_PTR_GET_DEFAULT(msg_, "") };
     inline StartProcessInstanceResponseBody& setMsg(string msg) { DARABONBA_PTR_SET_VALUE(msg_, msg) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline StartProcessInstanceResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline StartProcessInstanceResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
     // The code that is returned by the backend server.
-    std::shared_ptr<int32_t> code_ = nullptr;
+    shared_ptr<int32_t> code_ {};
     // The data returned.
-    Darabonba::Json data_ = nullptr;
+    Darabonba::Json data_ {};
     // Indicates whether the workflow fails to be run manually.
-    std::shared_ptr<bool> failed_ = nullptr;
+    shared_ptr<bool> failed_ {};
     // The HTTP status code.
-    std::shared_ptr<int32_t> httpStatusCode_ = nullptr;
+    shared_ptr<int32_t> httpStatusCode_ {};
     // The description of the returned code.
-    std::shared_ptr<string> msg_ = nullptr;
+    shared_ptr<string> msg_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

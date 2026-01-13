@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cpuArchitecture_ == nullptr
-        && return this->imageId_ == nullptr && return this->runtimeEngineType_ == nullptr; };
+        && this->imageId_ == nullptr && this->runtimeEngineType_ == nullptr; };
     // cpuArchitecture Field Functions 
     bool hasCpuArchitecture() const { return this->cpuArchitecture_ != nullptr;};
     void deleteCpuArchitecture() { this->cpuArchitecture_ = nullptr;};
-    inline string cpuArchitecture() const { DARABONBA_PTR_GET_DEFAULT(cpuArchitecture_, "") };
+    inline string getCpuArchitecture() const { DARABONBA_PTR_GET_DEFAULT(cpuArchitecture_, "") };
     inline ReleaseVersionImage& setCpuArchitecture(string cpuArchitecture) { DARABONBA_PTR_SET_VALUE(cpuArchitecture_, cpuArchitecture) };
 
 
     // imageId Field Functions 
     bool hasImageId() const { return this->imageId_ != nullptr;};
     void deleteImageId() { this->imageId_ = nullptr;};
-    inline string imageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
+    inline string getImageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
     inline ReleaseVersionImage& setImageId(string imageId) { DARABONBA_PTR_SET_VALUE(imageId_, imageId) };
 
 
     // runtimeEngineType Field Functions 
     bool hasRuntimeEngineType() const { return this->runtimeEngineType_ != nullptr;};
     void deleteRuntimeEngineType() { this->runtimeEngineType_ = nullptr;};
-    inline string runtimeEngineType() const { DARABONBA_PTR_GET_DEFAULT(runtimeEngineType_, "") };
+    inline string getRuntimeEngineType() const { DARABONBA_PTR_GET_DEFAULT(runtimeEngineType_, "") };
     inline ReleaseVersionImage& setRuntimeEngineType(string runtimeEngineType) { DARABONBA_PTR_SET_VALUE(runtimeEngineType_, runtimeEngineType) };
 
 
   protected:
-    std::shared_ptr<string> cpuArchitecture_ = nullptr;
-    std::shared_ptr<string> imageId_ = nullptr;
-    std::shared_ptr<string> runtimeEngineType_ = nullptr;
+    shared_ptr<string> cpuArchitecture_ {};
+    shared_ptr<string> imageId_ {};
+    shared_ptr<string> runtimeEngineType_ {};
   };
 
   } // namespace Models
