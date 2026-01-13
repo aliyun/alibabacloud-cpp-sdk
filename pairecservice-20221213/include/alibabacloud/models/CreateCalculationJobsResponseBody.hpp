@@ -32,13 +32,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->calculationJobIds_ != nullptr
-        && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->calculationJobIds_ == nullptr
+        && this->requestId_ == nullptr; };
     // calculationJobIds Field Functions 
     bool hasCalculationJobIds() const { return this->calculationJobIds_ != nullptr;};
     void deleteCalculationJobIds() { this->calculationJobIds_ = nullptr;};
-    inline const vector<string> & calculationJobIds() const { DARABONBA_PTR_GET_CONST(calculationJobIds_, vector<string>) };
-    inline vector<string> calculationJobIds() { DARABONBA_PTR_GET(calculationJobIds_, vector<string>) };
+    inline const vector<string> & getCalculationJobIds() const { DARABONBA_PTR_GET_CONST(calculationJobIds_, vector<string>) };
+    inline vector<string> getCalculationJobIds() { DARABONBA_PTR_GET(calculationJobIds_, vector<string>) };
     inline CreateCalculationJobsResponseBody& setCalculationJobIds(const vector<string> & calculationJobIds) { DARABONBA_PTR_SET_VALUE(calculationJobIds_, calculationJobIds) };
     inline CreateCalculationJobsResponseBody& setCalculationJobIds(vector<string> && calculationJobIds) { DARABONBA_PTR_SET_RVALUE(calculationJobIds_, calculationJobIds) };
 
@@ -46,13 +46,13 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateCalculationJobsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<vector<string>> calculationJobIds_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<vector<string>> calculationJobIds_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

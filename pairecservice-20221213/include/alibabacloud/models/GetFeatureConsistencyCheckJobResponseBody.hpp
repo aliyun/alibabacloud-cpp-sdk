@@ -44,49 +44,49 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->config_ != nullptr
-        && this->featureConsistencyCheckJobConfigId_ != nullptr && this->featureConsistencyCheckJobConfigName_ != nullptr && this->gmtEndTime_ != nullptr && this->gmtStartTime_ != nullptr && this->logs_ != nullptr
-        && this->requestId_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->config_ == nullptr
+        && this->featureConsistencyCheckJobConfigId_ == nullptr && this->featureConsistencyCheckJobConfigName_ == nullptr && this->gmtEndTime_ == nullptr && this->gmtStartTime_ == nullptr && this->logs_ == nullptr
+        && this->requestId_ == nullptr && this->status_ == nullptr; };
     // config Field Functions 
     bool hasConfig() const { return this->config_ != nullptr;};
     void deleteConfig() { this->config_ = nullptr;};
-    inline string config() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
+    inline string getConfig() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
     inline GetFeatureConsistencyCheckJobResponseBody& setConfig(string config) { DARABONBA_PTR_SET_VALUE(config_, config) };
 
 
     // featureConsistencyCheckJobConfigId Field Functions 
     bool hasFeatureConsistencyCheckJobConfigId() const { return this->featureConsistencyCheckJobConfigId_ != nullptr;};
     void deleteFeatureConsistencyCheckJobConfigId() { this->featureConsistencyCheckJobConfigId_ = nullptr;};
-    inline string featureConsistencyCheckJobConfigId() const { DARABONBA_PTR_GET_DEFAULT(featureConsistencyCheckJobConfigId_, "") };
+    inline string getFeatureConsistencyCheckJobConfigId() const { DARABONBA_PTR_GET_DEFAULT(featureConsistencyCheckJobConfigId_, "") };
     inline GetFeatureConsistencyCheckJobResponseBody& setFeatureConsistencyCheckJobConfigId(string featureConsistencyCheckJobConfigId) { DARABONBA_PTR_SET_VALUE(featureConsistencyCheckJobConfigId_, featureConsistencyCheckJobConfigId) };
 
 
     // featureConsistencyCheckJobConfigName Field Functions 
     bool hasFeatureConsistencyCheckJobConfigName() const { return this->featureConsistencyCheckJobConfigName_ != nullptr;};
     void deleteFeatureConsistencyCheckJobConfigName() { this->featureConsistencyCheckJobConfigName_ = nullptr;};
-    inline string featureConsistencyCheckJobConfigName() const { DARABONBA_PTR_GET_DEFAULT(featureConsistencyCheckJobConfigName_, "") };
+    inline string getFeatureConsistencyCheckJobConfigName() const { DARABONBA_PTR_GET_DEFAULT(featureConsistencyCheckJobConfigName_, "") };
     inline GetFeatureConsistencyCheckJobResponseBody& setFeatureConsistencyCheckJobConfigName(string featureConsistencyCheckJobConfigName) { DARABONBA_PTR_SET_VALUE(featureConsistencyCheckJobConfigName_, featureConsistencyCheckJobConfigName) };
 
 
     // gmtEndTime Field Functions 
     bool hasGmtEndTime() const { return this->gmtEndTime_ != nullptr;};
     void deleteGmtEndTime() { this->gmtEndTime_ = nullptr;};
-    inline string gmtEndTime() const { DARABONBA_PTR_GET_DEFAULT(gmtEndTime_, "") };
+    inline string getGmtEndTime() const { DARABONBA_PTR_GET_DEFAULT(gmtEndTime_, "") };
     inline GetFeatureConsistencyCheckJobResponseBody& setGmtEndTime(string gmtEndTime) { DARABONBA_PTR_SET_VALUE(gmtEndTime_, gmtEndTime) };
 
 
     // gmtStartTime Field Functions 
     bool hasGmtStartTime() const { return this->gmtStartTime_ != nullptr;};
     void deleteGmtStartTime() { this->gmtStartTime_ = nullptr;};
-    inline string gmtStartTime() const { DARABONBA_PTR_GET_DEFAULT(gmtStartTime_, "") };
+    inline string getGmtStartTime() const { DARABONBA_PTR_GET_DEFAULT(gmtStartTime_, "") };
     inline GetFeatureConsistencyCheckJobResponseBody& setGmtStartTime(string gmtStartTime) { DARABONBA_PTR_SET_VALUE(gmtStartTime_, gmtStartTime) };
 
 
     // logs Field Functions 
     bool hasLogs() const { return this->logs_ != nullptr;};
     void deleteLogs() { this->logs_ = nullptr;};
-    inline const vector<string> & logs() const { DARABONBA_PTR_GET_CONST(logs_, vector<string>) };
-    inline vector<string> logs() { DARABONBA_PTR_GET(logs_, vector<string>) };
+    inline const vector<string> & getLogs() const { DARABONBA_PTR_GET_CONST(logs_, vector<string>) };
+    inline vector<string> getLogs() { DARABONBA_PTR_GET(logs_, vector<string>) };
     inline GetFeatureConsistencyCheckJobResponseBody& setLogs(const vector<string> & logs) { DARABONBA_PTR_SET_VALUE(logs_, logs) };
     inline GetFeatureConsistencyCheckJobResponseBody& setLogs(vector<string> && logs) { DARABONBA_PTR_SET_RVALUE(logs_, logs) };
 
@@ -94,26 +94,26 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetFeatureConsistencyCheckJobResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline GetFeatureConsistencyCheckJobResponseBody& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
   protected:
-    std::shared_ptr<string> config_ = nullptr;
-    std::shared_ptr<string> featureConsistencyCheckJobConfigId_ = nullptr;
-    std::shared_ptr<string> featureConsistencyCheckJobConfigName_ = nullptr;
-    std::shared_ptr<string> gmtEndTime_ = nullptr;
-    std::shared_ptr<string> gmtStartTime_ = nullptr;
-    std::shared_ptr<vector<string>> logs_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> config_ {};
+    shared_ptr<string> featureConsistencyCheckJobConfigId_ {};
+    shared_ptr<string> featureConsistencyCheckJobConfigName_ {};
+    shared_ptr<string> gmtEndTime_ {};
+    shared_ptr<string> gmtStartTime_ {};
+    shared_ptr<vector<string>> logs_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models

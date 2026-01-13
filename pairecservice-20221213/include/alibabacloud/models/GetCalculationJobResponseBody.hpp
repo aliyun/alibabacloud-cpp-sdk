@@ -46,49 +46,49 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ABMetricId_ != nullptr
-        && this->ABMetricName_ != nullptr && this->bizDate_ != nullptr && this->config_ != nullptr && this->gmtRanTime_ != nullptr && this->jobMessage_ != nullptr
-        && this->jobSource_ != nullptr && this->requestId_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->ABMetricId_ == nullptr
+        && this->ABMetricName_ == nullptr && this->bizDate_ == nullptr && this->config_ == nullptr && this->gmtRanTime_ == nullptr && this->jobMessage_ == nullptr
+        && this->jobSource_ == nullptr && this->requestId_ == nullptr && this->status_ == nullptr; };
     // ABMetricId Field Functions 
     bool hasABMetricId() const { return this->ABMetricId_ != nullptr;};
     void deleteABMetricId() { this->ABMetricId_ = nullptr;};
-    inline string ABMetricId() const { DARABONBA_PTR_GET_DEFAULT(ABMetricId_, "") };
+    inline string getABMetricId() const { DARABONBA_PTR_GET_DEFAULT(ABMetricId_, "") };
     inline GetCalculationJobResponseBody& setABMetricId(string ABMetricId) { DARABONBA_PTR_SET_VALUE(ABMetricId_, ABMetricId) };
 
 
     // ABMetricName Field Functions 
     bool hasABMetricName() const { return this->ABMetricName_ != nullptr;};
     void deleteABMetricName() { this->ABMetricName_ = nullptr;};
-    inline string ABMetricName() const { DARABONBA_PTR_GET_DEFAULT(ABMetricName_, "") };
+    inline string getABMetricName() const { DARABONBA_PTR_GET_DEFAULT(ABMetricName_, "") };
     inline GetCalculationJobResponseBody& setABMetricName(string ABMetricName) { DARABONBA_PTR_SET_VALUE(ABMetricName_, ABMetricName) };
 
 
     // bizDate Field Functions 
     bool hasBizDate() const { return this->bizDate_ != nullptr;};
     void deleteBizDate() { this->bizDate_ = nullptr;};
-    inline string bizDate() const { DARABONBA_PTR_GET_DEFAULT(bizDate_, "") };
+    inline string getBizDate() const { DARABONBA_PTR_GET_DEFAULT(bizDate_, "") };
     inline GetCalculationJobResponseBody& setBizDate(string bizDate) { DARABONBA_PTR_SET_VALUE(bizDate_, bizDate) };
 
 
     // config Field Functions 
     bool hasConfig() const { return this->config_ != nullptr;};
     void deleteConfig() { this->config_ = nullptr;};
-    inline string config() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
+    inline string getConfig() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
     inline GetCalculationJobResponseBody& setConfig(string config) { DARABONBA_PTR_SET_VALUE(config_, config) };
 
 
     // gmtRanTime Field Functions 
     bool hasGmtRanTime() const { return this->gmtRanTime_ != nullptr;};
     void deleteGmtRanTime() { this->gmtRanTime_ = nullptr;};
-    inline string gmtRanTime() const { DARABONBA_PTR_GET_DEFAULT(gmtRanTime_, "") };
+    inline string getGmtRanTime() const { DARABONBA_PTR_GET_DEFAULT(gmtRanTime_, "") };
     inline GetCalculationJobResponseBody& setGmtRanTime(string gmtRanTime) { DARABONBA_PTR_SET_VALUE(gmtRanTime_, gmtRanTime) };
 
 
     // jobMessage Field Functions 
     bool hasJobMessage() const { return this->jobMessage_ != nullptr;};
     void deleteJobMessage() { this->jobMessage_ = nullptr;};
-    inline const vector<string> & jobMessage() const { DARABONBA_PTR_GET_CONST(jobMessage_, vector<string>) };
-    inline vector<string> jobMessage() { DARABONBA_PTR_GET(jobMessage_, vector<string>) };
+    inline const vector<string> & getJobMessage() const { DARABONBA_PTR_GET_CONST(jobMessage_, vector<string>) };
+    inline vector<string> getJobMessage() { DARABONBA_PTR_GET(jobMessage_, vector<string>) };
     inline GetCalculationJobResponseBody& setJobMessage(const vector<string> & jobMessage) { DARABONBA_PTR_SET_VALUE(jobMessage_, jobMessage) };
     inline GetCalculationJobResponseBody& setJobMessage(vector<string> && jobMessage) { DARABONBA_PTR_SET_RVALUE(jobMessage_, jobMessage) };
 
@@ -96,34 +96,34 @@ namespace Models
     // jobSource Field Functions 
     bool hasJobSource() const { return this->jobSource_ != nullptr;};
     void deleteJobSource() { this->jobSource_ = nullptr;};
-    inline string jobSource() const { DARABONBA_PTR_GET_DEFAULT(jobSource_, "") };
+    inline string getJobSource() const { DARABONBA_PTR_GET_DEFAULT(jobSource_, "") };
     inline GetCalculationJobResponseBody& setJobSource(string jobSource) { DARABONBA_PTR_SET_VALUE(jobSource_, jobSource) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetCalculationJobResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline GetCalculationJobResponseBody& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
   protected:
-    std::shared_ptr<string> ABMetricId_ = nullptr;
-    std::shared_ptr<string> ABMetricName_ = nullptr;
-    std::shared_ptr<string> bizDate_ = nullptr;
-    std::shared_ptr<string> config_ = nullptr;
-    std::shared_ptr<string> gmtRanTime_ = nullptr;
-    std::shared_ptr<vector<string>> jobMessage_ = nullptr;
-    std::shared_ptr<string> jobSource_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> ABMetricId_ {};
+    shared_ptr<string> ABMetricName_ {};
+    shared_ptr<string> bizDate_ {};
+    shared_ptr<string> config_ {};
+    shared_ptr<string> gmtRanTime_ {};
+    shared_ptr<vector<string>> jobMessage_ {};
+    shared_ptr<string> jobSource_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models

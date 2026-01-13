@@ -35,45 +35,45 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->category_ != nullptr
-        && this->group_ != nullptr && this->type_ != nullptr && this->uri_ != nullptr; };
+    virtual bool empty() const override { return this->category_ == nullptr
+        && this->group_ == nullptr && this->type_ == nullptr && this->uri_ == nullptr; };
     // category Field Functions 
     bool hasCategory() const { return this->category_ != nullptr;};
     void deleteCategory() { this->category_ = nullptr;};
-    inline string category() const { DARABONBA_PTR_GET_DEFAULT(category_, "") };
+    inline string getCategory() const { DARABONBA_PTR_GET_DEFAULT(category_, "") };
     inline CreateInstanceResourceRequest& setCategory(string category) { DARABONBA_PTR_SET_VALUE(category_, category) };
 
 
     // group Field Functions 
     bool hasGroup() const { return this->group_ != nullptr;};
     void deleteGroup() { this->group_ = nullptr;};
-    inline string group() const { DARABONBA_PTR_GET_DEFAULT(group_, "") };
+    inline string getGroup() const { DARABONBA_PTR_GET_DEFAULT(group_, "") };
     inline CreateInstanceResourceRequest& setGroup(string group) { DARABONBA_PTR_SET_VALUE(group_, group) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline CreateInstanceResourceRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
     // uri Field Functions 
     bool hasUri() const { return this->uri_ != nullptr;};
     void deleteUri() { this->uri_ = nullptr;};
-    inline string uri() const { DARABONBA_PTR_GET_DEFAULT(uri_, "") };
+    inline string getUri() const { DARABONBA_PTR_GET_DEFAULT(uri_, "") };
     inline CreateInstanceResourceRequest& setUri(string uri) { DARABONBA_PTR_SET_VALUE(uri_, uri) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> category_ = nullptr;
+    shared_ptr<string> category_ {};
     // This parameter is required.
-    std::shared_ptr<string> group_ = nullptr;
+    shared_ptr<string> group_ {};
     // This parameter is required.
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
     // This parameter is required.
-    std::shared_ptr<string> uri_ = nullptr;
+    shared_ptr<string> uri_ {};
   };
 
   } // namespace Models

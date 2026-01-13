@@ -39,62 +39,62 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->description_ != nullptr
-        && this->instanceId_ != nullptr && this->maxValue_ != nullptr && this->minValue_ != nullptr && this->name_ != nullptr && this->value_ != nullptr; };
+    virtual bool empty() const override { return this->description_ == nullptr
+        && this->instanceId_ == nullptr && this->maxValue_ == nullptr && this->minValue_ == nullptr && this->name_ == nullptr && this->value_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateResourceRuleItemRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline CreateResourceRuleItemRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // maxValue Field Functions 
     bool hasMaxValue() const { return this->maxValue_ != nullptr;};
     void deleteMaxValue() { this->maxValue_ = nullptr;};
-    inline double maxValue() const { DARABONBA_PTR_GET_DEFAULT(maxValue_, 0.0) };
+    inline double getMaxValue() const { DARABONBA_PTR_GET_DEFAULT(maxValue_, 0.0) };
     inline CreateResourceRuleItemRequest& setMaxValue(double maxValue) { DARABONBA_PTR_SET_VALUE(maxValue_, maxValue) };
 
 
     // minValue Field Functions 
     bool hasMinValue() const { return this->minValue_ != nullptr;};
     void deleteMinValue() { this->minValue_ = nullptr;};
-    inline double minValue() const { DARABONBA_PTR_GET_DEFAULT(minValue_, 0.0) };
+    inline double getMinValue() const { DARABONBA_PTR_GET_DEFAULT(minValue_, 0.0) };
     inline CreateResourceRuleItemRequest& setMinValue(double minValue) { DARABONBA_PTR_SET_VALUE(minValue_, minValue) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateResourceRuleItemRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // value Field Functions 
     bool hasValue() const { return this->value_ != nullptr;};
     void deleteValue() { this->value_ = nullptr;};
-    inline double value() const { DARABONBA_PTR_GET_DEFAULT(value_, 0.0) };
+    inline double getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, 0.0) };
     inline CreateResourceRuleItemRequest& setValue(double value) { DARABONBA_PTR_SET_VALUE(value_, value) };
 
 
   protected:
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<double> maxValue_ = nullptr;
+    shared_ptr<double> maxValue_ {};
     // This parameter is required.
-    std::shared_ptr<double> minValue_ = nullptr;
+    shared_ptr<double> minValue_ {};
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // This parameter is required.
-    std::shared_ptr<double> value_ = nullptr;
+    shared_ptr<double> value_ {};
   };
 
   } // namespace Models

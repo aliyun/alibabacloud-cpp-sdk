@@ -57,6 +57,24 @@ namespace PaiRecService20221213
       Models::BackflowFeatureConsistencyCheckJobDataResponse backflowFeatureConsistencyCheckJobData(const Models::BackflowFeatureConsistencyCheckJobDataRequest &request);
 
       /**
+       * @summary 更改召回管理服务的版本
+       *
+       * @param request ChangeRecallManagementServiceVersionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ChangeRecallManagementServiceVersionResponse
+       */
+      Models::ChangeRecallManagementServiceVersionResponse changeRecallManagementServiceVersionWithOptions(const string &RecallManagementServiceId, const Models::ChangeRecallManagementServiceVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更改召回管理服务的版本
+       *
+       * @param request ChangeRecallManagementServiceVersionRequest
+       * @return ChangeRecallManagementServiceVersionResponse
+       */
+      Models::ChangeRecallManagementServiceVersionResponse changeRecallManagementServiceVersion(const string &RecallManagementServiceId, const Models::ChangeRecallManagementServiceVersionRequest &request);
+
+      /**
        * @summary 检测实例下配置的资源的连接状态。
        *
        * @param request CheckInstanceResourcesRequest
@@ -453,6 +471,96 @@ namespace PaiRecService20221213
       Models::CreateParamResponse createParam(const Models::CreateParamRequest &request);
 
       /**
+       * @summary 创建召回管理初始化配置。
+       *
+       * @param request CreateRecallManagementConfigRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateRecallManagementConfigResponse
+       */
+      Models::CreateRecallManagementConfigResponse createRecallManagementConfigWithOptions(const Models::CreateRecallManagementConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建召回管理初始化配置。
+       *
+       * @param request CreateRecallManagementConfigRequest
+       * @return CreateRecallManagementConfigResponse
+       */
+      Models::CreateRecallManagementConfigResponse createRecallManagementConfig(const Models::CreateRecallManagementConfigRequest &request);
+
+      /**
+       * @summary 创建召回管理服务
+       *
+       * @param request CreateRecallManagementServiceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateRecallManagementServiceResponse
+       */
+      Models::CreateRecallManagementServiceResponse createRecallManagementServiceWithOptions(const Models::CreateRecallManagementServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建召回管理服务
+       *
+       * @param request CreateRecallManagementServiceRequest
+       * @return CreateRecallManagementServiceResponse
+       */
+      Models::CreateRecallManagementServiceResponse createRecallManagementService(const Models::CreateRecallManagementServiceRequest &request);
+
+      /**
+       * @summary 创建召回管理版本
+       *
+       * @param request CreateRecallManagementServiceVersionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateRecallManagementServiceVersionResponse
+       */
+      Models::CreateRecallManagementServiceVersionResponse createRecallManagementServiceVersionWithOptions(const string &RecallManagementServiceId, const Models::CreateRecallManagementServiceVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建召回管理版本
+       *
+       * @param request CreateRecallManagementServiceVersionRequest
+       * @return CreateRecallManagementServiceVersionResponse
+       */
+      Models::CreateRecallManagementServiceVersionResponse createRecallManagementServiceVersion(const string &RecallManagementServiceId, const Models::CreateRecallManagementServiceVersionRequest &request);
+
+      /**
+       * @summary 创建召回管理服务版本配置
+       *
+       * @param request CreateRecallManagementServiceVersionConfigRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateRecallManagementServiceVersionConfigResponse
+       */
+      Models::CreateRecallManagementServiceVersionConfigResponse createRecallManagementServiceVersionConfigWithOptions(const string &RecallManagementServiceId, const string &RecallManagementServiceVersionId, const Models::CreateRecallManagementServiceVersionConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建召回管理服务版本配置
+       *
+       * @param request CreateRecallManagementServiceVersionConfigRequest
+       * @return CreateRecallManagementServiceVersionConfigResponse
+       */
+      Models::CreateRecallManagementServiceVersionConfigResponse createRecallManagementServiceVersionConfig(const string &RecallManagementServiceId, const string &RecallManagementServiceVersionId, const Models::CreateRecallManagementServiceVersionConfigRequest &request);
+
+      /**
+       * @summary 创建召回管理表。
+       *
+       * @param request CreateRecallManagementTableRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateRecallManagementTableResponse
+       */
+      Models::CreateRecallManagementTableResponse createRecallManagementTableWithOptions(const Models::CreateRecallManagementTableRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建召回管理表。
+       *
+       * @param request CreateRecallManagementTableRequest
+       * @return CreateRecallManagementTableResponse
+       */
+      Models::CreateRecallManagementTableResponse createRecallManagementTable(const Models::CreateRecallManagementTableRequest &request);
+
+      /**
        * @summary 创建资源规则
        *
        * @param request CreateResourceRuleRequest
@@ -791,6 +899,78 @@ namespace PaiRecService20221213
        * @return DeleteParamResponse
        */
       Models::DeleteParamResponse deleteParam(const string &ParamId, const Models::DeleteParamRequest &request);
+
+      /**
+       * @summary 删除指定召回管理服务
+       *
+       * @param request DeleteRecallManagementServiceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteRecallManagementServiceResponse
+       */
+      Models::DeleteRecallManagementServiceResponse deleteRecallManagementServiceWithOptions(const string &RecallManagementServiceId, const Models::DeleteRecallManagementServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除指定召回管理服务
+       *
+       * @param request DeleteRecallManagementServiceRequest
+       * @return DeleteRecallManagementServiceResponse
+       */
+      Models::DeleteRecallManagementServiceResponse deleteRecallManagementService(const string &RecallManagementServiceId, const Models::DeleteRecallManagementServiceRequest &request);
+
+      /**
+       * @summary 删除指定召回管理服务版本
+       *
+       * @param request DeleteRecallManagementServiceVersionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteRecallManagementServiceVersionResponse
+       */
+      Models::DeleteRecallManagementServiceVersionResponse deleteRecallManagementServiceVersionWithOptions(const string &RecallManagementServiceId, const string &RecallManagementServiceVersionId, const Models::DeleteRecallManagementServiceVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除指定召回管理服务版本
+       *
+       * @param request DeleteRecallManagementServiceVersionRequest
+       * @return DeleteRecallManagementServiceVersionResponse
+       */
+      Models::DeleteRecallManagementServiceVersionResponse deleteRecallManagementServiceVersion(const string &RecallManagementServiceId, const string &RecallManagementServiceVersionId, const Models::DeleteRecallManagementServiceVersionRequest &request);
+
+      /**
+       * @summary 删除召回管理服务版本配置
+       *
+       * @param request DeleteRecallManagementServiceVersionConfigRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteRecallManagementServiceVersionConfigResponse
+       */
+      Models::DeleteRecallManagementServiceVersionConfigResponse deleteRecallManagementServiceVersionConfigWithOptions(const string &RecallManagementServiceId, const string &RecallManagementServiceVersionId, const string &RecallManagementServiceVersionConfigId, const Models::DeleteRecallManagementServiceVersionConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除召回管理服务版本配置
+       *
+       * @param request DeleteRecallManagementServiceVersionConfigRequest
+       * @return DeleteRecallManagementServiceVersionConfigResponse
+       */
+      Models::DeleteRecallManagementServiceVersionConfigResponse deleteRecallManagementServiceVersionConfig(const string &RecallManagementServiceId, const string &RecallManagementServiceVersionId, const string &RecallManagementServiceVersionConfigId, const Models::DeleteRecallManagementServiceVersionConfigRequest &request);
+
+      /**
+       * @summary 删除指定召回管理表。
+       *
+       * @param request DeleteRecallManagementTableRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteRecallManagementTableResponse
+       */
+      Models::DeleteRecallManagementTableResponse deleteRecallManagementTableWithOptions(const string &RecallManagementTableId, const Models::DeleteRecallManagementTableRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除指定召回管理表。
+       *
+       * @param request DeleteRecallManagementTableRequest
+       * @return DeleteRecallManagementTableResponse
+       */
+      Models::DeleteRecallManagementTableResponse deleteRecallManagementTable(const string &RecallManagementTableId, const Models::DeleteRecallManagementTableRequest &request);
 
       /**
        * @summary 删除资源规则
@@ -1217,6 +1397,114 @@ namespace PaiRecService20221213
        * @return GetLayerResponse
        */
       Models::GetLayerResponse getLayer(const string &LayerId, const Models::GetLayerRequest &request);
+
+      /**
+       * @summary 获取召回管理初始化配置。
+       *
+       * @param request GetRecallManagementConfigRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetRecallManagementConfigResponse
+       */
+      Models::GetRecallManagementConfigResponse getRecallManagementConfigWithOptions(const Models::GetRecallManagementConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取召回管理初始化配置。
+       *
+       * @param request GetRecallManagementConfigRequest
+       * @return GetRecallManagementConfigResponse
+       */
+      Models::GetRecallManagementConfigResponse getRecallManagementConfig(const Models::GetRecallManagementConfigRequest &request);
+
+      /**
+       * @summary 获取召回管理任务详情。
+       *
+       * @param request GetRecallManagementJobRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetRecallManagementJobResponse
+       */
+      Models::GetRecallManagementJobResponse getRecallManagementJobWithOptions(const string &RecallManagementJobId, const Models::GetRecallManagementJobRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取召回管理任务详情。
+       *
+       * @param request GetRecallManagementJobRequest
+       * @return GetRecallManagementJobResponse
+       */
+      Models::GetRecallManagementJobResponse getRecallManagementJob(const string &RecallManagementJobId, const Models::GetRecallManagementJobRequest &request);
+
+      /**
+       * @summary 获取指定召回管理服务详细信息
+       *
+       * @param request GetRecallManagementServiceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetRecallManagementServiceResponse
+       */
+      Models::GetRecallManagementServiceResponse getRecallManagementServiceWithOptions(const string &RecallManagementServiceId, const Models::GetRecallManagementServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取指定召回管理服务详细信息
+       *
+       * @param request GetRecallManagementServiceRequest
+       * @return GetRecallManagementServiceResponse
+       */
+      Models::GetRecallManagementServiceResponse getRecallManagementService(const string &RecallManagementServiceId, const Models::GetRecallManagementServiceRequest &request);
+
+      /**
+       * @summary 获取指定召回管理版本详细信息
+       *
+       * @param request GetRecallManagementServiceVersionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetRecallManagementServiceVersionResponse
+       */
+      Models::GetRecallManagementServiceVersionResponse getRecallManagementServiceVersionWithOptions(const string &RecallManagementServiceId, const string &RecallManagementServiceVersionId, const Models::GetRecallManagementServiceVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取指定召回管理版本详细信息
+       *
+       * @param request GetRecallManagementServiceVersionRequest
+       * @return GetRecallManagementServiceVersionResponse
+       */
+      Models::GetRecallManagementServiceVersionResponse getRecallManagementServiceVersion(const string &RecallManagementServiceId, const string &RecallManagementServiceVersionId, const Models::GetRecallManagementServiceVersionRequest &request);
+
+      /**
+       * @summary 获取召回管理服务版本配置详细信息
+       *
+       * @param request GetRecallManagementServiceVersionConfigRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetRecallManagementServiceVersionConfigResponse
+       */
+      Models::GetRecallManagementServiceVersionConfigResponse getRecallManagementServiceVersionConfigWithOptions(const string &RecallManagementServiceId, const string &RecallManagementServiceVersionId, const string &RecallManagementServiceVersionConfigId, const Models::GetRecallManagementServiceVersionConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取召回管理服务版本配置详细信息
+       *
+       * @param request GetRecallManagementServiceVersionConfigRequest
+       * @return GetRecallManagementServiceVersionConfigResponse
+       */
+      Models::GetRecallManagementServiceVersionConfigResponse getRecallManagementServiceVersionConfig(const string &RecallManagementServiceId, const string &RecallManagementServiceVersionId, const string &RecallManagementServiceVersionConfigId, const Models::GetRecallManagementServiceVersionConfigRequest &request);
+
+      /**
+       * @summary 获取指定召回管理表详细信息。
+       *
+       * @param request GetRecallManagementTableRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetRecallManagementTableResponse
+       */
+      Models::GetRecallManagementTableResponse getRecallManagementTableWithOptions(const string &RecallManagementTableId, const Models::GetRecallManagementTableRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取指定召回管理表详细信息。
+       *
+       * @param request GetRecallManagementTableRequest
+       * @return GetRecallManagementTableResponse
+       */
+      Models::GetRecallManagementTableResponse getRecallManagementTable(const string &RecallManagementTableId, const Models::GetRecallManagementTableRequest &request);
 
       /**
        * @summary 获取资源规则详细信息
@@ -1687,6 +1975,96 @@ namespace PaiRecService20221213
       Models::ListParamsResponse listParams(const Models::ListParamsRequest &request);
 
       /**
+       * @summary 获取召回管理任务列表。
+       *
+       * @param request ListRecallManagementJobsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListRecallManagementJobsResponse
+       */
+      Models::ListRecallManagementJobsResponse listRecallManagementJobsWithOptions(const Models::ListRecallManagementJobsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取召回管理任务列表。
+       *
+       * @param request ListRecallManagementJobsRequest
+       * @return ListRecallManagementJobsResponse
+       */
+      Models::ListRecallManagementJobsResponse listRecallManagementJobs(const Models::ListRecallManagementJobsRequest &request);
+
+      /**
+       * @summary 获取召回管理服务下的版本列表
+       *
+       * @param request ListRecallManagementServiceVersionsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListRecallManagementServiceVersionsResponse
+       */
+      Models::ListRecallManagementServiceVersionsResponse listRecallManagementServiceVersionsWithOptions(const string &RecallManagementServiceId, const Models::ListRecallManagementServiceVersionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取召回管理服务下的版本列表
+       *
+       * @param request ListRecallManagementServiceVersionsRequest
+       * @return ListRecallManagementServiceVersionsResponse
+       */
+      Models::ListRecallManagementServiceVersionsResponse listRecallManagementServiceVersions(const string &RecallManagementServiceId, const Models::ListRecallManagementServiceVersionsRequest &request);
+
+      /**
+       * @summary 获取召回管理服务列表
+       *
+       * @param request ListRecallManagementServicesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListRecallManagementServicesResponse
+       */
+      Models::ListRecallManagementServicesResponse listRecallManagementServicesWithOptions(const Models::ListRecallManagementServicesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取召回管理服务列表
+       *
+       * @param request ListRecallManagementServicesRequest
+       * @return ListRecallManagementServicesResponse
+       */
+      Models::ListRecallManagementServicesResponse listRecallManagementServices(const Models::ListRecallManagementServicesRequest &request);
+
+      /**
+       * @summary 获取召回管理表版本列表。
+       *
+       * @param request ListRecallManagementTableVersionsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListRecallManagementTableVersionsResponse
+       */
+      Models::ListRecallManagementTableVersionsResponse listRecallManagementTableVersionsWithOptions(const string &RecallManagementTableId, const Models::ListRecallManagementTableVersionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取召回管理表版本列表。
+       *
+       * @param request ListRecallManagementTableVersionsRequest
+       * @return ListRecallManagementTableVersionsResponse
+       */
+      Models::ListRecallManagementTableVersionsResponse listRecallManagementTableVersions(const string &RecallManagementTableId, const Models::ListRecallManagementTableVersionsRequest &request);
+
+      /**
+       * @summary 获取召回管理表列表。
+       *
+       * @param request ListRecallManagementTablesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListRecallManagementTablesResponse
+       */
+      Models::ListRecallManagementTablesResponse listRecallManagementTablesWithOptions(const Models::ListRecallManagementTablesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取召回管理表列表。
+       *
+       * @param request ListRecallManagementTablesRequest
+       * @return ListRecallManagementTablesResponse
+       */
+      Models::ListRecallManagementTablesResponse listRecallManagementTables(const Models::ListRecallManagementTablesRequest &request);
+
+      /**
        * @summary 获取资源规则列表
        *
        * @param request ListResourceRulesRequest
@@ -1867,6 +2245,24 @@ namespace PaiRecService20221213
       Models::OfflineLaboratoryResponse offlineLaboratory(const string &LaboratoryId, const Models::OfflineLaboratoryRequest &request);
 
       /**
+       * @summary 下线召回管理服务
+       *
+       * @param request OfflineRecallManagementServiceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return OfflineRecallManagementServiceResponse
+       */
+      Models::OfflineRecallManagementServiceResponse offlineRecallManagementServiceWithOptions(const string &RecallManagementServiceId, const Models::OfflineRecallManagementServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 下线召回管理服务
+       *
+       * @param request OfflineRecallManagementServiceRequest
+       * @return OfflineRecallManagementServiceResponse
+       */
+      Models::OfflineRecallManagementServiceResponse offlineRecallManagementService(const string &RecallManagementServiceId, const Models::OfflineRecallManagementServiceRequest &request);
+
+      /**
        * @summary 上线实验
        *
        * @param request OnlineExperimentRequest
@@ -1919,6 +2315,42 @@ namespace PaiRecService20221213
        * @return OnlineLaboratoryResponse
        */
       Models::OnlineLaboratoryResponse onlineLaboratory(const string &LaboratoryId, const Models::OnlineLaboratoryRequest &request);
+
+      /**
+       * @summary 上线召回管理服务
+       *
+       * @param request OnlineRecallManagementServiceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return OnlineRecallManagementServiceResponse
+       */
+      Models::OnlineRecallManagementServiceResponse onlineRecallManagementServiceWithOptions(const string &RecallManagementServiceId, const Models::OnlineRecallManagementServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 上线召回管理服务
+       *
+       * @param request OnlineRecallManagementServiceRequest
+       * @return OnlineRecallManagementServiceResponse
+       */
+      Models::OnlineRecallManagementServiceResponse onlineRecallManagementService(const string &RecallManagementServiceId, const Models::OnlineRecallManagementServiceRequest &request);
+
+      /**
+       * @summary 将maxcompute的表同步到召回引擎中。
+       *
+       * @param request PublishRecallManagementTableRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return PublishRecallManagementTableResponse
+       */
+      Models::PublishRecallManagementTableResponse publishRecallManagementTableWithOptions(const string &RecallManagementTableId, const Models::PublishRecallManagementTableRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 将maxcompute的表同步到召回引擎中。
+       *
+       * @param request PublishRecallManagementTableRequest
+       * @return PublishRecallManagementTableResponse
+       */
+      Models::PublishRecallManagementTableResponse publishRecallManagementTable(const string &RecallManagementTableId, const Models::PublishRecallManagementTableRequest &request);
 
       /**
        * @summary 推全。
@@ -2387,6 +2819,78 @@ namespace PaiRecService20221213
        * @return UpdateParamResponse
        */
       Models::UpdateParamResponse updateParam(const string &ParamId, const Models::UpdateParamRequest &request);
+
+      /**
+       * @summary 更新召回管理初始化配置。
+       *
+       * @param request UpdateRecallManagementConfigRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateRecallManagementConfigResponse
+       */
+      Models::UpdateRecallManagementConfigResponse updateRecallManagementConfigWithOptions(const Models::UpdateRecallManagementConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新召回管理初始化配置。
+       *
+       * @param request UpdateRecallManagementConfigRequest
+       * @return UpdateRecallManagementConfigResponse
+       */
+      Models::UpdateRecallManagementConfigResponse updateRecallManagementConfig(const Models::UpdateRecallManagementConfigRequest &request);
+
+      /**
+       * @summary 更新召回管理服务信息
+       *
+       * @param request UpdateRecallManagementServiceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateRecallManagementServiceResponse
+       */
+      Models::UpdateRecallManagementServiceResponse updateRecallManagementServiceWithOptions(const string &RecallManagementServiceId, const Models::UpdateRecallManagementServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新召回管理服务信息
+       *
+       * @param request UpdateRecallManagementServiceRequest
+       * @return UpdateRecallManagementServiceResponse
+       */
+      Models::UpdateRecallManagementServiceResponse updateRecallManagementService(const string &RecallManagementServiceId, const Models::UpdateRecallManagementServiceRequest &request);
+
+      /**
+       * @summary 更新召回管理服务版本配置
+       *
+       * @param request UpdateRecallManagementServiceVersionConfigRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateRecallManagementServiceVersionConfigResponse
+       */
+      Models::UpdateRecallManagementServiceVersionConfigResponse updateRecallManagementServiceVersionConfigWithOptions(const string &RecallManagementServiceId, const string &RecallManagementServiceVersionId, const string &RecallManagementServiceVersionConfigId, const Models::UpdateRecallManagementServiceVersionConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新召回管理服务版本配置
+       *
+       * @param request UpdateRecallManagementServiceVersionConfigRequest
+       * @return UpdateRecallManagementServiceVersionConfigResponse
+       */
+      Models::UpdateRecallManagementServiceVersionConfigResponse updateRecallManagementServiceVersionConfig(const string &RecallManagementServiceId, const string &RecallManagementServiceVersionId, const string &RecallManagementServiceVersionConfigId, const Models::UpdateRecallManagementServiceVersionConfigRequest &request);
+
+      /**
+       * @summary 更新召回管理表。
+       *
+       * @param request UpdateRecallManagementTableRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateRecallManagementTableResponse
+       */
+      Models::UpdateRecallManagementTableResponse updateRecallManagementTableWithOptions(const string &RecallManagementTableId, const Models::UpdateRecallManagementTableRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新召回管理表。
+       *
+       * @param request UpdateRecallManagementTableRequest
+       * @return UpdateRecallManagementTableResponse
+       */
+      Models::UpdateRecallManagementTableResponse updateRecallManagementTable(const string &RecallManagementTableId, const Models::UpdateRecallManagementTableRequest &request);
 
       /**
        * @summary 获取资源规则列表

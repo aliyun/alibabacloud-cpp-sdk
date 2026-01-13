@@ -33,34 +33,34 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->featureName_ != nullptr
-        && this->featureType_ != nullptr && this->instanceId_ != nullptr; };
+    virtual bool empty() const override { return this->featureName_ == nullptr
+        && this->featureType_ == nullptr && this->instanceId_ == nullptr; };
     // featureName Field Functions 
     bool hasFeatureName() const { return this->featureName_ != nullptr;};
     void deleteFeatureName() { this->featureName_ = nullptr;};
-    inline string featureName() const { DARABONBA_PTR_GET_DEFAULT(featureName_, "") };
+    inline string getFeatureName() const { DARABONBA_PTR_GET_DEFAULT(featureName_, "") };
     inline QuerySampleConsistencyJobDifferenceRequest& setFeatureName(string featureName) { DARABONBA_PTR_SET_VALUE(featureName_, featureName) };
 
 
     // featureType Field Functions 
     bool hasFeatureType() const { return this->featureType_ != nullptr;};
     void deleteFeatureType() { this->featureType_ = nullptr;};
-    inline string featureType() const { DARABONBA_PTR_GET_DEFAULT(featureType_, "") };
+    inline string getFeatureType() const { DARABONBA_PTR_GET_DEFAULT(featureType_, "") };
     inline QuerySampleConsistencyJobDifferenceRequest& setFeatureType(string featureType) { DARABONBA_PTR_SET_VALUE(featureType_, featureType) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline QuerySampleConsistencyJobDifferenceRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
   protected:
-    std::shared_ptr<string> featureName_ = nullptr;
-    std::shared_ptr<string> featureType_ = nullptr;
+    shared_ptr<string> featureName_ {};
+    shared_ptr<string> featureType_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
   };
 
   } // namespace Models

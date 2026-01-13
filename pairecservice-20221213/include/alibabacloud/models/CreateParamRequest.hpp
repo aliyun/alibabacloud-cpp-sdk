@@ -39,57 +39,57 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->environment_ != nullptr
-        && this->instanceId_ != nullptr && this->name_ != nullptr && this->sceneId_ != nullptr && this->type_ != nullptr && this->value_ != nullptr; };
+    virtual bool empty() const override { return this->environment_ == nullptr
+        && this->instanceId_ == nullptr && this->name_ == nullptr && this->sceneId_ == nullptr && this->type_ == nullptr && this->value_ == nullptr; };
     // environment Field Functions 
     bool hasEnvironment() const { return this->environment_ != nullptr;};
     void deleteEnvironment() { this->environment_ = nullptr;};
-    inline string environment() const { DARABONBA_PTR_GET_DEFAULT(environment_, "") };
+    inline string getEnvironment() const { DARABONBA_PTR_GET_DEFAULT(environment_, "") };
     inline CreateParamRequest& setEnvironment(string environment) { DARABONBA_PTR_SET_VALUE(environment_, environment) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline CreateParamRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateParamRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // sceneId Field Functions 
     bool hasSceneId() const { return this->sceneId_ != nullptr;};
     void deleteSceneId() { this->sceneId_ = nullptr;};
-    inline string sceneId() const { DARABONBA_PTR_GET_DEFAULT(sceneId_, "") };
+    inline string getSceneId() const { DARABONBA_PTR_GET_DEFAULT(sceneId_, "") };
     inline CreateParamRequest& setSceneId(string sceneId) { DARABONBA_PTR_SET_VALUE(sceneId_, sceneId) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline CreateParamRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
     // value Field Functions 
     bool hasValue() const { return this->value_ != nullptr;};
     void deleteValue() { this->value_ = nullptr;};
-    inline string value() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+    inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
     inline CreateParamRequest& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
 
 
   protected:
-    std::shared_ptr<string> environment_ = nullptr;
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> sceneId_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
-    std::shared_ptr<string> value_ = nullptr;
+    shared_ptr<string> environment_ {};
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<string> sceneId_ {};
+    shared_ptr<string> type_ {};
+    shared_ptr<string> value_ {};
   };
 
   } // namespace Models

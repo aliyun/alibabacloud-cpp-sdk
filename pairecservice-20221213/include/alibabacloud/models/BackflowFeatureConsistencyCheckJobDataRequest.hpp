@@ -49,108 +49,108 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->featureConsistencyCheckJobConfigId_ != nullptr
-        && this->instanceId_ != nullptr && this->itemFeatures_ != nullptr && this->logItemId_ != nullptr && this->logRequestId_ != nullptr && this->logRequestTime_ != nullptr
-        && this->logUserId_ != nullptr && this->sceneName_ != nullptr && this->scores_ != nullptr && this->serviceName_ != nullptr && this->userFeatures_ != nullptr; };
+    virtual bool empty() const override { return this->featureConsistencyCheckJobConfigId_ == nullptr
+        && this->instanceId_ == nullptr && this->itemFeatures_ == nullptr && this->logItemId_ == nullptr && this->logRequestId_ == nullptr && this->logRequestTime_ == nullptr
+        && this->logUserId_ == nullptr && this->sceneName_ == nullptr && this->scores_ == nullptr && this->serviceName_ == nullptr && this->userFeatures_ == nullptr; };
     // featureConsistencyCheckJobConfigId Field Functions 
     bool hasFeatureConsistencyCheckJobConfigId() const { return this->featureConsistencyCheckJobConfigId_ != nullptr;};
     void deleteFeatureConsistencyCheckJobConfigId() { this->featureConsistencyCheckJobConfigId_ = nullptr;};
-    inline string featureConsistencyCheckJobConfigId() const { DARABONBA_PTR_GET_DEFAULT(featureConsistencyCheckJobConfigId_, "") };
+    inline string getFeatureConsistencyCheckJobConfigId() const { DARABONBA_PTR_GET_DEFAULT(featureConsistencyCheckJobConfigId_, "") };
     inline BackflowFeatureConsistencyCheckJobDataRequest& setFeatureConsistencyCheckJobConfigId(string featureConsistencyCheckJobConfigId) { DARABONBA_PTR_SET_VALUE(featureConsistencyCheckJobConfigId_, featureConsistencyCheckJobConfigId) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline BackflowFeatureConsistencyCheckJobDataRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // itemFeatures Field Functions 
     bool hasItemFeatures() const { return this->itemFeatures_ != nullptr;};
     void deleteItemFeatures() { this->itemFeatures_ = nullptr;};
-    inline string itemFeatures() const { DARABONBA_PTR_GET_DEFAULT(itemFeatures_, "") };
+    inline string getItemFeatures() const { DARABONBA_PTR_GET_DEFAULT(itemFeatures_, "") };
     inline BackflowFeatureConsistencyCheckJobDataRequest& setItemFeatures(string itemFeatures) { DARABONBA_PTR_SET_VALUE(itemFeatures_, itemFeatures) };
 
 
     // logItemId Field Functions 
     bool hasLogItemId() const { return this->logItemId_ != nullptr;};
     void deleteLogItemId() { this->logItemId_ = nullptr;};
-    inline string logItemId() const { DARABONBA_PTR_GET_DEFAULT(logItemId_, "") };
+    inline string getLogItemId() const { DARABONBA_PTR_GET_DEFAULT(logItemId_, "") };
     inline BackflowFeatureConsistencyCheckJobDataRequest& setLogItemId(string logItemId) { DARABONBA_PTR_SET_VALUE(logItemId_, logItemId) };
 
 
     // logRequestId Field Functions 
     bool hasLogRequestId() const { return this->logRequestId_ != nullptr;};
     void deleteLogRequestId() { this->logRequestId_ = nullptr;};
-    inline string logRequestId() const { DARABONBA_PTR_GET_DEFAULT(logRequestId_, "") };
+    inline string getLogRequestId() const { DARABONBA_PTR_GET_DEFAULT(logRequestId_, "") };
     inline BackflowFeatureConsistencyCheckJobDataRequest& setLogRequestId(string logRequestId) { DARABONBA_PTR_SET_VALUE(logRequestId_, logRequestId) };
 
 
     // logRequestTime Field Functions 
     bool hasLogRequestTime() const { return this->logRequestTime_ != nullptr;};
     void deleteLogRequestTime() { this->logRequestTime_ = nullptr;};
-    inline int64_t logRequestTime() const { DARABONBA_PTR_GET_DEFAULT(logRequestTime_, 0L) };
+    inline int64_t getLogRequestTime() const { DARABONBA_PTR_GET_DEFAULT(logRequestTime_, 0L) };
     inline BackflowFeatureConsistencyCheckJobDataRequest& setLogRequestTime(int64_t logRequestTime) { DARABONBA_PTR_SET_VALUE(logRequestTime_, logRequestTime) };
 
 
     // logUserId Field Functions 
     bool hasLogUserId() const { return this->logUserId_ != nullptr;};
     void deleteLogUserId() { this->logUserId_ = nullptr;};
-    inline string logUserId() const { DARABONBA_PTR_GET_DEFAULT(logUserId_, "") };
+    inline string getLogUserId() const { DARABONBA_PTR_GET_DEFAULT(logUserId_, "") };
     inline BackflowFeatureConsistencyCheckJobDataRequest& setLogUserId(string logUserId) { DARABONBA_PTR_SET_VALUE(logUserId_, logUserId) };
 
 
     // sceneName Field Functions 
     bool hasSceneName() const { return this->sceneName_ != nullptr;};
     void deleteSceneName() { this->sceneName_ = nullptr;};
-    inline string sceneName() const { DARABONBA_PTR_GET_DEFAULT(sceneName_, "") };
+    inline string getSceneName() const { DARABONBA_PTR_GET_DEFAULT(sceneName_, "") };
     inline BackflowFeatureConsistencyCheckJobDataRequest& setSceneName(string sceneName) { DARABONBA_PTR_SET_VALUE(sceneName_, sceneName) };
 
 
     // scores Field Functions 
     bool hasScores() const { return this->scores_ != nullptr;};
     void deleteScores() { this->scores_ = nullptr;};
-    inline string scores() const { DARABONBA_PTR_GET_DEFAULT(scores_, "") };
+    inline string getScores() const { DARABONBA_PTR_GET_DEFAULT(scores_, "") };
     inline BackflowFeatureConsistencyCheckJobDataRequest& setScores(string scores) { DARABONBA_PTR_SET_VALUE(scores_, scores) };
 
 
     // serviceName Field Functions 
     bool hasServiceName() const { return this->serviceName_ != nullptr;};
     void deleteServiceName() { this->serviceName_ = nullptr;};
-    inline string serviceName() const { DARABONBA_PTR_GET_DEFAULT(serviceName_, "") };
+    inline string getServiceName() const { DARABONBA_PTR_GET_DEFAULT(serviceName_, "") };
     inline BackflowFeatureConsistencyCheckJobDataRequest& setServiceName(string serviceName) { DARABONBA_PTR_SET_VALUE(serviceName_, serviceName) };
 
 
     // userFeatures Field Functions 
     bool hasUserFeatures() const { return this->userFeatures_ != nullptr;};
     void deleteUserFeatures() { this->userFeatures_ = nullptr;};
-    inline string userFeatures() const { DARABONBA_PTR_GET_DEFAULT(userFeatures_, "") };
+    inline string getUserFeatures() const { DARABONBA_PTR_GET_DEFAULT(userFeatures_, "") };
     inline BackflowFeatureConsistencyCheckJobDataRequest& setUserFeatures(string userFeatures) { DARABONBA_PTR_SET_VALUE(userFeatures_, userFeatures) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> featureConsistencyCheckJobConfigId_ = nullptr;
+    shared_ptr<string> featureConsistencyCheckJobConfigId_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> itemFeatures_ = nullptr;
+    shared_ptr<string> itemFeatures_ {};
     // This parameter is required.
-    std::shared_ptr<string> logItemId_ = nullptr;
+    shared_ptr<string> logItemId_ {};
     // This parameter is required.
-    std::shared_ptr<string> logRequestId_ = nullptr;
+    shared_ptr<string> logRequestId_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> logRequestTime_ = nullptr;
+    shared_ptr<int64_t> logRequestTime_ {};
     // This parameter is required.
-    std::shared_ptr<string> logUserId_ = nullptr;
+    shared_ptr<string> logUserId_ {};
     // This parameter is required.
-    std::shared_ptr<string> sceneName_ = nullptr;
+    shared_ptr<string> sceneName_ {};
     // This parameter is required.
-    std::shared_ptr<string> scores_ = nullptr;
-    std::shared_ptr<string> serviceName_ = nullptr;
+    shared_ptr<string> scores_ {};
+    shared_ptr<string> serviceName_ {};
     // This parameter is required.
-    std::shared_ptr<string> userFeatures_ = nullptr;
+    shared_ptr<string> userFeatures_ {};
   };
 
   } // namespace Models

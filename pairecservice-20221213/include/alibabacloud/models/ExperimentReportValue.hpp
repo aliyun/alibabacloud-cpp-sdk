@@ -32,27 +32,27 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->baseline_ != nullptr
-        && this->metricResults_ != nullptr; };
+    virtual bool empty() const override { return this->baseline_ == nullptr
+        && this->metricResults_ == nullptr; };
     // baseline Field Functions 
     bool hasBaseline() const { return this->baseline_ != nullptr;};
     void deleteBaseline() { this->baseline_ = nullptr;};
-    inline bool baseline() const { DARABONBA_PTR_GET_DEFAULT(baseline_, false) };
+    inline bool getBaseline() const { DARABONBA_PTR_GET_DEFAULT(baseline_, false) };
     inline ExperimentReportValue& setBaseline(bool baseline) { DARABONBA_PTR_SET_VALUE(baseline_, baseline) };
 
 
     // metricResults Field Functions 
     bool hasMetricResults() const { return this->metricResults_ != nullptr;};
     void deleteMetricResults() { this->metricResults_ = nullptr;};
-    inline const map<string, Darabonba::Json> & metricResults() const { DARABONBA_PTR_GET_CONST(metricResults_, map<string, Darabonba::Json>) };
-    inline map<string, Darabonba::Json> metricResults() { DARABONBA_PTR_GET(metricResults_, map<string, Darabonba::Json>) };
+    inline const map<string, Darabonba::Json> & getMetricResults() const { DARABONBA_PTR_GET_CONST(metricResults_, map<string, Darabonba::Json>) };
+    inline map<string, Darabonba::Json> getMetricResults() { DARABONBA_PTR_GET(metricResults_, map<string, Darabonba::Json>) };
     inline ExperimentReportValue& setMetricResults(const map<string, Darabonba::Json> & metricResults) { DARABONBA_PTR_SET_VALUE(metricResults_, metricResults) };
     inline ExperimentReportValue& setMetricResults(map<string, Darabonba::Json> && metricResults) { DARABONBA_PTR_SET_RVALUE(metricResults_, metricResults) };
 
 
   protected:
-    std::shared_ptr<bool> baseline_ = nullptr;
-    std::shared_ptr<map<string, Darabonba::Json>> metricResults_ = nullptr;
+    shared_ptr<bool> baseline_ {};
+    shared_ptr<map<string, Darabonba::Json>> metricResults_ {};
   };
 
   } // namespace Models

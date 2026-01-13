@@ -41,68 +41,68 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->encrypted_ != nullptr
-        && this->environment_ != nullptr && this->instanceId_ != nullptr && this->name_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr
-        && this->sceneId_ != nullptr; };
+    virtual bool empty() const override { return this->encrypted_ == nullptr
+        && this->environment_ == nullptr && this->instanceId_ == nullptr && this->name_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
+        && this->sceneId_ == nullptr; };
     // encrypted Field Functions 
     bool hasEncrypted() const { return this->encrypted_ != nullptr;};
     void deleteEncrypted() { this->encrypted_ = nullptr;};
-    inline bool encrypted() const { DARABONBA_PTR_GET_DEFAULT(encrypted_, false) };
+    inline bool getEncrypted() const { DARABONBA_PTR_GET_DEFAULT(encrypted_, false) };
     inline ListParamsRequest& setEncrypted(bool encrypted) { DARABONBA_PTR_SET_VALUE(encrypted_, encrypted) };
 
 
     // environment Field Functions 
     bool hasEnvironment() const { return this->environment_ != nullptr;};
     void deleteEnvironment() { this->environment_ = nullptr;};
-    inline string environment() const { DARABONBA_PTR_GET_DEFAULT(environment_, "") };
+    inline string getEnvironment() const { DARABONBA_PTR_GET_DEFAULT(environment_, "") };
     inline ListParamsRequest& setEnvironment(string environment) { DARABONBA_PTR_SET_VALUE(environment_, environment) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ListParamsRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline ListParamsRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline ListParamsRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListParamsRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // sceneId Field Functions 
     bool hasSceneId() const { return this->sceneId_ != nullptr;};
     void deleteSceneId() { this->sceneId_ = nullptr;};
-    inline string sceneId() const { DARABONBA_PTR_GET_DEFAULT(sceneId_, "") };
+    inline string getSceneId() const { DARABONBA_PTR_GET_DEFAULT(sceneId_, "") };
     inline ListParamsRequest& setSceneId(string sceneId) { DARABONBA_PTR_SET_VALUE(sceneId_, sceneId) };
 
 
   protected:
-    std::shared_ptr<bool> encrypted_ = nullptr;
-    std::shared_ptr<string> environment_ = nullptr;
+    shared_ptr<bool> encrypted_ {};
+    shared_ptr<string> environment_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<int32_t> pageNumber_ {};
+    shared_ptr<int32_t> pageSize_ {};
     // This parameter is required.
-    std::shared_ptr<string> sceneId_ = nullptr;
+    shared_ptr<string> sceneId_ {};
   };
 
   } // namespace Models

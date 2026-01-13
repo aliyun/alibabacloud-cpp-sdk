@@ -33,33 +33,33 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->isValie_ != nullptr
-        && this->reason_ != nullptr && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->isValie_ == nullptr
+        && this->reason_ == nullptr && this->requestId_ == nullptr; };
     // isValie Field Functions 
     bool hasIsValie() const { return this->isValie_ != nullptr;};
     void deleteIsValie() { this->isValie_ = nullptr;};
-    inline bool isValie() const { DARABONBA_PTR_GET_DEFAULT(isValie_, false) };
+    inline bool getIsValie() const { DARABONBA_PTR_GET_DEFAULT(isValie_, false) };
     inline CheckTrafficControlTaskExpressionResponseBody& setIsValie(bool isValie) { DARABONBA_PTR_SET_VALUE(isValie_, isValie) };
 
 
     // reason Field Functions 
     bool hasReason() const { return this->reason_ != nullptr;};
     void deleteReason() { this->reason_ = nullptr;};
-    inline string reason() const { DARABONBA_PTR_GET_DEFAULT(reason_, "") };
+    inline string getReason() const { DARABONBA_PTR_GET_DEFAULT(reason_, "") };
     inline CheckTrafficControlTaskExpressionResponseBody& setReason(string reason) { DARABONBA_PTR_SET_VALUE(reason_, reason) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CheckTrafficControlTaskExpressionResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<bool> isValie_ = nullptr;
-    std::shared_ptr<string> reason_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<bool> isValie_ {};
+    shared_ptr<string> reason_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

@@ -31,25 +31,25 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->excludeRequestIdsShrink_ != nullptr
-        && this->instanceId_ != nullptr; };
+    virtual bool empty() const override { return this->excludeRequestIdsShrink_ == nullptr
+        && this->instanceId_ == nullptr; };
     // excludeRequestIdsShrink Field Functions 
     bool hasExcludeRequestIdsShrink() const { return this->excludeRequestIdsShrink_ != nullptr;};
     void deleteExcludeRequestIdsShrink() { this->excludeRequestIdsShrink_ = nullptr;};
-    inline string excludeRequestIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(excludeRequestIdsShrink_, "") };
+    inline string getExcludeRequestIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(excludeRequestIdsShrink_, "") };
     inline ListFeatureConsistencyCheckJobScoreReportsShrinkRequest& setExcludeRequestIdsShrink(string excludeRequestIdsShrink) { DARABONBA_PTR_SET_VALUE(excludeRequestIdsShrink_, excludeRequestIdsShrink) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ListFeatureConsistencyCheckJobScoreReportsShrinkRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
   protected:
-    std::shared_ptr<string> excludeRequestIdsShrink_ = nullptr;
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> excludeRequestIdsShrink_ {};
+    shared_ptr<string> instanceId_ {};
   };
 
   } // namespace Models

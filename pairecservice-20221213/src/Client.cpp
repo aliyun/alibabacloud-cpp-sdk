@@ -4,7 +4,7 @@
 #include <alibabacloud/Openapi.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
-#include <darabonba/http/URL.hpp>
+#include <darabonba/encode/Encoder.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
@@ -48,7 +48,7 @@ ApplyEngineConfigResponse Client::applyEngineConfigWithOptions(const string &Eng
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -59,7 +59,7 @@ ApplyEngineConfigResponse Client::applyEngineConfigWithOptions(const string &Eng
     {"action" , "ApplyEngineConfig"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/engineconfigs/" , Darabonba::Http::URL::percentEncode(EngineConfigId) , "/action/apply")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/engineconfigs/" , Darabonba::Encode::Encoder::percentEncode(EngineConfigId) , "/action/apply")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -93,47 +93,47 @@ BackflowFeatureConsistencyCheckJobDataResponse Client::backflowFeatureConsistenc
   request.validate();
   json body = {};
   if (!!request.hasFeatureConsistencyCheckJobConfigId()) {
-    body["FeatureConsistencyCheckJobConfigId"] = request.featureConsistencyCheckJobConfigId();
+    body["FeatureConsistencyCheckJobConfigId"] = request.getFeatureConsistencyCheckJobConfigId();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasItemFeatures()) {
-    body["ItemFeatures"] = request.itemFeatures();
+    body["ItemFeatures"] = request.getItemFeatures();
   }
 
   if (!!request.hasLogItemId()) {
-    body["LogItemId"] = request.logItemId();
+    body["LogItemId"] = request.getLogItemId();
   }
 
   if (!!request.hasLogRequestId()) {
-    body["LogRequestId"] = request.logRequestId();
+    body["LogRequestId"] = request.getLogRequestId();
   }
 
   if (!!request.hasLogRequestTime()) {
-    body["LogRequestTime"] = request.logRequestTime();
+    body["LogRequestTime"] = request.getLogRequestTime();
   }
 
   if (!!request.hasLogUserId()) {
-    body["LogUserId"] = request.logUserId();
+    body["LogUserId"] = request.getLogUserId();
   }
 
   if (!!request.hasSceneName()) {
-    body["SceneName"] = request.sceneName();
+    body["SceneName"] = request.getSceneName();
   }
 
   if (!!request.hasScores()) {
-    body["Scores"] = request.scores();
+    body["Scores"] = request.getScores();
   }
 
   if (!!request.hasServiceName()) {
-    body["ServiceName"] = request.serviceName();
+    body["ServiceName"] = request.getServiceName();
   }
 
   if (!!request.hasUserFeatures()) {
-    body["UserFeatures"] = request.userFeatures();
+    body["UserFeatures"] = request.getUserFeatures();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -167,6 +167,55 @@ BackflowFeatureConsistencyCheckJobDataResponse Client::backflowFeatureConsistenc
 }
 
 /**
+ * @summary 更改召回管理服务的版本
+ *
+ * @param request ChangeRecallManagementServiceVersionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ChangeRecallManagementServiceVersionResponse
+ */
+ChangeRecallManagementServiceVersionResponse Client::changeRecallManagementServiceVersionWithOptions(const string &RecallManagementServiceId, const ChangeRecallManagementServiceVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasRecallManagementServiceVersionId()) {
+    body["RecallManagementServiceVersionId"] = request.getRecallManagementServiceVersionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ChangeRecallManagementServiceVersion"},
+    {"version" , "2022-12-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/recallmanagementservices/" , Darabonba::Encode::Encoder::percentEncode(RecallManagementServiceId) , "/action/changeversion")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ChangeRecallManagementServiceVersionResponse>();
+}
+
+/**
+ * @summary 更改召回管理服务的版本
+ *
+ * @param request ChangeRecallManagementServiceVersionRequest
+ * @return ChangeRecallManagementServiceVersionResponse
+ */
+ChangeRecallManagementServiceVersionResponse Client::changeRecallManagementServiceVersion(const string &RecallManagementServiceId, const ChangeRecallManagementServiceVersionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return changeRecallManagementServiceVersionWithOptions(RecallManagementServiceId, request, headers, runtime);
+}
+
+/**
  * @summary 检测实例下配置的资源的连接状态。
  *
  * @param request CheckInstanceResourcesRequest
@@ -178,15 +227,15 @@ CheckInstanceResourcesResponse Client::checkInstanceResourcesWithOptions(const s
   request.validate();
   json body = {};
   if (!!request.hasResourceId()) {
-    body["ResourceId"] = request.resourceId();
+    body["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasType()) {
-    body["Type"] = request.type();
+    body["Type"] = request.getType();
   }
 
   if (!!request.hasUri()) {
-    body["Uri"] = request.uri();
+    body["Uri"] = request.getUri();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -197,7 +246,7 @@ CheckInstanceResourcesResponse Client::checkInstanceResourcesWithOptions(const s
     {"action" , "CheckInstanceResources"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/action/checkresources")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/action/checkresources")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -231,15 +280,15 @@ CheckTrafficControlTaskExpressionResponse Client::checkTrafficControlTaskExpress
   request.validate();
   json query = {};
   if (!!request.hasExpression()) {
-    query["Expression"] = request.expression();
+    query["Expression"] = request.getExpression();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasTableMetaId()) {
-    query["TableMetaId"] = request.tableMetaId();
+    query["TableMetaId"] = request.getTableMetaId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -284,19 +333,19 @@ CloneEngineConfigResponse Client::cloneEngineConfigWithOptions(const string &Eng
   request.validate();
   json body = {};
   if (!!request.hasConfigValue()) {
-    body["ConfigValue"] = request.configValue();
+    body["ConfigValue"] = request.getConfigValue();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasEnvironment()) {
-    body["Environment"] = request.environment();
+    body["Environment"] = request.getEnvironment();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -307,7 +356,7 @@ CloneEngineConfigResponse Client::cloneEngineConfigWithOptions(const string &Eng
     {"action" , "CloneEngineConfig"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/engineconfigs/" , Darabonba::Http::URL::percentEncode(EngineConfigId) , "/action/clone")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/engineconfigs/" , Darabonba::Encode::Encoder::percentEncode(EngineConfigId) , "/action/clone")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -341,7 +390,7 @@ CloneExperimentResponse Client::cloneExperimentWithOptions(const string &Experim
   request.validate();
   json body = {};
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -352,7 +401,7 @@ CloneExperimentResponse Client::cloneExperimentWithOptions(const string &Experim
     {"action" , "CloneExperiment"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/experiments/" , Darabonba::Http::URL::percentEncode(ExperimentId) , "/action/clone")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/experiments/" , Darabonba::Encode::Encoder::percentEncode(ExperimentId) , "/action/clone")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -386,15 +435,15 @@ CloneExperimentGroupResponse Client::cloneExperimentGroupWithOptions(const strin
   request.validate();
   json body = {};
   if (!!request.hasEnvironment()) {
-    body["Environment"] = request.environment();
+    body["Environment"] = request.getEnvironment();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasLayerId()) {
-    body["LayerId"] = request.layerId();
+    body["LayerId"] = request.getLayerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -405,7 +454,7 @@ CloneExperimentGroupResponse Client::cloneExperimentGroupWithOptions(const strin
     {"action" , "CloneExperimentGroup"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/experimentgroups/" , Darabonba::Http::URL::percentEncode(ExperimentGroupId) , "/action/clone")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/experimentgroups/" , Darabonba::Encode::Encoder::percentEncode(ExperimentGroupId) , "/action/clone")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -439,7 +488,7 @@ CloneFeatureConsistencyCheckJobConfigResponse Client::cloneFeatureConsistencyChe
   request.validate();
   json body = {};
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -450,7 +499,7 @@ CloneFeatureConsistencyCheckJobConfigResponse Client::cloneFeatureConsistencyChe
     {"action" , "CloneFeatureConsistencyCheckJobConfig"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/featureconsistencycheck/jobconfigs/" , Darabonba::Http::URL::percentEncode(SourceFeatureConsistencyCheckJobConfigId) , "/action/clone")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/featureconsistencycheck/jobconfigs/" , Darabonba::Encode::Encoder::percentEncode(SourceFeatureConsistencyCheckJobConfigId) , "/action/clone")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -484,15 +533,15 @@ CloneLaboratoryResponse Client::cloneLaboratoryWithOptions(const string &Laborat
   request.validate();
   json body = {};
   if (!!request.hasCloneExperimentGroup()) {
-    body["CloneExperimentGroup"] = request.cloneExperimentGroup();
+    body["CloneExperimentGroup"] = request.getCloneExperimentGroup();
   }
 
   if (!!request.hasEnvironment()) {
-    body["Environment"] = request.environment();
+    body["Environment"] = request.getEnvironment();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -503,7 +552,7 @@ CloneLaboratoryResponse Client::cloneLaboratoryWithOptions(const string &Laborat
     {"action" , "CloneLaboratory"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/laboratories/" , Darabonba::Http::URL::percentEncode(LaboratoryId) , "/action/clone")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/laboratories/" , Darabonba::Encode::Encoder::percentEncode(LaboratoryId) , "/action/clone")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -537,7 +586,7 @@ CloneTrafficControlTaskResponse Client::cloneTrafficControlTaskWithOptions(const
   request.validate();
   json body = {};
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -548,7 +597,7 @@ CloneTrafficControlTaskResponse Client::cloneTrafficControlTaskWithOptions(const
     {"action" , "CloneTrafficControlTask"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trafficcontroltasks/" , Darabonba::Http::URL::percentEncode(TrafficControlTaskId) , "/action/clone")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trafficcontroltasks/" , Darabonba::Encode::Encoder::percentEncode(TrafficControlTaskId) , "/action/clone")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -582,7 +631,7 @@ CompareSampleConsistencyJobResponse Client::compareSampleConsistencyJobWithOptio
   request.validate();
   json body = {};
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -593,7 +642,7 @@ CompareSampleConsistencyJobResponse Client::compareSampleConsistencyJobWithOptio
     {"action" , "CompareSampleConsistencyJob"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/sampleconsistencyjobs/" , Darabonba::Http::URL::percentEncode(SampleConsistencyJobId) , "/action/compare")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/sampleconsistencyjobs/" , Darabonba::Encode::Encoder::percentEncode(SampleConsistencyJobId) , "/action/compare")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -627,55 +676,55 @@ CreateABMetricResponse Client::createABMetricWithOptions(const CreateABMetricReq
   request.validate();
   json body = {};
   if (!!request.hasDefinition()) {
-    body["Definition"] = request.definition();
+    body["Definition"] = request.getDefinition();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasLeftMetricId()) {
-    body["LeftMetricId"] = request.leftMetricId();
+    body["LeftMetricId"] = request.getLeftMetricId();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasOperator()) {
-    body["Operator"] = request._operator();
+    body["Operator"] = request.getOperator();
   }
 
   if (!!request.hasRealtime()) {
-    body["Realtime"] = request.realtime();
+    body["Realtime"] = request.getRealtime();
   }
 
   if (!!request.hasResultResourceId()) {
-    body["ResultResourceId"] = request.resultResourceId();
+    body["ResultResourceId"] = request.getResultResourceId();
   }
 
   if (!!request.hasRightMetricId()) {
-    body["RightMetricId"] = request.rightMetricId();
+    body["RightMetricId"] = request.getRightMetricId();
   }
 
   if (!!request.hasSceneId()) {
-    body["SceneId"] = request.sceneId();
+    body["SceneId"] = request.getSceneId();
   }
 
   if (!!request.hasStatisticsCycle()) {
-    body["StatisticsCycle"] = request.statisticsCycle();
+    body["StatisticsCycle"] = request.getStatisticsCycle();
   }
 
   if (!!request.hasTableMetaId()) {
-    body["TableMetaId"] = request.tableMetaId();
+    body["TableMetaId"] = request.getTableMetaId();
   }
 
   if (!!request.hasType()) {
-    body["Type"] = request.type();
+    body["Type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -720,27 +769,27 @@ CreateABMetricGroupResponse Client::createABMetricGroupWithOptions(const CreateA
   request.validate();
   json body = {};
   if (!!request.hasABMetricIds()) {
-    body["ABMetricIds"] = request.ABMetricIds();
+    body["ABMetricIds"] = request.getABMetricIds();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasRealtime()) {
-    body["Realtime"] = request.realtime();
+    body["Realtime"] = request.getRealtime();
   }
 
   if (!!request.hasSceneId()) {
-    body["SceneId"] = request.sceneId();
+    body["SceneId"] = request.getSceneId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -785,19 +834,19 @@ CreateCalculationJobsResponse Client::createCalculationJobsWithOptions(const Cre
   request.validate();
   json body = {};
   if (!!request.hasABMetricIds()) {
-    body["ABMetricIds"] = request.ABMetricIds();
+    body["ABMetricIds"] = request.getABMetricIds();
   }
 
   if (!!request.hasEndDate()) {
-    body["EndDate"] = request.endDate();
+    body["EndDate"] = request.getEndDate();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasStartDate()) {
-    body["StartDate"] = request.startDate();
+    body["StartDate"] = request.getStartDate();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -842,27 +891,27 @@ CreateCrowdResponse Client::createCrowdWithOptions(const CreateCrowdRequest &req
   request.validate();
   json body = {};
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasLabel()) {
-    body["Label"] = request.label();
+    body["Label"] = request.getLabel();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasSource()) {
-    body["Source"] = request.source();
+    body["Source"] = request.getSource();
   }
 
   if (!!request.hasUsers()) {
-    body["Users"] = request.users();
+    body["Users"] = request.getUsers();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -907,23 +956,23 @@ CreateEngineConfigResponse Client::createEngineConfigWithOptions(const CreateEng
   request.validate();
   json body = {};
   if (!!request.hasConfigValue()) {
-    body["ConfigValue"] = request.configValue();
+    body["ConfigValue"] = request.getConfigValue();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasEnvironment()) {
-    body["Environment"] = request.environment();
+    body["Environment"] = request.getEnvironment();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -968,39 +1017,39 @@ CreateExperimentResponse Client::createExperimentWithOptions(const CreateExperim
   request.validate();
   json body = {};
   if (!!request.hasConfig()) {
-    body["Config"] = request.config();
+    body["Config"] = request.getConfig();
   }
 
   if (!!request.hasDebugCrowdId()) {
-    body["DebugCrowdId"] = request.debugCrowdId();
+    body["DebugCrowdId"] = request.getDebugCrowdId();
   }
 
   if (!!request.hasDebugUsers()) {
-    body["DebugUsers"] = request.debugUsers();
+    body["DebugUsers"] = request.getDebugUsers();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasExperimentGroupId()) {
-    body["ExperimentGroupId"] = request.experimentGroupId();
+    body["ExperimentGroupId"] = request.getExperimentGroupId();
   }
 
   if (!!request.hasFlowPercent()) {
-    body["FlowPercent"] = request.flowPercent();
+    body["FlowPercent"] = request.getFlowPercent();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasType()) {
-    body["Type"] = request.type();
+    body["Type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1045,63 +1094,63 @@ CreateExperimentGroupResponse Client::createExperimentGroupWithOptions(const Cre
   request.validate();
   json body = {};
   if (!!request.hasConfig()) {
-    body["Config"] = request.config();
+    body["Config"] = request.getConfig();
   }
 
   if (!!request.hasCrowdId()) {
-    body["CrowdId"] = request.crowdId();
+    body["CrowdId"] = request.getCrowdId();
   }
 
   if (!!request.hasCrowdTargetType()) {
-    body["CrowdTargetType"] = request.crowdTargetType();
+    body["CrowdTargetType"] = request.getCrowdTargetType();
   }
 
   if (!!request.hasDebugCrowdId()) {
-    body["DebugCrowdId"] = request.debugCrowdId();
+    body["DebugCrowdId"] = request.getDebugCrowdId();
   }
 
   if (!!request.hasDebugUsers()) {
-    body["DebugUsers"] = request.debugUsers();
+    body["DebugUsers"] = request.getDebugUsers();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasDistributionTimeDuration()) {
-    body["DistributionTimeDuration"] = request.distributionTimeDuration();
+    body["DistributionTimeDuration"] = request.getDistributionTimeDuration();
   }
 
   if (!!request.hasDistributionType()) {
-    body["DistributionType"] = request.distributionType();
+    body["DistributionType"] = request.getDistributionType();
   }
 
   if (!!request.hasFilter()) {
-    body["Filter"] = request.filter();
+    body["Filter"] = request.getFilter();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasLayerId()) {
-    body["LayerId"] = request.layerId();
+    body["LayerId"] = request.getLayerId();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasNeedAA()) {
-    body["NeedAA"] = request.needAA();
+    body["NeedAA"] = request.getNeedAA();
   }
 
   if (!!request.hasRandomFlow()) {
-    body["RandomFlow"] = request.randomFlow();
+    body["RandomFlow"] = request.getRandomFlow();
   }
 
   if (!!request.hasReservedBuckets()) {
-    body["ReservedBuckets"] = request.reservedBuckets();
+    body["ReservedBuckets"] = request.getReservedBuckets();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1146,19 +1195,19 @@ CreateFeatureConsistencyCheckJobResponse Client::createFeatureConsistencyCheckJo
   request.validate();
   json body = {};
   if (!!request.hasEnvironment()) {
-    body["Environment"] = request.environment();
+    body["Environment"] = request.getEnvironment();
   }
 
   if (!!request.hasFeatureConsistencyCheckJobConfigId()) {
-    body["FeatureConsistencyCheckJobConfigId"] = request.featureConsistencyCheckJobConfigId();
+    body["FeatureConsistencyCheckJobConfigId"] = request.getFeatureConsistencyCheckJobConfigId();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasSamplingDuration()) {
-    body["SamplingDuration"] = request.samplingDuration();
+    body["SamplingDuration"] = request.getSamplingDuration();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1203,187 +1252,187 @@ CreateFeatureConsistencyCheckJobConfigResponse Client::createFeatureConsistencyC
   request.validate();
   json body = {};
   if (!!request.hasCompareFeature()) {
-    body["CompareFeature"] = request.compareFeature();
+    body["CompareFeature"] = request.getCompareFeature();
   }
 
   if (!!request.hasDatasetId()) {
-    body["DatasetId"] = request.datasetId();
+    body["DatasetId"] = request.getDatasetId();
   }
 
   if (!!request.hasDatasetMountPath()) {
-    body["DatasetMountPath"] = request.datasetMountPath();
+    body["DatasetMountPath"] = request.getDatasetMountPath();
   }
 
   if (!!request.hasDatasetName()) {
-    body["DatasetName"] = request.datasetName();
+    body["DatasetName"] = request.getDatasetName();
   }
 
   if (!!request.hasDatasetType()) {
-    body["DatasetType"] = request.datasetType();
+    body["DatasetType"] = request.getDatasetType();
   }
 
   if (!!request.hasDatasetUri()) {
-    body["DatasetUri"] = request.datasetUri();
+    body["DatasetUri"] = request.getDatasetUri();
   }
 
   if (!!request.hasDefaultRoute()) {
-    body["DefaultRoute"] = request.defaultRoute();
+    body["DefaultRoute"] = request.getDefaultRoute();
   }
 
   if (!!request.hasEasServiceName()) {
-    body["EasServiceName"] = request.easServiceName();
+    body["EasServiceName"] = request.getEasServiceName();
   }
 
   if (!!request.hasEasyRecPackagePath()) {
-    body["EasyRecPackagePath"] = request.easyRecPackagePath();
+    body["EasyRecPackagePath"] = request.getEasyRecPackagePath();
   }
 
   if (!!request.hasEasyRecVersion()) {
-    body["EasyRecVersion"] = request.easyRecVersion();
+    body["EasyRecVersion"] = request.getEasyRecVersion();
   }
 
   if (!!request.hasFeatureDisplayExclude()) {
-    body["FeatureDisplayExclude"] = request.featureDisplayExclude();
+    body["FeatureDisplayExclude"] = request.getFeatureDisplayExclude();
   }
 
   if (!!request.hasFeatureLandingResourceId()) {
-    body["FeatureLandingResourceId"] = request.featureLandingResourceId();
+    body["FeatureLandingResourceId"] = request.getFeatureLandingResourceId();
   }
 
   if (!!request.hasFeaturePriority()) {
-    body["FeaturePriority"] = request.featurePriority();
+    body["FeaturePriority"] = request.getFeaturePriority();
   }
 
   if (!!request.hasFeatureStoreItemId()) {
-    body["FeatureStoreItemId"] = request.featureStoreItemId();
+    body["FeatureStoreItemId"] = request.getFeatureStoreItemId();
   }
 
   if (!!request.hasFeatureStoreModelId()) {
-    body["FeatureStoreModelId"] = request.featureStoreModelId();
+    body["FeatureStoreModelId"] = request.getFeatureStoreModelId();
   }
 
   if (!!request.hasFeatureStoreProjectId()) {
-    body["FeatureStoreProjectId"] = request.featureStoreProjectId();
+    body["FeatureStoreProjectId"] = request.getFeatureStoreProjectId();
   }
 
   if (!!request.hasFeatureStoreProjectName()) {
-    body["FeatureStoreProjectName"] = request.featureStoreProjectName();
+    body["FeatureStoreProjectName"] = request.getFeatureStoreProjectName();
   }
 
   if (!!request.hasFeatureStoreSeqFeatureView()) {
-    body["FeatureStoreSeqFeatureView"] = request.featureStoreSeqFeatureView();
+    body["FeatureStoreSeqFeatureView"] = request.getFeatureStoreSeqFeatureView();
   }
 
   if (!!request.hasFeatureStoreUserId()) {
-    body["FeatureStoreUserId"] = request.featureStoreUserId();
+    body["FeatureStoreUserId"] = request.getFeatureStoreUserId();
   }
 
   if (!!request.hasFgJarVersion()) {
-    body["FgJarVersion"] = request.fgJarVersion();
+    body["FgJarVersion"] = request.getFgJarVersion();
   }
 
   if (!!request.hasFgJsonFileName()) {
-    body["FgJsonFileName"] = request.fgJsonFileName();
+    body["FgJsonFileName"] = request.getFgJsonFileName();
   }
 
   if (!!request.hasGenerateZip()) {
-    body["GenerateZip"] = request.generateZip();
+    body["GenerateZip"] = request.getGenerateZip();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasItemIdField()) {
-    body["ItemIdField"] = request.itemIdField();
+    body["ItemIdField"] = request.getItemIdField();
   }
 
   if (!!request.hasItemTable()) {
-    body["ItemTable"] = request.itemTable();
+    body["ItemTable"] = request.getItemTable();
   }
 
   if (!!request.hasItemTablePartitionField()) {
-    body["ItemTablePartitionField"] = request.itemTablePartitionField();
+    body["ItemTablePartitionField"] = request.getItemTablePartitionField();
   }
 
   if (!!request.hasItemTablePartitionFieldFormat()) {
-    body["ItemTablePartitionFieldFormat"] = request.itemTablePartitionFieldFormat();
+    body["ItemTablePartitionFieldFormat"] = request.getItemTablePartitionFieldFormat();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasOssResourceId()) {
-    body["OssResourceId"] = request.ossResourceId();
+    body["OssResourceId"] = request.getOssResourceId();
   }
 
   if (!!request.hasPredictWorkerCount()) {
-    body["PredictWorkerCount"] = request.predictWorkerCount();
+    body["PredictWorkerCount"] = request.getPredictWorkerCount();
   }
 
   if (!!request.hasPredictWorkerCpu()) {
-    body["PredictWorkerCpu"] = request.predictWorkerCpu();
+    body["PredictWorkerCpu"] = request.getPredictWorkerCpu();
   }
 
   if (!!request.hasPredictWorkerMemory()) {
-    body["PredictWorkerMemory"] = request.predictWorkerMemory();
+    body["PredictWorkerMemory"] = request.getPredictWorkerMemory();
   }
 
   if (!!request.hasResourceConfig()) {
-    body["ResourceConfig"] = request.resourceConfig();
+    body["ResourceConfig"] = request.getResourceConfig();
   }
 
   if (!!request.hasSampleRate()) {
-    body["SampleRate"] = request.sampleRate();
+    body["SampleRate"] = request.getSampleRate();
   }
 
   if (!!request.hasSceneId()) {
-    body["SceneId"] = request.sceneId();
+    body["SceneId"] = request.getSceneId();
   }
 
   if (!!request.hasSecurityGroupId()) {
-    body["SecurityGroupId"] = request.securityGroupId();
+    body["SecurityGroupId"] = request.getSecurityGroupId();
   }
 
   if (!!request.hasServiceId()) {
-    body["ServiceId"] = request.serviceId();
+    body["ServiceId"] = request.getServiceId();
   }
 
   if (!!request.hasSwitchId()) {
-    body["SwitchId"] = request.switchId();
+    body["SwitchId"] = request.getSwitchId();
   }
 
   if (!!request.hasUseFeatureStore()) {
-    body["UseFeatureStore"] = request.useFeatureStore();
+    body["UseFeatureStore"] = request.getUseFeatureStore();
   }
 
   if (!!request.hasUserIdField()) {
-    body["UserIdField"] = request.userIdField();
+    body["UserIdField"] = request.getUserIdField();
   }
 
   if (!!request.hasUserTable()) {
-    body["UserTable"] = request.userTable();
+    body["UserTable"] = request.getUserTable();
   }
 
   if (!!request.hasUserTablePartitionField()) {
-    body["UserTablePartitionField"] = request.userTablePartitionField();
+    body["UserTablePartitionField"] = request.getUserTablePartitionField();
   }
 
   if (!!request.hasUserTablePartitionFieldFormat()) {
-    body["UserTablePartitionFieldFormat"] = request.userTablePartitionFieldFormat();
+    body["UserTablePartitionFieldFormat"] = request.getUserTablePartitionFieldFormat();
   }
 
   if (!!request.hasVpcId()) {
-    body["VpcId"] = request.vpcId();
+    body["VpcId"] = request.getVpcId();
   }
 
   if (!!request.hasWorkflowName()) {
-    body["WorkflowName"] = request.workflowName();
+    body["WorkflowName"] = request.getWorkflowName();
   }
 
   if (!!request.hasWorkspaceId()) {
-    body["WorkspaceId"] = request.workspaceId();
+    body["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1428,19 +1477,19 @@ CreateInstanceResourceResponse Client::createInstanceResourceWithOptions(const s
   request.validate();
   json body = {};
   if (!!request.hasCategory()) {
-    body["Category"] = request.category();
+    body["Category"] = request.getCategory();
   }
 
   if (!!request.hasGroup()) {
-    body["Group"] = request.group();
+    body["Group"] = request.getGroup();
   }
 
   if (!!request.hasType()) {
-    body["Type"] = request.type();
+    body["Type"] = request.getType();
   }
 
   if (!!request.hasUri()) {
-    body["Uri"] = request.uri();
+    body["Uri"] = request.getUri();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1451,7 +1500,7 @@ CreateInstanceResourceResponse Client::createInstanceResourceWithOptions(const s
     {"action" , "CreateInstanceResource"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/resources")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/resources")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1485,51 +1534,51 @@ CreateLaboratoryResponse Client::createLaboratoryWithOptions(const CreateLaborat
   request.validate();
   json body = {};
   if (!!request.hasBucketCount()) {
-    body["BucketCount"] = request.bucketCount();
+    body["BucketCount"] = request.getBucketCount();
   }
 
   if (!!request.hasBucketType()) {
-    body["BucketType"] = request.bucketType();
+    body["BucketType"] = request.getBucketType();
   }
 
   if (!!request.hasBuckets()) {
-    body["Buckets"] = request.buckets();
+    body["Buckets"] = request.getBuckets();
   }
 
   if (!!request.hasDebugCrowdId()) {
-    body["DebugCrowdId"] = request.debugCrowdId();
+    body["DebugCrowdId"] = request.getDebugCrowdId();
   }
 
   if (!!request.hasDebugUsers()) {
-    body["DebugUsers"] = request.debugUsers();
+    body["DebugUsers"] = request.getDebugUsers();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasEnvironment()) {
-    body["Environment"] = request.environment();
+    body["Environment"] = request.getEnvironment();
   }
 
   if (!!request.hasFilter()) {
-    body["Filter"] = request.filter();
+    body["Filter"] = request.getFilter();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasSceneId()) {
-    body["SceneId"] = request.sceneId();
+    body["SceneId"] = request.getSceneId();
   }
 
   if (!!request.hasType()) {
-    body["Type"] = request.type();
+    body["Type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1574,19 +1623,19 @@ CreateLayerResponse Client::createLayerWithOptions(const CreateLayerRequest &req
   request.validate();
   json body = {};
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasLaboratoryId()) {
-    body["LaboratoryId"] = request.laboratoryId();
+    body["LaboratoryId"] = request.getLaboratoryId();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1631,27 +1680,27 @@ CreateParamResponse Client::createParamWithOptions(const CreateParamRequest &req
   request.validate();
   json body = {};
   if (!!request.hasEnvironment()) {
-    body["Environment"] = request.environment();
+    body["Environment"] = request.getEnvironment();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasSceneId()) {
-    body["SceneId"] = request.sceneId();
+    body["SceneId"] = request.getSceneId();
   }
 
   if (!!request.hasType()) {
-    body["Type"] = request.type();
+    body["Type"] = request.getType();
   }
 
   if (!!request.hasValue()) {
-    body["Value"] = request.value();
+    body["Value"] = request.getValue();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1685,6 +1734,331 @@ CreateParamResponse Client::createParam(const CreateParamRequest &request) {
 }
 
 /**
+ * @summary 创建召回管理初始化配置。
+ *
+ * @param request CreateRecallManagementConfigRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateRecallManagementConfigResponse
+ */
+CreateRecallManagementConfigResponse Client::createRecallManagementConfigWithOptions(const CreateRecallManagementConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasNetworkConfigs()) {
+    body["NetworkConfigs"] = request.getNetworkConfigs();
+  }
+
+  if (!!request.hasPassword()) {
+    body["Password"] = request.getPassword();
+  }
+
+  if (!!request.hasUserName()) {
+    body["UserName"] = request.getUserName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateRecallManagementConfig"},
+    {"version" , "2022-12-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/recallmanagementconfigs")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateRecallManagementConfigResponse>();
+}
+
+/**
+ * @summary 创建召回管理初始化配置。
+ *
+ * @param request CreateRecallManagementConfigRequest
+ * @return CreateRecallManagementConfigResponse
+ */
+CreateRecallManagementConfigResponse Client::createRecallManagementConfig(const CreateRecallManagementConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createRecallManagementConfigWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 创建召回管理服务
+ *
+ * @param request CreateRecallManagementServiceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateRecallManagementServiceResponse
+ */
+CreateRecallManagementServiceResponse Client::createRecallManagementServiceWithOptions(const CreateRecallManagementServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateRecallManagementService"},
+    {"version" , "2022-12-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/recallmanagementservices")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateRecallManagementServiceResponse>();
+}
+
+/**
+ * @summary 创建召回管理服务
+ *
+ * @param request CreateRecallManagementServiceRequest
+ * @return CreateRecallManagementServiceResponse
+ */
+CreateRecallManagementServiceResponse Client::createRecallManagementService(const CreateRecallManagementServiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createRecallManagementServiceWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 创建召回管理版本
+ *
+ * @param request CreateRecallManagementServiceVersionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateRecallManagementServiceVersionResponse
+ */
+CreateRecallManagementServiceVersionResponse Client::createRecallManagementServiceVersionWithOptions(const string &RecallManagementServiceId, const CreateRecallManagementServiceVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasConfigs()) {
+    body["Configs"] = request.getConfigs();
+  }
+
+  if (!!request.hasSourceRecallManagementServiceVersionId()) {
+    body["SourceRecallManagementServiceVersionId"] = request.getSourceRecallManagementServiceVersionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateRecallManagementServiceVersion"},
+    {"version" , "2022-12-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/recallmanagementservices/" , Darabonba::Encode::Encoder::percentEncode(RecallManagementServiceId) , "/versions")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateRecallManagementServiceVersionResponse>();
+}
+
+/**
+ * @summary 创建召回管理版本
+ *
+ * @param request CreateRecallManagementServiceVersionRequest
+ * @return CreateRecallManagementServiceVersionResponse
+ */
+CreateRecallManagementServiceVersionResponse Client::createRecallManagementServiceVersion(const string &RecallManagementServiceId, const CreateRecallManagementServiceVersionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createRecallManagementServiceVersionWithOptions(RecallManagementServiceId, request, headers, runtime);
+}
+
+/**
+ * @summary 创建召回管理服务版本配置
+ *
+ * @param request CreateRecallManagementServiceVersionConfigRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateRecallManagementServiceVersionConfigResponse
+ */
+CreateRecallManagementServiceVersionConfigResponse Client::createRecallManagementServiceVersionConfigWithOptions(const string &RecallManagementServiceId, const string &RecallManagementServiceVersionId, const CreateRecallManagementServiceVersionConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasConfigType()) {
+    body["ConfigType"] = request.getConfigType();
+  }
+
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasMergeConfig()) {
+    body["MergeConfig"] = request.getMergeConfig();
+  }
+
+  if (!!request.hasRecallConfig()) {
+    body["RecallConfig"] = request.getRecallConfig();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateRecallManagementServiceVersionConfig"},
+    {"version" , "2022-12-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/recallmanagementservices/" , Darabonba::Encode::Encoder::percentEncode(RecallManagementServiceId) , "/versions/" , Darabonba::Encode::Encoder::percentEncode(RecallManagementServiceVersionId) , "/configs")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateRecallManagementServiceVersionConfigResponse>();
+}
+
+/**
+ * @summary 创建召回管理服务版本配置
+ *
+ * @param request CreateRecallManagementServiceVersionConfigRequest
+ * @return CreateRecallManagementServiceVersionConfigResponse
+ */
+CreateRecallManagementServiceVersionConfigResponse Client::createRecallManagementServiceVersionConfig(const string &RecallManagementServiceId, const string &RecallManagementServiceVersionId, const CreateRecallManagementServiceVersionConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createRecallManagementServiceVersionConfigWithOptions(RecallManagementServiceId, RecallManagementServiceVersionId, request, headers, runtime);
+}
+
+/**
+ * @summary 创建召回管理表。
+ *
+ * @param request CreateRecallManagementTableRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateRecallManagementTableResponse
+ */
+CreateRecallManagementTableResponse Client::createRecallManagementTableWithOptions(const CreateRecallManagementTableRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasConfig()) {
+    body["Config"] = request.getConfig();
+  }
+
+  if (!!request.hasDataSource()) {
+    body["DataSource"] = request.getDataSource();
+  }
+
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasEnableDataSizeFluctuationThreshold()) {
+    body["EnableDataSizeFluctuationThreshold"] = request.getEnableDataSizeFluctuationThreshold();
+  }
+
+  if (!!request.hasEnableRowCountFluctuationThreshold()) {
+    body["EnableRowCountFluctuationThreshold"] = request.getEnableRowCountFluctuationThreshold();
+  }
+
+  if (!!request.hasFields()) {
+    body["Fields"] = request.getFields();
+  }
+
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasMaxDataSizeFluctuationThreshold()) {
+    body["MaxDataSizeFluctuationThreshold"] = request.getMaxDataSizeFluctuationThreshold();
+  }
+
+  if (!!request.hasMaxRowCountFluctuationThreshold()) {
+    body["MaxRowCountFluctuationThreshold"] = request.getMaxRowCountFluctuationThreshold();
+  }
+
+  if (!!request.hasMaxcomputeProjectName()) {
+    body["MaxcomputeProjectName"] = request.getMaxcomputeProjectName();
+  }
+
+  if (!!request.hasMaxcomputeSchema()) {
+    body["MaxcomputeSchema"] = request.getMaxcomputeSchema();
+  }
+
+  if (!!request.hasMaxcomputeTableName()) {
+    body["MaxcomputeTableName"] = request.getMaxcomputeTableName();
+  }
+
+  if (!!request.hasMinDataSizeFluctuationThreshold()) {
+    body["MinDataSizeFluctuationThreshold"] = request.getMinDataSizeFluctuationThreshold();
+  }
+
+  if (!!request.hasMinRowCountFluctuationThreshold()) {
+    body["MinRowCountFluctuationThreshold"] = request.getMinRowCountFluctuationThreshold();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  if (!!request.hasRecallType()) {
+    body["RecallType"] = request.getRecallType();
+  }
+
+  if (!!request.hasType()) {
+    body["Type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateRecallManagementTable"},
+    {"version" , "2022-12-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/recallmanagementtables")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateRecallManagementTableResponse>();
+}
+
+/**
+ * @summary 创建召回管理表。
+ *
+ * @param request CreateRecallManagementTableRequest
+ * @return CreateRecallManagementTableResponse
+ */
+CreateRecallManagementTableResponse Client::createRecallManagementTable(const CreateRecallManagementTableRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createRecallManagementTableWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 创建资源规则
  *
  * @param request CreateResourceRuleRequest
@@ -1696,35 +2070,35 @@ CreateResourceRuleResponse Client::createResourceRuleWithOptions(const CreateRes
   request.validate();
   json body = {};
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasMetricOperationType()) {
-    body["MetricOperationType"] = request.metricOperationType();
+    body["MetricOperationType"] = request.getMetricOperationType();
   }
 
   if (!!request.hasMetricPullInfo()) {
-    body["MetricPullInfo"] = request.metricPullInfo();
+    body["MetricPullInfo"] = request.getMetricPullInfo();
   }
 
   if (!!request.hasMetricPullPeriod()) {
-    body["MetricPullPeriod"] = request.metricPullPeriod();
+    body["MetricPullPeriod"] = request.getMetricPullPeriod();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasRuleComputingDefinition()) {
-    body["RuleComputingDefinition"] = request.ruleComputingDefinition();
+    body["RuleComputingDefinition"] = request.getRuleComputingDefinition();
   }
 
   if (!!request.hasRuleItems()) {
-    body["RuleItems"] = request.ruleItems();
+    body["RuleItems"] = request.getRuleItems();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1769,27 +2143,27 @@ CreateResourceRuleItemResponse Client::createResourceRuleItemWithOptions(const s
   request.validate();
   json body = {};
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasMaxValue()) {
-    body["MaxValue"] = request.maxValue();
+    body["MaxValue"] = request.getMaxValue();
   }
 
   if (!!request.hasMinValue()) {
-    body["MinValue"] = request.minValue();
+    body["MinValue"] = request.getMinValue();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasValue()) {
-    body["Value"] = request.value();
+    body["Value"] = request.getValue();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1800,7 +2174,7 @@ CreateResourceRuleItemResponse Client::createResourceRuleItemWithOptions(const s
     {"action" , "CreateResourceRuleItem"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/resourcerules/" , Darabonba::Http::URL::percentEncode(ResourceRuleId) , "/items")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/resourcerules/" , Darabonba::Encode::Encoder::percentEncode(ResourceRuleId) , "/items")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1834,55 +2208,55 @@ CreateSampleConsistencyJobResponse Client::createSampleConsistencyJobWithOptions
   request.validate();
   json body = {};
   if (!!request.hasDuration()) {
-    body["Duration"] = request.duration();
+    body["Duration"] = request.getDuration();
   }
 
   if (!!request.hasEasModelServiceName()) {
-    body["EasModelServiceName"] = request.easModelServiceName();
+    body["EasModelServiceName"] = request.getEasModelServiceName();
   }
 
   if (!!request.hasFeatureSaveResourceId()) {
-    body["FeatureSaveResourceId"] = request.featureSaveResourceId();
+    body["FeatureSaveResourceId"] = request.getFeatureSaveResourceId();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasItemIdField()) {
-    body["ItemIdField"] = request.itemIdField();
+    body["ItemIdField"] = request.getItemIdField();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasPartitionField()) {
-    body["PartitionField"] = request.partitionField();
+    body["PartitionField"] = request.getPartitionField();
   }
 
   if (!!request.hasPartitionFieldFormat()) {
-    body["PartitionFieldFormat"] = request.partitionFieldFormat();
+    body["PartitionFieldFormat"] = request.getPartitionFieldFormat();
   }
 
   if (!!request.hasRequestIdField()) {
-    body["RequestIdField"] = request.requestIdField();
+    body["RequestIdField"] = request.getRequestIdField();
   }
 
   if (!!request.hasSampleRate()) {
-    body["SampleRate"] = request.sampleRate();
+    body["SampleRate"] = request.getSampleRate();
   }
 
   if (!!request.hasSampleTableName()) {
-    body["SampleTableName"] = request.sampleTableName();
+    body["SampleTableName"] = request.getSampleTableName();
   }
 
   if (!!request.hasSceneId()) {
-    body["SceneId"] = request.sceneId();
+    body["SceneId"] = request.getSceneId();
   }
 
   if (!!request.hasUserIdField()) {
-    body["UserIdField"] = request.userIdField();
+    body["UserIdField"] = request.getUserIdField();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1927,19 +2301,19 @@ CreateSceneResponse Client::createSceneWithOptions(const CreateSceneRequest &req
   request.validate();
   json body = {};
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasFlows()) {
-    body["Flows"] = request.flows();
+    body["Flows"] = request.getFlows();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1984,15 +2358,15 @@ CreateSubCrowdResponse Client::createSubCrowdWithOptions(const string &CrowdId, 
   request.validate();
   json body = {};
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasSource()) {
-    body["Source"] = request.source();
+    body["Source"] = request.getSource();
   }
 
   if (!!request.hasUsers()) {
-    body["Users"] = request.users();
+    body["Users"] = request.getUsers();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2003,7 +2377,7 @@ CreateSubCrowdResponse Client::createSubCrowdWithOptions(const string &CrowdId, 
     {"action" , "CreateSubCrowd"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/crowds/" , Darabonba::Http::URL::percentEncode(CrowdId) , "/subcrowds")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/crowds/" , Darabonba::Encode::Encoder::percentEncode(CrowdId) , "/subcrowds")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2037,31 +2411,31 @@ CreateTableMetaResponse Client::createTableMetaWithOptions(const CreateTableMeta
   request.validate();
   json body = {};
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasFields()) {
-    body["Fields"] = request.fields();
+    body["Fields"] = request.getFields();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasModule()) {
-    body["Module"] = request.module();
+    body["Module"] = request.getModule();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasResourceId()) {
-    body["ResourceId"] = request.resourceId();
+    body["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasTableName()) {
-    body["TableName"] = request.tableName();
+    body["TableName"] = request.getTableName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2106,59 +2480,59 @@ CreateTrafficControlTargetResponse Client::createTrafficControlTargetWithOptions
   request.validate();
   json body = {};
   if (!!request.hasEndTime()) {
-    body["EndTime"] = request.endTime();
+    body["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasEvent()) {
-    body["Event"] = request.event();
+    body["Event"] = request.getEvent();
   }
 
   if (!!request.hasItemConditionArray()) {
-    body["ItemConditionArray"] = request.itemConditionArray();
+    body["ItemConditionArray"] = request.getItemConditionArray();
   }
 
   if (!!request.hasItemConditionExpress()) {
-    body["ItemConditionExpress"] = request.itemConditionExpress();
+    body["ItemConditionExpress"] = request.getItemConditionExpress();
   }
 
   if (!!request.hasItemConditionType()) {
-    body["ItemConditionType"] = request.itemConditionType();
+    body["ItemConditionType"] = request.getItemConditionType();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasNewProductRegulation()) {
-    body["NewProductRegulation"] = request.newProductRegulation();
+    body["NewProductRegulation"] = request.getNewProductRegulation();
   }
 
   if (!!request.hasRecallName()) {
-    body["RecallName"] = request.recallName();
+    body["RecallName"] = request.getRecallName();
   }
 
   if (!!request.hasStartTime()) {
-    body["StartTime"] = request.startTime();
+    body["StartTime"] = request.getStartTime();
   }
 
   if (!!request.hasStatisPeriod()) {
-    body["StatisPeriod"] = request.statisPeriod();
+    body["StatisPeriod"] = request.getStatisPeriod();
   }
 
   if (!!request.hasStatus()) {
-    body["Status"] = request.status();
+    body["Status"] = request.getStatus();
   }
 
   if (!!request.hasToleranceValue()) {
-    body["ToleranceValue"] = request.toleranceValue();
+    body["ToleranceValue"] = request.getToleranceValue();
   }
 
   if (!!request.hasTrafficControlTaskId()) {
-    body["TrafficControlTaskId"] = request.trafficControlTaskId();
+    body["TrafficControlTaskId"] = request.getTrafficControlTaskId();
   }
 
   if (!!request.hasValue()) {
-    body["Value"] = request.value();
+    body["Value"] = request.getValue();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2203,119 +2577,119 @@ CreateTrafficControlTaskResponse Client::createTrafficControlTaskWithOptions(con
   request.validate();
   json body = {};
   if (!!request.hasBehaviorTableMetaId()) {
-    body["BehaviorTableMetaId"] = request.behaviorTableMetaId();
+    body["BehaviorTableMetaId"] = request.getBehaviorTableMetaId();
   }
 
   if (!!request.hasControlGranularity()) {
-    body["ControlGranularity"] = request.controlGranularity();
+    body["ControlGranularity"] = request.getControlGranularity();
   }
 
   if (!!request.hasControlLogic()) {
-    body["ControlLogic"] = request.controlLogic();
+    body["ControlLogic"] = request.getControlLogic();
   }
 
   if (!!request.hasControlType()) {
-    body["ControlType"] = request.controlType();
+    body["ControlType"] = request.getControlType();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasEffectiveSceneIds()) {
-    body["EffectiveSceneIds"] = request.effectiveSceneIds();
+    body["EffectiveSceneIds"] = request.getEffectiveSceneIds();
   }
 
   if (!!request.hasEndTime()) {
-    body["EndTime"] = request.endTime();
+    body["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasExecutionTime()) {
-    body["ExecutionTime"] = request.executionTime();
+    body["ExecutionTime"] = request.getExecutionTime();
   }
 
   if (!!request.hasFlinkResourceId()) {
-    body["FlinkResourceId"] = request.flinkResourceId();
+    body["FlinkResourceId"] = request.getFlinkResourceId();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasItemConditionArray()) {
-    body["ItemConditionArray"] = request.itemConditionArray();
+    body["ItemConditionArray"] = request.getItemConditionArray();
   }
 
   if (!!request.hasItemConditionExpress()) {
-    body["ItemConditionExpress"] = request.itemConditionExpress();
+    body["ItemConditionExpress"] = request.getItemConditionExpress();
   }
 
   if (!!request.hasItemConditionType()) {
-    body["ItemConditionType"] = request.itemConditionType();
+    body["ItemConditionType"] = request.getItemConditionType();
   }
 
   if (!!request.hasItemTableMetaId()) {
-    body["ItemTableMetaId"] = request.itemTableMetaId();
+    body["ItemTableMetaId"] = request.getItemTableMetaId();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasPreExperimentIds()) {
-    body["PreExperimentIds"] = request.preExperimentIds();
+    body["PreExperimentIds"] = request.getPreExperimentIds();
   }
 
   if (!!request.hasProdExperimentIds()) {
-    body["ProdExperimentIds"] = request.prodExperimentIds();
+    body["ProdExperimentIds"] = request.getProdExperimentIds();
   }
 
   if (!!request.hasSceneId()) {
-    body["SceneId"] = request.sceneId();
+    body["SceneId"] = request.getSceneId();
   }
 
   if (!!request.hasServiceId()) {
-    body["ServiceId"] = request.serviceId();
+    body["ServiceId"] = request.getServiceId();
   }
 
   if (!!request.hasServiceIds()) {
-    body["ServiceIds"] = request.serviceIds();
+    body["ServiceIds"] = request.getServiceIds();
   }
 
   if (!!request.hasStartTime()) {
-    body["StartTime"] = request.startTime();
+    body["StartTime"] = request.getStartTime();
   }
 
   if (!!request.hasStatisBehaviorConditionArray()) {
-    body["StatisBehaviorConditionArray"] = request.statisBehaviorConditionArray();
+    body["StatisBehaviorConditionArray"] = request.getStatisBehaviorConditionArray();
   }
 
   if (!!request.hasStatisBehaviorConditionExpress()) {
-    body["StatisBehaviorConditionExpress"] = request.statisBehaviorConditionExpress();
+    body["StatisBehaviorConditionExpress"] = request.getStatisBehaviorConditionExpress();
   }
 
   if (!!request.hasStatisBehaviorConditionType()) {
-    body["StatisBehaviorConditionType"] = request.statisBehaviorConditionType();
+    body["StatisBehaviorConditionType"] = request.getStatisBehaviorConditionType();
   }
 
   if (!!request.hasTrafficControlTargets()) {
-    body["TrafficControlTargets"] = request.trafficControlTargets();
+    body["TrafficControlTargets"] = request.getTrafficControlTargets();
   }
 
   if (!!request.hasUserConditionArray()) {
-    body["UserConditionArray"] = request.userConditionArray();
+    body["UserConditionArray"] = request.getUserConditionArray();
   }
 
   if (!!request.hasUserConditionExpress()) {
-    body["UserConditionExpress"] = request.userConditionExpress();
+    body["UserConditionExpress"] = request.getUserConditionExpress();
   }
 
   if (!!request.hasUserConditionType()) {
-    body["UserConditionType"] = request.userConditionType();
+    body["UserConditionType"] = request.getUserConditionType();
   }
 
   if (!!request.hasUserTableMetaId()) {
-    body["UserTableMetaId"] = request.userTableMetaId();
+    body["UserTableMetaId"] = request.getUserTableMetaId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2361,20 +2735,20 @@ DebugResourceRuleResponse Client::debugResourceRuleWithOptions(const string &Res
   DebugResourceRuleShrinkRequest request = DebugResourceRuleShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasMetricInfo()) {
-    request.setMetricInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.metricInfo(), "MetricInfo", "json"));
+    request.setMetricInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getMetricInfo(), "MetricInfo", "json"));
   }
 
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasMetricInfoShrink()) {
-    query["MetricInfo"] = request.metricInfoShrink();
+    query["MetricInfo"] = request.getMetricInfoShrink();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2385,7 +2759,7 @@ DebugResourceRuleResponse Client::debugResourceRuleWithOptions(const string &Res
     {"action" , "DebugResourceRule"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/resourcerules/" , Darabonba::Http::URL::percentEncode(ResourceRuleId) , "/action/debug")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/resourcerules/" , Darabonba::Encode::Encoder::percentEncode(ResourceRuleId) , "/action/debug")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2419,7 +2793,7 @@ DeleteABMetricResponse Client::deleteABMetricWithOptions(const string &ABMetricI
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2430,7 +2804,7 @@ DeleteABMetricResponse Client::deleteABMetricWithOptions(const string &ABMetricI
     {"action" , "DeleteABMetric"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/abmetrics/" , Darabonba::Http::URL::percentEncode(ABMetricId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/abmetrics/" , Darabonba::Encode::Encoder::percentEncode(ABMetricId))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2464,7 +2838,7 @@ DeleteABMetricGroupResponse Client::deleteABMetricGroupWithOptions(const string 
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2475,7 +2849,7 @@ DeleteABMetricGroupResponse Client::deleteABMetricGroupWithOptions(const string 
     {"action" , "DeleteABMetricGroup"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/abmetricgroups/" , Darabonba::Http::URL::percentEncode(ABMetricGroupId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/abmetricgroups/" , Darabonba::Encode::Encoder::percentEncode(ABMetricGroupId))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2509,7 +2883,7 @@ DeleteCrowdResponse Client::deleteCrowdWithOptions(const string &CrowdId, const 
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2520,7 +2894,7 @@ DeleteCrowdResponse Client::deleteCrowdWithOptions(const string &CrowdId, const 
     {"action" , "DeleteCrowd"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/crowds/" , Darabonba::Http::URL::percentEncode(CrowdId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/crowds/" , Darabonba::Encode::Encoder::percentEncode(CrowdId))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2554,7 +2928,7 @@ DeleteEngineConfigResponse Client::deleteEngineConfigWithOptions(const string &E
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2565,7 +2939,7 @@ DeleteEngineConfigResponse Client::deleteEngineConfigWithOptions(const string &E
     {"action" , "DeleteEngineConfig"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/engineconfigs/" , Darabonba::Http::URL::percentEncode(EngineConfigId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/engineconfigs/" , Darabonba::Encode::Encoder::percentEncode(EngineConfigId))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2599,7 +2973,7 @@ DeleteExperimentResponse Client::deleteExperimentWithOptions(const string &Exper
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2610,7 +2984,7 @@ DeleteExperimentResponse Client::deleteExperimentWithOptions(const string &Exper
     {"action" , "DeleteExperiment"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/experiments/" , Darabonba::Http::URL::percentEncode(ExperimentId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/experiments/" , Darabonba::Encode::Encoder::percentEncode(ExperimentId))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2644,7 +3018,7 @@ DeleteExperimentGroupResponse Client::deleteExperimentGroupWithOptions(const str
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2655,7 +3029,7 @@ DeleteExperimentGroupResponse Client::deleteExperimentGroupWithOptions(const str
     {"action" , "DeleteExperimentGroup"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/experimentgroups/" , Darabonba::Http::URL::percentEncode(ExperimentGroupId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/experimentgroups/" , Darabonba::Encode::Encoder::percentEncode(ExperimentGroupId))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2692,7 +3066,7 @@ DeleteInstanceResourceResponse Client::deleteInstanceResourceWithOptions(const s
     {"action" , "DeleteInstanceResource"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/resources/" , Darabonba::Http::URL::percentEncode(ResourceId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/resources/" , Darabonba::Encode::Encoder::percentEncode(ResourceId))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2725,7 +3099,7 @@ DeleteLaboratoryResponse Client::deleteLaboratoryWithOptions(const string &Labor
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2736,7 +3110,7 @@ DeleteLaboratoryResponse Client::deleteLaboratoryWithOptions(const string &Labor
     {"action" , "DeleteLaboratory"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/laboratories/" , Darabonba::Http::URL::percentEncode(LaboratoryId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/laboratories/" , Darabonba::Encode::Encoder::percentEncode(LaboratoryId))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2770,7 +3144,7 @@ DeleteLayerResponse Client::deleteLayerWithOptions(const string &LayerId, const 
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2781,7 +3155,7 @@ DeleteLayerResponse Client::deleteLayerWithOptions(const string &LayerId, const 
     {"action" , "DeleteLayer"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/layers/" , Darabonba::Http::URL::percentEncode(LayerId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/layers/" , Darabonba::Encode::Encoder::percentEncode(LayerId))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2815,7 +3189,7 @@ DeleteParamResponse Client::deleteParamWithOptions(const string &ParamId, const 
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2826,7 +3200,7 @@ DeleteParamResponse Client::deleteParamWithOptions(const string &ParamId, const 
     {"action" , "DeleteParam"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/params/" , Darabonba::Http::URL::percentEncode(ParamId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/params/" , Darabonba::Encode::Encoder::percentEncode(ParamId))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2849,6 +3223,186 @@ DeleteParamResponse Client::deleteParam(const string &ParamId, const DeleteParam
 }
 
 /**
+ * @summary 删除指定召回管理服务
+ *
+ * @param request DeleteRecallManagementServiceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteRecallManagementServiceResponse
+ */
+DeleteRecallManagementServiceResponse Client::deleteRecallManagementServiceWithOptions(const string &RecallManagementServiceId, const DeleteRecallManagementServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteRecallManagementService"},
+    {"version" , "2022-12-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/recallmanagementservices/" , Darabonba::Encode::Encoder::percentEncode(RecallManagementServiceId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteRecallManagementServiceResponse>();
+}
+
+/**
+ * @summary 删除指定召回管理服务
+ *
+ * @param request DeleteRecallManagementServiceRequest
+ * @return DeleteRecallManagementServiceResponse
+ */
+DeleteRecallManagementServiceResponse Client::deleteRecallManagementService(const string &RecallManagementServiceId, const DeleteRecallManagementServiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteRecallManagementServiceWithOptions(RecallManagementServiceId, request, headers, runtime);
+}
+
+/**
+ * @summary 删除指定召回管理服务版本
+ *
+ * @param request DeleteRecallManagementServiceVersionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteRecallManagementServiceVersionResponse
+ */
+DeleteRecallManagementServiceVersionResponse Client::deleteRecallManagementServiceVersionWithOptions(const string &RecallManagementServiceId, const string &RecallManagementServiceVersionId, const DeleteRecallManagementServiceVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteRecallManagementServiceVersion"},
+    {"version" , "2022-12-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/recallmanagementservices/" , Darabonba::Encode::Encoder::percentEncode(RecallManagementServiceId) , "/versions/" , Darabonba::Encode::Encoder::percentEncode(RecallManagementServiceVersionId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteRecallManagementServiceVersionResponse>();
+}
+
+/**
+ * @summary 删除指定召回管理服务版本
+ *
+ * @param request DeleteRecallManagementServiceVersionRequest
+ * @return DeleteRecallManagementServiceVersionResponse
+ */
+DeleteRecallManagementServiceVersionResponse Client::deleteRecallManagementServiceVersion(const string &RecallManagementServiceId, const string &RecallManagementServiceVersionId, const DeleteRecallManagementServiceVersionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteRecallManagementServiceVersionWithOptions(RecallManagementServiceId, RecallManagementServiceVersionId, request, headers, runtime);
+}
+
+/**
+ * @summary 删除召回管理服务版本配置
+ *
+ * @param request DeleteRecallManagementServiceVersionConfigRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteRecallManagementServiceVersionConfigResponse
+ */
+DeleteRecallManagementServiceVersionConfigResponse Client::deleteRecallManagementServiceVersionConfigWithOptions(const string &RecallManagementServiceId, const string &RecallManagementServiceVersionId, const string &RecallManagementServiceVersionConfigId, const DeleteRecallManagementServiceVersionConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteRecallManagementServiceVersionConfig"},
+    {"version" , "2022-12-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/recallmanagementservices/" , Darabonba::Encode::Encoder::percentEncode(RecallManagementServiceId) , "/versions/" , Darabonba::Encode::Encoder::percentEncode(RecallManagementServiceVersionId) , "/configs/" , Darabonba::Encode::Encoder::percentEncode(RecallManagementServiceVersionConfigId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteRecallManagementServiceVersionConfigResponse>();
+}
+
+/**
+ * @summary 删除召回管理服务版本配置
+ *
+ * @param request DeleteRecallManagementServiceVersionConfigRequest
+ * @return DeleteRecallManagementServiceVersionConfigResponse
+ */
+DeleteRecallManagementServiceVersionConfigResponse Client::deleteRecallManagementServiceVersionConfig(const string &RecallManagementServiceId, const string &RecallManagementServiceVersionId, const string &RecallManagementServiceVersionConfigId, const DeleteRecallManagementServiceVersionConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteRecallManagementServiceVersionConfigWithOptions(RecallManagementServiceId, RecallManagementServiceVersionId, RecallManagementServiceVersionConfigId, request, headers, runtime);
+}
+
+/**
+ * @summary 删除指定召回管理表。
+ *
+ * @param request DeleteRecallManagementTableRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteRecallManagementTableResponse
+ */
+DeleteRecallManagementTableResponse Client::deleteRecallManagementTableWithOptions(const string &RecallManagementTableId, const DeleteRecallManagementTableRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteRecallManagementTable"},
+    {"version" , "2022-12-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/recallmanagementtables/" , Darabonba::Encode::Encoder::percentEncode(RecallManagementTableId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteRecallManagementTableResponse>();
+}
+
+/**
+ * @summary 删除指定召回管理表。
+ *
+ * @param request DeleteRecallManagementTableRequest
+ * @return DeleteRecallManagementTableResponse
+ */
+DeleteRecallManagementTableResponse Client::deleteRecallManagementTable(const string &RecallManagementTableId, const DeleteRecallManagementTableRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteRecallManagementTableWithOptions(RecallManagementTableId, request, headers, runtime);
+}
+
+/**
  * @summary 删除资源规则
  *
  * @param request DeleteResourceRuleRequest
@@ -2860,7 +3414,7 @@ DeleteResourceRuleResponse Client::deleteResourceRuleWithOptions(const string &R
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2871,7 +3425,7 @@ DeleteResourceRuleResponse Client::deleteResourceRuleWithOptions(const string &R
     {"action" , "DeleteResourceRule"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/resourcerules/" , Darabonba::Http::URL::percentEncode(ResourceRuleId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/resourcerules/" , Darabonba::Encode::Encoder::percentEncode(ResourceRuleId))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2905,7 +3459,7 @@ DeleteResourceRuleItemResponse Client::deleteResourceRuleItemWithOptions(const s
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2916,7 +3470,7 @@ DeleteResourceRuleItemResponse Client::deleteResourceRuleItemWithOptions(const s
     {"action" , "DeleteResourceRuleItem"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/resourcerules/" , Darabonba::Http::URL::percentEncode(ResourceRuleId) , "/items/" , Darabonba::Http::URL::percentEncode(ResourceRuleItemId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/resourcerules/" , Darabonba::Encode::Encoder::percentEncode(ResourceRuleId) , "/items/" , Darabonba::Encode::Encoder::percentEncode(ResourceRuleItemId))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2950,7 +3504,7 @@ DeleteSampleConsistencyJobResponse Client::deleteSampleConsistencyJobWithOptions
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2961,7 +3515,7 @@ DeleteSampleConsistencyJobResponse Client::deleteSampleConsistencyJobWithOptions
     {"action" , "DeleteSampleConsistencyJob"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/sampleconsistencyjobs/" , Darabonba::Http::URL::percentEncode(SampleConsistencyJobId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/sampleconsistencyjobs/" , Darabonba::Encode::Encoder::percentEncode(SampleConsistencyJobId))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2995,7 +3549,7 @@ DeleteSceneResponse Client::deleteSceneWithOptions(const string &SceneId, const 
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3006,7 +3560,7 @@ DeleteSceneResponse Client::deleteSceneWithOptions(const string &SceneId, const 
     {"action" , "DeleteScene"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/scenes/" , Darabonba::Http::URL::percentEncode(SceneId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/scenes/" , Darabonba::Encode::Encoder::percentEncode(SceneId))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -3040,7 +3594,7 @@ DeleteSubCrowdResponse Client::deleteSubCrowdWithOptions(const string &CrowdId, 
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3051,7 +3605,7 @@ DeleteSubCrowdResponse Client::deleteSubCrowdWithOptions(const string &CrowdId, 
     {"action" , "DeleteSubCrowd"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/crowds/" , Darabonba::Http::URL::percentEncode(CrowdId) , "/subcrowds/" , Darabonba::Http::URL::percentEncode(SubCrowdId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/crowds/" , Darabonba::Encode::Encoder::percentEncode(CrowdId) , "/subcrowds/" , Darabonba::Encode::Encoder::percentEncode(SubCrowdId))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -3085,7 +3639,7 @@ DeleteTableMetaResponse Client::deleteTableMetaWithOptions(const string &TableMe
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3096,7 +3650,7 @@ DeleteTableMetaResponse Client::deleteTableMetaWithOptions(const string &TableMe
     {"action" , "DeleteTableMeta"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/tablemetas/" , Darabonba::Http::URL::percentEncode(TableMetaId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/tablemetas/" , Darabonba::Encode::Encoder::percentEncode(TableMetaId))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -3130,7 +3684,7 @@ DeleteTrafficControlTargetResponse Client::deleteTrafficControlTargetWithOptions
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3141,7 +3695,7 @@ DeleteTrafficControlTargetResponse Client::deleteTrafficControlTargetWithOptions
     {"action" , "DeleteTrafficControlTarget"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trafficcontroltargets/" , Darabonba::Http::URL::percentEncode(TrafficControlTargetId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trafficcontroltargets/" , Darabonba::Encode::Encoder::percentEncode(TrafficControlTargetId))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -3175,7 +3729,7 @@ DeleteTrafficControlTaskResponse Client::deleteTrafficControlTaskWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3186,7 +3740,7 @@ DeleteTrafficControlTaskResponse Client::deleteTrafficControlTaskWithOptions(con
     {"action" , "DeleteTrafficControlTask"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trafficcontroltasks/" , Darabonba::Http::URL::percentEncode(TrafficControlTaskId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trafficcontroltasks/" , Darabonba::Encode::Encoder::percentEncode(TrafficControlTaskId))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -3220,15 +3774,15 @@ GenerateAlgorithmCustomizationScriptResponse Client::generateAlgorithmCustomizat
   request.validate();
   json body = {};
   if (!!request.hasDeployMode()) {
-    body["DeployMode"] = request.deployMode();
+    body["DeployMode"] = request.getDeployMode();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasModuleFieldTypes()) {
-    body["ModuleFieldTypes"] = request.moduleFieldTypes();
+    body["ModuleFieldTypes"] = request.getModuleFieldTypes();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3239,7 +3793,7 @@ GenerateAlgorithmCustomizationScriptResponse Client::generateAlgorithmCustomizat
     {"action" , "GenerateAlgorithmCustomizationScript"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/algorithmcustomizations/" , Darabonba::Http::URL::percentEncode(AlgorithmCustomizationId) , "/action/generatescript")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/algorithmcustomizations/" , Darabonba::Encode::Encoder::percentEncode(AlgorithmCustomizationId) , "/action/generatescript")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -3273,11 +3827,11 @@ GenerateTrafficControlTaskCodeResponse Client::generateTrafficControlTaskCodeWit
   request.validate();
   json body = {};
   if (!!request.hasEnvironment()) {
-    body["Environment"] = request.environment();
+    body["Environment"] = request.getEnvironment();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3288,7 +3842,7 @@ GenerateTrafficControlTaskCodeResponse Client::generateTrafficControlTaskCodeWit
     {"action" , "GenerateTrafficControlTaskCode"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trafficcontroltasks/" , Darabonba::Http::URL::percentEncode(TrafficControlTaskId) , "/action/generatecode")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trafficcontroltasks/" , Darabonba::Encode::Encoder::percentEncode(TrafficControlTaskId) , "/action/generatecode")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -3322,7 +3876,7 @@ GenerateTrafficControlTaskConfigResponse Client::generateTrafficControlTaskConfi
   request.validate();
   json body = {};
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3333,7 +3887,7 @@ GenerateTrafficControlTaskConfigResponse Client::generateTrafficControlTaskConfi
     {"action" , "GenerateTrafficControlTaskConfig"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trafficcontroltasks/" , Darabonba::Http::URL::percentEncode(TrafficControlTaskId) , "/action/generateconfig")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trafficcontroltasks/" , Darabonba::Encode::Encoder::percentEncode(TrafficControlTaskId) , "/action/generateconfig")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -3367,7 +3921,7 @@ GetABMetricResponse Client::getABMetricWithOptions(const string &ABMetricId, con
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3378,7 +3932,7 @@ GetABMetricResponse Client::getABMetricWithOptions(const string &ABMetricId, con
     {"action" , "GetABMetric"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/abmetrics/" , Darabonba::Http::URL::percentEncode(ABMetricId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/abmetrics/" , Darabonba::Encode::Encoder::percentEncode(ABMetricId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -3412,7 +3966,7 @@ GetABMetricGroupResponse Client::getABMetricGroupWithOptions(const string &ABMet
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3423,7 +3977,7 @@ GetABMetricGroupResponse Client::getABMetricGroupWithOptions(const string &ABMet
     {"action" , "GetABMetricGroup"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/abmetricgroups/" , Darabonba::Http::URL::percentEncode(ABMetricGroupId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/abmetricgroups/" , Darabonba::Encode::Encoder::percentEncode(ABMetricGroupId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -3457,7 +4011,7 @@ GetCalculationJobResponse Client::getCalculationJobWithOptions(const string &Cal
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3468,7 +4022,7 @@ GetCalculationJobResponse Client::getCalculationJobWithOptions(const string &Cal
     {"action" , "GetCalculationJob"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/calculationjobs/" , Darabonba::Http::URL::percentEncode(CalculationJobId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/calculationjobs/" , Darabonba::Encode::Encoder::percentEncode(CalculationJobId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -3502,7 +4056,7 @@ GetEngineConfigResponse Client::getEngineConfigWithOptions(const string &EngineC
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3513,7 +4067,7 @@ GetEngineConfigResponse Client::getEngineConfigWithOptions(const string &EngineC
     {"action" , "GetEngineConfig"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/engineconfigs/" , Darabonba::Http::URL::percentEncode(EngineConfigId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/engineconfigs/" , Darabonba::Encode::Encoder::percentEncode(EngineConfigId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -3547,7 +4101,7 @@ GetExperimentResponse Client::getExperimentWithOptions(const string &ExperimentI
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3558,7 +4112,7 @@ GetExperimentResponse Client::getExperimentWithOptions(const string &ExperimentI
     {"action" , "GetExperiment"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/experiments/" , Darabonba::Http::URL::percentEncode(ExperimentId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/experiments/" , Darabonba::Encode::Encoder::percentEncode(ExperimentId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -3592,7 +4146,7 @@ GetExperimentGroupResponse Client::getExperimentGroupWithOptions(const string &E
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3603,7 +4157,7 @@ GetExperimentGroupResponse Client::getExperimentGroupWithOptions(const string &E
     {"action" , "GetExperimentGroup"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/experimentgroups/" , Darabonba::Http::URL::percentEncode(ExperimentGroupId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/experimentgroups/" , Darabonba::Encode::Encoder::percentEncode(ExperimentGroupId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -3637,7 +4191,7 @@ GetFeatureConsistencyCheckJobResponse Client::getFeatureConsistencyCheckJobWithO
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3648,7 +4202,7 @@ GetFeatureConsistencyCheckJobResponse Client::getFeatureConsistencyCheckJobWithO
     {"action" , "GetFeatureConsistencyCheckJob"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/featureconsistencycheck/jobs/" , Darabonba::Http::URL::percentEncode(FeatureConsistencyCheckJobId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/featureconsistencycheck/jobs/" , Darabonba::Encode::Encoder::percentEncode(FeatureConsistencyCheckJobId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -3682,7 +4236,7 @@ GetFeatureConsistencyCheckJobConfigResponse Client::getFeatureConsistencyCheckJo
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3693,7 +4247,7 @@ GetFeatureConsistencyCheckJobConfigResponse Client::getFeatureConsistencyCheckJo
     {"action" , "GetFeatureConsistencyCheckJobConfig"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/featureconsistencycheck/jobconfigs/" , Darabonba::Http::URL::percentEncode(FeatureConsistencyCheckJobConfigId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/featureconsistencycheck/jobconfigs/" , Darabonba::Encode::Encoder::percentEncode(FeatureConsistencyCheckJobConfigId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -3730,7 +4284,7 @@ GetInstanceResponse Client::getInstanceWithOptions(const string &InstanceId, con
     {"action" , "GetInstance"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Http::URL::percentEncode(InstanceId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -3766,7 +4320,7 @@ GetInstanceResourceResponse Client::getInstanceResourceWithOptions(const string 
     {"action" , "GetInstanceResource"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/resources/" , Darabonba::Http::URL::percentEncode(ResourceId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/resources/" , Darabonba::Encode::Encoder::percentEncode(ResourceId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -3802,7 +4356,7 @@ GetInstanceResourceTableResponse Client::getInstanceResourceTableWithOptions(con
     {"action" , "GetInstanceResourceTable"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/resources/" , Darabonba::Http::URL::percentEncode(ResourceId) , "/tables/" , Darabonba::Http::URL::percentEncode(TableName))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/resources/" , Darabonba::Encode::Encoder::percentEncode(ResourceId) , "/tables/" , Darabonba::Encode::Encoder::percentEncode(TableName))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -3835,7 +4389,7 @@ GetLaboratoryResponse Client::getLaboratoryWithOptions(const string &LaboratoryI
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3846,7 +4400,7 @@ GetLaboratoryResponse Client::getLaboratoryWithOptions(const string &LaboratoryI
     {"action" , "GetLaboratory"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/laboratories/" , Darabonba::Http::URL::percentEncode(LaboratoryId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/laboratories/" , Darabonba::Encode::Encoder::percentEncode(LaboratoryId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -3880,7 +4434,7 @@ GetLayerResponse Client::getLayerWithOptions(const string &LayerId, const GetLay
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3891,7 +4445,7 @@ GetLayerResponse Client::getLayerWithOptions(const string &LayerId, const GetLay
     {"action" , "GetLayer"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/layers/" , Darabonba::Http::URL::percentEncode(LayerId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/layers/" , Darabonba::Encode::Encoder::percentEncode(LayerId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -3914,6 +4468,276 @@ GetLayerResponse Client::getLayer(const string &LayerId, const GetLayerRequest &
 }
 
 /**
+ * @summary 获取召回管理初始化配置。
+ *
+ * @param request GetRecallManagementConfigRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetRecallManagementConfigResponse
+ */
+GetRecallManagementConfigResponse Client::getRecallManagementConfigWithOptions(const GetRecallManagementConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetRecallManagementConfig"},
+    {"version" , "2022-12-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/recallmanagementconfigs")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetRecallManagementConfigResponse>();
+}
+
+/**
+ * @summary 获取召回管理初始化配置。
+ *
+ * @param request GetRecallManagementConfigRequest
+ * @return GetRecallManagementConfigResponse
+ */
+GetRecallManagementConfigResponse Client::getRecallManagementConfig(const GetRecallManagementConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getRecallManagementConfigWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 获取召回管理任务详情。
+ *
+ * @param request GetRecallManagementJobRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetRecallManagementJobResponse
+ */
+GetRecallManagementJobResponse Client::getRecallManagementJobWithOptions(const string &RecallManagementJobId, const GetRecallManagementJobRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetRecallManagementJob"},
+    {"version" , "2022-12-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/recallmanagementjobs/" , Darabonba::Encode::Encoder::percentEncode(RecallManagementJobId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetRecallManagementJobResponse>();
+}
+
+/**
+ * @summary 获取召回管理任务详情。
+ *
+ * @param request GetRecallManagementJobRequest
+ * @return GetRecallManagementJobResponse
+ */
+GetRecallManagementJobResponse Client::getRecallManagementJob(const string &RecallManagementJobId, const GetRecallManagementJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getRecallManagementJobWithOptions(RecallManagementJobId, request, headers, runtime);
+}
+
+/**
+ * @summary 获取指定召回管理服务详细信息
+ *
+ * @param request GetRecallManagementServiceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetRecallManagementServiceResponse
+ */
+GetRecallManagementServiceResponse Client::getRecallManagementServiceWithOptions(const string &RecallManagementServiceId, const GetRecallManagementServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetRecallManagementService"},
+    {"version" , "2022-12-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/recallmanagementservices/" , Darabonba::Encode::Encoder::percentEncode(RecallManagementServiceId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetRecallManagementServiceResponse>();
+}
+
+/**
+ * @summary 获取指定召回管理服务详细信息
+ *
+ * @param request GetRecallManagementServiceRequest
+ * @return GetRecallManagementServiceResponse
+ */
+GetRecallManagementServiceResponse Client::getRecallManagementService(const string &RecallManagementServiceId, const GetRecallManagementServiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getRecallManagementServiceWithOptions(RecallManagementServiceId, request, headers, runtime);
+}
+
+/**
+ * @summary 获取指定召回管理版本详细信息
+ *
+ * @param request GetRecallManagementServiceVersionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetRecallManagementServiceVersionResponse
+ */
+GetRecallManagementServiceVersionResponse Client::getRecallManagementServiceVersionWithOptions(const string &RecallManagementServiceId, const string &RecallManagementServiceVersionId, const GetRecallManagementServiceVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetRecallManagementServiceVersion"},
+    {"version" , "2022-12-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/recallmanagementservices/" , Darabonba::Encode::Encoder::percentEncode(RecallManagementServiceId) , "/versions/" , Darabonba::Encode::Encoder::percentEncode(RecallManagementServiceVersionId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetRecallManagementServiceVersionResponse>();
+}
+
+/**
+ * @summary 获取指定召回管理版本详细信息
+ *
+ * @param request GetRecallManagementServiceVersionRequest
+ * @return GetRecallManagementServiceVersionResponse
+ */
+GetRecallManagementServiceVersionResponse Client::getRecallManagementServiceVersion(const string &RecallManagementServiceId, const string &RecallManagementServiceVersionId, const GetRecallManagementServiceVersionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getRecallManagementServiceVersionWithOptions(RecallManagementServiceId, RecallManagementServiceVersionId, request, headers, runtime);
+}
+
+/**
+ * @summary 获取召回管理服务版本配置详细信息
+ *
+ * @param request GetRecallManagementServiceVersionConfigRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetRecallManagementServiceVersionConfigResponse
+ */
+GetRecallManagementServiceVersionConfigResponse Client::getRecallManagementServiceVersionConfigWithOptions(const string &RecallManagementServiceId, const string &RecallManagementServiceVersionId, const string &RecallManagementServiceVersionConfigId, const GetRecallManagementServiceVersionConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetRecallManagementServiceVersionConfig"},
+    {"version" , "2022-12-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/recallmanagementservices/" , Darabonba::Encode::Encoder::percentEncode(RecallManagementServiceId) , "/versions/" , Darabonba::Encode::Encoder::percentEncode(RecallManagementServiceVersionId) , "/configs/" , Darabonba::Encode::Encoder::percentEncode(RecallManagementServiceVersionConfigId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetRecallManagementServiceVersionConfigResponse>();
+}
+
+/**
+ * @summary 获取召回管理服务版本配置详细信息
+ *
+ * @param request GetRecallManagementServiceVersionConfigRequest
+ * @return GetRecallManagementServiceVersionConfigResponse
+ */
+GetRecallManagementServiceVersionConfigResponse Client::getRecallManagementServiceVersionConfig(const string &RecallManagementServiceId, const string &RecallManagementServiceVersionId, const string &RecallManagementServiceVersionConfigId, const GetRecallManagementServiceVersionConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getRecallManagementServiceVersionConfigWithOptions(RecallManagementServiceId, RecallManagementServiceVersionId, RecallManagementServiceVersionConfigId, request, headers, runtime);
+}
+
+/**
+ * @summary 获取指定召回管理表详细信息。
+ *
+ * @param request GetRecallManagementTableRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetRecallManagementTableResponse
+ */
+GetRecallManagementTableResponse Client::getRecallManagementTableWithOptions(const string &RecallManagementTableId, const GetRecallManagementTableRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetRecallManagementTable"},
+    {"version" , "2022-12-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/recallmanagementtables/" , Darabonba::Encode::Encoder::percentEncode(RecallManagementTableId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetRecallManagementTableResponse>();
+}
+
+/**
+ * @summary 获取指定召回管理表详细信息。
+ *
+ * @param request GetRecallManagementTableRequest
+ * @return GetRecallManagementTableResponse
+ */
+GetRecallManagementTableResponse Client::getRecallManagementTable(const string &RecallManagementTableId, const GetRecallManagementTableRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getRecallManagementTableWithOptions(RecallManagementTableId, request, headers, runtime);
+}
+
+/**
  * @summary 获取资源规则详细信息
  *
  * @param request GetResourceRuleRequest
@@ -3925,7 +4749,7 @@ GetResourceRuleResponse Client::getResourceRuleWithOptions(const string &Resourc
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3936,7 +4760,7 @@ GetResourceRuleResponse Client::getResourceRuleWithOptions(const string &Resourc
     {"action" , "GetResourceRule"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/resourcerules/" , Darabonba::Http::URL::percentEncode(ResourceRuleId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/resourcerules/" , Darabonba::Encode::Encoder::percentEncode(ResourceRuleId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -3970,7 +4794,7 @@ GetSampleConsistencyJobResponse Client::getSampleConsistencyJobWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3981,7 +4805,7 @@ GetSampleConsistencyJobResponse Client::getSampleConsistencyJobWithOptions(const
     {"action" , "GetSampleConsistencyJob"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/sampleconsistencyjobs/" , Darabonba::Http::URL::percentEncode(SampleConsistencyJobId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/sampleconsistencyjobs/" , Darabonba::Encode::Encoder::percentEncode(SampleConsistencyJobId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -4015,7 +4839,7 @@ GetSceneResponse Client::getSceneWithOptions(const string &SceneId, const GetSce
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4026,7 +4850,7 @@ GetSceneResponse Client::getSceneWithOptions(const string &SceneId, const GetSce
     {"action" , "GetScene"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/scenes/" , Darabonba::Http::URL::percentEncode(SceneId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/scenes/" , Darabonba::Encode::Encoder::percentEncode(SceneId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -4060,7 +4884,7 @@ GetServiceResponse Client::getServiceWithOptions(const string &ServiceId, const 
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4071,7 +4895,7 @@ GetServiceResponse Client::getServiceWithOptions(const string &ServiceId, const 
     {"action" , "GetService"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/services/" , Darabonba::Http::URL::percentEncode(ServiceId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/services/" , Darabonba::Encode::Encoder::percentEncode(ServiceId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -4105,7 +4929,7 @@ GetSubCrowdResponse Client::getSubCrowdWithOptions(const string &CrowdId, const 
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4116,7 +4940,7 @@ GetSubCrowdResponse Client::getSubCrowdWithOptions(const string &CrowdId, const 
     {"action" , "GetSubCrowd"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/crowds/" , Darabonba::Http::URL::percentEncode(CrowdId) , "/subcrowds/" , Darabonba::Http::URL::percentEncode(SubCrowdId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/crowds/" , Darabonba::Encode::Encoder::percentEncode(CrowdId) , "/subcrowds/" , Darabonba::Encode::Encoder::percentEncode(SubCrowdId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -4150,7 +4974,7 @@ GetTableMetaResponse Client::getTableMetaWithOptions(const string &TableMetaId, 
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4161,7 +4985,7 @@ GetTableMetaResponse Client::getTableMetaWithOptions(const string &TableMetaId, 
     {"action" , "GetTableMeta"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/tablemetas/" , Darabonba::Http::URL::percentEncode(TableMetaId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/tablemetas/" , Darabonba::Encode::Encoder::percentEncode(TableMetaId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -4195,7 +5019,7 @@ GetTrafficControlTargetResponse Client::getTrafficControlTargetWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4206,7 +5030,7 @@ GetTrafficControlTargetResponse Client::getTrafficControlTargetWithOptions(const
     {"action" , "GetTrafficControlTarget"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trafficcontroltargets/" , Darabonba::Http::URL::percentEncode(TrafficControlTargetId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trafficcontroltargets/" , Darabonba::Encode::Encoder::percentEncode(TrafficControlTargetId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -4240,23 +5064,23 @@ GetTrafficControlTaskResponse Client::getTrafficControlTaskWithOptions(const str
   request.validate();
   json query = {};
   if (!!request.hasControlTargetFilter()) {
-    query["ControlTargetFilter"] = request.controlTargetFilter();
+    query["ControlTargetFilter"] = request.getControlTargetFilter();
   }
 
   if (!!request.hasEnvironment()) {
-    query["Environment"] = request.environment();
+    query["Environment"] = request.getEnvironment();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasVersion()) {
-    query["Version"] = request.version();
+    query["Version"] = request.getVersion();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4267,7 +5091,7 @@ GetTrafficControlTaskResponse Client::getTrafficControlTaskWithOptions(const str
     {"action" , "GetTrafficControlTask"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trafficcontroltasks/" , Darabonba::Http::URL::percentEncode(TrafficControlTaskId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trafficcontroltasks/" , Darabonba::Encode::Encoder::percentEncode(TrafficControlTaskId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -4301,11 +5125,11 @@ GetTrafficControlTaskTrafficResponse Client::getTrafficControlTaskTrafficWithOpt
   request.validate();
   json query = {};
   if (!!request.hasEnvironment()) {
-    query["Environment"] = request.environment();
+    query["Environment"] = request.getEnvironment();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4316,7 +5140,7 @@ GetTrafficControlTaskTrafficResponse Client::getTrafficControlTaskTrafficWithOpt
     {"action" , "GetTrafficControlTaskTraffic"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trafficcontroltasks/" , Darabonba::Http::URL::percentEncode(TrafficControlTaskId) , "/trafficinfo")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trafficcontroltasks/" , Darabonba::Encode::Encoder::percentEncode(TrafficControlTaskId) , "/trafficinfo")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -4350,31 +5174,31 @@ ListABMetricGroupsResponse Client::listABMetricGroupsWithOptions(const ListABMet
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasOrder()) {
-    query["Order"] = request.order();
+    query["Order"] = request.getOrder();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRealtime()) {
-    query["Realtime"] = request.realtime();
+    query["Realtime"] = request.getRealtime();
   }
 
   if (!!request.hasSceneId()) {
-    query["SceneId"] = request.sceneId();
+    query["SceneId"] = request.getSceneId();
   }
 
   if (!!request.hasSortBy()) {
-    query["SortBy"] = request.sortBy();
+    query["SortBy"] = request.getSortBy();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4419,35 +5243,35 @@ ListABMetricsResponse Client::listABMetricsWithOptions(const ListABMetricsReques
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRealtime()) {
-    query["Realtime"] = request.realtime();
+    query["Realtime"] = request.getRealtime();
   }
 
   if (!!request.hasSceneId()) {
-    query["SceneId"] = request.sceneId();
+    query["SceneId"] = request.getSceneId();
   }
 
   if (!!request.hasTableMetaId()) {
-    query["TableMetaId"] = request.tableMetaId();
+    query["TableMetaId"] = request.getTableMetaId();
   }
 
   if (!!request.hasType()) {
-    query["Type"] = request.type();
+    query["Type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4492,23 +5316,23 @@ ListCalculationJobsResponse Client::listCalculationJobsWithOptions(const ListCal
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasSceneId()) {
-    query["SceneId"] = request.sceneId();
+    query["SceneId"] = request.getSceneId();
   }
 
   if (!!request.hasStatus()) {
-    query["Status"] = request.status();
+    query["Status"] = request.getStatus();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4553,7 +5377,7 @@ ListCrowdUsersResponse Client::listCrowdUsersWithOptions(const string &CrowdId, 
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4564,7 +5388,7 @@ ListCrowdUsersResponse Client::listCrowdUsersWithOptions(const string &CrowdId, 
     {"action" , "ListCrowdUsers"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/crowds/" , Darabonba::Http::URL::percentEncode(CrowdId) , "/users")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/crowds/" , Darabonba::Encode::Encoder::percentEncode(CrowdId) , "/users")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -4598,7 +5422,7 @@ ListCrowdsResponse Client::listCrowdsWithOptions(const ListCrowdsRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4643,31 +5467,31 @@ ListEngineConfigsResponse Client::listEngineConfigsWithOptions(const ListEngineC
   request.validate();
   json query = {};
   if (!!request.hasEnvironment()) {
-    query["Environment"] = request.environment();
+    query["Environment"] = request.getEnvironment();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasStatus()) {
-    query["Status"] = request.status();
+    query["Status"] = request.getStatus();
   }
 
   if (!!request.hasVersion()) {
-    query["Version"] = request.version();
+    query["Version"] = request.getVersion();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4712,27 +5536,27 @@ ListExperimentGroupsResponse Client::listExperimentGroupsWithOptions(const ListE
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasLayerId()) {
-    query["LayerId"] = request.layerId();
+    query["LayerId"] = request.getLayerId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasStatus()) {
-    query["Status"] = request.status();
+    query["Status"] = request.getStatus();
   }
 
   if (!!request.hasTimeRangeEnd()) {
-    query["TimeRangeEnd"] = request.timeRangeEnd();
+    query["TimeRangeEnd"] = request.getTimeRangeEnd();
   }
 
   if (!!request.hasTimeRangeStart()) {
-    query["TimeRangeStart"] = request.timeRangeStart();
+    query["TimeRangeStart"] = request.getTimeRangeStart();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4777,19 +5601,19 @@ ListExperimentsResponse Client::listExperimentsWithOptions(const ListExperiments
   request.validate();
   json query = {};
   if (!!request.hasExperimentGroupId()) {
-    query["ExperimentGroupId"] = request.experimentGroupId();
+    query["ExperimentGroupId"] = request.getExperimentGroupId();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasQuery()) {
-    query["Query"] = request.query();
+    query["Query"] = request.getQuery();
   }
 
   if (!!request.hasStatus()) {
-    query["Status"] = request.status();
+    query["Status"] = request.getStatus();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4834,23 +5658,23 @@ ListFeatureConsistencyCheckJobConfigsResponse Client::listFeatureConsistencyChec
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasOrder()) {
-    query["Order"] = request.order();
+    query["Order"] = request.getOrder();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasSortBy()) {
-    query["SortBy"] = request.sortBy();
+    query["SortBy"] = request.getSortBy();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4895,19 +5719,19 @@ ListFeatureConsistencyCheckJobFeatureReportsResponse Client::listFeatureConsiste
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasLogItemId()) {
-    query["LogItemId"] = request.logItemId();
+    query["LogItemId"] = request.getLogItemId();
   }
 
   if (!!request.hasLogRequestId()) {
-    query["LogRequestId"] = request.logRequestId();
+    query["LogRequestId"] = request.getLogRequestId();
   }
 
   if (!!request.hasLogUserId()) {
-    query["LogUserId"] = request.logUserId();
+    query["LogUserId"] = request.getLogUserId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4918,7 +5742,7 @@ ListFeatureConsistencyCheckJobFeatureReportsResponse Client::listFeatureConsiste
     {"action" , "ListFeatureConsistencyCheckJobFeatureReports"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/featureconsistencycheck/jobs/" , Darabonba::Http::URL::percentEncode(FeatureConsistencyCheckJobId) , "/featurereports")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/featureconsistencycheck/jobs/" , Darabonba::Encode::Encoder::percentEncode(FeatureConsistencyCheckJobId) , "/featurereports")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -4953,16 +5777,16 @@ ListFeatureConsistencyCheckJobScoreReportsResponse Client::listFeatureConsistenc
   ListFeatureConsistencyCheckJobScoreReportsShrinkRequest request = ListFeatureConsistencyCheckJobScoreReportsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasExcludeRequestIds()) {
-    request.setExcludeRequestIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.excludeRequestIds(), "ExcludeRequestIds", "json"));
+    request.setExcludeRequestIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExcludeRequestIds(), "ExcludeRequestIds", "json"));
   }
 
   json query = {};
   if (!!request.hasExcludeRequestIdsShrink()) {
-    query["ExcludeRequestIds"] = request.excludeRequestIdsShrink();
+    query["ExcludeRequestIds"] = request.getExcludeRequestIdsShrink();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4973,7 +5797,7 @@ ListFeatureConsistencyCheckJobScoreReportsResponse Client::listFeatureConsistenc
     {"action" , "ListFeatureConsistencyCheckJobScoreReports"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/featureconsistencycheck/jobs/" , Darabonba::Http::URL::percentEncode(FeatureConsistencyCheckJobId) , "/scorereports")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/featureconsistencycheck/jobs/" , Darabonba::Encode::Encoder::percentEncode(FeatureConsistencyCheckJobId) , "/scorereports")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -5007,27 +5831,27 @@ ListFeatureConsistencyCheckJobsResponse Client::listFeatureConsistencyCheckJobsW
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasOrder()) {
-    query["Order"] = request.order();
+    query["Order"] = request.getOrder();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasSortBy()) {
-    query["SortBy"] = request.sortBy();
+    query["SortBy"] = request.getSortBy();
   }
 
   if (!!request.hasStatus()) {
-    query["Status"] = request.status();
+    query["Status"] = request.getStatus();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5072,15 +5896,15 @@ ListInstanceResourcesResponse Client::listInstanceResourcesWithOptions(const str
   request.validate();
   json query = {};
   if (!!request.hasCategory()) {
-    query["Category"] = request.category();
+    query["Category"] = request.getCategory();
   }
 
   if (!!request.hasGroup()) {
-    query["Group"] = request.group();
+    query["Group"] = request.getGroup();
   }
 
   if (!!request.hasType()) {
-    query["Type"] = request.type();
+    query["Type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5091,7 +5915,7 @@ ListInstanceResourcesResponse Client::listInstanceResourcesWithOptions(const str
     {"action" , "ListInstanceResources"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/resources")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/resources")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -5125,27 +5949,27 @@ ListInstancesResponse Client::listInstancesWithOptions(const ListInstancesReques
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasOrder()) {
-    query["Order"] = request.order();
+    query["Order"] = request.getOrder();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasSortBy()) {
-    query["SortBy"] = request.sortBy();
+    query["SortBy"] = request.getSortBy();
   }
 
   if (!!request.hasType()) {
-    query["Type"] = request.type();
+    query["Type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5190,19 +6014,19 @@ ListLaboratoriesResponse Client::listLaboratoriesWithOptions(const ListLaborator
   request.validate();
   json query = {};
   if (!!request.hasEnvironment()) {
-    query["Environment"] = request.environment();
+    query["Environment"] = request.getEnvironment();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasSceneId()) {
-    query["SceneId"] = request.sceneId();
+    query["SceneId"] = request.getSceneId();
   }
 
   if (!!request.hasStatus()) {
-    query["Status"] = request.status();
+    query["Status"] = request.getStatus();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5247,11 +6071,11 @@ ListLayersResponse Client::listLayersWithOptions(const ListLayersRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasLaboratoryId()) {
-    query["LaboratoryId"] = request.laboratoryId();
+    query["LaboratoryId"] = request.getLaboratoryId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5296,31 +6120,31 @@ ListParamsResponse Client::listParamsWithOptions(const ListParamsRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasEncrypted()) {
-    query["Encrypted"] = request.encrypted();
+    query["Encrypted"] = request.getEncrypted();
   }
 
   if (!!request.hasEnvironment()) {
-    query["Environment"] = request.environment();
+    query["Environment"] = request.getEnvironment();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasSceneId()) {
-    query["SceneId"] = request.sceneId();
+    query["SceneId"] = request.getSceneId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5354,6 +6178,351 @@ ListParamsResponse Client::listParams(const ListParamsRequest &request) {
 }
 
 /**
+ * @summary 获取召回管理任务列表。
+ *
+ * @param request ListRecallManagementJobsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListRecallManagementJobsResponse
+ */
+ListRecallManagementJobsResponse Client::listRecallManagementJobsWithOptions(const ListRecallManagementJobsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCondition()) {
+    query["Condition"] = request.getCondition();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasOrder()) {
+    query["Order"] = request.getOrder();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSortBy()) {
+    query["SortBy"] = request.getSortBy();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListRecallManagementJobs"},
+    {"version" , "2022-12-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/recallmanagementjobs")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListRecallManagementJobsResponse>();
+}
+
+/**
+ * @summary 获取召回管理任务列表。
+ *
+ * @param request ListRecallManagementJobsRequest
+ * @return ListRecallManagementJobsResponse
+ */
+ListRecallManagementJobsResponse Client::listRecallManagementJobs(const ListRecallManagementJobsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listRecallManagementJobsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 获取召回管理服务下的版本列表
+ *
+ * @param request ListRecallManagementServiceVersionsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListRecallManagementServiceVersionsResponse
+ */
+ListRecallManagementServiceVersionsResponse Client::listRecallManagementServiceVersionsWithOptions(const string &RecallManagementServiceId, const ListRecallManagementServiceVersionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasOrder()) {
+    query["Order"] = request.getOrder();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSortBy()) {
+    query["SortBy"] = request.getSortBy();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListRecallManagementServiceVersions"},
+    {"version" , "2022-12-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/recallmanagementservices/" , Darabonba::Encode::Encoder::percentEncode(RecallManagementServiceId) , "/versions")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListRecallManagementServiceVersionsResponse>();
+}
+
+/**
+ * @summary 获取召回管理服务下的版本列表
+ *
+ * @param request ListRecallManagementServiceVersionsRequest
+ * @return ListRecallManagementServiceVersionsResponse
+ */
+ListRecallManagementServiceVersionsResponse Client::listRecallManagementServiceVersions(const string &RecallManagementServiceId, const ListRecallManagementServiceVersionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listRecallManagementServiceVersionsWithOptions(RecallManagementServiceId, request, headers, runtime);
+}
+
+/**
+ * @summary 获取召回管理服务列表
+ *
+ * @param request ListRecallManagementServicesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListRecallManagementServicesResponse
+ */
+ListRecallManagementServicesResponse Client::listRecallManagementServicesWithOptions(const ListRecallManagementServicesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasOrder()) {
+    query["Order"] = request.getOrder();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSortBy()) {
+    query["SortBy"] = request.getSortBy();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListRecallManagementServices"},
+    {"version" , "2022-12-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/recallmanagementservices")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListRecallManagementServicesResponse>();
+}
+
+/**
+ * @summary 获取召回管理服务列表
+ *
+ * @param request ListRecallManagementServicesRequest
+ * @return ListRecallManagementServicesResponse
+ */
+ListRecallManagementServicesResponse Client::listRecallManagementServices(const ListRecallManagementServicesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listRecallManagementServicesWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 获取召回管理表版本列表。
+ *
+ * @param request ListRecallManagementTableVersionsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListRecallManagementTableVersionsResponse
+ */
+ListRecallManagementTableVersionsResponse Client::listRecallManagementTableVersionsWithOptions(const string &RecallManagementTableId, const ListRecallManagementTableVersionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasOrder()) {
+    query["Order"] = request.getOrder();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSortBy()) {
+    query["SortBy"] = request.getSortBy();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListRecallManagementTableVersions"},
+    {"version" , "2022-12-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/recallmanagementtables/" , Darabonba::Encode::Encoder::percentEncode(RecallManagementTableId) , "/versions")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListRecallManagementTableVersionsResponse>();
+}
+
+/**
+ * @summary 获取召回管理表版本列表。
+ *
+ * @param request ListRecallManagementTableVersionsRequest
+ * @return ListRecallManagementTableVersionsResponse
+ */
+ListRecallManagementTableVersionsResponse Client::listRecallManagementTableVersions(const string &RecallManagementTableId, const ListRecallManagementTableVersionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listRecallManagementTableVersionsWithOptions(RecallManagementTableId, request, headers, runtime);
+}
+
+/**
+ * @summary 获取召回管理表列表。
+ *
+ * @param request ListRecallManagementTablesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListRecallManagementTablesResponse
+ */
+ListRecallManagementTablesResponse Client::listRecallManagementTablesWithOptions(const ListRecallManagementTablesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasOrder()) {
+    query["Order"] = request.getOrder();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSortBy()) {
+    query["SortBy"] = request.getSortBy();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListRecallManagementTables"},
+    {"version" , "2022-12-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/recallmanagementtables")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListRecallManagementTablesResponse>();
+}
+
+/**
+ * @summary 获取召回管理表列表。
+ *
+ * @param request ListRecallManagementTablesRequest
+ * @return ListRecallManagementTablesResponse
+ */
+ListRecallManagementTablesResponse Client::listRecallManagementTables(const ListRecallManagementTablesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listRecallManagementTablesWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 获取资源规则列表
  *
  * @param request ListResourceRulesRequest
@@ -5365,35 +6534,35 @@ ListResourceRulesResponse Client::listResourceRulesWithOptions(const ListResourc
   request.validate();
   json query = {};
   if (!!request.hasAll()) {
-    query["All"] = request.all();
+    query["All"] = request.getAll();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasOrder()) {
-    query["Order"] = request.order();
+    query["Order"] = request.getOrder();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasResourceRuleId()) {
-    query["ResourceRuleId"] = request.resourceRuleId();
+    query["ResourceRuleId"] = request.getResourceRuleId();
   }
 
   if (!!request.hasResourceRuleName()) {
-    query["ResourceRuleName"] = request.resourceRuleName();
+    query["ResourceRuleName"] = request.getResourceRuleName();
   }
 
   if (!!request.hasSortBy()) {
-    query["SortBy"] = request.sortBy();
+    query["SortBy"] = request.getSortBy();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5438,23 +6607,23 @@ ListSampleConsistencyJobsResponse Client::listSampleConsistencyJobsWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasOrder()) {
-    query["Order"] = request.order();
+    query["Order"] = request.getOrder();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasSortBy()) {
-    query["SortBy"] = request.sortBy();
+    query["SortBy"] = request.getSortBy();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5499,11 +6668,11 @@ ListScenesResponse Client::listScenesWithOptions(const ListScenesRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5548,7 +6717,7 @@ ListSubCrowdsResponse Client::listSubCrowdsWithOptions(const string &CrowdId, co
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5559,7 +6728,7 @@ ListSubCrowdsResponse Client::listSubCrowdsWithOptions(const string &CrowdId, co
     {"action" , "ListSubCrowds"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/crowds/" , Darabonba::Http::URL::percentEncode(CrowdId) , "/subcrowds")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/crowds/" , Darabonba::Encode::Encoder::percentEncode(CrowdId) , "/subcrowds")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -5593,27 +6762,27 @@ ListTableMetasResponse Client::listTableMetasWithOptions(const ListTableMetasReq
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasModule()) {
-    query["Module"] = request.module();
+    query["Module"] = request.getModule();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasType()) {
-    query["Type"] = request.type();
+    query["Type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5658,35 +6827,35 @@ ListTrafficControlTargetTrafficHistoryResponse Client::listTrafficControlTargetT
   request.validate();
   json query = {};
   if (!!request.hasEndTime()) {
-    query["EndTime"] = request.endTime();
+    query["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasEnvironment()) {
-    query["Environment"] = request.environment();
+    query["Environment"] = request.getEnvironment();
   }
 
   if (!!request.hasExperimentGroupId()) {
-    query["ExperimentGroupId"] = request.experimentGroupId();
+    query["ExperimentGroupId"] = request.getExperimentGroupId();
   }
 
   if (!!request.hasExperimentId()) {
-    query["ExperimentId"] = request.experimentId();
+    query["ExperimentId"] = request.getExperimentId();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasItemId()) {
-    query["ItemId"] = request.itemId();
+    query["ItemId"] = request.getItemId();
   }
 
   if (!!request.hasStartTime()) {
-    query["StartTime"] = request.startTime();
+    query["StartTime"] = request.getStartTime();
   }
 
   if (!!request.hasThreshold()) {
-    query["Threshold"] = request.threshold();
+    query["Threshold"] = request.getThreshold();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5697,7 +6866,7 @@ ListTrafficControlTargetTrafficHistoryResponse Client::listTrafficControlTargetT
     {"action" , "ListTrafficControlTargetTrafficHistory"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trafficcontroltargets/" , Darabonba::Http::URL::percentEncode(TrafficControlTargetId) , "/traffichistories")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trafficcontroltargets/" , Darabonba::Encode::Encoder::percentEncode(TrafficControlTargetId) , "/traffichistories")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -5731,55 +6900,55 @@ ListTrafficControlTasksResponse Client::listTrafficControlTasksWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasAll()) {
-    query["All"] = request.all();
+    query["All"] = request.getAll();
   }
 
   if (!!request.hasControlTargetFilter()) {
-    query["ControlTargetFilter"] = request.controlTargetFilter();
+    query["ControlTargetFilter"] = request.getControlTargetFilter();
   }
 
   if (!!request.hasEnvironment()) {
-    query["Environment"] = request.environment();
+    query["Environment"] = request.getEnvironment();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasOrder()) {
-    query["Order"] = request.order();
+    query["Order"] = request.getOrder();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasSceneId()) {
-    query["SceneId"] = request.sceneId();
+    query["SceneId"] = request.getSceneId();
   }
 
   if (!!request.hasSortBy()) {
-    query["SortBy"] = request.sortBy();
+    query["SortBy"] = request.getSortBy();
   }
 
   if (!!request.hasStatus()) {
-    query["Status"] = request.status();
+    query["Status"] = request.getStatus();
   }
 
   if (!!request.hasTrafficControlTaskId()) {
-    query["TrafficControlTaskId"] = request.trafficControlTaskId();
+    query["TrafficControlTaskId"] = request.getTrafficControlTaskId();
   }
 
   if (!!request.hasVersion()) {
-    query["Version"] = request.version();
+    query["Version"] = request.getVersion();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5824,7 +6993,7 @@ OfflineExperimentResponse Client::offlineExperimentWithOptions(const string &Exp
   request.validate();
   json body = {};
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5835,7 +7004,7 @@ OfflineExperimentResponse Client::offlineExperimentWithOptions(const string &Exp
     {"action" , "OfflineExperiment"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/experiments/" , Darabonba::Http::URL::percentEncode(ExperimentId) , "/action/offline")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/experiments/" , Darabonba::Encode::Encoder::percentEncode(ExperimentId) , "/action/offline")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -5869,7 +7038,7 @@ OfflineExperimentGroupResponse Client::offlineExperimentGroupWithOptions(const s
   request.validate();
   json body = {};
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5880,7 +7049,7 @@ OfflineExperimentGroupResponse Client::offlineExperimentGroupWithOptions(const s
     {"action" , "OfflineExperimentGroup"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/experimentgroups/" , Darabonba::Http::URL::percentEncode(ExperimentGroupId) , "/action/offline")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/experimentgroups/" , Darabonba::Encode::Encoder::percentEncode(ExperimentGroupId) , "/action/offline")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -5914,7 +7083,7 @@ OfflineLaboratoryResponse Client::offlineLaboratoryWithOptions(const string &Lab
   request.validate();
   json body = {};
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5925,7 +7094,7 @@ OfflineLaboratoryResponse Client::offlineLaboratoryWithOptions(const string &Lab
     {"action" , "OfflineLaboratory"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/laboratories/" , Darabonba::Http::URL::percentEncode(LaboratoryId) , "/action/offline")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/laboratories/" , Darabonba::Encode::Encoder::percentEncode(LaboratoryId) , "/action/offline")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -5948,6 +7117,51 @@ OfflineLaboratoryResponse Client::offlineLaboratory(const string &LaboratoryId, 
 }
 
 /**
+ * @summary 下线召回管理服务
+ *
+ * @param request OfflineRecallManagementServiceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return OfflineRecallManagementServiceResponse
+ */
+OfflineRecallManagementServiceResponse Client::offlineRecallManagementServiceWithOptions(const string &RecallManagementServiceId, const OfflineRecallManagementServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "OfflineRecallManagementService"},
+    {"version" , "2022-12-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/recallmanagementservices/" , Darabonba::Encode::Encoder::percentEncode(RecallManagementServiceId) , "/action/offline")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<OfflineRecallManagementServiceResponse>();
+}
+
+/**
+ * @summary 下线召回管理服务
+ *
+ * @param request OfflineRecallManagementServiceRequest
+ * @return OfflineRecallManagementServiceResponse
+ */
+OfflineRecallManagementServiceResponse Client::offlineRecallManagementService(const string &RecallManagementServiceId, const OfflineRecallManagementServiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return offlineRecallManagementServiceWithOptions(RecallManagementServiceId, request, headers, runtime);
+}
+
+/**
  * @summary 上线实验
  *
  * @param request OnlineExperimentRequest
@@ -5959,7 +7173,7 @@ OnlineExperimentResponse Client::onlineExperimentWithOptions(const string &Exper
   request.validate();
   json body = {};
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5970,7 +7184,7 @@ OnlineExperimentResponse Client::onlineExperimentWithOptions(const string &Exper
     {"action" , "OnlineExperiment"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/experiments/" , Darabonba::Http::URL::percentEncode(ExperimentId) , "/action/online")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/experiments/" , Darabonba::Encode::Encoder::percentEncode(ExperimentId) , "/action/online")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -6004,7 +7218,7 @@ OnlineExperimentGroupResponse Client::onlineExperimentGroupWithOptions(const str
   request.validate();
   json body = {};
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6015,7 +7229,7 @@ OnlineExperimentGroupResponse Client::onlineExperimentGroupWithOptions(const str
     {"action" , "OnlineExperimentGroup"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/experimentgroups/" , Darabonba::Http::URL::percentEncode(ExperimentGroupId) , "/action/online")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/experimentgroups/" , Darabonba::Encode::Encoder::percentEncode(ExperimentGroupId) , "/action/online")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -6049,7 +7263,7 @@ OnlineLaboratoryResponse Client::onlineLaboratoryWithOptions(const string &Labor
   request.validate();
   json body = {};
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6060,7 +7274,7 @@ OnlineLaboratoryResponse Client::onlineLaboratoryWithOptions(const string &Labor
     {"action" , "OnlineLaboratory"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/laboratories/" , Darabonba::Http::URL::percentEncode(LaboratoryId) , "/action/online")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/laboratories/" , Darabonba::Encode::Encoder::percentEncode(LaboratoryId) , "/action/online")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -6083,6 +7297,108 @@ OnlineLaboratoryResponse Client::onlineLaboratory(const string &LaboratoryId, co
 }
 
 /**
+ * @summary 上线召回管理服务
+ *
+ * @param request OnlineRecallManagementServiceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return OnlineRecallManagementServiceResponse
+ */
+OnlineRecallManagementServiceResponse Client::onlineRecallManagementServiceWithOptions(const string &RecallManagementServiceId, const OnlineRecallManagementServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "OnlineRecallManagementService"},
+    {"version" , "2022-12-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/recallmanagementservices/" , Darabonba::Encode::Encoder::percentEncode(RecallManagementServiceId) , "/action/online")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<OnlineRecallManagementServiceResponse>();
+}
+
+/**
+ * @summary 上线召回管理服务
+ *
+ * @param request OnlineRecallManagementServiceRequest
+ * @return OnlineRecallManagementServiceResponse
+ */
+OnlineRecallManagementServiceResponse Client::onlineRecallManagementService(const string &RecallManagementServiceId, const OnlineRecallManagementServiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return onlineRecallManagementServiceWithOptions(RecallManagementServiceId, request, headers, runtime);
+}
+
+/**
+ * @summary 将maxcompute的表同步到召回引擎中。
+ *
+ * @param request PublishRecallManagementTableRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return PublishRecallManagementTableResponse
+ */
+PublishRecallManagementTableResponse Client::publishRecallManagementTableWithOptions(const string &RecallManagementTableId, const PublishRecallManagementTableRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasMode()) {
+    body["Mode"] = request.getMode();
+  }
+
+  if (!!request.hasPartition()) {
+    body["Partition"] = request.getPartition();
+  }
+
+  if (!!request.hasSkipThresholdCheck()) {
+    body["SkipThresholdCheck"] = request.getSkipThresholdCheck();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "PublishRecallManagementTable"},
+    {"version" , "2022-12-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/recallmanagementtables/" , Darabonba::Encode::Encoder::percentEncode(RecallManagementTableId) , "/action/publish")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<PublishRecallManagementTableResponse>();
+}
+
+/**
+ * @summary 将maxcompute的表同步到召回引擎中。
+ *
+ * @param request PublishRecallManagementTableRequest
+ * @return PublishRecallManagementTableResponse
+ */
+PublishRecallManagementTableResponse Client::publishRecallManagementTable(const string &RecallManagementTableId, const PublishRecallManagementTableRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return publishRecallManagementTableWithOptions(RecallManagementTableId, request, headers, runtime);
+}
+
+/**
  * @summary 推全。
  *
  * @param request PushAllExperimentRequest
@@ -6094,7 +7410,7 @@ PushAllExperimentResponse Client::pushAllExperimentWithOptions(const string &Exp
   request.validate();
   json body = {};
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6105,7 +7421,7 @@ PushAllExperimentResponse Client::pushAllExperimentWithOptions(const string &Exp
     {"action" , "PushAllExperiment"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/experiments/" , Darabonba::Http::URL::percentEncode(ExperimentId) , "/action/pushall")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/experiments/" , Darabonba::Encode::Encoder::percentEncode(ExperimentId) , "/action/pushall")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -6140,16 +7456,16 @@ PushResourceRuleResponse Client::pushResourceRuleWithOptions(const string &Resou
   PushResourceRuleShrinkRequest request = PushResourceRuleShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasMetricInfo()) {
-    request.setMetricInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.metricInfo(), "MetricInfo", "json"));
+    request.setMetricInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getMetricInfo(), "MetricInfo", "json"));
   }
 
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasMetricInfoShrink()) {
-    query["MetricInfo"] = request.metricInfoShrink();
+    query["MetricInfo"] = request.getMetricInfoShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6160,7 +7476,7 @@ PushResourceRuleResponse Client::pushResourceRuleWithOptions(const string &Resou
     {"action" , "PushResourceRule"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/resourcerules/" , Darabonba::Http::URL::percentEncode(ResourceRuleId) , "/action/push")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/resourcerules/" , Darabonba::Encode::Encoder::percentEncode(ResourceRuleId) , "/action/push")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -6194,15 +7510,15 @@ QuerySampleConsistencyJobDifferenceResponse Client::querySampleConsistencyJobDif
   request.validate();
   json query = {};
   if (!!request.hasFeatureName()) {
-    query["FeatureName"] = request.featureName();
+    query["FeatureName"] = request.getFeatureName();
   }
 
   if (!!request.hasFeatureType()) {
-    query["FeatureType"] = request.featureType();
+    query["FeatureType"] = request.getFeatureType();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6213,7 +7529,7 @@ QuerySampleConsistencyJobDifferenceResponse Client::querySampleConsistencyJobDif
     {"action" , "QuerySampleConsistencyJobDifference"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/sampleconsistencyjobs/" , Darabonba::Http::URL::percentEncode(SampleConsistencyJobId) , "/action/querydifference")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/sampleconsistencyjobs/" , Darabonba::Encode::Encoder::percentEncode(SampleConsistencyJobId) , "/action/querydifference")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -6247,15 +7563,15 @@ QueryTrafficControlTargetItemReportDetailResponse Client::queryTrafficControlTar
   request.validate();
   json query = {};
   if (!!request.hasDate()) {
-    query["Date"] = request.date();
+    query["Date"] = request.getDate();
   }
 
   if (!!request.hasEnvironment()) {
-    query["Environment"] = request.environment();
+    query["Environment"] = request.getEnvironment();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6266,7 +7582,7 @@ QueryTrafficControlTargetItemReportDetailResponse Client::queryTrafficControlTar
     {"action" , "QueryTrafficControlTargetItemReportDetail"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trafficcontroltargets/" , Darabonba::Http::URL::percentEncode(TrafficControlTargetId) , "/itemcontrolreportdetail")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trafficcontroltargets/" , Darabonba::Encode::Encoder::percentEncode(TrafficControlTargetId) , "/itemcontrolreportdetail")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -6300,11 +7616,11 @@ ReleaseTrafficControlTaskResponse Client::releaseTrafficControlTaskWithOptions(c
   request.validate();
   json body = {};
   if (!!request.hasEnvironment()) {
-    body["Environment"] = request.environment();
+    body["Environment"] = request.getEnvironment();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6315,7 +7631,7 @@ ReleaseTrafficControlTaskResponse Client::releaseTrafficControlTaskWithOptions(c
     {"action" , "ReleaseTrafficControlTask"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trafficcontroltasks/" , Darabonba::Http::URL::percentEncode(TrafficControlTaskId) , "/action/release")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trafficcontroltasks/" , Darabonba::Encode::Encoder::percentEncode(TrafficControlTaskId) , "/action/release")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -6349,43 +7665,43 @@ ReportABMetricGroupResponse Client::reportABMetricGroupWithOptions(const string 
   request.validate();
   json body = {};
   if (!!request.hasBaseExperimentId()) {
-    body["BaseExperimentId"] = request.baseExperimentId();
+    body["BaseExperimentId"] = request.getBaseExperimentId();
   }
 
   if (!!request.hasDimensionFields()) {
-    body["DimensionFields"] = request.dimensionFields();
+    body["DimensionFields"] = request.getDimensionFields();
   }
 
   if (!!request.hasEndDate()) {
-    body["EndDate"] = request.endDate();
+    body["EndDate"] = request.getEndDate();
   }
 
   if (!!request.hasExperimentGroupId()) {
-    body["ExperimentGroupId"] = request.experimentGroupId();
+    body["ExperimentGroupId"] = request.getExperimentGroupId();
   }
 
   if (!!request.hasExperimentIds()) {
-    body["ExperimentIds"] = request.experimentIds();
+    body["ExperimentIds"] = request.getExperimentIds();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasReportType()) {
-    body["ReportType"] = request.reportType();
+    body["ReportType"] = request.getReportType();
   }
 
   if (!!request.hasSceneId()) {
-    body["SceneId"] = request.sceneId();
+    body["SceneId"] = request.getSceneId();
   }
 
   if (!!request.hasStartDate()) {
-    body["StartDate"] = request.startDate();
+    body["StartDate"] = request.getStartDate();
   }
 
   if (!!request.hasTimeStatisticsMethod()) {
-    body["TimeStatisticsMethod"] = request.timeStatisticsMethod();
+    body["TimeStatisticsMethod"] = request.getTimeStatisticsMethod();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6396,7 +7712,7 @@ ReportABMetricGroupResponse Client::reportABMetricGroupWithOptions(const string 
     {"action" , "ReportABMetricGroup"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/abmetricgroups/" , Darabonba::Http::URL::percentEncode(ABMetricGroupId) , "/action/report")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/abmetricgroups/" , Darabonba::Encode::Encoder::percentEncode(ABMetricGroupId) , "/action/report")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -6430,7 +7746,7 @@ ReportSampleConsistencyJobResponse Client::reportSampleConsistencyJobWithOptions
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6441,7 +7757,7 @@ ReportSampleConsistencyJobResponse Client::reportSampleConsistencyJobWithOptions
     {"action" , "ReportSampleConsistencyJob"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/sampleconsistencyjobs/" , Darabonba::Http::URL::percentEncode(SampleConsistencyJobId) , "/action/report")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/sampleconsistencyjobs/" , Darabonba::Encode::Encoder::percentEncode(SampleConsistencyJobId) , "/action/report")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -6475,23 +7791,23 @@ SplitTrafficControlTargetResponse Client::splitTrafficControlTargetWithOptions(c
   request.validate();
   json body = {};
   if (!!request.hasEnvironment()) {
-    body["Environment"] = request.environment();
+    body["Environment"] = request.getEnvironment();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasSetPoints()) {
-    body["SetPoints"] = request.setPoints();
+    body["SetPoints"] = request.getSetPoints();
   }
 
   if (!!request.hasSetValues()) {
-    body["SetValues"] = request.setValues();
+    body["SetValues"] = request.getSetValues();
   }
 
   if (!!request.hasTimePoints()) {
-    body["TimePoints"] = request.timePoints();
+    body["TimePoints"] = request.getTimePoints();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6502,7 +7818,7 @@ SplitTrafficControlTargetResponse Client::splitTrafficControlTargetWithOptions(c
     {"action" , "SplitTrafficControlTarget"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trafficcontroltargets/" , Darabonba::Http::URL::percentEncode(TrafficControlTargetId) , "/action/split")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trafficcontroltargets/" , Darabonba::Encode::Encoder::percentEncode(TrafficControlTargetId) , "/action/split")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -6536,7 +7852,7 @@ StartTrafficControlTargetResponse Client::startTrafficControlTargetWithOptions(c
   request.validate();
   json body = {};
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6547,7 +7863,7 @@ StartTrafficControlTargetResponse Client::startTrafficControlTargetWithOptions(c
     {"action" , "StartTrafficControlTarget"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trafficcontroltargets/" , Darabonba::Http::URL::percentEncode(TrafficControlTargetId) , "/action/start")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trafficcontroltargets/" , Darabonba::Encode::Encoder::percentEncode(TrafficControlTargetId) , "/action/start")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -6581,11 +7897,11 @@ StartTrafficControlTaskResponse Client::startTrafficControlTaskWithOptions(const
   request.validate();
   json body = {};
   if (!!request.hasEnvironment()) {
-    body["Environment"] = request.environment();
+    body["Environment"] = request.getEnvironment();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6596,7 +7912,7 @@ StartTrafficControlTaskResponse Client::startTrafficControlTaskWithOptions(const
     {"action" , "StartTrafficControlTask"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trafficcontroltasks/" , Darabonba::Http::URL::percentEncode(TrafficControlTaskId) , "/action/start")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trafficcontroltasks/" , Darabonba::Encode::Encoder::percentEncode(TrafficControlTaskId) , "/action/start")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -6630,7 +7946,7 @@ StopSampleConsistencyJobResponse Client::stopSampleConsistencyJobWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6641,7 +7957,7 @@ StopSampleConsistencyJobResponse Client::stopSampleConsistencyJobWithOptions(con
     {"action" , "StopSampleConsistencyJob"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/sampleconsistencyjobs/" , Darabonba::Http::URL::percentEncode(SampleConsistencyJobId) , "/action/stop")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/sampleconsistencyjobs/" , Darabonba::Encode::Encoder::percentEncode(SampleConsistencyJobId) , "/action/stop")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -6675,7 +7991,7 @@ StopTrafficControlTargetResponse Client::stopTrafficControlTargetWithOptions(con
   request.validate();
   json body = {};
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6686,7 +8002,7 @@ StopTrafficControlTargetResponse Client::stopTrafficControlTargetWithOptions(con
     {"action" , "StopTrafficControlTarget"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trafficcontroltargets/" , Darabonba::Http::URL::percentEncode(TrafficControlTargetId) , "/action/stop")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trafficcontroltargets/" , Darabonba::Encode::Encoder::percentEncode(TrafficControlTargetId) , "/action/stop")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -6720,16 +8036,16 @@ StopTrafficControlTaskResponse Client::stopTrafficControlTaskWithOptions(const s
   request.validate();
   json query = {};
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   json body = {};
   if (!!request.hasEnvironment()) {
-    body["Environment"] = request.environment();
+    body["Environment"] = request.getEnvironment();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6741,7 +8057,7 @@ StopTrafficControlTaskResponse Client::stopTrafficControlTaskWithOptions(const s
     {"action" , "StopTrafficControlTask"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trafficcontroltasks/" , Darabonba::Http::URL::percentEncode(TrafficControlTaskId) , "/action/stop")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trafficcontroltasks/" , Darabonba::Encode::Encoder::percentEncode(TrafficControlTaskId) , "/action/stop")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -6775,43 +8091,43 @@ SyncFeatureConsistencyCheckJobReplayLogResponse Client::syncFeatureConsistencyCh
   request.validate();
   json body = {};
   if (!!request.hasContextFeatures()) {
-    body["ContextFeatures"] = request.contextFeatures();
+    body["ContextFeatures"] = request.getContextFeatures();
   }
 
   if (!!request.hasFeatureConsistencyCheckJobConfigId()) {
-    body["FeatureConsistencyCheckJobConfigId"] = request.featureConsistencyCheckJobConfigId();
+    body["FeatureConsistencyCheckJobConfigId"] = request.getFeatureConsistencyCheckJobConfigId();
   }
 
   if (!!request.hasGeneratedFeatures()) {
-    body["GeneratedFeatures"] = request.generatedFeatures();
+    body["GeneratedFeatures"] = request.getGeneratedFeatures();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasLogItemId()) {
-    body["LogItemId"] = request.logItemId();
+    body["LogItemId"] = request.getLogItemId();
   }
 
   if (!!request.hasLogRequestId()) {
-    body["LogRequestId"] = request.logRequestId();
+    body["LogRequestId"] = request.getLogRequestId();
   }
 
   if (!!request.hasLogRequestTime()) {
-    body["LogRequestTime"] = request.logRequestTime();
+    body["LogRequestTime"] = request.getLogRequestTime();
   }
 
   if (!!request.hasLogUserId()) {
-    body["LogUserId"] = request.logUserId();
+    body["LogUserId"] = request.getLogUserId();
   }
 
   if (!!request.hasRawFeatures()) {
-    body["RawFeatures"] = request.rawFeatures();
+    body["RawFeatures"] = request.getRawFeatures();
   }
 
   if (!!request.hasSceneName()) {
-    body["SceneName"] = request.sceneName();
+    body["SceneName"] = request.getSceneName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6856,7 +8172,7 @@ TerminateFeatureConsistencyCheckJobResponse Client::terminateFeatureConsistencyC
   request.validate();
   json body = {};
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6867,7 +8183,7 @@ TerminateFeatureConsistencyCheckJobResponse Client::terminateFeatureConsistencyC
     {"action" , "TerminateFeatureConsistencyCheckJob"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/featureconsistencycheck/jobs/" , Darabonba::Http::URL::percentEncode(FeatureConsistencyCheckJobId) , "/action/terminate")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/featureconsistencycheck/jobs/" , Darabonba::Encode::Encoder::percentEncode(FeatureConsistencyCheckJobId) , "/action/terminate")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -6901,55 +8217,55 @@ UpdateABMetricResponse Client::updateABMetricWithOptions(const string &ABMetricI
   request.validate();
   json body = {};
   if (!!request.hasDefinition()) {
-    body["Definition"] = request.definition();
+    body["Definition"] = request.getDefinition();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasLeftMetricId()) {
-    body["LeftMetricId"] = request.leftMetricId();
+    body["LeftMetricId"] = request.getLeftMetricId();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasOperator()) {
-    body["Operator"] = request._operator();
+    body["Operator"] = request.getOperator();
   }
 
   if (!!request.hasRealtime()) {
-    body["Realtime"] = request.realtime();
+    body["Realtime"] = request.getRealtime();
   }
 
   if (!!request.hasResultResourceId()) {
-    body["ResultResourceId"] = request.resultResourceId();
+    body["ResultResourceId"] = request.getResultResourceId();
   }
 
   if (!!request.hasRightMetricId()) {
-    body["RightMetricId"] = request.rightMetricId();
+    body["RightMetricId"] = request.getRightMetricId();
   }
 
   if (!!request.hasSceneId()) {
-    body["SceneId"] = request.sceneId();
+    body["SceneId"] = request.getSceneId();
   }
 
   if (!!request.hasStatisticsCycle()) {
-    body["StatisticsCycle"] = request.statisticsCycle();
+    body["StatisticsCycle"] = request.getStatisticsCycle();
   }
 
   if (!!request.hasTableMetaId()) {
-    body["TableMetaId"] = request.tableMetaId();
+    body["TableMetaId"] = request.getTableMetaId();
   }
 
   if (!!request.hasType()) {
-    body["Type"] = request.type();
+    body["Type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6960,7 +8276,7 @@ UpdateABMetricResponse Client::updateABMetricWithOptions(const string &ABMetricI
     {"action" , "UpdateABMetric"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/abmetrics/" , Darabonba::Http::URL::percentEncode(ABMetricId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/abmetrics/" , Darabonba::Encode::Encoder::percentEncode(ABMetricId))},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -6994,27 +8310,27 @@ UpdateABMetricGroupResponse Client::updateABMetricGroupWithOptions(const string 
   request.validate();
   json body = {};
   if (!!request.hasABMetricIds()) {
-    body["ABMetricIds"] = request.ABMetricIds();
+    body["ABMetricIds"] = request.getABMetricIds();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasRealtime()) {
-    body["Realtime"] = request.realtime();
+    body["Realtime"] = request.getRealtime();
   }
 
   if (!!request.hasSceneId()) {
-    body["SceneId"] = request.sceneId();
+    body["SceneId"] = request.getSceneId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7025,7 +8341,7 @@ UpdateABMetricGroupResponse Client::updateABMetricGroupWithOptions(const string 
     {"action" , "UpdateABMetricGroup"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/abmetricgroups/" , Darabonba::Http::URL::percentEncode(ABMetricGroupId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/abmetricgroups/" , Darabonba::Encode::Encoder::percentEncode(ABMetricGroupId))},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -7059,15 +8375,15 @@ UpdateCrowdResponse Client::updateCrowdWithOptions(const string &CrowdId, const 
   request.validate();
   json body = {};
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7078,7 +8394,7 @@ UpdateCrowdResponse Client::updateCrowdWithOptions(const string &CrowdId, const 
     {"action" , "UpdateCrowd"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/crowds/" , Darabonba::Http::URL::percentEncode(CrowdId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/crowds/" , Darabonba::Encode::Encoder::percentEncode(CrowdId))},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -7112,23 +8428,23 @@ UpdateEngineConfigResponse Client::updateEngineConfigWithOptions(const string &E
   request.validate();
   json body = {};
   if (!!request.hasConfigValue()) {
-    body["ConfigValue"] = request.configValue();
+    body["ConfigValue"] = request.getConfigValue();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasEnvironment()) {
-    body["Environment"] = request.environment();
+    body["Environment"] = request.getEnvironment();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7139,7 +8455,7 @@ UpdateEngineConfigResponse Client::updateEngineConfigWithOptions(const string &E
     {"action" , "UpdateEngineConfig"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/engineconfigs/" , Darabonba::Http::URL::percentEncode(EngineConfigId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/engineconfigs/" , Darabonba::Encode::Encoder::percentEncode(EngineConfigId))},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -7173,35 +8489,35 @@ UpdateExperimentResponse Client::updateExperimentWithOptions(const string &Exper
   request.validate();
   json body = {};
   if (!!request.hasConfig()) {
-    body["Config"] = request.config();
+    body["Config"] = request.getConfig();
   }
 
   if (!!request.hasDebugCrowdId()) {
-    body["DebugCrowdId"] = request.debugCrowdId();
+    body["DebugCrowdId"] = request.getDebugCrowdId();
   }
 
   if (!!request.hasDebugUsers()) {
-    body["DebugUsers"] = request.debugUsers();
+    body["DebugUsers"] = request.getDebugUsers();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasFlowPercent()) {
-    body["FlowPercent"] = request.flowPercent();
+    body["FlowPercent"] = request.getFlowPercent();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasType()) {
-    body["Type"] = request.type();
+    body["Type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7212,7 +8528,7 @@ UpdateExperimentResponse Client::updateExperimentWithOptions(const string &Exper
     {"action" , "UpdateExperiment"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/experiments/" , Darabonba::Http::URL::percentEncode(ExperimentId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/experiments/" , Darabonba::Encode::Encoder::percentEncode(ExperimentId))},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -7246,63 +8562,63 @@ UpdateExperimentGroupResponse Client::updateExperimentGroupWithOptions(const str
   request.validate();
   json body = {};
   if (!!request.hasConfig()) {
-    body["Config"] = request.config();
+    body["Config"] = request.getConfig();
   }
 
   if (!!request.hasCrowdId()) {
-    body["CrowdId"] = request.crowdId();
+    body["CrowdId"] = request.getCrowdId();
   }
 
   if (!!request.hasCrowdTargetType()) {
-    body["CrowdTargetType"] = request.crowdTargetType();
+    body["CrowdTargetType"] = request.getCrowdTargetType();
   }
 
   if (!!request.hasDebugCrowdId()) {
-    body["DebugCrowdId"] = request.debugCrowdId();
+    body["DebugCrowdId"] = request.getDebugCrowdId();
   }
 
   if (!!request.hasDebugUsers()) {
-    body["DebugUsers"] = request.debugUsers();
+    body["DebugUsers"] = request.getDebugUsers();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasDistributionTimeDuration()) {
-    body["DistributionTimeDuration"] = request.distributionTimeDuration();
+    body["DistributionTimeDuration"] = request.getDistributionTimeDuration();
   }
 
   if (!!request.hasDistributionType()) {
-    body["DistributionType"] = request.distributionType();
+    body["DistributionType"] = request.getDistributionType();
   }
 
   if (!!request.hasFilter()) {
-    body["Filter"] = request.filter();
+    body["Filter"] = request.getFilter();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasLayerId()) {
-    body["LayerId"] = request.layerId();
+    body["LayerId"] = request.getLayerId();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasNeedAA()) {
-    body["NeedAA"] = request.needAA();
+    body["NeedAA"] = request.getNeedAA();
   }
 
   if (!!request.hasRandomFlow()) {
-    body["RandomFlow"] = request.randomFlow();
+    body["RandomFlow"] = request.getRandomFlow();
   }
 
   if (!!request.hasReservcedBuckets()) {
-    body["ReservcedBuckets"] = request.reservcedBuckets();
+    body["ReservcedBuckets"] = request.getReservcedBuckets();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7313,7 +8629,7 @@ UpdateExperimentGroupResponse Client::updateExperimentGroupWithOptions(const str
     {"action" , "UpdateExperimentGroup"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/experimentgroups/" , Darabonba::Http::URL::percentEncode(ExperimentGroupId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/experimentgroups/" , Darabonba::Encode::Encoder::percentEncode(ExperimentGroupId))},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -7347,187 +8663,187 @@ UpdateFeatureConsistencyCheckJobConfigResponse Client::updateFeatureConsistencyC
   request.validate();
   json body = {};
   if (!!request.hasCompareFeature()) {
-    body["CompareFeature"] = request.compareFeature();
+    body["CompareFeature"] = request.getCompareFeature();
   }
 
   if (!!request.hasDatasetId()) {
-    body["DatasetId"] = request.datasetId();
+    body["DatasetId"] = request.getDatasetId();
   }
 
   if (!!request.hasDatasetMountPath()) {
-    body["DatasetMountPath"] = request.datasetMountPath();
+    body["DatasetMountPath"] = request.getDatasetMountPath();
   }
 
   if (!!request.hasDatasetName()) {
-    body["DatasetName"] = request.datasetName();
+    body["DatasetName"] = request.getDatasetName();
   }
 
   if (!!request.hasDatasetType()) {
-    body["DatasetType"] = request.datasetType();
+    body["DatasetType"] = request.getDatasetType();
   }
 
   if (!!request.hasDatasetUri()) {
-    body["DatasetUri"] = request.datasetUri();
+    body["DatasetUri"] = request.getDatasetUri();
   }
 
   if (!!request.hasDefaultRoute()) {
-    body["DefaultRoute"] = request.defaultRoute();
+    body["DefaultRoute"] = request.getDefaultRoute();
   }
 
   if (!!request.hasEasServiceName()) {
-    body["EasServiceName"] = request.easServiceName();
+    body["EasServiceName"] = request.getEasServiceName();
   }
 
   if (!!request.hasEasyRecPackagePath()) {
-    body["EasyRecPackagePath"] = request.easyRecPackagePath();
+    body["EasyRecPackagePath"] = request.getEasyRecPackagePath();
   }
 
   if (!!request.hasEasyRecVersion()) {
-    body["EasyRecVersion"] = request.easyRecVersion();
+    body["EasyRecVersion"] = request.getEasyRecVersion();
   }
 
   if (!!request.hasFeatureDisplayExclude()) {
-    body["FeatureDisplayExclude"] = request.featureDisplayExclude();
+    body["FeatureDisplayExclude"] = request.getFeatureDisplayExclude();
   }
 
   if (!!request.hasFeatureLandingResourceId()) {
-    body["FeatureLandingResourceId"] = request.featureLandingResourceId();
+    body["FeatureLandingResourceId"] = request.getFeatureLandingResourceId();
   }
 
   if (!!request.hasFeaturePriority()) {
-    body["FeaturePriority"] = request.featurePriority();
+    body["FeaturePriority"] = request.getFeaturePriority();
   }
 
   if (!!request.hasFeatureStoreItemId()) {
-    body["FeatureStoreItemId"] = request.featureStoreItemId();
+    body["FeatureStoreItemId"] = request.getFeatureStoreItemId();
   }
 
   if (!!request.hasFeatureStoreModelId()) {
-    body["FeatureStoreModelId"] = request.featureStoreModelId();
+    body["FeatureStoreModelId"] = request.getFeatureStoreModelId();
   }
 
   if (!!request.hasFeatureStoreProjectId()) {
-    body["FeatureStoreProjectId"] = request.featureStoreProjectId();
+    body["FeatureStoreProjectId"] = request.getFeatureStoreProjectId();
   }
 
   if (!!request.hasFeatureStoreProjectName()) {
-    body["FeatureStoreProjectName"] = request.featureStoreProjectName();
+    body["FeatureStoreProjectName"] = request.getFeatureStoreProjectName();
   }
 
   if (!!request.hasFeatureStoreSeqFeatureView()) {
-    body["FeatureStoreSeqFeatureView"] = request.featureStoreSeqFeatureView();
+    body["FeatureStoreSeqFeatureView"] = request.getFeatureStoreSeqFeatureView();
   }
 
   if (!!request.hasFeatureStoreUserId()) {
-    body["FeatureStoreUserId"] = request.featureStoreUserId();
+    body["FeatureStoreUserId"] = request.getFeatureStoreUserId();
   }
 
   if (!!request.hasFgJarVersion()) {
-    body["FgJarVersion"] = request.fgJarVersion();
+    body["FgJarVersion"] = request.getFgJarVersion();
   }
 
   if (!!request.hasFgJsonFileName()) {
-    body["FgJsonFileName"] = request.fgJsonFileName();
+    body["FgJsonFileName"] = request.getFgJsonFileName();
   }
 
   if (!!request.hasGenerateZip()) {
-    body["GenerateZip"] = request.generateZip();
+    body["GenerateZip"] = request.getGenerateZip();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasIsUseFeatureStore()) {
-    body["IsUseFeatureStore"] = request.isUseFeatureStore();
+    body["IsUseFeatureStore"] = request.getIsUseFeatureStore();
   }
 
   if (!!request.hasItemIdField()) {
-    body["ItemIdField"] = request.itemIdField();
+    body["ItemIdField"] = request.getItemIdField();
   }
 
   if (!!request.hasItemTable()) {
-    body["ItemTable"] = request.itemTable();
+    body["ItemTable"] = request.getItemTable();
   }
 
   if (!!request.hasItemTablePartitionField()) {
-    body["ItemTablePartitionField"] = request.itemTablePartitionField();
+    body["ItemTablePartitionField"] = request.getItemTablePartitionField();
   }
 
   if (!!request.hasItemTablePartitionFieldFormat()) {
-    body["ItemTablePartitionFieldFormat"] = request.itemTablePartitionFieldFormat();
+    body["ItemTablePartitionFieldFormat"] = request.getItemTablePartitionFieldFormat();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasOssResourceId()) {
-    body["OssResourceId"] = request.ossResourceId();
+    body["OssResourceId"] = request.getOssResourceId();
   }
 
   if (!!request.hasPredictWorkerCount()) {
-    body["PredictWorkerCount"] = request.predictWorkerCount();
+    body["PredictWorkerCount"] = request.getPredictWorkerCount();
   }
 
   if (!!request.hasPredictWorkerCpu()) {
-    body["PredictWorkerCpu"] = request.predictWorkerCpu();
+    body["PredictWorkerCpu"] = request.getPredictWorkerCpu();
   }
 
   if (!!request.hasPredictWorkerMemory()) {
-    body["PredictWorkerMemory"] = request.predictWorkerMemory();
+    body["PredictWorkerMemory"] = request.getPredictWorkerMemory();
   }
 
   if (!!request.hasResourceConfig()) {
-    body["ResourceConfig"] = request.resourceConfig();
+    body["ResourceConfig"] = request.getResourceConfig();
   }
 
   if (!!request.hasSampleRate()) {
-    body["SampleRate"] = request.sampleRate();
+    body["SampleRate"] = request.getSampleRate();
   }
 
   if (!!request.hasSceneId()) {
-    body["SceneId"] = request.sceneId();
+    body["SceneId"] = request.getSceneId();
   }
 
   if (!!request.hasSecurityGroupId()) {
-    body["SecurityGroupId"] = request.securityGroupId();
+    body["SecurityGroupId"] = request.getSecurityGroupId();
   }
 
   if (!!request.hasServiceId()) {
-    body["ServiceId"] = request.serviceId();
+    body["ServiceId"] = request.getServiceId();
   }
 
   if (!!request.hasSwitchId()) {
-    body["SwitchId"] = request.switchId();
+    body["SwitchId"] = request.getSwitchId();
   }
 
   if (!!request.hasUserIdField()) {
-    body["UserIdField"] = request.userIdField();
+    body["UserIdField"] = request.getUserIdField();
   }
 
   if (!!request.hasUserTable()) {
-    body["UserTable"] = request.userTable();
+    body["UserTable"] = request.getUserTable();
   }
 
   if (!!request.hasUserTablePartitionField()) {
-    body["UserTablePartitionField"] = request.userTablePartitionField();
+    body["UserTablePartitionField"] = request.getUserTablePartitionField();
   }
 
   if (!!request.hasUserTablePartitionFieldFormat()) {
-    body["UserTablePartitionFieldFormat"] = request.userTablePartitionFieldFormat();
+    body["UserTablePartitionFieldFormat"] = request.getUserTablePartitionFieldFormat();
   }
 
   if (!!request.hasVpcId()) {
-    body["VpcId"] = request.vpcId();
+    body["VpcId"] = request.getVpcId();
   }
 
   if (!!request.hasWorkflowName()) {
-    body["WorkflowName"] = request.workflowName();
+    body["WorkflowName"] = request.getWorkflowName();
   }
 
   if (!!request.hasWorkspaceId()) {
-    body["WorkspaceId"] = request.workspaceId();
+    body["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7538,7 +8854,7 @@ UpdateFeatureConsistencyCheckJobConfigResponse Client::updateFeatureConsistencyC
     {"action" , "UpdateFeatureConsistencyCheckJobConfig"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/featureconsistencycheck/jobconfigs/" , Darabonba::Http::URL::percentEncode(FeatureConsistencyCheckJobConfigId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/featureconsistencycheck/jobconfigs/" , Darabonba::Encode::Encoder::percentEncode(FeatureConsistencyCheckJobConfigId))},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -7572,11 +8888,11 @@ UpdateInstanceResourceResponse Client::updateInstanceResourceWithOptions(const s
   request.validate();
   json body = {};
   if (!!request.hasConfig()) {
-    body["Config"] = request.config();
+    body["Config"] = request.getConfig();
   }
 
   if (!!request.hasUri()) {
-    body["Uri"] = request.uri();
+    body["Uri"] = request.getUri();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7587,7 +8903,7 @@ UpdateInstanceResourceResponse Client::updateInstanceResourceWithOptions(const s
     {"action" , "UpdateInstanceResource"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/resources/" , Darabonba::Http::URL::percentEncode(ResourceId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/resources/" , Darabonba::Encode::Encoder::percentEncode(ResourceId))},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -7621,47 +8937,47 @@ UpdateLaboratoryResponse Client::updateLaboratoryWithOptions(const string &Labor
   request.validate();
   json body = {};
   if (!!request.hasBucketCount()) {
-    body["BucketCount"] = request.bucketCount();
+    body["BucketCount"] = request.getBucketCount();
   }
 
   if (!!request.hasBucketType()) {
-    body["BucketType"] = request.bucketType();
+    body["BucketType"] = request.getBucketType();
   }
 
   if (!!request.hasBuckets()) {
-    body["Buckets"] = request.buckets();
+    body["Buckets"] = request.getBuckets();
   }
 
   if (!!request.hasDebugCrowdId()) {
-    body["DebugCrowdId"] = request.debugCrowdId();
+    body["DebugCrowdId"] = request.getDebugCrowdId();
   }
 
   if (!!request.hasDebugUsers()) {
-    body["DebugUsers"] = request.debugUsers();
+    body["DebugUsers"] = request.getDebugUsers();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasEnvironment()) {
-    body["Environment"] = request.environment();
+    body["Environment"] = request.getEnvironment();
   }
 
   if (!!request.hasFilter()) {
-    body["Filter"] = request.filter();
+    body["Filter"] = request.getFilter();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasType()) {
-    body["Type"] = request.type();
+    body["Type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7672,7 +8988,7 @@ UpdateLaboratoryResponse Client::updateLaboratoryWithOptions(const string &Labor
     {"action" , "UpdateLaboratory"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/laboratories/" , Darabonba::Http::URL::percentEncode(LaboratoryId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/laboratories/" , Darabonba::Encode::Encoder::percentEncode(LaboratoryId))},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -7706,15 +9022,15 @@ UpdateLayerResponse Client::updateLayerWithOptions(const string &LayerId, const 
   request.validate();
   json body = {};
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7725,7 +9041,7 @@ UpdateLayerResponse Client::updateLayerWithOptions(const string &LayerId, const 
     {"action" , "UpdateLayer"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/layers/" , Darabonba::Http::URL::percentEncode(LayerId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/layers/" , Darabonba::Encode::Encoder::percentEncode(LayerId))},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -7759,11 +9075,11 @@ UpdateParamResponse Client::updateParamWithOptions(const string &ParamId, const 
   request.validate();
   json body = {};
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasValue()) {
-    body["Value"] = request.value();
+    body["Value"] = request.getValue();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7774,7 +9090,7 @@ UpdateParamResponse Client::updateParamWithOptions(const string &ParamId, const 
     {"action" , "UpdateParam"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/params/" , Darabonba::Http::URL::percentEncode(ParamId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/params/" , Darabonba::Encode::Encoder::percentEncode(ParamId))},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -7797,6 +9113,244 @@ UpdateParamResponse Client::updateParam(const string &ParamId, const UpdateParam
 }
 
 /**
+ * @summary 更新召回管理初始化配置。
+ *
+ * @param request UpdateRecallManagementConfigRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateRecallManagementConfigResponse
+ */
+UpdateRecallManagementConfigResponse Client::updateRecallManagementConfigWithOptions(const UpdateRecallManagementConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasNetworkConfigs()) {
+    body["NetworkConfigs"] = request.getNetworkConfigs();
+  }
+
+  if (!!request.hasPassword()) {
+    body["Password"] = request.getPassword();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateRecallManagementConfig"},
+    {"version" , "2022-12-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/recallmanagementconfigs")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateRecallManagementConfigResponse>();
+}
+
+/**
+ * @summary 更新召回管理初始化配置。
+ *
+ * @param request UpdateRecallManagementConfigRequest
+ * @return UpdateRecallManagementConfigResponse
+ */
+UpdateRecallManagementConfigResponse Client::updateRecallManagementConfig(const UpdateRecallManagementConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateRecallManagementConfigWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 更新召回管理服务信息
+ *
+ * @param request UpdateRecallManagementServiceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateRecallManagementServiceResponse
+ */
+UpdateRecallManagementServiceResponse Client::updateRecallManagementServiceWithOptions(const string &RecallManagementServiceId, const UpdateRecallManagementServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateRecallManagementService"},
+    {"version" , "2022-12-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/recallmanagementservices/" , Darabonba::Encode::Encoder::percentEncode(RecallManagementServiceId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateRecallManagementServiceResponse>();
+}
+
+/**
+ * @summary 更新召回管理服务信息
+ *
+ * @param request UpdateRecallManagementServiceRequest
+ * @return UpdateRecallManagementServiceResponse
+ */
+UpdateRecallManagementServiceResponse Client::updateRecallManagementService(const string &RecallManagementServiceId, const UpdateRecallManagementServiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateRecallManagementServiceWithOptions(RecallManagementServiceId, request, headers, runtime);
+}
+
+/**
+ * @summary 更新召回管理服务版本配置
+ *
+ * @param request UpdateRecallManagementServiceVersionConfigRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateRecallManagementServiceVersionConfigResponse
+ */
+UpdateRecallManagementServiceVersionConfigResponse Client::updateRecallManagementServiceVersionConfigWithOptions(const string &RecallManagementServiceId, const string &RecallManagementServiceVersionId, const string &RecallManagementServiceVersionConfigId, const UpdateRecallManagementServiceVersionConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  json body = {};
+  if (!!request.hasConfigType()) {
+    body["ConfigType"] = request.getConfigType();
+  }
+
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasMergeConfig()) {
+    body["MergeConfig"] = request.getMergeConfig();
+  }
+
+  if (!!request.hasRecallConfig()) {
+    body["RecallConfig"] = request.getRecallConfig();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateRecallManagementServiceVersionConfig"},
+    {"version" , "2022-12-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/recallmanagementservices/" , Darabonba::Encode::Encoder::percentEncode(RecallManagementServiceId) , "/versions/" , Darabonba::Encode::Encoder::percentEncode(RecallManagementServiceVersionId) , "/configs/" , Darabonba::Encode::Encoder::percentEncode(RecallManagementServiceVersionConfigId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateRecallManagementServiceVersionConfigResponse>();
+}
+
+/**
+ * @summary 更新召回管理服务版本配置
+ *
+ * @param request UpdateRecallManagementServiceVersionConfigRequest
+ * @return UpdateRecallManagementServiceVersionConfigResponse
+ */
+UpdateRecallManagementServiceVersionConfigResponse Client::updateRecallManagementServiceVersionConfig(const string &RecallManagementServiceId, const string &RecallManagementServiceVersionId, const string &RecallManagementServiceVersionConfigId, const UpdateRecallManagementServiceVersionConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateRecallManagementServiceVersionConfigWithOptions(RecallManagementServiceId, RecallManagementServiceVersionId, RecallManagementServiceVersionConfigId, request, headers, runtime);
+}
+
+/**
+ * @summary 更新召回管理表。
+ *
+ * @param request UpdateRecallManagementTableRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateRecallManagementTableResponse
+ */
+UpdateRecallManagementTableResponse Client::updateRecallManagementTableWithOptions(const string &RecallManagementTableId, const UpdateRecallManagementTableRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasEnableDataSizeFluctuationThreshold()) {
+    body["EnableDataSizeFluctuationThreshold"] = request.getEnableDataSizeFluctuationThreshold();
+  }
+
+  if (!!request.hasEnableRowCountFluctuationThreshold()) {
+    body["EnableRowCountFluctuationThreshold"] = request.getEnableRowCountFluctuationThreshold();
+  }
+
+  if (!!request.hasIndexVersionId()) {
+    body["IndexVersionId"] = request.getIndexVersionId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasMaxDataSizeFluctuationThreshold()) {
+    body["MaxDataSizeFluctuationThreshold"] = request.getMaxDataSizeFluctuationThreshold();
+  }
+
+  if (!!request.hasMaxRowCountFluctuationThreshold()) {
+    body["MaxRowCountFluctuationThreshold"] = request.getMaxRowCountFluctuationThreshold();
+  }
+
+  if (!!request.hasMinDataSizeFluctuationThreshold()) {
+    body["MinDataSizeFluctuationThreshold"] = request.getMinDataSizeFluctuationThreshold();
+  }
+
+  if (!!request.hasMinRowCountFluctuationThreshold()) {
+    body["MinRowCountFluctuationThreshold"] = request.getMinRowCountFluctuationThreshold();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateRecallManagementTable"},
+    {"version" , "2022-12-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/recallmanagementtables/" , Darabonba::Encode::Encoder::percentEncode(RecallManagementTableId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateRecallManagementTableResponse>();
+}
+
+/**
+ * @summary 更新召回管理表。
+ *
+ * @param request UpdateRecallManagementTableRequest
+ * @return UpdateRecallManagementTableResponse
+ */
+UpdateRecallManagementTableResponse Client::updateRecallManagementTable(const string &RecallManagementTableId, const UpdateRecallManagementTableRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateRecallManagementTableWithOptions(RecallManagementTableId, request, headers, runtime);
+}
+
+/**
  * @summary 获取资源规则列表
  *
  * @param request UpdateResourceRuleRequest
@@ -7808,31 +9362,31 @@ UpdateResourceRuleResponse Client::updateResourceRuleWithOptions(const string &R
   request.validate();
   json body = {};
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasMetricOperationType()) {
-    body["MetricOperationType"] = request.metricOperationType();
+    body["MetricOperationType"] = request.getMetricOperationType();
   }
 
   if (!!request.hasMetricPullInfo()) {
-    body["MetricPullInfo"] = request.metricPullInfo();
+    body["MetricPullInfo"] = request.getMetricPullInfo();
   }
 
   if (!!request.hasMetricPullPeriod()) {
-    body["MetricPullPeriod"] = request.metricPullPeriod();
+    body["MetricPullPeriod"] = request.getMetricPullPeriod();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasRuleComputingDefinition()) {
-    body["RuleComputingDefinition"] = request.ruleComputingDefinition();
+    body["RuleComputingDefinition"] = request.getRuleComputingDefinition();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7843,7 +9397,7 @@ UpdateResourceRuleResponse Client::updateResourceRuleWithOptions(const string &R
     {"action" , "UpdateResourceRule"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/resourcerules/" , Darabonba::Http::URL::percentEncode(ResourceRuleId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/resourcerules/" , Darabonba::Encode::Encoder::percentEncode(ResourceRuleId))},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -7877,27 +9431,27 @@ UpdateResourceRuleItemResponse Client::updateResourceRuleItemWithOptions(const s
   request.validate();
   json body = {};
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasMaxValue()) {
-    body["MaxValue"] = request.maxValue();
+    body["MaxValue"] = request.getMaxValue();
   }
 
   if (!!request.hasMinValue()) {
-    body["MinValue"] = request.minValue();
+    body["MinValue"] = request.getMinValue();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasValue()) {
-    body["Value"] = request.value();
+    body["Value"] = request.getValue();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7908,7 +9462,7 @@ UpdateResourceRuleItemResponse Client::updateResourceRuleItemWithOptions(const s
     {"action" , "UpdateResourceRuleItem"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/resourcerules/" , Darabonba::Http::URL::percentEncode(ResourceRuleId) , "/items/" , Darabonba::Http::URL::percentEncode(ResourceRuleItemId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/resourcerules/" , Darabonba::Encode::Encoder::percentEncode(ResourceRuleId) , "/items/" , Darabonba::Encode::Encoder::percentEncode(ResourceRuleItemId))},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -7942,19 +9496,19 @@ UpdateSceneResponse Client::updateSceneWithOptions(const string &SceneId, const 
   request.validate();
   json body = {};
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasFlows()) {
-    body["Flows"] = request.flows();
+    body["Flows"] = request.getFlows();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7965,7 +9519,7 @@ UpdateSceneResponse Client::updateSceneWithOptions(const string &SceneId, const 
     {"action" , "UpdateScene"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/scenes/" , Darabonba::Http::URL::percentEncode(SceneId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/scenes/" , Darabonba::Encode::Encoder::percentEncode(SceneId))},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -7999,31 +9553,31 @@ UpdateTableMetaResponse Client::updateTableMetaWithOptions(const string &TableMe
   request.validate();
   json body = {};
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasFields()) {
-    body["Fields"] = request.fields();
+    body["Fields"] = request.getFields();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasModule()) {
-    body["Module"] = request.module();
+    body["Module"] = request.getModule();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasResourceId()) {
-    body["ResourceId"] = request.resourceId();
+    body["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasTableName()) {
-    body["TableName"] = request.tableName();
+    body["TableName"] = request.getTableName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8034,7 +9588,7 @@ UpdateTableMetaResponse Client::updateTableMetaWithOptions(const string &TableMe
     {"action" , "UpdateTableMeta"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/tablemetas/" , Darabonba::Http::URL::percentEncode(TableMetaId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/tablemetas/" , Darabonba::Encode::Encoder::percentEncode(TableMetaId))},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -8068,60 +9622,60 @@ UpdateTrafficControlTargetResponse Client::updateTrafficControlTargetWithOptions
   request.validate();
   json query = {};
   if (!!request.hasNewParam3()) {
-    query["new-param-3"] = request.newParam3();
+    query["new-param-3"] = request.getNewParam3();
   }
 
   json body = {};
   if (!!request.hasEndTime()) {
-    body["EndTime"] = request.endTime();
+    body["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasEvent()) {
-    body["Event"] = request.event();
+    body["Event"] = request.getEvent();
   }
 
   if (!!request.hasItemConditionArray()) {
-    body["ItemConditionArray"] = request.itemConditionArray();
+    body["ItemConditionArray"] = request.getItemConditionArray();
   }
 
   if (!!request.hasItemConditionExpress()) {
-    body["ItemConditionExpress"] = request.itemConditionExpress();
+    body["ItemConditionExpress"] = request.getItemConditionExpress();
   }
 
   if (!!request.hasItemConditionType()) {
-    body["ItemConditionType"] = request.itemConditionType();
+    body["ItemConditionType"] = request.getItemConditionType();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasNewProductRegulation()) {
-    body["NewProductRegulation"] = request.newProductRegulation();
+    body["NewProductRegulation"] = request.getNewProductRegulation();
   }
 
   if (!!request.hasRecallName()) {
-    body["RecallName"] = request.recallName();
+    body["RecallName"] = request.getRecallName();
   }
 
   if (!!request.hasStartTime()) {
-    body["StartTime"] = request.startTime();
+    body["StartTime"] = request.getStartTime();
   }
 
   if (!!request.hasStatisPeriod()) {
-    body["StatisPeriod"] = request.statisPeriod();
+    body["StatisPeriod"] = request.getStatisPeriod();
   }
 
   if (!!request.hasStatus()) {
-    body["Status"] = request.status();
+    body["Status"] = request.getStatus();
   }
 
   if (!!request.hasToleranceValue()) {
-    body["ToleranceValue"] = request.toleranceValue();
+    body["ToleranceValue"] = request.getToleranceValue();
   }
 
   if (!!request.hasValue()) {
-    body["Value"] = request.value();
+    body["Value"] = request.getValue();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8133,7 +9687,7 @@ UpdateTrafficControlTargetResponse Client::updateTrafficControlTargetWithOptions
     {"action" , "UpdateTrafficControlTarget"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trafficcontroltargets/" , Darabonba::Http::URL::percentEncode(TrafficControlTargetId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trafficcontroltargets/" , Darabonba::Encode::Encoder::percentEncode(TrafficControlTargetId))},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -8167,119 +9721,123 @@ UpdateTrafficControlTaskResponse Client::updateTrafficControlTaskWithOptions(con
   request.validate();
   json body = {};
   if (!!request.hasBehaviorTableMetaId()) {
-    body["BehaviorTableMetaId"] = request.behaviorTableMetaId();
+    body["BehaviorTableMetaId"] = request.getBehaviorTableMetaId();
   }
 
   if (!!request.hasControlGranularity()) {
-    body["ControlGranularity"] = request.controlGranularity();
+    body["ControlGranularity"] = request.getControlGranularity();
   }
 
   if (!!request.hasControlLogic()) {
-    body["ControlLogic"] = request.controlLogic();
+    body["ControlLogic"] = request.getControlLogic();
   }
 
   if (!!request.hasControlType()) {
-    body["ControlType"] = request.controlType();
+    body["ControlType"] = request.getControlType();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasEffectiveSceneIds()) {
-    body["EffectiveSceneIds"] = request.effectiveSceneIds();
+    body["EffectiveSceneIds"] = request.getEffectiveSceneIds();
   }
 
   if (!!request.hasEndTime()) {
-    body["EndTime"] = request.endTime();
+    body["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasExecutionTime()) {
-    body["ExecutionTime"] = request.executionTime();
+    body["ExecutionTime"] = request.getExecutionTime();
   }
 
   if (!!request.hasFlinkResourceId()) {
-    body["FlinkResourceId"] = request.flinkResourceId();
+    body["FlinkResourceId"] = request.getFlinkResourceId();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasItemConditionArray()) {
-    body["ItemConditionArray"] = request.itemConditionArray();
+    body["ItemConditionArray"] = request.getItemConditionArray();
   }
 
   if (!!request.hasItemConditionExpress()) {
-    body["ItemConditionExpress"] = request.itemConditionExpress();
+    body["ItemConditionExpress"] = request.getItemConditionExpress();
   }
 
   if (!!request.hasItemConditionType()) {
-    body["ItemConditionType"] = request.itemConditionType();
+    body["ItemConditionType"] = request.getItemConditionType();
   }
 
   if (!!request.hasItemTableMetaId()) {
-    body["ItemTableMetaId"] = request.itemTableMetaId();
+    body["ItemTableMetaId"] = request.getItemTableMetaId();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasPreExperimentIds()) {
-    body["PreExperimentIds"] = request.preExperimentIds();
+    body["PreExperimentIds"] = request.getPreExperimentIds();
   }
 
   if (!!request.hasProdExperimentIds()) {
-    body["ProdExperimentIds"] = request.prodExperimentIds();
+    body["ProdExperimentIds"] = request.getProdExperimentIds();
   }
 
   if (!!request.hasSceneId()) {
-    body["SceneId"] = request.sceneId();
+    body["SceneId"] = request.getSceneId();
   }
 
   if (!!request.hasServiceId()) {
-    body["ServiceId"] = request.serviceId();
+    body["ServiceId"] = request.getServiceId();
   }
 
   if (!!request.hasServiceIds()) {
-    body["ServiceIds"] = request.serviceIds();
+    body["ServiceIds"] = request.getServiceIds();
   }
 
   if (!!request.hasStartTime()) {
-    body["StartTime"] = request.startTime();
+    body["StartTime"] = request.getStartTime();
   }
 
   if (!!request.hasStatisBaeaviorConditionArray()) {
-    body["StatisBaeaviorConditionArray"] = request.statisBaeaviorConditionArray();
+    body["StatisBaeaviorConditionArray"] = request.getStatisBaeaviorConditionArray();
+  }
+
+  if (!!request.hasStatisBehaviorConditionArray()) {
+    body["StatisBehaviorConditionArray"] = request.getStatisBehaviorConditionArray();
   }
 
   if (!!request.hasStatisBehaviorConditionExpress()) {
-    body["StatisBehaviorConditionExpress"] = request.statisBehaviorConditionExpress();
+    body["StatisBehaviorConditionExpress"] = request.getStatisBehaviorConditionExpress();
   }
 
   if (!!request.hasStatisBehaviorConditionType()) {
-    body["StatisBehaviorConditionType"] = request.statisBehaviorConditionType();
+    body["StatisBehaviorConditionType"] = request.getStatisBehaviorConditionType();
   }
 
   if (!!request.hasTrafficControlTargets()) {
-    body["TrafficControlTargets"] = request.trafficControlTargets();
+    body["TrafficControlTargets"] = request.getTrafficControlTargets();
   }
 
   if (!!request.hasUserConditionArray()) {
-    body["UserConditionArray"] = request.userConditionArray();
+    body["UserConditionArray"] = request.getUserConditionArray();
   }
 
   if (!!request.hasUserConditionExpress()) {
-    body["UserConditionExpress"] = request.userConditionExpress();
+    body["UserConditionExpress"] = request.getUserConditionExpress();
   }
 
   if (!!request.hasUserConditionType()) {
-    body["UserConditionType"] = request.userConditionType();
+    body["UserConditionType"] = request.getUserConditionType();
   }
 
   if (!!request.hasUserTableMetaId()) {
-    body["UserTableMetaId"] = request.userTableMetaId();
+    body["UserTableMetaId"] = request.getUserTableMetaId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8290,7 +9848,7 @@ UpdateTrafficControlTaskResponse Client::updateTrafficControlTaskWithOptions(con
     {"action" , "UpdateTrafficControlTask"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trafficcontroltasks/" , Darabonba::Http::URL::percentEncode(TrafficControlTaskId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trafficcontroltasks/" , Darabonba::Encode::Encoder::percentEncode(TrafficControlTaskId))},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -8324,20 +9882,20 @@ UpdateTrafficControlTaskTrafficResponse Client::updateTrafficControlTaskTrafficW
   request.validate();
   json query = {};
   if (!!request.hasNewParam3()) {
-    query["new-param-3"] = request.newParam3();
+    query["new-param-3"] = request.getNewParam3();
   }
 
   json body = {};
   if (!!request.hasEnvironment()) {
-    body["Environment"] = request.environment();
+    body["Environment"] = request.getEnvironment();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasTraffics()) {
-    body["Traffics"] = request.traffics();
+    body["Traffics"] = request.getTraffics();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8349,7 +9907,7 @@ UpdateTrafficControlTaskTrafficResponse Client::updateTrafficControlTaskTrafficW
     {"action" , "UpdateTrafficControlTaskTraffic"},
     {"version" , "2022-12-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trafficcontroltasks/" , Darabonba::Http::URL::percentEncode(TrafficControlTaskId) , "/action/traffic")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trafficcontroltasks/" , Darabonba::Encode::Encoder::percentEncode(TrafficControlTaskId) , "/action/traffic")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -8383,16 +9941,16 @@ UploadRecommendationDataResponse Client::uploadRecommendationDataWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   json body = {};
   if (!!request.hasContent()) {
-    body["Content"] = request.content();
+    body["Content"] = request.getContent();
   }
 
   if (!!request.hasDataType()) {
-    body["DataType"] = request.dataType();
+    body["DataType"] = request.getDataType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

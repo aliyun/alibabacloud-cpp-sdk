@@ -31,26 +31,26 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->experimentGroupId_ != nullptr
-        && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->experimentGroupId_ == nullptr
+        && this->requestId_ == nullptr; };
     // experimentGroupId Field Functions 
     bool hasExperimentGroupId() const { return this->experimentGroupId_ != nullptr;};
     void deleteExperimentGroupId() { this->experimentGroupId_ = nullptr;};
-    inline string experimentGroupId() const { DARABONBA_PTR_GET_DEFAULT(experimentGroupId_, "") };
+    inline string getExperimentGroupId() const { DARABONBA_PTR_GET_DEFAULT(experimentGroupId_, "") };
     inline CreateExperimentGroupResponseBody& setExperimentGroupId(string experimentGroupId) { DARABONBA_PTR_SET_VALUE(experimentGroupId_, experimentGroupId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateExperimentGroupResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<string> experimentGroupId_ = nullptr;
+    shared_ptr<string> experimentGroupId_ {};
     // Id of the request
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

@@ -31,25 +31,25 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->requestId_ != nullptr
-        && this->resourceRuleId_ != nullptr; };
+    virtual bool empty() const override { return this->requestId_ == nullptr
+        && this->resourceRuleId_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateResourceRuleResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // resourceRuleId Field Functions 
     bool hasResourceRuleId() const { return this->resourceRuleId_ != nullptr;};
     void deleteResourceRuleId() { this->resourceRuleId_ = nullptr;};
-    inline string resourceRuleId() const { DARABONBA_PTR_GET_DEFAULT(resourceRuleId_, "") };
+    inline string getResourceRuleId() const { DARABONBA_PTR_GET_DEFAULT(resourceRuleId_, "") };
     inline CreateResourceRuleResponseBody& setResourceRuleId(string resourceRuleId) { DARABONBA_PTR_SET_VALUE(resourceRuleId_, resourceRuleId) };
 
 
   protected:
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> resourceRuleId_ = nullptr;
+    shared_ptr<string> requestId_ {};
+    shared_ptr<string> resourceRuleId_ {};
   };
 
   } // namespace Models

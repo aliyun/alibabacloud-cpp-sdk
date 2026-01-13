@@ -29,16 +29,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->traffic_ != nullptr; };
+    virtual bool empty() const override { return this->traffic_ == nullptr; };
     // traffic Field Functions 
     bool hasTraffic() const { return this->traffic_ != nullptr;};
     void deleteTraffic() { this->traffic_ = nullptr;};
-    inline double traffic() const { DARABONBA_PTR_GET_DEFAULT(traffic_, 0.0) };
+    inline double getTraffic() const { DARABONBA_PTR_GET_DEFAULT(traffic_, 0.0) };
     inline TrafficControlTaskTrafficInfoTaskTrafficsValue& setTraffic(double traffic) { DARABONBA_PTR_SET_VALUE(traffic_, traffic) };
 
 
   protected:
-    std::shared_ptr<double> traffic_ = nullptr;
+    shared_ptr<double> traffic_ {};
   };
 
   } // namespace Models

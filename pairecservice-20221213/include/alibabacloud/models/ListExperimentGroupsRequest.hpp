@@ -39,58 +39,58 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->instanceId_ != nullptr
-        && this->layerId_ != nullptr && this->regionId_ != nullptr && this->status_ != nullptr && this->timeRangeEnd_ != nullptr && this->timeRangeStart_ != nullptr; };
+    virtual bool empty() const override { return this->instanceId_ == nullptr
+        && this->layerId_ == nullptr && this->regionId_ == nullptr && this->status_ == nullptr && this->timeRangeEnd_ == nullptr && this->timeRangeStart_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ListExperimentGroupsRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // layerId Field Functions 
     bool hasLayerId() const { return this->layerId_ != nullptr;};
     void deleteLayerId() { this->layerId_ = nullptr;};
-    inline string layerId() const { DARABONBA_PTR_GET_DEFAULT(layerId_, "") };
+    inline string getLayerId() const { DARABONBA_PTR_GET_DEFAULT(layerId_, "") };
     inline ListExperimentGroupsRequest& setLayerId(string layerId) { DARABONBA_PTR_SET_VALUE(layerId_, layerId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ListExperimentGroupsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline ListExperimentGroupsRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // timeRangeEnd Field Functions 
     bool hasTimeRangeEnd() const { return this->timeRangeEnd_ != nullptr;};
     void deleteTimeRangeEnd() { this->timeRangeEnd_ = nullptr;};
-    inline string timeRangeEnd() const { DARABONBA_PTR_GET_DEFAULT(timeRangeEnd_, "") };
+    inline string getTimeRangeEnd() const { DARABONBA_PTR_GET_DEFAULT(timeRangeEnd_, "") };
     inline ListExperimentGroupsRequest& setTimeRangeEnd(string timeRangeEnd) { DARABONBA_PTR_SET_VALUE(timeRangeEnd_, timeRangeEnd) };
 
 
     // timeRangeStart Field Functions 
     bool hasTimeRangeStart() const { return this->timeRangeStart_ != nullptr;};
     void deleteTimeRangeStart() { this->timeRangeStart_ = nullptr;};
-    inline string timeRangeStart() const { DARABONBA_PTR_GET_DEFAULT(timeRangeStart_, "") };
+    inline string getTimeRangeStart() const { DARABONBA_PTR_GET_DEFAULT(timeRangeStart_, "") };
     inline ListExperimentGroupsRequest& setTimeRangeStart(string timeRangeStart) { DARABONBA_PTR_SET_VALUE(timeRangeStart_, timeRangeStart) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> layerId_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> status_ = nullptr;
-    std::shared_ptr<string> timeRangeEnd_ = nullptr;
-    std::shared_ptr<string> timeRangeStart_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> layerId_ {};
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> status_ {};
+    shared_ptr<string> timeRangeEnd_ {};
+    shared_ptr<string> timeRangeStart_ {};
   };
 
   } // namespace Models

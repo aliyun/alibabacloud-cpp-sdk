@@ -33,36 +33,36 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->environment_ != nullptr
-        && this->instanceId_ != nullptr && this->layerId_ != nullptr; };
+    virtual bool empty() const override { return this->environment_ == nullptr
+        && this->instanceId_ == nullptr && this->layerId_ == nullptr; };
     // environment Field Functions 
     bool hasEnvironment() const { return this->environment_ != nullptr;};
     void deleteEnvironment() { this->environment_ = nullptr;};
-    inline string environment() const { DARABONBA_PTR_GET_DEFAULT(environment_, "") };
+    inline string getEnvironment() const { DARABONBA_PTR_GET_DEFAULT(environment_, "") };
     inline CloneExperimentGroupRequest& setEnvironment(string environment) { DARABONBA_PTR_SET_VALUE(environment_, environment) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline CloneExperimentGroupRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // layerId Field Functions 
     bool hasLayerId() const { return this->layerId_ != nullptr;};
     void deleteLayerId() { this->layerId_ = nullptr;};
-    inline string layerId() const { DARABONBA_PTR_GET_DEFAULT(layerId_, "") };
+    inline string getLayerId() const { DARABONBA_PTR_GET_DEFAULT(layerId_, "") };
     inline CloneExperimentGroupRequest& setLayerId(string layerId) { DARABONBA_PTR_SET_VALUE(layerId_, layerId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> environment_ = nullptr;
+    shared_ptr<string> environment_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> layerId_ = nullptr;
+    shared_ptr<string> layerId_ {};
   };
 
   } // namespace Models

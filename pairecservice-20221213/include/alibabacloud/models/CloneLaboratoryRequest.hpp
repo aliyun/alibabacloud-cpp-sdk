@@ -33,36 +33,36 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cloneExperimentGroup_ != nullptr
-        && this->environment_ != nullptr && this->instanceId_ != nullptr; };
+    virtual bool empty() const override { return this->cloneExperimentGroup_ == nullptr
+        && this->environment_ == nullptr && this->instanceId_ == nullptr; };
     // cloneExperimentGroup Field Functions 
     bool hasCloneExperimentGroup() const { return this->cloneExperimentGroup_ != nullptr;};
     void deleteCloneExperimentGroup() { this->cloneExperimentGroup_ = nullptr;};
-    inline bool cloneExperimentGroup() const { DARABONBA_PTR_GET_DEFAULT(cloneExperimentGroup_, false) };
+    inline bool getCloneExperimentGroup() const { DARABONBA_PTR_GET_DEFAULT(cloneExperimentGroup_, false) };
     inline CloneLaboratoryRequest& setCloneExperimentGroup(bool cloneExperimentGroup) { DARABONBA_PTR_SET_VALUE(cloneExperimentGroup_, cloneExperimentGroup) };
 
 
     // environment Field Functions 
     bool hasEnvironment() const { return this->environment_ != nullptr;};
     void deleteEnvironment() { this->environment_ = nullptr;};
-    inline string environment() const { DARABONBA_PTR_GET_DEFAULT(environment_, "") };
+    inline string getEnvironment() const { DARABONBA_PTR_GET_DEFAULT(environment_, "") };
     inline CloneLaboratoryRequest& setEnvironment(string environment) { DARABONBA_PTR_SET_VALUE(environment_, environment) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline CloneLaboratoryRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<bool> cloneExperimentGroup_ = nullptr;
+    shared_ptr<bool> cloneExperimentGroup_ {};
     // This parameter is required.
-    std::shared_ptr<string> environment_ = nullptr;
+    shared_ptr<string> environment_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
   };
 
   } // namespace Models

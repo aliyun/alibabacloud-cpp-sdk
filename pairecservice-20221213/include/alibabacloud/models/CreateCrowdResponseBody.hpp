@@ -31,26 +31,26 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->crowdId_ != nullptr
-        && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->crowdId_ == nullptr
+        && this->requestId_ == nullptr; };
     // crowdId Field Functions 
     bool hasCrowdId() const { return this->crowdId_ != nullptr;};
     void deleteCrowdId() { this->crowdId_ = nullptr;};
-    inline string crowdId() const { DARABONBA_PTR_GET_DEFAULT(crowdId_, "") };
+    inline string getCrowdId() const { DARABONBA_PTR_GET_DEFAULT(crowdId_, "") };
     inline CreateCrowdResponseBody& setCrowdId(string crowdId) { DARABONBA_PTR_SET_VALUE(crowdId_, crowdId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateCrowdResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<string> crowdId_ = nullptr;
+    shared_ptr<string> crowdId_ {};
     // Id of the request
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

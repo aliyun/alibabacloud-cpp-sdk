@@ -1,4 +1,0 @@
-@PACKAGE_INIT@
-
-include("${CMAKE_CURRENT_LIST_DIR}/alibabacloud_pai_rec_service_20221213Targets.cmake")
-check_required_components("alibabacloud_pai_rec_service_20221213")

@@ -31,25 +31,25 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->requestId_ != nullptr
-        && this->trafficControlTargetId_ != nullptr; };
+    virtual bool empty() const override { return this->requestId_ == nullptr
+        && this->trafficControlTargetId_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateTrafficControlTargetResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // trafficControlTargetId Field Functions 
     bool hasTrafficControlTargetId() const { return this->trafficControlTargetId_ != nullptr;};
     void deleteTrafficControlTargetId() { this->trafficControlTargetId_ = nullptr;};
-    inline string trafficControlTargetId() const { DARABONBA_PTR_GET_DEFAULT(trafficControlTargetId_, "") };
+    inline string getTrafficControlTargetId() const { DARABONBA_PTR_GET_DEFAULT(trafficControlTargetId_, "") };
     inline CreateTrafficControlTargetResponseBody& setTrafficControlTargetId(string trafficControlTargetId) { DARABONBA_PTR_SET_VALUE(trafficControlTargetId_, trafficControlTargetId) };
 
 
   protected:
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> trafficControlTargetId_ = nullptr;
+    shared_ptr<string> requestId_ {};
+    shared_ptr<string> trafficControlTargetId_ {};
   };
 
   } // namespace Models

@@ -33,33 +33,33 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->category_ != nullptr
-        && this->group_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->category_ == nullptr
+        && this->group_ == nullptr && this->type_ == nullptr; };
     // category Field Functions 
     bool hasCategory() const { return this->category_ != nullptr;};
     void deleteCategory() { this->category_ = nullptr;};
-    inline string category() const { DARABONBA_PTR_GET_DEFAULT(category_, "") };
+    inline string getCategory() const { DARABONBA_PTR_GET_DEFAULT(category_, "") };
     inline ListInstanceResourcesRequest& setCategory(string category) { DARABONBA_PTR_SET_VALUE(category_, category) };
 
 
     // group Field Functions 
     bool hasGroup() const { return this->group_ != nullptr;};
     void deleteGroup() { this->group_ = nullptr;};
-    inline string group() const { DARABONBA_PTR_GET_DEFAULT(group_, "") };
+    inline string getGroup() const { DARABONBA_PTR_GET_DEFAULT(group_, "") };
     inline ListInstanceResourcesRequest& setGroup(string group) { DARABONBA_PTR_SET_VALUE(group_, group) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline ListInstanceResourcesRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
-    std::shared_ptr<string> category_ = nullptr;
-    std::shared_ptr<string> group_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> category_ {};
+    shared_ptr<string> group_ {};
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

@@ -31,26 +31,26 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->experimentId_ != nullptr
-        && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->experimentId_ == nullptr
+        && this->requestId_ == nullptr; };
     // experimentId Field Functions 
     bool hasExperimentId() const { return this->experimentId_ != nullptr;};
     void deleteExperimentId() { this->experimentId_ = nullptr;};
-    inline string experimentId() const { DARABONBA_PTR_GET_DEFAULT(experimentId_, "") };
+    inline string getExperimentId() const { DARABONBA_PTR_GET_DEFAULT(experimentId_, "") };
     inline CloneExperimentResponseBody& setExperimentId(string experimentId) { DARABONBA_PTR_SET_VALUE(experimentId_, experimentId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CloneExperimentResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<string> experimentId_ = nullptr;
+    shared_ptr<string> experimentId_ {};
     // Id of the request
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

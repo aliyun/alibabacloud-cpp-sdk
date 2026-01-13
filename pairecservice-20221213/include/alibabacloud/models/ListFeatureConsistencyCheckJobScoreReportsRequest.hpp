@@ -32,13 +32,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->excludeRequestIds_ != nullptr
-        && this->instanceId_ != nullptr; };
+    virtual bool empty() const override { return this->excludeRequestIds_ == nullptr
+        && this->instanceId_ == nullptr; };
     // excludeRequestIds Field Functions 
     bool hasExcludeRequestIds() const { return this->excludeRequestIds_ != nullptr;};
     void deleteExcludeRequestIds() { this->excludeRequestIds_ = nullptr;};
-    inline const vector<string> & excludeRequestIds() const { DARABONBA_PTR_GET_CONST(excludeRequestIds_, vector<string>) };
-    inline vector<string> excludeRequestIds() { DARABONBA_PTR_GET(excludeRequestIds_, vector<string>) };
+    inline const vector<string> & getExcludeRequestIds() const { DARABONBA_PTR_GET_CONST(excludeRequestIds_, vector<string>) };
+    inline vector<string> getExcludeRequestIds() { DARABONBA_PTR_GET(excludeRequestIds_, vector<string>) };
     inline ListFeatureConsistencyCheckJobScoreReportsRequest& setExcludeRequestIds(const vector<string> & excludeRequestIds) { DARABONBA_PTR_SET_VALUE(excludeRequestIds_, excludeRequestIds) };
     inline ListFeatureConsistencyCheckJobScoreReportsRequest& setExcludeRequestIds(vector<string> && excludeRequestIds) { DARABONBA_PTR_SET_RVALUE(excludeRequestIds_, excludeRequestIds) };
 
@@ -46,13 +46,13 @@ namespace Models
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ListFeatureConsistencyCheckJobScoreReportsRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
   protected:
-    std::shared_ptr<vector<string>> excludeRequestIds_ = nullptr;
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<vector<string>> excludeRequestIds_ {};
+    shared_ptr<string> instanceId_ {};
   };
 
   } // namespace Models

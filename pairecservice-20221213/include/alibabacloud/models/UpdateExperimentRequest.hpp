@@ -43,78 +43,78 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->config_ != nullptr
-        && this->debugCrowdId_ != nullptr && this->debugUsers_ != nullptr && this->description_ != nullptr && this->flowPercent_ != nullptr && this->instanceId_ != nullptr
-        && this->name_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->config_ == nullptr
+        && this->debugCrowdId_ == nullptr && this->debugUsers_ == nullptr && this->description_ == nullptr && this->flowPercent_ == nullptr && this->instanceId_ == nullptr
+        && this->name_ == nullptr && this->type_ == nullptr; };
     // config Field Functions 
     bool hasConfig() const { return this->config_ != nullptr;};
     void deleteConfig() { this->config_ = nullptr;};
-    inline string config() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
+    inline string getConfig() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
     inline UpdateExperimentRequest& setConfig(string config) { DARABONBA_PTR_SET_VALUE(config_, config) };
 
 
     // debugCrowdId Field Functions 
     bool hasDebugCrowdId() const { return this->debugCrowdId_ != nullptr;};
     void deleteDebugCrowdId() { this->debugCrowdId_ = nullptr;};
-    inline string debugCrowdId() const { DARABONBA_PTR_GET_DEFAULT(debugCrowdId_, "") };
+    inline string getDebugCrowdId() const { DARABONBA_PTR_GET_DEFAULT(debugCrowdId_, "") };
     inline UpdateExperimentRequest& setDebugCrowdId(string debugCrowdId) { DARABONBA_PTR_SET_VALUE(debugCrowdId_, debugCrowdId) };
 
 
     // debugUsers Field Functions 
     bool hasDebugUsers() const { return this->debugUsers_ != nullptr;};
     void deleteDebugUsers() { this->debugUsers_ = nullptr;};
-    inline string debugUsers() const { DARABONBA_PTR_GET_DEFAULT(debugUsers_, "") };
+    inline string getDebugUsers() const { DARABONBA_PTR_GET_DEFAULT(debugUsers_, "") };
     inline UpdateExperimentRequest& setDebugUsers(string debugUsers) { DARABONBA_PTR_SET_VALUE(debugUsers_, debugUsers) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline UpdateExperimentRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // flowPercent Field Functions 
     bool hasFlowPercent() const { return this->flowPercent_ != nullptr;};
     void deleteFlowPercent() { this->flowPercent_ = nullptr;};
-    inline int32_t flowPercent() const { DARABONBA_PTR_GET_DEFAULT(flowPercent_, 0) };
+    inline int32_t getFlowPercent() const { DARABONBA_PTR_GET_DEFAULT(flowPercent_, 0) };
     inline UpdateExperimentRequest& setFlowPercent(int32_t flowPercent) { DARABONBA_PTR_SET_VALUE(flowPercent_, flowPercent) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline UpdateExperimentRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline UpdateExperimentRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline UpdateExperimentRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
-    std::shared_ptr<string> config_ = nullptr;
-    std::shared_ptr<string> debugCrowdId_ = nullptr;
-    std::shared_ptr<string> debugUsers_ = nullptr;
+    shared_ptr<string> config_ {};
+    shared_ptr<string> debugCrowdId_ {};
+    shared_ptr<string> debugUsers_ {};
     // This parameter is required.
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<int32_t> flowPercent_ = nullptr;
+    shared_ptr<string> description_ {};
+    shared_ptr<int32_t> flowPercent_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // This parameter is required.
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

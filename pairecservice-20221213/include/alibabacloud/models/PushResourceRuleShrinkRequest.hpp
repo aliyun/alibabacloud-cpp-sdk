@@ -31,27 +31,27 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->instanceId_ != nullptr
-        && this->metricInfoShrink_ != nullptr; };
+    virtual bool empty() const override { return this->instanceId_ == nullptr
+        && this->metricInfoShrink_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline PushResourceRuleShrinkRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // metricInfoShrink Field Functions 
     bool hasMetricInfoShrink() const { return this->metricInfoShrink_ != nullptr;};
     void deleteMetricInfoShrink() { this->metricInfoShrink_ = nullptr;};
-    inline string metricInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(metricInfoShrink_, "") };
+    inline string getMetricInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(metricInfoShrink_, "") };
     inline PushResourceRuleShrinkRequest& setMetricInfoShrink(string metricInfoShrink) { DARABONBA_PTR_SET_VALUE(metricInfoShrink_, metricInfoShrink) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> metricInfoShrink_ = nullptr;
+    shared_ptr<string> metricInfoShrink_ {};
   };
 
   } // namespace Models

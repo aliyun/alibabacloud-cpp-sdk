@@ -34,36 +34,36 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->requestId_ != nullptr
-        && this->totalCount_ != nullptr && this->users_ != nullptr; };
+    virtual bool empty() const override { return this->requestId_ == nullptr
+        && this->totalCount_ == nullptr && this->users_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListCrowdUsersResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // totalCount Field Functions 
     bool hasTotalCount() const { return this->totalCount_ != nullptr;};
     void deleteTotalCount() { this->totalCount_ = nullptr;};
-    inline int64_t totalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0L) };
+    inline int64_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0L) };
     inline ListCrowdUsersResponseBody& setTotalCount(int64_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
 
 
     // users Field Functions 
     bool hasUsers() const { return this->users_ != nullptr;};
     void deleteUsers() { this->users_ = nullptr;};
-    inline const vector<string> & users() const { DARABONBA_PTR_GET_CONST(users_, vector<string>) };
-    inline vector<string> users() { DARABONBA_PTR_GET(users_, vector<string>) };
+    inline const vector<string> & getUsers() const { DARABONBA_PTR_GET_CONST(users_, vector<string>) };
+    inline vector<string> getUsers() { DARABONBA_PTR_GET(users_, vector<string>) };
     inline ListCrowdUsersResponseBody& setUsers(const vector<string> & users) { DARABONBA_PTR_SET_VALUE(users_, users) };
     inline ListCrowdUsersResponseBody& setUsers(vector<string> && users) { DARABONBA_PTR_SET_RVALUE(users_, users) };
 
 
   protected:
     // Id of the request
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<int64_t> totalCount_ = nullptr;
-    std::shared_ptr<vector<string>> users_ = nullptr;
+    shared_ptr<string> requestId_ {};
+    shared_ptr<int64_t> totalCount_ {};
+    shared_ptr<vector<string>> users_ {};
   };
 
   } // namespace Models

@@ -47,100 +47,100 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->contextFeatures_ != nullptr
-        && this->featureConsistencyCheckJobConfigId_ != nullptr && this->generatedFeatures_ != nullptr && this->instanceId_ != nullptr && this->logItemId_ != nullptr && this->logRequestId_ != nullptr
-        && this->logRequestTime_ != nullptr && this->logUserId_ != nullptr && this->rawFeatures_ != nullptr && this->sceneName_ != nullptr; };
+    virtual bool empty() const override { return this->contextFeatures_ == nullptr
+        && this->featureConsistencyCheckJobConfigId_ == nullptr && this->generatedFeatures_ == nullptr && this->instanceId_ == nullptr && this->logItemId_ == nullptr && this->logRequestId_ == nullptr
+        && this->logRequestTime_ == nullptr && this->logUserId_ == nullptr && this->rawFeatures_ == nullptr && this->sceneName_ == nullptr; };
     // contextFeatures Field Functions 
     bool hasContextFeatures() const { return this->contextFeatures_ != nullptr;};
     void deleteContextFeatures() { this->contextFeatures_ = nullptr;};
-    inline string contextFeatures() const { DARABONBA_PTR_GET_DEFAULT(contextFeatures_, "") };
+    inline string getContextFeatures() const { DARABONBA_PTR_GET_DEFAULT(contextFeatures_, "") };
     inline SyncFeatureConsistencyCheckJobReplayLogRequest& setContextFeatures(string contextFeatures) { DARABONBA_PTR_SET_VALUE(contextFeatures_, contextFeatures) };
 
 
     // featureConsistencyCheckJobConfigId Field Functions 
     bool hasFeatureConsistencyCheckJobConfigId() const { return this->featureConsistencyCheckJobConfigId_ != nullptr;};
     void deleteFeatureConsistencyCheckJobConfigId() { this->featureConsistencyCheckJobConfigId_ = nullptr;};
-    inline string featureConsistencyCheckJobConfigId() const { DARABONBA_PTR_GET_DEFAULT(featureConsistencyCheckJobConfigId_, "") };
+    inline string getFeatureConsistencyCheckJobConfigId() const { DARABONBA_PTR_GET_DEFAULT(featureConsistencyCheckJobConfigId_, "") };
     inline SyncFeatureConsistencyCheckJobReplayLogRequest& setFeatureConsistencyCheckJobConfigId(string featureConsistencyCheckJobConfigId) { DARABONBA_PTR_SET_VALUE(featureConsistencyCheckJobConfigId_, featureConsistencyCheckJobConfigId) };
 
 
     // generatedFeatures Field Functions 
     bool hasGeneratedFeatures() const { return this->generatedFeatures_ != nullptr;};
     void deleteGeneratedFeatures() { this->generatedFeatures_ = nullptr;};
-    inline string generatedFeatures() const { DARABONBA_PTR_GET_DEFAULT(generatedFeatures_, "") };
+    inline string getGeneratedFeatures() const { DARABONBA_PTR_GET_DEFAULT(generatedFeatures_, "") };
     inline SyncFeatureConsistencyCheckJobReplayLogRequest& setGeneratedFeatures(string generatedFeatures) { DARABONBA_PTR_SET_VALUE(generatedFeatures_, generatedFeatures) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline SyncFeatureConsistencyCheckJobReplayLogRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // logItemId Field Functions 
     bool hasLogItemId() const { return this->logItemId_ != nullptr;};
     void deleteLogItemId() { this->logItemId_ = nullptr;};
-    inline string logItemId() const { DARABONBA_PTR_GET_DEFAULT(logItemId_, "") };
+    inline string getLogItemId() const { DARABONBA_PTR_GET_DEFAULT(logItemId_, "") };
     inline SyncFeatureConsistencyCheckJobReplayLogRequest& setLogItemId(string logItemId) { DARABONBA_PTR_SET_VALUE(logItemId_, logItemId) };
 
 
     // logRequestId Field Functions 
     bool hasLogRequestId() const { return this->logRequestId_ != nullptr;};
     void deleteLogRequestId() { this->logRequestId_ = nullptr;};
-    inline string logRequestId() const { DARABONBA_PTR_GET_DEFAULT(logRequestId_, "") };
+    inline string getLogRequestId() const { DARABONBA_PTR_GET_DEFAULT(logRequestId_, "") };
     inline SyncFeatureConsistencyCheckJobReplayLogRequest& setLogRequestId(string logRequestId) { DARABONBA_PTR_SET_VALUE(logRequestId_, logRequestId) };
 
 
     // logRequestTime Field Functions 
     bool hasLogRequestTime() const { return this->logRequestTime_ != nullptr;};
     void deleteLogRequestTime() { this->logRequestTime_ = nullptr;};
-    inline int64_t logRequestTime() const { DARABONBA_PTR_GET_DEFAULT(logRequestTime_, 0L) };
+    inline int64_t getLogRequestTime() const { DARABONBA_PTR_GET_DEFAULT(logRequestTime_, 0L) };
     inline SyncFeatureConsistencyCheckJobReplayLogRequest& setLogRequestTime(int64_t logRequestTime) { DARABONBA_PTR_SET_VALUE(logRequestTime_, logRequestTime) };
 
 
     // logUserId Field Functions 
     bool hasLogUserId() const { return this->logUserId_ != nullptr;};
     void deleteLogUserId() { this->logUserId_ = nullptr;};
-    inline string logUserId() const { DARABONBA_PTR_GET_DEFAULT(logUserId_, "") };
+    inline string getLogUserId() const { DARABONBA_PTR_GET_DEFAULT(logUserId_, "") };
     inline SyncFeatureConsistencyCheckJobReplayLogRequest& setLogUserId(string logUserId) { DARABONBA_PTR_SET_VALUE(logUserId_, logUserId) };
 
 
     // rawFeatures Field Functions 
     bool hasRawFeatures() const { return this->rawFeatures_ != nullptr;};
     void deleteRawFeatures() { this->rawFeatures_ = nullptr;};
-    inline string rawFeatures() const { DARABONBA_PTR_GET_DEFAULT(rawFeatures_, "") };
+    inline string getRawFeatures() const { DARABONBA_PTR_GET_DEFAULT(rawFeatures_, "") };
     inline SyncFeatureConsistencyCheckJobReplayLogRequest& setRawFeatures(string rawFeatures) { DARABONBA_PTR_SET_VALUE(rawFeatures_, rawFeatures) };
 
 
     // sceneName Field Functions 
     bool hasSceneName() const { return this->sceneName_ != nullptr;};
     void deleteSceneName() { this->sceneName_ = nullptr;};
-    inline string sceneName() const { DARABONBA_PTR_GET_DEFAULT(sceneName_, "") };
+    inline string getSceneName() const { DARABONBA_PTR_GET_DEFAULT(sceneName_, "") };
     inline SyncFeatureConsistencyCheckJobReplayLogRequest& setSceneName(string sceneName) { DARABONBA_PTR_SET_VALUE(sceneName_, sceneName) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> contextFeatures_ = nullptr;
+    shared_ptr<string> contextFeatures_ {};
     // This parameter is required.
-    std::shared_ptr<string> featureConsistencyCheckJobConfigId_ = nullptr;
+    shared_ptr<string> featureConsistencyCheckJobConfigId_ {};
     // This parameter is required.
-    std::shared_ptr<string> generatedFeatures_ = nullptr;
+    shared_ptr<string> generatedFeatures_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> logItemId_ = nullptr;
+    shared_ptr<string> logItemId_ {};
     // This parameter is required.
-    std::shared_ptr<string> logRequestId_ = nullptr;
+    shared_ptr<string> logRequestId_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> logRequestTime_ = nullptr;
+    shared_ptr<int64_t> logRequestTime_ {};
     // This parameter is required.
-    std::shared_ptr<string> logUserId_ = nullptr;
+    shared_ptr<string> logUserId_ {};
     // This parameter is required.
-    std::shared_ptr<string> rawFeatures_ = nullptr;
+    shared_ptr<string> rawFeatures_ {};
     // This parameter is required.
-    std::shared_ptr<string> sceneName_ = nullptr;
+    shared_ptr<string> sceneName_ {};
   };
 
   } // namespace Models
