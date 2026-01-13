@@ -145,6 +145,24 @@ namespace AgentRun20250910
       Models::CreateCredentialResponse createCredential(const Models::CreateCredentialRequest &request);
 
       /**
+       * @summary 创建自定义域名
+       *
+       * @param request CreateCustomDomainRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateCustomDomainResponse
+       */
+      Models::CreateCustomDomainResponse createCustomDomainWithOptions(const Models::CreateCustomDomainRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建自定义域名
+       *
+       * @param request CreateCustomDomainRequest
+       * @return CreateCustomDomainResponse
+       */
+      Models::CreateCustomDomainResponse createCustomDomain(const Models::CreateCustomDomainRequest &request);
+
+      /**
        * @summary 创建知识库
        *
        * @param request CreateKnowledgeBaseRequest
@@ -351,6 +369,22 @@ namespace AgentRun20250910
        * @return DeleteCredentialResponse
        */
       Models::DeleteCredentialResponse deleteCredential(const string &credentialName);
+
+      /**
+       * @summary Delete a custom domain
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteCustomDomainResponse
+       */
+      Models::DeleteCustomDomainResponse deleteCustomDomainWithOptions(const string &domainName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Delete a custom domain
+       *
+       * @return DeleteCustomDomainResponse
+       */
+      Models::DeleteCustomDomainResponse deleteCustomDomain(const string &domainName);
 
       /**
        * @summary 删除知识库
@@ -563,6 +597,22 @@ namespace AgentRun20250910
        * @return GetCredentialResponse
        */
       Models::GetCredentialResponse getCredential(const string &credentialName);
+
+      /**
+       * @summary 获取自定义域名详情
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetCustomDomainResponse
+       */
+      Models::GetCustomDomainResponse getCustomDomainWithOptions(const string &domainName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取自定义域名详情
+       *
+       * @return GetCustomDomainResponse
+       */
+      Models::GetCustomDomainResponse getCustomDomain(const string &domainName);
 
       /**
        * @summary 获取知识库
@@ -791,6 +841,24 @@ namespace AgentRun20250910
        * @return ListCredentialsResponse
        */
       Models::ListCredentialsResponse listCredentials(const Models::ListCredentialsRequest &request);
+
+      /**
+       * @summary 自定义域名列表
+       *
+       * @param request ListCustomDomainsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListCustomDomainsResponse
+       */
+      Models::ListCustomDomainsResponse listCustomDomainsWithOptions(const Models::ListCustomDomainsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 自定义域名列表
+       *
+       * @param request ListCustomDomainsRequest
+       * @return ListCustomDomainsResponse
+       */
+      Models::ListCustomDomainsResponse listCustomDomains(const Models::ListCustomDomainsRequest &request);
 
       /**
        * @summary 列出知识库
@@ -1041,6 +1109,24 @@ namespace AgentRun20250910
        * @return UpdateCredentialResponse
        */
       Models::UpdateCredentialResponse updateCredential(const string &credentialName, const Models::UpdateCredentialRequest &request);
+
+      /**
+       * @summary 更新自定义域名
+       *
+       * @param request UpdateCustomDomainRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateCustomDomainResponse
+       */
+      Models::UpdateCustomDomainResponse updateCustomDomainWithOptions(const string &domainName, const Models::UpdateCustomDomainRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新自定义域名
+       *
+       * @param request UpdateCustomDomainRequest
+       * @return UpdateCustomDomainResponse
+       */
+      Models::UpdateCustomDomainResponse updateCustomDomain(const string &domainName, const Models::UpdateCustomDomainRequest &request);
 
       /**
        * @summary 更新知识库

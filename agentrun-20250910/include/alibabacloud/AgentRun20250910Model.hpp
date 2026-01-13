@@ -7,6 +7,7 @@
 #include <alibabacloud/models/HealthCheckConfiguration.hpp>
 #include <alibabacloud/models/LogConfiguration.hpp>
 #include <alibabacloud/models/NetworkConfiguration.hpp>
+#include <alibabacloud/models/ProtocolSettings.hpp>
 #include <alibabacloud/models/ProtocolConfiguration.hpp>
 #include <alibabacloud/models/AgentRuntime.hpp>
 #include <alibabacloud/models/VersionWeight.hpp>
@@ -223,6 +224,8 @@
 #include <alibabacloud/models/CreateCodeInterpreterResponse.hpp>
 #include <alibabacloud/models/CreateCredentialRequest.hpp>
 #include <alibabacloud/models/CreateCredentialResponse.hpp>
+#include <alibabacloud/models/CreateCustomDomainRequest.hpp>
+#include <alibabacloud/models/CreateCustomDomainResponse.hpp>
 #include <alibabacloud/models/CreateKnowledgeBaseRequest.hpp>
 #include <alibabacloud/models/CreateKnowledgeBaseResponse.hpp>
 #include <alibabacloud/models/CreateMemoryCollectionRequest.hpp>
@@ -240,6 +243,7 @@
 #include <alibabacloud/models/DeleteBrowserResponse.hpp>
 #include <alibabacloud/models/DeleteCodeInterpreterResponse.hpp>
 #include <alibabacloud/models/DeleteCredentialResponse.hpp>
+#include <alibabacloud/models/DeleteCustomDomainResponse.hpp>
 #include <alibabacloud/models/DeleteKnowledgeBaseResponse.hpp>
 #include <alibabacloud/models/DeleteMemoryCollectionResponse.hpp>
 #include <alibabacloud/models/DeleteModelProxyResponse.hpp>
@@ -255,6 +259,7 @@
 #include <alibabacloud/models/GetBrowserResponse.hpp>
 #include <alibabacloud/models/GetCodeInterpreterResponse.hpp>
 #include <alibabacloud/models/GetCredentialResponse.hpp>
+#include <alibabacloud/models/GetCustomDomainResponse.hpp>
 #include <alibabacloud/models/GetKnowledgeBaseResponse.hpp>
 #include <alibabacloud/models/GetMemoryCollectionResponse.hpp>
 #include <alibabacloud/models/GetModelProxyResponse.hpp>
@@ -273,6 +278,8 @@
 #include <alibabacloud/models/ListCodeInterpretersResponse.hpp>
 #include <alibabacloud/models/ListCredentialsRequest.hpp>
 #include <alibabacloud/models/ListCredentialsResponse.hpp>
+#include <alibabacloud/models/ListCustomDomainsRequest.hpp>
+#include <alibabacloud/models/ListCustomDomainsResponse.hpp>
 #include <alibabacloud/models/ListKnowledgeBasesRequest.hpp>
 #include <alibabacloud/models/ListKnowledgeBasesResponse.hpp>
 #include <alibabacloud/models/ListMemoryCollectionsRequest.hpp>
@@ -298,6 +305,8 @@
 #include <alibabacloud/models/UpdateAgentRuntimeEndpointResponse.hpp>
 #include <alibabacloud/models/UpdateCredentialRequest.hpp>
 #include <alibabacloud/models/UpdateCredentialResponse.hpp>
+#include <alibabacloud/models/UpdateCustomDomainRequest.hpp>
+#include <alibabacloud/models/UpdateCustomDomainResponse.hpp>
 #include <alibabacloud/models/UpdateKnowledgeBaseRequest.hpp>
 #include <alibabacloud/models/UpdateKnowledgeBaseResponse.hpp>
 #include <alibabacloud/models/UpdateMemoryCollectionRequest.hpp>

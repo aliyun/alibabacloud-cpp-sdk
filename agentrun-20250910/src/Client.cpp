@@ -302,6 +302,46 @@ CreateCredentialResponse Client::createCredential(const CreateCredentialRequest 
 }
 
 /**
+ * @summary 创建自定义域名
+ *
+ * @param request CreateCustomDomainRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateCustomDomainResponse
+ */
+CreateCustomDomainResponse Client::createCustomDomainWithOptions(const CreateCustomDomainRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateCustomDomain"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/custom-domains")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateCustomDomainResponse>();
+}
+
+/**
+ * @summary 创建自定义域名
+ *
+ * @param request CreateCustomDomainRequest
+ * @return CreateCustomDomainResponse
+ */
+CreateCustomDomainResponse Client::createCustomDomain(const CreateCustomDomainRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createCustomDomainWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 创建知识库
  *
  * @param request CreateKnowledgeBaseRequest
@@ -739,6 +779,42 @@ DeleteCredentialResponse Client::deleteCredential(const string &credentialName) 
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return deleteCredentialWithOptions(credentialName, headers, runtime);
+}
+
+/**
+ * @summary Delete a custom domain
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteCustomDomainResponse
+ */
+DeleteCustomDomainResponse Client::deleteCustomDomainWithOptions(const string &domainName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteCustomDomain"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/custom-domains/" , Darabonba::Encode::Encoder::percentEncode(domainName))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteCustomDomainResponse>();
+}
+
+/**
+ * @summary Delete a custom domain
+ *
+ * @return DeleteCustomDomainResponse
+ */
+DeleteCustomDomainResponse Client::deleteCustomDomain(const string &domainName) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteCustomDomainWithOptions(domainName, headers, runtime);
 }
 
 /**
@@ -1213,6 +1289,42 @@ GetCredentialResponse Client::getCredential(const string &credentialName) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getCredentialWithOptions(credentialName, headers, runtime);
+}
+
+/**
+ * @summary 获取自定义域名详情
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetCustomDomainResponse
+ */
+GetCustomDomainResponse Client::getCustomDomainWithOptions(const string &domainName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetCustomDomain"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/custom-domains/" , Darabonba::Encode::Encoder::percentEncode(domainName))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetCustomDomainResponse>();
+}
+
+/**
+ * @summary 获取自定义域名详情
+ *
+ * @return GetCustomDomainResponse
+ */
+GetCustomDomainResponse Client::getCustomDomain(const string &domainName) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getCustomDomainWithOptions(domainName, headers, runtime);
 }
 
 /**
@@ -1799,6 +1911,67 @@ ListCredentialsResponse Client::listCredentials(const ListCredentialsRequest &re
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listCredentialsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 自定义域名列表
+ *
+ * @param request ListCustomDomainsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListCustomDomainsResponse
+ */
+ListCustomDomainsResponse Client::listCustomDomainsWithOptions(const ListCustomDomainsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDomainName()) {
+    query["domainName"] = request.getDomainName();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasResourceName()) {
+    query["resourceName"] = request.getResourceName();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["resourceType"] = request.getResourceType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListCustomDomains"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/custom-domains")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListCustomDomainsResponse>();
+}
+
+/**
+ * @summary 自定义域名列表
+ *
+ * @param request ListCustomDomainsRequest
+ * @return ListCustomDomainsResponse
+ */
+ListCustomDomainsResponse Client::listCustomDomains(const ListCustomDomainsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listCustomDomainsWithOptions(request, headers, runtime);
 }
 
 /**
@@ -2466,6 +2639,46 @@ UpdateCredentialResponse Client::updateCredential(const string &credentialName, 
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateCredentialWithOptions(credentialName, request, headers, runtime);
+}
+
+/**
+ * @summary 更新自定义域名
+ *
+ * @param request UpdateCustomDomainRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateCustomDomainResponse
+ */
+UpdateCustomDomainResponse Client::updateCustomDomainWithOptions(const string &domainName, const UpdateCustomDomainRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateCustomDomain"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/custom-domains/" , Darabonba::Encode::Encoder::percentEncode(domainName))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateCustomDomainResponse>();
+}
+
+/**
+ * @summary 更新自定义域名
+ *
+ * @param request UpdateCustomDomainRequest
+ * @return UpdateCustomDomainResponse
+ */
+UpdateCustomDomainResponse Client::updateCustomDomain(const string &domainName, const UpdateCustomDomainRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateCustomDomainWithOptions(domainName, request, headers, runtime);
 }
 
 /**
