@@ -25,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(GpuMemory, gpuMemory_);
       DARABONBA_PTR_TO_JSON(InstanceTypeFamily, instanceTypeFamily_);
       DARABONBA_PTR_TO_JSON(MemorySize, memorySize_);
+      DARABONBA_PTR_TO_JSON(OfficeSiteId, officeSiteId_);
       DARABONBA_PTR_TO_JSON(OrderBy, orderBy_);
       DARABONBA_PTR_TO_JSON(OrderType, orderType_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
@@ -46,6 +47,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(GpuMemory, gpuMemory_);
       DARABONBA_PTR_FROM_JSON(InstanceTypeFamily, instanceTypeFamily_);
       DARABONBA_PTR_FROM_JSON(MemorySize, memorySize_);
+      DARABONBA_PTR_FROM_JSON(OfficeSiteId, officeSiteId_);
       DARABONBA_PTR_FROM_JSON(OrderBy, orderBy_);
       DARABONBA_PTR_FROM_JSON(OrderType, orderType_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -69,8 +71,8 @@ namespace Models
     virtual bool empty() const override { return this->appliedScope_ == nullptr
         && this->cpuCount_ == nullptr && this->desktopGroupIdForModify_ == nullptr && this->desktopIdForModify_ == nullptr && this->desktopTypeId_ == nullptr && this->desktopTypeIdList_ == nullptr
         && this->gpuCount_ == nullptr && this->gpuDriverType_ == nullptr && this->gpuMemory_ == nullptr && this->instanceTypeFamily_ == nullptr && this->memorySize_ == nullptr
-        && this->orderBy_ == nullptr && this->orderType_ == nullptr && this->regionId_ == nullptr && this->scope_ == nullptr && this->scopeSet_ == nullptr
-        && this->sortType_ == nullptr && this->supportMinSessionCount_ == nullptr && this->zoneId_ == nullptr; };
+        && this->officeSiteId_ == nullptr && this->orderBy_ == nullptr && this->orderType_ == nullptr && this->regionId_ == nullptr && this->scope_ == nullptr
+        && this->scopeSet_ == nullptr && this->sortType_ == nullptr && this->supportMinSessionCount_ == nullptr && this->zoneId_ == nullptr; };
     // appliedScope Field Functions 
     bool hasAppliedScope() const { return this->appliedScope_ != nullptr;};
     void deleteAppliedScope() { this->appliedScope_ = nullptr;};
@@ -148,6 +150,13 @@ namespace Models
     void deleteMemorySize() { this->memorySize_ = nullptr;};
     inline int32_t getMemorySize() const { DARABONBA_PTR_GET_DEFAULT(memorySize_, 0) };
     inline DescribeDesktopTypesRequest& setMemorySize(int32_t memorySize) { DARABONBA_PTR_SET_VALUE(memorySize_, memorySize) };
+
+
+    // officeSiteId Field Functions 
+    bool hasOfficeSiteId() const { return this->officeSiteId_ != nullptr;};
+    void deleteOfficeSiteId() { this->officeSiteId_ = nullptr;};
+    inline string getOfficeSiteId() const { DARABONBA_PTR_GET_DEFAULT(officeSiteId_, "") };
+    inline DescribeDesktopTypesRequest& setOfficeSiteId(string officeSiteId) { DARABONBA_PTR_SET_VALUE(officeSiteId_, officeSiteId) };
 
 
     // orderBy Field Functions 
@@ -279,6 +288,7 @@ namespace Models
     shared_ptr<string> instanceTypeFamily_ {};
     // The memory size. Unit: MiB.
     shared_ptr<int32_t> memorySize_ {};
+    shared_ptr<string> officeSiteId_ {};
     // The sorting field. If this parameter is not provided, results are sorted by creation time in descending order.
     // 
     // Valid values:

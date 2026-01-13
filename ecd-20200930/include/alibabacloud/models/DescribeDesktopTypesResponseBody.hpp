@@ -40,6 +40,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Description, description_);
         DARABONBA_PTR_TO_JSON(DesktopTypeId, desktopTypeId_);
         DARABONBA_PTR_TO_JSON(DesktopTypeStatus, desktopTypeStatus_);
+        DARABONBA_PTR_TO_JSON(EnvId, envId_);
+        DARABONBA_PTR_TO_JSON(EnvType, envType_);
         DARABONBA_PTR_TO_JSON(GpuCount, gpuCount_);
         DARABONBA_PTR_TO_JSON(GpuMemory, gpuMemory_);
         DARABONBA_PTR_TO_JSON(GpuSpec, gpuSpec_);
@@ -56,6 +58,8 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Description, description_);
         DARABONBA_PTR_FROM_JSON(DesktopTypeId, desktopTypeId_);
         DARABONBA_PTR_FROM_JSON(DesktopTypeStatus, desktopTypeStatus_);
+        DARABONBA_PTR_FROM_JSON(EnvId, envId_);
+        DARABONBA_PTR_FROM_JSON(EnvType, envType_);
         DARABONBA_PTR_FROM_JSON(GpuCount, gpuCount_);
         DARABONBA_PTR_FROM_JSON(GpuMemory, gpuMemory_);
         DARABONBA_PTR_FROM_JSON(GpuSpec, gpuSpec_);
@@ -78,9 +82,9 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->cpuCount_ == nullptr
-        && this->dataDiskSize_ == nullptr && this->description_ == nullptr && this->desktopTypeId_ == nullptr && this->desktopTypeStatus_ == nullptr && this->gpuCount_ == nullptr
-        && this->gpuMemory_ == nullptr && this->gpuSpec_ == nullptr && this->instanceTypeFamily_ == nullptr && this->maxSessionCount_ == nullptr && this->memorySize_ == nullptr
-        && this->scopes_ == nullptr && this->stockState_ == nullptr && this->systemDiskSize_ == nullptr; };
+        && this->dataDiskSize_ == nullptr && this->description_ == nullptr && this->desktopTypeId_ == nullptr && this->desktopTypeStatus_ == nullptr && this->envId_ == nullptr
+        && this->envType_ == nullptr && this->gpuCount_ == nullptr && this->gpuMemory_ == nullptr && this->gpuSpec_ == nullptr && this->instanceTypeFamily_ == nullptr
+        && this->maxSessionCount_ == nullptr && this->memorySize_ == nullptr && this->scopes_ == nullptr && this->stockState_ == nullptr && this->systemDiskSize_ == nullptr; };
       // cpuCount Field Functions 
       bool hasCpuCount() const { return this->cpuCount_ != nullptr;};
       void deleteCpuCount() { this->cpuCount_ = nullptr;};
@@ -114,6 +118,20 @@ namespace Models
       void deleteDesktopTypeStatus() { this->desktopTypeStatus_ = nullptr;};
       inline string getDesktopTypeStatus() const { DARABONBA_PTR_GET_DEFAULT(desktopTypeStatus_, "") };
       inline DesktopTypes& setDesktopTypeStatus(string desktopTypeStatus) { DARABONBA_PTR_SET_VALUE(desktopTypeStatus_, desktopTypeStatus) };
+
+
+      // envId Field Functions 
+      bool hasEnvId() const { return this->envId_ != nullptr;};
+      void deleteEnvId() { this->envId_ = nullptr;};
+      inline string getEnvId() const { DARABONBA_PTR_GET_DEFAULT(envId_, "") };
+      inline DesktopTypes& setEnvId(string envId) { DARABONBA_PTR_SET_VALUE(envId_, envId) };
+
+
+      // envType Field Functions 
+      bool hasEnvType() const { return this->envType_ != nullptr;};
+      void deleteEnvType() { this->envType_ = nullptr;};
+      inline string getEnvType() const { DARABONBA_PTR_GET_DEFAULT(envType_, "") };
+      inline DesktopTypes& setEnvType(string envType) { DARABONBA_PTR_SET_VALUE(envType_, envType) };
 
 
       // gpuCount Field Functions 
@@ -191,6 +209,8 @@ namespace Models
       shared_ptr<string> desktopTypeId_ {};
       // The status of the cloud desktop type. If SUFFICIENT is returned, the number of cloud desktops of the type is sufficient.
       shared_ptr<string> desktopTypeStatus_ {};
+      shared_ptr<string> envId_ {};
+      shared_ptr<string> envType_ {};
       // The number of GPUs.
       shared_ptr<float> gpuCount_ {};
       // The GPU memory size. For GPU-accelerated cloud computers, this return value is significant. Unit: MB.

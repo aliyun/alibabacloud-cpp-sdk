@@ -67,6 +67,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(DowngradedTimes, downgradedTimes_);
         DARABONBA_PTR_TO_JSON(EndUserIds, endUserIds_);
         DARABONBA_PTR_TO_JSON(EntraDomainName, entraDomainName_);
+        DARABONBA_PTR_TO_JSON(EnvId, envId_);
+        DARABONBA_PTR_TO_JSON(EnvType, envType_);
         DARABONBA_PTR_TO_JSON(ExpiredTime, expiredTime_);
         DARABONBA_PTR_TO_JSON(FotaUpdate, fotaUpdate_);
         DARABONBA_PTR_TO_JSON(GpuCategory, gpuCategory_);
@@ -137,6 +139,8 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(DowngradedTimes, downgradedTimes_);
         DARABONBA_PTR_FROM_JSON(EndUserIds, endUserIds_);
         DARABONBA_PTR_FROM_JSON(EntraDomainName, entraDomainName_);
+        DARABONBA_PTR_FROM_JSON(EnvId, envId_);
+        DARABONBA_PTR_FROM_JSON(EnvType, envType_);
         DARABONBA_PTR_FROM_JSON(ExpiredTime, expiredTime_);
         DARABONBA_PTR_FROM_JSON(FotaUpdate, fotaUpdate_);
         DARABONBA_PTR_FROM_JSON(GpuCategory, gpuCategory_);
@@ -787,16 +791,16 @@ namespace Models
         && this->cpu_ == nullptr && this->creationTime_ == nullptr && this->dataDiskCategory_ == nullptr && this->dataDiskSize_ == nullptr && this->desktopDurationList_ == nullptr
         && this->desktopGroupId_ == nullptr && this->desktopId_ == nullptr && this->desktopName_ == nullptr && this->desktopStatus_ == nullptr && this->desktopType_ == nullptr
         && this->directoryId_ == nullptr && this->directoryType_ == nullptr && this->disks_ == nullptr && this->domainType_ == nullptr && this->downgradeQuota_ == nullptr
-        && this->downgradedTimes_ == nullptr && this->endUserIds_ == nullptr && this->entraDomainName_ == nullptr && this->expiredTime_ == nullptr && this->fotaUpdate_ == nullptr
-        && this->gpuCategory_ == nullptr && this->gpuCount_ == nullptr && this->gpuDriverVersion_ == nullptr && this->gpuSpec_ == nullptr && this->hibernationBeta_ == nullptr
-        && this->hibernationOptionsConfigured_ == nullptr && this->hostName_ == nullptr && this->imageId_ == nullptr && this->isLdap_ == nullptr && this->managementFlag_ == nullptr
-        && this->managementFlags_ == nullptr && this->memory_ == nullptr && this->networkInterfaceId_ == nullptr && this->networkInterfaceIp_ == nullptr && this->officeSiteId_ == nullptr
-        && this->officeSiteName_ == nullptr && this->officeSiteType_ == nullptr && this->officeSiteVpcType_ == nullptr && this->osType_ == nullptr && this->osUpdate_ == nullptr
-        && this->platform_ == nullptr && this->policyGroupId_ == nullptr && this->policyGroupIdList_ == nullptr && this->policyGroupName_ == nullptr && this->policyGroupNameList_ == nullptr
-        && this->progress_ == nullptr && this->protocolType_ == nullptr && this->resourceGroups_ == nullptr && this->serialNumber_ == nullptr && this->sessionType_ == nullptr
-        && this->sessions_ == nullptr && this->snapshotPolicyId_ == nullptr && this->snapshotPolicyName_ == nullptr && this->standardStartTime_ == nullptr && this->startTime_ == nullptr
-        && this->supportHibernation_ == nullptr && this->systemDiskCategory_ == nullptr && this->systemDiskSize_ == nullptr && this->tags_ == nullptr && this->volumeEncryptionEnabled_ == nullptr
-        && this->volumeEncryptionKey_ == nullptr && this->zoneType_ == nullptr; };
+        && this->downgradedTimes_ == nullptr && this->endUserIds_ == nullptr && this->entraDomainName_ == nullptr && this->envId_ == nullptr && this->envType_ == nullptr
+        && this->expiredTime_ == nullptr && this->fotaUpdate_ == nullptr && this->gpuCategory_ == nullptr && this->gpuCount_ == nullptr && this->gpuDriverVersion_ == nullptr
+        && this->gpuSpec_ == nullptr && this->hibernationBeta_ == nullptr && this->hibernationOptionsConfigured_ == nullptr && this->hostName_ == nullptr && this->imageId_ == nullptr
+        && this->isLdap_ == nullptr && this->managementFlag_ == nullptr && this->managementFlags_ == nullptr && this->memory_ == nullptr && this->networkInterfaceId_ == nullptr
+        && this->networkInterfaceIp_ == nullptr && this->officeSiteId_ == nullptr && this->officeSiteName_ == nullptr && this->officeSiteType_ == nullptr && this->officeSiteVpcType_ == nullptr
+        && this->osType_ == nullptr && this->osUpdate_ == nullptr && this->platform_ == nullptr && this->policyGroupId_ == nullptr && this->policyGroupIdList_ == nullptr
+        && this->policyGroupName_ == nullptr && this->policyGroupNameList_ == nullptr && this->progress_ == nullptr && this->protocolType_ == nullptr && this->resourceGroups_ == nullptr
+        && this->serialNumber_ == nullptr && this->sessionType_ == nullptr && this->sessions_ == nullptr && this->snapshotPolicyId_ == nullptr && this->snapshotPolicyName_ == nullptr
+        && this->standardStartTime_ == nullptr && this->startTime_ == nullptr && this->supportHibernation_ == nullptr && this->systemDiskCategory_ == nullptr && this->systemDiskSize_ == nullptr
+        && this->tags_ == nullptr && this->volumeEncryptionEnabled_ == nullptr && this->volumeEncryptionKey_ == nullptr && this->zoneType_ == nullptr; };
       // accountType Field Functions 
       bool hasAccountType() const { return this->accountType_ != nullptr;};
       void deleteAccountType() { this->accountType_ = nullptr;};
@@ -969,6 +973,20 @@ namespace Models
       void deleteEntraDomainName() { this->entraDomainName_ = nullptr;};
       inline string getEntraDomainName() const { DARABONBA_PTR_GET_DEFAULT(entraDomainName_, "") };
       inline Desktops& setEntraDomainName(string entraDomainName) { DARABONBA_PTR_SET_VALUE(entraDomainName_, entraDomainName) };
+
+
+      // envId Field Functions 
+      bool hasEnvId() const { return this->envId_ != nullptr;};
+      void deleteEnvId() { this->envId_ = nullptr;};
+      inline string getEnvId() const { DARABONBA_PTR_GET_DEFAULT(envId_, "") };
+      inline Desktops& setEnvId(string envId) { DARABONBA_PTR_SET_VALUE(envId_, envId) };
+
+
+      // envType Field Functions 
+      bool hasEnvType() const { return this->envType_ != nullptr;};
+      void deleteEnvType() { this->envType_ = nullptr;};
+      inline string getEnvType() const { DARABONBA_PTR_GET_DEFAULT(envType_, "") };
+      inline Desktops& setEnvType(string envType) { DARABONBA_PTR_SET_VALUE(envType_, envType) };
 
 
       // expiredTime Field Functions 
@@ -1371,6 +1389,8 @@ namespace Models
       // The end user IDs.
       shared_ptr<vector<string>> endUserIds_ {};
       shared_ptr<string> entraDomainName_ {};
+      shared_ptr<string> envId_ {};
+      shared_ptr<string> envType_ {};
       // The time when a subscription cloud computer expired.
       shared_ptr<string> expiredTime_ {};
       // The information about the image version of the cloud computer.

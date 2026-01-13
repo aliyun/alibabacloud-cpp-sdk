@@ -8305,6 +8305,10 @@ DescribeDesktopTypesResponse Client::describeDesktopTypesWithOptions(const Descr
     query["MemorySize"] = request.getMemorySize();
   }
 
+  if (!!request.hasOfficeSiteId()) {
+    query["OfficeSiteId"] = request.getOfficeSiteId();
+  }
+
   if (!!request.hasOrderBy()) {
     query["OrderBy"] = request.getOrderBy();
   }
@@ -9236,6 +9240,10 @@ DescribeGlobalDesktopRecordsResponse Client::describeGlobalDesktopRecordsWithOpt
     query["DesktopName"] = request.getDesktopName();
   }
 
+  if (!!request.hasDesktopStatusList()) {
+    query["DesktopStatusList"] = request.getDesktopStatusList();
+  }
+
   if (!!request.hasDesktopType()) {
     query["DesktopType"] = request.getDesktopType();
   }
@@ -9246,6 +9254,10 @@ DescribeGlobalDesktopRecordsResponse Client::describeGlobalDesktopRecordsWithOpt
 
   if (!!request.hasEndUserId()) {
     query["EndUserId"] = request.getEndUserId();
+  }
+
+  if (!!request.hasExcludeDesktopStatusList()) {
+    query["ExcludeDesktopStatusList"] = request.getExcludeDesktopStatusList();
   }
 
   if (!!request.hasOfficeSiteId()) {

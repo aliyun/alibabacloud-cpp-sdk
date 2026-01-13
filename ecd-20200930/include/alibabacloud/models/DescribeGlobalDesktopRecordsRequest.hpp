@@ -16,9 +16,11 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DescribeGlobalDesktopRecordsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(DesktopId, desktopId_);
       DARABONBA_PTR_TO_JSON(DesktopName, desktopName_);
+      DARABONBA_PTR_TO_JSON(DesktopStatusList, desktopStatusList_);
       DARABONBA_PTR_TO_JSON(DesktopType, desktopType_);
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
       DARABONBA_PTR_TO_JSON(EndUserId, endUserId_);
+      DARABONBA_PTR_TO_JSON(ExcludeDesktopStatusList, excludeDesktopStatusList_);
       DARABONBA_PTR_TO_JSON(OfficeSiteId, officeSiteId_);
       DARABONBA_PTR_TO_JSON(OrderBy, orderBy_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
@@ -33,9 +35,11 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, DescribeGlobalDesktopRecordsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DesktopId, desktopId_);
       DARABONBA_PTR_FROM_JSON(DesktopName, desktopName_);
+      DARABONBA_PTR_FROM_JSON(DesktopStatusList, desktopStatusList_);
       DARABONBA_PTR_FROM_JSON(DesktopType, desktopType_);
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
       DARABONBA_PTR_FROM_JSON(EndUserId, endUserId_);
+      DARABONBA_PTR_FROM_JSON(ExcludeDesktopStatusList, excludeDesktopStatusList_);
       DARABONBA_PTR_FROM_JSON(OfficeSiteId, officeSiteId_);
       DARABONBA_PTR_FROM_JSON(OrderBy, orderBy_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
@@ -59,9 +63,10 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->desktopId_ == nullptr
-        && this->desktopName_ == nullptr && this->desktopType_ == nullptr && this->endTime_ == nullptr && this->endUserId_ == nullptr && this->officeSiteId_ == nullptr
-        && this->orderBy_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->scope_ == nullptr && this->sortType_ == nullptr && this->startTime_ == nullptr && this->subPayType_ == nullptr; };
+        && this->desktopName_ == nullptr && this->desktopStatusList_ == nullptr && this->desktopType_ == nullptr && this->endTime_ == nullptr && this->endUserId_ == nullptr
+        && this->excludeDesktopStatusList_ == nullptr && this->officeSiteId_ == nullptr && this->orderBy_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
+        && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->scope_ == nullptr && this->sortType_ == nullptr && this->startTime_ == nullptr
+        && this->subPayType_ == nullptr; };
     // desktopId Field Functions 
     bool hasDesktopId() const { return this->desktopId_ != nullptr;};
     void deleteDesktopId() { this->desktopId_ = nullptr;};
@@ -76,6 +81,15 @@ namespace Models
     void deleteDesktopName() { this->desktopName_ = nullptr;};
     inline string getDesktopName() const { DARABONBA_PTR_GET_DEFAULT(desktopName_, "") };
     inline DescribeGlobalDesktopRecordsRequest& setDesktopName(string desktopName) { DARABONBA_PTR_SET_VALUE(desktopName_, desktopName) };
+
+
+    // desktopStatusList Field Functions 
+    bool hasDesktopStatusList() const { return this->desktopStatusList_ != nullptr;};
+    void deleteDesktopStatusList() { this->desktopStatusList_ = nullptr;};
+    inline const vector<string> & getDesktopStatusList() const { DARABONBA_PTR_GET_CONST(desktopStatusList_, vector<string>) };
+    inline vector<string> getDesktopStatusList() { DARABONBA_PTR_GET(desktopStatusList_, vector<string>) };
+    inline DescribeGlobalDesktopRecordsRequest& setDesktopStatusList(const vector<string> & desktopStatusList) { DARABONBA_PTR_SET_VALUE(desktopStatusList_, desktopStatusList) };
+    inline DescribeGlobalDesktopRecordsRequest& setDesktopStatusList(vector<string> && desktopStatusList) { DARABONBA_PTR_SET_RVALUE(desktopStatusList_, desktopStatusList) };
 
 
     // desktopType Field Functions 
@@ -97,6 +111,15 @@ namespace Models
     void deleteEndUserId() { this->endUserId_ = nullptr;};
     inline string getEndUserId() const { DARABONBA_PTR_GET_DEFAULT(endUserId_, "") };
     inline DescribeGlobalDesktopRecordsRequest& setEndUserId(string endUserId) { DARABONBA_PTR_SET_VALUE(endUserId_, endUserId) };
+
+
+    // excludeDesktopStatusList Field Functions 
+    bool hasExcludeDesktopStatusList() const { return this->excludeDesktopStatusList_ != nullptr;};
+    void deleteExcludeDesktopStatusList() { this->excludeDesktopStatusList_ = nullptr;};
+    inline const vector<string> & getExcludeDesktopStatusList() const { DARABONBA_PTR_GET_CONST(excludeDesktopStatusList_, vector<string>) };
+    inline vector<string> getExcludeDesktopStatusList() { DARABONBA_PTR_GET(excludeDesktopStatusList_, vector<string>) };
+    inline DescribeGlobalDesktopRecordsRequest& setExcludeDesktopStatusList(const vector<string> & excludeDesktopStatusList) { DARABONBA_PTR_SET_VALUE(excludeDesktopStatusList_, excludeDesktopStatusList) };
+    inline DescribeGlobalDesktopRecordsRequest& setExcludeDesktopStatusList(vector<string> && excludeDesktopStatusList) { DARABONBA_PTR_SET_RVALUE(excludeDesktopStatusList_, excludeDesktopStatusList) };
 
 
     // officeSiteId Field Functions 
@@ -174,6 +197,7 @@ namespace Models
     shared_ptr<vector<string>> desktopId_ {};
     // The name of the cloud computer.
     shared_ptr<string> desktopName_ {};
+    shared_ptr<vector<string>> desktopStatusList_ {};
     // The cloud computer type. You can call the [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) operation to query the IDs of the specifications supported by the cloud computer.
     shared_ptr<string> desktopType_ {};
     // The end time. The interval between the start time and end time can be up to 30 days. Supported formats:
@@ -182,6 +206,7 @@ namespace Models
     shared_ptr<string> endTime_ {};
     // The end user ID.
     shared_ptr<string> endUserId_ {};
+    shared_ptr<vector<string>> excludeDesktopStatusList_ {};
     // The office network IDs.
     shared_ptr<string> officeSiteId_ {};
     // The sorting field. If this parameter is not provided, results are sorted by creation time in descending order. Valid values:

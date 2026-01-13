@@ -45,6 +45,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(DesktopName, desktopName_);
         DARABONBA_PTR_TO_JSON(DesktopStatus, desktopStatus_);
         DARABONBA_PTR_TO_JSON(DiskStatus, diskStatus_);
+        DARABONBA_PTR_TO_JSON(EnvId, envId_);
+        DARABONBA_PTR_TO_JSON(EnvType, envType_);
         DARABONBA_PTR_TO_JSON(OsType, osType_);
         DARABONBA_PTR_TO_JSON(Progress, progress_);
         DARABONBA_PTR_TO_JSON(ProtocolType, protocolType_);
@@ -69,6 +71,8 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(DesktopName, desktopName_);
         DARABONBA_PTR_FROM_JSON(DesktopStatus, desktopStatus_);
         DARABONBA_PTR_FROM_JSON(DiskStatus, diskStatus_);
+        DARABONBA_PTR_FROM_JSON(EnvId, envId_);
+        DARABONBA_PTR_FROM_JSON(EnvType, envType_);
         DARABONBA_PTR_FROM_JSON(OsType, osType_);
         DARABONBA_PTR_FROM_JSON(Progress, progress_);
         DARABONBA_PTR_FROM_JSON(ProtocolType, protocolType_);
@@ -97,10 +101,10 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->creationTime_ == nullptr
         && this->creator_ == nullptr && this->deletionTime_ == nullptr && this->description_ == nullptr && this->desktopId_ == nullptr && this->desktopName_ == nullptr
-        && this->desktopStatus_ == nullptr && this->diskStatus_ == nullptr && this->osType_ == nullptr && this->progress_ == nullptr && this->protocolType_ == nullptr
-        && this->remainTime_ == nullptr && this->restorePointId_ == nullptr && this->restorePointName_ == nullptr && this->snapshotId_ == nullptr && this->snapshotName_ == nullptr
-        && this->snapshotType_ == nullptr && this->sourceDiskSize_ == nullptr && this->sourceDiskType_ == nullptr && this->status_ == nullptr && this->volumeEncryptionEnabled_ == nullptr
-        && this->volumeEncryptionKey_ == nullptr; };
+        && this->desktopStatus_ == nullptr && this->diskStatus_ == nullptr && this->envId_ == nullptr && this->envType_ == nullptr && this->osType_ == nullptr
+        && this->progress_ == nullptr && this->protocolType_ == nullptr && this->remainTime_ == nullptr && this->restorePointId_ == nullptr && this->restorePointName_ == nullptr
+        && this->snapshotId_ == nullptr && this->snapshotName_ == nullptr && this->snapshotType_ == nullptr && this->sourceDiskSize_ == nullptr && this->sourceDiskType_ == nullptr
+        && this->status_ == nullptr && this->volumeEncryptionEnabled_ == nullptr && this->volumeEncryptionKey_ == nullptr; };
       // creationTime Field Functions 
       bool hasCreationTime() const { return this->creationTime_ != nullptr;};
       void deleteCreationTime() { this->creationTime_ = nullptr;};
@@ -155,6 +159,20 @@ namespace Models
       void deleteDiskStatus() { this->diskStatus_ = nullptr;};
       inline string getDiskStatus() const { DARABONBA_PTR_GET_DEFAULT(diskStatus_, "") };
       inline Snapshots& setDiskStatus(string diskStatus) { DARABONBA_PTR_SET_VALUE(diskStatus_, diskStatus) };
+
+
+      // envId Field Functions 
+      bool hasEnvId() const { return this->envId_ != nullptr;};
+      void deleteEnvId() { this->envId_ = nullptr;};
+      inline string getEnvId() const { DARABONBA_PTR_GET_DEFAULT(envId_, "") };
+      inline Snapshots& setEnvId(string envId) { DARABONBA_PTR_SET_VALUE(envId_, envId) };
+
+
+      // envType Field Functions 
+      bool hasEnvType() const { return this->envType_ != nullptr;};
+      void deleteEnvType() { this->envType_ = nullptr;};
+      inline string getEnvType() const { DARABONBA_PTR_GET_DEFAULT(envType_, "") };
+      inline Snapshots& setEnvType(string envType) { DARABONBA_PTR_SET_VALUE(envType_, envType) };
 
 
       // osType Field Functions 
@@ -282,6 +300,8 @@ namespace Models
       // *   Pending
       shared_ptr<string> desktopStatus_ {};
       shared_ptr<string> diskStatus_ {};
+      shared_ptr<string> envId_ {};
+      shared_ptr<string> envType_ {};
       shared_ptr<string> osType_ {};
       // The progress of creating the snapshot. Unit: %.
       shared_ptr<string> progress_ {};
