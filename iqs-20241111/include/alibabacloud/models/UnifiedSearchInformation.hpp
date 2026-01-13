@@ -33,12 +33,12 @@ namespace Models
     // searchTime Field Functions 
     bool hasSearchTime() const { return this->searchTime_ != nullptr;};
     void deleteSearchTime() { this->searchTime_ = nullptr;};
-    inline int64_t searchTime() const { DARABONBA_PTR_GET_DEFAULT(searchTime_, 0L) };
+    inline int64_t getSearchTime() const { DARABONBA_PTR_GET_DEFAULT(searchTime_, 0L) };
     inline UnifiedSearchInformation& setSearchTime(int64_t searchTime) { DARABONBA_PTR_SET_VALUE(searchTime_, searchTime) };
 
 
   protected:
-    std::shared_ptr<int64_t> searchTime_ = nullptr;
+    shared_ptr<int64_t> searchTime_ {};
   };
 
   } // namespace Models

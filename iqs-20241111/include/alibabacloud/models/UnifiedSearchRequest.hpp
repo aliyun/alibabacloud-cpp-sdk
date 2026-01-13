@@ -34,14 +34,14 @@ namespace Models
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const UnifiedSearchInput & body() const { DARABONBA_PTR_GET_CONST(body_, UnifiedSearchInput) };
-    inline UnifiedSearchInput body() { DARABONBA_PTR_GET(body_, UnifiedSearchInput) };
+    inline const UnifiedSearchInput & getBody() const { DARABONBA_PTR_GET_CONST(body_, UnifiedSearchInput) };
+    inline UnifiedSearchInput getBody() { DARABONBA_PTR_GET(body_, UnifiedSearchInput) };
     inline UnifiedSearchRequest& setBody(const UnifiedSearchInput & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
     inline UnifiedSearchRequest& setBody(UnifiedSearchInput && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
 
   protected:
-    std::shared_ptr<UnifiedSearchInput> body_ = nullptr;
+    shared_ptr<UnifiedSearchInput> body_ {};
   };
 
   } // namespace Models

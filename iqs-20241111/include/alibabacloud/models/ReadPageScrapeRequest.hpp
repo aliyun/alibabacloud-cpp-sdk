@@ -34,15 +34,15 @@ namespace Models
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const ReadPageScrapeBody & body() const { DARABONBA_PTR_GET_CONST(body_, ReadPageScrapeBody) };
-    inline ReadPageScrapeBody body() { DARABONBA_PTR_GET(body_, ReadPageScrapeBody) };
+    inline const ReadPageScrapeBody & getBody() const { DARABONBA_PTR_GET_CONST(body_, ReadPageScrapeBody) };
+    inline ReadPageScrapeBody getBody() { DARABONBA_PTR_GET(body_, ReadPageScrapeBody) };
     inline ReadPageScrapeRequest& setBody(const ReadPageScrapeBody & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
     inline ReadPageScrapeRequest& setBody(ReadPageScrapeBody && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
 
   protected:
     // post body
-    std::shared_ptr<ReadPageScrapeBody> body_ = nullptr;
+    shared_ptr<ReadPageScrapeBody> body_ {};
   };
 
   } // namespace Models

@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->height_ == nullptr
-        && return this->imageLink_ == nullptr && return this->width_ == nullptr; };
+        && this->imageLink_ == nullptr && this->width_ == nullptr; };
     // height Field Functions 
     bool hasHeight() const { return this->height_ != nullptr;};
     void deleteHeight() { this->height_ = nullptr;};
-    inline int32_t height() const { DARABONBA_PTR_GET_DEFAULT(height_, 0) };
+    inline int32_t getHeight() const { DARABONBA_PTR_GET_DEFAULT(height_, 0) };
     inline IncludeImage& setHeight(int32_t height) { DARABONBA_PTR_SET_VALUE(height_, height) };
 
 
     // imageLink Field Functions 
     bool hasImageLink() const { return this->imageLink_ != nullptr;};
     void deleteImageLink() { this->imageLink_ = nullptr;};
-    inline string imageLink() const { DARABONBA_PTR_GET_DEFAULT(imageLink_, "") };
+    inline string getImageLink() const { DARABONBA_PTR_GET_DEFAULT(imageLink_, "") };
     inline IncludeImage& setImageLink(string imageLink) { DARABONBA_PTR_SET_VALUE(imageLink_, imageLink) };
 
 
     // width Field Functions 
     bool hasWidth() const { return this->width_ != nullptr;};
     void deleteWidth() { this->width_ = nullptr;};
-    inline int32_t width() const { DARABONBA_PTR_GET_DEFAULT(width_, 0) };
+    inline int32_t getWidth() const { DARABONBA_PTR_GET_DEFAULT(width_, 0) };
     inline IncludeImage& setWidth(int32_t width) { DARABONBA_PTR_SET_VALUE(width_, width) };
 
 
   protected:
-    std::shared_ptr<int32_t> height_ = nullptr;
-    std::shared_ptr<string> imageLink_ = nullptr;
-    std::shared_ptr<int32_t> width_ = nullptr;
+    shared_ptr<int32_t> height_ {};
+    shared_ptr<string> imageLink_ {};
+    shared_ptr<int32_t> width_ {};
   };
 
   } // namespace Models

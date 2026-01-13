@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->genericTextSearch_ == nullptr
-        && return this->liteAdvancedTextSearch_ == nullptr; };
+        && this->liteAdvancedTextSearch_ == nullptr; };
     // genericTextSearch Field Functions 
     bool hasGenericTextSearch() const { return this->genericTextSearch_ != nullptr;};
     void deleteGenericTextSearch() { this->genericTextSearch_ = nullptr;};
-    inline int32_t genericTextSearch() const { DARABONBA_PTR_GET_DEFAULT(genericTextSearch_, 0) };
+    inline int32_t getGenericTextSearch() const { DARABONBA_PTR_GET_DEFAULT(genericTextSearch_, 0) };
     inline SearchCredits& setGenericTextSearch(int32_t genericTextSearch) { DARABONBA_PTR_SET_VALUE(genericTextSearch_, genericTextSearch) };
 
 
     // liteAdvancedTextSearch Field Functions 
     bool hasLiteAdvancedTextSearch() const { return this->liteAdvancedTextSearch_ != nullptr;};
     void deleteLiteAdvancedTextSearch() { this->liteAdvancedTextSearch_ = nullptr;};
-    inline int32_t liteAdvancedTextSearch() const { DARABONBA_PTR_GET_DEFAULT(liteAdvancedTextSearch_, 0) };
+    inline int32_t getLiteAdvancedTextSearch() const { DARABONBA_PTR_GET_DEFAULT(liteAdvancedTextSearch_, 0) };
     inline SearchCredits& setLiteAdvancedTextSearch(int32_t liteAdvancedTextSearch) { DARABONBA_PTR_SET_VALUE(liteAdvancedTextSearch_, liteAdvancedTextSearch) };
 
 
   protected:
-    std::shared_ptr<int32_t> genericTextSearch_ = nullptr;
-    std::shared_ptr<int32_t> liteAdvancedTextSearch_ = nullptr;
+    shared_ptr<int32_t> genericTextSearch_ {};
+    shared_ptr<int32_t> liteAdvancedTextSearch_ {};
   };
 
   } // namespace Models

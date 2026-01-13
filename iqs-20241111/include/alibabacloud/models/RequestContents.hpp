@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->mainText_ == nullptr
-        && return this->markdownText_ == nullptr && return this->rerankScore_ == nullptr && return this->richMainBody_ == nullptr && return this->summary_ == nullptr; };
+        && this->markdownText_ == nullptr && this->rerankScore_ == nullptr && this->richMainBody_ == nullptr && this->summary_ == nullptr; };
     // mainText Field Functions 
     bool hasMainText() const { return this->mainText_ != nullptr;};
     void deleteMainText() { this->mainText_ = nullptr;};
-    inline bool mainText() const { DARABONBA_PTR_GET_DEFAULT(mainText_, false) };
+    inline bool getMainText() const { DARABONBA_PTR_GET_DEFAULT(mainText_, false) };
     inline RequestContents& setMainText(bool mainText) { DARABONBA_PTR_SET_VALUE(mainText_, mainText) };
 
 
     // markdownText Field Functions 
     bool hasMarkdownText() const { return this->markdownText_ != nullptr;};
     void deleteMarkdownText() { this->markdownText_ = nullptr;};
-    inline bool markdownText() const { DARABONBA_PTR_GET_DEFAULT(markdownText_, false) };
+    inline bool getMarkdownText() const { DARABONBA_PTR_GET_DEFAULT(markdownText_, false) };
     inline RequestContents& setMarkdownText(bool markdownText) { DARABONBA_PTR_SET_VALUE(markdownText_, markdownText) };
 
 
     // rerankScore Field Functions 
     bool hasRerankScore() const { return this->rerankScore_ != nullptr;};
     void deleteRerankScore() { this->rerankScore_ = nullptr;};
-    inline bool rerankScore() const { DARABONBA_PTR_GET_DEFAULT(rerankScore_, false) };
+    inline bool getRerankScore() const { DARABONBA_PTR_GET_DEFAULT(rerankScore_, false) };
     inline RequestContents& setRerankScore(bool rerankScore) { DARABONBA_PTR_SET_VALUE(rerankScore_, rerankScore) };
 
 
     // richMainBody Field Functions 
     bool hasRichMainBody() const { return this->richMainBody_ != nullptr;};
     void deleteRichMainBody() { this->richMainBody_ = nullptr;};
-    inline bool richMainBody() const { DARABONBA_PTR_GET_DEFAULT(richMainBody_, false) };
+    inline bool getRichMainBody() const { DARABONBA_PTR_GET_DEFAULT(richMainBody_, false) };
     inline RequestContents& setRichMainBody(bool richMainBody) { DARABONBA_PTR_SET_VALUE(richMainBody_, richMainBody) };
 
 
     // summary Field Functions 
     bool hasSummary() const { return this->summary_ != nullptr;};
     void deleteSummary() { this->summary_ = nullptr;};
-    inline bool summary() const { DARABONBA_PTR_GET_DEFAULT(summary_, false) };
+    inline bool getSummary() const { DARABONBA_PTR_GET_DEFAULT(summary_, false) };
     inline RequestContents& setSummary(bool summary) { DARABONBA_PTR_SET_VALUE(summary_, summary) };
 
 
   protected:
-    std::shared_ptr<bool> mainText_ = nullptr;
-    std::shared_ptr<bool> markdownText_ = nullptr;
-    std::shared_ptr<bool> rerankScore_ = nullptr;
-    std::shared_ptr<bool> richMainBody_ = nullptr;
-    std::shared_ptr<bool> summary_ = nullptr;
+    shared_ptr<bool> mainText_ {};
+    shared_ptr<bool> markdownText_ {};
+    shared_ptr<bool> rerankScore_ {};
+    shared_ptr<bool> richMainBody_ {};
+    shared_ptr<bool> summary_ {};
   };
 
   } // namespace Models

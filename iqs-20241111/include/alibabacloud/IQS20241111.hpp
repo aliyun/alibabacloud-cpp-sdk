@@ -28,7 +28,7 @@ namespace IQS20241111
        * @param runtime runtime options for this request RuntimeOptions
        * @return AiSearchResponse
        */
-      FutrueGenerator<Models::AiSearchResponse> aiSearchWithSSE(const Models::AiSearchRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::AiSearchResponse> aiSearchWithSSE(const Models::AiSearchRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary AI搜索流式接口

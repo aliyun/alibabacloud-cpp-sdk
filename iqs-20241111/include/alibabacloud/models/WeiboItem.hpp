@@ -43,34 +43,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cardType_ == nullptr
-        && return this->homepageLink_ == nullptr && return this->htmlSnippet_ == nullptr && return this->images_ == nullptr && return this->link_ == nullptr && return this->publishDisplayTime_ == nullptr
-        && return this->username_ == nullptr; };
+        && this->homepageLink_ == nullptr && this->htmlSnippet_ == nullptr && this->images_ == nullptr && this->link_ == nullptr && this->publishDisplayTime_ == nullptr
+        && this->username_ == nullptr; };
     // cardType Field Functions 
     bool hasCardType() const { return this->cardType_ != nullptr;};
     void deleteCardType() { this->cardType_ = nullptr;};
-    inline string cardType() const { DARABONBA_PTR_GET_DEFAULT(cardType_, "") };
+    inline string getCardType() const { DARABONBA_PTR_GET_DEFAULT(cardType_, "") };
     inline WeiboItem& setCardType(string cardType) { DARABONBA_PTR_SET_VALUE(cardType_, cardType) };
 
 
     // homepageLink Field Functions 
     bool hasHomepageLink() const { return this->homepageLink_ != nullptr;};
     void deleteHomepageLink() { this->homepageLink_ = nullptr;};
-    inline string homepageLink() const { DARABONBA_PTR_GET_DEFAULT(homepageLink_, "") };
+    inline string getHomepageLink() const { DARABONBA_PTR_GET_DEFAULT(homepageLink_, "") };
     inline WeiboItem& setHomepageLink(string homepageLink) { DARABONBA_PTR_SET_VALUE(homepageLink_, homepageLink) };
 
 
     // htmlSnippet Field Functions 
     bool hasHtmlSnippet() const { return this->htmlSnippet_ != nullptr;};
     void deleteHtmlSnippet() { this->htmlSnippet_ = nullptr;};
-    inline string htmlSnippet() const { DARABONBA_PTR_GET_DEFAULT(htmlSnippet_, "") };
+    inline string getHtmlSnippet() const { DARABONBA_PTR_GET_DEFAULT(htmlSnippet_, "") };
     inline WeiboItem& setHtmlSnippet(string htmlSnippet) { DARABONBA_PTR_SET_VALUE(htmlSnippet_, htmlSnippet) };
 
 
     // images Field Functions 
     bool hasImages() const { return this->images_ != nullptr;};
     void deleteImages() { this->images_ = nullptr;};
-    inline const vector<string> & images() const { DARABONBA_PTR_GET_CONST(images_, vector<string>) };
-    inline vector<string> images() { DARABONBA_PTR_GET(images_, vector<string>) };
+    inline const vector<string> & getImages() const { DARABONBA_PTR_GET_CONST(images_, vector<string>) };
+    inline vector<string> getImages() { DARABONBA_PTR_GET(images_, vector<string>) };
     inline WeiboItem& setImages(const vector<string> & images) { DARABONBA_PTR_SET_VALUE(images_, images) };
     inline WeiboItem& setImages(vector<string> && images) { DARABONBA_PTR_SET_RVALUE(images_, images) };
 
@@ -78,36 +78,36 @@ namespace Models
     // link Field Functions 
     bool hasLink() const { return this->link_ != nullptr;};
     void deleteLink() { this->link_ = nullptr;};
-    inline string link() const { DARABONBA_PTR_GET_DEFAULT(link_, "") };
+    inline string getLink() const { DARABONBA_PTR_GET_DEFAULT(link_, "") };
     inline WeiboItem& setLink(string link) { DARABONBA_PTR_SET_VALUE(link_, link) };
 
 
     // publishDisplayTime Field Functions 
     bool hasPublishDisplayTime() const { return this->publishDisplayTime_ != nullptr;};
     void deletePublishDisplayTime() { this->publishDisplayTime_ = nullptr;};
-    inline string publishDisplayTime() const { DARABONBA_PTR_GET_DEFAULT(publishDisplayTime_, "") };
+    inline string getPublishDisplayTime() const { DARABONBA_PTR_GET_DEFAULT(publishDisplayTime_, "") };
     inline WeiboItem& setPublishDisplayTime(string publishDisplayTime) { DARABONBA_PTR_SET_VALUE(publishDisplayTime_, publishDisplayTime) };
 
 
     // username Field Functions 
     bool hasUsername() const { return this->username_ != nullptr;};
     void deleteUsername() { this->username_ = nullptr;};
-    inline string username() const { DARABONBA_PTR_GET_DEFAULT(username_, "") };
+    inline string getUsername() const { DARABONBA_PTR_GET_DEFAULT(username_, "") };
     inline WeiboItem& setUsername(string username) { DARABONBA_PTR_SET_VALUE(username_, username) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> cardType_ = nullptr;
-    std::shared_ptr<string> homepageLink_ = nullptr;
+    shared_ptr<string> cardType_ {};
+    shared_ptr<string> homepageLink_ {};
     // This parameter is required.
-    std::shared_ptr<string> htmlSnippet_ = nullptr;
-    std::shared_ptr<vector<string>> images_ = nullptr;
+    shared_ptr<string> htmlSnippet_ {};
+    shared_ptr<vector<string>> images_ {};
     // This parameter is required.
-    std::shared_ptr<string> link_ = nullptr;
+    shared_ptr<string> link_ {};
     // This parameter is required.
-    std::shared_ptr<string> publishDisplayTime_ = nullptr;
-    std::shared_ptr<string> username_ = nullptr;
+    shared_ptr<string> publishDisplayTime_ {};
+    shared_ptr<string> username_ {};
   };
 
   } // namespace Models

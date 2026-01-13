@@ -34,12 +34,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->search_ == nullptr
-        && return this->valueAdded_ == nullptr; };
+        && this->valueAdded_ == nullptr; };
     // search Field Functions 
     bool hasSearch() const { return this->search_ != nullptr;};
     void deleteSearch() { this->search_ = nullptr;};
-    inline const SearchCredits & search() const { DARABONBA_PTR_GET_CONST(search_, SearchCredits) };
-    inline SearchCredits search() { DARABONBA_PTR_GET(search_, SearchCredits) };
+    inline const SearchCredits & getSearch() const { DARABONBA_PTR_GET_CONST(search_, SearchCredits) };
+    inline SearchCredits getSearch() { DARABONBA_PTR_GET(search_, SearchCredits) };
     inline UnifiedCostCredits& setSearch(const SearchCredits & search) { DARABONBA_PTR_SET_VALUE(search_, search) };
     inline UnifiedCostCredits& setSearch(SearchCredits && search) { DARABONBA_PTR_SET_RVALUE(search_, search) };
 
@@ -47,15 +47,15 @@ namespace Models
     // valueAdded Field Functions 
     bool hasValueAdded() const { return this->valueAdded_ != nullptr;};
     void deleteValueAdded() { this->valueAdded_ = nullptr;};
-    inline const ValueAddedCredits & valueAdded() const { DARABONBA_PTR_GET_CONST(valueAdded_, ValueAddedCredits) };
-    inline ValueAddedCredits valueAdded() { DARABONBA_PTR_GET(valueAdded_, ValueAddedCredits) };
+    inline const ValueAddedCredits & getValueAdded() const { DARABONBA_PTR_GET_CONST(valueAdded_, ValueAddedCredits) };
+    inline ValueAddedCredits getValueAdded() { DARABONBA_PTR_GET(valueAdded_, ValueAddedCredits) };
     inline UnifiedCostCredits& setValueAdded(const ValueAddedCredits & valueAdded) { DARABONBA_PTR_SET_VALUE(valueAdded_, valueAdded) };
     inline UnifiedCostCredits& setValueAdded(ValueAddedCredits && valueAdded) { DARABONBA_PTR_SET_RVALUE(valueAdded_, valueAdded) };
 
 
   protected:
-    std::shared_ptr<SearchCredits> search_ = nullptr;
-    std::shared_ptr<ValueAddedCredits> valueAdded_ = nullptr;
+    shared_ptr<SearchCredits> search_ {};
+    shared_ptr<ValueAddedCredits> valueAdded_ {};
   };
 
   } // namespace Models

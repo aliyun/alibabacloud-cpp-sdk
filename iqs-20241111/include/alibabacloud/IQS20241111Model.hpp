@@ -2,7 +2,7 @@
 #ifndef ALIBABACLOUD_IQS20241111MODEL_HPP_
 #define ALIBABACLOUD_IQS20241111MODEL_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/AiSearchQuery.hpp>
+#include <alibabacloud/models/AISearchQuery.hpp>
 #include <alibabacloud/models/IncludeImage.hpp>
 #include <alibabacloud/models/ScorePageItem.hpp>
 #include <alibabacloud/models/QueryContext.hpp>
@@ -52,15 +52,5 @@
 #include <alibabacloud/models/ReadPageScrapeResponse.hpp>
 #include <alibabacloud/models/UnifiedSearchRequest.hpp>
 #include <alibabacloud/models/UnifiedSearchResponse.hpp>
-#include <alibabacloud/models/GetIqsUsageResultRecords.hpp>
-#include <alibabacloud/models/GlobalQueryContextOriginalQuery.hpp>
-#include <alibabacloud/models/QueryContextOriginalQuery.hpp>
-#include <alibabacloud/models/QueryContextRewrite.hpp>
-#include <alibabacloud/models/ReadPageBodyReadability.hpp>
-#include <alibabacloud/models/ReadPageScrapeBodyReadability.hpp>
-#include <alibabacloud/models/AiSearchResponseBodyHeaderQueryContextOriginalQuery.hpp>
-#include <alibabacloud/models/AiSearchResponseBodyHeaderQueryContextRewrite.hpp>
-#include <alibabacloud/models/AiSearchResponseBodyHeaderQueryContext.hpp>
-#include <alibabacloud/models/AiSearchResponseBodyHeader.hpp>
 
 #endif

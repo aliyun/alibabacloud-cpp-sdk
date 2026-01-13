@@ -46,12 +46,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->pageItems_ == nullptr
-        && return this->queryContext_ == nullptr && return this->requestId_ == nullptr && return this->sceneItems_ == nullptr && return this->searchInformation_ == nullptr && return this->weiboItems_ == nullptr; };
+        && this->queryContext_ == nullptr && this->requestId_ == nullptr && this->sceneItems_ == nullptr && this->searchInformation_ == nullptr && this->weiboItems_ == nullptr; };
     // pageItems Field Functions 
     bool hasPageItems() const { return this->pageItems_ != nullptr;};
     void deletePageItems() { this->pageItems_ = nullptr;};
-    inline const vector<ScorePageItem> & pageItems() const { DARABONBA_PTR_GET_CONST(pageItems_, vector<ScorePageItem>) };
-    inline vector<ScorePageItem> pageItems() { DARABONBA_PTR_GET(pageItems_, vector<ScorePageItem>) };
+    inline const vector<ScorePageItem> & getPageItems() const { DARABONBA_PTR_GET_CONST(pageItems_, vector<ScorePageItem>) };
+    inline vector<ScorePageItem> getPageItems() { DARABONBA_PTR_GET(pageItems_, vector<ScorePageItem>) };
     inline GenericSearchResult& setPageItems(const vector<ScorePageItem> & pageItems) { DARABONBA_PTR_SET_VALUE(pageItems_, pageItems) };
     inline GenericSearchResult& setPageItems(vector<ScorePageItem> && pageItems) { DARABONBA_PTR_SET_RVALUE(pageItems_, pageItems) };
 
@@ -59,8 +59,8 @@ namespace Models
     // queryContext Field Functions 
     bool hasQueryContext() const { return this->queryContext_ != nullptr;};
     void deleteQueryContext() { this->queryContext_ = nullptr;};
-    inline const QueryContext & queryContext() const { DARABONBA_PTR_GET_CONST(queryContext_, QueryContext) };
-    inline QueryContext queryContext() { DARABONBA_PTR_GET(queryContext_, QueryContext) };
+    inline const QueryContext & getQueryContext() const { DARABONBA_PTR_GET_CONST(queryContext_, QueryContext) };
+    inline QueryContext getQueryContext() { DARABONBA_PTR_GET(queryContext_, QueryContext) };
     inline GenericSearchResult& setQueryContext(const QueryContext & queryContext) { DARABONBA_PTR_SET_VALUE(queryContext_, queryContext) };
     inline GenericSearchResult& setQueryContext(QueryContext && queryContext) { DARABONBA_PTR_SET_RVALUE(queryContext_, queryContext) };
 
@@ -68,15 +68,15 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GenericSearchResult& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // sceneItems Field Functions 
     bool hasSceneItems() const { return this->sceneItems_ != nullptr;};
     void deleteSceneItems() { this->sceneItems_ = nullptr;};
-    inline const vector<SceneItem> & sceneItems() const { DARABONBA_PTR_GET_CONST(sceneItems_, vector<SceneItem>) };
-    inline vector<SceneItem> sceneItems() { DARABONBA_PTR_GET(sceneItems_, vector<SceneItem>) };
+    inline const vector<SceneItem> & getSceneItems() const { DARABONBA_PTR_GET_CONST(sceneItems_, vector<SceneItem>) };
+    inline vector<SceneItem> getSceneItems() { DARABONBA_PTR_GET(sceneItems_, vector<SceneItem>) };
     inline GenericSearchResult& setSceneItems(const vector<SceneItem> & sceneItems) { DARABONBA_PTR_SET_VALUE(sceneItems_, sceneItems) };
     inline GenericSearchResult& setSceneItems(vector<SceneItem> && sceneItems) { DARABONBA_PTR_SET_RVALUE(sceneItems_, sceneItems) };
 
@@ -84,8 +84,8 @@ namespace Models
     // searchInformation Field Functions 
     bool hasSearchInformation() const { return this->searchInformation_ != nullptr;};
     void deleteSearchInformation() { this->searchInformation_ = nullptr;};
-    inline const SearchInformation & searchInformation() const { DARABONBA_PTR_GET_CONST(searchInformation_, SearchInformation) };
-    inline SearchInformation searchInformation() { DARABONBA_PTR_GET(searchInformation_, SearchInformation) };
+    inline const SearchInformation & getSearchInformation() const { DARABONBA_PTR_GET_CONST(searchInformation_, SearchInformation) };
+    inline SearchInformation getSearchInformation() { DARABONBA_PTR_GET(searchInformation_, SearchInformation) };
     inline GenericSearchResult& setSearchInformation(const SearchInformation & searchInformation) { DARABONBA_PTR_SET_VALUE(searchInformation_, searchInformation) };
     inline GenericSearchResult& setSearchInformation(SearchInformation && searchInformation) { DARABONBA_PTR_SET_RVALUE(searchInformation_, searchInformation) };
 
@@ -93,19 +93,19 @@ namespace Models
     // weiboItems Field Functions 
     bool hasWeiboItems() const { return this->weiboItems_ != nullptr;};
     void deleteWeiboItems() { this->weiboItems_ = nullptr;};
-    inline const vector<WeiboItem> & weiboItems() const { DARABONBA_PTR_GET_CONST(weiboItems_, vector<WeiboItem>) };
-    inline vector<WeiboItem> weiboItems() { DARABONBA_PTR_GET(weiboItems_, vector<WeiboItem>) };
+    inline const vector<WeiboItem> & getWeiboItems() const { DARABONBA_PTR_GET_CONST(weiboItems_, vector<WeiboItem>) };
+    inline vector<WeiboItem> getWeiboItems() { DARABONBA_PTR_GET(weiboItems_, vector<WeiboItem>) };
     inline GenericSearchResult& setWeiboItems(const vector<WeiboItem> & weiboItems) { DARABONBA_PTR_SET_VALUE(weiboItems_, weiboItems) };
     inline GenericSearchResult& setWeiboItems(vector<WeiboItem> && weiboItems) { DARABONBA_PTR_SET_RVALUE(weiboItems_, weiboItems) };
 
 
   protected:
-    std::shared_ptr<vector<ScorePageItem>> pageItems_ = nullptr;
-    std::shared_ptr<QueryContext> queryContext_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<vector<SceneItem>> sceneItems_ = nullptr;
-    std::shared_ptr<SearchInformation> searchInformation_ = nullptr;
-    std::shared_ptr<vector<WeiboItem>> weiboItems_ = nullptr;
+    shared_ptr<vector<ScorePageItem>> pageItems_ {};
+    shared_ptr<QueryContext> queryContext_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<vector<SceneItem>> sceneItems_ {};
+    shared_ptr<SearchInformation> searchInformation_ {};
+    shared_ptr<vector<WeiboItem>> weiboItems_ {};
   };
 
   } // namespace Models

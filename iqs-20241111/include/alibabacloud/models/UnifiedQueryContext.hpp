@@ -36,19 +36,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->engineType_ == nullptr
-        && return this->originalQuery_ == nullptr && return this->rewrite_ == nullptr; };
+        && this->originalQuery_ == nullptr && this->rewrite_ == nullptr; };
     // engineType Field Functions 
     bool hasEngineType() const { return this->engineType_ != nullptr;};
     void deleteEngineType() { this->engineType_ = nullptr;};
-    inline string engineType() const { DARABONBA_PTR_GET_DEFAULT(engineType_, "") };
+    inline string getEngineType() const { DARABONBA_PTR_GET_DEFAULT(engineType_, "") };
     inline UnifiedQueryContext& setEngineType(string engineType) { DARABONBA_PTR_SET_VALUE(engineType_, engineType) };
 
 
     // originalQuery Field Functions 
     bool hasOriginalQuery() const { return this->originalQuery_ != nullptr;};
     void deleteOriginalQuery() { this->originalQuery_ = nullptr;};
-    inline const UnifiedOriginalQuery & originalQuery() const { DARABONBA_PTR_GET_CONST(originalQuery_, UnifiedOriginalQuery) };
-    inline UnifiedOriginalQuery originalQuery() { DARABONBA_PTR_GET(originalQuery_, UnifiedOriginalQuery) };
+    inline const UnifiedOriginalQuery & getOriginalQuery() const { DARABONBA_PTR_GET_CONST(originalQuery_, UnifiedOriginalQuery) };
+    inline UnifiedOriginalQuery getOriginalQuery() { DARABONBA_PTR_GET(originalQuery_, UnifiedOriginalQuery) };
     inline UnifiedQueryContext& setOriginalQuery(const UnifiedOriginalQuery & originalQuery) { DARABONBA_PTR_SET_VALUE(originalQuery_, originalQuery) };
     inline UnifiedQueryContext& setOriginalQuery(UnifiedOriginalQuery && originalQuery) { DARABONBA_PTR_SET_RVALUE(originalQuery_, originalQuery) };
 
@@ -56,16 +56,16 @@ namespace Models
     // rewrite Field Functions 
     bool hasRewrite() const { return this->rewrite_ != nullptr;};
     void deleteRewrite() { this->rewrite_ = nullptr;};
-    inline const UnifiedRewrite & rewrite() const { DARABONBA_PTR_GET_CONST(rewrite_, UnifiedRewrite) };
-    inline UnifiedRewrite rewrite() { DARABONBA_PTR_GET(rewrite_, UnifiedRewrite) };
+    inline const UnifiedRewrite & getRewrite() const { DARABONBA_PTR_GET_CONST(rewrite_, UnifiedRewrite) };
+    inline UnifiedRewrite getRewrite() { DARABONBA_PTR_GET(rewrite_, UnifiedRewrite) };
     inline UnifiedQueryContext& setRewrite(const UnifiedRewrite & rewrite) { DARABONBA_PTR_SET_VALUE(rewrite_, rewrite) };
     inline UnifiedQueryContext& setRewrite(UnifiedRewrite && rewrite) { DARABONBA_PTR_SET_RVALUE(rewrite_, rewrite) };
 
 
   protected:
-    std::shared_ptr<string> engineType_ = nullptr;
-    std::shared_ptr<UnifiedOriginalQuery> originalQuery_ = nullptr;
-    std::shared_ptr<UnifiedRewrite> rewrite_ = nullptr;
+    shared_ptr<string> engineType_ {};
+    shared_ptr<UnifiedOriginalQuery> originalQuery_ {};
+    shared_ptr<UnifiedRewrite> rewrite_ {};
   };
 
   } // namespace Models

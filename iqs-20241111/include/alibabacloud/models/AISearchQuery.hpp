@@ -44,73 +44,73 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->card_ == nullptr
-        && return this->cardQuery_ == nullptr && return this->page_ == nullptr && return this->query_ == nullptr && return this->searchEngine_ == nullptr && return this->searchPlan_ == nullptr
-        && return this->sessionId_ == nullptr && return this->timeRange_ == nullptr; };
+        && this->cardQuery_ == nullptr && this->page_ == nullptr && this->query_ == nullptr && this->searchEngine_ == nullptr && this->searchPlan_ == nullptr
+        && this->sessionId_ == nullptr && this->timeRange_ == nullptr; };
     // card Field Functions 
     bool hasCard() const { return this->card_ != nullptr;};
     void deleteCard() { this->card_ = nullptr;};
-    inline string card() const { DARABONBA_PTR_GET_DEFAULT(card_, "") };
+    inline string getCard() const { DARABONBA_PTR_GET_DEFAULT(card_, "") };
     inline AISearchQuery& setCard(string card) { DARABONBA_PTR_SET_VALUE(card_, card) };
 
 
     // cardQuery Field Functions 
     bool hasCardQuery() const { return this->cardQuery_ != nullptr;};
     void deleteCardQuery() { this->cardQuery_ = nullptr;};
-    inline string cardQuery() const { DARABONBA_PTR_GET_DEFAULT(cardQuery_, "") };
+    inline string getCardQuery() const { DARABONBA_PTR_GET_DEFAULT(cardQuery_, "") };
     inline AISearchQuery& setCardQuery(string cardQuery) { DARABONBA_PTR_SET_VALUE(cardQuery_, cardQuery) };
 
 
     // page Field Functions 
     bool hasPage() const { return this->page_ != nullptr;};
     void deletePage() { this->page_ = nullptr;};
-    inline int32_t page() const { DARABONBA_PTR_GET_DEFAULT(page_, 0) };
+    inline int32_t getPage() const { DARABONBA_PTR_GET_DEFAULT(page_, 0) };
     inline AISearchQuery& setPage(int32_t page) { DARABONBA_PTR_SET_VALUE(page_, page) };
 
 
     // query Field Functions 
     bool hasQuery() const { return this->query_ != nullptr;};
     void deleteQuery() { this->query_ = nullptr;};
-    inline string query() const { DARABONBA_PTR_GET_DEFAULT(query_, "") };
+    inline string getQuery() const { DARABONBA_PTR_GET_DEFAULT(query_, "") };
     inline AISearchQuery& setQuery(string query) { DARABONBA_PTR_SET_VALUE(query_, query) };
 
 
     // searchEngine Field Functions 
     bool hasSearchEngine() const { return this->searchEngine_ != nullptr;};
     void deleteSearchEngine() { this->searchEngine_ = nullptr;};
-    inline string searchEngine() const { DARABONBA_PTR_GET_DEFAULT(searchEngine_, "") };
+    inline string getSearchEngine() const { DARABONBA_PTR_GET_DEFAULT(searchEngine_, "") };
     inline AISearchQuery& setSearchEngine(string searchEngine) { DARABONBA_PTR_SET_VALUE(searchEngine_, searchEngine) };
 
 
     // searchPlan Field Functions 
     bool hasSearchPlan() const { return this->searchPlan_ != nullptr;};
     void deleteSearchPlan() { this->searchPlan_ = nullptr;};
-    inline string searchPlan() const { DARABONBA_PTR_GET_DEFAULT(searchPlan_, "") };
+    inline string getSearchPlan() const { DARABONBA_PTR_GET_DEFAULT(searchPlan_, "") };
     inline AISearchQuery& setSearchPlan(string searchPlan) { DARABONBA_PTR_SET_VALUE(searchPlan_, searchPlan) };
 
 
     // sessionId Field Functions 
     bool hasSessionId() const { return this->sessionId_ != nullptr;};
     void deleteSessionId() { this->sessionId_ = nullptr;};
-    inline string sessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
+    inline string getSessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
     inline AISearchQuery& setSessionId(string sessionId) { DARABONBA_PTR_SET_VALUE(sessionId_, sessionId) };
 
 
     // timeRange Field Functions 
     bool hasTimeRange() const { return this->timeRange_ != nullptr;};
     void deleteTimeRange() { this->timeRange_ = nullptr;};
-    inline string timeRange() const { DARABONBA_PTR_GET_DEFAULT(timeRange_, "") };
+    inline string getTimeRange() const { DARABONBA_PTR_GET_DEFAULT(timeRange_, "") };
     inline AISearchQuery& setTimeRange(string timeRange) { DARABONBA_PTR_SET_VALUE(timeRange_, timeRange) };
 
 
   protected:
-    std::shared_ptr<string> card_ = nullptr;
-    std::shared_ptr<string> cardQuery_ = nullptr;
-    std::shared_ptr<int32_t> page_ = nullptr;
-    std::shared_ptr<string> query_ = nullptr;
-    std::shared_ptr<string> searchEngine_ = nullptr;
-    std::shared_ptr<string> searchPlan_ = nullptr;
-    std::shared_ptr<string> sessionId_ = nullptr;
-    std::shared_ptr<string> timeRange_ = nullptr;
+    shared_ptr<string> card_ {};
+    shared_ptr<string> cardQuery_ {};
+    shared_ptr<int32_t> page_ {};
+    shared_ptr<string> query_ {};
+    shared_ptr<string> searchEngine_ {};
+    shared_ptr<string> searchPlan_ {};
+    shared_ptr<string> sessionId_ {};
+    shared_ptr<string> timeRange_ {};
   };
 
   } // namespace Models

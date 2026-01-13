@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->city_ == nullptr
-        && return this->ip_ == nullptr; };
+        && this->ip_ == nullptr; };
     // city Field Functions 
     bool hasCity() const { return this->city_ != nullptr;};
     void deleteCity() { this->city_ = nullptr;};
-    inline string city() const { DARABONBA_PTR_GET_DEFAULT(city_, "") };
+    inline string getCity() const { DARABONBA_PTR_GET_DEFAULT(city_, "") };
     inline LocationInfo& setCity(string city) { DARABONBA_PTR_SET_VALUE(city_, city) };
 
 
     // ip Field Functions 
     bool hasIp() const { return this->ip_ != nullptr;};
     void deleteIp() { this->ip_ = nullptr;};
-    inline string ip() const { DARABONBA_PTR_GET_DEFAULT(ip_, "") };
+    inline string getIp() const { DARABONBA_PTR_GET_DEFAULT(ip_, "") };
     inline LocationInfo& setIp(string ip) { DARABONBA_PTR_SET_VALUE(ip_, ip) };
 
 
   protected:
-    std::shared_ptr<string> city_ = nullptr;
-    std::shared_ptr<string> ip_ = nullptr;
+    shared_ptr<string> city_ {};
+    shared_ptr<string> ip_ {};
   };
 
   } // namespace Models

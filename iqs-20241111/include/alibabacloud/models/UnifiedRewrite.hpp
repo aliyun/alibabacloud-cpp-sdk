@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->enabled_ == nullptr
-        && return this->timeRange_ == nullptr; };
+        && this->timeRange_ == nullptr; };
     // enabled Field Functions 
     bool hasEnabled() const { return this->enabled_ != nullptr;};
     void deleteEnabled() { this->enabled_ = nullptr;};
-    inline bool enabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
+    inline bool getEnabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
     inline UnifiedRewrite& setEnabled(bool enabled) { DARABONBA_PTR_SET_VALUE(enabled_, enabled) };
 
 
     // timeRange Field Functions 
     bool hasTimeRange() const { return this->timeRange_ != nullptr;};
     void deleteTimeRange() { this->timeRange_ = nullptr;};
-    inline string timeRange() const { DARABONBA_PTR_GET_DEFAULT(timeRange_, "") };
+    inline string getTimeRange() const { DARABONBA_PTR_GET_DEFAULT(timeRange_, "") };
     inline UnifiedRewrite& setTimeRange(string timeRange) { DARABONBA_PTR_SET_VALUE(timeRange_, timeRange) };
 
 
   protected:
-    std::shared_ptr<bool> enabled_ = nullptr;
-    std::shared_ptr<string> timeRange_ = nullptr;
+    shared_ptr<bool> enabled_ {};
+    shared_ptr<string> timeRange_ {};
   };
 
   } // namespace Models

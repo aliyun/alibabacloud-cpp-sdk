@@ -34,34 +34,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->link_ == nullptr
-        && return this->snippet_ == nullptr && return this->title_ == nullptr; };
+        && this->snippet_ == nullptr && this->title_ == nullptr; };
     // link Field Functions 
     bool hasLink() const { return this->link_ != nullptr;};
     void deleteLink() { this->link_ = nullptr;};
-    inline string link() const { DARABONBA_PTR_GET_DEFAULT(link_, "") };
+    inline string getLink() const { DARABONBA_PTR_GET_DEFAULT(link_, "") };
     inline GlobalPageItem& setLink(string link) { DARABONBA_PTR_SET_VALUE(link_, link) };
 
 
     // snippet Field Functions 
     bool hasSnippet() const { return this->snippet_ != nullptr;};
     void deleteSnippet() { this->snippet_ = nullptr;};
-    inline string snippet() const { DARABONBA_PTR_GET_DEFAULT(snippet_, "") };
+    inline string getSnippet() const { DARABONBA_PTR_GET_DEFAULT(snippet_, "") };
     inline GlobalPageItem& setSnippet(string snippet) { DARABONBA_PTR_SET_VALUE(snippet_, snippet) };
 
 
     // title Field Functions 
     bool hasTitle() const { return this->title_ != nullptr;};
     void deleteTitle() { this->title_ = nullptr;};
-    inline string title() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
+    inline string getTitle() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
     inline GlobalPageItem& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> link_ = nullptr;
-    std::shared_ptr<string> snippet_ = nullptr;
+    shared_ptr<string> link_ {};
+    shared_ptr<string> snippet_ {};
     // This parameter is required.
-    std::shared_ptr<string> title_ = nullptr;
+    shared_ptr<string> title_ {};
   };
 
   } // namespace Models

@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->searchTime_ == nullptr
-        && return this->total_ == nullptr; };
+        && this->total_ == nullptr; };
     // searchTime Field Functions 
     bool hasSearchTime() const { return this->searchTime_ != nullptr;};
     void deleteSearchTime() { this->searchTime_ = nullptr;};
-    inline int64_t searchTime() const { DARABONBA_PTR_GET_DEFAULT(searchTime_, 0L) };
+    inline int64_t getSearchTime() const { DARABONBA_PTR_GET_DEFAULT(searchTime_, 0L) };
     inline GlobalSearchInformation& setSearchTime(int64_t searchTime) { DARABONBA_PTR_SET_VALUE(searchTime_, searchTime) };
 
 
     // total Field Functions 
     bool hasTotal() const { return this->total_ != nullptr;};
     void deleteTotal() { this->total_ = nullptr;};
-    inline int64_t total() const { DARABONBA_PTR_GET_DEFAULT(total_, 0L) };
+    inline int64_t getTotal() const { DARABONBA_PTR_GET_DEFAULT(total_, 0L) };
     inline GlobalSearchInformation& setTotal(int64_t total) { DARABONBA_PTR_SET_VALUE(total_, total) };
 
 
   protected:
-    std::shared_ptr<int64_t> searchTime_ = nullptr;
-    std::shared_ptr<int64_t> total_ = nullptr;
+    shared_ptr<int64_t> searchTime_ {};
+    shared_ptr<int64_t> total_ {};
   };
 
   } // namespace Models

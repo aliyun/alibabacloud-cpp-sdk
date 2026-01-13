@@ -37,12 +37,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->data_ == nullptr
-        && return this->errorCode_ == nullptr && return this->errorMessage_ == nullptr && return this->requestId_ == nullptr; };
+        && this->errorCode_ == nullptr && this->errorMessage_ == nullptr && this->requestId_ == nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const ReadPageItem & data() const { DARABONBA_PTR_GET_CONST(data_, ReadPageItem) };
-    inline ReadPageItem data() { DARABONBA_PTR_GET(data_, ReadPageItem) };
+    inline const ReadPageItem & getData() const { DARABONBA_PTR_GET_CONST(data_, ReadPageItem) };
+    inline ReadPageItem getData() { DARABONBA_PTR_GET(data_, ReadPageItem) };
     inline ReadPageBasicResponseBody& setData(const ReadPageItem & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
     inline ReadPageBasicResponseBody& setData(ReadPageItem && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
@@ -50,29 +50,29 @@ namespace Models
     // errorCode Field Functions 
     bool hasErrorCode() const { return this->errorCode_ != nullptr;};
     void deleteErrorCode() { this->errorCode_ = nullptr;};
-    inline string errorCode() const { DARABONBA_PTR_GET_DEFAULT(errorCode_, "") };
+    inline string getErrorCode() const { DARABONBA_PTR_GET_DEFAULT(errorCode_, "") };
     inline ReadPageBasicResponseBody& setErrorCode(string errorCode) { DARABONBA_PTR_SET_VALUE(errorCode_, errorCode) };
 
 
     // errorMessage Field Functions 
     bool hasErrorMessage() const { return this->errorMessage_ != nullptr;};
     void deleteErrorMessage() { this->errorMessage_ = nullptr;};
-    inline string errorMessage() const { DARABONBA_PTR_GET_DEFAULT(errorMessage_, "") };
+    inline string getErrorMessage() const { DARABONBA_PTR_GET_DEFAULT(errorMessage_, "") };
     inline ReadPageBasicResponseBody& setErrorMessage(string errorMessage) { DARABONBA_PTR_SET_VALUE(errorMessage_, errorMessage) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ReadPageBasicResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<ReadPageItem> data_ = nullptr;
-    std::shared_ptr<string> errorCode_ = nullptr;
-    std::shared_ptr<string> errorMessage_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<ReadPageItem> data_ {};
+    shared_ptr<string> errorCode_ {};
+    shared_ptr<string> errorMessage_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

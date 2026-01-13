@@ -43,12 +43,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->pageItems_ == nullptr
-        && return this->queryContext_ == nullptr && return this->requestId_ == nullptr && return this->sceneItems_ == nullptr && return this->searchInformation_ == nullptr; };
+        && this->queryContext_ == nullptr && this->requestId_ == nullptr && this->sceneItems_ == nullptr && this->searchInformation_ == nullptr; };
     // pageItems Field Functions 
     bool hasPageItems() const { return this->pageItems_ != nullptr;};
     void deletePageItems() { this->pageItems_ = nullptr;};
-    inline const vector<GlobalPageItem> & pageItems() const { DARABONBA_PTR_GET_CONST(pageItems_, vector<GlobalPageItem>) };
-    inline vector<GlobalPageItem> pageItems() { DARABONBA_PTR_GET(pageItems_, vector<GlobalPageItem>) };
+    inline const vector<GlobalPageItem> & getPageItems() const { DARABONBA_PTR_GET_CONST(pageItems_, vector<GlobalPageItem>) };
+    inline vector<GlobalPageItem> getPageItems() { DARABONBA_PTR_GET(pageItems_, vector<GlobalPageItem>) };
     inline GlobalSearchResult& setPageItems(const vector<GlobalPageItem> & pageItems) { DARABONBA_PTR_SET_VALUE(pageItems_, pageItems) };
     inline GlobalSearchResult& setPageItems(vector<GlobalPageItem> && pageItems) { DARABONBA_PTR_SET_RVALUE(pageItems_, pageItems) };
 
@@ -56,8 +56,8 @@ namespace Models
     // queryContext Field Functions 
     bool hasQueryContext() const { return this->queryContext_ != nullptr;};
     void deleteQueryContext() { this->queryContext_ = nullptr;};
-    inline const GlobalQueryContext & queryContext() const { DARABONBA_PTR_GET_CONST(queryContext_, GlobalQueryContext) };
-    inline GlobalQueryContext queryContext() { DARABONBA_PTR_GET(queryContext_, GlobalQueryContext) };
+    inline const GlobalQueryContext & getQueryContext() const { DARABONBA_PTR_GET_CONST(queryContext_, GlobalQueryContext) };
+    inline GlobalQueryContext getQueryContext() { DARABONBA_PTR_GET(queryContext_, GlobalQueryContext) };
     inline GlobalSearchResult& setQueryContext(const GlobalQueryContext & queryContext) { DARABONBA_PTR_SET_VALUE(queryContext_, queryContext) };
     inline GlobalSearchResult& setQueryContext(GlobalQueryContext && queryContext) { DARABONBA_PTR_SET_RVALUE(queryContext_, queryContext) };
 
@@ -65,15 +65,15 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GlobalSearchResult& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // sceneItems Field Functions 
     bool hasSceneItems() const { return this->sceneItems_ != nullptr;};
     void deleteSceneItems() { this->sceneItems_ = nullptr;};
-    inline const vector<GlobalSceneItem> & sceneItems() const { DARABONBA_PTR_GET_CONST(sceneItems_, vector<GlobalSceneItem>) };
-    inline vector<GlobalSceneItem> sceneItems() { DARABONBA_PTR_GET(sceneItems_, vector<GlobalSceneItem>) };
+    inline const vector<GlobalSceneItem> & getSceneItems() const { DARABONBA_PTR_GET_CONST(sceneItems_, vector<GlobalSceneItem>) };
+    inline vector<GlobalSceneItem> getSceneItems() { DARABONBA_PTR_GET(sceneItems_, vector<GlobalSceneItem>) };
     inline GlobalSearchResult& setSceneItems(const vector<GlobalSceneItem> & sceneItems) { DARABONBA_PTR_SET_VALUE(sceneItems_, sceneItems) };
     inline GlobalSearchResult& setSceneItems(vector<GlobalSceneItem> && sceneItems) { DARABONBA_PTR_SET_RVALUE(sceneItems_, sceneItems) };
 
@@ -81,18 +81,18 @@ namespace Models
     // searchInformation Field Functions 
     bool hasSearchInformation() const { return this->searchInformation_ != nullptr;};
     void deleteSearchInformation() { this->searchInformation_ = nullptr;};
-    inline const GlobalSearchInformation & searchInformation() const { DARABONBA_PTR_GET_CONST(searchInformation_, GlobalSearchInformation) };
-    inline GlobalSearchInformation searchInformation() { DARABONBA_PTR_GET(searchInformation_, GlobalSearchInformation) };
+    inline const GlobalSearchInformation & getSearchInformation() const { DARABONBA_PTR_GET_CONST(searchInformation_, GlobalSearchInformation) };
+    inline GlobalSearchInformation getSearchInformation() { DARABONBA_PTR_GET(searchInformation_, GlobalSearchInformation) };
     inline GlobalSearchResult& setSearchInformation(const GlobalSearchInformation & searchInformation) { DARABONBA_PTR_SET_VALUE(searchInformation_, searchInformation) };
     inline GlobalSearchResult& setSearchInformation(GlobalSearchInformation && searchInformation) { DARABONBA_PTR_SET_RVALUE(searchInformation_, searchInformation) };
 
 
   protected:
-    std::shared_ptr<vector<GlobalPageItem>> pageItems_ = nullptr;
-    std::shared_ptr<GlobalQueryContext> queryContext_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<vector<GlobalSceneItem>> sceneItems_ = nullptr;
-    std::shared_ptr<GlobalSearchInformation> searchInformation_ = nullptr;
+    shared_ptr<vector<GlobalPageItem>> pageItems_ {};
+    shared_ptr<GlobalQueryContext> queryContext_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<vector<GlobalSceneItem>> sceneItems_ {};
+    shared_ptr<GlobalSearchInformation> searchInformation_ {};
   };
 
   } // namespace Models

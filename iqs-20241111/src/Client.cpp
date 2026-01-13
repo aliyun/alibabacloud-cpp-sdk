@@ -44,27 +44,27 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
  * @param runtime runtime options for this request RuntimeOptions
  * @return AiSearchResponse
  */
-FutrueGenerator<AiSearchResponse> Client::aiSearchWithSSE(const AiSearchRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+FutureGenerator<AiSearchResponse> Client::aiSearchWithSSE(const AiSearchRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
   if (!!request.hasIndustry()) {
-    query["industry"] = request.industry();
+    query["industry"] = request.getIndustry();
   }
 
   if (!!request.hasPage()) {
-    query["page"] = request.page();
+    query["page"] = request.getPage();
   }
 
   if (!!request.hasQuery()) {
-    query["query"] = request.query();
+    query["query"] = request.getQuery();
   }
 
   if (!!request.hasSessionId()) {
-    query["sessionId"] = request.sessionId();
+    query["sessionId"] = request.getSessionId();
   }
 
   if (!!request.hasTimeRange()) {
-    query["timeRange"] = request.timeRange();
+    query["timeRange"] = request.getTimeRange();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -82,18 +82,18 @@ FutrueGenerator<AiSearchResponse> Client::aiSearchWithSSE(const AiSearchRequest 
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
   for (SSEResponse resp : sseResp) {
-    json data = json(json::parse(resp.event().data()));
+    json data = json(json::parse(resp.getEvent().getData()));
 json     __retrun = json(json({
-      {"statusCode" , resp.statusCode()},
-      {"headers" , resp.headers()},
+      {"statusCode" , resp.getStatusCode()},
+      {"headers" , resp.getHeaders()},
       {"body" , Darabonba::Core::merge(data,
-          {"RequestId" , resp.event().id()},
-          {"Message" , resp.event().event()}
+          {"RequestId" , resp.getEvent().getId()},
+          {"Message" , resp.getEvent().getEvent()}
       )}
     })).get<AiSearchResponse>();
-return Darbaonba::FutureGenerator<json>(__retrun);
+return Darabonba::FutureGenerator<json>(__retrun);
   }
 }
 
@@ -109,23 +109,23 @@ AiSearchResponse Client::aiSearchWithOptions(const AiSearchRequest &request, con
   request.validate();
   json query = {};
   if (!!request.hasIndustry()) {
-    query["industry"] = request.industry();
+    query["industry"] = request.getIndustry();
   }
 
   if (!!request.hasPage()) {
-    query["page"] = request.page();
+    query["page"] = request.getPage();
   }
 
   if (!!request.hasQuery()) {
-    query["query"] = request.query();
+    query["query"] = request.getQuery();
   }
 
   if (!!request.hasSessionId()) {
-    query["sessionId"] = request.sessionId();
+    query["sessionId"] = request.getSessionId();
   }
 
   if (!!request.hasTimeRange()) {
-    query["timeRange"] = request.timeRange();
+    query["timeRange"] = request.getTimeRange();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -170,19 +170,19 @@ GenericAdvancedSearchResponse Client::genericAdvancedSearchWithOptions(const Gen
   request.validate();
   json query = {};
   if (!!request.hasIndustry()) {
-    query["industry"] = request.industry();
+    query["industry"] = request.getIndustry();
   }
 
   if (!!request.hasQuery()) {
-    query["query"] = request.query();
+    query["query"] = request.getQuery();
   }
 
   if (!!request.hasSessionId()) {
-    query["sessionId"] = request.sessionId();
+    query["sessionId"] = request.getSessionId();
   }
 
   if (!!request.hasTimeRange()) {
-    query["timeRange"] = request.timeRange();
+    query["timeRange"] = request.getTimeRange();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -228,52 +228,52 @@ GenericSearchResponse Client::genericSearchWithOptions(const GenericSearchReques
   GenericSearchShrinkRequest request = GenericSearchShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasAdvancedParams()) {
-    request.setAdvancedParamsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.advancedParams(), "advancedParams", "json"));
+    request.setAdvancedParamsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAdvancedParams(), "advancedParams", "json"));
   }
 
   json query = {};
   if (!!request.hasAdvancedParamsShrink()) {
-    query["advancedParams"] = request.advancedParamsShrink();
+    query["advancedParams"] = request.getAdvancedParamsShrink();
   }
 
   if (!!request.hasEnableRerank()) {
-    query["enableRerank"] = request.enableRerank();
+    query["enableRerank"] = request.getEnableRerank();
   }
 
   if (!!request.hasIndustry()) {
-    query["industry"] = request.industry();
+    query["industry"] = request.getIndustry();
   }
 
   if (!!request.hasPage()) {
-    query["page"] = request.page();
+    query["page"] = request.getPage();
   }
 
   if (!!request.hasQuery()) {
-    query["query"] = request.query();
+    query["query"] = request.getQuery();
   }
 
   if (!!request.hasReturnMainText()) {
-    query["returnMainText"] = request.returnMainText();
+    query["returnMainText"] = request.getReturnMainText();
   }
 
   if (!!request.hasReturnMarkdownText()) {
-    query["returnMarkdownText"] = request.returnMarkdownText();
+    query["returnMarkdownText"] = request.getReturnMarkdownText();
   }
 
   if (!!request.hasReturnRichMainBody()) {
-    query["returnRichMainBody"] = request.returnRichMainBody();
+    query["returnRichMainBody"] = request.getReturnRichMainBody();
   }
 
   if (!!request.hasReturnSummary()) {
-    query["returnSummary"] = request.returnSummary();
+    query["returnSummary"] = request.getReturnSummary();
   }
 
   if (!!request.hasSessionId()) {
-    query["sessionId"] = request.sessionId();
+    query["sessionId"] = request.getSessionId();
   }
 
   if (!!request.hasTimeRange()) {
-    query["timeRange"] = request.timeRange();
+    query["timeRange"] = request.getTimeRange();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -317,12 +317,16 @@ GenericSearchResponse Client::genericSearch(const GenericSearchRequest &request)
 GetIqsUsageResponse Client::getIqsUsageWithOptions(const GetIqsUsageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasCallerId()) {
+    query["callerId"] = request.getCallerId();
+  }
+
   if (!!request.hasEndDate()) {
-    query["endDate"] = request.endDate();
+    query["endDate"] = request.getEndDate();
   }
 
   if (!!request.hasStartDate()) {
-    query["startDate"] = request.startDate();
+    query["startDate"] = request.getStartDate();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -367,19 +371,19 @@ GlobalSearchResponse Client::globalSearchWithOptions(const GlobalSearchRequest &
   request.validate();
   json query = {};
   if (!!request.hasPage()) {
-    query["page"] = request.page();
+    query["page"] = request.getPage();
   }
 
   if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
+    query["pageSize"] = request.getPageSize();
   }
 
   if (!!request.hasQuery()) {
-    query["query"] = request.query();
+    query["query"] = request.getQuery();
   }
 
   if (!!request.hasTimeRange()) {
-    query["timeRange"] = request.timeRange();
+    query["timeRange"] = request.getTimeRange();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -424,7 +428,7 @@ ReadPageBasicResponse Client::readPageBasicWithOptions(const ReadPageBasicReques
   request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "ReadPageBasic"},
@@ -464,7 +468,7 @@ ReadPageScrapeResponse Client::readPageScrapeWithOptions(const ReadPageScrapeReq
   request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "ReadPageScrape"},
@@ -504,7 +508,7 @@ UnifiedSearchResponse Client::unifiedSearchWithOptions(const UnifiedSearchReques
   request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "UnifiedSearch"},
