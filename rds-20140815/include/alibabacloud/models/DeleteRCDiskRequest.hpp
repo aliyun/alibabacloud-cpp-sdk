@@ -53,8 +53,6 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> diskId_ {};
     // The region ID of the instance.
-    // 
-    // This parameter is required.
     shared_ptr<string> regionId_ {};
   };
 

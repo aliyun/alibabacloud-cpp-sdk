@@ -8509,6 +8509,23 @@ namespace Rds20140815
       Models::ModifyParameterGroupResponse modifyParameterGroup(const Models::ModifyParameterGroupRequest &request);
 
       /**
+       * @summary 修改块存储属性
+       *
+       * @param request ModifyRCDiskAttributeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyRCDiskAttributeResponse
+       */
+      Models::ModifyRCDiskAttributeResponse modifyRCDiskAttributeWithOptions(const Models::ModifyRCDiskAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改块存储属性
+       *
+       * @param request ModifyRCDiskAttributeRequest
+       * @return ModifyRCDiskAttributeResponse
+       */
+      Models::ModifyRCDiskAttributeResponse modifyRCDiskAttribute(const Models::ModifyRCDiskAttributeRequest &request);
+
+      /**
        * @summary 修改RDS用户磁盘付费类型
        *
        * @param request ModifyRCDiskChargeTypeRequest

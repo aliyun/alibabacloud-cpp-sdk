@@ -16748,6 +16748,10 @@ DescribeRCSnapshotsResponse Client::describeRCSnapshotsWithOptions(const Describ
     query["DiskId"] = request.getDiskId();
   }
 
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
   if (!!request.hasPageNumber()) {
     query["PageNumber"] = request.getPageNumber();
   }
@@ -25340,6 +25344,68 @@ ModifyParameterGroupResponse Client::modifyParameterGroupWithOptions(const Modif
 ModifyParameterGroupResponse Client::modifyParameterGroup(const ModifyParameterGroupRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifyParameterGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改块存储属性
+ *
+ * @param request ModifyRCDiskAttributeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyRCDiskAttributeResponse
+ */
+ModifyRCDiskAttributeResponse Client::modifyRCDiskAttributeWithOptions(const ModifyRCDiskAttributeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBurstingEnabled()) {
+    query["BurstingEnabled"] = request.getBurstingEnabled();
+  }
+
+  if (!!request.hasDeleteWithInstance()) {
+    query["DeleteWithInstance"] = request.getDeleteWithInstance();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasDiskId()) {
+    query["DiskId"] = request.getDiskId();
+  }
+
+  if (!!request.hasDiskName()) {
+    query["DiskName"] = request.getDiskName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyRCDiskAttribute"},
+    {"version" , "2014-08-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyRCDiskAttributeResponse>();
+}
+
+/**
+ * @summary 修改块存储属性
+ *
+ * @param request ModifyRCDiskAttributeRequest
+ * @return ModifyRCDiskAttributeResponse
+ */
+ModifyRCDiskAttributeResponse Client::modifyRCDiskAttribute(const ModifyRCDiskAttributeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyRCDiskAttributeWithOptions(request, runtime);
 }
 
 /**
