@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The name of the ECS instance.
     shared_ptr<string> clusterId_ {};
+    // The cluster ID.
     shared_ptr<string> ensRegionId_ {};
+    // System specified parameters. Set the value to **DescribeClustersV1**.
     shared_ptr<string> name_ {};
   };
 

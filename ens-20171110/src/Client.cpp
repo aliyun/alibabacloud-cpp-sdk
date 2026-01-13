@@ -5818,7 +5818,7 @@ DescribeClusterKubeConfigResponse Client::describeClusterKubeConfig(const Descri
 }
 
 /**
- * @summary 查询集群列表
+ * @summary Queries a list of clusters.
  *
  * @param request DescribeClustersV1Request
  * @param runtime runtime options for this request RuntimeOptions
@@ -5857,7 +5857,7 @@ DescribeClustersV1Response Client::describeClustersV1WithOptions(const DescribeC
 }
 
 /**
- * @summary 查询集群列表
+ * @summary Queries a list of clusters.
  *
  * @param request DescribeClustersV1Request
  * @return DescribeClustersV1Response
@@ -11635,6 +11635,39 @@ ImportKeyPairResponse Client::importKeyPairWithOptions(const ImportKeyPairReques
 ImportKeyPairResponse Client::importKeyPair(const ImportKeyPairRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return importKeyPairWithOptions(request, runtime);
+}
+
+/**
+ * @summary 为当前用户创建ENS的服务关联角色（SLR），管控资源。
+ *
+ * @param request InitializeENSECKServiceRoleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return InitializeENSECKServiceRoleResponse
+ */
+InitializeENSECKServiceRoleResponse Client::initializeENSECKServiceRoleWithOptions(const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest();
+  Params params = Params(json({
+    {"action" , "InitializeENSECKServiceRole"},
+    {"version" , "2017-11-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<InitializeENSECKServiceRoleResponse>();
+}
+
+/**
+ * @summary 为当前用户创建ENS的服务关联角色（SLR），管控资源。
+ *
+ * @return InitializeENSECKServiceRoleResponse
+ */
+InitializeENSECKServiceRoleResponse Client::initializeENSECKServiceRole() {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return initializeENSECKServiceRoleWithOptions(runtime);
 }
 
 /**

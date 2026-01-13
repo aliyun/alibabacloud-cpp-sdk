@@ -48,6 +48,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(PodVswitchIds, podVswitchIds_);
         DARABONBA_PTR_TO_JSON(PublicAccess, publicAccess_);
         DARABONBA_PTR_TO_JSON(ServiceCidr, serviceCidr_);
+        DARABONBA_PTR_TO_JSON(State, state_);
         DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
         DARABONBA_PTR_TO_JSON(VswitchIds, vswitchIds_);
       };
@@ -65,6 +66,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(PodVswitchIds, podVswitchIds_);
         DARABONBA_PTR_FROM_JSON(PublicAccess, publicAccess_);
         DARABONBA_PTR_FROM_JSON(ServiceCidr, serviceCidr_);
+        DARABONBA_PTR_FROM_JSON(State, state_);
         DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
         DARABONBA_PTR_FROM_JSON(VswitchIds, vswitchIds_);
       };
@@ -163,19 +165,26 @@ namespace Models
 
 
       protected:
+        // The runtime type used by the nodes.
         shared_ptr<string> containerRuntime_ {};
+        // The ID of the custom image.
         shared_ptr<string> imageId_ {};
+        // The instance type.
         shared_ptr<string> instanceSpec_ {};
+        // The node port range.
         shared_ptr<string> nodePortRange_ {};
+        // The number of control plane nodes.
         shared_ptr<int64_t> size_ {};
+        // The system disk type of the node. Valid value: local_ssd, cloud_ssd, cloud_efficiency, and local_hdd.
         shared_ptr<string> systemDiskCategory_ {};
+        // The size of the system disk. Unit: GB.
         shared_ptr<int64_t> systemDiskSize_ {};
       };
 
       virtual bool empty() const override { return this->aliUid_ == nullptr
         && this->clusterId_ == nullptr && this->config_ == nullptr && this->containerCidr_ == nullptr && this->controlPlaneConfig_ == nullptr && this->ensRegionId_ == nullptr
         && this->joinToken_ == nullptr && this->kubernetesVersion_ == nullptr && this->loadBalancerId_ == nullptr && this->name_ == nullptr && this->podVswitchIds_ == nullptr
-        && this->publicAccess_ == nullptr && this->serviceCidr_ == nullptr && this->vpcId_ == nullptr && this->vswitchIds_ == nullptr; };
+        && this->publicAccess_ == nullptr && this->serviceCidr_ == nullptr && this->state_ == nullptr && this->vpcId_ == nullptr && this->vswitchIds_ == nullptr; };
       // aliUid Field Functions 
       bool hasAliUid() const { return this->aliUid_ != nullptr;};
       void deleteAliUid() { this->aliUid_ = nullptr;};
@@ -273,6 +282,13 @@ namespace Models
       inline Clusters& setServiceCidr(string serviceCidr) { DARABONBA_PTR_SET_VALUE(serviceCidr_, serviceCidr) };
 
 
+      // state Field Functions 
+      bool hasState() const { return this->state_ != nullptr;};
+      void deleteState() { this->state_ = nullptr;};
+      inline string getState() const { DARABONBA_PTR_GET_DEFAULT(state_, "") };
+      inline Clusters& setState(string state) { DARABONBA_PTR_SET_VALUE(state_, state) };
+
+
       // vpcId Field Functions 
       bool hasVpcId() const { return this->vpcId_ != nullptr;};
       void deleteVpcId() { this->vpcId_ = nullptr;};
@@ -290,20 +306,36 @@ namespace Models
 
 
     protected:
+      // The user IDs.
       shared_ptr<string> aliUid_ {};
+      // The cluster instance ID.
       shared_ptr<string> clusterId_ {};
+      // The kubeconfig file of the cluster.
       Darabonba::Json config_ {};
+      // The pod CIDR block. You can specify 10.0.0.0/8, 172.16-31.0.0/12-16, 192.168.0.0/16, or their subnets as the pod CIDR block. The pod CIDR block cannot overlap with the CIDR block of the VPC in which the cluster is deployed and the CIDR blocks of existing clusters in the VPC. You cannot modify the pod CIDR block after you create the cluster.
       shared_ptr<string> containerCidr_ {};
+      // Control plane configuration.
       shared_ptr<Clusters::ControlPlaneConfig> controlPlaneConfig_ {};
+      // The ID of the ENS node.
       shared_ptr<string> ensRegionId_ {};
+      // The cluster access authentication token.
       shared_ptr<string> joinToken_ {};
+      // The Kubernetes version of the cluster. The Kubernetes versions supported are the same as the Kubernetes versions supported by open source Kubernetes. We recommend that you specify the latest Kubernetes version. If you do not specify this parameter, the latest Kubernetes version is used.
       shared_ptr<string> kubernetesVersion_ {};
+      // The ID of the ALB instance.
       shared_ptr<string> loadBalancerId_ {};
+      // The name of the monitoring object.
       shared_ptr<string> name_ {};
+      // For each vSwitch that allocates IP addresses to worker nodes, you must select a vSwitch in the same zone to allocate IP addresses to pods. If you do not specify this parameter, vswitch_ids is used by default.
       shared_ptr<vector<string>> podVswitchIds_ {};
+      // Specifies whether to enable Internet access for the application. You can use an elastic IP address (EIP) to expose the API server. This way, you can access the cluster over the Internet. Valid values: true: enables Internet access for the application. false: disables Internet access to the API server of the cluster. If you set the value to false, the API server cannot be accessed over the Internet.
       shared_ptr<bool> publicAccess_ {};
+      // Valid values: 10.0.0.0/16-24, 172.16-31.0.0/16-24, and 192.168.0.0/16-24. The Service CIDR block cannot overlap with the VPC CIDR block 10.1.0.0/21 or the CIDR blocks of existing ACK clusters in the VPC. You cannot change the Service CIDR block after you create the cluster.
       shared_ptr<string> serviceCidr_ {};
+      shared_ptr<string> state_ {};
+      // The VPC of the cluster.
       shared_ptr<string> vpcId_ {};
+      // the id of the vswitch to which the cluster node belongs. The ENS region of the vswitch_ids service must be the same as that of the ens_region_id.
       shared_ptr<vector<string>> vswitchIds_ {};
     };
 
@@ -326,6 +358,7 @@ namespace Models
 
 
   protected:
+    // An array that consists of the information about clusters.
     shared_ptr<vector<DescribeClustersV1ResponseBody::Clusters>> clusters_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

@@ -1921,7 +1921,7 @@ namespace Ens20171110
       Models::DescribeClusterKubeConfigResponse describeClusterKubeConfig(const Models::DescribeClusterKubeConfigRequest &request);
 
       /**
-       * @summary 查询集群列表
+       * @summary Queries a list of clusters.
        *
        * @param request DescribeClustersV1Request
        * @param runtime runtime options for this request RuntimeOptions
@@ -1930,7 +1930,7 @@ namespace Ens20171110
       Models::DescribeClustersV1Response describeClustersV1WithOptions(const Models::DescribeClustersV1Request &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询集群列表
+       * @summary Queries a list of clusters.
        *
        * @param request DescribeClustersV1Request
        * @return DescribeClustersV1Response
@@ -3906,6 +3906,22 @@ namespace Ens20171110
        * @return ImportKeyPairResponse
        */
       Models::ImportKeyPairResponse importKeyPair(const Models::ImportKeyPairRequest &request);
+
+      /**
+       * @summary 为当前用户创建ENS的服务关联角色（SLR），管控资源。
+       *
+       * @param request InitializeENSECKServiceRoleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return InitializeENSECKServiceRoleResponse
+       */
+      Models::InitializeENSECKServiceRoleResponse initializeENSECKServiceRoleWithOptions(const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 为当前用户创建ENS的服务关联角色（SLR），管控资源。
+       *
+       * @return InitializeENSECKServiceRoleResponse
+       */
+      Models::InitializeENSECKServiceRoleResponse initializeENSECKServiceRole();
 
       /**
        * @summary Assigns public IP addresses to an EPN instance.

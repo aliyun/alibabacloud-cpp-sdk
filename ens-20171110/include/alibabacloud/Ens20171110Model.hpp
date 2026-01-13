@@ -666,6 +666,8 @@
 #include <alibabacloud/models/ImportKeyPairRequest.hpp>
 #include <alibabacloud/models/ImportKeyPairResponseBody.hpp>
 #include <alibabacloud/models/ImportKeyPairResponse.hpp>
+#include <alibabacloud/models/InitializeENSECKServiceRoleResponseBody.hpp>
+#include <alibabacloud/models/InitializeENSECKServiceRoleResponse.hpp>
 #include <alibabacloud/models/JoinPublicIpsToEpnInstanceRequest.hpp>
 #include <alibabacloud/models/JoinPublicIpsToEpnInstanceResponseBody.hpp>
 #include <alibabacloud/models/JoinPublicIpsToEpnInstanceResponse.hpp>
