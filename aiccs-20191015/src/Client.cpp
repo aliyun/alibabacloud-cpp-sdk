@@ -7172,6 +7172,64 @@ QueryHotlineNumberResponse Client::queryHotlineNumber(const QueryHotlineNumberRe
 }
 
 /**
+ * @summary 查询呼入CallId
+ *
+ * @param request QueryInboundCallIdRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryInboundCallIdResponse
+ */
+QueryInboundCallIdResponse Client::queryInboundCallIdWithOptions(const QueryInboundCallIdRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCallDate()) {
+    query["CallDate"] = request.getCallDate();
+  }
+
+  if (!!request.hasOutId()) {
+    query["OutId"] = request.getOutId();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryInboundCallId"},
+    {"version" , "2019-10-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryInboundCallIdResponse>();
+}
+
+/**
+ * @summary 查询呼入CallId
+ *
+ * @param request QueryInboundCallIdRequest
+ * @return QueryInboundCallIdResponse
+ */
+QueryInboundCallIdResponse Client::queryInboundCallId(const QueryInboundCallIdRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryInboundCallIdWithOptions(request, runtime);
+}
+
+/**
  * @param request QueryOutboundTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryOutboundTaskResponse

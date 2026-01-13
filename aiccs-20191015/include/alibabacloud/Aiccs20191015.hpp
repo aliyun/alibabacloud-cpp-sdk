@@ -2024,6 +2024,23 @@ namespace Aiccs20191015
       Models::QueryHotlineNumberResponse queryHotlineNumber(const Models::QueryHotlineNumberRequest &request);
 
       /**
+       * @summary 查询呼入CallId
+       *
+       * @param request QueryInboundCallIdRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryInboundCallIdResponse
+       */
+      Models::QueryInboundCallIdResponse queryInboundCallIdWithOptions(const Models::QueryInboundCallIdRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询呼入CallId
+       *
+       * @param request QueryInboundCallIdRequest
+       * @return QueryInboundCallIdResponse
+       */
+      Models::QueryInboundCallIdResponse queryInboundCallId(const Models::QueryInboundCallIdRequest &request);
+
+      /**
        * @param request QueryOutboundTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return QueryOutboundTaskResponse

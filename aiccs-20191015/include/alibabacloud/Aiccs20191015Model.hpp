@@ -422,6 +422,9 @@
 #include <alibabacloud/models/QueryHotlineNumberShrinkRequest.hpp>
 #include <alibabacloud/models/QueryHotlineNumberResponseBody.hpp>
 #include <alibabacloud/models/QueryHotlineNumberResponse.hpp>
+#include <alibabacloud/models/QueryInboundCallIdRequest.hpp>
+#include <alibabacloud/models/QueryInboundCallIdResponseBody.hpp>
+#include <alibabacloud/models/QueryInboundCallIdResponse.hpp>
 #include <alibabacloud/models/QueryOutboundTaskRequest.hpp>
 #include <alibabacloud/models/QueryOutboundTaskResponseBody.hpp>
 #include <alibabacloud/models/QueryOutboundTaskResponse.hpp>
