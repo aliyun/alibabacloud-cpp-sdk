@@ -32,25 +32,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->stateId_ == nullptr; };
+        && this->stateId_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ExecuteTerraformDestroyResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // stateId Field Functions 
     bool hasStateId() const { return this->stateId_ != nullptr;};
     void deleteStateId() { this->stateId_ = nullptr;};
-    inline string stateId() const { DARABONBA_PTR_GET_DEFAULT(stateId_, "") };
+    inline string getStateId() const { DARABONBA_PTR_GET_DEFAULT(stateId_, "") };
     inline ExecuteTerraformDestroyResponseBody& setStateId(string stateId) { DARABONBA_PTR_SET_VALUE(stateId_, stateId) };
 
 
   protected:
     // Id of the request
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> stateId_ = nullptr;
+    shared_ptr<string> requestId_ {};
+    shared_ptr<string> stateId_ {};
   };
 
   } // namespace Models

@@ -49,15 +49,15 @@ AddSharedAccountsResponse Client::addSharedAccountsWithOptions(const AddSharedAc
   request.validate();
   json body = {};
   if (!!request.hasAccountIds()) {
-    body["accountIds"] = request.accountIds();
+    body["accountIds"] = request.getAccountIds();
   }
 
   if (!!request.hasResourceId()) {
-    body["resourceId"] = request.resourceId();
+    body["resourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceType()) {
-    body["resourceType"] = request.resourceType();
+    body["resourceType"] = request.getResourceType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -102,19 +102,19 @@ AssociateGroupResponse Client::associateGroupWithOptions(const string &groupId, 
   request.validate();
   json body = {};
   if (!!request.hasClientToken()) {
-    body["clientToken"] = request.clientToken();
+    body["clientToken"] = request.getClientToken();
   }
 
   if (!!request.hasProjectId()) {
-    body["projectId"] = request.projectId();
+    body["projectId"] = request.getProjectId();
   }
 
   if (!!request.hasResourceIds()) {
-    body["resourceIds"] = request.resourceIds();
+    body["resourceIds"] = request.getResourceIds();
   }
 
   if (!!request.hasResourceType()) {
-    body["resourceType"] = request.resourceType();
+    body["resourceType"] = request.getResourceType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -159,7 +159,7 @@ CancelResourceExportTaskResponse Client::cancelResourceExportTaskWithOptions(con
   request.validate();
   json body = {};
   if (!!request.hasClientToken()) {
-    body["clientToken"] = request.clientToken();
+    body["clientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -204,63 +204,63 @@ CreateGroupResponse Client::createGroupWithOptions(const CreateGroupRequest &req
   request.validate();
   json body = {};
   if (!!request.hasAutoDestroy()) {
-    body["autoDestroy"] = request.autoDestroy();
+    body["autoDestroy"] = request.getAutoDestroy();
   }
 
   if (!!request.hasAutoTrigger()) {
-    body["autoTrigger"] = request.autoTrigger();
+    body["autoTrigger"] = request.getAutoTrigger();
   }
 
   if (!!request.hasClientToken()) {
-    body["clientToken"] = request.clientToken();
+    body["clientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDescription()) {
-    body["description"] = request.description();
+    body["description"] = request.getDescription();
   }
 
   if (!!request.hasForcedSetting()) {
-    body["forcedSetting"] = request.forcedSetting();
+    body["forcedSetting"] = request.getForcedSetting();
   }
 
   if (!!request.hasName()) {
-    body["name"] = request.name();
+    body["name"] = request.getName();
   }
 
   if (!!request.hasNotifyConfig()) {
-    body["notifyConfig"] = request.notifyConfig();
+    body["notifyConfig"] = request.getNotifyConfig();
   }
 
   if (!!request.hasNotifyOperationTypes()) {
-    body["notifyOperationTypes"] = request.notifyOperationTypes();
+    body["notifyOperationTypes"] = request.getNotifyOperationTypes();
   }
 
   if (!!request.hasProjectId()) {
-    body["projectId"] = request.projectId();
+    body["projectId"] = request.getProjectId();
   }
 
   if (!!request.hasRamRole()) {
-    body["ramRole"] = request.ramRole();
+    body["ramRole"] = request.getRamRole();
   }
 
   if (!!request.hasReportExportField()) {
-    body["reportExportField"] = request.reportExportField();
+    body["reportExportField"] = request.getReportExportField();
   }
 
   if (!!request.hasReportExportPath()) {
-    body["reportExportPath"] = request.reportExportPath();
+    body["reportExportPath"] = request.getReportExportPath();
   }
 
   if (!!request.hasTerraformProviderVersion()) {
-    body["terraformProviderVersion"] = request.terraformProviderVersion();
+    body["terraformProviderVersion"] = request.getTerraformProviderVersion();
   }
 
   if (!!request.hasTriggerConfig()) {
-    body["triggerConfig"] = request.triggerConfig();
+    body["triggerConfig"] = request.getTriggerConfig();
   }
 
   if (!!request.hasTriggerResourceType()) {
-    body["triggerResourceType"] = request.triggerResourceType();
+    body["triggerResourceType"] = request.getTriggerResourceType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -305,19 +305,19 @@ CreateJobResponse Client::createJobWithOptions(const string &taskId, const Creat
   request.validate();
   json body = {};
   if (!!request.hasClientToken()) {
-    body["clientToken"] = request.clientToken();
+    body["clientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDescription()) {
-    body["description"] = request.description();
+    body["description"] = request.getDescription();
   }
 
   if (!!request.hasSubCommand()) {
-    body["subCommand"] = request.subCommand();
+    body["subCommand"] = request.getSubCommand();
   }
 
   if (!!request.hasTaskType()) {
-    body["taskType"] = request.taskType();
+    body["taskType"] = request.getTaskType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -362,39 +362,39 @@ CreateModuleResponse Client::createModuleWithOptions(const CreateModuleRequest &
   request.validate();
   json body = {};
   if (!!request.hasClientToken()) {
-    body["clientToken"] = request.clientToken();
+    body["clientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDescription()) {
-    body["description"] = request.description();
+    body["description"] = request.getDescription();
   }
 
   if (!!request.hasGroupInfo()) {
-    body["groupInfo"] = request.groupInfo();
+    body["groupInfo"] = request.getGroupInfo();
   }
 
   if (!!request.hasName()) {
-    body["name"] = request.name();
+    body["name"] = request.getName();
   }
 
   if (!!request.hasSource()) {
-    body["source"] = request.source();
+    body["source"] = request.getSource();
   }
 
   if (!!request.hasSourcePath()) {
-    body["sourcePath"] = request.sourcePath();
+    body["sourcePath"] = request.getSourcePath();
   }
 
   if (!!request.hasStatePath()) {
-    body["statePath"] = request.statePath();
+    body["statePath"] = request.getStatePath();
   }
 
   if (!!request.hasTags()) {
-    body["tags"] = request.tags();
+    body["tags"] = request.getTags();
   }
 
   if (!!request.hasVersionStrategy()) {
-    body["versionStrategy"] = request.versionStrategy();
+    body["versionStrategy"] = request.getVersionStrategy();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -439,15 +439,15 @@ CreateModuleVersionResponse Client::createModuleVersionWithOptions(const string 
   request.validate();
   json body = {};
   if (!!request.hasClientToken()) {
-    body["clientToken"] = request.clientToken();
+    body["clientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDescription()) {
-    body["description"] = request.description();
+    body["description"] = request.getDescription();
   }
 
   if (!!request.hasName()) {
-    body["name"] = request.name();
+    body["name"] = request.getName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -492,15 +492,15 @@ CreateProjectResponse Client::createProjectWithOptions(const CreateProjectReques
   request.validate();
   json body = {};
   if (!!request.hasClientToken()) {
-    body["clientToken"] = request.clientToken();
+    body["clientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDescription()) {
-    body["description"] = request.description();
+    body["description"] = request.getDescription();
   }
 
   if (!!request.hasName()) {
-    body["name"] = request.name();
+    body["name"] = request.getName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -545,31 +545,31 @@ CreateRegistryModuleResponse Client::createRegistryModuleWithOptions(const Creat
   request.validate();
   json body = {};
   if (!!request.hasAcl()) {
-    body["acl"] = request.acl();
+    body["acl"] = request.getAcl();
   }
 
   if (!!request.hasClientToken()) {
-    body["clientToken"] = request.clientToken();
+    body["clientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDescription()) {
-    body["description"] = request.description();
+    body["description"] = request.getDescription();
   }
 
   if (!!request.hasModuleName()) {
-    body["moduleName"] = request.moduleName();
+    body["moduleName"] = request.getModuleName();
   }
 
   if (!!request.hasNamespaceName()) {
-    body["namespaceName"] = request.namespaceName();
+    body["namespaceName"] = request.getNamespaceName();
   }
 
   if (!!request.hasProvider()) {
-    body["provider"] = request.provider();
+    body["provider"] = request.getProvider();
   }
 
   if (!!request.hasType()) {
-    body["type"] = request.type();
+    body["type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -614,23 +614,23 @@ CreateRegistryNamespaceResponse Client::createRegistryNamespaceWithOptions(const
   request.validate();
   json body = {};
   if (!!request.hasAcl()) {
-    body["acl"] = request.acl();
+    body["acl"] = request.getAcl();
   }
 
   if (!!request.hasClientToken()) {
-    body["clientToken"] = request.clientToken();
+    body["clientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDescription()) {
-    body["description"] = request.description();
+    body["description"] = request.getDescription();
   }
 
   if (!!request.hasMaintainer()) {
-    body["maintainer"] = request.maintainer();
+    body["maintainer"] = request.getMaintainer();
   }
 
   if (!!request.hasNamespaceName()) {
-    body["namespaceName"] = request.namespaceName();
+    body["namespaceName"] = request.getNamespaceName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -675,43 +675,43 @@ CreateResourceExportTaskResponse Client::createResourceExportTaskWithOptions(con
   request.validate();
   json body = {};
   if (!!request.hasClientToken()) {
-    body["clientToken"] = request.clientToken();
+    body["clientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDescription()) {
-    body["description"] = request.description();
+    body["description"] = request.getDescription();
   }
 
   if (!!request.hasExportToModule()) {
-    body["exportToModule"] = request.exportToModule();
+    body["exportToModule"] = request.getExportToModule();
   }
 
   if (!!request.hasIncludeRules()) {
-    body["includeRules"] = request.includeRules();
+    body["includeRules"] = request.getIncludeRules();
   }
 
   if (!!request.hasName()) {
-    body["name"] = request.name();
+    body["name"] = request.getName();
   }
 
   if (!!request.hasRamRole()) {
-    body["ramRole"] = request.ramRole();
+    body["ramRole"] = request.getRamRole();
   }
 
   if (!!request.hasTerraformProviderVersion()) {
-    body["terraformProviderVersion"] = request.terraformProviderVersion();
+    body["terraformProviderVersion"] = request.getTerraformProviderVersion();
   }
 
   if (!!request.hasTerraformVersion()) {
-    body["terraformVersion"] = request.terraformVersion();
+    body["terraformVersion"] = request.getTerraformVersion();
   }
 
   if (!!request.hasTriggerStrategy()) {
-    body["triggerStrategy"] = request.triggerStrategy();
+    body["triggerStrategy"] = request.getTriggerStrategy();
   }
 
   if (!!request.hasVariables()) {
-    body["variables"] = request.variables();
+    body["variables"] = request.getVariables();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -756,67 +756,67 @@ CreateTaskResponse Client::createTaskWithOptions(const CreateTaskRequest &reques
   request.validate();
   json body = {};
   if (!!request.hasAutoApply()) {
-    body["autoApply"] = request.autoApply();
+    body["autoApply"] = request.getAutoApply();
   }
 
   if (!!request.hasAutoDestroy()) {
-    body["autoDestroy"] = request.autoDestroy();
+    body["autoDestroy"] = request.getAutoDestroy();
   }
 
   if (!!request.hasClientToken()) {
-    body["clientToken"] = request.clientToken();
+    body["clientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDescription()) {
-    body["description"] = request.description();
+    body["description"] = request.getDescription();
   }
 
   if (!!request.hasGroupInfo()) {
-    body["groupInfo"] = request.groupInfo();
+    body["groupInfo"] = request.getGroupInfo();
   }
 
   if (!!request.hasInitModuleState()) {
-    body["initModuleState"] = request.initModuleState();
+    body["initModuleState"] = request.getInitModuleState();
   }
 
   if (!!request.hasModuleId()) {
-    body["moduleId"] = request.moduleId();
+    body["moduleId"] = request.getModuleId();
   }
 
   if (!!request.hasModuleVersion()) {
-    body["moduleVersion"] = request.moduleVersion();
+    body["moduleVersion"] = request.getModuleVersion();
   }
 
   if (!!request.hasName()) {
-    body["name"] = request.name();
+    body["name"] = request.getName();
   }
 
   if (!!request.hasProtectionStrategy()) {
-    body["protectionStrategy"] = request.protectionStrategy();
+    body["protectionStrategy"] = request.getProtectionStrategy();
   }
 
   if (!!request.hasRamRole()) {
-    body["ramRole"] = request.ramRole();
+    body["ramRole"] = request.getRamRole();
   }
 
   if (!!request.hasSkipPropertyValidation()) {
-    body["skipPropertyValidation"] = request.skipPropertyValidation();
+    body["skipPropertyValidation"] = request.getSkipPropertyValidation();
   }
 
   if (!!request.hasTags()) {
-    body["tags"] = request.tags();
+    body["tags"] = request.getTags();
   }
 
   if (!!request.hasTaskBackend()) {
-    body["taskBackend"] = request.taskBackend();
+    body["taskBackend"] = request.getTaskBackend();
   }
 
   if (!!request.hasTerraformVersion()) {
-    body["terraformVersion"] = request.terraformVersion();
+    body["terraformVersion"] = request.getTerraformVersion();
   }
 
   if (!!request.hasTriggerStrategy()) {
-    body["triggerStrategy"] = request.triggerStrategy();
+    body["triggerStrategy"] = request.getTriggerStrategy();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1149,15 +1149,15 @@ DissociateGroupResponse Client::dissociateGroupWithOptions(const string &project
   request.validate();
   json body = {};
   if (!!request.hasClientToken()) {
-    body["clientToken"] = request.clientToken();
+    body["clientToken"] = request.getClientToken();
   }
 
   if (!!request.hasResourceIds()) {
-    body["resourceIds"] = request.resourceIds();
+    body["resourceIds"] = request.getResourceIds();
   }
 
   if (!!request.hasResourceType()) {
-    body["resourceType"] = request.resourceType();
+    body["resourceType"] = request.getResourceType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1202,11 +1202,11 @@ ExecuteRegistryModuleResponse Client::executeRegistryModuleWithOptions(const str
   request.validate();
   json body = {};
   if (!!request.hasClientToken()) {
-    body["clientToken"] = request.clientToken();
+    body["clientToken"] = request.getClientToken();
   }
 
   if (!!request.hasParameters()) {
-    body["parameters"] = request.parameters();
+    body["parameters"] = request.getParameters();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1251,7 +1251,7 @@ ExecuteResourceExportTaskResponse Client::executeResourceExportTaskWithOptions(c
   request.validate();
   json body = {};
   if (!!request.hasClientToken()) {
-    body["clientToken"] = request.clientToken();
+    body["clientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1296,15 +1296,15 @@ ExecuteTerraformApplyResponse Client::executeTerraformApplyWithOptions(const Exe
   request.validate();
   json body = {};
   if (!!request.hasClientToken()) {
-    body["clientToken"] = request.clientToken();
+    body["clientToken"] = request.getClientToken();
   }
 
   if (!!request.hasCode()) {
-    body["code"] = request.code();
+    body["code"] = request.getCode();
   }
 
   if (!!request.hasStateId()) {
-    body["stateId"] = request.stateId();
+    body["stateId"] = request.getStateId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1349,11 +1349,11 @@ ExecuteTerraformDestroyResponse Client::executeTerraformDestroyWithOptions(const
   request.validate();
   json body = {};
   if (!!request.hasClientToken()) {
-    body["clientToken"] = request.clientToken();
+    body["clientToken"] = request.getClientToken();
   }
 
   if (!!request.hasStateId()) {
-    body["stateId"] = request.stateId();
+    body["stateId"] = request.getStateId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1398,15 +1398,15 @@ ExecuteTerraformPlanResponse Client::executeTerraformPlanWithOptions(const Execu
   request.validate();
   json body = {};
   if (!!request.hasClientToken()) {
-    body["clientToken"] = request.clientToken();
+    body["clientToken"] = request.getClientToken();
   }
 
   if (!!request.hasCode()) {
-    body["code"] = request.code();
+    body["code"] = request.getCode();
   }
 
   if (!!request.hasStateId()) {
-    body["stateId"] = request.stateId();
+    body["stateId"] = request.getStateId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1451,31 +1451,31 @@ GenerateModuleResponse Client::generateModuleWithOptions(const GenerateModuleReq
   request.validate();
   json body = {};
   if (!!request.hasGenerateSource()) {
-    body["generateSource"] = request.generateSource();
+    body["generateSource"] = request.getGenerateSource();
   }
 
   if (!!request.hasParameters()) {
-    body["parameters"] = request.parameters();
+    body["parameters"] = request.getParameters();
   }
 
   if (!!request.hasRegionId()) {
-    body["regionId"] = request.regionId();
+    body["regionId"] = request.getRegionId();
   }
 
   if (!!request.hasSyntax()) {
-    body["syntax"] = request.syntax();
+    body["syntax"] = request.getSyntax();
   }
 
   if (!!request.hasTemplate()) {
-    body["template"] = request._template();
+    body["template"] = request.getTemplate();
   }
 
   if (!!request.hasTerraformProviderVersion()) {
-    body["terraformProviderVersion"] = request.terraformProviderVersion();
+    body["terraformProviderVersion"] = request.getTerraformProviderVersion();
   }
 
   if (!!request.hasTerraformResourceType()) {
-    body["terraformResourceType"] = request.terraformResourceType();
+    body["terraformResourceType"] = request.getTerraformResourceType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1493,7 +1493,7 @@ GenerateModuleResponse Client::generateModuleWithOptions(const GenerateModuleReq
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  return json(doROARequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.pathname(), params.bodyType(), req, runtime)).get<GenerateModuleResponse>();
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<GenerateModuleResponse>();
 }
 
 /**
@@ -1592,7 +1592,7 @@ GetJobResponse Client::getJobWithOptions(const string &taskId, const string &job
   request.validate();
   json query = {};
   if (!!request.hasTaskType()) {
-    query["taskType"] = request.taskType();
+    query["taskType"] = request.getTaskType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1853,7 +1853,7 @@ GetResourceExportTaskResponse Client::getResourceExportTaskWithOptions(const str
   request.validate();
   json query = {};
   if (!!request.hasExportVersion()) {
-    query["exportVersion"] = request.exportVersion();
+    query["exportVersion"] = request.getExportVersion();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1898,15 +1898,15 @@ GetResourceTypeResponse Client::getResourceTypeWithOptions(const string &resourc
   request.validate();
   json query = {};
   if (!!request.hasAcceptLanguage()) {
-    query["acceptLanguage"] = request.acceptLanguage();
+    query["acceptLanguage"] = request.getAcceptLanguage();
   }
 
   if (!!request.hasFilterReadOnly()) {
-    query["filterReadOnly"] = request.filterReadOnly();
+    query["filterReadOnly"] = request.getFilterReadOnly();
   }
 
   if (!!request.hasTerraformProviderVersion()) {
-    query["terraformProviderVersion"] = request.terraformProviderVersion();
+    query["terraformProviderVersion"] = request.getTerraformProviderVersion();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1924,7 +1924,7 @@ GetResourceTypeResponse Client::getResourceTypeWithOptions(const string &resourc
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  return json(doROARequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.pathname(), params.bodyType(), req, runtime)).get<GetResourceTypeResponse>();
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<GetResourceTypeResponse>();
 }
 
 /**
@@ -1987,31 +1987,31 @@ ListExplorerRegistryModuleExamplesResponse Client::listExplorerRegistryModuleExa
   request.validate();
   json query = {};
   if (!!request.hasExampleName()) {
-    query["exampleName"] = request.exampleName();
+    query["exampleName"] = request.getExampleName();
   }
 
   if (!!request.hasKeyword()) {
-    query["keyword"] = request.keyword();
+    query["keyword"] = request.getKeyword();
   }
 
   if (!!request.hasMaxResults()) {
-    query["maxResults"] = request.maxResults();
+    query["maxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasModuleName()) {
-    query["moduleName"] = request.moduleName();
+    query["moduleName"] = request.getModuleName();
   }
 
   if (!!request.hasModuleVersion()) {
-    query["moduleVersion"] = request.moduleVersion();
+    query["moduleVersion"] = request.getModuleVersion();
   }
 
   if (!!request.hasNamespaceName()) {
-    query["namespaceName"] = request.namespaceName();
+    query["namespaceName"] = request.getNamespaceName();
   }
 
   if (!!request.hasNextToken()) {
-    query["nextToken"] = request.nextToken();
+    query["nextToken"] = request.getNextToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2029,7 +2029,7 @@ ListExplorerRegistryModuleExamplesResponse Client::listExplorerRegistryModuleExa
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  return json(doROARequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.pathname(), params.bodyType(), req, runtime)).get<ListExplorerRegistryModuleExamplesResponse>();
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<ListExplorerRegistryModuleExamplesResponse>();
 }
 
 /**
@@ -2056,27 +2056,27 @@ ListExplorerRegistryModuleVersionsResponse Client::listExplorerRegistryModuleVer
   request.validate();
   json query = {};
   if (!!request.hasKeyword()) {
-    query["keyword"] = request.keyword();
+    query["keyword"] = request.getKeyword();
   }
 
   if (!!request.hasMaxResults()) {
-    query["maxResults"] = request.maxResults();
+    query["maxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasModuleName()) {
-    query["moduleName"] = request.moduleName();
+    query["moduleName"] = request.getModuleName();
   }
 
   if (!!request.hasModuleVersion()) {
-    query["moduleVersion"] = request.moduleVersion();
+    query["moduleVersion"] = request.getModuleVersion();
   }
 
   if (!!request.hasNamespaceName()) {
-    query["namespaceName"] = request.namespaceName();
+    query["namespaceName"] = request.getNamespaceName();
   }
 
   if (!!request.hasNextToken()) {
-    query["nextToken"] = request.nextToken();
+    query["nextToken"] = request.getNextToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2094,7 +2094,7 @@ ListExplorerRegistryModuleVersionsResponse Client::listExplorerRegistryModuleVer
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  return json(doROARequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.pathname(), params.bodyType(), req, runtime)).get<ListExplorerRegistryModuleVersionsResponse>();
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<ListExplorerRegistryModuleVersionsResponse>();
 }
 
 /**
@@ -2121,23 +2121,23 @@ ListExplorerRegistryModulesResponse Client::listExplorerRegistryModulesWithOptio
   request.validate();
   json query = {};
   if (!!request.hasKeyword()) {
-    query["keyword"] = request.keyword();
+    query["keyword"] = request.getKeyword();
   }
 
   if (!!request.hasMaxResults()) {
-    query["maxResults"] = request.maxResults();
+    query["maxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasModuleName()) {
-    query["moduleName"] = request.moduleName();
+    query["moduleName"] = request.getModuleName();
   }
 
   if (!!request.hasNextToken()) {
-    query["nextToken"] = request.nextToken();
+    query["nextToken"] = request.getNextToken();
   }
 
   if (!!request.hasSort()) {
-    query["sort"] = request.sort();
+    query["sort"] = request.getSort();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2155,7 +2155,7 @@ ListExplorerRegistryModulesResponse Client::listExplorerRegistryModulesWithOptio
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  return json(doROARequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.pathname(), params.bodyType(), req, runtime)).get<ListExplorerRegistryModulesResponse>();
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<ListExplorerRegistryModulesResponse>();
 }
 
 /**
@@ -2183,28 +2183,28 @@ ListGroupResponse Client::listGroupWithOptions(const ListGroupRequest &tmpReq, c
   ListGroupShrinkRequest request = ListGroupShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasTag()) {
-    request.setTagShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tag(), "tag", "json"));
+    request.setTagShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTag(), "tag", "json"));
   }
 
   json query = {};
   if (!!request.hasKeyword()) {
-    query["keyword"] = request.keyword();
+    query["keyword"] = request.getKeyword();
   }
 
   if (!!request.hasPageNumber()) {
-    query["pageNumber"] = request.pageNumber();
+    query["pageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
+    query["pageSize"] = request.getPageSize();
   }
 
   if (!!request.hasProjectId()) {
-    query["projectId"] = request.projectId();
+    query["projectId"] = request.getProjectId();
   }
 
   if (!!request.hasTagShrink()) {
-    query["tag"] = request.tagShrink();
+    query["tag"] = request.getTagShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2249,23 +2249,23 @@ ListJobsResponse Client::listJobsWithOptions(const string &taskId, const ListJob
   request.validate();
   json query = {};
   if (!!request.hasJobType()) {
-    query["jobType"] = request.jobType();
+    query["jobType"] = request.getJobType();
   }
 
   if (!!request.hasPageNumber()) {
-    query["pageNumber"] = request.pageNumber();
+    query["pageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
+    query["pageSize"] = request.getPageSize();
   }
 
   if (!!request.hasStatus()) {
-    query["status"] = request.status();
+    query["status"] = request.getStatus();
   }
 
   if (!!request.hasTaskType()) {
-    query["taskType"] = request.taskType();
+    query["taskType"] = request.getTaskType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2310,15 +2310,15 @@ ListModuleVersionResponse Client::listModuleVersionWithOptions(const string &mod
   request.validate();
   json query = {};
   if (!!request.hasKeyword()) {
-    query["keyword"] = request.keyword();
+    query["keyword"] = request.getKeyword();
   }
 
   if (!!request.hasPageNumber()) {
-    query["pageNumber"] = request.pageNumber();
+    query["pageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
+    query["pageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2364,36 +2364,36 @@ ListModulesResponse Client::listModulesWithOptions(const ListModulesRequest &tmp
   ListModulesShrinkRequest request = ListModulesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasTag()) {
-    request.setTagShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tag(), "tag", "json"));
+    request.setTagShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTag(), "tag", "json"));
   }
 
   json query = {};
   if (!!request.hasGroupId()) {
-    query["groupId"] = request.groupId();
+    query["groupId"] = request.getGroupId();
   }
 
   if (!!request.hasKeyword()) {
-    query["keyword"] = request.keyword();
+    query["keyword"] = request.getKeyword();
   }
 
   if (!!request.hasModuleName()) {
-    query["moduleName"] = request.moduleName();
+    query["moduleName"] = request.getModuleName();
   }
 
   if (!!request.hasPageNumber()) {
-    query["pageNumber"] = request.pageNumber();
+    query["pageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
+    query["pageSize"] = request.getPageSize();
   }
 
   if (!!request.hasProjectId()) {
-    query["projectId"] = request.projectId();
+    query["projectId"] = request.getProjectId();
   }
 
   if (!!request.hasTagShrink()) {
-    query["tag"] = request.tagShrink();
+    query["tag"] = request.getTagShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2438,31 +2438,31 @@ ListProductsResponse Client::listProductsWithOptions(const ListProductsRequest &
   request.validate();
   json query = {};
   if (!!request.hasKeyword()) {
-    query["keyword"] = request.keyword();
+    query["keyword"] = request.getKeyword();
   }
 
   if (!!request.hasMaxResults()) {
-    query["maxResults"] = request.maxResults();
+    query["maxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["nextToken"] = request.nextToken();
+    query["nextToken"] = request.getNextToken();
   }
 
   if (!!request.hasSort()) {
-    query["sort"] = request.sort();
+    query["sort"] = request.getSort();
   }
 
   if (!!request.hasStatus()) {
-    query["status"] = request.status();
+    query["status"] = request.getStatus();
   }
 
   if (!!request.hasSupportTerraformer()) {
-    query["supportTerraformer"] = request.supportTerraformer();
+    query["supportTerraformer"] = request.getSupportTerraformer();
   }
 
   if (!!request.hasTerraformProviderVersion()) {
-    query["terraformProviderVersion"] = request.terraformProviderVersion();
+    query["terraformProviderVersion"] = request.getTerraformProviderVersion();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2480,7 +2480,7 @@ ListProductsResponse Client::listProductsWithOptions(const ListProductsRequest &
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  return json(doROARequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.pathname(), params.bodyType(), req, runtime)).get<ListProductsResponse>();
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<ListProductsResponse>();
 }
 
 /**
@@ -2508,24 +2508,24 @@ ListProjectResponse Client::listProjectWithOptions(const ListProjectRequest &tmp
   ListProjectShrinkRequest request = ListProjectShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasTag()) {
-    request.setTagShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tag(), "tag", "json"));
+    request.setTagShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTag(), "tag", "json"));
   }
 
   json query = {};
   if (!!request.hasKeyword()) {
-    query["keyword"] = request.keyword();
+    query["keyword"] = request.getKeyword();
   }
 
   if (!!request.hasPageNumber()) {
-    query["pageNumber"] = request.pageNumber();
+    query["pageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
+    query["pageSize"] = request.getPageSize();
   }
 
   if (!!request.hasTagShrink()) {
-    query["tag"] = request.tagShrink();
+    query["tag"] = request.getTagShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2570,19 +2570,19 @@ ListRegistryModuleVersionsResponse Client::listRegistryModuleVersionsWithOptions
   request.validate();
   json query = {};
   if (!!request.hasMaxResults()) {
-    query["maxResults"] = request.maxResults();
+    query["maxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasModuleName()) {
-    query["moduleName"] = request.moduleName();
+    query["moduleName"] = request.getModuleName();
   }
 
   if (!!request.hasNamespaceName()) {
-    query["namespaceName"] = request.namespaceName();
+    query["namespaceName"] = request.getNamespaceName();
   }
 
   if (!!request.hasNextToken()) {
-    query["nextToken"] = request.nextToken();
+    query["nextToken"] = request.getNextToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2627,23 +2627,27 @@ ListRegistryModulesResponse Client::listRegistryModulesWithOptions(const ListReg
   request.validate();
   json query = {};
   if (!!request.hasKeyword()) {
-    query["keyword"] = request.keyword();
+    query["keyword"] = request.getKeyword();
   }
 
   if (!!request.hasMaxResults()) {
-    query["maxResults"] = request.maxResults();
+    query["maxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNamespaceName()) {
-    query["namespaceName"] = request.namespaceName();
+    query["namespaceName"] = request.getNamespaceName();
   }
 
   if (!!request.hasNextToken()) {
-    query["nextToken"] = request.nextToken();
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasStatus()) {
+    query["status"] = request.getStatus();
   }
 
   if (!!request.hasType()) {
-    query["type"] = request.type();
+    query["type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2688,19 +2692,19 @@ ListRegistryNamespacesResponse Client::listRegistryNamespacesWithOptions(const L
   request.validate();
   json query = {};
   if (!!request.hasKeyword()) {
-    query["keyword"] = request.keyword();
+    query["keyword"] = request.getKeyword();
   }
 
   if (!!request.hasMaxResults()) {
-    query["maxResults"] = request.maxResults();
+    query["maxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["nextToken"] = request.nextToken();
+    query["nextToken"] = request.getNextToken();
   }
 
   if (!!request.hasType()) {
-    query["type"] = request.type();
+    query["type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2745,23 +2749,23 @@ ListResourceExportTaskVersionsResponse Client::listResourceExportTaskVersionsWit
   request.validate();
   json query = {};
   if (!!request.hasExportVersion()) {
-    query["exportVersion"] = request.exportVersion();
+    query["exportVersion"] = request.getExportVersion();
   }
 
   if (!!request.hasKeyword()) {
-    query["keyword"] = request.keyword();
+    query["keyword"] = request.getKeyword();
   }
 
   if (!!request.hasPageNumber()) {
-    query["pageNumber"] = request.pageNumber();
+    query["pageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
+    query["pageSize"] = request.getPageSize();
   }
 
   if (!!request.hasStatus()) {
-    query["status"] = request.status();
+    query["status"] = request.getStatus();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2806,19 +2810,19 @@ ListResourceExportTasksResponse Client::listResourceExportTasksWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasExportTaskId()) {
-    query["exportTaskId"] = request.exportTaskId();
+    query["exportTaskId"] = request.getExportTaskId();
   }
 
   if (!!request.hasKeyword()) {
-    query["keyword"] = request.keyword();
+    query["keyword"] = request.getKeyword();
   }
 
   if (!!request.hasPageNumber()) {
-    query["pageNumber"] = request.pageNumber();
+    query["pageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
+    query["pageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2864,52 +2868,52 @@ ListResourceTypesResponse Client::listResourceTypesWithOptions(const ListResourc
   ListResourceTypesShrinkRequest request = ListResourceTypesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasTerraformResourceTypes()) {
-    request.setTerraformResourceTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.terraformResourceTypes(), "terraformResourceTypes", "simple"));
+    request.setTerraformResourceTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTerraformResourceTypes(), "terraformResourceTypes", "simple"));
   }
 
   json query = {};
   if (!!request.hasAcceptLanguage()) {
-    query["acceptLanguage"] = request.acceptLanguage();
+    query["acceptLanguage"] = request.getAcceptLanguage();
   }
 
   if (!!request.hasKeyword()) {
-    query["keyword"] = request.keyword();
+    query["keyword"] = request.getKeyword();
   }
 
   if (!!request.hasMaxResults()) {
-    query["maxResults"] = request.maxResults();
+    query["maxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["nextToken"] = request.nextToken();
+    query["nextToken"] = request.getNextToken();
   }
 
   if (!!request.hasProduct()) {
-    query["product"] = request.product();
+    query["product"] = request.getProduct();
   }
 
   if (!!request.hasSort()) {
-    query["sort"] = request.sort();
+    query["sort"] = request.getSort();
   }
 
   if (!!request.hasStatus()) {
-    query["status"] = request.status();
+    query["status"] = request.getStatus();
   }
 
   if (!!request.hasSubcategory()) {
-    query["subcategory"] = request.subcategory();
+    query["subcategory"] = request.getSubcategory();
   }
 
   if (!!request.hasSupportTerraformer()) {
-    query["supportTerraformer"] = request.supportTerraformer();
+    query["supportTerraformer"] = request.getSupportTerraformer();
   }
 
   if (!!request.hasTerraformProviderVersion()) {
-    query["terraformProviderVersion"] = request.terraformProviderVersion();
+    query["terraformProviderVersion"] = request.getTerraformProviderVersion();
   }
 
   if (!!request.hasTerraformResourceTypesShrink()) {
-    query["terraformResourceTypes"] = request.terraformResourceTypesShrink();
+    query["terraformResourceTypes"] = request.getTerraformResourceTypesShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2927,7 +2931,7 @@ ListResourceTypesResponse Client::listResourceTypesWithOptions(const ListResourc
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  return json(doROARequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.pathname(), params.bodyType(), req, runtime)).get<ListResourceTypesResponse>();
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<ListResourceTypesResponse>();
 }
 
 /**
@@ -2955,44 +2959,44 @@ ListTasksResponse Client::listTasksWithOptions(const ListTasksRequest &tmpReq, c
   ListTasksShrinkRequest request = ListTasksShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasTag()) {
-    request.setTagShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tag(), "tag", "json"));
+    request.setTagShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTag(), "tag", "json"));
   }
 
   json query = {};
   if (!!request.hasGroupId()) {
-    query["groupId"] = request.groupId();
+    query["groupId"] = request.getGroupId();
   }
 
   if (!!request.hasKeyword()) {
-    query["keyword"] = request.keyword();
+    query["keyword"] = request.getKeyword();
   }
 
   if (!!request.hasModuleId()) {
-    query["moduleId"] = request.moduleId();
+    query["moduleId"] = request.getModuleId();
   }
 
   if (!!request.hasPageNumber()) {
-    query["pageNumber"] = request.pageNumber();
+    query["pageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
+    query["pageSize"] = request.getPageSize();
   }
 
   if (!!request.hasProjectId()) {
-    query["projectId"] = request.projectId();
+    query["projectId"] = request.getProjectId();
   }
 
   if (!!request.hasStatus()) {
-    query["status"] = request.status();
+    query["status"] = request.getStatus();
   }
 
   if (!!request.hasTagShrink()) {
-    query["tag"] = request.tagShrink();
+    query["tag"] = request.getTagShrink();
   }
 
   if (!!request.hasTaskId()) {
-    query["taskId"] = request.taskId();
+    query["taskId"] = request.getTaskId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3037,19 +3041,19 @@ ListTerraformProviderVersionsResponse Client::listTerraformProviderVersionsWithO
   request.validate();
   json query = {};
   if (!!request.hasKeyword()) {
-    query["keyword"] = request.keyword();
+    query["keyword"] = request.getKeyword();
   }
 
   if (!!request.hasMaxResults()) {
-    query["maxResults"] = request.maxResults();
+    query["maxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["nextToken"] = request.nextToken();
+    query["nextToken"] = request.getNextToken();
   }
 
   if (!!request.hasUsage()) {
-    query["usage"] = request.usage();
+    query["usage"] = request.getUsage();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3067,7 +3071,7 @@ ListTerraformProviderVersionsResponse Client::listTerraformProviderVersionsWithO
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  return json(doROARequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.pathname(), params.bodyType(), req, runtime)).get<ListTerraformProviderVersionsResponse>();
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<ListTerraformProviderVersionsResponse>();
 }
 
 /**
@@ -3094,11 +3098,11 @@ OperateJobResponse Client::operateJobWithOptions(const string &taskId, const str
   request.validate();
   json query = {};
   if (!!request.hasComment()) {
-    query["comment"] = request.comment();
+    query["comment"] = request.getComment();
   }
 
   if (!!request.hasTaskType()) {
-    query["taskType"] = request.taskType();
+    query["taskType"] = request.getTaskType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3143,19 +3147,19 @@ PublishRegistryModuleVersionResponse Client::publishRegistryModuleVersionWithOpt
   request.validate();
   json body = {};
   if (!!request.hasClientToken()) {
-    body["clientToken"] = request.clientToken();
+    body["clientToken"] = request.getClientToken();
   }
 
   if (!!request.hasModuleName()) {
-    body["moduleName"] = request.moduleName();
+    body["moduleName"] = request.getModuleName();
   }
 
   if (!!request.hasNamespaceName()) {
-    body["namespaceName"] = request.namespaceName();
+    body["namespaceName"] = request.getNamespaceName();
   }
 
   if (!!request.hasVersion()) {
-    body["version"] = request.version();
+    body["version"] = request.getVersion();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3201,20 +3205,20 @@ RemoveSharedAccountsResponse Client::removeSharedAccountsWithOptions(const Remov
   RemoveSharedAccountsShrinkRequest request = RemoveSharedAccountsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasAccountIds()) {
-    request.setAccountIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.accountIds(), "accountIds", "simple"));
+    request.setAccountIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAccountIds(), "accountIds", "simple"));
   }
 
   json query = {};
   if (!!request.hasAccountIdsShrink()) {
-    query["accountIds"] = request.accountIdsShrink();
+    query["accountIds"] = request.getAccountIdsShrink();
   }
 
   if (!!request.hasResourceId()) {
-    query["resourceId"] = request.resourceId();
+    query["resourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceType()) {
-    query["resourceType"] = request.resourceType();
+    query["resourceType"] = request.getResourceType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3259,15 +3263,15 @@ UpdateExplorerModuleAttributeResponse Client::updateExplorerModuleAttributeWithO
   request.validate();
   json body = {};
   if (!!request.hasClientToken()) {
-    body["clientToken"] = request.clientToken();
+    body["clientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDescription()) {
-    body["description"] = request.description();
+    body["description"] = request.getDescription();
   }
 
   if (!!request.hasName()) {
-    body["name"] = request.name();
+    body["name"] = request.getName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3312,59 +3316,59 @@ UpdateGroupResponse Client::updateGroupWithOptions(const string &groupId, const 
   request.validate();
   json body = {};
   if (!!request.hasAutoDestroy()) {
-    body["autoDestroy"] = request.autoDestroy();
+    body["autoDestroy"] = request.getAutoDestroy();
   }
 
   if (!!request.hasAutoTrigger()) {
-    body["autoTrigger"] = request.autoTrigger();
+    body["autoTrigger"] = request.getAutoTrigger();
   }
 
   if (!!request.hasClientToken()) {
-    body["clientToken"] = request.clientToken();
+    body["clientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDescription()) {
-    body["description"] = request.description();
+    body["description"] = request.getDescription();
   }
 
   if (!!request.hasForcedSetting()) {
-    body["forcedSetting"] = request.forcedSetting();
+    body["forcedSetting"] = request.getForcedSetting();
   }
 
   if (!!request.hasName()) {
-    body["name"] = request.name();
+    body["name"] = request.getName();
   }
 
   if (!!request.hasNotifyConfig()) {
-    body["notifyConfig"] = request.notifyConfig();
+    body["notifyConfig"] = request.getNotifyConfig();
   }
 
   if (!!request.hasNotifyOperationTypes()) {
-    body["notifyOperationTypes"] = request.notifyOperationTypes();
+    body["notifyOperationTypes"] = request.getNotifyOperationTypes();
   }
 
   if (!!request.hasRamRole()) {
-    body["ramRole"] = request.ramRole();
+    body["ramRole"] = request.getRamRole();
   }
 
   if (!!request.hasReportExportField()) {
-    body["reportExportField"] = request.reportExportField();
+    body["reportExportField"] = request.getReportExportField();
   }
 
   if (!!request.hasReportExportPath()) {
-    body["reportExportPath"] = request.reportExportPath();
+    body["reportExportPath"] = request.getReportExportPath();
   }
 
   if (!!request.hasTerraformProviderVersion()) {
-    body["terraformProviderVersion"] = request.terraformProviderVersion();
+    body["terraformProviderVersion"] = request.getTerraformProviderVersion();
   }
 
   if (!!request.hasTriggerConfig()) {
-    body["triggerConfig"] = request.triggerConfig();
+    body["triggerConfig"] = request.getTriggerConfig();
   }
 
   if (!!request.hasTriggerResourceType()) {
-    body["triggerResourceType"] = request.triggerResourceType();
+    body["triggerResourceType"] = request.getTriggerResourceType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3409,35 +3413,35 @@ UpdateModuleAttributeResponse Client::updateModuleAttributeWithOptions(const str
   request.validate();
   json body = {};
   if (!!request.hasClientToken()) {
-    body["clientToken"] = request.clientToken();
+    body["clientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDescription()) {
-    body["description"] = request.description();
+    body["description"] = request.getDescription();
   }
 
   if (!!request.hasGroupInfo()) {
-    body["groupInfo"] = request.groupInfo();
+    body["groupInfo"] = request.getGroupInfo();
   }
 
   if (!!request.hasName()) {
-    body["name"] = request.name();
+    body["name"] = request.getName();
   }
 
   if (!!request.hasSourcePath()) {
-    body["sourcePath"] = request.sourcePath();
+    body["sourcePath"] = request.getSourcePath();
   }
 
   if (!!request.hasStatePath()) {
-    body["statePath"] = request.statePath();
+    body["statePath"] = request.getStatePath();
   }
 
   if (!!request.hasTags()) {
-    body["tags"] = request.tags();
+    body["tags"] = request.getTags();
   }
 
   if (!!request.hasVersionStrategy()) {
-    body["versionStrategy"] = request.versionStrategy();
+    body["versionStrategy"] = request.getVersionStrategy();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3482,15 +3486,15 @@ UpdateProjectResponse Client::updateProjectWithOptions(const string &projectId, 
   request.validate();
   json body = {};
   if (!!request.hasClientToken()) {
-    body["clientToken"] = request.clientToken();
+    body["clientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDescription()) {
-    body["description"] = request.description();
+    body["description"] = request.getDescription();
   }
 
   if (!!request.hasName()) {
-    body["name"] = request.name();
+    body["name"] = request.getName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3535,15 +3539,15 @@ UpdateRegistryModuleAttributeResponse Client::updateRegistryModuleAttributeWithO
   request.validate();
   json body = {};
   if (!!request.hasAcl()) {
-    body["acl"] = request.acl();
+    body["acl"] = request.getAcl();
   }
 
   if (!!request.hasClientToken()) {
-    body["clientToken"] = request.clientToken();
+    body["clientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDescription()) {
-    body["description"] = request.description();
+    body["description"] = request.getDescription();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3588,15 +3592,15 @@ UpdateRegistryNamespaceAttributeResponse Client::updateRegistryNamespaceAttribut
   request.validate();
   json body = {};
   if (!!request.hasAcl()) {
-    body["acl"] = request.acl();
+    body["acl"] = request.getAcl();
   }
 
   if (!!request.hasClientToken()) {
-    body["clientToken"] = request.clientToken();
+    body["clientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDescription()) {
-    body["description"] = request.description();
+    body["description"] = request.getDescription();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3641,43 +3645,43 @@ UpdateResourceExportTaskAttributeResponse Client::updateResourceExportTaskAttrib
   request.validate();
   json body = {};
   if (!!request.hasClientToken()) {
-    body["clientToken"] = request.clientToken();
+    body["clientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDescription()) {
-    body["description"] = request.description();
+    body["description"] = request.getDescription();
   }
 
   if (!!request.hasExportToModule()) {
-    body["exportToModule"] = request.exportToModule();
+    body["exportToModule"] = request.getExportToModule();
   }
 
   if (!!request.hasIncludeRules()) {
-    body["includeRules"] = request.includeRules();
+    body["includeRules"] = request.getIncludeRules();
   }
 
   if (!!request.hasName()) {
-    body["name"] = request.name();
+    body["name"] = request.getName();
   }
 
   if (!!request.hasRamRole()) {
-    body["ramRole"] = request.ramRole();
+    body["ramRole"] = request.getRamRole();
   }
 
   if (!!request.hasTerraformProviderVersion()) {
-    body["terraformProviderVersion"] = request.terraformProviderVersion();
+    body["terraformProviderVersion"] = request.getTerraformProviderVersion();
   }
 
   if (!!request.hasTerraformVersion()) {
-    body["terraformVersion"] = request.terraformVersion();
+    body["terraformVersion"] = request.getTerraformVersion();
   }
 
   if (!!request.hasTriggerStrategy()) {
-    body["triggerStrategy"] = request.triggerStrategy();
+    body["triggerStrategy"] = request.getTriggerStrategy();
   }
 
   if (!!request.hasVariables()) {
-    body["variables"] = request.variables();
+    body["variables"] = request.getVariables();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3722,59 +3726,59 @@ UpdateTaskAttributeResponse Client::updateTaskAttributeWithOptions(const string 
   request.validate();
   json body = {};
   if (!!request.hasAutoApply()) {
-    body["autoApply"] = request.autoApply();
+    body["autoApply"] = request.getAutoApply();
   }
 
   if (!!request.hasAutoDestroy()) {
-    body["autoDestroy"] = request.autoDestroy();
+    body["autoDestroy"] = request.getAutoDestroy();
   }
 
   if (!!request.hasClientToken()) {
-    body["clientToken"] = request.clientToken();
+    body["clientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDescription()) {
-    body["description"] = request.description();
+    body["description"] = request.getDescription();
   }
 
   if (!!request.hasGroupInfo()) {
-    body["groupInfo"] = request.groupInfo();
+    body["groupInfo"] = request.getGroupInfo();
   }
 
   if (!!request.hasInitModuleState()) {
-    body["initModuleState"] = request.initModuleState();
+    body["initModuleState"] = request.getInitModuleState();
   }
 
   if (!!request.hasModuleVersion()) {
-    body["moduleVersion"] = request.moduleVersion();
+    body["moduleVersion"] = request.getModuleVersion();
   }
 
   if (!!request.hasName()) {
-    body["name"] = request.name();
+    body["name"] = request.getName();
   }
 
   if (!!request.hasProtectionStrategy()) {
-    body["protectionStrategy"] = request.protectionStrategy();
+    body["protectionStrategy"] = request.getProtectionStrategy();
   }
 
   if (!!request.hasRamRole()) {
-    body["ramRole"] = request.ramRole();
+    body["ramRole"] = request.getRamRole();
   }
 
   if (!!request.hasSkipPropertyValidation()) {
-    body["skipPropertyValidation"] = request.skipPropertyValidation();
+    body["skipPropertyValidation"] = request.getSkipPropertyValidation();
   }
 
   if (!!request.hasTags()) {
-    body["tags"] = request.tags();
+    body["tags"] = request.getTags();
   }
 
   if (!!request.hasTerraformVersion()) {
-    body["terraformVersion"] = request.terraformVersion();
+    body["terraformVersion"] = request.getTerraformVersion();
   }
 
   if (!!request.hasTriggerStrategy()) {
-    body["triggerStrategy"] = request.triggerStrategy();
+    body["triggerStrategy"] = request.getTriggerStrategy();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3815,27 +3819,27 @@ UpdateTaskAttributeResponse Client::updateTaskAttribute(const string &taskId, co
  * @param runtime runtime options for this request RuntimeOptions
  * @return ValidateModuleResponse
  */
-FutrueGenerator<ValidateModuleResponse> Client::validateModuleWithSSE(const ValidateModuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+FutureGenerator<ValidateModuleResponse> Client::validateModuleWithSSE(const ValidateModuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
   if (!!request.hasClientToken()) {
-    body["clientToken"] = request.clientToken();
+    body["clientToken"] = request.getClientToken();
   }
 
   if (!!request.hasCode()) {
-    body["code"] = request.code();
+    body["code"] = request.getCode();
   }
 
   if (!!request.hasCodeMap()) {
-    body["codeMap"] = request.codeMap();
+    body["codeMap"] = request.getCodeMap();
   }
 
   if (!!request.hasSource()) {
-    body["source"] = request.source();
+    body["source"] = request.getSource();
   }
 
   if (!!request.hasSourcePath()) {
-    body["sourcePath"] = request.sourcePath();
+    body["sourcePath"] = request.getSourcePath();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3853,18 +3857,18 @@ FutrueGenerator<ValidateModuleResponse> Client::validateModuleWithSSE(const Vali
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
   for (SSEResponse resp : sseResp) {
-    json data = json(json::parse(resp.event().data()));
+    json data = json(json::parse(resp.getEvent().getData()));
 json     __retrun = json(json({
-      {"statusCode" , resp.statusCode()},
-      {"headers" , resp.headers()},
+      {"statusCode" , resp.getStatusCode()},
+      {"headers" , resp.getHeaders()},
       {"body" , Darabonba::Core::merge(data,
-          {"RequestId" , resp.event().id()},
-          {"Message" , resp.event().event()}
+          {"RequestId" , resp.getEvent().getId()},
+          {"Message" , resp.getEvent().getEvent()}
       )}
     })).get<ValidateModuleResponse>();
-return Darbaonba::FutureGenerator<json>(__retrun);
+return Darabonba::FutureGenerator<json>(__retrun);
   }
 }
 
@@ -3880,23 +3884,23 @@ ValidateModuleResponse Client::validateModuleWithOptions(const ValidateModuleReq
   request.validate();
   json body = {};
   if (!!request.hasClientToken()) {
-    body["clientToken"] = request.clientToken();
+    body["clientToken"] = request.getClientToken();
   }
 
   if (!!request.hasCode()) {
-    body["code"] = request.code();
+    body["code"] = request.getCode();
   }
 
   if (!!request.hasCodeMap()) {
-    body["codeMap"] = request.codeMap();
+    body["codeMap"] = request.getCodeMap();
   }
 
   if (!!request.hasSource()) {
-    body["source"] = request.source();
+    body["source"] = request.getSource();
   }
 
   if (!!request.hasSourcePath()) {
-    body["sourcePath"] = request.sourcePath();
+    body["sourcePath"] = request.getSourcePath();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

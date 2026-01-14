@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->comment_ == nullptr
-        && return this->jobResult_ == nullptr && return this->timeStamps_ == nullptr; };
+        && this->jobResult_ == nullptr && this->timeStamps_ == nullptr; };
     // comment Field Functions 
     bool hasComment() const { return this->comment_ != nullptr;};
     void deleteComment() { this->comment_ = nullptr;};
-    inline string comment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
+    inline string getComment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
     inline JobsStatusDetailValue& setComment(string comment) { DARABONBA_PTR_SET_VALUE(comment_, comment) };
 
 
     // jobResult Field Functions 
     bool hasJobResult() const { return this->jobResult_ != nullptr;};
     void deleteJobResult() { this->jobResult_ = nullptr;};
-    inline string jobResult() const { DARABONBA_PTR_GET_DEFAULT(jobResult_, "") };
+    inline string getJobResult() const { DARABONBA_PTR_GET_DEFAULT(jobResult_, "") };
     inline JobsStatusDetailValue& setJobResult(string jobResult) { DARABONBA_PTR_SET_VALUE(jobResult_, jobResult) };
 
 
     // timeStamps Field Functions 
     bool hasTimeStamps() const { return this->timeStamps_ != nullptr;};
     void deleteTimeStamps() { this->timeStamps_ = nullptr;};
-    inline string timeStamps() const { DARABONBA_PTR_GET_DEFAULT(timeStamps_, "") };
+    inline string getTimeStamps() const { DARABONBA_PTR_GET_DEFAULT(timeStamps_, "") };
     inline JobsStatusDetailValue& setTimeStamps(string timeStamps) { DARABONBA_PTR_SET_VALUE(timeStamps_, timeStamps) };
 
 
   protected:
-    std::shared_ptr<string> comment_ = nullptr;
-    std::shared_ptr<string> jobResult_ = nullptr;
-    std::shared_ptr<string> timeStamps_ = nullptr;
+    shared_ptr<string> comment_ {};
+    shared_ptr<string> jobResult_ {};
+    shared_ptr<string> timeStamps_ {};
   };
 
   } // namespace Models

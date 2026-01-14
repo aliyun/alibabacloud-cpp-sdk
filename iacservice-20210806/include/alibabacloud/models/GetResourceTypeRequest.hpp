@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->acceptLanguage_ == nullptr
-        && return this->filterReadOnly_ == nullptr && return this->terraformProviderVersion_ == nullptr; };
+        && this->filterReadOnly_ == nullptr && this->terraformProviderVersion_ == nullptr; };
     // acceptLanguage Field Functions 
     bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
     void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};
-    inline string acceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
+    inline string getAcceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
     inline GetResourceTypeRequest& setAcceptLanguage(string acceptLanguage) { DARABONBA_PTR_SET_VALUE(acceptLanguage_, acceptLanguage) };
 
 
     // filterReadOnly Field Functions 
     bool hasFilterReadOnly() const { return this->filterReadOnly_ != nullptr;};
     void deleteFilterReadOnly() { this->filterReadOnly_ = nullptr;};
-    inline bool filterReadOnly() const { DARABONBA_PTR_GET_DEFAULT(filterReadOnly_, false) };
+    inline bool getFilterReadOnly() const { DARABONBA_PTR_GET_DEFAULT(filterReadOnly_, false) };
     inline GetResourceTypeRequest& setFilterReadOnly(bool filterReadOnly) { DARABONBA_PTR_SET_VALUE(filterReadOnly_, filterReadOnly) };
 
 
     // terraformProviderVersion Field Functions 
     bool hasTerraformProviderVersion() const { return this->terraformProviderVersion_ != nullptr;};
     void deleteTerraformProviderVersion() { this->terraformProviderVersion_ = nullptr;};
-    inline string terraformProviderVersion() const { DARABONBA_PTR_GET_DEFAULT(terraformProviderVersion_, "") };
+    inline string getTerraformProviderVersion() const { DARABONBA_PTR_GET_DEFAULT(terraformProviderVersion_, "") };
     inline GetResourceTypeRequest& setTerraformProviderVersion(string terraformProviderVersion) { DARABONBA_PTR_SET_VALUE(terraformProviderVersion_, terraformProviderVersion) };
 
 
   protected:
-    std::shared_ptr<string> acceptLanguage_ = nullptr;
-    std::shared_ptr<bool> filterReadOnly_ = nullptr;
-    std::shared_ptr<string> terraformProviderVersion_ = nullptr;
+    shared_ptr<string> acceptLanguage_ {};
+    shared_ptr<bool> filterReadOnly_ {};
+    shared_ptr<string> terraformProviderVersion_ {};
   };
 
   } // namespace Models

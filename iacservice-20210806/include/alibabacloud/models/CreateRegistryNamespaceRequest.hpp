@@ -38,50 +38,50 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->acl_ == nullptr
-        && return this->clientToken_ == nullptr && return this->description_ == nullptr && return this->maintainer_ == nullptr && return this->namespaceName_ == nullptr; };
+        && this->clientToken_ == nullptr && this->description_ == nullptr && this->maintainer_ == nullptr && this->namespaceName_ == nullptr; };
     // acl Field Functions 
     bool hasAcl() const { return this->acl_ != nullptr;};
     void deleteAcl() { this->acl_ = nullptr;};
-    inline string acl() const { DARABONBA_PTR_GET_DEFAULT(acl_, "") };
+    inline string getAcl() const { DARABONBA_PTR_GET_DEFAULT(acl_, "") };
     inline CreateRegistryNamespaceRequest& setAcl(string acl) { DARABONBA_PTR_SET_VALUE(acl_, acl) };
 
 
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline CreateRegistryNamespaceRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateRegistryNamespaceRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // maintainer Field Functions 
     bool hasMaintainer() const { return this->maintainer_ != nullptr;};
     void deleteMaintainer() { this->maintainer_ = nullptr;};
-    inline string maintainer() const { DARABONBA_PTR_GET_DEFAULT(maintainer_, "") };
+    inline string getMaintainer() const { DARABONBA_PTR_GET_DEFAULT(maintainer_, "") };
     inline CreateRegistryNamespaceRequest& setMaintainer(string maintainer) { DARABONBA_PTR_SET_VALUE(maintainer_, maintainer) };
 
 
     // namespaceName Field Functions 
     bool hasNamespaceName() const { return this->namespaceName_ != nullptr;};
     void deleteNamespaceName() { this->namespaceName_ = nullptr;};
-    inline string namespaceName() const { DARABONBA_PTR_GET_DEFAULT(namespaceName_, "") };
+    inline string getNamespaceName() const { DARABONBA_PTR_GET_DEFAULT(namespaceName_, "") };
     inline CreateRegistryNamespaceRequest& setNamespaceName(string namespaceName) { DARABONBA_PTR_SET_VALUE(namespaceName_, namespaceName) };
 
 
   protected:
-    std::shared_ptr<string> acl_ = nullptr;
+    shared_ptr<string> acl_ {};
     // This parameter is required.
-    std::shared_ptr<string> clientToken_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<string> maintainer_ = nullptr;
+    shared_ptr<string> clientToken_ {};
+    shared_ptr<string> description_ {};
+    shared_ptr<string> maintainer_ {};
     // This parameter is required.
-    std::shared_ptr<string> namespaceName_ = nullptr;
+    shared_ptr<string> namespaceName_ {};
   };
 
   } // namespace Models

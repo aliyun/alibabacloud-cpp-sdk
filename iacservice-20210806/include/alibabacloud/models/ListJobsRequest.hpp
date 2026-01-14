@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->jobType_ == nullptr
-        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->status_ == nullptr && return this->taskType_ == nullptr; };
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->status_ == nullptr && this->taskType_ == nullptr; };
     // jobType Field Functions 
     bool hasJobType() const { return this->jobType_ != nullptr;};
     void deleteJobType() { this->jobType_ = nullptr;};
-    inline string jobType() const { DARABONBA_PTR_GET_DEFAULT(jobType_, "") };
+    inline string getJobType() const { DARABONBA_PTR_GET_DEFAULT(jobType_, "") };
     inline ListJobsRequest& setJobType(string jobType) { DARABONBA_PTR_SET_VALUE(jobType_, jobType) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline ListJobsRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListJobsRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline ListJobsRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // taskType Field Functions 
     bool hasTaskType() const { return this->taskType_ != nullptr;};
     void deleteTaskType() { this->taskType_ = nullptr;};
-    inline string taskType() const { DARABONBA_PTR_GET_DEFAULT(taskType_, "") };
+    inline string getTaskType() const { DARABONBA_PTR_GET_DEFAULT(taskType_, "") };
     inline ListJobsRequest& setTaskType(string taskType) { DARABONBA_PTR_SET_VALUE(taskType_, taskType) };
 
 
   protected:
-    std::shared_ptr<string> jobType_ = nullptr;
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    std::shared_ptr<string> status_ = nullptr;
-    std::shared_ptr<string> taskType_ = nullptr;
+    shared_ptr<string> jobType_ {};
+    shared_ptr<int32_t> pageNumber_ {};
+    shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<string> status_ {};
+    shared_ptr<string> taskType_ {};
   };
 
   } // namespace Models

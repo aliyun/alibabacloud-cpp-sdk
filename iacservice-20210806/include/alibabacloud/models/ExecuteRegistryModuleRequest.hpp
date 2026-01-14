@@ -32,27 +32,27 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && return this->parameters_ == nullptr; };
+        && this->parameters_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline ExecuteRegistryModuleRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // parameters Field Functions 
     bool hasParameters() const { return this->parameters_ != nullptr;};
     void deleteParameters() { this->parameters_ = nullptr;};
-    inline     const Darabonba::Json & parameters() const { DARABONBA_GET(parameters_) };
-    Darabonba::Json & parameters() { DARABONBA_GET(parameters_) };
+    inline     const Darabonba::Json & getParameters() const { DARABONBA_GET(parameters_) };
+    Darabonba::Json & getParameters() { DARABONBA_GET(parameters_) };
     inline ExecuteRegistryModuleRequest& setParameters(const Darabonba::Json & parameters) { DARABONBA_SET_VALUE(parameters_, parameters) };
-    inline ExecuteRegistryModuleRequest& setParameters(Darabonba::Json & parameters) { DARABONBA_SET_RVALUE(parameters_, parameters) };
+    inline ExecuteRegistryModuleRequest& setParameters(Darabonba::Json && parameters) { DARABONBA_SET_RVALUE(parameters_, parameters) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> clientToken_ = nullptr;
-    Darabonba::Json parameters_ = nullptr;
+    shared_ptr<string> clientToken_ {};
+    Darabonba::Json parameters_ {};
   };
 
   } // namespace Models

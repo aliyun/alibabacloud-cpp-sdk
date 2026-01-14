@@ -38,51 +38,51 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->errorMessage_ == nullptr
-        && return this->logFile_ == nullptr && return this->requestId_ == nullptr && return this->state_ == nullptr && return this->status_ == nullptr; };
+        && this->logFile_ == nullptr && this->requestId_ == nullptr && this->state_ == nullptr && this->status_ == nullptr; };
     // errorMessage Field Functions 
     bool hasErrorMessage() const { return this->errorMessage_ != nullptr;};
     void deleteErrorMessage() { this->errorMessage_ = nullptr;};
-    inline string errorMessage() const { DARABONBA_PTR_GET_DEFAULT(errorMessage_, "") };
+    inline string getErrorMessage() const { DARABONBA_PTR_GET_DEFAULT(errorMessage_, "") };
     inline GetExecuteStateResponseBody& setErrorMessage(string errorMessage) { DARABONBA_PTR_SET_VALUE(errorMessage_, errorMessage) };
 
 
     // logFile Field Functions 
     bool hasLogFile() const { return this->logFile_ != nullptr;};
     void deleteLogFile() { this->logFile_ = nullptr;};
-    inline     const Darabonba::Json & logFile() const { DARABONBA_GET(logFile_) };
-    Darabonba::Json & logFile() { DARABONBA_GET(logFile_) };
+    inline     const Darabonba::Json & getLogFile() const { DARABONBA_GET(logFile_) };
+    Darabonba::Json & getLogFile() { DARABONBA_GET(logFile_) };
     inline GetExecuteStateResponseBody& setLogFile(const Darabonba::Json & logFile) { DARABONBA_SET_VALUE(logFile_, logFile) };
-    inline GetExecuteStateResponseBody& setLogFile(Darabonba::Json & logFile) { DARABONBA_SET_RVALUE(logFile_, logFile) };
+    inline GetExecuteStateResponseBody& setLogFile(Darabonba::Json && logFile) { DARABONBA_SET_RVALUE(logFile_, logFile) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetExecuteStateResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // state Field Functions 
     bool hasState() const { return this->state_ != nullptr;};
     void deleteState() { this->state_ = nullptr;};
-    inline string state() const { DARABONBA_PTR_GET_DEFAULT(state_, "") };
+    inline string getState() const { DARABONBA_PTR_GET_DEFAULT(state_, "") };
     inline GetExecuteStateResponseBody& setState(string state) { DARABONBA_PTR_SET_VALUE(state_, state) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline GetExecuteStateResponseBody& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
   protected:
-    std::shared_ptr<string> errorMessage_ = nullptr;
-    Darabonba::Json logFile_ = nullptr;
+    shared_ptr<string> errorMessage_ {};
+    Darabonba::Json logFile_ {};
     // Id of the request
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> state_ = nullptr;
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> requestId_ {};
+    shared_ptr<string> state_ {};
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models

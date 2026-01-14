@@ -36,40 +36,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->keyword_ == nullptr
-        && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->usage_ == nullptr; };
+        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->usage_ == nullptr; };
     // keyword Field Functions 
     bool hasKeyword() const { return this->keyword_ != nullptr;};
     void deleteKeyword() { this->keyword_ = nullptr;};
-    inline string keyword() const { DARABONBA_PTR_GET_DEFAULT(keyword_, "") };
+    inline string getKeyword() const { DARABONBA_PTR_GET_DEFAULT(keyword_, "") };
     inline ListTerraformProviderVersionsRequest& setKeyword(string keyword) { DARABONBA_PTR_SET_VALUE(keyword_, keyword) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListTerraformProviderVersionsRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListTerraformProviderVersionsRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // usage Field Functions 
     bool hasUsage() const { return this->usage_ != nullptr;};
     void deleteUsage() { this->usage_ = nullptr;};
-    inline string usage() const { DARABONBA_PTR_GET_DEFAULT(usage_, "") };
+    inline string getUsage() const { DARABONBA_PTR_GET_DEFAULT(usage_, "") };
     inline ListTerraformProviderVersionsRequest& setUsage(string usage) { DARABONBA_PTR_SET_VALUE(usage_, usage) };
 
 
   protected:
-    std::shared_ptr<string> keyword_ = nullptr;
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
-    std::shared_ptr<string> nextToken_ = nullptr;
-    std::shared_ptr<string> usage_ = nullptr;
+    shared_ptr<string> keyword_ {};
+    shared_ptr<int32_t> maxResults_ {};
+    shared_ptr<string> nextToken_ {};
+    shared_ptr<string> usage_ {};
   };
 
   } // namespace Models

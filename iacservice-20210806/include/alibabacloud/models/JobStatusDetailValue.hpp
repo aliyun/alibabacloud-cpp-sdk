@@ -36,40 +36,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->comment_ == nullptr
-        && return this->jobResult_ == nullptr && return this->timeStamps_ == nullptr && return this->errorMessage_ == nullptr; };
+        && this->jobResult_ == nullptr && this->timeStamps_ == nullptr && this->errorMessage_ == nullptr; };
     // comment Field Functions 
     bool hasComment() const { return this->comment_ != nullptr;};
     void deleteComment() { this->comment_ = nullptr;};
-    inline string comment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
+    inline string getComment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
     inline JobStatusDetailValue& setComment(string comment) { DARABONBA_PTR_SET_VALUE(comment_, comment) };
 
 
     // jobResult Field Functions 
     bool hasJobResult() const { return this->jobResult_ != nullptr;};
     void deleteJobResult() { this->jobResult_ = nullptr;};
-    inline string jobResult() const { DARABONBA_PTR_GET_DEFAULT(jobResult_, "") };
+    inline string getJobResult() const { DARABONBA_PTR_GET_DEFAULT(jobResult_, "") };
     inline JobStatusDetailValue& setJobResult(string jobResult) { DARABONBA_PTR_SET_VALUE(jobResult_, jobResult) };
 
 
     // timeStamps Field Functions 
     bool hasTimeStamps() const { return this->timeStamps_ != nullptr;};
     void deleteTimeStamps() { this->timeStamps_ = nullptr;};
-    inline string timeStamps() const { DARABONBA_PTR_GET_DEFAULT(timeStamps_, "") };
+    inline string getTimeStamps() const { DARABONBA_PTR_GET_DEFAULT(timeStamps_, "") };
     inline JobStatusDetailValue& setTimeStamps(string timeStamps) { DARABONBA_PTR_SET_VALUE(timeStamps_, timeStamps) };
 
 
     // errorMessage Field Functions 
     bool hasErrorMessage() const { return this->errorMessage_ != nullptr;};
     void deleteErrorMessage() { this->errorMessage_ = nullptr;};
-    inline string errorMessage() const { DARABONBA_PTR_GET_DEFAULT(errorMessage_, "") };
+    inline string getErrorMessage() const { DARABONBA_PTR_GET_DEFAULT(errorMessage_, "") };
     inline JobStatusDetailValue& setErrorMessage(string errorMessage) { DARABONBA_PTR_SET_VALUE(errorMessage_, errorMessage) };
 
 
   protected:
-    std::shared_ptr<string> comment_ = nullptr;
-    std::shared_ptr<string> jobResult_ = nullptr;
-    std::shared_ptr<string> timeStamps_ = nullptr;
-    std::shared_ptr<string> errorMessage_ = nullptr;
+    shared_ptr<string> comment_ {};
+    shared_ptr<string> jobResult_ {};
+    shared_ptr<string> timeStamps_ {};
+    shared_ptr<string> errorMessage_ {};
   };
 
   } // namespace Models

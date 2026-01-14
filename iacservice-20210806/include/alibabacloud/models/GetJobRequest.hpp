@@ -33,12 +33,12 @@ namespace Models
     // taskType Field Functions 
     bool hasTaskType() const { return this->taskType_ != nullptr;};
     void deleteTaskType() { this->taskType_ = nullptr;};
-    inline string taskType() const { DARABONBA_PTR_GET_DEFAULT(taskType_, "") };
+    inline string getTaskType() const { DARABONBA_PTR_GET_DEFAULT(taskType_, "") };
     inline GetJobRequest& setTaskType(string taskType) { DARABONBA_PTR_SET_VALUE(taskType_, taskType) };
 
 
   protected:
-    std::shared_ptr<string> taskType_ = nullptr;
+    shared_ptr<string> taskType_ {};
   };
 
   } // namespace Models

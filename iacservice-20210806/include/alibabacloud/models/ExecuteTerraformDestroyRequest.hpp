@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && return this->stateId_ == nullptr; };
+        && this->stateId_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline ExecuteTerraformDestroyRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // stateId Field Functions 
     bool hasStateId() const { return this->stateId_ != nullptr;};
     void deleteStateId() { this->stateId_ = nullptr;};
-    inline string stateId() const { DARABONBA_PTR_GET_DEFAULT(stateId_, "") };
+    inline string getStateId() const { DARABONBA_PTR_GET_DEFAULT(stateId_, "") };
     inline ExecuteTerraformDestroyRequest& setStateId(string stateId) { DARABONBA_PTR_SET_VALUE(stateId_, stateId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // This parameter is required.
-    std::shared_ptr<string> stateId_ = nullptr;
+    shared_ptr<string> stateId_ {};
   };
 
   } // namespace Models

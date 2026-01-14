@@ -36,42 +36,42 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && return this->description_ == nullptr && return this->subCommand_ == nullptr && return this->taskType_ == nullptr; };
+        && this->description_ == nullptr && this->subCommand_ == nullptr && this->taskType_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline CreateJobRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateJobRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // subCommand Field Functions 
     bool hasSubCommand() const { return this->subCommand_ != nullptr;};
     void deleteSubCommand() { this->subCommand_ = nullptr;};
-    inline string subCommand() const { DARABONBA_PTR_GET_DEFAULT(subCommand_, "") };
+    inline string getSubCommand() const { DARABONBA_PTR_GET_DEFAULT(subCommand_, "") };
     inline CreateJobRequest& setSubCommand(string subCommand) { DARABONBA_PTR_SET_VALUE(subCommand_, subCommand) };
 
 
     // taskType Field Functions 
     bool hasTaskType() const { return this->taskType_ != nullptr;};
     void deleteTaskType() { this->taskType_ = nullptr;};
-    inline string taskType() const { DARABONBA_PTR_GET_DEFAULT(taskType_, "") };
+    inline string getTaskType() const { DARABONBA_PTR_GET_DEFAULT(taskType_, "") };
     inline CreateJobRequest& setTaskType(string taskType) { DARABONBA_PTR_SET_VALUE(taskType_, taskType) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // This parameter is required.
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<string> subCommand_ = nullptr;
-    std::shared_ptr<string> taskType_ = nullptr;
+    shared_ptr<string> description_ {};
+    shared_ptr<string> subCommand_ {};
+    shared_ptr<string> taskType_ {};
   };
 
   } // namespace Models

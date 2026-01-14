@@ -33,12 +33,12 @@ namespace Models
     // exportVersion Field Functions 
     bool hasExportVersion() const { return this->exportVersion_ != nullptr;};
     void deleteExportVersion() { this->exportVersion_ = nullptr;};
-    inline string exportVersion() const { DARABONBA_PTR_GET_DEFAULT(exportVersion_, "") };
+    inline string getExportVersion() const { DARABONBA_PTR_GET_DEFAULT(exportVersion_, "") };
     inline GetResourceExportTaskRequest& setExportVersion(string exportVersion) { DARABONBA_PTR_SET_VALUE(exportVersion_, exportVersion) };
 
 
   protected:
-    std::shared_ptr<string> exportVersion_ = nullptr;
+    shared_ptr<string> exportVersion_ {};
   };
 
   } // namespace Models

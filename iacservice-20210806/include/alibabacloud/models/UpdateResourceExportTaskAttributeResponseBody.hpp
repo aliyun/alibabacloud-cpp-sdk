@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->exportTaskId_ == nullptr
-        && return this->exportVersion_ == nullptr && return this->requestId_ == nullptr; };
+        && this->exportVersion_ == nullptr && this->requestId_ == nullptr; };
     // exportTaskId Field Functions 
     bool hasExportTaskId() const { return this->exportTaskId_ != nullptr;};
     void deleteExportTaskId() { this->exportTaskId_ = nullptr;};
-    inline string exportTaskId() const { DARABONBA_PTR_GET_DEFAULT(exportTaskId_, "") };
+    inline string getExportTaskId() const { DARABONBA_PTR_GET_DEFAULT(exportTaskId_, "") };
     inline UpdateResourceExportTaskAttributeResponseBody& setExportTaskId(string exportTaskId) { DARABONBA_PTR_SET_VALUE(exportTaskId_, exportTaskId) };
 
 
     // exportVersion Field Functions 
     bool hasExportVersion() const { return this->exportVersion_ != nullptr;};
     void deleteExportVersion() { this->exportVersion_ = nullptr;};
-    inline string exportVersion() const { DARABONBA_PTR_GET_DEFAULT(exportVersion_, "") };
+    inline string getExportVersion() const { DARABONBA_PTR_GET_DEFAULT(exportVersion_, "") };
     inline UpdateResourceExportTaskAttributeResponseBody& setExportVersion(string exportVersion) { DARABONBA_PTR_SET_VALUE(exportVersion_, exportVersion) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline UpdateResourceExportTaskAttributeResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<string> exportTaskId_ = nullptr;
-    std::shared_ptr<string> exportVersion_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> exportTaskId_ {};
+    shared_ptr<string> exportVersion_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

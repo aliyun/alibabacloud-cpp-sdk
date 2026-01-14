@@ -1200,7 +1200,7 @@ namespace IaCService20210806
        * @param runtime runtime options for this request RuntimeOptions
        * @return ValidateModuleResponse
        */
-      FutrueGenerator<Models::ValidateModuleResponse> validateModuleWithSSE(const Models::ValidateModuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::ValidateModuleResponse> validateModuleWithSSE(const Models::ValidateModuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 模版预检

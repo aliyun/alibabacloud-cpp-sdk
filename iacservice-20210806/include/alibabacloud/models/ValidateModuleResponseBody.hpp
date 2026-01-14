@@ -36,40 +36,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->message_ == nullptr
-        && return this->moduleValidationId_ == nullptr && return this->requestId_ == nullptr && return this->status_ == nullptr; };
+        && this->moduleValidationId_ == nullptr && this->requestId_ == nullptr && this->status_ == nullptr; };
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline ValidateModuleResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // moduleValidationId Field Functions 
     bool hasModuleValidationId() const { return this->moduleValidationId_ != nullptr;};
     void deleteModuleValidationId() { this->moduleValidationId_ = nullptr;};
-    inline string moduleValidationId() const { DARABONBA_PTR_GET_DEFAULT(moduleValidationId_, "") };
+    inline string getModuleValidationId() const { DARABONBA_PTR_GET_DEFAULT(moduleValidationId_, "") };
     inline ValidateModuleResponseBody& setModuleValidationId(string moduleValidationId) { DARABONBA_PTR_SET_VALUE(moduleValidationId_, moduleValidationId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ValidateModuleResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline ValidateModuleResponseBody& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
   protected:
-    std::shared_ptr<string> message_ = nullptr;
-    std::shared_ptr<string> moduleValidationId_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> message_ {};
+    shared_ptr<string> moduleValidationId_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models
