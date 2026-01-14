@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->acceptLanguage_ == nullptr
-        && return this->dataId_ == nullptr && return this->group_ == nullptr && return this->instanceId_ == nullptr && return this->namespaceId_ == nullptr && return this->nid_ == nullptr; };
+        && this->dataId_ == nullptr && this->group_ == nullptr && this->instanceId_ == nullptr && this->namespaceId_ == nullptr && this->nid_ == nullptr; };
     // acceptLanguage Field Functions 
     bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
     void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};
-    inline string acceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
+    inline string getAcceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
     inline GetNacosHistoryConfigRequest& setAcceptLanguage(string acceptLanguage) { DARABONBA_PTR_SET_VALUE(acceptLanguage_, acceptLanguage) };
 
 
     // dataId Field Functions 
     bool hasDataId() const { return this->dataId_ != nullptr;};
     void deleteDataId() { this->dataId_ = nullptr;};
-    inline string dataId() const { DARABONBA_PTR_GET_DEFAULT(dataId_, "") };
+    inline string getDataId() const { DARABONBA_PTR_GET_DEFAULT(dataId_, "") };
     inline GetNacosHistoryConfigRequest& setDataId(string dataId) { DARABONBA_PTR_SET_VALUE(dataId_, dataId) };
 
 
     // group Field Functions 
     bool hasGroup() const { return this->group_ != nullptr;};
     void deleteGroup() { this->group_ = nullptr;};
-    inline string group() const { DARABONBA_PTR_GET_DEFAULT(group_, "") };
+    inline string getGroup() const { DARABONBA_PTR_GET_DEFAULT(group_, "") };
     inline GetNacosHistoryConfigRequest& setGroup(string group) { DARABONBA_PTR_SET_VALUE(group_, group) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline GetNacosHistoryConfigRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // namespaceId Field Functions 
     bool hasNamespaceId() const { return this->namespaceId_ != nullptr;};
     void deleteNamespaceId() { this->namespaceId_ = nullptr;};
-    inline string namespaceId() const { DARABONBA_PTR_GET_DEFAULT(namespaceId_, "") };
+    inline string getNamespaceId() const { DARABONBA_PTR_GET_DEFAULT(namespaceId_, "") };
     inline GetNacosHistoryConfigRequest& setNamespaceId(string namespaceId) { DARABONBA_PTR_SET_VALUE(namespaceId_, namespaceId) };
 
 
     // nid Field Functions 
     bool hasNid() const { return this->nid_ != nullptr;};
     void deleteNid() { this->nid_ = nullptr;};
-    inline string nid() const { DARABONBA_PTR_GET_DEFAULT(nid_, "") };
+    inline string getNid() const { DARABONBA_PTR_GET_DEFAULT(nid_, "") };
     inline GetNacosHistoryConfigRequest& setNid(string nid) { DARABONBA_PTR_SET_VALUE(nid_, nid) };
 
 
@@ -88,25 +88,25 @@ namespace Models
     // 
     // *   zh: Chinese
     // *   en: English
-    std::shared_ptr<string> acceptLanguage_ = nullptr;
+    shared_ptr<string> acceptLanguage_ {};
     // The ID of the data.
     // 
     // This parameter is required.
-    std::shared_ptr<string> dataId_ = nullptr;
+    shared_ptr<string> dataId_ {};
     // The name of the group.
     // 
     // This parameter is required.
-    std::shared_ptr<string> group_ = nullptr;
+    shared_ptr<string> group_ {};
     // The ID of the instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The ID of the namespace.
-    std::shared_ptr<string> namespaceId_ = nullptr;
+    shared_ptr<string> namespaceId_ {};
     // The version ID of the configuration.
     // 
     // This parameter is required.
-    std::shared_ptr<string> nid_ = nullptr;
+    shared_ptr<string> nid_ {};
   };
 
   } // namespace Models

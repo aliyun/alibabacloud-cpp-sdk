@@ -48,75 +48,75 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->acceptLanguage_ == nullptr
-        && return this->gatewayUniqueId_ == nullptr && return this->httpPort_ == nullptr && return this->httpsPort_ == nullptr && return this->httpsVServerGroupId_ == nullptr && return this->serviceWeight_ == nullptr
-        && return this->slbId_ == nullptr && return this->type_ == nullptr && return this->VServerGroupId_ == nullptr && return this->VServiceListShrink_ == nullptr; };
+        && this->gatewayUniqueId_ == nullptr && this->httpPort_ == nullptr && this->httpsPort_ == nullptr && this->httpsVServerGroupId_ == nullptr && this->serviceWeight_ == nullptr
+        && this->slbId_ == nullptr && this->type_ == nullptr && this->VServerGroupId_ == nullptr && this->VServiceListShrink_ == nullptr; };
     // acceptLanguage Field Functions 
     bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
     void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};
-    inline string acceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
+    inline string getAcceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
     inline AddGatewaySlbShrinkRequest& setAcceptLanguage(string acceptLanguage) { DARABONBA_PTR_SET_VALUE(acceptLanguage_, acceptLanguage) };
 
 
     // gatewayUniqueId Field Functions 
     bool hasGatewayUniqueId() const { return this->gatewayUniqueId_ != nullptr;};
     void deleteGatewayUniqueId() { this->gatewayUniqueId_ = nullptr;};
-    inline string gatewayUniqueId() const { DARABONBA_PTR_GET_DEFAULT(gatewayUniqueId_, "") };
+    inline string getGatewayUniqueId() const { DARABONBA_PTR_GET_DEFAULT(gatewayUniqueId_, "") };
     inline AddGatewaySlbShrinkRequest& setGatewayUniqueId(string gatewayUniqueId) { DARABONBA_PTR_SET_VALUE(gatewayUniqueId_, gatewayUniqueId) };
 
 
     // httpPort Field Functions 
     bool hasHttpPort() const { return this->httpPort_ != nullptr;};
     void deleteHttpPort() { this->httpPort_ = nullptr;};
-    inline int32_t httpPort() const { DARABONBA_PTR_GET_DEFAULT(httpPort_, 0) };
+    inline int32_t getHttpPort() const { DARABONBA_PTR_GET_DEFAULT(httpPort_, 0) };
     inline AddGatewaySlbShrinkRequest& setHttpPort(int32_t httpPort) { DARABONBA_PTR_SET_VALUE(httpPort_, httpPort) };
 
 
     // httpsPort Field Functions 
     bool hasHttpsPort() const { return this->httpsPort_ != nullptr;};
     void deleteHttpsPort() { this->httpsPort_ = nullptr;};
-    inline int32_t httpsPort() const { DARABONBA_PTR_GET_DEFAULT(httpsPort_, 0) };
+    inline int32_t getHttpsPort() const { DARABONBA_PTR_GET_DEFAULT(httpsPort_, 0) };
     inline AddGatewaySlbShrinkRequest& setHttpsPort(int32_t httpsPort) { DARABONBA_PTR_SET_VALUE(httpsPort_, httpsPort) };
 
 
     // httpsVServerGroupId Field Functions 
     bool hasHttpsVServerGroupId() const { return this->httpsVServerGroupId_ != nullptr;};
     void deleteHttpsVServerGroupId() { this->httpsVServerGroupId_ = nullptr;};
-    inline string httpsVServerGroupId() const { DARABONBA_PTR_GET_DEFAULT(httpsVServerGroupId_, "") };
+    inline string getHttpsVServerGroupId() const { DARABONBA_PTR_GET_DEFAULT(httpsVServerGroupId_, "") };
     inline AddGatewaySlbShrinkRequest& setHttpsVServerGroupId(string httpsVServerGroupId) { DARABONBA_PTR_SET_VALUE(httpsVServerGroupId_, httpsVServerGroupId) };
 
 
     // serviceWeight Field Functions 
     bool hasServiceWeight() const { return this->serviceWeight_ != nullptr;};
     void deleteServiceWeight() { this->serviceWeight_ = nullptr;};
-    inline int32_t serviceWeight() const { DARABONBA_PTR_GET_DEFAULT(serviceWeight_, 0) };
+    inline int32_t getServiceWeight() const { DARABONBA_PTR_GET_DEFAULT(serviceWeight_, 0) };
     inline AddGatewaySlbShrinkRequest& setServiceWeight(int32_t serviceWeight) { DARABONBA_PTR_SET_VALUE(serviceWeight_, serviceWeight) };
 
 
     // slbId Field Functions 
     bool hasSlbId() const { return this->slbId_ != nullptr;};
     void deleteSlbId() { this->slbId_ = nullptr;};
-    inline string slbId() const { DARABONBA_PTR_GET_DEFAULT(slbId_, "") };
+    inline string getSlbId() const { DARABONBA_PTR_GET_DEFAULT(slbId_, "") };
     inline AddGatewaySlbShrinkRequest& setSlbId(string slbId) { DARABONBA_PTR_SET_VALUE(slbId_, slbId) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline AddGatewaySlbShrinkRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
     // VServerGroupId Field Functions 
     bool hasVServerGroupId() const { return this->VServerGroupId_ != nullptr;};
     void deleteVServerGroupId() { this->VServerGroupId_ = nullptr;};
-    inline string VServerGroupId() const { DARABONBA_PTR_GET_DEFAULT(VServerGroupId_, "") };
+    inline string getVServerGroupId() const { DARABONBA_PTR_GET_DEFAULT(VServerGroupId_, "") };
     inline AddGatewaySlbShrinkRequest& setVServerGroupId(string VServerGroupId) { DARABONBA_PTR_SET_VALUE(VServerGroupId_, VServerGroupId) };
 
 
     // VServiceListShrink Field Functions 
     bool hasVServiceListShrink() const { return this->VServiceListShrink_ != nullptr;};
     void deleteVServiceListShrink() { this->VServiceListShrink_ = nullptr;};
-    inline string VServiceListShrink() const { DARABONBA_PTR_GET_DEFAULT(VServiceListShrink_, "") };
+    inline string getVServiceListShrink() const { DARABONBA_PTR_GET_DEFAULT(VServiceListShrink_, "") };
     inline AddGatewaySlbShrinkRequest& setVServiceListShrink(string VServiceListShrink) { DARABONBA_PTR_SET_VALUE(VServiceListShrink_, VServiceListShrink) };
 
 
@@ -125,32 +125,32 @@ namespace Models
     // 
     // *   zh: Chinese
     // *   en: English
-    std::shared_ptr<string> acceptLanguage_ = nullptr;
+    shared_ptr<string> acceptLanguage_ {};
     // The unique ID of the gateway.
     // 
     // This parameter is required.
-    std::shared_ptr<string> gatewayUniqueId_ = nullptr;
+    shared_ptr<string> gatewayUniqueId_ {};
     // The HTTP port number (virtual service group).
-    std::shared_ptr<int32_t> httpPort_ = nullptr;
+    shared_ptr<int32_t> httpPort_ {};
     // The HTTPS port number (virtual service group).
-    std::shared_ptr<int32_t> httpsPort_ = nullptr;
+    shared_ptr<int32_t> httpsPort_ {};
     // The ID of the HTTPS virtual service group.
-    std::shared_ptr<string> httpsVServerGroupId_ = nullptr;
+    shared_ptr<string> httpsVServerGroupId_ {};
     // The service weight.
-    std::shared_ptr<int32_t> serviceWeight_ = nullptr;
+    shared_ptr<int32_t> serviceWeight_ {};
     // The ID of the SLB instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> slbId_ = nullptr;
+    shared_ptr<string> slbId_ {};
     // The type of the service source. Valid values:
     // 
     // *   PUB_NET: Internet
     // *   PRIVATE_NET: VPC
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
     // The ID of the HTTP virtual service group.
-    std::shared_ptr<string> VServerGroupId_ = nullptr;
+    shared_ptr<string> VServerGroupId_ {};
     // The SLB monitoring information.
-    std::shared_ptr<string> VServiceListShrink_ = nullptr;
+    shared_ptr<string> VServiceListShrink_ {};
   };
 
   } // namespace Models

@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->acceptLanguage_ == nullptr
-        && return this->clusterType_ == nullptr && return this->mseVersion_ == nullptr && return this->regionId_ == nullptr && return this->requestPars_ == nullptr; };
+        && this->clusterType_ == nullptr && this->mseVersion_ == nullptr && this->regionId_ == nullptr && this->requestPars_ == nullptr; };
     // acceptLanguage Field Functions 
     bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
     void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};
-    inline string acceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
+    inline string getAcceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
     inline ListInstanceCountRequest& setAcceptLanguage(string acceptLanguage) { DARABONBA_PTR_SET_VALUE(acceptLanguage_, acceptLanguage) };
 
 
     // clusterType Field Functions 
     bool hasClusterType() const { return this->clusterType_ != nullptr;};
     void deleteClusterType() { this->clusterType_ = nullptr;};
-    inline string clusterType() const { DARABONBA_PTR_GET_DEFAULT(clusterType_, "") };
+    inline string getClusterType() const { DARABONBA_PTR_GET_DEFAULT(clusterType_, "") };
     inline ListInstanceCountRequest& setClusterType(string clusterType) { DARABONBA_PTR_SET_VALUE(clusterType_, clusterType) };
 
 
     // mseVersion Field Functions 
     bool hasMseVersion() const { return this->mseVersion_ != nullptr;};
     void deleteMseVersion() { this->mseVersion_ = nullptr;};
-    inline string mseVersion() const { DARABONBA_PTR_GET_DEFAULT(mseVersion_, "") };
+    inline string getMseVersion() const { DARABONBA_PTR_GET_DEFAULT(mseVersion_, "") };
     inline ListInstanceCountRequest& setMseVersion(string mseVersion) { DARABONBA_PTR_SET_VALUE(mseVersion_, mseVersion) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ListInstanceCountRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // requestPars Field Functions 
     bool hasRequestPars() const { return this->requestPars_ != nullptr;};
     void deleteRequestPars() { this->requestPars_ = nullptr;};
-    inline string requestPars() const { DARABONBA_PTR_GET_DEFAULT(requestPars_, "") };
+    inline string getRequestPars() const { DARABONBA_PTR_GET_DEFAULT(requestPars_, "") };
     inline ListInstanceCountRequest& setRequestPars(string requestPars) { DARABONBA_PTR_SET_VALUE(requestPars_, requestPars) };
 
 
@@ -79,14 +79,14 @@ namespace Models
     // 
     // *   zh: Chinese
     // *   en: English
-    std::shared_ptr<string> acceptLanguage_ = nullptr;
+    shared_ptr<string> acceptLanguage_ {};
     // The type of the instance. Valid values: ZooKeeper and Nacos-Ans.
-    std::shared_ptr<string> clusterType_ = nullptr;
+    shared_ptr<string> clusterType_ {};
     // The edition type of the instance. Valid values:
     // 
     // *   `mse_dev`: Developer Edition
     // *   `mse_pro`: Professional Edition
-    std::shared_ptr<string> mseVersion_ = nullptr;
+    shared_ptr<string> mseVersion_ {};
     // The ID of the region where the instance resides. Examples:
     // 
     // *   cn-hangzhou: China (Hangzhou)
@@ -94,9 +94,9 @@ namespace Models
     // *   cn-shanghai: China (Shanghai)
     // *   cn-zhangjiakou: China (Zhangjiakou)
     // *   cn-shenzhen: China (Shenzhen)
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The extended request parameters in the JSON format.
-    std::shared_ptr<string> requestPars_ = nullptr;
+    shared_ptr<string> requestPars_ {};
   };
 
   } // namespace Models

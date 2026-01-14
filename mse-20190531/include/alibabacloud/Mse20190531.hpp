@@ -776,6 +776,23 @@ namespace Mse20190531
       Models::DeleteAuthResourceResponse deleteAuthResource(const Models::DeleteAuthResourceRequest &request);
 
       /**
+       * @summary 删除黑白名单
+       *
+       * @param request DeleteBlackWhiteListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteBlackWhiteListResponse
+       */
+      Models::DeleteBlackWhiteListResponse deleteBlackWhiteListWithOptions(const Models::DeleteBlackWhiteListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除黑白名单
+       *
+       * @param request DeleteBlackWhiteListRequest
+       * @return DeleteBlackWhiteListResponse
+       */
+      Models::DeleteBlackWhiteListResponse deleteBlackWhiteList(const Models::DeleteBlackWhiteListRequest &request);
+
+      /**
        * @summary Deletes circuit breaking rules.
        *
        * @param tmpReq DeleteCircuitBreakerRulesRequest
@@ -859,6 +876,23 @@ namespace Mse20190531
        * @return DeleteGatewayResponse
        */
       Models::DeleteGatewayResponse deleteGateway(const Models::DeleteGatewayRequest &request);
+
+      /**
+       * @summary 删除网关认证
+       *
+       * @param request DeleteGatewayAuthRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteGatewayAuthResponse
+       */
+      Models::DeleteGatewayAuthResponse deleteGatewayAuthWithOptions(const Models::DeleteGatewayAuthRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除网关认证
+       *
+       * @param request DeleteGatewayAuthRequest
+       * @return DeleteGatewayAuthResponse
+       */
+      Models::DeleteGatewayAuthResponse deleteGatewayAuth(const Models::DeleteGatewayAuthRequest &request);
 
       /**
        * @summary Deletes a consumer on which a gateway performs authentication operations.
@@ -2437,6 +2471,23 @@ namespace Mse20190531
       Models::ListGatewayResponse listGateway(const Models::ListGatewayRequest &request);
 
       /**
+       * @summary 查询网关认证
+       *
+       * @param tmpReq ListGatewayAuthRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListGatewayAuthResponse
+       */
+      Models::ListGatewayAuthResponse listGatewayAuthWithOptions(const Models::ListGatewayAuthRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询网关认证
+       *
+       * @param request ListGatewayAuthRequest
+       * @return ListGatewayAuthResponse
+       */
+      Models::ListGatewayAuthResponse listGatewayAuth(const Models::ListGatewayAuthRequest &request);
+
+      /**
        * @summary Queries the list of consumers on which a gateway performs authentication operations.
        *
        * @param request ListGatewayAuthConsumerRequest
@@ -3658,6 +3709,23 @@ namespace Mse20190531
        * @return UpdateFlowRuleResponse
        */
       Models::UpdateFlowRuleResponse updateFlowRule(const Models::UpdateFlowRuleRequest &request);
+
+      /**
+       * @summary 更新网关认证
+       *
+       * @param tmpReq UpdateGatewayAuthRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateGatewayAuthResponse
+       */
+      Models::UpdateGatewayAuthResponse updateGatewayAuthWithOptions(const Models::UpdateGatewayAuthRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新网关认证
+       *
+       * @param request UpdateGatewayAuthRequest
+       * @return UpdateGatewayAuthResponse
+       */
+      Models::UpdateGatewayAuthResponse updateGatewayAuth(const Models::UpdateGatewayAuthRequest &request);
 
       /**
        * @summary Updates the consumer on which a gateway performs authentication operations.

@@ -61,84 +61,84 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->acceptLanguage_ == nullptr
-        && return this->appIds_ == nullptr && return this->canaryModel_ == nullptr && return this->dbGrayEnable_ == nullptr && return this->entryApp_ == nullptr && return this->id_ == nullptr
-        && return this->messageQueueFilterSide_ == nullptr && return this->messageQueueGrayEnable_ == nullptr && return this->name_ == nullptr && return this->namespace_ == nullptr && return this->paths_ == nullptr
-        && return this->recordCanaryDetail_ == nullptr && return this->region_ == nullptr && return this->routeIds_ == nullptr && return this->status_ == nullptr && return this->swimVersion_ == nullptr; };
+        && this->appIds_ == nullptr && this->canaryModel_ == nullptr && this->dbGrayEnable_ == nullptr && this->entryApp_ == nullptr && this->id_ == nullptr
+        && this->messageQueueFilterSide_ == nullptr && this->messageQueueGrayEnable_ == nullptr && this->name_ == nullptr && this->namespace_ == nullptr && this->paths_ == nullptr
+        && this->recordCanaryDetail_ == nullptr && this->region_ == nullptr && this->routeIds_ == nullptr && this->status_ == nullptr && this->swimVersion_ == nullptr; };
     // acceptLanguage Field Functions 
     bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
     void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};
-    inline string acceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
+    inline string getAcceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
     inline CreateOrUpdateSwimmingLaneGroupRequest& setAcceptLanguage(string acceptLanguage) { DARABONBA_PTR_SET_VALUE(acceptLanguage_, acceptLanguage) };
 
 
     // appIds Field Functions 
     bool hasAppIds() const { return this->appIds_ != nullptr;};
     void deleteAppIds() { this->appIds_ = nullptr;};
-    inline string appIds() const { DARABONBA_PTR_GET_DEFAULT(appIds_, "") };
+    inline string getAppIds() const { DARABONBA_PTR_GET_DEFAULT(appIds_, "") };
     inline CreateOrUpdateSwimmingLaneGroupRequest& setAppIds(string appIds) { DARABONBA_PTR_SET_VALUE(appIds_, appIds) };
 
 
     // canaryModel Field Functions 
     bool hasCanaryModel() const { return this->canaryModel_ != nullptr;};
     void deleteCanaryModel() { this->canaryModel_ = nullptr;};
-    inline int32_t canaryModel() const { DARABONBA_PTR_GET_DEFAULT(canaryModel_, 0) };
+    inline int32_t getCanaryModel() const { DARABONBA_PTR_GET_DEFAULT(canaryModel_, 0) };
     inline CreateOrUpdateSwimmingLaneGroupRequest& setCanaryModel(int32_t canaryModel) { DARABONBA_PTR_SET_VALUE(canaryModel_, canaryModel) };
 
 
     // dbGrayEnable Field Functions 
     bool hasDbGrayEnable() const { return this->dbGrayEnable_ != nullptr;};
     void deleteDbGrayEnable() { this->dbGrayEnable_ = nullptr;};
-    inline bool dbGrayEnable() const { DARABONBA_PTR_GET_DEFAULT(dbGrayEnable_, false) };
+    inline bool getDbGrayEnable() const { DARABONBA_PTR_GET_DEFAULT(dbGrayEnable_, false) };
     inline CreateOrUpdateSwimmingLaneGroupRequest& setDbGrayEnable(bool dbGrayEnable) { DARABONBA_PTR_SET_VALUE(dbGrayEnable_, dbGrayEnable) };
 
 
     // entryApp Field Functions 
     bool hasEntryApp() const { return this->entryApp_ != nullptr;};
     void deleteEntryApp() { this->entryApp_ = nullptr;};
-    inline string entryApp() const { DARABONBA_PTR_GET_DEFAULT(entryApp_, "") };
+    inline string getEntryApp() const { DARABONBA_PTR_GET_DEFAULT(entryApp_, "") };
     inline CreateOrUpdateSwimmingLaneGroupRequest& setEntryApp(string entryApp) { DARABONBA_PTR_SET_VALUE(entryApp_, entryApp) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline int64_t id() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+    inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
     inline CreateOrUpdateSwimmingLaneGroupRequest& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // messageQueueFilterSide Field Functions 
     bool hasMessageQueueFilterSide() const { return this->messageQueueFilterSide_ != nullptr;};
     void deleteMessageQueueFilterSide() { this->messageQueueFilterSide_ = nullptr;};
-    inline string messageQueueFilterSide() const { DARABONBA_PTR_GET_DEFAULT(messageQueueFilterSide_, "") };
+    inline string getMessageQueueFilterSide() const { DARABONBA_PTR_GET_DEFAULT(messageQueueFilterSide_, "") };
     inline CreateOrUpdateSwimmingLaneGroupRequest& setMessageQueueFilterSide(string messageQueueFilterSide) { DARABONBA_PTR_SET_VALUE(messageQueueFilterSide_, messageQueueFilterSide) };
 
 
     // messageQueueGrayEnable Field Functions 
     bool hasMessageQueueGrayEnable() const { return this->messageQueueGrayEnable_ != nullptr;};
     void deleteMessageQueueGrayEnable() { this->messageQueueGrayEnable_ = nullptr;};
-    inline bool messageQueueGrayEnable() const { DARABONBA_PTR_GET_DEFAULT(messageQueueGrayEnable_, false) };
+    inline bool getMessageQueueGrayEnable() const { DARABONBA_PTR_GET_DEFAULT(messageQueueGrayEnable_, false) };
     inline CreateOrUpdateSwimmingLaneGroupRequest& setMessageQueueGrayEnable(bool messageQueueGrayEnable) { DARABONBA_PTR_SET_VALUE(messageQueueGrayEnable_, messageQueueGrayEnable) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateOrUpdateSwimmingLaneGroupRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // namespace Field Functions 
     bool hasNamespace() const { return this->namespace_ != nullptr;};
     void deleteNamespace() { this->namespace_ = nullptr;};
-    inline string _namespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
+    inline string getNamespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
     inline CreateOrUpdateSwimmingLaneGroupRequest& setNamespace(string _namespace) { DARABONBA_PTR_SET_VALUE(namespace_, _namespace) };
 
 
     // paths Field Functions 
     bool hasPaths() const { return this->paths_ != nullptr;};
     void deletePaths() { this->paths_ = nullptr;};
-    inline const vector<string> & paths() const { DARABONBA_PTR_GET_CONST(paths_, vector<string>) };
-    inline vector<string> paths() { DARABONBA_PTR_GET(paths_, vector<string>) };
+    inline const vector<string> & getPaths() const { DARABONBA_PTR_GET_CONST(paths_, vector<string>) };
+    inline vector<string> getPaths() { DARABONBA_PTR_GET(paths_, vector<string>) };
     inline CreateOrUpdateSwimmingLaneGroupRequest& setPaths(const vector<string> & paths) { DARABONBA_PTR_SET_VALUE(paths_, paths) };
     inline CreateOrUpdateSwimmingLaneGroupRequest& setPaths(vector<string> && paths) { DARABONBA_PTR_SET_RVALUE(paths_, paths) };
 
@@ -146,22 +146,22 @@ namespace Models
     // recordCanaryDetail Field Functions 
     bool hasRecordCanaryDetail() const { return this->recordCanaryDetail_ != nullptr;};
     void deleteRecordCanaryDetail() { this->recordCanaryDetail_ = nullptr;};
-    inline bool recordCanaryDetail() const { DARABONBA_PTR_GET_DEFAULT(recordCanaryDetail_, false) };
+    inline bool getRecordCanaryDetail() const { DARABONBA_PTR_GET_DEFAULT(recordCanaryDetail_, false) };
     inline CreateOrUpdateSwimmingLaneGroupRequest& setRecordCanaryDetail(bool recordCanaryDetail) { DARABONBA_PTR_SET_VALUE(recordCanaryDetail_, recordCanaryDetail) };
 
 
     // region Field Functions 
     bool hasRegion() const { return this->region_ != nullptr;};
     void deleteRegion() { this->region_ = nullptr;};
-    inline string region() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
+    inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
     inline CreateOrUpdateSwimmingLaneGroupRequest& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
     // routeIds Field Functions 
     bool hasRouteIds() const { return this->routeIds_ != nullptr;};
     void deleteRouteIds() { this->routeIds_ = nullptr;};
-    inline const vector<int64_t> & routeIds() const { DARABONBA_PTR_GET_CONST(routeIds_, vector<int64_t>) };
-    inline vector<int64_t> routeIds() { DARABONBA_PTR_GET(routeIds_, vector<int64_t>) };
+    inline const vector<int64_t> & getRouteIds() const { DARABONBA_PTR_GET_CONST(routeIds_, vector<int64_t>) };
+    inline vector<int64_t> getRouteIds() { DARABONBA_PTR_GET(routeIds_, vector<int64_t>) };
     inline CreateOrUpdateSwimmingLaneGroupRequest& setRouteIds(const vector<int64_t> & routeIds) { DARABONBA_PTR_SET_VALUE(routeIds_, routeIds) };
     inline CreateOrUpdateSwimmingLaneGroupRequest& setRouteIds(vector<int64_t> && routeIds) { DARABONBA_PTR_SET_RVALUE(routeIds_, routeIds) };
 
@@ -169,14 +169,14 @@ namespace Models
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline int32_t status() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
+    inline int32_t getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
     inline CreateOrUpdateSwimmingLaneGroupRequest& setStatus(int32_t status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // swimVersion Field Functions 
     bool hasSwimVersion() const { return this->swimVersion_ != nullptr;};
     void deleteSwimVersion() { this->swimVersion_ = nullptr;};
-    inline int32_t swimVersion() const { DARABONBA_PTR_GET_DEFAULT(swimVersion_, 0) };
+    inline int32_t getSwimVersion() const { DARABONBA_PTR_GET_DEFAULT(swimVersion_, 0) };
     inline CreateOrUpdateSwimmingLaneGroupRequest& setSwimVersion(int32_t swimVersion) { DARABONBA_PTR_SET_VALUE(swimVersion_, swimVersion) };
 
 
@@ -185,35 +185,35 @@ namespace Models
     // 
     // *   zh: Chinese
     // *   en: English
-    std::shared_ptr<string> acceptLanguage_ = nullptr;
+    shared_ptr<string> acceptLanguage_ {};
     // The IDs of applications. Separate application IDs with commas (,).
-    std::shared_ptr<string> appIds_ = nullptr;
-    std::shared_ptr<int32_t> canaryModel_ = nullptr;
+    shared_ptr<string> appIds_ {};
+    shared_ptr<int32_t> canaryModel_ {};
     // Specifies whether to enable database canary release.
-    std::shared_ptr<bool> dbGrayEnable_ = nullptr;
+    shared_ptr<bool> dbGrayEnable_ {};
     // The ingress application.
-    std::shared_ptr<string> entryApp_ = nullptr;
+    shared_ptr<string> entryApp_ {};
     // The ID of the lane group. A value of -1 is used to create a lane group. A value greater than 0 is used to modify the specified lane group.
-    std::shared_ptr<int64_t> id_ = nullptr;
+    shared_ptr<int64_t> id_ {};
     // The side for message filtering when the canary release for messaging feature is enabled.
-    std::shared_ptr<string> messageQueueFilterSide_ = nullptr;
+    shared_ptr<string> messageQueueFilterSide_ {};
     // Specifies whether to enable canary release for messaging.
-    std::shared_ptr<bool> messageQueueGrayEnable_ = nullptr;
+    shared_ptr<bool> messageQueueGrayEnable_ {};
     // The name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The name of the Microservices Engine (MSE) namespace.
-    std::shared_ptr<string> namespace_ = nullptr;
-    std::shared_ptr<vector<string>> paths_ = nullptr;
+    shared_ptr<string> namespace_ {};
+    shared_ptr<vector<string>> paths_ {};
     // Specifies whether to record request details.
-    std::shared_ptr<bool> recordCanaryDetail_ = nullptr;
+    shared_ptr<bool> recordCanaryDetail_ {};
     // The region ID.
-    std::shared_ptr<string> region_ = nullptr;
-    std::shared_ptr<vector<int64_t>> routeIds_ = nullptr;
+    shared_ptr<string> region_ {};
+    shared_ptr<vector<int64_t>> routeIds_ {};
     // The status of the lane group. The value 0 specifies that the lane group is disabled. The value 1 specifies that the lane group is enabled.
-    std::shared_ptr<int32_t> status_ = nullptr;
-    std::shared_ptr<int32_t> swimVersion_ = nullptr;
+    shared_ptr<int32_t> status_ {};
+    shared_ptr<int32_t> swimVersion_ {};
   };
 
   } // namespace Models

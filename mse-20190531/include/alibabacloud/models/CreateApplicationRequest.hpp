@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_CREATEAPPLICATIONREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/CreateApplicationRequestTags.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -47,72 +46,114 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Tags : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Tags& obj) { 
+        DARABONBA_PTR_TO_JSON(Key, key_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, Tags& obj) { 
+        DARABONBA_PTR_FROM_JSON(Key, key_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
+      };
+      Tags() = default ;
+      Tags(const Tags &) = default ;
+      Tags(Tags &&) = default ;
+      Tags(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Tags() = default ;
+      Tags& operator=(const Tags &) = default ;
+      Tags& operator=(Tags &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline Tags& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline Tags& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      shared_ptr<string> key_ {};
+      shared_ptr<string> value_ {};
+    };
+
     virtual bool empty() const override { return this->acceptLanguage_ == nullptr
-        && return this->appName_ == nullptr && return this->language_ == nullptr && return this->namespace_ == nullptr && return this->region_ == nullptr && return this->sentinelEnable_ == nullptr
-        && return this->source_ == nullptr && return this->switchEnable_ == nullptr && return this->tags_ == nullptr; };
+        && this->appName_ == nullptr && this->language_ == nullptr && this->namespace_ == nullptr && this->region_ == nullptr && this->sentinelEnable_ == nullptr
+        && this->source_ == nullptr && this->switchEnable_ == nullptr && this->tags_ == nullptr; };
     // acceptLanguage Field Functions 
     bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
     void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};
-    inline string acceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
+    inline string getAcceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
     inline CreateApplicationRequest& setAcceptLanguage(string acceptLanguage) { DARABONBA_PTR_SET_VALUE(acceptLanguage_, acceptLanguage) };
 
 
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
-    inline string appName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
+    inline string getAppName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
     inline CreateApplicationRequest& setAppName(string appName) { DARABONBA_PTR_SET_VALUE(appName_, appName) };
 
 
     // language Field Functions 
     bool hasLanguage() const { return this->language_ != nullptr;};
     void deleteLanguage() { this->language_ = nullptr;};
-    inline string language() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
+    inline string getLanguage() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
     inline CreateApplicationRequest& setLanguage(string language) { DARABONBA_PTR_SET_VALUE(language_, language) };
 
 
     // namespace Field Functions 
     bool hasNamespace() const { return this->namespace_ != nullptr;};
     void deleteNamespace() { this->namespace_ = nullptr;};
-    inline string _namespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
+    inline string getNamespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
     inline CreateApplicationRequest& setNamespace(string _namespace) { DARABONBA_PTR_SET_VALUE(namespace_, _namespace) };
 
 
     // region Field Functions 
     bool hasRegion() const { return this->region_ != nullptr;};
     void deleteRegion() { this->region_ = nullptr;};
-    inline string region() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
+    inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
     inline CreateApplicationRequest& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
     // sentinelEnable Field Functions 
     bool hasSentinelEnable() const { return this->sentinelEnable_ != nullptr;};
     void deleteSentinelEnable() { this->sentinelEnable_ = nullptr;};
-    inline string sentinelEnable() const { DARABONBA_PTR_GET_DEFAULT(sentinelEnable_, "") };
+    inline string getSentinelEnable() const { DARABONBA_PTR_GET_DEFAULT(sentinelEnable_, "") };
     inline CreateApplicationRequest& setSentinelEnable(string sentinelEnable) { DARABONBA_PTR_SET_VALUE(sentinelEnable_, sentinelEnable) };
 
 
     // source Field Functions 
     bool hasSource() const { return this->source_ != nullptr;};
     void deleteSource() { this->source_ = nullptr;};
-    inline string source() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
+    inline string getSource() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
     inline CreateApplicationRequest& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
 
 
     // switchEnable Field Functions 
     bool hasSwitchEnable() const { return this->switchEnable_ != nullptr;};
     void deleteSwitchEnable() { this->switchEnable_ = nullptr;};
-    inline string switchEnable() const { DARABONBA_PTR_GET_DEFAULT(switchEnable_, "") };
+    inline string getSwitchEnable() const { DARABONBA_PTR_GET_DEFAULT(switchEnable_, "") };
     inline CreateApplicationRequest& setSwitchEnable(string switchEnable) { DARABONBA_PTR_SET_VALUE(switchEnable_, switchEnable) };
 
 
     // tags Field Functions 
     bool hasTags() const { return this->tags_ != nullptr;};
     void deleteTags() { this->tags_ = nullptr;};
-    inline const vector<CreateApplicationRequestTags> & tags() const { DARABONBA_PTR_GET_CONST(tags_, vector<CreateApplicationRequestTags>) };
-    inline vector<CreateApplicationRequestTags> tags() { DARABONBA_PTR_GET(tags_, vector<CreateApplicationRequestTags>) };
-    inline CreateApplicationRequest& setTags(const vector<CreateApplicationRequestTags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
-    inline CreateApplicationRequest& setTags(vector<CreateApplicationRequestTags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
+    inline const vector<CreateApplicationRequest::Tags> & getTags() const { DARABONBA_PTR_GET_CONST(tags_, vector<CreateApplicationRequest::Tags>) };
+    inline vector<CreateApplicationRequest::Tags> getTags() { DARABONBA_PTR_GET(tags_, vector<CreateApplicationRequest::Tags>) };
+    inline CreateApplicationRequest& setTags(const vector<CreateApplicationRequest::Tags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+    inline CreateApplicationRequest& setTags(vector<CreateApplicationRequest::Tags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
 
 
   protected:
@@ -120,26 +161,26 @@ namespace Models
     // 
     // *   zh: Chinese
     // *   en: English
-    std::shared_ptr<string> acceptLanguage_ = nullptr;
+    shared_ptr<string> acceptLanguage_ {};
     // The name of the application.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appName_ = nullptr;
+    shared_ptr<string> appName_ {};
     // The programming language of the application.
-    std::shared_ptr<string> language_ = nullptr;
+    shared_ptr<string> language_ {};
     // MSE命名空间名字。
-    std::shared_ptr<string> namespace_ = nullptr;
+    shared_ptr<string> namespace_ {};
     // The region to which the application belongs.
     // 
     // This parameter is required.
-    std::shared_ptr<string> region_ = nullptr;
+    shared_ptr<string> region_ {};
     // Specifies whether to start the switch.
-    std::shared_ptr<string> sentinelEnable_ = nullptr;
+    shared_ptr<string> sentinelEnable_ {};
     // The service where the application is deployed. A value of ACK indicates Container Service for Kubernetes.
-    std::shared_ptr<string> source_ = nullptr;
+    shared_ptr<string> source_ {};
     // The name of the Microservices Engine (MSE) namespace.
-    std::shared_ptr<string> switchEnable_ = nullptr;
-    std::shared_ptr<vector<CreateApplicationRequestTags>> tags_ = nullptr;
+    shared_ptr<string> switchEnable_ {};
+    shared_ptr<vector<CreateApplicationRequest::Tags>> tags_ {};
   };
 
   } // namespace Models

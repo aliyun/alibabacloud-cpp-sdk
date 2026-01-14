@@ -34,39 +34,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->acceptLanguage_ == nullptr
-        && return this->gatewayUniqueId_ == nullptr && return this->pluginConfigId_ == nullptr; };
+        && this->gatewayUniqueId_ == nullptr && this->pluginConfigId_ == nullptr; };
     // acceptLanguage Field Functions 
     bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
     void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};
-    inline string acceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
+    inline string getAcceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
     inline DeletePluginConfigRequest& setAcceptLanguage(string acceptLanguage) { DARABONBA_PTR_SET_VALUE(acceptLanguage_, acceptLanguage) };
 
 
     // gatewayUniqueId Field Functions 
     bool hasGatewayUniqueId() const { return this->gatewayUniqueId_ != nullptr;};
     void deleteGatewayUniqueId() { this->gatewayUniqueId_ = nullptr;};
-    inline string gatewayUniqueId() const { DARABONBA_PTR_GET_DEFAULT(gatewayUniqueId_, "") };
+    inline string getGatewayUniqueId() const { DARABONBA_PTR_GET_DEFAULT(gatewayUniqueId_, "") };
     inline DeletePluginConfigRequest& setGatewayUniqueId(string gatewayUniqueId) { DARABONBA_PTR_SET_VALUE(gatewayUniqueId_, gatewayUniqueId) };
 
 
     // pluginConfigId Field Functions 
     bool hasPluginConfigId() const { return this->pluginConfigId_ != nullptr;};
     void deletePluginConfigId() { this->pluginConfigId_ = nullptr;};
-    inline int64_t pluginConfigId() const { DARABONBA_PTR_GET_DEFAULT(pluginConfigId_, 0L) };
+    inline int64_t getPluginConfigId() const { DARABONBA_PTR_GET_DEFAULT(pluginConfigId_, 0L) };
     inline DeletePluginConfigRequest& setPluginConfigId(int64_t pluginConfigId) { DARABONBA_PTR_SET_VALUE(pluginConfigId_, pluginConfigId) };
 
 
   protected:
     // The language in which you want to display the results. Valid values: zh and en. zh indicates Chinese, which is the default value. en indicates English.
-    std::shared_ptr<string> acceptLanguage_ = nullptr;
+    shared_ptr<string> acceptLanguage_ {};
     // The unique ID of the gateway.
     // 
     // This parameter is required.
-    std::shared_ptr<string> gatewayUniqueId_ = nullptr;
+    shared_ptr<string> gatewayUniqueId_ {};
     // The plug-in configuration ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> pluginConfigId_ = nullptr;
+    shared_ptr<int64_t> pluginConfigId_ {};
   };
 
   } // namespace Models

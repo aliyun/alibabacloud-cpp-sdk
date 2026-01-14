@@ -46,86 +46,86 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->acceptLanguage_ == nullptr
-        && return this->appId_ == nullptr && return this->appName_ == nullptr && return this->enable_ == nullptr && return this->limitApp_ == nullptr && return this->namespace_ == nullptr
-        && return this->regionId_ == nullptr && return this->resource_ == nullptr && return this->threshold_ == nullptr; };
+        && this->appId_ == nullptr && this->appName_ == nullptr && this->enable_ == nullptr && this->limitApp_ == nullptr && this->namespace_ == nullptr
+        && this->regionId_ == nullptr && this->resource_ == nullptr && this->threshold_ == nullptr; };
     // acceptLanguage Field Functions 
     bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
     void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};
-    inline string acceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
+    inline string getAcceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
     inline CreateIsolationRuleRequest& setAcceptLanguage(string acceptLanguage) { DARABONBA_PTR_SET_VALUE(acceptLanguage_, acceptLanguage) };
 
 
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline CreateIsolationRuleRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
-    inline string appName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
+    inline string getAppName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
     inline CreateIsolationRuleRequest& setAppName(string appName) { DARABONBA_PTR_SET_VALUE(appName_, appName) };
 
 
     // enable Field Functions 
     bool hasEnable() const { return this->enable_ != nullptr;};
     void deleteEnable() { this->enable_ = nullptr;};
-    inline bool enable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
+    inline bool getEnable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
     inline CreateIsolationRuleRequest& setEnable(bool enable) { DARABONBA_PTR_SET_VALUE(enable_, enable) };
 
 
     // limitApp Field Functions 
     bool hasLimitApp() const { return this->limitApp_ != nullptr;};
     void deleteLimitApp() { this->limitApp_ = nullptr;};
-    inline string limitApp() const { DARABONBA_PTR_GET_DEFAULT(limitApp_, "") };
+    inline string getLimitApp() const { DARABONBA_PTR_GET_DEFAULT(limitApp_, "") };
     inline CreateIsolationRuleRequest& setLimitApp(string limitApp) { DARABONBA_PTR_SET_VALUE(limitApp_, limitApp) };
 
 
     // namespace Field Functions 
     bool hasNamespace() const { return this->namespace_ != nullptr;};
     void deleteNamespace() { this->namespace_ = nullptr;};
-    inline string _namespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
+    inline string getNamespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
     inline CreateIsolationRuleRequest& setNamespace(string _namespace) { DARABONBA_PTR_SET_VALUE(namespace_, _namespace) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreateIsolationRuleRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resource Field Functions 
     bool hasResource() const { return this->resource_ != nullptr;};
     void deleteResource() { this->resource_ = nullptr;};
-    inline string resource() const { DARABONBA_PTR_GET_DEFAULT(resource_, "") };
+    inline string getResource() const { DARABONBA_PTR_GET_DEFAULT(resource_, "") };
     inline CreateIsolationRuleRequest& setResource(string resource) { DARABONBA_PTR_SET_VALUE(resource_, resource) };
 
 
     // threshold Field Functions 
     bool hasThreshold() const { return this->threshold_ != nullptr;};
     void deleteThreshold() { this->threshold_ = nullptr;};
-    inline float threshold() const { DARABONBA_PTR_GET_DEFAULT(threshold_, 0.0) };
+    inline float getThreshold() const { DARABONBA_PTR_GET_DEFAULT(threshold_, 0.0) };
     inline CreateIsolationRuleRequest& setThreshold(float threshold) { DARABONBA_PTR_SET_VALUE(threshold_, threshold) };
 
 
   protected:
-    std::shared_ptr<string> acceptLanguage_ = nullptr;
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> acceptLanguage_ {};
+    shared_ptr<string> appId_ {};
     // This parameter is required.
-    std::shared_ptr<string> appName_ = nullptr;
+    shared_ptr<string> appName_ {};
     // This parameter is required.
-    std::shared_ptr<bool> enable_ = nullptr;
-    std::shared_ptr<string> limitApp_ = nullptr;
+    shared_ptr<bool> enable_ {};
+    shared_ptr<string> limitApp_ {};
     // This parameter is required.
-    std::shared_ptr<string> namespace_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> namespace_ {};
+    shared_ptr<string> regionId_ {};
     // This parameter is required.
-    std::shared_ptr<string> resource_ = nullptr;
+    shared_ptr<string> resource_ {};
     // This parameter is required.
-    std::shared_ptr<float> threshold_ = nullptr;
+    shared_ptr<float> threshold_ {};
   };
 
   } // namespace Models

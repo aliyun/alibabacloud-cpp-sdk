@@ -34,42 +34,42 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->acceptLanguage_ == nullptr
-        && return this->gatewayUniqueId_ == nullptr && return this->preserveHeaderFormat_ == nullptr; };
+        && this->gatewayUniqueId_ == nullptr && this->preserveHeaderFormat_ == nullptr; };
     // acceptLanguage Field Functions 
     bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
     void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};
-    inline string acceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
+    inline string getAcceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
     inline PreserveHeaderFormatRequest& setAcceptLanguage(string acceptLanguage) { DARABONBA_PTR_SET_VALUE(acceptLanguage_, acceptLanguage) };
 
 
     // gatewayUniqueId Field Functions 
     bool hasGatewayUniqueId() const { return this->gatewayUniqueId_ != nullptr;};
     void deleteGatewayUniqueId() { this->gatewayUniqueId_ = nullptr;};
-    inline string gatewayUniqueId() const { DARABONBA_PTR_GET_DEFAULT(gatewayUniqueId_, "") };
+    inline string getGatewayUniqueId() const { DARABONBA_PTR_GET_DEFAULT(gatewayUniqueId_, "") };
     inline PreserveHeaderFormatRequest& setGatewayUniqueId(string gatewayUniqueId) { DARABONBA_PTR_SET_VALUE(gatewayUniqueId_, gatewayUniqueId) };
 
 
     // preserveHeaderFormat Field Functions 
     bool hasPreserveHeaderFormat() const { return this->preserveHeaderFormat_ != nullptr;};
     void deletePreserveHeaderFormat() { this->preserveHeaderFormat_ = nullptr;};
-    inline bool preserveHeaderFormat() const { DARABONBA_PTR_GET_DEFAULT(preserveHeaderFormat_, false) };
+    inline bool getPreserveHeaderFormat() const { DARABONBA_PTR_GET_DEFAULT(preserveHeaderFormat_, false) };
     inline PreserveHeaderFormatRequest& setPreserveHeaderFormat(bool preserveHeaderFormat) { DARABONBA_PTR_SET_VALUE(preserveHeaderFormat_, preserveHeaderFormat) };
 
 
   protected:
     // The language in which you want to display the results. Valid values: zh and en. zh indicates Chinese, which is the default value. en indicates English.
-    std::shared_ptr<string> acceptLanguage_ = nullptr;
+    shared_ptr<string> acceptLanguage_ {};
     // The unique ID of the gateway.
     // 
     // This parameter is required.
-    std::shared_ptr<string> gatewayUniqueId_ = nullptr;
+    shared_ptr<string> gatewayUniqueId_ {};
     // Specifies whether the request header is case-sensitive. Valid values:
     // 
     // *   **true**
     // *   **false**
     // 
     // This parameter is required.
-    std::shared_ptr<bool> preserveHeaderFormat_ = nullptr;
+    shared_ptr<bool> preserveHeaderFormat_ {};
   };
 
   } // namespace Models

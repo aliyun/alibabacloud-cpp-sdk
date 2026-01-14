@@ -47,48 +47,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->acceptLanguage_ == nullptr
-        && return this->appId_ == nullptr && return this->appName_ == nullptr && return this->enable_ == nullptr && return this->filterSide_ == nullptr && return this->grayBaseTags_ == nullptr
-        && return this->namespace_ == nullptr && return this->region_ == nullptr && return this->tags_ == nullptr; };
+        && this->appId_ == nullptr && this->appName_ == nullptr && this->enable_ == nullptr && this->filterSide_ == nullptr && this->grayBaseTags_ == nullptr
+        && this->namespace_ == nullptr && this->region_ == nullptr && this->tags_ == nullptr; };
     // acceptLanguage Field Functions 
     bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
     void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};
-    inline string acceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
+    inline string getAcceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
     inline UpdateMessageQueueRouteRequest& setAcceptLanguage(string acceptLanguage) { DARABONBA_PTR_SET_VALUE(acceptLanguage_, acceptLanguage) };
 
 
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline UpdateMessageQueueRouteRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
-    inline string appName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
+    inline string getAppName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
     inline UpdateMessageQueueRouteRequest& setAppName(string appName) { DARABONBA_PTR_SET_VALUE(appName_, appName) };
 
 
     // enable Field Functions 
     bool hasEnable() const { return this->enable_ != nullptr;};
     void deleteEnable() { this->enable_ = nullptr;};
-    inline bool enable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
+    inline bool getEnable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
     inline UpdateMessageQueueRouteRequest& setEnable(bool enable) { DARABONBA_PTR_SET_VALUE(enable_, enable) };
 
 
     // filterSide Field Functions 
     bool hasFilterSide() const { return this->filterSide_ != nullptr;};
     void deleteFilterSide() { this->filterSide_ = nullptr;};
-    inline string filterSide() const { DARABONBA_PTR_GET_DEFAULT(filterSide_, "") };
+    inline string getFilterSide() const { DARABONBA_PTR_GET_DEFAULT(filterSide_, "") };
     inline UpdateMessageQueueRouteRequest& setFilterSide(string filterSide) { DARABONBA_PTR_SET_VALUE(filterSide_, filterSide) };
 
 
     // grayBaseTags Field Functions 
     bool hasGrayBaseTags() const { return this->grayBaseTags_ != nullptr;};
     void deleteGrayBaseTags() { this->grayBaseTags_ = nullptr;};
-    inline const vector<string> & grayBaseTags() const { DARABONBA_PTR_GET_CONST(grayBaseTags_, vector<string>) };
-    inline vector<string> grayBaseTags() { DARABONBA_PTR_GET(grayBaseTags_, vector<string>) };
+    inline const vector<string> & getGrayBaseTags() const { DARABONBA_PTR_GET_CONST(grayBaseTags_, vector<string>) };
+    inline vector<string> getGrayBaseTags() { DARABONBA_PTR_GET(grayBaseTags_, vector<string>) };
     inline UpdateMessageQueueRouteRequest& setGrayBaseTags(const vector<string> & grayBaseTags) { DARABONBA_PTR_SET_VALUE(grayBaseTags_, grayBaseTags) };
     inline UpdateMessageQueueRouteRequest& setGrayBaseTags(vector<string> && grayBaseTags) { DARABONBA_PTR_SET_RVALUE(grayBaseTags_, grayBaseTags) };
 
@@ -96,22 +96,22 @@ namespace Models
     // namespace Field Functions 
     bool hasNamespace() const { return this->namespace_ != nullptr;};
     void deleteNamespace() { this->namespace_ = nullptr;};
-    inline string _namespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
+    inline string getNamespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
     inline UpdateMessageQueueRouteRequest& setNamespace(string _namespace) { DARABONBA_PTR_SET_VALUE(namespace_, _namespace) };
 
 
     // region Field Functions 
     bool hasRegion() const { return this->region_ != nullptr;};
     void deleteRegion() { this->region_ = nullptr;};
-    inline string region() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
+    inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
     inline UpdateMessageQueueRouteRequest& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
     // tags Field Functions 
     bool hasTags() const { return this->tags_ != nullptr;};
     void deleteTags() { this->tags_ = nullptr;};
-    inline const vector<string> & tags() const { DARABONBA_PTR_GET_CONST(tags_, vector<string>) };
-    inline vector<string> tags() { DARABONBA_PTR_GET(tags_, vector<string>) };
+    inline const vector<string> & getTags() const { DARABONBA_PTR_GET_CONST(tags_, vector<string>) };
+    inline vector<string> getTags() { DARABONBA_PTR_GET(tags_, vector<string>) };
     inline UpdateMessageQueueRouteRequest& setTags(const vector<string> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
     inline UpdateMessageQueueRouteRequest& setTags(vector<string> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
 
@@ -121,27 +121,27 @@ namespace Models
     // 
     // *   zh: Chinese
     // *   en: English
-    std::shared_ptr<string> acceptLanguage_ = nullptr;
+    shared_ptr<string> acceptLanguage_ {};
     // The ID of the application.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
-    std::shared_ptr<string> appName_ = nullptr;
+    shared_ptr<string> appId_ {};
+    shared_ptr<string> appName_ {};
     // Specifies whether the canary release for messaging feature is enabled for the application. Valid values:
     // 
     // *   `true`: enabled
     // *   `false`: disabled
-    std::shared_ptr<bool> enable_ = nullptr;
+    shared_ptr<bool> enable_ {};
     // The side for message filtering when the canary release for messaging feature is enabled.
-    std::shared_ptr<string> filterSide_ = nullptr;
-    std::shared_ptr<vector<string>> grayBaseTags_ = nullptr;
-    std::shared_ptr<string> namespace_ = nullptr;
+    shared_ptr<string> filterSide_ {};
+    shared_ptr<vector<string>> grayBaseTags_ {};
+    shared_ptr<string> namespace_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> region_ = nullptr;
+    shared_ptr<string> region_ {};
     // The tag that is negligible for the untagged environment of the application.
-    std::shared_ptr<vector<string>> tags_ = nullptr;
+    shared_ptr<vector<string>> tags_ {};
   };
 
   } // namespace Models

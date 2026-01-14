@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->acceptLanguage_ == nullptr
-        && return this->originInstanceName_ == nullptr && return this->pageNum_ == nullptr && return this->pageSize_ == nullptr && return this->requestPars_ == nullptr; };
+        && this->originInstanceName_ == nullptr && this->pageNum_ == nullptr && this->pageSize_ == nullptr && this->requestPars_ == nullptr; };
     // acceptLanguage Field Functions 
     bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
     void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};
-    inline string acceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
+    inline string getAcceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
     inline ListMigrationTaskRequest& setAcceptLanguage(string acceptLanguage) { DARABONBA_PTR_SET_VALUE(acceptLanguage_, acceptLanguage) };
 
 
     // originInstanceName Field Functions 
     bool hasOriginInstanceName() const { return this->originInstanceName_ != nullptr;};
     void deleteOriginInstanceName() { this->originInstanceName_ = nullptr;};
-    inline string originInstanceName() const { DARABONBA_PTR_GET_DEFAULT(originInstanceName_, "") };
+    inline string getOriginInstanceName() const { DARABONBA_PTR_GET_DEFAULT(originInstanceName_, "") };
     inline ListMigrationTaskRequest& setOriginInstanceName(string originInstanceName) { DARABONBA_PTR_SET_VALUE(originInstanceName_, originInstanceName) };
 
 
     // pageNum Field Functions 
     bool hasPageNum() const { return this->pageNum_ != nullptr;};
     void deletePageNum() { this->pageNum_ = nullptr;};
-    inline int64_t pageNum() const { DARABONBA_PTR_GET_DEFAULT(pageNum_, 0L) };
+    inline int64_t getPageNum() const { DARABONBA_PTR_GET_DEFAULT(pageNum_, 0L) };
     inline ListMigrationTaskRequest& setPageNum(int64_t pageNum) { DARABONBA_PTR_SET_VALUE(pageNum_, pageNum) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int64_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
+    inline int64_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
     inline ListMigrationTaskRequest& setPageSize(int64_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // requestPars Field Functions 
     bool hasRequestPars() const { return this->requestPars_ != nullptr;};
     void deleteRequestPars() { this->requestPars_ = nullptr;};
-    inline string requestPars() const { DARABONBA_PTR_GET_DEFAULT(requestPars_, "") };
+    inline string getRequestPars() const { DARABONBA_PTR_GET_DEFAULT(requestPars_, "") };
     inline ListMigrationTaskRequest& setRequestPars(string requestPars) { DARABONBA_PTR_SET_VALUE(requestPars_, requestPars) };
 
 
@@ -79,15 +79,15 @@ namespace Models
     // 
     // *   zh: Chinese
     // *   en: English
-    std::shared_ptr<string> acceptLanguage_ = nullptr;
+    shared_ptr<string> acceptLanguage_ {};
     // The name of the source instance.
-    std::shared_ptr<string> originInstanceName_ = nullptr;
+    shared_ptr<string> originInstanceName_ {};
     // The number of the page to return.
-    std::shared_ptr<int64_t> pageNum_ = nullptr;
+    shared_ptr<int64_t> pageNum_ {};
     // The number of entries to return on each page.
-    std::shared_ptr<int64_t> pageSize_ = nullptr;
+    shared_ptr<int64_t> pageSize_ {};
     // The extended request parameters in the JSON format.
-    std::shared_ptr<string> requestPars_ = nullptr;
+    shared_ptr<string> requestPars_ {};
   };
 
   } // namespace Models

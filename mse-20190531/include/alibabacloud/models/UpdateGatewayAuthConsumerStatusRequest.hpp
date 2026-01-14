@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->acceptLanguage_ == nullptr
-        && return this->consumerStatus_ == nullptr && return this->gatewayUniqueId_ == nullptr && return this->id_ == nullptr; };
+        && this->consumerStatus_ == nullptr && this->gatewayUniqueId_ == nullptr && this->id_ == nullptr; };
     // acceptLanguage Field Functions 
     bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
     void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};
-    inline string acceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
+    inline string getAcceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
     inline UpdateGatewayAuthConsumerStatusRequest& setAcceptLanguage(string acceptLanguage) { DARABONBA_PTR_SET_VALUE(acceptLanguage_, acceptLanguage) };
 
 
     // consumerStatus Field Functions 
     bool hasConsumerStatus() const { return this->consumerStatus_ != nullptr;};
     void deleteConsumerStatus() { this->consumerStatus_ = nullptr;};
-    inline bool consumerStatus() const { DARABONBA_PTR_GET_DEFAULT(consumerStatus_, false) };
+    inline bool getConsumerStatus() const { DARABONBA_PTR_GET_DEFAULT(consumerStatus_, false) };
     inline UpdateGatewayAuthConsumerStatusRequest& setConsumerStatus(bool consumerStatus) { DARABONBA_PTR_SET_VALUE(consumerStatus_, consumerStatus) };
 
 
     // gatewayUniqueId Field Functions 
     bool hasGatewayUniqueId() const { return this->gatewayUniqueId_ != nullptr;};
     void deleteGatewayUniqueId() { this->gatewayUniqueId_ = nullptr;};
-    inline string gatewayUniqueId() const { DARABONBA_PTR_GET_DEFAULT(gatewayUniqueId_, "") };
+    inline string getGatewayUniqueId() const { DARABONBA_PTR_GET_DEFAULT(gatewayUniqueId_, "") };
     inline UpdateGatewayAuthConsumerStatusRequest& setGatewayUniqueId(string gatewayUniqueId) { DARABONBA_PTR_SET_VALUE(gatewayUniqueId_, gatewayUniqueId) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline int64_t id() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+    inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
     inline UpdateGatewayAuthConsumerStatusRequest& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
@@ -70,22 +70,22 @@ namespace Models
     // 
     // *   zh: Chinese
     // *   en: English
-    std::shared_ptr<string> acceptLanguage_ = nullptr;
+    shared_ptr<string> acceptLanguage_ {};
     // The status of the consumer. Valid values:
     // 
     // *   true: The consumer is enabled.
     // *   false: The consumer is disabled.
     // 
     // This parameter is required.
-    std::shared_ptr<bool> consumerStatus_ = nullptr;
+    shared_ptr<bool> consumerStatus_ {};
     // The unique ID of the gateway.
     // 
     // This parameter is required.
-    std::shared_ptr<string> gatewayUniqueId_ = nullptr;
+    shared_ptr<string> gatewayUniqueId_ {};
     // The consumer ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> id_ = nullptr;
+    shared_ptr<int64_t> id_ {};
   };
 
   } // namespace Models

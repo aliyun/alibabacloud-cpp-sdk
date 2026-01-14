@@ -48,105 +48,105 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->acceptLanguage_ == nullptr
-        && return this->appId_ == nullptr && return this->authRule_ == nullptr && return this->enable_ == nullptr && return this->id_ == nullptr && return this->k8sNamespace_ == nullptr
-        && return this->name_ == nullptr && return this->protocol_ == nullptr && return this->region_ == nullptr && return this->source_ == nullptr; };
+        && this->appId_ == nullptr && this->authRule_ == nullptr && this->enable_ == nullptr && this->id_ == nullptr && this->k8sNamespace_ == nullptr
+        && this->name_ == nullptr && this->protocol_ == nullptr && this->region_ == nullptr && this->source_ == nullptr; };
     // acceptLanguage Field Functions 
     bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
     void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};
-    inline string acceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
+    inline string getAcceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
     inline UpdateAuthPolicyRequest& setAcceptLanguage(string acceptLanguage) { DARABONBA_PTR_SET_VALUE(acceptLanguage_, acceptLanguage) };
 
 
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline UpdateAuthPolicyRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // authRule Field Functions 
     bool hasAuthRule() const { return this->authRule_ != nullptr;};
     void deleteAuthRule() { this->authRule_ = nullptr;};
-    inline string authRule() const { DARABONBA_PTR_GET_DEFAULT(authRule_, "") };
+    inline string getAuthRule() const { DARABONBA_PTR_GET_DEFAULT(authRule_, "") };
     inline UpdateAuthPolicyRequest& setAuthRule(string authRule) { DARABONBA_PTR_SET_VALUE(authRule_, authRule) };
 
 
     // enable Field Functions 
     bool hasEnable() const { return this->enable_ != nullptr;};
     void deleteEnable() { this->enable_ = nullptr;};
-    inline string enable() const { DARABONBA_PTR_GET_DEFAULT(enable_, "") };
+    inline string getEnable() const { DARABONBA_PTR_GET_DEFAULT(enable_, "") };
     inline UpdateAuthPolicyRequest& setEnable(string enable) { DARABONBA_PTR_SET_VALUE(enable_, enable) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline string id() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+    inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline UpdateAuthPolicyRequest& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // k8sNamespace Field Functions 
     bool hasK8sNamespace() const { return this->k8sNamespace_ != nullptr;};
     void deleteK8sNamespace() { this->k8sNamespace_ = nullptr;};
-    inline string k8sNamespace() const { DARABONBA_PTR_GET_DEFAULT(k8sNamespace_, "") };
+    inline string getK8sNamespace() const { DARABONBA_PTR_GET_DEFAULT(k8sNamespace_, "") };
     inline UpdateAuthPolicyRequest& setK8sNamespace(string k8sNamespace) { DARABONBA_PTR_SET_VALUE(k8sNamespace_, k8sNamespace) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline UpdateAuthPolicyRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // protocol Field Functions 
     bool hasProtocol() const { return this->protocol_ != nullptr;};
     void deleteProtocol() { this->protocol_ = nullptr;};
-    inline string protocol() const { DARABONBA_PTR_GET_DEFAULT(protocol_, "") };
+    inline string getProtocol() const { DARABONBA_PTR_GET_DEFAULT(protocol_, "") };
     inline UpdateAuthPolicyRequest& setProtocol(string protocol) { DARABONBA_PTR_SET_VALUE(protocol_, protocol) };
 
 
     // region Field Functions 
     bool hasRegion() const { return this->region_ != nullptr;};
     void deleteRegion() { this->region_ = nullptr;};
-    inline string region() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
+    inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
     inline UpdateAuthPolicyRequest& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
     // source Field Functions 
     bool hasSource() const { return this->source_ != nullptr;};
     void deleteSource() { this->source_ = nullptr;};
-    inline string source() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
+    inline string getSource() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
     inline UpdateAuthPolicyRequest& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
 
 
   protected:
     // The language of the response. Valid values: zh-CN and en-US. Default value: zh-CN. The value zh-CN indicates Chinese, and the value en-US indicates English.
-    std::shared_ptr<string> acceptLanguage_ = nullptr;
+    shared_ptr<string> acceptLanguage_ {};
     // The application ID.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The content of the service authentication rule.
-    std::shared_ptr<string> authRule_ = nullptr;
+    shared_ptr<string> authRule_ {};
     // Specifies whether to enable the rule.
-    std::shared_ptr<string> enable_ = nullptr;
+    shared_ptr<string> enable_ {};
     // The rule ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> id_ = nullptr;
+    shared_ptr<string> id_ {};
     // The ID of the ACK cluster namespace.
-    std::shared_ptr<string> k8sNamespace_ = nullptr;
+    shared_ptr<string> k8sNamespace_ {};
     // The name of the rule.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The protocol type. Valid values:
     // 
     // *   **SPRING_CLOUD**
     // *   **DUBBO**
     // *   **istio**
-    std::shared_ptr<string> protocol_ = nullptr;
+    shared_ptr<string> protocol_ {};
     // The region ID.
-    std::shared_ptr<string> region_ = nullptr;
+    shared_ptr<string> region_ {};
     // The source for application access.
-    std::shared_ptr<string> source_ = nullptr;
+    shared_ptr<string> source_ {};
   };
 
   } // namespace Models

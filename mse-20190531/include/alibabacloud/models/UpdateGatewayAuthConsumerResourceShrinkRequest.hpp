@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->acceptLanguage_ == nullptr
-        && return this->consumerId_ == nullptr && return this->gatewayUniqueId_ == nullptr && return this->resourceListShrink_ == nullptr; };
+        && this->consumerId_ == nullptr && this->gatewayUniqueId_ == nullptr && this->resourceListShrink_ == nullptr; };
     // acceptLanguage Field Functions 
     bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
     void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};
-    inline string acceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
+    inline string getAcceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
     inline UpdateGatewayAuthConsumerResourceShrinkRequest& setAcceptLanguage(string acceptLanguage) { DARABONBA_PTR_SET_VALUE(acceptLanguage_, acceptLanguage) };
 
 
     // consumerId Field Functions 
     bool hasConsumerId() const { return this->consumerId_ != nullptr;};
     void deleteConsumerId() { this->consumerId_ = nullptr;};
-    inline int64_t consumerId() const { DARABONBA_PTR_GET_DEFAULT(consumerId_, 0L) };
+    inline int64_t getConsumerId() const { DARABONBA_PTR_GET_DEFAULT(consumerId_, 0L) };
     inline UpdateGatewayAuthConsumerResourceShrinkRequest& setConsumerId(int64_t consumerId) { DARABONBA_PTR_SET_VALUE(consumerId_, consumerId) };
 
 
     // gatewayUniqueId Field Functions 
     bool hasGatewayUniqueId() const { return this->gatewayUniqueId_ != nullptr;};
     void deleteGatewayUniqueId() { this->gatewayUniqueId_ = nullptr;};
-    inline string gatewayUniqueId() const { DARABONBA_PTR_GET_DEFAULT(gatewayUniqueId_, "") };
+    inline string getGatewayUniqueId() const { DARABONBA_PTR_GET_DEFAULT(gatewayUniqueId_, "") };
     inline UpdateGatewayAuthConsumerResourceShrinkRequest& setGatewayUniqueId(string gatewayUniqueId) { DARABONBA_PTR_SET_VALUE(gatewayUniqueId_, gatewayUniqueId) };
 
 
     // resourceListShrink Field Functions 
     bool hasResourceListShrink() const { return this->resourceListShrink_ != nullptr;};
     void deleteResourceListShrink() { this->resourceListShrink_ = nullptr;};
-    inline string resourceListShrink() const { DARABONBA_PTR_GET_DEFAULT(resourceListShrink_, "") };
+    inline string getResourceListShrink() const { DARABONBA_PTR_GET_DEFAULT(resourceListShrink_, "") };
     inline UpdateGatewayAuthConsumerResourceShrinkRequest& setResourceListShrink(string resourceListShrink) { DARABONBA_PTR_SET_VALUE(resourceListShrink_, resourceListShrink) };
 
 
@@ -70,17 +70,17 @@ namespace Models
     // 
     // *   zh: Chinese
     // *   en: English
-    std::shared_ptr<string> acceptLanguage_ = nullptr;
+    shared_ptr<string> acceptLanguage_ {};
     // The gateway authentication consumer ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> consumerId_ = nullptr;
+    shared_ptr<int64_t> consumerId_ {};
     // The unique ID of the gateway.
     // 
     // This parameter is required.
-    std::shared_ptr<string> gatewayUniqueId_ = nullptr;
+    shared_ptr<string> gatewayUniqueId_ {};
     // The gateway authentication consumer ID.
-    std::shared_ptr<string> resourceListShrink_ = nullptr;
+    shared_ptr<string> resourceListShrink_ {};
   };
 
   } // namespace Models

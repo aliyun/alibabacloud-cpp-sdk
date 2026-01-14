@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->acceptLanguage_ == nullptr
-        && return this->clusterId_ == nullptr && return this->namespaceInfosShrink_ == nullptr && return this->regionId_ == nullptr; };
+        && this->clusterId_ == nullptr && this->namespaceInfosShrink_ == nullptr && this->regionId_ == nullptr; };
     // acceptLanguage Field Functions 
     bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
     void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};
-    inline string acceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
+    inline string getAcceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
     inline ModifyGovernanceKubernetesClusterShrinkRequest& setAcceptLanguage(string acceptLanguage) { DARABONBA_PTR_SET_VALUE(acceptLanguage_, acceptLanguage) };
 
 
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline ModifyGovernanceKubernetesClusterShrinkRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // namespaceInfosShrink Field Functions 
     bool hasNamespaceInfosShrink() const { return this->namespaceInfosShrink_ != nullptr;};
     void deleteNamespaceInfosShrink() { this->namespaceInfosShrink_ = nullptr;};
-    inline string namespaceInfosShrink() const { DARABONBA_PTR_GET_DEFAULT(namespaceInfosShrink_, "") };
+    inline string getNamespaceInfosShrink() const { DARABONBA_PTR_GET_DEFAULT(namespaceInfosShrink_, "") };
     inline ModifyGovernanceKubernetesClusterShrinkRequest& setNamespaceInfosShrink(string namespaceInfosShrink) { DARABONBA_PTR_SET_VALUE(namespaceInfosShrink_, namespaceInfosShrink) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ModifyGovernanceKubernetesClusterShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -70,17 +70,17 @@ namespace Models
     // 
     // *   zh: Chinese
     // *   en: English
-    std::shared_ptr<string> acceptLanguage_ = nullptr;
+    shared_ptr<string> acceptLanguage_ {};
     // The ID of the instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // The information about the namespace for which Microservices Engine(MSE) Microservices Governance is enabled.
-    std::shared_ptr<string> namespaceInfosShrink_ = nullptr;
+    shared_ptr<string> namespaceInfosShrink_ {};
     // The ID of the region in which the instance resides. The region is supported by MSE.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

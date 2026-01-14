@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->acceptLanguage_ == nullptr
-        && return this->connectType_ == nullptr && return this->mseVersion_ == nullptr && return this->regionId_ == nullptr; };
+        && this->connectType_ == nullptr && this->mseVersion_ == nullptr && this->regionId_ == nullptr; };
     // acceptLanguage Field Functions 
     bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
     void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};
-    inline string acceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
+    inline string getAcceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
     inline ListClusterTypesRequest& setAcceptLanguage(string acceptLanguage) { DARABONBA_PTR_SET_VALUE(acceptLanguage_, acceptLanguage) };
 
 
     // connectType Field Functions 
     bool hasConnectType() const { return this->connectType_ != nullptr;};
     void deleteConnectType() { this->connectType_ = nullptr;};
-    inline string connectType() const { DARABONBA_PTR_GET_DEFAULT(connectType_, "") };
+    inline string getConnectType() const { DARABONBA_PTR_GET_DEFAULT(connectType_, "") };
     inline ListClusterTypesRequest& setConnectType(string connectType) { DARABONBA_PTR_SET_VALUE(connectType_, connectType) };
 
 
     // mseVersion Field Functions 
     bool hasMseVersion() const { return this->mseVersion_ != nullptr;};
     void deleteMseVersion() { this->mseVersion_ = nullptr;};
-    inline string mseVersion() const { DARABONBA_PTR_GET_DEFAULT(mseVersion_, "") };
+    inline string getMseVersion() const { DARABONBA_PTR_GET_DEFAULT(mseVersion_, "") };
     inline ListClusterTypesRequest& setMseVersion(string mseVersion) { DARABONBA_PTR_SET_VALUE(mseVersion_, mseVersion) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ListClusterTypesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -70,19 +70,19 @@ namespace Models
     // 
     // *   zh: Chinese
     // *   en: English
-    std::shared_ptr<string> acceptLanguage_ = nullptr;
+    shared_ptr<string> acceptLanguage_ {};
     // The network type. Valid values:
     // 
     // *   slb
     // *   eni
-    std::shared_ptr<string> connectType_ = nullptr;
+    shared_ptr<string> connectType_ {};
     // The edition of the MSE instance that you want to purchase.
     // 
     // *   mse_pro: Professional Edition
     // *   mse_dev: Developer Edition
-    std::shared_ptr<string> mseVersion_ = nullptr;
+    shared_ptr<string> mseVersion_ {};
     // The ID of the region in which the instance resides. The region is supported by Microservices Engine (MSE).
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

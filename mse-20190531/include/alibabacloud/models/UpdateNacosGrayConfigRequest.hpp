@@ -58,133 +58,133 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->acceptLanguage_ == nullptr
-        && return this->appName_ == nullptr && return this->content_ == nullptr && return this->dataId_ == nullptr && return this->grayRule_ == nullptr && return this->grayRuleName_ == nullptr
-        && return this->grayRulePriority_ == nullptr && return this->grayType_ == nullptr && return this->group_ == nullptr && return this->instanceId_ == nullptr && return this->namespaceId_ == nullptr
-        && return this->opType_ == nullptr && return this->regionId_ == nullptr && return this->requestPars_ == nullptr && return this->stopGray_ == nullptr; };
+        && this->appName_ == nullptr && this->content_ == nullptr && this->dataId_ == nullptr && this->grayRule_ == nullptr && this->grayRuleName_ == nullptr
+        && this->grayRulePriority_ == nullptr && this->grayType_ == nullptr && this->group_ == nullptr && this->instanceId_ == nullptr && this->namespaceId_ == nullptr
+        && this->opType_ == nullptr && this->regionId_ == nullptr && this->requestPars_ == nullptr && this->stopGray_ == nullptr; };
     // acceptLanguage Field Functions 
     bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
     void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};
-    inline string acceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
+    inline string getAcceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
     inline UpdateNacosGrayConfigRequest& setAcceptLanguage(string acceptLanguage) { DARABONBA_PTR_SET_VALUE(acceptLanguage_, acceptLanguage) };
 
 
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
-    inline string appName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
+    inline string getAppName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
     inline UpdateNacosGrayConfigRequest& setAppName(string appName) { DARABONBA_PTR_SET_VALUE(appName_, appName) };
 
 
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
-    inline string content() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
+    inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
     inline UpdateNacosGrayConfigRequest& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
 
 
     // dataId Field Functions 
     bool hasDataId() const { return this->dataId_ != nullptr;};
     void deleteDataId() { this->dataId_ = nullptr;};
-    inline string dataId() const { DARABONBA_PTR_GET_DEFAULT(dataId_, "") };
+    inline string getDataId() const { DARABONBA_PTR_GET_DEFAULT(dataId_, "") };
     inline UpdateNacosGrayConfigRequest& setDataId(string dataId) { DARABONBA_PTR_SET_VALUE(dataId_, dataId) };
 
 
     // grayRule Field Functions 
     bool hasGrayRule() const { return this->grayRule_ != nullptr;};
     void deleteGrayRule() { this->grayRule_ = nullptr;};
-    inline string grayRule() const { DARABONBA_PTR_GET_DEFAULT(grayRule_, "") };
+    inline string getGrayRule() const { DARABONBA_PTR_GET_DEFAULT(grayRule_, "") };
     inline UpdateNacosGrayConfigRequest& setGrayRule(string grayRule) { DARABONBA_PTR_SET_VALUE(grayRule_, grayRule) };
 
 
     // grayRuleName Field Functions 
     bool hasGrayRuleName() const { return this->grayRuleName_ != nullptr;};
     void deleteGrayRuleName() { this->grayRuleName_ = nullptr;};
-    inline string grayRuleName() const { DARABONBA_PTR_GET_DEFAULT(grayRuleName_, "") };
+    inline string getGrayRuleName() const { DARABONBA_PTR_GET_DEFAULT(grayRuleName_, "") };
     inline UpdateNacosGrayConfigRequest& setGrayRuleName(string grayRuleName) { DARABONBA_PTR_SET_VALUE(grayRuleName_, grayRuleName) };
 
 
     // grayRulePriority Field Functions 
     bool hasGrayRulePriority() const { return this->grayRulePriority_ != nullptr;};
     void deleteGrayRulePriority() { this->grayRulePriority_ = nullptr;};
-    inline int32_t grayRulePriority() const { DARABONBA_PTR_GET_DEFAULT(grayRulePriority_, 0) };
+    inline int32_t getGrayRulePriority() const { DARABONBA_PTR_GET_DEFAULT(grayRulePriority_, 0) };
     inline UpdateNacosGrayConfigRequest& setGrayRulePriority(int32_t grayRulePriority) { DARABONBA_PTR_SET_VALUE(grayRulePriority_, grayRulePriority) };
 
 
     // grayType Field Functions 
     bool hasGrayType() const { return this->grayType_ != nullptr;};
     void deleteGrayType() { this->grayType_ = nullptr;};
-    inline string grayType() const { DARABONBA_PTR_GET_DEFAULT(grayType_, "") };
+    inline string getGrayType() const { DARABONBA_PTR_GET_DEFAULT(grayType_, "") };
     inline UpdateNacosGrayConfigRequest& setGrayType(string grayType) { DARABONBA_PTR_SET_VALUE(grayType_, grayType) };
 
 
     // group Field Functions 
     bool hasGroup() const { return this->group_ != nullptr;};
     void deleteGroup() { this->group_ = nullptr;};
-    inline string group() const { DARABONBA_PTR_GET_DEFAULT(group_, "") };
+    inline string getGroup() const { DARABONBA_PTR_GET_DEFAULT(group_, "") };
     inline UpdateNacosGrayConfigRequest& setGroup(string group) { DARABONBA_PTR_SET_VALUE(group_, group) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline UpdateNacosGrayConfigRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // namespaceId Field Functions 
     bool hasNamespaceId() const { return this->namespaceId_ != nullptr;};
     void deleteNamespaceId() { this->namespaceId_ = nullptr;};
-    inline string namespaceId() const { DARABONBA_PTR_GET_DEFAULT(namespaceId_, "") };
+    inline string getNamespaceId() const { DARABONBA_PTR_GET_DEFAULT(namespaceId_, "") };
     inline UpdateNacosGrayConfigRequest& setNamespaceId(string namespaceId) { DARABONBA_PTR_SET_VALUE(namespaceId_, namespaceId) };
 
 
     // opType Field Functions 
     bool hasOpType() const { return this->opType_ != nullptr;};
     void deleteOpType() { this->opType_ = nullptr;};
-    inline string opType() const { DARABONBA_PTR_GET_DEFAULT(opType_, "") };
+    inline string getOpType() const { DARABONBA_PTR_GET_DEFAULT(opType_, "") };
     inline UpdateNacosGrayConfigRequest& setOpType(string opType) { DARABONBA_PTR_SET_VALUE(opType_, opType) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline UpdateNacosGrayConfigRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // requestPars Field Functions 
     bool hasRequestPars() const { return this->requestPars_ != nullptr;};
     void deleteRequestPars() { this->requestPars_ = nullptr;};
-    inline string requestPars() const { DARABONBA_PTR_GET_DEFAULT(requestPars_, "") };
+    inline string getRequestPars() const { DARABONBA_PTR_GET_DEFAULT(requestPars_, "") };
     inline UpdateNacosGrayConfigRequest& setRequestPars(string requestPars) { DARABONBA_PTR_SET_VALUE(requestPars_, requestPars) };
 
 
     // stopGray Field Functions 
     bool hasStopGray() const { return this->stopGray_ != nullptr;};
     void deleteStopGray() { this->stopGray_ = nullptr;};
-    inline bool stopGray() const { DARABONBA_PTR_GET_DEFAULT(stopGray_, false) };
+    inline bool getStopGray() const { DARABONBA_PTR_GET_DEFAULT(stopGray_, false) };
     inline UpdateNacosGrayConfigRequest& setStopGray(bool stopGray) { DARABONBA_PTR_SET_VALUE(stopGray_, stopGray) };
 
 
   protected:
-    std::shared_ptr<string> acceptLanguage_ = nullptr;
-    std::shared_ptr<string> appName_ = nullptr;
-    std::shared_ptr<string> content_ = nullptr;
+    shared_ptr<string> acceptLanguage_ {};
+    shared_ptr<string> appName_ {};
+    shared_ptr<string> content_ {};
     // This parameter is required.
-    std::shared_ptr<string> dataId_ = nullptr;
-    std::shared_ptr<string> grayRule_ = nullptr;
-    std::shared_ptr<string> grayRuleName_ = nullptr;
-    std::shared_ptr<int32_t> grayRulePriority_ = nullptr;
+    shared_ptr<string> dataId_ {};
+    shared_ptr<string> grayRule_ {};
+    shared_ptr<string> grayRuleName_ {};
+    shared_ptr<int32_t> grayRulePriority_ {};
     // This parameter is required.
-    std::shared_ptr<string> grayType_ = nullptr;
-    std::shared_ptr<string> group_ = nullptr;
+    shared_ptr<string> grayType_ {};
+    shared_ptr<string> group_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> namespaceId_ = nullptr;
-    std::shared_ptr<string> opType_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> requestPars_ = nullptr;
-    std::shared_ptr<bool> stopGray_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> namespaceId_ {};
+    shared_ptr<string> opType_ {};
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> requestPars_ {};
+    shared_ptr<bool> stopGray_ {};
   };
 
   } // namespace Models

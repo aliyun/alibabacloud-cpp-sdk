@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_GETLOSSLESSRULEBYAPPRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_GETLOSSLESSRULEBYAPPRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/GetLosslessRuleByAppResponseBodyData.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -42,78 +41,225 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(Aligned, aligned_);
+        DARABONBA_PTR_TO_JSON(AppId, appId_);
+        DARABONBA_PTR_TO_JSON(AppName, appName_);
+        DARABONBA_PTR_TO_JSON(Count, count_);
+        DARABONBA_PTR_TO_JSON(DelayTime, delayTime_);
+        DARABONBA_PTR_TO_JSON(Enable, enable_);
+        DARABONBA_PTR_TO_JSON(FuncType, funcType_);
+        DARABONBA_PTR_TO_JSON(LossLessDetail, lossLessDetail_);
+        DARABONBA_PTR_TO_JSON(Notice, notice_);
+        DARABONBA_PTR_TO_JSON(Related, related_);
+        DARABONBA_PTR_TO_JSON(WarmupTime, warmupTime_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(Aligned, aligned_);
+        DARABONBA_PTR_FROM_JSON(AppId, appId_);
+        DARABONBA_PTR_FROM_JSON(AppName, appName_);
+        DARABONBA_PTR_FROM_JSON(Count, count_);
+        DARABONBA_PTR_FROM_JSON(DelayTime, delayTime_);
+        DARABONBA_PTR_FROM_JSON(Enable, enable_);
+        DARABONBA_PTR_FROM_JSON(FuncType, funcType_);
+        DARABONBA_PTR_FROM_JSON(LossLessDetail, lossLessDetail_);
+        DARABONBA_PTR_FROM_JSON(Notice, notice_);
+        DARABONBA_PTR_FROM_JSON(Related, related_);
+        DARABONBA_PTR_FROM_JSON(WarmupTime, warmupTime_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->aligned_ == nullptr
+        && this->appId_ == nullptr && this->appName_ == nullptr && this->count_ == nullptr && this->delayTime_ == nullptr && this->enable_ == nullptr
+        && this->funcType_ == nullptr && this->lossLessDetail_ == nullptr && this->notice_ == nullptr && this->related_ == nullptr && this->warmupTime_ == nullptr; };
+      // aligned Field Functions 
+      bool hasAligned() const { return this->aligned_ != nullptr;};
+      void deleteAligned() { this->aligned_ = nullptr;};
+      inline bool getAligned() const { DARABONBA_PTR_GET_DEFAULT(aligned_, false) };
+      inline Data& setAligned(bool aligned) { DARABONBA_PTR_SET_VALUE(aligned_, aligned) };
+
+
+      // appId Field Functions 
+      bool hasAppId() const { return this->appId_ != nullptr;};
+      void deleteAppId() { this->appId_ = nullptr;};
+      inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+      inline Data& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
+
+
+      // appName Field Functions 
+      bool hasAppName() const { return this->appName_ != nullptr;};
+      void deleteAppName() { this->appName_ = nullptr;};
+      inline string getAppName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
+      inline Data& setAppName(string appName) { DARABONBA_PTR_SET_VALUE(appName_, appName) };
+
+
+      // count Field Functions 
+      bool hasCount() const { return this->count_ != nullptr;};
+      void deleteCount() { this->count_ = nullptr;};
+      inline int32_t getCount() const { DARABONBA_PTR_GET_DEFAULT(count_, 0) };
+      inline Data& setCount(int32_t count) { DARABONBA_PTR_SET_VALUE(count_, count) };
+
+
+      // delayTime Field Functions 
+      bool hasDelayTime() const { return this->delayTime_ != nullptr;};
+      void deleteDelayTime() { this->delayTime_ = nullptr;};
+      inline int32_t getDelayTime() const { DARABONBA_PTR_GET_DEFAULT(delayTime_, 0) };
+      inline Data& setDelayTime(int32_t delayTime) { DARABONBA_PTR_SET_VALUE(delayTime_, delayTime) };
+
+
+      // enable Field Functions 
+      bool hasEnable() const { return this->enable_ != nullptr;};
+      void deleteEnable() { this->enable_ = nullptr;};
+      inline bool getEnable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
+      inline Data& setEnable(bool enable) { DARABONBA_PTR_SET_VALUE(enable_, enable) };
+
+
+      // funcType Field Functions 
+      bool hasFuncType() const { return this->funcType_ != nullptr;};
+      void deleteFuncType() { this->funcType_ = nullptr;};
+      inline int32_t getFuncType() const { DARABONBA_PTR_GET_DEFAULT(funcType_, 0) };
+      inline Data& setFuncType(int32_t funcType) { DARABONBA_PTR_SET_VALUE(funcType_, funcType) };
+
+
+      // lossLessDetail Field Functions 
+      bool hasLossLessDetail() const { return this->lossLessDetail_ != nullptr;};
+      void deleteLossLessDetail() { this->lossLessDetail_ = nullptr;};
+      inline bool getLossLessDetail() const { DARABONBA_PTR_GET_DEFAULT(lossLessDetail_, false) };
+      inline Data& setLossLessDetail(bool lossLessDetail) { DARABONBA_PTR_SET_VALUE(lossLessDetail_, lossLessDetail) };
+
+
+      // notice Field Functions 
+      bool hasNotice() const { return this->notice_ != nullptr;};
+      void deleteNotice() { this->notice_ = nullptr;};
+      inline bool getNotice() const { DARABONBA_PTR_GET_DEFAULT(notice_, false) };
+      inline Data& setNotice(bool notice) { DARABONBA_PTR_SET_VALUE(notice_, notice) };
+
+
+      // related Field Functions 
+      bool hasRelated() const { return this->related_ != nullptr;};
+      void deleteRelated() { this->related_ = nullptr;};
+      inline bool getRelated() const { DARABONBA_PTR_GET_DEFAULT(related_, false) };
+      inline Data& setRelated(bool related) { DARABONBA_PTR_SET_VALUE(related_, related) };
+
+
+      // warmupTime Field Functions 
+      bool hasWarmupTime() const { return this->warmupTime_ != nullptr;};
+      void deleteWarmupTime() { this->warmupTime_ = nullptr;};
+      inline int32_t getWarmupTime() const { DARABONBA_PTR_GET_DEFAULT(warmupTime_, 0) };
+      inline Data& setWarmupTime(int32_t warmupTime) { DARABONBA_PTR_SET_VALUE(warmupTime_, warmupTime) };
+
+
+    protected:
+      // Indicates whether service registration is complete before readiness probe.
+      shared_ptr<bool> aligned_ {};
+      // The ID of the application.
+      shared_ptr<string> appId_ {};
+      // The name of the application.
+      shared_ptr<string> appName_ {};
+      // The number of instances.
+      shared_ptr<int32_t> count_ {};
+      // The registration latency. Unit: seconds.
+      shared_ptr<int32_t> delayTime_ {};
+      // Indicates whether graceful start is enabled. Valid values:
+      // 
+      // *   `true`: enabled
+      // *   `false`: disabled
+      shared_ptr<bool> enable_ {};
+      // The slope of the prefetching curve.
+      shared_ptr<int32_t> funcType_ {};
+      // Indicates whether online and offline processing details are displayed.
+      shared_ptr<bool> lossLessDetail_ {};
+      // Indicates whether notification is enabled.
+      shared_ptr<bool> notice_ {};
+      // Indicates whether service prefetching is complete before readiness probe.
+      shared_ptr<bool> related_ {};
+      // The prefetching duration. Unit: seconds.
+      shared_ptr<int32_t> warmupTime_ {};
+    };
+
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->data_ == nullptr && return this->errorCode_ == nullptr && return this->httpStatusCode_ == nullptr && return this->message_ == nullptr && return this->requestId_ == nullptr
-        && return this->success_ == nullptr; };
+        && this->data_ == nullptr && this->errorCode_ == nullptr && this->httpStatusCode_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr
+        && this->success_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline int32_t code() const { DARABONBA_PTR_GET_DEFAULT(code_, 0) };
+    inline int32_t getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, 0) };
     inline GetLosslessRuleByAppResponseBody& setCode(int32_t code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const GetLosslessRuleByAppResponseBodyData & data() const { DARABONBA_PTR_GET_CONST(data_, GetLosslessRuleByAppResponseBodyData) };
-    inline GetLosslessRuleByAppResponseBodyData data() { DARABONBA_PTR_GET(data_, GetLosslessRuleByAppResponseBodyData) };
-    inline GetLosslessRuleByAppResponseBody& setData(const GetLosslessRuleByAppResponseBodyData & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline GetLosslessRuleByAppResponseBody& setData(GetLosslessRuleByAppResponseBodyData && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const GetLosslessRuleByAppResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, GetLosslessRuleByAppResponseBody::Data) };
+    inline GetLosslessRuleByAppResponseBody::Data getData() { DARABONBA_PTR_GET(data_, GetLosslessRuleByAppResponseBody::Data) };
+    inline GetLosslessRuleByAppResponseBody& setData(const GetLosslessRuleByAppResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline GetLosslessRuleByAppResponseBody& setData(GetLosslessRuleByAppResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // errorCode Field Functions 
     bool hasErrorCode() const { return this->errorCode_ != nullptr;};
     void deleteErrorCode() { this->errorCode_ = nullptr;};
-    inline string errorCode() const { DARABONBA_PTR_GET_DEFAULT(errorCode_, "") };
+    inline string getErrorCode() const { DARABONBA_PTR_GET_DEFAULT(errorCode_, "") };
     inline GetLosslessRuleByAppResponseBody& setErrorCode(string errorCode) { DARABONBA_PTR_SET_VALUE(errorCode_, errorCode) };
 
 
     // httpStatusCode Field Functions 
     bool hasHttpStatusCode() const { return this->httpStatusCode_ != nullptr;};
     void deleteHttpStatusCode() { this->httpStatusCode_ = nullptr;};
-    inline int32_t httpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
+    inline int32_t getHttpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
     inline GetLosslessRuleByAppResponseBody& setHttpStatusCode(int32_t httpStatusCode) { DARABONBA_PTR_SET_VALUE(httpStatusCode_, httpStatusCode) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline GetLosslessRuleByAppResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetLosslessRuleByAppResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline GetLosslessRuleByAppResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
     // The response code.
-    std::shared_ptr<int32_t> code_ = nullptr;
+    shared_ptr<int32_t> code_ {};
     // The data returned.
-    std::shared_ptr<GetLosslessRuleByAppResponseBodyData> data_ = nullptr;
+    shared_ptr<GetLosslessRuleByAppResponseBody::Data> data_ {};
     // The error code returned.
-    std::shared_ptr<string> errorCode_ = nullptr;
+    shared_ptr<string> errorCode_ {};
     // The HTTP status code returned.
-    std::shared_ptr<int32_t> httpStatusCode_ = nullptr;
+    shared_ptr<int32_t> httpStatusCode_ {};
     // The message returned.
-    std::shared_ptr<string> message_ = nullptr;
+    shared_ptr<string> message_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
     // *   true: The request was successful.
     // *   false: The request failed.
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

@@ -32,27 +32,27 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->acceptLanguage_ == nullptr
-        && return this->filterParams_ == nullptr; };
+        && this->filterParams_ == nullptr; };
     // acceptLanguage Field Functions 
     bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
     void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};
-    inline string acceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
+    inline string getAcceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
     inline ListGatewayCircuitBreakerRuleRequest& setAcceptLanguage(string acceptLanguage) { DARABONBA_PTR_SET_VALUE(acceptLanguage_, acceptLanguage) };
 
 
     // filterParams Field Functions 
     bool hasFilterParams() const { return this->filterParams_ != nullptr;};
     void deleteFilterParams() { this->filterParams_ = nullptr;};
-    inline string filterParams() const { DARABONBA_PTR_GET_DEFAULT(filterParams_, "") };
+    inline string getFilterParams() const { DARABONBA_PTR_GET_DEFAULT(filterParams_, "") };
     inline ListGatewayCircuitBreakerRuleRequest& setFilterParams(string filterParams) { DARABONBA_PTR_SET_VALUE(filterParams_, filterParams) };
 
 
   protected:
-    std::shared_ptr<string> acceptLanguage_ = nullptr;
+    shared_ptr<string> acceptLanguage_ {};
     // just for POP
     // 
     // This parameter is required.
-    std::shared_ptr<string> filterParams_ = nullptr;
+    shared_ptr<string> filterParams_ {};
   };
 
   } // namespace Models

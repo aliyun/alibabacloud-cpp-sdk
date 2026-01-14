@@ -44,61 +44,61 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->acceptLanguage_ == nullptr
-        && return this->appName_ == nullptr && return this->dataId_ == nullptr && return this->dataIds_ == nullptr && return this->group_ == nullptr && return this->ids_ == nullptr
-        && return this->instanceId_ == nullptr && return this->namespaceId_ == nullptr; };
+        && this->appName_ == nullptr && this->dataId_ == nullptr && this->dataIds_ == nullptr && this->group_ == nullptr && this->ids_ == nullptr
+        && this->instanceId_ == nullptr && this->namespaceId_ == nullptr; };
     // acceptLanguage Field Functions 
     bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
     void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};
-    inline string acceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
+    inline string getAcceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
     inline ExportNacosConfigRequest& setAcceptLanguage(string acceptLanguage) { DARABONBA_PTR_SET_VALUE(acceptLanguage_, acceptLanguage) };
 
 
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
-    inline string appName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
+    inline string getAppName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
     inline ExportNacosConfigRequest& setAppName(string appName) { DARABONBA_PTR_SET_VALUE(appName_, appName) };
 
 
     // dataId Field Functions 
     bool hasDataId() const { return this->dataId_ != nullptr;};
     void deleteDataId() { this->dataId_ = nullptr;};
-    inline string dataId() const { DARABONBA_PTR_GET_DEFAULT(dataId_, "") };
+    inline string getDataId() const { DARABONBA_PTR_GET_DEFAULT(dataId_, "") };
     inline ExportNacosConfigRequest& setDataId(string dataId) { DARABONBA_PTR_SET_VALUE(dataId_, dataId) };
 
 
     // dataIds Field Functions 
     bool hasDataIds() const { return this->dataIds_ != nullptr;};
     void deleteDataIds() { this->dataIds_ = nullptr;};
-    inline string dataIds() const { DARABONBA_PTR_GET_DEFAULT(dataIds_, "") };
+    inline string getDataIds() const { DARABONBA_PTR_GET_DEFAULT(dataIds_, "") };
     inline ExportNacosConfigRequest& setDataIds(string dataIds) { DARABONBA_PTR_SET_VALUE(dataIds_, dataIds) };
 
 
     // group Field Functions 
     bool hasGroup() const { return this->group_ != nullptr;};
     void deleteGroup() { this->group_ = nullptr;};
-    inline string group() const { DARABONBA_PTR_GET_DEFAULT(group_, "") };
+    inline string getGroup() const { DARABONBA_PTR_GET_DEFAULT(group_, "") };
     inline ExportNacosConfigRequest& setGroup(string group) { DARABONBA_PTR_SET_VALUE(group_, group) };
 
 
     // ids Field Functions 
     bool hasIds() const { return this->ids_ != nullptr;};
     void deleteIds() { this->ids_ = nullptr;};
-    inline string ids() const { DARABONBA_PTR_GET_DEFAULT(ids_, "") };
+    inline string getIds() const { DARABONBA_PTR_GET_DEFAULT(ids_, "") };
     inline ExportNacosConfigRequest& setIds(string ids) { DARABONBA_PTR_SET_VALUE(ids_, ids) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ExportNacosConfigRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // namespaceId Field Functions 
     bool hasNamespaceId() const { return this->namespaceId_ != nullptr;};
     void deleteNamespaceId() { this->namespaceId_ = nullptr;};
-    inline string namespaceId() const { DARABONBA_PTR_GET_DEFAULT(namespaceId_, "") };
+    inline string getNamespaceId() const { DARABONBA_PTR_GET_DEFAULT(namespaceId_, "") };
     inline ExportNacosConfigRequest& setNamespaceId(string namespaceId) { DARABONBA_PTR_SET_VALUE(namespaceId_, namespaceId) };
 
 
@@ -107,9 +107,9 @@ namespace Models
     // 
     // *   zh: Chinese
     // *   en: English
-    std::shared_ptr<string> acceptLanguage_ = nullptr;
+    shared_ptr<string> acceptLanguage_ {};
     // The application tag.
-    std::shared_ptr<string> appName_ = nullptr;
+    shared_ptr<string> appName_ {};
     // The ID of the data that you want to export.
     // 
     // > 
@@ -117,21 +117,21 @@ namespace Models
     // *   Multiple export methods are supported.
     // 
     // *   If you want to export a single configuration, you must leave the Ids parameter empty and specify the DataID and Group parameters.
-    std::shared_ptr<string> dataId_ = nullptr;
+    shared_ptr<string> dataId_ {};
     // The configuration group name and the ID of the configuration that you want to export. Separate multiple configurations with comma (,).
-    std::shared_ptr<string> dataIds_ = nullptr;
+    shared_ptr<string> dataIds_ {};
     // The name of the configuration group.
-    std::shared_ptr<string> group_ = nullptr;
+    shared_ptr<string> group_ {};
     // The ID of the primary key of a configuration item.
     // 
     // >  - Multiple export methods are supported. You must specify this parameter if you want to export multiple configurations. - You can obtain the value of this parameter by calling the ListNacosConfigs operation. - If you specify this parameter, multiple configurations are exported. The DataId and Group parameters are invalid.
-    std::shared_ptr<string> ids_ = nullptr;
+    shared_ptr<string> ids_ {};
     // The ID of the instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The ID of the namespace.
-    std::shared_ptr<string> namespaceId_ = nullptr;
+    shared_ptr<string> namespaceId_ {};
   };
 
   } // namespace Models

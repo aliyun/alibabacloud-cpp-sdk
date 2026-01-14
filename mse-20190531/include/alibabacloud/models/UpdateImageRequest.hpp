@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->acceptLanguage_ == nullptr
-        && return this->clusterId_ == nullptr && return this->versionCode_ == nullptr; };
+        && this->clusterId_ == nullptr && this->versionCode_ == nullptr; };
     // acceptLanguage Field Functions 
     bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
     void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};
-    inline string acceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
+    inline string getAcceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
     inline UpdateImageRequest& setAcceptLanguage(string acceptLanguage) { DARABONBA_PTR_SET_VALUE(acceptLanguage_, acceptLanguage) };
 
 
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline UpdateImageRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // versionCode Field Functions 
     bool hasVersionCode() const { return this->versionCode_ != nullptr;};
     void deleteVersionCode() { this->versionCode_ = nullptr;};
-    inline string versionCode() const { DARABONBA_PTR_GET_DEFAULT(versionCode_, "") };
+    inline string getVersionCode() const { DARABONBA_PTR_GET_DEFAULT(versionCode_, "") };
     inline UpdateImageRequest& setVersionCode(string versionCode) { DARABONBA_PTR_SET_VALUE(versionCode_, versionCode) };
 
 
@@ -61,17 +61,17 @@ namespace Models
     // 
     // *   zh: Chinese
     // *   en: English
-    std::shared_ptr<string> acceptLanguage_ = nullptr;
+    shared_ptr<string> acceptLanguage_ {};
     // The ID of the destination cluster.
     // 
     // This parameter is required.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // The destination version number.
     // 
     // > You must call the GetImage operation to obtain the maximum destination version number that corresponds to MaxVersionCode.
     // 
     // This parameter is required.
-    std::shared_ptr<string> versionCode_ = nullptr;
+    shared_ptr<string> versionCode_ {};
   };
 
   } // namespace Models

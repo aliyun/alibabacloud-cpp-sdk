@@ -36,40 +36,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->acceptLanguage_ == nullptr
-        && return this->describe_ == nullptr && return this->name_ == nullptr && return this->tagShrink_ == nullptr; };
+        && this->describe_ == nullptr && this->name_ == nullptr && this->tagShrink_ == nullptr; };
     // acceptLanguage Field Functions 
     bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
     void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};
-    inline string acceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
+    inline string getAcceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
     inline CreateNamespaceShrinkRequest& setAcceptLanguage(string acceptLanguage) { DARABONBA_PTR_SET_VALUE(acceptLanguage_, acceptLanguage) };
 
 
     // describe Field Functions 
     bool hasDescribe() const { return this->describe_ != nullptr;};
     void deleteDescribe() { this->describe_ = nullptr;};
-    inline string describe() const { DARABONBA_PTR_GET_DEFAULT(describe_, "") };
+    inline string getDescribe() const { DARABONBA_PTR_GET_DEFAULT(describe_, "") };
     inline CreateNamespaceShrinkRequest& setDescribe(string describe) { DARABONBA_PTR_SET_VALUE(describe_, describe) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateNamespaceShrinkRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // tagShrink Field Functions 
     bool hasTagShrink() const { return this->tagShrink_ != nullptr;};
     void deleteTagShrink() { this->tagShrink_ = nullptr;};
-    inline string tagShrink() const { DARABONBA_PTR_GET_DEFAULT(tagShrink_, "") };
+    inline string getTagShrink() const { DARABONBA_PTR_GET_DEFAULT(tagShrink_, "") };
     inline CreateNamespaceShrinkRequest& setTagShrink(string tagShrink) { DARABONBA_PTR_SET_VALUE(tagShrink_, tagShrink) };
 
 
   protected:
-    std::shared_ptr<string> acceptLanguage_ = nullptr;
-    std::shared_ptr<string> describe_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> tagShrink_ = nullptr;
+    shared_ptr<string> acceptLanguage_ {};
+    shared_ptr<string> describe_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<string> tagShrink_ {};
   };
 
   } // namespace Models

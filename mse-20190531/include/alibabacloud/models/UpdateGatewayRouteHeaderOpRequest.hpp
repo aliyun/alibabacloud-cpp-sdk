@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->acceptLanguage_ == nullptr
-        && return this->gatewayId_ == nullptr && return this->gatewayUniqueId_ == nullptr && return this->headerOpJSON_ == nullptr && return this->id_ == nullptr; };
+        && this->gatewayId_ == nullptr && this->gatewayUniqueId_ == nullptr && this->headerOpJSON_ == nullptr && this->id_ == nullptr; };
     // acceptLanguage Field Functions 
     bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
     void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};
-    inline string acceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
+    inline string getAcceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
     inline UpdateGatewayRouteHeaderOpRequest& setAcceptLanguage(string acceptLanguage) { DARABONBA_PTR_SET_VALUE(acceptLanguage_, acceptLanguage) };
 
 
     // gatewayId Field Functions 
     bool hasGatewayId() const { return this->gatewayId_ != nullptr;};
     void deleteGatewayId() { this->gatewayId_ = nullptr;};
-    inline int64_t gatewayId() const { DARABONBA_PTR_GET_DEFAULT(gatewayId_, 0L) };
+    inline int64_t getGatewayId() const { DARABONBA_PTR_GET_DEFAULT(gatewayId_, 0L) };
     inline UpdateGatewayRouteHeaderOpRequest& setGatewayId(int64_t gatewayId) { DARABONBA_PTR_SET_VALUE(gatewayId_, gatewayId) };
 
 
     // gatewayUniqueId Field Functions 
     bool hasGatewayUniqueId() const { return this->gatewayUniqueId_ != nullptr;};
     void deleteGatewayUniqueId() { this->gatewayUniqueId_ = nullptr;};
-    inline string gatewayUniqueId() const { DARABONBA_PTR_GET_DEFAULT(gatewayUniqueId_, "") };
+    inline string getGatewayUniqueId() const { DARABONBA_PTR_GET_DEFAULT(gatewayUniqueId_, "") };
     inline UpdateGatewayRouteHeaderOpRequest& setGatewayUniqueId(string gatewayUniqueId) { DARABONBA_PTR_SET_VALUE(gatewayUniqueId_, gatewayUniqueId) };
 
 
     // headerOpJSON Field Functions 
     bool hasHeaderOpJSON() const { return this->headerOpJSON_ != nullptr;};
     void deleteHeaderOpJSON() { this->headerOpJSON_ = nullptr;};
-    inline string headerOpJSON() const { DARABONBA_PTR_GET_DEFAULT(headerOpJSON_, "") };
+    inline string getHeaderOpJSON() const { DARABONBA_PTR_GET_DEFAULT(headerOpJSON_, "") };
     inline UpdateGatewayRouteHeaderOpRequest& setHeaderOpJSON(string headerOpJSON) { DARABONBA_PTR_SET_VALUE(headerOpJSON_, headerOpJSON) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline int64_t id() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+    inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
     inline UpdateGatewayRouteHeaderOpRequest& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
@@ -79,15 +79,15 @@ namespace Models
     // 
     // *   zh: Chinese
     // *   en: English
-    std::shared_ptr<string> acceptLanguage_ = nullptr;
+    shared_ptr<string> acceptLanguage_ {};
     // The ID of the gateway.
-    std::shared_ptr<int64_t> gatewayId_ = nullptr;
+    shared_ptr<int64_t> gatewayId_ {};
     // The unique ID of the gateway.
-    std::shared_ptr<string> gatewayUniqueId_ = nullptr;
+    shared_ptr<string> gatewayUniqueId_ {};
     // The description of user header settings.
-    std::shared_ptr<string> headerOpJSON_ = nullptr;
+    shared_ptr<string> headerOpJSON_ {};
     // The ID of the record.
-    std::shared_ptr<int64_t> id_ = nullptr;
+    shared_ptr<int64_t> id_ {};
   };
 
   } // namespace Models

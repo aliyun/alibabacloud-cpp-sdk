@@ -3,8 +3,6 @@
 #define ALIBABACLOUD_MODELS_ADDGATEWAYREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/AddGatewayRequestTag.hpp>
-#include <alibabacloud/models/AddGatewayRequestZoneInfo.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -78,182 +76,270 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class ZoneInfo : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const ZoneInfo& obj) { 
+        DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
+        DARABONBA_PTR_TO_JSON(ZoneId, zoneId_);
+      };
+      friend void from_json(const Darabonba::Json& j, ZoneInfo& obj) { 
+        DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
+        DARABONBA_PTR_FROM_JSON(ZoneId, zoneId_);
+      };
+      ZoneInfo() = default ;
+      ZoneInfo(const ZoneInfo &) = default ;
+      ZoneInfo(ZoneInfo &&) = default ;
+      ZoneInfo(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~ZoneInfo() = default ;
+      ZoneInfo& operator=(const ZoneInfo &) = default ;
+      ZoneInfo& operator=(ZoneInfo &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->vSwitchId_ == nullptr
+        && this->zoneId_ == nullptr; };
+      // vSwitchId Field Functions 
+      bool hasVSwitchId() const { return this->vSwitchId_ != nullptr;};
+      void deleteVSwitchId() { this->vSwitchId_ = nullptr;};
+      inline string getVSwitchId() const { DARABONBA_PTR_GET_DEFAULT(vSwitchId_, "") };
+      inline ZoneInfo& setVSwitchId(string vSwitchId) { DARABONBA_PTR_SET_VALUE(vSwitchId_, vSwitchId) };
+
+
+      // zoneId Field Functions 
+      bool hasZoneId() const { return this->zoneId_ != nullptr;};
+      void deleteZoneId() { this->zoneId_ = nullptr;};
+      inline string getZoneId() const { DARABONBA_PTR_GET_DEFAULT(zoneId_, "") };
+      inline ZoneInfo& setZoneId(string zoneId) { DARABONBA_PTR_SET_VALUE(zoneId_, zoneId) };
+
+
+    protected:
+      // The vSwitch ID.
+      shared_ptr<string> vSwitchId_ {};
+      // The zone ID.
+      shared_ptr<string> zoneId_ {};
+    };
+
+    class Tag : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Tag& obj) { 
+        DARABONBA_PTR_TO_JSON(Key, key_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, Tag& obj) { 
+        DARABONBA_PTR_FROM_JSON(Key, key_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
+      };
+      Tag() = default ;
+      Tag(const Tag &) = default ;
+      Tag(Tag &&) = default ;
+      Tag(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Tag() = default ;
+      Tag& operator=(const Tag &) = default ;
+      Tag& operator=(Tag &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline Tag& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline Tag& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      // The value of the tag.
+      shared_ptr<string> key_ {};
+      // The ID of the resource group.
+      shared_ptr<string> value_ {};
+    };
+
     virtual bool empty() const override { return this->acceptLanguage_ == nullptr
-        && return this->chargeType_ == nullptr && return this->clbNetworkType_ == nullptr && return this->enableHardwareAcceleration_ == nullptr && return this->enableSls_ == nullptr && return this->enableXtrace_ == nullptr
-        && return this->enterpriseSecurityGroup_ == nullptr && return this->internetSlbSpec_ == nullptr && return this->managedEntryNetworkType_ == nullptr && return this->mserVersion_ == nullptr && return this->name_ == nullptr
-        && return this->nlbNetworkType_ == nullptr && return this->region_ == nullptr && return this->replica_ == nullptr && return this->requestPars_ == nullptr && return this->resourceGroupId_ == nullptr
-        && return this->slbSpec_ == nullptr && return this->spec_ == nullptr && return this->tag_ == nullptr && return this->vSwitchId_ == nullptr && return this->vSwitchId2_ == nullptr
-        && return this->vpc_ == nullptr && return this->xtraceRatio_ == nullptr && return this->zoneInfo_ == nullptr; };
+        && this->chargeType_ == nullptr && this->clbNetworkType_ == nullptr && this->enableHardwareAcceleration_ == nullptr && this->enableSls_ == nullptr && this->enableXtrace_ == nullptr
+        && this->enterpriseSecurityGroup_ == nullptr && this->internetSlbSpec_ == nullptr && this->managedEntryNetworkType_ == nullptr && this->mserVersion_ == nullptr && this->name_ == nullptr
+        && this->nlbNetworkType_ == nullptr && this->region_ == nullptr && this->replica_ == nullptr && this->requestPars_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->slbSpec_ == nullptr && this->spec_ == nullptr && this->tag_ == nullptr && this->vSwitchId_ == nullptr && this->vSwitchId2_ == nullptr
+        && this->vpc_ == nullptr && this->xtraceRatio_ == nullptr && this->zoneInfo_ == nullptr; };
     // acceptLanguage Field Functions 
     bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
     void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};
-    inline string acceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
+    inline string getAcceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
     inline AddGatewayRequest& setAcceptLanguage(string acceptLanguage) { DARABONBA_PTR_SET_VALUE(acceptLanguage_, acceptLanguage) };
 
 
     // chargeType Field Functions 
     bool hasChargeType() const { return this->chargeType_ != nullptr;};
     void deleteChargeType() { this->chargeType_ = nullptr;};
-    inline string chargeType() const { DARABONBA_PTR_GET_DEFAULT(chargeType_, "") };
+    inline string getChargeType() const { DARABONBA_PTR_GET_DEFAULT(chargeType_, "") };
     inline AddGatewayRequest& setChargeType(string chargeType) { DARABONBA_PTR_SET_VALUE(chargeType_, chargeType) };
 
 
     // clbNetworkType Field Functions 
     bool hasClbNetworkType() const { return this->clbNetworkType_ != nullptr;};
     void deleteClbNetworkType() { this->clbNetworkType_ = nullptr;};
-    inline string clbNetworkType() const { DARABONBA_PTR_GET_DEFAULT(clbNetworkType_, "") };
+    inline string getClbNetworkType() const { DARABONBA_PTR_GET_DEFAULT(clbNetworkType_, "") };
     inline AddGatewayRequest& setClbNetworkType(string clbNetworkType) { DARABONBA_PTR_SET_VALUE(clbNetworkType_, clbNetworkType) };
 
 
     // enableHardwareAcceleration Field Functions 
     bool hasEnableHardwareAcceleration() const { return this->enableHardwareAcceleration_ != nullptr;};
     void deleteEnableHardwareAcceleration() { this->enableHardwareAcceleration_ = nullptr;};
-    inline bool enableHardwareAcceleration() const { DARABONBA_PTR_GET_DEFAULT(enableHardwareAcceleration_, false) };
+    inline bool getEnableHardwareAcceleration() const { DARABONBA_PTR_GET_DEFAULT(enableHardwareAcceleration_, false) };
     inline AddGatewayRequest& setEnableHardwareAcceleration(bool enableHardwareAcceleration) { DARABONBA_PTR_SET_VALUE(enableHardwareAcceleration_, enableHardwareAcceleration) };
 
 
     // enableSls Field Functions 
     bool hasEnableSls() const { return this->enableSls_ != nullptr;};
     void deleteEnableSls() { this->enableSls_ = nullptr;};
-    inline bool enableSls() const { DARABONBA_PTR_GET_DEFAULT(enableSls_, false) };
+    inline bool getEnableSls() const { DARABONBA_PTR_GET_DEFAULT(enableSls_, false) };
     inline AddGatewayRequest& setEnableSls(bool enableSls) { DARABONBA_PTR_SET_VALUE(enableSls_, enableSls) };
 
 
     // enableXtrace Field Functions 
     bool hasEnableXtrace() const { return this->enableXtrace_ != nullptr;};
     void deleteEnableXtrace() { this->enableXtrace_ = nullptr;};
-    inline bool enableXtrace() const { DARABONBA_PTR_GET_DEFAULT(enableXtrace_, false) };
+    inline bool getEnableXtrace() const { DARABONBA_PTR_GET_DEFAULT(enableXtrace_, false) };
     inline AddGatewayRequest& setEnableXtrace(bool enableXtrace) { DARABONBA_PTR_SET_VALUE(enableXtrace_, enableXtrace) };
 
 
     // enterpriseSecurityGroup Field Functions 
     bool hasEnterpriseSecurityGroup() const { return this->enterpriseSecurityGroup_ != nullptr;};
     void deleteEnterpriseSecurityGroup() { this->enterpriseSecurityGroup_ = nullptr;};
-    inline bool enterpriseSecurityGroup() const { DARABONBA_PTR_GET_DEFAULT(enterpriseSecurityGroup_, false) };
+    inline bool getEnterpriseSecurityGroup() const { DARABONBA_PTR_GET_DEFAULT(enterpriseSecurityGroup_, false) };
     inline AddGatewayRequest& setEnterpriseSecurityGroup(bool enterpriseSecurityGroup) { DARABONBA_PTR_SET_VALUE(enterpriseSecurityGroup_, enterpriseSecurityGroup) };
 
 
     // internetSlbSpec Field Functions 
     bool hasInternetSlbSpec() const { return this->internetSlbSpec_ != nullptr;};
     void deleteInternetSlbSpec() { this->internetSlbSpec_ = nullptr;};
-    inline string internetSlbSpec() const { DARABONBA_PTR_GET_DEFAULT(internetSlbSpec_, "") };
+    inline string getInternetSlbSpec() const { DARABONBA_PTR_GET_DEFAULT(internetSlbSpec_, "") };
     inline AddGatewayRequest& setInternetSlbSpec(string internetSlbSpec) { DARABONBA_PTR_SET_VALUE(internetSlbSpec_, internetSlbSpec) };
 
 
     // managedEntryNetworkType Field Functions 
     bool hasManagedEntryNetworkType() const { return this->managedEntryNetworkType_ != nullptr;};
     void deleteManagedEntryNetworkType() { this->managedEntryNetworkType_ = nullptr;};
-    inline string managedEntryNetworkType() const { DARABONBA_PTR_GET_DEFAULT(managedEntryNetworkType_, "") };
+    inline string getManagedEntryNetworkType() const { DARABONBA_PTR_GET_DEFAULT(managedEntryNetworkType_, "") };
     inline AddGatewayRequest& setManagedEntryNetworkType(string managedEntryNetworkType) { DARABONBA_PTR_SET_VALUE(managedEntryNetworkType_, managedEntryNetworkType) };
 
 
     // mserVersion Field Functions 
     bool hasMserVersion() const { return this->mserVersion_ != nullptr;};
     void deleteMserVersion() { this->mserVersion_ = nullptr;};
-    inline string mserVersion() const { DARABONBA_PTR_GET_DEFAULT(mserVersion_, "") };
+    inline string getMserVersion() const { DARABONBA_PTR_GET_DEFAULT(mserVersion_, "") };
     inline AddGatewayRequest& setMserVersion(string mserVersion) { DARABONBA_PTR_SET_VALUE(mserVersion_, mserVersion) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline AddGatewayRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // nlbNetworkType Field Functions 
     bool hasNlbNetworkType() const { return this->nlbNetworkType_ != nullptr;};
     void deleteNlbNetworkType() { this->nlbNetworkType_ = nullptr;};
-    inline string nlbNetworkType() const { DARABONBA_PTR_GET_DEFAULT(nlbNetworkType_, "") };
+    inline string getNlbNetworkType() const { DARABONBA_PTR_GET_DEFAULT(nlbNetworkType_, "") };
     inline AddGatewayRequest& setNlbNetworkType(string nlbNetworkType) { DARABONBA_PTR_SET_VALUE(nlbNetworkType_, nlbNetworkType) };
 
 
     // region Field Functions 
     bool hasRegion() const { return this->region_ != nullptr;};
     void deleteRegion() { this->region_ = nullptr;};
-    inline string region() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
+    inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
     inline AddGatewayRequest& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
     // replica Field Functions 
     bool hasReplica() const { return this->replica_ != nullptr;};
     void deleteReplica() { this->replica_ = nullptr;};
-    inline int32_t replica() const { DARABONBA_PTR_GET_DEFAULT(replica_, 0) };
+    inline int32_t getReplica() const { DARABONBA_PTR_GET_DEFAULT(replica_, 0) };
     inline AddGatewayRequest& setReplica(int32_t replica) { DARABONBA_PTR_SET_VALUE(replica_, replica) };
 
 
     // requestPars Field Functions 
     bool hasRequestPars() const { return this->requestPars_ != nullptr;};
     void deleteRequestPars() { this->requestPars_ = nullptr;};
-    inline string requestPars() const { DARABONBA_PTR_GET_DEFAULT(requestPars_, "") };
+    inline string getRequestPars() const { DARABONBA_PTR_GET_DEFAULT(requestPars_, "") };
     inline AddGatewayRequest& setRequestPars(string requestPars) { DARABONBA_PTR_SET_VALUE(requestPars_, requestPars) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline AddGatewayRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // slbSpec Field Functions 
     bool hasSlbSpec() const { return this->slbSpec_ != nullptr;};
     void deleteSlbSpec() { this->slbSpec_ = nullptr;};
-    inline string slbSpec() const { DARABONBA_PTR_GET_DEFAULT(slbSpec_, "") };
+    inline string getSlbSpec() const { DARABONBA_PTR_GET_DEFAULT(slbSpec_, "") };
     inline AddGatewayRequest& setSlbSpec(string slbSpec) { DARABONBA_PTR_SET_VALUE(slbSpec_, slbSpec) };
 
 
     // spec Field Functions 
     bool hasSpec() const { return this->spec_ != nullptr;};
     void deleteSpec() { this->spec_ = nullptr;};
-    inline string spec() const { DARABONBA_PTR_GET_DEFAULT(spec_, "") };
+    inline string getSpec() const { DARABONBA_PTR_GET_DEFAULT(spec_, "") };
     inline AddGatewayRequest& setSpec(string spec) { DARABONBA_PTR_SET_VALUE(spec_, spec) };
 
 
     // tag Field Functions 
     bool hasTag() const { return this->tag_ != nullptr;};
     void deleteTag() { this->tag_ = nullptr;};
-    inline const vector<AddGatewayRequestTag> & tag() const { DARABONBA_PTR_GET_CONST(tag_, vector<AddGatewayRequestTag>) };
-    inline vector<AddGatewayRequestTag> tag() { DARABONBA_PTR_GET(tag_, vector<AddGatewayRequestTag>) };
-    inline AddGatewayRequest& setTag(const vector<AddGatewayRequestTag> & tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
-    inline AddGatewayRequest& setTag(vector<AddGatewayRequestTag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
+    inline const vector<AddGatewayRequest::Tag> & getTag() const { DARABONBA_PTR_GET_CONST(tag_, vector<AddGatewayRequest::Tag>) };
+    inline vector<AddGatewayRequest::Tag> getTag() { DARABONBA_PTR_GET(tag_, vector<AddGatewayRequest::Tag>) };
+    inline AddGatewayRequest& setTag(const vector<AddGatewayRequest::Tag> & tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
+    inline AddGatewayRequest& setTag(vector<AddGatewayRequest::Tag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
 
 
     // vSwitchId Field Functions 
     bool hasVSwitchId() const { return this->vSwitchId_ != nullptr;};
     void deleteVSwitchId() { this->vSwitchId_ = nullptr;};
-    inline string vSwitchId() const { DARABONBA_PTR_GET_DEFAULT(vSwitchId_, "") };
+    inline string getVSwitchId() const { DARABONBA_PTR_GET_DEFAULT(vSwitchId_, "") };
     inline AddGatewayRequest& setVSwitchId(string vSwitchId) { DARABONBA_PTR_SET_VALUE(vSwitchId_, vSwitchId) };
 
 
     // vSwitchId2 Field Functions 
     bool hasVSwitchId2() const { return this->vSwitchId2_ != nullptr;};
     void deleteVSwitchId2() { this->vSwitchId2_ = nullptr;};
-    inline string vSwitchId2() const { DARABONBA_PTR_GET_DEFAULT(vSwitchId2_, "") };
+    inline string getVSwitchId2() const { DARABONBA_PTR_GET_DEFAULT(vSwitchId2_, "") };
     inline AddGatewayRequest& setVSwitchId2(string vSwitchId2) { DARABONBA_PTR_SET_VALUE(vSwitchId2_, vSwitchId2) };
 
 
     // vpc Field Functions 
     bool hasVpc() const { return this->vpc_ != nullptr;};
     void deleteVpc() { this->vpc_ = nullptr;};
-    inline string vpc() const { DARABONBA_PTR_GET_DEFAULT(vpc_, "") };
+    inline string getVpc() const { DARABONBA_PTR_GET_DEFAULT(vpc_, "") };
     inline AddGatewayRequest& setVpc(string vpc) { DARABONBA_PTR_SET_VALUE(vpc_, vpc) };
 
 
     // xtraceRatio Field Functions 
     bool hasXtraceRatio() const { return this->xtraceRatio_ != nullptr;};
     void deleteXtraceRatio() { this->xtraceRatio_ = nullptr;};
-    inline string xtraceRatio() const { DARABONBA_PTR_GET_DEFAULT(xtraceRatio_, "") };
+    inline string getXtraceRatio() const { DARABONBA_PTR_GET_DEFAULT(xtraceRatio_, "") };
     inline AddGatewayRequest& setXtraceRatio(string xtraceRatio) { DARABONBA_PTR_SET_VALUE(xtraceRatio_, xtraceRatio) };
 
 
     // zoneInfo Field Functions 
     bool hasZoneInfo() const { return this->zoneInfo_ != nullptr;};
     void deleteZoneInfo() { this->zoneInfo_ = nullptr;};
-    inline const vector<AddGatewayRequestZoneInfo> & zoneInfo() const { DARABONBA_PTR_GET_CONST(zoneInfo_, vector<AddGatewayRequestZoneInfo>) };
-    inline vector<AddGatewayRequestZoneInfo> zoneInfo() { DARABONBA_PTR_GET(zoneInfo_, vector<AddGatewayRequestZoneInfo>) };
-    inline AddGatewayRequest& setZoneInfo(const vector<AddGatewayRequestZoneInfo> & zoneInfo) { DARABONBA_PTR_SET_VALUE(zoneInfo_, zoneInfo) };
-    inline AddGatewayRequest& setZoneInfo(vector<AddGatewayRequestZoneInfo> && zoneInfo) { DARABONBA_PTR_SET_RVALUE(zoneInfo_, zoneInfo) };
+    inline const vector<AddGatewayRequest::ZoneInfo> & getZoneInfo() const { DARABONBA_PTR_GET_CONST(zoneInfo_, vector<AddGatewayRequest::ZoneInfo>) };
+    inline vector<AddGatewayRequest::ZoneInfo> getZoneInfo() { DARABONBA_PTR_GET(zoneInfo_, vector<AddGatewayRequest::ZoneInfo>) };
+    inline AddGatewayRequest& setZoneInfo(const vector<AddGatewayRequest::ZoneInfo> & zoneInfo) { DARABONBA_PTR_SET_VALUE(zoneInfo_, zoneInfo) };
+    inline AddGatewayRequest& setZoneInfo(vector<AddGatewayRequest::ZoneInfo> && zoneInfo) { DARABONBA_PTR_SET_RVALUE(zoneInfo_, zoneInfo) };
 
 
   protected:
@@ -261,28 +347,28 @@ namespace Models
     // 
     // *   zh: Chinese
     // *   en: English
-    std::shared_ptr<string> acceptLanguage_ = nullptr;
+    shared_ptr<string> acceptLanguage_ {};
     // The billing method you specify when you purchase an ordinary instance.
     // 
     // Valid values:
     // 
     // *   PREPAY: subscription
     // *   POSTPAY: pay-as-you-go
-    std::shared_ptr<string> chargeType_ = nullptr;
+    shared_ptr<string> chargeType_ {};
     // The network type of the purchased Classic Load Balancer (CLB) instance that is billed based on LCUs.
     // 
     // *   pubnet: Internet
     // *   privatenet: private network
     // *   privatepubnet: Internet and private network
-    std::shared_ptr<string> clbNetworkType_ = nullptr;
+    shared_ptr<string> clbNetworkType_ {};
     // Specifies whether to activate Tracing Analysis.
-    std::shared_ptr<bool> enableHardwareAcceleration_ = nullptr;
+    shared_ptr<bool> enableHardwareAcceleration_ {};
     // The tag of the gateway.
-    std::shared_ptr<bool> enableSls_ = nullptr;
+    shared_ptr<bool> enableSls_ {};
     // The sampling rate of Tracing Analysis. Valid values: [1,100].
-    std::shared_ptr<bool> enableXtrace_ = nullptr;
+    shared_ptr<bool> enableXtrace_ {};
     // Specifies whether to enable hardware acceleration.
-    std::shared_ptr<bool> enterpriseSecurityGroup_ = nullptr;
+    shared_ptr<bool> enterpriseSecurityGroup_ {};
     // The specifications of the Internet-facing Server Load Balancer (SLB) instance. Valid values:
     // 
     // *   slb.s1.small
@@ -291,21 +377,21 @@ namespace Models
     // *   slb.s3.small
     // *   slb.s3.medium
     // *   slb.s3.large
-    std::shared_ptr<string> internetSlbSpec_ = nullptr;
-    std::shared_ptr<string> managedEntryNetworkType_ = nullptr;
+    shared_ptr<string> internetSlbSpec_ {};
+    shared_ptr<string> managedEntryNetworkType_ {};
     // The MSE instance type. Valid values:
     // 
     // *   mse_pro: ordinary instance
     // *   mse_serverless: serverless instance
-    std::shared_ptr<string> mserVersion_ = nullptr;
+    shared_ptr<string> mserVersion_ {};
     // The ID of the region.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The network type of the Network Load Balancer (NLB) instance you specify when you purchase a serverless instance.
     // 
     // *   pubnet: Internet
     // *   privatenet: private network
     // *   privatepubnet: Internet and private network
-    std::shared_ptr<string> nlbNetworkType_ = nullptr;
+    shared_ptr<string> nlbNetworkType_ {};
     // The specifications of the internal-facing Server Load Balancer (SLB) instance. Valid values:
     // 
     // *   slb.s1.small
@@ -316,16 +402,16 @@ namespace Models
     // *   slb.s3.large
     // 
     // This parameter is required.
-    std::shared_ptr<string> region_ = nullptr;
+    shared_ptr<string> region_ {};
     // The number of nodes you specify when you purchase an ordinary instance.
-    std::shared_ptr<int32_t> replica_ = nullptr;
+    shared_ptr<int32_t> replica_ {};
     // The extended field.
-    std::shared_ptr<string> requestPars_ = nullptr;
+    shared_ptr<string> requestPars_ {};
     // The language of the response. Valid values:
     // 
     // *   zh: Chinese
     // *   en: English
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // The specifications of the internal-facing Server Load Balancer (SLB) instance. Valid values:
     // 
     // *   slb.s1.small
@@ -334,28 +420,28 @@ namespace Models
     // *   slb.s3.small
     // *   slb.s3.medium
     // *   slb.s3.large
-    std::shared_ptr<string> slbSpec_ = nullptr;
+    shared_ptr<string> slbSpec_ {};
     // The node specifications you specify when you purchase an ordinary instance. Valid values:
     // 
     // *   MSE_GTW_16_32_200_c(16C32G)
     // *   MSE_GTW_2_4_200_c(2C4G)
     // *   MSE_GTW_4_8_200_c(4C8G)
     // *   MSE_GTW_8_16_200_c(8C16G)
-    std::shared_ptr<string> spec_ = nullptr;
+    shared_ptr<string> spec_ {};
     // The tag object.
-    std::shared_ptr<vector<AddGatewayRequestTag>> tag_ = nullptr;
+    shared_ptr<vector<AddGatewayRequest::Tag>> tag_ {};
     // The ID of the primary vSwitch.
-    std::shared_ptr<string> vSwitchId_ = nullptr;
+    shared_ptr<string> vSwitchId_ {};
     // Specifies whether to use an advanced security group.
-    std::shared_ptr<string> vSwitchId2_ = nullptr;
+    shared_ptr<string> vSwitchId2_ {};
     // The ID of the primary vSwitch.
     // 
     // This parameter is required.
-    std::shared_ptr<string> vpc_ = nullptr;
+    shared_ptr<string> vpc_ {};
     // Specifies whether to activate Log Service.
-    std::shared_ptr<string> xtraceRatio_ = nullptr;
+    shared_ptr<string> xtraceRatio_ {};
     // The details of the zone.
-    std::shared_ptr<vector<AddGatewayRequestZoneInfo>> zoneInfo_ = nullptr;
+    shared_ptr<vector<AddGatewayRequest::ZoneInfo>> zoneInfo_ {};
   };
 
   } // namespace Models

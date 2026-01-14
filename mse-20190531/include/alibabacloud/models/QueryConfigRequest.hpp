@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->acceptLanguage_ == nullptr
-        && return this->clusterId_ == nullptr && return this->configType_ == nullptr && return this->instanceId_ == nullptr && return this->needRunningConf_ == nullptr && return this->requestPars_ == nullptr; };
+        && this->clusterId_ == nullptr && this->configType_ == nullptr && this->instanceId_ == nullptr && this->needRunningConf_ == nullptr && this->requestPars_ == nullptr; };
     // acceptLanguage Field Functions 
     bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
     void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};
-    inline string acceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
+    inline string getAcceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
     inline QueryConfigRequest& setAcceptLanguage(string acceptLanguage) { DARABONBA_PTR_SET_VALUE(acceptLanguage_, acceptLanguage) };
 
 
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline QueryConfigRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // configType Field Functions 
     bool hasConfigType() const { return this->configType_ != nullptr;};
     void deleteConfigType() { this->configType_ = nullptr;};
-    inline string configType() const { DARABONBA_PTR_GET_DEFAULT(configType_, "") };
+    inline string getConfigType() const { DARABONBA_PTR_GET_DEFAULT(configType_, "") };
     inline QueryConfigRequest& setConfigType(string configType) { DARABONBA_PTR_SET_VALUE(configType_, configType) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline QueryConfigRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // needRunningConf Field Functions 
     bool hasNeedRunningConf() const { return this->needRunningConf_ != nullptr;};
     void deleteNeedRunningConf() { this->needRunningConf_ = nullptr;};
-    inline bool needRunningConf() const { DARABONBA_PTR_GET_DEFAULT(needRunningConf_, false) };
+    inline bool getNeedRunningConf() const { DARABONBA_PTR_GET_DEFAULT(needRunningConf_, false) };
     inline QueryConfigRequest& setNeedRunningConf(bool needRunningConf) { DARABONBA_PTR_SET_VALUE(needRunningConf_, needRunningConf) };
 
 
     // requestPars Field Functions 
     bool hasRequestPars() const { return this->requestPars_ != nullptr;};
     void deleteRequestPars() { this->requestPars_ = nullptr;};
-    inline string requestPars() const { DARABONBA_PTR_GET_DEFAULT(requestPars_, "") };
+    inline string getRequestPars() const { DARABONBA_PTR_GET_DEFAULT(requestPars_, "") };
     inline QueryConfigRequest& setRequestPars(string requestPars) { DARABONBA_PTR_SET_VALUE(requestPars_, requestPars) };
 
 
@@ -88,17 +88,17 @@ namespace Models
     // 
     // *   zh: Chinese
     // *   en: English
-    std::shared_ptr<string> acceptLanguage_ = nullptr;
+    shared_ptr<string> acceptLanguage_ {};
     // The ID of the cluster.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // A reserved parameter.
-    std::shared_ptr<string> configType_ = nullptr;
+    shared_ptr<string> configType_ {};
     // The ID of the instance.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // Specifies whether runtime configurations are required.
-    std::shared_ptr<bool> needRunningConf_ = nullptr;
+    shared_ptr<bool> needRunningConf_ {};
     // The extended request parameters in the JSON format.
-    std::shared_ptr<string> requestPars_ = nullptr;
+    shared_ptr<string> requestPars_ {};
   };
 
   } // namespace Models

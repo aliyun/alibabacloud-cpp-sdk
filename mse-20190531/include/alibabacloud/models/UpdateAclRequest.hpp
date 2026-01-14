@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->acceptLanguage_ == nullptr
-        && return this->aclEntryList_ == nullptr && return this->instanceId_ == nullptr && return this->networkType_ == nullptr; };
+        && this->aclEntryList_ == nullptr && this->instanceId_ == nullptr && this->networkType_ == nullptr; };
     // acceptLanguage Field Functions 
     bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
     void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};
-    inline string acceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
+    inline string getAcceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
     inline UpdateAclRequest& setAcceptLanguage(string acceptLanguage) { DARABONBA_PTR_SET_VALUE(acceptLanguage_, acceptLanguage) };
 
 
     // aclEntryList Field Functions 
     bool hasAclEntryList() const { return this->aclEntryList_ != nullptr;};
     void deleteAclEntryList() { this->aclEntryList_ = nullptr;};
-    inline string aclEntryList() const { DARABONBA_PTR_GET_DEFAULT(aclEntryList_, "") };
+    inline string getAclEntryList() const { DARABONBA_PTR_GET_DEFAULT(aclEntryList_, "") };
     inline UpdateAclRequest& setAclEntryList(string aclEntryList) { DARABONBA_PTR_SET_VALUE(aclEntryList_, aclEntryList) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline UpdateAclRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // networkType Field Functions 
     bool hasNetworkType() const { return this->networkType_ != nullptr;};
     void deleteNetworkType() { this->networkType_ = nullptr;};
-    inline string networkType() const { DARABONBA_PTR_GET_DEFAULT(networkType_, "") };
+    inline string getNetworkType() const { DARABONBA_PTR_GET_DEFAULT(networkType_, "") };
     inline UpdateAclRequest& setNetworkType(string networkType) { DARABONBA_PTR_SET_VALUE(networkType_, networkType) };
 
 
@@ -70,12 +70,12 @@ namespace Models
     // 
     // *   zh: Chinese
     // *   en: English
-    std::shared_ptr<string> acceptLanguage_ = nullptr;
+    shared_ptr<string> acceptLanguage_ {};
     // The IP addresses or CIDR blocks in the IP address whitelist.
-    std::shared_ptr<string> aclEntryList_ = nullptr;
+    shared_ptr<string> aclEntryList_ {};
     // The ID of the instance.
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> networkType_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> networkType_ {};
   };
 
   } // namespace Models

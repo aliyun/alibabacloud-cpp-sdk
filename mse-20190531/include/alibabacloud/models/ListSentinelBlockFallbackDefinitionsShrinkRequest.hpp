@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->acceptLanguage_ == nullptr
-        && return this->appName_ == nullptr && return this->classificationSetShrink_ == nullptr && return this->namespace_ == nullptr; };
+        && this->appName_ == nullptr && this->classificationSetShrink_ == nullptr && this->namespace_ == nullptr; };
     // acceptLanguage Field Functions 
     bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
     void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};
-    inline string acceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
+    inline string getAcceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
     inline ListSentinelBlockFallbackDefinitionsShrinkRequest& setAcceptLanguage(string acceptLanguage) { DARABONBA_PTR_SET_VALUE(acceptLanguage_, acceptLanguage) };
 
 
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
-    inline string appName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
+    inline string getAppName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
     inline ListSentinelBlockFallbackDefinitionsShrinkRequest& setAppName(string appName) { DARABONBA_PTR_SET_VALUE(appName_, appName) };
 
 
     // classificationSetShrink Field Functions 
     bool hasClassificationSetShrink() const { return this->classificationSetShrink_ != nullptr;};
     void deleteClassificationSetShrink() { this->classificationSetShrink_ = nullptr;};
-    inline string classificationSetShrink() const { DARABONBA_PTR_GET_DEFAULT(classificationSetShrink_, "") };
+    inline string getClassificationSetShrink() const { DARABONBA_PTR_GET_DEFAULT(classificationSetShrink_, "") };
     inline ListSentinelBlockFallbackDefinitionsShrinkRequest& setClassificationSetShrink(string classificationSetShrink) { DARABONBA_PTR_SET_VALUE(classificationSetShrink_, classificationSetShrink) };
 
 
     // namespace Field Functions 
     bool hasNamespace() const { return this->namespace_ != nullptr;};
     void deleteNamespace() { this->namespace_ = nullptr;};
-    inline string _namespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
+    inline string getNamespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
     inline ListSentinelBlockFallbackDefinitionsShrinkRequest& setNamespace(string _namespace) { DARABONBA_PTR_SET_VALUE(namespace_, _namespace) };
 
 
@@ -70,17 +70,17 @@ namespace Models
     // 
     // *   zh: Chinese
     // *   en: English
-    std::shared_ptr<string> acceptLanguage_ = nullptr;
+    shared_ptr<string> acceptLanguage_ {};
     // The name of the application.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appName_ = nullptr;
+    shared_ptr<string> appName_ {};
     // Behavior Classification Set.
-    std::shared_ptr<string> classificationSetShrink_ = nullptr;
+    shared_ptr<string> classificationSetShrink_ {};
     // The name of the Microservices namespace.
     // 
     // This parameter is required.
-    std::shared_ptr<string> namespace_ = nullptr;
+    shared_ptr<string> namespace_ {};
   };
 
   } // namespace Models

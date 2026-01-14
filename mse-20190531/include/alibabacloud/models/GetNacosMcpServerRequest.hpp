@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->acceptLanguage_ == nullptr
-        && return this->instanceId_ == nullptr && return this->mcpServerId_ == nullptr && return this->mcpServerVersion_ == nullptr && return this->namespaceId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->mcpServerId_ == nullptr && this->mcpServerVersion_ == nullptr && this->namespaceId_ == nullptr; };
     // acceptLanguage Field Functions 
     bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
     void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};
-    inline string acceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
+    inline string getAcceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
     inline GetNacosMcpServerRequest& setAcceptLanguage(string acceptLanguage) { DARABONBA_PTR_SET_VALUE(acceptLanguage_, acceptLanguage) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline GetNacosMcpServerRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // mcpServerId Field Functions 
     bool hasMcpServerId() const { return this->mcpServerId_ != nullptr;};
     void deleteMcpServerId() { this->mcpServerId_ = nullptr;};
-    inline string mcpServerId() const { DARABONBA_PTR_GET_DEFAULT(mcpServerId_, "") };
+    inline string getMcpServerId() const { DARABONBA_PTR_GET_DEFAULT(mcpServerId_, "") };
     inline GetNacosMcpServerRequest& setMcpServerId(string mcpServerId) { DARABONBA_PTR_SET_VALUE(mcpServerId_, mcpServerId) };
 
 
     // mcpServerVersion Field Functions 
     bool hasMcpServerVersion() const { return this->mcpServerVersion_ != nullptr;};
     void deleteMcpServerVersion() { this->mcpServerVersion_ = nullptr;};
-    inline string mcpServerVersion() const { DARABONBA_PTR_GET_DEFAULT(mcpServerVersion_, "") };
+    inline string getMcpServerVersion() const { DARABONBA_PTR_GET_DEFAULT(mcpServerVersion_, "") };
     inline GetNacosMcpServerRequest& setMcpServerVersion(string mcpServerVersion) { DARABONBA_PTR_SET_VALUE(mcpServerVersion_, mcpServerVersion) };
 
 
     // namespaceId Field Functions 
     bool hasNamespaceId() const { return this->namespaceId_ != nullptr;};
     void deleteNamespaceId() { this->namespaceId_ = nullptr;};
-    inline string namespaceId() const { DARABONBA_PTR_GET_DEFAULT(namespaceId_, "") };
+    inline string getNamespaceId() const { DARABONBA_PTR_GET_DEFAULT(namespaceId_, "") };
     inline GetNacosMcpServerRequest& setNamespaceId(string namespaceId) { DARABONBA_PTR_SET_VALUE(namespaceId_, namespaceId) };
 
 
   protected:
-    std::shared_ptr<string> acceptLanguage_ = nullptr;
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> mcpServerId_ = nullptr;
-    std::shared_ptr<string> mcpServerVersion_ = nullptr;
-    std::shared_ptr<string> namespaceId_ = nullptr;
+    shared_ptr<string> acceptLanguage_ {};
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> mcpServerId_ {};
+    shared_ptr<string> mcpServerVersion_ {};
+    shared_ptr<string> namespaceId_ {};
   };
 
   } // namespace Models

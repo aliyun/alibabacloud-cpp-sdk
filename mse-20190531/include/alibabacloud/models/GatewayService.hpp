@@ -45,13 +45,13 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->gatewayTrafficPolicy_ == nullptr
-        && return this->gatewayUniqueId_ == nullptr && return this->groupName_ == nullptr && return this->id_ == nullptr && return this->metaInfo_ == nullptr && return this->name_ == nullptr
-        && return this->namespace_ == nullptr && return this->sourceType_ == nullptr; };
+        && this->gatewayUniqueId_ == nullptr && this->groupName_ == nullptr && this->id_ == nullptr && this->metaInfo_ == nullptr && this->name_ == nullptr
+        && this->namespace_ == nullptr && this->sourceType_ == nullptr; };
     // gatewayTrafficPolicy Field Functions 
     bool hasGatewayTrafficPolicy() const { return this->gatewayTrafficPolicy_ != nullptr;};
     void deleteGatewayTrafficPolicy() { this->gatewayTrafficPolicy_ = nullptr;};
-    inline const TrafficPolicy & gatewayTrafficPolicy() const { DARABONBA_PTR_GET_CONST(gatewayTrafficPolicy_, TrafficPolicy) };
-    inline TrafficPolicy gatewayTrafficPolicy() { DARABONBA_PTR_GET(gatewayTrafficPolicy_, TrafficPolicy) };
+    inline const TrafficPolicy & getGatewayTrafficPolicy() const { DARABONBA_PTR_GET_CONST(gatewayTrafficPolicy_, TrafficPolicy) };
+    inline TrafficPolicy getGatewayTrafficPolicy() { DARABONBA_PTR_GET(gatewayTrafficPolicy_, TrafficPolicy) };
     inline GatewayService& setGatewayTrafficPolicy(const TrafficPolicy & gatewayTrafficPolicy) { DARABONBA_PTR_SET_VALUE(gatewayTrafficPolicy_, gatewayTrafficPolicy) };
     inline GatewayService& setGatewayTrafficPolicy(TrafficPolicy && gatewayTrafficPolicy) { DARABONBA_PTR_SET_RVALUE(gatewayTrafficPolicy_, gatewayTrafficPolicy) };
 
@@ -59,61 +59,61 @@ namespace Models
     // gatewayUniqueId Field Functions 
     bool hasGatewayUniqueId() const { return this->gatewayUniqueId_ != nullptr;};
     void deleteGatewayUniqueId() { this->gatewayUniqueId_ = nullptr;};
-    inline string gatewayUniqueId() const { DARABONBA_PTR_GET_DEFAULT(gatewayUniqueId_, "") };
+    inline string getGatewayUniqueId() const { DARABONBA_PTR_GET_DEFAULT(gatewayUniqueId_, "") };
     inline GatewayService& setGatewayUniqueId(string gatewayUniqueId) { DARABONBA_PTR_SET_VALUE(gatewayUniqueId_, gatewayUniqueId) };
 
 
     // groupName Field Functions 
     bool hasGroupName() const { return this->groupName_ != nullptr;};
     void deleteGroupName() { this->groupName_ = nullptr;};
-    inline string groupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
+    inline string getGroupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
     inline GatewayService& setGroupName(string groupName) { DARABONBA_PTR_SET_VALUE(groupName_, groupName) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline int64_t id() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+    inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
     inline GatewayService& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // metaInfo Field Functions 
     bool hasMetaInfo() const { return this->metaInfo_ != nullptr;};
     void deleteMetaInfo() { this->metaInfo_ = nullptr;};
-    inline string metaInfo() const { DARABONBA_PTR_GET_DEFAULT(metaInfo_, "") };
+    inline string getMetaInfo() const { DARABONBA_PTR_GET_DEFAULT(metaInfo_, "") };
     inline GatewayService& setMetaInfo(string metaInfo) { DARABONBA_PTR_SET_VALUE(metaInfo_, metaInfo) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline GatewayService& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // namespace Field Functions 
     bool hasNamespace() const { return this->namespace_ != nullptr;};
     void deleteNamespace() { this->namespace_ = nullptr;};
-    inline string _namespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
+    inline string getNamespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
     inline GatewayService& setNamespace(string _namespace) { DARABONBA_PTR_SET_VALUE(namespace_, _namespace) };
 
 
     // sourceType Field Functions 
     bool hasSourceType() const { return this->sourceType_ != nullptr;};
     void deleteSourceType() { this->sourceType_ = nullptr;};
-    inline string sourceType() const { DARABONBA_PTR_GET_DEFAULT(sourceType_, "") };
+    inline string getSourceType() const { DARABONBA_PTR_GET_DEFAULT(sourceType_, "") };
     inline GatewayService& setSourceType(string sourceType) { DARABONBA_PTR_SET_VALUE(sourceType_, sourceType) };
 
 
   protected:
-    std::shared_ptr<TrafficPolicy> gatewayTrafficPolicy_ = nullptr;
-    std::shared_ptr<string> gatewayUniqueId_ = nullptr;
-    std::shared_ptr<string> groupName_ = nullptr;
-    std::shared_ptr<int64_t> id_ = nullptr;
-    std::shared_ptr<string> metaInfo_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> namespace_ = nullptr;
-    std::shared_ptr<string> sourceType_ = nullptr;
+    shared_ptr<TrafficPolicy> gatewayTrafficPolicy_ {};
+    shared_ptr<string> gatewayUniqueId_ {};
+    shared_ptr<string> groupName_ {};
+    shared_ptr<int64_t> id_ {};
+    shared_ptr<string> metaInfo_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<string> namespace_ {};
+    shared_ptr<string> sourceType_ {};
   };
 
   } // namespace Models

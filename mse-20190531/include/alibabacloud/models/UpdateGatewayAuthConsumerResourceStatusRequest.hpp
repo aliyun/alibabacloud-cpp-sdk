@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->acceptLanguage_ == nullptr
-        && return this->consumerId_ == nullptr && return this->gatewayUniqueId_ == nullptr && return this->idList_ == nullptr && return this->resourceStatus_ == nullptr; };
+        && this->consumerId_ == nullptr && this->gatewayUniqueId_ == nullptr && this->idList_ == nullptr && this->resourceStatus_ == nullptr; };
     // acceptLanguage Field Functions 
     bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
     void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};
-    inline string acceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
+    inline string getAcceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
     inline UpdateGatewayAuthConsumerResourceStatusRequest& setAcceptLanguage(string acceptLanguage) { DARABONBA_PTR_SET_VALUE(acceptLanguage_, acceptLanguage) };
 
 
     // consumerId Field Functions 
     bool hasConsumerId() const { return this->consumerId_ != nullptr;};
     void deleteConsumerId() { this->consumerId_ = nullptr;};
-    inline int64_t consumerId() const { DARABONBA_PTR_GET_DEFAULT(consumerId_, 0L) };
+    inline int64_t getConsumerId() const { DARABONBA_PTR_GET_DEFAULT(consumerId_, 0L) };
     inline UpdateGatewayAuthConsumerResourceStatusRequest& setConsumerId(int64_t consumerId) { DARABONBA_PTR_SET_VALUE(consumerId_, consumerId) };
 
 
     // gatewayUniqueId Field Functions 
     bool hasGatewayUniqueId() const { return this->gatewayUniqueId_ != nullptr;};
     void deleteGatewayUniqueId() { this->gatewayUniqueId_ = nullptr;};
-    inline string gatewayUniqueId() const { DARABONBA_PTR_GET_DEFAULT(gatewayUniqueId_, "") };
+    inline string getGatewayUniqueId() const { DARABONBA_PTR_GET_DEFAULT(gatewayUniqueId_, "") };
     inline UpdateGatewayAuthConsumerResourceStatusRequest& setGatewayUniqueId(string gatewayUniqueId) { DARABONBA_PTR_SET_VALUE(gatewayUniqueId_, gatewayUniqueId) };
 
 
     // idList Field Functions 
     bool hasIdList() const { return this->idList_ != nullptr;};
     void deleteIdList() { this->idList_ = nullptr;};
-    inline string idList() const { DARABONBA_PTR_GET_DEFAULT(idList_, "") };
+    inline string getIdList() const { DARABONBA_PTR_GET_DEFAULT(idList_, "") };
     inline UpdateGatewayAuthConsumerResourceStatusRequest& setIdList(string idList) { DARABONBA_PTR_SET_VALUE(idList_, idList) };
 
 
     // resourceStatus Field Functions 
     bool hasResourceStatus() const { return this->resourceStatus_ != nullptr;};
     void deleteResourceStatus() { this->resourceStatus_ = nullptr;};
-    inline bool resourceStatus() const { DARABONBA_PTR_GET_DEFAULT(resourceStatus_, false) };
+    inline bool getResourceStatus() const { DARABONBA_PTR_GET_DEFAULT(resourceStatus_, false) };
     inline UpdateGatewayAuthConsumerResourceStatusRequest& setResourceStatus(bool resourceStatus) { DARABONBA_PTR_SET_VALUE(resourceStatus_, resourceStatus) };
 
 
@@ -79,26 +79,26 @@ namespace Models
     // 
     // *   zh: Chinese
     // *   en: English
-    std::shared_ptr<string> acceptLanguage_ = nullptr;
+    shared_ptr<string> acceptLanguage_ {};
     // The ID of the consumer.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> consumerId_ = nullptr;
+    shared_ptr<int64_t> consumerId_ {};
     // The unique ID of the gateway.
     // 
     // This parameter is required.
-    std::shared_ptr<string> gatewayUniqueId_ = nullptr;
+    shared_ptr<string> gatewayUniqueId_ {};
     // The list of IDs of the authorized resources that a user wants to update.
     // 
     // This parameter is required.
-    std::shared_ptr<string> idList_ = nullptr;
+    shared_ptr<string> idList_ {};
     // The resource authorization status. Valid values:
     // 
     // *   true: enabled
     // *   false: disabled
     // 
     // This parameter is required.
-    std::shared_ptr<bool> resourceStatus_ = nullptr;
+    shared_ptr<bool> resourceStatus_ {};
   };
 
   } // namespace Models

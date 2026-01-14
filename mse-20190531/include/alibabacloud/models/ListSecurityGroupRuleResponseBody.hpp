@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_LISTSECURITYGROUPRULERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/ListSecurityGroupRuleResponseBodyData.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -41,68 +40,202 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(AuthCidrs, authCidrs_);
+        DARABONBA_PTR_TO_JSON(Description, description_);
+        DARABONBA_PTR_TO_JSON(GatewayId, gatewayId_);
+        DARABONBA_PTR_TO_JSON(GatewayUniqueId, gatewayUniqueId_);
+        DARABONBA_PTR_TO_JSON(GmtCreate, gmtCreate_);
+        DARABONBA_PTR_TO_JSON(GmtModified, gmtModified_);
+        DARABONBA_PTR_TO_JSON(Id, id_);
+        DARABONBA_PTR_TO_JSON(IpProtocol, ipProtocol_);
+        DARABONBA_PTR_TO_JSON(PortRange, portRange_);
+        DARABONBA_PTR_TO_JSON(SecurityGroupId, securityGroupId_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(AuthCidrs, authCidrs_);
+        DARABONBA_PTR_FROM_JSON(Description, description_);
+        DARABONBA_PTR_FROM_JSON(GatewayId, gatewayId_);
+        DARABONBA_PTR_FROM_JSON(GatewayUniqueId, gatewayUniqueId_);
+        DARABONBA_PTR_FROM_JSON(GmtCreate, gmtCreate_);
+        DARABONBA_PTR_FROM_JSON(GmtModified, gmtModified_);
+        DARABONBA_PTR_FROM_JSON(Id, id_);
+        DARABONBA_PTR_FROM_JSON(IpProtocol, ipProtocol_);
+        DARABONBA_PTR_FROM_JSON(PortRange, portRange_);
+        DARABONBA_PTR_FROM_JSON(SecurityGroupId, securityGroupId_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->authCidrs_ == nullptr
+        && this->description_ == nullptr && this->gatewayId_ == nullptr && this->gatewayUniqueId_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr
+        && this->id_ == nullptr && this->ipProtocol_ == nullptr && this->portRange_ == nullptr && this->securityGroupId_ == nullptr; };
+      // authCidrs Field Functions 
+      bool hasAuthCidrs() const { return this->authCidrs_ != nullptr;};
+      void deleteAuthCidrs() { this->authCidrs_ = nullptr;};
+      inline const vector<string> & getAuthCidrs() const { DARABONBA_PTR_GET_CONST(authCidrs_, vector<string>) };
+      inline vector<string> getAuthCidrs() { DARABONBA_PTR_GET(authCidrs_, vector<string>) };
+      inline Data& setAuthCidrs(const vector<string> & authCidrs) { DARABONBA_PTR_SET_VALUE(authCidrs_, authCidrs) };
+      inline Data& setAuthCidrs(vector<string> && authCidrs) { DARABONBA_PTR_SET_RVALUE(authCidrs_, authCidrs) };
+
+
+      // description Field Functions 
+      bool hasDescription() const { return this->description_ != nullptr;};
+      void deleteDescription() { this->description_ = nullptr;};
+      inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+      inline Data& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+      // gatewayId Field Functions 
+      bool hasGatewayId() const { return this->gatewayId_ != nullptr;};
+      void deleteGatewayId() { this->gatewayId_ = nullptr;};
+      inline int64_t getGatewayId() const { DARABONBA_PTR_GET_DEFAULT(gatewayId_, 0L) };
+      inline Data& setGatewayId(int64_t gatewayId) { DARABONBA_PTR_SET_VALUE(gatewayId_, gatewayId) };
+
+
+      // gatewayUniqueId Field Functions 
+      bool hasGatewayUniqueId() const { return this->gatewayUniqueId_ != nullptr;};
+      void deleteGatewayUniqueId() { this->gatewayUniqueId_ = nullptr;};
+      inline string getGatewayUniqueId() const { DARABONBA_PTR_GET_DEFAULT(gatewayUniqueId_, "") };
+      inline Data& setGatewayUniqueId(string gatewayUniqueId) { DARABONBA_PTR_SET_VALUE(gatewayUniqueId_, gatewayUniqueId) };
+
+
+      // gmtCreate Field Functions 
+      bool hasGmtCreate() const { return this->gmtCreate_ != nullptr;};
+      void deleteGmtCreate() { this->gmtCreate_ = nullptr;};
+      inline string getGmtCreate() const { DARABONBA_PTR_GET_DEFAULT(gmtCreate_, "") };
+      inline Data& setGmtCreate(string gmtCreate) { DARABONBA_PTR_SET_VALUE(gmtCreate_, gmtCreate) };
+
+
+      // gmtModified Field Functions 
+      bool hasGmtModified() const { return this->gmtModified_ != nullptr;};
+      void deleteGmtModified() { this->gmtModified_ = nullptr;};
+      inline string getGmtModified() const { DARABONBA_PTR_GET_DEFAULT(gmtModified_, "") };
+      inline Data& setGmtModified(string gmtModified) { DARABONBA_PTR_SET_VALUE(gmtModified_, gmtModified) };
+
+
+      // id Field Functions 
+      bool hasId() const { return this->id_ != nullptr;};
+      void deleteId() { this->id_ = nullptr;};
+      inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+      inline Data& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+      // ipProtocol Field Functions 
+      bool hasIpProtocol() const { return this->ipProtocol_ != nullptr;};
+      void deleteIpProtocol() { this->ipProtocol_ = nullptr;};
+      inline string getIpProtocol() const { DARABONBA_PTR_GET_DEFAULT(ipProtocol_, "") };
+      inline Data& setIpProtocol(string ipProtocol) { DARABONBA_PTR_SET_VALUE(ipProtocol_, ipProtocol) };
+
+
+      // portRange Field Functions 
+      bool hasPortRange() const { return this->portRange_ != nullptr;};
+      void deletePortRange() { this->portRange_ = nullptr;};
+      inline string getPortRange() const { DARABONBA_PTR_GET_DEFAULT(portRange_, "") };
+      inline Data& setPortRange(string portRange) { DARABONBA_PTR_SET_VALUE(portRange_, portRange) };
+
+
+      // securityGroupId Field Functions 
+      bool hasSecurityGroupId() const { return this->securityGroupId_ != nullptr;};
+      void deleteSecurityGroupId() { this->securityGroupId_ = nullptr;};
+      inline string getSecurityGroupId() const { DARABONBA_PTR_GET_DEFAULT(securityGroupId_, "") };
+      inline Data& setSecurityGroupId(string securityGroupId) { DARABONBA_PTR_SET_VALUE(securityGroupId_, securityGroupId) };
+
+
+    protected:
+      shared_ptr<vector<string>> authCidrs_ {};
+      // The rule description.
+      shared_ptr<string> description_ {};
+      // The gateway ID.
+      shared_ptr<int64_t> gatewayId_ {};
+      // The unique ID of the gateway.
+      shared_ptr<string> gatewayUniqueId_ {};
+      // The creation time.
+      shared_ptr<string> gmtCreate_ {};
+      // The last modification time.
+      shared_ptr<string> gmtModified_ {};
+      // The ID of the security group authorization record.
+      shared_ptr<string> id_ {};
+      // The protocol type.
+      shared_ptr<string> ipProtocol_ {};
+      // The port range.
+      shared_ptr<string> portRange_ {};
+      // The ID of the security group.
+      shared_ptr<string> securityGroupId_ {};
+    };
+
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->data_ == nullptr && return this->httpStatusCode_ == nullptr && return this->message_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr; };
+        && this->data_ == nullptr && this->httpStatusCode_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline int32_t code() const { DARABONBA_PTR_GET_DEFAULT(code_, 0) };
+    inline int32_t getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, 0) };
     inline ListSecurityGroupRuleResponseBody& setCode(int32_t code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const vector<ListSecurityGroupRuleResponseBodyData> & data() const { DARABONBA_PTR_GET_CONST(data_, vector<ListSecurityGroupRuleResponseBodyData>) };
-    inline vector<ListSecurityGroupRuleResponseBodyData> data() { DARABONBA_PTR_GET(data_, vector<ListSecurityGroupRuleResponseBodyData>) };
-    inline ListSecurityGroupRuleResponseBody& setData(const vector<ListSecurityGroupRuleResponseBodyData> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline ListSecurityGroupRuleResponseBody& setData(vector<ListSecurityGroupRuleResponseBodyData> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const vector<ListSecurityGroupRuleResponseBody::Data> & getData() const { DARABONBA_PTR_GET_CONST(data_, vector<ListSecurityGroupRuleResponseBody::Data>) };
+    inline vector<ListSecurityGroupRuleResponseBody::Data> getData() { DARABONBA_PTR_GET(data_, vector<ListSecurityGroupRuleResponseBody::Data>) };
+    inline ListSecurityGroupRuleResponseBody& setData(const vector<ListSecurityGroupRuleResponseBody::Data> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline ListSecurityGroupRuleResponseBody& setData(vector<ListSecurityGroupRuleResponseBody::Data> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // httpStatusCode Field Functions 
     bool hasHttpStatusCode() const { return this->httpStatusCode_ != nullptr;};
     void deleteHttpStatusCode() { this->httpStatusCode_ = nullptr;};
-    inline int32_t httpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
+    inline int32_t getHttpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
     inline ListSecurityGroupRuleResponseBody& setHttpStatusCode(int32_t httpStatusCode) { DARABONBA_PTR_SET_VALUE(httpStatusCode_, httpStatusCode) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline ListSecurityGroupRuleResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListSecurityGroupRuleResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline ListSecurityGroupRuleResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
     // The status code returned.
-    std::shared_ptr<int32_t> code_ = nullptr;
+    shared_ptr<int32_t> code_ {};
     // The returned result.
-    std::shared_ptr<vector<ListSecurityGroupRuleResponseBodyData>> data_ = nullptr;
+    shared_ptr<vector<ListSecurityGroupRuleResponseBody::Data>> data_ {};
     // The HTTP status code returned.
-    std::shared_ptr<int32_t> httpStatusCode_ = nullptr;
+    shared_ptr<int32_t> httpStatusCode_ {};
     // The message returned.
-    std::shared_ptr<string> message_ = nullptr;
+    shared_ptr<string> message_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
     // *   `true`: The request was successful.
     // *   `false`: The request failed.
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

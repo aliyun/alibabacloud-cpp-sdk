@@ -46,68 +46,68 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->acceptLanguage_ == nullptr
-        && return this->fcAlias_ == nullptr && return this->fcServiceName_ == nullptr && return this->fcVersion_ == nullptr && return this->gatewayUniqueId_ == nullptr && return this->serviceListShrink_ == nullptr
-        && return this->sourceId_ == nullptr && return this->sourceType_ == nullptr && return this->tlsSetting_ == nullptr; };
+        && this->fcAlias_ == nullptr && this->fcServiceName_ == nullptr && this->fcVersion_ == nullptr && this->gatewayUniqueId_ == nullptr && this->serviceListShrink_ == nullptr
+        && this->sourceId_ == nullptr && this->sourceType_ == nullptr && this->tlsSetting_ == nullptr; };
     // acceptLanguage Field Functions 
     bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
     void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};
-    inline string acceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
+    inline string getAcceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
     inline ImportServicesShrinkRequest& setAcceptLanguage(string acceptLanguage) { DARABONBA_PTR_SET_VALUE(acceptLanguage_, acceptLanguage) };
 
 
     // fcAlias Field Functions 
     bool hasFcAlias() const { return this->fcAlias_ != nullptr;};
     void deleteFcAlias() { this->fcAlias_ = nullptr;};
-    inline string fcAlias() const { DARABONBA_PTR_GET_DEFAULT(fcAlias_, "") };
+    inline string getFcAlias() const { DARABONBA_PTR_GET_DEFAULT(fcAlias_, "") };
     inline ImportServicesShrinkRequest& setFcAlias(string fcAlias) { DARABONBA_PTR_SET_VALUE(fcAlias_, fcAlias) };
 
 
     // fcServiceName Field Functions 
     bool hasFcServiceName() const { return this->fcServiceName_ != nullptr;};
     void deleteFcServiceName() { this->fcServiceName_ = nullptr;};
-    inline string fcServiceName() const { DARABONBA_PTR_GET_DEFAULT(fcServiceName_, "") };
+    inline string getFcServiceName() const { DARABONBA_PTR_GET_DEFAULT(fcServiceName_, "") };
     inline ImportServicesShrinkRequest& setFcServiceName(string fcServiceName) { DARABONBA_PTR_SET_VALUE(fcServiceName_, fcServiceName) };
 
 
     // fcVersion Field Functions 
     bool hasFcVersion() const { return this->fcVersion_ != nullptr;};
     void deleteFcVersion() { this->fcVersion_ = nullptr;};
-    inline string fcVersion() const { DARABONBA_PTR_GET_DEFAULT(fcVersion_, "") };
+    inline string getFcVersion() const { DARABONBA_PTR_GET_DEFAULT(fcVersion_, "") };
     inline ImportServicesShrinkRequest& setFcVersion(string fcVersion) { DARABONBA_PTR_SET_VALUE(fcVersion_, fcVersion) };
 
 
     // gatewayUniqueId Field Functions 
     bool hasGatewayUniqueId() const { return this->gatewayUniqueId_ != nullptr;};
     void deleteGatewayUniqueId() { this->gatewayUniqueId_ = nullptr;};
-    inline string gatewayUniqueId() const { DARABONBA_PTR_GET_DEFAULT(gatewayUniqueId_, "") };
+    inline string getGatewayUniqueId() const { DARABONBA_PTR_GET_DEFAULT(gatewayUniqueId_, "") };
     inline ImportServicesShrinkRequest& setGatewayUniqueId(string gatewayUniqueId) { DARABONBA_PTR_SET_VALUE(gatewayUniqueId_, gatewayUniqueId) };
 
 
     // serviceListShrink Field Functions 
     bool hasServiceListShrink() const { return this->serviceListShrink_ != nullptr;};
     void deleteServiceListShrink() { this->serviceListShrink_ = nullptr;};
-    inline string serviceListShrink() const { DARABONBA_PTR_GET_DEFAULT(serviceListShrink_, "") };
+    inline string getServiceListShrink() const { DARABONBA_PTR_GET_DEFAULT(serviceListShrink_, "") };
     inline ImportServicesShrinkRequest& setServiceListShrink(string serviceListShrink) { DARABONBA_PTR_SET_VALUE(serviceListShrink_, serviceListShrink) };
 
 
     // sourceId Field Functions 
     bool hasSourceId() const { return this->sourceId_ != nullptr;};
     void deleteSourceId() { this->sourceId_ = nullptr;};
-    inline int64_t sourceId() const { DARABONBA_PTR_GET_DEFAULT(sourceId_, 0L) };
+    inline int64_t getSourceId() const { DARABONBA_PTR_GET_DEFAULT(sourceId_, 0L) };
     inline ImportServicesShrinkRequest& setSourceId(int64_t sourceId) { DARABONBA_PTR_SET_VALUE(sourceId_, sourceId) };
 
 
     // sourceType Field Functions 
     bool hasSourceType() const { return this->sourceType_ != nullptr;};
     void deleteSourceType() { this->sourceType_ = nullptr;};
-    inline string sourceType() const { DARABONBA_PTR_GET_DEFAULT(sourceType_, "") };
+    inline string getSourceType() const { DARABONBA_PTR_GET_DEFAULT(sourceType_, "") };
     inline ImportServicesShrinkRequest& setSourceType(string sourceType) { DARABONBA_PTR_SET_VALUE(sourceType_, sourceType) };
 
 
     // tlsSetting Field Functions 
     bool hasTlsSetting() const { return this->tlsSetting_ != nullptr;};
     void deleteTlsSetting() { this->tlsSetting_ = nullptr;};
-    inline string tlsSetting() const { DARABONBA_PTR_GET_DEFAULT(tlsSetting_, "") };
+    inline string getTlsSetting() const { DARABONBA_PTR_GET_DEFAULT(tlsSetting_, "") };
     inline ImportServicesShrinkRequest& setTlsSetting(string tlsSetting) { DARABONBA_PTR_SET_VALUE(tlsSetting_, tlsSetting) };
 
 
@@ -116,22 +116,22 @@ namespace Models
     // 
     // *   zh: Chinese
     // *   en: English
-    std::shared_ptr<string> acceptLanguage_ = nullptr;
-    std::shared_ptr<string> fcAlias_ = nullptr;
-    std::shared_ptr<string> fcServiceName_ = nullptr;
-    std::shared_ptr<string> fcVersion_ = nullptr;
+    shared_ptr<string> acceptLanguage_ {};
+    shared_ptr<string> fcAlias_ {};
+    shared_ptr<string> fcServiceName_ {};
+    shared_ptr<string> fcVersion_ {};
     // The unique ID of the gateway.
-    std::shared_ptr<string> gatewayUniqueId_ = nullptr;
+    shared_ptr<string> gatewayUniqueId_ {};
     // The information about services.
-    std::shared_ptr<string> serviceListShrink_ = nullptr;
-    std::shared_ptr<int64_t> sourceId_ = nullptr;
+    shared_ptr<string> serviceListShrink_ {};
+    shared_ptr<int64_t> sourceId_ {};
     // The service source. Valid values:
     // 
     // *   MSE: MSE Nacos instance
     // *   K8s: ACK cluster
     // *   VIP: fixed address
     // *   DNS: DNS domain
-    std::shared_ptr<string> sourceType_ = nullptr;
+    shared_ptr<string> sourceType_ {};
     // The Transport Layer Security (TLS) settings. Valid values:
     // 
     // *   mode: TLS mode
@@ -139,7 +139,7 @@ namespace Models
     // *   caCertId: CA certificate ID
     // *   caCertContent: CA certificate public key
     // *   sni: service name identification
-    std::shared_ptr<string> tlsSetting_ = nullptr;
+    shared_ptr<string> tlsSetting_ {};
   };
 
   } // namespace Models

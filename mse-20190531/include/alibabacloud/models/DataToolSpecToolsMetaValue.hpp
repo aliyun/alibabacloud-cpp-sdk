@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->enabled_ == nullptr
-        && return this->templates_ == nullptr; };
+        && this->templates_ == nullptr; };
     // enabled Field Functions 
     bool hasEnabled() const { return this->enabled_ != nullptr;};
     void deleteEnabled() { this->enabled_ = nullptr;};
-    inline bool enabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
+    inline bool getEnabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
     inline DataToolSpecToolsMetaValue& setEnabled(bool enabled) { DARABONBA_PTR_SET_VALUE(enabled_, enabled) };
 
 
     // templates Field Functions 
     bool hasTemplates() const { return this->templates_ != nullptr;};
     void deleteTemplates() { this->templates_ = nullptr;};
-    inline     const Darabonba::Json & templates() const { DARABONBA_GET(templates_) };
-    Darabonba::Json & templates() { DARABONBA_GET(templates_) };
+    inline     const Darabonba::Json & getTemplates() const { DARABONBA_GET(templates_) };
+    Darabonba::Json & getTemplates() { DARABONBA_GET(templates_) };
     inline DataToolSpecToolsMetaValue& setTemplates(const Darabonba::Json & templates) { DARABONBA_SET_VALUE(templates_, templates) };
-    inline DataToolSpecToolsMetaValue& setTemplates(Darabonba::Json & templates) { DARABONBA_SET_RVALUE(templates_, templates) };
+    inline DataToolSpecToolsMetaValue& setTemplates(Darabonba::Json && templates) { DARABONBA_SET_RVALUE(templates_, templates) };
 
 
   protected:
-    std::shared_ptr<bool> enabled_ = nullptr;
-    Darabonba::Json templates_ = nullptr;
+    shared_ptr<bool> enabled_ {};
+    Darabonba::Json templates_ {};
   };
 
   } // namespace Models

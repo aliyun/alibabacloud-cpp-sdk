@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->acceptLanguage_ == nullptr
-        && return this->deleteSlb_ == nullptr && return this->gatewayUniqueId_ == nullptr; };
+        && this->deleteSlb_ == nullptr && this->gatewayUniqueId_ == nullptr; };
     // acceptLanguage Field Functions 
     bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
     void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};
-    inline string acceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
+    inline string getAcceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
     inline DeleteGatewayRequest& setAcceptLanguage(string acceptLanguage) { DARABONBA_PTR_SET_VALUE(acceptLanguage_, acceptLanguage) };
 
 
     // deleteSlb Field Functions 
     bool hasDeleteSlb() const { return this->deleteSlb_ != nullptr;};
     void deleteDeleteSlb() { this->deleteSlb_ = nullptr;};
-    inline bool deleteSlb() const { DARABONBA_PTR_GET_DEFAULT(deleteSlb_, false) };
+    inline bool getDeleteSlb() const { DARABONBA_PTR_GET_DEFAULT(deleteSlb_, false) };
     inline DeleteGatewayRequest& setDeleteSlb(bool deleteSlb) { DARABONBA_PTR_SET_VALUE(deleteSlb_, deleteSlb) };
 
 
     // gatewayUniqueId Field Functions 
     bool hasGatewayUniqueId() const { return this->gatewayUniqueId_ != nullptr;};
     void deleteGatewayUniqueId() { this->gatewayUniqueId_ = nullptr;};
-    inline string gatewayUniqueId() const { DARABONBA_PTR_GET_DEFAULT(gatewayUniqueId_, "") };
+    inline string getGatewayUniqueId() const { DARABONBA_PTR_GET_DEFAULT(gatewayUniqueId_, "") };
     inline DeleteGatewayRequest& setGatewayUniqueId(string gatewayUniqueId) { DARABONBA_PTR_SET_VALUE(gatewayUniqueId_, gatewayUniqueId) };
 
 
@@ -61,11 +61,11 @@ namespace Models
     // 
     // *   zh: Chinese
     // *   en: English
-    std::shared_ptr<string> acceptLanguage_ = nullptr;
+    shared_ptr<string> acceptLanguage_ {};
     // Specifies whether to delete the SLB instance purchased for the gateway when you delete the gateway.
-    std::shared_ptr<bool> deleteSlb_ = nullptr;
+    shared_ptr<bool> deleteSlb_ {};
     // The unique ID of the gateway.
-    std::shared_ptr<string> gatewayUniqueId_ = nullptr;
+    shared_ptr<string> gatewayUniqueId_ {};
   };
 
   } // namespace Models

@@ -42,54 +42,54 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->acceptLanguage_ == nullptr
-        && return this->dataIds_ == nullptr && return this->ids_ == nullptr && return this->instanceId_ == nullptr && return this->originNamespaceId_ == nullptr && return this->policy_ == nullptr
-        && return this->targetNamespaceId_ == nullptr; };
+        && this->dataIds_ == nullptr && this->ids_ == nullptr && this->instanceId_ == nullptr && this->originNamespaceId_ == nullptr && this->policy_ == nullptr
+        && this->targetNamespaceId_ == nullptr; };
     // acceptLanguage Field Functions 
     bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
     void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};
-    inline string acceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
+    inline string getAcceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
     inline CloneNacosConfigRequest& setAcceptLanguage(string acceptLanguage) { DARABONBA_PTR_SET_VALUE(acceptLanguage_, acceptLanguage) };
 
 
     // dataIds Field Functions 
     bool hasDataIds() const { return this->dataIds_ != nullptr;};
     void deleteDataIds() { this->dataIds_ = nullptr;};
-    inline string dataIds() const { DARABONBA_PTR_GET_DEFAULT(dataIds_, "") };
+    inline string getDataIds() const { DARABONBA_PTR_GET_DEFAULT(dataIds_, "") };
     inline CloneNacosConfigRequest& setDataIds(string dataIds) { DARABONBA_PTR_SET_VALUE(dataIds_, dataIds) };
 
 
     // ids Field Functions 
     bool hasIds() const { return this->ids_ != nullptr;};
     void deleteIds() { this->ids_ = nullptr;};
-    inline string ids() const { DARABONBA_PTR_GET_DEFAULT(ids_, "") };
+    inline string getIds() const { DARABONBA_PTR_GET_DEFAULT(ids_, "") };
     inline CloneNacosConfigRequest& setIds(string ids) { DARABONBA_PTR_SET_VALUE(ids_, ids) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline CloneNacosConfigRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // originNamespaceId Field Functions 
     bool hasOriginNamespaceId() const { return this->originNamespaceId_ != nullptr;};
     void deleteOriginNamespaceId() { this->originNamespaceId_ = nullptr;};
-    inline string originNamespaceId() const { DARABONBA_PTR_GET_DEFAULT(originNamespaceId_, "") };
+    inline string getOriginNamespaceId() const { DARABONBA_PTR_GET_DEFAULT(originNamespaceId_, "") };
     inline CloneNacosConfigRequest& setOriginNamespaceId(string originNamespaceId) { DARABONBA_PTR_SET_VALUE(originNamespaceId_, originNamespaceId) };
 
 
     // policy Field Functions 
     bool hasPolicy() const { return this->policy_ != nullptr;};
     void deletePolicy() { this->policy_ = nullptr;};
-    inline string policy() const { DARABONBA_PTR_GET_DEFAULT(policy_, "") };
+    inline string getPolicy() const { DARABONBA_PTR_GET_DEFAULT(policy_, "") };
     inline CloneNacosConfigRequest& setPolicy(string policy) { DARABONBA_PTR_SET_VALUE(policy_, policy) };
 
 
     // targetNamespaceId Field Functions 
     bool hasTargetNamespaceId() const { return this->targetNamespaceId_ != nullptr;};
     void deleteTargetNamespaceId() { this->targetNamespaceId_ = nullptr;};
-    inline string targetNamespaceId() const { DARABONBA_PTR_GET_DEFAULT(targetNamespaceId_, "") };
+    inline string getTargetNamespaceId() const { DARABONBA_PTR_GET_DEFAULT(targetNamespaceId_, "") };
     inline CloneNacosConfigRequest& setTargetNamespaceId(string targetNamespaceId) { DARABONBA_PTR_SET_VALUE(targetNamespaceId_, targetNamespaceId) };
 
 
@@ -98,17 +98,17 @@ namespace Models
     // 
     // - zh: Chinese
     // - en: English
-    std::shared_ptr<string> acceptLanguage_ = nullptr;
+    shared_ptr<string> acceptLanguage_ {};
     // Configuration items to be cloned, in the format of dataId+group, with multiple items separated by commas.
-    std::shared_ptr<string> dataIds_ = nullptr;
+    shared_ptr<string> dataIds_ {};
     // List of configuration IDs.
-    std::shared_ptr<string> ids_ = nullptr;
+    shared_ptr<string> ids_ {};
     // Instance ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // Source namespace ID.
-    std::shared_ptr<string> originNamespaceId_ = nullptr;
+    shared_ptr<string> originNamespaceId_ {};
     // The strategy used when a write conflict occurs.
     // 
     // - ABORT
@@ -116,9 +116,9 @@ namespace Models
     // - OVERWRITE
     // 
     // This parameter is required.
-    std::shared_ptr<string> policy_ = nullptr;
+    shared_ptr<string> policy_ {};
     // Target namespace ID.
-    std::shared_ptr<string> targetNamespaceId_ = nullptr;
+    shared_ptr<string> targetNamespaceId_ {};
   };
 
   } // namespace Models
