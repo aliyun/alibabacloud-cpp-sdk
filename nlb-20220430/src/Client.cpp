@@ -644,6 +644,10 @@ CreateServerGroupResponse Client::createServerGroupWithOptions(const CreateServe
     bodyFlat["HealthCheckConfig"] = request.getHealthCheckConfig();
   }
 
+  if (!!request.hasIpVersionAffinityMode()) {
+    body["IpVersionAffinityMode"] = request.getIpVersionAffinityMode();
+  }
+
   if (!!request.hasPreserveClientIpEnabled()) {
     body["PreserveClientIpEnabled"] = request.getPreserveClientIpEnabled();
   }
@@ -3214,6 +3218,10 @@ UpdateServerGroupAttributeResponse Client::updateServerGroupAttributeWithOptions
   json bodyFlat = {};
   if (!!request.hasHealthCheckConfig()) {
     bodyFlat["HealthCheckConfig"] = request.getHealthCheckConfig();
+  }
+
+  if (!!request.hasIpVersionAffinityMode()) {
+    body["IpVersionAffinityMode"] = request.getIpVersionAffinityMode();
   }
 
   if (!!request.hasPreserveClientIpEnabled()) {

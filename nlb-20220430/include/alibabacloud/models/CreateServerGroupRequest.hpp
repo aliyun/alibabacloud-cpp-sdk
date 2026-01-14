@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ConnectionDrainTimeout, connectionDrainTimeout_);
       DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(HealthCheckConfig, healthCheckConfig_);
+      DARABONBA_PTR_TO_JSON(IpVersionAffinityMode, ipVersionAffinityMode_);
       DARABONBA_PTR_TO_JSON(PreserveClientIpEnabled, preserveClientIpEnabled_);
       DARABONBA_PTR_TO_JSON(Protocol, protocol_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
@@ -39,6 +40,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ConnectionDrainTimeout, connectionDrainTimeout_);
       DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(HealthCheckConfig, healthCheckConfig_);
+      DARABONBA_PTR_FROM_JSON(IpVersionAffinityMode, ipVersionAffinityMode_);
       DARABONBA_PTR_FROM_JSON(PreserveClientIpEnabled, preserveClientIpEnabled_);
       DARABONBA_PTR_FROM_JSON(Protocol, protocol_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -327,8 +329,9 @@ namespace Models
 
     virtual bool empty() const override { return this->addressIPVersion_ == nullptr
         && this->anyPortEnabled_ == nullptr && this->clientToken_ == nullptr && this->connectionDrainEnabled_ == nullptr && this->connectionDrainTimeout_ == nullptr && this->dryRun_ == nullptr
-        && this->healthCheckConfig_ == nullptr && this->preserveClientIpEnabled_ == nullptr && this->protocol_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->scheduler_ == nullptr && this->serverGroupName_ == nullptr && this->serverGroupType_ == nullptr && this->tag_ == nullptr && this->vpcId_ == nullptr; };
+        && this->healthCheckConfig_ == nullptr && this->ipVersionAffinityMode_ == nullptr && this->preserveClientIpEnabled_ == nullptr && this->protocol_ == nullptr && this->regionId_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->scheduler_ == nullptr && this->serverGroupName_ == nullptr && this->serverGroupType_ == nullptr && this->tag_ == nullptr
+        && this->vpcId_ == nullptr; };
     // addressIPVersion Field Functions 
     bool hasAddressIPVersion() const { return this->addressIPVersion_ != nullptr;};
     void deleteAddressIPVersion() { this->addressIPVersion_ = nullptr;};
@@ -378,6 +381,13 @@ namespace Models
     inline CreateServerGroupRequest::HealthCheckConfig getHealthCheckConfig() { DARABONBA_PTR_GET(healthCheckConfig_, CreateServerGroupRequest::HealthCheckConfig) };
     inline CreateServerGroupRequest& setHealthCheckConfig(const CreateServerGroupRequest::HealthCheckConfig & healthCheckConfig) { DARABONBA_PTR_SET_VALUE(healthCheckConfig_, healthCheckConfig) };
     inline CreateServerGroupRequest& setHealthCheckConfig(CreateServerGroupRequest::HealthCheckConfig && healthCheckConfig) { DARABONBA_PTR_SET_RVALUE(healthCheckConfig_, healthCheckConfig) };
+
+
+    // ipVersionAffinityMode Field Functions 
+    bool hasIpVersionAffinityMode() const { return this->ipVersionAffinityMode_ != nullptr;};
+    void deleteIpVersionAffinityMode() { this->ipVersionAffinityMode_ = nullptr;};
+    inline string getIpVersionAffinityMode() const { DARABONBA_PTR_GET_DEFAULT(ipVersionAffinityMode_, "") };
+    inline CreateServerGroupRequest& setIpVersionAffinityMode(string ipVersionAffinityMode) { DARABONBA_PTR_SET_VALUE(ipVersionAffinityMode_, ipVersionAffinityMode) };
 
 
     // preserveClientIpEnabled Field Functions 
@@ -476,6 +486,7 @@ namespace Models
     shared_ptr<bool> dryRun_ {};
     // The configurations of health checks.
     shared_ptr<CreateServerGroupRequest::HealthCheckConfig> healthCheckConfig_ {};
+    shared_ptr<string> ipVersionAffinityMode_ {};
     // Specifies whether to enable client IP preservation. Valid values:
     // 
     // *   **true** (default)
