@@ -33,7 +33,7 @@ namespace Models
     // dataPortalId Field Functions 
     bool hasDataPortalId() const { return this->dataPortalId_ != nullptr;};
     void deleteDataPortalId() { this->dataPortalId_ = nullptr;};
-    inline string dataPortalId() const { DARABONBA_PTR_GET_DEFAULT(dataPortalId_, "") };
+    inline string getDataPortalId() const { DARABONBA_PTR_GET_DEFAULT(dataPortalId_, "") };
     inline ListPortalMenuAuthorizationRequest& setDataPortalId(string dataPortalId) { DARABONBA_PTR_SET_VALUE(dataPortalId_, dataPortalId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the BI portal.
     // 
     // This parameter is required.
-    std::shared_ptr<string> dataPortalId_ = nullptr;
+    shared_ptr<string> dataPortalId_ {};
   };
 
   } // namespace Models

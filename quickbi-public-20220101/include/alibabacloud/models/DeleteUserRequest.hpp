@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->transferUserId_ == nullptr
-        && return this->userId_ == nullptr; };
+        && this->userId_ == nullptr; };
     // transferUserId Field Functions 
     bool hasTransferUserId() const { return this->transferUserId_ != nullptr;};
     void deleteTransferUserId() { this->transferUserId_ = nullptr;};
-    inline string transferUserId() const { DARABONBA_PTR_GET_DEFAULT(transferUserId_, "") };
+    inline string getTransferUserId() const { DARABONBA_PTR_GET_DEFAULT(transferUserId_, "") };
     inline DeleteUserRequest& setTransferUserId(string transferUserId) { DARABONBA_PTR_SET_VALUE(transferUserId_, transferUserId) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline DeleteUserRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
@@ -52,11 +52,11 @@ namespace Models
     // - The successor cannot be an organization visitor
     // - The permissions of the successor in the workspace must not be less than those of the deleted user, with management permissions > development permissions > sharing permissions > viewing permissions
     // - If the successor is not in the workspace, they will be automatically added to the workspace
-    std::shared_ptr<string> transferUserId_ = nullptr;
+    shared_ptr<string> transferUserId_ {};
     // The ID of the user to be deleted. This user ID is the Quick BI UserID, not the Alibaba Cloud UID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> userId_ = nullptr;
+    shared_ptr<string> userId_ {};
   };
 
   } // namespace Models

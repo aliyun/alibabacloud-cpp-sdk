@@ -33,7 +33,7 @@ namespace Models
     // roleId Field Functions 
     bool hasRoleId() const { return this->roleId_ != nullptr;};
     void deleteRoleId() { this->roleId_ = nullptr;};
-    inline int64_t roleId() const { DARABONBA_PTR_GET_DEFAULT(roleId_, 0L) };
+    inline int64_t getRoleId() const { DARABONBA_PTR_GET_DEFAULT(roleId_, 0L) };
     inline QueryWorkspaceRoleConfigRequest& setRoleId(int64_t roleId) { DARABONBA_PTR_SET_VALUE(roleId_, roleId) };
 
 
@@ -47,7 +47,7 @@ namespace Models
     // - Custom role: The corresponding role ID for the custom role
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> roleId_ = nullptr;
+    shared_ptr<int64_t> roleId_ {};
   };
 
   } // namespace Models

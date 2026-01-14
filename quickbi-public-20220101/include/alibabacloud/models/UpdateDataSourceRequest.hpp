@@ -33,7 +33,7 @@ namespace Models
     // updateModel Field Functions 
     bool hasUpdateModel() const { return this->updateModel_ != nullptr;};
     void deleteUpdateModel() { this->updateModel_ = nullptr;};
-    inline string updateModel() const { DARABONBA_PTR_GET_DEFAULT(updateModel_, "") };
+    inline string getUpdateModel() const { DARABONBA_PTR_GET_DEFAULT(updateModel_, "") };
     inline UpdateDataSourceRequest& setUpdateModel(string updateModel) { DARABONBA_PTR_SET_VALUE(updateModel_, updateModel) };
 
 
@@ -53,7 +53,7 @@ namespace Models
     // - config -- Optional -- Additional database configuration items. Note that this data should be consistent with the different config parameters passed during creation for different data sources. Fields that do not need to be modified do not require parameters. For fields where parameters are passed, the default is to modify according to the passed parameters (including empty strings).
     // 
     // This parameter is required.
-    std::shared_ptr<string> updateModel_ = nullptr;
+    shared_ptr<string> updateModel_ {};
   };
 
   } // namespace Models

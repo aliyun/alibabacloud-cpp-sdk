@@ -42,54 +42,54 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->adminUser_ == nullptr
-        && return this->authAdminUser_ == nullptr && return this->isDeleted_ == nullptr && return this->nickName_ == nullptr && return this->roleIds_ == nullptr && return this->userId_ == nullptr
-        && return this->userType_ == nullptr; };
+        && this->authAdminUser_ == nullptr && this->isDeleted_ == nullptr && this->nickName_ == nullptr && this->roleIds_ == nullptr && this->userId_ == nullptr
+        && this->userType_ == nullptr; };
     // adminUser Field Functions 
     bool hasAdminUser() const { return this->adminUser_ != nullptr;};
     void deleteAdminUser() { this->adminUser_ = nullptr;};
-    inline bool adminUser() const { DARABONBA_PTR_GET_DEFAULT(adminUser_, false) };
+    inline bool getAdminUser() const { DARABONBA_PTR_GET_DEFAULT(adminUser_, false) };
     inline UpdateUserRequest& setAdminUser(bool adminUser) { DARABONBA_PTR_SET_VALUE(adminUser_, adminUser) };
 
 
     // authAdminUser Field Functions 
     bool hasAuthAdminUser() const { return this->authAdminUser_ != nullptr;};
     void deleteAuthAdminUser() { this->authAdminUser_ = nullptr;};
-    inline bool authAdminUser() const { DARABONBA_PTR_GET_DEFAULT(authAdminUser_, false) };
+    inline bool getAuthAdminUser() const { DARABONBA_PTR_GET_DEFAULT(authAdminUser_, false) };
     inline UpdateUserRequest& setAuthAdminUser(bool authAdminUser) { DARABONBA_PTR_SET_VALUE(authAdminUser_, authAdminUser) };
 
 
     // isDeleted Field Functions 
     bool hasIsDeleted() const { return this->isDeleted_ != nullptr;};
     void deleteIsDeleted() { this->isDeleted_ = nullptr;};
-    inline bool isDeleted() const { DARABONBA_PTR_GET_DEFAULT(isDeleted_, false) };
+    inline bool getIsDeleted() const { DARABONBA_PTR_GET_DEFAULT(isDeleted_, false) };
     inline UpdateUserRequest& setIsDeleted(bool isDeleted) { DARABONBA_PTR_SET_VALUE(isDeleted_, isDeleted) };
 
 
     // nickName Field Functions 
     bool hasNickName() const { return this->nickName_ != nullptr;};
     void deleteNickName() { this->nickName_ = nullptr;};
-    inline string nickName() const { DARABONBA_PTR_GET_DEFAULT(nickName_, "") };
+    inline string getNickName() const { DARABONBA_PTR_GET_DEFAULT(nickName_, "") };
     inline UpdateUserRequest& setNickName(string nickName) { DARABONBA_PTR_SET_VALUE(nickName_, nickName) };
 
 
     // roleIds Field Functions 
     bool hasRoleIds() const { return this->roleIds_ != nullptr;};
     void deleteRoleIds() { this->roleIds_ = nullptr;};
-    inline string roleIds() const { DARABONBA_PTR_GET_DEFAULT(roleIds_, "") };
+    inline string getRoleIds() const { DARABONBA_PTR_GET_DEFAULT(roleIds_, "") };
     inline UpdateUserRequest& setRoleIds(string roleIds) { DARABONBA_PTR_SET_VALUE(roleIds_, roleIds) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline UpdateUserRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
     // userType Field Functions 
     bool hasUserType() const { return this->userType_ != nullptr;};
     void deleteUserType() { this->userType_ = nullptr;};
-    inline int32_t userType() const { DARABONBA_PTR_GET_DEFAULT(userType_, 0) };
+    inline int32_t getUserType() const { DARABONBA_PTR_GET_DEFAULT(userType_, 0) };
     inline UpdateUserRequest& setUserType(int32_t userType) { DARABONBA_PTR_SET_VALUE(userType_, userType) };
 
 
@@ -98,33 +98,33 @@ namespace Models
     // 
     // *   true
     // *   false
-    std::shared_ptr<bool> adminUser_ = nullptr;
+    shared_ptr<bool> adminUser_ {};
     // Indicate whether the RAM user is a permission administrator. Valid values:
     // 
     // *   true
     // *   false
-    std::shared_ptr<bool> authAdminUser_ = nullptr;
+    shared_ptr<bool> authAdminUser_ {};
     // User status: 
     // * **false**: Active
     //  * **true**: Inactive
-    std::shared_ptr<bool> isDeleted_ = nullptr;
+    shared_ptr<bool> isDeleted_ {};
     // The nickname of the account.
     // 
     // *   Format check: The value can be up to 50 characters in length.
     // *   Special format verification: Chinese and English digits_ \\ / | () ] [
-    std::shared_ptr<string> nickName_ = nullptr;
+    shared_ptr<string> nickName_ {};
     // The IDs of the preset or custom organization roles bound to the user, separated by English commas \\",\\", with a maximum of 3. The value range is as follows: - Organization Administrator (preset role): 111111111 - Permission Administrator (preset role): 111111112 - Regular User (preset role): 111111113
-    std::shared_ptr<string> roleIds_ = nullptr;
+    shared_ptr<string> roleIds_ {};
     // The ID of the user to be updated. The user ID is the UserID of the Quick BI, not the UID of Alibaba Cloud.
     // 
     // This parameter is required.
-    std::shared_ptr<string> userId_ = nullptr;
+    shared_ptr<string> userId_ {};
     // The type of user who is a member of the organization. Valid values:
     // 
     // *   1 : developer
     // *   2 : visitors
     // *   3 : Analyst
-    std::shared_ptr<int32_t> userType_ = nullptr;
+    shared_ptr<int32_t> userType_ {};
   };
 
   } // namespace Models

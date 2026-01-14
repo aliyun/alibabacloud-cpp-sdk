@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->reportId_ == nullptr
-        && return this->shareToIds_ == nullptr && return this->shareToType_ == nullptr; };
+        && this->shareToIds_ == nullptr && this->shareToType_ == nullptr; };
     // reportId Field Functions 
     bool hasReportId() const { return this->reportId_ != nullptr;};
     void deleteReportId() { this->reportId_ = nullptr;};
-    inline string reportId() const { DARABONBA_PTR_GET_DEFAULT(reportId_, "") };
+    inline string getReportId() const { DARABONBA_PTR_GET_DEFAULT(reportId_, "") };
     inline CancelReportShareRequest& setReportId(string reportId) { DARABONBA_PTR_SET_VALUE(reportId_, reportId) };
 
 
     // shareToIds Field Functions 
     bool hasShareToIds() const { return this->shareToIds_ != nullptr;};
     void deleteShareToIds() { this->shareToIds_ = nullptr;};
-    inline string shareToIds() const { DARABONBA_PTR_GET_DEFAULT(shareToIds_, "") };
+    inline string getShareToIds() const { DARABONBA_PTR_GET_DEFAULT(shareToIds_, "") };
     inline CancelReportShareRequest& setShareToIds(string shareToIds) { DARABONBA_PTR_SET_VALUE(shareToIds_, shareToIds) };
 
 
     // shareToType Field Functions 
     bool hasShareToType() const { return this->shareToType_ != nullptr;};
     void deleteShareToType() { this->shareToType_ = nullptr;};
-    inline int32_t shareToType() const { DARABONBA_PTR_GET_DEFAULT(shareToType_, 0) };
+    inline int32_t getShareToType() const { DARABONBA_PTR_GET_DEFAULT(shareToType_, 0) };
     inline CancelReportShareRequest& setShareToType(int32_t shareToType) { DARABONBA_PTR_SET_VALUE(shareToType_, shareToType) };
 
 
@@ -60,7 +60,7 @@ namespace Models
     // The ID of the work. The works here include BI portal, dashboards, spreadsheets, and self-service access.
     // 
     // This parameter is required.
-    std::shared_ptr<string> reportId_ = nullptr;
+    shared_ptr<string> reportId_ {};
     // The ID of the person to be shared, which may be the user ID of the Quick BI or the user group ID.
     // 
     // *   If ShareToType is 0 (user), ShareTo is the user ID.
@@ -68,7 +68,7 @@ namespace Models
     // *   When ShareToType=2 (organization), ShareTo is the ID of the organization.
     // 
     // This parameter is required.
-    std::shared_ptr<string> shareToIds_ = nullptr;
+    shared_ptr<string> shareToIds_ {};
     // The deletion method. Valid values:
     // 
     // *   0: Delete by user
@@ -76,7 +76,7 @@ namespace Models
     // *   2: Delete by organization
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> shareToType_ = nullptr;
+    shared_ptr<int32_t> shareToType_ {};
   };
 
   } // namespace Models

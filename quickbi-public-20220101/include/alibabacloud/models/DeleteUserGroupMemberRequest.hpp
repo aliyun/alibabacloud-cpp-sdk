@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->userGroupId_ == nullptr
-        && return this->userId_ == nullptr; };
+        && this->userId_ == nullptr; };
     // userGroupId Field Functions 
     bool hasUserGroupId() const { return this->userGroupId_ != nullptr;};
     void deleteUserGroupId() { this->userGroupId_ = nullptr;};
-    inline string userGroupId() const { DARABONBA_PTR_GET_DEFAULT(userGroupId_, "") };
+    inline string getUserGroupId() const { DARABONBA_PTR_GET_DEFAULT(userGroupId_, "") };
     inline DeleteUserGroupMemberRequest& setUserGroupId(string userGroupId) { DARABONBA_PTR_SET_VALUE(userGroupId_, userGroupId) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline DeleteUserGroupMemberRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The ID of the user group.
     // 
     // This parameter is required.
-    std::shared_ptr<string> userGroupId_ = nullptr;
+    shared_ptr<string> userGroupId_ {};
     // The user ID of the Quick BI.
     // 
     // This parameter is required.
-    std::shared_ptr<string> userId_ = nullptr;
+    shared_ptr<string> userId_ {};
   };
 
   } // namespace Models

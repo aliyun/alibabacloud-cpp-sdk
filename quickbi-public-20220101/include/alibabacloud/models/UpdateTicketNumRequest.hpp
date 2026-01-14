@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ticket_ == nullptr
-        && return this->ticketNum_ == nullptr; };
+        && this->ticketNum_ == nullptr; };
     // ticket Field Functions 
     bool hasTicket() const { return this->ticket_ != nullptr;};
     void deleteTicket() { this->ticket_ = nullptr;};
-    inline string ticket() const { DARABONBA_PTR_GET_DEFAULT(ticket_, "") };
+    inline string getTicket() const { DARABONBA_PTR_GET_DEFAULT(ticket_, "") };
     inline UpdateTicketNumRequest& setTicket(string ticket) { DARABONBA_PTR_SET_VALUE(ticket_, ticket) };
 
 
     // ticketNum Field Functions 
     bool hasTicketNum() const { return this->ticketNum_ != nullptr;};
     void deleteTicketNum() { this->ticketNum_ = nullptr;};
-    inline int32_t ticketNum() const { DARABONBA_PTR_GET_DEFAULT(ticketNum_, 0) };
+    inline int32_t getTicketNum() const { DARABONBA_PTR_GET_DEFAULT(ticketNum_, 0) };
     inline UpdateTicketNumRequest& setTicketNum(int32_t ticketNum) { DARABONBA_PTR_SET_VALUE(ticketNum_, ticketNum) };
 
 
@@ -51,13 +51,13 @@ namespace Models
     // The value of the third-party embedded ticket, that is, the accessTicket value in the URL.
     // 
     // This parameter is required.
-    std::shared_ptr<string> ticket_ = nullptr;
+    shared_ptr<string> ticket_ {};
     // The number of bills.
     // 
     // *   Valid values: 1 to 99998. Recommended value: 1.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> ticketNum_ = nullptr;
+    shared_ptr<int32_t> ticketNum_ {};
   };
 
   } // namespace Models

@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->mailId_ == nullptr
-        && return this->taskId_ == nullptr; };
+        && this->taskId_ == nullptr; };
     // mailId Field Functions 
     bool hasMailId() const { return this->mailId_ != nullptr;};
     void deleteMailId() { this->mailId_ = nullptr;};
-    inline string mailId() const { DARABONBA_PTR_GET_DEFAULT(mailId_, "") };
+    inline string getMailId() const { DARABONBA_PTR_GET_DEFAULT(mailId_, "") };
     inline GetMailTaskStatusRequest& setMailId(string mailId) { DARABONBA_PTR_SET_VALUE(mailId_, mailId) };
 
 
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline int64_t taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, 0L) };
+    inline int64_t getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, 0L) };
     inline GetMailTaskStatusRequest& setTaskId(int64_t taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
@@ -51,12 +51,12 @@ namespace Models
     // Mail ID
     // 
     // This parameter is required.
-    std::shared_ptr<string> mailId_ = nullptr;
+    shared_ptr<string> mailId_ {};
     // Task ID
     // 
     // > - If the task ID is not provided, the latest task status will be returned by default;
     // > - If the task ID is provided, the status of the specified task will be returned.
-    std::shared_ptr<int64_t> taskId_ = nullptr;
+    shared_ptr<int64_t> taskId_ {};
   };
 
   } // namespace Models

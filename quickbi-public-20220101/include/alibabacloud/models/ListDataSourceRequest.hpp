@@ -32,28 +32,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dsType_ == nullptr
-        && return this->workspaceId_ == nullptr; };
+        && this->workspaceId_ == nullptr; };
     // dsType Field Functions 
     bool hasDsType() const { return this->dsType_ != nullptr;};
     void deleteDsType() { this->dsType_ = nullptr;};
-    inline string dsType() const { DARABONBA_PTR_GET_DEFAULT(dsType_, "") };
+    inline string getDsType() const { DARABONBA_PTR_GET_DEFAULT(dsType_, "") };
     inline ListDataSourceRequest& setDsType(string dsType) { DARABONBA_PTR_SET_VALUE(dsType_, dsType) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline ListDataSourceRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
     // Data source type.
-    std::shared_ptr<string> dsType_ = nullptr;
+    shared_ptr<string> dsType_ {};
     // Workspace ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

@@ -38,49 +38,49 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->keyword_ == nullptr
-        && return this->pageNo_ == nullptr && return this->pageSize_ == nullptr && return this->worksType_ == nullptr && return this->wsId_ == nullptr; };
+        && this->pageNo_ == nullptr && this->pageSize_ == nullptr && this->worksType_ == nullptr && this->wsId_ == nullptr; };
     // keyword Field Functions 
     bool hasKeyword() const { return this->keyword_ != nullptr;};
     void deleteKeyword() { this->keyword_ = nullptr;};
-    inline string keyword() const { DARABONBA_PTR_GET_DEFAULT(keyword_, "") };
+    inline string getKeyword() const { DARABONBA_PTR_GET_DEFAULT(keyword_, "") };
     inline GetWorksEmbedListRequest& setKeyword(string keyword) { DARABONBA_PTR_SET_VALUE(keyword_, keyword) };
 
 
     // pageNo Field Functions 
     bool hasPageNo() const { return this->pageNo_ != nullptr;};
     void deletePageNo() { this->pageNo_ = nullptr;};
-    inline int32_t pageNo() const { DARABONBA_PTR_GET_DEFAULT(pageNo_, 0) };
+    inline int32_t getPageNo() const { DARABONBA_PTR_GET_DEFAULT(pageNo_, 0) };
     inline GetWorksEmbedListRequest& setPageNo(int32_t pageNo) { DARABONBA_PTR_SET_VALUE(pageNo_, pageNo) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline GetWorksEmbedListRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // worksType Field Functions 
     bool hasWorksType() const { return this->worksType_ != nullptr;};
     void deleteWorksType() { this->worksType_ = nullptr;};
-    inline string worksType() const { DARABONBA_PTR_GET_DEFAULT(worksType_, "") };
+    inline string getWorksType() const { DARABONBA_PTR_GET_DEFAULT(worksType_, "") };
     inline GetWorksEmbedListRequest& setWorksType(string worksType) { DARABONBA_PTR_SET_VALUE(worksType_, worksType) };
 
 
     // wsId Field Functions 
     bool hasWsId() const { return this->wsId_ != nullptr;};
     void deleteWsId() { this->wsId_ = nullptr;};
-    inline string wsId() const { DARABONBA_PTR_GET_DEFAULT(wsId_, "") };
+    inline string getWsId() const { DARABONBA_PTR_GET_DEFAULT(wsId_, "") };
     inline GetWorksEmbedListRequest& setWsId(string wsId) { DARABONBA_PTR_SET_VALUE(wsId_, wsId) };
 
 
   protected:
     // Report name (fuzzy match)
-    std::shared_ptr<string> keyword_ = nullptr;
+    shared_ptr<string> keyword_ {};
     // Page number (defaults to 1 if empty)
-    std::shared_ptr<int32_t> pageNo_ = nullptr;
+    shared_ptr<int32_t> pageNo_ {};
     // Number of items per page (defaults to 10 if empty)
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // Report type
     // 
     // - page, Dashboard
@@ -89,9 +89,9 @@ namespace Models
     // - ANALYSIS, Ad-hoc Analysis
     // - dashboardOfflineQuery, Self-service Data Retrieval
     // - dataForm, Data Entry Form
-    std::shared_ptr<string> worksType_ = nullptr;
+    shared_ptr<string> worksType_ {};
     // Workspace ID
-    std::shared_ptr<string> wsId_ = nullptr;
+    shared_ptr<string> wsId_ {};
   };
 
   } // namespace Models

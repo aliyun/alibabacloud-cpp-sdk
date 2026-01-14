@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->thirdPartAuthFlag_ == nullptr
-        && return this->worksId_ == nullptr; };
+        && this->worksId_ == nullptr; };
     // thirdPartAuthFlag Field Functions 
     bool hasThirdPartAuthFlag() const { return this->thirdPartAuthFlag_ != nullptr;};
     void deleteThirdPartAuthFlag() { this->thirdPartAuthFlag_ = nullptr;};
-    inline bool thirdPartAuthFlag() const { DARABONBA_PTR_GET_DEFAULT(thirdPartAuthFlag_, false) };
+    inline bool getThirdPartAuthFlag() const { DARABONBA_PTR_GET_DEFAULT(thirdPartAuthFlag_, false) };
     inline UpdateEmbeddedStatusRequest& setThirdPartAuthFlag(bool thirdPartAuthFlag) { DARABONBA_PTR_SET_VALUE(thirdPartAuthFlag_, thirdPartAuthFlag) };
 
 
     // worksId Field Functions 
     bool hasWorksId() const { return this->worksId_ != nullptr;};
     void deleteWorksId() { this->worksId_ = nullptr;};
-    inline string worksId() const { DARABONBA_PTR_GET_DEFAULT(worksId_, "") };
+    inline string getWorksId() const { DARABONBA_PTR_GET_DEFAULT(worksId_, "") };
     inline UpdateEmbeddedStatusRequest& setWorksId(string worksId) { DARABONBA_PTR_SET_VALUE(worksId_, worksId) };
 
 
@@ -54,13 +54,13 @@ namespace Models
     // *   false: disables embedding.
     // 
     // This parameter is required.
-    std::shared_ptr<bool> thirdPartAuthFlag_ = nullptr;
+    shared_ptr<bool> thirdPartAuthFlag_ {};
     // The ID of the work.
     // 
     // *   Batch modification is supported. Separate multiple values with commas (,).
     // 
     // This parameter is required.
-    std::shared_ptr<string> worksId_ = nullptr;
+    shared_ptr<string> worksId_ {};
   };
 
   } // namespace Models

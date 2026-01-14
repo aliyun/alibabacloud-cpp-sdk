@@ -33,7 +33,7 @@ namespace Models
     // whiteListModel Field Functions 
     bool hasWhiteListModel() const { return this->whiteListModel_ != nullptr;};
     void deleteWhiteListModel() { this->whiteListModel_ = nullptr;};
-    inline string whiteListModel() const { DARABONBA_PTR_GET_DEFAULT(whiteListModel_, "") };
+    inline string getWhiteListModel() const { DARABONBA_PTR_GET_DEFAULT(whiteListModel_, "") };
     inline SetDataLevelPermissionWhiteListRequest& setWhiteListModel(string whiteListModel) { DARABONBA_PTR_SET_VALUE(whiteListModel_, whiteListModel) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // { "ruleType": "ROW_LEVEL", // The row-level permission type. "usersModel": { "userGroups": [ "0d5fb19b- ***-1248 fc27ca51", // The ID of the user group. "3d2c23d4-***-f6390f325c2d" ], "users": [ "4334 ***358", // Quick BI the UserID of the user. "Huang***3fa822" ] }, "cubeId": "7c7223ae-31d1-4d2f-b11f-3c744528014b" }
     // 
     // This parameter is required.
-    std::shared_ptr<string> whiteListModel_ = nullptr;
+    shared_ptr<string> whiteListModel_ {};
   };
 
   } // namespace Models

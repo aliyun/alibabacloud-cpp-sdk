@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cubeId_ == nullptr
-        && return this->userId_ == nullptr; };
+        && this->userId_ == nullptr; };
     // cubeId Field Functions 
     bool hasCubeId() const { return this->cubeId_ != nullptr;};
     void deleteCubeId() { this->cubeId_ = nullptr;};
-    inline string cubeId() const { DARABONBA_PTR_GET_DEFAULT(cubeId_, "") };
+    inline string getCubeId() const { DARABONBA_PTR_GET_DEFAULT(cubeId_, "") };
     inline QuerySmartqPermissionByCubeIdRequest& setCubeId(string cubeId) { DARABONBA_PTR_SET_VALUE(cubeId_, cubeId) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline QuerySmartqPermissionByCubeIdRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // Dataset ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> cubeId_ = nullptr;
+    shared_ptr<string> cubeId_ {};
     // User ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> userId_ = nullptr;
+    shared_ptr<string> userId_ {};
   };
 
   } // namespace Models

@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->tagId_ == nullptr
-        && return this->tagValue_ == nullptr && return this->userId_ == nullptr; };
+        && this->tagValue_ == nullptr && this->userId_ == nullptr; };
     // tagId Field Functions 
     bool hasTagId() const { return this->tagId_ != nullptr;};
     void deleteTagId() { this->tagId_ = nullptr;};
-    inline string tagId() const { DARABONBA_PTR_GET_DEFAULT(tagId_, "") };
+    inline string getTagId() const { DARABONBA_PTR_GET_DEFAULT(tagId_, "") };
     inline UpdateUserTagValueRequest& setTagId(string tagId) { DARABONBA_PTR_SET_VALUE(tagId_, tagId) };
 
 
     // tagValue Field Functions 
     bool hasTagValue() const { return this->tagValue_ != nullptr;};
     void deleteTagValue() { this->tagValue_ = nullptr;};
-    inline string tagValue() const { DARABONBA_PTR_GET_DEFAULT(tagValue_, "") };
+    inline string getTagValue() const { DARABONBA_PTR_GET_DEFAULT(tagValue_, "") };
     inline UpdateUserTagValueRequest& setTagValue(string tagValue) { DARABONBA_PTR_SET_VALUE(tagValue_, tagValue) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline UpdateUserTagValueRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
@@ -60,7 +60,7 @@ namespace Models
     // The ID of the tag to be modified.
     // 
     // This parameter is required.
-    std::shared_ptr<string> tagId_ = nullptr;
+    shared_ptr<string> tagId_ {};
     // The tag value to be modified.
     // 
     // - To clear this tag, set the tag value to ($NULL$).
@@ -68,11 +68,11 @@ namespace Models
     // - Format validation, maximum length: 3000 characters
     // 
     // This parameter is required.
-    std::shared_ptr<string> tagValue_ = nullptr;
+    shared_ptr<string> tagValue_ {};
     // The user ID for which the tag value is to be modified. This user ID refers to the Quick BI UserID, not the Alibaba Cloud UID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> userId_ = nullptr;
+    shared_ptr<string> userId_ {};
   };
 
   } // namespace Models

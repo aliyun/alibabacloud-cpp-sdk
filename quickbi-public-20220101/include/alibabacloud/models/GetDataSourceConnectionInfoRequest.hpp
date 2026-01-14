@@ -33,7 +33,7 @@ namespace Models
     // dsId Field Functions 
     bool hasDsId() const { return this->dsId_ != nullptr;};
     void deleteDsId() { this->dsId_ = nullptr;};
-    inline string dsId() const { DARABONBA_PTR_GET_DEFAULT(dsId_, "") };
+    inline string getDsId() const { DARABONBA_PTR_GET_DEFAULT(dsId_, "") };
     inline GetDataSourceConnectionInfoRequest& setDsId(string dsId) { DARABONBA_PTR_SET_VALUE(dsId_, dsId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // Data source ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> dsId_ = nullptr;
+    shared_ptr<string> dsId_ {};
   };
 
   } // namespace Models

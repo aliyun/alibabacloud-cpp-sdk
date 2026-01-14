@@ -33,13 +33,13 @@ namespace Models
     // addModel Field Functions 
     bool hasAddModel() const { return this->addModel_ != nullptr;};
     void deleteAddModel() { this->addModel_ = nullptr;};
-    inline string addModel() const { DARABONBA_PTR_GET_DEFAULT(addModel_, "") };
+    inline string getAddModel() const { DARABONBA_PTR_GET_DEFAULT(addModel_, "") };
     inline AddDataSourceRequest& setAddModel(string addModel) { DARABONBA_PTR_SET_VALUE(addModel_, addModel) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> addModel_ = nullptr;
+    shared_ptr<string> addModel_ {};
   };
 
   } // namespace Models

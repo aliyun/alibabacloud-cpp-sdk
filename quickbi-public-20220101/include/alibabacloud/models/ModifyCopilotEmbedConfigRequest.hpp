@@ -36,47 +36,47 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentName_ == nullptr
-        && return this->copilotId_ == nullptr && return this->dataRange_ == nullptr && return this->moduleName_ == nullptr; };
+        && this->copilotId_ == nullptr && this->dataRange_ == nullptr && this->moduleName_ == nullptr; };
     // agentName Field Functions 
     bool hasAgentName() const { return this->agentName_ != nullptr;};
     void deleteAgentName() { this->agentName_ = nullptr;};
-    inline string agentName() const { DARABONBA_PTR_GET_DEFAULT(agentName_, "") };
+    inline string getAgentName() const { DARABONBA_PTR_GET_DEFAULT(agentName_, "") };
     inline ModifyCopilotEmbedConfigRequest& setAgentName(string agentName) { DARABONBA_PTR_SET_VALUE(agentName_, agentName) };
 
 
     // copilotId Field Functions 
     bool hasCopilotId() const { return this->copilotId_ != nullptr;};
     void deleteCopilotId() { this->copilotId_ = nullptr;};
-    inline string copilotId() const { DARABONBA_PTR_GET_DEFAULT(copilotId_, "") };
+    inline string getCopilotId() const { DARABONBA_PTR_GET_DEFAULT(copilotId_, "") };
     inline ModifyCopilotEmbedConfigRequest& setCopilotId(string copilotId) { DARABONBA_PTR_SET_VALUE(copilotId_, copilotId) };
 
 
     // dataRange Field Functions 
     bool hasDataRange() const { return this->dataRange_ != nullptr;};
     void deleteDataRange() { this->dataRange_ = nullptr;};
-    inline string dataRange() const { DARABONBA_PTR_GET_DEFAULT(dataRange_, "") };
+    inline string getDataRange() const { DARABONBA_PTR_GET_DEFAULT(dataRange_, "") };
     inline ModifyCopilotEmbedConfigRequest& setDataRange(string dataRange) { DARABONBA_PTR_SET_VALUE(dataRange_, dataRange) };
 
 
     // moduleName Field Functions 
     bool hasModuleName() const { return this->moduleName_ != nullptr;};
     void deleteModuleName() { this->moduleName_ = nullptr;};
-    inline string moduleName() const { DARABONBA_PTR_GET_DEFAULT(moduleName_, "") };
+    inline string getModuleName() const { DARABONBA_PTR_GET_DEFAULT(moduleName_, "") };
     inline ModifyCopilotEmbedConfigRequest& setModuleName(string moduleName) { DARABONBA_PTR_SET_VALUE(moduleName_, moduleName) };
 
 
   protected:
     // Agent nickname.
-    std::shared_ptr<string> agentName_ = nullptr;
+    shared_ptr<string> agentName_ {};
     // Embedding ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> copilotId_ = nullptr;
+    shared_ptr<string> copilotId_ {};
     // Data range.
     // >Notice: The parameter type is jsonString, and only one switch between analysis themes and query resources can be effective. When the all-select switch is true, it takes precedence. It is recommended to pass only one parameter, with other notes
-    std::shared_ptr<string> dataRange_ = nullptr;
+    shared_ptr<string> dataRange_ {};
     // Module name.
-    std::shared_ptr<string> moduleName_ = nullptr;
+    shared_ptr<string> moduleName_ {};
   };
 
   } // namespace Models

@@ -33,13 +33,13 @@ namespace Models
     // deleteUserModel Field Functions 
     bool hasDeleteUserModel() const { return this->deleteUserModel_ != nullptr;};
     void deleteDeleteUserModel() { this->deleteUserModel_ = nullptr;};
-    inline string deleteUserModel() const { DARABONBA_PTR_GET_DEFAULT(deleteUserModel_, "") };
+    inline string getDeleteUserModel() const { DARABONBA_PTR_GET_DEFAULT(deleteUserModel_, "") };
     inline DeleteDataLevelPermissionRuleUsersRequest& setDeleteUserModel(string deleteUserModel) { DARABONBA_PTR_SET_VALUE(deleteUserModel_, deleteUserModel) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> deleteUserModel_ = nullptr;
+    shared_ptr<string> deleteUserModel_ {};
   };
 
   } // namespace Models

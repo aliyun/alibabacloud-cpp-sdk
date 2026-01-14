@@ -33,7 +33,7 @@ namespace Models
     // cubeId Field Functions 
     bool hasCubeId() const { return this->cubeId_ != nullptr;};
     void deleteCubeId() { this->cubeId_ = nullptr;};
-    inline string cubeId() const { DARABONBA_PTR_GET_DEFAULT(cubeId_, "") };
+    inline string getCubeId() const { DARABONBA_PTR_GET_DEFAULT(cubeId_, "") };
     inline AllotDatasetAccelerationTaskRequest& setCubeId(string cubeId) { DARABONBA_PTR_SET_VALUE(cubeId_, cubeId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The dataset ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> cubeId_ = nullptr;
+    shared_ptr<string> cubeId_ {};
   };
 
   } // namespace Models

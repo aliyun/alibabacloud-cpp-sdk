@@ -33,7 +33,7 @@ namespace Models
     // worksId Field Functions 
     bool hasWorksId() const { return this->worksId_ != nullptr;};
     void deleteWorksId() { this->worksId_ = nullptr;};
-    inline string worksId() const { DARABONBA_PTR_GET_DEFAULT(worksId_, "") };
+    inline string getWorksId() const { DARABONBA_PTR_GET_DEFAULT(worksId_, "") };
     inline QueryWorksRequest& setWorksId(string worksId) { DARABONBA_PTR_SET_VALUE(worksId_, worksId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // Report ID
     // 
     // This parameter is required.
-    std::shared_ptr<string> worksId_ = nullptr;
+    shared_ptr<string> worksId_ {};
   };
 
   } // namespace Models

@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cubeId_ == nullptr
-        && return this->operateType_ == nullptr && return this->ruleType_ == nullptr && return this->targetIds_ == nullptr && return this->targetType_ == nullptr; };
+        && this->operateType_ == nullptr && this->ruleType_ == nullptr && this->targetIds_ == nullptr && this->targetType_ == nullptr; };
     // cubeId Field Functions 
     bool hasCubeId() const { return this->cubeId_ != nullptr;};
     void deleteCubeId() { this->cubeId_ = nullptr;};
-    inline string cubeId() const { DARABONBA_PTR_GET_DEFAULT(cubeId_, "") };
+    inline string getCubeId() const { DARABONBA_PTR_GET_DEFAULT(cubeId_, "") };
     inline AddDataLevelPermissionWhiteListRequest& setCubeId(string cubeId) { DARABONBA_PTR_SET_VALUE(cubeId_, cubeId) };
 
 
     // operateType Field Functions 
     bool hasOperateType() const { return this->operateType_ != nullptr;};
     void deleteOperateType() { this->operateType_ = nullptr;};
-    inline string operateType() const { DARABONBA_PTR_GET_DEFAULT(operateType_, "") };
+    inline string getOperateType() const { DARABONBA_PTR_GET_DEFAULT(operateType_, "") };
     inline AddDataLevelPermissionWhiteListRequest& setOperateType(string operateType) { DARABONBA_PTR_SET_VALUE(operateType_, operateType) };
 
 
     // ruleType Field Functions 
     bool hasRuleType() const { return this->ruleType_ != nullptr;};
     void deleteRuleType() { this->ruleType_ = nullptr;};
-    inline string ruleType() const { DARABONBA_PTR_GET_DEFAULT(ruleType_, "") };
+    inline string getRuleType() const { DARABONBA_PTR_GET_DEFAULT(ruleType_, "") };
     inline AddDataLevelPermissionWhiteListRequest& setRuleType(string ruleType) { DARABONBA_PTR_SET_VALUE(ruleType_, ruleType) };
 
 
     // targetIds Field Functions 
     bool hasTargetIds() const { return this->targetIds_ != nullptr;};
     void deleteTargetIds() { this->targetIds_ = nullptr;};
-    inline string targetIds() const { DARABONBA_PTR_GET_DEFAULT(targetIds_, "") };
+    inline string getTargetIds() const { DARABONBA_PTR_GET_DEFAULT(targetIds_, "") };
     inline AddDataLevelPermissionWhiteListRequest& setTargetIds(string targetIds) { DARABONBA_PTR_SET_VALUE(targetIds_, targetIds) };
 
 
     // targetType Field Functions 
     bool hasTargetType() const { return this->targetType_ != nullptr;};
     void deleteTargetType() { this->targetType_ = nullptr;};
-    inline string targetType() const { DARABONBA_PTR_GET_DEFAULT(targetType_, "") };
+    inline string getTargetType() const { DARABONBA_PTR_GET_DEFAULT(targetType_, "") };
     inline AddDataLevelPermissionWhiteListRequest& setTargetType(string targetType) { DARABONBA_PTR_SET_VALUE(targetType_, targetType) };
 
 
@@ -78,23 +78,23 @@ namespace Models
     // The ID of the training dataset that you want to remove from the specified custom linguistic model.
     // 
     // This parameter is required.
-    std::shared_ptr<string> cubeId_ = nullptr;
+    shared_ptr<string> cubeId_ {};
     // Operation Type: You can set this parameter to one of the following values.
     // 
     // *   ADD: Add a whitelist
     // *   DELETE: deletes a whitelist.
-    std::shared_ptr<string> operateType_ = nullptr;
+    shared_ptr<string> operateType_ {};
     // The type of row-level permissions.
     // 
     // *   ROW_LEVEL: row-level permissions,
     // *   COLUMN_LEVEL: column-level permissions
-    std::shared_ptr<string> ruleType_ = nullptr;
-    std::shared_ptr<string> targetIds_ = nullptr;
+    shared_ptr<string> ruleType_ {};
+    shared_ptr<string> targetIds_ {};
     // Modify the type of the whitelist:
     // 
     // *   1: user
     // *   2: user group
-    std::shared_ptr<string> targetType_ = nullptr;
+    shared_ptr<string> targetType_ {};
   };
 
   } // namespace Models

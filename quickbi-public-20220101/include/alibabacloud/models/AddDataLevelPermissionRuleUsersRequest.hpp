@@ -33,13 +33,13 @@ namespace Models
     // addUserModel Field Functions 
     bool hasAddUserModel() const { return this->addUserModel_ != nullptr;};
     void deleteAddUserModel() { this->addUserModel_ = nullptr;};
-    inline string addUserModel() const { DARABONBA_PTR_GET_DEFAULT(addUserModel_, "") };
+    inline string getAddUserModel() const { DARABONBA_PTR_GET_DEFAULT(addUserModel_, "") };
     inline AddDataLevelPermissionRuleUsersRequest& setAddUserModel(string addUserModel) { DARABONBA_PTR_SET_VALUE(addUserModel_, addUserModel) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> addUserModel_ = nullptr;
+    shared_ptr<string> addUserModel_ {};
   };
 
   } // namespace Models

@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->originUserId_ == nullptr
-        && return this->targetUserIds_ == nullptr; };
+        && this->targetUserIds_ == nullptr; };
     // originUserId Field Functions 
     bool hasOriginUserId() const { return this->originUserId_ != nullptr;};
     void deleteOriginUserId() { this->originUserId_ = nullptr;};
-    inline string originUserId() const { DARABONBA_PTR_GET_DEFAULT(originUserId_, "") };
+    inline string getOriginUserId() const { DARABONBA_PTR_GET_DEFAULT(originUserId_, "") };
     inline SmartqAuthTransferRequest& setOriginUserId(string originUserId) { DARABONBA_PTR_SET_VALUE(originUserId_, originUserId) };
 
 
     // targetUserIds Field Functions 
     bool hasTargetUserIds() const { return this->targetUserIds_ != nullptr;};
     void deleteTargetUserIds() { this->targetUserIds_ = nullptr;};
-    inline string targetUserIds() const { DARABONBA_PTR_GET_DEFAULT(targetUserIds_, "") };
+    inline string getTargetUserIds() const { DARABONBA_PTR_GET_DEFAULT(targetUserIds_, "") };
     inline SmartqAuthTransferRequest& setTargetUserIds(string targetUserIds) { DARABONBA_PTR_SET_VALUE(targetUserIds_, targetUserIds) };
 
 
@@ -51,12 +51,12 @@ namespace Models
     // Source user ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> originUserId_ = nullptr;
+    shared_ptr<string> originUserId_ {};
     // Target user ID array, separated by English commas.
     // >Warning: The number of user IDs cannot exceed 100.
     // 
     // This parameter is required.
-    std::shared_ptr<string> targetUserIds_ = nullptr;
+    shared_ptr<string> targetUserIds_ {};
   };
 
   } // namespace Models

@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->expireTime_ == nullptr
-        && return this->ticket_ == nullptr; };
+        && this->ticket_ == nullptr; };
     // expireTime Field Functions 
     bool hasExpireTime() const { return this->expireTime_ != nullptr;};
     void deleteExpireTime() { this->expireTime_ = nullptr;};
-    inline int32_t expireTime() const { DARABONBA_PTR_GET_DEFAULT(expireTime_, 0) };
+    inline int32_t getExpireTime() const { DARABONBA_PTR_GET_DEFAULT(expireTime_, 0) };
     inline DelayTicketExpireTimeRequest& setExpireTime(int32_t expireTime) { DARABONBA_PTR_SET_VALUE(expireTime_, expireTime) };
 
 
     // ticket Field Functions 
     bool hasTicket() const { return this->ticket_ != nullptr;};
     void deleteTicket() { this->ticket_ = nullptr;};
-    inline string ticket() const { DARABONBA_PTR_GET_DEFAULT(ticket_, "") };
+    inline string getTicket() const { DARABONBA_PTR_GET_DEFAULT(ticket_, "") };
     inline DelayTicketExpireTimeRequest& setTicket(string ticket) { DARABONBA_PTR_SET_VALUE(ticket_, ticket) };
 
 
@@ -54,11 +54,11 @@ namespace Models
     // *   Expired bills cannot be extended.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> expireTime_ = nullptr;
+    shared_ptr<int32_t> expireTime_ {};
     // The value of the third-party embedded ticket, that is, the accessTicket value in the URL.
     // 
     // This parameter is required.
-    std::shared_ptr<string> ticket_ = nullptr;
+    shared_ptr<string> ticket_ {};
   };
 
   } // namespace Models

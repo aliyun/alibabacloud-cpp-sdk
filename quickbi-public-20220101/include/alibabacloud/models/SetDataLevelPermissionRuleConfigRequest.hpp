@@ -33,7 +33,7 @@ namespace Models
     // ruleModel Field Functions 
     bool hasRuleModel() const { return this->ruleModel_ != nullptr;};
     void deleteRuleModel() { this->ruleModel_ = nullptr;};
-    inline string ruleModel() const { DARABONBA_PTR_GET_DEFAULT(ruleModel_, "") };
+    inline string getRuleModel() const { DARABONBA_PTR_GET_DEFAULT(ruleModel_, "") };
     inline SetDataLevelPermissionRuleConfigRequest& setRuleModel(string ruleModel) { DARABONBA_PTR_SET_VALUE(ruleModel_, ruleModel) };
 
 
@@ -64,7 +64,7 @@ namespace Models
     // }
     // 
     // This parameter is required.
-    std::shared_ptr<string> ruleModel_ = nullptr;
+    shared_ptr<string> ruleModel_ {};
   };
 
   } // namespace Models

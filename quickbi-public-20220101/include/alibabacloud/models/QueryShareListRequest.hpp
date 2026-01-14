@@ -33,7 +33,7 @@ namespace Models
     // reportId Field Functions 
     bool hasReportId() const { return this->reportId_ != nullptr;};
     void deleteReportId() { this->reportId_ = nullptr;};
-    inline string reportId() const { DARABONBA_PTR_GET_DEFAULT(reportId_, "") };
+    inline string getReportId() const { DARABONBA_PTR_GET_DEFAULT(reportId_, "") };
     inline QueryShareListRequest& setReportId(string reportId) { DARABONBA_PTR_SET_VALUE(reportId_, reportId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the work. The works include data portal, dashboard, spreadsheet, self-service data retrieval, ad-hoc analysis, data entry, and data screen.
     // 
     // This parameter is required.
-    std::shared_ptr<string> reportId_ = nullptr;
+    shared_ptr<string> reportId_ {};
   };
 
   } // namespace Models

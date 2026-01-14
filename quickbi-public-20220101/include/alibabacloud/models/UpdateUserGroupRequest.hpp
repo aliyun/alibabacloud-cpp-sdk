@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->userGroupDescription_ == nullptr
-        && return this->userGroupId_ == nullptr && return this->userGroupName_ == nullptr; };
+        && this->userGroupId_ == nullptr && this->userGroupName_ == nullptr; };
     // userGroupDescription Field Functions 
     bool hasUserGroupDescription() const { return this->userGroupDescription_ != nullptr;};
     void deleteUserGroupDescription() { this->userGroupDescription_ = nullptr;};
-    inline string userGroupDescription() const { DARABONBA_PTR_GET_DEFAULT(userGroupDescription_, "") };
+    inline string getUserGroupDescription() const { DARABONBA_PTR_GET_DEFAULT(userGroupDescription_, "") };
     inline UpdateUserGroupRequest& setUserGroupDescription(string userGroupDescription) { DARABONBA_PTR_SET_VALUE(userGroupDescription_, userGroupDescription) };
 
 
     // userGroupId Field Functions 
     bool hasUserGroupId() const { return this->userGroupId_ != nullptr;};
     void deleteUserGroupId() { this->userGroupId_ = nullptr;};
-    inline string userGroupId() const { DARABONBA_PTR_GET_DEFAULT(userGroupId_, "") };
+    inline string getUserGroupId() const { DARABONBA_PTR_GET_DEFAULT(userGroupId_, "") };
     inline UpdateUserGroupRequest& setUserGroupId(string userGroupId) { DARABONBA_PTR_SET_VALUE(userGroupId_, userGroupId) };
 
 
     // userGroupName Field Functions 
     bool hasUserGroupName() const { return this->userGroupName_ != nullptr;};
     void deleteUserGroupName() { this->userGroupName_ = nullptr;};
-    inline string userGroupName() const { DARABONBA_PTR_GET_DEFAULT(userGroupName_, "") };
+    inline string getUserGroupName() const { DARABONBA_PTR_GET_DEFAULT(userGroupName_, "") };
     inline UpdateUserGroupRequest& setUserGroupName(string userGroupName) { DARABONBA_PTR_SET_VALUE(userGroupName_, userGroupName) };
 
 
@@ -61,16 +61,16 @@ namespace Models
     // 
     // *   Format verification: Maximum length 255
     // *   Special format verification: Chinese and English digits_ \\ / | () ] [
-    std::shared_ptr<string> userGroupDescription_ = nullptr;
+    shared_ptr<string> userGroupDescription_ {};
     // The ID of the user group.
     // 
     // This parameter is required.
-    std::shared_ptr<string> userGroupId_ = nullptr;
+    shared_ptr<string> userGroupId_ {};
     // The name of the user group.
     // 
     // *   Format verification: Maximum length 255
     // *   Special format verification: Chinese and English digits_ \\ / | () ] [
-    std::shared_ptr<string> userGroupName_ = nullptr;
+    shared_ptr<string> userGroupName_ {};
   };
 
   } // namespace Models

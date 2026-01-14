@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->userId_ == nullptr
-        && return this->workType_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->workType_ == nullptr && this->workspaceId_ == nullptr; };
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline QueryReadableResourcesListByUserIdV2Request& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
     // workType Field Functions 
     bool hasWorkType() const { return this->workType_ != nullptr;};
     void deleteWorkType() { this->workType_ = nullptr;};
-    inline string workType() const { DARABONBA_PTR_GET_DEFAULT(workType_, "") };
+    inline string getWorkType() const { DARABONBA_PTR_GET_DEFAULT(workType_, "") };
     inline QueryReadableResourcesListByUserIdV2Request& setWorkType(string workType) { DARABONBA_PTR_SET_VALUE(workType_, workType) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline QueryReadableResourcesListByUserIdV2Request& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
@@ -60,7 +60,7 @@ namespace Models
     // User ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> userId_ = nullptr;
+    shared_ptr<string> userId_ {};
     // Work type. Possible values:
     // - DATAPRODUCT: Data Portal
     // - PAGE: Dashboard
@@ -69,9 +69,9 @@ namespace Models
     // - SCREEN: Data Wall
     // - DATAFORM: Data Entry
     // - ANALYSIS: Ad-hoc Analysis
-    std::shared_ptr<string> workType_ = nullptr;
+    shared_ptr<string> workType_ {};
     // Workspace ID.
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

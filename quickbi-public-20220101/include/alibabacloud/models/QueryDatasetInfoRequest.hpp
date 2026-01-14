@@ -33,7 +33,7 @@ namespace Models
     // datasetId Field Functions 
     bool hasDatasetId() const { return this->datasetId_ != nullptr;};
     void deleteDatasetId() { this->datasetId_ = nullptr;};
-    inline string datasetId() const { DARABONBA_PTR_GET_DEFAULT(datasetId_, "") };
+    inline string getDatasetId() const { DARABONBA_PTR_GET_DEFAULT(datasetId_, "") };
     inline QueryDatasetInfoRequest& setDatasetId(string datasetId) { DARABONBA_PTR_SET_VALUE(datasetId_, datasetId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // Queries information about a specified dataset.
     // 
     // This parameter is required.
-    std::shared_ptr<string> datasetId_ = nullptr;
+    shared_ptr<string> datasetId_ {};
   };
 
   } // namespace Models

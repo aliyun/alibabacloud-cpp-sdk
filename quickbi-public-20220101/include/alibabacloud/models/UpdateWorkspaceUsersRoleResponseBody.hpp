@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_UPDATEWORKSPACEUSERSROLERESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_UPDATEWORKSPACEUSERSROLERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/UpdateWorkspaceUsersRoleResponseBodyResult.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -34,41 +33,109 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Result : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Result& obj) { 
+        DARABONBA_PTR_TO_JSON(Failure, failure_);
+        DARABONBA_ANY_TO_JSON(FailureDetail, failureDetail_);
+        DARABONBA_PTR_TO_JSON(Success, success_);
+        DARABONBA_PTR_TO_JSON(Total, total_);
+      };
+      friend void from_json(const Darabonba::Json& j, Result& obj) { 
+        DARABONBA_PTR_FROM_JSON(Failure, failure_);
+        DARABONBA_ANY_FROM_JSON(FailureDetail, failureDetail_);
+        DARABONBA_PTR_FROM_JSON(Success, success_);
+        DARABONBA_PTR_FROM_JSON(Total, total_);
+      };
+      Result() = default ;
+      Result(const Result &) = default ;
+      Result(Result &&) = default ;
+      Result(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Result() = default ;
+      Result& operator=(const Result &) = default ;
+      Result& operator=(Result &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->failure_ == nullptr
+        && this->failureDetail_ == nullptr && this->success_ == nullptr && this->total_ == nullptr; };
+      // failure Field Functions 
+      bool hasFailure() const { return this->failure_ != nullptr;};
+      void deleteFailure() { this->failure_ = nullptr;};
+      inline int32_t getFailure() const { DARABONBA_PTR_GET_DEFAULT(failure_, 0) };
+      inline Result& setFailure(int32_t failure) { DARABONBA_PTR_SET_VALUE(failure_, failure) };
+
+
+      // failureDetail Field Functions 
+      bool hasFailureDetail() const { return this->failureDetail_ != nullptr;};
+      void deleteFailureDetail() { this->failureDetail_ = nullptr;};
+      inline       const Darabonba::Json & getFailureDetail() const { DARABONBA_GET(failureDetail_) };
+      Darabonba::Json & getFailureDetail() { DARABONBA_GET(failureDetail_) };
+      inline Result& setFailureDetail(const Darabonba::Json & failureDetail) { DARABONBA_SET_VALUE(failureDetail_, failureDetail) };
+      inline Result& setFailureDetail(Darabonba::Json && failureDetail) { DARABONBA_SET_RVALUE(failureDetail_, failureDetail) };
+
+
+      // success Field Functions 
+      bool hasSuccess() const { return this->success_ != nullptr;};
+      void deleteSuccess() { this->success_ = nullptr;};
+      inline int32_t getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, 0) };
+      inline Result& setSuccess(int32_t success) { DARABONBA_PTR_SET_VALUE(success_, success) };
+
+
+      // total Field Functions 
+      bool hasTotal() const { return this->total_ != nullptr;};
+      void deleteTotal() { this->total_ = nullptr;};
+      inline int32_t getTotal() const { DARABONBA_PTR_GET_DEFAULT(total_, 0) };
+      inline Result& setTotal(int32_t total) { DARABONBA_PTR_SET_VALUE(total_, total) };
+
+
+    protected:
+      // Number of users that failed to update.
+      shared_ptr<int32_t> failure_ {};
+      // Reasons for the update failures.
+      Darabonba::Json failureDetail_ {};
+      // Number of users that were updated successfully.
+      shared_ptr<int32_t> success_ {};
+      // Modify the total number of users.
+      shared_ptr<int32_t> total_ {};
+    };
+
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->result_ == nullptr && return this->success_ == nullptr; };
+        && this->result_ == nullptr && this->success_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline UpdateWorkspaceUsersRoleResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // result Field Functions 
     bool hasResult() const { return this->result_ != nullptr;};
     void deleteResult() { this->result_ = nullptr;};
-    inline const UpdateWorkspaceUsersRoleResponseBodyResult & result() const { DARABONBA_PTR_GET_CONST(result_, UpdateWorkspaceUsersRoleResponseBodyResult) };
-    inline UpdateWorkspaceUsersRoleResponseBodyResult result() { DARABONBA_PTR_GET(result_, UpdateWorkspaceUsersRoleResponseBodyResult) };
-    inline UpdateWorkspaceUsersRoleResponseBody& setResult(const UpdateWorkspaceUsersRoleResponseBodyResult & result) { DARABONBA_PTR_SET_VALUE(result_, result) };
-    inline UpdateWorkspaceUsersRoleResponseBody& setResult(UpdateWorkspaceUsersRoleResponseBodyResult && result) { DARABONBA_PTR_SET_RVALUE(result_, result) };
+    inline const UpdateWorkspaceUsersRoleResponseBody::Result & getResult() const { DARABONBA_PTR_GET_CONST(result_, UpdateWorkspaceUsersRoleResponseBody::Result) };
+    inline UpdateWorkspaceUsersRoleResponseBody::Result getResult() { DARABONBA_PTR_GET(result_, UpdateWorkspaceUsersRoleResponseBody::Result) };
+    inline UpdateWorkspaceUsersRoleResponseBody& setResult(const UpdateWorkspaceUsersRoleResponseBody::Result & result) { DARABONBA_PTR_SET_VALUE(result_, result) };
+    inline UpdateWorkspaceUsersRoleResponseBody& setResult(UpdateWorkspaceUsersRoleResponseBody::Result && result) { DARABONBA_PTR_SET_RVALUE(result_, result) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline UpdateWorkspaceUsersRoleResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
     // Request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Returns the result of the interface execution.
-    std::shared_ptr<UpdateWorkspaceUsersRoleResponseBodyResult> result_ = nullptr;
+    shared_ptr<UpdateWorkspaceUsersRoleResponseBody::Result> result_ {};
     // Indicates whether the request was successful. Value range:
     // 
     // - true: The request was successful, some members may have been updated successfully while others failed, refer to FailureDetail in the response for reasons of failure
     // - false: The request failed, no data will be persisted
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

@@ -38,53 +38,53 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->caption_ == nullptr
-        && return this->customSql_ == nullptr && return this->dsId_ == nullptr && return this->userId_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->customSql_ == nullptr && this->dsId_ == nullptr && this->userId_ == nullptr && this->workspaceId_ == nullptr; };
     // caption Field Functions 
     bool hasCaption() const { return this->caption_ != nullptr;};
     void deleteCaption() { this->caption_ = nullptr;};
-    inline string caption() const { DARABONBA_PTR_GET_DEFAULT(caption_, "") };
+    inline string getCaption() const { DARABONBA_PTR_GET_DEFAULT(caption_, "") };
     inline CreateCubeBySqlRequest& setCaption(string caption) { DARABONBA_PTR_SET_VALUE(caption_, caption) };
 
 
     // customSql Field Functions 
     bool hasCustomSql() const { return this->customSql_ != nullptr;};
     void deleteCustomSql() { this->customSql_ = nullptr;};
-    inline string customSql() const { DARABONBA_PTR_GET_DEFAULT(customSql_, "") };
+    inline string getCustomSql() const { DARABONBA_PTR_GET_DEFAULT(customSql_, "") };
     inline CreateCubeBySqlRequest& setCustomSql(string customSql) { DARABONBA_PTR_SET_VALUE(customSql_, customSql) };
 
 
     // dsId Field Functions 
     bool hasDsId() const { return this->dsId_ != nullptr;};
     void deleteDsId() { this->dsId_ = nullptr;};
-    inline string dsId() const { DARABONBA_PTR_GET_DEFAULT(dsId_, "") };
+    inline string getDsId() const { DARABONBA_PTR_GET_DEFAULT(dsId_, "") };
     inline CreateCubeBySqlRequest& setDsId(string dsId) { DARABONBA_PTR_SET_VALUE(dsId_, dsId) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline CreateCubeBySqlRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline CreateCubeBySqlRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> caption_ = nullptr;
+    shared_ptr<string> caption_ {};
     // This parameter is required.
-    std::shared_ptr<string> customSql_ = nullptr;
+    shared_ptr<string> customSql_ {};
     // This parameter is required.
-    std::shared_ptr<string> dsId_ = nullptr;
+    shared_ptr<string> dsId_ {};
     // This parameter is required.
-    std::shared_ptr<string> userId_ = nullptr;
+    shared_ptr<string> userId_ {};
     // This parameter is required.
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

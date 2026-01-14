@@ -33,7 +33,7 @@ namespace Models
     // userGroupIds Field Functions 
     bool hasUserGroupIds() const { return this->userGroupIds_ != nullptr;};
     void deleteUserGroupIds() { this->userGroupIds_ = nullptr;};
-    inline string userGroupIds() const { DARABONBA_PTR_GET_DEFAULT(userGroupIds_, "") };
+    inline string getUserGroupIds() const { DARABONBA_PTR_GET_DEFAULT(userGroupIds_, "") };
     inline ListByUserGroupIdRequest& setUserGroupIds(string userGroupIds) { DARABONBA_PTR_SET_VALUE(userGroupIds_, userGroupIds) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the user group that you want to query. Separate multiple user groups with commas (,).
     // 
     // This parameter is required.
-    std::shared_ptr<string> userGroupIds_ = nullptr;
+    shared_ptr<string> userGroupIds_ {};
   };
 
   } // namespace Models

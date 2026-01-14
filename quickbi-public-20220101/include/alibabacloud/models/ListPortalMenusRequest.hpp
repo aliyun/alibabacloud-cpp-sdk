@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dataPortalId_ == nullptr
-        && return this->userId_ == nullptr; };
+        && this->userId_ == nullptr; };
     // dataPortalId Field Functions 
     bool hasDataPortalId() const { return this->dataPortalId_ != nullptr;};
     void deleteDataPortalId() { this->dataPortalId_ = nullptr;};
-    inline string dataPortalId() const { DARABONBA_PTR_GET_DEFAULT(dataPortalId_, "") };
+    inline string getDataPortalId() const { DARABONBA_PTR_GET_DEFAULT(dataPortalId_, "") };
     inline ListPortalMenusRequest& setDataPortalId(string dataPortalId) { DARABONBA_PTR_SET_VALUE(dataPortalId_, dataPortalId) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline ListPortalMenusRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
@@ -51,9 +51,9 @@ namespace Models
     // The ID of the BI portal.
     // 
     // This parameter is required.
-    std::shared_ptr<string> dataPortalId_ = nullptr;
+    shared_ptr<string> dataPortalId_ {};
     // The user ID in the Quick BI. When passed in, the list displays only the menus that the user has permissions on.
-    std::shared_ptr<string> userId_ = nullptr;
+    shared_ptr<string> userId_ {};
   };
 
   } // namespace Models

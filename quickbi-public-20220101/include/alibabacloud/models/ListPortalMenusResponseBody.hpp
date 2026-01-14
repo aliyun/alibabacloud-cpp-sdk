@@ -34,31 +34,31 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->result_ == nullptr && return this->success_ == nullptr; };
+        && this->result_ == nullptr && this->success_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListPortalMenusResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // result Field Functions 
     bool hasResult() const { return this->result_ != nullptr;};
     void deleteResult() { this->result_ = nullptr;};
-    inline string result() const { DARABONBA_PTR_GET_DEFAULT(result_, "") };
+    inline string getResult() const { DARABONBA_PTR_GET_DEFAULT(result_, "") };
     inline ListPortalMenusResponseBody& setResult(string result) { DARABONBA_PTR_SET_VALUE(result_, result) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline ListPortalMenusResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // A JSON string that levels the details of the portal menu list. Valid values:
     // 
     // *   menuType: the type of the menu.
@@ -81,12 +81,12 @@ namespace Models
     // *   dependentPermisson: whether the report resource associated with the menu has permissions
     // 
     // *   children: submenu
-    std::shared_ptr<string> result_ = nullptr;
+    shared_ptr<string> result_ {};
     // Indicates whether the request is successful. Valid values:
     // 
     // *   true: The request was successful.
     // *   false: The request failed.
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

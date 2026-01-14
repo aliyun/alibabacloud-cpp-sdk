@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->roleId_ == nullptr
-        && return this->userIds_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->userIds_ == nullptr && this->workspaceId_ == nullptr; };
     // roleId Field Functions 
     bool hasRoleId() const { return this->roleId_ != nullptr;};
     void deleteRoleId() { this->roleId_ = nullptr;};
-    inline int64_t roleId() const { DARABONBA_PTR_GET_DEFAULT(roleId_, 0L) };
+    inline int64_t getRoleId() const { DARABONBA_PTR_GET_DEFAULT(roleId_, 0L) };
     inline UpdateWorkspaceUsersRoleRequest& setRoleId(int64_t roleId) { DARABONBA_PTR_SET_VALUE(roleId_, roleId) };
 
 
     // userIds Field Functions 
     bool hasUserIds() const { return this->userIds_ != nullptr;};
     void deleteUserIds() { this->userIds_ = nullptr;};
-    inline string userIds() const { DARABONBA_PTR_GET_DEFAULT(userIds_, "") };
+    inline string getUserIds() const { DARABONBA_PTR_GET_DEFAULT(userIds_, "") };
     inline UpdateWorkspaceUsersRoleRequest& setUserIds(string userIds) { DARABONBA_PTR_SET_VALUE(userIds_, userIds) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline UpdateWorkspaceUsersRoleRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
@@ -64,17 +64,17 @@ namespace Models
     // - 30: Space Viewer
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> roleId_ = nullptr;
+    shared_ptr<int64_t> roleId_ {};
     // User ID. This is the UserID for Quick BI, not the UID for Alibaba Cloud.
     // 
     // - Supports batch parameters, separate user IDs with a comma (,).
     // 
     // This parameter is required.
-    std::shared_ptr<string> userIds_ = nullptr;
+    shared_ptr<string> userIds_ {};
     // Workspace ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

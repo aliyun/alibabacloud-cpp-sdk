@@ -725,6 +725,23 @@ namespace QuickbiPublic20220101
       Models::GetDataSourceConnectionInfoResponse getDataSourceConnectionInfo(const Models::GetDataSourceConnectionInfoRequest &request);
 
       /**
+       * @summary 获取订阅任务列表信息
+       *
+       * @param request GetMailTaskListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetMailTaskListResponse
+       */
+      Models::GetMailTaskListResponse getMailTaskListWithOptions(const Models::GetMailTaskListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取订阅任务列表信息
+       *
+       * @param request GetMailTaskListRequest
+       * @return GetMailTaskListResponse
+       */
+      Models::GetMailTaskListResponse getMailTaskList(const Models::GetMailTaskListRequest &request);
+
+      /**
        * @summary Check the running status of mail tasks within an organization
        *
        * @param request GetMailTaskStatusRequest
@@ -1040,6 +1057,23 @@ namespace QuickbiPublic20220101
        * @return ListUserGroupsByUserIdResponse
        */
       Models::ListUserGroupsByUserIdResponse listUserGroupsByUserId(const Models::ListUserGroupsByUserIdRequest &request);
+
+      /**
+       * @summary 获取数据门户菜单的白名单列表
+       *
+       * @param request ListWhitePortalMenuRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListWhitePortalMenuResponse
+       */
+      Models::ListWhitePortalMenuResponse listWhitePortalMenuWithOptions(const Models::ListWhitePortalMenuRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取数据门户菜单的白名单列表
+       *
+       * @param request ListWhitePortalMenuRequest
+       * @return ListWhitePortalMenuResponse
+       */
+      Models::ListWhitePortalMenuResponse listWhitePortalMenu(const Models::ListWhitePortalMenuRequest &request);
 
       /**
        * @summary Get user list under the specified workspace role.
@@ -1720,6 +1754,23 @@ namespace QuickbiPublic20220101
        * @return QueryTicketInfoResponse
        */
       Models::QueryTicketInfoResponse queryTicketInfo(const Models::QueryTicketInfoRequest &request);
+
+      /**
+       * @summary 根据绑定的第三方账号ID查询UserId
+       *
+       * @param request QueryUserByMobileAccountRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryUserByMobileAccountResponse
+       */
+      Models::QueryUserByMobileAccountResponse queryUserByMobileAccountWithOptions(const Models::QueryUserByMobileAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 根据绑定的第三方账号ID查询UserId
+       *
+       * @param request QueryUserByMobileAccountRequest
+       * @return QueryUserByMobileAccountResponse
+       */
+      Models::QueryUserByMobileAccountResponse queryUserByMobileAccount(const Models::QueryUserByMobileAccountRequest &request);
 
       /**
        * @summary You can this operation to obtain information about child user groups under a specified parent user group.

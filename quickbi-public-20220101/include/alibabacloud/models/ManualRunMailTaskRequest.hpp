@@ -33,7 +33,7 @@ namespace Models
     // mailId Field Functions 
     bool hasMailId() const { return this->mailId_ != nullptr;};
     void deleteMailId() { this->mailId_ = nullptr;};
-    inline string mailId() const { DARABONBA_PTR_GET_DEFAULT(mailId_, "") };
+    inline string getMailId() const { DARABONBA_PTR_GET_DEFAULT(mailId_, "") };
     inline ManualRunMailTaskRequest& setMailId(string mailId) { DARABONBA_PTR_SET_VALUE(mailId_, mailId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the email task in the subscription management interface.
     // 
     // This parameter is required.
-    std::shared_ptr<string> mailId_ = nullptr;
+    shared_ptr<string> mailId_ {};
   };
 
   } // namespace Models

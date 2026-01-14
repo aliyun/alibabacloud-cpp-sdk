@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cubeId_ == nullptr
-        && return this->missHitPolicy_ == nullptr && return this->ruleType_ == nullptr; };
+        && this->missHitPolicy_ == nullptr && this->ruleType_ == nullptr; };
     // cubeId Field Functions 
     bool hasCubeId() const { return this->cubeId_ != nullptr;};
     void deleteCubeId() { this->cubeId_ = nullptr;};
-    inline string cubeId() const { DARABONBA_PTR_GET_DEFAULT(cubeId_, "") };
+    inline string getCubeId() const { DARABONBA_PTR_GET_DEFAULT(cubeId_, "") };
     inline SetDataLevelPermissionExtraConfigRequest& setCubeId(string cubeId) { DARABONBA_PTR_SET_VALUE(cubeId_, cubeId) };
 
 
     // missHitPolicy Field Functions 
     bool hasMissHitPolicy() const { return this->missHitPolicy_ != nullptr;};
     void deleteMissHitPolicy() { this->missHitPolicy_ = nullptr;};
-    inline string missHitPolicy() const { DARABONBA_PTR_GET_DEFAULT(missHitPolicy_, "") };
+    inline string getMissHitPolicy() const { DARABONBA_PTR_GET_DEFAULT(missHitPolicy_, "") };
     inline SetDataLevelPermissionExtraConfigRequest& setMissHitPolicy(string missHitPolicy) { DARABONBA_PTR_SET_VALUE(missHitPolicy_, missHitPolicy) };
 
 
     // ruleType Field Functions 
     bool hasRuleType() const { return this->ruleType_ != nullptr;};
     void deleteRuleType() { this->ruleType_ = nullptr;};
-    inline string ruleType() const { DARABONBA_PTR_GET_DEFAULT(ruleType_, "") };
+    inline string getRuleType() const { DARABONBA_PTR_GET_DEFAULT(ruleType_, "") };
     inline SetDataLevelPermissionExtraConfigRequest& setRuleType(string ruleType) { DARABONBA_PTR_SET_VALUE(ruleType_, ruleType) };
 
 
@@ -60,21 +60,21 @@ namespace Models
     // Dataset ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> cubeId_ = nullptr;
+    shared_ptr<string> cubeId_ {};
     // Policy when no rule is matched:
     // 
     // - NONE: No permission
     // - ALL: Full permission
     // 
     // This parameter is required.
-    std::shared_ptr<string> missHitPolicy_ = nullptr;
+    shared_ptr<string> missHitPolicy_ {};
     // Type of dataset row and column permissions. Possible values:
     // 
     // - ROW_LEVEL: Row-level permission
     // - COLUMN_LEVEL: Column-level permission
     // 
     // This parameter is required.
-    std::shared_ptr<string> ruleType_ = nullptr;
+    shared_ptr<string> ruleType_ {};
   };
 
   } // namespace Models

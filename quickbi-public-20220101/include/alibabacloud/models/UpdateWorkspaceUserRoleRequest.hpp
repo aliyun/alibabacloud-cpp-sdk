@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->roleId_ == nullptr
-        && return this->roleIds_ == nullptr && return this->userId_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->roleIds_ == nullptr && this->userId_ == nullptr && this->workspaceId_ == nullptr; };
     // roleId Field Functions 
     bool hasRoleId() const { return this->roleId_ != nullptr;};
     void deleteRoleId() { this->roleId_ = nullptr;};
-    inline int64_t roleId() const { DARABONBA_PTR_GET_DEFAULT(roleId_, 0L) };
+    inline int64_t getRoleId() const { DARABONBA_PTR_GET_DEFAULT(roleId_, 0L) };
     inline UpdateWorkspaceUserRoleRequest& setRoleId(int64_t roleId) { DARABONBA_PTR_SET_VALUE(roleId_, roleId) };
 
 
     // roleIds Field Functions 
     bool hasRoleIds() const { return this->roleIds_ != nullptr;};
     void deleteRoleIds() { this->roleIds_ = nullptr;};
-    inline string roleIds() const { DARABONBA_PTR_GET_DEFAULT(roleIds_, "") };
+    inline string getRoleIds() const { DARABONBA_PTR_GET_DEFAULT(roleIds_, "") };
     inline UpdateWorkspaceUserRoleRequest& setRoleIds(string roleIds) { DARABONBA_PTR_SET_VALUE(roleIds_, roleIds) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline UpdateWorkspaceUserRoleRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline UpdateWorkspaceUserRoleRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
@@ -71,18 +71,18 @@ namespace Models
     // - 26: Workspace Developer
     // - 27: Workspace Analyst
     // - 30: Workspace Viewer
-    std::shared_ptr<int64_t> roleId_ = nullptr;
+    shared_ptr<int64_t> roleId_ {};
     // Multiple workspace role IDs, separated by commas. If this value is provided, it takes precedence.
     // >Notice: roleId and roleIds cannot both be empty
-    std::shared_ptr<string> roleIds_ = nullptr;
+    shared_ptr<string> roleIds_ {};
     // Quick BI user ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> userId_ = nullptr;
+    shared_ptr<string> userId_ {};
     // Workspace ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

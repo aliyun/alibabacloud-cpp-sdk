@@ -40,53 +40,53 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountName_ == nullptr
-        && return this->accountType_ == nullptr && return this->copilotId_ == nullptr && return this->expireTime_ == nullptr && return this->ticketNum_ == nullptr && return this->userId_ == nullptr; };
+        && this->accountType_ == nullptr && this->copilotId_ == nullptr && this->expireTime_ == nullptr && this->ticketNum_ == nullptr && this->userId_ == nullptr; };
     // accountName Field Functions 
     bool hasAccountName() const { return this->accountName_ != nullptr;};
     void deleteAccountName() { this->accountName_ = nullptr;};
-    inline string accountName() const { DARABONBA_PTR_GET_DEFAULT(accountName_, "") };
+    inline string getAccountName() const { DARABONBA_PTR_GET_DEFAULT(accountName_, "") };
     inline CreateTicket4CopilotRequest& setAccountName(string accountName) { DARABONBA_PTR_SET_VALUE(accountName_, accountName) };
 
 
     // accountType Field Functions 
     bool hasAccountType() const { return this->accountType_ != nullptr;};
     void deleteAccountType() { this->accountType_ = nullptr;};
-    inline int32_t accountType() const { DARABONBA_PTR_GET_DEFAULT(accountType_, 0) };
+    inline int32_t getAccountType() const { DARABONBA_PTR_GET_DEFAULT(accountType_, 0) };
     inline CreateTicket4CopilotRequest& setAccountType(int32_t accountType) { DARABONBA_PTR_SET_VALUE(accountType_, accountType) };
 
 
     // copilotId Field Functions 
     bool hasCopilotId() const { return this->copilotId_ != nullptr;};
     void deleteCopilotId() { this->copilotId_ = nullptr;};
-    inline string copilotId() const { DARABONBA_PTR_GET_DEFAULT(copilotId_, "") };
+    inline string getCopilotId() const { DARABONBA_PTR_GET_DEFAULT(copilotId_, "") };
     inline CreateTicket4CopilotRequest& setCopilotId(string copilotId) { DARABONBA_PTR_SET_VALUE(copilotId_, copilotId) };
 
 
     // expireTime Field Functions 
     bool hasExpireTime() const { return this->expireTime_ != nullptr;};
     void deleteExpireTime() { this->expireTime_ = nullptr;};
-    inline int32_t expireTime() const { DARABONBA_PTR_GET_DEFAULT(expireTime_, 0) };
+    inline int32_t getExpireTime() const { DARABONBA_PTR_GET_DEFAULT(expireTime_, 0) };
     inline CreateTicket4CopilotRequest& setExpireTime(int32_t expireTime) { DARABONBA_PTR_SET_VALUE(expireTime_, expireTime) };
 
 
     // ticketNum Field Functions 
     bool hasTicketNum() const { return this->ticketNum_ != nullptr;};
     void deleteTicketNum() { this->ticketNum_ = nullptr;};
-    inline int32_t ticketNum() const { DARABONBA_PTR_GET_DEFAULT(ticketNum_, 0) };
+    inline int32_t getTicketNum() const { DARABONBA_PTR_GET_DEFAULT(ticketNum_, 0) };
     inline CreateTicket4CopilotRequest& setTicketNum(int32_t ticketNum) { DARABONBA_PTR_SET_VALUE(ticketNum_, ticketNum) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline CreateTicket4CopilotRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
   protected:
     // User\\"s account name.
     // <notice>Note: Only one of userId and accountName needs to be filled in. If neither is provided, it will default to the report owner, and the report will be accessed with that user\\"s identity.</notice>
-    std::shared_ptr<string> accountName_ = nullptr;
+    shared_ptr<string> accountName_ {};
     // User\\"s account type:
     // 
     // - 1: Alibaba Cloud Primary Account
@@ -104,17 +104,17 @@ namespace Models
     // - 10: Feishu
     // 
     // <notice>Note: If accountName is not empty, then accountType must also be provided.</notice>
-    std::shared_ptr<int32_t> accountType_ = nullptr;
+    shared_ptr<int32_t> accountType_ {};
     // ID of the Smart Q module to be embedded.
     // 
     // This parameter is required.
-    std::shared_ptr<string> copilotId_ = nullptr;
+    shared_ptr<string> copilotId_ {};
     // Expiration time.
     // 
     // - Unit: minutes, maximum 240 (4 hours).
     // 
     // - Default: 240.
-    std::shared_ptr<int32_t> expireTime_ = nullptr;
+    shared_ptr<int32_t> expireTime_ {};
     // Range of ticket quantity:
     // 
     // - Default value is 1.
@@ -124,13 +124,13 @@ namespace Models
     // - Maximum value is 99999.
     // 
     // Each time a ticket is used, the ticket count decreases by 1.
-    std::shared_ptr<int32_t> ticketNum_ = nullptr;
+    shared_ptr<int32_t> ticketNum_ {};
     // Quick BI\\"s UserId.
     // 
     // - You can obtain this by calling [3.1.7 Get User Details Based on Third-Party Account] or other relevant APIs.
     // 
     // <notice>Note: Only one of userId and accountName needs to be filled in. If neither is provided, it will default to the report owner, and the report will be accessed with that user\\"s identity.</notice>
-    std::shared_ptr<string> userId_ = nullptr;
+    shared_ptr<string> userId_ {};
   };
 
   } // namespace Models

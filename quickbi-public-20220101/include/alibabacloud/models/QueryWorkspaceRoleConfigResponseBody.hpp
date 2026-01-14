@@ -2,7 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_QUERYWORKSPACEROLECONFIGRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_QUERYWORKSPACEROLECONFIGRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/QueryWorkspaceRoleConfigResponseBodyResult.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -34,41 +34,174 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Result : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Result& obj) { 
+        DARABONBA_PTR_TO_JSON(AuthConfigList, authConfigList_);
+        DARABONBA_PTR_TO_JSON(IsSystemRole, isSystemRole_);
+        DARABONBA_PTR_TO_JSON(RoleId, roleId_);
+        DARABONBA_PTR_TO_JSON(RoleName, roleName_);
+      };
+      friend void from_json(const Darabonba::Json& j, Result& obj) { 
+        DARABONBA_PTR_FROM_JSON(AuthConfigList, authConfigList_);
+        DARABONBA_PTR_FROM_JSON(IsSystemRole, isSystemRole_);
+        DARABONBA_PTR_FROM_JSON(RoleId, roleId_);
+        DARABONBA_PTR_FROM_JSON(RoleName, roleName_);
+      };
+      Result() = default ;
+      Result(const Result &) = default ;
+      Result(Result &&) = default ;
+      Result(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Result() = default ;
+      Result& operator=(const Result &) = default ;
+      Result& operator=(Result &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class AuthConfigList : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const AuthConfigList& obj) { 
+          DARABONBA_PTR_TO_JSON(ActionAuthKeys, actionAuthKeys_);
+          DARABONBA_PTR_TO_JSON(AuthKey, authKey_);
+        };
+        friend void from_json(const Darabonba::Json& j, AuthConfigList& obj) { 
+          DARABONBA_PTR_FROM_JSON(ActionAuthKeys, actionAuthKeys_);
+          DARABONBA_PTR_FROM_JSON(AuthKey, authKey_);
+        };
+        AuthConfigList() = default ;
+        AuthConfigList(const AuthConfigList &) = default ;
+        AuthConfigList(AuthConfigList &&) = default ;
+        AuthConfigList(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~AuthConfigList() = default ;
+        AuthConfigList& operator=(const AuthConfigList &) = default ;
+        AuthConfigList& operator=(AuthConfigList &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->actionAuthKeys_ == nullptr
+        && this->authKey_ == nullptr; };
+        // actionAuthKeys Field Functions 
+        bool hasActionAuthKeys() const { return this->actionAuthKeys_ != nullptr;};
+        void deleteActionAuthKeys() { this->actionAuthKeys_ = nullptr;};
+        inline const vector<string> & getActionAuthKeys() const { DARABONBA_PTR_GET_CONST(actionAuthKeys_, vector<string>) };
+        inline vector<string> getActionAuthKeys() { DARABONBA_PTR_GET(actionAuthKeys_, vector<string>) };
+        inline AuthConfigList& setActionAuthKeys(const vector<string> & actionAuthKeys) { DARABONBA_PTR_SET_VALUE(actionAuthKeys_, actionAuthKeys) };
+        inline AuthConfigList& setActionAuthKeys(vector<string> && actionAuthKeys) { DARABONBA_PTR_SET_RVALUE(actionAuthKeys_, actionAuthKeys) };
+
+
+        // authKey Field Functions 
+        bool hasAuthKey() const { return this->authKey_ != nullptr;};
+        void deleteAuthKey() { this->authKey_ = nullptr;};
+        inline string getAuthKey() const { DARABONBA_PTR_GET_DEFAULT(authKey_, "") };
+        inline AuthConfigList& setAuthKey(string authKey) { DARABONBA_PTR_SET_VALUE(authKey_, authKey) };
+
+
+      protected:
+        // Permission scope.
+        shared_ptr<vector<string>> actionAuthKeys_ {};
+        // Permission type:
+        // - portal_create: Data Portal
+        // - dashboard_create: Dashboard
+        // - report_create: Spreadsheet
+        // - screen_create: Data Screen
+        // - analysis: Ad-hoc Analysis
+        // - offline_download: Self-service Data Retrieval
+        // - data_form: Data Entry
+        // - quick_etl: Data Preparation
+        // - cube: Dataset
+        // - datasource: Data Source
+        shared_ptr<string> authKey_ {};
+      };
+
+      virtual bool empty() const override { return this->authConfigList_ == nullptr
+        && this->isSystemRole_ == nullptr && this->roleId_ == nullptr && this->roleName_ == nullptr; };
+      // authConfigList Field Functions 
+      bool hasAuthConfigList() const { return this->authConfigList_ != nullptr;};
+      void deleteAuthConfigList() { this->authConfigList_ = nullptr;};
+      inline const vector<Result::AuthConfigList> & getAuthConfigList() const { DARABONBA_PTR_GET_CONST(authConfigList_, vector<Result::AuthConfigList>) };
+      inline vector<Result::AuthConfigList> getAuthConfigList() { DARABONBA_PTR_GET(authConfigList_, vector<Result::AuthConfigList>) };
+      inline Result& setAuthConfigList(const vector<Result::AuthConfigList> & authConfigList) { DARABONBA_PTR_SET_VALUE(authConfigList_, authConfigList) };
+      inline Result& setAuthConfigList(vector<Result::AuthConfigList> && authConfigList) { DARABONBA_PTR_SET_RVALUE(authConfigList_, authConfigList) };
+
+
+      // isSystemRole Field Functions 
+      bool hasIsSystemRole() const { return this->isSystemRole_ != nullptr;};
+      void deleteIsSystemRole() { this->isSystemRole_ = nullptr;};
+      inline bool getIsSystemRole() const { DARABONBA_PTR_GET_DEFAULT(isSystemRole_, false) };
+      inline Result& setIsSystemRole(bool isSystemRole) { DARABONBA_PTR_SET_VALUE(isSystemRole_, isSystemRole) };
+
+
+      // roleId Field Functions 
+      bool hasRoleId() const { return this->roleId_ != nullptr;};
+      void deleteRoleId() { this->roleId_ = nullptr;};
+      inline int64_t getRoleId() const { DARABONBA_PTR_GET_DEFAULT(roleId_, 0L) };
+      inline Result& setRoleId(int64_t roleId) { DARABONBA_PTR_SET_VALUE(roleId_, roleId) };
+
+
+      // roleName Field Functions 
+      bool hasRoleName() const { return this->roleName_ != nullptr;};
+      void deleteRoleName() { this->roleName_ = nullptr;};
+      inline string getRoleName() const { DARABONBA_PTR_GET_DEFAULT(roleName_, "") };
+      inline Result& setRoleName(string roleName) { DARABONBA_PTR_SET_VALUE(roleName_, roleName) };
+
+
+    protected:
+      // List of role permission configurations.
+      shared_ptr<vector<Result::AuthConfigList>> authConfigList_ {};
+      // Whether it is a predefined role. Value range:
+      // 
+      // - true: Yes
+      // - false: No
+      shared_ptr<bool> isSystemRole_ {};
+      // Workspace role ID, including predefined roles and custom roles:
+      // 
+      // - 25: Workspace Administrator (predefined role)
+      // - 26: Developer (predefined role)
+      // - 27: Analyst (predefined role)
+      // - 30: Viewer (predefined role)
+      // - Custom role: The corresponding role ID for the custom role
+      shared_ptr<int64_t> roleId_ {};
+      // Role name.
+      shared_ptr<string> roleName_ {};
+    };
+
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->result_ == nullptr && return this->success_ == nullptr; };
+        && this->result_ == nullptr && this->success_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline QueryWorkspaceRoleConfigResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // result Field Functions 
     bool hasResult() const { return this->result_ != nullptr;};
     void deleteResult() { this->result_ = nullptr;};
-    inline const QueryWorkspaceRoleConfigResponseBodyResult & result() const { DARABONBA_PTR_GET_CONST(result_, QueryWorkspaceRoleConfigResponseBodyResult) };
-    inline QueryWorkspaceRoleConfigResponseBodyResult result() { DARABONBA_PTR_GET(result_, QueryWorkspaceRoleConfigResponseBodyResult) };
-    inline QueryWorkspaceRoleConfigResponseBody& setResult(const QueryWorkspaceRoleConfigResponseBodyResult & result) { DARABONBA_PTR_SET_VALUE(result_, result) };
-    inline QueryWorkspaceRoleConfigResponseBody& setResult(QueryWorkspaceRoleConfigResponseBodyResult && result) { DARABONBA_PTR_SET_RVALUE(result_, result) };
+    inline const QueryWorkspaceRoleConfigResponseBody::Result & getResult() const { DARABONBA_PTR_GET_CONST(result_, QueryWorkspaceRoleConfigResponseBody::Result) };
+    inline QueryWorkspaceRoleConfigResponseBody::Result getResult() { DARABONBA_PTR_GET(result_, QueryWorkspaceRoleConfigResponseBody::Result) };
+    inline QueryWorkspaceRoleConfigResponseBody& setResult(const QueryWorkspaceRoleConfigResponseBody::Result & result) { DARABONBA_PTR_SET_VALUE(result_, result) };
+    inline QueryWorkspaceRoleConfigResponseBody& setResult(QueryWorkspaceRoleConfigResponseBody::Result && result) { DARABONBA_PTR_SET_RVALUE(result_, result) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline QueryWorkspaceRoleConfigResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
     // Request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Returns the query result of the interface.
-    std::shared_ptr<QueryWorkspaceRoleConfigResponseBodyResult> result_ = nullptr;
+    shared_ptr<QueryWorkspaceRoleConfigResponseBody::Result> result_ {};
     // Indicates whether the request is successful. Valid values:
     // 
     // *   true: The request was successful.
     // *   false: The request failed.
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

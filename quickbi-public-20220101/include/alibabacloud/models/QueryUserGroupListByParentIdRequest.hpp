@@ -33,7 +33,7 @@ namespace Models
     // parentUserGroupId Field Functions 
     bool hasParentUserGroupId() const { return this->parentUserGroupId_ != nullptr;};
     void deleteParentUserGroupId() { this->parentUserGroupId_ = nullptr;};
-    inline string parentUserGroupId() const { DARABONBA_PTR_GET_DEFAULT(parentUserGroupId_, "") };
+    inline string getParentUserGroupId() const { DARABONBA_PTR_GET_DEFAULT(parentUserGroupId_, "") };
     inline QueryUserGroupListByParentIdRequest& setParentUserGroupId(string parentUserGroupId) { DARABONBA_PTR_SET_VALUE(parentUserGroupId_, parentUserGroupId) };
 
 
@@ -44,7 +44,7 @@ namespace Models
     // *   If you enter -1, you can obtain the sub-user group information under the root directory.
     // 
     // This parameter is required.
-    std::shared_ptr<string> parentUserGroupId_ = nullptr;
+    shared_ptr<string> parentUserGroupId_ {};
   };
 
   } // namespace Models

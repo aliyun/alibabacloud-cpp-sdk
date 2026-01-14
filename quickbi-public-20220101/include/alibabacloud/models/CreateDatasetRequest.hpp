@@ -40,61 +40,61 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dsId_ == nullptr
-        && return this->tableName_ == nullptr && return this->targetDirectoryId_ == nullptr && return this->userDefineCubeName_ == nullptr && return this->userId_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->tableName_ == nullptr && this->targetDirectoryId_ == nullptr && this->userDefineCubeName_ == nullptr && this->userId_ == nullptr && this->workspaceId_ == nullptr; };
     // dsId Field Functions 
     bool hasDsId() const { return this->dsId_ != nullptr;};
     void deleteDsId() { this->dsId_ = nullptr;};
-    inline string dsId() const { DARABONBA_PTR_GET_DEFAULT(dsId_, "") };
+    inline string getDsId() const { DARABONBA_PTR_GET_DEFAULT(dsId_, "") };
     inline CreateDatasetRequest& setDsId(string dsId) { DARABONBA_PTR_SET_VALUE(dsId_, dsId) };
 
 
     // tableName Field Functions 
     bool hasTableName() const { return this->tableName_ != nullptr;};
     void deleteTableName() { this->tableName_ = nullptr;};
-    inline string tableName() const { DARABONBA_PTR_GET_DEFAULT(tableName_, "") };
+    inline string getTableName() const { DARABONBA_PTR_GET_DEFAULT(tableName_, "") };
     inline CreateDatasetRequest& setTableName(string tableName) { DARABONBA_PTR_SET_VALUE(tableName_, tableName) };
 
 
     // targetDirectoryId Field Functions 
     bool hasTargetDirectoryId() const { return this->targetDirectoryId_ != nullptr;};
     void deleteTargetDirectoryId() { this->targetDirectoryId_ = nullptr;};
-    inline string targetDirectoryId() const { DARABONBA_PTR_GET_DEFAULT(targetDirectoryId_, "") };
+    inline string getTargetDirectoryId() const { DARABONBA_PTR_GET_DEFAULT(targetDirectoryId_, "") };
     inline CreateDatasetRequest& setTargetDirectoryId(string targetDirectoryId) { DARABONBA_PTR_SET_VALUE(targetDirectoryId_, targetDirectoryId) };
 
 
     // userDefineCubeName Field Functions 
     bool hasUserDefineCubeName() const { return this->userDefineCubeName_ != nullptr;};
     void deleteUserDefineCubeName() { this->userDefineCubeName_ = nullptr;};
-    inline string userDefineCubeName() const { DARABONBA_PTR_GET_DEFAULT(userDefineCubeName_, "") };
+    inline string getUserDefineCubeName() const { DARABONBA_PTR_GET_DEFAULT(userDefineCubeName_, "") };
     inline CreateDatasetRequest& setUserDefineCubeName(string userDefineCubeName) { DARABONBA_PTR_SET_VALUE(userDefineCubeName_, userDefineCubeName) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline CreateDatasetRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline CreateDatasetRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> dsId_ = nullptr;
+    shared_ptr<string> dsId_ {};
     // This parameter is required.
-    std::shared_ptr<string> tableName_ = nullptr;
-    std::shared_ptr<string> targetDirectoryId_ = nullptr;
+    shared_ptr<string> tableName_ {};
+    shared_ptr<string> targetDirectoryId_ {};
     // This parameter is required.
-    std::shared_ptr<string> userDefineCubeName_ = nullptr;
+    shared_ptr<string> userDefineCubeName_ {};
     // This parameter is required.
-    std::shared_ptr<string> userId_ = nullptr;
+    shared_ptr<string> userId_ {};
     // This parameter is required.
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

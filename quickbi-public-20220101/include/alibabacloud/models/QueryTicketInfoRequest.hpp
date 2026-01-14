@@ -33,7 +33,7 @@ namespace Models
     // ticket Field Functions 
     bool hasTicket() const { return this->ticket_ != nullptr;};
     void deleteTicket() { this->ticket_ = nullptr;};
-    inline string ticket() const { DARABONBA_PTR_GET_DEFAULT(ticket_, "") };
+    inline string getTicket() const { DARABONBA_PTR_GET_DEFAULT(ticket_, "") };
     inline QueryTicketInfoRequest& setTicket(string ticket) { DARABONBA_PTR_SET_VALUE(ticket_, ticket) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The value of the bill.
     // 
     // This parameter is required.
-    std::shared_ptr<string> ticket_ = nullptr;
+    shared_ptr<string> ticket_ {};
   };
 
   } // namespace Models

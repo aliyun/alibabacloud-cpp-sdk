@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->tagDescription_ == nullptr
-        && return this->tagId_ == nullptr && return this->tagName_ == nullptr; };
+        && this->tagId_ == nullptr && this->tagName_ == nullptr; };
     // tagDescription Field Functions 
     bool hasTagDescription() const { return this->tagDescription_ != nullptr;};
     void deleteTagDescription() { this->tagDescription_ = nullptr;};
-    inline string tagDescription() const { DARABONBA_PTR_GET_DEFAULT(tagDescription_, "") };
+    inline string getTagDescription() const { DARABONBA_PTR_GET_DEFAULT(tagDescription_, "") };
     inline UpdateUserTagMetaRequest& setTagDescription(string tagDescription) { DARABONBA_PTR_SET_VALUE(tagDescription_, tagDescription) };
 
 
     // tagId Field Functions 
     bool hasTagId() const { return this->tagId_ != nullptr;};
     void deleteTagId() { this->tagId_ = nullptr;};
-    inline string tagId() const { DARABONBA_PTR_GET_DEFAULT(tagId_, "") };
+    inline string getTagId() const { DARABONBA_PTR_GET_DEFAULT(tagId_, "") };
     inline UpdateUserTagMetaRequest& setTagId(string tagId) { DARABONBA_PTR_SET_VALUE(tagId_, tagId) };
 
 
     // tagName Field Functions 
     bool hasTagName() const { return this->tagName_ != nullptr;};
     void deleteTagName() { this->tagName_ = nullptr;};
-    inline string tagName() const { DARABONBA_PTR_GET_DEFAULT(tagName_, "") };
+    inline string getTagName() const { DARABONBA_PTR_GET_DEFAULT(tagName_, "") };
     inline UpdateUserTagMetaRequest& setTagName(string tagName) { DARABONBA_PTR_SET_VALUE(tagName_, tagName) };
 
 
@@ -60,19 +60,19 @@ namespace Models
     // The tag description.
     // 
     // - Format check: Maximum length is 255 characters.
-    std::shared_ptr<string> tagDescription_ = nullptr;
+    shared_ptr<string> tagDescription_ {};
     // The specified TagID.
     // 
     // - Format check: Maximum length is 64 characters.
     // 
     // This parameter is required.
-    std::shared_ptr<string> tagId_ = nullptr;
+    shared_ptr<string> tagId_ {};
     // The tag name.
     // - Format check: Maximum length is 50 characters.
     // - Only Chinese, English, numbers, and /\\|[]() symbols are allowed.
     // 
     // This parameter is required.
-    std::shared_ptr<string> tagName_ = nullptr;
+    shared_ptr<string> tagName_ {};
   };
 
   } // namespace Models

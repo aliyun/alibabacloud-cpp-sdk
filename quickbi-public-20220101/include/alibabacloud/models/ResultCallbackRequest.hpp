@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->applicationId_ == nullptr
-        && return this->handleReason_ == nullptr && return this->status_ == nullptr; };
+        && this->handleReason_ == nullptr && this->status_ == nullptr; };
     // applicationId Field Functions 
     bool hasApplicationId() const { return this->applicationId_ != nullptr;};
     void deleteApplicationId() { this->applicationId_ = nullptr;};
-    inline string applicationId() const { DARABONBA_PTR_GET_DEFAULT(applicationId_, "") };
+    inline string getApplicationId() const { DARABONBA_PTR_GET_DEFAULT(applicationId_, "") };
     inline ResultCallbackRequest& setApplicationId(string applicationId) { DARABONBA_PTR_SET_VALUE(applicationId_, applicationId) };
 
 
     // handleReason Field Functions 
     bool hasHandleReason() const { return this->handleReason_ != nullptr;};
     void deleteHandleReason() { this->handleReason_ = nullptr;};
-    inline string handleReason() const { DARABONBA_PTR_GET_DEFAULT(handleReason_, "") };
+    inline string getHandleReason() const { DARABONBA_PTR_GET_DEFAULT(handleReason_, "") };
     inline ResultCallbackRequest& setHandleReason(string handleReason) { DARABONBA_PTR_SET_VALUE(handleReason_, handleReason) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline int32_t status() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
+    inline int32_t getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
     inline ResultCallbackRequest& setStatus(int32_t status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
@@ -60,18 +60,18 @@ namespace Models
     // The ID of the approval process.
     // 
     // This parameter is required.
-    std::shared_ptr<string> applicationId_ = nullptr;
+    shared_ptr<string> applicationId_ {};
     // The reason for the approval.
     // 
     // This parameter is required.
-    std::shared_ptr<string> handleReason_ = nullptr;
+    shared_ptr<string> handleReason_ {};
     // Approval result:
     // 
     // *   1: passed
     // *   2: rejected
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> status_ = nullptr;
+    shared_ptr<int32_t> status_ {};
   };
 
   } // namespace Models

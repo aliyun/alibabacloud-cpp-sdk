@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apiId_ == nullptr
-        && return this->conditions_ == nullptr && return this->returnFields_ == nullptr && return this->userId_ == nullptr; };
+        && this->conditions_ == nullptr && this->returnFields_ == nullptr && this->userId_ == nullptr; };
     // apiId Field Functions 
     bool hasApiId() const { return this->apiId_ != nullptr;};
     void deleteApiId() { this->apiId_ = nullptr;};
-    inline string apiId() const { DARABONBA_PTR_GET_DEFAULT(apiId_, "") };
+    inline string getApiId() const { DARABONBA_PTR_GET_DEFAULT(apiId_, "") };
     inline QueryDataRequest& setApiId(string apiId) { DARABONBA_PTR_SET_VALUE(apiId_, apiId) };
 
 
     // conditions Field Functions 
     bool hasConditions() const { return this->conditions_ != nullptr;};
     void deleteConditions() { this->conditions_ = nullptr;};
-    inline string conditions() const { DARABONBA_PTR_GET_DEFAULT(conditions_, "") };
+    inline string getConditions() const { DARABONBA_PTR_GET_DEFAULT(conditions_, "") };
     inline QueryDataRequest& setConditions(string conditions) { DARABONBA_PTR_SET_VALUE(conditions_, conditions) };
 
 
     // returnFields Field Functions 
     bool hasReturnFields() const { return this->returnFields_ != nullptr;};
     void deleteReturnFields() { this->returnFields_ = nullptr;};
-    inline string returnFields() const { DARABONBA_PTR_GET_DEFAULT(returnFields_, "") };
+    inline string getReturnFields() const { DARABONBA_PTR_GET_DEFAULT(returnFields_, "") };
     inline QueryDataRequest& setReturnFields(string returnFields) { DARABONBA_PTR_SET_VALUE(returnFields_, returnFields) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline QueryDataRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
@@ -69,7 +69,7 @@ namespace Models
     // The API ID in the data service. For more information, see: [Data Service](https://help.aliyun.com/document_detail/144980.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> apiId_ = nullptr;
+    shared_ptr<string> apiId_ {};
     // The query conditions for the data service, passed in as Key and Value pairs. A map-type string. Here, Key is the name of the request parameter, and Value is the value of the request parameter. Key and Value must appear in pairs.
     // 
     // **Note:**
@@ -93,16 +93,16 @@ namespace Models
     //     - Minute: 14:12:00 (seconds are 00)
     // 
     //     - Second: 14:34:34
-    std::shared_ptr<string> conditions_ = nullptr;
+    shared_ptr<string> conditions_ {};
     // A list of return parameter names, in a List-type string.
-    std::shared_ptr<string> returnFields_ = nullptr;
+    shared_ptr<string> returnFields_ {};
     // The userId in Quick BI. For how to obtain the userId, see: [Query User Information by Account Interface](https://next.api.aliyun.com/document/quickbi-public/2022-01-01/QueryUserInfoByAccount)
     // > This parameter is used to specify the identity of the person using the data service, which can be used in conjunction with the row and column permission configurations of the dataset.
     // 
     // 
     // 
     // >Notice: If the parameter is not passed, an empty string is passed, or null is passed, the default userId will be the owner of the current Quick BI organization.</notice>
-    std::shared_ptr<string> userId_ = nullptr;
+    shared_ptr<string> userId_ {};
   };
 
   } // namespace Models

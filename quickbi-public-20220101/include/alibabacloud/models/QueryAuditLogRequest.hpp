@@ -46,99 +46,99 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessSourceFlag_ == nullptr
-        && return this->endDate_ == nullptr && return this->logType_ == nullptr && return this->operatorId_ == nullptr && return this->operatorTypes_ == nullptr && return this->resourceType_ == nullptr
-        && return this->startDate_ == nullptr && return this->userAccessDevice_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->endDate_ == nullptr && this->logType_ == nullptr && this->operatorId_ == nullptr && this->operatorTypes_ == nullptr && this->resourceType_ == nullptr
+        && this->startDate_ == nullptr && this->userAccessDevice_ == nullptr && this->workspaceId_ == nullptr; };
     // accessSourceFlag Field Functions 
     bool hasAccessSourceFlag() const { return this->accessSourceFlag_ != nullptr;};
     void deleteAccessSourceFlag() { this->accessSourceFlag_ = nullptr;};
-    inline string accessSourceFlag() const { DARABONBA_PTR_GET_DEFAULT(accessSourceFlag_, "") };
+    inline string getAccessSourceFlag() const { DARABONBA_PTR_GET_DEFAULT(accessSourceFlag_, "") };
     inline QueryAuditLogRequest& setAccessSourceFlag(string accessSourceFlag) { DARABONBA_PTR_SET_VALUE(accessSourceFlag_, accessSourceFlag) };
 
 
     // endDate Field Functions 
     bool hasEndDate() const { return this->endDate_ != nullptr;};
     void deleteEndDate() { this->endDate_ = nullptr;};
-    inline string endDate() const { DARABONBA_PTR_GET_DEFAULT(endDate_, "") };
+    inline string getEndDate() const { DARABONBA_PTR_GET_DEFAULT(endDate_, "") };
     inline QueryAuditLogRequest& setEndDate(string endDate) { DARABONBA_PTR_SET_VALUE(endDate_, endDate) };
 
 
     // logType Field Functions 
     bool hasLogType() const { return this->logType_ != nullptr;};
     void deleteLogType() { this->logType_ = nullptr;};
-    inline string logType() const { DARABONBA_PTR_GET_DEFAULT(logType_, "") };
+    inline string getLogType() const { DARABONBA_PTR_GET_DEFAULT(logType_, "") };
     inline QueryAuditLogRequest& setLogType(string logType) { DARABONBA_PTR_SET_VALUE(logType_, logType) };
 
 
     // operatorId Field Functions 
     bool hasOperatorId() const { return this->operatorId_ != nullptr;};
     void deleteOperatorId() { this->operatorId_ = nullptr;};
-    inline string operatorId() const { DARABONBA_PTR_GET_DEFAULT(operatorId_, "") };
+    inline string getOperatorId() const { DARABONBA_PTR_GET_DEFAULT(operatorId_, "") };
     inline QueryAuditLogRequest& setOperatorId(string operatorId) { DARABONBA_PTR_SET_VALUE(operatorId_, operatorId) };
 
 
     // operatorTypes Field Functions 
     bool hasOperatorTypes() const { return this->operatorTypes_ != nullptr;};
     void deleteOperatorTypes() { this->operatorTypes_ = nullptr;};
-    inline string operatorTypes() const { DARABONBA_PTR_GET_DEFAULT(operatorTypes_, "") };
+    inline string getOperatorTypes() const { DARABONBA_PTR_GET_DEFAULT(operatorTypes_, "") };
     inline QueryAuditLogRequest& setOperatorTypes(string operatorTypes) { DARABONBA_PTR_SET_VALUE(operatorTypes_, operatorTypes) };
 
 
     // resourceType Field Functions 
     bool hasResourceType() const { return this->resourceType_ != nullptr;};
     void deleteResourceType() { this->resourceType_ = nullptr;};
-    inline string resourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
+    inline string getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
     inline QueryAuditLogRequest& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
 
 
     // startDate Field Functions 
     bool hasStartDate() const { return this->startDate_ != nullptr;};
     void deleteStartDate() { this->startDate_ = nullptr;};
-    inline string startDate() const { DARABONBA_PTR_GET_DEFAULT(startDate_, "") };
+    inline string getStartDate() const { DARABONBA_PTR_GET_DEFAULT(startDate_, "") };
     inline QueryAuditLogRequest& setStartDate(string startDate) { DARABONBA_PTR_SET_VALUE(startDate_, startDate) };
 
 
     // userAccessDevice Field Functions 
     bool hasUserAccessDevice() const { return this->userAccessDevice_ != nullptr;};
     void deleteUserAccessDevice() { this->userAccessDevice_ = nullptr;};
-    inline string userAccessDevice() const { DARABONBA_PTR_GET_DEFAULT(userAccessDevice_, "") };
+    inline string getUserAccessDevice() const { DARABONBA_PTR_GET_DEFAULT(userAccessDevice_, "") };
     inline QueryAuditLogRequest& setUserAccessDevice(string userAccessDevice) { DARABONBA_PTR_SET_VALUE(userAccessDevice_, userAccessDevice) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline QueryAuditLogRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
-    std::shared_ptr<string> accessSourceFlag_ = nullptr;
+    shared_ptr<string> accessSourceFlag_ {};
     // End date of the query, format ("yyyyMMdd").
     // 
     // This parameter is required.
-    std::shared_ptr<string> endDate_ = nullptr;
+    shared_ptr<string> endDate_ {};
     // Log type:
     // - dataView - Access
     // - function - Operation
     // - permission - Permission
     // 
     // This parameter is required.
-    std::shared_ptr<string> logType_ = nullptr;
+    shared_ptr<string> logType_ {};
     // Operator\\"s user ID.
-    std::shared_ptr<string> operatorId_ = nullptr;
+    shared_ptr<string> operatorId_ {};
     // Permission/Access/Operation type, empty - default all;
     // 
     // Refer to the audit log code values, send multiple values separated by English commas.
-    std::shared_ptr<string> operatorTypes_ = nullptr;
+    shared_ptr<string> operatorTypes_ {};
     // Resource type, refer to the work type.
-    std::shared_ptr<string> resourceType_ = nullptr;
+    shared_ptr<string> resourceType_ {};
     // Start date of the query, format ("yyyyMMdd"), cannot be earlier than 90 days from the current time.
     // 
     // This parameter is required.
-    std::shared_ptr<string> startDate_ = nullptr;
-    std::shared_ptr<string> userAccessDevice_ = nullptr;
+    shared_ptr<string> startDate_ {};
+    shared_ptr<string> userAccessDevice_ {};
     // Workspace ID, the ID of the workspace to which the logs to be queried belong.
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

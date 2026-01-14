@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->account_ == nullptr
-        && return this->parentAccountName_ == nullptr; };
+        && this->parentAccountName_ == nullptr; };
     // account Field Functions 
     bool hasAccount() const { return this->account_ != nullptr;};
     void deleteAccount() { this->account_ = nullptr;};
-    inline string account() const { DARABONBA_PTR_GET_DEFAULT(account_, "") };
+    inline string getAccount() const { DARABONBA_PTR_GET_DEFAULT(account_, "") };
     inline QueryUserInfoByAccountRequest& setAccount(string account) { DARABONBA_PTR_SET_VALUE(account_, account) };
 
 
     // parentAccountName Field Functions 
     bool hasParentAccountName() const { return this->parentAccountName_ != nullptr;};
     void deleteParentAccountName() { this->parentAccountName_ = nullptr;};
-    inline string parentAccountName() const { DARABONBA_PTR_GET_DEFAULT(parentAccountName_, "") };
+    inline string getParentAccountName() const { DARABONBA_PTR_GET_DEFAULT(parentAccountName_, "") };
     inline QueryUserInfoByAccountRequest& setParentAccountName(string parentAccountName) { DARABONBA_PTR_SET_VALUE(parentAccountName_, parentAccountName) };
 
 
@@ -60,9 +60,9 @@ namespace Models
     //     *   Enter the UID of the account to query the account information.
     // 
     // This parameter is required.
-    std::shared_ptr<string> account_ = nullptr;
+    shared_ptr<string> account_ {};
     // When a duplicate error occurs while querying the sub-account, enter the primary account\\"s username, for example, zhangsan@test.onaliyun.com.
-    std::shared_ptr<string> parentAccountName_ = nullptr;
+    shared_ptr<string> parentAccountName_ {};
   };
 
   } // namespace Models

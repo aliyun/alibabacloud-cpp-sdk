@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cubeId_ == nullptr
-        && return this->isOpen_ == nullptr && return this->ruleType_ == nullptr; };
+        && this->isOpen_ == nullptr && this->ruleType_ == nullptr; };
     // cubeId Field Functions 
     bool hasCubeId() const { return this->cubeId_ != nullptr;};
     void deleteCubeId() { this->cubeId_ = nullptr;};
-    inline string cubeId() const { DARABONBA_PTR_GET_DEFAULT(cubeId_, "") };
+    inline string getCubeId() const { DARABONBA_PTR_GET_DEFAULT(cubeId_, "") };
     inline UpdateDataLevelPermissionStatusRequest& setCubeId(string cubeId) { DARABONBA_PTR_SET_VALUE(cubeId_, cubeId) };
 
 
     // isOpen Field Functions 
     bool hasIsOpen() const { return this->isOpen_ != nullptr;};
     void deleteIsOpen() { this->isOpen_ = nullptr;};
-    inline int32_t isOpen() const { DARABONBA_PTR_GET_DEFAULT(isOpen_, 0) };
+    inline int32_t getIsOpen() const { DARABONBA_PTR_GET_DEFAULT(isOpen_, 0) };
     inline UpdateDataLevelPermissionStatusRequest& setIsOpen(int32_t isOpen) { DARABONBA_PTR_SET_VALUE(isOpen_, isOpen) };
 
 
     // ruleType Field Functions 
     bool hasRuleType() const { return this->ruleType_ != nullptr;};
     void deleteRuleType() { this->ruleType_ = nullptr;};
-    inline string ruleType() const { DARABONBA_PTR_GET_DEFAULT(ruleType_, "") };
+    inline string getRuleType() const { DARABONBA_PTR_GET_DEFAULT(ruleType_, "") };
     inline UpdateDataLevelPermissionStatusRequest& setRuleType(string ruleType) { DARABONBA_PTR_SET_VALUE(ruleType_, ruleType) };
 
 
@@ -60,11 +60,11 @@ namespace Models
     // The ID of the training dataset that you want to remove from the specified custom linguistic model.
     // 
     // This parameter is required.
-    std::shared_ptr<string> cubeId_ = nullptr;
+    shared_ptr<string> cubeId_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> isOpen_ = nullptr;
+    shared_ptr<int32_t> isOpen_ {};
     // This parameter is required.
-    std::shared_ptr<string> ruleType_ = nullptr;
+    shared_ptr<string> ruleType_ {};
   };
 
   } // namespace Models

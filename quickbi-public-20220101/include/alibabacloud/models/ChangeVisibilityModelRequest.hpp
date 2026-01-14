@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dataPortalId_ == nullptr
-        && return this->menuIds_ == nullptr && return this->showOnlyWithAccess_ == nullptr; };
+        && this->menuIds_ == nullptr && this->showOnlyWithAccess_ == nullptr; };
     // dataPortalId Field Functions 
     bool hasDataPortalId() const { return this->dataPortalId_ != nullptr;};
     void deleteDataPortalId() { this->dataPortalId_ = nullptr;};
-    inline string dataPortalId() const { DARABONBA_PTR_GET_DEFAULT(dataPortalId_, "") };
+    inline string getDataPortalId() const { DARABONBA_PTR_GET_DEFAULT(dataPortalId_, "") };
     inline ChangeVisibilityModelRequest& setDataPortalId(string dataPortalId) { DARABONBA_PTR_SET_VALUE(dataPortalId_, dataPortalId) };
 
 
     // menuIds Field Functions 
     bool hasMenuIds() const { return this->menuIds_ != nullptr;};
     void deleteMenuIds() { this->menuIds_ = nullptr;};
-    inline string menuIds() const { DARABONBA_PTR_GET_DEFAULT(menuIds_, "") };
+    inline string getMenuIds() const { DARABONBA_PTR_GET_DEFAULT(menuIds_, "") };
     inline ChangeVisibilityModelRequest& setMenuIds(string menuIds) { DARABONBA_PTR_SET_VALUE(menuIds_, menuIds) };
 
 
     // showOnlyWithAccess Field Functions 
     bool hasShowOnlyWithAccess() const { return this->showOnlyWithAccess_ != nullptr;};
     void deleteShowOnlyWithAccess() { this->showOnlyWithAccess_ = nullptr;};
-    inline bool showOnlyWithAccess() const { DARABONBA_PTR_GET_DEFAULT(showOnlyWithAccess_, false) };
+    inline bool getShowOnlyWithAccess() const { DARABONBA_PTR_GET_DEFAULT(showOnlyWithAccess_, false) };
     inline ChangeVisibilityModelRequest& setShowOnlyWithAccess(bool showOnlyWithAccess) { DARABONBA_PTR_SET_VALUE(showOnlyWithAccess_, showOnlyWithAccess) };
 
 
@@ -60,21 +60,21 @@ namespace Models
     // The ID of the BI portal.
     // 
     // This parameter is required.
-    std::shared_ptr<string> dataPortalId_ = nullptr;
+    shared_ptr<string> dataPortalId_ {};
     // The menu ID of the BI portal leaf node.
     // 
     // *   The directory menu cannot be authorized.
     // *   You can upload multiple parameters at a time. Separate multiple IDs with commas (,). The maximum number of parameters that can be modified at a time is 100.
     // 
     // This parameter is required.
-    std::shared_ptr<string> menuIds_ = nullptr;
+    shared_ptr<string> menuIds_ {};
     // Whether only authorization is visible. Valid values:
     // 
     // *   true: Only the authorization is visible.
     // *   false: Both are visible.
     // 
     // This parameter is required.
-    std::shared_ptr<bool> showOnlyWithAccess_ = nullptr;
+    shared_ptr<bool> showOnlyWithAccess_ {};
   };
 
   } // namespace Models
