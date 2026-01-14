@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_GETESSAYCORRECTIONTASKRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_GETESSAYCORRECTIONTASKRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/ModelUsage.hpp>
 #include <vector>
 using namespace std;
 using json = nlohmann::json;
@@ -46,11 +47,13 @@ namespace Models
         DARABONBA_PTR_TO_JSON(errorMessage, errorMessage_);
         DARABONBA_PTR_TO_JSON(results, results_);
         DARABONBA_PTR_TO_JSON(status, status_);
+        DARABONBA_PTR_TO_JSON(totalUsage, totalUsage_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(errorMessage, errorMessage_);
         DARABONBA_PTR_FROM_JSON(results, results_);
         DARABONBA_PTR_FROM_JSON(status, status_);
+        DARABONBA_PTR_FROM_JSON(totalUsage, totalUsage_);
       };
       Data() = default ;
       Data(const Data &) = default ;
@@ -69,11 +72,13 @@ namespace Models
           DARABONBA_PTR_TO_JSON(customId, customId_);
           DARABONBA_PTR_TO_JSON(result, result_);
           DARABONBA_PTR_TO_JSON(score, score_);
+          DARABONBA_PTR_TO_JSON(usage, usage_);
         };
         friend void from_json(const Darabonba::Json& j, Results& obj) { 
           DARABONBA_PTR_FROM_JSON(customId, customId_);
           DARABONBA_PTR_FROM_JSON(result, result_);
           DARABONBA_PTR_FROM_JSON(score, score_);
+          DARABONBA_PTR_FROM_JSON(usage, usage_);
         };
         Results() = default ;
         Results(const Results &) = default ;
@@ -87,7 +92,7 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->customId_ == nullptr
-        && this->result_ == nullptr && this->score_ == nullptr; };
+        && this->result_ == nullptr && this->score_ == nullptr && this->usage_ == nullptr; };
         // customId Field Functions 
         bool hasCustomId() const { return this->customId_ != nullptr;};
         void deleteCustomId() { this->customId_ = nullptr;};
@@ -109,15 +114,25 @@ namespace Models
         inline Results& setScore(int32_t score) { DARABONBA_PTR_SET_VALUE(score_, score) };
 
 
+        // usage Field Functions 
+        bool hasUsage() const { return this->usage_ != nullptr;};
+        void deleteUsage() { this->usage_ = nullptr;};
+        inline const ModelUsage & getUsage() const { DARABONBA_PTR_GET_CONST(usage_, ModelUsage) };
+        inline ModelUsage getUsage() { DARABONBA_PTR_GET(usage_, ModelUsage) };
+        inline Results& setUsage(const ModelUsage & usage) { DARABONBA_PTR_SET_VALUE(usage_, usage) };
+        inline Results& setUsage(ModelUsage && usage) { DARABONBA_PTR_SET_RVALUE(usage_, usage) };
+
+
       protected:
         // xxx
         shared_ptr<string> customId_ {};
         shared_ptr<string> result_ {};
         shared_ptr<int32_t> score_ {};
+        shared_ptr<ModelUsage> usage_ {};
       };
 
       virtual bool empty() const override { return this->errorMessage_ == nullptr
-        && this->results_ == nullptr && this->status_ == nullptr; };
+        && this->results_ == nullptr && this->status_ == nullptr && this->totalUsage_ == nullptr; };
       // errorMessage Field Functions 
       bool hasErrorMessage() const { return this->errorMessage_ != nullptr;};
       void deleteErrorMessage() { this->errorMessage_ = nullptr;};
@@ -141,10 +156,20 @@ namespace Models
       inline Data& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+      // totalUsage Field Functions 
+      bool hasTotalUsage() const { return this->totalUsage_ != nullptr;};
+      void deleteTotalUsage() { this->totalUsage_ = nullptr;};
+      inline const ModelUsage & getTotalUsage() const { DARABONBA_PTR_GET_CONST(totalUsage_, ModelUsage) };
+      inline ModelUsage getTotalUsage() { DARABONBA_PTR_GET(totalUsage_, ModelUsage) };
+      inline Data& setTotalUsage(const ModelUsage & totalUsage) { DARABONBA_PTR_SET_VALUE(totalUsage_, totalUsage) };
+      inline Data& setTotalUsage(ModelUsage && totalUsage) { DARABONBA_PTR_SET_RVALUE(totalUsage_, totalUsage) };
+
+
     protected:
       shared_ptr<string> errorMessage_ {};
       shared_ptr<vector<Data::Results>> results_ {};
       shared_ptr<string> status_ {};
+      shared_ptr<ModelUsage> totalUsage_ {};
     };
 
     virtual bool empty() const override { return this->code_ == nullptr

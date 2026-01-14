@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_QUANMIAOLIGHTAPP20240801MODEL_HPP_
 #define ALIBABACLOUD_QUANMIAOLIGHTAPP20240801MODEL_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/ModelUsage.hpp>
 #include <alibabacloud/models/CancelAsyncTaskRequest.hpp>
 #include <alibabacloud/models/CancelAsyncTaskResponseBody.hpp>
 #include <alibabacloud/models/CancelAsyncTaskResponse.hpp>
