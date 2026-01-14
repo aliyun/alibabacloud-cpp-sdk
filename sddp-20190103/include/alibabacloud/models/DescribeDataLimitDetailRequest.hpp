@@ -36,54 +36,54 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->featureType_ == nullptr
-        && return this->id_ == nullptr && return this->lang_ == nullptr && return this->networkType_ == nullptr; };
+        && this->id_ == nullptr && this->lang_ == nullptr && this->networkType_ == nullptr; };
     // featureType Field Functions 
     bool hasFeatureType() const { return this->featureType_ != nullptr;};
     void deleteFeatureType() { this->featureType_ = nullptr;};
-    inline int32_t featureType() const { DARABONBA_PTR_GET_DEFAULT(featureType_, 0) };
+    inline int32_t getFeatureType() const { DARABONBA_PTR_GET_DEFAULT(featureType_, 0) };
     inline DescribeDataLimitDetailRequest& setFeatureType(int32_t featureType) { DARABONBA_PTR_SET_VALUE(featureType_, featureType) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline int64_t id() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+    inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
     inline DescribeDataLimitDetailRequest& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeDataLimitDetailRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // networkType Field Functions 
     bool hasNetworkType() const { return this->networkType_ != nullptr;};
     void deleteNetworkType() { this->networkType_ = nullptr;};
-    inline int32_t networkType() const { DARABONBA_PTR_GET_DEFAULT(networkType_, 0) };
+    inline int32_t getNetworkType() const { DARABONBA_PTR_GET_DEFAULT(networkType_, 0) };
     inline DescribeDataLimitDetailRequest& setNetworkType(int32_t networkType) { DARABONBA_PTR_SET_VALUE(networkType_, networkType) };
 
 
   protected:
     // This parameter is deprecated.
-    std::shared_ptr<int32_t> featureType_ = nullptr;
+    shared_ptr<int32_t> featureType_ {};
     // The unique ID of the data asset that you want to query.
     // 
     // > You can call the [DescribeDataLimits](~~DescribeDataLimits~~) operation to query the ID of the data asset.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> id_ = nullptr;
+    shared_ptr<int64_t> id_ {};
     // The language of the content within the request and response. Valid values:
     // 
     // *   **zh**: Simplified Chinese.
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The network type of the data asset that you want to query. Valid values:
     // 
     // *   **1**: virtual private cloud (VPC)
     // *   **2**: classic network
-    std::shared_ptr<int32_t> networkType_ = nullptr;
+    shared_ptr<int32_t> networkType_ {};
   };
 
   } // namespace Models

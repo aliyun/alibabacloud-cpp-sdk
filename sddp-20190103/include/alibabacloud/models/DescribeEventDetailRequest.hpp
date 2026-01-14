@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->id_ == nullptr
-        && return this->lang_ == nullptr; };
+        && this->lang_ == nullptr; };
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline int64_t id() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+    inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
     inline DescribeEventDetailRequest& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeEventDetailRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
@@ -53,12 +53,12 @@ namespace Models
     // > You can call the **DescribeEvents** operation to query the ID of the anomalous event.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> id_ = nullptr;
+    shared_ptr<int64_t> id_ {};
     // The language of the content within the request and response. Valid values:
     // 
     // *   **zh**: Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
   };
 
   } // namespace Models

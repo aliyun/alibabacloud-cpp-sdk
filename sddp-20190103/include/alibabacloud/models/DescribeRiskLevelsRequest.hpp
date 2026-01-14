@@ -34,38 +34,38 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->featureType_ == nullptr
-        && return this->lang_ == nullptr && return this->templateId_ == nullptr; };
+        && this->lang_ == nullptr && this->templateId_ == nullptr; };
     // featureType Field Functions 
     bool hasFeatureType() const { return this->featureType_ != nullptr;};
     void deleteFeatureType() { this->featureType_ = nullptr;};
-    inline int32_t featureType() const { DARABONBA_PTR_GET_DEFAULT(featureType_, 0) };
+    inline int32_t getFeatureType() const { DARABONBA_PTR_GET_DEFAULT(featureType_, 0) };
     inline DescribeRiskLevelsRequest& setFeatureType(int32_t featureType) { DARABONBA_PTR_SET_VALUE(featureType_, featureType) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeRiskLevelsRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // templateId Field Functions 
     bool hasTemplateId() const { return this->templateId_ != nullptr;};
     void deleteTemplateId() { this->templateId_ = nullptr;};
-    inline int64_t templateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, 0L) };
+    inline int64_t getTemplateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, 0L) };
     inline DescribeRiskLevelsRequest& setTemplateId(int64_t templateId) { DARABONBA_PTR_SET_VALUE(templateId_, templateId) };
 
 
   protected:
     // This parameter is deprecated.
-    std::shared_ptr<int32_t> featureType_ = nullptr;
+    shared_ptr<int32_t> featureType_ {};
     // The language of the content within the request and response. Valid values:
     // 
     // *   zh_cn: Chinese (default)
     // *   en_us: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The ID of the industry-specific rule template.
-    std::shared_ptr<int64_t> templateId_ = nullptr;
+    shared_ptr<int64_t> templateId_ {};
   };
 
   } // namespace Models

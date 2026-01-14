@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->backed_ == nullptr
-        && return this->dealReason_ == nullptr && return this->id_ == nullptr && return this->lang_ == nullptr && return this->status_ == nullptr; };
+        && this->dealReason_ == nullptr && this->id_ == nullptr && this->lang_ == nullptr && this->status_ == nullptr; };
     // backed Field Functions 
     bool hasBacked() const { return this->backed_ != nullptr;};
     void deleteBacked() { this->backed_ = nullptr;};
-    inline bool backed() const { DARABONBA_PTR_GET_DEFAULT(backed_, false) };
+    inline bool getBacked() const { DARABONBA_PTR_GET_DEFAULT(backed_, false) };
     inline ModifyEventStatusRequest& setBacked(bool backed) { DARABONBA_PTR_SET_VALUE(backed_, backed) };
 
 
     // dealReason Field Functions 
     bool hasDealReason() const { return this->dealReason_ != nullptr;};
     void deleteDealReason() { this->dealReason_ = nullptr;};
-    inline string dealReason() const { DARABONBA_PTR_GET_DEFAULT(dealReason_, "") };
+    inline string getDealReason() const { DARABONBA_PTR_GET_DEFAULT(dealReason_, "") };
     inline ModifyEventStatusRequest& setDealReason(string dealReason) { DARABONBA_PTR_SET_VALUE(dealReason_, dealReason) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline int64_t id() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+    inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
     inline ModifyEventStatusRequest& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline ModifyEventStatusRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline int32_t status() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
+    inline int32_t getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
     inline ModifyEventStatusRequest& setStatus(int32_t status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
@@ -79,27 +79,27 @@ namespace Models
     // 
     // *   **true**: yes
     // *   **false**: no
-    std::shared_ptr<bool> backed_ = nullptr;
+    shared_ptr<bool> backed_ {};
     // The reason why the anomalous event is handled.
-    std::shared_ptr<string> dealReason_ = nullptr;
+    shared_ptr<string> dealReason_ {};
     // The ID of the anomalous event.
     // 
     // > You can call the **DescribeEvents** operation to query the ID of the anomalous event.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> id_ = nullptr;
+    shared_ptr<int64_t> id_ {};
     // The language of the content within the request and response. Default value: **zh_cn**. Valid values:
     // 
     // *   **zh_cn**: Chinese
     // *   **en_us**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The method to handle the anomalous event. Valid values:
     // 
     // *   **1**: marks the anomalous event as a false positive.
     // *   **2**: confirms and handles the anomalous event.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> status_ = nullptr;
+    shared_ptr<int32_t> status_ {};
   };
 
   } // namespace Models

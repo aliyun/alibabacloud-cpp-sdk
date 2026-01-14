@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->hasPermission_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // hasPermission Field Functions 
     bool hasHasPermission() const { return this->hasPermission_ != nullptr;};
     void deleteHasPermission() { this->hasPermission_ = nullptr;};
-    inline bool hasPermission() const { DARABONBA_PTR_GET_DEFAULT(hasPermission_, false) };
+    inline bool getHasPermission() const { DARABONBA_PTR_GET_DEFAULT(hasPermission_, false) };
     inline CreateSlrRoleResponseBody& setHasPermission(bool hasPermission) { DARABONBA_PTR_SET_VALUE(hasPermission_, hasPermission) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateSlrRoleResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
@@ -52,9 +52,9 @@ namespace Models
     // 
     // *   **true**: yes
     // *   **false**: no
-    std::shared_ptr<bool> hasPermission_ = nullptr;
+    shared_ptr<bool> hasPermission_ {};
     // The ID of the request, which is used to locate and troubleshoot issues.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

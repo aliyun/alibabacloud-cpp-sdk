@@ -40,61 +40,61 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->currentPage_ == nullptr
-        && return this->featureType_ == nullptr && return this->lang_ == nullptr && return this->pageSize_ == nullptr && return this->riskLevelId_ == nullptr && return this->status_ == nullptr; };
+        && this->featureType_ == nullptr && this->lang_ == nullptr && this->pageSize_ == nullptr && this->riskLevelId_ == nullptr && this->status_ == nullptr; };
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline DescribeCategoryTemplateRuleListRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // featureType Field Functions 
     bool hasFeatureType() const { return this->featureType_ != nullptr;};
     void deleteFeatureType() { this->featureType_ = nullptr;};
-    inline int32_t featureType() const { DARABONBA_PTR_GET_DEFAULT(featureType_, 0) };
+    inline int32_t getFeatureType() const { DARABONBA_PTR_GET_DEFAULT(featureType_, 0) };
     inline DescribeCategoryTemplateRuleListRequest& setFeatureType(int32_t featureType) { DARABONBA_PTR_SET_VALUE(featureType_, featureType) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeCategoryTemplateRuleListRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DescribeCategoryTemplateRuleListRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // riskLevelId Field Functions 
     bool hasRiskLevelId() const { return this->riskLevelId_ != nullptr;};
     void deleteRiskLevelId() { this->riskLevelId_ = nullptr;};
-    inline int64_t riskLevelId() const { DARABONBA_PTR_GET_DEFAULT(riskLevelId_, 0L) };
+    inline int64_t getRiskLevelId() const { DARABONBA_PTR_GET_DEFAULT(riskLevelId_, 0L) };
     inline DescribeCategoryTemplateRuleListRequest& setRiskLevelId(int64_t riskLevelId) { DARABONBA_PTR_SET_VALUE(riskLevelId_, riskLevelId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline int32_t status() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
+    inline int32_t getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
     inline DescribeCategoryTemplateRuleListRequest& setStatus(int32_t status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
   protected:
     // The number of the page to return. Default value: **1**.
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
+    shared_ptr<int32_t> currentPage_ {};
     // This parameter is deprecated.
-    std::shared_ptr<int32_t> featureType_ = nullptr;
+    shared_ptr<int32_t> featureType_ {};
     // The language of the content within the request and response. Default value: **zh_cn**. Valid values:
     // 
     // *   **zh_cn**: Simplified Chinese
     // *   **en_us**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The number of entries to return on each page. Default value: **10**.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The sensitivity level of the data that is not compliant with the rule. Valid values: **1** to **11**. Default value: **null**.
     // 
     // *   **1**: No sensitive data is detected.
@@ -109,13 +109,13 @@ namespace Models
     // *   **10**: specifies the S9 sensitivity level.
     // *   **11**: specifies the S10 sensitivity level.
     // *   **null**: specifies all preceding sensitivity levels.
-    std::shared_ptr<int64_t> riskLevelId_ = nullptr;
+    shared_ptr<int64_t> riskLevelId_ {};
     // The status of the rule. Default value: **null**. Valid values:
     // 
     // *   **0**: disabled
     // *   **1**: enabled
     // *   **null**: all states
-    std::shared_ptr<int32_t> status_ = nullptr;
+    shared_ptr<int32_t> status_ {};
   };
 
   } // namespace Models

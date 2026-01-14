@@ -42,75 +42,75 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->currentPage_ == nullptr
-        && return this->dstType_ == nullptr && return this->endTime_ == nullptr && return this->lang_ == nullptr && return this->pageSize_ == nullptr && return this->searchKey_ == nullptr
-        && return this->startTime_ == nullptr; };
+        && this->dstType_ == nullptr && this->endTime_ == nullptr && this->lang_ == nullptr && this->pageSize_ == nullptr && this->searchKey_ == nullptr
+        && this->startTime_ == nullptr; };
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline DescribeDataMaskingTasksRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // dstType Field Functions 
     bool hasDstType() const { return this->dstType_ != nullptr;};
     void deleteDstType() { this->dstType_ = nullptr;};
-    inline int32_t dstType() const { DARABONBA_PTR_GET_DEFAULT(dstType_, 0) };
+    inline int32_t getDstType() const { DARABONBA_PTR_GET_DEFAULT(dstType_, 0) };
     inline DescribeDataMaskingTasksRequest& setDstType(int32_t dstType) { DARABONBA_PTR_SET_VALUE(dstType_, dstType) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline int64_t endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
+    inline int64_t getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
     inline DescribeDataMaskingTasksRequest& setEndTime(int64_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeDataMaskingTasksRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DescribeDataMaskingTasksRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // searchKey Field Functions 
     bool hasSearchKey() const { return this->searchKey_ != nullptr;};
     void deleteSearchKey() { this->searchKey_ = nullptr;};
-    inline string searchKey() const { DARABONBA_PTR_GET_DEFAULT(searchKey_, "") };
+    inline string getSearchKey() const { DARABONBA_PTR_GET_DEFAULT(searchKey_, "") };
     inline DescribeDataMaskingTasksRequest& setSearchKey(string searchKey) { DARABONBA_PTR_SET_VALUE(searchKey_, searchKey) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline int64_t startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
+    inline int64_t getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
     inline DescribeDataMaskingTasksRequest& setStartTime(int64_t startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
   protected:
     // The page number of the page to return.
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
+    shared_ptr<int32_t> currentPage_ {};
     // The service to which the data to be de-identified belongs. Valid values include **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates Object Storage Service (OSS). The value 3 indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
-    std::shared_ptr<int32_t> dstType_ = nullptr;
+    shared_ptr<int32_t> dstType_ {};
     // The end of the time range during which the de-identification tasks to be queried are created. The value is a UNIX timestamp. Unit: milliseconds.
-    std::shared_ptr<int64_t> endTime_ = nullptr;
+    shared_ptr<int64_t> endTime_ {};
     // The language of the content within the request and response. Default value: **zh_cn**. Valid values:
     // 
     // *   **zh_cn**: Chinese
     // *   **en_us**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The number of entries to return on each page.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The keyword used to query the de-identification tasks, which can be the task name or ID.
-    std::shared_ptr<string> searchKey_ = nullptr;
+    shared_ptr<string> searchKey_ {};
     // The beginning of the time range during which the de-identification tasks to be queried are created. The value is a UNIX timestamp. Unit: milliseconds.
-    std::shared_ptr<int64_t> startTime_ = nullptr;
+    shared_ptr<int64_t> startTime_ {};
   };
 
   } // namespace Models

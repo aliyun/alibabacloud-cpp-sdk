@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->failedIds_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // failedIds Field Functions 
     bool hasFailedIds() const { return this->failedIds_ != nullptr;};
     void deleteFailedIds() { this->failedIds_ = nullptr;};
-    inline string failedIds() const { DARABONBA_PTR_GET_DEFAULT(failedIds_, "") };
+    inline string getFailedIds() const { DARABONBA_PTR_GET_DEFAULT(failedIds_, "") };
     inline ModifyRuleStatusResponseBody& setFailedIds(string failedIds) { DARABONBA_PTR_SET_VALUE(failedIds_, failedIds) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ModifyRuleStatusResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The IDs of sensitive data detection rules whose status failed to be changed. Multiple IDs are separated with commas (,).
-    std::shared_ptr<string> failedIds_ = nullptr;
+    shared_ptr<string> failedIds_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

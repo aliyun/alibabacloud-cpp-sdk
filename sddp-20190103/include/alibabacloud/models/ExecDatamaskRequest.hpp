@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->data_ == nullptr
-        && return this->featureType_ == nullptr && return this->lang_ == nullptr && return this->templateId_ == nullptr; };
+        && this->featureType_ == nullptr && this->lang_ == nullptr && this->templateId_ == nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline string data() const { DARABONBA_PTR_GET_DEFAULT(data_, "") };
+    inline string getData() const { DARABONBA_PTR_GET_DEFAULT(data_, "") };
     inline ExecDatamaskRequest& setData(string data) { DARABONBA_PTR_SET_VALUE(data_, data) };
 
 
     // featureType Field Functions 
     bool hasFeatureType() const { return this->featureType_ != nullptr;};
     void deleteFeatureType() { this->featureType_ = nullptr;};
-    inline int32_t featureType() const { DARABONBA_PTR_GET_DEFAULT(featureType_, 0) };
+    inline int32_t getFeatureType() const { DARABONBA_PTR_GET_DEFAULT(featureType_, 0) };
     inline ExecDatamaskRequest& setFeatureType(int32_t featureType) { DARABONBA_PTR_SET_VALUE(featureType_, featureType) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline ExecDatamaskRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // templateId Field Functions 
     bool hasTemplateId() const { return this->templateId_ != nullptr;};
     void deleteTemplateId() { this->templateId_ = nullptr;};
-    inline int64_t templateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, 0L) };
+    inline int64_t getTemplateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, 0L) };
     inline ExecDatamaskRequest& setTemplateId(int64_t templateId) { DARABONBA_PTR_SET_VALUE(templateId_, templateId) };
 
 
@@ -73,21 +73,21 @@ namespace Models
     // *   **ruleList**: the IDs of sensitive data detection rules used to detect data that needs to be de-identified. Specify the rule IDs in accordance with the order of data that needs to be de-identified. Each ID identifies a sensitive data detection rule that is used to detect a type of sensitive data. You can call the [DescribeRules](~~DescribeRules~~) operation to query the IDs of sensitive data detection rules.
     // 
     // This parameter is required.
-    std::shared_ptr<string> data_ = nullptr;
+    shared_ptr<string> data_ {};
     // This parameter is deprecated.
-    std::shared_ptr<int32_t> featureType_ = nullptr;
+    shared_ptr<int32_t> featureType_ {};
     // The language of the content within the request and response. Default value: **zh_cn**. Valid values:
     // 
     // *   **zh_cn**: Simplified Chinese
     // *   **en_us**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The ID of the de-identification template. The ID is generated after you create the de-identification template in the [Data Security Center (DSC) console](https://yundun.console.aliyun.com/?\\&p=sddpnext#/sddp/dm/template). You can choose **Data desensitization** > **Desensitization Template** in the left-side navigation pane and obtain the ID of the de-identification template from the **Desensitization Template** page.
     // 
     // *   If you select **Field name** as the matching mode of the template, DSC matches data based on the columns specified by the **dataHeaderList** parameter in the **Data** parameter.
     // *   If you select **Sensitive type** as the matching mode of the template, DSC matches data based on the sensitive data detection rules specified by the **ruleList** parameter in the **Data** parameter.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> templateId_ = nullptr;
+    shared_ptr<int64_t> templateId_ {};
   };
 
   } // namespace Models

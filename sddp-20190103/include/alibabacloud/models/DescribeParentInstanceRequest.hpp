@@ -52,90 +52,90 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->authStatus_ == nullptr
-        && return this->checkStatus_ == nullptr && return this->clusterStatus_ == nullptr && return this->currentPage_ == nullptr && return this->dbName_ == nullptr && return this->engineType_ == nullptr
-        && return this->instanceId_ == nullptr && return this->lang_ == nullptr && return this->memberAccount_ == nullptr && return this->pageSize_ == nullptr && return this->resourceType_ == nullptr
-        && return this->serviceRegionId_ == nullptr; };
+        && this->checkStatus_ == nullptr && this->clusterStatus_ == nullptr && this->currentPage_ == nullptr && this->dbName_ == nullptr && this->engineType_ == nullptr
+        && this->instanceId_ == nullptr && this->lang_ == nullptr && this->memberAccount_ == nullptr && this->pageSize_ == nullptr && this->resourceType_ == nullptr
+        && this->serviceRegionId_ == nullptr; };
     // authStatus Field Functions 
     bool hasAuthStatus() const { return this->authStatus_ != nullptr;};
     void deleteAuthStatus() { this->authStatus_ = nullptr;};
-    inline int32_t authStatus() const { DARABONBA_PTR_GET_DEFAULT(authStatus_, 0) };
+    inline int32_t getAuthStatus() const { DARABONBA_PTR_GET_DEFAULT(authStatus_, 0) };
     inline DescribeParentInstanceRequest& setAuthStatus(int32_t authStatus) { DARABONBA_PTR_SET_VALUE(authStatus_, authStatus) };
 
 
     // checkStatus Field Functions 
     bool hasCheckStatus() const { return this->checkStatus_ != nullptr;};
     void deleteCheckStatus() { this->checkStatus_ = nullptr;};
-    inline int32_t checkStatus() const { DARABONBA_PTR_GET_DEFAULT(checkStatus_, 0) };
+    inline int32_t getCheckStatus() const { DARABONBA_PTR_GET_DEFAULT(checkStatus_, 0) };
     inline DescribeParentInstanceRequest& setCheckStatus(int32_t checkStatus) { DARABONBA_PTR_SET_VALUE(checkStatus_, checkStatus) };
 
 
     // clusterStatus Field Functions 
     bool hasClusterStatus() const { return this->clusterStatus_ != nullptr;};
     void deleteClusterStatus() { this->clusterStatus_ = nullptr;};
-    inline string clusterStatus() const { DARABONBA_PTR_GET_DEFAULT(clusterStatus_, "") };
+    inline string getClusterStatus() const { DARABONBA_PTR_GET_DEFAULT(clusterStatus_, "") };
     inline DescribeParentInstanceRequest& setClusterStatus(string clusterStatus) { DARABONBA_PTR_SET_VALUE(clusterStatus_, clusterStatus) };
 
 
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline DescribeParentInstanceRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // dbName Field Functions 
     bool hasDbName() const { return this->dbName_ != nullptr;};
     void deleteDbName() { this->dbName_ = nullptr;};
-    inline string dbName() const { DARABONBA_PTR_GET_DEFAULT(dbName_, "") };
+    inline string getDbName() const { DARABONBA_PTR_GET_DEFAULT(dbName_, "") };
     inline DescribeParentInstanceRequest& setDbName(string dbName) { DARABONBA_PTR_SET_VALUE(dbName_, dbName) };
 
 
     // engineType Field Functions 
     bool hasEngineType() const { return this->engineType_ != nullptr;};
     void deleteEngineType() { this->engineType_ = nullptr;};
-    inline string engineType() const { DARABONBA_PTR_GET_DEFAULT(engineType_, "") };
+    inline string getEngineType() const { DARABONBA_PTR_GET_DEFAULT(engineType_, "") };
     inline DescribeParentInstanceRequest& setEngineType(string engineType) { DARABONBA_PTR_SET_VALUE(engineType_, engineType) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DescribeParentInstanceRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeParentInstanceRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // memberAccount Field Functions 
     bool hasMemberAccount() const { return this->memberAccount_ != nullptr;};
     void deleteMemberAccount() { this->memberAccount_ = nullptr;};
-    inline int64_t memberAccount() const { DARABONBA_PTR_GET_DEFAULT(memberAccount_, 0L) };
+    inline int64_t getMemberAccount() const { DARABONBA_PTR_GET_DEFAULT(memberAccount_, 0L) };
     inline DescribeParentInstanceRequest& setMemberAccount(int64_t memberAccount) { DARABONBA_PTR_SET_VALUE(memberAccount_, memberAccount) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DescribeParentInstanceRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // resourceType Field Functions 
     bool hasResourceType() const { return this->resourceType_ != nullptr;};
     void deleteResourceType() { this->resourceType_ = nullptr;};
-    inline int64_t resourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, 0L) };
+    inline int64_t getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, 0L) };
     inline DescribeParentInstanceRequest& setResourceType(int64_t resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
 
 
     // serviceRegionId Field Functions 
     bool hasServiceRegionId() const { return this->serviceRegionId_ != nullptr;};
     void deleteServiceRegionId() { this->serviceRegionId_ = nullptr;};
-    inline string serviceRegionId() const { DARABONBA_PTR_GET_DEFAULT(serviceRegionId_, "") };
+    inline string getServiceRegionId() const { DARABONBA_PTR_GET_DEFAULT(serviceRegionId_, "") };
     inline DescribeParentInstanceRequest& setServiceRegionId(string serviceRegionId) { DARABONBA_PTR_SET_VALUE(serviceRegionId_, serviceRegionId) };
 
 
@@ -143,7 +143,7 @@ namespace Models
     // Authorization status of the data asset instance.
     // - **0**: Unauthorized
     // - **1**: Authorized
-    std::shared_ptr<int32_t> authStatus_ = nullptr;
+    shared_ptr<int32_t> authStatus_ {};
     // Connection status of the instance or the database under the instance. Values:
     // - **-3**: Database not created
     // - **-2**: Released
@@ -151,33 +151,33 @@ namespace Models
     // - **2**: Connectivity test in progress
     // - **3**: Connected
     // - **4**: Connection failed
-    std::shared_ptr<int32_t> checkStatus_ = nullptr;
+    shared_ptr<int32_t> checkStatus_ {};
     // Instance status.
     // - **Running**: Running
     // - **Released**: Released
     // - **DatabaseNotCreated**: Database not created
-    std::shared_ptr<string> clusterStatus_ = nullptr;
+    shared_ptr<string> clusterStatus_ {};
     // When performing a paginated query, set the current page number. Default value: **1**.
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
+    shared_ptr<int32_t> currentPage_ {};
     // Database name.
-    std::shared_ptr<string> dbName_ = nullptr;
+    shared_ptr<string> dbName_ {};
     // Engine type. Values:
     // - **MySQL**
     // - **MariaDB**
     // - **Oracle**
     // - **PostgreSQL**
     // - **SQLServer**
-    std::shared_ptr<string> engineType_ = nullptr;
+    shared_ptr<string> engineType_ {};
     // The instance ID to which the data in the data asset table belongs.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // Language type for request and response messages. Values:
     // - **zh_cn**: Default, Simplified Chinese
     // - **en_us**: English (US)
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // Member account ID.
-    std::shared_ptr<int64_t> memberAccount_ = nullptr;
+    shared_ptr<int64_t> memberAccount_ {};
     // When performing a paginated query, set the number of rows per page. Default value: 10.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The product type. Valid values:
     // - **1**: MaxCompute
     // - **2**: OSS
@@ -191,7 +191,7 @@ namespace Models
     // - **10**: OceanBase
     // - **11**: MongoDB
     // - **25**: Redis
-    std::shared_ptr<int64_t> resourceType_ = nullptr;
+    shared_ptr<int64_t> resourceType_ {};
     // The region where the asset is located. Values:
     // - **cn-beijing**: China (Beijing)
     // - **cn-zhangjiakou**: China (Zhangjiakou)
@@ -200,7 +200,7 @@ namespace Models
     // - **cn-shanghai**: China (Shanghai)
     // - **cn-shenzhen**: China (Shenzhen)
     // - **cn-hongkong**:  China (Hong Kong)
-    std::shared_ptr<string> serviceRegionId_ = nullptr;
+    shared_ptr<string> serviceRegionId_ {};
   };
 
   } // namespace Models
