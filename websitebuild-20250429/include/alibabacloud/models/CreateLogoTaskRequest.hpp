@@ -36,40 +36,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->logoVersion_ == nullptr
-        && return this->negativePrompt_ == nullptr && return this->parameters_ == nullptr && return this->prompt_ == nullptr; };
+        && this->negativePrompt_ == nullptr && this->parameters_ == nullptr && this->prompt_ == nullptr; };
     // logoVersion Field Functions 
     bool hasLogoVersion() const { return this->logoVersion_ != nullptr;};
     void deleteLogoVersion() { this->logoVersion_ = nullptr;};
-    inline string logoVersion() const { DARABONBA_PTR_GET_DEFAULT(logoVersion_, "") };
+    inline string getLogoVersion() const { DARABONBA_PTR_GET_DEFAULT(logoVersion_, "") };
     inline CreateLogoTaskRequest& setLogoVersion(string logoVersion) { DARABONBA_PTR_SET_VALUE(logoVersion_, logoVersion) };
 
 
     // negativePrompt Field Functions 
     bool hasNegativePrompt() const { return this->negativePrompt_ != nullptr;};
     void deleteNegativePrompt() { this->negativePrompt_ = nullptr;};
-    inline string negativePrompt() const { DARABONBA_PTR_GET_DEFAULT(negativePrompt_, "") };
+    inline string getNegativePrompt() const { DARABONBA_PTR_GET_DEFAULT(negativePrompt_, "") };
     inline CreateLogoTaskRequest& setNegativePrompt(string negativePrompt) { DARABONBA_PTR_SET_VALUE(negativePrompt_, negativePrompt) };
 
 
     // parameters Field Functions 
     bool hasParameters() const { return this->parameters_ != nullptr;};
     void deleteParameters() { this->parameters_ = nullptr;};
-    inline string parameters() const { DARABONBA_PTR_GET_DEFAULT(parameters_, "") };
+    inline string getParameters() const { DARABONBA_PTR_GET_DEFAULT(parameters_, "") };
     inline CreateLogoTaskRequest& setParameters(string parameters) { DARABONBA_PTR_SET_VALUE(parameters_, parameters) };
 
 
     // prompt Field Functions 
     bool hasPrompt() const { return this->prompt_ != nullptr;};
     void deletePrompt() { this->prompt_ = nullptr;};
-    inline string prompt() const { DARABONBA_PTR_GET_DEFAULT(prompt_, "") };
+    inline string getPrompt() const { DARABONBA_PTR_GET_DEFAULT(prompt_, "") };
     inline CreateLogoTaskRequest& setPrompt(string prompt) { DARABONBA_PTR_SET_VALUE(prompt_, prompt) };
 
 
   protected:
-    std::shared_ptr<string> logoVersion_ = nullptr;
-    std::shared_ptr<string> negativePrompt_ = nullptr;
-    std::shared_ptr<string> parameters_ = nullptr;
-    std::shared_ptr<string> prompt_ = nullptr;
+    shared_ptr<string> logoVersion_ {};
+    shared_ptr<string> negativePrompt_ {};
+    shared_ptr<string> parameters_ {};
+    shared_ptr<string> prompt_ {};
   };
 
   } // namespace Models

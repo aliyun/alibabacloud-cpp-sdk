@@ -32,25 +32,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->siteHost_ == nullptr
-        && return this->ticket_ == nullptr; };
+        && this->ticket_ == nullptr; };
     // siteHost Field Functions 
     bool hasSiteHost() const { return this->siteHost_ != nullptr;};
     void deleteSiteHost() { this->siteHost_ = nullptr;};
-    inline string siteHost() const { DARABONBA_PTR_GET_DEFAULT(siteHost_, "") };
+    inline string getSiteHost() const { DARABONBA_PTR_GET_DEFAULT(siteHost_, "") };
     inline GetUserAccessTokenForPartnerRequest& setSiteHost(string siteHost) { DARABONBA_PTR_SET_VALUE(siteHost_, siteHost) };
 
 
     // ticket Field Functions 
     bool hasTicket() const { return this->ticket_ != nullptr;};
     void deleteTicket() { this->ticket_ = nullptr;};
-    inline string ticket() const { DARABONBA_PTR_GET_DEFAULT(ticket_, "") };
+    inline string getTicket() const { DARABONBA_PTR_GET_DEFAULT(ticket_, "") };
     inline GetUserAccessTokenForPartnerRequest& setTicket(string ticket) { DARABONBA_PTR_SET_VALUE(ticket_, ticket) };
 
 
   protected:
-    std::shared_ptr<string> siteHost_ = nullptr;
+    shared_ptr<string> siteHost_ {};
     // This parameter is required.
-    std::shared_ptr<string> ticket_ = nullptr;
+    shared_ptr<string> ticket_ {};
   };
 
   } // namespace Models

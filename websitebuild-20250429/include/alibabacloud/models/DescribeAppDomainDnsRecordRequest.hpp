@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizId_ == nullptr
-        && return this->domainName_ == nullptr && return this->purpose_ == nullptr; };
+        && this->domainName_ == nullptr && this->purpose_ == nullptr; };
     // bizId Field Functions 
     bool hasBizId() const { return this->bizId_ != nullptr;};
     void deleteBizId() { this->bizId_ = nullptr;};
-    inline string bizId() const { DARABONBA_PTR_GET_DEFAULT(bizId_, "") };
+    inline string getBizId() const { DARABONBA_PTR_GET_DEFAULT(bizId_, "") };
     inline DescribeAppDomainDnsRecordRequest& setBizId(string bizId) { DARABONBA_PTR_SET_VALUE(bizId_, bizId) };
 
 
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
-    inline string domainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
+    inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline DescribeAppDomainDnsRecordRequest& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
 
 
     // purpose Field Functions 
     bool hasPurpose() const { return this->purpose_ != nullptr;};
     void deletePurpose() { this->purpose_ = nullptr;};
-    inline string purpose() const { DARABONBA_PTR_GET_DEFAULT(purpose_, "") };
+    inline string getPurpose() const { DARABONBA_PTR_GET_DEFAULT(purpose_, "") };
     inline DescribeAppDomainDnsRecordRequest& setPurpose(string purpose) { DARABONBA_PTR_SET_VALUE(purpose_, purpose) };
 
 
   protected:
-    std::shared_ptr<string> bizId_ = nullptr;
-    std::shared_ptr<string> domainName_ = nullptr;
-    std::shared_ptr<string> purpose_ = nullptr;
+    shared_ptr<string> bizId_ {};
+    shared_ptr<string> domainName_ {};
+    shared_ptr<string> purpose_ {};
   };
 
   } // namespace Models

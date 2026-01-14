@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->extend_ == nullptr
-        && return this->operateEvent_ == nullptr; };
+        && this->operateEvent_ == nullptr; };
     // extend Field Functions 
     bool hasExtend() const { return this->extend_ != nullptr;};
     void deleteExtend() { this->extend_ = nullptr;};
-    inline string extend() const { DARABONBA_PTR_GET_DEFAULT(extend_, "") };
+    inline string getExtend() const { DARABONBA_PTR_GET_DEFAULT(extend_, "") };
     inline OperateAppInstanceForPartnerRequest& setExtend(string extend) { DARABONBA_PTR_SET_VALUE(extend_, extend) };
 
 
     // operateEvent Field Functions 
     bool hasOperateEvent() const { return this->operateEvent_ != nullptr;};
     void deleteOperateEvent() { this->operateEvent_ = nullptr;};
-    inline string operateEvent() const { DARABONBA_PTR_GET_DEFAULT(operateEvent_, "") };
+    inline string getOperateEvent() const { DARABONBA_PTR_GET_DEFAULT(operateEvent_, "") };
     inline OperateAppInstanceForPartnerRequest& setOperateEvent(string operateEvent) { DARABONBA_PTR_SET_VALUE(operateEvent_, operateEvent) };
 
 
   protected:
-    std::shared_ptr<string> extend_ = nullptr;
-    std::shared_ptr<string> operateEvent_ = nullptr;
+    shared_ptr<string> extend_ {};
+    shared_ptr<string> operateEvent_ {};
   };
 
   } // namespace Models

@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_UNBINDAPPDOMAINRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/UnbindAppDomainResponseBodyModule.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -51,49 +50,80 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Module : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Module& obj) { 
+        DARABONBA_PTR_TO_JSON(Success, success_);
+      };
+      friend void from_json(const Darabonba::Json& j, Module& obj) { 
+        DARABONBA_PTR_FROM_JSON(Success, success_);
+      };
+      Module() = default ;
+      Module(const Module &) = default ;
+      Module(Module &&) = default ;
+      Module(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Module() = default ;
+      Module& operator=(const Module &) = default ;
+      Module& operator=(Module &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->success_ == nullptr; };
+      // success Field Functions 
+      bool hasSuccess() const { return this->success_ != nullptr;};
+      void deleteSuccess() { this->success_ = nullptr;};
+      inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+      inline Module& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
+
+
+    protected:
+      shared_ptr<bool> success_ {};
+    };
+
     virtual bool empty() const override { return this->accessDeniedDetail_ == nullptr
-        && return this->allowRetry_ == nullptr && return this->appName_ == nullptr && return this->dynamicCode_ == nullptr && return this->dynamicMessage_ == nullptr && return this->errorArgs_ == nullptr
-        && return this->module_ == nullptr && return this->requestId_ == nullptr && return this->rootErrorCode_ == nullptr && return this->rootErrorMsg_ == nullptr && return this->synchro_ == nullptr; };
+        && this->allowRetry_ == nullptr && this->appName_ == nullptr && this->dynamicCode_ == nullptr && this->dynamicMessage_ == nullptr && this->errorArgs_ == nullptr
+        && this->module_ == nullptr && this->requestId_ == nullptr && this->rootErrorCode_ == nullptr && this->rootErrorMsg_ == nullptr && this->synchro_ == nullptr; };
     // accessDeniedDetail Field Functions 
     bool hasAccessDeniedDetail() const { return this->accessDeniedDetail_ != nullptr;};
     void deleteAccessDeniedDetail() { this->accessDeniedDetail_ = nullptr;};
-    inline string accessDeniedDetail() const { DARABONBA_PTR_GET_DEFAULT(accessDeniedDetail_, "") };
+    inline string getAccessDeniedDetail() const { DARABONBA_PTR_GET_DEFAULT(accessDeniedDetail_, "") };
     inline UnbindAppDomainResponseBody& setAccessDeniedDetail(string accessDeniedDetail) { DARABONBA_PTR_SET_VALUE(accessDeniedDetail_, accessDeniedDetail) };
 
 
     // allowRetry Field Functions 
     bool hasAllowRetry() const { return this->allowRetry_ != nullptr;};
     void deleteAllowRetry() { this->allowRetry_ = nullptr;};
-    inline bool allowRetry() const { DARABONBA_PTR_GET_DEFAULT(allowRetry_, false) };
+    inline bool getAllowRetry() const { DARABONBA_PTR_GET_DEFAULT(allowRetry_, false) };
     inline UnbindAppDomainResponseBody& setAllowRetry(bool allowRetry) { DARABONBA_PTR_SET_VALUE(allowRetry_, allowRetry) };
 
 
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
-    inline string appName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
+    inline string getAppName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
     inline UnbindAppDomainResponseBody& setAppName(string appName) { DARABONBA_PTR_SET_VALUE(appName_, appName) };
 
 
     // dynamicCode Field Functions 
     bool hasDynamicCode() const { return this->dynamicCode_ != nullptr;};
     void deleteDynamicCode() { this->dynamicCode_ = nullptr;};
-    inline string dynamicCode() const { DARABONBA_PTR_GET_DEFAULT(dynamicCode_, "") };
+    inline string getDynamicCode() const { DARABONBA_PTR_GET_DEFAULT(dynamicCode_, "") };
     inline UnbindAppDomainResponseBody& setDynamicCode(string dynamicCode) { DARABONBA_PTR_SET_VALUE(dynamicCode_, dynamicCode) };
 
 
     // dynamicMessage Field Functions 
     bool hasDynamicMessage() const { return this->dynamicMessage_ != nullptr;};
     void deleteDynamicMessage() { this->dynamicMessage_ = nullptr;};
-    inline string dynamicMessage() const { DARABONBA_PTR_GET_DEFAULT(dynamicMessage_, "") };
+    inline string getDynamicMessage() const { DARABONBA_PTR_GET_DEFAULT(dynamicMessage_, "") };
     inline UnbindAppDomainResponseBody& setDynamicMessage(string dynamicMessage) { DARABONBA_PTR_SET_VALUE(dynamicMessage_, dynamicMessage) };
 
 
     // errorArgs Field Functions 
     bool hasErrorArgs() const { return this->errorArgs_ != nullptr;};
     void deleteErrorArgs() { this->errorArgs_ = nullptr;};
-    inline const vector<Darabonba::Json> & errorArgs() const { DARABONBA_PTR_GET_CONST(errorArgs_, vector<Darabonba::Json>) };
-    inline vector<Darabonba::Json> errorArgs() { DARABONBA_PTR_GET(errorArgs_, vector<Darabonba::Json>) };
+    inline const vector<Darabonba::Json> & getErrorArgs() const { DARABONBA_PTR_GET_CONST(errorArgs_, vector<Darabonba::Json>) };
+    inline vector<Darabonba::Json> getErrorArgs() { DARABONBA_PTR_GET(errorArgs_, vector<Darabonba::Json>) };
     inline UnbindAppDomainResponseBody& setErrorArgs(const vector<Darabonba::Json> & errorArgs) { DARABONBA_PTR_SET_VALUE(errorArgs_, errorArgs) };
     inline UnbindAppDomainResponseBody& setErrorArgs(vector<Darabonba::Json> && errorArgs) { DARABONBA_PTR_SET_RVALUE(errorArgs_, errorArgs) };
 
@@ -101,53 +131,53 @@ namespace Models
     // module Field Functions 
     bool hasModule() const { return this->module_ != nullptr;};
     void deleteModule() { this->module_ = nullptr;};
-    inline const UnbindAppDomainResponseBodyModule & module() const { DARABONBA_PTR_GET_CONST(module_, UnbindAppDomainResponseBodyModule) };
-    inline UnbindAppDomainResponseBodyModule module() { DARABONBA_PTR_GET(module_, UnbindAppDomainResponseBodyModule) };
-    inline UnbindAppDomainResponseBody& setModule(const UnbindAppDomainResponseBodyModule & module) { DARABONBA_PTR_SET_VALUE(module_, module) };
-    inline UnbindAppDomainResponseBody& setModule(UnbindAppDomainResponseBodyModule && module) { DARABONBA_PTR_SET_RVALUE(module_, module) };
+    inline const UnbindAppDomainResponseBody::Module & getModule() const { DARABONBA_PTR_GET_CONST(module_, UnbindAppDomainResponseBody::Module) };
+    inline UnbindAppDomainResponseBody::Module getModule() { DARABONBA_PTR_GET(module_, UnbindAppDomainResponseBody::Module) };
+    inline UnbindAppDomainResponseBody& setModule(const UnbindAppDomainResponseBody::Module & module) { DARABONBA_PTR_SET_VALUE(module_, module) };
+    inline UnbindAppDomainResponseBody& setModule(UnbindAppDomainResponseBody::Module && module) { DARABONBA_PTR_SET_RVALUE(module_, module) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline UnbindAppDomainResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // rootErrorCode Field Functions 
     bool hasRootErrorCode() const { return this->rootErrorCode_ != nullptr;};
     void deleteRootErrorCode() { this->rootErrorCode_ = nullptr;};
-    inline string rootErrorCode() const { DARABONBA_PTR_GET_DEFAULT(rootErrorCode_, "") };
+    inline string getRootErrorCode() const { DARABONBA_PTR_GET_DEFAULT(rootErrorCode_, "") };
     inline UnbindAppDomainResponseBody& setRootErrorCode(string rootErrorCode) { DARABONBA_PTR_SET_VALUE(rootErrorCode_, rootErrorCode) };
 
 
     // rootErrorMsg Field Functions 
     bool hasRootErrorMsg() const { return this->rootErrorMsg_ != nullptr;};
     void deleteRootErrorMsg() { this->rootErrorMsg_ = nullptr;};
-    inline string rootErrorMsg() const { DARABONBA_PTR_GET_DEFAULT(rootErrorMsg_, "") };
+    inline string getRootErrorMsg() const { DARABONBA_PTR_GET_DEFAULT(rootErrorMsg_, "") };
     inline UnbindAppDomainResponseBody& setRootErrorMsg(string rootErrorMsg) { DARABONBA_PTR_SET_VALUE(rootErrorMsg_, rootErrorMsg) };
 
 
     // synchro Field Functions 
     bool hasSynchro() const { return this->synchro_ != nullptr;};
     void deleteSynchro() { this->synchro_ = nullptr;};
-    inline bool synchro() const { DARABONBA_PTR_GET_DEFAULT(synchro_, false) };
+    inline bool getSynchro() const { DARABONBA_PTR_GET_DEFAULT(synchro_, false) };
     inline UnbindAppDomainResponseBody& setSynchro(bool synchro) { DARABONBA_PTR_SET_VALUE(synchro_, synchro) };
 
 
   protected:
-    std::shared_ptr<string> accessDeniedDetail_ = nullptr;
-    std::shared_ptr<bool> allowRetry_ = nullptr;
-    std::shared_ptr<string> appName_ = nullptr;
-    std::shared_ptr<string> dynamicCode_ = nullptr;
-    std::shared_ptr<string> dynamicMessage_ = nullptr;
-    std::shared_ptr<vector<Darabonba::Json>> errorArgs_ = nullptr;
-    std::shared_ptr<UnbindAppDomainResponseBodyModule> module_ = nullptr;
+    shared_ptr<string> accessDeniedDetail_ {};
+    shared_ptr<bool> allowRetry_ {};
+    shared_ptr<string> appName_ {};
+    shared_ptr<string> dynamicCode_ {};
+    shared_ptr<string> dynamicMessage_ {};
+    shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
+    shared_ptr<UnbindAppDomainResponseBody::Module> module_ {};
     // Id of the request
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> rootErrorCode_ = nullptr;
-    std::shared_ptr<string> rootErrorMsg_ = nullptr;
-    std::shared_ptr<bool> synchro_ = nullptr;
+    shared_ptr<string> requestId_ {};
+    shared_ptr<string> rootErrorCode_ {};
+    shared_ptr<string> rootErrorMsg_ {};
+    shared_ptr<bool> synchro_ {};
   };
 
   } // namespace Models

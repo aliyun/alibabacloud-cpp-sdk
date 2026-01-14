@@ -40,56 +40,56 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizId_ == nullptr
-        && return this->certificateName_ == nullptr && return this->certificateType_ == nullptr && return this->domainName_ == nullptr && return this->privateKey_ == nullptr && return this->publicKey_ == nullptr; };
+        && this->certificateName_ == nullptr && this->certificateType_ == nullptr && this->domainName_ == nullptr && this->privateKey_ == nullptr && this->publicKey_ == nullptr; };
     // bizId Field Functions 
     bool hasBizId() const { return this->bizId_ != nullptr;};
     void deleteBizId() { this->bizId_ = nullptr;};
-    inline string bizId() const { DARABONBA_PTR_GET_DEFAULT(bizId_, "") };
+    inline string getBizId() const { DARABONBA_PTR_GET_DEFAULT(bizId_, "") };
     inline SetAppDomainCertificateRequest& setBizId(string bizId) { DARABONBA_PTR_SET_VALUE(bizId_, bizId) };
 
 
     // certificateName Field Functions 
     bool hasCertificateName() const { return this->certificateName_ != nullptr;};
     void deleteCertificateName() { this->certificateName_ = nullptr;};
-    inline string certificateName() const { DARABONBA_PTR_GET_DEFAULT(certificateName_, "") };
+    inline string getCertificateName() const { DARABONBA_PTR_GET_DEFAULT(certificateName_, "") };
     inline SetAppDomainCertificateRequest& setCertificateName(string certificateName) { DARABONBA_PTR_SET_VALUE(certificateName_, certificateName) };
 
 
     // certificateType Field Functions 
     bool hasCertificateType() const { return this->certificateType_ != nullptr;};
     void deleteCertificateType() { this->certificateType_ = nullptr;};
-    inline string certificateType() const { DARABONBA_PTR_GET_DEFAULT(certificateType_, "") };
+    inline string getCertificateType() const { DARABONBA_PTR_GET_DEFAULT(certificateType_, "") };
     inline SetAppDomainCertificateRequest& setCertificateType(string certificateType) { DARABONBA_PTR_SET_VALUE(certificateType_, certificateType) };
 
 
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
-    inline string domainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
+    inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline SetAppDomainCertificateRequest& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
 
 
     // privateKey Field Functions 
     bool hasPrivateKey() const { return this->privateKey_ != nullptr;};
     void deletePrivateKey() { this->privateKey_ = nullptr;};
-    inline string privateKey() const { DARABONBA_PTR_GET_DEFAULT(privateKey_, "") };
+    inline string getPrivateKey() const { DARABONBA_PTR_GET_DEFAULT(privateKey_, "") };
     inline SetAppDomainCertificateRequest& setPrivateKey(string privateKey) { DARABONBA_PTR_SET_VALUE(privateKey_, privateKey) };
 
 
     // publicKey Field Functions 
     bool hasPublicKey() const { return this->publicKey_ != nullptr;};
     void deletePublicKey() { this->publicKey_ = nullptr;};
-    inline string publicKey() const { DARABONBA_PTR_GET_DEFAULT(publicKey_, "") };
+    inline string getPublicKey() const { DARABONBA_PTR_GET_DEFAULT(publicKey_, "") };
     inline SetAppDomainCertificateRequest& setPublicKey(string publicKey) { DARABONBA_PTR_SET_VALUE(publicKey_, publicKey) };
 
 
   protected:
-    std::shared_ptr<string> bizId_ = nullptr;
-    std::shared_ptr<string> certificateName_ = nullptr;
-    std::shared_ptr<string> certificateType_ = nullptr;
-    std::shared_ptr<string> domainName_ = nullptr;
-    std::shared_ptr<string> privateKey_ = nullptr;
-    std::shared_ptr<string> publicKey_ = nullptr;
+    shared_ptr<string> bizId_ {};
+    shared_ptr<string> certificateName_ {};
+    shared_ptr<string> certificateType_ {};
+    shared_ptr<string> domainName_ {};
+    shared_ptr<string> privateKey_ {};
+    shared_ptr<string> publicKey_ {};
   };
 
   } // namespace Models

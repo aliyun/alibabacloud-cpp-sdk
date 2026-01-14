@@ -36,41 +36,41 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->name_ == nullptr
-        && return this->qrCode_ == nullptr && return this->type_ == nullptr && return this->url_ == nullptr; };
+        && this->qrCode_ == nullptr && this->type_ == nullptr && this->url_ == nullptr; };
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline AppServiceGroup& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // qrCode Field Functions 
     bool hasQrCode() const { return this->qrCode_ != nullptr;};
     void deleteQrCode() { this->qrCode_ = nullptr;};
-    inline string qrCode() const { DARABONBA_PTR_GET_DEFAULT(qrCode_, "") };
+    inline string getQrCode() const { DARABONBA_PTR_GET_DEFAULT(qrCode_, "") };
     inline AppServiceGroup& setQrCode(string qrCode) { DARABONBA_PTR_SET_VALUE(qrCode_, qrCode) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline AppServiceGroup& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
     // url Field Functions 
     bool hasUrl() const { return this->url_ != nullptr;};
     void deleteUrl() { this->url_ = nullptr;};
-    inline string url() const { DARABONBA_PTR_GET_DEFAULT(url_, "") };
+    inline string getUrl() const { DARABONBA_PTR_GET_DEFAULT(url_, "") };
     inline AppServiceGroup& setUrl(string url) { DARABONBA_PTR_SET_VALUE(url_, url) };
 
 
   protected:
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> qrCode_ = nullptr;
+    shared_ptr<string> name_ {};
+    shared_ptr<string> qrCode_ {};
     // 例如：dingtalk、wx 等
-    std::shared_ptr<string> type_ = nullptr;
-    std::shared_ptr<string> url_ = nullptr;
+    shared_ptr<string> type_ {};
+    shared_ptr<string> url_ {};
   };
 
   } // namespace Models

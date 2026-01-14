@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->actionKey_ == nullptr
-        && return this->actionText_ == nullptr && return this->enable_ == nullptr && return this->href_ == nullptr; };
+        && this->actionText_ == nullptr && this->enable_ == nullptr && this->href_ == nullptr; };
     // actionKey Field Functions 
     bool hasActionKey() const { return this->actionKey_ != nullptr;};
     void deleteActionKey() { this->actionKey_ = nullptr;};
-    inline string actionKey() const { DARABONBA_PTR_GET_DEFAULT(actionKey_, "") };
+    inline string getActionKey() const { DARABONBA_PTR_GET_DEFAULT(actionKey_, "") };
     inline AppOperateAction& setActionKey(string actionKey) { DARABONBA_PTR_SET_VALUE(actionKey_, actionKey) };
 
 
     // actionText Field Functions 
     bool hasActionText() const { return this->actionText_ != nullptr;};
     void deleteActionText() { this->actionText_ = nullptr;};
-    inline string actionText() const { DARABONBA_PTR_GET_DEFAULT(actionText_, "") };
+    inline string getActionText() const { DARABONBA_PTR_GET_DEFAULT(actionText_, "") };
     inline AppOperateAction& setActionText(string actionText) { DARABONBA_PTR_SET_VALUE(actionText_, actionText) };
 
 
     // enable Field Functions 
     bool hasEnable() const { return this->enable_ != nullptr;};
     void deleteEnable() { this->enable_ = nullptr;};
-    inline bool enable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
+    inline bool getEnable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
     inline AppOperateAction& setEnable(bool enable) { DARABONBA_PTR_SET_VALUE(enable_, enable) };
 
 
     // href Field Functions 
     bool hasHref() const { return this->href_ != nullptr;};
     void deleteHref() { this->href_ = nullptr;};
-    inline string href() const { DARABONBA_PTR_GET_DEFAULT(href_, "") };
+    inline string getHref() const { DARABONBA_PTR_GET_DEFAULT(href_, "") };
     inline AppOperateAction& setHref(string href) { DARABONBA_PTR_SET_VALUE(href_, href) };
 
 
   protected:
     // 用于唯一标识一个操作行为
-    std::shared_ptr<string> actionKey_ = nullptr;
+    shared_ptr<string> actionKey_ {};
     // 用于在界面中展示操作名称
-    std::shared_ptr<string> actionText_ = nullptr;
+    shared_ptr<string> actionText_ {};
     // 标识该操作是否可用
-    std::shared_ptr<bool> enable_ = nullptr;
+    shared_ptr<bool> enable_ {};
     // 点击操作时跳转的URL地址
-    std::shared_ptr<string> href_ = nullptr;
+    shared_ptr<string> href_ {};
   };
 
   } // namespace Models

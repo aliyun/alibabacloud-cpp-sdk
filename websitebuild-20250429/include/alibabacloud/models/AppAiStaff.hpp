@@ -36,41 +36,41 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->staffId_ == nullptr
-        && return this->staffName_ == nullptr && return this->staffType_ == nullptr && return this->status_ == nullptr; };
+        && this->staffName_ == nullptr && this->staffType_ == nullptr && this->status_ == nullptr; };
     // staffId Field Functions 
     bool hasStaffId() const { return this->staffId_ != nullptr;};
     void deleteStaffId() { this->staffId_ = nullptr;};
-    inline string staffId() const { DARABONBA_PTR_GET_DEFAULT(staffId_, "") };
+    inline string getStaffId() const { DARABONBA_PTR_GET_DEFAULT(staffId_, "") };
     inline AppAiStaff& setStaffId(string staffId) { DARABONBA_PTR_SET_VALUE(staffId_, staffId) };
 
 
     // staffName Field Functions 
     bool hasStaffName() const { return this->staffName_ != nullptr;};
     void deleteStaffName() { this->staffName_ = nullptr;};
-    inline string staffName() const { DARABONBA_PTR_GET_DEFAULT(staffName_, "") };
+    inline string getStaffName() const { DARABONBA_PTR_GET_DEFAULT(staffName_, "") };
     inline AppAiStaff& setStaffName(string staffName) { DARABONBA_PTR_SET_VALUE(staffName_, staffName) };
 
 
     // staffType Field Functions 
     bool hasStaffType() const { return this->staffType_ != nullptr;};
     void deleteStaffType() { this->staffType_ = nullptr;};
-    inline string staffType() const { DARABONBA_PTR_GET_DEFAULT(staffType_, "") };
+    inline string getStaffType() const { DARABONBA_PTR_GET_DEFAULT(staffType_, "") };
     inline AppAiStaff& setStaffType(string staffType) { DARABONBA_PTR_SET_VALUE(staffType_, staffType) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline AppAiStaff& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
   protected:
-    std::shared_ptr<string> staffId_ = nullptr;
-    std::shared_ptr<string> staffName_ = nullptr;
-    std::shared_ptr<string> staffType_ = nullptr;
+    shared_ptr<string> staffId_ {};
+    shared_ptr<string> staffName_ {};
+    shared_ptr<string> staffType_ {};
     // 可能的值：unknown, init, testing, online
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models

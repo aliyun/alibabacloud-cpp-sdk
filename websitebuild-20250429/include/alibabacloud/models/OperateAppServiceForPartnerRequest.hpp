@@ -36,40 +36,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizId_ == nullptr
-        && return this->extend_ == nullptr && return this->operateEvent_ == nullptr && return this->serviceType_ == nullptr; };
+        && this->extend_ == nullptr && this->operateEvent_ == nullptr && this->serviceType_ == nullptr; };
     // bizId Field Functions 
     bool hasBizId() const { return this->bizId_ != nullptr;};
     void deleteBizId() { this->bizId_ = nullptr;};
-    inline string bizId() const { DARABONBA_PTR_GET_DEFAULT(bizId_, "") };
+    inline string getBizId() const { DARABONBA_PTR_GET_DEFAULT(bizId_, "") };
     inline OperateAppServiceForPartnerRequest& setBizId(string bizId) { DARABONBA_PTR_SET_VALUE(bizId_, bizId) };
 
 
     // extend Field Functions 
     bool hasExtend() const { return this->extend_ != nullptr;};
     void deleteExtend() { this->extend_ = nullptr;};
-    inline string extend() const { DARABONBA_PTR_GET_DEFAULT(extend_, "") };
+    inline string getExtend() const { DARABONBA_PTR_GET_DEFAULT(extend_, "") };
     inline OperateAppServiceForPartnerRequest& setExtend(string extend) { DARABONBA_PTR_SET_VALUE(extend_, extend) };
 
 
     // operateEvent Field Functions 
     bool hasOperateEvent() const { return this->operateEvent_ != nullptr;};
     void deleteOperateEvent() { this->operateEvent_ = nullptr;};
-    inline string operateEvent() const { DARABONBA_PTR_GET_DEFAULT(operateEvent_, "") };
+    inline string getOperateEvent() const { DARABONBA_PTR_GET_DEFAULT(operateEvent_, "") };
     inline OperateAppServiceForPartnerRequest& setOperateEvent(string operateEvent) { DARABONBA_PTR_SET_VALUE(operateEvent_, operateEvent) };
 
 
     // serviceType Field Functions 
     bool hasServiceType() const { return this->serviceType_ != nullptr;};
     void deleteServiceType() { this->serviceType_ = nullptr;};
-    inline string serviceType() const { DARABONBA_PTR_GET_DEFAULT(serviceType_, "") };
+    inline string getServiceType() const { DARABONBA_PTR_GET_DEFAULT(serviceType_, "") };
     inline OperateAppServiceForPartnerRequest& setServiceType(string serviceType) { DARABONBA_PTR_SET_VALUE(serviceType_, serviceType) };
 
 
   protected:
-    std::shared_ptr<string> bizId_ = nullptr;
-    std::shared_ptr<string> extend_ = nullptr;
-    std::shared_ptr<string> operateEvent_ = nullptr;
-    std::shared_ptr<string> serviceType_ = nullptr;
+    shared_ptr<string> bizId_ {};
+    shared_ptr<string> extend_ {};
+    shared_ptr<string> operateEvent_ {};
+    shared_ptr<string> serviceType_ {};
   };
 
   } // namespace Models

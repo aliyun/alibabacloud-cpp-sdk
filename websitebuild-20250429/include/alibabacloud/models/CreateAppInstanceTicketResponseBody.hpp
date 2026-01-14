@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_CREATEAPPINSTANCETICKETRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/CreateAppInstanceTicketResponseBodyModule.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -51,49 +50,194 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Module : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Module& obj) { 
+        DARABONBA_PTR_TO_JSON(AccessTokenExpiresAt, accessTokenExpiresAt_);
+        DARABONBA_PTR_TO_JSON(AccessTokenIssuedAt, accessTokenIssuedAt_);
+        DARABONBA_PTR_TO_JSON(AccessTokenValue, accessTokenValue_);
+        DARABONBA_PTR_TO_JSON(AliyunPk, aliyunPk_);
+        DARABONBA_PTR_TO_JSON(Attributes, attributes_);
+        DARABONBA_PTR_TO_JSON(AuthorizationGrantType, authorizationGrantType_);
+        DARABONBA_PTR_TO_JSON(Bid, bid_);
+        DARABONBA_PTR_TO_JSON(ParentPk, parentPk_);
+        DARABONBA_PTR_TO_JSON(RefreshTokenExpiresAt, refreshTokenExpiresAt_);
+        DARABONBA_PTR_TO_JSON(RefreshTokenIssuedAt, refreshTokenIssuedAt_);
+        DARABONBA_PTR_TO_JSON(RefreshTokenValue, refreshTokenValue_);
+        DARABONBA_PTR_TO_JSON(Uuid, uuid_);
+      };
+      friend void from_json(const Darabonba::Json& j, Module& obj) { 
+        DARABONBA_PTR_FROM_JSON(AccessTokenExpiresAt, accessTokenExpiresAt_);
+        DARABONBA_PTR_FROM_JSON(AccessTokenIssuedAt, accessTokenIssuedAt_);
+        DARABONBA_PTR_FROM_JSON(AccessTokenValue, accessTokenValue_);
+        DARABONBA_PTR_FROM_JSON(AliyunPk, aliyunPk_);
+        DARABONBA_PTR_FROM_JSON(Attributes, attributes_);
+        DARABONBA_PTR_FROM_JSON(AuthorizationGrantType, authorizationGrantType_);
+        DARABONBA_PTR_FROM_JSON(Bid, bid_);
+        DARABONBA_PTR_FROM_JSON(ParentPk, parentPk_);
+        DARABONBA_PTR_FROM_JSON(RefreshTokenExpiresAt, refreshTokenExpiresAt_);
+        DARABONBA_PTR_FROM_JSON(RefreshTokenIssuedAt, refreshTokenIssuedAt_);
+        DARABONBA_PTR_FROM_JSON(RefreshTokenValue, refreshTokenValue_);
+        DARABONBA_PTR_FROM_JSON(Uuid, uuid_);
+      };
+      Module() = default ;
+      Module(const Module &) = default ;
+      Module(Module &&) = default ;
+      Module(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Module() = default ;
+      Module& operator=(const Module &) = default ;
+      Module& operator=(Module &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->accessTokenExpiresAt_ == nullptr
+        && this->accessTokenIssuedAt_ == nullptr && this->accessTokenValue_ == nullptr && this->aliyunPk_ == nullptr && this->attributes_ == nullptr && this->authorizationGrantType_ == nullptr
+        && this->bid_ == nullptr && this->parentPk_ == nullptr && this->refreshTokenExpiresAt_ == nullptr && this->refreshTokenIssuedAt_ == nullptr && this->refreshTokenValue_ == nullptr
+        && this->uuid_ == nullptr; };
+      // accessTokenExpiresAt Field Functions 
+      bool hasAccessTokenExpiresAt() const { return this->accessTokenExpiresAt_ != nullptr;};
+      void deleteAccessTokenExpiresAt() { this->accessTokenExpiresAt_ = nullptr;};
+      inline string getAccessTokenExpiresAt() const { DARABONBA_PTR_GET_DEFAULT(accessTokenExpiresAt_, "") };
+      inline Module& setAccessTokenExpiresAt(string accessTokenExpiresAt) { DARABONBA_PTR_SET_VALUE(accessTokenExpiresAt_, accessTokenExpiresAt) };
+
+
+      // accessTokenIssuedAt Field Functions 
+      bool hasAccessTokenIssuedAt() const { return this->accessTokenIssuedAt_ != nullptr;};
+      void deleteAccessTokenIssuedAt() { this->accessTokenIssuedAt_ = nullptr;};
+      inline string getAccessTokenIssuedAt() const { DARABONBA_PTR_GET_DEFAULT(accessTokenIssuedAt_, "") };
+      inline Module& setAccessTokenIssuedAt(string accessTokenIssuedAt) { DARABONBA_PTR_SET_VALUE(accessTokenIssuedAt_, accessTokenIssuedAt) };
+
+
+      // accessTokenValue Field Functions 
+      bool hasAccessTokenValue() const { return this->accessTokenValue_ != nullptr;};
+      void deleteAccessTokenValue() { this->accessTokenValue_ = nullptr;};
+      inline string getAccessTokenValue() const { DARABONBA_PTR_GET_DEFAULT(accessTokenValue_, "") };
+      inline Module& setAccessTokenValue(string accessTokenValue) { DARABONBA_PTR_SET_VALUE(accessTokenValue_, accessTokenValue) };
+
+
+      // aliyunPk Field Functions 
+      bool hasAliyunPk() const { return this->aliyunPk_ != nullptr;};
+      void deleteAliyunPk() { this->aliyunPk_ = nullptr;};
+      inline string getAliyunPk() const { DARABONBA_PTR_GET_DEFAULT(aliyunPk_, "") };
+      inline Module& setAliyunPk(string aliyunPk) { DARABONBA_PTR_SET_VALUE(aliyunPk_, aliyunPk) };
+
+
+      // attributes Field Functions 
+      bool hasAttributes() const { return this->attributes_ != nullptr;};
+      void deleteAttributes() { this->attributes_ = nullptr;};
+      inline string getAttributes() const { DARABONBA_PTR_GET_DEFAULT(attributes_, "") };
+      inline Module& setAttributes(string attributes) { DARABONBA_PTR_SET_VALUE(attributes_, attributes) };
+
+
+      // authorizationGrantType Field Functions 
+      bool hasAuthorizationGrantType() const { return this->authorizationGrantType_ != nullptr;};
+      void deleteAuthorizationGrantType() { this->authorizationGrantType_ = nullptr;};
+      inline string getAuthorizationGrantType() const { DARABONBA_PTR_GET_DEFAULT(authorizationGrantType_, "") };
+      inline Module& setAuthorizationGrantType(string authorizationGrantType) { DARABONBA_PTR_SET_VALUE(authorizationGrantType_, authorizationGrantType) };
+
+
+      // bid Field Functions 
+      bool hasBid() const { return this->bid_ != nullptr;};
+      void deleteBid() { this->bid_ = nullptr;};
+      inline string getBid() const { DARABONBA_PTR_GET_DEFAULT(bid_, "") };
+      inline Module& setBid(string bid) { DARABONBA_PTR_SET_VALUE(bid_, bid) };
+
+
+      // parentPk Field Functions 
+      bool hasParentPk() const { return this->parentPk_ != nullptr;};
+      void deleteParentPk() { this->parentPk_ = nullptr;};
+      inline string getParentPk() const { DARABONBA_PTR_GET_DEFAULT(parentPk_, "") };
+      inline Module& setParentPk(string parentPk) { DARABONBA_PTR_SET_VALUE(parentPk_, parentPk) };
+
+
+      // refreshTokenExpiresAt Field Functions 
+      bool hasRefreshTokenExpiresAt() const { return this->refreshTokenExpiresAt_ != nullptr;};
+      void deleteRefreshTokenExpiresAt() { this->refreshTokenExpiresAt_ = nullptr;};
+      inline string getRefreshTokenExpiresAt() const { DARABONBA_PTR_GET_DEFAULT(refreshTokenExpiresAt_, "") };
+      inline Module& setRefreshTokenExpiresAt(string refreshTokenExpiresAt) { DARABONBA_PTR_SET_VALUE(refreshTokenExpiresAt_, refreshTokenExpiresAt) };
+
+
+      // refreshTokenIssuedAt Field Functions 
+      bool hasRefreshTokenIssuedAt() const { return this->refreshTokenIssuedAt_ != nullptr;};
+      void deleteRefreshTokenIssuedAt() { this->refreshTokenIssuedAt_ = nullptr;};
+      inline string getRefreshTokenIssuedAt() const { DARABONBA_PTR_GET_DEFAULT(refreshTokenIssuedAt_, "") };
+      inline Module& setRefreshTokenIssuedAt(string refreshTokenIssuedAt) { DARABONBA_PTR_SET_VALUE(refreshTokenIssuedAt_, refreshTokenIssuedAt) };
+
+
+      // refreshTokenValue Field Functions 
+      bool hasRefreshTokenValue() const { return this->refreshTokenValue_ != nullptr;};
+      void deleteRefreshTokenValue() { this->refreshTokenValue_ = nullptr;};
+      inline string getRefreshTokenValue() const { DARABONBA_PTR_GET_DEFAULT(refreshTokenValue_, "") };
+      inline Module& setRefreshTokenValue(string refreshTokenValue) { DARABONBA_PTR_SET_VALUE(refreshTokenValue_, refreshTokenValue) };
+
+
+      // uuid Field Functions 
+      bool hasUuid() const { return this->uuid_ != nullptr;};
+      void deleteUuid() { this->uuid_ = nullptr;};
+      inline string getUuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
+      inline Module& setUuid(string uuid) { DARABONBA_PTR_SET_VALUE(uuid_, uuid) };
+
+
+    protected:
+      shared_ptr<string> accessTokenExpiresAt_ {};
+      shared_ptr<string> accessTokenIssuedAt_ {};
+      shared_ptr<string> accessTokenValue_ {};
+      shared_ptr<string> aliyunPk_ {};
+      shared_ptr<string> attributes_ {};
+      shared_ptr<string> authorizationGrantType_ {};
+      // bid
+      shared_ptr<string> bid_ {};
+      shared_ptr<string> parentPk_ {};
+      shared_ptr<string> refreshTokenExpiresAt_ {};
+      shared_ptr<string> refreshTokenIssuedAt_ {};
+      shared_ptr<string> refreshTokenValue_ {};
+      shared_ptr<string> uuid_ {};
+    };
+
     virtual bool empty() const override { return this->accessDeniedDetail_ == nullptr
-        && return this->allowRetry_ == nullptr && return this->appName_ == nullptr && return this->dynamicCode_ == nullptr && return this->dynamicMessage_ == nullptr && return this->errorArgs_ == nullptr
-        && return this->module_ == nullptr && return this->requestId_ == nullptr && return this->rootErrorCode_ == nullptr && return this->rootErrorMsg_ == nullptr && return this->synchro_ == nullptr; };
+        && this->allowRetry_ == nullptr && this->appName_ == nullptr && this->dynamicCode_ == nullptr && this->dynamicMessage_ == nullptr && this->errorArgs_ == nullptr
+        && this->module_ == nullptr && this->requestId_ == nullptr && this->rootErrorCode_ == nullptr && this->rootErrorMsg_ == nullptr && this->synchro_ == nullptr; };
     // accessDeniedDetail Field Functions 
     bool hasAccessDeniedDetail() const { return this->accessDeniedDetail_ != nullptr;};
     void deleteAccessDeniedDetail() { this->accessDeniedDetail_ = nullptr;};
-    inline string accessDeniedDetail() const { DARABONBA_PTR_GET_DEFAULT(accessDeniedDetail_, "") };
+    inline string getAccessDeniedDetail() const { DARABONBA_PTR_GET_DEFAULT(accessDeniedDetail_, "") };
     inline CreateAppInstanceTicketResponseBody& setAccessDeniedDetail(string accessDeniedDetail) { DARABONBA_PTR_SET_VALUE(accessDeniedDetail_, accessDeniedDetail) };
 
 
     // allowRetry Field Functions 
     bool hasAllowRetry() const { return this->allowRetry_ != nullptr;};
     void deleteAllowRetry() { this->allowRetry_ = nullptr;};
-    inline bool allowRetry() const { DARABONBA_PTR_GET_DEFAULT(allowRetry_, false) };
+    inline bool getAllowRetry() const { DARABONBA_PTR_GET_DEFAULT(allowRetry_, false) };
     inline CreateAppInstanceTicketResponseBody& setAllowRetry(bool allowRetry) { DARABONBA_PTR_SET_VALUE(allowRetry_, allowRetry) };
 
 
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
-    inline string appName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
+    inline string getAppName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
     inline CreateAppInstanceTicketResponseBody& setAppName(string appName) { DARABONBA_PTR_SET_VALUE(appName_, appName) };
 
 
     // dynamicCode Field Functions 
     bool hasDynamicCode() const { return this->dynamicCode_ != nullptr;};
     void deleteDynamicCode() { this->dynamicCode_ = nullptr;};
-    inline string dynamicCode() const { DARABONBA_PTR_GET_DEFAULT(dynamicCode_, "") };
+    inline string getDynamicCode() const { DARABONBA_PTR_GET_DEFAULT(dynamicCode_, "") };
     inline CreateAppInstanceTicketResponseBody& setDynamicCode(string dynamicCode) { DARABONBA_PTR_SET_VALUE(dynamicCode_, dynamicCode) };
 
 
     // dynamicMessage Field Functions 
     bool hasDynamicMessage() const { return this->dynamicMessage_ != nullptr;};
     void deleteDynamicMessage() { this->dynamicMessage_ = nullptr;};
-    inline string dynamicMessage() const { DARABONBA_PTR_GET_DEFAULT(dynamicMessage_, "") };
+    inline string getDynamicMessage() const { DARABONBA_PTR_GET_DEFAULT(dynamicMessage_, "") };
     inline CreateAppInstanceTicketResponseBody& setDynamicMessage(string dynamicMessage) { DARABONBA_PTR_SET_VALUE(dynamicMessage_, dynamicMessage) };
 
 
     // errorArgs Field Functions 
     bool hasErrorArgs() const { return this->errorArgs_ != nullptr;};
     void deleteErrorArgs() { this->errorArgs_ = nullptr;};
-    inline const vector<Darabonba::Json> & errorArgs() const { DARABONBA_PTR_GET_CONST(errorArgs_, vector<Darabonba::Json>) };
-    inline vector<Darabonba::Json> errorArgs() { DARABONBA_PTR_GET(errorArgs_, vector<Darabonba::Json>) };
+    inline const vector<Darabonba::Json> & getErrorArgs() const { DARABONBA_PTR_GET_CONST(errorArgs_, vector<Darabonba::Json>) };
+    inline vector<Darabonba::Json> getErrorArgs() { DARABONBA_PTR_GET(errorArgs_, vector<Darabonba::Json>) };
     inline CreateAppInstanceTicketResponseBody& setErrorArgs(const vector<Darabonba::Json> & errorArgs) { DARABONBA_PTR_SET_VALUE(errorArgs_, errorArgs) };
     inline CreateAppInstanceTicketResponseBody& setErrorArgs(vector<Darabonba::Json> && errorArgs) { DARABONBA_PTR_SET_RVALUE(errorArgs_, errorArgs) };
 
@@ -101,53 +245,53 @@ namespace Models
     // module Field Functions 
     bool hasModule() const { return this->module_ != nullptr;};
     void deleteModule() { this->module_ = nullptr;};
-    inline const CreateAppInstanceTicketResponseBodyModule & module() const { DARABONBA_PTR_GET_CONST(module_, CreateAppInstanceTicketResponseBodyModule) };
-    inline CreateAppInstanceTicketResponseBodyModule module() { DARABONBA_PTR_GET(module_, CreateAppInstanceTicketResponseBodyModule) };
-    inline CreateAppInstanceTicketResponseBody& setModule(const CreateAppInstanceTicketResponseBodyModule & module) { DARABONBA_PTR_SET_VALUE(module_, module) };
-    inline CreateAppInstanceTicketResponseBody& setModule(CreateAppInstanceTicketResponseBodyModule && module) { DARABONBA_PTR_SET_RVALUE(module_, module) };
+    inline const CreateAppInstanceTicketResponseBody::Module & getModule() const { DARABONBA_PTR_GET_CONST(module_, CreateAppInstanceTicketResponseBody::Module) };
+    inline CreateAppInstanceTicketResponseBody::Module getModule() { DARABONBA_PTR_GET(module_, CreateAppInstanceTicketResponseBody::Module) };
+    inline CreateAppInstanceTicketResponseBody& setModule(const CreateAppInstanceTicketResponseBody::Module & module) { DARABONBA_PTR_SET_VALUE(module_, module) };
+    inline CreateAppInstanceTicketResponseBody& setModule(CreateAppInstanceTicketResponseBody::Module && module) { DARABONBA_PTR_SET_RVALUE(module_, module) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateAppInstanceTicketResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // rootErrorCode Field Functions 
     bool hasRootErrorCode() const { return this->rootErrorCode_ != nullptr;};
     void deleteRootErrorCode() { this->rootErrorCode_ = nullptr;};
-    inline string rootErrorCode() const { DARABONBA_PTR_GET_DEFAULT(rootErrorCode_, "") };
+    inline string getRootErrorCode() const { DARABONBA_PTR_GET_DEFAULT(rootErrorCode_, "") };
     inline CreateAppInstanceTicketResponseBody& setRootErrorCode(string rootErrorCode) { DARABONBA_PTR_SET_VALUE(rootErrorCode_, rootErrorCode) };
 
 
     // rootErrorMsg Field Functions 
     bool hasRootErrorMsg() const { return this->rootErrorMsg_ != nullptr;};
     void deleteRootErrorMsg() { this->rootErrorMsg_ = nullptr;};
-    inline string rootErrorMsg() const { DARABONBA_PTR_GET_DEFAULT(rootErrorMsg_, "") };
+    inline string getRootErrorMsg() const { DARABONBA_PTR_GET_DEFAULT(rootErrorMsg_, "") };
     inline CreateAppInstanceTicketResponseBody& setRootErrorMsg(string rootErrorMsg) { DARABONBA_PTR_SET_VALUE(rootErrorMsg_, rootErrorMsg) };
 
 
     // synchro Field Functions 
     bool hasSynchro() const { return this->synchro_ != nullptr;};
     void deleteSynchro() { this->synchro_ = nullptr;};
-    inline bool synchro() const { DARABONBA_PTR_GET_DEFAULT(synchro_, false) };
+    inline bool getSynchro() const { DARABONBA_PTR_GET_DEFAULT(synchro_, false) };
     inline CreateAppInstanceTicketResponseBody& setSynchro(bool synchro) { DARABONBA_PTR_SET_VALUE(synchro_, synchro) };
 
 
   protected:
-    std::shared_ptr<string> accessDeniedDetail_ = nullptr;
-    std::shared_ptr<bool> allowRetry_ = nullptr;
-    std::shared_ptr<string> appName_ = nullptr;
-    std::shared_ptr<string> dynamicCode_ = nullptr;
-    std::shared_ptr<string> dynamicMessage_ = nullptr;
-    std::shared_ptr<vector<Darabonba::Json>> errorArgs_ = nullptr;
-    std::shared_ptr<CreateAppInstanceTicketResponseBodyModule> module_ = nullptr;
+    shared_ptr<string> accessDeniedDetail_ {};
+    shared_ptr<bool> allowRetry_ {};
+    shared_ptr<string> appName_ {};
+    shared_ptr<string> dynamicCode_ {};
+    shared_ptr<string> dynamicMessage_ {};
+    shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
+    shared_ptr<CreateAppInstanceTicketResponseBody::Module> module_ {};
     // Id of the request
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> rootErrorCode_ = nullptr;
-    std::shared_ptr<string> rootErrorMsg_ = nullptr;
-    std::shared_ptr<bool> synchro_ = nullptr;
+    shared_ptr<string> requestId_ {};
+    shared_ptr<string> rootErrorCode_ {};
+    shared_ptr<string> rootErrorMsg_ {};
+    shared_ptr<bool> synchro_ {};
   };
 
   } // namespace Models

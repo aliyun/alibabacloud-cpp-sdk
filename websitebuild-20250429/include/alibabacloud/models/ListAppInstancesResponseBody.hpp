@@ -68,43 +68,43 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessDeniedDetail_ == nullptr
-        && return this->allowRetry_ == nullptr && return this->appName_ == nullptr && return this->currentPageNum_ == nullptr && return this->data_ == nullptr && return this->dynamicCode_ == nullptr
-        && return this->dynamicMessage_ == nullptr && return this->errorArgs_ == nullptr && return this->maxResults_ == nullptr && return this->nextPage_ == nullptr && return this->nextToken_ == nullptr
-        && return this->pageSize_ == nullptr && return this->prePage_ == nullptr && return this->requestId_ == nullptr && return this->resultLimit_ == nullptr && return this->rootErrorCode_ == nullptr
-        && return this->rootErrorMsg_ == nullptr && return this->synchro_ == nullptr && return this->totalPageNum_ == nullptr; };
+        && this->allowRetry_ == nullptr && this->appName_ == nullptr && this->currentPageNum_ == nullptr && this->data_ == nullptr && this->dynamicCode_ == nullptr
+        && this->dynamicMessage_ == nullptr && this->errorArgs_ == nullptr && this->maxResults_ == nullptr && this->nextPage_ == nullptr && this->nextToken_ == nullptr
+        && this->pageSize_ == nullptr && this->prePage_ == nullptr && this->requestId_ == nullptr && this->resultLimit_ == nullptr && this->rootErrorCode_ == nullptr
+        && this->rootErrorMsg_ == nullptr && this->synchro_ == nullptr && this->totalPageNum_ == nullptr; };
     // accessDeniedDetail Field Functions 
     bool hasAccessDeniedDetail() const { return this->accessDeniedDetail_ != nullptr;};
     void deleteAccessDeniedDetail() { this->accessDeniedDetail_ = nullptr;};
-    inline string accessDeniedDetail() const { DARABONBA_PTR_GET_DEFAULT(accessDeniedDetail_, "") };
+    inline string getAccessDeniedDetail() const { DARABONBA_PTR_GET_DEFAULT(accessDeniedDetail_, "") };
     inline ListAppInstancesResponseBody& setAccessDeniedDetail(string accessDeniedDetail) { DARABONBA_PTR_SET_VALUE(accessDeniedDetail_, accessDeniedDetail) };
 
 
     // allowRetry Field Functions 
     bool hasAllowRetry() const { return this->allowRetry_ != nullptr;};
     void deleteAllowRetry() { this->allowRetry_ = nullptr;};
-    inline bool allowRetry() const { DARABONBA_PTR_GET_DEFAULT(allowRetry_, false) };
+    inline bool getAllowRetry() const { DARABONBA_PTR_GET_DEFAULT(allowRetry_, false) };
     inline ListAppInstancesResponseBody& setAllowRetry(bool allowRetry) { DARABONBA_PTR_SET_VALUE(allowRetry_, allowRetry) };
 
 
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
-    inline string appName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
+    inline string getAppName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
     inline ListAppInstancesResponseBody& setAppName(string appName) { DARABONBA_PTR_SET_VALUE(appName_, appName) };
 
 
     // currentPageNum Field Functions 
     bool hasCurrentPageNum() const { return this->currentPageNum_ != nullptr;};
     void deleteCurrentPageNum() { this->currentPageNum_ = nullptr;};
-    inline int32_t currentPageNum() const { DARABONBA_PTR_GET_DEFAULT(currentPageNum_, 0) };
+    inline int32_t getCurrentPageNum() const { DARABONBA_PTR_GET_DEFAULT(currentPageNum_, 0) };
     inline ListAppInstancesResponseBody& setCurrentPageNum(int32_t currentPageNum) { DARABONBA_PTR_SET_VALUE(currentPageNum_, currentPageNum) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const vector<AppInstanceAggregate> & data() const { DARABONBA_PTR_GET_CONST(data_, vector<AppInstanceAggregate>) };
-    inline vector<AppInstanceAggregate> data() { DARABONBA_PTR_GET(data_, vector<AppInstanceAggregate>) };
+    inline const vector<AppInstanceAggregate> & getData() const { DARABONBA_PTR_GET_CONST(data_, vector<AppInstanceAggregate>) };
+    inline vector<AppInstanceAggregate> getData() { DARABONBA_PTR_GET(data_, vector<AppInstanceAggregate>) };
     inline ListAppInstancesResponseBody& setData(const vector<AppInstanceAggregate> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
     inline ListAppInstancesResponseBody& setData(vector<AppInstanceAggregate> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
@@ -112,22 +112,22 @@ namespace Models
     // dynamicCode Field Functions 
     bool hasDynamicCode() const { return this->dynamicCode_ != nullptr;};
     void deleteDynamicCode() { this->dynamicCode_ = nullptr;};
-    inline string dynamicCode() const { DARABONBA_PTR_GET_DEFAULT(dynamicCode_, "") };
+    inline string getDynamicCode() const { DARABONBA_PTR_GET_DEFAULT(dynamicCode_, "") };
     inline ListAppInstancesResponseBody& setDynamicCode(string dynamicCode) { DARABONBA_PTR_SET_VALUE(dynamicCode_, dynamicCode) };
 
 
     // dynamicMessage Field Functions 
     bool hasDynamicMessage() const { return this->dynamicMessage_ != nullptr;};
     void deleteDynamicMessage() { this->dynamicMessage_ = nullptr;};
-    inline string dynamicMessage() const { DARABONBA_PTR_GET_DEFAULT(dynamicMessage_, "") };
+    inline string getDynamicMessage() const { DARABONBA_PTR_GET_DEFAULT(dynamicMessage_, "") };
     inline ListAppInstancesResponseBody& setDynamicMessage(string dynamicMessage) { DARABONBA_PTR_SET_VALUE(dynamicMessage_, dynamicMessage) };
 
 
     // errorArgs Field Functions 
     bool hasErrorArgs() const { return this->errorArgs_ != nullptr;};
     void deleteErrorArgs() { this->errorArgs_ = nullptr;};
-    inline const vector<Darabonba::Json> & errorArgs() const { DARABONBA_PTR_GET_CONST(errorArgs_, vector<Darabonba::Json>) };
-    inline vector<Darabonba::Json> errorArgs() { DARABONBA_PTR_GET(errorArgs_, vector<Darabonba::Json>) };
+    inline const vector<Darabonba::Json> & getErrorArgs() const { DARABONBA_PTR_GET_CONST(errorArgs_, vector<Darabonba::Json>) };
+    inline vector<Darabonba::Json> getErrorArgs() { DARABONBA_PTR_GET(errorArgs_, vector<Darabonba::Json>) };
     inline ListAppInstancesResponseBody& setErrorArgs(const vector<Darabonba::Json> & errorArgs) { DARABONBA_PTR_SET_VALUE(errorArgs_, errorArgs) };
     inline ListAppInstancesResponseBody& setErrorArgs(vector<Darabonba::Json> && errorArgs) { DARABONBA_PTR_SET_RVALUE(errorArgs_, errorArgs) };
 
@@ -135,101 +135,101 @@ namespace Models
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListAppInstancesResponseBody& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextPage Field Functions 
     bool hasNextPage() const { return this->nextPage_ != nullptr;};
     void deleteNextPage() { this->nextPage_ = nullptr;};
-    inline bool nextPage() const { DARABONBA_PTR_GET_DEFAULT(nextPage_, false) };
+    inline bool getNextPage() const { DARABONBA_PTR_GET_DEFAULT(nextPage_, false) };
     inline ListAppInstancesResponseBody& setNextPage(bool nextPage) { DARABONBA_PTR_SET_VALUE(nextPage_, nextPage) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListAppInstancesResponseBody& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListAppInstancesResponseBody& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // prePage Field Functions 
     bool hasPrePage() const { return this->prePage_ != nullptr;};
     void deletePrePage() { this->prePage_ = nullptr;};
-    inline bool prePage() const { DARABONBA_PTR_GET_DEFAULT(prePage_, false) };
+    inline bool getPrePage() const { DARABONBA_PTR_GET_DEFAULT(prePage_, false) };
     inline ListAppInstancesResponseBody& setPrePage(bool prePage) { DARABONBA_PTR_SET_VALUE(prePage_, prePage) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListAppInstancesResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // resultLimit Field Functions 
     bool hasResultLimit() const { return this->resultLimit_ != nullptr;};
     void deleteResultLimit() { this->resultLimit_ = nullptr;};
-    inline bool resultLimit() const { DARABONBA_PTR_GET_DEFAULT(resultLimit_, false) };
+    inline bool getResultLimit() const { DARABONBA_PTR_GET_DEFAULT(resultLimit_, false) };
     inline ListAppInstancesResponseBody& setResultLimit(bool resultLimit) { DARABONBA_PTR_SET_VALUE(resultLimit_, resultLimit) };
 
 
     // rootErrorCode Field Functions 
     bool hasRootErrorCode() const { return this->rootErrorCode_ != nullptr;};
     void deleteRootErrorCode() { this->rootErrorCode_ = nullptr;};
-    inline string rootErrorCode() const { DARABONBA_PTR_GET_DEFAULT(rootErrorCode_, "") };
+    inline string getRootErrorCode() const { DARABONBA_PTR_GET_DEFAULT(rootErrorCode_, "") };
     inline ListAppInstancesResponseBody& setRootErrorCode(string rootErrorCode) { DARABONBA_PTR_SET_VALUE(rootErrorCode_, rootErrorCode) };
 
 
     // rootErrorMsg Field Functions 
     bool hasRootErrorMsg() const { return this->rootErrorMsg_ != nullptr;};
     void deleteRootErrorMsg() { this->rootErrorMsg_ = nullptr;};
-    inline string rootErrorMsg() const { DARABONBA_PTR_GET_DEFAULT(rootErrorMsg_, "") };
+    inline string getRootErrorMsg() const { DARABONBA_PTR_GET_DEFAULT(rootErrorMsg_, "") };
     inline ListAppInstancesResponseBody& setRootErrorMsg(string rootErrorMsg) { DARABONBA_PTR_SET_VALUE(rootErrorMsg_, rootErrorMsg) };
 
 
     // synchro Field Functions 
     bool hasSynchro() const { return this->synchro_ != nullptr;};
     void deleteSynchro() { this->synchro_ = nullptr;};
-    inline bool synchro() const { DARABONBA_PTR_GET_DEFAULT(synchro_, false) };
+    inline bool getSynchro() const { DARABONBA_PTR_GET_DEFAULT(synchro_, false) };
     inline ListAppInstancesResponseBody& setSynchro(bool synchro) { DARABONBA_PTR_SET_VALUE(synchro_, synchro) };
 
 
     // totalPageNum Field Functions 
     bool hasTotalPageNum() const { return this->totalPageNum_ != nullptr;};
     void deleteTotalPageNum() { this->totalPageNum_ = nullptr;};
-    inline int32_t totalPageNum() const { DARABONBA_PTR_GET_DEFAULT(totalPageNum_, 0) };
+    inline int32_t getTotalPageNum() const { DARABONBA_PTR_GET_DEFAULT(totalPageNum_, 0) };
     inline ListAppInstancesResponseBody& setTotalPageNum(int32_t totalPageNum) { DARABONBA_PTR_SET_VALUE(totalPageNum_, totalPageNum) };
 
 
   protected:
-    std::shared_ptr<string> accessDeniedDetail_ = nullptr;
-    std::shared_ptr<bool> allowRetry_ = nullptr;
-    std::shared_ptr<string> appName_ = nullptr;
-    std::shared_ptr<int32_t> currentPageNum_ = nullptr;
-    std::shared_ptr<vector<AppInstanceAggregate>> data_ = nullptr;
-    std::shared_ptr<string> dynamicCode_ = nullptr;
-    std::shared_ptr<string> dynamicMessage_ = nullptr;
-    std::shared_ptr<vector<Darabonba::Json>> errorArgs_ = nullptr;
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
-    std::shared_ptr<bool> nextPage_ = nullptr;
-    std::shared_ptr<string> nextToken_ = nullptr;
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    std::shared_ptr<bool> prePage_ = nullptr;
+    shared_ptr<string> accessDeniedDetail_ {};
+    shared_ptr<bool> allowRetry_ {};
+    shared_ptr<string> appName_ {};
+    shared_ptr<int32_t> currentPageNum_ {};
+    shared_ptr<vector<AppInstanceAggregate>> data_ {};
+    shared_ptr<string> dynamicCode_ {};
+    shared_ptr<string> dynamicMessage_ {};
+    shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
+    shared_ptr<int32_t> maxResults_ {};
+    shared_ptr<bool> nextPage_ {};
+    shared_ptr<string> nextToken_ {};
+    shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<bool> prePage_ {};
     // Id of the request
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<bool> resultLimit_ = nullptr;
-    std::shared_ptr<string> rootErrorCode_ = nullptr;
-    std::shared_ptr<string> rootErrorMsg_ = nullptr;
-    std::shared_ptr<bool> synchro_ = nullptr;
-    std::shared_ptr<int32_t> totalPageNum_ = nullptr;
+    shared_ptr<string> requestId_ {};
+    shared_ptr<bool> resultLimit_ {};
+    shared_ptr<string> rootErrorCode_ {};
+    shared_ptr<string> rootErrorMsg_ {};
+    shared_ptr<bool> synchro_ {};
+    shared_ptr<int32_t> totalPageNum_ {};
   };
 
   } // namespace Models
