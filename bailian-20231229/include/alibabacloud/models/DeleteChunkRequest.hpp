@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->chunkIds_ == nullptr
-        && return this->pipelineId_ == nullptr; };
+        && this->pipelineId_ == nullptr; };
     // chunkIds Field Functions 
     bool hasChunkIds() const { return this->chunkIds_ != nullptr;};
     void deleteChunkIds() { this->chunkIds_ = nullptr;};
-    inline const vector<string> & chunkIds() const { DARABONBA_PTR_GET_CONST(chunkIds_, vector<string>) };
-    inline vector<string> chunkIds() { DARABONBA_PTR_GET(chunkIds_, vector<string>) };
+    inline const vector<string> & getChunkIds() const { DARABONBA_PTR_GET_CONST(chunkIds_, vector<string>) };
+    inline vector<string> getChunkIds() { DARABONBA_PTR_GET(chunkIds_, vector<string>) };
     inline DeleteChunkRequest& setChunkIds(const vector<string> & chunkIds) { DARABONBA_PTR_SET_VALUE(chunkIds_, chunkIds) };
     inline DeleteChunkRequest& setChunkIds(vector<string> && chunkIds) { DARABONBA_PTR_SET_RVALUE(chunkIds_, chunkIds) };
 
@@ -46,7 +46,7 @@ namespace Models
     // pipelineId Field Functions 
     bool hasPipelineId() const { return this->pipelineId_ != nullptr;};
     void deletePipelineId() { this->pipelineId_ = nullptr;};
-    inline string pipelineId() const { DARABONBA_PTR_GET_DEFAULT(pipelineId_, "") };
+    inline string getPipelineId() const { DARABONBA_PTR_GET_DEFAULT(pipelineId_, "") };
     inline DeleteChunkRequest& setPipelineId(string pipelineId) { DARABONBA_PTR_SET_VALUE(pipelineId_, pipelineId) };
 
 
@@ -54,11 +54,11 @@ namespace Models
     // The list of text chunks to be deleted. You can specify up to 10 chunk IDs at a time.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> chunkIds_ = nullptr;
+    shared_ptr<vector<string>> chunkIds_ {};
     // The knowledge base ID, which is the `Data.Id` parameter returned by **CreateIndex**.
     // 
     // This parameter is required.
-    std::shared_ptr<string> pipelineId_ = nullptr;
+    shared_ptr<string> pipelineId_ {};
   };
 
   } // namespace Models

@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_UPDATECHUNKRESPONSEBODY_HPP_
-#define ALIBABACLOUD_MODELS_UPDATECHUNKRESPONSEBODY_HPP_
+#ifndef ALIBABACLOUD_MODELS_GETINDEXMONITORRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_GETINDEXMONITORRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -10,31 +10,31 @@ namespace Bailian20231229
 {
 namespace Models
 {
-  class UpdateChunkResponseBody : public Darabonba::Model {
+  class GetIndexMonitorResponseBody : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const UpdateChunkResponseBody& obj) { 
+    friend void to_json(Darabonba::Json& j, const GetIndexMonitorResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(Code, code_);
-      DARABONBA_PTR_TO_JSON(Data, data_);
+      DARABONBA_ANY_TO_JSON(Data, data_);
       DARABONBA_PTR_TO_JSON(Message, message_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(Success, success_);
     };
-    friend void from_json(const Darabonba::Json& j, UpdateChunkResponseBody& obj) { 
+    friend void from_json(const Darabonba::Json& j, GetIndexMonitorResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(Code, code_);
-      DARABONBA_PTR_FROM_JSON(Data, data_);
+      DARABONBA_ANY_FROM_JSON(Data, data_);
       DARABONBA_PTR_FROM_JSON(Message, message_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(Success, success_);
     };
-    UpdateChunkResponseBody() = default ;
-    UpdateChunkResponseBody(const UpdateChunkResponseBody &) = default ;
-    UpdateChunkResponseBody(UpdateChunkResponseBody &&) = default ;
-    UpdateChunkResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~UpdateChunkResponseBody() = default ;
-    UpdateChunkResponseBody& operator=(const UpdateChunkResponseBody &) = default ;
-    UpdateChunkResponseBody& operator=(UpdateChunkResponseBody &&) = default ;
+    GetIndexMonitorResponseBody() = default ;
+    GetIndexMonitorResponseBody(const GetIndexMonitorResponseBody &) = default ;
+    GetIndexMonitorResponseBody(GetIndexMonitorResponseBody &&) = default ;
+    GetIndexMonitorResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~GetIndexMonitorResponseBody() = default ;
+    GetIndexMonitorResponseBody& operator=(const GetIndexMonitorResponseBody &) = default ;
+    GetIndexMonitorResponseBody& operator=(GetIndexMonitorResponseBody &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -45,59 +45,52 @@ namespace Models
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
     inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
-    inline UpdateChunkResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+    inline GetIndexMonitorResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline bool getData() const { DARABONBA_PTR_GET_DEFAULT(data_, false) };
-    inline UpdateChunkResponseBody& setData(bool data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline     const Darabonba::Json & getData() const { DARABONBA_GET(data_) };
+    Darabonba::Json & getData() { DARABONBA_GET(data_) };
+    inline GetIndexMonitorResponseBody& setData(const Darabonba::Json & data) { DARABONBA_SET_VALUE(data_, data) };
+    inline GetIndexMonitorResponseBody& setData(Darabonba::Json && data) { DARABONBA_SET_RVALUE(data_, data) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
     inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
-    inline UpdateChunkResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+    inline GetIndexMonitorResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
-    inline UpdateChunkResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+    inline GetIndexMonitorResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
-    inline UpdateChunkResponseBody& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+    inline int32_t getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
+    inline GetIndexMonitorResponseBody& setStatus(int32_t status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
     inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
-    inline UpdateChunkResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
+    inline GetIndexMonitorResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
-    // The status code.
     shared_ptr<string> code_ {};
-    // The data returned if the request is successful.
-    shared_ptr<bool> data_ {};
-    // The error message.
+    Darabonba::Json data_ {};
     shared_ptr<string> message_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The HTTP status code returned.
-    shared_ptr<string> status_ {};
-    // Indications whether the API call is successful. Valid values:
-    // 
-    // *   true
-    // *   false
+    shared_ptr<int32_t> status_ {};
     shared_ptr<bool> success_ {};
   };
 

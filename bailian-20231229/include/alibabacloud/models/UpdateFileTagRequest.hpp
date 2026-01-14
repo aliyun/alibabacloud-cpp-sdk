@@ -34,15 +34,15 @@ namespace Models
     // tags Field Functions 
     bool hasTags() const { return this->tags_ != nullptr;};
     void deleteTags() { this->tags_ = nullptr;};
-    inline const vector<string> & tags() const { DARABONBA_PTR_GET_CONST(tags_, vector<string>) };
-    inline vector<string> tags() { DARABONBA_PTR_GET(tags_, vector<string>) };
+    inline const vector<string> & getTags() const { DARABONBA_PTR_GET_CONST(tags_, vector<string>) };
+    inline vector<string> getTags() { DARABONBA_PTR_GET(tags_, vector<string>) };
     inline UpdateFileTagRequest& setTags(const vector<string> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
     inline UpdateFileTagRequest& setTags(vector<string> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<vector<string>> tags_ = nullptr;
+    shared_ptr<vector<string>> tags_ {};
   };
 
   } // namespace Models

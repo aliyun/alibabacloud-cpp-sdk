@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->categoryId_ == nullptr
-        && return this->fileType_ == nullptr && return this->parser_ == nullptr && return this->parserConfigShrink_ == nullptr; };
+        && this->fileType_ == nullptr && this->parser_ == nullptr && this->parserConfigShrink_ == nullptr; };
     // categoryId Field Functions 
     bool hasCategoryId() const { return this->categoryId_ != nullptr;};
     void deleteCategoryId() { this->categoryId_ = nullptr;};
-    inline string categoryId() const { DARABONBA_PTR_GET_DEFAULT(categoryId_, "") };
+    inline string getCategoryId() const { DARABONBA_PTR_GET_DEFAULT(categoryId_, "") };
     inline ChangeParseSettingShrinkRequest& setCategoryId(string categoryId) { DARABONBA_PTR_SET_VALUE(categoryId_, categoryId) };
 
 
     // fileType Field Functions 
     bool hasFileType() const { return this->fileType_ != nullptr;};
     void deleteFileType() { this->fileType_ = nullptr;};
-    inline string fileType() const { DARABONBA_PTR_GET_DEFAULT(fileType_, "") };
+    inline string getFileType() const { DARABONBA_PTR_GET_DEFAULT(fileType_, "") };
     inline ChangeParseSettingShrinkRequest& setFileType(string fileType) { DARABONBA_PTR_SET_VALUE(fileType_, fileType) };
 
 
     // parser Field Functions 
     bool hasParser() const { return this->parser_ != nullptr;};
     void deleteParser() { this->parser_ = nullptr;};
-    inline string parser() const { DARABONBA_PTR_GET_DEFAULT(parser_, "") };
+    inline string getParser() const { DARABONBA_PTR_GET_DEFAULT(parser_, "") };
     inline ChangeParseSettingShrinkRequest& setParser(string parser) { DARABONBA_PTR_SET_VALUE(parser_, parser) };
 
 
     // parserConfigShrink Field Functions 
     bool hasParserConfigShrink() const { return this->parserConfigShrink_ != nullptr;};
     void deleteParserConfigShrink() { this->parserConfigShrink_ = nullptr;};
-    inline string parserConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(parserConfigShrink_, "") };
+    inline string getParserConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(parserConfigShrink_, "") };
     inline ChangeParseSettingShrinkRequest& setParserConfigShrink(string parserConfigShrink) { DARABONBA_PTR_SET_VALUE(parserConfigShrink_, parserConfigShrink) };
 
 
@@ -69,11 +69,11 @@ namespace Models
     // The category ID, which is the `CategoryId` returned by **AddCategory**. To view the category ID, click the ID icon next to the category name on the Unstructured Data tab of the [Application Data](https://bailian.console.alibabacloud.com/?tab=app#/data-center) page.
     // 
     // This parameter is required.
-    std::shared_ptr<string> categoryId_ = nullptr;
+    shared_ptr<string> categoryId_ {};
     // The file type. Valid values: pdf, docx, and doc.
     // 
     // This parameter is required.
-    std::shared_ptr<string> fileType_ = nullptr;
+    shared_ptr<string> fileType_ {};
     // The parser code. Valid values:
     // 
     // *   DOCMIND (Intelligent parsing)
@@ -82,9 +82,9 @@ namespace Models
     // *   DASH_QWEN_VL_PARSER (Qwen VL parsing)
     // 
     // This parameter is required.
-    std::shared_ptr<string> parser_ = nullptr;
+    shared_ptr<string> parser_ {};
     // The parser configuration. Currently, this is available only for Qwen VL parsing.
-    std::shared_ptr<string> parserConfigShrink_ = nullptr;
+    shared_ptr<string> parserConfigShrink_ {};
   };
 
   } // namespace Models

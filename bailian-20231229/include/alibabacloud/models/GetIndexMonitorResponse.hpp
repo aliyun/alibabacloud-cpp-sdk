@@ -1,9 +1,9 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_LISTMEMORYNODESRESPONSE_HPP_
-#define ALIBABACLOUD_MODELS_LISTMEMORYNODESRESPONSE_HPP_
+#ifndef ALIBABACLOUD_MODELS_GETINDEXMONITORRESPONSE_HPP_
+#define ALIBABACLOUD_MODELS_GETINDEXMONITORRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
-#include <alibabacloud/models/ListMemoryNodesResponseBody.hpp>
+#include <alibabacloud/models/GetIndexMonitorResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -12,25 +12,25 @@ namespace Bailian20231229
 {
 namespace Models
 {
-  class ListMemoryNodesResponse : public Darabonba::Model {
+  class GetIndexMonitorResponse : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const ListMemoryNodesResponse& obj) { 
+    friend void to_json(Darabonba::Json& j, const GetIndexMonitorResponse& obj) { 
       DARABONBA_PTR_TO_JSON(headers, headers_);
       DARABONBA_PTR_TO_JSON(statusCode, statusCode_);
       DARABONBA_PTR_TO_JSON(body, body_);
     };
-    friend void from_json(const Darabonba::Json& j, ListMemoryNodesResponse& obj) { 
+    friend void from_json(const Darabonba::Json& j, GetIndexMonitorResponse& obj) { 
       DARABONBA_PTR_FROM_JSON(headers, headers_);
       DARABONBA_PTR_FROM_JSON(statusCode, statusCode_);
       DARABONBA_PTR_FROM_JSON(body, body_);
     };
-    ListMemoryNodesResponse() = default ;
-    ListMemoryNodesResponse(const ListMemoryNodesResponse &) = default ;
-    ListMemoryNodesResponse(ListMemoryNodesResponse &&) = default ;
-    ListMemoryNodesResponse(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~ListMemoryNodesResponse() = default ;
-    ListMemoryNodesResponse& operator=(const ListMemoryNodesResponse &) = default ;
-    ListMemoryNodesResponse& operator=(ListMemoryNodesResponse &&) = default ;
+    GetIndexMonitorResponse() = default ;
+    GetIndexMonitorResponse(const GetIndexMonitorResponse &) = default ;
+    GetIndexMonitorResponse(GetIndexMonitorResponse &&) = default ;
+    GetIndexMonitorResponse(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~GetIndexMonitorResponse() = default ;
+    GetIndexMonitorResponse& operator=(const GetIndexMonitorResponse &) = default ;
+    GetIndexMonitorResponse& operator=(GetIndexMonitorResponse &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -42,30 +42,30 @@ namespace Models
     void deleteHeaders() { this->headers_ = nullptr;};
     inline const map<string, string> & getHeaders() const { DARABONBA_PTR_GET_CONST(headers_, map<string, string>) };
     inline map<string, string> getHeaders() { DARABONBA_PTR_GET(headers_, map<string, string>) };
-    inline ListMemoryNodesResponse& setHeaders(const map<string, string> & headers) { DARABONBA_PTR_SET_VALUE(headers_, headers) };
-    inline ListMemoryNodesResponse& setHeaders(map<string, string> && headers) { DARABONBA_PTR_SET_RVALUE(headers_, headers) };
+    inline GetIndexMonitorResponse& setHeaders(const map<string, string> & headers) { DARABONBA_PTR_SET_VALUE(headers_, headers) };
+    inline GetIndexMonitorResponse& setHeaders(map<string, string> && headers) { DARABONBA_PTR_SET_RVALUE(headers_, headers) };
 
 
     // statusCode Field Functions 
     bool hasStatusCode() const { return this->statusCode_ != nullptr;};
     void deleteStatusCode() { this->statusCode_ = nullptr;};
     inline int32_t getStatusCode() const { DARABONBA_PTR_GET_DEFAULT(statusCode_, 0) };
-    inline ListMemoryNodesResponse& setStatusCode(int32_t statusCode) { DARABONBA_PTR_SET_VALUE(statusCode_, statusCode) };
+    inline GetIndexMonitorResponse& setStatusCode(int32_t statusCode) { DARABONBA_PTR_SET_VALUE(statusCode_, statusCode) };
 
 
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const ListMemoryNodesResponseBody & getBody() const { DARABONBA_PTR_GET_CONST(body_, ListMemoryNodesResponseBody) };
-    inline ListMemoryNodesResponseBody getBody() { DARABONBA_PTR_GET(body_, ListMemoryNodesResponseBody) };
-    inline ListMemoryNodesResponse& setBody(const ListMemoryNodesResponseBody & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
-    inline ListMemoryNodesResponse& setBody(ListMemoryNodesResponseBody && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
+    inline const GetIndexMonitorResponseBody & getBody() const { DARABONBA_PTR_GET_CONST(body_, GetIndexMonitorResponseBody) };
+    inline GetIndexMonitorResponseBody getBody() { DARABONBA_PTR_GET(body_, GetIndexMonitorResponseBody) };
+    inline GetIndexMonitorResponse& setBody(const GetIndexMonitorResponseBody & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
+    inline GetIndexMonitorResponse& setBody(GetIndexMonitorResponseBody && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
 
   protected:
     shared_ptr<map<string, string>> headers_ {};
     shared_ptr<int32_t> statusCode_ {};
-    shared_ptr<ListMemoryNodesResponseBody> body_ {};
+    shared_ptr<GetIndexMonitorResponseBody> body_ {};
   };
 
   } // namespace Models

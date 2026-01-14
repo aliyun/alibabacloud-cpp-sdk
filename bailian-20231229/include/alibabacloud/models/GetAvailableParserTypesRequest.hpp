@@ -33,7 +33,7 @@ namespace Models
     // fileType Field Functions 
     bool hasFileType() const { return this->fileType_ != nullptr;};
     void deleteFileType() { this->fileType_ = nullptr;};
-    inline string fileType() const { DARABONBA_PTR_GET_DEFAULT(fileType_, "") };
+    inline string getFileType() const { DARABONBA_PTR_GET_DEFAULT(fileType_, "") };
     inline GetAvailableParserTypesRequest& setFileType(string fileType) { DARABONBA_PTR_SET_VALUE(fileType_, fileType) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The file type. Valid values: pdf, docx, and doc.
     // 
     // This parameter is required.
-    std::shared_ptr<string> fileType_ = nullptr;
+    shared_ptr<string> fileType_ {};
   };
 
   } // namespace Models

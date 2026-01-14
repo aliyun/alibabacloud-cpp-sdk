@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_CHANGEPARSESETTINGREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_CHANGEPARSESETTINGREQUEST_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/ChangeParseSettingRequestParserConfig.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -36,47 +35,96 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class ParserConfig : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const ParserConfig& obj) { 
+        DARABONBA_PTR_TO_JSON(modelName, modelName_);
+        DARABONBA_PTR_TO_JSON(modelPrompt, modelPrompt_);
+      };
+      friend void from_json(const Darabonba::Json& j, ParserConfig& obj) { 
+        DARABONBA_PTR_FROM_JSON(modelName, modelName_);
+        DARABONBA_PTR_FROM_JSON(modelPrompt, modelPrompt_);
+      };
+      ParserConfig() = default ;
+      ParserConfig(const ParserConfig &) = default ;
+      ParserConfig(ParserConfig &&) = default ;
+      ParserConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~ParserConfig() = default ;
+      ParserConfig& operator=(const ParserConfig &) = default ;
+      ParserConfig& operator=(ParserConfig &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->modelName_ == nullptr
+        && this->modelPrompt_ == nullptr; };
+      // modelName Field Functions 
+      bool hasModelName() const { return this->modelName_ != nullptr;};
+      void deleteModelName() { this->modelName_ = nullptr;};
+      inline string getModelName() const { DARABONBA_PTR_GET_DEFAULT(modelName_, "") };
+      inline ParserConfig& setModelName(string modelName) { DARABONBA_PTR_SET_VALUE(modelName_, modelName) };
+
+
+      // modelPrompt Field Functions 
+      bool hasModelPrompt() const { return this->modelPrompt_ != nullptr;};
+      void deleteModelPrompt() { this->modelPrompt_ = nullptr;};
+      inline string getModelPrompt() const { DARABONBA_PTR_GET_DEFAULT(modelPrompt_, "") };
+      inline ParserConfig& setModelPrompt(string modelPrompt) { DARABONBA_PTR_SET_VALUE(modelPrompt_, modelPrompt) };
+
+
+    protected:
+      // The model name.
+      // 
+      // Valid values:
+      // 
+      // *   qwen-vl-max
+      // *   qwen-vl-plus
+      shared_ptr<string> modelName_ {};
+      // The prompt used for parsing.
+      shared_ptr<string> modelPrompt_ {};
+    };
+
     virtual bool empty() const override { return this->categoryId_ == nullptr
-        && return this->fileType_ == nullptr && return this->parser_ == nullptr && return this->parserConfig_ == nullptr; };
+        && this->fileType_ == nullptr && this->parser_ == nullptr && this->parserConfig_ == nullptr; };
     // categoryId Field Functions 
     bool hasCategoryId() const { return this->categoryId_ != nullptr;};
     void deleteCategoryId() { this->categoryId_ = nullptr;};
-    inline string categoryId() const { DARABONBA_PTR_GET_DEFAULT(categoryId_, "") };
+    inline string getCategoryId() const { DARABONBA_PTR_GET_DEFAULT(categoryId_, "") };
     inline ChangeParseSettingRequest& setCategoryId(string categoryId) { DARABONBA_PTR_SET_VALUE(categoryId_, categoryId) };
 
 
     // fileType Field Functions 
     bool hasFileType() const { return this->fileType_ != nullptr;};
     void deleteFileType() { this->fileType_ = nullptr;};
-    inline string fileType() const { DARABONBA_PTR_GET_DEFAULT(fileType_, "") };
+    inline string getFileType() const { DARABONBA_PTR_GET_DEFAULT(fileType_, "") };
     inline ChangeParseSettingRequest& setFileType(string fileType) { DARABONBA_PTR_SET_VALUE(fileType_, fileType) };
 
 
     // parser Field Functions 
     bool hasParser() const { return this->parser_ != nullptr;};
     void deleteParser() { this->parser_ = nullptr;};
-    inline string parser() const { DARABONBA_PTR_GET_DEFAULT(parser_, "") };
+    inline string getParser() const { DARABONBA_PTR_GET_DEFAULT(parser_, "") };
     inline ChangeParseSettingRequest& setParser(string parser) { DARABONBA_PTR_SET_VALUE(parser_, parser) };
 
 
     // parserConfig Field Functions 
     bool hasParserConfig() const { return this->parserConfig_ != nullptr;};
     void deleteParserConfig() { this->parserConfig_ = nullptr;};
-    inline const ChangeParseSettingRequestParserConfig & parserConfig() const { DARABONBA_PTR_GET_CONST(parserConfig_, ChangeParseSettingRequestParserConfig) };
-    inline ChangeParseSettingRequestParserConfig parserConfig() { DARABONBA_PTR_GET(parserConfig_, ChangeParseSettingRequestParserConfig) };
-    inline ChangeParseSettingRequest& setParserConfig(const ChangeParseSettingRequestParserConfig & parserConfig) { DARABONBA_PTR_SET_VALUE(parserConfig_, parserConfig) };
-    inline ChangeParseSettingRequest& setParserConfig(ChangeParseSettingRequestParserConfig && parserConfig) { DARABONBA_PTR_SET_RVALUE(parserConfig_, parserConfig) };
+    inline const ChangeParseSettingRequest::ParserConfig & getParserConfig() const { DARABONBA_PTR_GET_CONST(parserConfig_, ChangeParseSettingRequest::ParserConfig) };
+    inline ChangeParseSettingRequest::ParserConfig getParserConfig() { DARABONBA_PTR_GET(parserConfig_, ChangeParseSettingRequest::ParserConfig) };
+    inline ChangeParseSettingRequest& setParserConfig(const ChangeParseSettingRequest::ParserConfig & parserConfig) { DARABONBA_PTR_SET_VALUE(parserConfig_, parserConfig) };
+    inline ChangeParseSettingRequest& setParserConfig(ChangeParseSettingRequest::ParserConfig && parserConfig) { DARABONBA_PTR_SET_RVALUE(parserConfig_, parserConfig) };
 
 
   protected:
     // The category ID, which is the `CategoryId` returned by **AddCategory**. To view the category ID, click the ID icon next to the category name on the Unstructured Data tab of the [Application Data](https://bailian.console.alibabacloud.com/?tab=app#/data-center) page.
     // 
     // This parameter is required.
-    std::shared_ptr<string> categoryId_ = nullptr;
+    shared_ptr<string> categoryId_ {};
     // The file type. Valid values: pdf, docx, and doc.
     // 
     // This parameter is required.
-    std::shared_ptr<string> fileType_ = nullptr;
+    shared_ptr<string> fileType_ {};
     // The parser code. Valid values:
     // 
     // *   DOCMIND (Intelligent parsing)
@@ -85,9 +133,9 @@ namespace Models
     // *   DASH_QWEN_VL_PARSER (Qwen VL parsing)
     // 
     // This parameter is required.
-    std::shared_ptr<string> parser_ = nullptr;
+    shared_ptr<string> parser_ {};
     // The parser configuration. Currently, this is available only for Qwen VL parsing.
-    std::shared_ptr<ChangeParseSettingRequestParserConfig> parserConfig_ = nullptr;
+    shared_ptr<ChangeParseSettingRequest::ParserConfig> parserConfig_ {};
   };
 
   } // namespace Models

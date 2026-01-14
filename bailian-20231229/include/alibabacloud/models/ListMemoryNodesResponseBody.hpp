@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_LISTMEMORYNODESRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/ListMemoryNodesResponseBodyMemoryNodes.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -39,51 +38,93 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class MemoryNodes : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const MemoryNodes& obj) { 
+        DARABONBA_PTR_TO_JSON(content, content_);
+        DARABONBA_PTR_TO_JSON(memoryNodeId, memoryNodeId_);
+      };
+      friend void from_json(const Darabonba::Json& j, MemoryNodes& obj) { 
+        DARABONBA_PTR_FROM_JSON(content, content_);
+        DARABONBA_PTR_FROM_JSON(memoryNodeId, memoryNodeId_);
+      };
+      MemoryNodes() = default ;
+      MemoryNodes(const MemoryNodes &) = default ;
+      MemoryNodes(MemoryNodes &&) = default ;
+      MemoryNodes(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~MemoryNodes() = default ;
+      MemoryNodes& operator=(const MemoryNodes &) = default ;
+      MemoryNodes& operator=(MemoryNodes &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->content_ == nullptr
+        && this->memoryNodeId_ == nullptr; };
+      // content Field Functions 
+      bool hasContent() const { return this->content_ != nullptr;};
+      void deleteContent() { this->content_ = nullptr;};
+      inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
+      inline MemoryNodes& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
+
+
+      // memoryNodeId Field Functions 
+      bool hasMemoryNodeId() const { return this->memoryNodeId_ != nullptr;};
+      void deleteMemoryNodeId() { this->memoryNodeId_ = nullptr;};
+      inline string getMemoryNodeId() const { DARABONBA_PTR_GET_DEFAULT(memoryNodeId_, "") };
+      inline MemoryNodes& setMemoryNodeId(string memoryNodeId) { DARABONBA_PTR_SET_VALUE(memoryNodeId_, memoryNodeId) };
+
+
+    protected:
+      shared_ptr<string> content_ {};
+      shared_ptr<string> memoryNodeId_ {};
+    };
+
     virtual bool empty() const override { return this->maxResults_ == nullptr
-        && return this->memoryNodes_ == nullptr && return this->nextToken_ == nullptr && return this->requestId_ == nullptr && return this->totalCount_ == nullptr; };
+        && this->memoryNodes_ == nullptr && this->nextToken_ == nullptr && this->requestId_ == nullptr && this->totalCount_ == nullptr; };
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListMemoryNodesResponseBody& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // memoryNodes Field Functions 
     bool hasMemoryNodes() const { return this->memoryNodes_ != nullptr;};
     void deleteMemoryNodes() { this->memoryNodes_ = nullptr;};
-    inline const vector<ListMemoryNodesResponseBodyMemoryNodes> & memoryNodes() const { DARABONBA_PTR_GET_CONST(memoryNodes_, vector<ListMemoryNodesResponseBodyMemoryNodes>) };
-    inline vector<ListMemoryNodesResponseBodyMemoryNodes> memoryNodes() { DARABONBA_PTR_GET(memoryNodes_, vector<ListMemoryNodesResponseBodyMemoryNodes>) };
-    inline ListMemoryNodesResponseBody& setMemoryNodes(const vector<ListMemoryNodesResponseBodyMemoryNodes> & memoryNodes) { DARABONBA_PTR_SET_VALUE(memoryNodes_, memoryNodes) };
-    inline ListMemoryNodesResponseBody& setMemoryNodes(vector<ListMemoryNodesResponseBodyMemoryNodes> && memoryNodes) { DARABONBA_PTR_SET_RVALUE(memoryNodes_, memoryNodes) };
+    inline const vector<ListMemoryNodesResponseBody::MemoryNodes> & getMemoryNodes() const { DARABONBA_PTR_GET_CONST(memoryNodes_, vector<ListMemoryNodesResponseBody::MemoryNodes>) };
+    inline vector<ListMemoryNodesResponseBody::MemoryNodes> getMemoryNodes() { DARABONBA_PTR_GET(memoryNodes_, vector<ListMemoryNodesResponseBody::MemoryNodes>) };
+    inline ListMemoryNodesResponseBody& setMemoryNodes(const vector<ListMemoryNodesResponseBody::MemoryNodes> & memoryNodes) { DARABONBA_PTR_SET_VALUE(memoryNodes_, memoryNodes) };
+    inline ListMemoryNodesResponseBody& setMemoryNodes(vector<ListMemoryNodesResponseBody::MemoryNodes> && memoryNodes) { DARABONBA_PTR_SET_RVALUE(memoryNodes_, memoryNodes) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListMemoryNodesResponseBody& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListMemoryNodesResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // totalCount Field Functions 
     bool hasTotalCount() const { return this->totalCount_ != nullptr;};
     void deleteTotalCount() { this->totalCount_ = nullptr;};
-    inline int32_t totalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
+    inline int32_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
     inline ListMemoryNodesResponseBody& setTotalCount(int32_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
 
 
   protected:
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
-    std::shared_ptr<vector<ListMemoryNodesResponseBodyMemoryNodes>> memoryNodes_ = nullptr;
-    std::shared_ptr<string> nextToken_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<int32_t> totalCount_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
+    shared_ptr<vector<ListMemoryNodesResponseBody::MemoryNodes>> memoryNodes_ {};
+    shared_ptr<string> nextToken_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<int32_t> totalCount_ {};
   };
 
   } // namespace Models

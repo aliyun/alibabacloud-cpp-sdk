@@ -40,52 +40,52 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->documentName_ == nullptr
-        && return this->documentStatus_ == nullptr && return this->enableNameLike_ == nullptr && return this->indexId_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr; };
+        && this->documentStatus_ == nullptr && this->enableNameLike_ == nullptr && this->indexId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr; };
     // documentName Field Functions 
     bool hasDocumentName() const { return this->documentName_ != nullptr;};
     void deleteDocumentName() { this->documentName_ = nullptr;};
-    inline string documentName() const { DARABONBA_PTR_GET_DEFAULT(documentName_, "") };
+    inline string getDocumentName() const { DARABONBA_PTR_GET_DEFAULT(documentName_, "") };
     inline ListIndexDocumentsRequest& setDocumentName(string documentName) { DARABONBA_PTR_SET_VALUE(documentName_, documentName) };
 
 
     // documentStatus Field Functions 
     bool hasDocumentStatus() const { return this->documentStatus_ != nullptr;};
     void deleteDocumentStatus() { this->documentStatus_ = nullptr;};
-    inline string documentStatus() const { DARABONBA_PTR_GET_DEFAULT(documentStatus_, "") };
+    inline string getDocumentStatus() const { DARABONBA_PTR_GET_DEFAULT(documentStatus_, "") };
     inline ListIndexDocumentsRequest& setDocumentStatus(string documentStatus) { DARABONBA_PTR_SET_VALUE(documentStatus_, documentStatus) };
 
 
     // enableNameLike Field Functions 
     bool hasEnableNameLike() const { return this->enableNameLike_ != nullptr;};
     void deleteEnableNameLike() { this->enableNameLike_ = nullptr;};
-    inline string enableNameLike() const { DARABONBA_PTR_GET_DEFAULT(enableNameLike_, "") };
+    inline string getEnableNameLike() const { DARABONBA_PTR_GET_DEFAULT(enableNameLike_, "") };
     inline ListIndexDocumentsRequest& setEnableNameLike(string enableNameLike) { DARABONBA_PTR_SET_VALUE(enableNameLike_, enableNameLike) };
 
 
     // indexId Field Functions 
     bool hasIndexId() const { return this->indexId_ != nullptr;};
     void deleteIndexId() { this->indexId_ = nullptr;};
-    inline string indexId() const { DARABONBA_PTR_GET_DEFAULT(indexId_, "") };
+    inline string getIndexId() const { DARABONBA_PTR_GET_DEFAULT(indexId_, "") };
     inline ListIndexDocumentsRequest& setIndexId(string indexId) { DARABONBA_PTR_SET_VALUE(indexId_, indexId) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline ListIndexDocumentsRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListIndexDocumentsRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
   protected:
     // The names of the queried documents. The default value is null, which means the names are not used to filter the results.
-    std::shared_ptr<string> documentName_ = nullptr;
+    shared_ptr<string> documentName_ {};
     // The import status of the documents to be queried. Valid values:
     // 
     // *   INSERT_ERROR
@@ -94,16 +94,16 @@ namespace Models
     // *   FINISH
     // 
     // The default value is null, which means the import status is not used to filter the results.
-    std::shared_ptr<string> documentStatus_ = nullptr;
-    std::shared_ptr<string> enableNameLike_ = nullptr;
+    shared_ptr<string> documentStatus_ {};
+    shared_ptr<string> enableNameLike_ {};
     // The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
     // 
     // This parameter is required.
-    std::shared_ptr<string> indexId_ = nullptr;
+    shared_ptr<string> indexId_ {};
     // The page numbers of the pages to return. Pages start from page 1. Default value: 1.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // The number of documents displayed on each page. No maximum value. Default value: 10.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
   };
 
   } // namespace Models

@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->chunkId_ == nullptr
-        && return this->dataId_ == nullptr && return this->isDisplayedChunkContent_ == nullptr && return this->pipelineId_ == nullptr && return this->content_ == nullptr && return this->title_ == nullptr; };
+        && this->dataId_ == nullptr && this->isDisplayedChunkContent_ == nullptr && this->pipelineId_ == nullptr && this->content_ == nullptr && this->title_ == nullptr; };
     // chunkId Field Functions 
     bool hasChunkId() const { return this->chunkId_ != nullptr;};
     void deleteChunkId() { this->chunkId_ = nullptr;};
-    inline string chunkId() const { DARABONBA_PTR_GET_DEFAULT(chunkId_, "") };
+    inline string getChunkId() const { DARABONBA_PTR_GET_DEFAULT(chunkId_, "") };
     inline UpdateChunkRequest& setChunkId(string chunkId) { DARABONBA_PTR_SET_VALUE(chunkId_, chunkId) };
 
 
     // dataId Field Functions 
     bool hasDataId() const { return this->dataId_ != nullptr;};
     void deleteDataId() { this->dataId_ = nullptr;};
-    inline string dataId() const { DARABONBA_PTR_GET_DEFAULT(dataId_, "") };
+    inline string getDataId() const { DARABONBA_PTR_GET_DEFAULT(dataId_, "") };
     inline UpdateChunkRequest& setDataId(string dataId) { DARABONBA_PTR_SET_VALUE(dataId_, dataId) };
 
 
     // isDisplayedChunkContent Field Functions 
     bool hasIsDisplayedChunkContent() const { return this->isDisplayedChunkContent_ != nullptr;};
     void deleteIsDisplayedChunkContent() { this->isDisplayedChunkContent_ = nullptr;};
-    inline bool isDisplayedChunkContent() const { DARABONBA_PTR_GET_DEFAULT(isDisplayedChunkContent_, false) };
+    inline bool getIsDisplayedChunkContent() const { DARABONBA_PTR_GET_DEFAULT(isDisplayedChunkContent_, false) };
     inline UpdateChunkRequest& setIsDisplayedChunkContent(bool isDisplayedChunkContent) { DARABONBA_PTR_SET_VALUE(isDisplayedChunkContent_, isDisplayedChunkContent) };
 
 
     // pipelineId Field Functions 
     bool hasPipelineId() const { return this->pipelineId_ != nullptr;};
     void deletePipelineId() { this->pipelineId_ = nullptr;};
-    inline string pipelineId() const { DARABONBA_PTR_GET_DEFAULT(pipelineId_, "") };
+    inline string getPipelineId() const { DARABONBA_PTR_GET_DEFAULT(pipelineId_, "") };
     inline UpdateChunkRequest& setPipelineId(string pipelineId) { DARABONBA_PTR_SET_VALUE(pipelineId_, pipelineId) };
 
 
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
-    inline string content() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
+    inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
     inline UpdateChunkRequest& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
 
 
     // title Field Functions 
     bool hasTitle() const { return this->title_ != nullptr;};
     void deleteTitle() { this->title_ = nullptr;};
-    inline string title() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
+    inline string getTitle() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
     inline UpdateChunkRequest& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
 
 
@@ -87,11 +87,11 @@ namespace Models
     // The ID of the text chunk to be modified. You can find it in the Node.Metadata._id field returned by **ListChunks**.
     // 
     // This parameter is required.
-    std::shared_ptr<string> chunkId_ = nullptr;
+    shared_ptr<string> chunkId_ {};
     // The file ID, which is the `FileId` returned by **AddFile**. You can also go to the [Application Data](https://modelstudio.console.alibabacloud.com/?tab=app#/data-center) page. Click the ID icon next to your file to get its ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> dataId_ = nullptr;
+    shared_ptr<string> dataId_ {};
     // Specifies whether this text chunk participates in knowledge base retrieval. Valid values:
     // 
     // *   true
@@ -100,17 +100,17 @@ namespace Models
     // Default value: true.
     // 
     // This parameter is required.
-    std::shared_ptr<bool> isDisplayedChunkContent_ = nullptr;
+    shared_ptr<bool> isDisplayedChunkContent_ {};
     // The knowledge base ID, which is the `Data.Id` returned by **CreateIndex**. You can also get it on the [Knowledge Base](https://modelstudio.console.alibabacloud.com/?tab=app#/knowledge-base) page.
     // 
     // This parameter is required.
-    std::shared_ptr<string> pipelineId_ = nullptr;
+    shared_ptr<string> pipelineId_ {};
     // The new content of the chunk. The content must be between 10 and 6,000 characters in length and cannot exceed the maximum chunk length set when the knowledge base was created.
     // 
     // This parameter is required.
-    std::shared_ptr<string> content_ = nullptr;
+    shared_ptr<string> content_ {};
     // The new title of the chunk. The title must be 0 to 50 characters in length and can be an empty string. If you specify an empty string, the existing title is cleared. If you do not pass this parameter, the original title remains unchanged.
-    std::shared_ptr<string> title_ = nullptr;
+    shared_ptr<string> title_ {};
   };
 
   } // namespace Models

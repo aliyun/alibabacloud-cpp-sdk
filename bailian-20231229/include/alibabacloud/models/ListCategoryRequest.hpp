@@ -38,49 +38,49 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->categoryName_ == nullptr
-        && return this->categoryType_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->parentCategoryId_ == nullptr; };
+        && this->categoryType_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->parentCategoryId_ == nullptr; };
     // categoryName Field Functions 
     bool hasCategoryName() const { return this->categoryName_ != nullptr;};
     void deleteCategoryName() { this->categoryName_ = nullptr;};
-    inline string categoryName() const { DARABONBA_PTR_GET_DEFAULT(categoryName_, "") };
+    inline string getCategoryName() const { DARABONBA_PTR_GET_DEFAULT(categoryName_, "") };
     inline ListCategoryRequest& setCategoryName(string categoryName) { DARABONBA_PTR_SET_VALUE(categoryName_, categoryName) };
 
 
     // categoryType Field Functions 
     bool hasCategoryType() const { return this->categoryType_ != nullptr;};
     void deleteCategoryType() { this->categoryType_ = nullptr;};
-    inline string categoryType() const { DARABONBA_PTR_GET_DEFAULT(categoryType_, "") };
+    inline string getCategoryType() const { DARABONBA_PTR_GET_DEFAULT(categoryType_, "") };
     inline ListCategoryRequest& setCategoryType(string categoryType) { DARABONBA_PTR_SET_VALUE(categoryType_, categoryType) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListCategoryRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListCategoryRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // parentCategoryId Field Functions 
     bool hasParentCategoryId() const { return this->parentCategoryId_ != nullptr;};
     void deleteParentCategoryId() { this->parentCategoryId_ = nullptr;};
-    inline string parentCategoryId() const { DARABONBA_PTR_GET_DEFAULT(parentCategoryId_, "") };
+    inline string getParentCategoryId() const { DARABONBA_PTR_GET_DEFAULT(parentCategoryId_, "") };
     inline ListCategoryRequest& setParentCategoryId(string parentCategoryId) { DARABONBA_PTR_SET_VALUE(parentCategoryId_, parentCategoryId) };
 
 
   protected:
-    std::shared_ptr<string> categoryName_ = nullptr;
+    shared_ptr<string> categoryName_ {};
     // This parameter is required.
-    std::shared_ptr<string> categoryType_ = nullptr;
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
-    std::shared_ptr<string> nextToken_ = nullptr;
-    std::shared_ptr<string> parentCategoryId_ = nullptr;
+    shared_ptr<string> categoryType_ {};
+    shared_ptr<int32_t> maxResults_ {};
+    shared_ptr<string> nextToken_ {};
+    shared_ptr<string> parentCategoryId_ {};
   };
 
   } // namespace Models

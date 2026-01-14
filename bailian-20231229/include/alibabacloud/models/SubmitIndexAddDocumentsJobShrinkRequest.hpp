@@ -46,85 +46,85 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->categoryIdsShrink_ == nullptr
-        && return this->chunkMode_ == nullptr && return this->chunkSize_ == nullptr && return this->documentIdsShrink_ == nullptr && return this->enableHeaders_ == nullptr && return this->indexId_ == nullptr
-        && return this->overlapSize_ == nullptr && return this->separator_ == nullptr && return this->sourceType_ == nullptr; };
+        && this->chunkMode_ == nullptr && this->chunkSize_ == nullptr && this->documentIdsShrink_ == nullptr && this->enableHeaders_ == nullptr && this->indexId_ == nullptr
+        && this->overlapSize_ == nullptr && this->separator_ == nullptr && this->sourceType_ == nullptr; };
     // categoryIdsShrink Field Functions 
     bool hasCategoryIdsShrink() const { return this->categoryIdsShrink_ != nullptr;};
     void deleteCategoryIdsShrink() { this->categoryIdsShrink_ = nullptr;};
-    inline string categoryIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(categoryIdsShrink_, "") };
+    inline string getCategoryIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(categoryIdsShrink_, "") };
     inline SubmitIndexAddDocumentsJobShrinkRequest& setCategoryIdsShrink(string categoryIdsShrink) { DARABONBA_PTR_SET_VALUE(categoryIdsShrink_, categoryIdsShrink) };
 
 
     // chunkMode Field Functions 
     bool hasChunkMode() const { return this->chunkMode_ != nullptr;};
     void deleteChunkMode() { this->chunkMode_ = nullptr;};
-    inline string chunkMode() const { DARABONBA_PTR_GET_DEFAULT(chunkMode_, "") };
+    inline string getChunkMode() const { DARABONBA_PTR_GET_DEFAULT(chunkMode_, "") };
     inline SubmitIndexAddDocumentsJobShrinkRequest& setChunkMode(string chunkMode) { DARABONBA_PTR_SET_VALUE(chunkMode_, chunkMode) };
 
 
     // chunkSize Field Functions 
     bool hasChunkSize() const { return this->chunkSize_ != nullptr;};
     void deleteChunkSize() { this->chunkSize_ = nullptr;};
-    inline int32_t chunkSize() const { DARABONBA_PTR_GET_DEFAULT(chunkSize_, 0) };
+    inline int32_t getChunkSize() const { DARABONBA_PTR_GET_DEFAULT(chunkSize_, 0) };
     inline SubmitIndexAddDocumentsJobShrinkRequest& setChunkSize(int32_t chunkSize) { DARABONBA_PTR_SET_VALUE(chunkSize_, chunkSize) };
 
 
     // documentIdsShrink Field Functions 
     bool hasDocumentIdsShrink() const { return this->documentIdsShrink_ != nullptr;};
     void deleteDocumentIdsShrink() { this->documentIdsShrink_ = nullptr;};
-    inline string documentIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(documentIdsShrink_, "") };
+    inline string getDocumentIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(documentIdsShrink_, "") };
     inline SubmitIndexAddDocumentsJobShrinkRequest& setDocumentIdsShrink(string documentIdsShrink) { DARABONBA_PTR_SET_VALUE(documentIdsShrink_, documentIdsShrink) };
 
 
     // enableHeaders Field Functions 
     bool hasEnableHeaders() const { return this->enableHeaders_ != nullptr;};
     void deleteEnableHeaders() { this->enableHeaders_ = nullptr;};
-    inline bool enableHeaders() const { DARABONBA_PTR_GET_DEFAULT(enableHeaders_, false) };
+    inline bool getEnableHeaders() const { DARABONBA_PTR_GET_DEFAULT(enableHeaders_, false) };
     inline SubmitIndexAddDocumentsJobShrinkRequest& setEnableHeaders(bool enableHeaders) { DARABONBA_PTR_SET_VALUE(enableHeaders_, enableHeaders) };
 
 
     // indexId Field Functions 
     bool hasIndexId() const { return this->indexId_ != nullptr;};
     void deleteIndexId() { this->indexId_ = nullptr;};
-    inline string indexId() const { DARABONBA_PTR_GET_DEFAULT(indexId_, "") };
+    inline string getIndexId() const { DARABONBA_PTR_GET_DEFAULT(indexId_, "") };
     inline SubmitIndexAddDocumentsJobShrinkRequest& setIndexId(string indexId) { DARABONBA_PTR_SET_VALUE(indexId_, indexId) };
 
 
     // overlapSize Field Functions 
     bool hasOverlapSize() const { return this->overlapSize_ != nullptr;};
     void deleteOverlapSize() { this->overlapSize_ = nullptr;};
-    inline int32_t overlapSize() const { DARABONBA_PTR_GET_DEFAULT(overlapSize_, 0) };
+    inline int32_t getOverlapSize() const { DARABONBA_PTR_GET_DEFAULT(overlapSize_, 0) };
     inline SubmitIndexAddDocumentsJobShrinkRequest& setOverlapSize(int32_t overlapSize) { DARABONBA_PTR_SET_VALUE(overlapSize_, overlapSize) };
 
 
     // separator Field Functions 
     bool hasSeparator() const { return this->separator_ != nullptr;};
     void deleteSeparator() { this->separator_ = nullptr;};
-    inline string separator() const { DARABONBA_PTR_GET_DEFAULT(separator_, "") };
+    inline string getSeparator() const { DARABONBA_PTR_GET_DEFAULT(separator_, "") };
     inline SubmitIndexAddDocumentsJobShrinkRequest& setSeparator(string separator) { DARABONBA_PTR_SET_VALUE(separator_, separator) };
 
 
     // sourceType Field Functions 
     bool hasSourceType() const { return this->sourceType_ != nullptr;};
     void deleteSourceType() { this->sourceType_ = nullptr;};
-    inline string sourceType() const { DARABONBA_PTR_GET_DEFAULT(sourceType_, "") };
+    inline string getSourceType() const { DARABONBA_PTR_GET_DEFAULT(sourceType_, "") };
     inline SubmitIndexAddDocumentsJobShrinkRequest& setSourceType(string sourceType) { DARABONBA_PTR_SET_VALUE(sourceType_, sourceType) };
 
 
   protected:
     // The list of primary key IDs of the category.
-    std::shared_ptr<string> categoryIdsShrink_ = nullptr;
-    std::shared_ptr<string> chunkMode_ = nullptr;
-    std::shared_ptr<int32_t> chunkSize_ = nullptr;
+    shared_ptr<string> categoryIdsShrink_ {};
+    shared_ptr<string> chunkMode_ {};
+    shared_ptr<int32_t> chunkSize_ {};
     // The list of the primary key IDs of the documents.
-    std::shared_ptr<string> documentIdsShrink_ = nullptr;
-    std::shared_ptr<bool> enableHeaders_ = nullptr;
+    shared_ptr<string> documentIdsShrink_ {};
+    shared_ptr<bool> enableHeaders_ {};
     // The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
     // 
     // This parameter is required.
-    std::shared_ptr<string> indexId_ = nullptr;
-    std::shared_ptr<int32_t> overlapSize_ = nullptr;
-    std::shared_ptr<string> separator_ = nullptr;
+    shared_ptr<string> indexId_ {};
+    shared_ptr<int32_t> overlapSize_ {};
+    shared_ptr<string> separator_ {};
     // The data type of [Data Management](https://bailian.console.aliyun.com/#/data-center). For more information, see [Create a knowledge base](https://www.alibabacloud.com/help/en/model-studio/user-guide/rag-knowledge-base). Valid values:
     // 
     // *   DATA_CENTER_CATEGORY: The category type. Import all documents from one or more categories in Data Center.
@@ -133,7 +133,7 @@ namespace Models
     // >  If this parameter is set to DATA_CENTER_CATEGORY, you must specify the `CategoryIds` parameter. If this parameter is set to DATA_CENTER_FILE, you must specify the `DocumentIds` parameter.
     // 
     // This parameter is required.
-    std::shared_ptr<string> sourceType_ = nullptr;
+    shared_ptr<string> sourceType_ {};
   };
 
   } // namespace Models

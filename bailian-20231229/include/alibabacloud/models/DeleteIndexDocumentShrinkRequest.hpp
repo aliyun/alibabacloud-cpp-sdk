@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->documentIdsShrink_ == nullptr
-        && return this->indexId_ == nullptr; };
+        && this->indexId_ == nullptr; };
     // documentIdsShrink Field Functions 
     bool hasDocumentIdsShrink() const { return this->documentIdsShrink_ != nullptr;};
     void deleteDocumentIdsShrink() { this->documentIdsShrink_ = nullptr;};
-    inline string documentIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(documentIdsShrink_, "") };
+    inline string getDocumentIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(documentIdsShrink_, "") };
     inline DeleteIndexDocumentShrinkRequest& setDocumentIdsShrink(string documentIdsShrink) { DARABONBA_PTR_SET_VALUE(documentIdsShrink_, documentIdsShrink) };
 
 
     // indexId Field Functions 
     bool hasIndexId() const { return this->indexId_ != nullptr;};
     void deleteIndexId() { this->indexId_ = nullptr;};
-    inline string indexId() const { DARABONBA_PTR_GET_DEFAULT(indexId_, "") };
+    inline string getIndexId() const { DARABONBA_PTR_GET_DEFAULT(indexId_, "") };
     inline DeleteIndexDocumentShrinkRequest& setIndexId(string indexId) { DARABONBA_PTR_SET_VALUE(indexId_, indexId) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The list of the primary key IDs of the documents.
     // 
     // This parameter is required.
-    std::shared_ptr<string> documentIdsShrink_ = nullptr;
+    shared_ptr<string> documentIdsShrink_ {};
     // The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
     // 
     // This parameter is required.
-    std::shared_ptr<string> indexId_ = nullptr;
+    shared_ptr<string> indexId_ {};
   };
 
   } // namespace Models

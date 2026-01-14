@@ -21,7 +21,13 @@ namespace Bailian20231229
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 添加类目
+       * @summary Creates a category in the specified workspace to categorize and manage documents. You can create up to 1,000 categories in each workspace.
+       *
+       * @description *   You cannot use API to create structured table. To create a table, go to [Data Management](https://bailian.console.alibabacloud.com/#/data-center) in the console. You can associate a knowledge base with ApsaraDB for RDS to automatically update structured knowledge base. For more information, see [Knowledge base](https://help.aliyun.com/document_detail/2807740.html).
+       * *   If you are using a RAM user, you must first obtain the OpenAPI management permissions (namely sfm:AddCategory) of Model Studio. For more information, see [Grant OpenAPI permissions to a RAM user](https://help.aliyun.com/document_detail/2848578.html). If you are using the Alibaba Cloud account, you do not need permissions. We recommend that you use [the latest version of the SDK](https://api.alibabacloud.com/api-tools/sdk/bailian?version=2023-12-29) to call this operation.
+       * *   You can create up to 1,000 categories in each workspace.
+       * *   This interface is not idempotent.
+       * **Throttling:** Throttling will be triggered if you call this operation frequently. Do not exceed 5 times per second. If throttling is triggered, try again later.
        *
        * @param request AddCategoryRequest
        * @param headers map
@@ -31,7 +37,13 @@ namespace Bailian20231229
       Models::AddCategoryResponse addCategoryWithOptions(const string &WorkspaceId, const Models::AddCategoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 添加类目
+       * @summary Creates a category in the specified workspace to categorize and manage documents. You can create up to 1,000 categories in each workspace.
+       *
+       * @description *   You cannot use API to create structured table. To create a table, go to [Data Management](https://bailian.console.alibabacloud.com/#/data-center) in the console. You can associate a knowledge base with ApsaraDB for RDS to automatically update structured knowledge base. For more information, see [Knowledge base](https://help.aliyun.com/document_detail/2807740.html).
+       * *   If you are using a RAM user, you must first obtain the OpenAPI management permissions (namely sfm:AddCategory) of Model Studio. For more information, see [Grant OpenAPI permissions to a RAM user](https://help.aliyun.com/document_detail/2848578.html). If you are using the Alibaba Cloud account, you do not need permissions. We recommend that you use [the latest version of the SDK](https://api.alibabacloud.com/api-tools/sdk/bailian?version=2023-12-29) to call this operation.
+       * *   You can create up to 1,000 categories in each workspace.
+       * *   This interface is not idempotent.
+       * **Throttling:** Throttling will be triggered if you call this operation frequently. Do not exceed 5 times per second. If throttling is triggered, try again later.
        *
        * @param request AddCategoryRequest
        * @return AddCategoryResponse
@@ -115,7 +127,9 @@ namespace Bailian20231229
       Models::ApplyFileUploadLeaseResponse applyFileUploadLease(const string &CategoryId, const string &WorkspaceId, const Models::ApplyFileUploadLeaseRequest &request);
 
       /**
-       * @summary 申请临时文件存储上传许可
+       * @summary This interface is intended for pro-code deployment only; other scenarios are currently not supported. It is used to apply for a temporary file upload lease. After obtaining the lease, you must upload the file manually.
+       *
+       * @description 1\\. This interface is intended for pro-code deployment only; other scenarios are currently not supported. 2. After obtaining the temporary file upload lease via this interface, upload the file manually.
        *
        * @param request ApplyTempStorageLeaseRequest
        * @param headers map
@@ -125,7 +139,9 @@ namespace Bailian20231229
       Models::ApplyTempStorageLeaseResponse applyTempStorageLeaseWithOptions(const string &WorkspaceId, const Models::ApplyTempStorageLeaseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 申请临时文件存储上传许可
+       * @summary This interface is intended for pro-code deployment only; other scenarios are currently not supported. It is used to apply for a temporary file upload lease. After obtaining the lease, you must upload the file manually.
+       *
+       * @description 1\\. This interface is intended for pro-code deployment only; other scenarios are currently not supported. 2. After obtaining the temporary file upload lease via this interface, upload the file manually.
        *
        * @param request ApplyTempStorageLeaseRequest
        * @return ApplyTempStorageLeaseResponse
@@ -557,6 +573,24 @@ namespace Bailian20231229
        * @return GetIndexJobStatusResponse
        */
       Models::GetIndexJobStatusResponse getIndexJobStatus(const string &WorkspaceId, const Models::GetIndexJobStatusRequest &request);
+
+      /**
+       * @summary 获取索引监控情况
+       *
+       * @param request GetIndexMonitorRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetIndexMonitorResponse
+       */
+      Models::GetIndexMonitorResponse getIndexMonitorWithOptions(const string &WorkspaceId, const Models::GetIndexMonitorRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取索引监控情况
+       *
+       * @param request GetIndexMonitorRequest
+       * @return GetIndexMonitorResponse
+       */
+      Models::GetIndexMonitorResponse getIndexMonitor(const string &WorkspaceId, const Models::GetIndexMonitorRequest &request);
 
       /**
        * @summary 获取memory

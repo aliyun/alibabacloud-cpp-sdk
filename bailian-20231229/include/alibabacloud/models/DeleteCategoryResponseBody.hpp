@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_DELETECATEGORYRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_DELETECATEGORYRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/DeleteCategoryResponseBodyData.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -40,61 +39,92 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(CategoryId, categoryId_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(CategoryId, categoryId_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->categoryId_ == nullptr; };
+      // categoryId Field Functions 
+      bool hasCategoryId() const { return this->categoryId_ != nullptr;};
+      void deleteCategoryId() { this->categoryId_ = nullptr;};
+      inline string getCategoryId() const { DARABONBA_PTR_GET_DEFAULT(categoryId_, "") };
+      inline Data& setCategoryId(string categoryId) { DARABONBA_PTR_SET_VALUE(categoryId_, categoryId) };
+
+
+    protected:
+      shared_ptr<string> categoryId_ {};
+    };
+
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->data_ == nullptr && return this->message_ == nullptr && return this->requestId_ == nullptr && return this->status_ == nullptr && return this->success_ == nullptr; };
+        && this->data_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr && this->status_ == nullptr && this->success_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline DeleteCategoryResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const DeleteCategoryResponseBodyData & data() const { DARABONBA_PTR_GET_CONST(data_, DeleteCategoryResponseBodyData) };
-    inline DeleteCategoryResponseBodyData data() { DARABONBA_PTR_GET(data_, DeleteCategoryResponseBodyData) };
-    inline DeleteCategoryResponseBody& setData(const DeleteCategoryResponseBodyData & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline DeleteCategoryResponseBody& setData(DeleteCategoryResponseBodyData && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const DeleteCategoryResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, DeleteCategoryResponseBody::Data) };
+    inline DeleteCategoryResponseBody::Data getData() { DARABONBA_PTR_GET(data_, DeleteCategoryResponseBody::Data) };
+    inline DeleteCategoryResponseBody& setData(const DeleteCategoryResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline DeleteCategoryResponseBody& setData(DeleteCategoryResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline DeleteCategoryResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DeleteCategoryResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline DeleteCategoryResponseBody& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline DeleteCategoryResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
-    std::shared_ptr<string> code_ = nullptr;
+    shared_ptr<string> code_ {};
     // data
-    std::shared_ptr<DeleteCategoryResponseBodyData> data_ = nullptr;
-    std::shared_ptr<string> message_ = nullptr;
+    shared_ptr<DeleteCategoryResponseBody::Data> data_ {};
+    shared_ptr<string> message_ {};
     // Id of the request
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> status_ = nullptr;
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<string> requestId_ {};
+    shared_ptr<string> status_ {};
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

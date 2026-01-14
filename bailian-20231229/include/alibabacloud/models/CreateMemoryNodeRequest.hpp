@@ -33,13 +33,13 @@ namespace Models
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
-    inline string content() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
+    inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
     inline CreateMemoryNodeRequest& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> content_ = nullptr;
+    shared_ptr<string> content_ {};
   };
 
   } // namespace Models

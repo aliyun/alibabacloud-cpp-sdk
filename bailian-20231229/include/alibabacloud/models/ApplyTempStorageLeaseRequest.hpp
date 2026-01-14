@@ -32,26 +32,30 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fileName_ == nullptr
-        && return this->sizeInBytes_ == nullptr; };
+        && this->sizeInBytes_ == nullptr; };
     // fileName Field Functions 
     bool hasFileName() const { return this->fileName_ != nullptr;};
     void deleteFileName() { this->fileName_ = nullptr;};
-    inline string fileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
+    inline string getFileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
     inline ApplyTempStorageLeaseRequest& setFileName(string fileName) { DARABONBA_PTR_SET_VALUE(fileName_, fileName) };
 
 
     // sizeInBytes Field Functions 
     bool hasSizeInBytes() const { return this->sizeInBytes_ != nullptr;};
     void deleteSizeInBytes() { this->sizeInBytes_ = nullptr;};
-    inline int64_t sizeInBytes() const { DARABONBA_PTR_GET_DEFAULT(sizeInBytes_, 0L) };
+    inline int64_t getSizeInBytes() const { DARABONBA_PTR_GET_DEFAULT(sizeInBytes_, 0L) };
     inline ApplyTempStorageLeaseRequest& setSizeInBytes(int64_t sizeInBytes) { DARABONBA_PTR_SET_VALUE(sizeInBytes_, sizeInBytes) };
 
 
   protected:
+    // The file name, including the file extension.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> fileName_ = nullptr;
+    shared_ptr<string> fileName_ {};
+    // The size of the file, in bytes.
+    // 
     // This parameter is required.
-    std::shared_ptr<int64_t> sizeInBytes_ = nullptr;
+    shared_ptr<int64_t> sizeInBytes_ {};
   };
 
   } // namespace Models

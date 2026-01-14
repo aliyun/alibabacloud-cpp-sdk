@@ -33,7 +33,7 @@ namespace Models
     // indexId Field Functions 
     bool hasIndexId() const { return this->indexId_ != nullptr;};
     void deleteIndexId() { this->indexId_ = nullptr;};
-    inline string indexId() const { DARABONBA_PTR_GET_DEFAULT(indexId_, "") };
+    inline string getIndexId() const { DARABONBA_PTR_GET_DEFAULT(indexId_, "") };
     inline SubmitIndexJobRequest& setIndexId(string indexId) { DARABONBA_PTR_SET_VALUE(indexId_, indexId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
     // 
     // This parameter is required.
-    std::shared_ptr<string> indexId_ = nullptr;
+    shared_ptr<string> indexId_ {};
   };
 
   } // namespace Models
