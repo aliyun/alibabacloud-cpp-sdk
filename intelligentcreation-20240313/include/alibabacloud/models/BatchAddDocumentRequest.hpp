@@ -35,14 +35,14 @@ namespace Models
     // addDocumentInfos Field Functions 
     bool hasAddDocumentInfos() const { return this->addDocumentInfos_ != nullptr;};
     void deleteAddDocumentInfos() { this->addDocumentInfos_ = nullptr;};
-    inline const vector<AddDocumentInfo> & addDocumentInfos() const { DARABONBA_PTR_GET_CONST(addDocumentInfos_, vector<AddDocumentInfo>) };
-    inline vector<AddDocumentInfo> addDocumentInfos() { DARABONBA_PTR_GET(addDocumentInfos_, vector<AddDocumentInfo>) };
+    inline const vector<AddDocumentInfo> & getAddDocumentInfos() const { DARABONBA_PTR_GET_CONST(addDocumentInfos_, vector<AddDocumentInfo>) };
+    inline vector<AddDocumentInfo> getAddDocumentInfos() { DARABONBA_PTR_GET(addDocumentInfos_, vector<AddDocumentInfo>) };
     inline BatchAddDocumentRequest& setAddDocumentInfos(const vector<AddDocumentInfo> & addDocumentInfos) { DARABONBA_PTR_SET_VALUE(addDocumentInfos_, addDocumentInfos) };
     inline BatchAddDocumentRequest& setAddDocumentInfos(vector<AddDocumentInfo> && addDocumentInfos) { DARABONBA_PTR_SET_RVALUE(addDocumentInfos_, addDocumentInfos) };
 
 
   protected:
-    std::shared_ptr<vector<AddDocumentInfo>> addDocumentInfos_ = nullptr;
+    shared_ptr<vector<AddDocumentInfo>> addDocumentInfos_ {};
   };
 
   } // namespace Models

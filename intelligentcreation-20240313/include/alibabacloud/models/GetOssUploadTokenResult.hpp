@@ -33,27 +33,27 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->uploadInfo_ == nullptr; };
+        && this->uploadInfo_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetOssUploadTokenResult& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // uploadInfo Field Functions 
     bool hasUploadInfo() const { return this->uploadInfo_ != nullptr;};
     void deleteUploadInfo() { this->uploadInfo_ = nullptr;};
-    inline const UploadInfo & uploadInfo() const { DARABONBA_PTR_GET_CONST(uploadInfo_, UploadInfo) };
-    inline UploadInfo uploadInfo() { DARABONBA_PTR_GET(uploadInfo_, UploadInfo) };
+    inline const UploadInfo & getUploadInfo() const { DARABONBA_PTR_GET_CONST(uploadInfo_, UploadInfo) };
+    inline UploadInfo getUploadInfo() { DARABONBA_PTR_GET(uploadInfo_, UploadInfo) };
     inline GetOssUploadTokenResult& setUploadInfo(const UploadInfo & uploadInfo) { DARABONBA_PTR_SET_VALUE(uploadInfo_, uploadInfo) };
     inline GetOssUploadTokenResult& setUploadInfo(UploadInfo && uploadInfo) { DARABONBA_PTR_SET_RVALUE(uploadInfo_, uploadInfo) };
 
 
   protected:
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // This parameter is required.
-    std::shared_ptr<UploadInfo> uploadInfo_ = nullptr;
+    shared_ptr<UploadInfo> uploadInfo_ {};
   };
 
   } // namespace Models

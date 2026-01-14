@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->content_ == nullptr
-        && return this->quality_ == nullptr && return this->textId_ == nullptr; };
+        && this->quality_ == nullptr && this->textId_ == nullptr; };
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
-    inline string content() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
+    inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
     inline AddTextFeedbackRequest& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
 
 
     // quality Field Functions 
     bool hasQuality() const { return this->quality_ != nullptr;};
     void deleteQuality() { this->quality_ = nullptr;};
-    inline int32_t quality() const { DARABONBA_PTR_GET_DEFAULT(quality_, 0) };
+    inline int32_t getQuality() const { DARABONBA_PTR_GET_DEFAULT(quality_, 0) };
     inline AddTextFeedbackRequest& setQuality(int32_t quality) { DARABONBA_PTR_SET_VALUE(quality_, quality) };
 
 
     // textId Field Functions 
     bool hasTextId() const { return this->textId_ != nullptr;};
     void deleteTextId() { this->textId_ = nullptr;};
-    inline int64_t textId() const { DARABONBA_PTR_GET_DEFAULT(textId_, 0L) };
+    inline int64_t getTextId() const { DARABONBA_PTR_GET_DEFAULT(textId_, 0L) };
     inline AddTextFeedbackRequest& setTextId(int64_t textId) { DARABONBA_PTR_SET_VALUE(textId_, textId) };
 
 
   protected:
-    std::shared_ptr<string> content_ = nullptr;
-    std::shared_ptr<int32_t> quality_ = nullptr;
-    std::shared_ptr<int64_t> textId_ = nullptr;
+    shared_ptr<string> content_ {};
+    shared_ptr<int32_t> quality_ {};
+    shared_ptr<int64_t> textId_ {};
   };
 
   } // namespace Models

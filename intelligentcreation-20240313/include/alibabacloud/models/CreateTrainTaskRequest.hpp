@@ -44,73 +44,73 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aliyunMainId_ == nullptr
-        && return this->resSpecType_ == nullptr && return this->taskType_ == nullptr && return this->useScene_ == nullptr && return this->voiceGender_ == nullptr && return this->voiceLanguage_ == nullptr
-        && return this->voiceName_ == nullptr && return this->voicePath_ == nullptr; };
+        && this->resSpecType_ == nullptr && this->taskType_ == nullptr && this->useScene_ == nullptr && this->voiceGender_ == nullptr && this->voiceLanguage_ == nullptr
+        && this->voiceName_ == nullptr && this->voicePath_ == nullptr; };
     // aliyunMainId Field Functions 
     bool hasAliyunMainId() const { return this->aliyunMainId_ != nullptr;};
     void deleteAliyunMainId() { this->aliyunMainId_ = nullptr;};
-    inline string aliyunMainId() const { DARABONBA_PTR_GET_DEFAULT(aliyunMainId_, "") };
+    inline string getAliyunMainId() const { DARABONBA_PTR_GET_DEFAULT(aliyunMainId_, "") };
     inline CreateTrainTaskRequest& setAliyunMainId(string aliyunMainId) { DARABONBA_PTR_SET_VALUE(aliyunMainId_, aliyunMainId) };
 
 
     // resSpecType Field Functions 
     bool hasResSpecType() const { return this->resSpecType_ != nullptr;};
     void deleteResSpecType() { this->resSpecType_ = nullptr;};
-    inline string resSpecType() const { DARABONBA_PTR_GET_DEFAULT(resSpecType_, "") };
+    inline string getResSpecType() const { DARABONBA_PTR_GET_DEFAULT(resSpecType_, "") };
     inline CreateTrainTaskRequest& setResSpecType(string resSpecType) { DARABONBA_PTR_SET_VALUE(resSpecType_, resSpecType) };
 
 
     // taskType Field Functions 
     bool hasTaskType() const { return this->taskType_ != nullptr;};
     void deleteTaskType() { this->taskType_ = nullptr;};
-    inline string taskType() const { DARABONBA_PTR_GET_DEFAULT(taskType_, "") };
+    inline string getTaskType() const { DARABONBA_PTR_GET_DEFAULT(taskType_, "") };
     inline CreateTrainTaskRequest& setTaskType(string taskType) { DARABONBA_PTR_SET_VALUE(taskType_, taskType) };
 
 
     // useScene Field Functions 
     bool hasUseScene() const { return this->useScene_ != nullptr;};
     void deleteUseScene() { this->useScene_ = nullptr;};
-    inline string useScene() const { DARABONBA_PTR_GET_DEFAULT(useScene_, "") };
+    inline string getUseScene() const { DARABONBA_PTR_GET_DEFAULT(useScene_, "") };
     inline CreateTrainTaskRequest& setUseScene(string useScene) { DARABONBA_PTR_SET_VALUE(useScene_, useScene) };
 
 
     // voiceGender Field Functions 
     bool hasVoiceGender() const { return this->voiceGender_ != nullptr;};
     void deleteVoiceGender() { this->voiceGender_ = nullptr;};
-    inline string voiceGender() const { DARABONBA_PTR_GET_DEFAULT(voiceGender_, "") };
+    inline string getVoiceGender() const { DARABONBA_PTR_GET_DEFAULT(voiceGender_, "") };
     inline CreateTrainTaskRequest& setVoiceGender(string voiceGender) { DARABONBA_PTR_SET_VALUE(voiceGender_, voiceGender) };
 
 
     // voiceLanguage Field Functions 
     bool hasVoiceLanguage() const { return this->voiceLanguage_ != nullptr;};
     void deleteVoiceLanguage() { this->voiceLanguage_ = nullptr;};
-    inline string voiceLanguage() const { DARABONBA_PTR_GET_DEFAULT(voiceLanguage_, "") };
+    inline string getVoiceLanguage() const { DARABONBA_PTR_GET_DEFAULT(voiceLanguage_, "") };
     inline CreateTrainTaskRequest& setVoiceLanguage(string voiceLanguage) { DARABONBA_PTR_SET_VALUE(voiceLanguage_, voiceLanguage) };
 
 
     // voiceName Field Functions 
     bool hasVoiceName() const { return this->voiceName_ != nullptr;};
     void deleteVoiceName() { this->voiceName_ = nullptr;};
-    inline string voiceName() const { DARABONBA_PTR_GET_DEFAULT(voiceName_, "") };
+    inline string getVoiceName() const { DARABONBA_PTR_GET_DEFAULT(voiceName_, "") };
     inline CreateTrainTaskRequest& setVoiceName(string voiceName) { DARABONBA_PTR_SET_VALUE(voiceName_, voiceName) };
 
 
     // voicePath Field Functions 
     bool hasVoicePath() const { return this->voicePath_ != nullptr;};
     void deleteVoicePath() { this->voicePath_ = nullptr;};
-    inline string voicePath() const { DARABONBA_PTR_GET_DEFAULT(voicePath_, "") };
+    inline string getVoicePath() const { DARABONBA_PTR_GET_DEFAULT(voicePath_, "") };
     inline CreateTrainTaskRequest& setVoicePath(string voicePath) { DARABONBA_PTR_SET_VALUE(voicePath_, voicePath) };
 
 
   protected:
-    std::shared_ptr<string> aliyunMainId_ = nullptr;
-    std::shared_ptr<string> resSpecType_ = nullptr;
-    std::shared_ptr<string> taskType_ = nullptr;
-    std::shared_ptr<string> useScene_ = nullptr;
-    std::shared_ptr<string> voiceGender_ = nullptr;
-    std::shared_ptr<string> voiceLanguage_ = nullptr;
-    std::shared_ptr<string> voiceName_ = nullptr;
-    std::shared_ptr<string> voicePath_ = nullptr;
+    shared_ptr<string> aliyunMainId_ {};
+    shared_ptr<string> resSpecType_ {};
+    shared_ptr<string> taskType_ {};
+    shared_ptr<string> useScene_ {};
+    shared_ptr<string> voiceGender_ {};
+    shared_ptr<string> voiceLanguage_ {};
+    shared_ptr<string> voiceName_ {};
+    shared_ptr<string> voicePath_ {};
   };
 
   } // namespace Models

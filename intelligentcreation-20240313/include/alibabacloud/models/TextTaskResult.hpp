@@ -34,14 +34,14 @@ namespace Models
     // textTask Field Functions 
     bool hasTextTask() const { return this->textTask_ != nullptr;};
     void deleteTextTask() { this->textTask_ = nullptr;};
-    inline const TextTask & textTask() const { DARABONBA_PTR_GET_CONST(textTask_, TextTask) };
-    inline TextTask textTask() { DARABONBA_PTR_GET(textTask_, TextTask) };
+    inline const TextTask & getTextTask() const { DARABONBA_PTR_GET_CONST(textTask_, TextTask) };
+    inline TextTask getTextTask() { DARABONBA_PTR_GET(textTask_, TextTask) };
     inline TextTaskResult& setTextTask(const TextTask & textTask) { DARABONBA_PTR_SET_VALUE(textTask_, textTask) };
     inline TextTaskResult& setTextTask(TextTask && textTask) { DARABONBA_PTR_SET_RVALUE(textTask_, textTask) };
 
 
   protected:
-    std::shared_ptr<TextTask> textTask_ = nullptr;
+    shared_ptr<TextTask> textTask_ {};
   };
 
   } // namespace Models

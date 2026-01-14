@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aliyunMainId_ == nullptr
-        && return this->taskIdListShrink_ == nullptr; };
+        && this->taskIdListShrink_ == nullptr; };
     // aliyunMainId Field Functions 
     bool hasAliyunMainId() const { return this->aliyunMainId_ != nullptr;};
     void deleteAliyunMainId() { this->aliyunMainId_ = nullptr;};
-    inline string aliyunMainId() const { DARABONBA_PTR_GET_DEFAULT(aliyunMainId_, "") };
+    inline string getAliyunMainId() const { DARABONBA_PTR_GET_DEFAULT(aliyunMainId_, "") };
     inline BatchGetTrainTaskShrinkRequest& setAliyunMainId(string aliyunMainId) { DARABONBA_PTR_SET_VALUE(aliyunMainId_, aliyunMainId) };
 
 
     // taskIdListShrink Field Functions 
     bool hasTaskIdListShrink() const { return this->taskIdListShrink_ != nullptr;};
     void deleteTaskIdListShrink() { this->taskIdListShrink_ = nullptr;};
-    inline string taskIdListShrink() const { DARABONBA_PTR_GET_DEFAULT(taskIdListShrink_, "") };
+    inline string getTaskIdListShrink() const { DARABONBA_PTR_GET_DEFAULT(taskIdListShrink_, "") };
     inline BatchGetTrainTaskShrinkRequest& setTaskIdListShrink(string taskIdListShrink) { DARABONBA_PTR_SET_VALUE(taskIdListShrink_, taskIdListShrink) };
 
 
   protected:
-    std::shared_ptr<string> aliyunMainId_ = nullptr;
-    std::shared_ptr<string> taskIdListShrink_ = nullptr;
+    shared_ptr<string> aliyunMainId_ {};
+    shared_ptr<string> taskIdListShrink_ {};
   };
 
   } // namespace Models

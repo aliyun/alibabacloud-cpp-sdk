@@ -33,26 +33,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aliyunMainId_ == nullptr
-        && return this->taskIdList_ == nullptr; };
+        && this->taskIdList_ == nullptr; };
     // aliyunMainId Field Functions 
     bool hasAliyunMainId() const { return this->aliyunMainId_ != nullptr;};
     void deleteAliyunMainId() { this->aliyunMainId_ = nullptr;};
-    inline string aliyunMainId() const { DARABONBA_PTR_GET_DEFAULT(aliyunMainId_, "") };
+    inline string getAliyunMainId() const { DARABONBA_PTR_GET_DEFAULT(aliyunMainId_, "") };
     inline BatchGetTrainTaskRequest& setAliyunMainId(string aliyunMainId) { DARABONBA_PTR_SET_VALUE(aliyunMainId_, aliyunMainId) };
 
 
     // taskIdList Field Functions 
     bool hasTaskIdList() const { return this->taskIdList_ != nullptr;};
     void deleteTaskIdList() { this->taskIdList_ = nullptr;};
-    inline const vector<string> & taskIdList() const { DARABONBA_PTR_GET_CONST(taskIdList_, vector<string>) };
-    inline vector<string> taskIdList() { DARABONBA_PTR_GET(taskIdList_, vector<string>) };
+    inline const vector<string> & getTaskIdList() const { DARABONBA_PTR_GET_CONST(taskIdList_, vector<string>) };
+    inline vector<string> getTaskIdList() { DARABONBA_PTR_GET(taskIdList_, vector<string>) };
     inline BatchGetTrainTaskRequest& setTaskIdList(const vector<string> & taskIdList) { DARABONBA_PTR_SET_VALUE(taskIdList_, taskIdList) };
     inline BatchGetTrainTaskRequest& setTaskIdList(vector<string> && taskIdList) { DARABONBA_PTR_SET_RVALUE(taskIdList_, taskIdList) };
 
 
   protected:
-    std::shared_ptr<string> aliyunMainId_ = nullptr;
-    std::shared_ptr<vector<string>> taskIdList_ = nullptr;
+    shared_ptr<string> aliyunMainId_ {};
+    shared_ptr<vector<string>> taskIdList_ {};
   };
 
   } // namespace Models

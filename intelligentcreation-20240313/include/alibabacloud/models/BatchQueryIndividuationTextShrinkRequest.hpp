@@ -33,12 +33,12 @@ namespace Models
     // textIdListShrink Field Functions 
     bool hasTextIdListShrink() const { return this->textIdListShrink_ != nullptr;};
     void deleteTextIdListShrink() { this->textIdListShrink_ = nullptr;};
-    inline string textIdListShrink() const { DARABONBA_PTR_GET_DEFAULT(textIdListShrink_, "") };
+    inline string getTextIdListShrink() const { DARABONBA_PTR_GET_DEFAULT(textIdListShrink_, "") };
     inline BatchQueryIndividuationTextShrinkRequest& setTextIdListShrink(string textIdListShrink) { DARABONBA_PTR_SET_VALUE(textIdListShrink_, textIdListShrink) };
 
 
   protected:
-    std::shared_ptr<string> textIdListShrink_ = nullptr;
+    shared_ptr<string> textIdListShrink_ {};
   };
 
   } // namespace Models

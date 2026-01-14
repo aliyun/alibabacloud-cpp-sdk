@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->imageUrl_ == nullptr
-        && return this->posPrompt_ == nullptr; };
+        && this->posPrompt_ == nullptr; };
     // imageUrl Field Functions 
     bool hasImageUrl() const { return this->imageUrl_ != nullptr;};
     void deleteImageUrl() { this->imageUrl_ = nullptr;};
-    inline string imageUrl() const { DARABONBA_PTR_GET_DEFAULT(imageUrl_, "") };
+    inline string getImageUrl() const { DARABONBA_PTR_GET_DEFAULT(imageUrl_, "") };
     inline SubmitImageToVideoTaskRequest& setImageUrl(string imageUrl) { DARABONBA_PTR_SET_VALUE(imageUrl_, imageUrl) };
 
 
     // posPrompt Field Functions 
     bool hasPosPrompt() const { return this->posPrompt_ != nullptr;};
     void deletePosPrompt() { this->posPrompt_ = nullptr;};
-    inline string posPrompt() const { DARABONBA_PTR_GET_DEFAULT(posPrompt_, "") };
+    inline string getPosPrompt() const { DARABONBA_PTR_GET_DEFAULT(posPrompt_, "") };
     inline SubmitImageToVideoTaskRequest& setPosPrompt(string posPrompt) { DARABONBA_PTR_SET_VALUE(posPrompt_, posPrompt) };
 
 
   protected:
-    std::shared_ptr<string> imageUrl_ = nullptr;
-    std::shared_ptr<string> posPrompt_ = nullptr;
+    shared_ptr<string> imageUrl_ {};
+    shared_ptr<string> posPrompt_ {};
   };
 
   } // namespace Models

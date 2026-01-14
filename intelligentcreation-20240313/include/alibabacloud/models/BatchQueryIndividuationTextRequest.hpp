@@ -34,14 +34,14 @@ namespace Models
     // textIdList Field Functions 
     bool hasTextIdList() const { return this->textIdList_ != nullptr;};
     void deleteTextIdList() { this->textIdList_ = nullptr;};
-    inline const vector<string> & textIdList() const { DARABONBA_PTR_GET_CONST(textIdList_, vector<string>) };
-    inline vector<string> textIdList() { DARABONBA_PTR_GET(textIdList_, vector<string>) };
+    inline const vector<string> & getTextIdList() const { DARABONBA_PTR_GET_CONST(textIdList_, vector<string>) };
+    inline vector<string> getTextIdList() { DARABONBA_PTR_GET(textIdList_, vector<string>) };
     inline BatchQueryIndividuationTextRequest& setTextIdList(const vector<string> & textIdList) { DARABONBA_PTR_SET_VALUE(textIdList_, textIdList) };
     inline BatchQueryIndividuationTextRequest& setTextIdList(vector<string> && textIdList) { DARABONBA_PTR_SET_RVALUE(textIdList_, textIdList) };
 
 
   protected:
-    std::shared_ptr<vector<string>> textIdList_ = nullptr;
+    shared_ptr<vector<string>> textIdList_ {};
   };
 
   } // namespace Models

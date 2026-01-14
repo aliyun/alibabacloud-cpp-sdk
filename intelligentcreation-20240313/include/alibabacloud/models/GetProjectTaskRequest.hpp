@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->idempotentId_ == nullptr
-        && return this->taskId_ == nullptr; };
+        && this->taskId_ == nullptr; };
     // idempotentId Field Functions 
     bool hasIdempotentId() const { return this->idempotentId_ != nullptr;};
     void deleteIdempotentId() { this->idempotentId_ = nullptr;};
-    inline string idempotentId() const { DARABONBA_PTR_GET_DEFAULT(idempotentId_, "") };
+    inline string getIdempotentId() const { DARABONBA_PTR_GET_DEFAULT(idempotentId_, "") };
     inline GetProjectTaskRequest& setIdempotentId(string idempotentId) { DARABONBA_PTR_SET_VALUE(idempotentId_, idempotentId) };
 
 
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline string taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+    inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
     inline GetProjectTaskRequest& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
   protected:
-    std::shared_ptr<string> idempotentId_ = nullptr;
-    std::shared_ptr<string> taskId_ = nullptr;
+    shared_ptr<string> idempotentId_ {};
+    shared_ptr<string> taskId_ {};
   };
 
   } // namespace Models

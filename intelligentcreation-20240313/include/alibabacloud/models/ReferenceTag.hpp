@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->referenceContent_ == nullptr
-        && return this->referenceTitle_ == nullptr; };
+        && this->referenceTitle_ == nullptr; };
     // referenceContent Field Functions 
     bool hasReferenceContent() const { return this->referenceContent_ != nullptr;};
     void deleteReferenceContent() { this->referenceContent_ = nullptr;};
-    inline string referenceContent() const { DARABONBA_PTR_GET_DEFAULT(referenceContent_, "") };
+    inline string getReferenceContent() const { DARABONBA_PTR_GET_DEFAULT(referenceContent_, "") };
     inline ReferenceTag& setReferenceContent(string referenceContent) { DARABONBA_PTR_SET_VALUE(referenceContent_, referenceContent) };
 
 
     // referenceTitle Field Functions 
     bool hasReferenceTitle() const { return this->referenceTitle_ != nullptr;};
     void deleteReferenceTitle() { this->referenceTitle_ = nullptr;};
-    inline string referenceTitle() const { DARABONBA_PTR_GET_DEFAULT(referenceTitle_, "") };
+    inline string getReferenceTitle() const { DARABONBA_PTR_GET_DEFAULT(referenceTitle_, "") };
     inline ReferenceTag& setReferenceTitle(string referenceTitle) { DARABONBA_PTR_SET_VALUE(referenceTitle_, referenceTitle) };
 
 
   protected:
-    std::shared_ptr<string> referenceContent_ = nullptr;
-    std::shared_ptr<string> referenceTitle_ = nullptr;
+    shared_ptr<string> referenceContent_ {};
+    shared_ptr<string> referenceTitle_ {};
   };
 
   } // namespace Models

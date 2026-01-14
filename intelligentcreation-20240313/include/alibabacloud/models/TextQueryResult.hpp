@@ -36,19 +36,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->texts_ == nullptr && return this->total_ == nullptr; };
+        && this->texts_ == nullptr && this->total_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline TextQueryResult& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // texts Field Functions 
     bool hasTexts() const { return this->texts_ != nullptr;};
     void deleteTexts() { this->texts_ = nullptr;};
-    inline const vector<Text> & texts() const { DARABONBA_PTR_GET_CONST(texts_, vector<Text>) };
-    inline vector<Text> texts() { DARABONBA_PTR_GET(texts_, vector<Text>) };
+    inline const vector<Text> & getTexts() const { DARABONBA_PTR_GET_CONST(texts_, vector<Text>) };
+    inline vector<Text> getTexts() { DARABONBA_PTR_GET(texts_, vector<Text>) };
     inline TextQueryResult& setTexts(const vector<Text> & texts) { DARABONBA_PTR_SET_VALUE(texts_, texts) };
     inline TextQueryResult& setTexts(vector<Text> && texts) { DARABONBA_PTR_SET_RVALUE(texts_, texts) };
 
@@ -56,14 +56,14 @@ namespace Models
     // total Field Functions 
     bool hasTotal() const { return this->total_ != nullptr;};
     void deleteTotal() { this->total_ = nullptr;};
-    inline int32_t total() const { DARABONBA_PTR_GET_DEFAULT(total_, 0) };
+    inline int32_t getTotal() const { DARABONBA_PTR_GET_DEFAULT(total_, 0) };
     inline TextQueryResult& setTotal(int32_t total) { DARABONBA_PTR_SET_VALUE(total_, total) };
 
 
   protected:
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<vector<Text>> texts_ = nullptr;
-    std::shared_ptr<int32_t> total_ = nullptr;
+    shared_ptr<string> requestId_ {};
+    shared_ptr<vector<Text>> texts_ {};
+    shared_ptr<int32_t> total_ {};
   };
 
   } // namespace Models

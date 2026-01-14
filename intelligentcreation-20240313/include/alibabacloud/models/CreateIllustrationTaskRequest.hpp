@@ -34,14 +34,14 @@ namespace Models
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const IllustrationTaskCreateCmd & body() const { DARABONBA_PTR_GET_CONST(body_, IllustrationTaskCreateCmd) };
-    inline IllustrationTaskCreateCmd body() { DARABONBA_PTR_GET(body_, IllustrationTaskCreateCmd) };
+    inline const IllustrationTaskCreateCmd & getBody() const { DARABONBA_PTR_GET_CONST(body_, IllustrationTaskCreateCmd) };
+    inline IllustrationTaskCreateCmd getBody() { DARABONBA_PTR_GET(body_, IllustrationTaskCreateCmd) };
     inline CreateIllustrationTaskRequest& setBody(const IllustrationTaskCreateCmd & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
     inline CreateIllustrationTaskRequest& setBody(IllustrationTaskCreateCmd && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
 
   protected:
-    std::shared_ptr<IllustrationTaskCreateCmd> body_ = nullptr;
+    shared_ptr<IllustrationTaskCreateCmd> body_ {};
   };
 
   } // namespace Models

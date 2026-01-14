@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->illustration_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // illustration Field Functions 
     bool hasIllustration() const { return this->illustration_ != nullptr;};
     void deleteIllustration() { this->illustration_ = nullptr;};
-    inline const Illustration & illustration() const { DARABONBA_PTR_GET_CONST(illustration_, Illustration) };
-    inline Illustration illustration() { DARABONBA_PTR_GET(illustration_, Illustration) };
+    inline const Illustration & getIllustration() const { DARABONBA_PTR_GET_CONST(illustration_, Illustration) };
+    inline Illustration getIllustration() { DARABONBA_PTR_GET(illustration_, Illustration) };
     inline IllustrationResult& setIllustration(const Illustration & illustration) { DARABONBA_PTR_SET_VALUE(illustration_, illustration) };
     inline IllustrationResult& setIllustration(Illustration && illustration) { DARABONBA_PTR_SET_RVALUE(illustration_, illustration) };
 
@@ -46,13 +46,13 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline IllustrationResult& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<Illustration> illustration_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<Illustration> illustration_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

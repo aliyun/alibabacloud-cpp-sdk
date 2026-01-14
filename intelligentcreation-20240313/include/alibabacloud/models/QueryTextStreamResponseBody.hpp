@@ -36,41 +36,41 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->end_ == nullptr
-        && return this->index_ == nullptr && return this->message_ == nullptr && return this->type_ == nullptr; };
+        && this->index_ == nullptr && this->message_ == nullptr && this->type_ == nullptr; };
     // end Field Functions 
     bool hasEnd() const { return this->end_ != nullptr;};
     void deleteEnd() { this->end_ = nullptr;};
-    inline bool end() const { DARABONBA_PTR_GET_DEFAULT(end_, false) };
+    inline bool getEnd() const { DARABONBA_PTR_GET_DEFAULT(end_, false) };
     inline QueryTextStreamResponseBody& setEnd(bool end) { DARABONBA_PTR_SET_VALUE(end_, end) };
 
 
     // index Field Functions 
     bool hasIndex() const { return this->index_ != nullptr;};
     void deleteIndex() { this->index_ = nullptr;};
-    inline int32_t index() const { DARABONBA_PTR_GET_DEFAULT(index_, 0) };
+    inline int32_t getIndex() const { DARABONBA_PTR_GET_DEFAULT(index_, 0) };
     inline QueryTextStreamResponseBody& setIndex(int32_t index) { DARABONBA_PTR_SET_VALUE(index_, index) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline QueryTextStreamResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline int32_t type() const { DARABONBA_PTR_GET_DEFAULT(type_, 0) };
+    inline int32_t getType() const { DARABONBA_PTR_GET_DEFAULT(type_, 0) };
     inline QueryTextStreamResponseBody& setType(int32_t type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
-    std::shared_ptr<bool> end_ = nullptr;
-    std::shared_ptr<int32_t> index_ = nullptr;
+    shared_ptr<bool> end_ {};
+    shared_ptr<int32_t> index_ {};
     // Id of the request
-    std::shared_ptr<string> message_ = nullptr;
-    std::shared_ptr<int32_t> type_ = nullptr;
+    shared_ptr<string> message_ {};
+    shared_ptr<int32_t> type_ {};
   };
 
   } // namespace Models

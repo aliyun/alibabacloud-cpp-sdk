@@ -33,12 +33,12 @@ namespace Models
     // taskIdListShrink Field Functions 
     bool hasTaskIdListShrink() const { return this->taskIdListShrink_ != nullptr;};
     void deleteTaskIdListShrink() { this->taskIdListShrink_ = nullptr;};
-    inline string taskIdListShrink() const { DARABONBA_PTR_GET_DEFAULT(taskIdListShrink_, "") };
+    inline string getTaskIdListShrink() const { DARABONBA_PTR_GET_DEFAULT(taskIdListShrink_, "") };
     inline BatchGetVideoClipTaskShrinkRequest& setTaskIdListShrink(string taskIdListShrink) { DARABONBA_PTR_SET_VALUE(taskIdListShrink_, taskIdListShrink) };
 
 
   protected:
-    std::shared_ptr<string> taskIdListShrink_ = nullptr;
+    shared_ptr<string> taskIdListShrink_ {};
   };
 
   } // namespace Models

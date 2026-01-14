@@ -42,65 +42,65 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->anchorCategory_ == nullptr
-        && return this->anchorMaterialName_ == nullptr && return this->coverUrl_ == nullptr && return this->digitalHumanType_ == nullptr && return this->gender_ == nullptr && return this->useScene_ == nullptr
-        && return this->videoOssKey_ == nullptr; };
+        && this->anchorMaterialName_ == nullptr && this->coverUrl_ == nullptr && this->digitalHumanType_ == nullptr && this->gender_ == nullptr && this->useScene_ == nullptr
+        && this->videoOssKey_ == nullptr; };
     // anchorCategory Field Functions 
     bool hasAnchorCategory() const { return this->anchorCategory_ != nullptr;};
     void deleteAnchorCategory() { this->anchorCategory_ = nullptr;};
-    inline string anchorCategory() const { DARABONBA_PTR_GET_DEFAULT(anchorCategory_, "") };
+    inline string getAnchorCategory() const { DARABONBA_PTR_GET_DEFAULT(anchorCategory_, "") };
     inline CreateAnchorRequest& setAnchorCategory(string anchorCategory) { DARABONBA_PTR_SET_VALUE(anchorCategory_, anchorCategory) };
 
 
     // anchorMaterialName Field Functions 
     bool hasAnchorMaterialName() const { return this->anchorMaterialName_ != nullptr;};
     void deleteAnchorMaterialName() { this->anchorMaterialName_ = nullptr;};
-    inline string anchorMaterialName() const { DARABONBA_PTR_GET_DEFAULT(anchorMaterialName_, "") };
+    inline string getAnchorMaterialName() const { DARABONBA_PTR_GET_DEFAULT(anchorMaterialName_, "") };
     inline CreateAnchorRequest& setAnchorMaterialName(string anchorMaterialName) { DARABONBA_PTR_SET_VALUE(anchorMaterialName_, anchorMaterialName) };
 
 
     // coverUrl Field Functions 
     bool hasCoverUrl() const { return this->coverUrl_ != nullptr;};
     void deleteCoverUrl() { this->coverUrl_ = nullptr;};
-    inline string coverUrl() const { DARABONBA_PTR_GET_DEFAULT(coverUrl_, "") };
+    inline string getCoverUrl() const { DARABONBA_PTR_GET_DEFAULT(coverUrl_, "") };
     inline CreateAnchorRequest& setCoverUrl(string coverUrl) { DARABONBA_PTR_SET_VALUE(coverUrl_, coverUrl) };
 
 
     // digitalHumanType Field Functions 
     bool hasDigitalHumanType() const { return this->digitalHumanType_ != nullptr;};
     void deleteDigitalHumanType() { this->digitalHumanType_ = nullptr;};
-    inline string digitalHumanType() const { DARABONBA_PTR_GET_DEFAULT(digitalHumanType_, "") };
+    inline string getDigitalHumanType() const { DARABONBA_PTR_GET_DEFAULT(digitalHumanType_, "") };
     inline CreateAnchorRequest& setDigitalHumanType(string digitalHumanType) { DARABONBA_PTR_SET_VALUE(digitalHumanType_, digitalHumanType) };
 
 
     // gender Field Functions 
     bool hasGender() const { return this->gender_ != nullptr;};
     void deleteGender() { this->gender_ = nullptr;};
-    inline string gender() const { DARABONBA_PTR_GET_DEFAULT(gender_, "") };
+    inline string getGender() const { DARABONBA_PTR_GET_DEFAULT(gender_, "") };
     inline CreateAnchorRequest& setGender(string gender) { DARABONBA_PTR_SET_VALUE(gender_, gender) };
 
 
     // useScene Field Functions 
     bool hasUseScene() const { return this->useScene_ != nullptr;};
     void deleteUseScene() { this->useScene_ = nullptr;};
-    inline string useScene() const { DARABONBA_PTR_GET_DEFAULT(useScene_, "") };
+    inline string getUseScene() const { DARABONBA_PTR_GET_DEFAULT(useScene_, "") };
     inline CreateAnchorRequest& setUseScene(string useScene) { DARABONBA_PTR_SET_VALUE(useScene_, useScene) };
 
 
     // videoOssKey Field Functions 
     bool hasVideoOssKey() const { return this->videoOssKey_ != nullptr;};
     void deleteVideoOssKey() { this->videoOssKey_ = nullptr;};
-    inline string videoOssKey() const { DARABONBA_PTR_GET_DEFAULT(videoOssKey_, "") };
+    inline string getVideoOssKey() const { DARABONBA_PTR_GET_DEFAULT(videoOssKey_, "") };
     inline CreateAnchorRequest& setVideoOssKey(string videoOssKey) { DARABONBA_PTR_SET_VALUE(videoOssKey_, videoOssKey) };
 
 
   protected:
-    std::shared_ptr<string> anchorCategory_ = nullptr;
-    std::shared_ptr<string> anchorMaterialName_ = nullptr;
-    std::shared_ptr<string> coverUrl_ = nullptr;
-    std::shared_ptr<string> digitalHumanType_ = nullptr;
-    std::shared_ptr<string> gender_ = nullptr;
-    std::shared_ptr<string> useScene_ = nullptr;
-    std::shared_ptr<string> videoOssKey_ = nullptr;
+    shared_ptr<string> anchorCategory_ {};
+    shared_ptr<string> anchorMaterialName_ {};
+    shared_ptr<string> coverUrl_ {};
+    shared_ptr<string> digitalHumanType_ {};
+    shared_ptr<string> gender_ {};
+    shared_ptr<string> useScene_ {};
+    shared_ptr<string> videoOssKey_ {};
   };
 
   } // namespace Models

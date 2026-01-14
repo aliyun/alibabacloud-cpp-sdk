@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->channelToken_ == nullptr
-        && return this->requestId_ == nullptr && return this->sessionId_ == nullptr && return this->token_ == nullptr && return this->webSocketUrl_ == nullptr; };
+        && this->requestId_ == nullptr && this->sessionId_ == nullptr && this->token_ == nullptr && this->webSocketUrl_ == nullptr; };
     // channelToken Field Functions 
     bool hasChannelToken() const { return this->channelToken_ != nullptr;};
     void deleteChannelToken() { this->channelToken_ = nullptr;};
-    inline string channelToken() const { DARABONBA_PTR_GET_DEFAULT(channelToken_, "") };
+    inline string getChannelToken() const { DARABONBA_PTR_GET_DEFAULT(channelToken_, "") };
     inline StartAvatarSessionResponseBody& setChannelToken(string channelToken) { DARABONBA_PTR_SET_VALUE(channelToken_, channelToken) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline StartAvatarSessionResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // sessionId Field Functions 
     bool hasSessionId() const { return this->sessionId_ != nullptr;};
     void deleteSessionId() { this->sessionId_ = nullptr;};
-    inline string sessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
+    inline string getSessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
     inline StartAvatarSessionResponseBody& setSessionId(string sessionId) { DARABONBA_PTR_SET_VALUE(sessionId_, sessionId) };
 
 
     // token Field Functions 
     bool hasToken() const { return this->token_ != nullptr;};
     void deleteToken() { this->token_ = nullptr;};
-    inline string token() const { DARABONBA_PTR_GET_DEFAULT(token_, "") };
+    inline string getToken() const { DARABONBA_PTR_GET_DEFAULT(token_, "") };
     inline StartAvatarSessionResponseBody& setToken(string token) { DARABONBA_PTR_SET_VALUE(token_, token) };
 
 
     // webSocketUrl Field Functions 
     bool hasWebSocketUrl() const { return this->webSocketUrl_ != nullptr;};
     void deleteWebSocketUrl() { this->webSocketUrl_ = nullptr;};
-    inline string webSocketUrl() const { DARABONBA_PTR_GET_DEFAULT(webSocketUrl_, "") };
+    inline string getWebSocketUrl() const { DARABONBA_PTR_GET_DEFAULT(webSocketUrl_, "") };
     inline StartAvatarSessionResponseBody& setWebSocketUrl(string webSocketUrl) { DARABONBA_PTR_SET_VALUE(webSocketUrl_, webSocketUrl) };
 
 
   protected:
-    std::shared_ptr<string> channelToken_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> sessionId_ = nullptr;
-    std::shared_ptr<string> token_ = nullptr;
-    std::shared_ptr<string> webSocketUrl_ = nullptr;
+    shared_ptr<string> channelToken_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<string> sessionId_ {};
+    shared_ptr<string> token_ {};
+    shared_ptr<string> webSocketUrl_ {};
   };
 
   } // namespace Models

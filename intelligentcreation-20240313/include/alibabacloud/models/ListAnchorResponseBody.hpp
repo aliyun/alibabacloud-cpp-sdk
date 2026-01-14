@@ -44,34 +44,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->errorCode_ == nullptr && return this->errorMessage_ == nullptr && return this->list_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr
-        && return this->total_ == nullptr; };
+        && this->errorCode_ == nullptr && this->errorMessage_ == nullptr && this->list_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr
+        && this->total_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline ListAnchorResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // errorCode Field Functions 
     bool hasErrorCode() const { return this->errorCode_ != nullptr;};
     void deleteErrorCode() { this->errorCode_ = nullptr;};
-    inline string errorCode() const { DARABONBA_PTR_GET_DEFAULT(errorCode_, "") };
+    inline string getErrorCode() const { DARABONBA_PTR_GET_DEFAULT(errorCode_, "") };
     inline ListAnchorResponseBody& setErrorCode(string errorCode) { DARABONBA_PTR_SET_VALUE(errorCode_, errorCode) };
 
 
     // errorMessage Field Functions 
     bool hasErrorMessage() const { return this->errorMessage_ != nullptr;};
     void deleteErrorMessage() { this->errorMessage_ = nullptr;};
-    inline string errorMessage() const { DARABONBA_PTR_GET_DEFAULT(errorMessage_, "") };
+    inline string getErrorMessage() const { DARABONBA_PTR_GET_DEFAULT(errorMessage_, "") };
     inline ListAnchorResponseBody& setErrorMessage(string errorMessage) { DARABONBA_PTR_SET_VALUE(errorMessage_, errorMessage) };
 
 
     // list Field Functions 
     bool hasList() const { return this->list_ != nullptr;};
     void deleteList() { this->list_ = nullptr;};
-    inline const vector<AnchorResponse> & list() const { DARABONBA_PTR_GET_CONST(list_, vector<AnchorResponse>) };
-    inline vector<AnchorResponse> list() { DARABONBA_PTR_GET(list_, vector<AnchorResponse>) };
+    inline const vector<AnchorResponse> & getList() const { DARABONBA_PTR_GET_CONST(list_, vector<AnchorResponse>) };
+    inline vector<AnchorResponse> getList() { DARABONBA_PTR_GET(list_, vector<AnchorResponse>) };
     inline ListAnchorResponseBody& setList(const vector<AnchorResponse> & list) { DARABONBA_PTR_SET_VALUE(list_, list) };
     inline ListAnchorResponseBody& setList(vector<AnchorResponse> && list) { DARABONBA_PTR_SET_RVALUE(list_, list) };
 
@@ -79,34 +79,34 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListAnchorResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline ListAnchorResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
     // total Field Functions 
     bool hasTotal() const { return this->total_ != nullptr;};
     void deleteTotal() { this->total_ = nullptr;};
-    inline int32_t total() const { DARABONBA_PTR_GET_DEFAULT(total_, 0) };
+    inline int32_t getTotal() const { DARABONBA_PTR_GET_DEFAULT(total_, 0) };
     inline ListAnchorResponseBody& setTotal(int32_t total) { DARABONBA_PTR_SET_VALUE(total_, total) };
 
 
   protected:
     // code
-    std::shared_ptr<string> code_ = nullptr;
-    std::shared_ptr<string> errorCode_ = nullptr;
-    std::shared_ptr<string> errorMessage_ = nullptr;
-    std::shared_ptr<vector<AnchorResponse>> list_ = nullptr;
+    shared_ptr<string> code_ {};
+    shared_ptr<string> errorCode_ {};
+    shared_ptr<string> errorMessage_ {};
+    shared_ptr<vector<AnchorResponse>> list_ {};
     // requestId
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<bool> success_ = nullptr;
-    std::shared_ptr<int32_t> total_ = nullptr;
+    shared_ptr<string> requestId_ {};
+    shared_ptr<bool> success_ {};
+    shared_ptr<int32_t> total_ {};
   };
 
   } // namespace Models

@@ -33,12 +33,12 @@ namespace Models
     // projectIdListShrink Field Functions 
     bool hasProjectIdListShrink() const { return this->projectIdListShrink_ != nullptr;};
     void deleteProjectIdListShrink() { this->projectIdListShrink_ = nullptr;};
-    inline string projectIdListShrink() const { DARABONBA_PTR_GET_DEFAULT(projectIdListShrink_, "") };
+    inline string getProjectIdListShrink() const { DARABONBA_PTR_GET_DEFAULT(projectIdListShrink_, "") };
     inline ListAvatarProjectShrinkRequest& setProjectIdListShrink(string projectIdListShrink) { DARABONBA_PTR_SET_VALUE(projectIdListShrink_, projectIdListShrink) };
 
 
   protected:
-    std::shared_ptr<string> projectIdListShrink_ = nullptr;
+    shared_ptr<string> projectIdListShrink_ {};
   };
 
   } // namespace Models

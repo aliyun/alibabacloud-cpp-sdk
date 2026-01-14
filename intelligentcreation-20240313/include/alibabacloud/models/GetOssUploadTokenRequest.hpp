@@ -34,34 +34,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fileName_ == nullptr
-        && return this->fileType_ == nullptr && return this->uploadType_ == nullptr; };
+        && this->fileType_ == nullptr && this->uploadType_ == nullptr; };
     // fileName Field Functions 
     bool hasFileName() const { return this->fileName_ != nullptr;};
     void deleteFileName() { this->fileName_ = nullptr;};
-    inline string fileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
+    inline string getFileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
     inline GetOssUploadTokenRequest& setFileName(string fileName) { DARABONBA_PTR_SET_VALUE(fileName_, fileName) };
 
 
     // fileType Field Functions 
     bool hasFileType() const { return this->fileType_ != nullptr;};
     void deleteFileType() { this->fileType_ = nullptr;};
-    inline string fileType() const { DARABONBA_PTR_GET_DEFAULT(fileType_, "") };
+    inline string getFileType() const { DARABONBA_PTR_GET_DEFAULT(fileType_, "") };
     inline GetOssUploadTokenRequest& setFileType(string fileType) { DARABONBA_PTR_SET_VALUE(fileType_, fileType) };
 
 
     // uploadType Field Functions 
     bool hasUploadType() const { return this->uploadType_ != nullptr;};
     void deleteUploadType() { this->uploadType_ = nullptr;};
-    inline int32_t uploadType() const { DARABONBA_PTR_GET_DEFAULT(uploadType_, 0) };
+    inline int32_t getUploadType() const { DARABONBA_PTR_GET_DEFAULT(uploadType_, 0) };
     inline GetOssUploadTokenRequest& setUploadType(int32_t uploadType) { DARABONBA_PTR_SET_VALUE(uploadType_, uploadType) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> fileName_ = nullptr;
+    shared_ptr<string> fileName_ {};
     // This parameter is required.
-    std::shared_ptr<string> fileType_ = nullptr;
-    std::shared_ptr<int32_t> uploadType_ = nullptr;
+    shared_ptr<string> fileType_ {};
+    shared_ptr<int32_t> uploadType_ {};
   };
 
   } // namespace Models

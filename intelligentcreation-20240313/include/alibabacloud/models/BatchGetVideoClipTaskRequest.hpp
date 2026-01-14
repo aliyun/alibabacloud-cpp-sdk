@@ -34,14 +34,14 @@ namespace Models
     // taskIdList Field Functions 
     bool hasTaskIdList() const { return this->taskIdList_ != nullptr;};
     void deleteTaskIdList() { this->taskIdList_ = nullptr;};
-    inline const vector<string> & taskIdList() const { DARABONBA_PTR_GET_CONST(taskIdList_, vector<string>) };
-    inline vector<string> taskIdList() { DARABONBA_PTR_GET(taskIdList_, vector<string>) };
+    inline const vector<string> & getTaskIdList() const { DARABONBA_PTR_GET_CONST(taskIdList_, vector<string>) };
+    inline vector<string> getTaskIdList() { DARABONBA_PTR_GET(taskIdList_, vector<string>) };
     inline BatchGetVideoClipTaskRequest& setTaskIdList(const vector<string> & taskIdList) { DARABONBA_PTR_SET_VALUE(taskIdList_, taskIdList) };
     inline BatchGetVideoClipTaskRequest& setTaskIdList(vector<string> && taskIdList) { DARABONBA_PTR_SET_RVALUE(taskIdList_, taskIdList) };
 
 
   protected:
-    std::shared_ptr<vector<string>> taskIdList_ = nullptr;
+    shared_ptr<vector<string>> taskIdList_ {};
   };
 
   } // namespace Models

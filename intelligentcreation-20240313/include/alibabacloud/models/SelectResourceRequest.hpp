@@ -33,12 +33,12 @@ namespace Models
     // idempotentId Field Functions 
     bool hasIdempotentId() const { return this->idempotentId_ != nullptr;};
     void deleteIdempotentId() { this->idempotentId_ = nullptr;};
-    inline string idempotentId() const { DARABONBA_PTR_GET_DEFAULT(idempotentId_, "") };
+    inline string getIdempotentId() const { DARABONBA_PTR_GET_DEFAULT(idempotentId_, "") };
     inline SelectResourceRequest& setIdempotentId(string idempotentId) { DARABONBA_PTR_SET_VALUE(idempotentId_, idempotentId) };
 
 
   protected:
-    std::shared_ptr<string> idempotentId_ = nullptr;
+    shared_ptr<string> idempotentId_ {};
   };
 
   } // namespace Models

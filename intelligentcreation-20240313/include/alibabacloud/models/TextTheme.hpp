@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->desc_ == nullptr
-        && return this->name_ == nullptr; };
+        && this->name_ == nullptr; };
     // desc Field Functions 
     bool hasDesc() const { return this->desc_ != nullptr;};
     void deleteDesc() { this->desc_ = nullptr;};
-    inline string desc() const { DARABONBA_PTR_GET_DEFAULT(desc_, "") };
+    inline string getDesc() const { DARABONBA_PTR_GET_DEFAULT(desc_, "") };
     inline TextTheme& setDesc(string desc) { DARABONBA_PTR_SET_VALUE(desc_, desc) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline TextTheme& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
   protected:
-    std::shared_ptr<string> desc_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> desc_ {};
+    shared_ptr<string> name_ {};
   };
 
   } // namespace Models

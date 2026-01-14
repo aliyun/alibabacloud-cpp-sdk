@@ -37,19 +37,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->docName_ == nullptr
-        && return this->documentInfo_ == nullptr && return this->errorMessage_ == nullptr && return this->success_ == nullptr; };
+        && this->documentInfo_ == nullptr && this->errorMessage_ == nullptr && this->success_ == nullptr; };
     // docName Field Functions 
     bool hasDocName() const { return this->docName_ != nullptr;};
     void deleteDocName() { this->docName_ = nullptr;};
-    inline string docName() const { DARABONBA_PTR_GET_DEFAULT(docName_, "") };
+    inline string getDocName() const { DARABONBA_PTR_GET_DEFAULT(docName_, "") };
     inline AddDocumentResult& setDocName(string docName) { DARABONBA_PTR_SET_VALUE(docName_, docName) };
 
 
     // documentInfo Field Functions 
     bool hasDocumentInfo() const { return this->documentInfo_ != nullptr;};
     void deleteDocumentInfo() { this->documentInfo_ = nullptr;};
-    inline const DocumentInfo & documentInfo() const { DARABONBA_PTR_GET_CONST(documentInfo_, DocumentInfo) };
-    inline DocumentInfo documentInfo() { DARABONBA_PTR_GET(documentInfo_, DocumentInfo) };
+    inline const DocumentInfo & getDocumentInfo() const { DARABONBA_PTR_GET_CONST(documentInfo_, DocumentInfo) };
+    inline DocumentInfo getDocumentInfo() { DARABONBA_PTR_GET(documentInfo_, DocumentInfo) };
     inline AddDocumentResult& setDocumentInfo(const DocumentInfo & documentInfo) { DARABONBA_PTR_SET_VALUE(documentInfo_, documentInfo) };
     inline AddDocumentResult& setDocumentInfo(DocumentInfo && documentInfo) { DARABONBA_PTR_SET_RVALUE(documentInfo_, documentInfo) };
 
@@ -57,22 +57,22 @@ namespace Models
     // errorMessage Field Functions 
     bool hasErrorMessage() const { return this->errorMessage_ != nullptr;};
     void deleteErrorMessage() { this->errorMessage_ = nullptr;};
-    inline string errorMessage() const { DARABONBA_PTR_GET_DEFAULT(errorMessage_, "") };
+    inline string getErrorMessage() const { DARABONBA_PTR_GET_DEFAULT(errorMessage_, "") };
     inline AddDocumentResult& setErrorMessage(string errorMessage) { DARABONBA_PTR_SET_VALUE(errorMessage_, errorMessage) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline AddDocumentResult& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
-    std::shared_ptr<string> docName_ = nullptr;
-    std::shared_ptr<DocumentInfo> documentInfo_ = nullptr;
-    std::shared_ptr<string> errorMessage_ = nullptr;
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<string> docName_ {};
+    shared_ptr<DocumentInfo> documentInfo_ {};
+    shared_ptr<string> errorMessage_ {};
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

@@ -36,40 +36,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->operateType_ == nullptr
-        && return this->projectId_ == nullptr && return this->resChannelNumber_ == nullptr && return this->resType_ == nullptr; };
+        && this->projectId_ == nullptr && this->resChannelNumber_ == nullptr && this->resType_ == nullptr; };
     // operateType Field Functions 
     bool hasOperateType() const { return this->operateType_ != nullptr;};
     void deleteOperateType() { this->operateType_ = nullptr;};
-    inline string operateType() const { DARABONBA_PTR_GET_DEFAULT(operateType_, "") };
+    inline string getOperateType() const { DARABONBA_PTR_GET_DEFAULT(operateType_, "") };
     inline OperateAvatarProjectRequest& setOperateType(string operateType) { DARABONBA_PTR_SET_VALUE(operateType_, operateType) };
 
 
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline string projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, "") };
+    inline string getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, "") };
     inline OperateAvatarProjectRequest& setProjectId(string projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
     // resChannelNumber Field Functions 
     bool hasResChannelNumber() const { return this->resChannelNumber_ != nullptr;};
     void deleteResChannelNumber() { this->resChannelNumber_ = nullptr;};
-    inline int32_t resChannelNumber() const { DARABONBA_PTR_GET_DEFAULT(resChannelNumber_, 0) };
+    inline int32_t getResChannelNumber() const { DARABONBA_PTR_GET_DEFAULT(resChannelNumber_, 0) };
     inline OperateAvatarProjectRequest& setResChannelNumber(int32_t resChannelNumber) { DARABONBA_PTR_SET_VALUE(resChannelNumber_, resChannelNumber) };
 
 
     // resType Field Functions 
     bool hasResType() const { return this->resType_ != nullptr;};
     void deleteResType() { this->resType_ = nullptr;};
-    inline string resType() const { DARABONBA_PTR_GET_DEFAULT(resType_, "") };
+    inline string getResType() const { DARABONBA_PTR_GET_DEFAULT(resType_, "") };
     inline OperateAvatarProjectRequest& setResType(string resType) { DARABONBA_PTR_SET_VALUE(resType_, resType) };
 
 
   protected:
-    std::shared_ptr<string> operateType_ = nullptr;
-    std::shared_ptr<string> projectId_ = nullptr;
-    std::shared_ptr<int32_t> resChannelNumber_ = nullptr;
-    std::shared_ptr<string> resType_ = nullptr;
+    shared_ptr<string> operateType_ {};
+    shared_ptr<string> projectId_ {};
+    shared_ptr<int32_t> resChannelNumber_ {};
+    shared_ptr<string> resType_ {};
   };
 
   } // namespace Models

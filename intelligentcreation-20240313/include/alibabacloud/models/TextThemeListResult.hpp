@@ -34,27 +34,27 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->textThemeList_ == nullptr; };
+        && this->textThemeList_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline TextThemeListResult& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // textThemeList Field Functions 
     bool hasTextThemeList() const { return this->textThemeList_ != nullptr;};
     void deleteTextThemeList() { this->textThemeList_ = nullptr;};
-    inline const vector<TextTheme> & textThemeList() const { DARABONBA_PTR_GET_CONST(textThemeList_, vector<TextTheme>) };
-    inline vector<TextTheme> textThemeList() { DARABONBA_PTR_GET(textThemeList_, vector<TextTheme>) };
+    inline const vector<TextTheme> & getTextThemeList() const { DARABONBA_PTR_GET_CONST(textThemeList_, vector<TextTheme>) };
+    inline vector<TextTheme> getTextThemeList() { DARABONBA_PTR_GET(textThemeList_, vector<TextTheme>) };
     inline TextThemeListResult& setTextThemeList(const vector<TextTheme> & textThemeList) { DARABONBA_PTR_SET_VALUE(textThemeList_, textThemeList) };
     inline TextThemeListResult& setTextThemeList(vector<TextTheme> && textThemeList) { DARABONBA_PTR_SET_RVALUE(textThemeList_, textThemeList) };
 
 
   protected:
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // This parameter is required.
-    std::shared_ptr<vector<TextTheme>> textThemeList_ = nullptr;
+    shared_ptr<vector<TextTheme>> textThemeList_ {};
   };
 
   } // namespace Models

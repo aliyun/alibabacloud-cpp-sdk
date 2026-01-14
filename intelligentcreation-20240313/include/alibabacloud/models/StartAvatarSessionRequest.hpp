@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->channelToken_ == nullptr
-        && return this->customPushUrl_ == nullptr && return this->customUserId_ == nullptr && return this->projectId_ == nullptr && return this->requestId_ == nullptr; };
+        && this->customPushUrl_ == nullptr && this->customUserId_ == nullptr && this->projectId_ == nullptr && this->requestId_ == nullptr; };
     // channelToken Field Functions 
     bool hasChannelToken() const { return this->channelToken_ != nullptr;};
     void deleteChannelToken() { this->channelToken_ = nullptr;};
-    inline string channelToken() const { DARABONBA_PTR_GET_DEFAULT(channelToken_, "") };
+    inline string getChannelToken() const { DARABONBA_PTR_GET_DEFAULT(channelToken_, "") };
     inline StartAvatarSessionRequest& setChannelToken(string channelToken) { DARABONBA_PTR_SET_VALUE(channelToken_, channelToken) };
 
 
     // customPushUrl Field Functions 
     bool hasCustomPushUrl() const { return this->customPushUrl_ != nullptr;};
     void deleteCustomPushUrl() { this->customPushUrl_ = nullptr;};
-    inline string customPushUrl() const { DARABONBA_PTR_GET_DEFAULT(customPushUrl_, "") };
+    inline string getCustomPushUrl() const { DARABONBA_PTR_GET_DEFAULT(customPushUrl_, "") };
     inline StartAvatarSessionRequest& setCustomPushUrl(string customPushUrl) { DARABONBA_PTR_SET_VALUE(customPushUrl_, customPushUrl) };
 
 
     // customUserId Field Functions 
     bool hasCustomUserId() const { return this->customUserId_ != nullptr;};
     void deleteCustomUserId() { this->customUserId_ = nullptr;};
-    inline string customUserId() const { DARABONBA_PTR_GET_DEFAULT(customUserId_, "") };
+    inline string getCustomUserId() const { DARABONBA_PTR_GET_DEFAULT(customUserId_, "") };
     inline StartAvatarSessionRequest& setCustomUserId(string customUserId) { DARABONBA_PTR_SET_VALUE(customUserId_, customUserId) };
 
 
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline string projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, "") };
+    inline string getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, "") };
     inline StartAvatarSessionRequest& setProjectId(string projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline StartAvatarSessionRequest& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<string> channelToken_ = nullptr;
-    std::shared_ptr<string> customPushUrl_ = nullptr;
-    std::shared_ptr<string> customUserId_ = nullptr;
-    std::shared_ptr<string> projectId_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> channelToken_ {};
+    shared_ptr<string> customPushUrl_ {};
+    shared_ptr<string> customUserId_ {};
+    shared_ptr<string> projectId_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

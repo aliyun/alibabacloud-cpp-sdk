@@ -40,56 +40,56 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->errorMsg_ == nullptr
-        && return this->requestId_ == nullptr && return this->status_ == nullptr && return this->videoDownloadUrl_ == nullptr && return this->videoDuration_ == nullptr && return this->videoUrl_ == nullptr; };
+        && this->requestId_ == nullptr && this->status_ == nullptr && this->videoDownloadUrl_ == nullptr && this->videoDuration_ == nullptr && this->videoUrl_ == nullptr; };
     // errorMsg Field Functions 
     bool hasErrorMsg() const { return this->errorMsg_ != nullptr;};
     void deleteErrorMsg() { this->errorMsg_ = nullptr;};
-    inline string errorMsg() const { DARABONBA_PTR_GET_DEFAULT(errorMsg_, "") };
+    inline string getErrorMsg() const { DARABONBA_PTR_GET_DEFAULT(errorMsg_, "") };
     inline GetProjectTaskResponseBody& setErrorMsg(string errorMsg) { DARABONBA_PTR_SET_VALUE(errorMsg_, errorMsg) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetProjectTaskResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline GetProjectTaskResponseBody& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // videoDownloadUrl Field Functions 
     bool hasVideoDownloadUrl() const { return this->videoDownloadUrl_ != nullptr;};
     void deleteVideoDownloadUrl() { this->videoDownloadUrl_ = nullptr;};
-    inline string videoDownloadUrl() const { DARABONBA_PTR_GET_DEFAULT(videoDownloadUrl_, "") };
+    inline string getVideoDownloadUrl() const { DARABONBA_PTR_GET_DEFAULT(videoDownloadUrl_, "") };
     inline GetProjectTaskResponseBody& setVideoDownloadUrl(string videoDownloadUrl) { DARABONBA_PTR_SET_VALUE(videoDownloadUrl_, videoDownloadUrl) };
 
 
     // videoDuration Field Functions 
     bool hasVideoDuration() const { return this->videoDuration_ != nullptr;};
     void deleteVideoDuration() { this->videoDuration_ = nullptr;};
-    inline int32_t videoDuration() const { DARABONBA_PTR_GET_DEFAULT(videoDuration_, 0) };
+    inline int32_t getVideoDuration() const { DARABONBA_PTR_GET_DEFAULT(videoDuration_, 0) };
     inline GetProjectTaskResponseBody& setVideoDuration(int32_t videoDuration) { DARABONBA_PTR_SET_VALUE(videoDuration_, videoDuration) };
 
 
     // videoUrl Field Functions 
     bool hasVideoUrl() const { return this->videoUrl_ != nullptr;};
     void deleteVideoUrl() { this->videoUrl_ = nullptr;};
-    inline string videoUrl() const { DARABONBA_PTR_GET_DEFAULT(videoUrl_, "") };
+    inline string getVideoUrl() const { DARABONBA_PTR_GET_DEFAULT(videoUrl_, "") };
     inline GetProjectTaskResponseBody& setVideoUrl(string videoUrl) { DARABONBA_PTR_SET_VALUE(videoUrl_, videoUrl) };
 
 
   protected:
-    std::shared_ptr<string> errorMsg_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> status_ = nullptr;
-    std::shared_ptr<string> videoDownloadUrl_ = nullptr;
-    std::shared_ptr<int32_t> videoDuration_ = nullptr;
-    std::shared_ptr<string> videoUrl_ = nullptr;
+    shared_ptr<string> errorMsg_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<string> status_ {};
+    shared_ptr<string> videoDownloadUrl_ {};
+    shared_ptr<int32_t> videoDuration_ {};
+    shared_ptr<string> videoUrl_ {};
   };
 
   } // namespace Models

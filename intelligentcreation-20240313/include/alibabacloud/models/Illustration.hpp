@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->illustrationId_ == nullptr
-        && return this->oss_ == nullptr; };
+        && this->oss_ == nullptr; };
     // illustrationId Field Functions 
     bool hasIllustrationId() const { return this->illustrationId_ != nullptr;};
     void deleteIllustrationId() { this->illustrationId_ = nullptr;};
-    inline int64_t illustrationId() const { DARABONBA_PTR_GET_DEFAULT(illustrationId_, 0L) };
+    inline int64_t getIllustrationId() const { DARABONBA_PTR_GET_DEFAULT(illustrationId_, 0L) };
     inline Illustration& setIllustrationId(int64_t illustrationId) { DARABONBA_PTR_SET_VALUE(illustrationId_, illustrationId) };
 
 
     // oss Field Functions 
     bool hasOss() const { return this->oss_ != nullptr;};
     void deleteOss() { this->oss_ = nullptr;};
-    inline string oss() const { DARABONBA_PTR_GET_DEFAULT(oss_, "") };
+    inline string getOss() const { DARABONBA_PTR_GET_DEFAULT(oss_, "") };
     inline Illustration& setOss(string oss) { DARABONBA_PTR_SET_VALUE(oss_, oss) };
 
 
   protected:
-    std::shared_ptr<int64_t> illustrationId_ = nullptr;
-    std::shared_ptr<string> oss_ = nullptr;
+    shared_ptr<int64_t> illustrationId_ {};
+    shared_ptr<string> oss_ {};
   };
 
   } // namespace Models

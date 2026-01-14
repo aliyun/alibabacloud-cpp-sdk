@@ -33,12 +33,12 @@ namespace Models
     // industry Field Functions 
     bool hasIndustry() const { return this->industry_ != nullptr;};
     void deleteIndustry() { this->industry_ = nullptr;};
-    inline string industry() const { DARABONBA_PTR_GET_DEFAULT(industry_, "") };
+    inline string getIndustry() const { DARABONBA_PTR_GET_DEFAULT(industry_, "") };
     inline GetTextTemplateRequest& setIndustry(string industry) { DARABONBA_PTR_SET_VALUE(industry_, industry) };
 
 
   protected:
-    std::shared_ptr<string> industry_ = nullptr;
+    shared_ptr<string> industry_ {};
   };
 
   } // namespace Models

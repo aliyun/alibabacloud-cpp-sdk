@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->crowdPack_ == nullptr
-        && return this->projectId_ == nullptr && return this->taskName_ == nullptr; };
+        && this->projectId_ == nullptr && this->taskName_ == nullptr; };
     // crowdPack Field Functions 
     bool hasCrowdPack() const { return this->crowdPack_ != nullptr;};
     void deleteCrowdPack() { this->crowdPack_ = nullptr;};
-    inline const vector<vector<string>> & crowdPack() const { DARABONBA_PTR_GET_CONST(crowdPack_, vector<vector<string>>) };
-    inline vector<vector<string>> crowdPack() { DARABONBA_PTR_GET(crowdPack_, vector<vector<string>>) };
+    inline const vector<vector<string>> & getCrowdPack() const { DARABONBA_PTR_GET_CONST(crowdPack_, vector<vector<string>>) };
+    inline vector<vector<string>> getCrowdPack() { DARABONBA_PTR_GET(crowdPack_, vector<vector<string>>) };
     inline CreateIndividuationTextTaskRequest& setCrowdPack(const vector<vector<string>> & crowdPack) { DARABONBA_PTR_SET_VALUE(crowdPack_, crowdPack) };
     inline CreateIndividuationTextTaskRequest& setCrowdPack(vector<vector<string>> && crowdPack) { DARABONBA_PTR_SET_RVALUE(crowdPack_, crowdPack) };
 
@@ -48,21 +48,21 @@ namespace Models
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline string projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, "") };
+    inline string getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, "") };
     inline CreateIndividuationTextTaskRequest& setProjectId(string projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
     // taskName Field Functions 
     bool hasTaskName() const { return this->taskName_ != nullptr;};
     void deleteTaskName() { this->taskName_ = nullptr;};
-    inline string taskName() const { DARABONBA_PTR_GET_DEFAULT(taskName_, "") };
+    inline string getTaskName() const { DARABONBA_PTR_GET_DEFAULT(taskName_, "") };
     inline CreateIndividuationTextTaskRequest& setTaskName(string taskName) { DARABONBA_PTR_SET_VALUE(taskName_, taskName) };
 
 
   protected:
-    std::shared_ptr<vector<vector<string>>> crowdPack_ = nullptr;
-    std::shared_ptr<string> projectId_ = nullptr;
-    std::shared_ptr<string> taskName_ = nullptr;
+    shared_ptr<vector<vector<string>>> crowdPack_ {};
+    shared_ptr<string> projectId_ {};
+    shared_ptr<string> taskName_ {};
   };
 
   } // namespace Models

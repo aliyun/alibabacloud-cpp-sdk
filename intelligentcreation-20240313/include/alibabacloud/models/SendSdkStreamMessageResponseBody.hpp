@@ -33,12 +33,12 @@ namespace Models
     // commonStreamMessage Field Functions 
     bool hasCommonStreamMessage() const { return this->commonStreamMessage_ != nullptr;};
     void deleteCommonStreamMessage() { this->commonStreamMessage_ = nullptr;};
-    inline string commonStreamMessage() const { DARABONBA_PTR_GET_DEFAULT(commonStreamMessage_, "") };
+    inline string getCommonStreamMessage() const { DARABONBA_PTR_GET_DEFAULT(commonStreamMessage_, "") };
     inline SendSdkStreamMessageResponseBody& setCommonStreamMessage(string commonStreamMessage) { DARABONBA_PTR_SET_VALUE(commonStreamMessage_, commonStreamMessage) };
 
 
   protected:
-    std::shared_ptr<string> commonStreamMessage_ = nullptr;
+    shared_ptr<string> commonStreamMessage_ {};
   };
 
   } // namespace Models

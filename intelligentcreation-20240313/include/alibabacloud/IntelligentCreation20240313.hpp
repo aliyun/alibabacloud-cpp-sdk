@@ -774,7 +774,7 @@ namespace IntelligentCreation20240313
        * @param runtime runtime options for this request RuntimeOptions
        * @return InteractTextResponse
        */
-      FutrueGenerator<Models::InteractTextResponse> interactTextWithSSE(const Models::InteractTextRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::InteractTextResponse> interactTextWithSSE(const Models::InteractTextRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 营销文案互动问答
@@ -1089,7 +1089,7 @@ namespace IntelligentCreation20240313
        * @param runtime runtime options for this request RuntimeOptions
        * @return QueryTextStreamResponse
        */
-      FutrueGenerator<Models::QueryTextStreamResponse> queryTextStreamWithSSE(const string &textId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::QueryTextStreamResponse> queryTextStreamWithSSE(const string &textId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 流式输出文案
@@ -1203,7 +1203,7 @@ namespace IntelligentCreation20240313
        * @param runtime runtime options for this request RuntimeOptions
        * @return SendSdkStreamMessageResponse
        */
-      FutrueGenerator<Models::SendSdkStreamMessageResponse> sendSdkStreamMessageWithSSE(const Models::SendSdkStreamMessageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::SendSdkStreamMessageResponse> sendSdkStreamMessageWithSSE(const Models::SendSdkStreamMessageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 发送sdk流式消息

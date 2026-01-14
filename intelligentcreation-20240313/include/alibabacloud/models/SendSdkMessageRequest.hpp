@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->data_ == nullptr
-        && return this->header_ == nullptr && return this->moduleName_ == nullptr && return this->operationName_ == nullptr && return this->userId_ == nullptr; };
+        && this->header_ == nullptr && this->moduleName_ == nullptr && this->operationName_ == nullptr && this->userId_ == nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline string data() const { DARABONBA_PTR_GET_DEFAULT(data_, "") };
+    inline string getData() const { DARABONBA_PTR_GET_DEFAULT(data_, "") };
     inline SendSdkMessageRequest& setData(string data) { DARABONBA_PTR_SET_VALUE(data_, data) };
 
 
     // header Field Functions 
     bool hasHeader() const { return this->header_ != nullptr;};
     void deleteHeader() { this->header_ = nullptr;};
-    inline string header() const { DARABONBA_PTR_GET_DEFAULT(header_, "") };
+    inline string getHeader() const { DARABONBA_PTR_GET_DEFAULT(header_, "") };
     inline SendSdkMessageRequest& setHeader(string header) { DARABONBA_PTR_SET_VALUE(header_, header) };
 
 
     // moduleName Field Functions 
     bool hasModuleName() const { return this->moduleName_ != nullptr;};
     void deleteModuleName() { this->moduleName_ = nullptr;};
-    inline string moduleName() const { DARABONBA_PTR_GET_DEFAULT(moduleName_, "") };
+    inline string getModuleName() const { DARABONBA_PTR_GET_DEFAULT(moduleName_, "") };
     inline SendSdkMessageRequest& setModuleName(string moduleName) { DARABONBA_PTR_SET_VALUE(moduleName_, moduleName) };
 
 
     // operationName Field Functions 
     bool hasOperationName() const { return this->operationName_ != nullptr;};
     void deleteOperationName() { this->operationName_ = nullptr;};
-    inline string operationName() const { DARABONBA_PTR_GET_DEFAULT(operationName_, "") };
+    inline string getOperationName() const { DARABONBA_PTR_GET_DEFAULT(operationName_, "") };
     inline SendSdkMessageRequest& setOperationName(string operationName) { DARABONBA_PTR_SET_VALUE(operationName_, operationName) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline SendSdkMessageRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
   protected:
-    std::shared_ptr<string> data_ = nullptr;
-    std::shared_ptr<string> header_ = nullptr;
-    std::shared_ptr<string> moduleName_ = nullptr;
-    std::shared_ptr<string> operationName_ = nullptr;
-    std::shared_ptr<string> userId_ = nullptr;
+    shared_ptr<string> data_ {};
+    shared_ptr<string> header_ {};
+    shared_ptr<string> moduleName_ {};
+    shared_ptr<string> operationName_ {};
+    shared_ptr<string> userId_ {};
   };
 
   } // namespace Models

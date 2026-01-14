@@ -34,14 +34,14 @@ namespace Models
     // projectIdList Field Functions 
     bool hasProjectIdList() const { return this->projectIdList_ != nullptr;};
     void deleteProjectIdList() { this->projectIdList_ = nullptr;};
-    inline const vector<string> & projectIdList() const { DARABONBA_PTR_GET_CONST(projectIdList_, vector<string>) };
-    inline vector<string> projectIdList() { DARABONBA_PTR_GET(projectIdList_, vector<string>) };
+    inline const vector<string> & getProjectIdList() const { DARABONBA_PTR_GET_CONST(projectIdList_, vector<string>) };
+    inline vector<string> getProjectIdList() { DARABONBA_PTR_GET(projectIdList_, vector<string>) };
     inline ListAvatarProjectRequest& setProjectIdList(const vector<string> & projectIdList) { DARABONBA_PTR_SET_VALUE(projectIdList_, projectIdList) };
     inline ListAvatarProjectRequest& setProjectIdList(vector<string> && projectIdList) { DARABONBA_PTR_SET_RVALUE(projectIdList_, projectIdList) };
 
 
   protected:
-    std::shared_ptr<vector<string>> projectIdList_ = nullptr;
+    shared_ptr<vector<string>> projectIdList_ {};
   };
 
   } // namespace Models

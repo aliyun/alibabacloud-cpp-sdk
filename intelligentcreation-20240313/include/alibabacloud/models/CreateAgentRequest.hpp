@@ -44,73 +44,73 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentIconUrl_ == nullptr
-        && return this->agentName_ == nullptr && return this->agentScene_ == nullptr && return this->characterAgeStage_ == nullptr && return this->characterGender_ == nullptr && return this->characterName_ == nullptr
-        && return this->extraDescription_ == nullptr && return this->industry_ == nullptr; };
+        && this->agentName_ == nullptr && this->agentScene_ == nullptr && this->characterAgeStage_ == nullptr && this->characterGender_ == nullptr && this->characterName_ == nullptr
+        && this->extraDescription_ == nullptr && this->industry_ == nullptr; };
     // agentIconUrl Field Functions 
     bool hasAgentIconUrl() const { return this->agentIconUrl_ != nullptr;};
     void deleteAgentIconUrl() { this->agentIconUrl_ = nullptr;};
-    inline string agentIconUrl() const { DARABONBA_PTR_GET_DEFAULT(agentIconUrl_, "") };
+    inline string getAgentIconUrl() const { DARABONBA_PTR_GET_DEFAULT(agentIconUrl_, "") };
     inline CreateAgentRequest& setAgentIconUrl(string agentIconUrl) { DARABONBA_PTR_SET_VALUE(agentIconUrl_, agentIconUrl) };
 
 
     // agentName Field Functions 
     bool hasAgentName() const { return this->agentName_ != nullptr;};
     void deleteAgentName() { this->agentName_ = nullptr;};
-    inline string agentName() const { DARABONBA_PTR_GET_DEFAULT(agentName_, "") };
+    inline string getAgentName() const { DARABONBA_PTR_GET_DEFAULT(agentName_, "") };
     inline CreateAgentRequest& setAgentName(string agentName) { DARABONBA_PTR_SET_VALUE(agentName_, agentName) };
 
 
     // agentScene Field Functions 
     bool hasAgentScene() const { return this->agentScene_ != nullptr;};
     void deleteAgentScene() { this->agentScene_ = nullptr;};
-    inline string agentScene() const { DARABONBA_PTR_GET_DEFAULT(agentScene_, "") };
+    inline string getAgentScene() const { DARABONBA_PTR_GET_DEFAULT(agentScene_, "") };
     inline CreateAgentRequest& setAgentScene(string agentScene) { DARABONBA_PTR_SET_VALUE(agentScene_, agentScene) };
 
 
     // characterAgeStage Field Functions 
     bool hasCharacterAgeStage() const { return this->characterAgeStage_ != nullptr;};
     void deleteCharacterAgeStage() { this->characterAgeStage_ = nullptr;};
-    inline string characterAgeStage() const { DARABONBA_PTR_GET_DEFAULT(characterAgeStage_, "") };
+    inline string getCharacterAgeStage() const { DARABONBA_PTR_GET_DEFAULT(characterAgeStage_, "") };
     inline CreateAgentRequest& setCharacterAgeStage(string characterAgeStage) { DARABONBA_PTR_SET_VALUE(characterAgeStage_, characterAgeStage) };
 
 
     // characterGender Field Functions 
     bool hasCharacterGender() const { return this->characterGender_ != nullptr;};
     void deleteCharacterGender() { this->characterGender_ = nullptr;};
-    inline string characterGender() const { DARABONBA_PTR_GET_DEFAULT(characterGender_, "") };
+    inline string getCharacterGender() const { DARABONBA_PTR_GET_DEFAULT(characterGender_, "") };
     inline CreateAgentRequest& setCharacterGender(string characterGender) { DARABONBA_PTR_SET_VALUE(characterGender_, characterGender) };
 
 
     // characterName Field Functions 
     bool hasCharacterName() const { return this->characterName_ != nullptr;};
     void deleteCharacterName() { this->characterName_ = nullptr;};
-    inline string characterName() const { DARABONBA_PTR_GET_DEFAULT(characterName_, "") };
+    inline string getCharacterName() const { DARABONBA_PTR_GET_DEFAULT(characterName_, "") };
     inline CreateAgentRequest& setCharacterName(string characterName) { DARABONBA_PTR_SET_VALUE(characterName_, characterName) };
 
 
     // extraDescription Field Functions 
     bool hasExtraDescription() const { return this->extraDescription_ != nullptr;};
     void deleteExtraDescription() { this->extraDescription_ = nullptr;};
-    inline string extraDescription() const { DARABONBA_PTR_GET_DEFAULT(extraDescription_, "") };
+    inline string getExtraDescription() const { DARABONBA_PTR_GET_DEFAULT(extraDescription_, "") };
     inline CreateAgentRequest& setExtraDescription(string extraDescription) { DARABONBA_PTR_SET_VALUE(extraDescription_, extraDescription) };
 
 
     // industry Field Functions 
     bool hasIndustry() const { return this->industry_ != nullptr;};
     void deleteIndustry() { this->industry_ = nullptr;};
-    inline string industry() const { DARABONBA_PTR_GET_DEFAULT(industry_, "") };
+    inline string getIndustry() const { DARABONBA_PTR_GET_DEFAULT(industry_, "") };
     inline CreateAgentRequest& setIndustry(string industry) { DARABONBA_PTR_SET_VALUE(industry_, industry) };
 
 
   protected:
-    std::shared_ptr<string> agentIconUrl_ = nullptr;
-    std::shared_ptr<string> agentName_ = nullptr;
-    std::shared_ptr<string> agentScene_ = nullptr;
-    std::shared_ptr<string> characterAgeStage_ = nullptr;
-    std::shared_ptr<string> characterGender_ = nullptr;
-    std::shared_ptr<string> characterName_ = nullptr;
-    std::shared_ptr<string> extraDescription_ = nullptr;
-    std::shared_ptr<string> industry_ = nullptr;
+    shared_ptr<string> agentIconUrl_ {};
+    shared_ptr<string> agentName_ {};
+    shared_ptr<string> agentScene_ {};
+    shared_ptr<string> characterAgeStage_ {};
+    shared_ptr<string> characterGender_ {};
+    shared_ptr<string> characterName_ {};
+    shared_ptr<string> extraDescription_ {};
+    shared_ptr<string> industry_ {};
   };
 
   } // namespace Models
