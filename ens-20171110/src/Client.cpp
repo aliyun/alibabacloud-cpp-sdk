@@ -3888,6 +3888,48 @@ DeleteBucketLifecycleResponse Client::deleteBucketLifecycle(const DeleteBucketLi
 }
 
 /**
+ * @summary 删除集群
+ *
+ * @param request DeleteClusterRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteClusterResponse
+ */
+DeleteClusterResponse Client::deleteClusterWithOptions(const DeleteClusterRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.getClusterId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteCluster"},
+    {"version" , "2017-11-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteClusterResponse>();
+}
+
+/**
+ * @summary 删除集群
+ *
+ * @param request DeleteClusterRequest
+ * @return DeleteClusterResponse
+ */
+DeleteClusterResponse Client::deleteCluster(const DeleteClusterRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteClusterWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes a disk.
  *
  * @description When you release a disk, the disk must be in the Available state.

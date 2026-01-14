@@ -206,6 +206,9 @@
 #include <alibabacloud/models/DeleteBucketLifecycleRequest.hpp>
 #include <alibabacloud/models/DeleteBucketLifecycleResponseBody.hpp>
 #include <alibabacloud/models/DeleteBucketLifecycleResponse.hpp>
+#include <alibabacloud/models/DeleteClusterRequest.hpp>
+#include <alibabacloud/models/DeleteClusterResponseBody.hpp>
+#include <alibabacloud/models/DeleteClusterResponse.hpp>
 #include <alibabacloud/models/DeleteDiskRequest.hpp>
 #include <alibabacloud/models/DeleteDiskResponseBody.hpp>
 #include <alibabacloud/models/DeleteDiskResponse.hpp>

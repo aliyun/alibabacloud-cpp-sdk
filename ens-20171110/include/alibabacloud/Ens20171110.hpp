@@ -1184,6 +1184,23 @@ namespace Ens20171110
       Models::DeleteBucketLifecycleResponse deleteBucketLifecycle(const Models::DeleteBucketLifecycleRequest &request);
 
       /**
+       * @summary 删除集群
+       *
+       * @param request DeleteClusterRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteClusterResponse
+       */
+      Models::DeleteClusterResponse deleteClusterWithOptions(const Models::DeleteClusterRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除集群
+       *
+       * @param request DeleteClusterRequest
+       * @return DeleteClusterResponse
+       */
+      Models::DeleteClusterResponse deleteCluster(const Models::DeleteClusterRequest &request);
+
+      /**
        * @summary Deletes a disk.
        *
        * @description When you release a disk, the disk must be in the Available state.
