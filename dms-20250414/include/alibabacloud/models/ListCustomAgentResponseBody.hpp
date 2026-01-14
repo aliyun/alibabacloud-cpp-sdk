@@ -80,6 +80,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(GmtModified, gmtModified_);
           DARABONBA_PTR_TO_JSON(Instruction, instruction_);
           DARABONBA_PTR_TO_JSON(Knowledge, knowledge_);
+          DARABONBA_PTR_TO_JSON(KnowledgeConfigList, knowledgeConfigList_);
           DARABONBA_PTR_TO_JSON(Modifier, modifier_);
           DARABONBA_PTR_TO_JSON(ModifierUserName, modifierUserName_);
           DARABONBA_PTR_TO_JSON(Name, name_);
@@ -104,6 +105,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(GmtModified, gmtModified_);
           DARABONBA_PTR_FROM_JSON(Instruction, instruction_);
           DARABONBA_PTR_FROM_JSON(Knowledge, knowledge_);
+          DARABONBA_PTR_FROM_JSON(KnowledgeConfigList, knowledgeConfigList_);
           DARABONBA_PTR_FROM_JSON(Modifier, modifier_);
           DARABONBA_PTR_FROM_JSON(ModifierUserName, modifierUserName_);
           DARABONBA_PTR_FROM_JSON(Name, name_);
@@ -126,6 +128,48 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class KnowledgeConfigList : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const KnowledgeConfigList& obj) { 
+            DARABONBA_PTR_TO_JSON(AccessType, accessType_);
+            DARABONBA_PTR_TO_JSON(McpServerId, mcpServerId_);
+          };
+          friend void from_json(const Darabonba::Json& j, KnowledgeConfigList& obj) { 
+            DARABONBA_PTR_FROM_JSON(AccessType, accessType_);
+            DARABONBA_PTR_FROM_JSON(McpServerId, mcpServerId_);
+          };
+          KnowledgeConfigList() = default ;
+          KnowledgeConfigList(const KnowledgeConfigList &) = default ;
+          KnowledgeConfigList(KnowledgeConfigList &&) = default ;
+          KnowledgeConfigList(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~KnowledgeConfigList() = default ;
+          KnowledgeConfigList& operator=(const KnowledgeConfigList &) = default ;
+          KnowledgeConfigList& operator=(KnowledgeConfigList &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->accessType_ == nullptr
+        && this->mcpServerId_ == nullptr; };
+          // accessType Field Functions 
+          bool hasAccessType() const { return this->accessType_ != nullptr;};
+          void deleteAccessType() { this->accessType_ = nullptr;};
+          inline string getAccessType() const { DARABONBA_PTR_GET_DEFAULT(accessType_, "") };
+          inline KnowledgeConfigList& setAccessType(string accessType) { DARABONBA_PTR_SET_VALUE(accessType_, accessType) };
+
+
+          // mcpServerId Field Functions 
+          bool hasMcpServerId() const { return this->mcpServerId_ != nullptr;};
+          void deleteMcpServerId() { this->mcpServerId_ = nullptr;};
+          inline string getMcpServerId() const { DARABONBA_PTR_GET_DEFAULT(mcpServerId_, "") };
+          inline KnowledgeConfigList& setMcpServerId(string mcpServerId) { DARABONBA_PTR_SET_VALUE(mcpServerId_, mcpServerId) };
+
+
+        protected:
+          shared_ptr<string> accessType_ {};
+          shared_ptr<string> mcpServerId_ {};
+        };
+
         class ExecutionConfig : public Darabonba::Model {
         public:
           friend void to_json(Darabonba::Json& j, const ExecutionConfig& obj) { 
@@ -191,9 +235,9 @@ namespace Models
         virtual bool empty() const override { return this->aliyunParentId_ == nullptr
         && this->aliyunUid_ == nullptr && this->creatorUserName_ == nullptr && this->customAgentId_ == nullptr && this->dataJson_ == nullptr && this->description_ == nullptr
         && this->dmsUnit_ == nullptr && this->executionConfig_ == nullptr && this->gmtCreated_ == nullptr && this->gmtModified_ == nullptr && this->instruction_ == nullptr
-        && this->knowledge_ == nullptr && this->modifier_ == nullptr && this->modifierUserName_ == nullptr && this->name_ == nullptr && this->offlineTime_ == nullptr
-        && this->region_ == nullptr && this->releaseTime_ == nullptr && this->status_ == nullptr && this->textReportConfig_ == nullptr && this->webReportConfig_ == nullptr
-        && this->workspaceId_ == nullptr; };
+        && this->knowledge_ == nullptr && this->knowledgeConfigList_ == nullptr && this->modifier_ == nullptr && this->modifierUserName_ == nullptr && this->name_ == nullptr
+        && this->offlineTime_ == nullptr && this->region_ == nullptr && this->releaseTime_ == nullptr && this->status_ == nullptr && this->textReportConfig_ == nullptr
+        && this->webReportConfig_ == nullptr && this->workspaceId_ == nullptr; };
         // aliyunParentId Field Functions 
         bool hasAliyunParentId() const { return this->aliyunParentId_ != nullptr;};
         void deleteAliyunParentId() { this->aliyunParentId_ = nullptr;};
@@ -280,6 +324,15 @@ namespace Models
         inline Content& setKnowledge(string knowledge) { DARABONBA_PTR_SET_VALUE(knowledge_, knowledge) };
 
 
+        // knowledgeConfigList Field Functions 
+        bool hasKnowledgeConfigList() const { return this->knowledgeConfigList_ != nullptr;};
+        void deleteKnowledgeConfigList() { this->knowledgeConfigList_ = nullptr;};
+        inline const vector<Content::KnowledgeConfigList> & getKnowledgeConfigList() const { DARABONBA_PTR_GET_CONST(knowledgeConfigList_, vector<Content::KnowledgeConfigList>) };
+        inline vector<Content::KnowledgeConfigList> getKnowledgeConfigList() { DARABONBA_PTR_GET(knowledgeConfigList_, vector<Content::KnowledgeConfigList>) };
+        inline Content& setKnowledgeConfigList(const vector<Content::KnowledgeConfigList> & knowledgeConfigList) { DARABONBA_PTR_SET_VALUE(knowledgeConfigList_, knowledgeConfigList) };
+        inline Content& setKnowledgeConfigList(vector<Content::KnowledgeConfigList> && knowledgeConfigList) { DARABONBA_PTR_SET_RVALUE(knowledgeConfigList_, knowledgeConfigList) };
+
+
         // modifier Field Functions 
         bool hasModifier() const { return this->modifier_ != nullptr;};
         void deleteModifier() { this->modifier_ = nullptr;};
@@ -363,6 +416,7 @@ namespace Models
         shared_ptr<string> gmtModified_ {};
         shared_ptr<string> instruction_ {};
         shared_ptr<string> knowledge_ {};
+        shared_ptr<vector<Content::KnowledgeConfigList>> knowledgeConfigList_ {};
         shared_ptr<string> modifier_ {};
         shared_ptr<string> modifierUserName_ {};
         shared_ptr<string> name_ {};
