@@ -34,8 +34,8 @@ namespace Models
     // ipWhitelists Field Functions 
     bool hasIpWhitelists() const { return this->ipWhitelists_ != nullptr;};
     void deleteIpWhitelists() { this->ipWhitelists_ = nullptr;};
-    inline const vector<string> & ipWhitelists() const { DARABONBA_PTR_GET_CONST(ipWhitelists_, vector<string>) };
-    inline vector<string> ipWhitelists() { DARABONBA_PTR_GET(ipWhitelists_, vector<string>) };
+    inline const vector<string> & getIpWhitelists() const { DARABONBA_PTR_GET_CONST(ipWhitelists_, vector<string>) };
+    inline vector<string> getIpWhitelists() { DARABONBA_PTR_GET(ipWhitelists_, vector<string>) };
     inline CreateInstanceIpWhitelistRequest& setIpWhitelists(const vector<string> & ipWhitelists) { DARABONBA_PTR_SET_VALUE(ipWhitelists_, ipWhitelists) };
     inline CreateInstanceIpWhitelistRequest& setIpWhitelists(vector<string> && ipWhitelists) { DARABONBA_PTR_SET_RVALUE(ipWhitelists_, ipWhitelists) };
 
@@ -44,7 +44,7 @@ namespace Models
     // The IP address whitelists.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> ipWhitelists_ = nullptr;
+    shared_ptr<vector<string>> ipWhitelists_ {};
   };
 
   } // namespace Models

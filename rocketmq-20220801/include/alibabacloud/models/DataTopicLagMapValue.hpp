@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->readyCount_ == nullptr
-        && return this->inflightCount_ == nullptr && return this->deliveryDuration_ == nullptr && return this->lastConsumeTimestamp_ == nullptr; };
+        && this->inflightCount_ == nullptr && this->deliveryDuration_ == nullptr && this->lastConsumeTimestamp_ == nullptr; };
     // readyCount Field Functions 
     bool hasReadyCount() const { return this->readyCount_ != nullptr;};
     void deleteReadyCount() { this->readyCount_ = nullptr;};
-    inline int64_t readyCount() const { DARABONBA_PTR_GET_DEFAULT(readyCount_, 0L) };
+    inline int64_t getReadyCount() const { DARABONBA_PTR_GET_DEFAULT(readyCount_, 0L) };
     inline DataTopicLagMapValue& setReadyCount(int64_t readyCount) { DARABONBA_PTR_SET_VALUE(readyCount_, readyCount) };
 
 
     // inflightCount Field Functions 
     bool hasInflightCount() const { return this->inflightCount_ != nullptr;};
     void deleteInflightCount() { this->inflightCount_ = nullptr;};
-    inline int64_t inflightCount() const { DARABONBA_PTR_GET_DEFAULT(inflightCount_, 0L) };
+    inline int64_t getInflightCount() const { DARABONBA_PTR_GET_DEFAULT(inflightCount_, 0L) };
     inline DataTopicLagMapValue& setInflightCount(int64_t inflightCount) { DARABONBA_PTR_SET_VALUE(inflightCount_, inflightCount) };
 
 
     // deliveryDuration Field Functions 
     bool hasDeliveryDuration() const { return this->deliveryDuration_ != nullptr;};
     void deleteDeliveryDuration() { this->deliveryDuration_ = nullptr;};
-    inline int64_t deliveryDuration() const { DARABONBA_PTR_GET_DEFAULT(deliveryDuration_, 0L) };
+    inline int64_t getDeliveryDuration() const { DARABONBA_PTR_GET_DEFAULT(deliveryDuration_, 0L) };
     inline DataTopicLagMapValue& setDeliveryDuration(int64_t deliveryDuration) { DARABONBA_PTR_SET_VALUE(deliveryDuration_, deliveryDuration) };
 
 
     // lastConsumeTimestamp Field Functions 
     bool hasLastConsumeTimestamp() const { return this->lastConsumeTimestamp_ != nullptr;};
     void deleteLastConsumeTimestamp() { this->lastConsumeTimestamp_ = nullptr;};
-    inline int64_t lastConsumeTimestamp() const { DARABONBA_PTR_GET_DEFAULT(lastConsumeTimestamp_, 0L) };
+    inline int64_t getLastConsumeTimestamp() const { DARABONBA_PTR_GET_DEFAULT(lastConsumeTimestamp_, 0L) };
     inline DataTopicLagMapValue& setLastConsumeTimestamp(int64_t lastConsumeTimestamp) { DARABONBA_PTR_SET_VALUE(lastConsumeTimestamp_, lastConsumeTimestamp) };
 
 
   protected:
     // Ready message count
-    std::shared_ptr<int64_t> readyCount_ = nullptr;
+    shared_ptr<int64_t> readyCount_ {};
     // The number of messages being consumed.
-    std::shared_ptr<int64_t> inflightCount_ = nullptr;
+    shared_ptr<int64_t> inflightCount_ {};
     // Delivery delay time, in seconds
-    std::shared_ptr<int64_t> deliveryDuration_ = nullptr;
+    shared_ptr<int64_t> deliveryDuration_ {};
     // lastConsumeTimestamp
-    std::shared_ptr<int64_t> lastConsumeTimestamp_ = nullptr;
+    shared_ptr<int64_t> lastConsumeTimestamp_ {};
   };
 
   } // namespace Models

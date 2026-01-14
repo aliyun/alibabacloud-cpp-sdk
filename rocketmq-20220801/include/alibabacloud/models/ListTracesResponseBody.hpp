@@ -2,7 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_LISTTRACESRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_LISTTRACESRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/ListTracesResponseBodyData.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -44,84 +44,254 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(list, list_);
+        DARABONBA_PTR_TO_JSON(pageNumber, pageNumber_);
+        DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
+        DARABONBA_PTR_TO_JSON(totalCount, totalCount_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(list, list_);
+        DARABONBA_PTR_FROM_JSON(pageNumber, pageNumber_);
+        DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
+        DARABONBA_PTR_FROM_JSON(totalCount, totalCount_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class List : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const List& obj) { 
+          DARABONBA_PTR_TO_JSON(bornTime, bornTime_);
+          DARABONBA_PTR_TO_JSON(instanceId, instanceId_);
+          DARABONBA_PTR_TO_JSON(messageId, messageId_);
+          DARABONBA_PTR_TO_JSON(messageKeys, messageKeys_);
+          DARABONBA_PTR_TO_JSON(messageTag, messageTag_);
+          DARABONBA_PTR_TO_JSON(regionId, regionId_);
+          DARABONBA_PTR_TO_JSON(topicName, topicName_);
+        };
+        friend void from_json(const Darabonba::Json& j, List& obj) { 
+          DARABONBA_PTR_FROM_JSON(bornTime, bornTime_);
+          DARABONBA_PTR_FROM_JSON(instanceId, instanceId_);
+          DARABONBA_PTR_FROM_JSON(messageId, messageId_);
+          DARABONBA_PTR_FROM_JSON(messageKeys, messageKeys_);
+          DARABONBA_PTR_FROM_JSON(messageTag, messageTag_);
+          DARABONBA_PTR_FROM_JSON(regionId, regionId_);
+          DARABONBA_PTR_FROM_JSON(topicName, topicName_);
+        };
+        List() = default ;
+        List(const List &) = default ;
+        List(List &&) = default ;
+        List(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~List() = default ;
+        List& operator=(const List &) = default ;
+        List& operator=(List &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->bornTime_ == nullptr
+        && this->instanceId_ == nullptr && this->messageId_ == nullptr && this->messageKeys_ == nullptr && this->messageTag_ == nullptr && this->regionId_ == nullptr
+        && this->topicName_ == nullptr; };
+        // bornTime Field Functions 
+        bool hasBornTime() const { return this->bornTime_ != nullptr;};
+        void deleteBornTime() { this->bornTime_ = nullptr;};
+        inline string getBornTime() const { DARABONBA_PTR_GET_DEFAULT(bornTime_, "") };
+        inline List& setBornTime(string bornTime) { DARABONBA_PTR_SET_VALUE(bornTime_, bornTime) };
+
+
+        // instanceId Field Functions 
+        bool hasInstanceId() const { return this->instanceId_ != nullptr;};
+        void deleteInstanceId() { this->instanceId_ = nullptr;};
+        inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+        inline List& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+        // messageId Field Functions 
+        bool hasMessageId() const { return this->messageId_ != nullptr;};
+        void deleteMessageId() { this->messageId_ = nullptr;};
+        inline string getMessageId() const { DARABONBA_PTR_GET_DEFAULT(messageId_, "") };
+        inline List& setMessageId(string messageId) { DARABONBA_PTR_SET_VALUE(messageId_, messageId) };
+
+
+        // messageKeys Field Functions 
+        bool hasMessageKeys() const { return this->messageKeys_ != nullptr;};
+        void deleteMessageKeys() { this->messageKeys_ = nullptr;};
+        inline const vector<string> & getMessageKeys() const { DARABONBA_PTR_GET_CONST(messageKeys_, vector<string>) };
+        inline vector<string> getMessageKeys() { DARABONBA_PTR_GET(messageKeys_, vector<string>) };
+        inline List& setMessageKeys(const vector<string> & messageKeys) { DARABONBA_PTR_SET_VALUE(messageKeys_, messageKeys) };
+        inline List& setMessageKeys(vector<string> && messageKeys) { DARABONBA_PTR_SET_RVALUE(messageKeys_, messageKeys) };
+
+
+        // messageTag Field Functions 
+        bool hasMessageTag() const { return this->messageTag_ != nullptr;};
+        void deleteMessageTag() { this->messageTag_ = nullptr;};
+        inline string getMessageTag() const { DARABONBA_PTR_GET_DEFAULT(messageTag_, "") };
+        inline List& setMessageTag(string messageTag) { DARABONBA_PTR_SET_VALUE(messageTag_, messageTag) };
+
+
+        // regionId Field Functions 
+        bool hasRegionId() const { return this->regionId_ != nullptr;};
+        void deleteRegionId() { this->regionId_ = nullptr;};
+        inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+        inline List& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
+
+
+        // topicName Field Functions 
+        bool hasTopicName() const { return this->topicName_ != nullptr;};
+        void deleteTopicName() { this->topicName_ = nullptr;};
+        inline string getTopicName() const { DARABONBA_PTR_GET_DEFAULT(topicName_, "") };
+        inline List& setTopicName(string topicName) { DARABONBA_PTR_SET_VALUE(topicName_, topicName) };
+
+
+      protected:
+        // Message born time.
+        shared_ptr<string> bornTime_ {};
+        // The instance ID.
+        shared_ptr<string> instanceId_ {};
+        // Message id.
+        shared_ptr<string> messageId_ {};
+        // Message keys.
+        shared_ptr<vector<string>> messageKeys_ {};
+        // Message tag.
+        shared_ptr<string> messageTag_ {};
+        // The region ID.
+        shared_ptr<string> regionId_ {};
+        // The name of the topic.
+        shared_ptr<string> topicName_ {};
+      };
+
+      virtual bool empty() const override { return this->list_ == nullptr
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->totalCount_ == nullptr; };
+      // list Field Functions 
+      bool hasList() const { return this->list_ != nullptr;};
+      void deleteList() { this->list_ = nullptr;};
+      inline const vector<Data::List> & getList() const { DARABONBA_PTR_GET_CONST(list_, vector<Data::List>) };
+      inline vector<Data::List> getList() { DARABONBA_PTR_GET(list_, vector<Data::List>) };
+      inline Data& setList(const vector<Data::List> & list) { DARABONBA_PTR_SET_VALUE(list_, list) };
+      inline Data& setList(vector<Data::List> && list) { DARABONBA_PTR_SET_RVALUE(list_, list) };
+
+
+      // pageNumber Field Functions 
+      bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
+      void deletePageNumber() { this->pageNumber_ = nullptr;};
+      inline int64_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0L) };
+      inline Data& setPageNumber(int64_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
+
+
+      // pageSize Field Functions 
+      bool hasPageSize() const { return this->pageSize_ != nullptr;};
+      void deletePageSize() { this->pageSize_ = nullptr;};
+      inline int64_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
+      inline Data& setPageSize(int64_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
+
+
+      // totalCount Field Functions 
+      bool hasTotalCount() const { return this->totalCount_ != nullptr;};
+      void deleteTotalCount() { this->totalCount_ = nullptr;};
+      inline int64_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0L) };
+      inline Data& setTotalCount(int64_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
+
+
+    protected:
+      // Trace list.
+      shared_ptr<vector<Data::List>> list_ {};
+      // The page number of the returned page.
+      shared_ptr<int64_t> pageNumber_ {};
+      // The number of entries per page.
+      shared_ptr<int64_t> pageSize_ {};
+      // The total number of returned entries.
+      shared_ptr<int64_t> totalCount_ {};
+    };
+
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->data_ == nullptr && return this->dynamicCode_ == nullptr && return this->dynamicMessage_ == nullptr && return this->httpStatusCode_ == nullptr && return this->message_ == nullptr
-        && return this->requestId_ == nullptr && return this->success_ == nullptr; };
+        && this->data_ == nullptr && this->dynamicCode_ == nullptr && this->dynamicMessage_ == nullptr && this->httpStatusCode_ == nullptr && this->message_ == nullptr
+        && this->requestId_ == nullptr && this->success_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline ListTracesResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const ListTracesResponseBodyData & data() const { DARABONBA_PTR_GET_CONST(data_, ListTracesResponseBodyData) };
-    inline ListTracesResponseBodyData data() { DARABONBA_PTR_GET(data_, ListTracesResponseBodyData) };
-    inline ListTracesResponseBody& setData(const ListTracesResponseBodyData & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline ListTracesResponseBody& setData(ListTracesResponseBodyData && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const ListTracesResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, ListTracesResponseBody::Data) };
+    inline ListTracesResponseBody::Data getData() { DARABONBA_PTR_GET(data_, ListTracesResponseBody::Data) };
+    inline ListTracesResponseBody& setData(const ListTracesResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline ListTracesResponseBody& setData(ListTracesResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // dynamicCode Field Functions 
     bool hasDynamicCode() const { return this->dynamicCode_ != nullptr;};
     void deleteDynamicCode() { this->dynamicCode_ = nullptr;};
-    inline string dynamicCode() const { DARABONBA_PTR_GET_DEFAULT(dynamicCode_, "") };
+    inline string getDynamicCode() const { DARABONBA_PTR_GET_DEFAULT(dynamicCode_, "") };
     inline ListTracesResponseBody& setDynamicCode(string dynamicCode) { DARABONBA_PTR_SET_VALUE(dynamicCode_, dynamicCode) };
 
 
     // dynamicMessage Field Functions 
     bool hasDynamicMessage() const { return this->dynamicMessage_ != nullptr;};
     void deleteDynamicMessage() { this->dynamicMessage_ = nullptr;};
-    inline string dynamicMessage() const { DARABONBA_PTR_GET_DEFAULT(dynamicMessage_, "") };
+    inline string getDynamicMessage() const { DARABONBA_PTR_GET_DEFAULT(dynamicMessage_, "") };
     inline ListTracesResponseBody& setDynamicMessage(string dynamicMessage) { DARABONBA_PTR_SET_VALUE(dynamicMessage_, dynamicMessage) };
 
 
     // httpStatusCode Field Functions 
     bool hasHttpStatusCode() const { return this->httpStatusCode_ != nullptr;};
     void deleteHttpStatusCode() { this->httpStatusCode_ = nullptr;};
-    inline int32_t httpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
+    inline int32_t getHttpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
     inline ListTracesResponseBody& setHttpStatusCode(int32_t httpStatusCode) { DARABONBA_PTR_SET_VALUE(httpStatusCode_, httpStatusCode) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline ListTracesResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListTracesResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline ListTracesResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
     // The error code.
-    std::shared_ptr<string> code_ = nullptr;
+    shared_ptr<string> code_ {};
     // The returned result.
-    std::shared_ptr<ListTracesResponseBodyData> data_ = nullptr;
+    shared_ptr<ListTracesResponseBody::Data> data_ {};
     // The dynamic error code.
-    std::shared_ptr<string> dynamicCode_ = nullptr;
+    shared_ptr<string> dynamicCode_ {};
     // The dynamic error message.
-    std::shared_ptr<string> dynamicMessage_ = nullptr;
+    shared_ptr<string> dynamicMessage_ {};
     // The HTTP status code.
-    std::shared_ptr<int32_t> httpStatusCode_ = nullptr;
+    shared_ptr<int32_t> httpStatusCode_ {};
     // The error message.
-    std::shared_ptr<string> message_ = nullptr;
+    shared_ptr<string> message_ {};
     // Id of the request
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

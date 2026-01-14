@@ -33,13 +33,13 @@ namespace Models
     // topicName Field Functions 
     bool hasTopicName() const { return this->topicName_ != nullptr;};
     void deleteTopicName() { this->topicName_ = nullptr;};
-    inline string topicName() const { DARABONBA_PTR_GET_DEFAULT(topicName_, "") };
+    inline string getTopicName() const { DARABONBA_PTR_GET_DEFAULT(topicName_, "") };
     inline ListConsumerGroupSubscriptionsRequest& setTopicName(string topicName) { DARABONBA_PTR_SET_VALUE(topicName_, topicName) };
 
 
   protected:
     // The topic name. If you do not specify this parameter, all subscriptions of the consumer group are queried.
-    std::shared_ptr<string> topicName_ = nullptr;
+    shared_ptr<string> topicName_ {};
   };
 
   } // namespace Models

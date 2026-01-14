@@ -34,34 +34,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->liteTopicExpiration_ == nullptr
-        && return this->maxSendTps_ == nullptr && return this->remark_ == nullptr; };
+        && this->maxSendTps_ == nullptr && this->remark_ == nullptr; };
     // liteTopicExpiration Field Functions 
     bool hasLiteTopicExpiration() const { return this->liteTopicExpiration_ != nullptr;};
     void deleteLiteTopicExpiration() { this->liteTopicExpiration_ = nullptr;};
-    inline int64_t liteTopicExpiration() const { DARABONBA_PTR_GET_DEFAULT(liteTopicExpiration_, 0L) };
+    inline int64_t getLiteTopicExpiration() const { DARABONBA_PTR_GET_DEFAULT(liteTopicExpiration_, 0L) };
     inline UpdateTopicRequest& setLiteTopicExpiration(int64_t liteTopicExpiration) { DARABONBA_PTR_SET_VALUE(liteTopicExpiration_, liteTopicExpiration) };
 
 
     // maxSendTps Field Functions 
     bool hasMaxSendTps() const { return this->maxSendTps_ != nullptr;};
     void deleteMaxSendTps() { this->maxSendTps_ = nullptr;};
-    inline int64_t maxSendTps() const { DARABONBA_PTR_GET_DEFAULT(maxSendTps_, 0L) };
+    inline int64_t getMaxSendTps() const { DARABONBA_PTR_GET_DEFAULT(maxSendTps_, 0L) };
     inline UpdateTopicRequest& setMaxSendTps(int64_t maxSendTps) { DARABONBA_PTR_SET_VALUE(maxSendTps_, maxSendTps) };
 
 
     // remark Field Functions 
     bool hasRemark() const { return this->remark_ != nullptr;};
     void deleteRemark() { this->remark_ = nullptr;};
-    inline string remark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
+    inline string getRemark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
     inline UpdateTopicRequest& setRemark(string remark) { DARABONBA_PTR_SET_VALUE(remark_, remark) };
 
 
   protected:
-    std::shared_ptr<int64_t> liteTopicExpiration_ = nullptr;
+    shared_ptr<int64_t> liteTopicExpiration_ {};
     // Maximum send message tps
-    std::shared_ptr<int64_t> maxSendTps_ = nullptr;
+    shared_ptr<int64_t> maxSendTps_ {};
     // Updated remarks for the topic.
-    std::shared_ptr<string> remark_ = nullptr;
+    shared_ptr<string> remark_ {};
   };
 
   } // namespace Models

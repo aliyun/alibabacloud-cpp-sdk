@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientId_ == nullptr
-        && return this->consumerGroupId_ == nullptr; };
+        && this->consumerGroupId_ == nullptr; };
     // clientId Field Functions 
     bool hasClientId() const { return this->clientId_ != nullptr;};
     void deleteClientId() { this->clientId_ = nullptr;};
-    inline string clientId() const { DARABONBA_PTR_GET_DEFAULT(clientId_, "") };
+    inline string getClientId() const { DARABONBA_PTR_GET_DEFAULT(clientId_, "") };
     inline VerifyConsumeMessageRequest& setClientId(string clientId) { DARABONBA_PTR_SET_VALUE(clientId_, clientId) };
 
 
     // consumerGroupId Field Functions 
     bool hasConsumerGroupId() const { return this->consumerGroupId_ != nullptr;};
     void deleteConsumerGroupId() { this->consumerGroupId_ = nullptr;};
-    inline string consumerGroupId() const { DARABONBA_PTR_GET_DEFAULT(consumerGroupId_, "") };
+    inline string getConsumerGroupId() const { DARABONBA_PTR_GET_DEFAULT(consumerGroupId_, "") };
     inline VerifyConsumeMessageRequest& setConsumerGroupId(string consumerGroupId) { DARABONBA_PTR_SET_VALUE(consumerGroupId_, consumerGroupId) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The client ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> clientId_ = nullptr;
+    shared_ptr<string> clientId_ {};
     // The ID of the consumer group.
     // 
     // This parameter is required.
-    std::shared_ptr<string> consumerGroupId_ = nullptr;
+    shared_ptr<string> consumerGroupId_ {};
   };
 
   } // namespace Models

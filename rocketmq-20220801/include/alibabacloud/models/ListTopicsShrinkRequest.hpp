@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->filter_ == nullptr
-        && return this->messageTypesShrink_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr; };
+        && this->messageTypesShrink_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr; };
     // filter Field Functions 
     bool hasFilter() const { return this->filter_ != nullptr;};
     void deleteFilter() { this->filter_ = nullptr;};
-    inline string filter() const { DARABONBA_PTR_GET_DEFAULT(filter_, "") };
+    inline string getFilter() const { DARABONBA_PTR_GET_DEFAULT(filter_, "") };
     inline ListTopicsShrinkRequest& setFilter(string filter) { DARABONBA_PTR_SET_VALUE(filter_, filter) };
 
 
     // messageTypesShrink Field Functions 
     bool hasMessageTypesShrink() const { return this->messageTypesShrink_ != nullptr;};
     void deleteMessageTypesShrink() { this->messageTypesShrink_ = nullptr;};
-    inline string messageTypesShrink() const { DARABONBA_PTR_GET_DEFAULT(messageTypesShrink_, "") };
+    inline string getMessageTypesShrink() const { DARABONBA_PTR_GET_DEFAULT(messageTypesShrink_, "") };
     inline ListTopicsShrinkRequest& setMessageTypesShrink(string messageTypesShrink) { DARABONBA_PTR_SET_VALUE(messageTypesShrink_, messageTypesShrink) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline ListTopicsShrinkRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListTopicsShrinkRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
   protected:
     // The filter condition for the query. If not provided, all topics under the instance will be queried.
-    std::shared_ptr<string> filter_ = nullptr;
+    shared_ptr<string> filter_ {};
     // The message type of the topic.
-    std::shared_ptr<string> messageTypesShrink_ = nullptr;
+    shared_ptr<string> messageTypesShrink_ {};
     // Page number, indicating which page of results to return.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // Page size, the maximum number of results to display per page.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
   };
 
   } // namespace Models

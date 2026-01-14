@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountStatus_ == nullptr
-        && return this->password_ == nullptr; };
+        && this->password_ == nullptr; };
     // accountStatus Field Functions 
     bool hasAccountStatus() const { return this->accountStatus_ != nullptr;};
     void deleteAccountStatus() { this->accountStatus_ = nullptr;};
-    inline string accountStatus() const { DARABONBA_PTR_GET_DEFAULT(accountStatus_, "") };
+    inline string getAccountStatus() const { DARABONBA_PTR_GET_DEFAULT(accountStatus_, "") };
     inline UpdateInstanceAccountRequest& setAccountStatus(string accountStatus) { DARABONBA_PTR_SET_VALUE(accountStatus_, accountStatus) };
 
 
     // password Field Functions 
     bool hasPassword() const { return this->password_ != nullptr;};
     void deletePassword() { this->password_ = nullptr;};
-    inline string password() const { DARABONBA_PTR_GET_DEFAULT(password_, "") };
+    inline string getPassword() const { DARABONBA_PTR_GET_DEFAULT(password_, "") };
     inline UpdateInstanceAccountRequest& setPassword(string password) { DARABONBA_PTR_SET_VALUE(password_, password) };
 
 
@@ -54,9 +54,9 @@ namespace Models
     // 
     // *   DISABLE
     // *   ENABLE
-    std::shared_ptr<string> accountStatus_ = nullptr;
+    shared_ptr<string> accountStatus_ {};
     // The password of the account.
-    std::shared_ptr<string> password_ = nullptr;
+    shared_ptr<string> password_ {};
   };
 
   } // namespace Models

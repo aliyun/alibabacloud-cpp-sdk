@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->resetTime_ == nullptr
-        && return this->resetType_ == nullptr; };
+        && this->resetType_ == nullptr; };
     // resetTime Field Functions 
     bool hasResetTime() const { return this->resetTime_ != nullptr;};
     void deleteResetTime() { this->resetTime_ = nullptr;};
-    inline string resetTime() const { DARABONBA_PTR_GET_DEFAULT(resetTime_, "") };
+    inline string getResetTime() const { DARABONBA_PTR_GET_DEFAULT(resetTime_, "") };
     inline ResetConsumeOffsetRequest& setResetTime(string resetTime) { DARABONBA_PTR_SET_VALUE(resetTime_, resetTime) };
 
 
     // resetType Field Functions 
     bool hasResetType() const { return this->resetType_ != nullptr;};
     void deleteResetType() { this->resetType_ = nullptr;};
-    inline string resetType() const { DARABONBA_PTR_GET_DEFAULT(resetType_, "") };
+    inline string getResetType() const { DARABONBA_PTR_GET_DEFAULT(resetType_, "") };
     inline ResetConsumeOffsetRequest& setResetType(string resetType) { DARABONBA_PTR_SET_VALUE(resetType_, resetType) };
 
 
   protected:
     // The time when the consumer offset is reset.
-    std::shared_ptr<string> resetTime_ = nullptr;
+    shared_ptr<string> resetTime_ {};
     // The method that is used to reset the consumer offset. Valid values: LATEST_OFFSET and SPECIFIED_TIME.
-    std::shared_ptr<string> resetType_ = nullptr;
+    shared_ptr<string> resetType_ {};
   };
 
   } // namespace Models

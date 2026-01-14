@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->password_ == nullptr
-        && return this->username_ == nullptr; };
+        && this->username_ == nullptr; };
     // password Field Functions 
     bool hasPassword() const { return this->password_ != nullptr;};
     void deletePassword() { this->password_ = nullptr;};
-    inline string password() const { DARABONBA_PTR_GET_DEFAULT(password_, "") };
+    inline string getPassword() const { DARABONBA_PTR_GET_DEFAULT(password_, "") };
     inline CreateInstanceAccountRequest& setPassword(string password) { DARABONBA_PTR_SET_VALUE(password_, password) };
 
 
     // username Field Functions 
     bool hasUsername() const { return this->username_ != nullptr;};
     void deleteUsername() { this->username_ = nullptr;};
-    inline string username() const { DARABONBA_PTR_GET_DEFAULT(username_, "") };
+    inline string getUsername() const { DARABONBA_PTR_GET_DEFAULT(username_, "") };
     inline CreateInstanceAccountRequest& setUsername(string username) { DARABONBA_PTR_SET_VALUE(username_, username) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The password of the account.
     // 
     // This parameter is required.
-    std::shared_ptr<string> password_ = nullptr;
+    shared_ptr<string> password_ {};
     // The username of the account.
     // 
     // This parameter is required.
-    std::shared_ptr<string> username_ = nullptr;
+    shared_ptr<string> username_ {};
   };
 
   } // namespace Models

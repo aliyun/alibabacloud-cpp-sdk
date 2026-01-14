@@ -36,43 +36,43 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->liteTopicName_ == nullptr
-        && return this->message_ == nullptr && return this->messageKey_ == nullptr && return this->messageTag_ == nullptr; };
+        && this->message_ == nullptr && this->messageKey_ == nullptr && this->messageTag_ == nullptr; };
     // liteTopicName Field Functions 
     bool hasLiteTopicName() const { return this->liteTopicName_ != nullptr;};
     void deleteLiteTopicName() { this->liteTopicName_ = nullptr;};
-    inline string liteTopicName() const { DARABONBA_PTR_GET_DEFAULT(liteTopicName_, "") };
+    inline string getLiteTopicName() const { DARABONBA_PTR_GET_DEFAULT(liteTopicName_, "") };
     inline VerifySendMessageRequest& setLiteTopicName(string liteTopicName) { DARABONBA_PTR_SET_VALUE(liteTopicName_, liteTopicName) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline VerifySendMessageRequest& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // messageKey Field Functions 
     bool hasMessageKey() const { return this->messageKey_ != nullptr;};
     void deleteMessageKey() { this->messageKey_ = nullptr;};
-    inline string messageKey() const { DARABONBA_PTR_GET_DEFAULT(messageKey_, "") };
+    inline string getMessageKey() const { DARABONBA_PTR_GET_DEFAULT(messageKey_, "") };
     inline VerifySendMessageRequest& setMessageKey(string messageKey) { DARABONBA_PTR_SET_VALUE(messageKey_, messageKey) };
 
 
     // messageTag Field Functions 
     bool hasMessageTag() const { return this->messageTag_ != nullptr;};
     void deleteMessageTag() { this->messageTag_ = nullptr;};
-    inline string messageTag() const { DARABONBA_PTR_GET_DEFAULT(messageTag_, "") };
+    inline string getMessageTag() const { DARABONBA_PTR_GET_DEFAULT(messageTag_, "") };
     inline VerifySendMessageRequest& setMessageTag(string messageTag) { DARABONBA_PTR_SET_VALUE(messageTag_, messageTag) };
 
 
   protected:
-    std::shared_ptr<string> liteTopicName_ = nullptr;
+    shared_ptr<string> liteTopicName_ {};
     // The message body.
-    std::shared_ptr<string> message_ = nullptr;
+    shared_ptr<string> message_ {};
     // The message key.
-    std::shared_ptr<string> messageKey_ = nullptr;
+    shared_ptr<string> messageKey_ {};
     // The message tag.
-    std::shared_ptr<string> messageTag_ = nullptr;
+    shared_ptr<string> messageTag_ {};
   };
 
   } // namespace Models

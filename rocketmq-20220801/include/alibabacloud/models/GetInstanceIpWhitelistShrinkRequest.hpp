@@ -33,13 +33,13 @@ namespace Models
     // ipWhitelistsShrink Field Functions 
     bool hasIpWhitelistsShrink() const { return this->ipWhitelistsShrink_ != nullptr;};
     void deleteIpWhitelistsShrink() { this->ipWhitelistsShrink_ = nullptr;};
-    inline string ipWhitelistsShrink() const { DARABONBA_PTR_GET_DEFAULT(ipWhitelistsShrink_, "") };
+    inline string getIpWhitelistsShrink() const { DARABONBA_PTR_GET_DEFAULT(ipWhitelistsShrink_, "") };
     inline GetInstanceIpWhitelistShrinkRequest& setIpWhitelistsShrink(string ipWhitelistsShrink) { DARABONBA_PTR_SET_VALUE(ipWhitelistsShrink_, ipWhitelistsShrink) };
 
 
   protected:
     // The  filter IP address whitelists.
-    std::shared_ptr<string> ipWhitelistsShrink_ = nullptr;
+    shared_ptr<string> ipWhitelistsShrink_ {};
   };
 
   } // namespace Models

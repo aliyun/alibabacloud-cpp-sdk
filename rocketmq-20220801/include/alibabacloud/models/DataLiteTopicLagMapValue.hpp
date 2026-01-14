@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->readyCount_ == nullptr
-        && return this->deliveryDuration_ == nullptr; };
+        && this->deliveryDuration_ == nullptr; };
     // readyCount Field Functions 
     bool hasReadyCount() const { return this->readyCount_ != nullptr;};
     void deleteReadyCount() { this->readyCount_ = nullptr;};
-    inline int64_t readyCount() const { DARABONBA_PTR_GET_DEFAULT(readyCount_, 0L) };
+    inline int64_t getReadyCount() const { DARABONBA_PTR_GET_DEFAULT(readyCount_, 0L) };
     inline DataLiteTopicLagMapValue& setReadyCount(int64_t readyCount) { DARABONBA_PTR_SET_VALUE(readyCount_, readyCount) };
 
 
     // deliveryDuration Field Functions 
     bool hasDeliveryDuration() const { return this->deliveryDuration_ != nullptr;};
     void deleteDeliveryDuration() { this->deliveryDuration_ = nullptr;};
-    inline int64_t deliveryDuration() const { DARABONBA_PTR_GET_DEFAULT(deliveryDuration_, 0L) };
+    inline int64_t getDeliveryDuration() const { DARABONBA_PTR_GET_DEFAULT(deliveryDuration_, 0L) };
     inline DataLiteTopicLagMapValue& setDeliveryDuration(int64_t deliveryDuration) { DARABONBA_PTR_SET_VALUE(deliveryDuration_, deliveryDuration) };
 
 
   protected:
-    std::shared_ptr<int64_t> readyCount_ = nullptr;
-    std::shared_ptr<int64_t> deliveryDuration_ = nullptr;
+    shared_ptr<int64_t> readyCount_ {};
+    shared_ptr<int64_t> deliveryDuration_ {};
   };
 
   } // namespace Models

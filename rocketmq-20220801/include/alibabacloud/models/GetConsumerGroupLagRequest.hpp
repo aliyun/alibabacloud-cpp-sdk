@@ -32,25 +32,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->liteTopicName_ == nullptr
-        && return this->topicName_ == nullptr; };
+        && this->topicName_ == nullptr; };
     // liteTopicName Field Functions 
     bool hasLiteTopicName() const { return this->liteTopicName_ != nullptr;};
     void deleteLiteTopicName() { this->liteTopicName_ = nullptr;};
-    inline string liteTopicName() const { DARABONBA_PTR_GET_DEFAULT(liteTopicName_, "") };
+    inline string getLiteTopicName() const { DARABONBA_PTR_GET_DEFAULT(liteTopicName_, "") };
     inline GetConsumerGroupLagRequest& setLiteTopicName(string liteTopicName) { DARABONBA_PTR_SET_VALUE(liteTopicName_, liteTopicName) };
 
 
     // topicName Field Functions 
     bool hasTopicName() const { return this->topicName_ != nullptr;};
     void deleteTopicName() { this->topicName_ = nullptr;};
-    inline string topicName() const { DARABONBA_PTR_GET_DEFAULT(topicName_, "") };
+    inline string getTopicName() const { DARABONBA_PTR_GET_DEFAULT(topicName_, "") };
     inline GetConsumerGroupLagRequest& setTopicName(string topicName) { DARABONBA_PTR_SET_VALUE(topicName_, topicName) };
 
 
   protected:
-    std::shared_ptr<string> liteTopicName_ = nullptr;
+    shared_ptr<string> liteTopicName_ {};
     // The topic name.
-    std::shared_ptr<string> topicName_ = nullptr;
+    shared_ptr<string> topicName_ {};
   };
 
   } // namespace Models

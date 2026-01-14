@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ipWhitelist_ == nullptr
-        && return this->ipWhitelistsShrink_ == nullptr; };
+        && this->ipWhitelistsShrink_ == nullptr; };
     // ipWhitelist Field Functions 
     bool hasIpWhitelist() const { return this->ipWhitelist_ != nullptr;};
     void deleteIpWhitelist() { this->ipWhitelist_ = nullptr;};
-    inline string ipWhitelist() const { DARABONBA_PTR_GET_DEFAULT(ipWhitelist_, "") };
+    inline string getIpWhitelist() const { DARABONBA_PTR_GET_DEFAULT(ipWhitelist_, "") };
     inline DeleteInstanceIpWhitelistShrinkRequest& setIpWhitelist(string ipWhitelist) { DARABONBA_PTR_SET_VALUE(ipWhitelist_, ipWhitelist) };
 
 
     // ipWhitelistsShrink Field Functions 
     bool hasIpWhitelistsShrink() const { return this->ipWhitelistsShrink_ != nullptr;};
     void deleteIpWhitelistsShrink() { this->ipWhitelistsShrink_ = nullptr;};
-    inline string ipWhitelistsShrink() const { DARABONBA_PTR_GET_DEFAULT(ipWhitelistsShrink_, "") };
+    inline string getIpWhitelistsShrink() const { DARABONBA_PTR_GET_DEFAULT(ipWhitelistsShrink_, "") };
     inline DeleteInstanceIpWhitelistShrinkRequest& setIpWhitelistsShrink(string ipWhitelistsShrink) { DARABONBA_PTR_SET_VALUE(ipWhitelistsShrink_, ipWhitelistsShrink) };
 
 
   protected:
     // The IP address whitelist.
-    std::shared_ptr<string> ipWhitelist_ = nullptr;
+    shared_ptr<string> ipWhitelist_ {};
     // The IP address whitelist.
-    std::shared_ptr<string> ipWhitelistsShrink_ = nullptr;
+    shared_ptr<string> ipWhitelistsShrink_ {};
   };
 
   } // namespace Models

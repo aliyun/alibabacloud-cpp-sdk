@@ -34,37 +34,37 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->filter_ == nullptr
-        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr; };
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr; };
     // filter Field Functions 
     bool hasFilter() const { return this->filter_ != nullptr;};
     void deleteFilter() { this->filter_ = nullptr;};
-    inline string filter() const { DARABONBA_PTR_GET_DEFAULT(filter_, "") };
+    inline string getFilter() const { DARABONBA_PTR_GET_DEFAULT(filter_, "") };
     inline ListConsumerGroupsRequest& setFilter(string filter) { DARABONBA_PTR_SET_VALUE(filter_, filter) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline ListConsumerGroupsRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListConsumerGroupsRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
   protected:
     // The filter condition for the query. If not provided, all consumer groups under the specified instance will be queried.
-    std::shared_ptr<string> filter_ = nullptr;
+    shared_ptr<string> filter_ {};
     // Page number, indicating which page of results to return.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // Page size, the maximum number of results to display per page.
     // 
     // Value range: [10, 100].
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
   };
 
   } // namespace Models

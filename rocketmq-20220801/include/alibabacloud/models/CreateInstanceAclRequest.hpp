@@ -39,12 +39,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->actions_ == nullptr
-        && return this->decision_ == nullptr && return this->ipWhitelists_ == nullptr && return this->resourceName_ == nullptr && return this->resourceType_ == nullptr; };
+        && this->decision_ == nullptr && this->ipWhitelists_ == nullptr && this->resourceName_ == nullptr && this->resourceType_ == nullptr; };
     // actions Field Functions 
     bool hasActions() const { return this->actions_ != nullptr;};
     void deleteActions() { this->actions_ = nullptr;};
-    inline const vector<string> & actions() const { DARABONBA_PTR_GET_CONST(actions_, vector<string>) };
-    inline vector<string> actions() { DARABONBA_PTR_GET(actions_, vector<string>) };
+    inline const vector<string> & getActions() const { DARABONBA_PTR_GET_CONST(actions_, vector<string>) };
+    inline vector<string> getActions() { DARABONBA_PTR_GET(actions_, vector<string>) };
     inline CreateInstanceAclRequest& setActions(const vector<string> & actions) { DARABONBA_PTR_SET_VALUE(actions_, actions) };
     inline CreateInstanceAclRequest& setActions(vector<string> && actions) { DARABONBA_PTR_SET_RVALUE(actions_, actions) };
 
@@ -52,15 +52,15 @@ namespace Models
     // decision Field Functions 
     bool hasDecision() const { return this->decision_ != nullptr;};
     void deleteDecision() { this->decision_ = nullptr;};
-    inline string decision() const { DARABONBA_PTR_GET_DEFAULT(decision_, "") };
+    inline string getDecision() const { DARABONBA_PTR_GET_DEFAULT(decision_, "") };
     inline CreateInstanceAclRequest& setDecision(string decision) { DARABONBA_PTR_SET_VALUE(decision_, decision) };
 
 
     // ipWhitelists Field Functions 
     bool hasIpWhitelists() const { return this->ipWhitelists_ != nullptr;};
     void deleteIpWhitelists() { this->ipWhitelists_ = nullptr;};
-    inline const vector<string> & ipWhitelists() const { DARABONBA_PTR_GET_CONST(ipWhitelists_, vector<string>) };
-    inline vector<string> ipWhitelists() { DARABONBA_PTR_GET(ipWhitelists_, vector<string>) };
+    inline const vector<string> & getIpWhitelists() const { DARABONBA_PTR_GET_CONST(ipWhitelists_, vector<string>) };
+    inline vector<string> getIpWhitelists() { DARABONBA_PTR_GET(ipWhitelists_, vector<string>) };
     inline CreateInstanceAclRequest& setIpWhitelists(const vector<string> & ipWhitelists) { DARABONBA_PTR_SET_VALUE(ipWhitelists_, ipWhitelists) };
     inline CreateInstanceAclRequest& setIpWhitelists(vector<string> && ipWhitelists) { DARABONBA_PTR_SET_RVALUE(ipWhitelists_, ipWhitelists) };
 
@@ -68,14 +68,14 @@ namespace Models
     // resourceName Field Functions 
     bool hasResourceName() const { return this->resourceName_ != nullptr;};
     void deleteResourceName() { this->resourceName_ = nullptr;};
-    inline string resourceName() const { DARABONBA_PTR_GET_DEFAULT(resourceName_, "") };
+    inline string getResourceName() const { DARABONBA_PTR_GET_DEFAULT(resourceName_, "") };
     inline CreateInstanceAclRequest& setResourceName(string resourceName) { DARABONBA_PTR_SET_VALUE(resourceName_, resourceName) };
 
 
     // resourceType Field Functions 
     bool hasResourceType() const { return this->resourceType_ != nullptr;};
     void deleteResourceType() { this->resourceType_ = nullptr;};
-    inline string resourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
+    inline string getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
     inline CreateInstanceAclRequest& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
 
 
@@ -94,7 +94,7 @@ namespace Models
     // *   Pub: publish
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> actions_ = nullptr;
+    shared_ptr<vector<string>> actions_ {};
     // The decision result of the authorization.
     // 
     // Valid values:
@@ -103,13 +103,13 @@ namespace Models
     // *   Allow
     // 
     // This parameter is required.
-    std::shared_ptr<string> decision_ = nullptr;
+    shared_ptr<string> decision_ {};
     // The IP addresses in the whitelist.
-    std::shared_ptr<vector<string>> ipWhitelists_ = nullptr;
+    shared_ptr<vector<string>> ipWhitelists_ {};
     // The name of the resource on which you want to grant permissions.
     // 
     // This parameter is required.
-    std::shared_ptr<string> resourceName_ = nullptr;
+    shared_ptr<string> resourceName_ {};
     // The type of the resource on which you want to grant permissions.
     // 
     // Valid values:
@@ -118,7 +118,7 @@ namespace Models
     // *   Topic
     // 
     // This parameter is required.
-    std::shared_ptr<string> resourceType_ = nullptr;
+    shared_ptr<string> resourceType_ {};
   };
 
   } // namespace Models

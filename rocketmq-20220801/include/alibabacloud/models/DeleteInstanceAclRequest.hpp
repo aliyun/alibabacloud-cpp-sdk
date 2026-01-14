@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->resourceName_ == nullptr
-        && return this->resourceType_ == nullptr; };
+        && this->resourceType_ == nullptr; };
     // resourceName Field Functions 
     bool hasResourceName() const { return this->resourceName_ != nullptr;};
     void deleteResourceName() { this->resourceName_ = nullptr;};
-    inline string resourceName() const { DARABONBA_PTR_GET_DEFAULT(resourceName_, "") };
+    inline string getResourceName() const { DARABONBA_PTR_GET_DEFAULT(resourceName_, "") };
     inline DeleteInstanceAclRequest& setResourceName(string resourceName) { DARABONBA_PTR_SET_VALUE(resourceName_, resourceName) };
 
 
     // resourceType Field Functions 
     bool hasResourceType() const { return this->resourceType_ != nullptr;};
     void deleteResourceType() { this->resourceType_ = nullptr;};
-    inline string resourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
+    inline string getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
     inline DeleteInstanceAclRequest& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
 
 
@@ -51,7 +51,7 @@ namespace Models
     // The name of the resource on which the permissions are granted.
     // 
     // This parameter is required.
-    std::shared_ptr<string> resourceName_ = nullptr;
+    shared_ptr<string> resourceName_ {};
     // The type of the resource on which the permissions are granted.
     // 
     // Valid values:
@@ -60,7 +60,7 @@ namespace Models
     // *   Topic
     // 
     // This parameter is required.
-    std::shared_ptr<string> resourceType_ = nullptr;
+    shared_ptr<string> resourceType_ {};
   };
 
   } // namespace Models

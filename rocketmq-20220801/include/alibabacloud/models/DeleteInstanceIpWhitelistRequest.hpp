@@ -33,28 +33,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ipWhitelist_ == nullptr
-        && return this->ipWhitelists_ == nullptr; };
+        && this->ipWhitelists_ == nullptr; };
     // ipWhitelist Field Functions 
     bool hasIpWhitelist() const { return this->ipWhitelist_ != nullptr;};
     void deleteIpWhitelist() { this->ipWhitelist_ = nullptr;};
-    inline string ipWhitelist() const { DARABONBA_PTR_GET_DEFAULT(ipWhitelist_, "") };
+    inline string getIpWhitelist() const { DARABONBA_PTR_GET_DEFAULT(ipWhitelist_, "") };
     inline DeleteInstanceIpWhitelistRequest& setIpWhitelist(string ipWhitelist) { DARABONBA_PTR_SET_VALUE(ipWhitelist_, ipWhitelist) };
 
 
     // ipWhitelists Field Functions 
     bool hasIpWhitelists() const { return this->ipWhitelists_ != nullptr;};
     void deleteIpWhitelists() { this->ipWhitelists_ = nullptr;};
-    inline const vector<string> & ipWhitelists() const { DARABONBA_PTR_GET_CONST(ipWhitelists_, vector<string>) };
-    inline vector<string> ipWhitelists() { DARABONBA_PTR_GET(ipWhitelists_, vector<string>) };
+    inline const vector<string> & getIpWhitelists() const { DARABONBA_PTR_GET_CONST(ipWhitelists_, vector<string>) };
+    inline vector<string> getIpWhitelists() { DARABONBA_PTR_GET(ipWhitelists_, vector<string>) };
     inline DeleteInstanceIpWhitelistRequest& setIpWhitelists(const vector<string> & ipWhitelists) { DARABONBA_PTR_SET_VALUE(ipWhitelists_, ipWhitelists) };
     inline DeleteInstanceIpWhitelistRequest& setIpWhitelists(vector<string> && ipWhitelists) { DARABONBA_PTR_SET_RVALUE(ipWhitelists_, ipWhitelists) };
 
 
   protected:
     // The IP address whitelist.
-    std::shared_ptr<string> ipWhitelist_ = nullptr;
+    shared_ptr<string> ipWhitelist_ {};
     // The IP address whitelist.
-    std::shared_ptr<vector<string>> ipWhitelists_ = nullptr;
+    shared_ptr<vector<string>> ipWhitelists_ {};
   };
 
   } // namespace Models
