@@ -129,6 +129,24 @@ namespace PAILangStudio20240710
       Models::GetKnowledgeBaseJobResponse getKnowledgeBaseJob(const string &KnowledgeBaseId, const string &KnowledgeBaseJobId, const Models::GetKnowledgeBaseJobRequest &request);
 
       /**
+       * @summary 获取知识库切片列表
+       *
+       * @param request ListKnowledgeBaseChunksRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListKnowledgeBaseChunksResponse
+       */
+      Models::ListKnowledgeBaseChunksResponse listKnowledgeBaseChunksWithOptions(const string &KnowledgeBaseId, const Models::ListKnowledgeBaseChunksRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取知识库切片列表
+       *
+       * @param request ListKnowledgeBaseChunksRequest
+       * @return ListKnowledgeBaseChunksResponse
+       */
+      Models::ListKnowledgeBaseChunksResponse listKnowledgeBaseChunks(const string &KnowledgeBaseId, const Models::ListKnowledgeBaseChunksRequest &request);
+
+      /**
        * @summary 获取知识库任务列表
        *
        * @param request ListKnowledgeBaseJobsRequest
@@ -199,6 +217,24 @@ namespace PAILangStudio20240710
        * @return UpdateKnowledgeBaseResponse
        */
       Models::UpdateKnowledgeBaseResponse updateKnowledgeBase(const string &KnowledgeBaseId, const Models::UpdateKnowledgeBaseRequest &request);
+
+      /**
+       * @summary 更新知识库切片
+       *
+       * @param request UpdateKnowledgeBaseChunkRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateKnowledgeBaseChunkResponse
+       */
+      Models::UpdateKnowledgeBaseChunkResponse updateKnowledgeBaseChunkWithOptions(const string &KnowledgeBaseId, const string &KnowledgeBaseChunkId, const Models::UpdateKnowledgeBaseChunkRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新知识库切片
+       *
+       * @param request UpdateKnowledgeBaseChunkRequest
+       * @return UpdateKnowledgeBaseChunkResponse
+       */
+      Models::UpdateKnowledgeBaseChunkResponse updateKnowledgeBaseChunk(const string &KnowledgeBaseId, const string &KnowledgeBaseChunkId, const Models::UpdateKnowledgeBaseChunkRequest &request);
 
       /**
        * @summary 更新知识库任务

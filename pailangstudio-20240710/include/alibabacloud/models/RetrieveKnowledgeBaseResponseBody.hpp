@@ -35,14 +35,14 @@ namespace Models
     // knowledgeBaseFileChunks Field Functions 
     bool hasKnowledgeBaseFileChunks() const { return this->knowledgeBaseFileChunks_ != nullptr;};
     void deleteKnowledgeBaseFileChunks() { this->knowledgeBaseFileChunks_ = nullptr;};
-    inline const vector<KnowledgeBaseFileChunk> & knowledgeBaseFileChunks() const { DARABONBA_PTR_GET_CONST(knowledgeBaseFileChunks_, vector<KnowledgeBaseFileChunk>) };
-    inline vector<KnowledgeBaseFileChunk> knowledgeBaseFileChunks() { DARABONBA_PTR_GET(knowledgeBaseFileChunks_, vector<KnowledgeBaseFileChunk>) };
+    inline const vector<KnowledgeBaseFileChunk> & getKnowledgeBaseFileChunks() const { DARABONBA_PTR_GET_CONST(knowledgeBaseFileChunks_, vector<KnowledgeBaseFileChunk>) };
+    inline vector<KnowledgeBaseFileChunk> getKnowledgeBaseFileChunks() { DARABONBA_PTR_GET(knowledgeBaseFileChunks_, vector<KnowledgeBaseFileChunk>) };
     inline RetrieveKnowledgeBaseResponseBody& setKnowledgeBaseFileChunks(const vector<KnowledgeBaseFileChunk> & knowledgeBaseFileChunks) { DARABONBA_PTR_SET_VALUE(knowledgeBaseFileChunks_, knowledgeBaseFileChunks) };
     inline RetrieveKnowledgeBaseResponseBody& setKnowledgeBaseFileChunks(vector<KnowledgeBaseFileChunk> && knowledgeBaseFileChunks) { DARABONBA_PTR_SET_RVALUE(knowledgeBaseFileChunks_, knowledgeBaseFileChunks) };
 
 
   protected:
-    std::shared_ptr<vector<KnowledgeBaseFileChunk>> knowledgeBaseFileChunks_ = nullptr;
+    shared_ptr<vector<KnowledgeBaseFileChunk>> knowledgeBaseFileChunks_ {};
   };
 
   } // namespace Models

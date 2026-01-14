@@ -48,55 +48,55 @@ CreateKnowledgeBaseResponse Client::createKnowledgeBaseWithOptions(const CreateK
   request.validate();
   json body = {};
   if (!!request.hasAccessibility()) {
-    body["Accessibility"] = request.accessibility();
+    body["Accessibility"] = request.getAccessibility();
   }
 
   if (!!request.hasChunkConfig()) {
-    body["ChunkConfig"] = request.chunkConfig();
+    body["ChunkConfig"] = request.getChunkConfig();
   }
 
   if (!!request.hasDataSources()) {
-    body["DataSources"] = request.dataSources();
+    body["DataSources"] = request.getDataSources();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasEmbeddingConfig()) {
-    body["EmbeddingConfig"] = request.embeddingConfig();
+    body["EmbeddingConfig"] = request.getEmbeddingConfig();
   }
 
   if (!!request.hasIndexColumnConfig()) {
-    body["IndexColumnConfig"] = request.indexColumnConfig();
+    body["IndexColumnConfig"] = request.getIndexColumnConfig();
   }
 
   if (!!request.hasKnowledgeBaseType()) {
-    body["KnowledgeBaseType"] = request.knowledgeBaseType();
+    body["KnowledgeBaseType"] = request.getKnowledgeBaseType();
   }
 
   if (!!request.hasMetaDataConfig()) {
-    body["MetaDataConfig"] = request.metaDataConfig();
+    body["MetaDataConfig"] = request.getMetaDataConfig();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasOutputDir()) {
-    body["OutputDir"] = request.outputDir();
+    body["OutputDir"] = request.getOutputDir();
   }
 
   if (!!request.hasRuntimeId()) {
-    body["RuntimeId"] = request.runtimeId();
+    body["RuntimeId"] = request.getRuntimeId();
   }
 
   if (!!request.hasVectorDBConfig()) {
-    body["VectorDBConfig"] = request.vectorDBConfig();
+    body["VectorDBConfig"] = request.getVectorDBConfig();
   }
 
   if (!!request.hasWorkspaceId()) {
-    body["WorkspaceId"] = request.workspaceId();
+    body["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -141,39 +141,39 @@ CreateKnowledgeBaseJobResponse Client::createKnowledgeBaseJobWithOptions(const s
   request.validate();
   json body = {};
   if (!!request.hasAccessibility()) {
-    body["Accessibility"] = request.accessibility();
+    body["Accessibility"] = request.getAccessibility();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasEcsSpecs()) {
-    body["EcsSpecs"] = request.ecsSpecs();
+    body["EcsSpecs"] = request.getEcsSpecs();
   }
 
   if (!!request.hasEmbeddingConfig()) {
-    body["EmbeddingConfig"] = request.embeddingConfig();
+    body["EmbeddingConfig"] = request.getEmbeddingConfig();
   }
 
   if (!!request.hasJobAction()) {
-    body["JobAction"] = request.jobAction();
+    body["JobAction"] = request.getJobAction();
   }
 
   if (!!request.hasMaxRunningTimeInSeconds()) {
-    body["MaxRunningTimeInSeconds"] = request.maxRunningTimeInSeconds();
+    body["MaxRunningTimeInSeconds"] = request.getMaxRunningTimeInSeconds();
   }
 
   if (!!request.hasResourceId()) {
-    body["ResourceId"] = request.resourceId();
+    body["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasUserVpc()) {
-    body["UserVpc"] = request.userVpc();
+    body["UserVpc"] = request.getUserVpc();
   }
 
   if (!!request.hasWorkspaceId()) {
-    body["WorkspaceId"] = request.workspaceId();
+    body["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -218,7 +218,7 @@ DeleteKnowledgeBaseResponse Client::deleteKnowledgeBaseWithOptions(const string 
   request.validate();
   json query = {};
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -263,7 +263,7 @@ DeleteKnowledgeBaseJobResponse Client::deleteKnowledgeBaseJobWithOptions(const s
   request.validate();
   json query = {};
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -308,11 +308,11 @@ GetKnowledgeBaseResponse Client::getKnowledgeBaseWithOptions(const string &Knowl
   request.validate();
   json query = {};
   if (!!request.hasVersionName()) {
-    query["VersionName"] = request.versionName();
+    query["VersionName"] = request.getVersionName();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -357,7 +357,7 @@ GetKnowledgeBaseJobResponse Client::getKnowledgeBaseJobWithOptions(const string 
   request.validate();
   json query = {};
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -391,6 +391,67 @@ GetKnowledgeBaseJobResponse Client::getKnowledgeBaseJob(const string &KnowledgeB
 }
 
 /**
+ * @summary 获取知识库切片列表
+ *
+ * @param request ListKnowledgeBaseChunksRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListKnowledgeBaseChunksResponse
+ */
+ListKnowledgeBaseChunksResponse Client::listKnowledgeBaseChunksWithOptions(const string &KnowledgeBaseId, const ListKnowledgeBaseChunksRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasChunkStatus()) {
+    query["ChunkStatus"] = request.getChunkStatus();
+  }
+
+  if (!!request.hasMetaData()) {
+    query["MetaData"] = request.getMetaData();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasVersionName()) {
+    query["VersionName"] = request.getVersionName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListKnowledgeBaseChunks"},
+    {"version" , "2024-07-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/langstudio/knowledgebases/" , Darabonba::Encode::Encoder::percentEncode(KnowledgeBaseId) , "/knowledgebasechunks")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListKnowledgeBaseChunksResponse>();
+}
+
+/**
+ * @summary 获取知识库切片列表
+ *
+ * @param request ListKnowledgeBaseChunksRequest
+ * @return ListKnowledgeBaseChunksResponse
+ */
+ListKnowledgeBaseChunksResponse Client::listKnowledgeBaseChunks(const string &KnowledgeBaseId, const ListKnowledgeBaseChunksRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listKnowledgeBaseChunksWithOptions(KnowledgeBaseId, request, headers, runtime);
+}
+
+/**
  * @summary 获取知识库任务列表
  *
  * @param request ListKnowledgeBaseJobsRequest
@@ -402,43 +463,43 @@ ListKnowledgeBaseJobsResponse Client::listKnowledgeBaseJobsWithOptions(const str
   request.validate();
   json query = {};
   if (!!request.hasJobAction()) {
-    query["JobAction"] = request.jobAction();
+    query["JobAction"] = request.getJobAction();
   }
 
   if (!!request.hasKnowledgeBaseJobId()) {
-    query["KnowledgeBaseJobId"] = request.knowledgeBaseJobId();
+    query["KnowledgeBaseJobId"] = request.getKnowledgeBaseJobId();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasOrder()) {
-    query["Order"] = request.order();
+    query["Order"] = request.getOrder();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasSortBy()) {
-    query["SortBy"] = request.sortBy();
+    query["SortBy"] = request.getSortBy();
   }
 
   if (!!request.hasStatus()) {
-    query["Status"] = request.status();
+    query["Status"] = request.getStatus();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -483,47 +544,47 @@ ListKnowledgeBasesResponse Client::listKnowledgeBasesWithOptions(const ListKnowl
   request.validate();
   json query = {};
   if (!!request.hasCreator()) {
-    query["Creator"] = request.creator();
+    query["Creator"] = request.getCreator();
   }
 
   if (!!request.hasKnowledgeBaseId()) {
-    query["KnowledgeBaseId"] = request.knowledgeBaseId();
+    query["KnowledgeBaseId"] = request.getKnowledgeBaseId();
   }
 
   if (!!request.hasKnowledgeBaseType()) {
-    query["KnowledgeBaseType"] = request.knowledgeBaseType();
+    query["KnowledgeBaseType"] = request.getKnowledgeBaseType();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasOrder()) {
-    query["Order"] = request.order();
+    query["Order"] = request.getOrder();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasSortBy()) {
-    query["SortBy"] = request.sortBy();
+    query["SortBy"] = request.getSortBy();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -568,43 +629,43 @@ RetrieveKnowledgeBaseResponse Client::retrieveKnowledgeBaseWithOptions(const str
   request.validate();
   json body = {};
   if (!!request.hasHybridStrategyConfig()) {
-    body["HybridStrategyConfig"] = request.hybridStrategyConfig();
+    body["HybridStrategyConfig"] = request.getHybridStrategyConfig();
   }
 
   if (!!request.hasMetaDataFilterConditions()) {
-    body["MetaDataFilterConditions"] = request.metaDataFilterConditions();
+    body["MetaDataFilterConditions"] = request.getMetaDataFilterConditions();
   }
 
   if (!!request.hasQuery()) {
-    body["Query"] = request.query();
+    body["Query"] = request.getQuery();
   }
 
   if (!!request.hasQueryMode()) {
-    body["QueryMode"] = request.queryMode();
+    body["QueryMode"] = request.getQueryMode();
   }
 
   if (!!request.hasRerankConfig()) {
-    body["RerankConfig"] = request.rerankConfig();
+    body["RerankConfig"] = request.getRerankConfig();
   }
 
   if (!!request.hasRewriteConfig()) {
-    body["RewriteConfig"] = request.rewriteConfig();
+    body["RewriteConfig"] = request.getRewriteConfig();
   }
 
   if (!!request.hasScoreThreshold()) {
-    body["ScoreThreshold"] = request.scoreThreshold();
+    body["ScoreThreshold"] = request.getScoreThreshold();
   }
 
   if (!!request.hasTopK()) {
-    body["TopK"] = request.topK();
+    body["TopK"] = request.getTopK();
   }
 
   if (!!request.hasVersionName()) {
-    body["VersionName"] = request.versionName();
+    body["VersionName"] = request.getVersionName();
   }
 
   if (!!request.hasWorkspaceId()) {
-    body["WorkspaceId"] = request.workspaceId();
+    body["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -649,27 +710,27 @@ UpdateKnowledgeBaseResponse Client::updateKnowledgeBaseWithOptions(const string 
   request.validate();
   json body = {};
   if (!!request.hasAutoUpdateConfig()) {
-    body["AutoUpdateConfig"] = request.autoUpdateConfig();
+    body["AutoUpdateConfig"] = request.getAutoUpdateConfig();
   }
 
   if (!!request.hasBindRuntime()) {
-    body["BindRuntime"] = request.bindRuntime();
+    body["BindRuntime"] = request.getBindRuntime();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasMetaDataConfig()) {
-    body["MetaDataConfig"] = request.metaDataConfig();
+    body["MetaDataConfig"] = request.getMetaDataConfig();
   }
 
   if (!!request.hasRuntimeId()) {
-    body["RuntimeId"] = request.runtimeId();
+    body["RuntimeId"] = request.getRuntimeId();
   }
 
   if (!!request.hasWorkspaceId()) {
-    body["WorkspaceId"] = request.workspaceId();
+    body["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -703,6 +764,55 @@ UpdateKnowledgeBaseResponse Client::updateKnowledgeBase(const string &KnowledgeB
 }
 
 /**
+ * @summary 更新知识库切片
+ *
+ * @param request UpdateKnowledgeBaseChunkRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateKnowledgeBaseChunkResponse
+ */
+UpdateKnowledgeBaseChunkResponse Client::updateKnowledgeBaseChunkWithOptions(const string &KnowledgeBaseId, const string &KnowledgeBaseChunkId, const UpdateKnowledgeBaseChunkRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasChunkContent()) {
+    body["ChunkContent"] = request.getChunkContent();
+  }
+
+  if (!!request.hasChunkStatus()) {
+    body["ChunkStatus"] = request.getChunkStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateKnowledgeBaseChunk"},
+    {"version" , "2024-07-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/langstudio/knowledgebases/" , Darabonba::Encode::Encoder::percentEncode(KnowledgeBaseId) , "/knowledgebasechunks/" , Darabonba::Encode::Encoder::percentEncode(KnowledgeBaseChunkId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateKnowledgeBaseChunkResponse>();
+}
+
+/**
+ * @summary 更新知识库切片
+ *
+ * @param request UpdateKnowledgeBaseChunkRequest
+ * @return UpdateKnowledgeBaseChunkResponse
+ */
+UpdateKnowledgeBaseChunkResponse Client::updateKnowledgeBaseChunk(const string &KnowledgeBaseId, const string &KnowledgeBaseChunkId, const UpdateKnowledgeBaseChunkRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateKnowledgeBaseChunkWithOptions(KnowledgeBaseId, KnowledgeBaseChunkId, request, headers, runtime);
+}
+
+/**
  * @summary 更新知识库任务
  *
  * @param request UpdateKnowledgeBaseJobRequest
@@ -714,11 +824,11 @@ UpdateKnowledgeBaseJobResponse Client::updateKnowledgeBaseJobWithOptions(const s
   request.validate();
   json body = {};
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasWorkspaceId()) {
-    body["WorkspaceId"] = request.workspaceId();
+    body["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

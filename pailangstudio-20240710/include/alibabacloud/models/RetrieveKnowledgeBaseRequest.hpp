@@ -48,91 +48,91 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->hybridStrategyConfig_ == nullptr
-        && return this->metaDataFilterConditions_ == nullptr && return this->query_ == nullptr && return this->queryMode_ == nullptr && return this->rerankConfig_ == nullptr && return this->rewriteConfig_ == nullptr
-        && return this->scoreThreshold_ == nullptr && return this->topK_ == nullptr && return this->versionName_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->metaDataFilterConditions_ == nullptr && this->query_ == nullptr && this->queryMode_ == nullptr && this->rerankConfig_ == nullptr && this->rewriteConfig_ == nullptr
+        && this->scoreThreshold_ == nullptr && this->topK_ == nullptr && this->versionName_ == nullptr && this->workspaceId_ == nullptr; };
     // hybridStrategyConfig Field Functions 
     bool hasHybridStrategyConfig() const { return this->hybridStrategyConfig_ != nullptr;};
     void deleteHybridStrategyConfig() { this->hybridStrategyConfig_ = nullptr;};
-    inline string hybridStrategyConfig() const { DARABONBA_PTR_GET_DEFAULT(hybridStrategyConfig_, "") };
+    inline string getHybridStrategyConfig() const { DARABONBA_PTR_GET_DEFAULT(hybridStrategyConfig_, "") };
     inline RetrieveKnowledgeBaseRequest& setHybridStrategyConfig(string hybridStrategyConfig) { DARABONBA_PTR_SET_VALUE(hybridStrategyConfig_, hybridStrategyConfig) };
 
 
     // metaDataFilterConditions Field Functions 
     bool hasMetaDataFilterConditions() const { return this->metaDataFilterConditions_ != nullptr;};
     void deleteMetaDataFilterConditions() { this->metaDataFilterConditions_ = nullptr;};
-    inline string metaDataFilterConditions() const { DARABONBA_PTR_GET_DEFAULT(metaDataFilterConditions_, "") };
+    inline string getMetaDataFilterConditions() const { DARABONBA_PTR_GET_DEFAULT(metaDataFilterConditions_, "") };
     inline RetrieveKnowledgeBaseRequest& setMetaDataFilterConditions(string metaDataFilterConditions) { DARABONBA_PTR_SET_VALUE(metaDataFilterConditions_, metaDataFilterConditions) };
 
 
     // query Field Functions 
     bool hasQuery() const { return this->query_ != nullptr;};
     void deleteQuery() { this->query_ = nullptr;};
-    inline string query() const { DARABONBA_PTR_GET_DEFAULT(query_, "") };
+    inline string getQuery() const { DARABONBA_PTR_GET_DEFAULT(query_, "") };
     inline RetrieveKnowledgeBaseRequest& setQuery(string query) { DARABONBA_PTR_SET_VALUE(query_, query) };
 
 
     // queryMode Field Functions 
     bool hasQueryMode() const { return this->queryMode_ != nullptr;};
     void deleteQueryMode() { this->queryMode_ = nullptr;};
-    inline string queryMode() const { DARABONBA_PTR_GET_DEFAULT(queryMode_, "") };
+    inline string getQueryMode() const { DARABONBA_PTR_GET_DEFAULT(queryMode_, "") };
     inline RetrieveKnowledgeBaseRequest& setQueryMode(string queryMode) { DARABONBA_PTR_SET_VALUE(queryMode_, queryMode) };
 
 
     // rerankConfig Field Functions 
     bool hasRerankConfig() const { return this->rerankConfig_ != nullptr;};
     void deleteRerankConfig() { this->rerankConfig_ = nullptr;};
-    inline string rerankConfig() const { DARABONBA_PTR_GET_DEFAULT(rerankConfig_, "") };
+    inline string getRerankConfig() const { DARABONBA_PTR_GET_DEFAULT(rerankConfig_, "") };
     inline RetrieveKnowledgeBaseRequest& setRerankConfig(string rerankConfig) { DARABONBA_PTR_SET_VALUE(rerankConfig_, rerankConfig) };
 
 
     // rewriteConfig Field Functions 
     bool hasRewriteConfig() const { return this->rewriteConfig_ != nullptr;};
     void deleteRewriteConfig() { this->rewriteConfig_ = nullptr;};
-    inline string rewriteConfig() const { DARABONBA_PTR_GET_DEFAULT(rewriteConfig_, "") };
+    inline string getRewriteConfig() const { DARABONBA_PTR_GET_DEFAULT(rewriteConfig_, "") };
     inline RetrieveKnowledgeBaseRequest& setRewriteConfig(string rewriteConfig) { DARABONBA_PTR_SET_VALUE(rewriteConfig_, rewriteConfig) };
 
 
     // scoreThreshold Field Functions 
     bool hasScoreThreshold() const { return this->scoreThreshold_ != nullptr;};
     void deleteScoreThreshold() { this->scoreThreshold_ = nullptr;};
-    inline float scoreThreshold() const { DARABONBA_PTR_GET_DEFAULT(scoreThreshold_, 0.0) };
+    inline float getScoreThreshold() const { DARABONBA_PTR_GET_DEFAULT(scoreThreshold_, 0.0) };
     inline RetrieveKnowledgeBaseRequest& setScoreThreshold(float scoreThreshold) { DARABONBA_PTR_SET_VALUE(scoreThreshold_, scoreThreshold) };
 
 
     // topK Field Functions 
     bool hasTopK() const { return this->topK_ != nullptr;};
     void deleteTopK() { this->topK_ = nullptr;};
-    inline int32_t topK() const { DARABONBA_PTR_GET_DEFAULT(topK_, 0) };
+    inline int32_t getTopK() const { DARABONBA_PTR_GET_DEFAULT(topK_, 0) };
     inline RetrieveKnowledgeBaseRequest& setTopK(int32_t topK) { DARABONBA_PTR_SET_VALUE(topK_, topK) };
 
 
     // versionName Field Functions 
     bool hasVersionName() const { return this->versionName_ != nullptr;};
     void deleteVersionName() { this->versionName_ = nullptr;};
-    inline string versionName() const { DARABONBA_PTR_GET_DEFAULT(versionName_, "") };
+    inline string getVersionName() const { DARABONBA_PTR_GET_DEFAULT(versionName_, "") };
     inline RetrieveKnowledgeBaseRequest& setVersionName(string versionName) { DARABONBA_PTR_SET_VALUE(versionName_, versionName) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline RetrieveKnowledgeBaseRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
-    std::shared_ptr<string> hybridStrategyConfig_ = nullptr;
-    std::shared_ptr<string> metaDataFilterConditions_ = nullptr;
+    shared_ptr<string> hybridStrategyConfig_ {};
+    shared_ptr<string> metaDataFilterConditions_ {};
     // This parameter is required.
-    std::shared_ptr<string> query_ = nullptr;
-    std::shared_ptr<string> queryMode_ = nullptr;
-    std::shared_ptr<string> rerankConfig_ = nullptr;
-    std::shared_ptr<string> rewriteConfig_ = nullptr;
-    std::shared_ptr<float> scoreThreshold_ = nullptr;
-    std::shared_ptr<int32_t> topK_ = nullptr;
-    std::shared_ptr<string> versionName_ = nullptr;
+    shared_ptr<string> query_ {};
+    shared_ptr<string> queryMode_ {};
+    shared_ptr<string> rerankConfig_ {};
+    shared_ptr<string> rewriteConfig_ {};
+    shared_ptr<float> scoreThreshold_ {};
+    shared_ptr<int32_t> topK_ {};
+    shared_ptr<string> versionName_ {};
     // This parameter is required.
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models
