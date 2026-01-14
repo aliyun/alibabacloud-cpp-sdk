@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->carbonEmissionData_ == nullptr
-        && return this->dataUnit_ == nullptr && return this->name_ == nullptr && return this->ratio_ == nullptr && return this->rawData_ == nullptr; };
+        && this->dataUnit_ == nullptr && this->name_ == nullptr && this->ratio_ == nullptr && this->rawData_ == nullptr; };
     // carbonEmissionData Field Functions 
     bool hasCarbonEmissionData() const { return this->carbonEmissionData_ != nullptr;};
     void deleteCarbonEmissionData() { this->carbonEmissionData_ = nullptr;};
-    inline double carbonEmissionData() const { DARABONBA_PTR_GET_DEFAULT(carbonEmissionData_, 0.0) };
+    inline double getCarbonEmissionData() const { DARABONBA_PTR_GET_DEFAULT(carbonEmissionData_, 0.0) };
     inline CarbonEmissionElecSummaryItem& setCarbonEmissionData(double carbonEmissionData) { DARABONBA_PTR_SET_VALUE(carbonEmissionData_, carbonEmissionData) };
 
 
     // dataUnit Field Functions 
     bool hasDataUnit() const { return this->dataUnit_ != nullptr;};
     void deleteDataUnit() { this->dataUnit_ = nullptr;};
-    inline string dataUnit() const { DARABONBA_PTR_GET_DEFAULT(dataUnit_, "") };
+    inline string getDataUnit() const { DARABONBA_PTR_GET_DEFAULT(dataUnit_, "") };
     inline CarbonEmissionElecSummaryItem& setDataUnit(string dataUnit) { DARABONBA_PTR_SET_VALUE(dataUnit_, dataUnit) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CarbonEmissionElecSummaryItem& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // ratio Field Functions 
     bool hasRatio() const { return this->ratio_ != nullptr;};
     void deleteRatio() { this->ratio_ = nullptr;};
-    inline double ratio() const { DARABONBA_PTR_GET_DEFAULT(ratio_, 0.0) };
+    inline double getRatio() const { DARABONBA_PTR_GET_DEFAULT(ratio_, 0.0) };
     inline CarbonEmissionElecSummaryItem& setRatio(double ratio) { DARABONBA_PTR_SET_VALUE(ratio_, ratio) };
 
 
     // rawData Field Functions 
     bool hasRawData() const { return this->rawData_ != nullptr;};
     void deleteRawData() { this->rawData_ = nullptr;};
-    inline double rawData() const { DARABONBA_PTR_GET_DEFAULT(rawData_, 0.0) };
+    inline double getRawData() const { DARABONBA_PTR_GET_DEFAULT(rawData_, 0.0) };
     inline CarbonEmissionElecSummaryItem& setRawData(double rawData) { DARABONBA_PTR_SET_VALUE(rawData_, rawData) };
 
 
   protected:
-    std::shared_ptr<double> carbonEmissionData_ = nullptr;
-    std::shared_ptr<string> dataUnit_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<double> ratio_ = nullptr;
-    std::shared_ptr<double> rawData_ = nullptr;
+    shared_ptr<double> carbonEmissionData_ {};
+    shared_ptr<string> dataUnit_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<double> ratio_ {};
+    shared_ptr<double> rawData_ {};
   };
 
   } // namespace Models

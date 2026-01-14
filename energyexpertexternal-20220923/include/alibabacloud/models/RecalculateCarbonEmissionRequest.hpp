@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->year_ == nullptr; };
+        && this->year_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline RecalculateCarbonEmissionRequest& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // year Field Functions 
     bool hasYear() const { return this->year_ != nullptr;};
     void deleteYear() { this->year_ = nullptr;};
-    inline string year() const { DARABONBA_PTR_GET_DEFAULT(year_, "") };
+    inline string getYear() const { DARABONBA_PTR_GET_DEFAULT(year_, "") };
     inline RecalculateCarbonEmissionRequest& setYear(string year) { DARABONBA_PTR_SET_VALUE(year_, year) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The enterprise code.
     // 
     // This parameter is required.
-    std::shared_ptr<string> code_ = nullptr;
+    shared_ptr<string> code_ {};
     // Year of inventory.
     // 
     // This parameter is required.
-    std::shared_ptr<string> year_ = nullptr;
+    shared_ptr<string> year_ {};
   };
 
   } // namespace Models

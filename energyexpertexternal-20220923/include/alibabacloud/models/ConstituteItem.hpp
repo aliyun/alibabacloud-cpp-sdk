@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_CONSTITUTEITEM_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/ConstituteItemEnvGasEmissions.hpp>
 #include <alibabacloud/models/ConstituteItem.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -52,102 +51,164 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class EnvGasEmissions : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const EnvGasEmissions& obj) { 
+        DARABONBA_PTR_TO_JSON(carbonEmissionData, carbonEmissionData_);
+        DARABONBA_PTR_TO_JSON(gasEmissionData, gasEmissionData_);
+        DARABONBA_PTR_TO_JSON(name, name_);
+        DARABONBA_PTR_TO_JSON(type, type_);
+      };
+      friend void from_json(const Darabonba::Json& j, EnvGasEmissions& obj) { 
+        DARABONBA_PTR_FROM_JSON(carbonEmissionData, carbonEmissionData_);
+        DARABONBA_PTR_FROM_JSON(gasEmissionData, gasEmissionData_);
+        DARABONBA_PTR_FROM_JSON(name, name_);
+        DARABONBA_PTR_FROM_JSON(type, type_);
+      };
+      EnvGasEmissions() = default ;
+      EnvGasEmissions(const EnvGasEmissions &) = default ;
+      EnvGasEmissions(EnvGasEmissions &&) = default ;
+      EnvGasEmissions(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~EnvGasEmissions() = default ;
+      EnvGasEmissions& operator=(const EnvGasEmissions &) = default ;
+      EnvGasEmissions& operator=(EnvGasEmissions &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->carbonEmissionData_ == nullptr
+        && this->gasEmissionData_ == nullptr && this->name_ == nullptr && this->type_ == nullptr; };
+      // carbonEmissionData Field Functions 
+      bool hasCarbonEmissionData() const { return this->carbonEmissionData_ != nullptr;};
+      void deleteCarbonEmissionData() { this->carbonEmissionData_ = nullptr;};
+      inline double getCarbonEmissionData() const { DARABONBA_PTR_GET_DEFAULT(carbonEmissionData_, 0.0) };
+      inline EnvGasEmissions& setCarbonEmissionData(double carbonEmissionData) { DARABONBA_PTR_SET_VALUE(carbonEmissionData_, carbonEmissionData) };
+
+
+      // gasEmissionData Field Functions 
+      bool hasGasEmissionData() const { return this->gasEmissionData_ != nullptr;};
+      void deleteGasEmissionData() { this->gasEmissionData_ = nullptr;};
+      inline double getGasEmissionData() const { DARABONBA_PTR_GET_DEFAULT(gasEmissionData_, 0.0) };
+      inline EnvGasEmissions& setGasEmissionData(double gasEmissionData) { DARABONBA_PTR_SET_VALUE(gasEmissionData_, gasEmissionData) };
+
+
+      // name Field Functions 
+      bool hasName() const { return this->name_ != nullptr;};
+      void deleteName() { this->name_ = nullptr;};
+      inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+      inline EnvGasEmissions& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+      // type Field Functions 
+      bool hasType() const { return this->type_ != nullptr;};
+      void deleteType() { this->type_ = nullptr;};
+      inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+      inline EnvGasEmissions& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+    protected:
+      shared_ptr<double> carbonEmissionData_ {};
+      shared_ptr<double> gasEmissionData_ {};
+      shared_ptr<string> name_ {};
+      shared_ptr<string> type_ {};
+    };
+
     virtual bool empty() const override { return this->carbonEmissionData_ == nullptr
-        && return this->dataUnit_ == nullptr && return this->emissionSource_ == nullptr && return this->emissionSourceKey_ == nullptr && return this->enterpriseName_ == nullptr && return this->envGasEmissions_ == nullptr
-        && return this->name_ == nullptr && return this->nameKey_ == nullptr && return this->ratio_ == nullptr && return this->rawData_ == nullptr && return this->subConstituteItems_ == nullptr; };
+        && this->dataUnit_ == nullptr && this->emissionSource_ == nullptr && this->emissionSourceKey_ == nullptr && this->enterpriseName_ == nullptr && this->envGasEmissions_ == nullptr
+        && this->name_ == nullptr && this->nameKey_ == nullptr && this->ratio_ == nullptr && this->rawData_ == nullptr && this->subConstituteItems_ == nullptr; };
     // carbonEmissionData Field Functions 
     bool hasCarbonEmissionData() const { return this->carbonEmissionData_ != nullptr;};
     void deleteCarbonEmissionData() { this->carbonEmissionData_ = nullptr;};
-    inline double carbonEmissionData() const { DARABONBA_PTR_GET_DEFAULT(carbonEmissionData_, 0.0) };
+    inline double getCarbonEmissionData() const { DARABONBA_PTR_GET_DEFAULT(carbonEmissionData_, 0.0) };
     inline ConstituteItem& setCarbonEmissionData(double carbonEmissionData) { DARABONBA_PTR_SET_VALUE(carbonEmissionData_, carbonEmissionData) };
 
 
     // dataUnit Field Functions 
     bool hasDataUnit() const { return this->dataUnit_ != nullptr;};
     void deleteDataUnit() { this->dataUnit_ = nullptr;};
-    inline string dataUnit() const { DARABONBA_PTR_GET_DEFAULT(dataUnit_, "") };
+    inline string getDataUnit() const { DARABONBA_PTR_GET_DEFAULT(dataUnit_, "") };
     inline ConstituteItem& setDataUnit(string dataUnit) { DARABONBA_PTR_SET_VALUE(dataUnit_, dataUnit) };
 
 
     // emissionSource Field Functions 
     bool hasEmissionSource() const { return this->emissionSource_ != nullptr;};
     void deleteEmissionSource() { this->emissionSource_ = nullptr;};
-    inline string emissionSource() const { DARABONBA_PTR_GET_DEFAULT(emissionSource_, "") };
+    inline string getEmissionSource() const { DARABONBA_PTR_GET_DEFAULT(emissionSource_, "") };
     inline ConstituteItem& setEmissionSource(string emissionSource) { DARABONBA_PTR_SET_VALUE(emissionSource_, emissionSource) };
 
 
     // emissionSourceKey Field Functions 
     bool hasEmissionSourceKey() const { return this->emissionSourceKey_ != nullptr;};
     void deleteEmissionSourceKey() { this->emissionSourceKey_ = nullptr;};
-    inline string emissionSourceKey() const { DARABONBA_PTR_GET_DEFAULT(emissionSourceKey_, "") };
+    inline string getEmissionSourceKey() const { DARABONBA_PTR_GET_DEFAULT(emissionSourceKey_, "") };
     inline ConstituteItem& setEmissionSourceKey(string emissionSourceKey) { DARABONBA_PTR_SET_VALUE(emissionSourceKey_, emissionSourceKey) };
 
 
     // enterpriseName Field Functions 
     bool hasEnterpriseName() const { return this->enterpriseName_ != nullptr;};
     void deleteEnterpriseName() { this->enterpriseName_ = nullptr;};
-    inline string enterpriseName() const { DARABONBA_PTR_GET_DEFAULT(enterpriseName_, "") };
+    inline string getEnterpriseName() const { DARABONBA_PTR_GET_DEFAULT(enterpriseName_, "") };
     inline ConstituteItem& setEnterpriseName(string enterpriseName) { DARABONBA_PTR_SET_VALUE(enterpriseName_, enterpriseName) };
 
 
     // envGasEmissions Field Functions 
     bool hasEnvGasEmissions() const { return this->envGasEmissions_ != nullptr;};
     void deleteEnvGasEmissions() { this->envGasEmissions_ = nullptr;};
-    inline const vector<ConstituteItemEnvGasEmissions> & envGasEmissions() const { DARABONBA_PTR_GET_CONST(envGasEmissions_, vector<ConstituteItemEnvGasEmissions>) };
-    inline vector<ConstituteItemEnvGasEmissions> envGasEmissions() { DARABONBA_PTR_GET(envGasEmissions_, vector<ConstituteItemEnvGasEmissions>) };
-    inline ConstituteItem& setEnvGasEmissions(const vector<ConstituteItemEnvGasEmissions> & envGasEmissions) { DARABONBA_PTR_SET_VALUE(envGasEmissions_, envGasEmissions) };
-    inline ConstituteItem& setEnvGasEmissions(vector<ConstituteItemEnvGasEmissions> && envGasEmissions) { DARABONBA_PTR_SET_RVALUE(envGasEmissions_, envGasEmissions) };
+    inline const vector<ConstituteItem::EnvGasEmissions> & getEnvGasEmissions() const { DARABONBA_PTR_GET_CONST(envGasEmissions_, vector<ConstituteItem::EnvGasEmissions>) };
+    inline vector<ConstituteItem::EnvGasEmissions> getEnvGasEmissions() { DARABONBA_PTR_GET(envGasEmissions_, vector<ConstituteItem::EnvGasEmissions>) };
+    inline ConstituteItem& setEnvGasEmissions(const vector<ConstituteItem::EnvGasEmissions> & envGasEmissions) { DARABONBA_PTR_SET_VALUE(envGasEmissions_, envGasEmissions) };
+    inline ConstituteItem& setEnvGasEmissions(vector<ConstituteItem::EnvGasEmissions> && envGasEmissions) { DARABONBA_PTR_SET_RVALUE(envGasEmissions_, envGasEmissions) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline ConstituteItem& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // nameKey Field Functions 
     bool hasNameKey() const { return this->nameKey_ != nullptr;};
     void deleteNameKey() { this->nameKey_ = nullptr;};
-    inline string nameKey() const { DARABONBA_PTR_GET_DEFAULT(nameKey_, "") };
+    inline string getNameKey() const { DARABONBA_PTR_GET_DEFAULT(nameKey_, "") };
     inline ConstituteItem& setNameKey(string nameKey) { DARABONBA_PTR_SET_VALUE(nameKey_, nameKey) };
 
 
     // ratio Field Functions 
     bool hasRatio() const { return this->ratio_ != nullptr;};
     void deleteRatio() { this->ratio_ = nullptr;};
-    inline double ratio() const { DARABONBA_PTR_GET_DEFAULT(ratio_, 0.0) };
+    inline double getRatio() const { DARABONBA_PTR_GET_DEFAULT(ratio_, 0.0) };
     inline ConstituteItem& setRatio(double ratio) { DARABONBA_PTR_SET_VALUE(ratio_, ratio) };
 
 
     // rawData Field Functions 
     bool hasRawData() const { return this->rawData_ != nullptr;};
     void deleteRawData() { this->rawData_ = nullptr;};
-    inline double rawData() const { DARABONBA_PTR_GET_DEFAULT(rawData_, 0.0) };
+    inline double getRawData() const { DARABONBA_PTR_GET_DEFAULT(rawData_, 0.0) };
     inline ConstituteItem& setRawData(double rawData) { DARABONBA_PTR_SET_VALUE(rawData_, rawData) };
 
 
     // subConstituteItems Field Functions 
     bool hasSubConstituteItems() const { return this->subConstituteItems_ != nullptr;};
     void deleteSubConstituteItems() { this->subConstituteItems_ = nullptr;};
-    inline const vector<ConstituteItem> & subConstituteItems() const { DARABONBA_PTR_GET_CONST(subConstituteItems_, vector<ConstituteItem>) };
-    inline vector<ConstituteItem> subConstituteItems() { DARABONBA_PTR_GET(subConstituteItems_, vector<ConstituteItem>) };
+    inline const vector<ConstituteItem> & getSubConstituteItems() const { DARABONBA_PTR_GET_CONST(subConstituteItems_, vector<ConstituteItem>) };
+    inline vector<ConstituteItem> getSubConstituteItems() { DARABONBA_PTR_GET(subConstituteItems_, vector<ConstituteItem>) };
     inline ConstituteItem& setSubConstituteItems(const vector<ConstituteItem> & subConstituteItems) { DARABONBA_PTR_SET_VALUE(subConstituteItems_, subConstituteItems) };
     inline ConstituteItem& setSubConstituteItems(vector<ConstituteItem> && subConstituteItems) { DARABONBA_PTR_SET_RVALUE(subConstituteItems_, subConstituteItems) };
 
 
   protected:
-    std::shared_ptr<double> carbonEmissionData_ = nullptr;
-    std::shared_ptr<string> dataUnit_ = nullptr;
-    std::shared_ptr<string> emissionSource_ = nullptr;
-    std::shared_ptr<string> emissionSourceKey_ = nullptr;
-    std::shared_ptr<string> enterpriseName_ = nullptr;
-    std::shared_ptr<vector<ConstituteItemEnvGasEmissions>> envGasEmissions_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> nameKey_ = nullptr;
-    std::shared_ptr<double> ratio_ = nullptr;
-    std::shared_ptr<double> rawData_ = nullptr;
-    std::shared_ptr<vector<ConstituteItem>> subConstituteItems_ = nullptr;
+    shared_ptr<double> carbonEmissionData_ {};
+    shared_ptr<string> dataUnit_ {};
+    shared_ptr<string> emissionSource_ {};
+    shared_ptr<string> emissionSourceKey_ {};
+    shared_ptr<string> enterpriseName_ {};
+    shared_ptr<vector<ConstituteItem::EnvGasEmissions>> envGasEmissions_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<string> nameKey_ {};
+    shared_ptr<double> ratio_ {};
+    shared_ptr<double> rawData_ {};
+    shared_ptr<vector<ConstituteItem>> subConstituteItems_ {};
   };
 
   } // namespace Models

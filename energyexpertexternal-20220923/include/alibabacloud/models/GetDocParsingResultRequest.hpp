@@ -32,30 +32,30 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->returnFormat_ == nullptr
-        && return this->taskId_ == nullptr; };
+        && this->taskId_ == nullptr; };
     // returnFormat Field Functions 
     bool hasReturnFormat() const { return this->returnFormat_ != nullptr;};
     void deleteReturnFormat() { this->returnFormat_ = nullptr;};
-    inline string returnFormat() const { DARABONBA_PTR_GET_DEFAULT(returnFormat_, "") };
+    inline string getReturnFormat() const { DARABONBA_PTR_GET_DEFAULT(returnFormat_, "") };
     inline GetDocParsingResultRequest& setReturnFormat(string returnFormat) { DARABONBA_PTR_SET_VALUE(returnFormat_, returnFormat) };
 
 
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline string taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+    inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
     inline GetDocParsingResultRequest& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
   protected:
     // - The document parsing result supports two formats: markdown and json.
     // - By default, the result is returned in markdown format.
-    std::shared_ptr<string> returnFormat_ = nullptr;
+    shared_ptr<string> returnFormat_ {};
     // - Task ID.
     // - The taskId is obtained from the SubmitDocParsingTaskAdvance or SubmitDocParsingTask interfaces.
     // 
     // This parameter is required.
-    std::shared_ptr<string> taskId_ = nullptr;
+    shared_ptr<string> taskId_ {};
   };
 
   } // namespace Models

@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->data_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const DocumentDetailItem & data() const { DARABONBA_PTR_GET_CONST(data_, DocumentDetailItem) };
-    inline DocumentDetailItem data() { DARABONBA_PTR_GET(data_, DocumentDetailItem) };
+    inline const DocumentDetailItem & getData() const { DARABONBA_PTR_GET_CONST(data_, DocumentDetailItem) };
+    inline DocumentDetailItem getData() { DARABONBA_PTR_GET(data_, DocumentDetailItem) };
     inline DetailDocumentResponseBody& setData(const DocumentDetailItem & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
     inline DetailDocumentResponseBody& setData(DocumentDetailItem && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
@@ -46,14 +46,14 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DetailDocumentResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<DocumentDetailItem> data_ = nullptr;
+    shared_ptr<DocumentDetailItem> data_ {};
     // Id of the request
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

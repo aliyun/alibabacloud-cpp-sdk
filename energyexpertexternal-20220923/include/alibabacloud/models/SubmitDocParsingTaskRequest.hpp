@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fileName_ == nullptr
-        && return this->fileUrl_ == nullptr && return this->folderId_ == nullptr && return this->needAnalyzeImg_ == nullptr; };
+        && this->fileUrl_ == nullptr && this->folderId_ == nullptr && this->needAnalyzeImg_ == nullptr; };
     // fileName Field Functions 
     bool hasFileName() const { return this->fileName_ != nullptr;};
     void deleteFileName() { this->fileName_ = nullptr;};
-    inline string fileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
+    inline string getFileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
     inline SubmitDocParsingTaskRequest& setFileName(string fileName) { DARABONBA_PTR_SET_VALUE(fileName_, fileName) };
 
 
     // fileUrl Field Functions 
     bool hasFileUrl() const { return this->fileUrl_ != nullptr;};
     void deleteFileUrl() { this->fileUrl_ = nullptr;};
-    inline string fileUrl() const { DARABONBA_PTR_GET_DEFAULT(fileUrl_, "") };
+    inline string getFileUrl() const { DARABONBA_PTR_GET_DEFAULT(fileUrl_, "") };
     inline SubmitDocParsingTaskRequest& setFileUrl(string fileUrl) { DARABONBA_PTR_SET_VALUE(fileUrl_, fileUrl) };
 
 
     // folderId Field Functions 
     bool hasFolderId() const { return this->folderId_ != nullptr;};
     void deleteFolderId() { this->folderId_ = nullptr;};
-    inline string folderId() const { DARABONBA_PTR_GET_DEFAULT(folderId_, "") };
+    inline string getFolderId() const { DARABONBA_PTR_GET_DEFAULT(folderId_, "") };
     inline SubmitDocParsingTaskRequest& setFolderId(string folderId) { DARABONBA_PTR_SET_VALUE(folderId_, folderId) };
 
 
     // needAnalyzeImg Field Functions 
     bool hasNeedAnalyzeImg() const { return this->needAnalyzeImg_ != nullptr;};
     void deleteNeedAnalyzeImg() { this->needAnalyzeImg_ = nullptr;};
-    inline bool needAnalyzeImg() const { DARABONBA_PTR_GET_DEFAULT(needAnalyzeImg_, false) };
+    inline bool getNeedAnalyzeImg() const { DARABONBA_PTR_GET_DEFAULT(needAnalyzeImg_, false) };
     inline SubmitDocParsingTaskRequest& setNeedAnalyzeImg(bool needAnalyzeImg) { DARABONBA_PTR_SET_VALUE(needAnalyzeImg_, needAnalyzeImg) };
 
 
@@ -69,7 +69,7 @@ namespace Models
     // The filename must include the file type extension.
     // 
     // This parameter is required.
-    std::shared_ptr<string> fileName_ = nullptr;
+    shared_ptr<string> fileName_ {};
     // Choose one of fileUrl or fileUrlObject:
     // 
     // - fileUrl: Use by providing the document URL, for a single document (supports up to 1000 pages and 100MB in size)
@@ -80,12 +80,12 @@ namespace Models
     // > - Long Text RAG: Supports pdf, doc/docx, supports up to 1000 pages
     // > - Image Processing: Supports pdf, jpg, jpeg, png, bmp
     // > - Long Text Understanding: Supports pdf, doc/docx, xls/xlsx
-    std::shared_ptr<string> fileUrl_ = nullptr;
+    shared_ptr<string> fileUrl_ {};
     // - Unique knowledge base folder ID, used when categorizing documents and controlling the scope of documents for online Q&A queries.
     // - The folder ID needs to be obtained from the Intelligent Document Console after logging in.
-    std::shared_ptr<string> folderId_ = nullptr;
+    shared_ptr<string> folderId_ {};
     // Whether to parse image content within the document.
-    std::shared_ptr<bool> needAnalyzeImg_ = nullptr;
+    shared_ptr<bool> needAnalyzeImg_ {};
   };
 
   } // namespace Models

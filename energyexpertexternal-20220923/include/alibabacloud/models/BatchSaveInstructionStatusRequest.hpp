@@ -34,33 +34,33 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->factoryId_ == nullptr
-        && return this->pKey_ == nullptr && return this->statusList_ == nullptr; };
+        && this->pKey_ == nullptr && this->statusList_ == nullptr; };
     // factoryId Field Functions 
     bool hasFactoryId() const { return this->factoryId_ != nullptr;};
     void deleteFactoryId() { this->factoryId_ = nullptr;};
-    inline string factoryId() const { DARABONBA_PTR_GET_DEFAULT(factoryId_, "") };
+    inline string getFactoryId() const { DARABONBA_PTR_GET_DEFAULT(factoryId_, "") };
     inline BatchSaveInstructionStatusRequest& setFactoryId(string factoryId) { DARABONBA_PTR_SET_VALUE(factoryId_, factoryId) };
 
 
     // pKey Field Functions 
     bool hasPKey() const { return this->pKey_ != nullptr;};
     void deletePKey() { this->pKey_ = nullptr;};
-    inline string pKey() const { DARABONBA_PTR_GET_DEFAULT(pKey_, "") };
+    inline string getPKey() const { DARABONBA_PTR_GET_DEFAULT(pKey_, "") };
     inline BatchSaveInstructionStatusRequest& setPKey(string pKey) { DARABONBA_PTR_SET_VALUE(pKey_, pKey) };
 
 
     // statusList Field Functions 
     bool hasStatusList() const { return this->statusList_ != nullptr;};
     void deleteStatusList() { this->statusList_ = nullptr;};
-    inline string statusList() const { DARABONBA_PTR_GET_DEFAULT(statusList_, "") };
+    inline string getStatusList() const { DARABONBA_PTR_GET_DEFAULT(statusList_, "") };
     inline BatchSaveInstructionStatusRequest& setStatusList(string statusList) { DARABONBA_PTR_SET_VALUE(statusList_, statusList) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> factoryId_ = nullptr;
-    std::shared_ptr<string> pKey_ = nullptr;
-    std::shared_ptr<string> statusList_ = nullptr;
+    shared_ptr<string> factoryId_ {};
+    shared_ptr<string> pKey_ {};
+    shared_ptr<string> statusList_ {};
   };
 
   } // namespace Models

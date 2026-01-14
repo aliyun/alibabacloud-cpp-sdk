@@ -33,12 +33,12 @@ namespace Models
     // folderId Field Functions 
     bool hasFolderId() const { return this->folderId_ != nullptr;};
     void deleteFolderId() { this->folderId_ = nullptr;};
-    inline string folderId() const { DARABONBA_PTR_GET_DEFAULT(folderId_, "") };
+    inline string getFolderId() const { DARABONBA_PTR_GET_DEFAULT(folderId_, "") };
     inline DeleteFolderRequest& setFolderId(string folderId) { DARABONBA_PTR_SET_VALUE(folderId_, folderId) };
 
 
   protected:
-    std::shared_ptr<string> folderId_ = nullptr;
+    shared_ptr<string> folderId_ {};
   };
 
   } // namespace Models

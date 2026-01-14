@@ -36,34 +36,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->folderId_ == nullptr
-        && return this->folderName_ == nullptr && return this->subFolders_ == nullptr; };
+        && this->folderName_ == nullptr && this->subFolders_ == nullptr; };
     // folderId Field Functions 
     bool hasFolderId() const { return this->folderId_ != nullptr;};
     void deleteFolderId() { this->folderId_ = nullptr;};
-    inline string folderId() const { DARABONBA_PTR_GET_DEFAULT(folderId_, "") };
+    inline string getFolderId() const { DARABONBA_PTR_GET_DEFAULT(folderId_, "") };
     inline ChatFolderItem& setFolderId(string folderId) { DARABONBA_PTR_SET_VALUE(folderId_, folderId) };
 
 
     // folderName Field Functions 
     bool hasFolderName() const { return this->folderName_ != nullptr;};
     void deleteFolderName() { this->folderName_ = nullptr;};
-    inline string folderName() const { DARABONBA_PTR_GET_DEFAULT(folderName_, "") };
+    inline string getFolderName() const { DARABONBA_PTR_GET_DEFAULT(folderName_, "") };
     inline ChatFolderItem& setFolderName(string folderName) { DARABONBA_PTR_SET_VALUE(folderName_, folderName) };
 
 
     // subFolders Field Functions 
     bool hasSubFolders() const { return this->subFolders_ != nullptr;};
     void deleteSubFolders() { this->subFolders_ = nullptr;};
-    inline const vector<ChatItem> & subFolders() const { DARABONBA_PTR_GET_CONST(subFolders_, vector<ChatItem>) };
-    inline vector<ChatItem> subFolders() { DARABONBA_PTR_GET(subFolders_, vector<ChatItem>) };
+    inline const vector<ChatItem> & getSubFolders() const { DARABONBA_PTR_GET_CONST(subFolders_, vector<ChatItem>) };
+    inline vector<ChatItem> getSubFolders() { DARABONBA_PTR_GET(subFolders_, vector<ChatItem>) };
     inline ChatFolderItem& setSubFolders(const vector<ChatItem> & subFolders) { DARABONBA_PTR_SET_VALUE(subFolders_, subFolders) };
     inline ChatFolderItem& setSubFolders(vector<ChatItem> && subFolders) { DARABONBA_PTR_SET_RVALUE(subFolders_, subFolders) };
 
 
   protected:
-    std::shared_ptr<string> folderId_ = nullptr;
-    std::shared_ptr<string> folderName_ = nullptr;
-    std::shared_ptr<vector<ChatItem>> subFolders_ = nullptr;
+    shared_ptr<string> folderId_ {};
+    shared_ptr<string> folderName_ {};
+    shared_ptr<vector<ChatItem>> subFolders_ {};
   };
 
   } // namespace Models

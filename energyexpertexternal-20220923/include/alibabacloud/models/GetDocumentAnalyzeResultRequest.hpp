@@ -33,7 +33,7 @@ namespace Models
     // jobId Field Functions 
     bool hasJobId() const { return this->jobId_ != nullptr;};
     void deleteJobId() { this->jobId_ = nullptr;};
-    inline string jobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
+    inline string getJobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
     inline GetDocumentAnalyzeResultRequest& setJobId(string jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // Job ID, specifying which document\\"s parsing result to query. This is a return parameter from the \\"Submit Document Parsing Job\\" interface.
     // 
     // This parameter is required.
-    std::shared_ptr<string> jobId_ = nullptr;
+    shared_ptr<string> jobId_ {};
   };
 
   } // namespace Models

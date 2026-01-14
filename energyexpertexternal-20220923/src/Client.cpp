@@ -55,11 +55,11 @@ AddFolderResponse Client::addFolderWithOptions(const AddFolderRequest &request, 
   request.validate();
   json body = {};
   if (!!request.hasFolderName()) {
-    body["folderName"] = request.folderName();
+    body["folderName"] = request.getFolderName();
   }
 
   if (!!request.hasParentFolderId()) {
-    body["parentFolderId"] = request.parentFolderId();
+    body["parentFolderId"] = request.getParentFolderId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -106,15 +106,15 @@ AnalyzeVlRealtimeResponse Client::analyzeVlRealtimeWithOptions(const AnalyzeVlRe
   request.validate();
   json query = {};
   if (!!request.hasFileUrl()) {
-    query["fileUrl"] = request.fileUrl();
+    query["fileUrl"] = request.getFileUrl();
   }
 
   if (!!request.hasLanguage()) {
-    query["language"] = request.language();
+    query["language"] = request.getLanguage();
   }
 
   if (!!request.hasTemplateId()) {
-    query["templateId"] = request.templateId();
+    query["templateId"] = request.getTemplateId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -159,10 +159,10 @@ AnalyzeVlRealtimeResponse Client::analyzeVlRealtimeAdvance(const AnalyzeVlRealti
   }
 
   CredentialModel credentialModel = _credential->getCredential();
-  string accessKeyId = credentialModel.accessKeyId();
-  string accessKeySecret = credentialModel.accessKeySecret();
-  string securityToken = credentialModel.securityToken();
-  string credentialType = credentialModel.type();
+  string accessKeyId = credentialModel.getAccessKeyId();
+  string accessKeySecret = credentialModel.getAccessKeySecret();
+  string securityToken = credentialModel.getSecurityToken();
+  string credentialType = credentialModel.getType();
   string openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba::isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
     openPlatformEndpoint = "openplatform.aliyuncs.com";
@@ -215,7 +215,7 @@ AnalyzeVlRealtimeResponse Client::analyzeVlRealtimeAdvance(const AnalyzeVlRealti
     authResponseBody = Utils::Utils::stringifyMapValue(tmpBody);
     fileObj = FileField(json({
       {"filename" , authResponseBody.at("ObjectKey")},
-      {"content" , request.fileUrlObject()},
+      {"content" , request.getFileUrlObject()},
       {"contentType" , ""}
     }));
     ossHeader = json({
@@ -227,7 +227,7 @@ AnalyzeVlRealtimeResponse Client::analyzeVlRealtimeAdvance(const AnalyzeVlRealti
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     analyzeVlRealtimeReq.setFileUrl(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
@@ -247,15 +247,15 @@ BatchSaveInstructionStatusResponse Client::batchSaveInstructionStatusWithOptions
   request.validate();
   json body = {};
   if (!!request.hasFactoryId()) {
-    body["factoryId"] = request.factoryId();
+    body["factoryId"] = request.getFactoryId();
   }
 
   if (!!request.hasPKey()) {
-    body["pKey"] = request.pKey();
+    body["pKey"] = request.getPKey();
   }
 
   if (!!request.hasStatusList()) {
-    body["statusList"] = request.statusList();
+    body["statusList"] = request.getStatusList();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -300,59 +300,59 @@ BatchUpdateSystemRunningPlanResponse Client::batchUpdateSystemRunningPlanWithOpt
   request.validate();
   json body = {};
   if (!!request.hasControlType()) {
-    body["controlType"] = request.controlType();
+    body["controlType"] = request.getControlType();
   }
 
   if (!!request.hasDateType()) {
-    body["dateType"] = request.dateType();
+    body["dateType"] = request.getDateType();
   }
 
   if (!!request.hasEarliestStartupTime()) {
-    body["earliestStartupTime"] = request.earliestStartupTime();
+    body["earliestStartupTime"] = request.getEarliestStartupTime();
   }
 
   if (!!request.hasEndTime()) {
-    body["endTime"] = request.endTime();
+    body["endTime"] = request.getEndTime();
   }
 
   if (!!request.hasFactoryId()) {
-    body["factoryId"] = request.factoryId();
+    body["factoryId"] = request.getFactoryId();
   }
 
   if (!!request.hasLatestShutdownTime()) {
-    body["latestShutdownTime"] = request.latestShutdownTime();
+    body["latestShutdownTime"] = request.getLatestShutdownTime();
   }
 
   if (!!request.hasMaxCarbonDioxide()) {
-    body["maxCarbonDioxide"] = request.maxCarbonDioxide();
+    body["maxCarbonDioxide"] = request.getMaxCarbonDioxide();
   }
 
   if (!!request.hasMaxTem()) {
-    body["maxTem"] = request.maxTem();
+    body["maxTem"] = request.getMaxTem();
   }
 
   if (!!request.hasMinTem()) {
-    body["minTem"] = request.minTem();
+    body["minTem"] = request.getMinTem();
   }
 
   if (!!request.hasSeasonMode()) {
-    body["seasonMode"] = request.seasonMode();
+    body["seasonMode"] = request.getSeasonMode();
   }
 
   if (!!request.hasStartTime()) {
-    body["startTime"] = request.startTime();
+    body["startTime"] = request.getStartTime();
   }
 
   if (!!request.hasSystemId()) {
-    body["systemId"] = request.systemId();
+    body["systemId"] = request.getSystemId();
   }
 
   if (!!request.hasWorkingEndTime()) {
-    body["workingEndTime"] = request.workingEndTime();
+    body["workingEndTime"] = request.getWorkingEndTime();
   }
 
   if (!!request.hasWorkingStartTime()) {
-    body["workingStartTime"] = request.workingStartTime();
+    body["workingStartTime"] = request.getWorkingStartTime();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -400,12 +400,16 @@ BatchUpdateSystemRunningPlanResponse Client::batchUpdateSystemRunningPlan(const 
 ChatResponse Client::chatWithOptions(const ChatRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasDocumentIds()) {
+    body["documentIds"] = request.getDocumentIds();
+  }
+
   if (!!request.hasQuestion()) {
-    body["question"] = request.question();
+    body["question"] = request.getQuestion();
   }
 
   if (!!request.hasSessionId()) {
-    body["sessionId"] = request.sessionId();
+    body["sessionId"] = request.getSessionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -454,15 +458,19 @@ ChatResponse Client::chat(const ChatRequest &request) {
  * @param runtime runtime options for this request RuntimeOptions
  * @return ChatStreamResponse
  */
-FutrueGenerator<ChatStreamResponse> Client::chatStreamWithSSE(const ChatStreamRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+FutureGenerator<ChatStreamResponse> Client::chatStreamWithSSE(const ChatStreamRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasDocumentIds()) {
+    body["documentIds"] = request.getDocumentIds();
+  }
+
   if (!!request.hasQuestion()) {
-    body["question"] = request.question();
+    body["question"] = request.getQuestion();
   }
 
   if (!!request.hasSessionId()) {
-    body["sessionId"] = request.sessionId();
+    body["sessionId"] = request.getSessionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -480,18 +488,18 @@ FutrueGenerator<ChatStreamResponse> Client::chatStreamWithSSE(const ChatStreamRe
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
   for (SSEResponse resp : sseResp) {
-    json data = json(json::parse(resp.event().data()));
+    json data = json(json::parse(resp.getEvent().getData()));
 json     __retrun = json(json({
-      {"statusCode" , resp.statusCode()},
-      {"headers" , resp.headers()},
+      {"statusCode" , resp.getStatusCode()},
+      {"headers" , resp.getHeaders()},
       {"body" , Darabonba::Core::merge(data,
-          {"RequestId" , resp.event().id()},
-          {"Message" , resp.event().event()}
+          {"RequestId" , resp.getEvent().getId()},
+          {"Message" , resp.getEvent().getEvent()}
       )}
     })).get<ChatStreamResponse>();
-return Darbaonba::FutureGenerator<json>(__retrun);
+return Darabonba::FutureGenerator<json>(__retrun);
   }
 }
 
@@ -510,12 +518,16 @@ return Darbaonba::FutureGenerator<json>(__retrun);
 ChatStreamResponse Client::chatStreamWithOptions(const ChatStreamRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasDocumentIds()) {
+    body["documentIds"] = request.getDocumentIds();
+  }
+
   if (!!request.hasQuestion()) {
-    body["question"] = request.question();
+    body["question"] = request.getQuestion();
   }
 
   if (!!request.hasSessionId()) {
-    body["sessionId"] = request.sessionId();
+    body["sessionId"] = request.getSessionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -564,15 +576,15 @@ CreateChatSessionResponse Client::createChatSessionWithOptions(const CreateChatS
   request.validate();
   json body = {};
   if (!!request.hasFolderId()) {
-    body["folderId"] = request.folderId();
+    body["folderId"] = request.getFolderId();
   }
 
   if (!!request.hasName()) {
-    body["name"] = request.name();
+    body["name"] = request.getName();
   }
 
   if (!!request.hasUserId()) {
-    body["userId"] = request.userId();
+    body["userId"] = request.getUserId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -617,7 +629,7 @@ DeleteDocumentResponse Client::deleteDocumentWithOptions(const DeleteDocumentReq
   request.validate();
   json query = {};
   if (!!request.hasTaskId()) {
-    query["taskId"] = request.taskId();
+    query["taskId"] = request.getTaskId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -662,7 +674,7 @@ DeleteFolderResponse Client::deleteFolderWithOptions(const DeleteFolderRequest &
   request.validate();
   json query = {};
   if (!!request.hasFolderId()) {
-    query["folderId"] = request.folderId();
+    query["folderId"] = request.getFolderId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -707,7 +719,7 @@ DetailDocumentResponse Client::detailDocumentWithOptions(const DetailDocumentReq
   request.validate();
   json query = {};
   if (!!request.hasTaskId()) {
-    query["taskId"] = request.taskId();
+    query["taskId"] = request.getTaskId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -752,15 +764,15 @@ EditProhibitedDevicesResponse Client::editProhibitedDevicesWithOptions(const Edi
   request.validate();
   json body = {};
   if (!!request.hasFactoryId()) {
-    body["factoryId"] = request.factoryId();
+    body["factoryId"] = request.getFactoryId();
   }
 
   if (!!request.hasHvacDeviceConfigVOList()) {
-    body["hvacDeviceConfigVOList"] = request.hvacDeviceConfigVOList();
+    body["hvacDeviceConfigVOList"] = request.getHvacDeviceConfigVOList();
   }
 
   if (!!request.hasSystemId()) {
-    body["systemId"] = request.systemId();
+    body["systemId"] = request.getSystemId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -805,15 +817,15 @@ EditUnfavorableAreaDevicesResponse Client::editUnfavorableAreaDevicesWithOptions
   request.validate();
   json body = {};
   if (!!request.hasFactoryId()) {
-    body["factoryId"] = request.factoryId();
+    body["factoryId"] = request.getFactoryId();
   }
 
   if (!!request.hasHvacDeviceConfigVOList()) {
-    body["hvacDeviceConfigVOList"] = request.hvacDeviceConfigVOList();
+    body["hvacDeviceConfigVOList"] = request.getHvacDeviceConfigVOList();
   }
 
   if (!!request.hasSystemId()) {
-    body["systemId"] = request.systemId();
+    body["systemId"] = request.getSystemId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -860,15 +872,15 @@ GenerateResultResponse Client::generateResultWithOptions(const GenerateResultReq
   request.validate();
   json body = {};
   if (!!request.hasCode()) {
-    body["code"] = request.code();
+    body["code"] = request.getCode();
   }
 
   if (!!request.hasProductId()) {
-    body["productId"] = request.productId();
+    body["productId"] = request.getProductId();
   }
 
   if (!!request.hasProductType()) {
-    body["productType"] = request.productType();
+    body["productType"] = request.getProductType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -915,11 +927,11 @@ GetAreaElecConstituteResponse Client::getAreaElecConstituteWithOptions(const Get
   request.validate();
   json body = {};
   if (!!request.hasCode()) {
-    body["code"] = request.code();
+    body["code"] = request.getCode();
   }
 
   if (!!request.hasYear()) {
-    body["year"] = request.year();
+    body["year"] = request.getYear();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -964,23 +976,23 @@ GetCarbonEmissionTrendResponse Client::getCarbonEmissionTrendWithOptions(const G
   request.validate();
   json body = {};
   if (!!request.hasCode()) {
-    body["code"] = request.code();
+    body["code"] = request.getCode();
   }
 
   if (!!request.hasModuleCode()) {
-    body["moduleCode"] = request.moduleCode();
+    body["moduleCode"] = request.getModuleCode();
   }
 
   if (!!request.hasModuleType()) {
-    body["moduleType"] = request.moduleType();
+    body["moduleType"] = request.getModuleType();
   }
 
   if (!!request.hasTrendType()) {
-    body["trendType"] = request.trendType();
+    body["trendType"] = request.getTrendType();
   }
 
   if (!!request.hasYearList()) {
-    body["yearList"] = request.yearList();
+    body["yearList"] = request.getYearList();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1065,15 +1077,15 @@ GetChatListResponse Client::getChatListWithOptions(const GetChatListRequest &req
   request.validate();
   json body = {};
   if (!!request.hasCurrentPage()) {
-    body["currentPage"] = request.currentPage();
+    body["currentPage"] = request.getCurrentPage();
   }
 
   if (!!request.hasPageSize()) {
-    body["pageSize"] = request.pageSize();
+    body["pageSize"] = request.getPageSize();
   }
 
   if (!!request.hasSessionId()) {
-    body["sessionId"] = request.sessionId();
+    body["sessionId"] = request.getSessionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1122,19 +1134,19 @@ GetChatSessionListResponse Client::getChatSessionListWithOptions(const GetChatSe
   request.validate();
   json body = {};
   if (!!request.hasCurrentPage()) {
-    body["currentPage"] = request.currentPage();
+    body["currentPage"] = request.getCurrentPage();
   }
 
   if (!!request.hasName()) {
-    body["name"] = request.name();
+    body["name"] = request.getName();
   }
 
   if (!!request.hasPageSize()) {
-    body["pageSize"] = request.pageSize();
+    body["pageSize"] = request.getPageSize();
   }
 
   if (!!request.hasUserId()) {
-    body["userId"] = request.userId();
+    body["userId"] = request.getUserId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1181,7 +1193,7 @@ GetDataItemListResponse Client::getDataItemListWithOptions(const GetDataItemList
   request.validate();
   json body = {};
   if (!!request.hasCode()) {
-    body["code"] = request.code();
+    body["code"] = request.getCode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1230,19 +1242,19 @@ GetDataQualityAnalysisResponse Client::getDataQualityAnalysisWithOptions(const G
   request.validate();
   json body = {};
   if (!!request.hasCode()) {
-    body["code"] = request.code();
+    body["code"] = request.getCode();
   }
 
   if (!!request.hasDataQualityEvaluationType()) {
-    body["dataQualityEvaluationType"] = request.dataQualityEvaluationType();
+    body["dataQualityEvaluationType"] = request.getDataQualityEvaluationType();
   }
 
   if (!!request.hasProductId()) {
-    body["productId"] = request.productId();
+    body["productId"] = request.getProductId();
   }
 
   if (!!request.hasProductType()) {
-    body["productType"] = request.productType();
+    body["productType"] = request.getProductType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1295,15 +1307,15 @@ GetDeviceInfoResponse Client::getDeviceInfoWithOptions(const GetDeviceInfoReques
   request.validate();
   json query = {};
   if (!!request.hasDeviceId()) {
-    query["deviceId"] = request.deviceId();
+    query["deviceId"] = request.getDeviceId();
   }
 
   if (!!request.hasDs()) {
-    query["ds"] = request.ds();
+    query["ds"] = request.getDs();
   }
 
   if (!!request.hasFactoryId()) {
-    query["factoryId"] = request.factoryId();
+    query["factoryId"] = request.getFactoryId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1360,7 +1372,7 @@ GetDeviceListResponse Client::getDeviceListWithOptions(const GetDeviceListReques
   request.validate();
   json query = {};
   if (!!request.hasFactoryId()) {
-    query["factoryId"] = request.factoryId();
+    query["factoryId"] = request.getFactoryId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1413,7 +1425,7 @@ GetDocExtractionResultResponse Client::getDocExtractionResultWithOptions(const G
   request.validate();
   json body = {};
   if (!!request.hasTaskId()) {
-    body["taskId"] = request.taskId();
+    body["taskId"] = request.getTaskId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1462,11 +1474,11 @@ GetDocParsingResultResponse Client::getDocParsingResultWithOptions(const GetDocP
   request.validate();
   json body = {};
   if (!!request.hasReturnFormat()) {
-    body["returnFormat"] = request.returnFormat();
+    body["returnFormat"] = request.getReturnFormat();
   }
 
   if (!!request.hasTaskId()) {
-    body["taskId"] = request.taskId();
+    body["taskId"] = request.getTaskId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1513,7 +1525,7 @@ GetDocumentAnalyzeResultResponse Client::getDocumentAnalyzeResultWithOptions(con
   request.validate();
   json body = {};
   if (!!request.hasJobId()) {
-    body["jobId"] = request.jobId();
+    body["jobId"] = request.getJobId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1558,11 +1570,11 @@ GetElecConstituteResponse Client::getElecConstituteWithOptions(const GetElecCons
   request.validate();
   json body = {};
   if (!!request.hasCode()) {
-    body["code"] = request.code();
+    body["code"] = request.getCode();
   }
 
   if (!!request.hasYear()) {
-    body["year"] = request.year();
+    body["year"] = request.getYear();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1607,11 +1619,11 @@ GetElecTrendResponse Client::getElecTrendWithOptions(const GetElecTrendRequest &
   request.validate();
   json body = {};
   if (!!request.hasCode()) {
-    body["code"] = request.code();
+    body["code"] = request.getCode();
   }
 
   if (!!request.hasYearList()) {
-    body["yearList"] = request.yearList();
+    body["yearList"] = request.getYearList();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1656,19 +1668,19 @@ GetEmissionSourceConstituteResponse Client::getEmissionSourceConstituteWithOptio
   request.validate();
   json body = {};
   if (!!request.hasCode()) {
-    body["code"] = request.code();
+    body["code"] = request.getCode();
   }
 
   if (!!request.hasModuleCode()) {
-    body["moduleCode"] = request.moduleCode();
+    body["moduleCode"] = request.getModuleCode();
   }
 
   if (!!request.hasModuleType()) {
-    body["moduleType"] = request.moduleType();
+    body["moduleType"] = request.getModuleType();
   }
 
   if (!!request.hasYear()) {
-    body["year"] = request.year();
+    body["year"] = request.getYear();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1713,19 +1725,19 @@ GetEmissionSummaryResponse Client::getEmissionSummaryWithOptions(const GetEmissi
   request.validate();
   json body = {};
   if (!!request.hasCode()) {
-    body["code"] = request.code();
+    body["code"] = request.getCode();
   }
 
   if (!!request.hasModuleCode()) {
-    body["moduleCode"] = request.moduleCode();
+    body["moduleCode"] = request.getModuleCode();
   }
 
   if (!!request.hasModuleType()) {
-    body["moduleType"] = request.moduleType();
+    body["moduleType"] = request.getModuleType();
   }
 
   if (!!request.hasYear()) {
-    body["year"] = request.year();
+    body["year"] = request.getYear();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1772,15 +1784,15 @@ GetEpdInventoryConstituteResponse Client::getEpdInventoryConstituteWithOptions(c
   request.validate();
   json body = {};
   if (!!request.hasCode()) {
-    body["code"] = request.code();
+    body["code"] = request.getCode();
   }
 
   if (!!request.hasProductId()) {
-    body["productId"] = request.productId();
+    body["productId"] = request.getProductId();
   }
 
   if (!!request.hasProductType()) {
-    body["productType"] = request.productType();
+    body["productType"] = request.getProductType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1829,15 +1841,15 @@ GetEpdSummaryResponse Client::getEpdSummaryWithOptions(const GetEpdSummaryReques
   request.validate();
   json body = {};
   if (!!request.hasCode()) {
-    body["code"] = request.code();
+    body["code"] = request.getCode();
   }
 
   if (!!request.hasProductId()) {
-    body["productId"] = request.productId();
+    body["productId"] = request.getProductId();
   }
 
   if (!!request.hasProductType()) {
-    body["productType"] = request.productType();
+    body["productType"] = request.getProductType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1886,19 +1898,19 @@ GetFootprintListResponse Client::getFootprintListWithOptions(const GetFootprintL
   request.validate();
   json body = {};
   if (!!request.hasCode()) {
-    body["code"] = request.code();
+    body["code"] = request.getCode();
   }
 
   if (!!request.hasCurrentPage()) {
-    body["currentPage"] = request.currentPage();
+    body["currentPage"] = request.getCurrentPage();
   }
 
   if (!!request.hasPageSize()) {
-    body["pageSize"] = request.pageSize();
+    body["pageSize"] = request.getPageSize();
   }
 
   if (!!request.hasProductType()) {
-    body["productType"] = request.productType();
+    body["productType"] = request.getProductType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1945,19 +1957,19 @@ GetGasConstituteResponse Client::getGasConstituteWithOptions(const GetGasConstit
   request.validate();
   json body = {};
   if (!!request.hasCode()) {
-    body["code"] = request.code();
+    body["code"] = request.getCode();
   }
 
   if (!!request.hasModuleCode()) {
-    body["moduleCode"] = request.moduleCode();
+    body["moduleCode"] = request.getModuleCode();
   }
 
   if (!!request.hasModuleType()) {
-    body["moduleType"] = request.moduleType();
+    body["moduleType"] = request.getModuleType();
   }
 
   if (!!request.hasYear()) {
-    body["year"] = request.year();
+    body["year"] = request.getYear();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2004,15 +2016,15 @@ GetGwpBenchmarkListResponse Client::getGwpBenchmarkListWithOptions(const GetGwpB
   request.validate();
   json body = {};
   if (!!request.hasCode()) {
-    body["code"] = request.code();
+    body["code"] = request.getCode();
   }
 
   if (!!request.hasProductId()) {
-    body["productId"] = request.productId();
+    body["productId"] = request.getProductId();
   }
 
   if (!!request.hasProductType()) {
-    body["productType"] = request.productType();
+    body["productType"] = request.getProductType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2061,15 +2073,15 @@ GetGwpBenchmarkSummaryResponse Client::getGwpBenchmarkSummaryWithOptions(const G
   request.validate();
   json body = {};
   if (!!request.hasCode()) {
-    body["code"] = request.code();
+    body["code"] = request.getCode();
   }
 
   if (!!request.hasProductId()) {
-    body["productId"] = request.productId();
+    body["productId"] = request.getProductId();
   }
 
   if (!!request.hasProductType()) {
-    body["productType"] = request.productType();
+    body["productType"] = request.getProductType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2118,15 +2130,15 @@ GetGwpInventoryConstituteResponse Client::getGwpInventoryConstituteWithOptions(c
   request.validate();
   json body = {};
   if (!!request.hasCode()) {
-    body["code"] = request.code();
+    body["code"] = request.getCode();
   }
 
   if (!!request.hasProductId()) {
-    body["productId"] = request.productId();
+    body["productId"] = request.getProductId();
   }
 
   if (!!request.hasProductType()) {
-    body["productType"] = request.productType();
+    body["productType"] = request.getProductType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2175,15 +2187,15 @@ GetGwpInventorySummaryResponse Client::getGwpInventorySummaryWithOptions(const G
   request.validate();
   json body = {};
   if (!!request.hasCode()) {
-    body["code"] = request.code();
+    body["code"] = request.getCode();
   }
 
   if (!!request.hasProductId()) {
-    body["productId"] = request.productId();
+    body["productId"] = request.getProductId();
   }
 
   if (!!request.hasProductType()) {
-    body["productType"] = request.productType();
+    body["productType"] = request.getProductType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2232,27 +2244,27 @@ GetInventoryListResponse Client::getInventoryListWithOptions(const GetInventoryL
   request.validate();
   json body = {};
   if (!!request.hasCode()) {
-    body["code"] = request.code();
+    body["code"] = request.getCode();
   }
 
   if (!!request.hasEmissionType()) {
-    body["emissionType"] = request.emissionType();
+    body["emissionType"] = request.getEmissionType();
   }
 
   if (!!request.hasGroup()) {
-    body["group"] = request.group();
+    body["group"] = request.getGroup();
   }
 
   if (!!request.hasMethodType()) {
-    body["methodType"] = request.methodType();
+    body["methodType"] = request.getMethodType();
   }
 
   if (!!request.hasProductId()) {
-    body["productId"] = request.productId();
+    body["productId"] = request.getProductId();
   }
 
   if (!!request.hasProductType()) {
-    body["productType"] = request.productType();
+    body["productType"] = request.getProductType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2345,19 +2357,19 @@ GetOrgConstituteResponse Client::getOrgConstituteWithOptions(const GetOrgConstit
   request.validate();
   json body = {};
   if (!!request.hasCode()) {
-    body["code"] = request.code();
+    body["code"] = request.getCode();
   }
 
   if (!!request.hasModuleCode()) {
-    body["moduleCode"] = request.moduleCode();
+    body["moduleCode"] = request.getModuleCode();
   }
 
   if (!!request.hasModuleType()) {
-    body["moduleType"] = request.moduleType();
+    body["moduleType"] = request.getModuleType();
   }
 
   if (!!request.hasYear()) {
-    body["year"] = request.year();
+    body["year"] = request.getYear();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2404,15 +2416,15 @@ GetPcrInfoResponse Client::getPcrInfoWithOptions(const GetPcrInfoRequest &reques
   request.validate();
   json body = {};
   if (!!request.hasCode()) {
-    body["code"] = request.code();
+    body["code"] = request.getCode();
   }
 
   if (!!request.hasProductId()) {
-    body["productId"] = request.productId();
+    body["productId"] = request.getProductId();
   }
 
   if (!!request.hasProductType()) {
-    body["productType"] = request.productType();
+    body["productType"] = request.getProductType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2461,19 +2473,19 @@ GetReductionProposalResponse Client::getReductionProposalWithOptions(const GetRe
   request.validate();
   json body = {};
   if (!!request.hasCode()) {
-    body["code"] = request.code();
+    body["code"] = request.getCode();
   }
 
   if (!!request.hasDataQualityEvaluationType()) {
-    body["dataQualityEvaluationType"] = request.dataQualityEvaluationType();
+    body["dataQualityEvaluationType"] = request.getDataQualityEvaluationType();
   }
 
   if (!!request.hasProductId()) {
-    body["productId"] = request.productId();
+    body["productId"] = request.getProductId();
   }
 
   if (!!request.hasProductType()) {
-    body["productType"] = request.productType();
+    body["productType"] = request.getProductType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2522,7 +2534,7 @@ GetVLExtractionResultResponse Client::getVLExtractionResultWithOptions(const Get
   request.validate();
   json body = {};
   if (!!request.hasTaskId()) {
-    body["taskId"] = request.taskId();
+    body["taskId"] = request.getTaskId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2571,15 +2583,15 @@ IsCompletedResponse Client::isCompletedWithOptions(const IsCompletedRequest &req
   request.validate();
   json body = {};
   if (!!request.hasCode()) {
-    body["code"] = request.code();
+    body["code"] = request.getCode();
   }
 
   if (!!request.hasProductId()) {
-    body["productId"] = request.productId();
+    body["productId"] = request.getProductId();
   }
 
   if (!!request.hasProductType()) {
-    body["productType"] = request.productType();
+    body["productType"] = request.getProductType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2626,11 +2638,11 @@ PushDeviceDataResponse Client::pushDeviceDataWithOptions(const PushDeviceDataReq
   request.validate();
   json body = {};
   if (!!request.hasDeviceType()) {
-    body["deviceType"] = request.deviceType();
+    body["deviceType"] = request.getDeviceType();
   }
 
   if (!!request.hasDevices()) {
-    body["devices"] = request.devices();
+    body["devices"] = request.getDevices();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2679,15 +2691,15 @@ PushItemDataResponse Client::pushItemDataWithOptions(const PushItemDataRequest &
   request.validate();
   json body = {};
   if (!!request.hasCode()) {
-    body["code"] = request.code();
+    body["code"] = request.getCode();
   }
 
   if (!!request.hasItems()) {
-    body["items"] = request.items();
+    body["items"] = request.getItems();
   }
 
   if (!!request.hasYear()) {
-    body["year"] = request.year();
+    body["year"] = request.getYear();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2738,11 +2750,11 @@ RecalculateCarbonEmissionResponse Client::recalculateCarbonEmissionWithOptions(c
   request.validate();
   json body = {};
   if (!!request.hasCode()) {
-    body["code"] = request.code();
+    body["code"] = request.getCode();
   }
 
   if (!!request.hasYear()) {
-    body["year"] = request.year();
+    body["year"] = request.getYear();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2778,6 +2790,75 @@ RecalculateCarbonEmissionResponse Client::recalculateCarbonEmission(const Recalc
 }
 
 /**
+ * @summary 支持多文件夹ID或文件ID检索的RAG结果获取接口，供客户端自行加工结果并嵌入业务逻辑。
+ *
+ * @param request RetrieveRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RetrieveResponse
+ */
+RetrieveResponse Client::retrieveWithOptions(const RetrieveRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDocumentIds()) {
+    body["documentIds"] = request.getDocumentIds();
+  }
+
+  if (!!request.hasFolderIds()) {
+    body["folderIds"] = request.getFolderIds();
+  }
+
+  if (!!request.hasPreRetrieveTopK()) {
+    body["preRetrieveTopK"] = request.getPreRetrieveTopK();
+  }
+
+  if (!!request.hasQuery()) {
+    body["query"] = request.getQuery();
+  }
+
+  if (!!request.hasRerankerThreshold()) {
+    body["rerankerThreshold"] = request.getRerankerThreshold();
+  }
+
+  if (!!request.hasTopK()) {
+    body["topK"] = request.getTopK();
+  }
+
+  if (!!request.hasUseReranker()) {
+    body["useReranker"] = request.getUseReranker();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "Retrieve"},
+    {"version" , "2022-09-23"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/aidoc/knowledgebase/retrieve")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RetrieveResponse>();
+}
+
+/**
+ * @summary 支持多文件夹ID或文件ID检索的RAG结果获取接口，供客户端自行加工结果并嵌入业务逻辑。
+ *
+ * @param request RetrieveRequest
+ * @return RetrieveResponse
+ */
+RetrieveResponse Client::retrieve(const RetrieveRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return retrieveWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary [Important] This api is no longer maintained, please use the Chat api.
  *
  * @param request SendDocumentAskQuestionRequest
@@ -2789,15 +2870,15 @@ SendDocumentAskQuestionResponse Client::sendDocumentAskQuestionWithOptions(const
   request.validate();
   json body = {};
   if (!!request.hasFolderId()) {
-    body["folderId"] = request.folderId();
+    body["folderId"] = request.getFolderId();
   }
 
   if (!!request.hasPrompt()) {
-    body["prompt"] = request.prompt();
+    body["prompt"] = request.getPrompt();
   }
 
   if (!!request.hasSessionId()) {
-    body["sessionId"] = request.sessionId();
+    body["sessionId"] = request.getSessionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2842,67 +2923,67 @@ SetRunningPlanResponse Client::setRunningPlanWithOptions(const SetRunningPlanReq
   request.validate();
   json body = {};
   if (!!request.hasControlType()) {
-    body["controlType"] = request.controlType();
+    body["controlType"] = request.getControlType();
   }
 
   if (!!request.hasDateType()) {
-    body["dateType"] = request.dateType();
+    body["dateType"] = request.getDateType();
   }
 
   if (!!request.hasEarliestStartupTime()) {
-    body["earliestStartupTime"] = request.earliestStartupTime();
+    body["earliestStartupTime"] = request.getEarliestStartupTime();
   }
 
   if (!!request.hasEndTime()) {
-    body["endTime"] = request.endTime();
+    body["endTime"] = request.getEndTime();
   }
 
   if (!!request.hasFactoryId()) {
-    body["factoryId"] = request.factoryId();
+    body["factoryId"] = request.getFactoryId();
   }
 
   if (!!request.hasLatestShutdownTime()) {
-    body["latestShutdownTime"] = request.latestShutdownTime();
+    body["latestShutdownTime"] = request.getLatestShutdownTime();
   }
 
   if (!!request.hasMaxCarbonDioxide()) {
-    body["maxCarbonDioxide"] = request.maxCarbonDioxide();
+    body["maxCarbonDioxide"] = request.getMaxCarbonDioxide();
   }
 
   if (!!request.hasMaxTem()) {
-    body["maxTem"] = request.maxTem();
+    body["maxTem"] = request.getMaxTem();
   }
 
   if (!!request.hasMinTem()) {
-    body["minTem"] = request.minTem();
+    body["minTem"] = request.getMinTem();
   }
 
   if (!!request.hasPKey()) {
-    body["pKey"] = request.pKey();
+    body["pKey"] = request.getPKey();
   }
 
   if (!!request.hasSeasonMode()) {
-    body["seasonMode"] = request.seasonMode();
+    body["seasonMode"] = request.getSeasonMode();
   }
 
   if (!!request.hasStartTime()) {
-    body["startTime"] = request.startTime();
+    body["startTime"] = request.getStartTime();
   }
 
   if (!!request.hasStatisticsTime()) {
-    body["statisticsTime"] = request.statisticsTime();
+    body["statisticsTime"] = request.getStatisticsTime();
   }
 
   if (!!request.hasSystemId()) {
-    body["systemId"] = request.systemId();
+    body["systemId"] = request.getSystemId();
   }
 
   if (!!request.hasWorkingEndTime()) {
-    body["workingEndTime"] = request.workingEndTime();
+    body["workingEndTime"] = request.getWorkingEndTime();
   }
 
   if (!!request.hasWorkingStartTime()) {
-    body["workingStartTime"] = request.workingStartTime();
+    body["workingStartTime"] = request.getWorkingStartTime();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2950,23 +3031,23 @@ SubmitDocExtractionTaskResponse Client::submitDocExtractionTaskWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasExtractType()) {
-    query["extractType"] = request.extractType();
+    query["extractType"] = request.getExtractType();
   }
 
   if (!!request.hasFileName()) {
-    query["fileName"] = request.fileName();
+    query["fileName"] = request.getFileName();
   }
 
   if (!!request.hasFileUrl()) {
-    query["fileUrl"] = request.fileUrl();
+    query["fileUrl"] = request.getFileUrl();
   }
 
   if (!!request.hasFolderId()) {
-    query["folderId"] = request.folderId();
+    query["folderId"] = request.getFolderId();
   }
 
   if (!!request.hasTemplateId()) {
-    query["templateId"] = request.templateId();
+    query["templateId"] = request.getTemplateId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3012,10 +3093,10 @@ SubmitDocExtractionTaskResponse Client::submitDocExtractionTaskAdvance(const Sub
   }
 
   CredentialModel credentialModel = _credential->getCredential();
-  string accessKeyId = credentialModel.accessKeyId();
-  string accessKeySecret = credentialModel.accessKeySecret();
-  string securityToken = credentialModel.securityToken();
-  string credentialType = credentialModel.type();
+  string accessKeyId = credentialModel.getAccessKeyId();
+  string accessKeySecret = credentialModel.getAccessKeySecret();
+  string securityToken = credentialModel.getSecurityToken();
+  string credentialType = credentialModel.getType();
   string openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba::isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
     openPlatformEndpoint = "openplatform.aliyuncs.com";
@@ -3068,7 +3149,7 @@ SubmitDocExtractionTaskResponse Client::submitDocExtractionTaskAdvance(const Sub
     authResponseBody = Utils::Utils::stringifyMapValue(tmpBody);
     fileObj = FileField(json({
       {"filename" , authResponseBody.at("ObjectKey")},
-      {"content" , request.fileUrlObject()},
+      {"content" , request.getFileUrlObject()},
       {"contentType" , ""}
     }));
     ossHeader = json({
@@ -3080,7 +3161,7 @@ SubmitDocExtractionTaskResponse Client::submitDocExtractionTaskAdvance(const Sub
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     submitDocExtractionTaskReq.setFileUrl(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
@@ -3103,19 +3184,19 @@ SubmitDocParsingTaskResponse Client::submitDocParsingTaskWithOptions(const Submi
   request.validate();
   json query = {};
   if (!!request.hasFileName()) {
-    query["fileName"] = request.fileName();
+    query["fileName"] = request.getFileName();
   }
 
   if (!!request.hasFileUrl()) {
-    query["fileUrl"] = request.fileUrl();
+    query["fileUrl"] = request.getFileUrl();
   }
 
   if (!!request.hasFolderId()) {
-    query["folderId"] = request.folderId();
+    query["folderId"] = request.getFolderId();
   }
 
   if (!!request.hasNeedAnalyzeImg()) {
-    query["needAnalyzeImg"] = request.needAnalyzeImg();
+    query["needAnalyzeImg"] = request.getNeedAnalyzeImg();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3161,10 +3242,10 @@ SubmitDocParsingTaskResponse Client::submitDocParsingTaskAdvance(const SubmitDoc
   }
 
   CredentialModel credentialModel = _credential->getCredential();
-  string accessKeyId = credentialModel.accessKeyId();
-  string accessKeySecret = credentialModel.accessKeySecret();
-  string securityToken = credentialModel.securityToken();
-  string credentialType = credentialModel.type();
+  string accessKeyId = credentialModel.getAccessKeyId();
+  string accessKeySecret = credentialModel.getAccessKeySecret();
+  string securityToken = credentialModel.getSecurityToken();
+  string credentialType = credentialModel.getType();
   string openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba::isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
     openPlatformEndpoint = "openplatform.aliyuncs.com";
@@ -3217,7 +3298,7 @@ SubmitDocParsingTaskResponse Client::submitDocParsingTaskAdvance(const SubmitDoc
     authResponseBody = Utils::Utils::stringifyMapValue(tmpBody);
     fileObj = FileField(json({
       {"filename" , authResponseBody.at("ObjectKey")},
-      {"content" , request.fileUrlObject()},
+      {"content" , request.getFileUrlObject()},
       {"contentType" , ""}
     }));
     ossHeader = json({
@@ -3229,7 +3310,7 @@ SubmitDocParsingTaskResponse Client::submitDocParsingTaskAdvance(const SubmitDoc
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     submitDocParsingTaskReq.setFileUrl(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
@@ -3251,23 +3332,23 @@ SubmitDocumentAnalyzeJobResponse Client::submitDocumentAnalyzeJobWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasAnalysisType()) {
-    query["analysisType"] = request.analysisType();
+    query["analysisType"] = request.getAnalysisType();
   }
 
   if (!!request.hasFileName()) {
-    query["fileName"] = request.fileName();
+    query["fileName"] = request.getFileName();
   }
 
   if (!!request.hasFileUrl()) {
-    query["fileUrl"] = request.fileUrl();
+    query["fileUrl"] = request.getFileUrl();
   }
 
   if (!!request.hasFolderId()) {
-    query["folderId"] = request.folderId();
+    query["folderId"] = request.getFolderId();
   }
 
   if (!!request.hasTemplateId()) {
-    query["templateId"] = request.templateId();
+    query["templateId"] = request.getTemplateId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3312,10 +3393,10 @@ SubmitDocumentAnalyzeJobResponse Client::submitDocumentAnalyzeJobAdvance(const S
   }
 
   CredentialModel credentialModel = _credential->getCredential();
-  string accessKeyId = credentialModel.accessKeyId();
-  string accessKeySecret = credentialModel.accessKeySecret();
-  string securityToken = credentialModel.securityToken();
-  string credentialType = credentialModel.type();
+  string accessKeyId = credentialModel.getAccessKeyId();
+  string accessKeySecret = credentialModel.getAccessKeySecret();
+  string securityToken = credentialModel.getSecurityToken();
+  string credentialType = credentialModel.getType();
   string openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba::isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
     openPlatformEndpoint = "openplatform.aliyuncs.com";
@@ -3368,7 +3449,7 @@ SubmitDocumentAnalyzeJobResponse Client::submitDocumentAnalyzeJobAdvance(const S
     authResponseBody = Utils::Utils::stringifyMapValue(tmpBody);
     fileObj = FileField(json({
       {"filename" , authResponseBody.at("ObjectKey")},
-      {"content" , request.fileUrlObject()},
+      {"content" , request.getFileUrlObject()},
       {"contentType" , ""}
     }));
     ossHeader = json({
@@ -3380,7 +3461,7 @@ SubmitDocumentAnalyzeJobResponse Client::submitDocumentAnalyzeJobAdvance(const S
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     submitDocumentAnalyzeJobReq.setFileUrl(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
@@ -3403,19 +3484,19 @@ SubmitVLExtractionTaskResponse Client::submitVLExtractionTaskWithOptions(const S
   request.validate();
   json query = {};
   if (!!request.hasFileName()) {
-    query["fileName"] = request.fileName();
+    query["fileName"] = request.getFileName();
   }
 
   if (!!request.hasFileUrl()) {
-    query["fileUrl"] = request.fileUrl();
+    query["fileUrl"] = request.getFileUrl();
   }
 
   if (!!request.hasFolderId()) {
-    query["folderId"] = request.folderId();
+    query["folderId"] = request.getFolderId();
   }
 
   if (!!request.hasTemplateId()) {
-    query["templateId"] = request.templateId();
+    query["templateId"] = request.getTemplateId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3461,10 +3542,10 @@ SubmitVLExtractionTaskResponse Client::submitVLExtractionTaskAdvance(const Submi
   }
 
   CredentialModel credentialModel = _credential->getCredential();
-  string accessKeyId = credentialModel.accessKeyId();
-  string accessKeySecret = credentialModel.accessKeySecret();
-  string securityToken = credentialModel.securityToken();
-  string credentialType = credentialModel.type();
+  string accessKeyId = credentialModel.getAccessKeyId();
+  string accessKeySecret = credentialModel.getAccessKeySecret();
+  string securityToken = credentialModel.getSecurityToken();
+  string credentialType = credentialModel.getType();
   string openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba::isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
     openPlatformEndpoint = "openplatform.aliyuncs.com";
@@ -3517,7 +3598,7 @@ SubmitVLExtractionTaskResponse Client::submitVLExtractionTaskAdvance(const Submi
     authResponseBody = Utils::Utils::stringifyMapValue(tmpBody);
     fileObj = FileField(json({
       {"filename" , authResponseBody.at("ObjectKey")},
-      {"content" , request.fileUrlObject()},
+      {"content" , request.getFileUrlObject()},
       {"contentType" , ""}
     }));
     ossHeader = json({
@@ -3529,7 +3610,7 @@ SubmitVLExtractionTaskResponse Client::submitVLExtractionTaskAdvance(const Submi
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     submitVLExtractionTaskReq.setFileUrl(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 

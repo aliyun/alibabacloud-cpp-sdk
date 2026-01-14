@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->carbonEmission_ == nullptr
-        && return this->name_ == nullptr && return this->percent_ == nullptr && return this->resourceType_ == nullptr && return this->unit_ == nullptr; };
+        && this->name_ == nullptr && this->percent_ == nullptr && this->resourceType_ == nullptr && this->unit_ == nullptr; };
     // carbonEmission Field Functions 
     bool hasCarbonEmission() const { return this->carbonEmission_ != nullptr;};
     void deleteCarbonEmission() { this->carbonEmission_ = nullptr;};
-    inline double carbonEmission() const { DARABONBA_PTR_GET_DEFAULT(carbonEmission_, 0.0) };
+    inline double getCarbonEmission() const { DARABONBA_PTR_GET_DEFAULT(carbonEmission_, 0.0) };
     inline GwpResourceConstitute& setCarbonEmission(double carbonEmission) { DARABONBA_PTR_SET_VALUE(carbonEmission_, carbonEmission) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline GwpResourceConstitute& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // percent Field Functions 
     bool hasPercent() const { return this->percent_ != nullptr;};
     void deletePercent() { this->percent_ = nullptr;};
-    inline string percent() const { DARABONBA_PTR_GET_DEFAULT(percent_, "") };
+    inline string getPercent() const { DARABONBA_PTR_GET_DEFAULT(percent_, "") };
     inline GwpResourceConstitute& setPercent(string percent) { DARABONBA_PTR_SET_VALUE(percent_, percent) };
 
 
     // resourceType Field Functions 
     bool hasResourceType() const { return this->resourceType_ != nullptr;};
     void deleteResourceType() { this->resourceType_ = nullptr;};
-    inline int32_t resourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, 0) };
+    inline int32_t getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, 0) };
     inline GwpResourceConstitute& setResourceType(int32_t resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
 
 
     // unit Field Functions 
     bool hasUnit() const { return this->unit_ != nullptr;};
     void deleteUnit() { this->unit_ = nullptr;};
-    inline string unit() const { DARABONBA_PTR_GET_DEFAULT(unit_, "") };
+    inline string getUnit() const { DARABONBA_PTR_GET_DEFAULT(unit_, "") };
     inline GwpResourceConstitute& setUnit(string unit) { DARABONBA_PTR_SET_VALUE(unit_, unit) };
 
 
   protected:
-    std::shared_ptr<double> carbonEmission_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> percent_ = nullptr;
-    std::shared_ptr<int32_t> resourceType_ = nullptr;
-    std::shared_ptr<string> unit_ = nullptr;
+    shared_ptr<double> carbonEmission_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<string> percent_ {};
+    shared_ptr<int32_t> resourceType_ {};
+    shared_ptr<string> unit_ {};
   };
 
   } // namespace Models

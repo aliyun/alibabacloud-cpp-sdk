@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->currentPage_ == nullptr && return this->pageSize_ == nullptr && return this->productType_ == nullptr; };
+        && this->currentPage_ == nullptr && this->pageSize_ == nullptr && this->productType_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline GetFootprintListRequest& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int64_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0L) };
+    inline int64_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0L) };
     inline GetFootprintListRequest& setCurrentPage(int64_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int64_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
+    inline int64_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
     inline GetFootprintListRequest& setPageSize(int64_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // productType Field Functions 
     bool hasProductType() const { return this->productType_ != nullptr;};
     void deleteProductType() { this->productType_ = nullptr;};
-    inline int64_t productType() const { DARABONBA_PTR_GET_DEFAULT(productType_, 0L) };
+    inline int64_t getProductType() const { DARABONBA_PTR_GET_DEFAULT(productType_, 0L) };
     inline GetFootprintListRequest& setProductType(int64_t productType) { DARABONBA_PTR_SET_VALUE(productType_, productType) };
 
 
@@ -69,19 +69,19 @@ namespace Models
     // The enterprise code.
     // 
     // This parameter is required.
-    std::shared_ptr<string> code_ = nullptr;
+    shared_ptr<string> code_ {};
     // The pagination parameter. The number of the page that starts from 1.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> currentPage_ = nullptr;
+    shared_ptr<int64_t> currentPage_ {};
     // The number of entries returned on each page.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> pageSize_ = nullptr;
+    shared_ptr<int64_t> pageSize_ {};
     // Product type: 1 indicates that the carbon footprint of the product is requested, and 5 indicates that the carbon footprint of the supply chain is requested.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> productType_ = nullptr;
+    shared_ptr<int64_t> productType_ {};
   };
 
   } // namespace Models

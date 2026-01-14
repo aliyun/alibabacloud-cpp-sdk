@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->x_ == nullptr
-        && return this->y_ == nullptr; };
+        && this->y_ == nullptr; };
     // x Field Functions 
     bool hasX() const { return this->x_ != nullptr;};
     void deleteX() { this->x_ = nullptr;};
-    inline int32_t x() const { DARABONBA_PTR_GET_DEFAULT(x_, 0) };
+    inline int32_t getX() const { DARABONBA_PTR_GET_DEFAULT(x_, 0) };
     inline ChatRefDocPostion& setX(int32_t x) { DARABONBA_PTR_SET_VALUE(x_, x) };
 
 
     // y Field Functions 
     bool hasY() const { return this->y_ != nullptr;};
     void deleteY() { this->y_ = nullptr;};
-    inline int32_t y() const { DARABONBA_PTR_GET_DEFAULT(y_, 0) };
+    inline int32_t getY() const { DARABONBA_PTR_GET_DEFAULT(y_, 0) };
     inline ChatRefDocPostion& setY(int32_t y) { DARABONBA_PTR_SET_VALUE(y_, y) };
 
 
   protected:
-    std::shared_ptr<int32_t> x_ = nullptr;
-    std::shared_ptr<int32_t> y_ = nullptr;
+    shared_ptr<int32_t> x_ {};
+    shared_ptr<int32_t> y_ {};
   };
 
   } // namespace Models

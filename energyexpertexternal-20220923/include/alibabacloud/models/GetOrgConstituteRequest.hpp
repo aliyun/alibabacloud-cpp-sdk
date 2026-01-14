@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->moduleCode_ == nullptr && return this->moduleType_ == nullptr && return this->year_ == nullptr; };
+        && this->moduleCode_ == nullptr && this->moduleType_ == nullptr && this->year_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline GetOrgConstituteRequest& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // moduleCode Field Functions 
     bool hasModuleCode() const { return this->moduleCode_ != nullptr;};
     void deleteModuleCode() { this->moduleCode_ = nullptr;};
-    inline string moduleCode() const { DARABONBA_PTR_GET_DEFAULT(moduleCode_, "") };
+    inline string getModuleCode() const { DARABONBA_PTR_GET_DEFAULT(moduleCode_, "") };
     inline GetOrgConstituteRequest& setModuleCode(string moduleCode) { DARABONBA_PTR_SET_VALUE(moduleCode_, moduleCode) };
 
 
     // moduleType Field Functions 
     bool hasModuleType() const { return this->moduleType_ != nullptr;};
     void deleteModuleType() { this->moduleType_ = nullptr;};
-    inline int32_t moduleType() const { DARABONBA_PTR_GET_DEFAULT(moduleType_, 0) };
+    inline int32_t getModuleType() const { DARABONBA_PTR_GET_DEFAULT(moduleType_, 0) };
     inline GetOrgConstituteRequest& setModuleType(int32_t moduleType) { DARABONBA_PTR_SET_VALUE(moduleType_, moduleType) };
 
 
     // year Field Functions 
     bool hasYear() const { return this->year_ != nullptr;};
     void deleteYear() { this->year_ = nullptr;};
-    inline int32_t year() const { DARABONBA_PTR_GET_DEFAULT(year_, 0) };
+    inline int32_t getYear() const { DARABONBA_PTR_GET_DEFAULT(year_, 0) };
     inline GetOrgConstituteRequest& setYear(int32_t year) { DARABONBA_PTR_SET_VALUE(year_, year) };
 
 
@@ -69,17 +69,17 @@ namespace Models
     // The enterprise code.
     // 
     // This parameter is required.
-    std::shared_ptr<string> code_ = nullptr;
+    shared_ptr<string> code_ {};
     // Module code.
-    std::shared_ptr<string> moduleCode_ = nullptr;
+    shared_ptr<string> moduleCode_ {};
     // Module type.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> moduleType_ = nullptr;
+    shared_ptr<int32_t> moduleType_ {};
     // Year.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> year_ = nullptr;
+    shared_ptr<int32_t> year_ {};
   };
 
   } // namespace Models

@@ -34,37 +34,37 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->currentPage_ == nullptr
-        && return this->pageSize_ == nullptr && return this->sessionId_ == nullptr; };
+        && this->pageSize_ == nullptr && this->sessionId_ == nullptr; };
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline GetChatListRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline GetChatListRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // sessionId Field Functions 
     bool hasSessionId() const { return this->sessionId_ != nullptr;};
     void deleteSessionId() { this->sessionId_ = nullptr;};
-    inline string sessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
+    inline string getSessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
     inline GetChatListRequest& setSessionId(string sessionId) { DARABONBA_PTR_SET_VALUE(sessionId_, sessionId) };
 
 
   protected:
     // Pagination parameter, page number, starting from 1.
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
+    shared_ptr<int32_t> currentPage_ {};
     // Page size.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // Q&A session ID, used to record multiple Q&As for the same user.
     // 
     // This parameter is required.
-    std::shared_ptr<string> sessionId_ = nullptr;
+    shared_ptr<string> sessionId_ {};
   };
 
   } // namespace Models

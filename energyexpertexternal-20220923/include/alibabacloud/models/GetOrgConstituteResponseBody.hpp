@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->data_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const OrgEmission & data() const { DARABONBA_PTR_GET_CONST(data_, OrgEmission) };
-    inline OrgEmission data() { DARABONBA_PTR_GET(data_, OrgEmission) };
+    inline const OrgEmission & getData() const { DARABONBA_PTR_GET_CONST(data_, OrgEmission) };
+    inline OrgEmission getData() { DARABONBA_PTR_GET(data_, OrgEmission) };
     inline GetOrgConstituteResponseBody& setData(const OrgEmission & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
     inline GetOrgConstituteResponseBody& setData(OrgEmission && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
@@ -46,15 +46,15 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetOrgConstituteResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The data returned.
-    std::shared_ptr<OrgEmission> data_ = nullptr;
+    shared_ptr<OrgEmission> data_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

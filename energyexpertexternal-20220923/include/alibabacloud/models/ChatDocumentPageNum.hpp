@@ -34,26 +34,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->num_ == nullptr
-        && return this->pos_ == nullptr; };
+        && this->pos_ == nullptr; };
     // num Field Functions 
     bool hasNum() const { return this->num_ != nullptr;};
     void deleteNum() { this->num_ = nullptr;};
-    inline int32_t num() const { DARABONBA_PTR_GET_DEFAULT(num_, 0) };
+    inline int32_t getNum() const { DARABONBA_PTR_GET_DEFAULT(num_, 0) };
     inline ChatDocumentPageNum& setNum(int32_t num) { DARABONBA_PTR_SET_VALUE(num_, num) };
 
 
     // pos Field Functions 
     bool hasPos() const { return this->pos_ != nullptr;};
     void deletePos() { this->pos_ = nullptr;};
-    inline const vector<vector<ChatRefDocPostion>> & pos() const { DARABONBA_PTR_GET_CONST(pos_, vector<vector<ChatRefDocPostion>>) };
-    inline vector<vector<ChatRefDocPostion>> pos() { DARABONBA_PTR_GET(pos_, vector<vector<ChatRefDocPostion>>) };
+    inline const vector<vector<ChatRefDocPostion>> & getPos() const { DARABONBA_PTR_GET_CONST(pos_, vector<vector<ChatRefDocPostion>>) };
+    inline vector<vector<ChatRefDocPostion>> getPos() { DARABONBA_PTR_GET(pos_, vector<vector<ChatRefDocPostion>>) };
     inline ChatDocumentPageNum& setPos(const vector<vector<ChatRefDocPostion>> & pos) { DARABONBA_PTR_SET_VALUE(pos_, pos) };
     inline ChatDocumentPageNum& setPos(vector<vector<ChatRefDocPostion>> && pos) { DARABONBA_PTR_SET_RVALUE(pos_, pos) };
 
 
   protected:
-    std::shared_ptr<int32_t> num_ = nullptr;
-    std::shared_ptr<vector<vector<ChatRefDocPostion>>> pos_ = nullptr;
+    shared_ptr<int32_t> num_ {};
+    shared_ptr<vector<vector<ChatRefDocPostion>>> pos_ {};
   };
 
   } // namespace Models

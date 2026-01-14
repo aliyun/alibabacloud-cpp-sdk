@@ -33,7 +33,7 @@ namespace Models
     // factoryId Field Functions 
     bool hasFactoryId() const { return this->factoryId_ != nullptr;};
     void deleteFactoryId() { this->factoryId_ = nullptr;};
-    inline string factoryId() const { DARABONBA_PTR_GET_DEFAULT(factoryId_, "") };
+    inline string getFactoryId() const { DARABONBA_PTR_GET_DEFAULT(factoryId_, "") };
     inline GetDeviceListRequest& setFactoryId(string factoryId) { DARABONBA_PTR_SET_VALUE(factoryId_, factoryId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the site.
     // 
     // This parameter is required.
-    std::shared_ptr<string> factoryId_ = nullptr;
+    shared_ptr<string> factoryId_ {};
   };
 
   } // namespace Models

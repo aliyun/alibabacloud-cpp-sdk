@@ -34,12 +34,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->data_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const vector<EpdInventoryConstituteItem> & data() const { DARABONBA_PTR_GET_CONST(data_, vector<EpdInventoryConstituteItem>) };
-    inline vector<EpdInventoryConstituteItem> data() { DARABONBA_PTR_GET(data_, vector<EpdInventoryConstituteItem>) };
+    inline const vector<EpdInventoryConstituteItem> & getData() const { DARABONBA_PTR_GET_CONST(data_, vector<EpdInventoryConstituteItem>) };
+    inline vector<EpdInventoryConstituteItem> getData() { DARABONBA_PTR_GET(data_, vector<EpdInventoryConstituteItem>) };
     inline GetEpdInventoryConstituteResponseBody& setData(const vector<EpdInventoryConstituteItem> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
     inline GetEpdInventoryConstituteResponseBody& setData(vector<EpdInventoryConstituteItem> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
@@ -47,15 +47,15 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetEpdInventoryConstituteResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // List of environmental impact results.
-    std::shared_ptr<vector<EpdInventoryConstituteItem>> data_ = nullptr;
+    shared_ptr<vector<EpdInventoryConstituteItem>> data_ {};
     // The ID of the request. The value is unique for each request. This facilitates subsequent troubleshooting.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

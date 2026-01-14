@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->folderId_ == nullptr
-        && return this->name_ == nullptr && return this->userId_ == nullptr; };
+        && this->name_ == nullptr && this->userId_ == nullptr; };
     // folderId Field Functions 
     bool hasFolderId() const { return this->folderId_ != nullptr;};
     void deleteFolderId() { this->folderId_ = nullptr;};
-    inline string folderId() const { DARABONBA_PTR_GET_DEFAULT(folderId_, "") };
+    inline string getFolderId() const { DARABONBA_PTR_GET_DEFAULT(folderId_, "") };
     inline CreateChatSessionRequest& setFolderId(string folderId) { DARABONBA_PTR_SET_VALUE(folderId_, folderId) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateChatSessionRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline CreateChatSessionRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
@@ -60,13 +60,13 @@ namespace Models
     // Folder ID, to search for Q&A content within the current folder and its subfolders.
     // 
     // This parameter is required.
-    std::shared_ptr<string> folderId_ = nullptr;
+    shared_ptr<string> folderId_ {};
     // Name of the current session.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The unique identifier of the user. If not provided, the SDK calling account will be used as the user ID by default.
-    std::shared_ptr<string> userId_ = nullptr;
+    shared_ptr<string> userId_ {};
   };
 
   } // namespace Models

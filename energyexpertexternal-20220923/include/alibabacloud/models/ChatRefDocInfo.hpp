@@ -34,12 +34,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->pageListInfo_ == nullptr
-        && return this->pages_ == nullptr; };
+        && this->pages_ == nullptr; };
     // pageListInfo Field Functions 
     bool hasPageListInfo() const { return this->pageListInfo_ != nullptr;};
     void deletePageListInfo() { this->pageListInfo_ = nullptr;};
-    inline const vector<ChatRefDocPageInfo> & pageListInfo() const { DARABONBA_PTR_GET_CONST(pageListInfo_, vector<ChatRefDocPageInfo>) };
-    inline vector<ChatRefDocPageInfo> pageListInfo() { DARABONBA_PTR_GET(pageListInfo_, vector<ChatRefDocPageInfo>) };
+    inline const vector<ChatRefDocPageInfo> & getPageListInfo() const { DARABONBA_PTR_GET_CONST(pageListInfo_, vector<ChatRefDocPageInfo>) };
+    inline vector<ChatRefDocPageInfo> getPageListInfo() { DARABONBA_PTR_GET(pageListInfo_, vector<ChatRefDocPageInfo>) };
     inline ChatRefDocInfo& setPageListInfo(const vector<ChatRefDocPageInfo> & pageListInfo) { DARABONBA_PTR_SET_VALUE(pageListInfo_, pageListInfo) };
     inline ChatRefDocInfo& setPageListInfo(vector<ChatRefDocPageInfo> && pageListInfo) { DARABONBA_PTR_SET_RVALUE(pageListInfo_, pageListInfo) };
 
@@ -47,13 +47,13 @@ namespace Models
     // pages Field Functions 
     bool hasPages() const { return this->pages_ != nullptr;};
     void deletePages() { this->pages_ = nullptr;};
-    inline int64_t pages() const { DARABONBA_PTR_GET_DEFAULT(pages_, 0L) };
+    inline int64_t getPages() const { DARABONBA_PTR_GET_DEFAULT(pages_, 0L) };
     inline ChatRefDocInfo& setPages(int64_t pages) { DARABONBA_PTR_SET_VALUE(pages_, pages) };
 
 
   protected:
-    std::shared_ptr<vector<ChatRefDocPageInfo>> pageListInfo_ = nullptr;
-    std::shared_ptr<int64_t> pages_ = nullptr;
+    shared_ptr<vector<ChatRefDocPageInfo>> pageListInfo_ {};
+    shared_ptr<int64_t> pages_ {};
   };
 
   } // namespace Models

@@ -39,40 +39,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->moduleCode_ == nullptr && return this->moduleType_ == nullptr && return this->trendType_ == nullptr && return this->yearList_ == nullptr; };
+        && this->moduleCode_ == nullptr && this->moduleType_ == nullptr && this->trendType_ == nullptr && this->yearList_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline GetCarbonEmissionTrendRequest& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // moduleCode Field Functions 
     bool hasModuleCode() const { return this->moduleCode_ != nullptr;};
     void deleteModuleCode() { this->moduleCode_ = nullptr;};
-    inline string moduleCode() const { DARABONBA_PTR_GET_DEFAULT(moduleCode_, "") };
+    inline string getModuleCode() const { DARABONBA_PTR_GET_DEFAULT(moduleCode_, "") };
     inline GetCarbonEmissionTrendRequest& setModuleCode(string moduleCode) { DARABONBA_PTR_SET_VALUE(moduleCode_, moduleCode) };
 
 
     // moduleType Field Functions 
     bool hasModuleType() const { return this->moduleType_ != nullptr;};
     void deleteModuleType() { this->moduleType_ = nullptr;};
-    inline int32_t moduleType() const { DARABONBA_PTR_GET_DEFAULT(moduleType_, 0) };
+    inline int32_t getModuleType() const { DARABONBA_PTR_GET_DEFAULT(moduleType_, 0) };
     inline GetCarbonEmissionTrendRequest& setModuleType(int32_t moduleType) { DARABONBA_PTR_SET_VALUE(moduleType_, moduleType) };
 
 
     // trendType Field Functions 
     bool hasTrendType() const { return this->trendType_ != nullptr;};
     void deleteTrendType() { this->trendType_ = nullptr;};
-    inline int32_t trendType() const { DARABONBA_PTR_GET_DEFAULT(trendType_, 0) };
+    inline int32_t getTrendType() const { DARABONBA_PTR_GET_DEFAULT(trendType_, 0) };
     inline GetCarbonEmissionTrendRequest& setTrendType(int32_t trendType) { DARABONBA_PTR_SET_VALUE(trendType_, trendType) };
 
 
     // yearList Field Functions 
     bool hasYearList() const { return this->yearList_ != nullptr;};
     void deleteYearList() { this->yearList_ = nullptr;};
-    inline const vector<int32_t> & yearList() const { DARABONBA_PTR_GET_CONST(yearList_, vector<int32_t>) };
-    inline vector<int32_t> yearList() { DARABONBA_PTR_GET(yearList_, vector<int32_t>) };
+    inline const vector<int32_t> & getYearList() const { DARABONBA_PTR_GET_CONST(yearList_, vector<int32_t>) };
+    inline vector<int32_t> getYearList() { DARABONBA_PTR_GET(yearList_, vector<int32_t>) };
     inline GetCarbonEmissionTrendRequest& setYearList(const vector<int32_t> & yearList) { DARABONBA_PTR_SET_VALUE(yearList_, yearList) };
     inline GetCarbonEmissionTrendRequest& setYearList(vector<int32_t> && yearList) { DARABONBA_PTR_SET_RVALUE(yearList_, yearList) };
 
@@ -81,19 +81,19 @@ namespace Models
     // The enterprise code.
     // 
     // This parameter is required.
-    std::shared_ptr<string> code_ = nullptr;
+    shared_ptr<string> code_ {};
     // Module code.
-    std::shared_ptr<string> moduleCode_ = nullptr;
+    shared_ptr<string> moduleCode_ {};
     // Module type.
-    std::shared_ptr<int32_t> moduleType_ = nullptr;
+    shared_ptr<int32_t> moduleType_ {};
     // Trend Type.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> trendType_ = nullptr;
+    shared_ptr<int32_t> trendType_ {};
     // The list of inventory year.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<int32_t>> yearList_ = nullptr;
+    shared_ptr<vector<int32_t>> yearList_ {};
   };
 
   } // namespace Models

@@ -34,37 +34,37 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->folderId_ == nullptr
-        && return this->prompt_ == nullptr && return this->sessionId_ == nullptr; };
+        && this->prompt_ == nullptr && this->sessionId_ == nullptr; };
     // folderId Field Functions 
     bool hasFolderId() const { return this->folderId_ != nullptr;};
     void deleteFolderId() { this->folderId_ = nullptr;};
-    inline string folderId() const { DARABONBA_PTR_GET_DEFAULT(folderId_, "") };
+    inline string getFolderId() const { DARABONBA_PTR_GET_DEFAULT(folderId_, "") };
     inline SendDocumentAskQuestionRequest& setFolderId(string folderId) { DARABONBA_PTR_SET_VALUE(folderId_, folderId) };
 
 
     // prompt Field Functions 
     bool hasPrompt() const { return this->prompt_ != nullptr;};
     void deletePrompt() { this->prompt_ = nullptr;};
-    inline string prompt() const { DARABONBA_PTR_GET_DEFAULT(prompt_, "") };
+    inline string getPrompt() const { DARABONBA_PTR_GET_DEFAULT(prompt_, "") };
     inline SendDocumentAskQuestionRequest& setPrompt(string prompt) { DARABONBA_PTR_SET_VALUE(prompt_, prompt) };
 
 
     // sessionId Field Functions 
     bool hasSessionId() const { return this->sessionId_ != nullptr;};
     void deleteSessionId() { this->sessionId_ = nullptr;};
-    inline string sessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
+    inline string getSessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
     inline SendDocumentAskQuestionRequest& setSessionId(string sessionId) { DARABONBA_PTR_SET_VALUE(sessionId_, sessionId) };
 
 
   protected:
     // Folder ID, used to specify the range of documents for the query. If it is empty, it indicates that all documents under the default folder will be queried.
-    std::shared_ptr<string> folderId_ = nullptr;
+    shared_ptr<string> folderId_ {};
     // The question queried by the user
     // 
     // This parameter is required.
-    std::shared_ptr<string> prompt_ = nullptr;
+    shared_ptr<string> prompt_ {};
     // Q&A session ID, used to record multiple Q&A interactions of the same user. If it is empty, it indicates that sessions are not distinguished.
-    std::shared_ptr<string> sessionId_ = nullptr;
+    shared_ptr<string> sessionId_ {};
   };
 
   } // namespace Models

@@ -137,7 +137,7 @@ namespace EnergyExpertExternal20220923
        * @param runtime runtime options for this request RuntimeOptions
        * @return ChatStreamResponse
        */
-      FutrueGenerator<Models::ChatStreamResponse> chatStreamWithSSE(const Models::ChatStreamRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::ChatStreamResponse> chatStreamWithSSE(const Models::ChatStreamRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Knowledge Base Q&A
@@ -1020,6 +1020,24 @@ namespace EnergyExpertExternal20220923
        * @return RecalculateCarbonEmissionResponse
        */
       Models::RecalculateCarbonEmissionResponse recalculateCarbonEmission(const Models::RecalculateCarbonEmissionRequest &request);
+
+      /**
+       * @summary 支持多文件夹ID或文件ID检索的RAG结果获取接口，供客户端自行加工结果并嵌入业务逻辑。
+       *
+       * @param request RetrieveRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RetrieveResponse
+       */
+      Models::RetrieveResponse retrieveWithOptions(const Models::RetrieveRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 支持多文件夹ID或文件ID检索的RAG结果获取接口，供客户端自行加工结果并嵌入业务逻辑。
+       *
+       * @param request RetrieveRequest
+       * @return RetrieveResponse
+       */
+      Models::RetrieveResponse retrieve(const Models::RetrieveRequest &request);
 
       /**
        * @summary [Important] This api is no longer maintained, please use the Chat api.

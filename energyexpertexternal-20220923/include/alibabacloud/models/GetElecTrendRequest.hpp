@@ -33,19 +33,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->yearList_ == nullptr; };
+        && this->yearList_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline GetElecTrendRequest& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // yearList Field Functions 
     bool hasYearList() const { return this->yearList_ != nullptr;};
     void deleteYearList() { this->yearList_ = nullptr;};
-    inline const vector<int32_t> & yearList() const { DARABONBA_PTR_GET_CONST(yearList_, vector<int32_t>) };
-    inline vector<int32_t> yearList() { DARABONBA_PTR_GET(yearList_, vector<int32_t>) };
+    inline const vector<int32_t> & getYearList() const { DARABONBA_PTR_GET_CONST(yearList_, vector<int32_t>) };
+    inline vector<int32_t> getYearList() { DARABONBA_PTR_GET(yearList_, vector<int32_t>) };
     inline GetElecTrendRequest& setYearList(const vector<int32_t> & yearList) { DARABONBA_PTR_SET_VALUE(yearList_, yearList) };
     inline GetElecTrendRequest& setYearList(vector<int32_t> && yearList) { DARABONBA_PTR_SET_RVALUE(yearList_, yearList) };
 
@@ -54,11 +54,11 @@ namespace Models
     // The enterprise code.
     // 
     // This parameter is required.
-    std::shared_ptr<string> code_ = nullptr;
+    shared_ptr<string> code_ {};
     // List of years.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<int32_t>> yearList_ = nullptr;
+    shared_ptr<vector<int32_t>> yearList_ {};
   };
 
   } // namespace Models

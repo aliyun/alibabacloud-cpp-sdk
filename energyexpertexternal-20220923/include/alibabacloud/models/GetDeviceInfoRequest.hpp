@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->deviceId_ == nullptr
-        && return this->ds_ == nullptr && return this->factoryId_ == nullptr; };
+        && this->ds_ == nullptr && this->factoryId_ == nullptr; };
     // deviceId Field Functions 
     bool hasDeviceId() const { return this->deviceId_ != nullptr;};
     void deleteDeviceId() { this->deviceId_ = nullptr;};
-    inline string deviceId() const { DARABONBA_PTR_GET_DEFAULT(deviceId_, "") };
+    inline string getDeviceId() const { DARABONBA_PTR_GET_DEFAULT(deviceId_, "") };
     inline GetDeviceInfoRequest& setDeviceId(string deviceId) { DARABONBA_PTR_SET_VALUE(deviceId_, deviceId) };
 
 
     // ds Field Functions 
     bool hasDs() const { return this->ds_ != nullptr;};
     void deleteDs() { this->ds_ = nullptr;};
-    inline string ds() const { DARABONBA_PTR_GET_DEFAULT(ds_, "") };
+    inline string getDs() const { DARABONBA_PTR_GET_DEFAULT(ds_, "") };
     inline GetDeviceInfoRequest& setDs(string ds) { DARABONBA_PTR_SET_VALUE(ds_, ds) };
 
 
     // factoryId Field Functions 
     bool hasFactoryId() const { return this->factoryId_ != nullptr;};
     void deleteFactoryId() { this->factoryId_ = nullptr;};
-    inline string factoryId() const { DARABONBA_PTR_GET_DEFAULT(factoryId_, "") };
+    inline string getFactoryId() const { DARABONBA_PTR_GET_DEFAULT(factoryId_, "") };
     inline GetDeviceInfoRequest& setFactoryId(string factoryId) { DARABONBA_PTR_SET_VALUE(factoryId_, factoryId) };
 
 
@@ -60,15 +60,15 @@ namespace Models
     // The ID of the device.
     // 
     // This parameter is required.
-    std::shared_ptr<string> deviceId_ = nullptr;
+    shared_ptr<string> deviceId_ {};
     // The time string in the YYYY-mm-dd format.
     // 
     // This parameter is required.
-    std::shared_ptr<string> ds_ = nullptr;
+    shared_ptr<string> ds_ {};
     // The ID of the site.
     // 
     // This parameter is required.
-    std::shared_ptr<string> factoryId_ = nullptr;
+    shared_ptr<string> factoryId_ {};
   };
 
   } // namespace Models

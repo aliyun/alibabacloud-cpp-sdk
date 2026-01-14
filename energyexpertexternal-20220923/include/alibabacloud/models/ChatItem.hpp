@@ -42,58 +42,58 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->answer_ == nullptr
-        && return this->createTime_ == nullptr && return this->folderId_ == nullptr && return this->folderName_ == nullptr && return this->question_ == nullptr && return this->refDocList_ == nullptr; };
+        && this->createTime_ == nullptr && this->folderId_ == nullptr && this->folderName_ == nullptr && this->question_ == nullptr && this->refDocList_ == nullptr; };
     // answer Field Functions 
     bool hasAnswer() const { return this->answer_ != nullptr;};
     void deleteAnswer() { this->answer_ = nullptr;};
-    inline string answer() const { DARABONBA_PTR_GET_DEFAULT(answer_, "") };
+    inline string getAnswer() const { DARABONBA_PTR_GET_DEFAULT(answer_, "") };
     inline ChatItem& setAnswer(string answer) { DARABONBA_PTR_SET_VALUE(answer_, answer) };
 
 
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
-    inline int64_t createTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, 0L) };
+    inline int64_t getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, 0L) };
     inline ChatItem& setCreateTime(int64_t createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
 
 
     // folderId Field Functions 
     bool hasFolderId() const { return this->folderId_ != nullptr;};
     void deleteFolderId() { this->folderId_ = nullptr;};
-    inline string folderId() const { DARABONBA_PTR_GET_DEFAULT(folderId_, "") };
+    inline string getFolderId() const { DARABONBA_PTR_GET_DEFAULT(folderId_, "") };
     inline ChatItem& setFolderId(string folderId) { DARABONBA_PTR_SET_VALUE(folderId_, folderId) };
 
 
     // folderName Field Functions 
     bool hasFolderName() const { return this->folderName_ != nullptr;};
     void deleteFolderName() { this->folderName_ = nullptr;};
-    inline string folderName() const { DARABONBA_PTR_GET_DEFAULT(folderName_, "") };
+    inline string getFolderName() const { DARABONBA_PTR_GET_DEFAULT(folderName_, "") };
     inline ChatItem& setFolderName(string folderName) { DARABONBA_PTR_SET_VALUE(folderName_, folderName) };
 
 
     // question Field Functions 
     bool hasQuestion() const { return this->question_ != nullptr;};
     void deleteQuestion() { this->question_ = nullptr;};
-    inline string question() const { DARABONBA_PTR_GET_DEFAULT(question_, "") };
+    inline string getQuestion() const { DARABONBA_PTR_GET_DEFAULT(question_, "") };
     inline ChatItem& setQuestion(string question) { DARABONBA_PTR_SET_VALUE(question_, question) };
 
 
     // refDocList Field Functions 
     bool hasRefDocList() const { return this->refDocList_ != nullptr;};
     void deleteRefDocList() { this->refDocList_ = nullptr;};
-    inline const vector<ChatRefDocItem> & refDocList() const { DARABONBA_PTR_GET_CONST(refDocList_, vector<ChatRefDocItem>) };
-    inline vector<ChatRefDocItem> refDocList() { DARABONBA_PTR_GET(refDocList_, vector<ChatRefDocItem>) };
+    inline const vector<ChatRefDocItem> & getRefDocList() const { DARABONBA_PTR_GET_CONST(refDocList_, vector<ChatRefDocItem>) };
+    inline vector<ChatRefDocItem> getRefDocList() { DARABONBA_PTR_GET(refDocList_, vector<ChatRefDocItem>) };
     inline ChatItem& setRefDocList(const vector<ChatRefDocItem> & refDocList) { DARABONBA_PTR_SET_VALUE(refDocList_, refDocList) };
     inline ChatItem& setRefDocList(vector<ChatRefDocItem> && refDocList) { DARABONBA_PTR_SET_RVALUE(refDocList_, refDocList) };
 
 
   protected:
-    std::shared_ptr<string> answer_ = nullptr;
-    std::shared_ptr<int64_t> createTime_ = nullptr;
-    std::shared_ptr<string> folderId_ = nullptr;
-    std::shared_ptr<string> folderName_ = nullptr;
-    std::shared_ptr<string> question_ = nullptr;
-    std::shared_ptr<vector<ChatRefDocItem>> refDocList_ = nullptr;
+    shared_ptr<string> answer_ {};
+    shared_ptr<int64_t> createTime_ {};
+    shared_ptr<string> folderId_ {};
+    shared_ptr<string> folderName_ {};
+    shared_ptr<string> question_ {};
+    shared_ptr<vector<ChatRefDocItem>> refDocList_ {};
   };
 
   } // namespace Models
