@@ -1492,6 +1492,43 @@ namespace Rds20140815
       Models::CreateRCDiskResponse createRCDisk(const Models::CreateRCDiskRequest &request);
 
       /**
+       * @summary Creates a custom image for an RDS Custom instance.
+       *
+       * @description ### [](#)Supported database engines
+       * *   RDS MySQL
+       * *   RDS SQL Server
+       * ### [](#)References
+       * *   [Introduction to RDS Custom for MySQL](https://help.aliyun.com/document_detail/2844223.html)
+       * *   [Introduction to RDS Custom for SQL Server](https://help.aliyun.com/document_detail/2864363.html)
+       * ### [](#)Usage
+       * *   Method 1: Create a custom image by using a snapshot generated from the **system disk**. In this case, specify the SnapshotId and ImageName parameters at the same time in the request.
+       * *   Method 2: Create a custom image by using an RDS Custom instance. In this case, specify the InstanceId and ImageName parameters at the same time in the request.
+       *
+       * @param request CreateRCImageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateRCImageResponse
+       */
+      Models::CreateRCImageResponse createRCImageWithOptions(const Models::CreateRCImageRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a custom image for an RDS Custom instance.
+       *
+       * @description ### [](#)Supported database engines
+       * *   RDS MySQL
+       * *   RDS SQL Server
+       * ### [](#)References
+       * *   [Introduction to RDS Custom for MySQL](https://help.aliyun.com/document_detail/2844223.html)
+       * *   [Introduction to RDS Custom for SQL Server](https://help.aliyun.com/document_detail/2864363.html)
+       * ### [](#)Usage
+       * *   Method 1: Create a custom image by using a snapshot generated from the **system disk**. In this case, specify the SnapshotId and ImageName parameters at the same time in the request.
+       * *   Method 2: Create a custom image by using an RDS Custom instance. In this case, specify the InstanceId and ImageName parameters at the same time in the request.
+       *
+       * @param request CreateRCImageRequest
+       * @return CreateRCImageResponse
+       */
+      Models::CreateRCImageResponse createRCImage(const Models::CreateRCImageRequest &request);
+
+      /**
        * @summary Creates an edge node pool in the Container Service for Kubernetes (ACK) Edge cluster to which the RDS Custom instance belongs.
        *
        * @param tmpReq CreateRCNodePoolRequest
@@ -7937,6 +7974,23 @@ namespace Rds20140815
        * @return ModifyDBInstanceTDEResponse
        */
       Models::ModifyDBInstanceTDEResponse modifyDBInstanceTDE(const Models::ModifyDBInstanceTDERequest &request);
+
+      /**
+       * @summary 修改实例向量支持状态
+       *
+       * @param request ModifyDBInstanceVectorSupportStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyDBInstanceVectorSupportStatusResponse
+       */
+      Models::ModifyDBInstanceVectorSupportStatusResponse modifyDBInstanceVectorSupportStatusWithOptions(const Models::ModifyDBInstanceVectorSupportStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改实例向量支持状态
+       *
+       * @param request ModifyDBInstanceVectorSupportStatusRequest
+       * @return ModifyDBInstanceVectorSupportStatusResponse
+       */
+      Models::ModifyDBInstanceVectorSupportStatusResponse modifyDBInstanceVectorSupportStatus(const Models::ModifyDBInstanceVectorSupportStatusRequest &request);
 
       /**
        * @summary Changes the specifications, storage type, and storage capacity of an ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition.

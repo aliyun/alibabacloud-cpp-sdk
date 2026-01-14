@@ -152,6 +152,9 @@
 #include <alibabacloud/models/CreateRCDiskRequest.hpp>
 #include <alibabacloud/models/CreateRCDiskResponseBody.hpp>
 #include <alibabacloud/models/CreateRCDiskResponse.hpp>
+#include <alibabacloud/models/CreateRCImageRequest.hpp>
+#include <alibabacloud/models/CreateRCImageResponseBody.hpp>
+#include <alibabacloud/models/CreateRCImageResponse.hpp>
 #include <alibabacloud/models/CreateRCNodePoolRequest.hpp>
 #include <alibabacloud/models/CreateRCNodePoolShrinkRequest.hpp>
 #include <alibabacloud/models/CreateRCNodePoolResponseBody.hpp>
@@ -882,6 +885,9 @@
 #include <alibabacloud/models/ModifyDBInstanceTDERequest.hpp>
 #include <alibabacloud/models/ModifyDBInstanceTDEResponseBody.hpp>
 #include <alibabacloud/models/ModifyDBInstanceTDEResponse.hpp>
+#include <alibabacloud/models/ModifyDBInstanceVectorSupportStatusRequest.hpp>
+#include <alibabacloud/models/ModifyDBInstanceVectorSupportStatusResponseBody.hpp>
+#include <alibabacloud/models/ModifyDBInstanceVectorSupportStatusResponse.hpp>
 #include <alibabacloud/models/ModifyDBNodeRequest.hpp>
 #include <alibabacloud/models/ModifyDBNodeShrinkRequest.hpp>
 #include <alibabacloud/models/ModifyDBNodeResponseBody.hpp>
