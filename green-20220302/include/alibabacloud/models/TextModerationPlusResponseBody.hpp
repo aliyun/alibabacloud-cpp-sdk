@@ -156,6 +156,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(CustomizedHit, customizedHit_);
           DARABONBA_PTR_TO_JSON(Description, description_);
           DARABONBA_PTR_TO_JSON(Label, label_);
+          DARABONBA_PTR_TO_JSON(RiskPositions, riskPositions_);
           DARABONBA_PTR_TO_JSON(RiskWords, riskWords_);
         };
         friend void from_json(const Darabonba::Json& j, Result& obj) { 
@@ -163,6 +164,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(CustomizedHit, customizedHit_);
           DARABONBA_PTR_FROM_JSON(Description, description_);
           DARABONBA_PTR_FROM_JSON(Label, label_);
+          DARABONBA_PTR_FROM_JSON(RiskPositions, riskPositions_);
           DARABONBA_PTR_FROM_JSON(RiskWords, riskWords_);
         };
         Result() = default ;
@@ -176,6 +178,58 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class RiskPositions : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const RiskPositions& obj) { 
+            DARABONBA_PTR_TO_JSON(EndPos, endPos_);
+            DARABONBA_PTR_TO_JSON(RiskWord, riskWord_);
+            DARABONBA_PTR_TO_JSON(StartPos, startPos_);
+          };
+          friend void from_json(const Darabonba::Json& j, RiskPositions& obj) { 
+            DARABONBA_PTR_FROM_JSON(EndPos, endPos_);
+            DARABONBA_PTR_FROM_JSON(RiskWord, riskWord_);
+            DARABONBA_PTR_FROM_JSON(StartPos, startPos_);
+          };
+          RiskPositions() = default ;
+          RiskPositions(const RiskPositions &) = default ;
+          RiskPositions(RiskPositions &&) = default ;
+          RiskPositions(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~RiskPositions() = default ;
+          RiskPositions& operator=(const RiskPositions &) = default ;
+          RiskPositions& operator=(RiskPositions &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->endPos_ == nullptr
+        && this->riskWord_ == nullptr && this->startPos_ == nullptr; };
+          // endPos Field Functions 
+          bool hasEndPos() const { return this->endPos_ != nullptr;};
+          void deleteEndPos() { this->endPos_ = nullptr;};
+          inline int32_t getEndPos() const { DARABONBA_PTR_GET_DEFAULT(endPos_, 0) };
+          inline RiskPositions& setEndPos(int32_t endPos) { DARABONBA_PTR_SET_VALUE(endPos_, endPos) };
+
+
+          // riskWord Field Functions 
+          bool hasRiskWord() const { return this->riskWord_ != nullptr;};
+          void deleteRiskWord() { this->riskWord_ = nullptr;};
+          inline string getRiskWord() const { DARABONBA_PTR_GET_DEFAULT(riskWord_, "") };
+          inline RiskPositions& setRiskWord(string riskWord) { DARABONBA_PTR_SET_VALUE(riskWord_, riskWord) };
+
+
+          // startPos Field Functions 
+          bool hasStartPos() const { return this->startPos_ != nullptr;};
+          void deleteStartPos() { this->startPos_ = nullptr;};
+          inline int32_t getStartPos() const { DARABONBA_PTR_GET_DEFAULT(startPos_, 0) };
+          inline RiskPositions& setStartPos(int32_t startPos) { DARABONBA_PTR_SET_VALUE(startPos_, startPos) };
+
+
+        protected:
+          shared_ptr<int32_t> endPos_ {};
+          shared_ptr<string> riskWord_ {};
+          shared_ptr<int32_t> startPos_ {};
+        };
+
         class CustomizedHit : public Darabonba::Model {
         public:
           friend void to_json(Darabonba::Json& j, const CustomizedHit& obj) { 
@@ -221,7 +275,7 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->confidence_ == nullptr
-        && this->customizedHit_ == nullptr && this->description_ == nullptr && this->label_ == nullptr && this->riskWords_ == nullptr; };
+        && this->customizedHit_ == nullptr && this->description_ == nullptr && this->label_ == nullptr && this->riskPositions_ == nullptr && this->riskWords_ == nullptr; };
         // confidence Field Functions 
         bool hasConfidence() const { return this->confidence_ != nullptr;};
         void deleteConfidence() { this->confidence_ = nullptr;};
@@ -252,6 +306,15 @@ namespace Models
         inline Result& setLabel(string label) { DARABONBA_PTR_SET_VALUE(label_, label) };
 
 
+        // riskPositions Field Functions 
+        bool hasRiskPositions() const { return this->riskPositions_ != nullptr;};
+        void deleteRiskPositions() { this->riskPositions_ = nullptr;};
+        inline const vector<Result::RiskPositions> & getRiskPositions() const { DARABONBA_PTR_GET_CONST(riskPositions_, vector<Result::RiskPositions>) };
+        inline vector<Result::RiskPositions> getRiskPositions() { DARABONBA_PTR_GET(riskPositions_, vector<Result::RiskPositions>) };
+        inline Result& setRiskPositions(const vector<Result::RiskPositions> & riskPositions) { DARABONBA_PTR_SET_VALUE(riskPositions_, riskPositions) };
+        inline Result& setRiskPositions(vector<Result::RiskPositions> && riskPositions) { DARABONBA_PTR_SET_RVALUE(riskPositions_, riskPositions) };
+
+
         // riskWords Field Functions 
         bool hasRiskWords() const { return this->riskWords_ != nullptr;};
         void deleteRiskWords() { this->riskWords_ = nullptr;};
@@ -268,6 +331,7 @@ namespace Models
         shared_ptr<string> description_ {};
         // The label.
         shared_ptr<string> label_ {};
+        shared_ptr<vector<Result::RiskPositions>> riskPositions_ {};
         // The term hit by the moderated content.
         shared_ptr<string> riskWords_ {};
       };
