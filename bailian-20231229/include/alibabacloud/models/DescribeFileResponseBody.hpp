@@ -48,6 +48,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(FileId, fileId_);
         DARABONBA_PTR_TO_JSON(FileName, fileName_);
         DARABONBA_PTR_TO_JSON(FileType, fileType_);
+        DARABONBA_PTR_TO_JSON(ParseResultDownloadUrl, parseResultDownloadUrl_);
         DARABONBA_PTR_TO_JSON(Parser, parser_);
         DARABONBA_PTR_TO_JSON(SizeInBytes, sizeInBytes_);
         DARABONBA_PTR_TO_JSON(Status, status_);
@@ -59,6 +60,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(FileId, fileId_);
         DARABONBA_PTR_FROM_JSON(FileName, fileName_);
         DARABONBA_PTR_FROM_JSON(FileType, fileType_);
+        DARABONBA_PTR_FROM_JSON(ParseResultDownloadUrl, parseResultDownloadUrl_);
         DARABONBA_PTR_FROM_JSON(Parser, parser_);
         DARABONBA_PTR_FROM_JSON(SizeInBytes, sizeInBytes_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
@@ -76,8 +78,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->categoryId_ == nullptr
-        && this->createTime_ == nullptr && this->fileId_ == nullptr && this->fileName_ == nullptr && this->fileType_ == nullptr && this->parser_ == nullptr
-        && this->sizeInBytes_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr; };
+        && this->createTime_ == nullptr && this->fileId_ == nullptr && this->fileName_ == nullptr && this->fileType_ == nullptr && this->parseResultDownloadUrl_ == nullptr
+        && this->parser_ == nullptr && this->sizeInBytes_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr; };
       // categoryId Field Functions 
       bool hasCategoryId() const { return this->categoryId_ != nullptr;};
       void deleteCategoryId() { this->categoryId_ = nullptr;};
@@ -111,6 +113,13 @@ namespace Models
       void deleteFileType() { this->fileType_ = nullptr;};
       inline string getFileType() const { DARABONBA_PTR_GET_DEFAULT(fileType_, "") };
       inline Data& setFileType(string fileType) { DARABONBA_PTR_SET_VALUE(fileType_, fileType) };
+
+
+      // parseResultDownloadUrl Field Functions 
+      bool hasParseResultDownloadUrl() const { return this->parseResultDownloadUrl_ != nullptr;};
+      void deleteParseResultDownloadUrl() { this->parseResultDownloadUrl_ = nullptr;};
+      inline string getParseResultDownloadUrl() const { DARABONBA_PTR_GET_DEFAULT(parseResultDownloadUrl_, "") };
+      inline Data& setParseResultDownloadUrl(string parseResultDownloadUrl) { DARABONBA_PTR_SET_VALUE(parseResultDownloadUrl_, parseResultDownloadUrl) };
 
 
       // parser Field Functions 
@@ -154,6 +163,7 @@ namespace Models
       shared_ptr<string> fileName_ {};
       // The file type of the document. The value is an extension. Valid values: pdf, docx, doc, txt, md, pptx, and ppt.
       shared_ptr<string> fileType_ {};
+      shared_ptr<string> parseResultDownloadUrl_ {};
       // The parser that is used to parse the document. Valid value:
       // 
       // *   DASHSCOPE_DOCMIND: The default document parser.
