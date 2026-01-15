@@ -378,6 +378,23 @@ namespace WebsiteBuild20250429
       Models::RefreshAppInstanceTicketResponse refreshAppInstanceTicket(const Models::RefreshAppInstanceTicketRequest &request);
 
       /**
+       * @summary 渠道业务退款接口
+       *
+       * @param request RefundAppInstanceForPartnerRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RefundAppInstanceForPartnerResponse
+       */
+      Models::RefundAppInstanceForPartnerResponse refundAppInstanceForPartnerWithOptions(const Models::RefundAppInstanceForPartnerRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 渠道业务退款接口
+       *
+       * @param request RefundAppInstanceForPartnerRequest
+       * @return RefundAppInstanceForPartnerResponse
+       */
+      Models::RefundAppInstanceForPartnerResponse refundAppInstanceForPartner(const Models::RefundAppInstanceForPartnerRequest &request);
+
+      /**
        * @summary 建站实例续费
        *
        * @param request RenewAppInstanceRequest

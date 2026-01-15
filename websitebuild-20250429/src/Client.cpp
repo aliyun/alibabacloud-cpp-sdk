@@ -1176,6 +1176,56 @@ RefreshAppInstanceTicketResponse Client::refreshAppInstanceTicket(const RefreshA
 }
 
 /**
+ * @summary 渠道业务退款接口
+ *
+ * @param request RefundAppInstanceForPartnerRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RefundAppInstanceForPartnerResponse
+ */
+RefundAppInstanceForPartnerResponse Client::refundAppInstanceForPartnerWithOptions(const RefundAppInstanceForPartnerRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasRefundReason()) {
+    query["RefundReason"] = request.getRefundReason();
+  }
+
+  if (!!request.hasUserId()) {
+    query["UserId"] = request.getUserId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RefundAppInstanceForPartner"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RefundAppInstanceForPartnerResponse>();
+}
+
+/**
+ * @summary 渠道业务退款接口
+ *
+ * @param request RefundAppInstanceForPartnerRequest
+ * @return RefundAppInstanceForPartnerResponse
+ */
+RefundAppInstanceForPartnerResponse Client::refundAppInstanceForPartner(const RefundAppInstanceForPartnerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return refundAppInstanceForPartnerWithOptions(request, runtime);
+}
+
+/**
  * @summary 建站实例续费
  *
  * @param request RenewAppInstanceRequest

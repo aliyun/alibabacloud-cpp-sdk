@@ -76,6 +76,9 @@
 #include <alibabacloud/models/RefreshAppInstanceTicketRequest.hpp>
 #include <alibabacloud/models/RefreshAppInstanceTicketResponseBody.hpp>
 #include <alibabacloud/models/RefreshAppInstanceTicketResponse.hpp>
+#include <alibabacloud/models/RefundAppInstanceForPartnerRequest.hpp>
+#include <alibabacloud/models/RefundAppInstanceForPartnerResponseBody.hpp>
+#include <alibabacloud/models/RefundAppInstanceForPartnerResponse.hpp>
 #include <alibabacloud/models/RenewAppInstanceRequest.hpp>
 #include <alibabacloud/models/RenewAppInstanceResponseBody.hpp>
 #include <alibabacloud/models/RenewAppInstanceResponse.hpp>
