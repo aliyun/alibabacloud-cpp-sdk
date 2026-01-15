@@ -4921,14 +4921,20 @@ GetHDMLastAliyunResourceSyncResultResponse Client::getHDMLastAliyunResourceSyncR
  */
 GetInstanceGroupInspectReportDetailResponse Client::getInstanceGroupInspectReportDetailWithOptions(const GetInstanceGroupInspectReportDetailRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasAgentId()) {
+    query["AgentId"] = request.getAgentId();
+  }
+
   json body = {};
   if (!!request.hasReportId()) {
     body["ReportId"] = request.getReportId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
+  }));
   Params params = Params(json({
     {"action" , "GetInstanceGroupInspectReportDetail"},
     {"version" , "2020-01-16"},
