@@ -73,6 +73,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(CreatorUserName, creatorUserName_);
           DARABONBA_PTR_TO_JSON(CustomAgentId, customAgentId_);
           DARABONBA_PTR_TO_JSON(DataJson, dataJson_);
+          DARABONBA_PTR_TO_JSON(DefaultAgent, defaultAgent_);
           DARABONBA_PTR_TO_JSON(Description, description_);
           DARABONBA_PTR_TO_JSON(DmsUnit, dmsUnit_);
           DARABONBA_PTR_TO_JSON(ExecutionConfig, executionConfig_);
@@ -98,6 +99,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(CreatorUserName, creatorUserName_);
           DARABONBA_PTR_FROM_JSON(CustomAgentId, customAgentId_);
           DARABONBA_PTR_FROM_JSON(DataJson, dataJson_);
+          DARABONBA_PTR_FROM_JSON(DefaultAgent, defaultAgent_);
           DARABONBA_PTR_FROM_JSON(Description, description_);
           DARABONBA_PTR_FROM_JSON(DmsUnit, dmsUnit_);
           DARABONBA_PTR_FROM_JSON(ExecutionConfig, executionConfig_);
@@ -233,11 +235,11 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->aliyunParentId_ == nullptr
-        && this->aliyunUid_ == nullptr && this->creatorUserName_ == nullptr && this->customAgentId_ == nullptr && this->dataJson_ == nullptr && this->description_ == nullptr
-        && this->dmsUnit_ == nullptr && this->executionConfig_ == nullptr && this->gmtCreated_ == nullptr && this->gmtModified_ == nullptr && this->instruction_ == nullptr
-        && this->knowledge_ == nullptr && this->knowledgeConfigList_ == nullptr && this->modifier_ == nullptr && this->modifierUserName_ == nullptr && this->name_ == nullptr
-        && this->offlineTime_ == nullptr && this->region_ == nullptr && this->releaseTime_ == nullptr && this->status_ == nullptr && this->textReportConfig_ == nullptr
-        && this->webReportConfig_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->aliyunUid_ == nullptr && this->creatorUserName_ == nullptr && this->customAgentId_ == nullptr && this->dataJson_ == nullptr && this->defaultAgent_ == nullptr
+        && this->description_ == nullptr && this->dmsUnit_ == nullptr && this->executionConfig_ == nullptr && this->gmtCreated_ == nullptr && this->gmtModified_ == nullptr
+        && this->instruction_ == nullptr && this->knowledge_ == nullptr && this->knowledgeConfigList_ == nullptr && this->modifier_ == nullptr && this->modifierUserName_ == nullptr
+        && this->name_ == nullptr && this->offlineTime_ == nullptr && this->region_ == nullptr && this->releaseTime_ == nullptr && this->status_ == nullptr
+        && this->textReportConfig_ == nullptr && this->webReportConfig_ == nullptr && this->workspaceId_ == nullptr; };
         // aliyunParentId Field Functions 
         bool hasAliyunParentId() const { return this->aliyunParentId_ != nullptr;};
         void deleteAliyunParentId() { this->aliyunParentId_ = nullptr;};
@@ -271,6 +273,13 @@ namespace Models
         void deleteDataJson() { this->dataJson_ = nullptr;};
         inline string getDataJson() const { DARABONBA_PTR_GET_DEFAULT(dataJson_, "") };
         inline Content& setDataJson(string dataJson) { DARABONBA_PTR_SET_VALUE(dataJson_, dataJson) };
+
+
+        // defaultAgent Field Functions 
+        bool hasDefaultAgent() const { return this->defaultAgent_ != nullptr;};
+        void deleteDefaultAgent() { this->defaultAgent_ = nullptr;};
+        inline int32_t getDefaultAgent() const { DARABONBA_PTR_GET_DEFAULT(defaultAgent_, 0) };
+        inline Content& setDefaultAgent(int32_t defaultAgent) { DARABONBA_PTR_SET_VALUE(defaultAgent_, defaultAgent) };
 
 
         // description Field Functions 
@@ -409,6 +418,7 @@ namespace Models
         shared_ptr<string> creatorUserName_ {};
         shared_ptr<string> customAgentId_ {};
         shared_ptr<string> dataJson_ {};
+        shared_ptr<int32_t> defaultAgent_ {};
         shared_ptr<string> description_ {};
         shared_ptr<string> dmsUnit_ {};
         shared_ptr<Content::ExecutionConfig> executionConfig_ {};
