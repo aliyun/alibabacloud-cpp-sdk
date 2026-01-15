@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_SUBMITCUSTOMSOURCETOPICANALYSISREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
+#include <alibabacloud/models/HottopicNews.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -19,6 +20,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(FileUrl, fileUrl_);
       DARABONBA_PTR_TO_JSON(MaxTopicSize, maxTopicSize_);
       DARABONBA_PTR_TO_JSON(News, news_);
+      DARABONBA_PTR_TO_JSON(Topics, topics_);
+      DARABONBA_PTR_TO_JSON(TopicsFileUrl, topicsFileUrl_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, SubmitCustomSourceTopicAnalysisRequest& obj) { 
@@ -27,6 +30,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(FileUrl, fileUrl_);
       DARABONBA_PTR_FROM_JSON(MaxTopicSize, maxTopicSize_);
       DARABONBA_PTR_FROM_JSON(News, news_);
+      DARABONBA_PTR_FROM_JSON(Topics, topics_);
+      DARABONBA_PTR_FROM_JSON(TopicsFileUrl, topicsFileUrl_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
     SubmitCustomSourceTopicAnalysisRequest() = default ;
@@ -40,6 +45,50 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Topics : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Topics& obj) { 
+        DARABONBA_PTR_TO_JSON(News, news_);
+        DARABONBA_PTR_TO_JSON(Topic, topic_);
+      };
+      friend void from_json(const Darabonba::Json& j, Topics& obj) { 
+        DARABONBA_PTR_FROM_JSON(News, news_);
+        DARABONBA_PTR_FROM_JSON(Topic, topic_);
+      };
+      Topics() = default ;
+      Topics(const Topics &) = default ;
+      Topics(Topics &&) = default ;
+      Topics(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Topics() = default ;
+      Topics& operator=(const Topics &) = default ;
+      Topics& operator=(Topics &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->news_ == nullptr
+        && this->topic_ == nullptr; };
+      // news Field Functions 
+      bool hasNews() const { return this->news_ != nullptr;};
+      void deleteNews() { this->news_ = nullptr;};
+      inline const vector<HottopicNews> & getNews() const { DARABONBA_PTR_GET_CONST(news_, vector<HottopicNews>) };
+      inline vector<HottopicNews> getNews() { DARABONBA_PTR_GET(news_, vector<HottopicNews>) };
+      inline Topics& setNews(const vector<HottopicNews> & news) { DARABONBA_PTR_SET_VALUE(news_, news) };
+      inline Topics& setNews(vector<HottopicNews> && news) { DARABONBA_PTR_SET_RVALUE(news_, news) };
+
+
+      // topic Field Functions 
+      bool hasTopic() const { return this->topic_ != nullptr;};
+      void deleteTopic() { this->topic_ = nullptr;};
+      inline string getTopic() const { DARABONBA_PTR_GET_DEFAULT(topic_, "") };
+      inline Topics& setTopic(string topic) { DARABONBA_PTR_SET_VALUE(topic_, topic) };
+
+
+    protected:
+      shared_ptr<vector<HottopicNews>> news_ {};
+      shared_ptr<string> topic_ {};
+    };
+
     class News : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const News& obj) { 
@@ -156,7 +205,8 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->analysisTypes_ == nullptr
-        && this->fileType_ == nullptr && this->fileUrl_ == nullptr && this->maxTopicSize_ == nullptr && this->news_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->fileType_ == nullptr && this->fileUrl_ == nullptr && this->maxTopicSize_ == nullptr && this->news_ == nullptr && this->topics_ == nullptr
+        && this->topicsFileUrl_ == nullptr && this->workspaceId_ == nullptr; };
     // analysisTypes Field Functions 
     bool hasAnalysisTypes() const { return this->analysisTypes_ != nullptr;};
     void deleteAnalysisTypes() { this->analysisTypes_ = nullptr;};
@@ -196,6 +246,22 @@ namespace Models
     inline SubmitCustomSourceTopicAnalysisRequest& setNews(vector<SubmitCustomSourceTopicAnalysisRequest::News> && news) { DARABONBA_PTR_SET_RVALUE(news_, news) };
 
 
+    // topics Field Functions 
+    bool hasTopics() const { return this->topics_ != nullptr;};
+    void deleteTopics() { this->topics_ = nullptr;};
+    inline const vector<SubmitCustomSourceTopicAnalysisRequest::Topics> & getTopics() const { DARABONBA_PTR_GET_CONST(topics_, vector<SubmitCustomSourceTopicAnalysisRequest::Topics>) };
+    inline vector<SubmitCustomSourceTopicAnalysisRequest::Topics> getTopics() { DARABONBA_PTR_GET(topics_, vector<SubmitCustomSourceTopicAnalysisRequest::Topics>) };
+    inline SubmitCustomSourceTopicAnalysisRequest& setTopics(const vector<SubmitCustomSourceTopicAnalysisRequest::Topics> & topics) { DARABONBA_PTR_SET_VALUE(topics_, topics) };
+    inline SubmitCustomSourceTopicAnalysisRequest& setTopics(vector<SubmitCustomSourceTopicAnalysisRequest::Topics> && topics) { DARABONBA_PTR_SET_RVALUE(topics_, topics) };
+
+
+    // topicsFileUrl Field Functions 
+    bool hasTopicsFileUrl() const { return this->topicsFileUrl_ != nullptr;};
+    void deleteTopicsFileUrl() { this->topicsFileUrl_ = nullptr;};
+    inline string getTopicsFileUrl() const { DARABONBA_PTR_GET_DEFAULT(topicsFileUrl_, "") };
+    inline SubmitCustomSourceTopicAnalysisRequest& setTopicsFileUrl(string topicsFileUrl) { DARABONBA_PTR_SET_VALUE(topicsFileUrl_, topicsFileUrl) };
+
+
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
@@ -209,6 +275,8 @@ namespace Models
     shared_ptr<string> fileUrl_ {};
     shared_ptr<int32_t> maxTopicSize_ {};
     shared_ptr<vector<SubmitCustomSourceTopicAnalysisRequest::News>> news_ {};
+    shared_ptr<vector<SubmitCustomSourceTopicAnalysisRequest::Topics>> topics_ {};
+    shared_ptr<string> topicsFileUrl_ {};
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

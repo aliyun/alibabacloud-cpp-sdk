@@ -13,10 +13,12 @@ namespace Models
   class ExportCustomSourceAnalysisTaskRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ExportCustomSourceAnalysisTaskRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ExportType, exportType_);
       DARABONBA_PTR_TO_JSON(TaskId, taskId_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, ExportCustomSourceAnalysisTaskRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ExportType, exportType_);
       DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
@@ -31,8 +33,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->taskId_ == nullptr
-        && this->workspaceId_ == nullptr; };
+    virtual bool empty() const override { return this->exportType_ == nullptr
+        && this->taskId_ == nullptr && this->workspaceId_ == nullptr; };
+    // exportType Field Functions 
+    bool hasExportType() const { return this->exportType_ != nullptr;};
+    void deleteExportType() { this->exportType_ = nullptr;};
+    inline string getExportType() const { DARABONBA_PTR_GET_DEFAULT(exportType_, "") };
+    inline ExportCustomSourceAnalysisTaskRequest& setExportType(string exportType) { DARABONBA_PTR_SET_VALUE(exportType_, exportType) };
+
+
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
@@ -48,6 +57,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> exportType_ {};
     // This parameter is required.
     shared_ptr<string> taskId_ {};
     // This parameter is required.

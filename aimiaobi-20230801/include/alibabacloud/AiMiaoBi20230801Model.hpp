@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_AIMIAOBI20230801MODEL_HPP_
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/GenerateTraceability.hpp>
+#include <alibabacloud/models/HottopicNews.hpp>
 #include <alibabacloud/models/OutlineWritingArticle.hpp>
 #include <alibabacloud/models/OutlineSearchResult.hpp>
 #include <alibabacloud/models/TopicSelection.hpp>

@@ -18,6 +18,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(FileUrl, fileUrl_);
       DARABONBA_PTR_TO_JSON(MaxTopicSize, maxTopicSize_);
       DARABONBA_PTR_TO_JSON(News, newsShrink_);
+      DARABONBA_PTR_TO_JSON(Topics, topicsShrink_);
+      DARABONBA_PTR_TO_JSON(TopicsFileUrl, topicsFileUrl_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, SubmitCustomSourceTopicAnalysisShrinkRequest& obj) { 
@@ -26,6 +28,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(FileUrl, fileUrl_);
       DARABONBA_PTR_FROM_JSON(MaxTopicSize, maxTopicSize_);
       DARABONBA_PTR_FROM_JSON(News, newsShrink_);
+      DARABONBA_PTR_FROM_JSON(Topics, topicsShrink_);
+      DARABONBA_PTR_FROM_JSON(TopicsFileUrl, topicsFileUrl_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
     SubmitCustomSourceTopicAnalysisShrinkRequest() = default ;
@@ -40,7 +44,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->analysisTypesShrink_ == nullptr
-        && this->fileType_ == nullptr && this->fileUrl_ == nullptr && this->maxTopicSize_ == nullptr && this->newsShrink_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->fileType_ == nullptr && this->fileUrl_ == nullptr && this->maxTopicSize_ == nullptr && this->newsShrink_ == nullptr && this->topicsShrink_ == nullptr
+        && this->topicsFileUrl_ == nullptr && this->workspaceId_ == nullptr; };
     // analysisTypesShrink Field Functions 
     bool hasAnalysisTypesShrink() const { return this->analysisTypesShrink_ != nullptr;};
     void deleteAnalysisTypesShrink() { this->analysisTypesShrink_ = nullptr;};
@@ -76,6 +81,20 @@ namespace Models
     inline SubmitCustomSourceTopicAnalysisShrinkRequest& setNewsShrink(string newsShrink) { DARABONBA_PTR_SET_VALUE(newsShrink_, newsShrink) };
 
 
+    // topicsShrink Field Functions 
+    bool hasTopicsShrink() const { return this->topicsShrink_ != nullptr;};
+    void deleteTopicsShrink() { this->topicsShrink_ = nullptr;};
+    inline string getTopicsShrink() const { DARABONBA_PTR_GET_DEFAULT(topicsShrink_, "") };
+    inline SubmitCustomSourceTopicAnalysisShrinkRequest& setTopicsShrink(string topicsShrink) { DARABONBA_PTR_SET_VALUE(topicsShrink_, topicsShrink) };
+
+
+    // topicsFileUrl Field Functions 
+    bool hasTopicsFileUrl() const { return this->topicsFileUrl_ != nullptr;};
+    void deleteTopicsFileUrl() { this->topicsFileUrl_ = nullptr;};
+    inline string getTopicsFileUrl() const { DARABONBA_PTR_GET_DEFAULT(topicsFileUrl_, "") };
+    inline SubmitCustomSourceTopicAnalysisShrinkRequest& setTopicsFileUrl(string topicsFileUrl) { DARABONBA_PTR_SET_VALUE(topicsFileUrl_, topicsFileUrl) };
+
+
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
@@ -89,6 +108,8 @@ namespace Models
     shared_ptr<string> fileUrl_ {};
     shared_ptr<int32_t> maxTopicSize_ {};
     shared_ptr<string> newsShrink_ {};
+    shared_ptr<string> topicsShrink_ {};
+    shared_ptr<string> topicsFileUrl_ {};
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

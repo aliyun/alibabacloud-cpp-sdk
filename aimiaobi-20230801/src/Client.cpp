@@ -2204,6 +2204,10 @@ ExportAuditContentResultResponse Client::exportAuditContentResult(const ExportAu
 ExportCustomSourceAnalysisTaskResponse Client::exportCustomSourceAnalysisTaskWithOptions(const ExportCustomSourceAnalysisTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasExportType()) {
+    body["ExportType"] = request.getExportType();
+  }
+
   if (!!request.hasTaskId()) {
     body["TaskId"] = request.getTaskId();
   }
@@ -13156,6 +13160,10 @@ SubmitCustomSourceTopicAnalysisResponse Client::submitCustomSourceTopicAnalysisW
     request.setNewsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNews(), "News", "json"));
   }
 
+  if (!!tmpReq.hasTopics()) {
+    request.setTopicsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTopics(), "Topics", "json"));
+  }
+
   json body = {};
   if (!!request.hasAnalysisTypesShrink()) {
     body["AnalysisTypes"] = request.getAnalysisTypesShrink();
@@ -13175,6 +13183,14 @@ SubmitCustomSourceTopicAnalysisResponse Client::submitCustomSourceTopicAnalysisW
 
   if (!!request.hasNewsShrink()) {
     body["News"] = request.getNewsShrink();
+  }
+
+  if (!!request.hasTopicsShrink()) {
+    body["Topics"] = request.getTopicsShrink();
+  }
+
+  if (!!request.hasTopicsFileUrl()) {
+    body["TopicsFileUrl"] = request.getTopicsFileUrl();
   }
 
   if (!!request.hasWorkspaceId()) {
