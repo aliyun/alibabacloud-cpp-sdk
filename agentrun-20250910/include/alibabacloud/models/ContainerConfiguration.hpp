@@ -18,12 +18,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(command, command_);
       DARABONBA_PTR_TO_JSON(image, image_);
       DARABONBA_PTR_TO_JSON(imageRegistryType, imageRegistryType_);
+      DARABONBA_PTR_TO_JSON(port, port_);
     };
     friend void from_json(const Darabonba::Json& j, ContainerConfiguration& obj) { 
       DARABONBA_PTR_FROM_JSON(acrInstanceId, acrInstanceId_);
       DARABONBA_PTR_FROM_JSON(command, command_);
       DARABONBA_PTR_FROM_JSON(image, image_);
       DARABONBA_PTR_FROM_JSON(imageRegistryType, imageRegistryType_);
+      DARABONBA_PTR_FROM_JSON(port, port_);
     };
     ContainerConfiguration() = default ;
     ContainerConfiguration(const ContainerConfiguration &) = default ;
@@ -37,7 +39,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->acrInstanceId_ == nullptr
-        && this->command_ == nullptr && this->image_ == nullptr && this->imageRegistryType_ == nullptr; };
+        && this->command_ == nullptr && this->image_ == nullptr && this->imageRegistryType_ == nullptr && this->port_ == nullptr; };
     // acrInstanceId Field Functions 
     bool hasAcrInstanceId() const { return this->acrInstanceId_ != nullptr;};
     void deleteAcrInstanceId() { this->acrInstanceId_ = nullptr;};
@@ -68,6 +70,13 @@ namespace Models
     inline ContainerConfiguration& setImageRegistryType(string imageRegistryType) { DARABONBA_PTR_SET_VALUE(imageRegistryType_, imageRegistryType) };
 
 
+    // port Field Functions 
+    bool hasPort() const { return this->port_ != nullptr;};
+    void deletePort() { this->port_ = nullptr;};
+    inline int32_t getPort() const { DARABONBA_PTR_GET_DEFAULT(port_, 0) };
+    inline ContainerConfiguration& setPort(int32_t port) { DARABONBA_PTR_SET_VALUE(port_, port) };
+
+
   protected:
     // 阿里云容器镜像服务（ACR）的实例ID或名称
     shared_ptr<string> acrInstanceId_ {};
@@ -76,6 +85,7 @@ namespace Models
     shared_ptr<string> image_ {};
     // 容器镜像的来源类型，支持ACR（阿里云容器镜像服务）、ACREE（阿里云容器镜像服务企业版）、CUSTOM（自定义镜像仓库）
     shared_ptr<string> imageRegistryType_ {};
+    shared_ptr<int32_t> port_ {};
   };
 
   } // namespace Models
