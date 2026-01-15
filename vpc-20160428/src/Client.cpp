@@ -9063,6 +9063,10 @@ CreateVpnAttachmentResponse Client::createVpnAttachmentWithOptions(const CreateV
     query["Tags"] = request.getTags();
   }
 
+  if (!!request.hasTunnelBandwidth()) {
+    query["TunnelBandwidth"] = request.getTunnelBandwidth();
+  }
+
   json body = {};
   json bodyFlat = {};
   if (!!request.hasTunnelOptionsSpecification()) {
@@ -19989,6 +19993,10 @@ DescribeVpnGatewaysResponse Client::describeVpnGatewaysWithOptions(const Describ
     query["BusinessStatus"] = request.getBusinessStatus();
   }
 
+  if (!!request.hasGatewayType()) {
+    query["GatewayType"] = request.getGatewayType();
+  }
+
   if (!!request.hasIncludeReservationData()) {
     query["IncludeReservationData"] = request.getIncludeReservationData();
   }
@@ -21492,7 +21500,7 @@ GetIpv4GatewayAttributeResponse Client::getIpv4GatewayAttribute(const GetIpv4Gat
 }
 
 /**
- * @summary 查询NAT详情信息
+ * @summary Queries information about a NAT gateway.
  *
  * @description You can call this operation to query information about a specified Internet NAT gateway or Virtual Private Cloud (VPC) NAT gateway. In this topic, "NAT gateway" refers to both gateway types.
  *
@@ -21549,7 +21557,7 @@ GetNatGatewayAttributeResponse Client::getNatGatewayAttributeWithOptions(const G
 }
 
 /**
- * @summary 查询NAT详情信息
+ * @summary Queries information about a NAT gateway.
  *
  * @description You can call this operation to query information about a specified Internet NAT gateway or Virtual Private Cloud (VPC) NAT gateway. In this topic, "NAT gateway" refers to both gateway types.
  *
@@ -21559,6 +21567,158 @@ GetNatGatewayAttributeResponse Client::getNatGatewayAttributeWithOptions(const G
 GetNatGatewayAttributeResponse Client::getNatGatewayAttribute(const GetNatGatewayAttributeRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getNatGatewayAttributeWithOptions(request, runtime);
+}
+
+/**
+ * @summary Call GetNatIpAttribute to query the VPC NAT network to obtain information on each NAT IP address.
+ *
+ * @param request GetNatIpAttributeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetNatIpAttributeResponse
+ */
+GetNatIpAttributeResponse Client::getNatIpAttributeWithOptions(const GetNatIpAttributeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
+  }
+
+  if (!!request.hasNatIpId()) {
+    query["NatIpId"] = request.getNatIpId();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.getOwnerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetNatIpAttribute"},
+    {"version" , "2016-04-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetNatIpAttributeResponse>();
+}
+
+/**
+ * @summary Call GetNatIpAttribute to query the VPC NAT network to obtain information on each NAT IP address.
+ *
+ * @param request GetNatIpAttributeRequest
+ * @return GetNatIpAttributeResponse
+ */
+GetNatIpAttributeResponse Client::getNatIpAttribute(const GetNatIpAttributeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getNatIpAttributeWithOptions(request, runtime);
+}
+
+/**
+ * @summary Call GetNatIpCidrAttribute to query the VPC NAT network to obtain information on each NAT IP cidr address.
+ *
+ * @param request GetNatIpCidrAttributeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetNatIpCidrAttributeResponse
+ */
+GetNatIpCidrAttributeResponse Client::getNatIpCidrAttributeWithOptions(const GetNatIpCidrAttributeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
+  }
+
+  if (!!request.hasNatGatewayId()) {
+    query["NatGatewayId"] = request.getNatGatewayId();
+  }
+
+  if (!!request.hasNatIpCidr()) {
+    query["NatIpCidr"] = request.getNatIpCidr();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.getOwnerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetNatIpCidrAttribute"},
+    {"version" , "2016-04-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetNatIpCidrAttributeResponse>();
+}
+
+/**
+ * @summary Call GetNatIpCidrAttribute to query the VPC NAT network to obtain information on each NAT IP cidr address.
+ *
+ * @param request GetNatIpCidrAttributeRequest
+ * @return GetNatIpCidrAttributeResponse
+ */
+GetNatIpCidrAttributeResponse Client::getNatIpCidrAttribute(const GetNatIpCidrAttributeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getNatIpCidrAttributeWithOptions(request, runtime);
 }
 
 /**

@@ -132,7 +132,9 @@ namespace Models
     // *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
     // *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
     shared_ptr<bool> dryRun_ {};
+    // The IP prefix address to be deleted.
     shared_ptr<string> ipv4Prefix_ {};
+    // The ID of the NAT gateway instance to which the IP prefix to be deleted belongs. Required when deleting an IP prefix.
     shared_ptr<string> natGatewayId_ {};
     // The ID of the NAT IP address that you want to delete.
     shared_ptr<string> natIpId_ {};

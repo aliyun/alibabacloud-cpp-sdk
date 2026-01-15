@@ -138,6 +138,7 @@ namespace Models
 
 
     protected:
+      // The IP prefix address range to which the queried NAT IP address belongs.
       shared_ptr<string> ipv4Prefix_ {};
       // Indicates whether the IP address is the default IP address of the NAT gateway. Valid values:
       // 

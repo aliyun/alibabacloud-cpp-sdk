@@ -409,6 +409,7 @@ namespace Models
 
 
           protected:
+            // NAT IP prefix address range
             shared_ptr<string> ipPrefix_ {};
           };
 
@@ -648,7 +649,12 @@ namespace Models
 
 
         protected:
+          // Access mode, with values:
+          // - **route**: Route mode.
+          // - **tunnel**: Tunnel mode.
           shared_ptr<string> modeValue_ {};
+          // Tunnel mode type:
+          // - **geneve**: Geneve type.
           shared_ptr<string> tunnelType_ {};
         };
 
@@ -901,6 +907,7 @@ namespace Models
 
 
       protected:
+        // Access mode for reverse access to VPC NAT gateway.
         shared_ptr<NatGateway::AccessMode> accessMode_ {};
         // Indicates whether automatic payment is enabled. Valid values:
         // 
@@ -933,6 +940,9 @@ namespace Models
         // 
         // >  Note: If you use the NAT mode, the EIP occupies one private IP address on the vSwitch of the NAT gateway. Make sure that the vSwitch has sufficient private IP addresses. Otherwise, the NAT gateway fails to be associated with the EIP. In NAT mode, you can associate a NAT gateway with up to 50 EIPs.
         shared_ptr<string> eipBindMode_ {};
+        // Whether to enable session logging, with values:
+        // - **true**: Session logging is enabled. 
+        // - **false**: Session logging is disabled.
         shared_ptr<string> enableSessionLog_ {};
         // The time when the NAT gateway expires.
         shared_ptr<string> expiredTime_ {};
@@ -954,6 +964,7 @@ namespace Models
         shared_ptr<string> internetChargeType_ {};
         // The list of elastic IP addresses (EIPs) that are associated with the Internet NAT gateway.
         shared_ptr<NatGateway::IpLists> ipLists_ {};
+        // List of NAT IP prefix address segments.
         shared_ptr<NatGateway::IpPrefixList> ipPrefixList_ {};
         // The name of the NAT gateway.
         shared_ptr<string> name_ {};

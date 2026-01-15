@@ -257,9 +257,15 @@ namespace Models
 
 
     protected:
+      // Error message for session log write failure.
       shared_ptr<string> deliverLogsErrorMessage_ {};
+      // Session log write status. Values:
+      // - **Success**: Success. 
+      // - **Failure**: Failure.
       shared_ptr<string> deliveryStatus_ {};
+      // Session log delivery destination type. Value: **sls**, Alibaba Cloud Log Service SLS.
       shared_ptr<string> logDeliveryType_ {};
+      // Destination address for session log writing
       shared_ptr<string> logDestination_ {};
     };
 
@@ -565,7 +571,12 @@ namespace Models
 
 
     protected:
+      // Access mode values:
+      // - **route**: Route mode.
+      // - **tunnel**: Tunnel mode.
       shared_ptr<string> modeValue_ {};
+      // Tunnel mode type:
+      // - **geneve**: Geneve type.
       shared_ptr<string> tunnelType_ {};
     };
 
@@ -776,6 +787,7 @@ namespace Models
 
 
   protected:
+    // Access mode for reverse access to VPC NAT gateway.
     shared_ptr<GetNatGatewayAttributeResponseBody::AccessMode> accessMode_ {};
     // The billing information.
     shared_ptr<GetNatGatewayAttributeResponseBody::BillingConfig> billingConfig_ {};
@@ -795,6 +807,9 @@ namespace Models
     // *   **true**: yes
     // *   **false**: no
     shared_ptr<bool> ecsMetricEnabled_ {};
+    // Whether to enable session log, with values:
+    // - **true**: Session logging is enabled. 
+    // - **false**: Session logging is disabled.
     shared_ptr<bool> enableSessionLog_ {};
     // The time when the NAT gateway expires.
     shared_ptr<string> expiredTime_ {};
@@ -804,6 +819,7 @@ namespace Models
     shared_ptr<GetNatGatewayAttributeResponseBody::FullNatTable> fullNatTable_ {};
     // The elastic IP addresses (EIPs) that are associated with the Internet NAT gateway.
     shared_ptr<vector<GetNatGatewayAttributeResponseBody::IpList>> ipList_ {};
+    // Session log configuration information.
     shared_ptr<GetNatGatewayAttributeResponseBody::LogDelivery> logDelivery_ {};
     // The name of the NAT gateway.
     shared_ptr<string> name_ {};

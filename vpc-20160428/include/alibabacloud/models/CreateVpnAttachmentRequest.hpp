@@ -37,6 +37,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_TO_JSON(Tags, tags_);
+      DARABONBA_PTR_TO_JSON(TunnelBandwidth, tunnelBandwidth_);
       DARABONBA_PTR_TO_JSON(TunnelOptionsSpecification, tunnelOptionsSpecification_);
     };
     friend void from_json(const Darabonba::Json& j, CreateVpnAttachmentRequest& obj) { 
@@ -63,6 +64,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_FROM_JSON(Tags, tags_);
+      DARABONBA_PTR_FROM_JSON(TunnelBandwidth, tunnelBandwidth_);
       DARABONBA_PTR_FROM_JSON(TunnelOptionsSpecification, tunnelOptionsSpecification_);
     };
     CreateVpnAttachmentRequest() = default ;
@@ -522,7 +524,7 @@ namespace Models
         && this->enableDpd_ == nullptr && this->enableNatTraversal_ == nullptr && this->enableTunnelsBgp_ == nullptr && this->healthCheckConfig_ == nullptr && this->ikeConfig_ == nullptr
         && this->ipsecConfig_ == nullptr && this->localSubnet_ == nullptr && this->name_ == nullptr && this->networkType_ == nullptr && this->ownerAccount_ == nullptr
         && this->regionId_ == nullptr && this->remoteCaCert_ == nullptr && this->remoteSubnet_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr
-        && this->resourceOwnerId_ == nullptr && this->tags_ == nullptr && this->tunnelOptionsSpecification_ == nullptr; };
+        && this->resourceOwnerId_ == nullptr && this->tags_ == nullptr && this->tunnelBandwidth_ == nullptr && this->tunnelOptionsSpecification_ == nullptr; };
     // autoConfigRoute Field Functions 
     bool hasAutoConfigRoute() const { return this->autoConfigRoute_ != nullptr;};
     void deleteAutoConfigRoute() { this->autoConfigRoute_ = nullptr;};
@@ -684,6 +686,13 @@ namespace Models
     inline vector<CreateVpnAttachmentRequest::Tags> getTags() { DARABONBA_PTR_GET(tags_, vector<CreateVpnAttachmentRequest::Tags>) };
     inline CreateVpnAttachmentRequest& setTags(const vector<CreateVpnAttachmentRequest::Tags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
     inline CreateVpnAttachmentRequest& setTags(vector<CreateVpnAttachmentRequest::Tags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
+
+
+    // tunnelBandwidth Field Functions 
+    bool hasTunnelBandwidth() const { return this->tunnelBandwidth_ != nullptr;};
+    void deleteTunnelBandwidth() { this->tunnelBandwidth_ = nullptr;};
+    inline string getTunnelBandwidth() const { DARABONBA_PTR_GET_DEFAULT(tunnelBandwidth_, "") };
+    inline CreateVpnAttachmentRequest& setTunnelBandwidth(string tunnelBandwidth) { DARABONBA_PTR_SET_VALUE(tunnelBandwidth_, tunnelBandwidth) };
 
 
     // tunnelOptionsSpecification Field Functions 
@@ -864,6 +873,7 @@ namespace Models
     // 
     // Each tag key corresponds to one tag value. You can specify up to 20 tag values in each call.
     shared_ptr<vector<CreateVpnAttachmentRequest::Tags>> tags_ {};
+    shared_ptr<string> tunnelBandwidth_ {};
     // The tunnel configurations.
     // 
     // *   You can specify parameters in the **TunnelOptionsSpecification** array when you create an IPsec-VPN connection in dual tunnel mode.

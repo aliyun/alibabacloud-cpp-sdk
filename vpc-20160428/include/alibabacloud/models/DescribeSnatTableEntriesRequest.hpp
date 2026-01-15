@@ -174,6 +174,7 @@ namespace Models
     // 
     // >  You must specify at least one of **SnatTableId** and **NatGatewayId**.
     shared_ptr<string> natGatewayId_ {};
+    // The ID of the elastic network interface to be queried.
     shared_ptr<vector<string>> networkInterfaceIds_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

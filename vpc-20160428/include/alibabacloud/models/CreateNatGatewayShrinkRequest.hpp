@@ -352,6 +352,7 @@ namespace Models
     shared_ptr<string> instanceChargeType_ {};
     // The metering method of the NAT gateway. Set the value to **PayByLcu**, which specifies the pay-by-CU metering method.
     shared_ptr<string> internetChargeType_ {};
+    // Create an IP prefix address segment for batch creation of NAT IPs. Please use the reserved and unallocated network segments in the VSwitch where the NAT is located.
     shared_ptr<string> ipv4Prefix_ {};
     // The name of the NAT gateway.
     // 
@@ -359,6 +360,7 @@ namespace Models
     // 
     // If this parameter is not set, the system assigns a default name to the NAT gateway.
     shared_ptr<string> name_ {};
+    // The private IP address occupied by the NAT gateway. Please use an unassigned IP from the subnet where the NAT is located. If left empty, an IP address will be randomly assigned.
     shared_ptr<string> natIp_ {};
     // The type of NAT gateway. Set the value to **Enhanced**, which specifies enhanced NAT gateway.
     shared_ptr<string> natType_ {};

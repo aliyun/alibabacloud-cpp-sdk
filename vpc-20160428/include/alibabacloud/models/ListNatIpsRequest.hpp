@@ -192,7 +192,9 @@ namespace Models
     // *   **true**: checks the API request. IP addresses are not queried. The system checks the required parameters, request syntax, and limits. If the request fails to pass the precheck, the corresponding error message is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
     // *   **false** (default): sends the request. If the request passes the precheck, a 2xx HTTP status code is returned and the operation is performed.
     shared_ptr<bool> dryRun_ {};
+    // The enumeration of the fields used to describe the source of the NatIp. Prefix indicates the NatIp that belongs to the IPv4Prefix. The value cidr indicates isolated NatIp. The value control indicates all NatIp.
     shared_ptr<string> ipOrigin_ {};
+    // The IP prefix address range.
     shared_ptr<string> ipv4Prefix_ {};
     // The number of entries to return on each page. Valid values: **1** to **100**. Default value: **20**.
     shared_ptr<string> maxResults_ {};

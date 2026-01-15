@@ -70,6 +70,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(EnableBgp, enableBgp_);
           DARABONBA_PTR_TO_JSON(EndTime, endTime_);
           DARABONBA_PTR_TO_JSON(EniInstanceIds, eniInstanceIds_);
+          DARABONBA_PTR_TO_JSON(GatewayType, gatewayType_);
           DARABONBA_PTR_TO_JSON(InternetIp, internetIp_);
           DARABONBA_PTR_TO_JSON(IpsecVpn, ipsecVpn_);
           DARABONBA_PTR_TO_JSON(Name, name_);
@@ -99,6 +100,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(EnableBgp, enableBgp_);
           DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
           DARABONBA_PTR_FROM_JSON(EniInstanceIds, eniInstanceIds_);
+          DARABONBA_PTR_FROM_JSON(GatewayType, gatewayType_);
           DARABONBA_PTR_FROM_JSON(InternetIp, internetIp_);
           DARABONBA_PTR_FROM_JSON(IpsecVpn, ipsecVpn_);
           DARABONBA_PTR_FROM_JSON(Name, name_);
@@ -355,11 +357,11 @@ namespace Models
 
         virtual bool empty() const override { return this->autoPropagate_ == nullptr
         && this->businessStatus_ == nullptr && this->chargeType_ == nullptr && this->createTime_ == nullptr && this->description_ == nullptr && this->disasterRecoveryInternetIp_ == nullptr
-        && this->disasterRecoveryVSwitchId_ == nullptr && this->enableBgp_ == nullptr && this->endTime_ == nullptr && this->eniInstanceIds_ == nullptr && this->internetIp_ == nullptr
-        && this->ipsecVpn_ == nullptr && this->name_ == nullptr && this->networkType_ == nullptr && this->reservationData_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->spec_ == nullptr && this->sslMaxConnections_ == nullptr && this->sslVpn_ == nullptr && this->sslVpnInternetIp_ == nullptr && this->status_ == nullptr
-        && this->tag_ == nullptr && this->tags_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->vpnGatewayId_ == nullptr
-        && this->vpnType_ == nullptr; };
+        && this->disasterRecoveryVSwitchId_ == nullptr && this->enableBgp_ == nullptr && this->endTime_ == nullptr && this->eniInstanceIds_ == nullptr && this->gatewayType_ == nullptr
+        && this->internetIp_ == nullptr && this->ipsecVpn_ == nullptr && this->name_ == nullptr && this->networkType_ == nullptr && this->reservationData_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->spec_ == nullptr && this->sslMaxConnections_ == nullptr && this->sslVpn_ == nullptr && this->sslVpnInternetIp_ == nullptr
+        && this->status_ == nullptr && this->tag_ == nullptr && this->tags_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr
+        && this->vpnGatewayId_ == nullptr && this->vpnType_ == nullptr; };
         // autoPropagate Field Functions 
         bool hasAutoPropagate() const { return this->autoPropagate_ != nullptr;};
         void deleteAutoPropagate() { this->autoPropagate_ = nullptr;};
@@ -430,6 +432,13 @@ namespace Models
         inline VpnGateway::EniInstanceIds getEniInstanceIds() { DARABONBA_PTR_GET(eniInstanceIds_, VpnGateway::EniInstanceIds) };
         inline VpnGateway& setEniInstanceIds(const VpnGateway::EniInstanceIds & eniInstanceIds) { DARABONBA_PTR_SET_VALUE(eniInstanceIds_, eniInstanceIds) };
         inline VpnGateway& setEniInstanceIds(VpnGateway::EniInstanceIds && eniInstanceIds) { DARABONBA_PTR_SET_RVALUE(eniInstanceIds_, eniInstanceIds) };
+
+
+        // gatewayType Field Functions 
+        bool hasGatewayType() const { return this->gatewayType_ != nullptr;};
+        void deleteGatewayType() { this->gatewayType_ = nullptr;};
+        inline string getGatewayType() const { DARABONBA_PTR_GET_DEFAULT(gatewayType_, "") };
+        inline VpnGateway& setGatewayType(string gatewayType) { DARABONBA_PTR_SET_VALUE(gatewayType_, gatewayType) };
 
 
         // internetIp Field Functions 
@@ -595,6 +604,7 @@ namespace Models
         shared_ptr<int64_t> endTime_ {};
         // The ENIs created by the system for the VPN gateway.
         shared_ptr<VpnGateway::EniInstanceIds> eniInstanceIds_ {};
+        shared_ptr<string> gatewayType_ {};
         // *   If the VPN gateway supports IPsec-VPN connections in single-tunnel mode, the value of this parameter is the IP address of the VPN gateway, which can be used to create IPsec-VPN or SSL-VPN connections.
         // 
         // *   If the VPN gateway supports IPsec-VPN connections in dual-tunnel mode, the value of this parameter is the first IP address that is used to create an IPsec-VPN connection. The IP address cannot be used to create SSL-VPN connections.

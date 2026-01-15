@@ -166,6 +166,9 @@ namespace Models
     // 
     // **Description** If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
     shared_ptr<string> clientToken_ {};
+    // Indicates whether to only precheck this request. Values:
+    // - **true**: Sends a precheck request and does not create an SNAT entry. The precheck includes verifying if the AccessKey is valid, checking the RAM user\\"s authorization, and ensuring that all required parameters are filled out. If the precheck fails, the corresponding error is returned. If the precheck passes, the error code `DryRunOperation` is returned.
+    // - **false** (default): Sends a normal request. After passing the precheck, it returns a 2xx HTTP status code and creates an SNAT entry.
     shared_ptr<bool> dryRun_ {};
     // Specifies whether to enable EIP affinity. Valid values:
     // 
@@ -176,6 +179,8 @@ namespace Models
     // 
     // **Description** After you enable EIP affinity, if multiple EIPs are associated with an SNAT entry, each client uses one EIP to access the Internet. If EIP affinity is disabled, each client uses a random EIP to access the Internet.
     shared_ptr<int32_t> eipAffinity_ {};
+    // Elastic Network Interface ID.  
+    // > The IPv4 address set of the elastic network interface will be used as the SNAT address.
     shared_ptr<string> networkInterfaceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

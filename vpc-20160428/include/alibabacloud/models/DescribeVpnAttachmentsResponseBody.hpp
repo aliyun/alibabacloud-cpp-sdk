@@ -50,6 +50,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Tags, tags_);
         DARABONBA_PTR_TO_JSON(TransitRouterId, transitRouterId_);
         DARABONBA_PTR_TO_JSON(TransitRouterName, transitRouterName_);
+        DARABONBA_PTR_TO_JSON(TunnelBandwidth, tunnelBandwidth_);
       };
       friend void from_json(const Darabonba::Json& j, VpnAttachments& obj) { 
         DARABONBA_PTR_FROM_JSON(AttachType, attachType_);
@@ -61,6 +62,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Tags, tags_);
         DARABONBA_PTR_FROM_JSON(TransitRouterId, transitRouterId_);
         DARABONBA_PTR_FROM_JSON(TransitRouterName, transitRouterName_);
+        DARABONBA_PTR_FROM_JSON(TunnelBandwidth, tunnelBandwidth_);
       };
       VpnAttachments() = default ;
       VpnAttachments(const VpnAttachments &) = default ;
@@ -119,7 +121,7 @@ namespace Models
 
       virtual bool empty() const override { return this->attachType_ == nullptr
         && this->crossAccountAuthorized_ == nullptr && this->description_ == nullptr && this->instanceId_ == nullptr && this->name_ == nullptr && this->tag_ == nullptr
-        && this->tags_ == nullptr && this->transitRouterId_ == nullptr && this->transitRouterName_ == nullptr; };
+        && this->tags_ == nullptr && this->transitRouterId_ == nullptr && this->transitRouterName_ == nullptr && this->tunnelBandwidth_ == nullptr; };
       // attachType Field Functions 
       bool hasAttachType() const { return this->attachType_ != nullptr;};
       void deleteAttachType() { this->attachType_ = nullptr;};
@@ -185,6 +187,13 @@ namespace Models
       inline VpnAttachments& setTransitRouterName(string transitRouterName) { DARABONBA_PTR_SET_VALUE(transitRouterName_, transitRouterName) };
 
 
+      // tunnelBandwidth Field Functions 
+      bool hasTunnelBandwidth() const { return this->tunnelBandwidth_ != nullptr;};
+      void deleteTunnelBandwidth() { this->tunnelBandwidth_ = nullptr;};
+      inline string getTunnelBandwidth() const { DARABONBA_PTR_GET_DEFAULT(tunnelBandwidth_, "") };
+      inline VpnAttachments& setTunnelBandwidth(string tunnelBandwidth) { DARABONBA_PTR_SET_VALUE(tunnelBandwidth_, tunnelBandwidth) };
+
+
     protected:
       // The type of resource that is associated with the IPsec-VPN connection. The value is set to **CEN**, which indicates that the IPsec-VPN connection is associated with a transit router.
       shared_ptr<string> attachType_ {};
@@ -214,6 +223,7 @@ namespace Models
       shared_ptr<string> transitRouterId_ {};
       // The name of the transit router.
       shared_ptr<string> transitRouterName_ {};
+      shared_ptr<string> tunnelBandwidth_ {};
     };
 
     virtual bool empty() const override { return this->pageNumber_ == nullptr

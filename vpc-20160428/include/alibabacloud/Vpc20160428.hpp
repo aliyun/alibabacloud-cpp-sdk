@@ -5781,7 +5781,7 @@ namespace Vpc20160428
       Models::GetIpv4GatewayAttributeResponse getIpv4GatewayAttribute(const Models::GetIpv4GatewayAttributeRequest &request);
 
       /**
-       * @summary 查询NAT详情信息
+       * @summary Queries information about a NAT gateway.
        *
        * @description You can call this operation to query information about a specified Internet NAT gateway or Virtual Private Cloud (VPC) NAT gateway. In this topic, "NAT gateway" refers to both gateway types.
        *
@@ -5792,7 +5792,7 @@ namespace Vpc20160428
       Models::GetNatGatewayAttributeResponse getNatGatewayAttributeWithOptions(const Models::GetNatGatewayAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询NAT详情信息
+       * @summary Queries information about a NAT gateway.
        *
        * @description You can call this operation to query information about a specified Internet NAT gateway or Virtual Private Cloud (VPC) NAT gateway. In this topic, "NAT gateway" refers to both gateway types.
        *
@@ -5800,6 +5800,40 @@ namespace Vpc20160428
        * @return GetNatGatewayAttributeResponse
        */
       Models::GetNatGatewayAttributeResponse getNatGatewayAttribute(const Models::GetNatGatewayAttributeRequest &request);
+
+      /**
+       * @summary Call GetNatIpAttribute to query the VPC NAT network to obtain information on each NAT IP address.
+       *
+       * @param request GetNatIpAttributeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetNatIpAttributeResponse
+       */
+      Models::GetNatIpAttributeResponse getNatIpAttributeWithOptions(const Models::GetNatIpAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Call GetNatIpAttribute to query the VPC NAT network to obtain information on each NAT IP address.
+       *
+       * @param request GetNatIpAttributeRequest
+       * @return GetNatIpAttributeResponse
+       */
+      Models::GetNatIpAttributeResponse getNatIpAttribute(const Models::GetNatIpAttributeRequest &request);
+
+      /**
+       * @summary Call GetNatIpCidrAttribute to query the VPC NAT network to obtain information on each NAT IP cidr address.
+       *
+       * @param request GetNatIpCidrAttributeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetNatIpCidrAttributeResponse
+       */
+      Models::GetNatIpCidrAttributeResponse getNatIpCidrAttributeWithOptions(const Models::GetNatIpCidrAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Call GetNatIpCidrAttribute to query the VPC NAT network to obtain information on each NAT IP cidr address.
+       *
+       * @param request GetNatIpCidrAttributeRequest
+       * @return GetNatIpCidrAttributeResponse
+       */
+      Models::GetNatIpCidrAttributeResponse getNatIpCidrAttribute(const Models::GetNatIpCidrAttributeRequest &request);
 
       /**
        * @summary 查询是否开通了出云流量服务

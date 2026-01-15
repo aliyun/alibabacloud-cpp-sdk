@@ -237,6 +237,7 @@ namespace Models
         shared_ptr<string> resourceOwnerId_ {};
         // The type of the service resource.
         shared_ptr<string> resourceType_ {};
+        // VPC ID of the service resource
         shared_ptr<string> resourceVpcId_ {};
         // The ID of the tunnel index.
         shared_ptr<string> tunnelIndex_ {};

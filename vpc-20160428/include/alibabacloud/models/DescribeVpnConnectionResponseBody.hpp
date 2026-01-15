@@ -39,6 +39,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Tags, tags_);
       DARABONBA_PTR_TO_JSON(TransitRouterId, transitRouterId_);
       DARABONBA_PTR_TO_JSON(TransitRouterName, transitRouterName_);
+      DARABONBA_PTR_TO_JSON(TunnelBandwidth, tunnelBandwidth_);
       DARABONBA_PTR_TO_JSON(TunnelOptionsSpecification, tunnelOptionsSpecification_);
       DARABONBA_PTR_TO_JSON(VcoHealthCheck, vcoHealthCheck_);
       DARABONBA_PTR_TO_JSON(VpnBgpConfig, vpnBgpConfig_);
@@ -72,6 +73,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Tags, tags_);
       DARABONBA_PTR_FROM_JSON(TransitRouterId, transitRouterId_);
       DARABONBA_PTR_FROM_JSON(TransitRouterName, transitRouterName_);
+      DARABONBA_PTR_FROM_JSON(TunnelBandwidth, tunnelBandwidth_);
       DARABONBA_PTR_FROM_JSON(TunnelOptionsSpecification, tunnelOptionsSpecification_);
       DARABONBA_PTR_FROM_JSON(VcoHealthCheck, vcoHealthCheck_);
       DARABONBA_PTR_FROM_JSON(VpnBgpConfig, vpnBgpConfig_);
@@ -1120,8 +1122,9 @@ namespace Models
         && this->enableDpd_ == nullptr && this->enableNatTraversal_ == nullptr && this->enableTunnelsBgp_ == nullptr && this->ikeConfig_ == nullptr && this->internetIp_ == nullptr
         && this->ipsecConfig_ == nullptr && this->localSubnet_ == nullptr && this->name_ == nullptr && this->networkType_ == nullptr && this->remoteCaCertificate_ == nullptr
         && this->remoteSubnet_ == nullptr && this->requestId_ == nullptr && this->resourceGroupId_ == nullptr && this->spec_ == nullptr && this->state_ == nullptr
-        && this->status_ == nullptr && this->tags_ == nullptr && this->transitRouterId_ == nullptr && this->transitRouterName_ == nullptr && this->tunnelOptionsSpecification_ == nullptr
-        && this->vcoHealthCheck_ == nullptr && this->vpnBgpConfig_ == nullptr && this->vpnConnectionId_ == nullptr && this->vpnGatewayId_ == nullptr && this->zoneNo_ == nullptr; };
+        && this->status_ == nullptr && this->tags_ == nullptr && this->transitRouterId_ == nullptr && this->transitRouterName_ == nullptr && this->tunnelBandwidth_ == nullptr
+        && this->tunnelOptionsSpecification_ == nullptr && this->vcoHealthCheck_ == nullptr && this->vpnBgpConfig_ == nullptr && this->vpnConnectionId_ == nullptr && this->vpnGatewayId_ == nullptr
+        && this->zoneNo_ == nullptr; };
     // attachInstanceId Field Functions 
     bool hasAttachInstanceId() const { return this->attachInstanceId_ != nullptr;};
     void deleteAttachInstanceId() { this->attachInstanceId_ = nullptr;};
@@ -1303,6 +1306,13 @@ namespace Models
     inline DescribeVpnConnectionResponseBody& setTransitRouterName(string transitRouterName) { DARABONBA_PTR_SET_VALUE(transitRouterName_, transitRouterName) };
 
 
+    // tunnelBandwidth Field Functions 
+    bool hasTunnelBandwidth() const { return this->tunnelBandwidth_ != nullptr;};
+    void deleteTunnelBandwidth() { this->tunnelBandwidth_ = nullptr;};
+    inline string getTunnelBandwidth() const { DARABONBA_PTR_GET_DEFAULT(tunnelBandwidth_, "") };
+    inline DescribeVpnConnectionResponseBody& setTunnelBandwidth(string tunnelBandwidth) { DARABONBA_PTR_SET_VALUE(tunnelBandwidth_, tunnelBandwidth) };
+
+
     // tunnelOptionsSpecification Field Functions 
     bool hasTunnelOptionsSpecification() const { return this->tunnelOptionsSpecification_ != nullptr;};
     void deleteTunnelOptionsSpecification() { this->tunnelOptionsSpecification_ = nullptr;};
@@ -1452,6 +1462,7 @@ namespace Models
     shared_ptr<string> transitRouterId_ {};
     // The name of the transit router.
     shared_ptr<string> transitRouterName_ {};
+    shared_ptr<string> tunnelBandwidth_ {};
     // The tunnel configurations of the IPsec-VPN connection.
     // 
     // Parameters in **TunnelOptionsSpecification** are returned only if you query an IPsec-VPN connection in dual-tunnel mode.

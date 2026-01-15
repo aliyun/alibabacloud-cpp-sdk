@@ -15,6 +15,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DescribeVpnGatewaysRequest& obj) { 
       DARABONBA_PTR_TO_JSON(BusinessStatus, businessStatus_);
+      DARABONBA_PTR_TO_JSON(GatewayType, gatewayType_);
       DARABONBA_PTR_TO_JSON(IncludeReservationData, includeReservationData_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
@@ -31,6 +32,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, DescribeVpnGatewaysRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BusinessStatus, businessStatus_);
+      DARABONBA_PTR_FROM_JSON(GatewayType, gatewayType_);
       DARABONBA_PTR_FROM_JSON(IncludeReservationData, includeReservationData_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
@@ -105,14 +107,21 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->businessStatus_ == nullptr
-        && this->includeReservationData_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
-        && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->status_ == nullptr
-        && this->tag_ == nullptr && this->vpcId_ == nullptr && this->vpnGatewayId_ == nullptr; };
+        && this->gatewayType_ == nullptr && this->includeReservationData_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->pageNumber_ == nullptr
+        && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr
+        && this->status_ == nullptr && this->tag_ == nullptr && this->vpcId_ == nullptr && this->vpnGatewayId_ == nullptr; };
     // businessStatus Field Functions 
     bool hasBusinessStatus() const { return this->businessStatus_ != nullptr;};
     void deleteBusinessStatus() { this->businessStatus_ = nullptr;};
     inline string getBusinessStatus() const { DARABONBA_PTR_GET_DEFAULT(businessStatus_, "") };
     inline DescribeVpnGatewaysRequest& setBusinessStatus(string businessStatus) { DARABONBA_PTR_SET_VALUE(businessStatus_, businessStatus) };
+
+
+    // gatewayType Field Functions 
+    bool hasGatewayType() const { return this->gatewayType_ != nullptr;};
+    void deleteGatewayType() { this->gatewayType_ = nullptr;};
+    inline string getGatewayType() const { DARABONBA_PTR_GET_DEFAULT(gatewayType_, "") };
+    inline DescribeVpnGatewaysRequest& setGatewayType(string gatewayType) { DARABONBA_PTR_SET_VALUE(gatewayType_, gatewayType) };
 
 
     // includeReservationData Field Functions 
@@ -214,6 +223,7 @@ namespace Models
     // *   **Normal**
     // *   **FinancialLocked**
     shared_ptr<string> businessStatus_ {};
+    shared_ptr<string> gatewayType_ {};
     // Specifies whether to return information about pending orders. Valid values:
     // 
     // *   **false** (default)
