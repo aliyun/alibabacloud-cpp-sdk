@@ -34,14 +34,14 @@ namespace Models
     // algorithmSpec Field Functions 
     bool hasAlgorithmSpec() const { return this->algorithmSpec_ != nullptr;};
     void deleteAlgorithmSpec() { this->algorithmSpec_ = nullptr;};
-    inline const AlgorithmSpec & algorithmSpec() const { DARABONBA_PTR_GET_CONST(algorithmSpec_, AlgorithmSpec) };
-    inline AlgorithmSpec algorithmSpec() { DARABONBA_PTR_GET(algorithmSpec_, AlgorithmSpec) };
+    inline const AlgorithmSpec & getAlgorithmSpec() const { DARABONBA_PTR_GET_CONST(algorithmSpec_, AlgorithmSpec) };
+    inline AlgorithmSpec getAlgorithmSpec() { DARABONBA_PTR_GET(algorithmSpec_, AlgorithmSpec) };
     inline CreateAlgorithmVersionRequest& setAlgorithmSpec(const AlgorithmSpec & algorithmSpec) { DARABONBA_PTR_SET_VALUE(algorithmSpec_, algorithmSpec) };
     inline CreateAlgorithmVersionRequest& setAlgorithmSpec(AlgorithmSpec && algorithmSpec) { DARABONBA_PTR_SET_RVALUE(algorithmSpec_, algorithmSpec) };
 
 
   protected:
-    std::shared_ptr<AlgorithmSpec> algorithmSpec_ = nullptr;
+    shared_ptr<AlgorithmSpec> algorithmSpec_ {};
   };
 
   } // namespace Models

@@ -44,27 +44,27 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->depth_ == nullptr
-        && return this->parentQuotaId_ == nullptr && return this->quotaDetails_ == nullptr && return this->quotaId_ == nullptr && return this->quotaName_ == nullptr && return this->resourceType_ == nullptr
-        && return this->workloadDetails_ == nullptr; };
+        && this->parentQuotaId_ == nullptr && this->quotaDetails_ == nullptr && this->quotaId_ == nullptr && this->quotaName_ == nullptr && this->resourceType_ == nullptr
+        && this->workloadDetails_ == nullptr; };
     // depth Field Functions 
     bool hasDepth() const { return this->depth_ != nullptr;};
     void deleteDepth() { this->depth_ = nullptr;};
-    inline string depth() const { DARABONBA_PTR_GET_DEFAULT(depth_, "") };
+    inline string getDepth() const { DARABONBA_PTR_GET_DEFAULT(depth_, "") };
     inline QuotaTopo& setDepth(string depth) { DARABONBA_PTR_SET_VALUE(depth_, depth) };
 
 
     // parentQuotaId Field Functions 
     bool hasParentQuotaId() const { return this->parentQuotaId_ != nullptr;};
     void deleteParentQuotaId() { this->parentQuotaId_ = nullptr;};
-    inline string parentQuotaId() const { DARABONBA_PTR_GET_DEFAULT(parentQuotaId_, "") };
+    inline string getParentQuotaId() const { DARABONBA_PTR_GET_DEFAULT(parentQuotaId_, "") };
     inline QuotaTopo& setParentQuotaId(string parentQuotaId) { DARABONBA_PTR_SET_VALUE(parentQuotaId_, parentQuotaId) };
 
 
     // quotaDetails Field Functions 
     bool hasQuotaDetails() const { return this->quotaDetails_ != nullptr;};
     void deleteQuotaDetails() { this->quotaDetails_ = nullptr;};
-    inline const QuotaDetails & quotaDetails() const { DARABONBA_PTR_GET_CONST(quotaDetails_, QuotaDetails) };
-    inline QuotaDetails quotaDetails() { DARABONBA_PTR_GET(quotaDetails_, QuotaDetails) };
+    inline const QuotaDetails & getQuotaDetails() const { DARABONBA_PTR_GET_CONST(quotaDetails_, QuotaDetails) };
+    inline QuotaDetails getQuotaDetails() { DARABONBA_PTR_GET(quotaDetails_, QuotaDetails) };
     inline QuotaTopo& setQuotaDetails(const QuotaDetails & quotaDetails) { DARABONBA_PTR_SET_VALUE(quotaDetails_, quotaDetails) };
     inline QuotaTopo& setQuotaDetails(QuotaDetails && quotaDetails) { DARABONBA_PTR_SET_RVALUE(quotaDetails_, quotaDetails) };
 
@@ -72,41 +72,41 @@ namespace Models
     // quotaId Field Functions 
     bool hasQuotaId() const { return this->quotaId_ != nullptr;};
     void deleteQuotaId() { this->quotaId_ = nullptr;};
-    inline string quotaId() const { DARABONBA_PTR_GET_DEFAULT(quotaId_, "") };
+    inline string getQuotaId() const { DARABONBA_PTR_GET_DEFAULT(quotaId_, "") };
     inline QuotaTopo& setQuotaId(string quotaId) { DARABONBA_PTR_SET_VALUE(quotaId_, quotaId) };
 
 
     // quotaName Field Functions 
     bool hasQuotaName() const { return this->quotaName_ != nullptr;};
     void deleteQuotaName() { this->quotaName_ = nullptr;};
-    inline string quotaName() const { DARABONBA_PTR_GET_DEFAULT(quotaName_, "") };
+    inline string getQuotaName() const { DARABONBA_PTR_GET_DEFAULT(quotaName_, "") };
     inline QuotaTopo& setQuotaName(string quotaName) { DARABONBA_PTR_SET_VALUE(quotaName_, quotaName) };
 
 
     // resourceType Field Functions 
     bool hasResourceType() const { return this->resourceType_ != nullptr;};
     void deleteResourceType() { this->resourceType_ = nullptr;};
-    inline string resourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
+    inline string getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
     inline QuotaTopo& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
 
 
     // workloadDetails Field Functions 
     bool hasWorkloadDetails() const { return this->workloadDetails_ != nullptr;};
     void deleteWorkloadDetails() { this->workloadDetails_ = nullptr;};
-    inline const WorkloadDetails & workloadDetails() const { DARABONBA_PTR_GET_CONST(workloadDetails_, WorkloadDetails) };
-    inline WorkloadDetails workloadDetails() { DARABONBA_PTR_GET(workloadDetails_, WorkloadDetails) };
+    inline const WorkloadDetails & getWorkloadDetails() const { DARABONBA_PTR_GET_CONST(workloadDetails_, WorkloadDetails) };
+    inline WorkloadDetails getWorkloadDetails() { DARABONBA_PTR_GET(workloadDetails_, WorkloadDetails) };
     inline QuotaTopo& setWorkloadDetails(const WorkloadDetails & workloadDetails) { DARABONBA_PTR_SET_VALUE(workloadDetails_, workloadDetails) };
     inline QuotaTopo& setWorkloadDetails(WorkloadDetails && workloadDetails) { DARABONBA_PTR_SET_RVALUE(workloadDetails_, workloadDetails) };
 
 
   protected:
-    std::shared_ptr<string> depth_ = nullptr;
-    std::shared_ptr<string> parentQuotaId_ = nullptr;
-    std::shared_ptr<QuotaDetails> quotaDetails_ = nullptr;
-    std::shared_ptr<string> quotaId_ = nullptr;
-    std::shared_ptr<string> quotaName_ = nullptr;
-    std::shared_ptr<string> resourceType_ = nullptr;
-    std::shared_ptr<WorkloadDetails> workloadDetails_ = nullptr;
+    shared_ptr<string> depth_ {};
+    shared_ptr<string> parentQuotaId_ {};
+    shared_ptr<QuotaDetails> quotaDetails_ {};
+    shared_ptr<string> quotaId_ {};
+    shared_ptr<string> quotaName_ {};
+    shared_ptr<string> resourceType_ {};
+    shared_ptr<WorkloadDetails> workloadDetails_ {};
   };
 
   } // namespace Models

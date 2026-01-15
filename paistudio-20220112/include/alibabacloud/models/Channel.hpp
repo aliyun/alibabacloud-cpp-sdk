@@ -39,53 +39,53 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->name_ == nullptr && return this->properties_ == nullptr && return this->required_ == nullptr && return this->supportedChannelTypes_ == nullptr; };
+        && this->name_ == nullptr && this->properties_ == nullptr && this->required_ == nullptr && this->supportedChannelTypes_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline Channel& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline Channel& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // properties Field Functions 
     bool hasProperties() const { return this->properties_ != nullptr;};
     void deleteProperties() { this->properties_ = nullptr;};
-    inline     const Darabonba::Json & properties() const { DARABONBA_GET(properties_) };
-    Darabonba::Json & properties() { DARABONBA_GET(properties_) };
+    inline     const Darabonba::Json & getProperties() const { DARABONBA_GET(properties_) };
+    Darabonba::Json & getProperties() { DARABONBA_GET(properties_) };
     inline Channel& setProperties(const Darabonba::Json & properties) { DARABONBA_SET_VALUE(properties_, properties) };
-    inline Channel& setProperties(Darabonba::Json & properties) { DARABONBA_SET_RVALUE(properties_, properties) };
+    inline Channel& setProperties(Darabonba::Json && properties) { DARABONBA_SET_RVALUE(properties_, properties) };
 
 
     // required Field Functions 
     bool hasRequired() const { return this->required_ != nullptr;};
     void deleteRequired() { this->required_ = nullptr;};
-    inline bool required() const { DARABONBA_PTR_GET_DEFAULT(required_, false) };
+    inline bool getRequired() const { DARABONBA_PTR_GET_DEFAULT(required_, false) };
     inline Channel& setRequired(bool required) { DARABONBA_PTR_SET_VALUE(required_, required) };
 
 
     // supportedChannelTypes Field Functions 
     bool hasSupportedChannelTypes() const { return this->supportedChannelTypes_ != nullptr;};
     void deleteSupportedChannelTypes() { this->supportedChannelTypes_ = nullptr;};
-    inline const vector<string> & supportedChannelTypes() const { DARABONBA_PTR_GET_CONST(supportedChannelTypes_, vector<string>) };
-    inline vector<string> supportedChannelTypes() { DARABONBA_PTR_GET(supportedChannelTypes_, vector<string>) };
+    inline const vector<string> & getSupportedChannelTypes() const { DARABONBA_PTR_GET_CONST(supportedChannelTypes_, vector<string>) };
+    inline vector<string> getSupportedChannelTypes() { DARABONBA_PTR_GET(supportedChannelTypes_, vector<string>) };
     inline Channel& setSupportedChannelTypes(const vector<string> & supportedChannelTypes) { DARABONBA_PTR_SET_VALUE(supportedChannelTypes_, supportedChannelTypes) };
     inline Channel& setSupportedChannelTypes(vector<string> && supportedChannelTypes) { DARABONBA_PTR_SET_RVALUE(supportedChannelTypes_, supportedChannelTypes) };
 
 
   protected:
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
-    Darabonba::Json properties_ = nullptr;
-    std::shared_ptr<bool> required_ = nullptr;
-    std::shared_ptr<vector<string>> supportedChannelTypes_ = nullptr;
+    shared_ptr<string> name_ {};
+    Darabonba::Json properties_ {};
+    shared_ptr<bool> required_ {};
+    shared_ptr<vector<string>> supportedChannelTypes_ {};
   };
 
   } // namespace Models

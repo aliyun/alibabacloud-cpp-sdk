@@ -52,13 +52,13 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->codeDir_ == nullptr
-        && return this->command_ == nullptr && return this->hyperParameters_ == nullptr && return this->image_ == nullptr && return this->inputChannels_ == nullptr && return this->jobType_ == nullptr
-        && return this->metricDefinitions_ == nullptr && return this->outputChannels_ == nullptr && return this->resourceRequirements_ == nullptr; };
+        && this->command_ == nullptr && this->hyperParameters_ == nullptr && this->image_ == nullptr && this->inputChannels_ == nullptr && this->jobType_ == nullptr
+        && this->metricDefinitions_ == nullptr && this->outputChannels_ == nullptr && this->resourceRequirements_ == nullptr; };
     // codeDir Field Functions 
     bool hasCodeDir() const { return this->codeDir_ != nullptr;};
     void deleteCodeDir() { this->codeDir_ = nullptr;};
-    inline const Location & codeDir() const { DARABONBA_PTR_GET_CONST(codeDir_, Location) };
-    inline Location codeDir() { DARABONBA_PTR_GET(codeDir_, Location) };
+    inline const Location & getCodeDir() const { DARABONBA_PTR_GET_CONST(codeDir_, Location) };
+    inline Location getCodeDir() { DARABONBA_PTR_GET(codeDir_, Location) };
     inline ComponentSpec& setCodeDir(const Location & codeDir) { DARABONBA_PTR_SET_VALUE(codeDir_, codeDir) };
     inline ComponentSpec& setCodeDir(Location && codeDir) { DARABONBA_PTR_SET_RVALUE(codeDir_, codeDir) };
 
@@ -66,15 +66,15 @@ namespace Models
     // command Field Functions 
     bool hasCommand() const { return this->command_ != nullptr;};
     void deleteCommand() { this->command_ = nullptr;};
-    inline string command() const { DARABONBA_PTR_GET_DEFAULT(command_, "") };
+    inline string getCommand() const { DARABONBA_PTR_GET_DEFAULT(command_, "") };
     inline ComponentSpec& setCommand(string command) { DARABONBA_PTR_SET_VALUE(command_, command) };
 
 
     // hyperParameters Field Functions 
     bool hasHyperParameters() const { return this->hyperParameters_ != nullptr;};
     void deleteHyperParameters() { this->hyperParameters_ = nullptr;};
-    inline const vector<HyperParameterDefinition> & hyperParameters() const { DARABONBA_PTR_GET_CONST(hyperParameters_, vector<HyperParameterDefinition>) };
-    inline vector<HyperParameterDefinition> hyperParameters() { DARABONBA_PTR_GET(hyperParameters_, vector<HyperParameterDefinition>) };
+    inline const vector<HyperParameterDefinition> & getHyperParameters() const { DARABONBA_PTR_GET_CONST(hyperParameters_, vector<HyperParameterDefinition>) };
+    inline vector<HyperParameterDefinition> getHyperParameters() { DARABONBA_PTR_GET(hyperParameters_, vector<HyperParameterDefinition>) };
     inline ComponentSpec& setHyperParameters(const vector<HyperParameterDefinition> & hyperParameters) { DARABONBA_PTR_SET_VALUE(hyperParameters_, hyperParameters) };
     inline ComponentSpec& setHyperParameters(vector<HyperParameterDefinition> && hyperParameters) { DARABONBA_PTR_SET_RVALUE(hyperParameters_, hyperParameters) };
 
@@ -82,15 +82,15 @@ namespace Models
     // image Field Functions 
     bool hasImage() const { return this->image_ != nullptr;};
     void deleteImage() { this->image_ = nullptr;};
-    inline string image() const { DARABONBA_PTR_GET_DEFAULT(image_, "") };
+    inline string getImage() const { DARABONBA_PTR_GET_DEFAULT(image_, "") };
     inline ComponentSpec& setImage(string image) { DARABONBA_PTR_SET_VALUE(image_, image) };
 
 
     // inputChannels Field Functions 
     bool hasInputChannels() const { return this->inputChannels_ != nullptr;};
     void deleteInputChannels() { this->inputChannels_ = nullptr;};
-    inline const vector<Channel> & inputChannels() const { DARABONBA_PTR_GET_CONST(inputChannels_, vector<Channel>) };
-    inline vector<Channel> inputChannels() { DARABONBA_PTR_GET(inputChannels_, vector<Channel>) };
+    inline const vector<Channel> & getInputChannels() const { DARABONBA_PTR_GET_CONST(inputChannels_, vector<Channel>) };
+    inline vector<Channel> getInputChannels() { DARABONBA_PTR_GET(inputChannels_, vector<Channel>) };
     inline ComponentSpec& setInputChannels(const vector<Channel> & inputChannels) { DARABONBA_PTR_SET_VALUE(inputChannels_, inputChannels) };
     inline ComponentSpec& setInputChannels(vector<Channel> && inputChannels) { DARABONBA_PTR_SET_RVALUE(inputChannels_, inputChannels) };
 
@@ -98,15 +98,15 @@ namespace Models
     // jobType Field Functions 
     bool hasJobType() const { return this->jobType_ != nullptr;};
     void deleteJobType() { this->jobType_ = nullptr;};
-    inline string jobType() const { DARABONBA_PTR_GET_DEFAULT(jobType_, "") };
+    inline string getJobType() const { DARABONBA_PTR_GET_DEFAULT(jobType_, "") };
     inline ComponentSpec& setJobType(string jobType) { DARABONBA_PTR_SET_VALUE(jobType_, jobType) };
 
 
     // metricDefinitions Field Functions 
     bool hasMetricDefinitions() const { return this->metricDefinitions_ != nullptr;};
     void deleteMetricDefinitions() { this->metricDefinitions_ = nullptr;};
-    inline const vector<MetricDefinition> & metricDefinitions() const { DARABONBA_PTR_GET_CONST(metricDefinitions_, vector<MetricDefinition>) };
-    inline vector<MetricDefinition> metricDefinitions() { DARABONBA_PTR_GET(metricDefinitions_, vector<MetricDefinition>) };
+    inline const vector<MetricDefinition> & getMetricDefinitions() const { DARABONBA_PTR_GET_CONST(metricDefinitions_, vector<MetricDefinition>) };
+    inline vector<MetricDefinition> getMetricDefinitions() { DARABONBA_PTR_GET(metricDefinitions_, vector<MetricDefinition>) };
     inline ComponentSpec& setMetricDefinitions(const vector<MetricDefinition> & metricDefinitions) { DARABONBA_PTR_SET_VALUE(metricDefinitions_, metricDefinitions) };
     inline ComponentSpec& setMetricDefinitions(vector<MetricDefinition> && metricDefinitions) { DARABONBA_PTR_SET_RVALUE(metricDefinitions_, metricDefinitions) };
 
@@ -114,8 +114,8 @@ namespace Models
     // outputChannels Field Functions 
     bool hasOutputChannels() const { return this->outputChannels_ != nullptr;};
     void deleteOutputChannels() { this->outputChannels_ = nullptr;};
-    inline const vector<Channel> & outputChannels() const { DARABONBA_PTR_GET_CONST(outputChannels_, vector<Channel>) };
-    inline vector<Channel> outputChannels() { DARABONBA_PTR_GET(outputChannels_, vector<Channel>) };
+    inline const vector<Channel> & getOutputChannels() const { DARABONBA_PTR_GET_CONST(outputChannels_, vector<Channel>) };
+    inline vector<Channel> getOutputChannels() { DARABONBA_PTR_GET(outputChannels_, vector<Channel>) };
     inline ComponentSpec& setOutputChannels(const vector<Channel> & outputChannels) { DARABONBA_PTR_SET_VALUE(outputChannels_, outputChannels) };
     inline ComponentSpec& setOutputChannels(vector<Channel> && outputChannels) { DARABONBA_PTR_SET_RVALUE(outputChannels_, outputChannels) };
 
@@ -123,25 +123,25 @@ namespace Models
     // resourceRequirements Field Functions 
     bool hasResourceRequirements() const { return this->resourceRequirements_ != nullptr;};
     void deleteResourceRequirements() { this->resourceRequirements_ = nullptr;};
-    inline const vector<ConditionExpression> & resourceRequirements() const { DARABONBA_PTR_GET_CONST(resourceRequirements_, vector<ConditionExpression>) };
-    inline vector<ConditionExpression> resourceRequirements() { DARABONBA_PTR_GET(resourceRequirements_, vector<ConditionExpression>) };
+    inline const vector<ConditionExpression> & getResourceRequirements() const { DARABONBA_PTR_GET_CONST(resourceRequirements_, vector<ConditionExpression>) };
+    inline vector<ConditionExpression> getResourceRequirements() { DARABONBA_PTR_GET(resourceRequirements_, vector<ConditionExpression>) };
     inline ComponentSpec& setResourceRequirements(const vector<ConditionExpression> & resourceRequirements) { DARABONBA_PTR_SET_VALUE(resourceRequirements_, resourceRequirements) };
     inline ComponentSpec& setResourceRequirements(vector<ConditionExpression> && resourceRequirements) { DARABONBA_PTR_SET_RVALUE(resourceRequirements_, resourceRequirements) };
 
 
   protected:
-    std::shared_ptr<Location> codeDir_ = nullptr;
+    shared_ptr<Location> codeDir_ {};
     // This parameter is required.
-    std::shared_ptr<string> command_ = nullptr;
-    std::shared_ptr<vector<HyperParameterDefinition>> hyperParameters_ = nullptr;
+    shared_ptr<string> command_ {};
+    shared_ptr<vector<HyperParameterDefinition>> hyperParameters_ {};
     // This parameter is required.
-    std::shared_ptr<string> image_ = nullptr;
-    std::shared_ptr<vector<Channel>> inputChannels_ = nullptr;
+    shared_ptr<string> image_ {};
+    shared_ptr<vector<Channel>> inputChannels_ {};
     // This parameter is required.
-    std::shared_ptr<string> jobType_ = nullptr;
-    std::shared_ptr<vector<MetricDefinition>> metricDefinitions_ = nullptr;
-    std::shared_ptr<vector<Channel>> outputChannels_ = nullptr;
-    std::shared_ptr<vector<ConditionExpression>> resourceRequirements_ = nullptr;
+    shared_ptr<string> jobType_ {};
+    shared_ptr<vector<MetricDefinition>> metricDefinitions_ {};
+    shared_ptr<vector<Channel>> outputChannels_ {};
+    shared_ptr<vector<ConditionExpression>> resourceRequirements_ {};
   };
 
   } // namespace Models

@@ -33,12 +33,12 @@ namespace Models
     // tagShrink Field Functions 
     bool hasTagShrink() const { return this->tagShrink_ != nullptr;};
     void deleteTagShrink() { this->tagShrink_ = nullptr;};
-    inline string tagShrink() const { DARABONBA_PTR_GET_DEFAULT(tagShrink_, "") };
+    inline string getTagShrink() const { DARABONBA_PTR_GET_DEFAULT(tagShrink_, "") };
     inline GetResourceGroupMachineGroupShrinkRequest& setTagShrink(string tagShrink) { DARABONBA_PTR_SET_VALUE(tagShrink_, tagShrink) };
 
 
   protected:
-    std::shared_ptr<string> tagShrink_ = nullptr;
+    shared_ptr<string> tagShrink_ {};
   };
 
   } // namespace Models

@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->isEnabled_ == nullptr
-        && return this->resourceType_ == nullptr; };
+        && this->resourceType_ == nullptr; };
     // isEnabled Field Functions 
     bool hasIsEnabled() const { return this->isEnabled_ != nullptr;};
     void deleteIsEnabled() { this->isEnabled_ = nullptr;};
-    inline bool isEnabled() const { DARABONBA_PTR_GET_DEFAULT(isEnabled_, false) };
+    inline bool getIsEnabled() const { DARABONBA_PTR_GET_DEFAULT(isEnabled_, false) };
     inline Permission& setIsEnabled(bool isEnabled) { DARABONBA_PTR_SET_VALUE(isEnabled_, isEnabled) };
 
 
     // resourceType Field Functions 
     bool hasResourceType() const { return this->resourceType_ != nullptr;};
     void deleteResourceType() { this->resourceType_ = nullptr;};
-    inline string resourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
+    inline string getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
     inline Permission& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
 
 
   protected:
-    std::shared_ptr<bool> isEnabled_ = nullptr;
-    std::shared_ptr<string> resourceType_ = nullptr;
+    shared_ptr<bool> isEnabled_ {};
+    shared_ptr<string> resourceType_ {};
   };
 
   } // namespace Models

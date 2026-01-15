@@ -36,12 +36,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->quotas_ == nullptr
-        && return this->requestId_ == nullptr && return this->totalCount_ == nullptr; };
+        && this->requestId_ == nullptr && this->totalCount_ == nullptr; };
     // quotas Field Functions 
     bool hasQuotas() const { return this->quotas_ != nullptr;};
     void deleteQuotas() { this->quotas_ = nullptr;};
-    inline const vector<Quota> & quotas() const { DARABONBA_PTR_GET_CONST(quotas_, vector<Quota>) };
-    inline vector<Quota> quotas() { DARABONBA_PTR_GET(quotas_, vector<Quota>) };
+    inline const vector<Quota> & getQuotas() const { DARABONBA_PTR_GET_CONST(quotas_, vector<Quota>) };
+    inline vector<Quota> getQuotas() { DARABONBA_PTR_GET(quotas_, vector<Quota>) };
     inline ListQuotasResponseBody& setQuotas(const vector<Quota> & quotas) { DARABONBA_PTR_SET_VALUE(quotas_, quotas) };
     inline ListQuotasResponseBody& setQuotas(vector<Quota> && quotas) { DARABONBA_PTR_SET_RVALUE(quotas_, quotas) };
 
@@ -49,21 +49,21 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListQuotasResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // totalCount Field Functions 
     bool hasTotalCount() const { return this->totalCount_ != nullptr;};
     void deleteTotalCount() { this->totalCount_ = nullptr;};
-    inline int32_t totalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
+    inline int32_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
     inline ListQuotasResponseBody& setTotalCount(int32_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
 
 
   protected:
-    std::shared_ptr<vector<Quota>> quotas_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<int32_t> totalCount_ = nullptr;
+    shared_ptr<vector<Quota>> quotas_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<int32_t> totalCount_ {};
   };
 
   } // namespace Models

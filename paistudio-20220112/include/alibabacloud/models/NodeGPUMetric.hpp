@@ -48,27 +48,27 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->acceleratorType_ == nullptr
-        && return this->GPUCount_ == nullptr && return this->GPUMetrics_ == nullptr && return this->GPUType_ == nullptr && return this->memoryUtil_ == nullptr && return this->nodeId_ == nullptr
-        && return this->nodeType_ == nullptr && return this->totalMemory_ == nullptr && return this->usedMemory_ == nullptr; };
+        && this->GPUCount_ == nullptr && this->GPUMetrics_ == nullptr && this->GPUType_ == nullptr && this->memoryUtil_ == nullptr && this->nodeId_ == nullptr
+        && this->nodeType_ == nullptr && this->totalMemory_ == nullptr && this->usedMemory_ == nullptr; };
     // acceleratorType Field Functions 
     bool hasAcceleratorType() const { return this->acceleratorType_ != nullptr;};
     void deleteAcceleratorType() { this->acceleratorType_ = nullptr;};
-    inline string acceleratorType() const { DARABONBA_PTR_GET_DEFAULT(acceleratorType_, "") };
+    inline string getAcceleratorType() const { DARABONBA_PTR_GET_DEFAULT(acceleratorType_, "") };
     inline NodeGPUMetric& setAcceleratorType(string acceleratorType) { DARABONBA_PTR_SET_VALUE(acceleratorType_, acceleratorType) };
 
 
     // GPUCount Field Functions 
     bool hasGPUCount() const { return this->GPUCount_ != nullptr;};
     void deleteGPUCount() { this->GPUCount_ = nullptr;};
-    inline int32_t GPUCount() const { DARABONBA_PTR_GET_DEFAULT(GPUCount_, 0) };
+    inline int32_t getGPUCount() const { DARABONBA_PTR_GET_DEFAULT(GPUCount_, 0) };
     inline NodeGPUMetric& setGPUCount(int32_t GPUCount) { DARABONBA_PTR_SET_VALUE(GPUCount_, GPUCount) };
 
 
     // GPUMetrics Field Functions 
     bool hasGPUMetrics() const { return this->GPUMetrics_ != nullptr;};
     void deleteGPUMetrics() { this->GPUMetrics_ = nullptr;};
-    inline const vector<GPUMetric> & GPUMetrics() const { DARABONBA_PTR_GET_CONST(GPUMetrics_, vector<GPUMetric>) };
-    inline vector<GPUMetric> GPUMetrics() { DARABONBA_PTR_GET(GPUMetrics_, vector<GPUMetric>) };
+    inline const vector<GPUMetric> & getGPUMetrics() const { DARABONBA_PTR_GET_CONST(GPUMetrics_, vector<GPUMetric>) };
+    inline vector<GPUMetric> getGPUMetrics() { DARABONBA_PTR_GET(GPUMetrics_, vector<GPUMetric>) };
     inline NodeGPUMetric& setGPUMetrics(const vector<GPUMetric> & GPUMetrics) { DARABONBA_PTR_SET_VALUE(GPUMetrics_, GPUMetrics) };
     inline NodeGPUMetric& setGPUMetrics(vector<GPUMetric> && GPUMetrics) { DARABONBA_PTR_SET_RVALUE(GPUMetrics_, GPUMetrics) };
 
@@ -76,55 +76,55 @@ namespace Models
     // GPUType Field Functions 
     bool hasGPUType() const { return this->GPUType_ != nullptr;};
     void deleteGPUType() { this->GPUType_ = nullptr;};
-    inline string GPUType() const { DARABONBA_PTR_GET_DEFAULT(GPUType_, "") };
+    inline string getGPUType() const { DARABONBA_PTR_GET_DEFAULT(GPUType_, "") };
     inline NodeGPUMetric& setGPUType(string GPUType) { DARABONBA_PTR_SET_VALUE(GPUType_, GPUType) };
 
 
     // memoryUtil Field Functions 
     bool hasMemoryUtil() const { return this->memoryUtil_ != nullptr;};
     void deleteMemoryUtil() { this->memoryUtil_ = nullptr;};
-    inline float memoryUtil() const { DARABONBA_PTR_GET_DEFAULT(memoryUtil_, 0.0) };
+    inline float getMemoryUtil() const { DARABONBA_PTR_GET_DEFAULT(memoryUtil_, 0.0) };
     inline NodeGPUMetric& setMemoryUtil(float memoryUtil) { DARABONBA_PTR_SET_VALUE(memoryUtil_, memoryUtil) };
 
 
     // nodeId Field Functions 
     bool hasNodeId() const { return this->nodeId_ != nullptr;};
     void deleteNodeId() { this->nodeId_ = nullptr;};
-    inline string nodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
+    inline string getNodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
     inline NodeGPUMetric& setNodeId(string nodeId) { DARABONBA_PTR_SET_VALUE(nodeId_, nodeId) };
 
 
     // nodeType Field Functions 
     bool hasNodeType() const { return this->nodeType_ != nullptr;};
     void deleteNodeType() { this->nodeType_ = nullptr;};
-    inline string nodeType() const { DARABONBA_PTR_GET_DEFAULT(nodeType_, "") };
+    inline string getNodeType() const { DARABONBA_PTR_GET_DEFAULT(nodeType_, "") };
     inline NodeGPUMetric& setNodeType(string nodeType) { DARABONBA_PTR_SET_VALUE(nodeType_, nodeType) };
 
 
     // totalMemory Field Functions 
     bool hasTotalMemory() const { return this->totalMemory_ != nullptr;};
     void deleteTotalMemory() { this->totalMemory_ = nullptr;};
-    inline float totalMemory() const { DARABONBA_PTR_GET_DEFAULT(totalMemory_, 0.0) };
+    inline float getTotalMemory() const { DARABONBA_PTR_GET_DEFAULT(totalMemory_, 0.0) };
     inline NodeGPUMetric& setTotalMemory(float totalMemory) { DARABONBA_PTR_SET_VALUE(totalMemory_, totalMemory) };
 
 
     // usedMemory Field Functions 
     bool hasUsedMemory() const { return this->usedMemory_ != nullptr;};
     void deleteUsedMemory() { this->usedMemory_ = nullptr;};
-    inline float usedMemory() const { DARABONBA_PTR_GET_DEFAULT(usedMemory_, 0.0) };
+    inline float getUsedMemory() const { DARABONBA_PTR_GET_DEFAULT(usedMemory_, 0.0) };
     inline NodeGPUMetric& setUsedMemory(float usedMemory) { DARABONBA_PTR_SET_VALUE(usedMemory_, usedMemory) };
 
 
   protected:
-    std::shared_ptr<string> acceleratorType_ = nullptr;
-    std::shared_ptr<int32_t> GPUCount_ = nullptr;
-    std::shared_ptr<vector<GPUMetric>> GPUMetrics_ = nullptr;
-    std::shared_ptr<string> GPUType_ = nullptr;
-    std::shared_ptr<float> memoryUtil_ = nullptr;
-    std::shared_ptr<string> nodeId_ = nullptr;
-    std::shared_ptr<string> nodeType_ = nullptr;
-    std::shared_ptr<float> totalMemory_ = nullptr;
-    std::shared_ptr<float> usedMemory_ = nullptr;
+    shared_ptr<string> acceleratorType_ {};
+    shared_ptr<int32_t> GPUCount_ {};
+    shared_ptr<vector<GPUMetric>> GPUMetrics_ {};
+    shared_ptr<string> GPUType_ {};
+    shared_ptr<float> memoryUtil_ {};
+    shared_ptr<string> nodeId_ {};
+    shared_ptr<string> nodeType_ {};
+    shared_ptr<float> totalMemory_ {};
+    shared_ptr<float> usedMemory_ {};
   };
 
   } // namespace Models

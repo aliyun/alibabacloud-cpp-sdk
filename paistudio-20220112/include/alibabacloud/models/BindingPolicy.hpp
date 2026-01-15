@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->excludeNodes_ == nullptr
-        && return this->includeNodes_ == nullptr && return this->nodeSpecCount_ == nullptr; };
+        && this->includeNodes_ == nullptr && this->nodeSpecCount_ == nullptr; };
     // excludeNodes Field Functions 
     bool hasExcludeNodes() const { return this->excludeNodes_ != nullptr;};
     void deleteExcludeNodes() { this->excludeNodes_ = nullptr;};
-    inline const vector<string> & excludeNodes() const { DARABONBA_PTR_GET_CONST(excludeNodes_, vector<string>) };
-    inline vector<string> excludeNodes() { DARABONBA_PTR_GET(excludeNodes_, vector<string>) };
+    inline const vector<string> & getExcludeNodes() const { DARABONBA_PTR_GET_CONST(excludeNodes_, vector<string>) };
+    inline vector<string> getExcludeNodes() { DARABONBA_PTR_GET(excludeNodes_, vector<string>) };
     inline BindingPolicy& setExcludeNodes(const vector<string> & excludeNodes) { DARABONBA_PTR_SET_VALUE(excludeNodes_, excludeNodes) };
     inline BindingPolicy& setExcludeNodes(vector<string> && excludeNodes) { DARABONBA_PTR_SET_RVALUE(excludeNodes_, excludeNodes) };
 
@@ -48,8 +48,8 @@ namespace Models
     // includeNodes Field Functions 
     bool hasIncludeNodes() const { return this->includeNodes_ != nullptr;};
     void deleteIncludeNodes() { this->includeNodes_ = nullptr;};
-    inline const vector<string> & includeNodes() const { DARABONBA_PTR_GET_CONST(includeNodes_, vector<string>) };
-    inline vector<string> includeNodes() { DARABONBA_PTR_GET(includeNodes_, vector<string>) };
+    inline const vector<string> & getIncludeNodes() const { DARABONBA_PTR_GET_CONST(includeNodes_, vector<string>) };
+    inline vector<string> getIncludeNodes() { DARABONBA_PTR_GET(includeNodes_, vector<string>) };
     inline BindingPolicy& setIncludeNodes(const vector<string> & includeNodes) { DARABONBA_PTR_SET_VALUE(includeNodes_, includeNodes) };
     inline BindingPolicy& setIncludeNodes(vector<string> && includeNodes) { DARABONBA_PTR_SET_RVALUE(includeNodes_, includeNodes) };
 
@@ -57,14 +57,14 @@ namespace Models
     // nodeSpecCount Field Functions 
     bool hasNodeSpecCount() const { return this->nodeSpecCount_ != nullptr;};
     void deleteNodeSpecCount() { this->nodeSpecCount_ = nullptr;};
-    inline int64_t nodeSpecCount() const { DARABONBA_PTR_GET_DEFAULT(nodeSpecCount_, 0L) };
+    inline int64_t getNodeSpecCount() const { DARABONBA_PTR_GET_DEFAULT(nodeSpecCount_, 0L) };
     inline BindingPolicy& setNodeSpecCount(int64_t nodeSpecCount) { DARABONBA_PTR_SET_VALUE(nodeSpecCount_, nodeSpecCount) };
 
 
   protected:
-    std::shared_ptr<vector<string>> excludeNodes_ = nullptr;
-    std::shared_ptr<vector<string>> includeNodes_ = nullptr;
-    std::shared_ptr<int64_t> nodeSpecCount_ = nullptr;
+    shared_ptr<vector<string>> excludeNodes_ {};
+    shared_ptr<vector<string>> includeNodes_ {};
+    shared_ptr<int64_t> nodeSpecCount_ {};
   };
 
   } // namespace Models

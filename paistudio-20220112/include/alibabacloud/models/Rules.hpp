@@ -34,14 +34,14 @@ namespace Models
     // scheduling Field Functions 
     bool hasScheduling() const { return this->scheduling_ != nullptr;};
     void deleteScheduling() { this->scheduling_ = nullptr;};
-    inline const SchedulingRule & scheduling() const { DARABONBA_PTR_GET_CONST(scheduling_, SchedulingRule) };
-    inline SchedulingRule scheduling() { DARABONBA_PTR_GET(scheduling_, SchedulingRule) };
+    inline const SchedulingRule & getScheduling() const { DARABONBA_PTR_GET_CONST(scheduling_, SchedulingRule) };
+    inline SchedulingRule getScheduling() { DARABONBA_PTR_GET(scheduling_, SchedulingRule) };
     inline Rules& setScheduling(const SchedulingRule & scheduling) { DARABONBA_PTR_SET_VALUE(scheduling_, scheduling) };
     inline Rules& setScheduling(SchedulingRule && scheduling) { DARABONBA_PTR_SET_RVALUE(scheduling_, scheduling) };
 
 
   protected:
-    std::shared_ptr<SchedulingRule> scheduling_ = nullptr;
+    shared_ptr<SchedulingRule> scheduling_ {};
   };
 
   } // namespace Models

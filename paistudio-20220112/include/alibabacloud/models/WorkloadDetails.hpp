@@ -37,12 +37,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DLC_ == nullptr
-        && return this->DSW_ == nullptr && return this->EAS_ == nullptr && return this->summary_ == nullptr; };
+        && this->DSW_ == nullptr && this->EAS_ == nullptr && this->summary_ == nullptr; };
     // DLC Field Functions 
     bool hasDLC() const { return this->DLC_ != nullptr;};
     void deleteDLC() { this->DLC_ = nullptr;};
-    inline const QuotaJob & DLC() const { DARABONBA_PTR_GET_CONST(DLC_, QuotaJob) };
-    inline QuotaJob DLC() { DARABONBA_PTR_GET(DLC_, QuotaJob) };
+    inline const QuotaJob & getDLC() const { DARABONBA_PTR_GET_CONST(DLC_, QuotaJob) };
+    inline QuotaJob getDLC() { DARABONBA_PTR_GET(DLC_, QuotaJob) };
     inline WorkloadDetails& setDLC(const QuotaJob & DLC) { DARABONBA_PTR_SET_VALUE(DLC_, DLC) };
     inline WorkloadDetails& setDLC(QuotaJob && DLC) { DARABONBA_PTR_SET_RVALUE(DLC_, DLC) };
 
@@ -50,8 +50,8 @@ namespace Models
     // DSW Field Functions 
     bool hasDSW() const { return this->DSW_ != nullptr;};
     void deleteDSW() { this->DSW_ = nullptr;};
-    inline const QuotaJob & DSW() const { DARABONBA_PTR_GET_CONST(DSW_, QuotaJob) };
-    inline QuotaJob DSW() { DARABONBA_PTR_GET(DSW_, QuotaJob) };
+    inline const QuotaJob & getDSW() const { DARABONBA_PTR_GET_CONST(DSW_, QuotaJob) };
+    inline QuotaJob getDSW() { DARABONBA_PTR_GET(DSW_, QuotaJob) };
     inline WorkloadDetails& setDSW(const QuotaJob & DSW) { DARABONBA_PTR_SET_VALUE(DSW_, DSW) };
     inline WorkloadDetails& setDSW(QuotaJob && DSW) { DARABONBA_PTR_SET_RVALUE(DSW_, DSW) };
 
@@ -59,8 +59,8 @@ namespace Models
     // EAS Field Functions 
     bool hasEAS() const { return this->EAS_ != nullptr;};
     void deleteEAS() { this->EAS_ = nullptr;};
-    inline const QuotaJob & EAS() const { DARABONBA_PTR_GET_CONST(EAS_, QuotaJob) };
-    inline QuotaJob EAS() { DARABONBA_PTR_GET(EAS_, QuotaJob) };
+    inline const QuotaJob & getEAS() const { DARABONBA_PTR_GET_CONST(EAS_, QuotaJob) };
+    inline QuotaJob getEAS() { DARABONBA_PTR_GET(EAS_, QuotaJob) };
     inline WorkloadDetails& setEAS(const QuotaJob & EAS) { DARABONBA_PTR_SET_VALUE(EAS_, EAS) };
     inline WorkloadDetails& setEAS(QuotaJob && EAS) { DARABONBA_PTR_SET_RVALUE(EAS_, EAS) };
 
@@ -68,17 +68,17 @@ namespace Models
     // summary Field Functions 
     bool hasSummary() const { return this->summary_ != nullptr;};
     void deleteSummary() { this->summary_ = nullptr;};
-    inline const QuotaJob & summary() const { DARABONBA_PTR_GET_CONST(summary_, QuotaJob) };
-    inline QuotaJob summary() { DARABONBA_PTR_GET(summary_, QuotaJob) };
+    inline const QuotaJob & getSummary() const { DARABONBA_PTR_GET_CONST(summary_, QuotaJob) };
+    inline QuotaJob getSummary() { DARABONBA_PTR_GET(summary_, QuotaJob) };
     inline WorkloadDetails& setSummary(const QuotaJob & summary) { DARABONBA_PTR_SET_VALUE(summary_, summary) };
     inline WorkloadDetails& setSummary(QuotaJob && summary) { DARABONBA_PTR_SET_RVALUE(summary_, summary) };
 
 
   protected:
-    std::shared_ptr<QuotaJob> DLC_ = nullptr;
-    std::shared_ptr<QuotaJob> DSW_ = nullptr;
-    std::shared_ptr<QuotaJob> EAS_ = nullptr;
-    std::shared_ptr<QuotaJob> summary_ = nullptr;
+    shared_ptr<QuotaJob> DLC_ {};
+    shared_ptr<QuotaJob> DSW_ {};
+    shared_ptr<QuotaJob> EAS_ {};
+    shared_ptr<QuotaJob> summary_ {};
   };
 
   } // namespace Models

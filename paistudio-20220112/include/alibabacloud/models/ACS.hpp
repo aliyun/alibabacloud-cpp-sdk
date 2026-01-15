@@ -33,26 +33,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ACSQuotaId_ == nullptr
-        && return this->associatedProducts_ == nullptr; };
+        && this->associatedProducts_ == nullptr; };
     // ACSQuotaId Field Functions 
     bool hasACSQuotaId() const { return this->ACSQuotaId_ != nullptr;};
     void deleteACSQuotaId() { this->ACSQuotaId_ = nullptr;};
-    inline string ACSQuotaId() const { DARABONBA_PTR_GET_DEFAULT(ACSQuotaId_, "") };
+    inline string getACSQuotaId() const { DARABONBA_PTR_GET_DEFAULT(ACSQuotaId_, "") };
     inline ACS& setACSQuotaId(string ACSQuotaId) { DARABONBA_PTR_SET_VALUE(ACSQuotaId_, ACSQuotaId) };
 
 
     // associatedProducts Field Functions 
     bool hasAssociatedProducts() const { return this->associatedProducts_ != nullptr;};
     void deleteAssociatedProducts() { this->associatedProducts_ = nullptr;};
-    inline const vector<string> & associatedProducts() const { DARABONBA_PTR_GET_CONST(associatedProducts_, vector<string>) };
-    inline vector<string> associatedProducts() { DARABONBA_PTR_GET(associatedProducts_, vector<string>) };
+    inline const vector<string> & getAssociatedProducts() const { DARABONBA_PTR_GET_CONST(associatedProducts_, vector<string>) };
+    inline vector<string> getAssociatedProducts() { DARABONBA_PTR_GET(associatedProducts_, vector<string>) };
     inline ACS& setAssociatedProducts(const vector<string> & associatedProducts) { DARABONBA_PTR_SET_VALUE(associatedProducts_, associatedProducts) };
     inline ACS& setAssociatedProducts(vector<string> && associatedProducts) { DARABONBA_PTR_SET_RVALUE(associatedProducts_, associatedProducts) };
 
 
   protected:
-    std::shared_ptr<string> ACSQuotaId_ = nullptr;
-    std::shared_ptr<vector<string>> associatedProducts_ = nullptr;
+    shared_ptr<string> ACSQuotaId_ {};
+    shared_ptr<vector<string>> associatedProducts_ {};
   };
 
   } // namespace Models

@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->antiAffinityNodeNames_ == nullptr
-        && return this->enableAssignNode_ == nullptr && return this->nodeNames_ == nullptr; };
+        && this->enableAssignNode_ == nullptr && this->nodeNames_ == nullptr; };
     // antiAffinityNodeNames Field Functions 
     bool hasAntiAffinityNodeNames() const { return this->antiAffinityNodeNames_ != nullptr;};
     void deleteAntiAffinityNodeNames() { this->antiAffinityNodeNames_ = nullptr;};
-    inline string antiAffinityNodeNames() const { DARABONBA_PTR_GET_DEFAULT(antiAffinityNodeNames_, "") };
+    inline string getAntiAffinityNodeNames() const { DARABONBA_PTR_GET_DEFAULT(antiAffinityNodeNames_, "") };
     inline AssignNodeSpec& setAntiAffinityNodeNames(string antiAffinityNodeNames) { DARABONBA_PTR_SET_VALUE(antiAffinityNodeNames_, antiAffinityNodeNames) };
 
 
     // enableAssignNode Field Functions 
     bool hasEnableAssignNode() const { return this->enableAssignNode_ != nullptr;};
     void deleteEnableAssignNode() { this->enableAssignNode_ = nullptr;};
-    inline bool enableAssignNode() const { DARABONBA_PTR_GET_DEFAULT(enableAssignNode_, false) };
+    inline bool getEnableAssignNode() const { DARABONBA_PTR_GET_DEFAULT(enableAssignNode_, false) };
     inline AssignNodeSpec& setEnableAssignNode(bool enableAssignNode) { DARABONBA_PTR_SET_VALUE(enableAssignNode_, enableAssignNode) };
 
 
     // nodeNames Field Functions 
     bool hasNodeNames() const { return this->nodeNames_ != nullptr;};
     void deleteNodeNames() { this->nodeNames_ = nullptr;};
-    inline string nodeNames() const { DARABONBA_PTR_GET_DEFAULT(nodeNames_, "") };
+    inline string getNodeNames() const { DARABONBA_PTR_GET_DEFAULT(nodeNames_, "") };
     inline AssignNodeSpec& setNodeNames(string nodeNames) { DARABONBA_PTR_SET_VALUE(nodeNames_, nodeNames) };
 
 
   protected:
-    std::shared_ptr<string> antiAffinityNodeNames_ = nullptr;
-    std::shared_ptr<bool> enableAssignNode_ = nullptr;
-    std::shared_ptr<string> nodeNames_ = nullptr;
+    shared_ptr<string> antiAffinityNodeNames_ {};
+    shared_ptr<bool> enableAssignNode_ {};
+    shared_ptr<string> nodeNames_ {};
   };
 
   } // namespace Models

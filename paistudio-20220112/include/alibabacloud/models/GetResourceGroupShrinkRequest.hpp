@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->isAIWorkspaceDataEnabled_ == nullptr
-        && return this->tagShrink_ == nullptr; };
+        && this->tagShrink_ == nullptr; };
     // isAIWorkspaceDataEnabled Field Functions 
     bool hasIsAIWorkspaceDataEnabled() const { return this->isAIWorkspaceDataEnabled_ != nullptr;};
     void deleteIsAIWorkspaceDataEnabled() { this->isAIWorkspaceDataEnabled_ = nullptr;};
-    inline bool isAIWorkspaceDataEnabled() const { DARABONBA_PTR_GET_DEFAULT(isAIWorkspaceDataEnabled_, false) };
+    inline bool getIsAIWorkspaceDataEnabled() const { DARABONBA_PTR_GET_DEFAULT(isAIWorkspaceDataEnabled_, false) };
     inline GetResourceGroupShrinkRequest& setIsAIWorkspaceDataEnabled(bool isAIWorkspaceDataEnabled) { DARABONBA_PTR_SET_VALUE(isAIWorkspaceDataEnabled_, isAIWorkspaceDataEnabled) };
 
 
     // tagShrink Field Functions 
     bool hasTagShrink() const { return this->tagShrink_ != nullptr;};
     void deleteTagShrink() { this->tagShrink_ = nullptr;};
-    inline string tagShrink() const { DARABONBA_PTR_GET_DEFAULT(tagShrink_, "") };
+    inline string getTagShrink() const { DARABONBA_PTR_GET_DEFAULT(tagShrink_, "") };
     inline GetResourceGroupShrinkRequest& setTagShrink(string tagShrink) { DARABONBA_PTR_SET_VALUE(tagShrink_, tagShrink) };
 
 
   protected:
-    std::shared_ptr<bool> isAIWorkspaceDataEnabled_ = nullptr;
-    std::shared_ptr<string> tagShrink_ = nullptr;
+    shared_ptr<bool> isAIWorkspaceDataEnabled_ {};
+    shared_ptr<string> tagShrink_ {};
   };
 
   } // namespace Models

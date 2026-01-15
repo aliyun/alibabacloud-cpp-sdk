@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->canBeBoundCount_ == nullptr
-        && return this->nodeType_ == nullptr && return this->totalCount_ == nullptr; };
+        && this->nodeType_ == nullptr && this->totalCount_ == nullptr; };
     // canBeBoundCount Field Functions 
     bool hasCanBeBoundCount() const { return this->canBeBoundCount_ != nullptr;};
     void deleteCanBeBoundCount() { this->canBeBoundCount_ = nullptr;};
-    inline int32_t canBeBoundCount() const { DARABONBA_PTR_GET_DEFAULT(canBeBoundCount_, 0) };
+    inline int32_t getCanBeBoundCount() const { DARABONBA_PTR_GET_DEFAULT(canBeBoundCount_, 0) };
     inline NodeTypeStatistic& setCanBeBoundCount(int32_t canBeBoundCount) { DARABONBA_PTR_SET_VALUE(canBeBoundCount_, canBeBoundCount) };
 
 
     // nodeType Field Functions 
     bool hasNodeType() const { return this->nodeType_ != nullptr;};
     void deleteNodeType() { this->nodeType_ = nullptr;};
-    inline string nodeType() const { DARABONBA_PTR_GET_DEFAULT(nodeType_, "") };
+    inline string getNodeType() const { DARABONBA_PTR_GET_DEFAULT(nodeType_, "") };
     inline NodeTypeStatistic& setNodeType(string nodeType) { DARABONBA_PTR_SET_VALUE(nodeType_, nodeType) };
 
 
     // totalCount Field Functions 
     bool hasTotalCount() const { return this->totalCount_ != nullptr;};
     void deleteTotalCount() { this->totalCount_ = nullptr;};
-    inline int32_t totalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
+    inline int32_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
     inline NodeTypeStatistic& setTotalCount(int32_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
 
 
   protected:
-    std::shared_ptr<int32_t> canBeBoundCount_ = nullptr;
-    std::shared_ptr<string> nodeType_ = nullptr;
-    std::shared_ptr<int32_t> totalCount_ = nullptr;
+    shared_ptr<int32_t> canBeBoundCount_ {};
+    shared_ptr<string> nodeType_ {};
+    shared_ptr<int32_t> totalCount_ {};
   };
 
   } // namespace Models

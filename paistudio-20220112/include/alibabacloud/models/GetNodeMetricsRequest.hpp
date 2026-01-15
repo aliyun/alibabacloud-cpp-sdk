@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->endTime_ == nullptr
-        && return this->GPUType_ == nullptr && return this->startTime_ == nullptr && return this->timeStep_ == nullptr && return this->verbose_ == nullptr; };
+        && this->GPUType_ == nullptr && this->startTime_ == nullptr && this->timeStep_ == nullptr && this->verbose_ == nullptr; };
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline GetNodeMetricsRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // GPUType Field Functions 
     bool hasGPUType() const { return this->GPUType_ != nullptr;};
     void deleteGPUType() { this->GPUType_ = nullptr;};
-    inline string GPUType() const { DARABONBA_PTR_GET_DEFAULT(GPUType_, "") };
+    inline string getGPUType() const { DARABONBA_PTR_GET_DEFAULT(GPUType_, "") };
     inline GetNodeMetricsRequest& setGPUType(string GPUType) { DARABONBA_PTR_SET_VALUE(GPUType_, GPUType) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline GetNodeMetricsRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // timeStep Field Functions 
     bool hasTimeStep() const { return this->timeStep_ != nullptr;};
     void deleteTimeStep() { this->timeStep_ = nullptr;};
-    inline string timeStep() const { DARABONBA_PTR_GET_DEFAULT(timeStep_, "") };
+    inline string getTimeStep() const { DARABONBA_PTR_GET_DEFAULT(timeStep_, "") };
     inline GetNodeMetricsRequest& setTimeStep(string timeStep) { DARABONBA_PTR_SET_VALUE(timeStep_, timeStep) };
 
 
     // verbose Field Functions 
     bool hasVerbose() const { return this->verbose_ != nullptr;};
     void deleteVerbose() { this->verbose_ = nullptr;};
-    inline bool verbose() const { DARABONBA_PTR_GET_DEFAULT(verbose_, false) };
+    inline bool getVerbose() const { DARABONBA_PTR_GET_DEFAULT(verbose_, false) };
     inline GetNodeMetricsRequest& setVerbose(bool verbose) { DARABONBA_PTR_SET_VALUE(verbose_, verbose) };
 
 
   protected:
-    std::shared_ptr<string> endTime_ = nullptr;
-    std::shared_ptr<string> GPUType_ = nullptr;
-    std::shared_ptr<string> startTime_ = nullptr;
-    std::shared_ptr<string> timeStep_ = nullptr;
-    std::shared_ptr<bool> verbose_ = nullptr;
+    shared_ptr<string> endTime_ {};
+    shared_ptr<string> GPUType_ {};
+    shared_ptr<string> startTime_ {};
+    shared_ptr<string> timeStep_ {};
+    shared_ptr<bool> verbose_ {};
   };
 
   } // namespace Models

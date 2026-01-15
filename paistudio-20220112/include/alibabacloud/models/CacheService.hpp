@@ -51,13 +51,13 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cacheInfos_ == nullptr
-        && return this->cacheServiceId_ == nullptr && return this->createdBy_ == nullptr && return this->gmtCreated_ == nullptr && return this->quotaId_ == nullptr && return this->status_ == nullptr
-        && return this->supportedClientQuotaIds_ == nullptr && return this->tenantId_ == nullptr && return this->userId_ == nullptr && return this->userVpc_ == nullptr; };
+        && this->cacheServiceId_ == nullptr && this->createdBy_ == nullptr && this->gmtCreated_ == nullptr && this->quotaId_ == nullptr && this->status_ == nullptr
+        && this->supportedClientQuotaIds_ == nullptr && this->tenantId_ == nullptr && this->userId_ == nullptr && this->userVpc_ == nullptr; };
     // cacheInfos Field Functions 
     bool hasCacheInfos() const { return this->cacheInfos_ != nullptr;};
     void deleteCacheInfos() { this->cacheInfos_ = nullptr;};
-    inline const vector<CacheInfo> & cacheInfos() const { DARABONBA_PTR_GET_CONST(cacheInfos_, vector<CacheInfo>) };
-    inline vector<CacheInfo> cacheInfos() { DARABONBA_PTR_GET(cacheInfos_, vector<CacheInfo>) };
+    inline const vector<CacheInfo> & getCacheInfos() const { DARABONBA_PTR_GET_CONST(cacheInfos_, vector<CacheInfo>) };
+    inline vector<CacheInfo> getCacheInfos() { DARABONBA_PTR_GET(cacheInfos_, vector<CacheInfo>) };
     inline CacheService& setCacheInfos(const vector<CacheInfo> & cacheInfos) { DARABONBA_PTR_SET_VALUE(cacheInfos_, cacheInfos) };
     inline CacheService& setCacheInfos(vector<CacheInfo> && cacheInfos) { DARABONBA_PTR_SET_RVALUE(cacheInfos_, cacheInfos) };
 
@@ -65,43 +65,43 @@ namespace Models
     // cacheServiceId Field Functions 
     bool hasCacheServiceId() const { return this->cacheServiceId_ != nullptr;};
     void deleteCacheServiceId() { this->cacheServiceId_ = nullptr;};
-    inline string cacheServiceId() const { DARABONBA_PTR_GET_DEFAULT(cacheServiceId_, "") };
+    inline string getCacheServiceId() const { DARABONBA_PTR_GET_DEFAULT(cacheServiceId_, "") };
     inline CacheService& setCacheServiceId(string cacheServiceId) { DARABONBA_PTR_SET_VALUE(cacheServiceId_, cacheServiceId) };
 
 
     // createdBy Field Functions 
     bool hasCreatedBy() const { return this->createdBy_ != nullptr;};
     void deleteCreatedBy() { this->createdBy_ = nullptr;};
-    inline string createdBy() const { DARABONBA_PTR_GET_DEFAULT(createdBy_, "") };
+    inline string getCreatedBy() const { DARABONBA_PTR_GET_DEFAULT(createdBy_, "") };
     inline CacheService& setCreatedBy(string createdBy) { DARABONBA_PTR_SET_VALUE(createdBy_, createdBy) };
 
 
     // gmtCreated Field Functions 
     bool hasGmtCreated() const { return this->gmtCreated_ != nullptr;};
     void deleteGmtCreated() { this->gmtCreated_ = nullptr;};
-    inline string gmtCreated() const { DARABONBA_PTR_GET_DEFAULT(gmtCreated_, "") };
+    inline string getGmtCreated() const { DARABONBA_PTR_GET_DEFAULT(gmtCreated_, "") };
     inline CacheService& setGmtCreated(string gmtCreated) { DARABONBA_PTR_SET_VALUE(gmtCreated_, gmtCreated) };
 
 
     // quotaId Field Functions 
     bool hasQuotaId() const { return this->quotaId_ != nullptr;};
     void deleteQuotaId() { this->quotaId_ = nullptr;};
-    inline string quotaId() const { DARABONBA_PTR_GET_DEFAULT(quotaId_, "") };
+    inline string getQuotaId() const { DARABONBA_PTR_GET_DEFAULT(quotaId_, "") };
     inline CacheService& setQuotaId(string quotaId) { DARABONBA_PTR_SET_VALUE(quotaId_, quotaId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline CacheService& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // supportedClientQuotaIds Field Functions 
     bool hasSupportedClientQuotaIds() const { return this->supportedClientQuotaIds_ != nullptr;};
     void deleteSupportedClientQuotaIds() { this->supportedClientQuotaIds_ = nullptr;};
-    inline const vector<string> & supportedClientQuotaIds() const { DARABONBA_PTR_GET_CONST(supportedClientQuotaIds_, vector<string>) };
-    inline vector<string> supportedClientQuotaIds() { DARABONBA_PTR_GET(supportedClientQuotaIds_, vector<string>) };
+    inline const vector<string> & getSupportedClientQuotaIds() const { DARABONBA_PTR_GET_CONST(supportedClientQuotaIds_, vector<string>) };
+    inline vector<string> getSupportedClientQuotaIds() { DARABONBA_PTR_GET(supportedClientQuotaIds_, vector<string>) };
     inline CacheService& setSupportedClientQuotaIds(const vector<string> & supportedClientQuotaIds) { DARABONBA_PTR_SET_VALUE(supportedClientQuotaIds_, supportedClientQuotaIds) };
     inline CacheService& setSupportedClientQuotaIds(vector<string> && supportedClientQuotaIds) { DARABONBA_PTR_SET_RVALUE(supportedClientQuotaIds_, supportedClientQuotaIds) };
 
@@ -109,37 +109,37 @@ namespace Models
     // tenantId Field Functions 
     bool hasTenantId() const { return this->tenantId_ != nullptr;};
     void deleteTenantId() { this->tenantId_ = nullptr;};
-    inline string tenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
+    inline string getTenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
     inline CacheService& setTenantId(string tenantId) { DARABONBA_PTR_SET_VALUE(tenantId_, tenantId) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline CacheService& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
     // userVpc Field Functions 
     bool hasUserVpc() const { return this->userVpc_ != nullptr;};
     void deleteUserVpc() { this->userVpc_ = nullptr;};
-    inline const UserVpc & userVpc() const { DARABONBA_PTR_GET_CONST(userVpc_, UserVpc) };
-    inline UserVpc userVpc() { DARABONBA_PTR_GET(userVpc_, UserVpc) };
+    inline const UserVpc & getUserVpc() const { DARABONBA_PTR_GET_CONST(userVpc_, UserVpc) };
+    inline UserVpc getUserVpc() { DARABONBA_PTR_GET(userVpc_, UserVpc) };
     inline CacheService& setUserVpc(const UserVpc & userVpc) { DARABONBA_PTR_SET_VALUE(userVpc_, userVpc) };
     inline CacheService& setUserVpc(UserVpc && userVpc) { DARABONBA_PTR_SET_RVALUE(userVpc_, userVpc) };
 
 
   protected:
-    std::shared_ptr<vector<CacheInfo>> cacheInfos_ = nullptr;
-    std::shared_ptr<string> cacheServiceId_ = nullptr;
-    std::shared_ptr<string> createdBy_ = nullptr;
-    std::shared_ptr<string> gmtCreated_ = nullptr;
-    std::shared_ptr<string> quotaId_ = nullptr;
-    std::shared_ptr<string> status_ = nullptr;
-    std::shared_ptr<vector<string>> supportedClientQuotaIds_ = nullptr;
-    std::shared_ptr<string> tenantId_ = nullptr;
-    std::shared_ptr<string> userId_ = nullptr;
-    std::shared_ptr<UserVpc> userVpc_ = nullptr;
+    shared_ptr<vector<CacheInfo>> cacheInfos_ {};
+    shared_ptr<string> cacheServiceId_ {};
+    shared_ptr<string> createdBy_ {};
+    shared_ptr<string> gmtCreated_ {};
+    shared_ptr<string> quotaId_ {};
+    shared_ptr<string> status_ {};
+    shared_ptr<vector<string>> supportedClientQuotaIds_ {};
+    shared_ptr<string> tenantId_ {};
+    shared_ptr<string> userId_ {};
+    shared_ptr<UserVpc> userVpc_ {};
   };
 
   } // namespace Models

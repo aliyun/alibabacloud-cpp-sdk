@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->userId_ == nullptr
-        && return this->userName_ == nullptr; };
+        && this->userName_ == nullptr; };
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline UserInfo& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
     // userName Field Functions 
     bool hasUserName() const { return this->userName_ != nullptr;};
     void deleteUserName() { this->userName_ = nullptr;};
-    inline string userName() const { DARABONBA_PTR_GET_DEFAULT(userName_, "") };
+    inline string getUserName() const { DARABONBA_PTR_GET_DEFAULT(userName_, "") };
     inline UserInfo& setUserName(string userName) { DARABONBA_PTR_SET_VALUE(userName_, userName) };
 
 
   protected:
-    std::shared_ptr<string> userId_ = nullptr;
-    std::shared_ptr<string> userName_ = nullptr;
+    shared_ptr<string> userId_ {};
+    shared_ptr<string> userName_ {};
   };
 
   } // namespace Models

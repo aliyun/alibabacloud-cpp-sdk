@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->verbose_ == nullptr
-        && return this->withNodeMeta_ == nullptr; };
+        && this->withNodeMeta_ == nullptr; };
     // verbose Field Functions 
     bool hasVerbose() const { return this->verbose_ != nullptr;};
     void deleteVerbose() { this->verbose_ = nullptr;};
-    inline bool verbose() const { DARABONBA_PTR_GET_DEFAULT(verbose_, false) };
+    inline bool getVerbose() const { DARABONBA_PTR_GET_DEFAULT(verbose_, false) };
     inline GetQuotaRequest& setVerbose(bool verbose) { DARABONBA_PTR_SET_VALUE(verbose_, verbose) };
 
 
     // withNodeMeta Field Functions 
     bool hasWithNodeMeta() const { return this->withNodeMeta_ != nullptr;};
     void deleteWithNodeMeta() { this->withNodeMeta_ = nullptr;};
-    inline bool withNodeMeta() const { DARABONBA_PTR_GET_DEFAULT(withNodeMeta_, false) };
+    inline bool getWithNodeMeta() const { DARABONBA_PTR_GET_DEFAULT(withNodeMeta_, false) };
     inline GetQuotaRequest& setWithNodeMeta(bool withNodeMeta) { DARABONBA_PTR_SET_VALUE(withNodeMeta_, withNodeMeta) };
 
 
   protected:
-    std::shared_ptr<bool> verbose_ = nullptr;
-    std::shared_ptr<bool> withNodeMeta_ = nullptr;
+    shared_ptr<bool> verbose_ {};
+    shared_ptr<bool> withNodeMeta_ {};
   };
 
   } // namespace Models

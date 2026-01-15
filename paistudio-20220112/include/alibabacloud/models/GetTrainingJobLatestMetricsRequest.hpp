@@ -33,12 +33,12 @@ namespace Models
     // names Field Functions 
     bool hasNames() const { return this->names_ != nullptr;};
     void deleteNames() { this->names_ = nullptr;};
-    inline string names() const { DARABONBA_PTR_GET_DEFAULT(names_, "") };
+    inline string getNames() const { DARABONBA_PTR_GET_DEFAULT(names_, "") };
     inline GetTrainingJobLatestMetricsRequest& setNames(string names) { DARABONBA_PTR_SET_VALUE(names_, names) };
 
 
   protected:
-    std::shared_ptr<string> names_ = nullptr;
+    shared_ptr<string> names_ {};
   };
 
   } // namespace Models

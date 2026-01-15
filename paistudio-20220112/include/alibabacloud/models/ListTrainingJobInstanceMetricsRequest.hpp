@@ -38,51 +38,51 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->endTime_ == nullptr
-        && return this->instanceId_ == nullptr && return this->metricType_ == nullptr && return this->startTime_ == nullptr && return this->timeStep_ == nullptr; };
+        && this->instanceId_ == nullptr && this->metricType_ == nullptr && this->startTime_ == nullptr && this->timeStep_ == nullptr; };
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline ListTrainingJobInstanceMetricsRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ListTrainingJobInstanceMetricsRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // metricType Field Functions 
     bool hasMetricType() const { return this->metricType_ != nullptr;};
     void deleteMetricType() { this->metricType_ = nullptr;};
-    inline string metricType() const { DARABONBA_PTR_GET_DEFAULT(metricType_, "") };
+    inline string getMetricType() const { DARABONBA_PTR_GET_DEFAULT(metricType_, "") };
     inline ListTrainingJobInstanceMetricsRequest& setMetricType(string metricType) { DARABONBA_PTR_SET_VALUE(metricType_, metricType) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline ListTrainingJobInstanceMetricsRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // timeStep Field Functions 
     bool hasTimeStep() const { return this->timeStep_ != nullptr;};
     void deleteTimeStep() { this->timeStep_ = nullptr;};
-    inline string timeStep() const { DARABONBA_PTR_GET_DEFAULT(timeStep_, "") };
+    inline string getTimeStep() const { DARABONBA_PTR_GET_DEFAULT(timeStep_, "") };
     inline ListTrainingJobInstanceMetricsRequest& setTimeStep(string timeStep) { DARABONBA_PTR_SET_VALUE(timeStep_, timeStep) };
 
 
   protected:
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
-    std::shared_ptr<string> endTime_ = nullptr;
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> endTime_ {};
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> metricType_ = nullptr;
+    shared_ptr<string> metricType_ {};
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
-    std::shared_ptr<string> startTime_ = nullptr;
-    std::shared_ptr<string> timeStep_ = nullptr;
+    shared_ptr<string> startTime_ {};
+    shared_ptr<string> timeStep_ {};
   };
 
   } // namespace Models

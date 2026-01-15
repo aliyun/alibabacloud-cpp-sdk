@@ -69,7 +69,7 @@ CheckInstanceWebTerminalResponse Client::checkInstanceWebTerminalWithOptions(con
   request.validate();
   json body = {};
   if (!!request.hasCheckInfo()) {
-    body["CheckInfo"] = request.checkInfo();
+    body["CheckInfo"] = request.getCheckInfo();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -114,19 +114,19 @@ CreateAlgorithmResponse Client::createAlgorithmWithOptions(const CreateAlgorithm
   request.validate();
   json body = {};
   if (!!request.hasAlgorithmDescription()) {
-    body["AlgorithmDescription"] = request.algorithmDescription();
+    body["AlgorithmDescription"] = request.getAlgorithmDescription();
   }
 
   if (!!request.hasAlgorithmName()) {
-    body["AlgorithmName"] = request.algorithmName();
+    body["AlgorithmName"] = request.getAlgorithmName();
   }
 
   if (!!request.hasDisplayName()) {
-    body["DisplayName"] = request.displayName();
+    body["DisplayName"] = request.getDisplayName();
   }
 
   if (!!request.hasWorkspaceId()) {
-    body["WorkspaceId"] = request.workspaceId();
+    body["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -172,12 +172,12 @@ CreateAlgorithmVersionResponse Client::createAlgorithmVersionWithOptions(const s
   CreateAlgorithmVersionShrinkRequest request = CreateAlgorithmVersionShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasAlgorithmSpec()) {
-    request.setAlgorithmSpecShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.algorithmSpec(), "AlgorithmSpec", "json"));
+    request.setAlgorithmSpecShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAlgorithmSpec(), "AlgorithmSpec", "json"));
   }
 
   json body = {};
   if (!!request.hasAlgorithmSpecShrink()) {
-    body["AlgorithmSpec"] = request.algorithmSpecShrink();
+    body["AlgorithmSpec"] = request.getAlgorithmSpecShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -258,47 +258,47 @@ CreateQuotaResponse Client::createQuotaWithOptions(const CreateQuotaRequest &req
   request.validate();
   json body = {};
   if (!!request.hasAllocateStrategy()) {
-    body["AllocateStrategy"] = request.allocateStrategy();
+    body["AllocateStrategy"] = request.getAllocateStrategy();
   }
 
   if (!!request.hasClusterSpec()) {
-    body["ClusterSpec"] = request.clusterSpec();
+    body["ClusterSpec"] = request.getClusterSpec();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasLabels()) {
-    body["Labels"] = request.labels();
+    body["Labels"] = request.getLabels();
   }
 
   if (!!request.hasMin()) {
-    body["Min"] = request.min();
+    body["Min"] = request.getMin();
   }
 
   if (!!request.hasParentQuotaId()) {
-    body["ParentQuotaId"] = request.parentQuotaId();
+    body["ParentQuotaId"] = request.getParentQuotaId();
   }
 
   if (!!request.hasQueueStrategy()) {
-    body["QueueStrategy"] = request.queueStrategy();
+    body["QueueStrategy"] = request.getQueueStrategy();
   }
 
   if (!!request.hasQuotaConfig()) {
-    body["QuotaConfig"] = request.quotaConfig();
+    body["QuotaConfig"] = request.getQuotaConfig();
   }
 
   if (!!request.hasQuotaName()) {
-    body["QuotaName"] = request.quotaName();
+    body["QuotaName"] = request.getQuotaName();
   }
 
   if (!!request.hasResourceGroupIds()) {
-    body["ResourceGroupIds"] = request.resourceGroupIds();
+    body["ResourceGroupIds"] = request.getResourceGroupIds();
   }
 
   if (!!request.hasResourceType()) {
-    body["ResourceType"] = request.resourceType();
+    body["ResourceType"] = request.getResourceType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -343,31 +343,31 @@ CreateResourceGroupResponse Client::createResourceGroupWithOptions(const CreateR
   request.validate();
   json body = {};
   if (!!request.hasComputingResourceProvider()) {
-    body["ComputingResourceProvider"] = request.computingResourceProvider();
+    body["ComputingResourceProvider"] = request.getComputingResourceProvider();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasResourceType()) {
-    body["ResourceType"] = request.resourceType();
+    body["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTag()) {
-    body["Tag"] = request.tag();
+    body["Tag"] = request.getTag();
   }
 
   if (!!request.hasUserVpc()) {
-    body["UserVpc"] = request.userVpc();
+    body["UserVpc"] = request.getUserVpc();
   }
 
   if (!!request.hasVersion()) {
-    body["Version"] = request.version();
+    body["Version"] = request.getVersion();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -412,91 +412,91 @@ CreateTrainingJobResponse Client::createTrainingJobWithOptions(const CreateTrain
   request.validate();
   json body = {};
   if (!!request.hasAlgorithmName()) {
-    body["AlgorithmName"] = request.algorithmName();
+    body["AlgorithmName"] = request.getAlgorithmName();
   }
 
   if (!!request.hasAlgorithmProvider()) {
-    body["AlgorithmProvider"] = request.algorithmProvider();
+    body["AlgorithmProvider"] = request.getAlgorithmProvider();
   }
 
   if (!!request.hasAlgorithmSpec()) {
-    body["AlgorithmSpec"] = request.algorithmSpec();
+    body["AlgorithmSpec"] = request.getAlgorithmSpec();
   }
 
   if (!!request.hasAlgorithmVersion()) {
-    body["AlgorithmVersion"] = request.algorithmVersion();
+    body["AlgorithmVersion"] = request.getAlgorithmVersion();
   }
 
   if (!!request.hasAssignNodeSpec()) {
-    body["AssignNodeSpec"] = request.assignNodeSpec();
+    body["AssignNodeSpec"] = request.getAssignNodeSpec();
   }
 
   if (!!request.hasCodeDir()) {
-    body["CodeDir"] = request.codeDir();
+    body["CodeDir"] = request.getCodeDir();
   }
 
   if (!!request.hasComputeResource()) {
-    body["ComputeResource"] = request.computeResource();
+    body["ComputeResource"] = request.getComputeResource();
   }
 
   if (!!request.hasEnvironments()) {
-    body["Environments"] = request.environments();
+    body["Environments"] = request.getEnvironments();
   }
 
   if (!!request.hasExperimentConfig()) {
-    body["ExperimentConfig"] = request.experimentConfig();
+    body["ExperimentConfig"] = request.getExperimentConfig();
   }
 
   if (!!request.hasHyperParameters()) {
-    body["HyperParameters"] = request.hyperParameters();
+    body["HyperParameters"] = request.getHyperParameters();
   }
 
   if (!!request.hasInputChannels()) {
-    body["InputChannels"] = request.inputChannels();
+    body["InputChannels"] = request.getInputChannels();
   }
 
   if (!!request.hasLabels()) {
-    body["Labels"] = request.labels();
+    body["Labels"] = request.getLabels();
   }
 
   if (!!request.hasOutputChannels()) {
-    body["OutputChannels"] = request.outputChannels();
+    body["OutputChannels"] = request.getOutputChannels();
   }
 
   if (!!request.hasPriority()) {
-    body["Priority"] = request.priority();
+    body["Priority"] = request.getPriority();
   }
 
   if (!!request.hasPythonRequirements()) {
-    body["PythonRequirements"] = request.pythonRequirements();
+    body["PythonRequirements"] = request.getPythonRequirements();
   }
 
   if (!!request.hasRoleArn()) {
-    body["RoleArn"] = request.roleArn();
+    body["RoleArn"] = request.getRoleArn();
   }
 
   if (!!request.hasScheduler()) {
-    body["Scheduler"] = request.scheduler();
+    body["Scheduler"] = request.getScheduler();
   }
 
   if (!!request.hasSettings()) {
-    body["Settings"] = request.settings();
+    body["Settings"] = request.getSettings();
   }
 
   if (!!request.hasTrainingJobDescription()) {
-    body["TrainingJobDescription"] = request.trainingJobDescription();
+    body["TrainingJobDescription"] = request.getTrainingJobDescription();
   }
 
   if (!!request.hasTrainingJobName()) {
-    body["TrainingJobName"] = request.trainingJobName();
+    body["TrainingJobName"] = request.getTrainingJobName();
   }
 
   if (!!request.hasUserVpc()) {
-    body["UserVpc"] = request.userVpc();
+    body["UserVpc"] = request.getUserVpc();
   }
 
   if (!!request.hasWorkspaceId()) {
-    body["WorkspaceId"] = request.workspaceId();
+    body["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -801,7 +801,7 @@ DeleteTrainingJobLabelsResponse Client::deleteTrainingJobLabelsWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasKeys()) {
-    query["Keys"] = request.keys();
+    query["Keys"] = request.getKeys();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -960,23 +960,23 @@ GetNodeMetricsResponse Client::getNodeMetricsWithOptions(const string &ResourceG
   request.validate();
   json query = {};
   if (!!request.hasEndTime()) {
-    query["EndTime"] = request.endTime();
+    query["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasGPUType()) {
-    query["GPUType"] = request.GPUType();
+    query["GPUType"] = request.getGPUType();
   }
 
   if (!!request.hasStartTime()) {
-    query["StartTime"] = request.startTime();
+    query["StartTime"] = request.getStartTime();
   }
 
   if (!!request.hasTimeStep()) {
-    query["TimeStep"] = request.timeStep();
+    query["TimeStep"] = request.getTimeStep();
   }
 
   if (!!request.hasVerbose()) {
-    query["Verbose"] = request.verbose();
+    query["Verbose"] = request.getVerbose();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1023,11 +1023,11 @@ GetQuotaResponse Client::getQuotaWithOptions(const string &QuotaId, const GetQuo
   request.validate();
   json query = {};
   if (!!request.hasVerbose()) {
-    query["Verbose"] = request.verbose();
+    query["Verbose"] = request.getVerbose();
   }
 
   if (!!request.hasWithNodeMeta()) {
-    query["WithNodeMeta"] = request.withNodeMeta();
+    query["WithNodeMeta"] = request.getWithNodeMeta();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1073,16 +1073,16 @@ GetResourceGroupResponse Client::getResourceGroupWithOptions(const string &Resou
   GetResourceGroupShrinkRequest request = GetResourceGroupShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasTag()) {
-    request.setTagShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tag(), "Tag", "json"));
+    request.setTagShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTag(), "Tag", "json"));
   }
 
   json query = {};
   if (!!request.hasIsAIWorkspaceDataEnabled()) {
-    query["IsAIWorkspaceDataEnabled"] = request.isAIWorkspaceDataEnabled();
+    query["IsAIWorkspaceDataEnabled"] = request.getIsAIWorkspaceDataEnabled();
   }
 
   if (!!request.hasTagShrink()) {
-    query["Tag"] = request.tagShrink();
+    query["Tag"] = request.getTagShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1128,12 +1128,12 @@ GetResourceGroupMachineGroupResponse Client::getResourceGroupMachineGroupWithOpt
   GetResourceGroupMachineGroupShrinkRequest request = GetResourceGroupMachineGroupShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasTag()) {
-    request.setTagShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tag(), "Tag", "json"));
+    request.setTagShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTag(), "Tag", "json"));
   }
 
   json query = {};
   if (!!request.hasTagShrink()) {
-    query["Tag"] = request.tagShrink();
+    query["Tag"] = request.getTagShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1180,11 +1180,11 @@ GetResourceGroupRequestResponse Client::getResourceGroupRequestWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasPodStatus()) {
-    query["PodStatus"] = request.podStatus();
+    query["PodStatus"] = request.getPodStatus();
   }
 
   if (!!request.hasResourceGroupID()) {
-    query["ResourceGroupID"] = request.resourceGroupID();
+    query["ResourceGroupID"] = request.getResourceGroupID();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1231,7 +1231,7 @@ GetResourceGroupTotalResponse Client::getResourceGroupTotalWithOptions(const Get
   request.validate();
   json query = {};
   if (!!request.hasResourceGroupID()) {
-    query["ResourceGroupID"] = request.resourceGroupID();
+    query["ResourceGroupID"] = request.getResourceGroupID();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1276,31 +1276,31 @@ GetSpotPriceHistoryResponse Client::getSpotPriceHistoryWithOptions(const string 
   request.validate();
   json query = {};
   if (!!request.hasEndTime()) {
-    query["EndTime"] = request.endTime();
+    query["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasOrder()) {
-    query["Order"] = request.order();
+    query["Order"] = request.getOrder();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasSortBy()) {
-    query["SortBy"] = request.sortBy();
+    query["SortBy"] = request.getSortBy();
   }
 
   if (!!request.hasSpotDuration()) {
-    query["SpotDuration"] = request.spotDuration();
+    query["SpotDuration"] = request.getSpotDuration();
   }
 
   if (!!request.hasStartTime()) {
-    query["StartTime"] = request.startTime();
+    query["StartTime"] = request.getStartTime();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1345,11 +1345,11 @@ GetTokenResponse Client::getTokenWithOptions(const GetTokenRequest &request, con
   request.validate();
   json query = {};
   if (!!request.hasExpireTime()) {
-    query["ExpireTime"] = request.expireTime();
+    query["ExpireTime"] = request.getExpireTime();
   }
 
   if (!!request.hasTrainingJobId()) {
-    query["TrainingJobId"] = request.trainingJobId();
+    query["TrainingJobId"] = request.getTrainingJobId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1466,7 +1466,7 @@ GetTrainingJobLatestMetricsResponse Client::getTrainingJobLatestMetricsWithOptio
   request.validate();
   json query = {};
   if (!!request.hasNames()) {
-    query["Names"] = request.names();
+    query["Names"] = request.getNames();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1513,31 +1513,31 @@ GetUserViewMetricsResponse Client::getUserViewMetricsWithOptions(const string &R
   request.validate();
   json query = {};
   if (!!request.hasOrder()) {
-    query["Order"] = request.order();
+    query["Order"] = request.getOrder();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasSortBy()) {
-    query["SortBy"] = request.sortBy();
+    query["SortBy"] = request.getSortBy();
   }
 
   if (!!request.hasTimeStep()) {
-    query["TimeStep"] = request.timeStep();
+    query["TimeStep"] = request.getTimeStep();
   }
 
   if (!!request.hasUserId()) {
-    query["UserId"] = request.userId();
+    query["UserId"] = request.getUserId();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1584,11 +1584,11 @@ ListAlgorithmVersionsResponse Client::listAlgorithmVersionsWithOptions(const str
   request.validate();
   json query = {};
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1633,27 +1633,27 @@ ListAlgorithmsResponse Client::listAlgorithmsWithOptions(const ListAlgorithmsReq
   request.validate();
   json query = {};
   if (!!request.hasAlgorithmId()) {
-    query["AlgorithmId"] = request.algorithmId();
+    query["AlgorithmId"] = request.getAlgorithmId();
   }
 
   if (!!request.hasAlgorithmName()) {
-    query["AlgorithmName"] = request.algorithmName();
+    query["AlgorithmName"] = request.getAlgorithmName();
   }
 
   if (!!request.hasAlgorithmProvider()) {
-    query["AlgorithmProvider"] = request.algorithmProvider();
+    query["AlgorithmProvider"] = request.getAlgorithmProvider();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1699,120 +1699,120 @@ ListNodesResponse Client::listNodesWithOptions(const ListNodesRequest &tmpReq, c
   ListNodesShrinkRequest request = ListNodesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasHealthCount()) {
-    request.setHealthCountShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.healthCount(), "HealthCount", "json"));
+    request.setHealthCountShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getHealthCount(), "HealthCount", "json"));
   }
 
   if (!!tmpReq.hasHealthRate()) {
-    request.setHealthRateShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.healthRate(), "HealthRate", "json"));
+    request.setHealthRateShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getHealthRate(), "HealthRate", "json"));
   }
 
   json query = {};
   if (!!request.hasAcceleratorType()) {
-    query["AcceleratorType"] = request.acceleratorType();
+    query["AcceleratorType"] = request.getAcceleratorType();
   }
 
   if (!!request.hasAvailabilityZone()) {
-    query["AvailabilityZone"] = request.availabilityZone();
+    query["AvailabilityZone"] = request.getAvailabilityZone();
   }
 
   if (!!request.hasCliqueID()) {
-    query["CliqueID"] = request.cliqueID();
+    query["CliqueID"] = request.getCliqueID();
   }
 
   if (!!request.hasFilterByQuotaId()) {
-    query["FilterByQuotaId"] = request.filterByQuotaId();
+    query["FilterByQuotaId"] = request.getFilterByQuotaId();
   }
 
   if (!!request.hasFilterByResourceGroupIds()) {
-    query["FilterByResourceGroupIds"] = request.filterByResourceGroupIds();
+    query["FilterByResourceGroupIds"] = request.getFilterByResourceGroupIds();
   }
 
   if (!!request.hasGPUType()) {
-    query["GPUType"] = request.GPUType();
+    query["GPUType"] = request.getGPUType();
   }
 
   if (!!request.hasHealthCountShrink()) {
-    query["HealthCount"] = request.healthCountShrink();
+    query["HealthCount"] = request.getHealthCountShrink();
   }
 
   if (!!request.hasHealthRateShrink()) {
-    query["HealthRate"] = request.healthRateShrink();
+    query["HealthRate"] = request.getHealthRateShrink();
   }
 
   if (!!request.hasHyperNode()) {
-    query["HyperNode"] = request.hyperNode();
+    query["HyperNode"] = request.getHyperNode();
   }
 
   if (!!request.hasHyperZone()) {
-    query["HyperZone"] = request.hyperZone();
+    query["HyperZone"] = request.getHyperZone();
   }
 
   if (!!request.hasLayoutMode()) {
-    query["LayoutMode"] = request.layoutMode();
+    query["LayoutMode"] = request.getLayoutMode();
   }
 
   if (!!request.hasMachineGroupIds()) {
-    query["MachineGroupIds"] = request.machineGroupIds();
+    query["MachineGroupIds"] = request.getMachineGroupIds();
   }
 
   if (!!request.hasNodeNames()) {
-    query["NodeNames"] = request.nodeNames();
+    query["NodeNames"] = request.getNodeNames();
   }
 
   if (!!request.hasNodeStatuses()) {
-    query["NodeStatuses"] = request.nodeStatuses();
+    query["NodeStatuses"] = request.getNodeStatuses();
   }
 
   if (!!request.hasNodeTypes()) {
-    query["NodeTypes"] = request.nodeTypes();
+    query["NodeTypes"] = request.getNodeTypes();
   }
 
   if (!!request.hasOrder()) {
-    query["Order"] = request.order();
+    query["Order"] = request.getOrder();
   }
 
   if (!!request.hasOrderInstanceIds()) {
-    query["OrderInstanceIds"] = request.orderInstanceIds();
+    query["OrderInstanceIds"] = request.getOrderInstanceIds();
   }
 
   if (!!request.hasOrderStatuses()) {
-    query["OrderStatuses"] = request.orderStatuses();
+    query["OrderStatuses"] = request.getOrderStatuses();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasPaymentType()) {
-    query["PaymentType"] = request.paymentType();
+    query["PaymentType"] = request.getPaymentType();
   }
 
   if (!!request.hasQuotaId()) {
-    query["QuotaId"] = request.quotaId();
+    query["QuotaId"] = request.getQuotaId();
   }
 
   if (!!request.hasReasonCodes()) {
-    query["ReasonCodes"] = request.reasonCodes();
+    query["ReasonCodes"] = request.getReasonCodes();
   }
 
   if (!!request.hasResourceGroupIds()) {
-    query["ResourceGroupIds"] = request.resourceGroupIds();
+    query["ResourceGroupIds"] = request.getResourceGroupIds();
   }
 
   if (!!request.hasSortBy()) {
-    query["SortBy"] = request.sortBy();
+    query["SortBy"] = request.getSortBy();
   }
 
   if (!!request.hasVerbose()) {
-    query["Verbose"] = request.verbose();
+    query["Verbose"] = request.getVerbose();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1857,79 +1857,79 @@ ListQuotaWorkloadsResponse Client::listQuotaWorkloadsWithOptions(const string &Q
   request.validate();
   json query = {};
   if (!!request.hasBeforeWorkloadId()) {
-    query["BeforeWorkloadId"] = request.beforeWorkloadId();
+    query["BeforeWorkloadId"] = request.getBeforeWorkloadId();
   }
 
   if (!!request.hasGmtDequeuedTimeRange()) {
-    query["GmtDequeuedTimeRange"] = request.gmtDequeuedTimeRange();
+    query["GmtDequeuedTimeRange"] = request.getGmtDequeuedTimeRange();
   }
 
   if (!!request.hasGmtEnqueuedTimeRange()) {
-    query["GmtEnqueuedTimeRange"] = request.gmtEnqueuedTimeRange();
+    query["GmtEnqueuedTimeRange"] = request.getGmtEnqueuedTimeRange();
   }
 
   if (!!request.hasGmtPositionModifiedTimeRange()) {
-    query["GmtPositionModifiedTimeRange"] = request.gmtPositionModifiedTimeRange();
+    query["GmtPositionModifiedTimeRange"] = request.getGmtPositionModifiedTimeRange();
   }
 
   if (!!request.hasNodeName()) {
-    query["NodeName"] = request.nodeName();
+    query["NodeName"] = request.getNodeName();
   }
 
   if (!!request.hasOrder()) {
-    query["Order"] = request.order();
+    query["Order"] = request.getOrder();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasShowOwn()) {
-    query["ShowOwn"] = request.showOwn();
+    query["ShowOwn"] = request.getShowOwn();
   }
 
   if (!!request.hasSortBy()) {
-    query["SortBy"] = request.sortBy();
+    query["SortBy"] = request.getSortBy();
   }
 
   if (!!request.hasStatus()) {
-    query["Status"] = request.status();
+    query["Status"] = request.getStatus();
   }
 
   if (!!request.hasSubQuotaIds()) {
-    query["SubQuotaIds"] = request.subQuotaIds();
+    query["SubQuotaIds"] = request.getSubQuotaIds();
   }
 
   if (!!request.hasUserIds()) {
-    query["UserIds"] = request.userIds();
+    query["UserIds"] = request.getUserIds();
   }
 
   if (!!request.hasWithHistoricalData()) {
-    query["WithHistoricalData"] = request.withHistoricalData();
+    query["WithHistoricalData"] = request.getWithHistoricalData();
   }
 
   if (!!request.hasWorkloadCreatedTimeRange()) {
-    query["WorkloadCreatedTimeRange"] = request.workloadCreatedTimeRange();
+    query["WorkloadCreatedTimeRange"] = request.getWorkloadCreatedTimeRange();
   }
 
   if (!!request.hasWorkloadIds()) {
-    query["WorkloadIds"] = request.workloadIds();
+    query["WorkloadIds"] = request.getWorkloadIds();
   }
 
   if (!!request.hasWorkloadStatuses()) {
-    query["WorkloadStatuses"] = request.workloadStatuses();
+    query["WorkloadStatuses"] = request.getWorkloadStatuses();
   }
 
   if (!!request.hasWorkloadType()) {
-    query["WorkloadType"] = request.workloadType();
+    query["WorkloadType"] = request.getWorkloadType();
   }
 
   if (!!request.hasWorkspaceIds()) {
-    query["WorkspaceIds"] = request.workspaceIds();
+    query["WorkspaceIds"] = request.getWorkspaceIds();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1974,71 +1974,71 @@ ListQuotasResponse Client::listQuotasWithOptions(const ListQuotasRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasClusterType()) {
-    query["ClusterType"] = request.clusterType();
+    query["ClusterType"] = request.getClusterType();
   }
 
   if (!!request.hasHasResource()) {
-    query["HasResource"] = request.hasResource();
+    query["HasResource"] = request.getHasResource();
   }
 
   if (!!request.hasLabels()) {
-    query["Labels"] = request.labels();
+    query["Labels"] = request.getLabels();
   }
 
   if (!!request.hasLayoutMode()) {
-    query["LayoutMode"] = request.layoutMode();
+    query["LayoutMode"] = request.getLayoutMode();
   }
 
   if (!!request.hasOrder()) {
-    query["Order"] = request.order();
+    query["Order"] = request.getOrder();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasParentQuotaId()) {
-    query["ParentQuotaId"] = request.parentQuotaId();
+    query["ParentQuotaId"] = request.getParentQuotaId();
   }
 
   if (!!request.hasQuotaIds()) {
-    query["QuotaIds"] = request.quotaIds();
+    query["QuotaIds"] = request.getQuotaIds();
   }
 
   if (!!request.hasQuotaName()) {
-    query["QuotaName"] = request.quotaName();
+    query["QuotaName"] = request.getQuotaName();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasSortBy()) {
-    query["SortBy"] = request.sortBy();
+    query["SortBy"] = request.getSortBy();
   }
 
   if (!!request.hasStatuses()) {
-    query["Statuses"] = request.statuses();
+    query["Statuses"] = request.getStatuses();
   }
 
   if (!!request.hasVerbose()) {
-    query["Verbose"] = request.verbose();
+    query["Verbose"] = request.getVerbose();
   }
 
   if (!!request.hasVersions()) {
-    query["Versions"] = request.versions();
+    query["Versions"] = request.getVersions();
   }
 
   if (!!request.hasWorkspaceIds()) {
-    query["WorkspaceIds"] = request.workspaceIds();
+    query["WorkspaceIds"] = request.getWorkspaceIds();
   }
 
   if (!!request.hasWorkspaceName()) {
-    query["WorkspaceName"] = request.workspaceName();
+    query["WorkspaceName"] = request.getWorkspaceName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2083,55 +2083,55 @@ ListResourceGroupMachineGroupsResponse Client::listResourceGroupMachineGroupsWit
   request.validate();
   json query = {};
   if (!!request.hasCreatorID()) {
-    query["CreatorID"] = request.creatorID();
+    query["CreatorID"] = request.getCreatorID();
   }
 
   if (!!request.hasEcsSpec()) {
-    query["EcsSpec"] = request.ecsSpec();
+    query["EcsSpec"] = request.getEcsSpec();
   }
 
   if (!!request.hasMachineGroupIDs()) {
-    query["MachineGroupIDs"] = request.machineGroupIDs();
+    query["MachineGroupIDs"] = request.getMachineGroupIDs();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasOrder()) {
-    query["Order"] = request.order();
+    query["Order"] = request.getOrder();
   }
 
   if (!!request.hasOrderInstanceId()) {
-    query["OrderInstanceId"] = request.orderInstanceId();
+    query["OrderInstanceId"] = request.getOrderInstanceId();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasPaymentDuration()) {
-    query["PaymentDuration"] = request.paymentDuration();
+    query["PaymentDuration"] = request.getPaymentDuration();
   }
 
   if (!!request.hasPaymentDurationUnit()) {
-    query["PaymentDurationUnit"] = request.paymentDurationUnit();
+    query["PaymentDurationUnit"] = request.getPaymentDurationUnit();
   }
 
   if (!!request.hasPaymentType()) {
-    query["PaymentType"] = request.paymentType();
+    query["PaymentType"] = request.getPaymentType();
   }
 
   if (!!request.hasSortBy()) {
-    query["SortBy"] = request.sortBy();
+    query["SortBy"] = request.getSortBy();
   }
 
   if (!!request.hasStatus()) {
-    query["Status"] = request.status();
+    query["Status"] = request.getStatus();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2176,51 +2176,51 @@ ListResourceGroupsResponse Client::listResourceGroupsWithOptions(const ListResou
   request.validate();
   json query = {};
   if (!!request.hasComputingResourceProvider()) {
-    query["ComputingResourceProvider"] = request.computingResourceProvider();
+    query["ComputingResourceProvider"] = request.getComputingResourceProvider();
   }
 
   if (!!request.hasHasResource()) {
-    query["HasResource"] = request.hasResource();
+    query["HasResource"] = request.getHasResource();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasOrder()) {
-    query["Order"] = request.order();
+    query["Order"] = request.getOrder();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasResourceGroupIDs()) {
-    query["ResourceGroupIDs"] = request.resourceGroupIDs();
+    query["ResourceGroupIDs"] = request.getResourceGroupIDs();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasShowAll()) {
-    query["ShowAll"] = request.showAll();
+    query["ShowAll"] = request.getShowAll();
   }
 
   if (!!request.hasSortBy()) {
-    query["SortBy"] = request.sortBy();
+    query["SortBy"] = request.getSortBy();
   }
 
   if (!!request.hasStatus()) {
-    query["Status"] = request.status();
+    query["Status"] = request.getStatus();
   }
 
   if (!!request.hasVersions()) {
-    query["Versions"] = request.versions();
+    query["Versions"] = request.getVersions();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2266,32 +2266,32 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
   ListTagResourcesShrinkRequest request = ListTagResourcesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasResourceId()) {
-    request.setResourceIdShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.resourceId(), "ResourceId", "json"));
+    request.setResourceIdShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getResourceId(), "ResourceId", "json"));
   }
 
   if (!!tmpReq.hasTag()) {
-    request.setTagShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tag(), "Tag", "json"));
+    request.setTagShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTag(), "Tag", "json"));
   }
 
   json query = {};
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceIdShrink()) {
-    query["ResourceId"] = request.resourceIdShrink();
+    query["ResourceId"] = request.getResourceIdShrink();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTagShrink()) {
-    query["Tag"] = request.tagShrink();
+    query["Tag"] = request.getTagShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2336,19 +2336,19 @@ ListTrainingJobEventsResponse Client::listTrainingJobEventsWithOptions(const str
   request.validate();
   json query = {};
   if (!!request.hasEndTime()) {
-    query["EndTime"] = request.endTime();
+    query["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasStartTime()) {
-    query["StartTime"] = request.startTime();
+    query["StartTime"] = request.getStartTime();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2393,19 +2393,19 @@ ListTrainingJobInstanceEventsResponse Client::listTrainingJobInstanceEventsWithO
   request.validate();
   json query = {};
   if (!!request.hasEndTime()) {
-    query["EndTime"] = request.endTime();
+    query["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasStartTime()) {
-    query["StartTime"] = request.startTime();
+    query["StartTime"] = request.getStartTime();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2450,23 +2450,23 @@ ListTrainingJobInstanceMetricsResponse Client::listTrainingJobInstanceMetricsWit
   request.validate();
   json query = {};
   if (!!request.hasEndTime()) {
-    query["EndTime"] = request.endTime();
+    query["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasMetricType()) {
-    query["MetricType"] = request.metricType();
+    query["MetricType"] = request.getMetricType();
   }
 
   if (!!request.hasStartTime()) {
-    query["StartTime"] = request.startTime();
+    query["StartTime"] = request.getStartTime();
   }
 
   if (!!request.hasTimeStep()) {
-    query["TimeStep"] = request.timeStep();
+    query["TimeStep"] = request.getTimeStep();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2511,27 +2511,27 @@ ListTrainingJobLogsResponse Client::listTrainingJobLogsWithOptions(const string 
   request.validate();
   json query = {};
   if (!!request.hasEndTime()) {
-    query["EndTime"] = request.endTime();
+    query["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasStartTime()) {
-    query["StartTime"] = request.startTime();
+    query["StartTime"] = request.getStartTime();
   }
 
   if (!!request.hasWorkerId()) {
-    query["WorkerId"] = request.workerId();
+    query["WorkerId"] = request.getWorkerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2576,27 +2576,27 @@ ListTrainingJobMetricsResponse Client::listTrainingJobMetricsWithOptions(const s
   request.validate();
   json query = {};
   if (!!request.hasEndTime()) {
-    query["EndTime"] = request.endTime();
+    query["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasOrder()) {
-    query["Order"] = request.order();
+    query["Order"] = request.getOrder();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasStartTime()) {
-    query["StartTime"] = request.startTime();
+    query["StartTime"] = request.getStartTime();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2678,64 +2678,64 @@ ListTrainingJobsResponse Client::listTrainingJobsWithOptions(const ListTrainingJ
   ListTrainingJobsShrinkRequest request = ListTrainingJobsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasLabels()) {
-    request.setLabelsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.labels(), "Labels", "json"));
+    request.setLabelsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getLabels(), "Labels", "json"));
   }
 
   json query = {};
   if (!!request.hasAlgorithmName()) {
-    query["AlgorithmName"] = request.algorithmName();
+    query["AlgorithmName"] = request.getAlgorithmName();
   }
 
   if (!!request.hasAlgorithmProvider()) {
-    query["AlgorithmProvider"] = request.algorithmProvider();
+    query["AlgorithmProvider"] = request.getAlgorithmProvider();
   }
 
   if (!!request.hasEndTime()) {
-    query["EndTime"] = request.endTime();
+    query["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasIsTempAlgo()) {
-    query["IsTempAlgo"] = request.isTempAlgo();
+    query["IsTempAlgo"] = request.getIsTempAlgo();
   }
 
   if (!!request.hasLabelsShrink()) {
-    query["Labels"] = request.labelsShrink();
+    query["Labels"] = request.getLabelsShrink();
   }
 
   if (!!request.hasOrder()) {
-    query["Order"] = request.order();
+    query["Order"] = request.getOrder();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasSortBy()) {
-    query["SortBy"] = request.sortBy();
+    query["SortBy"] = request.getSortBy();
   }
 
   if (!!request.hasStartTime()) {
-    query["StartTime"] = request.startTime();
+    query["StartTime"] = request.getStartTime();
   }
 
   if (!!request.hasStatus()) {
-    query["Status"] = request.status();
+    query["Status"] = request.getStatus();
   }
 
   if (!!request.hasTrainingJobId()) {
-    query["TrainingJobId"] = request.trainingJobId();
+    query["TrainingJobId"] = request.getTrainingJobId();
   }
 
   if (!!request.hasTrainingJobName()) {
-    query["TrainingJobName"] = request.trainingJobName();
+    query["TrainingJobName"] = request.getTrainingJobName();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2780,11 +2780,11 @@ ScaleQuotaResponse Client::scaleQuotaWithOptions(const string &QuotaId, const Sc
   request.validate();
   json body = {};
   if (!!request.hasMin()) {
-    body["Min"] = request.min();
+    body["Min"] = request.getMin();
   }
 
   if (!!request.hasResourceGroupIds()) {
-    body["ResourceGroupIds"] = request.resourceGroupIds();
+    body["ResourceGroupIds"] = request.getResourceGroupIds();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2865,19 +2865,19 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
   request.validate();
   json body = {};
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceId()) {
-    body["ResourceId"] = request.resourceId();
+    body["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceType()) {
-    body["ResourceType"] = request.resourceType();
+    body["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTag()) {
-    body["Tag"] = request.tag();
+    body["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2923,32 +2923,32 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
   UntagResourcesShrinkRequest request = UntagResourcesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasResourceId()) {
-    request.setResourceIdShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.resourceId(), "ResourceId", "json"));
+    request.setResourceIdShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getResourceId(), "ResourceId", "json"));
   }
 
   if (!!tmpReq.hasTagKey()) {
-    request.setTagKeyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tagKey(), "TagKey", "json"));
+    request.setTagKeyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTagKey(), "TagKey", "json"));
   }
 
   json query = {};
   if (!!request.hasAll()) {
-    query["All"] = request.all();
+    query["All"] = request.getAll();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceIdShrink()) {
-    query["ResourceId"] = request.resourceIdShrink();
+    query["ResourceId"] = request.getResourceIdShrink();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTagKeyShrink()) {
-    query["TagKey"] = request.tagKeyShrink();
+    query["TagKey"] = request.getTagKeyShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2993,11 +2993,11 @@ UpdateAlgorithmResponse Client::updateAlgorithmWithOptions(const string &Algorit
   request.validate();
   json body = {};
   if (!!request.hasAlgorithmDescription()) {
-    body["AlgorithmDescription"] = request.algorithmDescription();
+    body["AlgorithmDescription"] = request.getAlgorithmDescription();
   }
 
   if (!!request.hasDisplayName()) {
-    body["DisplayName"] = request.displayName();
+    body["DisplayName"] = request.getDisplayName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3043,12 +3043,12 @@ UpdateAlgorithmVersionResponse Client::updateAlgorithmVersionWithOptions(const s
   UpdateAlgorithmVersionShrinkRequest request = UpdateAlgorithmVersionShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasAlgorithmSpec()) {
-    request.setAlgorithmSpecShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.algorithmSpec(), "AlgorithmSpec", "json"));
+    request.setAlgorithmSpecShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAlgorithmSpec(), "AlgorithmSpec", "json"));
   }
 
   json body = {};
   if (!!request.hasAlgorithmSpecShrink()) {
-    body["AlgorithmSpec"] = request.algorithmSpecShrink();
+    body["AlgorithmSpec"] = request.getAlgorithmSpecShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3093,23 +3093,23 @@ UpdateQuotaResponse Client::updateQuotaWithOptions(const string &QuotaId, const 
   request.validate();
   json body = {};
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasLabels()) {
-    body["Labels"] = request.labels();
+    body["Labels"] = request.getLabels();
   }
 
   if (!!request.hasQueueStrategy()) {
-    body["QueueStrategy"] = request.queueStrategy();
+    body["QueueStrategy"] = request.getQueueStrategy();
   }
 
   if (!!request.hasQuotaConfig()) {
-    body["QuotaConfig"] = request.quotaConfig();
+    body["QuotaConfig"] = request.getQuotaConfig();
   }
 
   if (!!request.hasQuotaName()) {
-    body["QuotaName"] = request.quotaName();
+    body["QuotaName"] = request.getQuotaName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3154,19 +3154,19 @@ UpdateResourceGroupResponse Client::updateResourceGroupWithOptions(const string 
   request.validate();
   json body = {};
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasUnbind()) {
-    body["Unbind"] = request.unbind();
+    body["Unbind"] = request.getUnbind();
   }
 
   if (!!request.hasUserVpc()) {
-    body["UserVpc"] = request.userVpc();
+    body["UserVpc"] = request.getUserVpc();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3211,7 +3211,7 @@ UpdateTrainingJobLabelsResponse Client::updateTrainingJobLabelsWithOptions(const
   request.validate();
   json body = {};
   if (!!request.hasLabels()) {
-    body["Labels"] = request.labels();
+    body["Labels"] = request.getLabels();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

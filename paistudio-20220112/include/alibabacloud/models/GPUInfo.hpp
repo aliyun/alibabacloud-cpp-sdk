@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->count_ == nullptr
-        && return this->type_ == nullptr; };
+        && this->type_ == nullptr; };
     // count Field Functions 
     bool hasCount() const { return this->count_ != nullptr;};
     void deleteCount() { this->count_ = nullptr;};
-    inline int64_t count() const { DARABONBA_PTR_GET_DEFAULT(count_, 0L) };
+    inline int64_t getCount() const { DARABONBA_PTR_GET_DEFAULT(count_, 0L) };
     inline GPUInfo& setCount(int64_t count) { DARABONBA_PTR_SET_VALUE(count_, count) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline GPUInfo& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
-    std::shared_ptr<int64_t> count_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<int64_t> count_ {};
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

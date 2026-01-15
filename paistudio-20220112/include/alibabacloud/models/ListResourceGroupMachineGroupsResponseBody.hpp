@@ -36,12 +36,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->machineGroups_ == nullptr
-        && return this->requestId_ == nullptr && return this->totalCount_ == nullptr; };
+        && this->requestId_ == nullptr && this->totalCount_ == nullptr; };
     // machineGroups Field Functions 
     bool hasMachineGroups() const { return this->machineGroups_ != nullptr;};
     void deleteMachineGroups() { this->machineGroups_ = nullptr;};
-    inline const vector<MachineGroup> & machineGroups() const { DARABONBA_PTR_GET_CONST(machineGroups_, vector<MachineGroup>) };
-    inline vector<MachineGroup> machineGroups() { DARABONBA_PTR_GET(machineGroups_, vector<MachineGroup>) };
+    inline const vector<MachineGroup> & getMachineGroups() const { DARABONBA_PTR_GET_CONST(machineGroups_, vector<MachineGroup>) };
+    inline vector<MachineGroup> getMachineGroups() { DARABONBA_PTR_GET(machineGroups_, vector<MachineGroup>) };
     inline ListResourceGroupMachineGroupsResponseBody& setMachineGroups(const vector<MachineGroup> & machineGroups) { DARABONBA_PTR_SET_VALUE(machineGroups_, machineGroups) };
     inline ListResourceGroupMachineGroupsResponseBody& setMachineGroups(vector<MachineGroup> && machineGroups) { DARABONBA_PTR_SET_RVALUE(machineGroups_, machineGroups) };
 
@@ -49,21 +49,21 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListResourceGroupMachineGroupsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // totalCount Field Functions 
     bool hasTotalCount() const { return this->totalCount_ != nullptr;};
     void deleteTotalCount() { this->totalCount_ = nullptr;};
-    inline string totalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, "") };
+    inline string getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, "") };
     inline ListResourceGroupMachineGroupsResponseBody& setTotalCount(string totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
 
 
   protected:
-    std::shared_ptr<vector<MachineGroup>> machineGroups_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> totalCount_ = nullptr;
+    shared_ptr<vector<MachineGroup>> machineGroups_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<string> totalCount_ {};
   };
 
   } // namespace Models

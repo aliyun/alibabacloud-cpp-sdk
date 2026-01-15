@@ -34,34 +34,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->name_ == nullptr && return this->regex_ == nullptr; };
+        && this->name_ == nullptr && this->regex_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline MetricDefinition& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline MetricDefinition& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // regex Field Functions 
     bool hasRegex() const { return this->regex_ != nullptr;};
     void deleteRegex() { this->regex_ = nullptr;};
-    inline string regex() const { DARABONBA_PTR_GET_DEFAULT(regex_, "") };
+    inline string getRegex() const { DARABONBA_PTR_GET_DEFAULT(regex_, "") };
     inline MetricDefinition& setRegex(string regex) { DARABONBA_PTR_SET_VALUE(regex_, regex) };
 
 
   protected:
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // This parameter is required.
-    std::shared_ptr<string> regex_ = nullptr;
+    shared_ptr<string> regex_ {};
   };
 
   } // namespace Models

@@ -37,42 +37,42 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->name_ == nullptr && return this->unbind_ == nullptr && return this->userVpc_ == nullptr; };
+        && this->name_ == nullptr && this->unbind_ == nullptr && this->userVpc_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline UpdateResourceGroupRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline UpdateResourceGroupRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // unbind Field Functions 
     bool hasUnbind() const { return this->unbind_ != nullptr;};
     void deleteUnbind() { this->unbind_ = nullptr;};
-    inline bool unbind() const { DARABONBA_PTR_GET_DEFAULT(unbind_, false) };
+    inline bool getUnbind() const { DARABONBA_PTR_GET_DEFAULT(unbind_, false) };
     inline UpdateResourceGroupRequest& setUnbind(bool unbind) { DARABONBA_PTR_SET_VALUE(unbind_, unbind) };
 
 
     // userVpc Field Functions 
     bool hasUserVpc() const { return this->userVpc_ != nullptr;};
     void deleteUserVpc() { this->userVpc_ = nullptr;};
-    inline const UserVpc & userVpc() const { DARABONBA_PTR_GET_CONST(userVpc_, UserVpc) };
-    inline UserVpc userVpc() { DARABONBA_PTR_GET(userVpc_, UserVpc) };
+    inline const UserVpc & getUserVpc() const { DARABONBA_PTR_GET_CONST(userVpc_, UserVpc) };
+    inline UserVpc getUserVpc() { DARABONBA_PTR_GET(userVpc_, UserVpc) };
     inline UpdateResourceGroupRequest& setUserVpc(const UserVpc & userVpc) { DARABONBA_PTR_SET_VALUE(userVpc_, userVpc) };
     inline UpdateResourceGroupRequest& setUserVpc(UserVpc && userVpc) { DARABONBA_PTR_SET_RVALUE(userVpc_, userVpc) };
 
 
   protected:
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<bool> unbind_ = nullptr;
-    std::shared_ptr<UserVpc> userVpc_ = nullptr;
+    shared_ptr<string> description_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<bool> unbind_ {};
+    shared_ptr<UserVpc> userVpc_ {};
   };
 
   } // namespace Models

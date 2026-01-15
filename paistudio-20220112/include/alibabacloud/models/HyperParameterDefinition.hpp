@@ -43,41 +43,41 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->defaultValue_ == nullptr
-        && return this->description_ == nullptr && return this->displayName_ == nullptr && return this->name_ == nullptr && return this->range_ == nullptr && return this->required_ == nullptr
-        && return this->type_ == nullptr; };
+        && this->description_ == nullptr && this->displayName_ == nullptr && this->name_ == nullptr && this->range_ == nullptr && this->required_ == nullptr
+        && this->type_ == nullptr; };
     // defaultValue Field Functions 
     bool hasDefaultValue() const { return this->defaultValue_ != nullptr;};
     void deleteDefaultValue() { this->defaultValue_ = nullptr;};
-    inline string defaultValue() const { DARABONBA_PTR_GET_DEFAULT(defaultValue_, "") };
+    inline string getDefaultValue() const { DARABONBA_PTR_GET_DEFAULT(defaultValue_, "") };
     inline HyperParameterDefinition& setDefaultValue(string defaultValue) { DARABONBA_PTR_SET_VALUE(defaultValue_, defaultValue) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline HyperParameterDefinition& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // displayName Field Functions 
     bool hasDisplayName() const { return this->displayName_ != nullptr;};
     void deleteDisplayName() { this->displayName_ = nullptr;};
-    inline string displayName() const { DARABONBA_PTR_GET_DEFAULT(displayName_, "") };
+    inline string getDisplayName() const { DARABONBA_PTR_GET_DEFAULT(displayName_, "") };
     inline HyperParameterDefinition& setDisplayName(string displayName) { DARABONBA_PTR_SET_VALUE(displayName_, displayName) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline HyperParameterDefinition& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // range Field Functions 
     bool hasRange() const { return this->range_ != nullptr;};
     void deleteRange() { this->range_ = nullptr;};
-    inline const HyperParameterRange & range() const { DARABONBA_PTR_GET_CONST(range_, HyperParameterRange) };
-    inline HyperParameterRange range() { DARABONBA_PTR_GET(range_, HyperParameterRange) };
+    inline const HyperParameterRange & getRange() const { DARABONBA_PTR_GET_CONST(range_, HyperParameterRange) };
+    inline HyperParameterRange getRange() { DARABONBA_PTR_GET(range_, HyperParameterRange) };
     inline HyperParameterDefinition& setRange(const HyperParameterRange & range) { DARABONBA_PTR_SET_VALUE(range_, range) };
     inline HyperParameterDefinition& setRange(HyperParameterRange && range) { DARABONBA_PTR_SET_RVALUE(range_, range) };
 
@@ -85,27 +85,27 @@ namespace Models
     // required Field Functions 
     bool hasRequired() const { return this->required_ != nullptr;};
     void deleteRequired() { this->required_ = nullptr;};
-    inline bool required() const { DARABONBA_PTR_GET_DEFAULT(required_, false) };
+    inline bool getRequired() const { DARABONBA_PTR_GET_DEFAULT(required_, false) };
     inline HyperParameterDefinition& setRequired(bool required) { DARABONBA_PTR_SET_VALUE(required_, required) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline HyperParameterDefinition& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
-    std::shared_ptr<string> defaultValue_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<string> displayName_ = nullptr;
+    shared_ptr<string> defaultValue_ {};
+    shared_ptr<string> description_ {};
+    shared_ptr<string> displayName_ {};
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<HyperParameterRange> range_ = nullptr;
-    std::shared_ptr<bool> required_ = nullptr;
+    shared_ptr<string> name_ {};
+    shared_ptr<HyperParameterRange> range_ {};
+    shared_ptr<bool> required_ {};
     // This parameter is required.
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

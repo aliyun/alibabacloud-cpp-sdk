@@ -35,14 +35,14 @@ namespace Models
     // nodeSpecs Field Functions 
     bool hasNodeSpecs() const { return this->nodeSpecs_ != nullptr;};
     void deleteNodeSpecs() { this->nodeSpecs_ = nullptr;};
-    inline const vector<NodeSpec> & nodeSpecs() const { DARABONBA_PTR_GET_CONST(nodeSpecs_, vector<NodeSpec>) };
-    inline vector<NodeSpec> nodeSpecs() { DARABONBA_PTR_GET(nodeSpecs_, vector<NodeSpec>) };
+    inline const vector<NodeSpec> & getNodeSpecs() const { DARABONBA_PTR_GET_CONST(nodeSpecs_, vector<NodeSpec>) };
+    inline vector<NodeSpec> getNodeSpecs() { DARABONBA_PTR_GET(nodeSpecs_, vector<NodeSpec>) };
     inline ResourceSpec& setNodeSpecs(const vector<NodeSpec> & nodeSpecs) { DARABONBA_PTR_SET_VALUE(nodeSpecs_, nodeSpecs) };
     inline ResourceSpec& setNodeSpecs(vector<NodeSpec> && nodeSpecs) { DARABONBA_PTR_SET_RVALUE(nodeSpecs_, nodeSpecs) };
 
 
   protected:
-    std::shared_ptr<vector<NodeSpec>> nodeSpecs_ = nullptr;
+    shared_ptr<vector<NodeSpec>> nodeSpecs_ {};
   };
 
   } // namespace Models

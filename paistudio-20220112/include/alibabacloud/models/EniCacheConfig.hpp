@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cachePoolSize_ == nullptr
-        && return this->enabled_ == nullptr; };
+        && this->enabled_ == nullptr; };
     // cachePoolSize Field Functions 
     bool hasCachePoolSize() const { return this->cachePoolSize_ != nullptr;};
     void deleteCachePoolSize() { this->cachePoolSize_ = nullptr;};
-    inline int32_t cachePoolSize() const { DARABONBA_PTR_GET_DEFAULT(cachePoolSize_, 0) };
+    inline int32_t getCachePoolSize() const { DARABONBA_PTR_GET_DEFAULT(cachePoolSize_, 0) };
     inline EniCacheConfig& setCachePoolSize(int32_t cachePoolSize) { DARABONBA_PTR_SET_VALUE(cachePoolSize_, cachePoolSize) };
 
 
     // enabled Field Functions 
     bool hasEnabled() const { return this->enabled_ != nullptr;};
     void deleteEnabled() { this->enabled_ = nullptr;};
-    inline bool enabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
+    inline bool getEnabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
     inline EniCacheConfig& setEnabled(bool enabled) { DARABONBA_PTR_SET_VALUE(enabled_, enabled) };
 
 
   protected:
-    std::shared_ptr<int32_t> cachePoolSize_ = nullptr;
-    std::shared_ptr<bool> enabled_ = nullptr;
+    shared_ptr<int32_t> cachePoolSize_ {};
+    shared_ptr<bool> enabled_ {};
   };
 
   } // namespace Models

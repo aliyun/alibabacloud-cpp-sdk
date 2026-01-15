@@ -33,12 +33,12 @@ namespace Models
     // actionType Field Functions 
     bool hasActionType() const { return this->actionType_ != nullptr;};
     void deleteActionType() { this->actionType_ = nullptr;};
-    inline string actionType() const { DARABONBA_PTR_GET_DEFAULT(actionType_, "") };
+    inline string getActionType() const { DARABONBA_PTR_GET_DEFAULT(actionType_, "") };
     inline Action& setActionType(string actionType) { DARABONBA_PTR_SET_VALUE(actionType_, actionType) };
 
 
   protected:
-    std::shared_ptr<string> actionType_ = nullptr;
+    shared_ptr<string> actionType_ {};
   };
 
   } // namespace Models

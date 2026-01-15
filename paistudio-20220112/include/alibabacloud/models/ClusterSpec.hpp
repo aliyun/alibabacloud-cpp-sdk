@@ -36,19 +36,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterType_ == nullptr
-        && return this->dataSources_ == nullptr && return this->image_ == nullptr; };
+        && this->dataSources_ == nullptr && this->image_ == nullptr; };
     // clusterType Field Functions 
     bool hasClusterType() const { return this->clusterType_ != nullptr;};
     void deleteClusterType() { this->clusterType_ = nullptr;};
-    inline string clusterType() const { DARABONBA_PTR_GET_DEFAULT(clusterType_, "") };
+    inline string getClusterType() const { DARABONBA_PTR_GET_DEFAULT(clusterType_, "") };
     inline ClusterSpec& setClusterType(string clusterType) { DARABONBA_PTR_SET_VALUE(clusterType_, clusterType) };
 
 
     // dataSources Field Functions 
     bool hasDataSources() const { return this->dataSources_ != nullptr;};
     void deleteDataSources() { this->dataSources_ = nullptr;};
-    inline const vector<DataSource> & dataSources() const { DARABONBA_PTR_GET_CONST(dataSources_, vector<DataSource>) };
-    inline vector<DataSource> dataSources() { DARABONBA_PTR_GET(dataSources_, vector<DataSource>) };
+    inline const vector<DataSource> & getDataSources() const { DARABONBA_PTR_GET_CONST(dataSources_, vector<DataSource>) };
+    inline vector<DataSource> getDataSources() { DARABONBA_PTR_GET(dataSources_, vector<DataSource>) };
     inline ClusterSpec& setDataSources(const vector<DataSource> & dataSources) { DARABONBA_PTR_SET_VALUE(dataSources_, dataSources) };
     inline ClusterSpec& setDataSources(vector<DataSource> && dataSources) { DARABONBA_PTR_SET_RVALUE(dataSources_, dataSources) };
 
@@ -56,14 +56,14 @@ namespace Models
     // image Field Functions 
     bool hasImage() const { return this->image_ != nullptr;};
     void deleteImage() { this->image_ = nullptr;};
-    inline string image() const { DARABONBA_PTR_GET_DEFAULT(image_, "") };
+    inline string getImage() const { DARABONBA_PTR_GET_DEFAULT(image_, "") };
     inline ClusterSpec& setImage(string image) { DARABONBA_PTR_SET_VALUE(image_, image) };
 
 
   protected:
-    std::shared_ptr<string> clusterType_ = nullptr;
-    std::shared_ptr<vector<DataSource>> dataSources_ = nullptr;
-    std::shared_ptr<string> image_ = nullptr;
+    shared_ptr<string> clusterType_ {};
+    shared_ptr<vector<DataSource>> dataSources_ {};
+    shared_ptr<string> image_ {};
   };
 
   } // namespace Models

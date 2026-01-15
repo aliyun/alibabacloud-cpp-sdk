@@ -36,19 +36,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->resourceGroups_ == nullptr && return this->totalCount_ == nullptr; };
+        && this->resourceGroups_ == nullptr && this->totalCount_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListResourceGroupsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // resourceGroups Field Functions 
     bool hasResourceGroups() const { return this->resourceGroups_ != nullptr;};
     void deleteResourceGroups() { this->resourceGroups_ = nullptr;};
-    inline const vector<ResourceGroup> & resourceGroups() const { DARABONBA_PTR_GET_CONST(resourceGroups_, vector<ResourceGroup>) };
-    inline vector<ResourceGroup> resourceGroups() { DARABONBA_PTR_GET(resourceGroups_, vector<ResourceGroup>) };
+    inline const vector<ResourceGroup> & getResourceGroups() const { DARABONBA_PTR_GET_CONST(resourceGroups_, vector<ResourceGroup>) };
+    inline vector<ResourceGroup> getResourceGroups() { DARABONBA_PTR_GET(resourceGroups_, vector<ResourceGroup>) };
     inline ListResourceGroupsResponseBody& setResourceGroups(const vector<ResourceGroup> & resourceGroups) { DARABONBA_PTR_SET_VALUE(resourceGroups_, resourceGroups) };
     inline ListResourceGroupsResponseBody& setResourceGroups(vector<ResourceGroup> && resourceGroups) { DARABONBA_PTR_SET_RVALUE(resourceGroups_, resourceGroups) };
 
@@ -56,15 +56,15 @@ namespace Models
     // totalCount Field Functions 
     bool hasTotalCount() const { return this->totalCount_ != nullptr;};
     void deleteTotalCount() { this->totalCount_ = nullptr;};
-    inline int64_t totalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0L) };
+    inline int64_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0L) };
     inline ListResourceGroupsResponseBody& setTotalCount(int64_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
 
 
   protected:
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<vector<ResourceGroup>> resourceGroups_ = nullptr;
+    shared_ptr<string> requestId_ {};
+    shared_ptr<vector<ResourceGroup>> resourceGroups_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> totalCount_ = nullptr;
+    shared_ptr<int64_t> totalCount_ {};
   };
 
   } // namespace Models

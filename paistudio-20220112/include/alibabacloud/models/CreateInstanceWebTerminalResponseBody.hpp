@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->webTerminalId_ == nullptr; };
+        && this->webTerminalId_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateInstanceWebTerminalResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // webTerminalId Field Functions 
     bool hasWebTerminalId() const { return this->webTerminalId_ != nullptr;};
     void deleteWebTerminalId() { this->webTerminalId_ = nullptr;};
-    inline string webTerminalId() const { DARABONBA_PTR_GET_DEFAULT(webTerminalId_, "") };
+    inline string getWebTerminalId() const { DARABONBA_PTR_GET_DEFAULT(webTerminalId_, "") };
     inline CreateInstanceWebTerminalResponseBody& setWebTerminalId(string webTerminalId) { DARABONBA_PTR_SET_VALUE(webTerminalId_, webTerminalId) };
 
 
   protected:
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> webTerminalId_ = nullptr;
+    shared_ptr<string> requestId_ {};
+    shared_ptr<string> webTerminalId_ {};
   };
 
   } // namespace Models

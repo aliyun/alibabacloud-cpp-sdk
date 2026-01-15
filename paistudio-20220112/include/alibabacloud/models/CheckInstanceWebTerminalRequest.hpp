@@ -33,12 +33,12 @@ namespace Models
     // checkInfo Field Functions 
     bool hasCheckInfo() const { return this->checkInfo_ != nullptr;};
     void deleteCheckInfo() { this->checkInfo_ = nullptr;};
-    inline string checkInfo() const { DARABONBA_PTR_GET_DEFAULT(checkInfo_, "") };
+    inline string getCheckInfo() const { DARABONBA_PTR_GET_DEFAULT(checkInfo_, "") };
     inline CheckInstanceWebTerminalRequest& setCheckInfo(string checkInfo) { DARABONBA_PTR_SET_VALUE(checkInfo_, checkInfo) };
 
 
   protected:
-    std::shared_ptr<string> checkInfo_ = nullptr;
+    shared_ptr<string> checkInfo_ {};
   };
 
   } // namespace Models

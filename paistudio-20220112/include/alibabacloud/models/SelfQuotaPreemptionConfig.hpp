@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->preemptedPriorities_ == nullptr
-        && return this->preemptedProducts_ == nullptr && return this->preemptorPriorities_ == nullptr; };
+        && this->preemptedProducts_ == nullptr && this->preemptorPriorities_ == nullptr; };
     // preemptedPriorities Field Functions 
     bool hasPreemptedPriorities() const { return this->preemptedPriorities_ != nullptr;};
     void deletePreemptedPriorities() { this->preemptedPriorities_ = nullptr;};
-    inline const vector<int32_t> & preemptedPriorities() const { DARABONBA_PTR_GET_CONST(preemptedPriorities_, vector<int32_t>) };
-    inline vector<int32_t> preemptedPriorities() { DARABONBA_PTR_GET(preemptedPriorities_, vector<int32_t>) };
+    inline const vector<int32_t> & getPreemptedPriorities() const { DARABONBA_PTR_GET_CONST(preemptedPriorities_, vector<int32_t>) };
+    inline vector<int32_t> getPreemptedPriorities() { DARABONBA_PTR_GET(preemptedPriorities_, vector<int32_t>) };
     inline SelfQuotaPreemptionConfig& setPreemptedPriorities(const vector<int32_t> & preemptedPriorities) { DARABONBA_PTR_SET_VALUE(preemptedPriorities_, preemptedPriorities) };
     inline SelfQuotaPreemptionConfig& setPreemptedPriorities(vector<int32_t> && preemptedPriorities) { DARABONBA_PTR_SET_RVALUE(preemptedPriorities_, preemptedPriorities) };
 
@@ -48,8 +48,8 @@ namespace Models
     // preemptedProducts Field Functions 
     bool hasPreemptedProducts() const { return this->preemptedProducts_ != nullptr;};
     void deletePreemptedProducts() { this->preemptedProducts_ = nullptr;};
-    inline const vector<string> & preemptedProducts() const { DARABONBA_PTR_GET_CONST(preemptedProducts_, vector<string>) };
-    inline vector<string> preemptedProducts() { DARABONBA_PTR_GET(preemptedProducts_, vector<string>) };
+    inline const vector<string> & getPreemptedProducts() const { DARABONBA_PTR_GET_CONST(preemptedProducts_, vector<string>) };
+    inline vector<string> getPreemptedProducts() { DARABONBA_PTR_GET(preemptedProducts_, vector<string>) };
     inline SelfQuotaPreemptionConfig& setPreemptedProducts(const vector<string> & preemptedProducts) { DARABONBA_PTR_SET_VALUE(preemptedProducts_, preemptedProducts) };
     inline SelfQuotaPreemptionConfig& setPreemptedProducts(vector<string> && preemptedProducts) { DARABONBA_PTR_SET_RVALUE(preemptedProducts_, preemptedProducts) };
 
@@ -57,16 +57,16 @@ namespace Models
     // preemptorPriorities Field Functions 
     bool hasPreemptorPriorities() const { return this->preemptorPriorities_ != nullptr;};
     void deletePreemptorPriorities() { this->preemptorPriorities_ = nullptr;};
-    inline const vector<int32_t> & preemptorPriorities() const { DARABONBA_PTR_GET_CONST(preemptorPriorities_, vector<int32_t>) };
-    inline vector<int32_t> preemptorPriorities() { DARABONBA_PTR_GET(preemptorPriorities_, vector<int32_t>) };
+    inline const vector<int32_t> & getPreemptorPriorities() const { DARABONBA_PTR_GET_CONST(preemptorPriorities_, vector<int32_t>) };
+    inline vector<int32_t> getPreemptorPriorities() { DARABONBA_PTR_GET(preemptorPriorities_, vector<int32_t>) };
     inline SelfQuotaPreemptionConfig& setPreemptorPriorities(const vector<int32_t> & preemptorPriorities) { DARABONBA_PTR_SET_VALUE(preemptorPriorities_, preemptorPriorities) };
     inline SelfQuotaPreemptionConfig& setPreemptorPriorities(vector<int32_t> && preemptorPriorities) { DARABONBA_PTR_SET_RVALUE(preemptorPriorities_, preemptorPriorities) };
 
 
   protected:
-    std::shared_ptr<vector<int32_t>> preemptedPriorities_ = nullptr;
-    std::shared_ptr<vector<string>> preemptedProducts_ = nullptr;
-    std::shared_ptr<vector<int32_t>> preemptorPriorities_ = nullptr;
+    shared_ptr<vector<int32_t>> preemptedPriorities_ {};
+    shared_ptr<vector<string>> preemptedProducts_ {};
+    shared_ptr<vector<int32_t>> preemptorPriorities_ {};
   };
 
   } // namespace Models

@@ -32,25 +32,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->quotaId_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // quotaId Field Functions 
     bool hasQuotaId() const { return this->quotaId_ != nullptr;};
     void deleteQuotaId() { this->quotaId_ = nullptr;};
-    inline string quotaId() const { DARABONBA_PTR_GET_DEFAULT(quotaId_, "") };
+    inline string getQuotaId() const { DARABONBA_PTR_GET_DEFAULT(quotaId_, "") };
     inline ScaleQuotaResponseBody& setQuotaId(string quotaId) { DARABONBA_PTR_SET_VALUE(quotaId_, quotaId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ScaleQuotaResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // Quota Id
-    std::shared_ptr<string> quotaId_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> quotaId_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

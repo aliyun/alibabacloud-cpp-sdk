@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->algorithmId_ == nullptr
-        && return this->algorithmVersion_ == nullptr; };
+        && this->algorithmVersion_ == nullptr; };
     // algorithmId Field Functions 
     bool hasAlgorithmId() const { return this->algorithmId_ != nullptr;};
     void deleteAlgorithmId() { this->algorithmId_ = nullptr;};
-    inline string algorithmId() const { DARABONBA_PTR_GET_DEFAULT(algorithmId_, "") };
+    inline string getAlgorithmId() const { DARABONBA_PTR_GET_DEFAULT(algorithmId_, "") };
     inline CreateAlgorithmVersionResponseBody& setAlgorithmId(string algorithmId) { DARABONBA_PTR_SET_VALUE(algorithmId_, algorithmId) };
 
 
     // algorithmVersion Field Functions 
     bool hasAlgorithmVersion() const { return this->algorithmVersion_ != nullptr;};
     void deleteAlgorithmVersion() { this->algorithmVersion_ = nullptr;};
-    inline string algorithmVersion() const { DARABONBA_PTR_GET_DEFAULT(algorithmVersion_, "") };
+    inline string getAlgorithmVersion() const { DARABONBA_PTR_GET_DEFAULT(algorithmVersion_, "") };
     inline CreateAlgorithmVersionResponseBody& setAlgorithmVersion(string algorithmVersion) { DARABONBA_PTR_SET_VALUE(algorithmVersion_, algorithmVersion) };
 
 
   protected:
-    std::shared_ptr<string> algorithmId_ = nullptr;
-    std::shared_ptr<string> algorithmVersion_ = nullptr;
+    shared_ptr<string> algorithmId_ {};
+    shared_ptr<string> algorithmVersion_ {};
   };
 
   } // namespace Models

@@ -56,124 +56,124 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->algorithmName_ == nullptr
-        && return this->algorithmProvider_ == nullptr && return this->endTime_ == nullptr && return this->isTempAlgo_ == nullptr && return this->labels_ == nullptr && return this->order_ == nullptr
-        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->sortBy_ == nullptr && return this->startTime_ == nullptr && return this->status_ == nullptr
-        && return this->trainingJobId_ == nullptr && return this->trainingJobName_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->algorithmProvider_ == nullptr && this->endTime_ == nullptr && this->isTempAlgo_ == nullptr && this->labels_ == nullptr && this->order_ == nullptr
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->sortBy_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr
+        && this->trainingJobId_ == nullptr && this->trainingJobName_ == nullptr && this->workspaceId_ == nullptr; };
     // algorithmName Field Functions 
     bool hasAlgorithmName() const { return this->algorithmName_ != nullptr;};
     void deleteAlgorithmName() { this->algorithmName_ = nullptr;};
-    inline string algorithmName() const { DARABONBA_PTR_GET_DEFAULT(algorithmName_, "") };
+    inline string getAlgorithmName() const { DARABONBA_PTR_GET_DEFAULT(algorithmName_, "") };
     inline ListTrainingJobsRequest& setAlgorithmName(string algorithmName) { DARABONBA_PTR_SET_VALUE(algorithmName_, algorithmName) };
 
 
     // algorithmProvider Field Functions 
     bool hasAlgorithmProvider() const { return this->algorithmProvider_ != nullptr;};
     void deleteAlgorithmProvider() { this->algorithmProvider_ = nullptr;};
-    inline string algorithmProvider() const { DARABONBA_PTR_GET_DEFAULT(algorithmProvider_, "") };
+    inline string getAlgorithmProvider() const { DARABONBA_PTR_GET_DEFAULT(algorithmProvider_, "") };
     inline ListTrainingJobsRequest& setAlgorithmProvider(string algorithmProvider) { DARABONBA_PTR_SET_VALUE(algorithmProvider_, algorithmProvider) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline ListTrainingJobsRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // isTempAlgo Field Functions 
     bool hasIsTempAlgo() const { return this->isTempAlgo_ != nullptr;};
     void deleteIsTempAlgo() { this->isTempAlgo_ = nullptr;};
-    inline bool isTempAlgo() const { DARABONBA_PTR_GET_DEFAULT(isTempAlgo_, false) };
+    inline bool getIsTempAlgo() const { DARABONBA_PTR_GET_DEFAULT(isTempAlgo_, false) };
     inline ListTrainingJobsRequest& setIsTempAlgo(bool isTempAlgo) { DARABONBA_PTR_SET_VALUE(isTempAlgo_, isTempAlgo) };
 
 
     // labels Field Functions 
     bool hasLabels() const { return this->labels_ != nullptr;};
     void deleteLabels() { this->labels_ = nullptr;};
-    inline     const Darabonba::Json & labels() const { DARABONBA_GET(labels_) };
-    Darabonba::Json & labels() { DARABONBA_GET(labels_) };
+    inline     const Darabonba::Json & getLabels() const { DARABONBA_GET(labels_) };
+    Darabonba::Json & getLabels() { DARABONBA_GET(labels_) };
     inline ListTrainingJobsRequest& setLabels(const Darabonba::Json & labels) { DARABONBA_SET_VALUE(labels_, labels) };
-    inline ListTrainingJobsRequest& setLabels(Darabonba::Json & labels) { DARABONBA_SET_RVALUE(labels_, labels) };
+    inline ListTrainingJobsRequest& setLabels(Darabonba::Json && labels) { DARABONBA_SET_RVALUE(labels_, labels) };
 
 
     // order Field Functions 
     bool hasOrder() const { return this->order_ != nullptr;};
     void deleteOrder() { this->order_ = nullptr;};
-    inline string order() const { DARABONBA_PTR_GET_DEFAULT(order_, "") };
+    inline string getOrder() const { DARABONBA_PTR_GET_DEFAULT(order_, "") };
     inline ListTrainingJobsRequest& setOrder(string order) { DARABONBA_PTR_SET_VALUE(order_, order) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int64_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0L) };
+    inline int64_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0L) };
     inline ListTrainingJobsRequest& setPageNumber(int64_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int64_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
+    inline int64_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
     inline ListTrainingJobsRequest& setPageSize(int64_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // sortBy Field Functions 
     bool hasSortBy() const { return this->sortBy_ != nullptr;};
     void deleteSortBy() { this->sortBy_ = nullptr;};
-    inline string sortBy() const { DARABONBA_PTR_GET_DEFAULT(sortBy_, "") };
+    inline string getSortBy() const { DARABONBA_PTR_GET_DEFAULT(sortBy_, "") };
     inline ListTrainingJobsRequest& setSortBy(string sortBy) { DARABONBA_PTR_SET_VALUE(sortBy_, sortBy) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline ListTrainingJobsRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline ListTrainingJobsRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // trainingJobId Field Functions 
     bool hasTrainingJobId() const { return this->trainingJobId_ != nullptr;};
     void deleteTrainingJobId() { this->trainingJobId_ = nullptr;};
-    inline string trainingJobId() const { DARABONBA_PTR_GET_DEFAULT(trainingJobId_, "") };
+    inline string getTrainingJobId() const { DARABONBA_PTR_GET_DEFAULT(trainingJobId_, "") };
     inline ListTrainingJobsRequest& setTrainingJobId(string trainingJobId) { DARABONBA_PTR_SET_VALUE(trainingJobId_, trainingJobId) };
 
 
     // trainingJobName Field Functions 
     bool hasTrainingJobName() const { return this->trainingJobName_ != nullptr;};
     void deleteTrainingJobName() { this->trainingJobName_ = nullptr;};
-    inline string trainingJobName() const { DARABONBA_PTR_GET_DEFAULT(trainingJobName_, "") };
+    inline string getTrainingJobName() const { DARABONBA_PTR_GET_DEFAULT(trainingJobName_, "") };
     inline ListTrainingJobsRequest& setTrainingJobName(string trainingJobName) { DARABONBA_PTR_SET_VALUE(trainingJobName_, trainingJobName) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline ListTrainingJobsRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
-    std::shared_ptr<string> algorithmName_ = nullptr;
-    std::shared_ptr<string> algorithmProvider_ = nullptr;
-    std::shared_ptr<string> endTime_ = nullptr;
-    std::shared_ptr<bool> isTempAlgo_ = nullptr;
-    Darabonba::Json labels_ = nullptr;
-    std::shared_ptr<string> order_ = nullptr;
-    std::shared_ptr<int64_t> pageNumber_ = nullptr;
-    std::shared_ptr<int64_t> pageSize_ = nullptr;
-    std::shared_ptr<string> sortBy_ = nullptr;
-    std::shared_ptr<string> startTime_ = nullptr;
-    std::shared_ptr<string> status_ = nullptr;
-    std::shared_ptr<string> trainingJobId_ = nullptr;
-    std::shared_ptr<string> trainingJobName_ = nullptr;
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> algorithmName_ {};
+    shared_ptr<string> algorithmProvider_ {};
+    shared_ptr<string> endTime_ {};
+    shared_ptr<bool> isTempAlgo_ {};
+    Darabonba::Json labels_ {};
+    shared_ptr<string> order_ {};
+    shared_ptr<int64_t> pageNumber_ {};
+    shared_ptr<int64_t> pageSize_ {};
+    shared_ptr<string> sortBy_ {};
+    shared_ptr<string> startTime_ {};
+    shared_ptr<string> status_ {};
+    shared_ptr<string> trainingJobId_ {};
+    shared_ptr<string> trainingJobName_ {};
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

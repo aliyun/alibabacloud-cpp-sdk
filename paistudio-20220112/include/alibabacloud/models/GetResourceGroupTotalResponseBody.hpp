@@ -38,26 +38,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->totalCPU_ == nullptr
-        && return this->totalGPU_ == nullptr && return this->totalGPUInfos_ == nullptr && return this->totalMemory_ == nullptr; };
+        && this->totalGPU_ == nullptr && this->totalGPUInfos_ == nullptr && this->totalMemory_ == nullptr; };
     // totalCPU Field Functions 
     bool hasTotalCPU() const { return this->totalCPU_ != nullptr;};
     void deleteTotalCPU() { this->totalCPU_ = nullptr;};
-    inline int32_t totalCPU() const { DARABONBA_PTR_GET_DEFAULT(totalCPU_, 0) };
+    inline int32_t getTotalCPU() const { DARABONBA_PTR_GET_DEFAULT(totalCPU_, 0) };
     inline GetResourceGroupTotalResponseBody& setTotalCPU(int32_t totalCPU) { DARABONBA_PTR_SET_VALUE(totalCPU_, totalCPU) };
 
 
     // totalGPU Field Functions 
     bool hasTotalGPU() const { return this->totalGPU_ != nullptr;};
     void deleteTotalGPU() { this->totalGPU_ = nullptr;};
-    inline int32_t totalGPU() const { DARABONBA_PTR_GET_DEFAULT(totalGPU_, 0) };
+    inline int32_t getTotalGPU() const { DARABONBA_PTR_GET_DEFAULT(totalGPU_, 0) };
     inline GetResourceGroupTotalResponseBody& setTotalGPU(int32_t totalGPU) { DARABONBA_PTR_SET_VALUE(totalGPU_, totalGPU) };
 
 
     // totalGPUInfos Field Functions 
     bool hasTotalGPUInfos() const { return this->totalGPUInfos_ != nullptr;};
     void deleteTotalGPUInfos() { this->totalGPUInfos_ = nullptr;};
-    inline const vector<GPUInfo> & totalGPUInfos() const { DARABONBA_PTR_GET_CONST(totalGPUInfos_, vector<GPUInfo>) };
-    inline vector<GPUInfo> totalGPUInfos() { DARABONBA_PTR_GET(totalGPUInfos_, vector<GPUInfo>) };
+    inline const vector<GPUInfo> & getTotalGPUInfos() const { DARABONBA_PTR_GET_CONST(totalGPUInfos_, vector<GPUInfo>) };
+    inline vector<GPUInfo> getTotalGPUInfos() { DARABONBA_PTR_GET(totalGPUInfos_, vector<GPUInfo>) };
     inline GetResourceGroupTotalResponseBody& setTotalGPUInfos(const vector<GPUInfo> & totalGPUInfos) { DARABONBA_PTR_SET_VALUE(totalGPUInfos_, totalGPUInfos) };
     inline GetResourceGroupTotalResponseBody& setTotalGPUInfos(vector<GPUInfo> && totalGPUInfos) { DARABONBA_PTR_SET_RVALUE(totalGPUInfos_, totalGPUInfos) };
 
@@ -65,15 +65,15 @@ namespace Models
     // totalMemory Field Functions 
     bool hasTotalMemory() const { return this->totalMemory_ != nullptr;};
     void deleteTotalMemory() { this->totalMemory_ = nullptr;};
-    inline int32_t totalMemory() const { DARABONBA_PTR_GET_DEFAULT(totalMemory_, 0) };
+    inline int32_t getTotalMemory() const { DARABONBA_PTR_GET_DEFAULT(totalMemory_, 0) };
     inline GetResourceGroupTotalResponseBody& setTotalMemory(int32_t totalMemory) { DARABONBA_PTR_SET_VALUE(totalMemory_, totalMemory) };
 
 
   protected:
-    std::shared_ptr<int32_t> totalCPU_ = nullptr;
-    std::shared_ptr<int32_t> totalGPU_ = nullptr;
-    std::shared_ptr<vector<GPUInfo>> totalGPUInfos_ = nullptr;
-    std::shared_ptr<int32_t> totalMemory_ = nullptr;
+    shared_ptr<int32_t> totalCPU_ {};
+    shared_ptr<int32_t> totalGPU_ {};
+    shared_ptr<vector<GPUInfo>> totalGPUInfos_ {};
+    shared_ptr<int32_t> totalMemory_ {};
   };
 
   } // namespace Models

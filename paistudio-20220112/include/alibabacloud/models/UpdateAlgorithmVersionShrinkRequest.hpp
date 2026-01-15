@@ -33,12 +33,12 @@ namespace Models
     // algorithmSpecShrink Field Functions 
     bool hasAlgorithmSpecShrink() const { return this->algorithmSpecShrink_ != nullptr;};
     void deleteAlgorithmSpecShrink() { this->algorithmSpecShrink_ = nullptr;};
-    inline string algorithmSpecShrink() const { DARABONBA_PTR_GET_DEFAULT(algorithmSpecShrink_, "") };
+    inline string getAlgorithmSpecShrink() const { DARABONBA_PTR_GET_DEFAULT(algorithmSpecShrink_, "") };
     inline UpdateAlgorithmVersionShrinkRequest& setAlgorithmSpecShrink(string algorithmSpecShrink) { DARABONBA_PTR_SET_VALUE(algorithmSpecShrink_, algorithmSpecShrink) };
 
 
   protected:
-    std::shared_ptr<string> algorithmSpecShrink_ = nullptr;
+    shared_ptr<string> algorithmSpecShrink_ {};
   };
 
   } // namespace Models

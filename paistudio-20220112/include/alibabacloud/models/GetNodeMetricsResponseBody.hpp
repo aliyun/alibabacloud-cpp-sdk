@@ -36,19 +36,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->metricType_ == nullptr
-        && return this->nodesMetrics_ == nullptr && return this->resourceGroupID_ == nullptr; };
+        && this->nodesMetrics_ == nullptr && this->resourceGroupID_ == nullptr; };
     // metricType Field Functions 
     bool hasMetricType() const { return this->metricType_ != nullptr;};
     void deleteMetricType() { this->metricType_ = nullptr;};
-    inline string metricType() const { DARABONBA_PTR_GET_DEFAULT(metricType_, "") };
+    inline string getMetricType() const { DARABONBA_PTR_GET_DEFAULT(metricType_, "") };
     inline GetNodeMetricsResponseBody& setMetricType(string metricType) { DARABONBA_PTR_SET_VALUE(metricType_, metricType) };
 
 
     // nodesMetrics Field Functions 
     bool hasNodesMetrics() const { return this->nodesMetrics_ != nullptr;};
     void deleteNodesMetrics() { this->nodesMetrics_ = nullptr;};
-    inline const vector<NodeMetric> & nodesMetrics() const { DARABONBA_PTR_GET_CONST(nodesMetrics_, vector<NodeMetric>) };
-    inline vector<NodeMetric> nodesMetrics() { DARABONBA_PTR_GET(nodesMetrics_, vector<NodeMetric>) };
+    inline const vector<NodeMetric> & getNodesMetrics() const { DARABONBA_PTR_GET_CONST(nodesMetrics_, vector<NodeMetric>) };
+    inline vector<NodeMetric> getNodesMetrics() { DARABONBA_PTR_GET(nodesMetrics_, vector<NodeMetric>) };
     inline GetNodeMetricsResponseBody& setNodesMetrics(const vector<NodeMetric> & nodesMetrics) { DARABONBA_PTR_SET_VALUE(nodesMetrics_, nodesMetrics) };
     inline GetNodeMetricsResponseBody& setNodesMetrics(vector<NodeMetric> && nodesMetrics) { DARABONBA_PTR_SET_RVALUE(nodesMetrics_, nodesMetrics) };
 
@@ -56,14 +56,14 @@ namespace Models
     // resourceGroupID Field Functions 
     bool hasResourceGroupID() const { return this->resourceGroupID_ != nullptr;};
     void deleteResourceGroupID() { this->resourceGroupID_ = nullptr;};
-    inline string resourceGroupID() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupID_, "") };
+    inline string getResourceGroupID() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupID_, "") };
     inline GetNodeMetricsResponseBody& setResourceGroupID(string resourceGroupID) { DARABONBA_PTR_SET_VALUE(resourceGroupID_, resourceGroupID) };
 
 
   protected:
-    std::shared_ptr<string> metricType_ = nullptr;
-    std::shared_ptr<vector<NodeMetric>> nodesMetrics_ = nullptr;
-    std::shared_ptr<string> resourceGroupID_ = nullptr;
+    shared_ptr<string> metricType_ {};
+    shared_ptr<vector<NodeMetric>> nodesMetrics_ {};
+    shared_ptr<string> resourceGroupID_ {};
   };
 
   } // namespace Models

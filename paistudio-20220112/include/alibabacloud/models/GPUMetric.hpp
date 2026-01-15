@@ -36,40 +36,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->index_ == nullptr
-        && return this->model_ == nullptr && return this->status_ == nullptr && return this->usageRate_ == nullptr; };
+        && this->model_ == nullptr && this->status_ == nullptr && this->usageRate_ == nullptr; };
     // index Field Functions 
     bool hasIndex() const { return this->index_ != nullptr;};
     void deleteIndex() { this->index_ = nullptr;};
-    inline int64_t index() const { DARABONBA_PTR_GET_DEFAULT(index_, 0L) };
+    inline int64_t getIndex() const { DARABONBA_PTR_GET_DEFAULT(index_, 0L) };
     inline GPUMetric& setIndex(int64_t index) { DARABONBA_PTR_SET_VALUE(index_, index) };
 
 
     // model Field Functions 
     bool hasModel() const { return this->model_ != nullptr;};
     void deleteModel() { this->model_ = nullptr;};
-    inline string model() const { DARABONBA_PTR_GET_DEFAULT(model_, "") };
+    inline string getModel() const { DARABONBA_PTR_GET_DEFAULT(model_, "") };
     inline GPUMetric& setModel(string model) { DARABONBA_PTR_SET_VALUE(model_, model) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline int64_t status() const { DARABONBA_PTR_GET_DEFAULT(status_, 0L) };
+    inline int64_t getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, 0L) };
     inline GPUMetric& setStatus(int64_t status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // usageRate Field Functions 
     bool hasUsageRate() const { return this->usageRate_ != nullptr;};
     void deleteUsageRate() { this->usageRate_ = nullptr;};
-    inline float usageRate() const { DARABONBA_PTR_GET_DEFAULT(usageRate_, 0.0) };
+    inline float getUsageRate() const { DARABONBA_PTR_GET_DEFAULT(usageRate_, 0.0) };
     inline GPUMetric& setUsageRate(float usageRate) { DARABONBA_PTR_SET_VALUE(usageRate_, usageRate) };
 
 
   protected:
-    std::shared_ptr<int64_t> index_ = nullptr;
-    std::shared_ptr<string> model_ = nullptr;
-    std::shared_ptr<int64_t> status_ = nullptr;
-    std::shared_ptr<float> usageRate_ = nullptr;
+    shared_ptr<int64_t> index_ {};
+    shared_ptr<string> model_ {};
+    shared_ptr<int64_t> status_ {};
+    shared_ptr<float> usageRate_ {};
   };
 
   } // namespace Models

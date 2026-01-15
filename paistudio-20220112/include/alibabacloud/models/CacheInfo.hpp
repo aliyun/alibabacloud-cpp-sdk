@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->mountPoint_ == nullptr
-        && return this->port_ == nullptr; };
+        && this->port_ == nullptr; };
     // mountPoint Field Functions 
     bool hasMountPoint() const { return this->mountPoint_ != nullptr;};
     void deleteMountPoint() { this->mountPoint_ = nullptr;};
-    inline string mountPoint() const { DARABONBA_PTR_GET_DEFAULT(mountPoint_, "") };
+    inline string getMountPoint() const { DARABONBA_PTR_GET_DEFAULT(mountPoint_, "") };
     inline CacheInfo& setMountPoint(string mountPoint) { DARABONBA_PTR_SET_VALUE(mountPoint_, mountPoint) };
 
 
     // port Field Functions 
     bool hasPort() const { return this->port_ != nullptr;};
     void deletePort() { this->port_ = nullptr;};
-    inline string port() const { DARABONBA_PTR_GET_DEFAULT(port_, "") };
+    inline string getPort() const { DARABONBA_PTR_GET_DEFAULT(port_, "") };
     inline CacheInfo& setPort(string port) { DARABONBA_PTR_SET_VALUE(port_, port) };
 
 
   protected:
-    std::shared_ptr<string> mountPoint_ = nullptr;
-    std::shared_ptr<string> port_ = nullptr;
+    shared_ptr<string> mountPoint_ {};
+    shared_ptr<string> port_ {};
   };
 
   } // namespace Models

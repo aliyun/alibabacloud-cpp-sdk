@@ -36,19 +36,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->product_ == nullptr
-        && return this->specs_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->specs_ == nullptr && this->workspaceId_ == nullptr; };
     // product Field Functions 
     bool hasProduct() const { return this->product_ != nullptr;};
     void deleteProduct() { this->product_ = nullptr;};
-    inline string product() const { DARABONBA_PTR_GET_DEFAULT(product_, "") };
+    inline string getProduct() const { DARABONBA_PTR_GET_DEFAULT(product_, "") };
     inline WorkspaceSpecs& setProduct(string product) { DARABONBA_PTR_SET_VALUE(product_, product) };
 
 
     // specs Field Functions 
     bool hasSpecs() const { return this->specs_ != nullptr;};
     void deleteSpecs() { this->specs_ = nullptr;};
-    inline const vector<WorkspaceSpec> & specs() const { DARABONBA_PTR_GET_CONST(specs_, vector<WorkspaceSpec>) };
-    inline vector<WorkspaceSpec> specs() { DARABONBA_PTR_GET(specs_, vector<WorkspaceSpec>) };
+    inline const vector<WorkspaceSpec> & getSpecs() const { DARABONBA_PTR_GET_CONST(specs_, vector<WorkspaceSpec>) };
+    inline vector<WorkspaceSpec> getSpecs() { DARABONBA_PTR_GET(specs_, vector<WorkspaceSpec>) };
     inline WorkspaceSpecs& setSpecs(const vector<WorkspaceSpec> & specs) { DARABONBA_PTR_SET_VALUE(specs_, specs) };
     inline WorkspaceSpecs& setSpecs(vector<WorkspaceSpec> && specs) { DARABONBA_PTR_SET_RVALUE(specs_, specs) };
 
@@ -56,14 +56,14 @@ namespace Models
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline WorkspaceSpecs& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
-    std::shared_ptr<string> product_ = nullptr;
-    std::shared_ptr<vector<WorkspaceSpec>> specs_ = nullptr;
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> product_ {};
+    shared_ptr<vector<WorkspaceSpec>> specs_ {};
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

@@ -33,13 +33,13 @@ namespace Models
     // keys Field Functions 
     bool hasKeys() const { return this->keys_ != nullptr;};
     void deleteKeys() { this->keys_ = nullptr;};
-    inline string keys() const { DARABONBA_PTR_GET_DEFAULT(keys_, "") };
+    inline string getKeys() const { DARABONBA_PTR_GET_DEFAULT(keys_, "") };
     inline DeleteTrainingJobLabelsRequest& setKeys(string keys) { DARABONBA_PTR_SET_VALUE(keys_, keys) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> keys_ = nullptr;
+    shared_ptr<string> keys_ {};
   };
 
   } // namespace Models

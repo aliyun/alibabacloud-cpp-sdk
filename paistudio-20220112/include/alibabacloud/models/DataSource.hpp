@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dataSourceId_ == nullptr
-        && return this->mountPath_ == nullptr && return this->uri_ == nullptr; };
+        && this->mountPath_ == nullptr && this->uri_ == nullptr; };
     // dataSourceId Field Functions 
     bool hasDataSourceId() const { return this->dataSourceId_ != nullptr;};
     void deleteDataSourceId() { this->dataSourceId_ = nullptr;};
-    inline string dataSourceId() const { DARABONBA_PTR_GET_DEFAULT(dataSourceId_, "") };
+    inline string getDataSourceId() const { DARABONBA_PTR_GET_DEFAULT(dataSourceId_, "") };
     inline DataSource& setDataSourceId(string dataSourceId) { DARABONBA_PTR_SET_VALUE(dataSourceId_, dataSourceId) };
 
 
     // mountPath Field Functions 
     bool hasMountPath() const { return this->mountPath_ != nullptr;};
     void deleteMountPath() { this->mountPath_ = nullptr;};
-    inline string mountPath() const { DARABONBA_PTR_GET_DEFAULT(mountPath_, "") };
+    inline string getMountPath() const { DARABONBA_PTR_GET_DEFAULT(mountPath_, "") };
     inline DataSource& setMountPath(string mountPath) { DARABONBA_PTR_SET_VALUE(mountPath_, mountPath) };
 
 
     // uri Field Functions 
     bool hasUri() const { return this->uri_ != nullptr;};
     void deleteUri() { this->uri_ = nullptr;};
-    inline string uri() const { DARABONBA_PTR_GET_DEFAULT(uri_, "") };
+    inline string getUri() const { DARABONBA_PTR_GET_DEFAULT(uri_, "") };
     inline DataSource& setUri(string uri) { DARABONBA_PTR_SET_VALUE(uri_, uri) };
 
 
   protected:
-    std::shared_ptr<string> dataSourceId_ = nullptr;
-    std::shared_ptr<string> mountPath_ = nullptr;
-    std::shared_ptr<string> uri_ = nullptr;
+    shared_ptr<string> dataSourceId_ {};
+    shared_ptr<string> mountPath_ {};
+    shared_ptr<string> uri_ {};
   };
 
   } // namespace Models

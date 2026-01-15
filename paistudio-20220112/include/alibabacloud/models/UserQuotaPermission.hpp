@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->permissions_ == nullptr
-        && return this->quotaId_ == nullptr; };
+        && this->quotaId_ == nullptr; };
     // permissions Field Functions 
     bool hasPermissions() const { return this->permissions_ != nullptr;};
     void deletePermissions() { this->permissions_ = nullptr;};
-    inline const vector<string> & permissions() const { DARABONBA_PTR_GET_CONST(permissions_, vector<string>) };
-    inline vector<string> permissions() { DARABONBA_PTR_GET(permissions_, vector<string>) };
+    inline const vector<string> & getPermissions() const { DARABONBA_PTR_GET_CONST(permissions_, vector<string>) };
+    inline vector<string> getPermissions() { DARABONBA_PTR_GET(permissions_, vector<string>) };
     inline UserQuotaPermission& setPermissions(const vector<string> & permissions) { DARABONBA_PTR_SET_VALUE(permissions_, permissions) };
     inline UserQuotaPermission& setPermissions(vector<string> && permissions) { DARABONBA_PTR_SET_RVALUE(permissions_, permissions) };
 
@@ -46,13 +46,13 @@ namespace Models
     // quotaId Field Functions 
     bool hasQuotaId() const { return this->quotaId_ != nullptr;};
     void deleteQuotaId() { this->quotaId_ = nullptr;};
-    inline string quotaId() const { DARABONBA_PTR_GET_DEFAULT(quotaId_, "") };
+    inline string getQuotaId() const { DARABONBA_PTR_GET_DEFAULT(quotaId_, "") };
     inline UserQuotaPermission& setQuotaId(string quotaId) { DARABONBA_PTR_SET_VALUE(quotaId_, quotaId) };
 
 
   protected:
-    std::shared_ptr<vector<string>> permissions_ = nullptr;
-    std::shared_ptr<string> quotaId_ = nullptr;
+    shared_ptr<vector<string>> permissions_ {};
+    shared_ptr<string> quotaId_ {};
   };
 
   } // namespace Models

@@ -41,19 +41,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->labels_ == nullptr && return this->queueStrategy_ == nullptr && return this->quotaConfig_ == nullptr && return this->quotaName_ == nullptr; };
+        && this->labels_ == nullptr && this->queueStrategy_ == nullptr && this->quotaConfig_ == nullptr && this->quotaName_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline UpdateQuotaRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // labels Field Functions 
     bool hasLabels() const { return this->labels_ != nullptr;};
     void deleteLabels() { this->labels_ = nullptr;};
-    inline const vector<Label> & labels() const { DARABONBA_PTR_GET_CONST(labels_, vector<Label>) };
-    inline vector<Label> labels() { DARABONBA_PTR_GET(labels_, vector<Label>) };
+    inline const vector<Label> & getLabels() const { DARABONBA_PTR_GET_CONST(labels_, vector<Label>) };
+    inline vector<Label> getLabels() { DARABONBA_PTR_GET(labels_, vector<Label>) };
     inline UpdateQuotaRequest& setLabels(const vector<Label> & labels) { DARABONBA_PTR_SET_VALUE(labels_, labels) };
     inline UpdateQuotaRequest& setLabels(vector<Label> && labels) { DARABONBA_PTR_SET_RVALUE(labels_, labels) };
 
@@ -61,15 +61,15 @@ namespace Models
     // queueStrategy Field Functions 
     bool hasQueueStrategy() const { return this->queueStrategy_ != nullptr;};
     void deleteQueueStrategy() { this->queueStrategy_ = nullptr;};
-    inline string queueStrategy() const { DARABONBA_PTR_GET_DEFAULT(queueStrategy_, "") };
+    inline string getQueueStrategy() const { DARABONBA_PTR_GET_DEFAULT(queueStrategy_, "") };
     inline UpdateQuotaRequest& setQueueStrategy(string queueStrategy) { DARABONBA_PTR_SET_VALUE(queueStrategy_, queueStrategy) };
 
 
     // quotaConfig Field Functions 
     bool hasQuotaConfig() const { return this->quotaConfig_ != nullptr;};
     void deleteQuotaConfig() { this->quotaConfig_ = nullptr;};
-    inline const QuotaConfig & quotaConfig() const { DARABONBA_PTR_GET_CONST(quotaConfig_, QuotaConfig) };
-    inline QuotaConfig quotaConfig() { DARABONBA_PTR_GET(quotaConfig_, QuotaConfig) };
+    inline const QuotaConfig & getQuotaConfig() const { DARABONBA_PTR_GET_CONST(quotaConfig_, QuotaConfig) };
+    inline QuotaConfig getQuotaConfig() { DARABONBA_PTR_GET(quotaConfig_, QuotaConfig) };
     inline UpdateQuotaRequest& setQuotaConfig(const QuotaConfig & quotaConfig) { DARABONBA_PTR_SET_VALUE(quotaConfig_, quotaConfig) };
     inline UpdateQuotaRequest& setQuotaConfig(QuotaConfig && quotaConfig) { DARABONBA_PTR_SET_RVALUE(quotaConfig_, quotaConfig) };
 
@@ -77,16 +77,16 @@ namespace Models
     // quotaName Field Functions 
     bool hasQuotaName() const { return this->quotaName_ != nullptr;};
     void deleteQuotaName() { this->quotaName_ = nullptr;};
-    inline string quotaName() const { DARABONBA_PTR_GET_DEFAULT(quotaName_, "") };
+    inline string getQuotaName() const { DARABONBA_PTR_GET_DEFAULT(quotaName_, "") };
     inline UpdateQuotaRequest& setQuotaName(string quotaName) { DARABONBA_PTR_SET_VALUE(quotaName_, quotaName) };
 
 
   protected:
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<vector<Label>> labels_ = nullptr;
-    std::shared_ptr<string> queueStrategy_ = nullptr;
-    std::shared_ptr<QuotaConfig> quotaConfig_ = nullptr;
-    std::shared_ptr<string> quotaName_ = nullptr;
+    shared_ptr<string> description_ {};
+    shared_ptr<vector<Label>> labels_ {};
+    shared_ptr<string> queueStrategy_ {};
+    shared_ptr<QuotaConfig> quotaConfig_ {};
+    shared_ptr<string> quotaName_ {};
   };
 
   } // namespace Models

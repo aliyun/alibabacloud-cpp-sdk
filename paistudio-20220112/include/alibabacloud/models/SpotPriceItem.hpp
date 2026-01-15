@@ -36,40 +36,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceType_ == nullptr
-        && return this->spotDiscount_ == nullptr && return this->timestamp_ == nullptr && return this->zoneId_ == nullptr; };
+        && this->spotDiscount_ == nullptr && this->timestamp_ == nullptr && this->zoneId_ == nullptr; };
     // instanceType Field Functions 
     bool hasInstanceType() const { return this->instanceType_ != nullptr;};
     void deleteInstanceType() { this->instanceType_ = nullptr;};
-    inline string instanceType() const { DARABONBA_PTR_GET_DEFAULT(instanceType_, "") };
+    inline string getInstanceType() const { DARABONBA_PTR_GET_DEFAULT(instanceType_, "") };
     inline SpotPriceItem& setInstanceType(string instanceType) { DARABONBA_PTR_SET_VALUE(instanceType_, instanceType) };
 
 
     // spotDiscount Field Functions 
     bool hasSpotDiscount() const { return this->spotDiscount_ != nullptr;};
     void deleteSpotDiscount() { this->spotDiscount_ = nullptr;};
-    inline float spotDiscount() const { DARABONBA_PTR_GET_DEFAULT(spotDiscount_, 0.0) };
+    inline float getSpotDiscount() const { DARABONBA_PTR_GET_DEFAULT(spotDiscount_, 0.0) };
     inline SpotPriceItem& setSpotDiscount(float spotDiscount) { DARABONBA_PTR_SET_VALUE(spotDiscount_, spotDiscount) };
 
 
     // timestamp Field Functions 
     bool hasTimestamp() const { return this->timestamp_ != nullptr;};
     void deleteTimestamp() { this->timestamp_ = nullptr;};
-    inline string timestamp() const { DARABONBA_PTR_GET_DEFAULT(timestamp_, "") };
+    inline string getTimestamp() const { DARABONBA_PTR_GET_DEFAULT(timestamp_, "") };
     inline SpotPriceItem& setTimestamp(string timestamp) { DARABONBA_PTR_SET_VALUE(timestamp_, timestamp) };
 
 
     // zoneId Field Functions 
     bool hasZoneId() const { return this->zoneId_ != nullptr;};
     void deleteZoneId() { this->zoneId_ = nullptr;};
-    inline string zoneId() const { DARABONBA_PTR_GET_DEFAULT(zoneId_, "") };
+    inline string getZoneId() const { DARABONBA_PTR_GET_DEFAULT(zoneId_, "") };
     inline SpotPriceItem& setZoneId(string zoneId) { DARABONBA_PTR_SET_VALUE(zoneId_, zoneId) };
 
 
   protected:
-    std::shared_ptr<string> instanceType_ = nullptr;
-    std::shared_ptr<float> spotDiscount_ = nullptr;
-    std::shared_ptr<string> timestamp_ = nullptr;
-    std::shared_ptr<string> zoneId_ = nullptr;
+    shared_ptr<string> instanceType_ {};
+    shared_ptr<float> spotDiscount_ {};
+    shared_ptr<string> timestamp_ {};
+    shared_ptr<string> zoneId_ {};
   };
 
   } // namespace Models

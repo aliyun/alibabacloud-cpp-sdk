@@ -33,12 +33,12 @@ namespace Models
     // enabled Field Functions 
     bool hasEnabled() const { return this->enabled_ != nullptr;};
     void deleteEnabled() { this->enabled_ = nullptr;};
-    inline bool enabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
+    inline bool getEnabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
     inline SandboxCacheConfig& setEnabled(bool enabled) { DARABONBA_PTR_SET_VALUE(enabled_, enabled) };
 
 
   protected:
-    std::shared_ptr<bool> enabled_ = nullptr;
+    shared_ptr<bool> enabled_ {};
   };
 
   } // namespace Models

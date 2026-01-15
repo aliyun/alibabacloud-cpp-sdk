@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->nodes_ == nullptr
-        && return this->reason_ == nullptr; };
+        && this->reason_ == nullptr; };
     // nodes Field Functions 
     bool hasNodes() const { return this->nodes_ != nullptr;};
     void deleteNodes() { this->nodes_ = nullptr;};
-    inline const vector<string> & nodes() const { DARABONBA_PTR_GET_CONST(nodes_, vector<string>) };
-    inline vector<string> nodes() { DARABONBA_PTR_GET(nodes_, vector<string>) };
+    inline const vector<string> & getNodes() const { DARABONBA_PTR_GET_CONST(nodes_, vector<string>) };
+    inline vector<string> getNodes() { DARABONBA_PTR_GET(nodes_, vector<string>) };
     inline UnschedulableNodeDetail& setNodes(const vector<string> & nodes) { DARABONBA_PTR_SET_VALUE(nodes_, nodes) };
     inline UnschedulableNodeDetail& setNodes(vector<string> && nodes) { DARABONBA_PTR_SET_RVALUE(nodes_, nodes) };
 
@@ -46,13 +46,13 @@ namespace Models
     // reason Field Functions 
     bool hasReason() const { return this->reason_ != nullptr;};
     void deleteReason() { this->reason_ = nullptr;};
-    inline string reason() const { DARABONBA_PTR_GET_DEFAULT(reason_, "") };
+    inline string getReason() const { DARABONBA_PTR_GET_DEFAULT(reason_, "") };
     inline UnschedulableNodeDetail& setReason(string reason) { DARABONBA_PTR_SET_VALUE(reason_, reason) };
 
 
   protected:
-    std::shared_ptr<vector<string>> nodes_ = nullptr;
-    std::shared_ptr<string> reason_ = nullptr;
+    shared_ptr<vector<string>> nodes_ {};
+    shared_ptr<string> reason_ {};
   };
 
   } // namespace Models

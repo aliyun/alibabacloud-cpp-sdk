@@ -38,26 +38,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestCPU_ == nullptr
-        && return this->requestGPU_ == nullptr && return this->requestGPUInfos_ == nullptr && return this->requestMemory_ == nullptr; };
+        && this->requestGPU_ == nullptr && this->requestGPUInfos_ == nullptr && this->requestMemory_ == nullptr; };
     // requestCPU Field Functions 
     bool hasRequestCPU() const { return this->requestCPU_ != nullptr;};
     void deleteRequestCPU() { this->requestCPU_ = nullptr;};
-    inline int32_t requestCPU() const { DARABONBA_PTR_GET_DEFAULT(requestCPU_, 0) };
+    inline int32_t getRequestCPU() const { DARABONBA_PTR_GET_DEFAULT(requestCPU_, 0) };
     inline GetResourceGroupRequestResponseBody& setRequestCPU(int32_t requestCPU) { DARABONBA_PTR_SET_VALUE(requestCPU_, requestCPU) };
 
 
     // requestGPU Field Functions 
     bool hasRequestGPU() const { return this->requestGPU_ != nullptr;};
     void deleteRequestGPU() { this->requestGPU_ = nullptr;};
-    inline int32_t requestGPU() const { DARABONBA_PTR_GET_DEFAULT(requestGPU_, 0) };
+    inline int32_t getRequestGPU() const { DARABONBA_PTR_GET_DEFAULT(requestGPU_, 0) };
     inline GetResourceGroupRequestResponseBody& setRequestGPU(int32_t requestGPU) { DARABONBA_PTR_SET_VALUE(requestGPU_, requestGPU) };
 
 
     // requestGPUInfos Field Functions 
     bool hasRequestGPUInfos() const { return this->requestGPUInfos_ != nullptr;};
     void deleteRequestGPUInfos() { this->requestGPUInfos_ = nullptr;};
-    inline const vector<GPUInfo> & requestGPUInfos() const { DARABONBA_PTR_GET_CONST(requestGPUInfos_, vector<GPUInfo>) };
-    inline vector<GPUInfo> requestGPUInfos() { DARABONBA_PTR_GET(requestGPUInfos_, vector<GPUInfo>) };
+    inline const vector<GPUInfo> & getRequestGPUInfos() const { DARABONBA_PTR_GET_CONST(requestGPUInfos_, vector<GPUInfo>) };
+    inline vector<GPUInfo> getRequestGPUInfos() { DARABONBA_PTR_GET(requestGPUInfos_, vector<GPUInfo>) };
     inline GetResourceGroupRequestResponseBody& setRequestGPUInfos(const vector<GPUInfo> & requestGPUInfos) { DARABONBA_PTR_SET_VALUE(requestGPUInfos_, requestGPUInfos) };
     inline GetResourceGroupRequestResponseBody& setRequestGPUInfos(vector<GPUInfo> && requestGPUInfos) { DARABONBA_PTR_SET_RVALUE(requestGPUInfos_, requestGPUInfos) };
 
@@ -65,15 +65,15 @@ namespace Models
     // requestMemory Field Functions 
     bool hasRequestMemory() const { return this->requestMemory_ != nullptr;};
     void deleteRequestMemory() { this->requestMemory_ = nullptr;};
-    inline int32_t requestMemory() const { DARABONBA_PTR_GET_DEFAULT(requestMemory_, 0) };
+    inline int32_t getRequestMemory() const { DARABONBA_PTR_GET_DEFAULT(requestMemory_, 0) };
     inline GetResourceGroupRequestResponseBody& setRequestMemory(int32_t requestMemory) { DARABONBA_PTR_SET_VALUE(requestMemory_, requestMemory) };
 
 
   protected:
-    std::shared_ptr<int32_t> requestCPU_ = nullptr;
-    std::shared_ptr<int32_t> requestGPU_ = nullptr;
-    std::shared_ptr<vector<GPUInfo>> requestGPUInfos_ = nullptr;
-    std::shared_ptr<int32_t> requestMemory_ = nullptr;
+    shared_ptr<int32_t> requestCPU_ {};
+    shared_ptr<int32_t> requestGPU_ {};
+    shared_ptr<vector<GPUInfo>> requestGPUInfos_ {};
+    shared_ptr<int32_t> requestMemory_ {};
   };
 
   } // namespace Models

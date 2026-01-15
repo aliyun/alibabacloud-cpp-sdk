@@ -32,25 +32,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->podStatus_ == nullptr
-        && return this->resourceGroupID_ == nullptr; };
+        && this->resourceGroupID_ == nullptr; };
     // podStatus Field Functions 
     bool hasPodStatus() const { return this->podStatus_ != nullptr;};
     void deletePodStatus() { this->podStatus_ = nullptr;};
-    inline string podStatus() const { DARABONBA_PTR_GET_DEFAULT(podStatus_, "") };
+    inline string getPodStatus() const { DARABONBA_PTR_GET_DEFAULT(podStatus_, "") };
     inline GetResourceGroupRequestRequest& setPodStatus(string podStatus) { DARABONBA_PTR_SET_VALUE(podStatus_, podStatus) };
 
 
     // resourceGroupID Field Functions 
     bool hasResourceGroupID() const { return this->resourceGroupID_ != nullptr;};
     void deleteResourceGroupID() { this->resourceGroupID_ = nullptr;};
-    inline string resourceGroupID() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupID_, "") };
+    inline string getResourceGroupID() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupID_, "") };
     inline GetResourceGroupRequestRequest& setResourceGroupID(string resourceGroupID) { DARABONBA_PTR_SET_VALUE(resourceGroupID_, resourceGroupID) };
 
 
   protected:
-    std::shared_ptr<string> podStatus_ = nullptr;
+    shared_ptr<string> podStatus_ {};
     // This parameter is required.
-    std::shared_ptr<string> resourceGroupID_ = nullptr;
+    shared_ptr<string> resourceGroupID_ {};
   };
 
   } // namespace Models

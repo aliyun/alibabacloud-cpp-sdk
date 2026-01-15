@@ -36,19 +36,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->gpuType_ == nullptr
-        && return this->metrics_ == nullptr && return this->resourceGroupID_ == nullptr; };
+        && this->metrics_ == nullptr && this->resourceGroupID_ == nullptr; };
     // gpuType Field Functions 
     bool hasGpuType() const { return this->gpuType_ != nullptr;};
     void deleteGpuType() { this->gpuType_ = nullptr;};
-    inline string gpuType() const { DARABONBA_PTR_GET_DEFAULT(gpuType_, "") };
+    inline string getGpuType() const { DARABONBA_PTR_GET_DEFAULT(gpuType_, "") };
     inline ResourceGroupMetric& setGpuType(string gpuType) { DARABONBA_PTR_SET_VALUE(gpuType_, gpuType) };
 
 
     // metrics Field Functions 
     bool hasMetrics() const { return this->metrics_ != nullptr;};
     void deleteMetrics() { this->metrics_ = nullptr;};
-    inline const vector<Metric> & metrics() const { DARABONBA_PTR_GET_CONST(metrics_, vector<Metric>) };
-    inline vector<Metric> metrics() { DARABONBA_PTR_GET(metrics_, vector<Metric>) };
+    inline const vector<Metric> & getMetrics() const { DARABONBA_PTR_GET_CONST(metrics_, vector<Metric>) };
+    inline vector<Metric> getMetrics() { DARABONBA_PTR_GET(metrics_, vector<Metric>) };
     inline ResourceGroupMetric& setMetrics(const vector<Metric> & metrics) { DARABONBA_PTR_SET_VALUE(metrics_, metrics) };
     inline ResourceGroupMetric& setMetrics(vector<Metric> && metrics) { DARABONBA_PTR_SET_RVALUE(metrics_, metrics) };
 
@@ -56,14 +56,14 @@ namespace Models
     // resourceGroupID Field Functions 
     bool hasResourceGroupID() const { return this->resourceGroupID_ != nullptr;};
     void deleteResourceGroupID() { this->resourceGroupID_ = nullptr;};
-    inline string resourceGroupID() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupID_, "") };
+    inline string getResourceGroupID() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupID_, "") };
     inline ResourceGroupMetric& setResourceGroupID(string resourceGroupID) { DARABONBA_PTR_SET_VALUE(resourceGroupID_, resourceGroupID) };
 
 
   protected:
-    std::shared_ptr<string> gpuType_ = nullptr;
-    std::shared_ptr<vector<Metric>> metrics_ = nullptr;
-    std::shared_ptr<string> resourceGroupID_ = nullptr;
+    shared_ptr<string> gpuType_ {};
+    shared_ptr<vector<Metric>> metrics_ {};
+    shared_ptr<string> resourceGroupID_ {};
   };
 
   } // namespace Models

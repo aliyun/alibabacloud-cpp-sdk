@@ -50,97 +50,97 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->acceleratorType_ == nullptr
-        && return this->allocatableCPU_ == nullptr && return this->allocatableMemory_ == nullptr && return this->CPU_ == nullptr && return this->GPU_ == nullptr && return this->GPUMemory_ == nullptr
-        && return this->GPUType_ == nullptr && return this->memory_ == nullptr && return this->nodeType_ == nullptr && return this->systemReservedCPU_ == nullptr && return this->systemReservedMemory_ == nullptr; };
+        && this->allocatableCPU_ == nullptr && this->allocatableMemory_ == nullptr && this->CPU_ == nullptr && this->GPU_ == nullptr && this->GPUMemory_ == nullptr
+        && this->GPUType_ == nullptr && this->memory_ == nullptr && this->nodeType_ == nullptr && this->systemReservedCPU_ == nullptr && this->systemReservedMemory_ == nullptr; };
     // acceleratorType Field Functions 
     bool hasAcceleratorType() const { return this->acceleratorType_ != nullptr;};
     void deleteAcceleratorType() { this->acceleratorType_ = nullptr;};
-    inline string acceleratorType() const { DARABONBA_PTR_GET_DEFAULT(acceleratorType_, "") };
+    inline string getAcceleratorType() const { DARABONBA_PTR_GET_DEFAULT(acceleratorType_, "") };
     inline NodeType& setAcceleratorType(string acceleratorType) { DARABONBA_PTR_SET_VALUE(acceleratorType_, acceleratorType) };
 
 
     // allocatableCPU Field Functions 
     bool hasAllocatableCPU() const { return this->allocatableCPU_ != nullptr;};
     void deleteAllocatableCPU() { this->allocatableCPU_ = nullptr;};
-    inline string allocatableCPU() const { DARABONBA_PTR_GET_DEFAULT(allocatableCPU_, "") };
+    inline string getAllocatableCPU() const { DARABONBA_PTR_GET_DEFAULT(allocatableCPU_, "") };
     inline NodeType& setAllocatableCPU(string allocatableCPU) { DARABONBA_PTR_SET_VALUE(allocatableCPU_, allocatableCPU) };
 
 
     // allocatableMemory Field Functions 
     bool hasAllocatableMemory() const { return this->allocatableMemory_ != nullptr;};
     void deleteAllocatableMemory() { this->allocatableMemory_ = nullptr;};
-    inline string allocatableMemory() const { DARABONBA_PTR_GET_DEFAULT(allocatableMemory_, "") };
+    inline string getAllocatableMemory() const { DARABONBA_PTR_GET_DEFAULT(allocatableMemory_, "") };
     inline NodeType& setAllocatableMemory(string allocatableMemory) { DARABONBA_PTR_SET_VALUE(allocatableMemory_, allocatableMemory) };
 
 
     // CPU Field Functions 
     bool hasCPU() const { return this->CPU_ != nullptr;};
     void deleteCPU() { this->CPU_ = nullptr;};
-    inline string CPU() const { DARABONBA_PTR_GET_DEFAULT(CPU_, "") };
+    inline string getCPU() const { DARABONBA_PTR_GET_DEFAULT(CPU_, "") };
     inline NodeType& setCPU(string CPU) { DARABONBA_PTR_SET_VALUE(CPU_, CPU) };
 
 
     // GPU Field Functions 
     bool hasGPU() const { return this->GPU_ != nullptr;};
     void deleteGPU() { this->GPU_ = nullptr;};
-    inline string GPU() const { DARABONBA_PTR_GET_DEFAULT(GPU_, "") };
+    inline string getGPU() const { DARABONBA_PTR_GET_DEFAULT(GPU_, "") };
     inline NodeType& setGPU(string GPU) { DARABONBA_PTR_SET_VALUE(GPU_, GPU) };
 
 
     // GPUMemory Field Functions 
     bool hasGPUMemory() const { return this->GPUMemory_ != nullptr;};
     void deleteGPUMemory() { this->GPUMemory_ = nullptr;};
-    inline string GPUMemory() const { DARABONBA_PTR_GET_DEFAULT(GPUMemory_, "") };
+    inline string getGPUMemory() const { DARABONBA_PTR_GET_DEFAULT(GPUMemory_, "") };
     inline NodeType& setGPUMemory(string GPUMemory) { DARABONBA_PTR_SET_VALUE(GPUMemory_, GPUMemory) };
 
 
     // GPUType Field Functions 
     bool hasGPUType() const { return this->GPUType_ != nullptr;};
     void deleteGPUType() { this->GPUType_ = nullptr;};
-    inline string GPUType() const { DARABONBA_PTR_GET_DEFAULT(GPUType_, "") };
+    inline string getGPUType() const { DARABONBA_PTR_GET_DEFAULT(GPUType_, "") };
     inline NodeType& setGPUType(string GPUType) { DARABONBA_PTR_SET_VALUE(GPUType_, GPUType) };
 
 
     // memory Field Functions 
     bool hasMemory() const { return this->memory_ != nullptr;};
     void deleteMemory() { this->memory_ = nullptr;};
-    inline string memory() const { DARABONBA_PTR_GET_DEFAULT(memory_, "") };
+    inline string getMemory() const { DARABONBA_PTR_GET_DEFAULT(memory_, "") };
     inline NodeType& setMemory(string memory) { DARABONBA_PTR_SET_VALUE(memory_, memory) };
 
 
     // nodeType Field Functions 
     bool hasNodeType() const { return this->nodeType_ != nullptr;};
     void deleteNodeType() { this->nodeType_ = nullptr;};
-    inline string nodeType() const { DARABONBA_PTR_GET_DEFAULT(nodeType_, "") };
+    inline string getNodeType() const { DARABONBA_PTR_GET_DEFAULT(nodeType_, "") };
     inline NodeType& setNodeType(string nodeType) { DARABONBA_PTR_SET_VALUE(nodeType_, nodeType) };
 
 
     // systemReservedCPU Field Functions 
     bool hasSystemReservedCPU() const { return this->systemReservedCPU_ != nullptr;};
     void deleteSystemReservedCPU() { this->systemReservedCPU_ = nullptr;};
-    inline string systemReservedCPU() const { DARABONBA_PTR_GET_DEFAULT(systemReservedCPU_, "") };
+    inline string getSystemReservedCPU() const { DARABONBA_PTR_GET_DEFAULT(systemReservedCPU_, "") };
     inline NodeType& setSystemReservedCPU(string systemReservedCPU) { DARABONBA_PTR_SET_VALUE(systemReservedCPU_, systemReservedCPU) };
 
 
     // systemReservedMemory Field Functions 
     bool hasSystemReservedMemory() const { return this->systemReservedMemory_ != nullptr;};
     void deleteSystemReservedMemory() { this->systemReservedMemory_ = nullptr;};
-    inline string systemReservedMemory() const { DARABONBA_PTR_GET_DEFAULT(systemReservedMemory_, "") };
+    inline string getSystemReservedMemory() const { DARABONBA_PTR_GET_DEFAULT(systemReservedMemory_, "") };
     inline NodeType& setSystemReservedMemory(string systemReservedMemory) { DARABONBA_PTR_SET_VALUE(systemReservedMemory_, systemReservedMemory) };
 
 
   protected:
-    std::shared_ptr<string> acceleratorType_ = nullptr;
-    std::shared_ptr<string> allocatableCPU_ = nullptr;
-    std::shared_ptr<string> allocatableMemory_ = nullptr;
-    std::shared_ptr<string> CPU_ = nullptr;
-    std::shared_ptr<string> GPU_ = nullptr;
-    std::shared_ptr<string> GPUMemory_ = nullptr;
-    std::shared_ptr<string> GPUType_ = nullptr;
-    std::shared_ptr<string> memory_ = nullptr;
-    std::shared_ptr<string> nodeType_ = nullptr;
-    std::shared_ptr<string> systemReservedCPU_ = nullptr;
-    std::shared_ptr<string> systemReservedMemory_ = nullptr;
+    shared_ptr<string> acceleratorType_ {};
+    shared_ptr<string> allocatableCPU_ {};
+    shared_ptr<string> allocatableMemory_ {};
+    shared_ptr<string> CPU_ {};
+    shared_ptr<string> GPU_ {};
+    shared_ptr<string> GPUMemory_ {};
+    shared_ptr<string> GPUType_ {};
+    shared_ptr<string> memory_ {};
+    shared_ptr<string> nodeType_ {};
+    shared_ptr<string> systemReservedCPU_ {};
+    shared_ptr<string> systemReservedMemory_ {};
   };
 
   } // namespace Models

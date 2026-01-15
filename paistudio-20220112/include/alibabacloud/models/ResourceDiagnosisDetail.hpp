@@ -40,12 +40,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->exceedResources_ == nullptr
-        && return this->limit_ == nullptr && return this->status_ == nullptr && return this->used_ == nullptr && return this->workloadIds_ == nullptr; };
+        && this->limit_ == nullptr && this->status_ == nullptr && this->used_ == nullptr && this->workloadIds_ == nullptr; };
     // exceedResources Field Functions 
     bool hasExceedResources() const { return this->exceedResources_ != nullptr;};
     void deleteExceedResources() { this->exceedResources_ = nullptr;};
-    inline const vector<string> & exceedResources() const { DARABONBA_PTR_GET_CONST(exceedResources_, vector<string>) };
-    inline vector<string> exceedResources() { DARABONBA_PTR_GET(exceedResources_, vector<string>) };
+    inline const vector<string> & getExceedResources() const { DARABONBA_PTR_GET_CONST(exceedResources_, vector<string>) };
+    inline vector<string> getExceedResources() { DARABONBA_PTR_GET(exceedResources_, vector<string>) };
     inline ResourceDiagnosisDetail& setExceedResources(const vector<string> & exceedResources) { DARABONBA_PTR_SET_VALUE(exceedResources_, exceedResources) };
     inline ResourceDiagnosisDetail& setExceedResources(vector<string> && exceedResources) { DARABONBA_PTR_SET_RVALUE(exceedResources_, exceedResources) };
 
@@ -53,8 +53,8 @@ namespace Models
     // limit Field Functions 
     bool hasLimit() const { return this->limit_ != nullptr;};
     void deleteLimit() { this->limit_ = nullptr;};
-    inline const ResourceAmount & limit() const { DARABONBA_PTR_GET_CONST(limit_, ResourceAmount) };
-    inline ResourceAmount limit() { DARABONBA_PTR_GET(limit_, ResourceAmount) };
+    inline const ResourceAmount & getLimit() const { DARABONBA_PTR_GET_CONST(limit_, ResourceAmount) };
+    inline ResourceAmount getLimit() { DARABONBA_PTR_GET(limit_, ResourceAmount) };
     inline ResourceDiagnosisDetail& setLimit(const ResourceAmount & limit) { DARABONBA_PTR_SET_VALUE(limit_, limit) };
     inline ResourceDiagnosisDetail& setLimit(ResourceAmount && limit) { DARABONBA_PTR_SET_RVALUE(limit_, limit) };
 
@@ -62,15 +62,15 @@ namespace Models
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline ResourceDiagnosisDetail& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // used Field Functions 
     bool hasUsed() const { return this->used_ != nullptr;};
     void deleteUsed() { this->used_ = nullptr;};
-    inline const ResourceAmount & used() const { DARABONBA_PTR_GET_CONST(used_, ResourceAmount) };
-    inline ResourceAmount used() { DARABONBA_PTR_GET(used_, ResourceAmount) };
+    inline const ResourceAmount & getUsed() const { DARABONBA_PTR_GET_CONST(used_, ResourceAmount) };
+    inline ResourceAmount getUsed() { DARABONBA_PTR_GET(used_, ResourceAmount) };
     inline ResourceDiagnosisDetail& setUsed(const ResourceAmount & used) { DARABONBA_PTR_SET_VALUE(used_, used) };
     inline ResourceDiagnosisDetail& setUsed(ResourceAmount && used) { DARABONBA_PTR_SET_RVALUE(used_, used) };
 
@@ -78,18 +78,18 @@ namespace Models
     // workloadIds Field Functions 
     bool hasWorkloadIds() const { return this->workloadIds_ != nullptr;};
     void deleteWorkloadIds() { this->workloadIds_ = nullptr;};
-    inline const vector<string> & workloadIds() const { DARABONBA_PTR_GET_CONST(workloadIds_, vector<string>) };
-    inline vector<string> workloadIds() { DARABONBA_PTR_GET(workloadIds_, vector<string>) };
+    inline const vector<string> & getWorkloadIds() const { DARABONBA_PTR_GET_CONST(workloadIds_, vector<string>) };
+    inline vector<string> getWorkloadIds() { DARABONBA_PTR_GET(workloadIds_, vector<string>) };
     inline ResourceDiagnosisDetail& setWorkloadIds(const vector<string> & workloadIds) { DARABONBA_PTR_SET_VALUE(workloadIds_, workloadIds) };
     inline ResourceDiagnosisDetail& setWorkloadIds(vector<string> && workloadIds) { DARABONBA_PTR_SET_RVALUE(workloadIds_, workloadIds) };
 
 
   protected:
-    std::shared_ptr<vector<string>> exceedResources_ = nullptr;
-    std::shared_ptr<ResourceAmount> limit_ = nullptr;
-    std::shared_ptr<string> status_ = nullptr;
-    std::shared_ptr<ResourceAmount> used_ = nullptr;
-    std::shared_ptr<vector<string>> workloadIds_ = nullptr;
+    shared_ptr<vector<string>> exceedResources_ {};
+    shared_ptr<ResourceAmount> limit_ {};
+    shared_ptr<string> status_ {};
+    shared_ptr<ResourceAmount> used_ {};
+    shared_ptr<vector<string>> workloadIds_ {};
   };
 
   } // namespace Models

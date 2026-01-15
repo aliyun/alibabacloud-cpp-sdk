@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->queuing_ == nullptr
-        && return this->running_ == nullptr && return this->total_ == nullptr; };
+        && this->running_ == nullptr && this->total_ == nullptr; };
     // queuing Field Functions 
     bool hasQueuing() const { return this->queuing_ != nullptr;};
     void deleteQueuing() { this->queuing_ = nullptr;};
-    inline int64_t queuing() const { DARABONBA_PTR_GET_DEFAULT(queuing_, 0L) };
+    inline int64_t getQueuing() const { DARABONBA_PTR_GET_DEFAULT(queuing_, 0L) };
     inline QuotaJob& setQueuing(int64_t queuing) { DARABONBA_PTR_SET_VALUE(queuing_, queuing) };
 
 
     // running Field Functions 
     bool hasRunning() const { return this->running_ != nullptr;};
     void deleteRunning() { this->running_ = nullptr;};
-    inline int64_t running() const { DARABONBA_PTR_GET_DEFAULT(running_, 0L) };
+    inline int64_t getRunning() const { DARABONBA_PTR_GET_DEFAULT(running_, 0L) };
     inline QuotaJob& setRunning(int64_t running) { DARABONBA_PTR_SET_VALUE(running_, running) };
 
 
     // total Field Functions 
     bool hasTotal() const { return this->total_ != nullptr;};
     void deleteTotal() { this->total_ = nullptr;};
-    inline int64_t total() const { DARABONBA_PTR_GET_DEFAULT(total_, 0L) };
+    inline int64_t getTotal() const { DARABONBA_PTR_GET_DEFAULT(total_, 0L) };
     inline QuotaJob& setTotal(int64_t total) { DARABONBA_PTR_SET_VALUE(total_, total) };
 
 
   protected:
-    std::shared_ptr<int64_t> queuing_ = nullptr;
-    std::shared_ptr<int64_t> running_ = nullptr;
-    std::shared_ptr<int64_t> total_ = nullptr;
+    shared_ptr<int64_t> queuing_ {};
+    shared_ptr<int64_t> running_ {};
+    shared_ptr<int64_t> total_ {};
   };
 
   } // namespace Models

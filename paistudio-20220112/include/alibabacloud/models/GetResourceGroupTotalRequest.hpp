@@ -33,12 +33,12 @@ namespace Models
     // resourceGroupID Field Functions 
     bool hasResourceGroupID() const { return this->resourceGroupID_ != nullptr;};
     void deleteResourceGroupID() { this->resourceGroupID_ = nullptr;};
-    inline string resourceGroupID() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupID_, "") };
+    inline string getResourceGroupID() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupID_, "") };
     inline GetResourceGroupTotalRequest& setResourceGroupID(string resourceGroupID) { DARABONBA_PTR_SET_VALUE(resourceGroupID_, resourceGroupID) };
 
 
   protected:
-    std::shared_ptr<string> resourceGroupID_ = nullptr;
+    shared_ptr<string> resourceGroupID_ {};
   };
 
   } // namespace Models

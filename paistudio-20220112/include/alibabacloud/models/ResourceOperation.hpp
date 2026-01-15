@@ -56,122 +56,122 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->creatorId_ == nullptr
-        && return this->gmtCreatedTime_ == nullptr && return this->gmtEndTime_ == nullptr && return this->gmtModifiedTime_ == nullptr && return this->gmtStartTime_ == nullptr && return this->objectId_ == nullptr
-        && return this->objectType_ == nullptr && return this->operationDescription_ == nullptr && return this->operationId_ == nullptr && return this->operationSpecJson_ == nullptr && return this->operationType_ == nullptr
-        && return this->reasonCode_ == nullptr && return this->reasonMessage_ == nullptr && return this->status_ == nullptr; };
+        && this->gmtCreatedTime_ == nullptr && this->gmtEndTime_ == nullptr && this->gmtModifiedTime_ == nullptr && this->gmtStartTime_ == nullptr && this->objectId_ == nullptr
+        && this->objectType_ == nullptr && this->operationDescription_ == nullptr && this->operationId_ == nullptr && this->operationSpecJson_ == nullptr && this->operationType_ == nullptr
+        && this->reasonCode_ == nullptr && this->reasonMessage_ == nullptr && this->status_ == nullptr; };
     // creatorId Field Functions 
     bool hasCreatorId() const { return this->creatorId_ != nullptr;};
     void deleteCreatorId() { this->creatorId_ = nullptr;};
-    inline string creatorId() const { DARABONBA_PTR_GET_DEFAULT(creatorId_, "") };
+    inline string getCreatorId() const { DARABONBA_PTR_GET_DEFAULT(creatorId_, "") };
     inline ResourceOperation& setCreatorId(string creatorId) { DARABONBA_PTR_SET_VALUE(creatorId_, creatorId) };
 
 
     // gmtCreatedTime Field Functions 
     bool hasGmtCreatedTime() const { return this->gmtCreatedTime_ != nullptr;};
     void deleteGmtCreatedTime() { this->gmtCreatedTime_ = nullptr;};
-    inline string gmtCreatedTime() const { DARABONBA_PTR_GET_DEFAULT(gmtCreatedTime_, "") };
+    inline string getGmtCreatedTime() const { DARABONBA_PTR_GET_DEFAULT(gmtCreatedTime_, "") };
     inline ResourceOperation& setGmtCreatedTime(string gmtCreatedTime) { DARABONBA_PTR_SET_VALUE(gmtCreatedTime_, gmtCreatedTime) };
 
 
     // gmtEndTime Field Functions 
     bool hasGmtEndTime() const { return this->gmtEndTime_ != nullptr;};
     void deleteGmtEndTime() { this->gmtEndTime_ = nullptr;};
-    inline string gmtEndTime() const { DARABONBA_PTR_GET_DEFAULT(gmtEndTime_, "") };
+    inline string getGmtEndTime() const { DARABONBA_PTR_GET_DEFAULT(gmtEndTime_, "") };
     inline ResourceOperation& setGmtEndTime(string gmtEndTime) { DARABONBA_PTR_SET_VALUE(gmtEndTime_, gmtEndTime) };
 
 
     // gmtModifiedTime Field Functions 
     bool hasGmtModifiedTime() const { return this->gmtModifiedTime_ != nullptr;};
     void deleteGmtModifiedTime() { this->gmtModifiedTime_ = nullptr;};
-    inline string gmtModifiedTime() const { DARABONBA_PTR_GET_DEFAULT(gmtModifiedTime_, "") };
+    inline string getGmtModifiedTime() const { DARABONBA_PTR_GET_DEFAULT(gmtModifiedTime_, "") };
     inline ResourceOperation& setGmtModifiedTime(string gmtModifiedTime) { DARABONBA_PTR_SET_VALUE(gmtModifiedTime_, gmtModifiedTime) };
 
 
     // gmtStartTime Field Functions 
     bool hasGmtStartTime() const { return this->gmtStartTime_ != nullptr;};
     void deleteGmtStartTime() { this->gmtStartTime_ = nullptr;};
-    inline string gmtStartTime() const { DARABONBA_PTR_GET_DEFAULT(gmtStartTime_, "") };
+    inline string getGmtStartTime() const { DARABONBA_PTR_GET_DEFAULT(gmtStartTime_, "") };
     inline ResourceOperation& setGmtStartTime(string gmtStartTime) { DARABONBA_PTR_SET_VALUE(gmtStartTime_, gmtStartTime) };
 
 
     // objectId Field Functions 
     bool hasObjectId() const { return this->objectId_ != nullptr;};
     void deleteObjectId() { this->objectId_ = nullptr;};
-    inline string objectId() const { DARABONBA_PTR_GET_DEFAULT(objectId_, "") };
+    inline string getObjectId() const { DARABONBA_PTR_GET_DEFAULT(objectId_, "") };
     inline ResourceOperation& setObjectId(string objectId) { DARABONBA_PTR_SET_VALUE(objectId_, objectId) };
 
 
     // objectType Field Functions 
     bool hasObjectType() const { return this->objectType_ != nullptr;};
     void deleteObjectType() { this->objectType_ = nullptr;};
-    inline string objectType() const { DARABONBA_PTR_GET_DEFAULT(objectType_, "") };
+    inline string getObjectType() const { DARABONBA_PTR_GET_DEFAULT(objectType_, "") };
     inline ResourceOperation& setObjectType(string objectType) { DARABONBA_PTR_SET_VALUE(objectType_, objectType) };
 
 
     // operationDescription Field Functions 
     bool hasOperationDescription() const { return this->operationDescription_ != nullptr;};
     void deleteOperationDescription() { this->operationDescription_ = nullptr;};
-    inline string operationDescription() const { DARABONBA_PTR_GET_DEFAULT(operationDescription_, "") };
+    inline string getOperationDescription() const { DARABONBA_PTR_GET_DEFAULT(operationDescription_, "") };
     inline ResourceOperation& setOperationDescription(string operationDescription) { DARABONBA_PTR_SET_VALUE(operationDescription_, operationDescription) };
 
 
     // operationId Field Functions 
     bool hasOperationId() const { return this->operationId_ != nullptr;};
     void deleteOperationId() { this->operationId_ = nullptr;};
-    inline string operationId() const { DARABONBA_PTR_GET_DEFAULT(operationId_, "") };
+    inline string getOperationId() const { DARABONBA_PTR_GET_DEFAULT(operationId_, "") };
     inline ResourceOperation& setOperationId(string operationId) { DARABONBA_PTR_SET_VALUE(operationId_, operationId) };
 
 
     // operationSpecJson Field Functions 
     bool hasOperationSpecJson() const { return this->operationSpecJson_ != nullptr;};
     void deleteOperationSpecJson() { this->operationSpecJson_ = nullptr;};
-    inline string operationSpecJson() const { DARABONBA_PTR_GET_DEFAULT(operationSpecJson_, "") };
+    inline string getOperationSpecJson() const { DARABONBA_PTR_GET_DEFAULT(operationSpecJson_, "") };
     inline ResourceOperation& setOperationSpecJson(string operationSpecJson) { DARABONBA_PTR_SET_VALUE(operationSpecJson_, operationSpecJson) };
 
 
     // operationType Field Functions 
     bool hasOperationType() const { return this->operationType_ != nullptr;};
     void deleteOperationType() { this->operationType_ = nullptr;};
-    inline string operationType() const { DARABONBA_PTR_GET_DEFAULT(operationType_, "") };
+    inline string getOperationType() const { DARABONBA_PTR_GET_DEFAULT(operationType_, "") };
     inline ResourceOperation& setOperationType(string operationType) { DARABONBA_PTR_SET_VALUE(operationType_, operationType) };
 
 
     // reasonCode Field Functions 
     bool hasReasonCode() const { return this->reasonCode_ != nullptr;};
     void deleteReasonCode() { this->reasonCode_ = nullptr;};
-    inline string reasonCode() const { DARABONBA_PTR_GET_DEFAULT(reasonCode_, "") };
+    inline string getReasonCode() const { DARABONBA_PTR_GET_DEFAULT(reasonCode_, "") };
     inline ResourceOperation& setReasonCode(string reasonCode) { DARABONBA_PTR_SET_VALUE(reasonCode_, reasonCode) };
 
 
     // reasonMessage Field Functions 
     bool hasReasonMessage() const { return this->reasonMessage_ != nullptr;};
     void deleteReasonMessage() { this->reasonMessage_ = nullptr;};
-    inline string reasonMessage() const { DARABONBA_PTR_GET_DEFAULT(reasonMessage_, "") };
+    inline string getReasonMessage() const { DARABONBA_PTR_GET_DEFAULT(reasonMessage_, "") };
     inline ResourceOperation& setReasonMessage(string reasonMessage) { DARABONBA_PTR_SET_VALUE(reasonMessage_, reasonMessage) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline ResourceOperation& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
   protected:
-    std::shared_ptr<string> creatorId_ = nullptr;
-    std::shared_ptr<string> gmtCreatedTime_ = nullptr;
-    std::shared_ptr<string> gmtEndTime_ = nullptr;
-    std::shared_ptr<string> gmtModifiedTime_ = nullptr;
-    std::shared_ptr<string> gmtStartTime_ = nullptr;
-    std::shared_ptr<string> objectId_ = nullptr;
-    std::shared_ptr<string> objectType_ = nullptr;
-    std::shared_ptr<string> operationDescription_ = nullptr;
-    std::shared_ptr<string> operationId_ = nullptr;
-    std::shared_ptr<string> operationSpecJson_ = nullptr;
-    std::shared_ptr<string> operationType_ = nullptr;
-    std::shared_ptr<string> reasonCode_ = nullptr;
-    std::shared_ptr<string> reasonMessage_ = nullptr;
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> creatorId_ {};
+    shared_ptr<string> gmtCreatedTime_ {};
+    shared_ptr<string> gmtEndTime_ {};
+    shared_ptr<string> gmtModifiedTime_ {};
+    shared_ptr<string> gmtStartTime_ {};
+    shared_ptr<string> objectId_ {};
+    shared_ptr<string> objectType_ {};
+    shared_ptr<string> operationDescription_ {};
+    shared_ptr<string> operationId_ {};
+    shared_ptr<string> operationSpecJson_ {};
+    shared_ptr<string> operationType_ {};
+    shared_ptr<string> reasonCode_ {};
+    shared_ptr<string> reasonMessage_ {};
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models

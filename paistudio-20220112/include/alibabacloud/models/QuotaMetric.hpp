@@ -34,26 +34,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->GPUType_ == nullptr
-        && return this->metrics_ == nullptr; };
+        && this->metrics_ == nullptr; };
     // GPUType Field Functions 
     bool hasGPUType() const { return this->GPUType_ != nullptr;};
     void deleteGPUType() { this->GPUType_ = nullptr;};
-    inline string GPUType() const { DARABONBA_PTR_GET_DEFAULT(GPUType_, "") };
+    inline string getGPUType() const { DARABONBA_PTR_GET_DEFAULT(GPUType_, "") };
     inline QuotaMetric& setGPUType(string GPUType) { DARABONBA_PTR_SET_VALUE(GPUType_, GPUType) };
 
 
     // metrics Field Functions 
     bool hasMetrics() const { return this->metrics_ != nullptr;};
     void deleteMetrics() { this->metrics_ = nullptr;};
-    inline const vector<Metric> & metrics() const { DARABONBA_PTR_GET_CONST(metrics_, vector<Metric>) };
-    inline vector<Metric> metrics() { DARABONBA_PTR_GET(metrics_, vector<Metric>) };
+    inline const vector<Metric> & getMetrics() const { DARABONBA_PTR_GET_CONST(metrics_, vector<Metric>) };
+    inline vector<Metric> getMetrics() { DARABONBA_PTR_GET(metrics_, vector<Metric>) };
     inline QuotaMetric& setMetrics(const vector<Metric> & metrics) { DARABONBA_PTR_SET_VALUE(metrics_, metrics) };
     inline QuotaMetric& setMetrics(vector<Metric> && metrics) { DARABONBA_PTR_SET_RVALUE(metrics_, metrics) };
 
 
   protected:
-    std::shared_ptr<string> GPUType_ = nullptr;
-    std::shared_ptr<vector<Metric>> metrics_ = nullptr;
+    shared_ptr<string> GPUType_ {};
+    shared_ptr<vector<Metric>> metrics_ {};
   };
 
   } // namespace Models

@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->disabled_ == nullptr
-        && return this->disabledBy_ == nullptr; };
+        && this->disabledBy_ == nullptr; };
     // disabled Field Functions 
     bool hasDisabled() const { return this->disabled_ != nullptr;};
     void deleteDisabled() { this->disabled_ = nullptr;};
-    inline string disabled() const { DARABONBA_PTR_GET_DEFAULT(disabled_, "") };
+    inline string getDisabled() const { DARABONBA_PTR_GET_DEFAULT(disabled_, "") };
     inline OversoldUsageConfig& setDisabled(string disabled) { DARABONBA_PTR_SET_VALUE(disabled_, disabled) };
 
 
     // disabledBy Field Functions 
     bool hasDisabledBy() const { return this->disabledBy_ != nullptr;};
     void deleteDisabledBy() { this->disabledBy_ = nullptr;};
-    inline string disabledBy() const { DARABONBA_PTR_GET_DEFAULT(disabledBy_, "") };
+    inline string getDisabledBy() const { DARABONBA_PTR_GET_DEFAULT(disabledBy_, "") };
     inline OversoldUsageConfig& setDisabledBy(string disabledBy) { DARABONBA_PTR_SET_VALUE(disabledBy_, disabledBy) };
 
 
   protected:
-    std::shared_ptr<string> disabled_ = nullptr;
-    std::shared_ptr<string> disabledBy_ = nullptr;
+    shared_ptr<string> disabled_ {};
+    shared_ptr<string> disabledBy_ {};
   };
 
   } // namespace Models

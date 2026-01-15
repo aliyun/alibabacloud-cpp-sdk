@@ -38,50 +38,50 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->nextToken_ == nullptr
-        && return this->regionId_ == nullptr && return this->resourceIdShrink_ == nullptr && return this->resourceType_ == nullptr && return this->tagShrink_ == nullptr; };
+        && this->regionId_ == nullptr && this->resourceIdShrink_ == nullptr && this->resourceType_ == nullptr && this->tagShrink_ == nullptr; };
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListTagResourcesShrinkRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ListTagResourcesShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceIdShrink Field Functions 
     bool hasResourceIdShrink() const { return this->resourceIdShrink_ != nullptr;};
     void deleteResourceIdShrink() { this->resourceIdShrink_ = nullptr;};
-    inline string resourceIdShrink() const { DARABONBA_PTR_GET_DEFAULT(resourceIdShrink_, "") };
+    inline string getResourceIdShrink() const { DARABONBA_PTR_GET_DEFAULT(resourceIdShrink_, "") };
     inline ListTagResourcesShrinkRequest& setResourceIdShrink(string resourceIdShrink) { DARABONBA_PTR_SET_VALUE(resourceIdShrink_, resourceIdShrink) };
 
 
     // resourceType Field Functions 
     bool hasResourceType() const { return this->resourceType_ != nullptr;};
     void deleteResourceType() { this->resourceType_ = nullptr;};
-    inline string resourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
+    inline string getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
     inline ListTagResourcesShrinkRequest& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
 
 
     // tagShrink Field Functions 
     bool hasTagShrink() const { return this->tagShrink_ != nullptr;};
     void deleteTagShrink() { this->tagShrink_ = nullptr;};
-    inline string tagShrink() const { DARABONBA_PTR_GET_DEFAULT(tagShrink_, "") };
+    inline string getTagShrink() const { DARABONBA_PTR_GET_DEFAULT(tagShrink_, "") };
     inline ListTagResourcesShrinkRequest& setTagShrink(string tagShrink) { DARABONBA_PTR_SET_VALUE(tagShrink_, tagShrink) };
 
 
   protected:
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> resourceIdShrink_ = nullptr;
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> resourceIdShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> resourceType_ = nullptr;
-    std::shared_ptr<string> tagShrink_ = nullptr;
+    shared_ptr<string> resourceType_ {};
+    shared_ptr<string> tagShrink_ {};
   };
 
   } // namespace Models

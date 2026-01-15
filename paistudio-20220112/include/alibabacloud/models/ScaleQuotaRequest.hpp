@@ -34,12 +34,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->min_ == nullptr
-        && return this->resourceGroupIds_ == nullptr; };
+        && this->resourceGroupIds_ == nullptr; };
     // min Field Functions 
     bool hasMin() const { return this->min_ != nullptr;};
     void deleteMin() { this->min_ = nullptr;};
-    inline const ResourceSpec & min() const { DARABONBA_PTR_GET_CONST(min_, ResourceSpec) };
-    inline ResourceSpec min() { DARABONBA_PTR_GET(min_, ResourceSpec) };
+    inline const ResourceSpec & getMin() const { DARABONBA_PTR_GET_CONST(min_, ResourceSpec) };
+    inline ResourceSpec getMin() { DARABONBA_PTR_GET(min_, ResourceSpec) };
     inline ScaleQuotaRequest& setMin(const ResourceSpec & min) { DARABONBA_PTR_SET_VALUE(min_, min) };
     inline ScaleQuotaRequest& setMin(ResourceSpec && min) { DARABONBA_PTR_SET_RVALUE(min_, min) };
 
@@ -47,15 +47,15 @@ namespace Models
     // resourceGroupIds Field Functions 
     bool hasResourceGroupIds() const { return this->resourceGroupIds_ != nullptr;};
     void deleteResourceGroupIds() { this->resourceGroupIds_ = nullptr;};
-    inline const vector<string> & resourceGroupIds() const { DARABONBA_PTR_GET_CONST(resourceGroupIds_, vector<string>) };
-    inline vector<string> resourceGroupIds() { DARABONBA_PTR_GET(resourceGroupIds_, vector<string>) };
+    inline const vector<string> & getResourceGroupIds() const { DARABONBA_PTR_GET_CONST(resourceGroupIds_, vector<string>) };
+    inline vector<string> getResourceGroupIds() { DARABONBA_PTR_GET(resourceGroupIds_, vector<string>) };
     inline ScaleQuotaRequest& setResourceGroupIds(const vector<string> & resourceGroupIds) { DARABONBA_PTR_SET_VALUE(resourceGroupIds_, resourceGroupIds) };
     inline ScaleQuotaRequest& setResourceGroupIds(vector<string> && resourceGroupIds) { DARABONBA_PTR_SET_RVALUE(resourceGroupIds_, resourceGroupIds) };
 
 
   protected:
-    std::shared_ptr<ResourceSpec> min_ = nullptr;
-    std::shared_ptr<vector<string>> resourceGroupIds_ = nullptr;
+    shared_ptr<ResourceSpec> min_ {};
+    shared_ptr<vector<string>> resourceGroupIds_ {};
   };
 
   } // namespace Models
