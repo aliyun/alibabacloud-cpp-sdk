@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_TO_JSON(DatasetIds, datasetIdsShrink_);
       DARABONBA_PTR_TO_JSON(EmbeddingModel, embeddingModel_);
+      DARABONBA_PTR_TO_JSON(ModelMode, modelMode_);
       DARABONBA_PTR_TO_JSON(Query, query_);
       DARABONBA_PTR_TO_JSON(SearchModel, searchModel_);
       DARABONBA_PTR_TO_JSON(TopK, topK_);
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_FROM_JSON(DatasetIds, datasetIdsShrink_);
       DARABONBA_PTR_FROM_JSON(EmbeddingModel, embeddingModel_);
+      DARABONBA_PTR_FROM_JSON(ModelMode, modelMode_);
       DARABONBA_PTR_FROM_JSON(Query, query_);
       DARABONBA_PTR_FROM_JSON(SearchModel, searchModel_);
       DARABONBA_PTR_FROM_JSON(TopK, topK_);
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
-        && this->datasetIdsShrink_ == nullptr && this->embeddingModel_ == nullptr && this->query_ == nullptr && this->searchModel_ == nullptr && this->topK_ == nullptr; };
+        && this->datasetIdsShrink_ == nullptr && this->embeddingModel_ == nullptr && this->modelMode_ == nullptr && this->query_ == nullptr && this->searchModel_ == nullptr
+        && this->topK_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
@@ -60,6 +63,13 @@ namespace Models
     void deleteEmbeddingModel() { this->embeddingModel_ = nullptr;};
     inline string getEmbeddingModel() const { DARABONBA_PTR_GET_DEFAULT(embeddingModel_, "") };
     inline CreateMultimodalSearchTaskShrinkRequest& setEmbeddingModel(string embeddingModel) { DARABONBA_PTR_SET_VALUE(embeddingModel_, embeddingModel) };
+
+
+    // modelMode Field Functions 
+    bool hasModelMode() const { return this->modelMode_ != nullptr;};
+    void deleteModelMode() { this->modelMode_ = nullptr;};
+    inline string getModelMode() const { DARABONBA_PTR_GET_DEFAULT(modelMode_, "") };
+    inline CreateMultimodalSearchTaskShrinkRequest& setModelMode(string modelMode) { DARABONBA_PTR_SET_VALUE(modelMode_, modelMode) };
 
 
     // query Field Functions 
@@ -88,6 +98,7 @@ namespace Models
     shared_ptr<string> DBClusterId_ {};
     shared_ptr<string> datasetIdsShrink_ {};
     shared_ptr<string> embeddingModel_ {};
+    shared_ptr<string> modelMode_ {};
     shared_ptr<string> query_ {};
     shared_ptr<string> searchModel_ {};
     shared_ptr<int32_t> topK_ {};

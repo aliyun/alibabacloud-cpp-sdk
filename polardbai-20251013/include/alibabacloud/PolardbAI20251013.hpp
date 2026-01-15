@@ -574,6 +574,40 @@ namespace PolardbAI20251013
       Models::ListMultimodalEmbeddingModelResponse listMultimodalEmbeddingModel(const Models::ListMultimodalEmbeddingModelRequest &request);
 
       /**
+       * @summary 查询模型mode可选列表
+       *
+       * @param request ListMultimodalEmbeddingModelModeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListMultimodalEmbeddingModelModeResponse
+       */
+      Models::ListMultimodalEmbeddingModelModeResponse listMultimodalEmbeddingModelModeWithOptions(const Models::ListMultimodalEmbeddingModelModeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询模型mode可选列表
+       *
+       * @param request ListMultimodalEmbeddingModelModeRequest
+       * @return ListMultimodalEmbeddingModelModeResponse
+       */
+      Models::ListMultimodalEmbeddingModelModeResponse listMultimodalEmbeddingModelMode(const Models::ListMultimodalEmbeddingModelModeRequest &request);
+
+      /**
+       * @summary 查询search模型列表
+       *
+       * @param request ListMultimodalSearchModelRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListMultimodalSearchModelResponse
+       */
+      Models::ListMultimodalSearchModelResponse listMultimodalSearchModelWithOptions(const Models::ListMultimodalSearchModelRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询search模型列表
+       *
+       * @param request ListMultimodalSearchModelRequest
+       * @return ListMultimodalSearchModelResponse
+       */
+      Models::ListMultimodalSearchModelResponse listMultimodalSearchModel(const Models::ListMultimodalSearchModelRequest &request);
+
+      /**
        * @summary 查询search task列表
        *
        * @param request ListMultimodalSearchTaskRequest

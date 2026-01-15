@@ -16,11 +16,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_TO_JSON(DatasetId, datasetId_);
       DARABONBA_PTR_TO_JSON(Model, model_);
+      DARABONBA_PTR_TO_JSON(ModelMode, modelMode_);
     };
     friend void from_json(const Darabonba::Json& j, CreateMultimodalDatasetEmbeddingRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_FROM_JSON(DatasetId, datasetId_);
       DARABONBA_PTR_FROM_JSON(Model, model_);
+      DARABONBA_PTR_FROM_JSON(ModelMode, modelMode_);
     };
     CreateMultimodalDatasetEmbeddingRequest() = default ;
     CreateMultimodalDatasetEmbeddingRequest(const CreateMultimodalDatasetEmbeddingRequest &) = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
-        && this->datasetId_ == nullptr && this->model_ == nullptr; };
+        && this->datasetId_ == nullptr && this->model_ == nullptr && this->modelMode_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
@@ -56,12 +58,20 @@ namespace Models
     inline CreateMultimodalDatasetEmbeddingRequest& setModel(string model) { DARABONBA_PTR_SET_VALUE(model_, model) };
 
 
+    // modelMode Field Functions 
+    bool hasModelMode() const { return this->modelMode_ != nullptr;};
+    void deleteModelMode() { this->modelMode_ = nullptr;};
+    inline string getModelMode() const { DARABONBA_PTR_GET_DEFAULT(modelMode_, "") };
+    inline CreateMultimodalDatasetEmbeddingRequest& setModelMode(string modelMode) { DARABONBA_PTR_SET_VALUE(modelMode_, modelMode) };
+
+
   protected:
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
     // This parameter is required.
     shared_ptr<string> datasetId_ {};
     shared_ptr<string> model_ {};
+    shared_ptr<string> modelMode_ {};
   };
 
   } // namespace Models

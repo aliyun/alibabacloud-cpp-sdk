@@ -1677,6 +1677,10 @@ CreateMultimodalDatasetEmbeddingResponse Client::createMultimodalDatasetEmbeddin
     query["Model"] = request.getModel();
   }
 
+  if (!!request.hasModelMode()) {
+    query["ModelMode"] = request.getModelMode();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -1731,6 +1735,10 @@ CreateMultimodalSearchTaskResponse Client::createMultimodalSearchTaskWithOptions
 
   if (!!request.hasEmbeddingModel()) {
     query["EmbeddingModel"] = request.getEmbeddingModel();
+  }
+
+  if (!!request.hasModelMode()) {
+    query["ModelMode"] = request.getModelMode();
   }
 
   if (!!request.hasQuery()) {
@@ -2063,6 +2071,98 @@ ListMultimodalEmbeddingModelResponse Client::listMultimodalEmbeddingModelWithOpt
 ListMultimodalEmbeddingModelResponse Client::listMultimodalEmbeddingModel(const ListMultimodalEmbeddingModelRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listMultimodalEmbeddingModelWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询模型mode可选列表
+ *
+ * @param request ListMultimodalEmbeddingModelModeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListMultimodalEmbeddingModelModeResponse
+ */
+ListMultimodalEmbeddingModelModeResponse Client::listMultimodalEmbeddingModelModeWithOptions(const ListMultimodalEmbeddingModelModeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListMultimodalEmbeddingModelMode"},
+    {"version" , "2025-10-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListMultimodalEmbeddingModelModeResponse>();
+}
+
+/**
+ * @summary 查询模型mode可选列表
+ *
+ * @param request ListMultimodalEmbeddingModelModeRequest
+ * @return ListMultimodalEmbeddingModelModeResponse
+ */
+ListMultimodalEmbeddingModelModeResponse Client::listMultimodalEmbeddingModelMode(const ListMultimodalEmbeddingModelModeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listMultimodalEmbeddingModelModeWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询search模型列表
+ *
+ * @param request ListMultimodalSearchModelRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListMultimodalSearchModelResponse
+ */
+ListMultimodalSearchModelResponse Client::listMultimodalSearchModelWithOptions(const ListMultimodalSearchModelRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListMultimodalSearchModel"},
+    {"version" , "2025-10-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListMultimodalSearchModelResponse>();
+}
+
+/**
+ * @summary 查询search模型列表
+ *
+ * @param request ListMultimodalSearchModelRequest
+ * @return ListMultimodalSearchModelResponse
+ */
+ListMultimodalSearchModelResponse Client::listMultimodalSearchModel(const ListMultimodalSearchModelRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listMultimodalSearchModelWithOptions(request, runtime);
 }
 
 /**
