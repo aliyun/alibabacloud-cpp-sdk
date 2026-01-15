@@ -118,9 +118,9 @@ Darabonba::Json Client::_postOSSObject(const string &bucketName, const Darabonba
   Darabonba::Policy::RetryPolicyContext _context = json({
     {"retriesAttempted" , _retriesAttempted}
   });
-  while (Darabonba::allowRetry(runtime_.retryOptions(), _context)) {
+  while (Darabonba::allowRetry(runtime_.getRetryOptions(), _context)) {
     if (_retriesAttempted > 0) {
-      int _backoffTime = Darabonba::getBackoffTime(runtime_.retryOptions(), _context);
+      int _backoffTime = Darabonba::getBackoffTime(runtime_.getRetryOptions(), _context);
       if (_backoffTime > 0) {
         Darabonba::sleep(_backoffTime);
       }
@@ -145,15 +145,15 @@ Darabonba::Json Client::_postOSSObject(const string &bucketName, const Darabonba
       _lastResponse  = response_;
 
       json respMap = nullptr;
-      string bodyStr = Darabonba::Stream::readAsString(response_->body());
-      if ((response_->statusCode() >= 400) && (response_->statusCode() < 600)) {
+      string bodyStr = Darabonba::Stream::readAsString(response_->getBody());
+      if ((response_->getStatusCode() >= 400) && (response_->getStatusCode() < 600)) {
         respMap = Darabonba::XML::parseXml(bodyStr, nullptr);
         json err = json(respMap["Error"]);
         throw ClientException(json({
           {"code" , Darabonba::Convert::stringVal(err["Code"])},
           {"message" , Darabonba::Convert::stringVal(err["Message"])},
           {"data" , json({
-            {"httpCode" , response_->statusCode()},
+            {"httpCode" , response_->getStatusCode()},
             {"requestId" , Darabonba::Convert::stringVal(err["RequestId"])},
             {"hostId" , Darabonba::Convert::stringVal(err["HostId"])}
           })}
@@ -174,7 +174,7 @@ Darabonba::Json Client::_postOSSObject(const string &bucketName, const Darabonba
     }
   }
 
-  throw *_context.exception();
+  throw *_context.getException();
 }
 
 string Client::getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint) {

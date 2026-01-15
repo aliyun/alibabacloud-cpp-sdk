@@ -127,6 +127,7 @@ namespace Models
     shared_ptr<int64_t> projectId_ {};
     // The source type. Valid values: PolarDB, MySQL, Kafka, Loghub, Hologres, Oracle, OceanBase, MongoDB, RedShift, Hive, SqlServer, Doris, and ClickHouse. If you do not configure this parameter, the API operation queries synchronization tasks that use all types of sources.
     shared_ptr<string> sourceDataSourceType_ {};
+    // The task configuration specification type. Valid values: FILESPEC, CLASSIC, ALL. FILESPEC: New-style task based on structured filespec; CLASSIC: Task using traditional configuration mode.
     shared_ptr<string> specType_ {};
   };
 
