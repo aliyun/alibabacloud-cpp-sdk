@@ -12521,6 +12521,14 @@ DescribeUserEncryptionKeyListResponse Client::describeUserEncryptionKeyListWithO
     query["OwnerId"] = request.getOwnerId();
   }
 
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
   if (!!request.hasRegionId()) {
     query["RegionId"] = request.getRegionId();
   }
