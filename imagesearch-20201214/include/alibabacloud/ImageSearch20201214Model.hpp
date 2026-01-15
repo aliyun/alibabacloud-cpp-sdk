@@ -1,0 +1,45 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_IMAGESEARCH20201214MODEL_HPP_
+#define ALIBABACLOUD_IMAGESEARCH20201214MODEL_HPP_
+#include <darabonba/Core.hpp>
+#include <alibabacloud/models/AddImageRequest.hpp>
+#include <alibabacloud/models/AddImageAdvanceRequest.hpp>
+#include <alibabacloud/models/AddImageResponseBody.hpp>
+#include <alibabacloud/models/AddImageResponse.hpp>
+#include <alibabacloud/models/CompareSimilarByImageRequest.hpp>
+#include <alibabacloud/models/CompareSimilarByImageAdvanceRequest.hpp>
+#include <alibabacloud/models/CompareSimilarByImageResponseBody.hpp>
+#include <alibabacloud/models/CompareSimilarByImageResponse.hpp>
+#include <alibabacloud/models/DeleteImageRequest.hpp>
+#include <alibabacloud/models/DeleteImageResponseBody.hpp>
+#include <alibabacloud/models/DeleteImageResponse.hpp>
+#include <alibabacloud/models/DetailRequest.hpp>
+#include <alibabacloud/models/DetailResponseBody.hpp>
+#include <alibabacloud/models/DetailResponse.hpp>
+#include <alibabacloud/models/DumpMetaRequest.hpp>
+#include <alibabacloud/models/DumpMetaResponseBody.hpp>
+#include <alibabacloud/models/DumpMetaResponse.hpp>
+#include <alibabacloud/models/DumpMetaListRequest.hpp>
+#include <alibabacloud/models/DumpMetaListResponseBody.hpp>
+#include <alibabacloud/models/DumpMetaListResponse.hpp>
+#include <alibabacloud/models/IncreaseInstanceRequest.hpp>
+#include <alibabacloud/models/IncreaseInstanceResponseBody.hpp>
+#include <alibabacloud/models/IncreaseInstanceResponse.hpp>
+#include <alibabacloud/models/IncreaseListRequest.hpp>
+#include <alibabacloud/models/IncreaseListResponseBody.hpp>
+#include <alibabacloud/models/IncreaseListResponse.hpp>
+#include <alibabacloud/models/SearchImageByNameRequest.hpp>
+#include <alibabacloud/models/SearchImageByNameResponseBody.hpp>
+#include <alibabacloud/models/SearchImageByNameResponse.hpp>
+#include <alibabacloud/models/SearchImageByPicRequest.hpp>
+#include <alibabacloud/models/SearchImageByPicAdvanceRequest.hpp>
+#include <alibabacloud/models/SearchImageByPicResponseBody.hpp>
+#include <alibabacloud/models/SearchImageByPicResponse.hpp>
+#include <alibabacloud/models/SearchImageByTextRequest.hpp>
+#include <alibabacloud/models/SearchImageByTextResponseBody.hpp>
+#include <alibabacloud/models/SearchImageByTextResponse.hpp>
+#include <alibabacloud/models/UpdateImageRequest.hpp>
+#include <alibabacloud/models/UpdateImageResponseBody.hpp>
+#include <alibabacloud/models/UpdateImageResponse.hpp>
+
+#endif
