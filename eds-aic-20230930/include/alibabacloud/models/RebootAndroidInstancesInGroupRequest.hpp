@@ -16,11 +16,13 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const RebootAndroidInstancesInGroupRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AndroidInstanceIds, androidInstanceIds_);
       DARABONBA_PTR_TO_JSON(ForceStop, forceStop_);
+      DARABONBA_PTR_TO_JSON(IgnoreParamValidation, ignoreParamValidation_);
       DARABONBA_PTR_TO_JSON(SaleMode, saleMode_);
     };
     friend void from_json(const Darabonba::Json& j, RebootAndroidInstancesInGroupRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AndroidInstanceIds, androidInstanceIds_);
       DARABONBA_PTR_FROM_JSON(ForceStop, forceStop_);
+      DARABONBA_PTR_FROM_JSON(IgnoreParamValidation, ignoreParamValidation_);
       DARABONBA_PTR_FROM_JSON(SaleMode, saleMode_);
     };
     RebootAndroidInstancesInGroupRequest() = default ;
@@ -35,7 +37,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->androidInstanceIds_ == nullptr
-        && this->forceStop_ == nullptr && this->saleMode_ == nullptr; };
+        && this->forceStop_ == nullptr && this->ignoreParamValidation_ == nullptr && this->saleMode_ == nullptr; };
     // androidInstanceIds Field Functions 
     bool hasAndroidInstanceIds() const { return this->androidInstanceIds_ != nullptr;};
     void deleteAndroidInstanceIds() { this->androidInstanceIds_ = nullptr;};
@@ -50,6 +52,13 @@ namespace Models
     void deleteForceStop() { this->forceStop_ = nullptr;};
     inline bool getForceStop() const { DARABONBA_PTR_GET_DEFAULT(forceStop_, false) };
     inline RebootAndroidInstancesInGroupRequest& setForceStop(bool forceStop) { DARABONBA_PTR_SET_VALUE(forceStop_, forceStop) };
+
+
+    // ignoreParamValidation Field Functions 
+    bool hasIgnoreParamValidation() const { return this->ignoreParamValidation_ != nullptr;};
+    void deleteIgnoreParamValidation() { this->ignoreParamValidation_ = nullptr;};
+    inline bool getIgnoreParamValidation() const { DARABONBA_PTR_GET_DEFAULT(ignoreParamValidation_, false) };
+    inline RebootAndroidInstancesInGroupRequest& setIgnoreParamValidation(bool ignoreParamValidation) { DARABONBA_PTR_SET_VALUE(ignoreParamValidation_, ignoreParamValidation) };
 
 
     // saleMode Field Functions 
@@ -69,6 +78,7 @@ namespace Models
     // *   true
     // *   false
     shared_ptr<bool> forceStop_ {};
+    shared_ptr<bool> ignoreParamValidation_ {};
     shared_ptr<string> saleMode_ {};
   };
 

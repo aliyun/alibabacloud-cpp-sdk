@@ -14,12 +14,14 @@ namespace Models
   class BatchGetAcpConnectionTicketRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const BatchGetAcpConnectionTicketRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ConnectionMode, connectionMode_);
       DARABONBA_PTR_TO_JSON(EndUserId, endUserId_);
       DARABONBA_PTR_TO_JSON(InstanceGroupId, instanceGroupId_);
       DARABONBA_PTR_TO_JSON(InstanceIds, instanceIds_);
       DARABONBA_PTR_TO_JSON(InstanceTasks, instanceTasks_);
     };
     friend void from_json(const Darabonba::Json& j, BatchGetAcpConnectionTicketRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ConnectionMode, connectionMode_);
       DARABONBA_PTR_FROM_JSON(EndUserId, endUserId_);
       DARABONBA_PTR_FROM_JSON(InstanceGroupId, instanceGroupId_);
       DARABONBA_PTR_FROM_JSON(InstanceIds, instanceIds_);
@@ -80,8 +82,15 @@ namespace Models
       shared_ptr<string> taskId_ {};
     };
 
-    virtual bool empty() const override { return this->endUserId_ == nullptr
-        && this->instanceGroupId_ == nullptr && this->instanceIds_ == nullptr && this->instanceTasks_ == nullptr; };
+    virtual bool empty() const override { return this->connectionMode_ == nullptr
+        && this->endUserId_ == nullptr && this->instanceGroupId_ == nullptr && this->instanceIds_ == nullptr && this->instanceTasks_ == nullptr; };
+    // connectionMode Field Functions 
+    bool hasConnectionMode() const { return this->connectionMode_ != nullptr;};
+    void deleteConnectionMode() { this->connectionMode_ = nullptr;};
+    inline string getConnectionMode() const { DARABONBA_PTR_GET_DEFAULT(connectionMode_, "") };
+    inline BatchGetAcpConnectionTicketRequest& setConnectionMode(string connectionMode) { DARABONBA_PTR_SET_VALUE(connectionMode_, connectionMode) };
+
+
     // endUserId Field Functions 
     bool hasEndUserId() const { return this->endUserId_ != nullptr;};
     void deleteEndUserId() { this->endUserId_ = nullptr;};
@@ -115,6 +124,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> connectionMode_ {};
     // The ID of the user to whom the cloud phone instance is assigned.
     shared_ptr<string> endUserId_ {};
     // The ID of the instance group.

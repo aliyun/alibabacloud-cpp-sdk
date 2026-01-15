@@ -40,6 +40,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ErrorCode, errorCode_);
         DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_TO_JSON(PersistentAppInstanceId, persistentAppInstanceId_);
+        DARABONBA_PTR_TO_JSON(Port, port_);
         DARABONBA_PTR_TO_JSON(TaskId, taskId_);
         DARABONBA_PTR_TO_JSON(TaskStatus, taskStatus_);
         DARABONBA_PTR_TO_JSON(Ticket, ticket_);
@@ -50,6 +51,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ErrorCode, errorCode_);
         DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_FROM_JSON(PersistentAppInstanceId, persistentAppInstanceId_);
+        DARABONBA_PTR_FROM_JSON(Port, port_);
         DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
         DARABONBA_PTR_FROM_JSON(TaskStatus, taskStatus_);
         DARABONBA_PTR_FROM_JSON(Ticket, ticket_);
@@ -66,8 +68,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->appInstanceGroupId_ == nullptr
-        && this->appInstanceId_ == nullptr && this->errorCode_ == nullptr && this->instanceId_ == nullptr && this->persistentAppInstanceId_ == nullptr && this->taskId_ == nullptr
-        && this->taskStatus_ == nullptr && this->ticket_ == nullptr; };
+        && this->appInstanceId_ == nullptr && this->errorCode_ == nullptr && this->instanceId_ == nullptr && this->persistentAppInstanceId_ == nullptr && this->port_ == nullptr
+        && this->taskId_ == nullptr && this->taskStatus_ == nullptr && this->ticket_ == nullptr; };
       // appInstanceGroupId Field Functions 
       bool hasAppInstanceGroupId() const { return this->appInstanceGroupId_ != nullptr;};
       void deleteAppInstanceGroupId() { this->appInstanceGroupId_ = nullptr;};
@@ -103,6 +105,13 @@ namespace Models
       inline InstanceConnectionModels& setPersistentAppInstanceId(string persistentAppInstanceId) { DARABONBA_PTR_SET_VALUE(persistentAppInstanceId_, persistentAppInstanceId) };
 
 
+      // port Field Functions 
+      bool hasPort() const { return this->port_ != nullptr;};
+      void deletePort() { this->port_ = nullptr;};
+      inline int32_t getPort() const { DARABONBA_PTR_GET_DEFAULT(port_, 0) };
+      inline InstanceConnectionModels& setPort(int32_t port) { DARABONBA_PTR_SET_VALUE(port_, port) };
+
+
       // taskId Field Functions 
       bool hasTaskId() const { return this->taskId_ != nullptr;};
       void deleteTaskId() { this->taskId_ = nullptr;};
@@ -132,6 +141,7 @@ namespace Models
       // The ID of the cloud phone instance.
       shared_ptr<string> instanceId_ {};
       shared_ptr<string> persistentAppInstanceId_ {};
+      shared_ptr<int32_t> port_ {};
       // The ID of the task.
       shared_ptr<string> taskId_ {};
       // The state of the task.

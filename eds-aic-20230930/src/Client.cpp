@@ -355,6 +355,10 @@ BackupFileResponse Client::backupFile(const BackupFileRequest &request) {
 BatchGetAcpConnectionTicketResponse Client::batchGetAcpConnectionTicketWithOptions(const BatchGetAcpConnectionTicketRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasConnectionMode()) {
+    query["ConnectionMode"] = request.getConnectionMode();
+  }
+
   if (!!request.hasEndUserId()) {
     query["EndUserId"] = request.getEndUserId();
   }
@@ -4423,6 +4427,10 @@ RebootAndroidInstancesInGroupResponse Client::rebootAndroidInstancesInGroupWithO
     query["ForceStop"] = request.getForceStop();
   }
 
+  if (!!request.hasIgnoreParamValidation()) {
+    query["IgnoreParamValidation"] = request.getIgnoreParamValidation();
+  }
+
   if (!!request.hasSaleMode()) {
     query["SaleMode"] = request.getSaleMode();
   }
@@ -4775,6 +4783,10 @@ ResetAndroidInstancesInGroupResponse Client::resetAndroidInstancesInGroupWithOpt
   json query = {};
   if (!!request.hasAndroidInstanceIds()) {
     query["AndroidInstanceIds"] = request.getAndroidInstanceIds();
+  }
+
+  if (!!request.hasIgnoreParamValidation()) {
+    query["IgnoreParamValidation"] = request.getIgnoreParamValidation();
   }
 
   if (!!request.hasSaleMode()) {
@@ -5543,6 +5555,10 @@ UpdateInstanceGroupImageResponse Client::updateInstanceGroupImage(const UpdateIn
 UpdateInstanceImageResponse Client::updateInstanceImageWithOptions(const UpdateInstanceImageRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasIgnoreParamValidation()) {
+    query["IgnoreParamValidation"] = request.getIgnoreParamValidation();
+  }
+
   if (!!request.hasImageId()) {
     query["ImageId"] = request.getImageId();
   }

@@ -14,11 +14,13 @@ namespace Models
   class UpdateInstanceImageRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const UpdateInstanceImageRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(IgnoreParamValidation, ignoreParamValidation_);
       DARABONBA_PTR_TO_JSON(ImageId, imageId_);
       DARABONBA_PTR_TO_JSON(InstanceIdList, instanceIdList_);
       DARABONBA_PTR_TO_JSON(Reset, reset_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateInstanceImageRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(IgnoreParamValidation, ignoreParamValidation_);
       DARABONBA_PTR_FROM_JSON(ImageId, imageId_);
       DARABONBA_PTR_FROM_JSON(InstanceIdList, instanceIdList_);
       DARABONBA_PTR_FROM_JSON(Reset, reset_);
@@ -34,8 +36,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->imageId_ == nullptr
-        && this->instanceIdList_ == nullptr && this->reset_ == nullptr; };
+    virtual bool empty() const override { return this->ignoreParamValidation_ == nullptr
+        && this->imageId_ == nullptr && this->instanceIdList_ == nullptr && this->reset_ == nullptr; };
+    // ignoreParamValidation Field Functions 
+    bool hasIgnoreParamValidation() const { return this->ignoreParamValidation_ != nullptr;};
+    void deleteIgnoreParamValidation() { this->ignoreParamValidation_ = nullptr;};
+    inline bool getIgnoreParamValidation() const { DARABONBA_PTR_GET_DEFAULT(ignoreParamValidation_, false) };
+    inline UpdateInstanceImageRequest& setIgnoreParamValidation(bool ignoreParamValidation) { DARABONBA_PTR_SET_VALUE(ignoreParamValidation_, ignoreParamValidation) };
+
+
     // imageId Field Functions 
     bool hasImageId() const { return this->imageId_ != nullptr;};
     void deleteImageId() { this->imageId_ = nullptr;};
@@ -60,6 +69,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<bool> ignoreParamValidation_ {};
     shared_ptr<string> imageId_ {};
     shared_ptr<vector<string>> instanceIdList_ {};
     shared_ptr<bool> reset_ {};
