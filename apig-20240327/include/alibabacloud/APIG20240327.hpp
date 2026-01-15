@@ -983,6 +983,22 @@ namespace APIG20240327
       Models::GetResourceOverviewResponse getResourceOverview(const Models::GetResourceOverviewRequest &request);
 
       /**
+       * @summary 查询密钥
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetSecretResponse
+       */
+      Models::GetSecretResponse getSecretWithOptions(const string &secretId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询密钥
+       *
+       * @return GetSecretResponse
+       */
+      Models::GetSecretResponse getSecret(const string &secretId);
+
+      /**
        * @summary 查询密钥值
        *
        * @param headers map

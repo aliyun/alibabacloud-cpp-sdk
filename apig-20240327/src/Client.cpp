@@ -2770,6 +2770,42 @@ GetResourceOverviewResponse Client::getResourceOverview(const GetResourceOvervie
 }
 
 /**
+ * @summary 查询密钥
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetSecretResponse
+ */
+GetSecretResponse Client::getSecretWithOptions(const string &secretId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetSecret"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/secrets/" , Darabonba::Encode::Encoder::percentEncode(secretId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetSecretResponse>();
+}
+
+/**
+ * @summary 查询密钥
+ *
+ * @return GetSecretResponse
+ */
+GetSecretResponse Client::getSecret(const string &secretId) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getSecretWithOptions(secretId, headers, runtime);
+}
+
+/**
  * @summary 查询密钥值
  *
  * @param headers map

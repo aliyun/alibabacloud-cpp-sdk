@@ -194,6 +194,8 @@
 #include <alibabacloud/models/GetResourceOverviewRequest.hpp>
 #include <alibabacloud/models/GetResourceOverviewResponseBody.hpp>
 #include <alibabacloud/models/GetResourceOverviewResponse.hpp>
+#include <alibabacloud/models/GetSecretResponseBody.hpp>
+#include <alibabacloud/models/GetSecretResponse.hpp>
 #include <alibabacloud/models/GetSecretValueResponseBody.hpp>
 #include <alibabacloud/models/GetSecretValueResponse.hpp>
 #include <alibabacloud/models/GetServiceResponseBody.hpp>

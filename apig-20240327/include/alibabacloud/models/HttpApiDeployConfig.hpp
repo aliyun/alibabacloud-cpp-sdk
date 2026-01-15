@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_HTTPAPIDEPLOYCONFIG_HPP_
 #define ALIBABACLOUD_MODELS_HTTPAPIDEPLOYCONFIG_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/HttpApiBackendMatchConditions.hpp>
 #include <vector>
 #include <alibabacloud/models/GatewayInfo.hpp>
 #include <alibabacloud/models/HttpApiMockContract.hpp>
@@ -123,6 +124,7 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const ServiceConfigs& obj) { 
         DARABONBA_PTR_TO_JSON(intentCode, intentCode_);
+        DARABONBA_PTR_TO_JSON(match, match_);
         DARABONBA_PTR_TO_JSON(modelName, modelName_);
         DARABONBA_PTR_TO_JSON(modelNamePattern, modelNamePattern_);
         DARABONBA_PTR_TO_JSON(serviceId, serviceId_);
@@ -130,6 +132,7 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, ServiceConfigs& obj) { 
         DARABONBA_PTR_FROM_JSON(intentCode, intentCode_);
+        DARABONBA_PTR_FROM_JSON(match, match_);
         DARABONBA_PTR_FROM_JSON(modelName, modelName_);
         DARABONBA_PTR_FROM_JSON(modelNamePattern, modelNamePattern_);
         DARABONBA_PTR_FROM_JSON(serviceId, serviceId_);
@@ -147,12 +150,21 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->intentCode_ == nullptr
-        && this->modelName_ == nullptr && this->modelNamePattern_ == nullptr && this->serviceId_ == nullptr && this->weight_ == nullptr; };
+        && this->match_ == nullptr && this->modelName_ == nullptr && this->modelNamePattern_ == nullptr && this->serviceId_ == nullptr && this->weight_ == nullptr; };
       // intentCode Field Functions 
       bool hasIntentCode() const { return this->intentCode_ != nullptr;};
       void deleteIntentCode() { this->intentCode_ = nullptr;};
       inline string getIntentCode() const { DARABONBA_PTR_GET_DEFAULT(intentCode_, "") };
       inline ServiceConfigs& setIntentCode(string intentCode) { DARABONBA_PTR_SET_VALUE(intentCode_, intentCode) };
+
+
+      // match Field Functions 
+      bool hasMatch() const { return this->match_ != nullptr;};
+      void deleteMatch() { this->match_ = nullptr;};
+      inline const HttpApiBackendMatchConditions & getMatch() const { DARABONBA_PTR_GET_CONST(match_, HttpApiBackendMatchConditions) };
+      inline HttpApiBackendMatchConditions getMatch() { DARABONBA_PTR_GET(match_, HttpApiBackendMatchConditions) };
+      inline ServiceConfigs& setMatch(const HttpApiBackendMatchConditions & match) { DARABONBA_PTR_SET_VALUE(match_, match) };
+      inline ServiceConfigs& setMatch(HttpApiBackendMatchConditions && match) { DARABONBA_PTR_SET_RVALUE(match_, match) };
 
 
       // modelName Field Functions 
@@ -185,6 +197,7 @@ namespace Models
 
     protected:
       shared_ptr<string> intentCode_ {};
+      shared_ptr<HttpApiBackendMatchConditions> match_ {};
       shared_ptr<string> modelName_ {};
       shared_ptr<string> modelNamePattern_ {};
       shared_ptr<string> serviceId_ {};
