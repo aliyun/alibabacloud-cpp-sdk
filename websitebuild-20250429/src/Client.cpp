@@ -90,7 +90,7 @@ BindAppDomainResponse Client::bindAppDomain(const BindAppDomainRequest &request)
 }
 
 /**
- * @summary 创建建站实例
+ * @summary Create a website instance
  *
  * @param request CreateAppInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -157,7 +157,7 @@ CreateAppInstanceResponse Client::createAppInstanceWithOptions(const CreateAppIn
 }
 
 /**
- * @summary 创建建站实例
+ * @summary Create a website instance
  *
  * @param request CreateAppInstanceRequest
  * @return CreateAppInstanceResponse

@@ -38,7 +38,7 @@ namespace WebsiteBuild20250429
       Models::BindAppDomainResponse bindAppDomain(const Models::BindAppDomainRequest &request);
 
       /**
-       * @summary 创建建站实例
+       * @summary Create a website instance
        *
        * @param request CreateAppInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -47,7 +47,7 @@ namespace WebsiteBuild20250429
       Models::CreateAppInstanceResponse createAppInstanceWithOptions(const Models::CreateAppInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建建站实例
+       * @summary Create a website instance
        *
        * @param request CreateAppInstanceRequest
        * @return CreateAppInstanceResponse
