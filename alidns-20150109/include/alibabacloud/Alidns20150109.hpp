@@ -880,6 +880,8 @@ namespace Alidns20150109
       Models::DescribeCloudGtmAddressReferenceResponse describeCloudGtmAddressReference(const Models::DescribeCloudGtmAddressReferenceRequest &request);
 
       /**
+       * @summary 查询全局流量管理告警配置
+       *
        * @param request DescribeCloudGtmGlobalAlertRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeCloudGtmGlobalAlertResponse
@@ -887,6 +889,8 @@ namespace Alidns20150109
       Models::DescribeCloudGtmGlobalAlertResponse describeCloudGtmGlobalAlertWithOptions(const Models::DescribeCloudGtmGlobalAlertRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询全局流量管理告警配置
+       *
        * @param request DescribeCloudGtmGlobalAlertRequest
        * @return DescribeCloudGtmGlobalAlertResponse
        */
@@ -3379,6 +3383,8 @@ namespace Alidns20150109
       Models::UpdateCloudGtmAddressRemarkResponse updateCloudGtmAddressRemark(const Models::UpdateCloudGtmAddressRemarkRequest &request);
 
       /**
+       * @summary 更新全局流量管理告警设置
+       *
        * @param tmpReq UpdateCloudGtmGlobalAlertRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return UpdateCloudGtmGlobalAlertResponse
@@ -3386,6 +3392,8 @@ namespace Alidns20150109
       Models::UpdateCloudGtmGlobalAlertResponse updateCloudGtmGlobalAlertWithOptions(const Models::UpdateCloudGtmGlobalAlertRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 更新全局流量管理告警设置
+       *
        * @param request UpdateCloudGtmGlobalAlertRequest
        * @return UpdateCloudGtmGlobalAlertResponse
        */

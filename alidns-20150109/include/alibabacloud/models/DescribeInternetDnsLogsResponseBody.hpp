@@ -65,10 +65,13 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const Log& obj) { 
           DARABONBA_PTR_TO_JSON(DnsMsgId, dnsMsgId_);
+          DARABONBA_PTR_TO_JSON(Flags, flags_);
           DARABONBA_PTR_TO_JSON(LogTime, logTime_);
           DARABONBA_PTR_TO_JSON(Protocol, protocol_);
+          DARABONBA_PTR_TO_JSON(QueryFlags, queryFlags_);
           DARABONBA_PTR_TO_JSON(QueryName, queryName_);
           DARABONBA_PTR_TO_JSON(QueryType, queryType_);
+          DARABONBA_PTR_TO_JSON(ResponseTimestamp, responseTimestamp_);
           DARABONBA_PTR_TO_JSON(Rt, rt_);
           DARABONBA_PTR_TO_JSON(ServerIp, serverIp_);
           DARABONBA_PTR_TO_JSON(SourceIp, sourceIp_);
@@ -79,10 +82,13 @@ namespace Models
         };
         friend void from_json(const Darabonba::Json& j, Log& obj) { 
           DARABONBA_PTR_FROM_JSON(DnsMsgId, dnsMsgId_);
+          DARABONBA_PTR_FROM_JSON(Flags, flags_);
           DARABONBA_PTR_FROM_JSON(LogTime, logTime_);
           DARABONBA_PTR_FROM_JSON(Protocol, protocol_);
+          DARABONBA_PTR_FROM_JSON(QueryFlags, queryFlags_);
           DARABONBA_PTR_FROM_JSON(QueryName, queryName_);
           DARABONBA_PTR_FROM_JSON(QueryType, queryType_);
+          DARABONBA_PTR_FROM_JSON(ResponseTimestamp, responseTimestamp_);
           DARABONBA_PTR_FROM_JSON(Rt, rt_);
           DARABONBA_PTR_FROM_JSON(ServerIp, serverIp_);
           DARABONBA_PTR_FROM_JSON(SourceIp, sourceIp_);
@@ -136,14 +142,21 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->dnsMsgId_ == nullptr
-        && this->logTime_ == nullptr && this->protocol_ == nullptr && this->queryName_ == nullptr && this->queryType_ == nullptr && this->rt_ == nullptr
-        && this->serverIp_ == nullptr && this->sourceIp_ == nullptr && this->status_ == nullptr && this->subnetIp_ == nullptr && this->value_ == nullptr
-        && this->zoneName_ == nullptr; };
+        && this->flags_ == nullptr && this->logTime_ == nullptr && this->protocol_ == nullptr && this->queryFlags_ == nullptr && this->queryName_ == nullptr
+        && this->queryType_ == nullptr && this->responseTimestamp_ == nullptr && this->rt_ == nullptr && this->serverIp_ == nullptr && this->sourceIp_ == nullptr
+        && this->status_ == nullptr && this->subnetIp_ == nullptr && this->value_ == nullptr && this->zoneName_ == nullptr; };
         // dnsMsgId Field Functions 
         bool hasDnsMsgId() const { return this->dnsMsgId_ != nullptr;};
         void deleteDnsMsgId() { this->dnsMsgId_ = nullptr;};
         inline string getDnsMsgId() const { DARABONBA_PTR_GET_DEFAULT(dnsMsgId_, "") };
         inline Log& setDnsMsgId(string dnsMsgId) { DARABONBA_PTR_SET_VALUE(dnsMsgId_, dnsMsgId) };
+
+
+        // flags Field Functions 
+        bool hasFlags() const { return this->flags_ != nullptr;};
+        void deleteFlags() { this->flags_ = nullptr;};
+        inline string getFlags() const { DARABONBA_PTR_GET_DEFAULT(flags_, "") };
+        inline Log& setFlags(string flags) { DARABONBA_PTR_SET_VALUE(flags_, flags) };
 
 
         // logTime Field Functions 
@@ -160,6 +173,13 @@ namespace Models
         inline Log& setProtocol(string protocol) { DARABONBA_PTR_SET_VALUE(protocol_, protocol) };
 
 
+        // queryFlags Field Functions 
+        bool hasQueryFlags() const { return this->queryFlags_ != nullptr;};
+        void deleteQueryFlags() { this->queryFlags_ = nullptr;};
+        inline string getQueryFlags() const { DARABONBA_PTR_GET_DEFAULT(queryFlags_, "") };
+        inline Log& setQueryFlags(string queryFlags) { DARABONBA_PTR_SET_VALUE(queryFlags_, queryFlags) };
+
+
         // queryName Field Functions 
         bool hasQueryName() const { return this->queryName_ != nullptr;};
         void deleteQueryName() { this->queryName_ = nullptr;};
@@ -172,6 +192,13 @@ namespace Models
         void deleteQueryType() { this->queryType_ = nullptr;};
         inline string getQueryType() const { DARABONBA_PTR_GET_DEFAULT(queryType_, "") };
         inline Log& setQueryType(string queryType) { DARABONBA_PTR_SET_VALUE(queryType_, queryType) };
+
+
+        // responseTimestamp Field Functions 
+        bool hasResponseTimestamp() const { return this->responseTimestamp_ != nullptr;};
+        void deleteResponseTimestamp() { this->responseTimestamp_ = nullptr;};
+        inline string getResponseTimestamp() const { DARABONBA_PTR_GET_DEFAULT(responseTimestamp_, "") };
+        inline Log& setResponseTimestamp(string responseTimestamp) { DARABONBA_PTR_SET_VALUE(responseTimestamp_, responseTimestamp) };
 
 
         // rt Field Functions 
@@ -228,6 +255,7 @@ namespace Models
       protected:
         // Parse log ID (can be duplicated).
         shared_ptr<string> dnsMsgId_ {};
+        shared_ptr<string> flags_ {};
         // Parse timestamp.
         shared_ptr<int64_t> logTime_ {};
         // The protocol type of the domain name resolution query request:
@@ -237,10 +265,12 @@ namespace Models
         // - HTTPS
         // - DOH
         shared_ptr<string> protocol_ {};
+        shared_ptr<string> queryFlags_ {};
         // The domain name for which you want to query Domain Name System (DNS) records.
         shared_ptr<string> queryName_ {};
         // Record type.
         shared_ptr<string> queryType_ {};
+        shared_ptr<string> responseTimestamp_ {};
         // Parse response time.
         shared_ptr<int32_t> rt_ {};
         // Parse server IP.

@@ -43,12 +43,14 @@ namespace Models
         DARABONBA_PTR_TO_JSON(EmailNotice, emailNotice_);
         DARABONBA_PTR_TO_JSON(NoticeType, noticeType_);
         DARABONBA_PTR_TO_JSON(SmsNotice, smsNotice_);
+        DARABONBA_PTR_TO_JSON(Threshold, threshold_);
       };
       friend void from_json(const Darabonba::Json& j, AlertConfig& obj) { 
         DARABONBA_PTR_FROM_JSON(DingtalkNotice, dingtalkNotice_);
         DARABONBA_PTR_FROM_JSON(EmailNotice, emailNotice_);
         DARABONBA_PTR_FROM_JSON(NoticeType, noticeType_);
         DARABONBA_PTR_FROM_JSON(SmsNotice, smsNotice_);
+        DARABONBA_PTR_FROM_JSON(Threshold, threshold_);
       };
       AlertConfig() = default ;
       AlertConfig(const AlertConfig &) = default ;
@@ -62,7 +64,7 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->dingtalkNotice_ == nullptr
-        && this->emailNotice_ == nullptr && this->noticeType_ == nullptr && this->smsNotice_ == nullptr; };
+        && this->emailNotice_ == nullptr && this->noticeType_ == nullptr && this->smsNotice_ == nullptr && this->threshold_ == nullptr; };
       // dingtalkNotice Field Functions 
       bool hasDingtalkNotice() const { return this->dingtalkNotice_ != nullptr;};
       void deleteDingtalkNotice() { this->dingtalkNotice_ = nullptr;};
@@ -91,6 +93,13 @@ namespace Models
       inline AlertConfig& setSmsNotice(bool smsNotice) { DARABONBA_PTR_SET_VALUE(smsNotice_, smsNotice) };
 
 
+      // threshold Field Functions 
+      bool hasThreshold() const { return this->threshold_ != nullptr;};
+      void deleteThreshold() { this->threshold_ = nullptr;};
+      inline int32_t getThreshold() const { DARABONBA_PTR_GET_DEFAULT(threshold_, 0) };
+      inline AlertConfig& setThreshold(int32_t threshold) { DARABONBA_PTR_SET_VALUE(threshold_, threshold) };
+
+
     protected:
       // Specifies whether to configure DingTalk notifications. Valid values:
       // 
@@ -116,6 +125,7 @@ namespace Models
       // 
       // Only the China site (aliyun.com) supports text message notifications.
       shared_ptr<bool> smsNotice_ {};
+      shared_ptr<int32_t> threshold_ {};
     };
 
     virtual bool empty() const override { return this->acceptLanguage_ == nullptr

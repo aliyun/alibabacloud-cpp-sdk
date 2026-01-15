@@ -67,6 +67,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(AvailableStatus, availableStatus_);
           DARABONBA_PTR_TO_JSON(CommodityCode, commodityCode_);
           DARABONBA_PTR_TO_JSON(ConfigId, configId_);
+          DARABONBA_PTR_TO_JSON(ConfigLoggingSwitchStatus, configLoggingSwitchStatus_);
           DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
           DARABONBA_PTR_TO_JSON(CreateTimestamp, createTimestamp_);
           DARABONBA_PTR_TO_JSON(EnableStatus, enableStatus_);
@@ -90,6 +91,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(AvailableStatus, availableStatus_);
           DARABONBA_PTR_FROM_JSON(CommodityCode, commodityCode_);
           DARABONBA_PTR_FROM_JSON(ConfigId, configId_);
+          DARABONBA_PTR_FROM_JSON(ConfigLoggingSwitchStatus, configLoggingSwitchStatus_);
           DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
           DARABONBA_PTR_FROM_JSON(CreateTimestamp, createTimestamp_);
           DARABONBA_PTR_FROM_JSON(EnableStatus, enableStatus_);
@@ -425,10 +427,11 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->addressPoolLbStrategy_ == nullptr
-        && this->addressPools_ == nullptr && this->availableStatus_ == nullptr && this->commodityCode_ == nullptr && this->configId_ == nullptr && this->createTime_ == nullptr
-        && this->createTimestamp_ == nullptr && this->enableStatus_ == nullptr && this->healthStatus_ == nullptr && this->instanceId_ == nullptr && this->remark_ == nullptr
-        && this->scheduleDomainName_ == nullptr && this->scheduleHostname_ == nullptr && this->scheduleRrType_ == nullptr && this->scheduleZoneMode_ == nullptr && this->scheduleZoneName_ == nullptr
-        && this->sequenceLbStrategyMode_ == nullptr && this->ttl_ == nullptr && this->updateTime_ == nullptr && this->updateTimestamp_ == nullptr && this->versionCode_ == nullptr; };
+        && this->addressPools_ == nullptr && this->availableStatus_ == nullptr && this->commodityCode_ == nullptr && this->configId_ == nullptr && this->configLoggingSwitchStatus_ == nullptr
+        && this->createTime_ == nullptr && this->createTimestamp_ == nullptr && this->enableStatus_ == nullptr && this->healthStatus_ == nullptr && this->instanceId_ == nullptr
+        && this->remark_ == nullptr && this->scheduleDomainName_ == nullptr && this->scheduleHostname_ == nullptr && this->scheduleRrType_ == nullptr && this->scheduleZoneMode_ == nullptr
+        && this->scheduleZoneName_ == nullptr && this->sequenceLbStrategyMode_ == nullptr && this->ttl_ == nullptr && this->updateTime_ == nullptr && this->updateTimestamp_ == nullptr
+        && this->versionCode_ == nullptr; };
         // addressPoolLbStrategy Field Functions 
         bool hasAddressPoolLbStrategy() const { return this->addressPoolLbStrategy_ != nullptr;};
         void deleteAddressPoolLbStrategy() { this->addressPoolLbStrategy_ = nullptr;};
@@ -464,6 +467,13 @@ namespace Models
         void deleteConfigId() { this->configId_ = nullptr;};
         inline string getConfigId() const { DARABONBA_PTR_GET_DEFAULT(configId_, "") };
         inline InstanceConfig& setConfigId(string configId) { DARABONBA_PTR_SET_VALUE(configId_, configId) };
+
+
+        // configLoggingSwitchStatus Field Functions 
+        bool hasConfigLoggingSwitchStatus() const { return this->configLoggingSwitchStatus_ != nullptr;};
+        void deleteConfigLoggingSwitchStatus() { this->configLoggingSwitchStatus_ = nullptr;};
+        inline string getConfigLoggingSwitchStatus() const { DARABONBA_PTR_GET_DEFAULT(configLoggingSwitchStatus_, "") };
+        inline InstanceConfig& setConfigLoggingSwitchStatus(string configLoggingSwitchStatus) { DARABONBA_PTR_SET_VALUE(configLoggingSwitchStatus_, configLoggingSwitchStatus) };
 
 
         // createTime Field Functions 
@@ -600,6 +610,7 @@ namespace Models
         shared_ptr<string> commodityCode_ {};
         // The configuration ID of the access domain name. Two configuration IDs exist when the access domain name is bound to the same GTM instance but an A record and an AAAA record are configured for the access domain name. The configuration ID uniquely identifies a configuration.
         shared_ptr<string> configId_ {};
+        shared_ptr<string> configLoggingSwitchStatus_ {};
         // Domain instance creation time.
         shared_ptr<string> createTime_ {};
         // Domain instance creation time (timestamp).

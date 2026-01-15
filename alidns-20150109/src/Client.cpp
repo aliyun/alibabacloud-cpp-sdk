@@ -2904,6 +2904,8 @@ DescribeCloudGtmAddressReferenceResponse Client::describeCloudGtmAddressReferenc
 }
 
 /**
+ * @summary 查询全局流量管理告警配置
+ *
  * @param request DescribeCloudGtmGlobalAlertRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeCloudGtmGlobalAlertResponse
@@ -2937,6 +2939,8 @@ DescribeCloudGtmGlobalAlertResponse Client::describeCloudGtmGlobalAlertWithOptio
 }
 
 /**
+ * @summary 查询全局流量管理告警配置
+ *
  * @param request DescribeCloudGtmGlobalAlertRequest
  * @return DescribeCloudGtmGlobalAlertResponse
  */
@@ -11075,6 +11079,8 @@ UpdateCloudGtmAddressRemarkResponse Client::updateCloudGtmAddressRemark(const Up
 }
 
 /**
+ * @summary 更新全局流量管理告警设置
+ *
  * @param tmpReq UpdateCloudGtmGlobalAlertRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return UpdateCloudGtmGlobalAlertResponse
@@ -11126,6 +11132,8 @@ UpdateCloudGtmGlobalAlertResponse Client::updateCloudGtmGlobalAlertWithOptions(c
 }
 
 /**
+ * @summary 更新全局流量管理告警设置
+ *
  * @param request UpdateCloudGtmGlobalAlertRequest
  * @return UpdateCloudGtmGlobalAlertResponse
  */
