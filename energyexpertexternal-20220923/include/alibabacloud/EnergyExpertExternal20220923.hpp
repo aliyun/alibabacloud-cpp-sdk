@@ -40,9 +40,9 @@ namespace EnergyExpertExternal20220923
       Models::AddFolderResponse addFolder(const Models::AddFolderRequest &request);
 
       /**
-       * @summary Get Document Results
+       * @summary Obtains the real-time parsing result of the Qwen VL model.
        *
-       * @description Users obtain real-time VL results by uploading a document URL.
+       * @description You need to upload a document URL to obtain the real-time parsing result of the Qwen VL model.
        *
        * @param request AnalyzeVlRealtimeRequest
        * @param headers map
@@ -52,9 +52,9 @@ namespace EnergyExpertExternal20220923
       Models::AnalyzeVlRealtimeResponse analyzeVlRealtimeWithOptions(const Models::AnalyzeVlRealtimeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get Document Results
+       * @summary Obtains the real-time parsing result of the Qwen VL model.
        *
-       * @description Users obtain real-time VL results by uploading a document URL.
+       * @description You need to upload a document URL to obtain the real-time parsing result of the Qwen VL model.
        *
        * @param request AnalyzeVlRealtimeRequest
        * @return AnalyzeVlRealtimeResponse

@@ -13,11 +13,13 @@ namespace Models
   class AnalyzeVlRealtimeAdvanceRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const AnalyzeVlRealtimeAdvanceRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(fileName, fileName_);
       // fileUrlObject_ is stream
       DARABONBA_PTR_TO_JSON(language, language_);
       DARABONBA_PTR_TO_JSON(templateId, templateId_);
     };
     friend void from_json(const Darabonba::Json& j, AnalyzeVlRealtimeAdvanceRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(fileName, fileName_);
       // fileUrlObject_ is stream
       DARABONBA_PTR_FROM_JSON(language, language_);
       DARABONBA_PTR_FROM_JSON(templateId, templateId_);
@@ -33,8 +35,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->fileUrlObject_ == nullptr
-        && this->language_ == nullptr && this->templateId_ == nullptr; };
+    virtual bool empty() const override { return this->fileName_ == nullptr
+        && this->fileUrlObject_ == nullptr && this->language_ == nullptr && this->templateId_ == nullptr; };
+    // fileName Field Functions 
+    bool hasFileName() const { return this->fileName_ != nullptr;};
+    void deleteFileName() { this->fileName_ = nullptr;};
+    inline string getFileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
+    inline AnalyzeVlRealtimeAdvanceRequest& setFileName(string fileName) { DARABONBA_PTR_SET_VALUE(fileName_, fileName) };
+
+
     // fileUrlObject Field Functions 
     bool hasFileUrlObject() const { return this->fileUrlObject_ != nullptr;};
     void deleteFileUrlObject() { this->fileUrlObject_ = nullptr;};
@@ -57,22 +66,24 @@ namespace Models
 
 
   protected:
-    // Choose one of fileUrl or fileUrlObject:
+    // 文件名需带文件类型后缀
+    shared_ptr<string> fileName_ {};
+    // Valid values: fileUrl and fileUrlObject.
     // 
-    // - fileUrl: Use in the form of a document URL, for a single document (supports up to 1000 pages and 100MB)
+    // *   fileUrl: used as a document URL. A single document with not more than 1,000 pages and whose size does not exceed 100 MB is supported.
+    // *   fileUrlObject: used when the operation is called in local file upload mode. A single document with not more than 1,000 pages and whose size does not exceed 100 MB is supported.
     // 
-    // - fileUrlObject: Use when calling the interface with local file upload, for a single document (supports up to 1000 pages and 100 MB)
-    // 
-    // > The relationship between file parsing methods and supported document types
-    // > - Long Text RAG: Supports pdf, doc/docx, up to 1000 pages
-    // > - Image Processing: Supports pdf, jpg, jpeg, png, bmp
-    // > - Long Text Understanding: Supports pdf, doc/docx, xls/xlsx
+    // > The relationship between file extraction methods and supported document types
+    // > - Long text RAG: Supports pdf, doc/docx, xlsx, csv, txt, up to 1000 pages
+    // > - Image processing: Supports pdf, jpg, jpeg, png, bmp, jpe, tif, tiff, webp, heic
+    // > - Long text understanding: Supports doc/docx, xlsx, pdf, csv, txt
     shared_ptr<Darabonba::IStream> fileUrlObject_ {};
-    // Language, parameters that can be passed
-    // - zh-CN: Chinese (default)
-    // - en-US: English
+    // The language, which can be transferred. Valid values:
+    // 
+    // *   zh-CN (default)
+    // *   en-US
     shared_ptr<string> language_ {};
-    // A unique parsing template ID used to specify the key-value pairs to be extracted from the document. You need to log in to the template management page, configure the template, and then get the corresponding template ID.
+    // The unique ID of an extraction template, which is used to specify the content to be extracted from a document. You must log on to the Template Management page to configure the template and then obtain the corresponding template ID.
     shared_ptr<string> templateId_ {};
   };
 

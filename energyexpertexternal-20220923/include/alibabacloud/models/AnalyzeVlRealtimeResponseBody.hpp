@@ -136,9 +136,9 @@ namespace Models
 
 
           protected:
-            // Key confidence
+            // The confidence level of the key.
             shared_ptr<double> keyConfidence_ {};
-            // Value confidence
+            // The confidence level of the value.
             shared_ptr<double> valueConfidence_ {};
           };
 
@@ -172,11 +172,11 @@ namespace Models
 
 
         protected:
-          // Confidence
+          // The confidence level.
           shared_ptr<Context::Confidence> confidence_ {};
-          // Key recall information details
+          // The details of the recalled key information.
           shared_ptr<vector<ContentItem>> key_ {};
-          // Value recall information details
+          // The details of the recalled value information.
           shared_ptr<vector<ContentItem>> value_ {};
         };
 
@@ -206,11 +206,11 @@ namespace Models
 
 
       protected:
-        // Recall content
+        // The recalled content.
         shared_ptr<KvListInfo::Context> context_ {};
-        // Field Key name
+        // The name of the key.
         shared_ptr<string> keyName_ {};
-        // Field key value
+        // The value of the key.
         shared_ptr<string> keyValue_ {};
       };
 
@@ -225,7 +225,7 @@ namespace Models
 
 
     protected:
-      // Document parsing result details
+      // The details of the document extraction result.
       shared_ptr<vector<Data::KvListInfo>> kvListInfo_ {};
     };
 
@@ -248,9 +248,9 @@ namespace Models
 
 
   protected:
-    // Return result.
+    // The returned result.
     shared_ptr<AnalyzeVlRealtimeResponseBody::Data> data_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

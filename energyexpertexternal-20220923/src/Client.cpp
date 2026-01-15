@@ -93,9 +93,9 @@ AddFolderResponse Client::addFolder(const AddFolderRequest &request) {
 }
 
 /**
- * @summary Get Document Results
+ * @summary Obtains the real-time parsing result of the Qwen VL model.
  *
- * @description Users obtain real-time VL results by uploading a document URL.
+ * @description You need to upload a document URL to obtain the real-time parsing result of the Qwen VL model.
  *
  * @param request AnalyzeVlRealtimeRequest
  * @param headers map
@@ -105,6 +105,10 @@ AddFolderResponse Client::addFolder(const AddFolderRequest &request) {
 AnalyzeVlRealtimeResponse Client::analyzeVlRealtimeWithOptions(const AnalyzeVlRealtimeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasFileName()) {
+    query["fileName"] = request.getFileName();
+  }
+
   if (!!request.hasFileUrl()) {
     query["fileUrl"] = request.getFileUrl();
   }
@@ -136,9 +140,9 @@ AnalyzeVlRealtimeResponse Client::analyzeVlRealtimeWithOptions(const AnalyzeVlRe
 }
 
 /**
- * @summary Get Document Results
+ * @summary Obtains the real-time parsing result of the Qwen VL model.
  *
- * @description Users obtain real-time VL results by uploading a document URL.
+ * @description You need to upload a document URL to obtain the real-time parsing result of the Qwen VL model.
  *
  * @param request AnalyzeVlRealtimeRequest
  * @return AnalyzeVlRealtimeResponse
