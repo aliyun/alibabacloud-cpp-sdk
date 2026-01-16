@@ -51,6 +51,11 @@ namespace Models
         DARABONBA_PTR_TO_JSON(OuterOrderNo, outerOrderNo_);
         DARABONBA_PTR_TO_JSON(Passed, passed_);
         DARABONBA_PTR_TO_JSON(ProductCode, productCode_);
+        DARABONBA_PTR_TO_JSON(RiskBizScenario, riskBizScenario_);
+        DARABONBA_PTR_TO_JSON(RiskDevice, riskDevice_);
+        DARABONBA_PTR_TO_JSON(RiskDeviceToken, riskDeviceToken_);
+        DARABONBA_PTR_TO_JSON(RiskGeneric, riskGeneric_);
+        DARABONBA_PTR_TO_JSON(RiskModelMining, riskModelMining_);
         DARABONBA_PTR_TO_JSON(Root, root_);
         DARABONBA_PTR_TO_JSON(SceneId, sceneId_);
         DARABONBA_PTR_TO_JSON(Simulator, simulator_);
@@ -67,6 +72,11 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(OuterOrderNo, outerOrderNo_);
         DARABONBA_PTR_FROM_JSON(Passed, passed_);
         DARABONBA_PTR_FROM_JSON(ProductCode, productCode_);
+        DARABONBA_PTR_FROM_JSON(RiskBizScenario, riskBizScenario_);
+        DARABONBA_PTR_FROM_JSON(RiskDevice, riskDevice_);
+        DARABONBA_PTR_FROM_JSON(RiskDeviceToken, riskDeviceToken_);
+        DARABONBA_PTR_FROM_JSON(RiskGeneric, riskGeneric_);
+        DARABONBA_PTR_FROM_JSON(RiskModelMining, riskModelMining_);
         DARABONBA_PTR_FROM_JSON(Root, root_);
         DARABONBA_PTR_FROM_JSON(SceneId, sceneId_);
         DARABONBA_PTR_FROM_JSON(Simulator, simulator_);
@@ -284,7 +294,8 @@ namespace Models
 
       virtual bool empty() const override { return this->certNo_ == nullptr
         && this->certifyId_ == nullptr && this->extInfo_ == nullptr && this->gmtVerify_ == nullptr && this->model_ == nullptr && this->outerOrderNo_ == nullptr
-        && this->passed_ == nullptr && this->productCode_ == nullptr && this->root_ == nullptr && this->sceneId_ == nullptr && this->simulator_ == nullptr
+        && this->passed_ == nullptr && this->productCode_ == nullptr && this->riskBizScenario_ == nullptr && this->riskDevice_ == nullptr && this->riskDeviceToken_ == nullptr
+        && this->riskGeneric_ == nullptr && this->riskModelMining_ == nullptr && this->root_ == nullptr && this->sceneId_ == nullptr && this->simulator_ == nullptr
         && this->subCode_ == nullptr && this->userId_ == nullptr && this->virtualVideo_ == nullptr; };
       // certNo Field Functions 
       bool hasCertNo() const { return this->certNo_ != nullptr;};
@@ -342,6 +353,41 @@ namespace Models
       void deleteProductCode() { this->productCode_ = nullptr;};
       inline string getProductCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
       inline Items& setProductCode(string productCode) { DARABONBA_PTR_SET_VALUE(productCode_, productCode) };
+
+
+      // riskBizScenario Field Functions 
+      bool hasRiskBizScenario() const { return this->riskBizScenario_ != nullptr;};
+      void deleteRiskBizScenario() { this->riskBizScenario_ = nullptr;};
+      inline int32_t getRiskBizScenario() const { DARABONBA_PTR_GET_DEFAULT(riskBizScenario_, 0) };
+      inline Items& setRiskBizScenario(int32_t riskBizScenario) { DARABONBA_PTR_SET_VALUE(riskBizScenario_, riskBizScenario) };
+
+
+      // riskDevice Field Functions 
+      bool hasRiskDevice() const { return this->riskDevice_ != nullptr;};
+      void deleteRiskDevice() { this->riskDevice_ = nullptr;};
+      inline int32_t getRiskDevice() const { DARABONBA_PTR_GET_DEFAULT(riskDevice_, 0) };
+      inline Items& setRiskDevice(int32_t riskDevice) { DARABONBA_PTR_SET_VALUE(riskDevice_, riskDevice) };
+
+
+      // riskDeviceToken Field Functions 
+      bool hasRiskDeviceToken() const { return this->riskDeviceToken_ != nullptr;};
+      void deleteRiskDeviceToken() { this->riskDeviceToken_ = nullptr;};
+      inline int32_t getRiskDeviceToken() const { DARABONBA_PTR_GET_DEFAULT(riskDeviceToken_, 0) };
+      inline Items& setRiskDeviceToken(int32_t riskDeviceToken) { DARABONBA_PTR_SET_VALUE(riskDeviceToken_, riskDeviceToken) };
+
+
+      // riskGeneric Field Functions 
+      bool hasRiskGeneric() const { return this->riskGeneric_ != nullptr;};
+      void deleteRiskGeneric() { this->riskGeneric_ = nullptr;};
+      inline int32_t getRiskGeneric() const { DARABONBA_PTR_GET_DEFAULT(riskGeneric_, 0) };
+      inline Items& setRiskGeneric(int32_t riskGeneric) { DARABONBA_PTR_SET_VALUE(riskGeneric_, riskGeneric) };
+
+
+      // riskModelMining Field Functions 
+      bool hasRiskModelMining() const { return this->riskModelMining_ != nullptr;};
+      void deleteRiskModelMining() { this->riskModelMining_ = nullptr;};
+      inline int32_t getRiskModelMining() const { DARABONBA_PTR_GET_DEFAULT(riskModelMining_, 0) };
+      inline Items& setRiskModelMining(int32_t riskModelMining) { DARABONBA_PTR_SET_VALUE(riskModelMining_, riskModelMining) };
 
 
       // root Field Functions 
@@ -405,6 +451,11 @@ namespace Models
       shared_ptr<string> passed_ {};
       // Product code.
       shared_ptr<string> productCode_ {};
+      shared_ptr<int32_t> riskBizScenario_ {};
+      shared_ptr<int32_t> riskDevice_ {};
+      shared_ptr<int32_t> riskDeviceToken_ {};
+      shared_ptr<int32_t> riskGeneric_ {};
+      shared_ptr<int32_t> riskModelMining_ {};
       // Whether it is root (pass 1 if selected, otherwise do not pass; corresponds to identity label risk type).
       shared_ptr<int32_t> root_ {};
       // Scene ID.
