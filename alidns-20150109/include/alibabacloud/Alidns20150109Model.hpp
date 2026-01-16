@@ -519,6 +519,9 @@
 #include <alibabacloud/models/SearchRecursionZonesShrinkRequest.hpp>
 #include <alibabacloud/models/SearchRecursionZonesResponseBody.hpp>
 #include <alibabacloud/models/SearchRecursionZonesResponse.hpp>
+#include <alibabacloud/models/SetCloudGtmInstanceConfigLogSwitchRequest.hpp>
+#include <alibabacloud/models/SetCloudGtmInstanceConfigLogSwitchResponseBody.hpp>
+#include <alibabacloud/models/SetCloudGtmInstanceConfigLogSwitchResponse.hpp>
 #include <alibabacloud/models/SetDNSSLBStatusRequest.hpp>
 #include <alibabacloud/models/SetDNSSLBStatusResponseBody.hpp>
 #include <alibabacloud/models/SetDNSSLBStatusResponse.hpp>

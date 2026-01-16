@@ -2991,6 +2991,23 @@ namespace Alidns20150109
       Models::SearchRecursionZonesResponse searchRecursionZones(const Models::SearchRecursionZonesRequest &request);
 
       /**
+       * @summary 设置全局流量管理实例配置日志开关
+       *
+       * @param request SetCloudGtmInstanceConfigLogSwitchRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SetCloudGtmInstanceConfigLogSwitchResponse
+       */
+      Models::SetCloudGtmInstanceConfigLogSwitchResponse setCloudGtmInstanceConfigLogSwitchWithOptions(const Models::SetCloudGtmInstanceConfigLogSwitchRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 设置全局流量管理实例配置日志开关
+       *
+       * @param request SetCloudGtmInstanceConfigLogSwitchRequest
+       * @return SetCloudGtmInstanceConfigLogSwitchResponse
+       */
+      Models::SetCloudGtmInstanceConfigLogSwitchResponse setCloudGtmInstanceConfigLogSwitch(const Models::SetCloudGtmInstanceConfigLogSwitchRequest &request);
+
+      /**
        * @summary Enables or disables weighted round-robin based on the specified parameters.
        *
        * @param request SetDNSSLBStatusRequest

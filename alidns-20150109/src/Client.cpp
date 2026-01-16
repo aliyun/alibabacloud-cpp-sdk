@@ -9855,6 +9855,60 @@ SearchRecursionZonesResponse Client::searchRecursionZones(const SearchRecursionZ
 }
 
 /**
+ * @summary 设置全局流量管理实例配置日志开关
+ *
+ * @param request SetCloudGtmInstanceConfigLogSwitchRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SetCloudGtmInstanceConfigLogSwitchResponse
+ */
+SetCloudGtmInstanceConfigLogSwitchResponse Client::setCloudGtmInstanceConfigLogSwitchWithOptions(const SetCloudGtmInstanceConfigLogSwitchRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasConfigId()) {
+    query["ConfigId"] = request.getConfigId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SetCloudGtmInstanceConfigLogSwitch"},
+    {"version" , "2015-01-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SetCloudGtmInstanceConfigLogSwitchResponse>();
+}
+
+/**
+ * @summary 设置全局流量管理实例配置日志开关
+ *
+ * @param request SetCloudGtmInstanceConfigLogSwitchRequest
+ * @return SetCloudGtmInstanceConfigLogSwitchResponse
+ */
+SetCloudGtmInstanceConfigLogSwitchResponse Client::setCloudGtmInstanceConfigLogSwitch(const SetCloudGtmInstanceConfigLogSwitchRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return setCloudGtmInstanceConfigLogSwitchWithOptions(request, runtime);
+}
+
+/**
  * @summary Enables or disables weighted round-robin based on the specified parameters.
  *
  * @param request SetDNSSLBStatusRequest
