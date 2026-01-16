@@ -61,10 +61,12 @@ namespace Models
         DARABONBA_PTR_TO_JSON(CustomerParam, customerParam_);
         DARABONBA_PTR_TO_JSON(DelayTime, delayTime_);
         DARABONBA_PTR_TO_JSON(Different_role, differentRole_);
+        DARABONBA_PTR_TO_JSON(Dimensions, dimensions_);
         DARABONBA_PTR_TO_JSON(EndType, endType_);
         DARABONBA_PTR_TO_JSON(Excludes, excludes_);
         DARABONBA_PTR_TO_JSON(From, from_);
         DARABONBA_PTR_TO_JSON(From_end, fromEnd_);
+        DARABONBA_PTR_TO_JSON(HitCondition, hitCondition_);
         DARABONBA_PTR_TO_JSON(Hit_time, hitTime_);
         DARABONBA_PTR_TO_JSON(In_sentence, inSentence_);
         DARABONBA_PTR_TO_JSON(Interval, interval_);
@@ -77,7 +79,9 @@ namespace Models
         DARABONBA_PTR_TO_JSON(KnowledgeTargetId, knowledgeTargetId_);
         DARABONBA_PTR_TO_JSON(KnowledgeTargetName, knowledgeTargetName_);
         DARABONBA_PTR_TO_JSON(KnowledgeTargetType, knowledgeTargetType_);
+        DARABONBA_PTR_TO_JSON(Knowledges, knowledges_);
         DARABONBA_PTR_TO_JSON(LgfSentences, lgfSentences_);
+        DARABONBA_PTR_TO_JSON(LlmModelCode, llmModelCode_);
         DARABONBA_PTR_TO_JSON(MaxEmotionChangeValue, maxEmotionChangeValue_);
         DARABONBA_PTR_TO_JSON(MinWordSize, minWordSize_);
         DARABONBA_PTR_TO_JSON(Near_dialogue, nearDialogue_);
@@ -90,6 +94,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(References, references_);
         DARABONBA_PTR_TO_JSON(Regex, regex_);
         DARABONBA_PTR_TO_JSON(RoleId, roleId_);
+        DARABONBA_PTR_TO_JSON(SceneName, sceneName_);
         DARABONBA_PTR_TO_JSON(Score, score_);
         DARABONBA_PTR_TO_JSON(Similarity_threshold, similarityThreshold_);
         DARABONBA_PTR_TO_JSON(SimilarlySentences, similarlySentences_);
@@ -116,10 +121,12 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(CustomerParam, customerParam_);
         DARABONBA_PTR_FROM_JSON(DelayTime, delayTime_);
         DARABONBA_PTR_FROM_JSON(Different_role, differentRole_);
+        DARABONBA_PTR_FROM_JSON(Dimensions, dimensions_);
         DARABONBA_PTR_FROM_JSON(EndType, endType_);
         DARABONBA_PTR_FROM_JSON(Excludes, excludes_);
         DARABONBA_PTR_FROM_JSON(From, from_);
         DARABONBA_PTR_FROM_JSON(From_end, fromEnd_);
+        DARABONBA_PTR_FROM_JSON(HitCondition, hitCondition_);
         DARABONBA_PTR_FROM_JSON(Hit_time, hitTime_);
         DARABONBA_PTR_FROM_JSON(In_sentence, inSentence_);
         DARABONBA_PTR_FROM_JSON(Interval, interval_);
@@ -132,7 +139,9 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(KnowledgeTargetId, knowledgeTargetId_);
         DARABONBA_PTR_FROM_JSON(KnowledgeTargetName, knowledgeTargetName_);
         DARABONBA_PTR_FROM_JSON(KnowledgeTargetType, knowledgeTargetType_);
+        DARABONBA_PTR_FROM_JSON(Knowledges, knowledges_);
         DARABONBA_PTR_FROM_JSON(LgfSentences, lgfSentences_);
+        DARABONBA_PTR_FROM_JSON(LlmModelCode, llmModelCode_);
         DARABONBA_PTR_FROM_JSON(MaxEmotionChangeValue, maxEmotionChangeValue_);
         DARABONBA_PTR_FROM_JSON(MinWordSize, minWordSize_);
         DARABONBA_PTR_FROM_JSON(Near_dialogue, nearDialogue_);
@@ -145,6 +154,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(References, references_);
         DARABONBA_PTR_FROM_JSON(Regex, regex_);
         DARABONBA_PTR_FROM_JSON(RoleId, roleId_);
+        DARABONBA_PTR_FROM_JSON(SceneName, sceneName_);
         DARABONBA_PTR_FROM_JSON(Score, score_);
         DARABONBA_PTR_FROM_JSON(Similarity_threshold, similarityThreshold_);
         DARABONBA_PTR_FROM_JSON(SimilarlySentences, similarlySentences_);
@@ -167,16 +177,79 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Dimensions : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Dimensions& obj) { 
+          DARABONBA_PTR_TO_JSON(Desc, desc_);
+          DARABONBA_PTR_TO_JSON(Dimension, dimension_);
+          DARABONBA_PTR_TO_JSON(ExcludeCondition, excludeCondition_);
+          DARABONBA_PTR_TO_JSON(IncludeCondition, includeCondition_);
+        };
+        friend void from_json(const Darabonba::Json& j, Dimensions& obj) { 
+          DARABONBA_PTR_FROM_JSON(Desc, desc_);
+          DARABONBA_PTR_FROM_JSON(Dimension, dimension_);
+          DARABONBA_PTR_FROM_JSON(ExcludeCondition, excludeCondition_);
+          DARABONBA_PTR_FROM_JSON(IncludeCondition, includeCondition_);
+        };
+        Dimensions() = default ;
+        Dimensions(const Dimensions &) = default ;
+        Dimensions(Dimensions &&) = default ;
+        Dimensions(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Dimensions() = default ;
+        Dimensions& operator=(const Dimensions &) = default ;
+        Dimensions& operator=(Dimensions &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->desc_ == nullptr
+        && this->dimension_ == nullptr && this->excludeCondition_ == nullptr && this->includeCondition_ == nullptr; };
+        // desc Field Functions 
+        bool hasDesc() const { return this->desc_ != nullptr;};
+        void deleteDesc() { this->desc_ = nullptr;};
+        inline string getDesc() const { DARABONBA_PTR_GET_DEFAULT(desc_, "") };
+        inline Dimensions& setDesc(string desc) { DARABONBA_PTR_SET_VALUE(desc_, desc) };
+
+
+        // dimension Field Functions 
+        bool hasDimension() const { return this->dimension_ != nullptr;};
+        void deleteDimension() { this->dimension_ = nullptr;};
+        inline string getDimension() const { DARABONBA_PTR_GET_DEFAULT(dimension_, "") };
+        inline Dimensions& setDimension(string dimension) { DARABONBA_PTR_SET_VALUE(dimension_, dimension) };
+
+
+        // excludeCondition Field Functions 
+        bool hasExcludeCondition() const { return this->excludeCondition_ != nullptr;};
+        void deleteExcludeCondition() { this->excludeCondition_ = nullptr;};
+        inline string getExcludeCondition() const { DARABONBA_PTR_GET_DEFAULT(excludeCondition_, "") };
+        inline Dimensions& setExcludeCondition(string excludeCondition) { DARABONBA_PTR_SET_VALUE(excludeCondition_, excludeCondition) };
+
+
+        // includeCondition Field Functions 
+        bool hasIncludeCondition() const { return this->includeCondition_ != nullptr;};
+        void deleteIncludeCondition() { this->includeCondition_ = nullptr;};
+        inline string getIncludeCondition() const { DARABONBA_PTR_GET_DEFAULT(includeCondition_, "") };
+        inline Dimensions& setIncludeCondition(string includeCondition) { DARABONBA_PTR_SET_VALUE(includeCondition_, includeCondition) };
+
+
+      protected:
+        shared_ptr<string> desc_ {};
+        shared_ptr<string> dimension_ {};
+        shared_ptr<string> excludeCondition_ {};
+        shared_ptr<string> includeCondition_ {};
+      };
+
       virtual bool empty() const override { return this->answerThreshold_ == nullptr
         && this->antModelInfo_ == nullptr && this->average_ == nullptr && this->beginType_ == nullptr && this->botId_ == nullptr && this->caseSensitive_ == nullptr
         && this->categoryPathCode_ == nullptr && this->checkFirstSentence_ == nullptr && this->checkType_ == nullptr && this->compareOperator_ == nullptr && this->contextChatMatch_ == nullptr
-        && this->customerParam_ == nullptr && this->delayTime_ == nullptr && this->differentRole_ == nullptr && this->endType_ == nullptr && this->excludes_ == nullptr
-        && this->from_ == nullptr && this->fromEnd_ == nullptr && this->hitTime_ == nullptr && this->inSentence_ == nullptr && this->interval_ == nullptr
-        && this->intervalEnd_ == nullptr && this->keywordExtension_ == nullptr && this->keywordMatchSize_ == nullptr && this->keywords_ == nullptr && this->knowledgeInfo_ == nullptr
-        && this->knowledgeSentenceNum_ == nullptr && this->knowledgeTargetId_ == nullptr && this->knowledgeTargetName_ == nullptr && this->knowledgeTargetType_ == nullptr && this->lgfSentences_ == nullptr
-        && this->maxEmotionChangeValue_ == nullptr && this->minWordSize_ == nullptr && this->nearDialogue_ == nullptr && this->notRegex_ == nullptr && this->phrase_ == nullptr
-        && this->pkey_ == nullptr && this->poutputType_ == nullptr && this->pvalues_ == nullptr && this->questionThreshold_ == nullptr && this->references_ == nullptr
-        && this->regex_ == nullptr && this->roleId_ == nullptr && this->score_ == nullptr && this->similarityThreshold_ == nullptr && this->similarlySentences_ == nullptr
+        && this->customerParam_ == nullptr && this->delayTime_ == nullptr && this->differentRole_ == nullptr && this->dimensions_ == nullptr && this->endType_ == nullptr
+        && this->excludes_ == nullptr && this->from_ == nullptr && this->fromEnd_ == nullptr && this->hitCondition_ == nullptr && this->hitTime_ == nullptr
+        && this->inSentence_ == nullptr && this->interval_ == nullptr && this->intervalEnd_ == nullptr && this->keywordExtension_ == nullptr && this->keywordMatchSize_ == nullptr
+        && this->keywords_ == nullptr && this->knowledgeInfo_ == nullptr && this->knowledgeSentenceNum_ == nullptr && this->knowledgeTargetId_ == nullptr && this->knowledgeTargetName_ == nullptr
+        && this->knowledgeTargetType_ == nullptr && this->knowledges_ == nullptr && this->lgfSentences_ == nullptr && this->llmModelCode_ == nullptr && this->maxEmotionChangeValue_ == nullptr
+        && this->minWordSize_ == nullptr && this->nearDialogue_ == nullptr && this->notRegex_ == nullptr && this->phrase_ == nullptr && this->pkey_ == nullptr
+        && this->poutputType_ == nullptr && this->pvalues_ == nullptr && this->questionThreshold_ == nullptr && this->references_ == nullptr && this->regex_ == nullptr
+        && this->roleId_ == nullptr && this->sceneName_ == nullptr && this->score_ == nullptr && this->similarityThreshold_ == nullptr && this->similarlySentences_ == nullptr
         && this->synonyms_ == nullptr && this->target_ == nullptr && this->targetRole_ == nullptr && this->threshold_ == nullptr && this->useEasAlgorithm_ == nullptr
         && this->velocity_ == nullptr && this->velocityInMint_ == nullptr; };
       // answerThreshold Field Functions 
@@ -281,6 +354,15 @@ namespace Models
       inline Param& setDifferentRole(bool differentRole) { DARABONBA_PTR_SET_VALUE(differentRole_, differentRole) };
 
 
+      // dimensions Field Functions 
+      bool hasDimensions() const { return this->dimensions_ != nullptr;};
+      void deleteDimensions() { this->dimensions_ = nullptr;};
+      inline const vector<Param::Dimensions> & getDimensions() const { DARABONBA_PTR_GET_CONST(dimensions_, vector<Param::Dimensions>) };
+      inline vector<Param::Dimensions> getDimensions() { DARABONBA_PTR_GET(dimensions_, vector<Param::Dimensions>) };
+      inline Param& setDimensions(const vector<Param::Dimensions> & dimensions) { DARABONBA_PTR_SET_VALUE(dimensions_, dimensions) };
+      inline Param& setDimensions(vector<Param::Dimensions> && dimensions) { DARABONBA_PTR_SET_RVALUE(dimensions_, dimensions) };
+
+
       // endType Field Functions 
       bool hasEndType() const { return this->endType_ != nullptr;};
       void deleteEndType() { this->endType_ = nullptr;};
@@ -309,6 +391,13 @@ namespace Models
       void deleteFromEnd() { this->fromEnd_ = nullptr;};
       inline bool getFromEnd() const { DARABONBA_PTR_GET_DEFAULT(fromEnd_, false) };
       inline Param& setFromEnd(bool fromEnd) { DARABONBA_PTR_SET_VALUE(fromEnd_, fromEnd) };
+
+
+      // hitCondition Field Functions 
+      bool hasHitCondition() const { return this->hitCondition_ != nullptr;};
+      void deleteHitCondition() { this->hitCondition_ = nullptr;};
+      inline string getHitCondition() const { DARABONBA_PTR_GET_DEFAULT(hitCondition_, "") };
+      inline Param& setHitCondition(string hitCondition) { DARABONBA_PTR_SET_VALUE(hitCondition_, hitCondition) };
 
 
       // hitTime Field Functions 
@@ -397,6 +486,13 @@ namespace Models
       inline Param& setKnowledgeTargetType(int32_t knowledgeTargetType) { DARABONBA_PTR_SET_VALUE(knowledgeTargetType_, knowledgeTargetType) };
 
 
+      // knowledges Field Functions 
+      bool hasKnowledges() const { return this->knowledges_ != nullptr;};
+      void deleteKnowledges() { this->knowledges_ = nullptr;};
+      inline string getKnowledges() const { DARABONBA_PTR_GET_DEFAULT(knowledges_, "") };
+      inline Param& setKnowledges(string knowledges) { DARABONBA_PTR_SET_VALUE(knowledges_, knowledges) };
+
+
       // lgfSentences Field Functions 
       bool hasLgfSentences() const { return this->lgfSentences_ != nullptr;};
       void deleteLgfSentences() { this->lgfSentences_ = nullptr;};
@@ -404,6 +500,13 @@ namespace Models
       inline vector<string> getLgfSentences() { DARABONBA_PTR_GET(lgfSentences_, vector<string>) };
       inline Param& setLgfSentences(const vector<string> & lgfSentences) { DARABONBA_PTR_SET_VALUE(lgfSentences_, lgfSentences) };
       inline Param& setLgfSentences(vector<string> && lgfSentences) { DARABONBA_PTR_SET_RVALUE(lgfSentences_, lgfSentences) };
+
+
+      // llmModelCode Field Functions 
+      bool hasLlmModelCode() const { return this->llmModelCode_ != nullptr;};
+      void deleteLlmModelCode() { this->llmModelCode_ = nullptr;};
+      inline string getLlmModelCode() const { DARABONBA_PTR_GET_DEFAULT(llmModelCode_, "") };
+      inline Param& setLlmModelCode(string llmModelCode) { DARABONBA_PTR_SET_VALUE(llmModelCode_, llmModelCode) };
 
 
       // maxEmotionChangeValue Field Functions 
@@ -492,6 +595,13 @@ namespace Models
       void deleteRoleId() { this->roleId_ = nullptr;};
       inline int32_t getRoleId() const { DARABONBA_PTR_GET_DEFAULT(roleId_, 0) };
       inline Param& setRoleId(int32_t roleId) { DARABONBA_PTR_SET_VALUE(roleId_, roleId) };
+
+
+      // sceneName Field Functions 
+      bool hasSceneName() const { return this->sceneName_ != nullptr;};
+      void deleteSceneName() { this->sceneName_ = nullptr;};
+      inline string getSceneName() const { DARABONBA_PTR_GET_DEFAULT(sceneName_, "") };
+      inline Param& setSceneName(string sceneName) { DARABONBA_PTR_SET_VALUE(sceneName_, sceneName) };
 
 
       // score Field Functions 
@@ -583,10 +693,12 @@ namespace Models
       shared_ptr<JudgeNodeMetaDesc> customerParam_ {};
       shared_ptr<int32_t> delayTime_ {};
       shared_ptr<bool> differentRole_ {};
+      shared_ptr<vector<Param::Dimensions>> dimensions_ {};
       shared_ptr<string> endType_ {};
       shared_ptr<vector<string>> excludes_ {};
       shared_ptr<int32_t> from_ {};
       shared_ptr<bool> fromEnd_ {};
+      shared_ptr<string> hitCondition_ {};
       shared_ptr<int32_t> hitTime_ {};
       shared_ptr<bool> inSentence_ {};
       shared_ptr<int32_t> interval_ {};
@@ -599,7 +711,9 @@ namespace Models
       shared_ptr<string> knowledgeTargetId_ {};
       shared_ptr<string> knowledgeTargetName_ {};
       shared_ptr<int32_t> knowledgeTargetType_ {};
+      shared_ptr<string> knowledges_ {};
       shared_ptr<vector<string>> lgfSentences_ {};
+      shared_ptr<string> llmModelCode_ {};
       shared_ptr<int32_t> maxEmotionChangeValue_ {};
       shared_ptr<int32_t> minWordSize_ {};
       shared_ptr<bool> nearDialogue_ {};
@@ -612,6 +726,7 @@ namespace Models
       shared_ptr<vector<string>> references_ {};
       shared_ptr<string> regex_ {};
       shared_ptr<int32_t> roleId_ {};
+      shared_ptr<string> sceneName_ {};
       shared_ptr<int32_t> score_ {};
       shared_ptr<double> similarityThreshold_ {};
       shared_ptr<vector<string>> similarlySentences_ {};

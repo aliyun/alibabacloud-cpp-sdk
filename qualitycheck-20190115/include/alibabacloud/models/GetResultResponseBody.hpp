@@ -1000,8 +1000,11 @@ namespace Models
           class HitResultItem : public Darabonba::Model {
           public:
             friend void to_json(Darabonba::Json& j, const HitResultItem& obj) { 
+              DARABONBA_PTR_TO_JSON(ArtificialRule, artificialRule_);
               DARABONBA_PTR_TO_JSON(Conditions, conditions_);
+              DARABONBA_PTR_TO_JSON(FinalHitResult, finalHitResult_);
               DARABONBA_PTR_TO_JSON(Hits, hits_);
+              DARABONBA_PTR_TO_JSON(MachineHitResult, machineHitResult_);
               DARABONBA_PTR_TO_JSON(Name, name_);
               DARABONBA_PTR_TO_JSON(ReviewResult, reviewResult_);
               DARABONBA_PTR_TO_JSON(Rid, rid_);
@@ -1011,8 +1014,11 @@ namespace Models
               DARABONBA_PTR_TO_JSON(Type, type_);
             };
             friend void from_json(const Darabonba::Json& j, HitResultItem& obj) { 
+              DARABONBA_PTR_FROM_JSON(ArtificialRule, artificialRule_);
               DARABONBA_PTR_FROM_JSON(Conditions, conditions_);
+              DARABONBA_PTR_FROM_JSON(FinalHitResult, finalHitResult_);
               DARABONBA_PTR_FROM_JSON(Hits, hits_);
+              DARABONBA_PTR_FROM_JSON(MachineHitResult, machineHitResult_);
               DARABONBA_PTR_FROM_JSON(Name, name_);
               DARABONBA_PTR_FROM_JSON(ReviewResult, reviewResult_);
               DARABONBA_PTR_FROM_JSON(Rid, rid_);
@@ -2416,9 +2422,17 @@ namespace Models
               shared_ptr<vector<Conditions::ConditionsItem>> conditions_ {};
             };
 
-            virtual bool empty() const override { return this->conditions_ == nullptr
-        && this->hits_ == nullptr && this->name_ == nullptr && this->reviewResult_ == nullptr && this->rid_ == nullptr && this->schemeId_ == nullptr
-        && this->schemeVersion_ == nullptr && this->score_ == nullptr && this->type_ == nullptr; };
+            virtual bool empty() const override { return this->artificialRule_ == nullptr
+        && this->conditions_ == nullptr && this->finalHitResult_ == nullptr && this->hits_ == nullptr && this->machineHitResult_ == nullptr && this->name_ == nullptr
+        && this->reviewResult_ == nullptr && this->rid_ == nullptr && this->schemeId_ == nullptr && this->schemeVersion_ == nullptr && this->score_ == nullptr
+        && this->type_ == nullptr; };
+            // artificialRule Field Functions 
+            bool hasArtificialRule() const { return this->artificialRule_ != nullptr;};
+            void deleteArtificialRule() { this->artificialRule_ = nullptr;};
+            inline string getArtificialRule() const { DARABONBA_PTR_GET_DEFAULT(artificialRule_, "") };
+            inline HitResultItem& setArtificialRule(string artificialRule) { DARABONBA_PTR_SET_VALUE(artificialRule_, artificialRule) };
+
+
             // conditions Field Functions 
             bool hasConditions() const { return this->conditions_ != nullptr;};
             void deleteConditions() { this->conditions_ = nullptr;};
@@ -2428,6 +2442,13 @@ namespace Models
             inline HitResultItem& setConditions(HitResultItem::Conditions && conditions) { DARABONBA_PTR_SET_RVALUE(conditions_, conditions) };
 
 
+            // finalHitResult Field Functions 
+            bool hasFinalHitResult() const { return this->finalHitResult_ != nullptr;};
+            void deleteFinalHitResult() { this->finalHitResult_ = nullptr;};
+            inline string getFinalHitResult() const { DARABONBA_PTR_GET_DEFAULT(finalHitResult_, "") };
+            inline HitResultItem& setFinalHitResult(string finalHitResult) { DARABONBA_PTR_SET_VALUE(finalHitResult_, finalHitResult) };
+
+
             // hits Field Functions 
             bool hasHits() const { return this->hits_ != nullptr;};
             void deleteHits() { this->hits_ = nullptr;};
@@ -2435,6 +2456,13 @@ namespace Models
             inline HitResultItem::Hits getHits() { DARABONBA_PTR_GET(hits_, HitResultItem::Hits) };
             inline HitResultItem& setHits(const HitResultItem::Hits & hits) { DARABONBA_PTR_SET_VALUE(hits_, hits) };
             inline HitResultItem& setHits(HitResultItem::Hits && hits) { DARABONBA_PTR_SET_RVALUE(hits_, hits) };
+
+
+            // machineHitResult Field Functions 
+            bool hasMachineHitResult() const { return this->machineHitResult_ != nullptr;};
+            void deleteMachineHitResult() { this->machineHitResult_ = nullptr;};
+            inline string getMachineHitResult() const { DARABONBA_PTR_GET_DEFAULT(machineHitResult_, "") };
+            inline HitResultItem& setMachineHitResult(string machineHitResult) { DARABONBA_PTR_SET_VALUE(machineHitResult_, machineHitResult) };
 
 
             // name Field Functions 
@@ -2487,8 +2515,11 @@ namespace Models
 
 
           protected:
+            shared_ptr<string> artificialRule_ {};
             shared_ptr<HitResultItem::Conditions> conditions_ {};
+            shared_ptr<string> finalHitResult_ {};
             shared_ptr<HitResultItem::Hits> hits_ {};
+            shared_ptr<string> machineHitResult_ {};
             shared_ptr<string> name_ {};
             shared_ptr<int32_t> reviewResult_ {};
             shared_ptr<string> rid_ {};

@@ -1810,6 +1810,8 @@ GetQualityCheckSchemeResponse Client::getQualityCheckScheme(const GetQualityChec
 }
 
 /**
+ * @summary 获取质检结果
+ *
  * @param request GetResultRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetResultResponse
@@ -1843,6 +1845,8 @@ GetResultResponse Client::getResultWithOptions(const GetResultRequest &request, 
 }
 
 /**
+ * @summary 获取质检结果
+ *
  * @param request GetResultRequest
  * @return GetResultResponse
  */

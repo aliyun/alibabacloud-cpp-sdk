@@ -299,9 +299,9 @@
 #include <alibabacloud/models/UploadDataSyncRequest.hpp>
 #include <alibabacloud/models/UploadDataSyncResponseBody.hpp>
 #include <alibabacloud/models/UploadDataSyncResponse.hpp>
-#include <alibabacloud/models/UploadDataSyncForLlmRequest.hpp>
-#include <alibabacloud/models/UploadDataSyncForLlmResponseBody.hpp>
-#include <alibabacloud/models/UploadDataSyncForLlmResponse.hpp>
+#include <alibabacloud/models/UploadDataSyncForLLMRequest.hpp>
+#include <alibabacloud/models/UploadDataSyncForLLMResponseBody.hpp>
+#include <alibabacloud/models/UploadDataSyncForLLMResponse.hpp>
 #include <alibabacloud/models/UploadDataV4Request.hpp>
 #include <alibabacloud/models/UploadDataV4ResponseBody.hpp>
 #include <alibabacloud/models/UploadDataV4Response.hpp>

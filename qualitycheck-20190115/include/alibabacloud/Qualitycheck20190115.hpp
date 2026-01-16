@@ -628,6 +628,8 @@ namespace Qualitycheck20190115
       Models::GetQualityCheckSchemeResponse getQualityCheckScheme(const Models::GetQualityCheckSchemeRequest &request);
 
       /**
+       * @summary 获取质检结果
+       *
        * @param request GetResultRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetResultResponse
@@ -635,6 +637,8 @@ namespace Qualitycheck20190115
       Models::GetResultResponse getResultWithOptions(const Models::GetResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 获取质检结果
+       *
        * @param request GetResultRequest
        * @return GetResultResponse
        */
