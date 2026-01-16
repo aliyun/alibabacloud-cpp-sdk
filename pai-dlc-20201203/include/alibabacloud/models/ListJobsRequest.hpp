@@ -19,17 +19,23 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Caller, caller_);
       DARABONBA_PTR_TO_JSON(DisplayName, displayName_);
       DARABONBA_PTR_TO_JSON(DisplayNameSearchMode, displayNameSearchMode_);
+      DARABONBA_PTR_TO_JSON(EnableAssignNode, enableAssignNode_);
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
       DARABONBA_PTR_TO_JSON(FromAllWorkspaces, fromAllWorkspaces_);
+      DARABONBA_PTR_TO_JSON(ImageSearch, imageSearch_);
       DARABONBA_PTR_TO_JSON(JobId, jobId_);
       DARABONBA_PTR_TO_JSON(JobIds, jobIds_);
       DARABONBA_PTR_TO_JSON(JobType, jobType_);
+      DARABONBA_PTR_TO_JSON(NumericRangeField, numericRangeField_);
+      DARABONBA_PTR_TO_JSON(NumericRangeMax, numericRangeMax_);
+      DARABONBA_PTR_TO_JSON(NumericRangeMin, numericRangeMin_);
       DARABONBA_PTR_TO_JSON(Order, order_);
       DARABONBA_PTR_TO_JSON(OversoldInfo, oversoldInfo_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(PaymentType, paymentType_);
       DARABONBA_PTR_TO_JSON(PipelineId, pipelineId_);
+      DARABONBA_PTR_TO_JSON(ReasonSearch, reasonSearch_);
       DARABONBA_PTR_TO_JSON(ResourceId, resourceId_);
       DARABONBA_PTR_TO_JSON(ResourceQuotaName, resourceQuotaName_);
       DARABONBA_PTR_TO_JSON(ShowOwn, showOwn_);
@@ -37,6 +43,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(Tags, tags_);
+      DARABONBA_PTR_TO_JSON(TimeRangeField, timeRangeField_);
+      DARABONBA_PTR_TO_JSON(UserCommandSearch, userCommandSearch_);
       DARABONBA_PTR_TO_JSON(UserIdForFilter, userIdForFilter_);
       DARABONBA_PTR_TO_JSON(Username, username_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
@@ -47,17 +55,23 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Caller, caller_);
       DARABONBA_PTR_FROM_JSON(DisplayName, displayName_);
       DARABONBA_PTR_FROM_JSON(DisplayNameSearchMode, displayNameSearchMode_);
+      DARABONBA_PTR_FROM_JSON(EnableAssignNode, enableAssignNode_);
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
       DARABONBA_PTR_FROM_JSON(FromAllWorkspaces, fromAllWorkspaces_);
+      DARABONBA_PTR_FROM_JSON(ImageSearch, imageSearch_);
       DARABONBA_PTR_FROM_JSON(JobId, jobId_);
       DARABONBA_PTR_FROM_JSON(JobIds, jobIds_);
       DARABONBA_PTR_FROM_JSON(JobType, jobType_);
+      DARABONBA_PTR_FROM_JSON(NumericRangeField, numericRangeField_);
+      DARABONBA_PTR_FROM_JSON(NumericRangeMax, numericRangeMax_);
+      DARABONBA_PTR_FROM_JSON(NumericRangeMin, numericRangeMin_);
       DARABONBA_PTR_FROM_JSON(Order, order_);
       DARABONBA_PTR_FROM_JSON(OversoldInfo, oversoldInfo_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(PaymentType, paymentType_);
       DARABONBA_PTR_FROM_JSON(PipelineId, pipelineId_);
+      DARABONBA_PTR_FROM_JSON(ReasonSearch, reasonSearch_);
       DARABONBA_PTR_FROM_JSON(ResourceId, resourceId_);
       DARABONBA_PTR_FROM_JSON(ResourceQuotaName, resourceQuotaName_);
       DARABONBA_PTR_FROM_JSON(ShowOwn, showOwn_);
@@ -65,6 +79,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(Tags, tags_);
+      DARABONBA_PTR_FROM_JSON(TimeRangeField, timeRangeField_);
+      DARABONBA_PTR_FROM_JSON(UserCommandSearch, userCommandSearch_);
       DARABONBA_PTR_FROM_JSON(UserIdForFilter, userIdForFilter_);
       DARABONBA_PTR_FROM_JSON(Username, username_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
@@ -81,11 +97,13 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessibility_ == nullptr
-        && this->businessUserId_ == nullptr && this->caller_ == nullptr && this->displayName_ == nullptr && this->displayNameSearchMode_ == nullptr && this->endTime_ == nullptr
-        && this->fromAllWorkspaces_ == nullptr && this->jobId_ == nullptr && this->jobIds_ == nullptr && this->jobType_ == nullptr && this->order_ == nullptr
+        && this->businessUserId_ == nullptr && this->caller_ == nullptr && this->displayName_ == nullptr && this->displayNameSearchMode_ == nullptr && this->enableAssignNode_ == nullptr
+        && this->endTime_ == nullptr && this->fromAllWorkspaces_ == nullptr && this->imageSearch_ == nullptr && this->jobId_ == nullptr && this->jobIds_ == nullptr
+        && this->jobType_ == nullptr && this->numericRangeField_ == nullptr && this->numericRangeMax_ == nullptr && this->numericRangeMin_ == nullptr && this->order_ == nullptr
         && this->oversoldInfo_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->paymentType_ == nullptr && this->pipelineId_ == nullptr
-        && this->resourceId_ == nullptr && this->resourceQuotaName_ == nullptr && this->showOwn_ == nullptr && this->sortBy_ == nullptr && this->startTime_ == nullptr
-        && this->status_ == nullptr && this->tags_ == nullptr && this->userIdForFilter_ == nullptr && this->username_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->reasonSearch_ == nullptr && this->resourceId_ == nullptr && this->resourceQuotaName_ == nullptr && this->showOwn_ == nullptr && this->sortBy_ == nullptr
+        && this->startTime_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr && this->timeRangeField_ == nullptr && this->userCommandSearch_ == nullptr
+        && this->userIdForFilter_ == nullptr && this->username_ == nullptr && this->workspaceId_ == nullptr; };
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};
@@ -121,6 +139,13 @@ namespace Models
     inline ListJobsRequest& setDisplayNameSearchMode(string displayNameSearchMode) { DARABONBA_PTR_SET_VALUE(displayNameSearchMode_, displayNameSearchMode) };
 
 
+    // enableAssignNode Field Functions 
+    bool hasEnableAssignNode() const { return this->enableAssignNode_ != nullptr;};
+    void deleteEnableAssignNode() { this->enableAssignNode_ = nullptr;};
+    inline string getEnableAssignNode() const { DARABONBA_PTR_GET_DEFAULT(enableAssignNode_, "") };
+    inline ListJobsRequest& setEnableAssignNode(string enableAssignNode) { DARABONBA_PTR_SET_VALUE(enableAssignNode_, enableAssignNode) };
+
+
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
@@ -133,6 +158,13 @@ namespace Models
     void deleteFromAllWorkspaces() { this->fromAllWorkspaces_ = nullptr;};
     inline bool getFromAllWorkspaces() const { DARABONBA_PTR_GET_DEFAULT(fromAllWorkspaces_, false) };
     inline ListJobsRequest& setFromAllWorkspaces(bool fromAllWorkspaces) { DARABONBA_PTR_SET_VALUE(fromAllWorkspaces_, fromAllWorkspaces) };
+
+
+    // imageSearch Field Functions 
+    bool hasImageSearch() const { return this->imageSearch_ != nullptr;};
+    void deleteImageSearch() { this->imageSearch_ = nullptr;};
+    inline string getImageSearch() const { DARABONBA_PTR_GET_DEFAULT(imageSearch_, "") };
+    inline ListJobsRequest& setImageSearch(string imageSearch) { DARABONBA_PTR_SET_VALUE(imageSearch_, imageSearch) };
 
 
     // jobId Field Functions 
@@ -154,6 +186,27 @@ namespace Models
     void deleteJobType() { this->jobType_ = nullptr;};
     inline string getJobType() const { DARABONBA_PTR_GET_DEFAULT(jobType_, "") };
     inline ListJobsRequest& setJobType(string jobType) { DARABONBA_PTR_SET_VALUE(jobType_, jobType) };
+
+
+    // numericRangeField Field Functions 
+    bool hasNumericRangeField() const { return this->numericRangeField_ != nullptr;};
+    void deleteNumericRangeField() { this->numericRangeField_ = nullptr;};
+    inline string getNumericRangeField() const { DARABONBA_PTR_GET_DEFAULT(numericRangeField_, "") };
+    inline ListJobsRequest& setNumericRangeField(string numericRangeField) { DARABONBA_PTR_SET_VALUE(numericRangeField_, numericRangeField) };
+
+
+    // numericRangeMax Field Functions 
+    bool hasNumericRangeMax() const { return this->numericRangeMax_ != nullptr;};
+    void deleteNumericRangeMax() { this->numericRangeMax_ = nullptr;};
+    inline int64_t getNumericRangeMax() const { DARABONBA_PTR_GET_DEFAULT(numericRangeMax_, 0L) };
+    inline ListJobsRequest& setNumericRangeMax(int64_t numericRangeMax) { DARABONBA_PTR_SET_VALUE(numericRangeMax_, numericRangeMax) };
+
+
+    // numericRangeMin Field Functions 
+    bool hasNumericRangeMin() const { return this->numericRangeMin_ != nullptr;};
+    void deleteNumericRangeMin() { this->numericRangeMin_ = nullptr;};
+    inline int64_t getNumericRangeMin() const { DARABONBA_PTR_GET_DEFAULT(numericRangeMin_, 0L) };
+    inline ListJobsRequest& setNumericRangeMin(int64_t numericRangeMin) { DARABONBA_PTR_SET_VALUE(numericRangeMin_, numericRangeMin) };
 
 
     // order Field Functions 
@@ -196,6 +249,13 @@ namespace Models
     void deletePipelineId() { this->pipelineId_ = nullptr;};
     inline string getPipelineId() const { DARABONBA_PTR_GET_DEFAULT(pipelineId_, "") };
     inline ListJobsRequest& setPipelineId(string pipelineId) { DARABONBA_PTR_SET_VALUE(pipelineId_, pipelineId) };
+
+
+    // reasonSearch Field Functions 
+    bool hasReasonSearch() const { return this->reasonSearch_ != nullptr;};
+    void deleteReasonSearch() { this->reasonSearch_ = nullptr;};
+    inline string getReasonSearch() const { DARABONBA_PTR_GET_DEFAULT(reasonSearch_, "") };
+    inline ListJobsRequest& setReasonSearch(string reasonSearch) { DARABONBA_PTR_SET_VALUE(reasonSearch_, reasonSearch) };
 
 
     // resourceId Field Functions 
@@ -249,6 +309,20 @@ namespace Models
     inline ListJobsRequest& setTags(map<string, string> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
 
 
+    // timeRangeField Field Functions 
+    bool hasTimeRangeField() const { return this->timeRangeField_ != nullptr;};
+    void deleteTimeRangeField() { this->timeRangeField_ = nullptr;};
+    inline string getTimeRangeField() const { DARABONBA_PTR_GET_DEFAULT(timeRangeField_, "") };
+    inline ListJobsRequest& setTimeRangeField(string timeRangeField) { DARABONBA_PTR_SET_VALUE(timeRangeField_, timeRangeField) };
+
+
+    // userCommandSearch Field Functions 
+    bool hasUserCommandSearch() const { return this->userCommandSearch_ != nullptr;};
+    void deleteUserCommandSearch() { this->userCommandSearch_ = nullptr;};
+    inline string getUserCommandSearch() const { DARABONBA_PTR_GET_DEFAULT(userCommandSearch_, "") };
+    inline ListJobsRequest& setUserCommandSearch(string userCommandSearch) { DARABONBA_PTR_SET_VALUE(userCommandSearch_, userCommandSearch) };
+
+
     // userIdForFilter Field Functions 
     bool hasUserIdForFilter() const { return this->userIdForFilter_ != nullptr;};
     void deleteUserIdForFilter() { this->userIdForFilter_ = nullptr;};
@@ -283,10 +357,12 @@ namespace Models
     // The job name. Fuzzy query is supported. The name is case-insensitive. Wildcards are not supported. For example, if you enter test, test-job1, job-test, job-test2, or job-test can be matched, and job-t1 cannot be matched. The default value null indicates any job name.
     shared_ptr<string> displayName_ {};
     shared_ptr<string> displayNameSearchMode_ {};
+    shared_ptr<string> enableAssignNode_ {};
     // The end time of the query. Use the job creation time to filter data. The default value is the current time.
     shared_ptr<string> endTime_ {};
     // Specifies whether to query a list of jobs across workspaces. This parameter must be used together with `ShowOwn=true`. You can use this parameter to query a list of jobs recently submitted by the current user.
     shared_ptr<bool> fromAllWorkspaces_ {};
+    shared_ptr<string> imageSearch_ {};
     // The job ID. Fuzzy query is supported. The name is case-insensitive. Wildcards are not supported. The default value null indicates any job ID.
     shared_ptr<string> jobId_ {};
     shared_ptr<string> jobIds_ {};
@@ -298,6 +374,9 @@ namespace Models
     // *   OneFlowJob
     // *   ElasticBatchJob
     shared_ptr<string> jobType_ {};
+    shared_ptr<string> numericRangeField_ {};
+    shared_ptr<int64_t> numericRangeMax_ {};
+    shared_ptr<int64_t> numericRangeMin_ {};
     // The sorting order. Valid values:
     // 
     // *   desc (default)
@@ -322,6 +401,7 @@ namespace Models
     shared_ptr<string> paymentType_ {};
     // The specific pipeline ID used to filter jobs.
     shared_ptr<string> pipelineId_ {};
+    shared_ptr<string> reasonSearch_ {};
     // The resource group ID. For information about how to obtain the ID of a dedicated resource group, see [Manage resource quota](https://help.aliyun.com/document_detail/2651299.html).
     shared_ptr<string> resourceId_ {};
     // The resource quota name used to filter jobs. Fuzzy search is supported. Wildcards are not supported. The default value null indicates that jobs are not filtered by resource quota name.
@@ -356,6 +436,8 @@ namespace Models
     shared_ptr<string> status_ {};
     // The tags.
     shared_ptr<map<string, string>> tags_ {};
+    shared_ptr<string> timeRangeField_ {};
+    shared_ptr<string> userCommandSearch_ {};
     // The user ID used to filter jobs.
     shared_ptr<string> userIdForFilter_ {};
     // The username used to filter jobs. Fuzzy search is supported. Wildcards are not supported. The default value null indicates that jobs are not filtered by username.

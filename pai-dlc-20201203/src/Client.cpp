@@ -1199,12 +1199,20 @@ ListJobsResponse Client::listJobsWithOptions(const ListJobsRequest &tmpReq, cons
     query["DisplayNameSearchMode"] = request.getDisplayNameSearchMode();
   }
 
+  if (!!request.hasEnableAssignNode()) {
+    query["EnableAssignNode"] = request.getEnableAssignNode();
+  }
+
   if (!!request.hasEndTime()) {
     query["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasFromAllWorkspaces()) {
     query["FromAllWorkspaces"] = request.getFromAllWorkspaces();
+  }
+
+  if (!!request.hasImageSearch()) {
+    query["ImageSearch"] = request.getImageSearch();
   }
 
   if (!!request.hasJobId()) {
@@ -1217,6 +1225,18 @@ ListJobsResponse Client::listJobsWithOptions(const ListJobsRequest &tmpReq, cons
 
   if (!!request.hasJobType()) {
     query["JobType"] = request.getJobType();
+  }
+
+  if (!!request.hasNumericRangeField()) {
+    query["NumericRangeField"] = request.getNumericRangeField();
+  }
+
+  if (!!request.hasNumericRangeMax()) {
+    query["NumericRangeMax"] = request.getNumericRangeMax();
+  }
+
+  if (!!request.hasNumericRangeMin()) {
+    query["NumericRangeMin"] = request.getNumericRangeMin();
   }
 
   if (!!request.hasOrder()) {
@@ -1241,6 +1261,10 @@ ListJobsResponse Client::listJobsWithOptions(const ListJobsRequest &tmpReq, cons
 
   if (!!request.hasPipelineId()) {
     query["PipelineId"] = request.getPipelineId();
+  }
+
+  if (!!request.hasReasonSearch()) {
+    query["ReasonSearch"] = request.getReasonSearch();
   }
 
   if (!!request.hasResourceId()) {
@@ -1269,6 +1293,14 @@ ListJobsResponse Client::listJobsWithOptions(const ListJobsRequest &tmpReq, cons
 
   if (!!request.hasTagsShrink()) {
     query["Tags"] = request.getTagsShrink();
+  }
+
+  if (!!request.hasTimeRangeField()) {
+    query["TimeRangeField"] = request.getTimeRangeField();
+  }
+
+  if (!!request.hasUserCommandSearch()) {
+    query["UserCommandSearch"] = request.getUserCommandSearch();
   }
 
   if (!!request.hasUserIdForFilter()) {
