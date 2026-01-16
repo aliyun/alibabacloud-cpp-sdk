@@ -494,6 +494,23 @@ namespace Ens20171110
       Models::CreateClusterResponse createCluster(const Models::CreateClusterRequest &request);
 
       /**
+       * @summary 创建集群节点池
+       *
+       * @param tmpReq CreateClusterNodePoolRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateClusterNodePoolResponse
+       */
+      Models::CreateClusterNodePoolResponse createClusterNodePoolWithOptions(const Models::CreateClusterNodePoolRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建集群节点池
+       *
+       * @param request CreateClusterNodePoolRequest
+       * @return CreateClusterNodePoolResponse
+       */
+      Models::CreateClusterNodePoolResponse createClusterNodePool(const Models::CreateClusterNodePoolRequest &request);
+
+      /**
        * @summary Creates a pay-as-you-go or subscription data disk.
        *
        * @param request CreateDiskRequest
@@ -1201,6 +1218,40 @@ namespace Ens20171110
       Models::DeleteClusterResponse deleteCluster(const Models::DeleteClusterRequest &request);
 
       /**
+       * @summary 删除节点池
+       *
+       * @param request DeleteClusterNodePoolRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteClusterNodePoolResponse
+       */
+      Models::DeleteClusterNodePoolResponse deleteClusterNodePoolWithOptions(const Models::DeleteClusterNodePoolRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除节点池
+       *
+       * @param request DeleteClusterNodePoolRequest
+       * @return DeleteClusterNodePoolResponse
+       */
+      Models::DeleteClusterNodePoolResponse deleteClusterNodePool(const Models::DeleteClusterNodePoolRequest &request);
+
+      /**
+       * @summary 删除节点池指定节点
+       *
+       * @param tmpReq DeleteClusterNodesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteClusterNodesResponse
+       */
+      Models::DeleteClusterNodesResponse deleteClusterNodesWithOptions(const Models::DeleteClusterNodesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除节点池指定节点
+       *
+       * @param request DeleteClusterNodesRequest
+       * @return DeleteClusterNodesResponse
+       */
+      Models::DeleteClusterNodesResponse deleteClusterNodes(const Models::DeleteClusterNodesRequest &request);
+
+      /**
        * @summary Deletes a disk.
        *
        * @description When you release a disk, the disk must be in the Available state.
@@ -1781,6 +1832,23 @@ namespace Ens20171110
       Models::DescribeARMServerInstancesResponse describeARMServerInstances(const Models::DescribeARMServerInstancesRequest &request);
 
       /**
+       * @summary 查询指定组件的信息
+       *
+       * @param request DescribeAddonRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAddonResponse
+       */
+      Models::DescribeAddonResponse describeAddonWithOptions(const Models::DescribeAddonRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询指定组件的信息
+       *
+       * @param request DescribeAddonRequest
+       * @return DescribeAddonResponse
+       */
+      Models::DescribeAddonResponse describeAddon(const Models::DescribeAddonRequest &request);
+
+      /**
        * @summary Queries the basic properties, resources, and container status of an application.
        *
        * @param request DescribeApplicationRequest
@@ -1917,6 +1985,23 @@ namespace Ens20171110
       Models::DescribeClusterResponse describeCluster(const Models::DescribeClusterRequest &request);
 
       /**
+       * @summary 查询集群详细信息
+       *
+       * @param request DescribeClusterDetailRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeClusterDetailResponse
+       */
+      Models::DescribeClusterDetailResponse describeClusterDetailWithOptions(const Models::DescribeClusterDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询集群详细信息
+       *
+       * @param request DescribeClusterDetailRequest
+       * @return DescribeClusterDetailResponse
+       */
+      Models::DescribeClusterDetailResponse describeClusterDetail(const Models::DescribeClusterDetailRequest &request);
+
+      /**
        * @summary Queries the certificate of a Container Service for Kubernetes (ACK) edge cluster.
        *
        * @description *   The maximum number of times that each user can call this operation per second is 100.
@@ -1936,6 +2021,57 @@ namespace Ens20171110
        * @return DescribeClusterKubeConfigResponse
        */
       Models::DescribeClusterKubeConfigResponse describeClusterKubeConfig(const Models::DescribeClusterKubeConfigRequest &request);
+
+      /**
+       * @summary 查询集群节点池信息
+       *
+       * @param request DescribeClusterNodePoolsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeClusterNodePoolsResponse
+       */
+      Models::DescribeClusterNodePoolsResponse describeClusterNodePoolsWithOptions(const Models::DescribeClusterNodePoolsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询集群节点池信息
+       *
+       * @param request DescribeClusterNodePoolsRequest
+       * @return DescribeClusterNodePoolsResponse
+       */
+      Models::DescribeClusterNodePoolsResponse describeClusterNodePools(const Models::DescribeClusterNodePoolsRequest &request);
+
+      /**
+       * @summary 查询节点池节点
+       *
+       * @param request DescribeClusterNodesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeClusterNodesResponse
+       */
+      Models::DescribeClusterNodesResponse describeClusterNodesWithOptions(const Models::DescribeClusterNodesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询节点池节点
+       *
+       * @param request DescribeClusterNodesRequest
+       * @return DescribeClusterNodesResponse
+       */
+      Models::DescribeClusterNodesResponse describeClusterNodes(const Models::DescribeClusterNodesRequest &request);
+
+      /**
+       * @summary 查询集群KubeConfig
+       *
+       * @param request DescribeClusterUserKubeconfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeClusterUserKubeconfigResponse
+       */
+      Models::DescribeClusterUserKubeconfigResponse describeClusterUserKubeconfigWithOptions(const Models::DescribeClusterUserKubeconfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询集群KubeConfig
+       *
+       * @param request DescribeClusterUserKubeconfigRequest
+       * @return DescribeClusterUserKubeconfigResponse
+       */
+      Models::DescribeClusterUserKubeconfigResponse describeClusterUserKubeconfig(const Models::DescribeClusterUserKubeconfigRequest &request);
 
       /**
        * @summary Queries a list of clusters.
@@ -3847,6 +3983,23 @@ namespace Ens20171110
       Models::GetBucketLifecycleResponse getBucketLifecycle(const Models::GetBucketLifecycleRequest &request);
 
       /**
+       * @summary 查询集群内指定组件实例信息
+       *
+       * @param request GetClusterAddonInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetClusterAddonInstanceResponse
+       */
+      Models::GetClusterAddonInstanceResponse getClusterAddonInstanceWithOptions(const Models::GetClusterAddonInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询集群内指定组件实例信息
+       *
+       * @param request GetClusterAddonInstanceRequest
+       * @return GetClusterAddonInstanceResponse
+       */
+      Models::GetClusterAddonInstanceResponse getClusterAddonInstance(const Models::GetClusterAddonInstanceRequest &request);
+
+      /**
        * @summary Queries the storage usage in the previous billing cycle and the cumulative number of calls in this month.
        *
        * @param request GetOssStorageAndAccByBucketsRequest
@@ -3939,6 +4092,23 @@ namespace Ens20171110
        * @return InitializeENSECKServiceRoleResponse
        */
       Models::InitializeENSECKServiceRoleResponse initializeENSECKServiceRole();
+
+      /**
+       * @summary 安装集群组件
+       *
+       * @param tmpReq InstallClusterAddonsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return InstallClusterAddonsResponse
+       */
+      Models::InstallClusterAddonsResponse installClusterAddonsWithOptions(const Models::InstallClusterAddonsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 安装集群组件
+       *
+       * @param request InstallClusterAddonsRequest
+       * @return InstallClusterAddonsResponse
+       */
+      Models::InstallClusterAddonsResponse installClusterAddons(const Models::InstallClusterAddonsRequest &request);
 
       /**
        * @summary Assigns public IP addresses to an EPN instance.
@@ -4187,6 +4357,40 @@ namespace Ens20171110
        * @return ManageAICLoginResponse
        */
       Models::ManageAICLoginResponse manageAICLogin(const Models::ManageAICLoginRequest &request);
+
+      /**
+       * @summary 修改集群组件实例配置
+       *
+       * @param tmpReq ModifyClusterAddonRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyClusterAddonResponse
+       */
+      Models::ModifyClusterAddonResponse modifyClusterAddonWithOptions(const Models::ModifyClusterAddonRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改集群组件实例配置
+       *
+       * @param request ModifyClusterAddonRequest
+       * @return ModifyClusterAddonResponse
+       */
+      Models::ModifyClusterAddonResponse modifyClusterAddon(const Models::ModifyClusterAddonRequest &request);
+
+      /**
+       * @summary 更新集群节点池
+       *
+       * @param tmpReq ModifyClusterNodePoolRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyClusterNodePoolResponse
+       */
+      Models::ModifyClusterNodePoolResponse modifyClusterNodePoolWithOptions(const Models::ModifyClusterNodePoolRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新集群节点池
+       *
+       * @param request ModifyClusterNodePoolRequest
+       * @return ModifyClusterNodePoolResponse
+       */
+      Models::ModifyClusterNodePoolResponse modifyClusterNodePool(const Models::ModifyClusterNodePoolRequest &request);
 
       /**
        * @summary Modifies the name, description, and peak bandwidth of a specified elastic IP address (EIP).
@@ -5323,6 +5527,23 @@ namespace Ens20171110
       Models::SaveSDGResponse saveSDG(const Models::SaveSDGRequest &request);
 
       /**
+       * @summary 调整节点池节点数
+       *
+       * @param tmpReq ScaleClusterNodePoolRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ScaleClusterNodePoolResponse
+       */
+      Models::ScaleClusterNodePoolResponse scaleClusterNodePoolWithOptions(const Models::ScaleClusterNodePoolRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 调整节点池节点数
+       *
+       * @param request ScaleClusterNodePoolRequest
+       * @return ScaleClusterNodePoolResponse
+       */
+      Models::ScaleClusterNodePoolResponse scaleClusterNodePool(const Models::ScaleClusterNodePoolRequest &request);
+
+      /**
        * @summary Sets the weights of backend servers.
        *
        * @description *   You can call this operation up to 100 times per second.
@@ -5714,6 +5935,23 @@ namespace Ens20171110
       Models::UnAssociateEnsEipAddressResponse unAssociateEnsEipAddress(const Models::UnAssociateEnsEipAddressRequest &request);
 
       /**
+       * @summary 卸载集群组件
+       *
+       * @param tmpReq UnInstallClusterAddonsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UnInstallClusterAddonsResponse
+       */
+      Models::UnInstallClusterAddonsResponse unInstallClusterAddonsWithOptions(const Models::UnInstallClusterAddonsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 卸载集群组件
+       *
+       * @param request UnInstallClusterAddonsRequest
+       * @return UnInstallClusterAddonsResponse
+       */
+      Models::UnInstallClusterAddonsResponse unInstallClusterAddons(const Models::UnInstallClusterAddonsRequest &request);
+
+      /**
        * @summary Unassigns secondary private IP addresses from an elastic network interface (ENI).
        *
        * @param request UnassignPrivateIpAddressesRequest
@@ -5865,6 +6103,23 @@ namespace Ens20171110
        * @return UpgradeApplicationResponse
        */
       Models::UpgradeApplicationResponse upgradeApplication(const Models::UpgradeApplicationRequest &request);
+
+      /**
+       * @summary 升级集群实例组件
+       *
+       * @param tmpReq UpgradeClusterAddonsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpgradeClusterAddonsResponse
+       */
+      Models::UpgradeClusterAddonsResponse upgradeClusterAddonsWithOptions(const Models::UpgradeClusterAddonsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 升级集群实例组件
+       *
+       * @param request UpgradeClusterAddonsRequest
+       * @return UpgradeClusterAddonsResponse
+       */
+      Models::UpgradeClusterAddonsResponse upgradeClusterAddons(const Models::UpgradeClusterAddonsRequest &request);
 
       /**
        * @summary Upload a new AIC public key.

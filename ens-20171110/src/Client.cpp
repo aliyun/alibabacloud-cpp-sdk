@@ -1432,6 +1432,74 @@ CreateClusterResponse Client::createCluster(const CreateClusterRequest &request)
 }
 
 /**
+ * @summary 创建集群节点池
+ *
+ * @param tmpReq CreateClusterNodePoolRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateClusterNodePoolResponse
+ */
+CreateClusterNodePoolResponse Client::createClusterNodePoolWithOptions(const CreateClusterNodePoolRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateClusterNodePoolShrinkRequest request = CreateClusterNodePoolShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasKubernetesConfig()) {
+    request.setKubernetesConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getKubernetesConfig(), "KubernetesConfig", "json"));
+  }
+
+  if (!!tmpReq.hasNodepoolInfo()) {
+    request.setNodepoolInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNodepoolInfo(), "NodepoolInfo", "json"));
+  }
+
+  if (!!tmpReq.hasScalingGroup()) {
+    request.setScalingGroupShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getScalingGroup(), "ScalingGroup", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.getClusterId();
+  }
+
+  if (!!request.hasKubernetesConfigShrink()) {
+    query["KubernetesConfig"] = request.getKubernetesConfigShrink();
+  }
+
+  if (!!request.hasNodepoolInfoShrink()) {
+    query["NodepoolInfo"] = request.getNodepoolInfoShrink();
+  }
+
+  if (!!request.hasScalingGroupShrink()) {
+    query["ScalingGroup"] = request.getScalingGroupShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateClusterNodePool"},
+    {"version" , "2017-11-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateClusterNodePoolResponse>();
+}
+
+/**
+ * @summary 创建集群节点池
+ *
+ * @param request CreateClusterNodePoolRequest
+ * @return CreateClusterNodePoolResponse
+ */
+CreateClusterNodePoolResponse Client::createClusterNodePool(const CreateClusterNodePoolRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createClusterNodePoolWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a pay-as-you-go or subscription data disk.
  *
  * @param request CreateDiskRequest
@@ -3930,6 +3998,104 @@ DeleteClusterResponse Client::deleteCluster(const DeleteClusterRequest &request)
 }
 
 /**
+ * @summary 删除节点池
+ *
+ * @param request DeleteClusterNodePoolRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteClusterNodePoolResponse
+ */
+DeleteClusterNodePoolResponse Client::deleteClusterNodePoolWithOptions(const DeleteClusterNodePoolRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.getClusterId();
+  }
+
+  if (!!request.hasNodepoolId()) {
+    query["NodepoolId"] = request.getNodepoolId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteClusterNodePool"},
+    {"version" , "2017-11-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteClusterNodePoolResponse>();
+}
+
+/**
+ * @summary 删除节点池
+ *
+ * @param request DeleteClusterNodePoolRequest
+ * @return DeleteClusterNodePoolResponse
+ */
+DeleteClusterNodePoolResponse Client::deleteClusterNodePool(const DeleteClusterNodePoolRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteClusterNodePoolWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除节点池指定节点
+ *
+ * @param tmpReq DeleteClusterNodesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteClusterNodesResponse
+ */
+DeleteClusterNodesResponse Client::deleteClusterNodesWithOptions(const DeleteClusterNodesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DeleteClusterNodesShrinkRequest request = DeleteClusterNodesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasBody()) {
+    request.setBodyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBody(), "Body", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasBodyShrink()) {
+    query["Body"] = request.getBodyShrink();
+  }
+
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.getClusterId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteClusterNodes"},
+    {"version" , "2017-11-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteClusterNodesResponse>();
+}
+
+/**
+ * @summary 删除节点池指定节点
+ *
+ * @param request DeleteClusterNodesRequest
+ * @return DeleteClusterNodesResponse
+ */
+DeleteClusterNodesResponse Client::deleteClusterNodes(const DeleteClusterNodesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteClusterNodesWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes a disk.
  *
  * @description When you release a disk, the disk must be in the Available state.
@@ -5480,6 +5646,52 @@ DescribeARMServerInstancesResponse Client::describeARMServerInstances(const Desc
 }
 
 /**
+ * @summary 查询指定组件的信息
+ *
+ * @param request DescribeAddonRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeAddonResponse
+ */
+DescribeAddonResponse Client::describeAddonWithOptions(const DescribeAddonRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAddonName()) {
+    query["AddonName"] = request.getAddonName();
+  }
+
+  if (!!request.hasAddonVersion()) {
+    query["AddonVersion"] = request.getAddonVersion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeAddon"},
+    {"version" , "2017-11-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeAddonResponse>();
+}
+
+/**
+ * @summary 查询指定组件的信息
+ *
+ * @param request DescribeAddonRequest
+ * @return DescribeAddonResponse
+ */
+DescribeAddonResponse Client::describeAddon(const DescribeAddonRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeAddonWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the basic properties, resources, and container status of an application.
  *
  * @param request DescribeApplicationRequest
@@ -5814,6 +6026,48 @@ DescribeClusterResponse Client::describeCluster(const DescribeClusterRequest &re
 }
 
 /**
+ * @summary 查询集群详细信息
+ *
+ * @param request DescribeClusterDetailRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeClusterDetailResponse
+ */
+DescribeClusterDetailResponse Client::describeClusterDetailWithOptions(const DescribeClusterDetailRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.getClusterId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeClusterDetail"},
+    {"version" , "2017-11-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeClusterDetailResponse>();
+}
+
+/**
+ * @summary 查询集群详细信息
+ *
+ * @param request DescribeClusterDetailRequest
+ * @return DescribeClusterDetailResponse
+ */
+DescribeClusterDetailResponse Client::describeClusterDetail(const DescribeClusterDetailRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeClusterDetailWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the certificate of a Container Service for Kubernetes (ACK) edge cluster.
  *
  * @description *   The maximum number of times that each user can call this operation per second is 100.
@@ -5857,6 +6111,152 @@ DescribeClusterKubeConfigResponse Client::describeClusterKubeConfigWithOptions(c
 DescribeClusterKubeConfigResponse Client::describeClusterKubeConfig(const DescribeClusterKubeConfigRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeClusterKubeConfigWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询集群节点池信息
+ *
+ * @param request DescribeClusterNodePoolsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeClusterNodePoolsResponse
+ */
+DescribeClusterNodePoolsResponse Client::describeClusterNodePoolsWithOptions(const DescribeClusterNodePoolsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.getClusterId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeClusterNodePools"},
+    {"version" , "2017-11-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeClusterNodePoolsResponse>();
+}
+
+/**
+ * @summary 查询集群节点池信息
+ *
+ * @param request DescribeClusterNodePoolsRequest
+ * @return DescribeClusterNodePoolsResponse
+ */
+DescribeClusterNodePoolsResponse Client::describeClusterNodePools(const DescribeClusterNodePoolsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeClusterNodePoolsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询节点池节点
+ *
+ * @param request DescribeClusterNodesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeClusterNodesResponse
+ */
+DescribeClusterNodesResponse Client::describeClusterNodesWithOptions(const DescribeClusterNodesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.getClusterId();
+  }
+
+  if (!!request.hasNodepoolId()) {
+    query["NodepoolId"] = request.getNodepoolId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeClusterNodes"},
+    {"version" , "2017-11-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeClusterNodesResponse>();
+}
+
+/**
+ * @summary 查询节点池节点
+ *
+ * @param request DescribeClusterNodesRequest
+ * @return DescribeClusterNodesResponse
+ */
+DescribeClusterNodesResponse Client::describeClusterNodes(const DescribeClusterNodesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeClusterNodesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询集群KubeConfig
+ *
+ * @param request DescribeClusterUserKubeconfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeClusterUserKubeconfigResponse
+ */
+DescribeClusterUserKubeconfigResponse Client::describeClusterUserKubeconfigWithOptions(const DescribeClusterUserKubeconfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.getClusterId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeClusterUserKubeconfig"},
+    {"version" , "2017-11-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeClusterUserKubeconfigResponse>();
+}
+
+/**
+ * @summary 查询集群KubeConfig
+ *
+ * @param request DescribeClusterUserKubeconfigRequest
+ * @return DescribeClusterUserKubeconfigResponse
+ */
+DescribeClusterUserKubeconfigResponse Client::describeClusterUserKubeconfig(const DescribeClusterUserKubeconfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeClusterUserKubeconfigWithOptions(request, runtime);
 }
 
 /**
@@ -11452,6 +11852,52 @@ GetBucketLifecycleResponse Client::getBucketLifecycle(const GetBucketLifecycleRe
 }
 
 /**
+ * @summary 查询集群内指定组件实例信息
+ *
+ * @param request GetClusterAddonInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetClusterAddonInstanceResponse
+ */
+GetClusterAddonInstanceResponse Client::getClusterAddonInstanceWithOptions(const GetClusterAddonInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.getClusterId();
+  }
+
+  if (!!request.hasInstanceName()) {
+    query["InstanceName"] = request.getInstanceName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetClusterAddonInstance"},
+    {"version" , "2017-11-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetClusterAddonInstanceResponse>();
+}
+
+/**
+ * @summary 查询集群内指定组件实例信息
+ *
+ * @param request GetClusterAddonInstanceRequest
+ * @return GetClusterAddonInstanceResponse
+ */
+GetClusterAddonInstanceResponse Client::getClusterAddonInstance(const GetClusterAddonInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getClusterAddonInstanceWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the storage usage in the previous billing cycle and the cumulative number of calls in this month.
  *
  * @param request GetOssStorageAndAccByBucketsRequest
@@ -11710,6 +12156,58 @@ InitializeENSECKServiceRoleResponse Client::initializeENSECKServiceRoleWithOptio
 InitializeENSECKServiceRoleResponse Client::initializeENSECKServiceRole() {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return initializeENSECKServiceRoleWithOptions(runtime);
+}
+
+/**
+ * @summary 安装集群组件
+ *
+ * @param tmpReq InstallClusterAddonsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return InstallClusterAddonsResponse
+ */
+InstallClusterAddonsResponse Client::installClusterAddonsWithOptions(const InstallClusterAddonsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  InstallClusterAddonsShrinkRequest request = InstallClusterAddonsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAddons()) {
+    request.setAddonsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAddons(), "Addons", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAddonsShrink()) {
+    query["Addons"] = request.getAddonsShrink();
+  }
+
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.getClusterId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "InstallClusterAddons"},
+    {"version" , "2017-11-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<InstallClusterAddonsResponse>();
+}
+
+/**
+ * @summary 安装集群组件
+ *
+ * @param request InstallClusterAddonsRequest
+ * @return InstallClusterAddonsResponse
+ */
+InstallClusterAddonsResponse Client::installClusterAddons(const InstallClusterAddonsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return installClusterAddonsWithOptions(request, runtime);
 }
 
 /**
@@ -12436,6 +12934,130 @@ ManageAICLoginResponse Client::manageAICLoginWithOptions(const ManageAICLoginReq
 ManageAICLoginResponse Client::manageAICLogin(const ManageAICLoginRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return manageAICLoginWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改集群组件实例配置
+ *
+ * @param tmpReq ModifyClusterAddonRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyClusterAddonResponse
+ */
+ModifyClusterAddonResponse Client::modifyClusterAddonWithOptions(const ModifyClusterAddonRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ModifyClusterAddonShrinkRequest request = ModifyClusterAddonShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAddon()) {
+    request.setAddonShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAddon(), "Addon", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAddonShrink()) {
+    query["Addon"] = request.getAddonShrink();
+  }
+
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.getClusterId();
+  }
+
+  if (!!request.hasComponentName()) {
+    query["ComponentName"] = request.getComponentName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyClusterAddon"},
+    {"version" , "2017-11-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyClusterAddonResponse>();
+}
+
+/**
+ * @summary 修改集群组件实例配置
+ *
+ * @param request ModifyClusterAddonRequest
+ * @return ModifyClusterAddonResponse
+ */
+ModifyClusterAddonResponse Client::modifyClusterAddon(const ModifyClusterAddonRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyClusterAddonWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新集群节点池
+ *
+ * @param tmpReq ModifyClusterNodePoolRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyClusterNodePoolResponse
+ */
+ModifyClusterNodePoolResponse Client::modifyClusterNodePoolWithOptions(const ModifyClusterNodePoolRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ModifyClusterNodePoolShrinkRequest request = ModifyClusterNodePoolShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasKubernetesConfig()) {
+    request.setKubernetesConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getKubernetesConfig(), "KubernetesConfig", "json"));
+  }
+
+  if (!!tmpReq.hasNodepoolInfo()) {
+    request.setNodepoolInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNodepoolInfo(), "NodepoolInfo", "json"));
+  }
+
+  if (!!tmpReq.hasScalingGroup()) {
+    request.setScalingGroupShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getScalingGroup(), "ScalingGroup", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.getClusterId();
+  }
+
+  if (!!request.hasKubernetesConfigShrink()) {
+    query["KubernetesConfig"] = request.getKubernetesConfigShrink();
+  }
+
+  if (!!request.hasNodepoolInfoShrink()) {
+    query["NodepoolInfo"] = request.getNodepoolInfoShrink();
+  }
+
+  if (!!request.hasScalingGroupShrink()) {
+    query["ScalingGroup"] = request.getScalingGroupShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyClusterNodePool"},
+    {"version" , "2017-11-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyClusterNodePoolResponse>();
+}
+
+/**
+ * @summary 更新集群节点池
+ *
+ * @param request ModifyClusterNodePoolRequest
+ * @return ModifyClusterNodePoolResponse
+ */
+ModifyClusterNodePoolResponse Client::modifyClusterNodePool(const ModifyClusterNodePoolRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyClusterNodePoolWithOptions(request, runtime);
 }
 
 /**
@@ -15797,6 +16419,62 @@ SaveSDGResponse Client::saveSDG(const SaveSDGRequest &request) {
 }
 
 /**
+ * @summary 调整节点池节点数
+ *
+ * @param tmpReq ScaleClusterNodePoolRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ScaleClusterNodePoolResponse
+ */
+ScaleClusterNodePoolResponse Client::scaleClusterNodePoolWithOptions(const ScaleClusterNodePoolRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ScaleClusterNodePoolShrinkRequest request = ScaleClusterNodePoolShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasBody()) {
+    request.setBodyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBody(), "Body", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasBodyShrink()) {
+    query["Body"] = request.getBodyShrink();
+  }
+
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.getClusterId();
+  }
+
+  if (!!request.hasNodepoolId()) {
+    query["NodepoolId"] = request.getNodepoolId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ScaleClusterNodePool"},
+    {"version" , "2017-11-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ScaleClusterNodePoolResponse>();
+}
+
+/**
+ * @summary 调整节点池节点数
+ *
+ * @param request ScaleClusterNodePoolRequest
+ * @return ScaleClusterNodePoolResponse
+ */
+ScaleClusterNodePoolResponse Client::scaleClusterNodePool(const ScaleClusterNodePoolRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return scaleClusterNodePoolWithOptions(request, runtime);
+}
+
+/**
  * @summary Sets the weights of backend servers.
  *
  * @description *   You can call this operation up to 100 times per second.
@@ -16975,6 +17653,58 @@ UnAssociateEnsEipAddressResponse Client::unAssociateEnsEipAddress(const UnAssoci
 }
 
 /**
+ * @summary 卸载集群组件
+ *
+ * @param tmpReq UnInstallClusterAddonsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UnInstallClusterAddonsResponse
+ */
+UnInstallClusterAddonsResponse Client::unInstallClusterAddonsWithOptions(const UnInstallClusterAddonsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UnInstallClusterAddonsShrinkRequest request = UnInstallClusterAddonsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAddons()) {
+    request.setAddonsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAddons(), "Addons", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAddonsShrink()) {
+    query["Addons"] = request.getAddonsShrink();
+  }
+
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.getClusterId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UnInstallClusterAddons"},
+    {"version" , "2017-11-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UnInstallClusterAddonsResponse>();
+}
+
+/**
+ * @summary 卸载集群组件
+ *
+ * @param request UnInstallClusterAddonsRequest
+ * @return UnInstallClusterAddonsResponse
+ */
+UnInstallClusterAddonsResponse Client::unInstallClusterAddons(const UnInstallClusterAddonsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return unInstallClusterAddonsWithOptions(request, runtime);
+}
+
+/**
  * @summary Unassigns secondary private IP addresses from an elastic network interface (ENI).
  *
  * @param request UnassignPrivateIpAddressesRequest
@@ -17430,6 +18160,58 @@ UpgradeApplicationResponse Client::upgradeApplicationWithOptions(const UpgradeAp
 UpgradeApplicationResponse Client::upgradeApplication(const UpgradeApplicationRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return upgradeApplicationWithOptions(request, runtime);
+}
+
+/**
+ * @summary 升级集群实例组件
+ *
+ * @param tmpReq UpgradeClusterAddonsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpgradeClusterAddonsResponse
+ */
+UpgradeClusterAddonsResponse Client::upgradeClusterAddonsWithOptions(const UpgradeClusterAddonsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpgradeClusterAddonsShrinkRequest request = UpgradeClusterAddonsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAddons()) {
+    request.setAddonsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAddons(), "Addons", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAddonsShrink()) {
+    query["Addons"] = request.getAddonsShrink();
+  }
+
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.getClusterId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpgradeClusterAddons"},
+    {"version" , "2017-11-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpgradeClusterAddonsResponse>();
+}
+
+/**
+ * @summary 升级集群实例组件
+ *
+ * @param request UpgradeClusterAddonsRequest
+ * @return UpgradeClusterAddonsResponse
+ */
+UpgradeClusterAddonsResponse Client::upgradeClusterAddons(const UpgradeClusterAddonsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return upgradeClusterAddonsWithOptions(request, runtime);
 }
 
 /**
