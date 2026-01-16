@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->id_ == nullptr
-        && return this->warmupType_ == nullptr; };
+        && this->warmupType_ == nullptr; };
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline string id() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+    inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline DedicatedIpChangeWarmupTypeRequest& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // warmupType Field Functions 
     bool hasWarmupType() const { return this->warmupType_ != nullptr;};
     void deleteWarmupType() { this->warmupType_ = nullptr;};
-    inline string warmupType() const { DARABONBA_PTR_GET_DEFAULT(warmupType_, "") };
+    inline string getWarmupType() const { DARABONBA_PTR_GET_DEFAULT(warmupType_, "") };
     inline DedicatedIpChangeWarmupTypeRequest& setWarmupType(string warmupType) { DARABONBA_PTR_SET_VALUE(warmupType_, warmupType) };
 
 
   protected:
     // Dedicated IP ID
-    std::shared_ptr<string> id_ = nullptr;
+    shared_ptr<string> id_ {};
     // Warmup method
-    std::shared_ptr<string> warmupType_ = nullptr;
+    shared_ptr<string> warmupType_ {};
   };
 
   } // namespace Models

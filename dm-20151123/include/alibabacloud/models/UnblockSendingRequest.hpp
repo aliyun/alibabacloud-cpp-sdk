@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->blockEmail_ == nullptr
-        && return this->blockType_ == nullptr && return this->senderEmail_ == nullptr; };
+        && this->blockType_ == nullptr && this->senderEmail_ == nullptr; };
     // blockEmail Field Functions 
     bool hasBlockEmail() const { return this->blockEmail_ != nullptr;};
     void deleteBlockEmail() { this->blockEmail_ = nullptr;};
-    inline string blockEmail() const { DARABONBA_PTR_GET_DEFAULT(blockEmail_, "") };
+    inline string getBlockEmail() const { DARABONBA_PTR_GET_DEFAULT(blockEmail_, "") };
     inline UnblockSendingRequest& setBlockEmail(string blockEmail) { DARABONBA_PTR_SET_VALUE(blockEmail_, blockEmail) };
 
 
     // blockType Field Functions 
     bool hasBlockType() const { return this->blockType_ != nullptr;};
     void deleteBlockType() { this->blockType_ = nullptr;};
-    inline string blockType() const { DARABONBA_PTR_GET_DEFAULT(blockType_, "") };
+    inline string getBlockType() const { DARABONBA_PTR_GET_DEFAULT(blockType_, "") };
     inline UnblockSendingRequest& setBlockType(string blockType) { DARABONBA_PTR_SET_VALUE(blockType_, blockType) };
 
 
     // senderEmail Field Functions 
     bool hasSenderEmail() const { return this->senderEmail_ != nullptr;};
     void deleteSenderEmail() { this->senderEmail_ = nullptr;};
-    inline string senderEmail() const { DARABONBA_PTR_GET_DEFAULT(senderEmail_, "") };
+    inline string getSenderEmail() const { DARABONBA_PTR_GET_DEFAULT(senderEmail_, "") };
     inline UnblockSendingRequest& setSenderEmail(string senderEmail) { DARABONBA_PTR_SET_VALUE(senderEmail_, senderEmail) };
 
 
@@ -60,17 +60,17 @@ namespace Models
     // Blacklisted recipient\\"s email address
     // 
     // This parameter is required.
-    std::shared_ptr<string> blockEmail_ = nullptr;
+    shared_ptr<string> blockEmail_ {};
     // Blacklist type
     // - UNSUB: Unsubscribe
     // - REPORT: Report
     // 
     // This parameter is required.
-    std::shared_ptr<string> blockType_ = nullptr;
+    shared_ptr<string> blockType_ {};
     // Sender\\"s email address
     // 
     // This parameter is required.
-    std::shared_ptr<string> senderEmail_ = nullptr;
+    shared_ptr<string> senderEmail_ {};
   };
 
   } // namespace Models

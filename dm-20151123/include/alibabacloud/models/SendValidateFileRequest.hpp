@@ -38,53 +38,53 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->addressColumn_ == nullptr
-        && return this->fileName_ == nullptr && return this->fileUrl_ == nullptr && return this->hasHeaderRow_ == nullptr && return this->removeDuplicate_ == nullptr; };
+        && this->fileName_ == nullptr && this->fileUrl_ == nullptr && this->hasHeaderRow_ == nullptr && this->removeDuplicate_ == nullptr; };
     // addressColumn Field Functions 
     bool hasAddressColumn() const { return this->addressColumn_ != nullptr;};
     void deleteAddressColumn() { this->addressColumn_ = nullptr;};
-    inline int32_t addressColumn() const { DARABONBA_PTR_GET_DEFAULT(addressColumn_, 0) };
+    inline int32_t getAddressColumn() const { DARABONBA_PTR_GET_DEFAULT(addressColumn_, 0) };
     inline SendValidateFileRequest& setAddressColumn(int32_t addressColumn) { DARABONBA_PTR_SET_VALUE(addressColumn_, addressColumn) };
 
 
     // fileName Field Functions 
     bool hasFileName() const { return this->fileName_ != nullptr;};
     void deleteFileName() { this->fileName_ = nullptr;};
-    inline string fileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
+    inline string getFileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
     inline SendValidateFileRequest& setFileName(string fileName) { DARABONBA_PTR_SET_VALUE(fileName_, fileName) };
 
 
     // fileUrl Field Functions 
     bool hasFileUrl() const { return this->fileUrl_ != nullptr;};
     void deleteFileUrl() { this->fileUrl_ = nullptr;};
-    inline string fileUrl() const { DARABONBA_PTR_GET_DEFAULT(fileUrl_, "") };
+    inline string getFileUrl() const { DARABONBA_PTR_GET_DEFAULT(fileUrl_, "") };
     inline SendValidateFileRequest& setFileUrl(string fileUrl) { DARABONBA_PTR_SET_VALUE(fileUrl_, fileUrl) };
 
 
     // hasHeaderRow Field Functions 
     bool hasHasHeaderRow() const { return this->hasHeaderRow_ != nullptr;};
     void deleteHasHeaderRow() { this->hasHeaderRow_ = nullptr;};
-    inline bool hasHeaderRow() const { DARABONBA_PTR_GET_DEFAULT(hasHeaderRow_, false) };
+    inline bool getHasHeaderRow() const { DARABONBA_PTR_GET_DEFAULT(hasHeaderRow_, false) };
     inline SendValidateFileRequest& setHasHeaderRow(bool hasHeaderRow) { DARABONBA_PTR_SET_VALUE(hasHeaderRow_, hasHeaderRow) };
 
 
     // removeDuplicate Field Functions 
     bool hasRemoveDuplicate() const { return this->removeDuplicate_ != nullptr;};
     void deleteRemoveDuplicate() { this->removeDuplicate_ = nullptr;};
-    inline bool removeDuplicate() const { DARABONBA_PTR_GET_DEFAULT(removeDuplicate_, false) };
+    inline bool getRemoveDuplicate() const { DARABONBA_PTR_GET_DEFAULT(removeDuplicate_, false) };
     inline SendValidateFileRequest& setRemoveDuplicate(bool removeDuplicate) { DARABONBA_PTR_SET_VALUE(removeDuplicate_, removeDuplicate) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<int32_t> addressColumn_ = nullptr;
+    shared_ptr<int32_t> addressColumn_ {};
     // This parameter is required.
-    std::shared_ptr<string> fileName_ = nullptr;
+    shared_ptr<string> fileName_ {};
     // This parameter is required.
-    std::shared_ptr<string> fileUrl_ = nullptr;
+    shared_ptr<string> fileUrl_ {};
     // This parameter is required.
-    std::shared_ptr<bool> hasHeaderRow_ = nullptr;
+    shared_ptr<bool> hasHeaderRow_ {};
     // This parameter is required.
-    std::shared_ptr<bool> removeDuplicate_ = nullptr;
+    shared_ptr<bool> removeDuplicate_ {};
   };
 
   } // namespace Models

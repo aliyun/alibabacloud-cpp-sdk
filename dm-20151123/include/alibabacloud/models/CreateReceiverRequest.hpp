@@ -40,63 +40,63 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->desc_ == nullptr
-        && return this->ownerId_ == nullptr && return this->receiversAlias_ == nullptr && return this->receiversName_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr; };
+        && this->ownerId_ == nullptr && this->receiversAlias_ == nullptr && this->receiversName_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr; };
     // desc Field Functions 
     bool hasDesc() const { return this->desc_ != nullptr;};
     void deleteDesc() { this->desc_ = nullptr;};
-    inline string desc() const { DARABONBA_PTR_GET_DEFAULT(desc_, "") };
+    inline string getDesc() const { DARABONBA_PTR_GET_DEFAULT(desc_, "") };
     inline CreateReceiverRequest& setDesc(string desc) { DARABONBA_PTR_SET_VALUE(desc_, desc) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline CreateReceiverRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // receiversAlias Field Functions 
     bool hasReceiversAlias() const { return this->receiversAlias_ != nullptr;};
     void deleteReceiversAlias() { this->receiversAlias_ = nullptr;};
-    inline string receiversAlias() const { DARABONBA_PTR_GET_DEFAULT(receiversAlias_, "") };
+    inline string getReceiversAlias() const { DARABONBA_PTR_GET_DEFAULT(receiversAlias_, "") };
     inline CreateReceiverRequest& setReceiversAlias(string receiversAlias) { DARABONBA_PTR_SET_VALUE(receiversAlias_, receiversAlias) };
 
 
     // receiversName Field Functions 
     bool hasReceiversName() const { return this->receiversName_ != nullptr;};
     void deleteReceiversName() { this->receiversName_ = nullptr;};
-    inline string receiversName() const { DARABONBA_PTR_GET_DEFAULT(receiversName_, "") };
+    inline string getReceiversName() const { DARABONBA_PTR_GET_DEFAULT(receiversName_, "") };
     inline CreateReceiverRequest& setReceiversName(string receiversName) { DARABONBA_PTR_SET_VALUE(receiversName_, receiversName) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline CreateReceiverRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline CreateReceiverRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
   protected:
     // List description.
-    std::shared_ptr<string> desc_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<string> desc_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // List alias, an email address less than 30 characters long.
     // 
     // This parameter is required.
-    std::shared_ptr<string> receiversAlias_ = nullptr;
+    shared_ptr<string> receiversAlias_ {};
     // List name, must be unique, with a length of 1-30 characters.
     // 
     // This parameter is required.
-    std::shared_ptr<string> receiversName_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> receiversName_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
   };
 
   } // namespace Models

@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->totalQuota_ == nullptr && return this->usedQuota_ == nullptr; };
+        && this->totalQuota_ == nullptr && this->usedQuota_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetValidationQuotaResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // totalQuota Field Functions 
     bool hasTotalQuota() const { return this->totalQuota_ != nullptr;};
     void deleteTotalQuota() { this->totalQuota_ = nullptr;};
-    inline int32_t totalQuota() const { DARABONBA_PTR_GET_DEFAULT(totalQuota_, 0) };
+    inline int32_t getTotalQuota() const { DARABONBA_PTR_GET_DEFAULT(totalQuota_, 0) };
     inline GetValidationQuotaResponseBody& setTotalQuota(int32_t totalQuota) { DARABONBA_PTR_SET_VALUE(totalQuota_, totalQuota) };
 
 
     // usedQuota Field Functions 
     bool hasUsedQuota() const { return this->usedQuota_ != nullptr;};
     void deleteUsedQuota() { this->usedQuota_ = nullptr;};
-    inline int32_t usedQuota() const { DARABONBA_PTR_GET_DEFAULT(usedQuota_, 0) };
+    inline int32_t getUsedQuota() const { DARABONBA_PTR_GET_DEFAULT(usedQuota_, 0) };
     inline GetValidationQuotaResponseBody& setUsedQuota(int32_t usedQuota) { DARABONBA_PTR_SET_VALUE(usedQuota_, usedQuota) };
 
 
   protected:
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<int32_t> totalQuota_ = nullptr;
-    std::shared_ptr<int32_t> usedQuota_ = nullptr;
+    shared_ptr<string> requestId_ {};
+    shared_ptr<int32_t> totalQuota_ {};
+    shared_ptr<int32_t> usedQuota_ {};
   };
 
   } // namespace Models

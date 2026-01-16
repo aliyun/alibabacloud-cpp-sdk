@@ -42,66 +42,66 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->beginTime_ == nullptr
-        && return this->blockEmail_ == nullptr && return this->blockType_ == nullptr && return this->endTime_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr
-        && return this->senderEmail_ == nullptr; };
+        && this->blockEmail_ == nullptr && this->blockType_ == nullptr && this->endTime_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr
+        && this->senderEmail_ == nullptr; };
     // beginTime Field Functions 
     bool hasBeginTime() const { return this->beginTime_ != nullptr;};
     void deleteBeginTime() { this->beginTime_ = nullptr;};
-    inline int32_t beginTime() const { DARABONBA_PTR_GET_DEFAULT(beginTime_, 0) };
+    inline int32_t getBeginTime() const { DARABONBA_PTR_GET_DEFAULT(beginTime_, 0) };
     inline ListBlockSendingRequest& setBeginTime(int32_t beginTime) { DARABONBA_PTR_SET_VALUE(beginTime_, beginTime) };
 
 
     // blockEmail Field Functions 
     bool hasBlockEmail() const { return this->blockEmail_ != nullptr;};
     void deleteBlockEmail() { this->blockEmail_ = nullptr;};
-    inline string blockEmail() const { DARABONBA_PTR_GET_DEFAULT(blockEmail_, "") };
+    inline string getBlockEmail() const { DARABONBA_PTR_GET_DEFAULT(blockEmail_, "") };
     inline ListBlockSendingRequest& setBlockEmail(string blockEmail) { DARABONBA_PTR_SET_VALUE(blockEmail_, blockEmail) };
 
 
     // blockType Field Functions 
     bool hasBlockType() const { return this->blockType_ != nullptr;};
     void deleteBlockType() { this->blockType_ = nullptr;};
-    inline string blockType() const { DARABONBA_PTR_GET_DEFAULT(blockType_, "") };
+    inline string getBlockType() const { DARABONBA_PTR_GET_DEFAULT(blockType_, "") };
     inline ListBlockSendingRequest& setBlockType(string blockType) { DARABONBA_PTR_SET_VALUE(blockType_, blockType) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline int32_t endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0) };
+    inline int32_t getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0) };
     inline ListBlockSendingRequest& setEndTime(int32_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListBlockSendingRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListBlockSendingRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // senderEmail Field Functions 
     bool hasSenderEmail() const { return this->senderEmail_ != nullptr;};
     void deleteSenderEmail() { this->senderEmail_ = nullptr;};
-    inline string senderEmail() const { DARABONBA_PTR_GET_DEFAULT(senderEmail_, "") };
+    inline string getSenderEmail() const { DARABONBA_PTR_GET_DEFAULT(senderEmail_, "") };
     inline ListBlockSendingRequest& setSenderEmail(string senderEmail) { DARABONBA_PTR_SET_VALUE(senderEmail_, senderEmail) };
 
 
   protected:
-    std::shared_ptr<int32_t> beginTime_ = nullptr;
-    std::shared_ptr<string> blockEmail_ = nullptr;
+    shared_ptr<int32_t> beginTime_ {};
+    shared_ptr<string> blockEmail_ {};
     // This parameter is required.
-    std::shared_ptr<string> blockType_ = nullptr;
-    std::shared_ptr<int32_t> endTime_ = nullptr;
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
-    std::shared_ptr<string> nextToken_ = nullptr;
-    std::shared_ptr<string> senderEmail_ = nullptr;
+    shared_ptr<string> blockType_ {};
+    shared_ptr<int32_t> endTime_ {};
+    shared_ptr<int32_t> maxResults_ {};
+    shared_ptr<string> nextToken_ {};
+    shared_ptr<string> senderEmail_ {};
   };
 
   } // namespace Models

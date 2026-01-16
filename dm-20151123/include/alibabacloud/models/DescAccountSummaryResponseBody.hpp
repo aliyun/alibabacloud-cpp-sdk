@@ -66,185 +66,185 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dailyQuota_ == nullptr
-        && return this->dailyRemainFreeQuota_ == nullptr && return this->dayuStatus_ == nullptr && return this->domains_ == nullptr && return this->enableTimes_ == nullptr && return this->ipChannelType_ == nullptr
-        && return this->mailAddresses_ == nullptr && return this->maxQuotaLevel_ == nullptr && return this->monthQuota_ == nullptr && return this->quotaLevel_ == nullptr && return this->receivers_ == nullptr
-        && return this->remainFreeQuota_ == nullptr && return this->requestId_ == nullptr && return this->smsRecord_ == nullptr && return this->smsSign_ == nullptr && return this->smsTemplates_ == nullptr
-        && return this->tags_ == nullptr && return this->templates_ == nullptr && return this->userStatus_ == nullptr; };
+        && this->dailyRemainFreeQuota_ == nullptr && this->dayuStatus_ == nullptr && this->domains_ == nullptr && this->enableTimes_ == nullptr && this->ipChannelType_ == nullptr
+        && this->mailAddresses_ == nullptr && this->maxQuotaLevel_ == nullptr && this->monthQuota_ == nullptr && this->quotaLevel_ == nullptr && this->receivers_ == nullptr
+        && this->remainFreeQuota_ == nullptr && this->requestId_ == nullptr && this->smsRecord_ == nullptr && this->smsSign_ == nullptr && this->smsTemplates_ == nullptr
+        && this->tags_ == nullptr && this->templates_ == nullptr && this->userStatus_ == nullptr; };
     // dailyQuota Field Functions 
     bool hasDailyQuota() const { return this->dailyQuota_ != nullptr;};
     void deleteDailyQuota() { this->dailyQuota_ = nullptr;};
-    inline int32_t dailyQuota() const { DARABONBA_PTR_GET_DEFAULT(dailyQuota_, 0) };
+    inline int32_t getDailyQuota() const { DARABONBA_PTR_GET_DEFAULT(dailyQuota_, 0) };
     inline DescAccountSummaryResponseBody& setDailyQuota(int32_t dailyQuota) { DARABONBA_PTR_SET_VALUE(dailyQuota_, dailyQuota) };
 
 
     // dailyRemainFreeQuota Field Functions 
     bool hasDailyRemainFreeQuota() const { return this->dailyRemainFreeQuota_ != nullptr;};
     void deleteDailyRemainFreeQuota() { this->dailyRemainFreeQuota_ = nullptr;};
-    inline int32_t dailyRemainFreeQuota() const { DARABONBA_PTR_GET_DEFAULT(dailyRemainFreeQuota_, 0) };
+    inline int32_t getDailyRemainFreeQuota() const { DARABONBA_PTR_GET_DEFAULT(dailyRemainFreeQuota_, 0) };
     inline DescAccountSummaryResponseBody& setDailyRemainFreeQuota(int32_t dailyRemainFreeQuota) { DARABONBA_PTR_SET_VALUE(dailyRemainFreeQuota_, dailyRemainFreeQuota) };
 
 
     // dayuStatus Field Functions 
     bool hasDayuStatus() const { return this->dayuStatus_ != nullptr;};
     void deleteDayuStatus() { this->dayuStatus_ = nullptr;};
-    inline int32_t dayuStatus() const { DARABONBA_PTR_GET_DEFAULT(dayuStatus_, 0) };
+    inline int32_t getDayuStatus() const { DARABONBA_PTR_GET_DEFAULT(dayuStatus_, 0) };
     inline DescAccountSummaryResponseBody& setDayuStatus(int32_t dayuStatus) { DARABONBA_PTR_SET_VALUE(dayuStatus_, dayuStatus) };
 
 
     // domains Field Functions 
     bool hasDomains() const { return this->domains_ != nullptr;};
     void deleteDomains() { this->domains_ = nullptr;};
-    inline int32_t domains() const { DARABONBA_PTR_GET_DEFAULT(domains_, 0) };
+    inline int32_t getDomains() const { DARABONBA_PTR_GET_DEFAULT(domains_, 0) };
     inline DescAccountSummaryResponseBody& setDomains(int32_t domains) { DARABONBA_PTR_SET_VALUE(domains_, domains) };
 
 
     // enableTimes Field Functions 
     bool hasEnableTimes() const { return this->enableTimes_ != nullptr;};
     void deleteEnableTimes() { this->enableTimes_ = nullptr;};
-    inline int32_t enableTimes() const { DARABONBA_PTR_GET_DEFAULT(enableTimes_, 0) };
+    inline int32_t getEnableTimes() const { DARABONBA_PTR_GET_DEFAULT(enableTimes_, 0) };
     inline DescAccountSummaryResponseBody& setEnableTimes(int32_t enableTimes) { DARABONBA_PTR_SET_VALUE(enableTimes_, enableTimes) };
 
 
     // ipChannelType Field Functions 
     bool hasIpChannelType() const { return this->ipChannelType_ != nullptr;};
     void deleteIpChannelType() { this->ipChannelType_ = nullptr;};
-    inline string ipChannelType() const { DARABONBA_PTR_GET_DEFAULT(ipChannelType_, "") };
+    inline string getIpChannelType() const { DARABONBA_PTR_GET_DEFAULT(ipChannelType_, "") };
     inline DescAccountSummaryResponseBody& setIpChannelType(string ipChannelType) { DARABONBA_PTR_SET_VALUE(ipChannelType_, ipChannelType) };
 
 
     // mailAddresses Field Functions 
     bool hasMailAddresses() const { return this->mailAddresses_ != nullptr;};
     void deleteMailAddresses() { this->mailAddresses_ = nullptr;};
-    inline int32_t mailAddresses() const { DARABONBA_PTR_GET_DEFAULT(mailAddresses_, 0) };
+    inline int32_t getMailAddresses() const { DARABONBA_PTR_GET_DEFAULT(mailAddresses_, 0) };
     inline DescAccountSummaryResponseBody& setMailAddresses(int32_t mailAddresses) { DARABONBA_PTR_SET_VALUE(mailAddresses_, mailAddresses) };
 
 
     // maxQuotaLevel Field Functions 
     bool hasMaxQuotaLevel() const { return this->maxQuotaLevel_ != nullptr;};
     void deleteMaxQuotaLevel() { this->maxQuotaLevel_ = nullptr;};
-    inline int32_t maxQuotaLevel() const { DARABONBA_PTR_GET_DEFAULT(maxQuotaLevel_, 0) };
+    inline int32_t getMaxQuotaLevel() const { DARABONBA_PTR_GET_DEFAULT(maxQuotaLevel_, 0) };
     inline DescAccountSummaryResponseBody& setMaxQuotaLevel(int32_t maxQuotaLevel) { DARABONBA_PTR_SET_VALUE(maxQuotaLevel_, maxQuotaLevel) };
 
 
     // monthQuota Field Functions 
     bool hasMonthQuota() const { return this->monthQuota_ != nullptr;};
     void deleteMonthQuota() { this->monthQuota_ = nullptr;};
-    inline int32_t monthQuota() const { DARABONBA_PTR_GET_DEFAULT(monthQuota_, 0) };
+    inline int32_t getMonthQuota() const { DARABONBA_PTR_GET_DEFAULT(monthQuota_, 0) };
     inline DescAccountSummaryResponseBody& setMonthQuota(int32_t monthQuota) { DARABONBA_PTR_SET_VALUE(monthQuota_, monthQuota) };
 
 
     // quotaLevel Field Functions 
     bool hasQuotaLevel() const { return this->quotaLevel_ != nullptr;};
     void deleteQuotaLevel() { this->quotaLevel_ = nullptr;};
-    inline int32_t quotaLevel() const { DARABONBA_PTR_GET_DEFAULT(quotaLevel_, 0) };
+    inline int32_t getQuotaLevel() const { DARABONBA_PTR_GET_DEFAULT(quotaLevel_, 0) };
     inline DescAccountSummaryResponseBody& setQuotaLevel(int32_t quotaLevel) { DARABONBA_PTR_SET_VALUE(quotaLevel_, quotaLevel) };
 
 
     // receivers Field Functions 
     bool hasReceivers() const { return this->receivers_ != nullptr;};
     void deleteReceivers() { this->receivers_ = nullptr;};
-    inline int32_t receivers() const { DARABONBA_PTR_GET_DEFAULT(receivers_, 0) };
+    inline int32_t getReceivers() const { DARABONBA_PTR_GET_DEFAULT(receivers_, 0) };
     inline DescAccountSummaryResponseBody& setReceivers(int32_t receivers) { DARABONBA_PTR_SET_VALUE(receivers_, receivers) };
 
 
     // remainFreeQuota Field Functions 
     bool hasRemainFreeQuota() const { return this->remainFreeQuota_ != nullptr;};
     void deleteRemainFreeQuota() { this->remainFreeQuota_ = nullptr;};
-    inline int32_t remainFreeQuota() const { DARABONBA_PTR_GET_DEFAULT(remainFreeQuota_, 0) };
+    inline int32_t getRemainFreeQuota() const { DARABONBA_PTR_GET_DEFAULT(remainFreeQuota_, 0) };
     inline DescAccountSummaryResponseBody& setRemainFreeQuota(int32_t remainFreeQuota) { DARABONBA_PTR_SET_VALUE(remainFreeQuota_, remainFreeQuota) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescAccountSummaryResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // smsRecord Field Functions 
     bool hasSmsRecord() const { return this->smsRecord_ != nullptr;};
     void deleteSmsRecord() { this->smsRecord_ = nullptr;};
-    inline int32_t smsRecord() const { DARABONBA_PTR_GET_DEFAULT(smsRecord_, 0) };
+    inline int32_t getSmsRecord() const { DARABONBA_PTR_GET_DEFAULT(smsRecord_, 0) };
     inline DescAccountSummaryResponseBody& setSmsRecord(int32_t smsRecord) { DARABONBA_PTR_SET_VALUE(smsRecord_, smsRecord) };
 
 
     // smsSign Field Functions 
     bool hasSmsSign() const { return this->smsSign_ != nullptr;};
     void deleteSmsSign() { this->smsSign_ = nullptr;};
-    inline int32_t smsSign() const { DARABONBA_PTR_GET_DEFAULT(smsSign_, 0) };
+    inline int32_t getSmsSign() const { DARABONBA_PTR_GET_DEFAULT(smsSign_, 0) };
     inline DescAccountSummaryResponseBody& setSmsSign(int32_t smsSign) { DARABONBA_PTR_SET_VALUE(smsSign_, smsSign) };
 
 
     // smsTemplates Field Functions 
     bool hasSmsTemplates() const { return this->smsTemplates_ != nullptr;};
     void deleteSmsTemplates() { this->smsTemplates_ = nullptr;};
-    inline int32_t smsTemplates() const { DARABONBA_PTR_GET_DEFAULT(smsTemplates_, 0) };
+    inline int32_t getSmsTemplates() const { DARABONBA_PTR_GET_DEFAULT(smsTemplates_, 0) };
     inline DescAccountSummaryResponseBody& setSmsTemplates(int32_t smsTemplates) { DARABONBA_PTR_SET_VALUE(smsTemplates_, smsTemplates) };
 
 
     // tags Field Functions 
     bool hasTags() const { return this->tags_ != nullptr;};
     void deleteTags() { this->tags_ = nullptr;};
-    inline int32_t tags() const { DARABONBA_PTR_GET_DEFAULT(tags_, 0) };
+    inline int32_t getTags() const { DARABONBA_PTR_GET_DEFAULT(tags_, 0) };
     inline DescAccountSummaryResponseBody& setTags(int32_t tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
 
 
     // templates Field Functions 
     bool hasTemplates() const { return this->templates_ != nullptr;};
     void deleteTemplates() { this->templates_ = nullptr;};
-    inline int32_t templates() const { DARABONBA_PTR_GET_DEFAULT(templates_, 0) };
+    inline int32_t getTemplates() const { DARABONBA_PTR_GET_DEFAULT(templates_, 0) };
     inline DescAccountSummaryResponseBody& setTemplates(int32_t templates) { DARABONBA_PTR_SET_VALUE(templates_, templates) };
 
 
     // userStatus Field Functions 
     bool hasUserStatus() const { return this->userStatus_ != nullptr;};
     void deleteUserStatus() { this->userStatus_ = nullptr;};
-    inline int32_t userStatus() const { DARABONBA_PTR_GET_DEFAULT(userStatus_, 0) };
+    inline int32_t getUserStatus() const { DARABONBA_PTR_GET_DEFAULT(userStatus_, 0) };
     inline DescAccountSummaryResponseBody& setUserStatus(int32_t userStatus) { DARABONBA_PTR_SET_VALUE(userStatus_, userStatus) };
 
 
   protected:
     // Daily quota
-    std::shared_ptr<int32_t> dailyQuota_ = nullptr;
+    shared_ptr<int32_t> dailyQuota_ {};
     // remaining amount of daily free quota
-    std::shared_ptr<int32_t> dailyRemainFreeQuota_ = nullptr;
+    shared_ptr<int32_t> dailyRemainFreeQuota_ {};
     // Dayu status (deprecated, retained for compatibility reasons.)
-    std::shared_ptr<int32_t> dayuStatus_ = nullptr;
+    shared_ptr<int32_t> dayuStatus_ {};
     // Number of domains
-    std::shared_ptr<int32_t> domains_ = nullptr;
+    shared_ptr<int32_t> domains_ {};
     // Effective time
-    std::shared_ptr<int32_t> enableTimes_ = nullptr;
-    std::shared_ptr<string> ipChannelType_ = nullptr;
+    shared_ptr<int32_t> enableTimes_ {};
+    shared_ptr<string> ipChannelType_ {};
     // Number of sending addresses
-    std::shared_ptr<int32_t> mailAddresses_ = nullptr;
+    shared_ptr<int32_t> mailAddresses_ {};
     // Maximum level
-    std::shared_ptr<int32_t> maxQuotaLevel_ = nullptr;
+    shared_ptr<int32_t> maxQuotaLevel_ {};
     // Monthly quota
-    std::shared_ptr<int32_t> monthQuota_ = nullptr;
+    shared_ptr<int32_t> monthQuota_ {};
     // Credit level
-    std::shared_ptr<int32_t> quotaLevel_ = nullptr;
+    shared_ptr<int32_t> quotaLevel_ {};
     // Number of recipients
-    std::shared_ptr<int32_t> receivers_ = nullptr;
+    shared_ptr<int32_t> receivers_ {};
     // Remaining amount of total free quota
-    std::shared_ptr<int32_t> remainFreeQuota_ = nullptr;
+    shared_ptr<int32_t> remainFreeQuota_ {};
     // Request ID
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Deprecated, retained for compatibility reasons.
-    std::shared_ptr<int32_t> smsRecord_ = nullptr;
+    shared_ptr<int32_t> smsRecord_ {};
     // Deprecated, retained for compatibility reasons.
-    std::shared_ptr<int32_t> smsSign_ = nullptr;
+    shared_ptr<int32_t> smsSign_ {};
     // Deprecated, retained for compatibility reasons.
-    std::shared_ptr<int32_t> smsTemplates_ = nullptr;
+    shared_ptr<int32_t> smsTemplates_ {};
     // Number of tags
-    std::shared_ptr<int32_t> tags_ = nullptr;
+    shared_ptr<int32_t> tags_ {};
     // Number of templates
-    std::shared_ptr<int32_t> templates_ = nullptr;
+    shared_ptr<int32_t> templates_ {};
     // User status:
     // 1 Frozen
     // 2 In arrears
     // 4 Restricted from sending
     // 8 Logically deleted
-    std::shared_ptr<int32_t> userStatus_ = nullptr;
+    shared_ptr<int32_t> userStatus_ {};
   };
 
   } // namespace Models

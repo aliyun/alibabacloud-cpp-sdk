@@ -34,33 +34,33 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->checkGraylist_ == nullptr
-        && return this->email_ == nullptr && return this->timeout_ == nullptr; };
+        && this->email_ == nullptr && this->timeout_ == nullptr; };
     // checkGraylist Field Functions 
     bool hasCheckGraylist() const { return this->checkGraylist_ != nullptr;};
     void deleteCheckGraylist() { this->checkGraylist_ = nullptr;};
-    inline bool checkGraylist() const { DARABONBA_PTR_GET_DEFAULT(checkGraylist_, false) };
+    inline bool getCheckGraylist() const { DARABONBA_PTR_GET_DEFAULT(checkGraylist_, false) };
     inline ValidateEmailRequest& setCheckGraylist(bool checkGraylist) { DARABONBA_PTR_SET_VALUE(checkGraylist_, checkGraylist) };
 
 
     // email Field Functions 
     bool hasEmail() const { return this->email_ != nullptr;};
     void deleteEmail() { this->email_ = nullptr;};
-    inline string email() const { DARABONBA_PTR_GET_DEFAULT(email_, "") };
+    inline string getEmail() const { DARABONBA_PTR_GET_DEFAULT(email_, "") };
     inline ValidateEmailRequest& setEmail(string email) { DARABONBA_PTR_SET_VALUE(email_, email) };
 
 
     // timeout Field Functions 
     bool hasTimeout() const { return this->timeout_ != nullptr;};
     void deleteTimeout() { this->timeout_ = nullptr;};
-    inline int64_t timeout() const { DARABONBA_PTR_GET_DEFAULT(timeout_, 0L) };
+    inline int64_t getTimeout() const { DARABONBA_PTR_GET_DEFAULT(timeout_, 0L) };
     inline ValidateEmailRequest& setTimeout(int64_t timeout) { DARABONBA_PTR_SET_VALUE(timeout_, timeout) };
 
 
   protected:
-    std::shared_ptr<bool> checkGraylist_ = nullptr;
+    shared_ptr<bool> checkGraylist_ {};
     // This parameter is required.
-    std::shared_ptr<string> email_ = nullptr;
-    std::shared_ptr<int64_t> timeout_ = nullptr;
+    shared_ptr<string> email_ {};
+    shared_ptr<int64_t> timeout_ {};
   };
 
   } // namespace Models

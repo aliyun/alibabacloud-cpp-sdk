@@ -33,12 +33,12 @@ namespace Models
     // email Field Functions 
     bool hasEmail() const { return this->email_ != nullptr;};
     void deleteEmail() { this->email_ = nullptr;};
-    inline string email() const { DARABONBA_PTR_GET_DEFAULT(email_, "") };
+    inline string getEmail() const { DARABONBA_PTR_GET_DEFAULT(email_, "") };
     inline CheckDisposableRequest& setEmail(string email) { DARABONBA_PTR_SET_VALUE(email_, email) };
 
 
   protected:
-    std::shared_ptr<string> email_ = nullptr;
+    shared_ptr<string> email_ {};
   };
 
   } // namespace Models

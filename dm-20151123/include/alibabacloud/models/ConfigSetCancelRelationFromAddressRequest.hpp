@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fromAddress_ == nullptr
-        && return this->id_ == nullptr; };
+        && this->id_ == nullptr; };
     // fromAddress Field Functions 
     bool hasFromAddress() const { return this->fromAddress_ != nullptr;};
     void deleteFromAddress() { this->fromAddress_ = nullptr;};
-    inline string fromAddress() const { DARABONBA_PTR_GET_DEFAULT(fromAddress_, "") };
+    inline string getFromAddress() const { DARABONBA_PTR_GET_DEFAULT(fromAddress_, "") };
     inline ConfigSetCancelRelationFromAddressRequest& setFromAddress(string fromAddress) { DARABONBA_PTR_SET_VALUE(fromAddress_, fromAddress) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline string id() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+    inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline ConfigSetCancelRelationFromAddressRequest& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
   protected:
-    std::shared_ptr<string> fromAddress_ = nullptr;
-    std::shared_ptr<string> id_ = nullptr;
+    shared_ptr<string> fromAddress_ {};
+    shared_ptr<string> id_ {};
   };
 
   } // namespace Models

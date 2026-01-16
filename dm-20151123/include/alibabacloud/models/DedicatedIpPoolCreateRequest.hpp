@@ -32,27 +32,27 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->buyResourceIds_ == nullptr
-        && return this->name_ == nullptr; };
+        && this->name_ == nullptr; };
     // buyResourceIds Field Functions 
     bool hasBuyResourceIds() const { return this->buyResourceIds_ != nullptr;};
     void deleteBuyResourceIds() { this->buyResourceIds_ = nullptr;};
-    inline string buyResourceIds() const { DARABONBA_PTR_GET_DEFAULT(buyResourceIds_, "") };
+    inline string getBuyResourceIds() const { DARABONBA_PTR_GET_DEFAULT(buyResourceIds_, "") };
     inline DedicatedIpPoolCreateRequest& setBuyResourceIds(string buyResourceIds) { DARABONBA_PTR_SET_VALUE(buyResourceIds_, buyResourceIds) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline DedicatedIpPoolCreateRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
   protected:
     // Purchased IP instance IDs, separated by commas; derived from the IP purchase instance IDs returned by the DedicatedIpNonePoolList interface.
-    std::shared_ptr<string> buyResourceIds_ = nullptr;
+    shared_ptr<string> buyResourceIds_ {};
     // IP pool name;
     // Length should be 1-50 characters, allowing English letters, numbers, _, and -. The name cannot be modified after the IP pool is created.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
   };
 
   } // namespace Models

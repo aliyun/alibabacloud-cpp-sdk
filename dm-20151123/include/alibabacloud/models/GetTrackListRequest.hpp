@@ -62,126 +62,126 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountName_ == nullptr
-        && return this->configSetId_ == nullptr && return this->dedicatedIp_ == nullptr && return this->dedicatedIpPoolId_ == nullptr && return this->endTime_ == nullptr && return this->esp_ == nullptr
-        && return this->offset_ == nullptr && return this->offsetCreateTime_ == nullptr && return this->offsetCreateTimeDesc_ == nullptr && return this->ownerId_ == nullptr && return this->pageNumber_ == nullptr
-        && return this->pageSize_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->startTime_ == nullptr && return this->tagName_ == nullptr
-        && return this->total_ == nullptr; };
+        && this->configSetId_ == nullptr && this->dedicatedIp_ == nullptr && this->dedicatedIpPoolId_ == nullptr && this->endTime_ == nullptr && this->esp_ == nullptr
+        && this->offset_ == nullptr && this->offsetCreateTime_ == nullptr && this->offsetCreateTimeDesc_ == nullptr && this->ownerId_ == nullptr && this->pageNumber_ == nullptr
+        && this->pageSize_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->startTime_ == nullptr && this->tagName_ == nullptr
+        && this->total_ == nullptr; };
     // accountName Field Functions 
     bool hasAccountName() const { return this->accountName_ != nullptr;};
     void deleteAccountName() { this->accountName_ = nullptr;};
-    inline string accountName() const { DARABONBA_PTR_GET_DEFAULT(accountName_, "") };
+    inline string getAccountName() const { DARABONBA_PTR_GET_DEFAULT(accountName_, "") };
     inline GetTrackListRequest& setAccountName(string accountName) { DARABONBA_PTR_SET_VALUE(accountName_, accountName) };
 
 
     // configSetId Field Functions 
     bool hasConfigSetId() const { return this->configSetId_ != nullptr;};
     void deleteConfigSetId() { this->configSetId_ = nullptr;};
-    inline string configSetId() const { DARABONBA_PTR_GET_DEFAULT(configSetId_, "") };
+    inline string getConfigSetId() const { DARABONBA_PTR_GET_DEFAULT(configSetId_, "") };
     inline GetTrackListRequest& setConfigSetId(string configSetId) { DARABONBA_PTR_SET_VALUE(configSetId_, configSetId) };
 
 
     // dedicatedIp Field Functions 
     bool hasDedicatedIp() const { return this->dedicatedIp_ != nullptr;};
     void deleteDedicatedIp() { this->dedicatedIp_ = nullptr;};
-    inline string dedicatedIp() const { DARABONBA_PTR_GET_DEFAULT(dedicatedIp_, "") };
+    inline string getDedicatedIp() const { DARABONBA_PTR_GET_DEFAULT(dedicatedIp_, "") };
     inline GetTrackListRequest& setDedicatedIp(string dedicatedIp) { DARABONBA_PTR_SET_VALUE(dedicatedIp_, dedicatedIp) };
 
 
     // dedicatedIpPoolId Field Functions 
     bool hasDedicatedIpPoolId() const { return this->dedicatedIpPoolId_ != nullptr;};
     void deleteDedicatedIpPoolId() { this->dedicatedIpPoolId_ = nullptr;};
-    inline string dedicatedIpPoolId() const { DARABONBA_PTR_GET_DEFAULT(dedicatedIpPoolId_, "") };
+    inline string getDedicatedIpPoolId() const { DARABONBA_PTR_GET_DEFAULT(dedicatedIpPoolId_, "") };
     inline GetTrackListRequest& setDedicatedIpPoolId(string dedicatedIpPoolId) { DARABONBA_PTR_SET_VALUE(dedicatedIpPoolId_, dedicatedIpPoolId) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline GetTrackListRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // esp Field Functions 
     bool hasEsp() const { return this->esp_ != nullptr;};
     void deleteEsp() { this->esp_ = nullptr;};
-    inline string esp() const { DARABONBA_PTR_GET_DEFAULT(esp_, "") };
+    inline string getEsp() const { DARABONBA_PTR_GET_DEFAULT(esp_, "") };
     inline GetTrackListRequest& setEsp(string esp) { DARABONBA_PTR_SET_VALUE(esp_, esp) };
 
 
     // offset Field Functions 
     bool hasOffset() const { return this->offset_ != nullptr;};
     void deleteOffset() { this->offset_ = nullptr;};
-    inline string offset() const { DARABONBA_PTR_GET_DEFAULT(offset_, "") };
+    inline string getOffset() const { DARABONBA_PTR_GET_DEFAULT(offset_, "") };
     inline GetTrackListRequest& setOffset(string offset) { DARABONBA_PTR_SET_VALUE(offset_, offset) };
 
 
     // offsetCreateTime Field Functions 
     bool hasOffsetCreateTime() const { return this->offsetCreateTime_ != nullptr;};
     void deleteOffsetCreateTime() { this->offsetCreateTime_ = nullptr;};
-    inline string offsetCreateTime() const { DARABONBA_PTR_GET_DEFAULT(offsetCreateTime_, "") };
+    inline string getOffsetCreateTime() const { DARABONBA_PTR_GET_DEFAULT(offsetCreateTime_, "") };
     inline GetTrackListRequest& setOffsetCreateTime(string offsetCreateTime) { DARABONBA_PTR_SET_VALUE(offsetCreateTime_, offsetCreateTime) };
 
 
     // offsetCreateTimeDesc Field Functions 
     bool hasOffsetCreateTimeDesc() const { return this->offsetCreateTimeDesc_ != nullptr;};
     void deleteOffsetCreateTimeDesc() { this->offsetCreateTimeDesc_ = nullptr;};
-    inline string offsetCreateTimeDesc() const { DARABONBA_PTR_GET_DEFAULT(offsetCreateTimeDesc_, "") };
+    inline string getOffsetCreateTimeDesc() const { DARABONBA_PTR_GET_DEFAULT(offsetCreateTimeDesc_, "") };
     inline GetTrackListRequest& setOffsetCreateTimeDesc(string offsetCreateTimeDesc) { DARABONBA_PTR_SET_VALUE(offsetCreateTimeDesc_, offsetCreateTimeDesc) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline GetTrackListRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline string pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, "") };
+    inline string getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, "") };
     inline GetTrackListRequest& setPageNumber(string pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline string pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
+    inline string getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
     inline GetTrackListRequest& setPageSize(string pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline GetTrackListRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline GetTrackListRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline GetTrackListRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // tagName Field Functions 
     bool hasTagName() const { return this->tagName_ != nullptr;};
     void deleteTagName() { this->tagName_ = nullptr;};
-    inline string tagName() const { DARABONBA_PTR_GET_DEFAULT(tagName_, "") };
+    inline string getTagName() const { DARABONBA_PTR_GET_DEFAULT(tagName_, "") };
     inline GetTrackListRequest& setTagName(string tagName) { DARABONBA_PTR_SET_VALUE(tagName_, tagName) };
 
 
     // total Field Functions 
     bool hasTotal() const { return this->total_ != nullptr;};
     void deleteTotal() { this->total_ = nullptr;};
-    inline string total() const { DARABONBA_PTR_GET_DEFAULT(total_, "") };
+    inline string getTotal() const { DARABONBA_PTR_GET_DEFAULT(total_, "") };
     inline GetTrackListRequest& setTotal(string total) { DARABONBA_PTR_SET_VALUE(total_, total) };
 
 
@@ -189,36 +189,36 @@ namespace Models
     // Sender address.
     // 
     // > If not filled, it represents all addresses; if TagName is provided, this parameter must not be empty.
-    std::shared_ptr<string> accountName_ = nullptr;
-    std::shared_ptr<string> configSetId_ = nullptr;
-    std::shared_ptr<string> dedicatedIp_ = nullptr;
-    std::shared_ptr<string> dedicatedIpPoolId_ = nullptr;
+    shared_ptr<string> accountName_ {};
+    shared_ptr<string> configSetId_ {};
+    shared_ptr<string> dedicatedIp_ {};
+    shared_ptr<string> dedicatedIpPoolId_ {};
     // End time, the span between start and end time cannot exceed 7 days. Format: yyyy-MM-dd.
     // 
     // This parameter is required.
-    std::shared_ptr<string> endTime_ = nullptr;
-    std::shared_ptr<string> esp_ = nullptr;
+    shared_ptr<string> endTime_ {};
+    shared_ptr<string> esp_ {};
     // For the first query, set to 0; for subsequent queries, fixed at 1. 1 indicates pagination in ascending order by time. (This field is deprecated)
-    std::shared_ptr<string> offset_ = nullptr;
+    shared_ptr<string> offset_ {};
     // Used for pagination. Not set for the first query, but for subsequent queries, it should be set to the value of OffsetCreateTime from the previous response. (This field is deprecated)
-    std::shared_ptr<string> offsetCreateTime_ = nullptr;
+    shared_ptr<string> offsetCreateTime_ {};
     // (This field is deprecated)
-    std::shared_ptr<string> offsetCreateTimeDesc_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<string> offsetCreateTimeDesc_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // Page number
-    std::shared_ptr<string> pageNumber_ = nullptr;
+    shared_ptr<string> pageNumber_ {};
     // Page size
-    std::shared_ptr<string> pageSize_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> pageSize_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
     // Start time, which cannot be earlier than 30 days. Format: yyyy-MM-dd.
     // 
     // This parameter is required.
-    std::shared_ptr<string> startTime_ = nullptr;
+    shared_ptr<string> startTime_ {};
     // Tag name
-    std::shared_ptr<string> tagName_ = nullptr;
+    shared_ptr<string> tagName_ {};
     // (This field is deprecated)
-    std::shared_ptr<string> total_ = nullptr;
+    shared_ptr<string> total_ {};
   };
 
   } // namespace Models

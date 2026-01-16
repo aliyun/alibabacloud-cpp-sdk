@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ipProtection_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // ipProtection Field Functions 
     bool hasIpProtection() const { return this->ipProtection_ != nullptr;};
     void deleteIpProtection() { this->ipProtection_ = nullptr;};
-    inline string ipProtection() const { DARABONBA_PTR_GET_DEFAULT(ipProtection_, "") };
+    inline string getIpProtection() const { DARABONBA_PTR_GET_DEFAULT(ipProtection_, "") };
     inline GetIpProtectionResponseBody& setIpProtection(string ipProtection) { DARABONBA_PTR_SET_VALUE(ipProtection_, ipProtection) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetIpProtectionResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // IP protection switch, On: 1 Off: 0
-    std::shared_ptr<string> ipProtection_ = nullptr;
+    shared_ptr<string> ipProtection_ {};
     // Request ID
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

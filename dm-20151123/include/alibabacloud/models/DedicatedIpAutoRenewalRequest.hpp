@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoRenewal_ == nullptr
-        && return this->buyResourceIds_ == nullptr; };
+        && this->buyResourceIds_ == nullptr; };
     // autoRenewal Field Functions 
     bool hasAutoRenewal() const { return this->autoRenewal_ != nullptr;};
     void deleteAutoRenewal() { this->autoRenewal_ = nullptr;};
-    inline string autoRenewal() const { DARABONBA_PTR_GET_DEFAULT(autoRenewal_, "") };
+    inline string getAutoRenewal() const { DARABONBA_PTR_GET_DEFAULT(autoRenewal_, "") };
     inline DedicatedIpAutoRenewalRequest& setAutoRenewal(string autoRenewal) { DARABONBA_PTR_SET_VALUE(autoRenewal_, autoRenewal) };
 
 
     // buyResourceIds Field Functions 
     bool hasBuyResourceIds() const { return this->buyResourceIds_ != nullptr;};
     void deleteBuyResourceIds() { this->buyResourceIds_ = nullptr;};
-    inline string buyResourceIds() const { DARABONBA_PTR_GET_DEFAULT(buyResourceIds_, "") };
+    inline string getBuyResourceIds() const { DARABONBA_PTR_GET_DEFAULT(buyResourceIds_, "") };
     inline DedicatedIpAutoRenewalRequest& setBuyResourceIds(string buyResourceIds) { DARABONBA_PTR_SET_VALUE(buyResourceIds_, buyResourceIds) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // Whether to enable auto-renewal
     // 
     // This parameter is required.
-    std::shared_ptr<string> autoRenewal_ = nullptr;
+    shared_ptr<string> autoRenewal_ {};
     // Purchase instance ID, separated by English commas if multiple.
     // 
     // This parameter is required.
-    std::shared_ptr<string> buyResourceIds_ = nullptr;
+    shared_ptr<string> buyResourceIds_ {};
   };
 
   } // namespace Models

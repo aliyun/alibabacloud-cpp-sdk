@@ -50,97 +50,97 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->createTime_ == nullptr
-        && return this->remark_ == nullptr && return this->requestId_ == nullptr && return this->smsContent_ == nullptr && return this->smsType_ == nullptr && return this->templateName_ == nullptr
-        && return this->templateNickName_ == nullptr && return this->templateStatus_ == nullptr && return this->templateSubject_ == nullptr && return this->templateText_ == nullptr && return this->templateType_ == nullptr; };
+        && this->remark_ == nullptr && this->requestId_ == nullptr && this->smsContent_ == nullptr && this->smsType_ == nullptr && this->templateName_ == nullptr
+        && this->templateNickName_ == nullptr && this->templateStatus_ == nullptr && this->templateSubject_ == nullptr && this->templateText_ == nullptr && this->templateType_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
-    inline string createTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
+    inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
     inline DescTemplateResponseBody& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
 
 
     // remark Field Functions 
     bool hasRemark() const { return this->remark_ != nullptr;};
     void deleteRemark() { this->remark_ = nullptr;};
-    inline string remark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
+    inline string getRemark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
     inline DescTemplateResponseBody& setRemark(string remark) { DARABONBA_PTR_SET_VALUE(remark_, remark) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescTemplateResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // smsContent Field Functions 
     bool hasSmsContent() const { return this->smsContent_ != nullptr;};
     void deleteSmsContent() { this->smsContent_ = nullptr;};
-    inline string smsContent() const { DARABONBA_PTR_GET_DEFAULT(smsContent_, "") };
+    inline string getSmsContent() const { DARABONBA_PTR_GET_DEFAULT(smsContent_, "") };
     inline DescTemplateResponseBody& setSmsContent(string smsContent) { DARABONBA_PTR_SET_VALUE(smsContent_, smsContent) };
 
 
     // smsType Field Functions 
     bool hasSmsType() const { return this->smsType_ != nullptr;};
     void deleteSmsType() { this->smsType_ = nullptr;};
-    inline string smsType() const { DARABONBA_PTR_GET_DEFAULT(smsType_, "") };
+    inline string getSmsType() const { DARABONBA_PTR_GET_DEFAULT(smsType_, "") };
     inline DescTemplateResponseBody& setSmsType(string smsType) { DARABONBA_PTR_SET_VALUE(smsType_, smsType) };
 
 
     // templateName Field Functions 
     bool hasTemplateName() const { return this->templateName_ != nullptr;};
     void deleteTemplateName() { this->templateName_ = nullptr;};
-    inline string templateName() const { DARABONBA_PTR_GET_DEFAULT(templateName_, "") };
+    inline string getTemplateName() const { DARABONBA_PTR_GET_DEFAULT(templateName_, "") };
     inline DescTemplateResponseBody& setTemplateName(string templateName) { DARABONBA_PTR_SET_VALUE(templateName_, templateName) };
 
 
     // templateNickName Field Functions 
     bool hasTemplateNickName() const { return this->templateNickName_ != nullptr;};
     void deleteTemplateNickName() { this->templateNickName_ = nullptr;};
-    inline string templateNickName() const { DARABONBA_PTR_GET_DEFAULT(templateNickName_, "") };
+    inline string getTemplateNickName() const { DARABONBA_PTR_GET_DEFAULT(templateNickName_, "") };
     inline DescTemplateResponseBody& setTemplateNickName(string templateNickName) { DARABONBA_PTR_SET_VALUE(templateNickName_, templateNickName) };
 
 
     // templateStatus Field Functions 
     bool hasTemplateStatus() const { return this->templateStatus_ != nullptr;};
     void deleteTemplateStatus() { this->templateStatus_ = nullptr;};
-    inline string templateStatus() const { DARABONBA_PTR_GET_DEFAULT(templateStatus_, "") };
+    inline string getTemplateStatus() const { DARABONBA_PTR_GET_DEFAULT(templateStatus_, "") };
     inline DescTemplateResponseBody& setTemplateStatus(string templateStatus) { DARABONBA_PTR_SET_VALUE(templateStatus_, templateStatus) };
 
 
     // templateSubject Field Functions 
     bool hasTemplateSubject() const { return this->templateSubject_ != nullptr;};
     void deleteTemplateSubject() { this->templateSubject_ = nullptr;};
-    inline string templateSubject() const { DARABONBA_PTR_GET_DEFAULT(templateSubject_, "") };
+    inline string getTemplateSubject() const { DARABONBA_PTR_GET_DEFAULT(templateSubject_, "") };
     inline DescTemplateResponseBody& setTemplateSubject(string templateSubject) { DARABONBA_PTR_SET_VALUE(templateSubject_, templateSubject) };
 
 
     // templateText Field Functions 
     bool hasTemplateText() const { return this->templateText_ != nullptr;};
     void deleteTemplateText() { this->templateText_ = nullptr;};
-    inline string templateText() const { DARABONBA_PTR_GET_DEFAULT(templateText_, "") };
+    inline string getTemplateText() const { DARABONBA_PTR_GET_DEFAULT(templateText_, "") };
     inline DescTemplateResponseBody& setTemplateText(string templateText) { DARABONBA_PTR_SET_VALUE(templateText_, templateText) };
 
 
     // templateType Field Functions 
     bool hasTemplateType() const { return this->templateType_ != nullptr;};
     void deleteTemplateType() { this->templateType_ = nullptr;};
-    inline string templateType() const { DARABONBA_PTR_GET_DEFAULT(templateType_, "") };
+    inline string getTemplateType() const { DARABONBA_PTR_GET_DEFAULT(templateType_, "") };
     inline DescTemplateResponseBody& setTemplateType(string templateType) { DARABONBA_PTR_SET_VALUE(templateType_, templateType) };
 
 
   protected:
-    std::shared_ptr<string> createTime_ = nullptr;
-    std::shared_ptr<string> remark_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> smsContent_ = nullptr;
-    std::shared_ptr<string> smsType_ = nullptr;
-    std::shared_ptr<string> templateName_ = nullptr;
-    std::shared_ptr<string> templateNickName_ = nullptr;
-    std::shared_ptr<string> templateStatus_ = nullptr;
-    std::shared_ptr<string> templateSubject_ = nullptr;
-    std::shared_ptr<string> templateText_ = nullptr;
-    std::shared_ptr<string> templateType_ = nullptr;
+    shared_ptr<string> createTime_ {};
+    shared_ptr<string> remark_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<string> smsContent_ {};
+    shared_ptr<string> smsType_ {};
+    shared_ptr<string> templateName_ {};
+    shared_ptr<string> templateNickName_ {};
+    shared_ptr<string> templateStatus_ {};
+    shared_ptr<string> templateSubject_ {};
+    shared_ptr<string> templateText_ {};
+    shared_ptr<string> templateType_ {};
   };
 
   } // namespace Models

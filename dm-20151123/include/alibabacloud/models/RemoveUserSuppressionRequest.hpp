@@ -36,40 +36,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ownerId_ == nullptr
-        && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->suppressionIds_ == nullptr; };
+        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->suppressionIds_ == nullptr; };
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline RemoveUserSuppressionRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline RemoveUserSuppressionRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline RemoveUserSuppressionRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // suppressionIds Field Functions 
     bool hasSuppressionIds() const { return this->suppressionIds_ != nullptr;};
     void deleteSuppressionIds() { this->suppressionIds_ = nullptr;};
-    inline string suppressionIds() const { DARABONBA_PTR_GET_DEFAULT(suppressionIds_, "") };
+    inline string getSuppressionIds() const { DARABONBA_PTR_GET_DEFAULT(suppressionIds_, "") };
     inline RemoveUserSuppressionRequest& setSuppressionIds(string suppressionIds) { DARABONBA_PTR_SET_VALUE(suppressionIds_, suppressionIds) };
 
 
   protected:
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
-    std::shared_ptr<string> suppressionIds_ = nullptr;
+    shared_ptr<int64_t> ownerId_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
+    shared_ptr<string> suppressionIds_ {};
   };
 
   } // namespace Models

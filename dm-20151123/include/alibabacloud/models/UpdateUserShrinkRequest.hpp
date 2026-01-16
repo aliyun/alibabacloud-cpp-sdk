@@ -33,13 +33,13 @@ namespace Models
     // userShrink Field Functions 
     bool hasUserShrink() const { return this->userShrink_ != nullptr;};
     void deleteUserShrink() { this->userShrink_ = nullptr;};
-    inline string userShrink() const { DARABONBA_PTR_GET_DEFAULT(userShrink_, "") };
+    inline string getUserShrink() const { DARABONBA_PTR_GET_DEFAULT(userShrink_, "") };
     inline UpdateUserShrinkRequest& setUserShrink(string userShrink) { DARABONBA_PTR_SET_VALUE(userShrink_, userShrink) };
 
 
   protected:
     // User Information
-    std::shared_ptr<string> userShrink_ = nullptr;
+    shared_ptr<string> userShrink_ {};
   };
 
   } // namespace Models

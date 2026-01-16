@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->envId_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // envId Field Functions 
     bool hasEnvId() const { return this->envId_ != nullptr;};
     void deleteEnvId() { this->envId_ = nullptr;};
-    inline string envId() const { DARABONBA_PTR_GET_DEFAULT(envId_, "") };
+    inline string getEnvId() const { DARABONBA_PTR_GET_DEFAULT(envId_, "") };
     inline SingleSendMailResponseBody& setEnvId(string envId) { DARABONBA_PTR_SET_VALUE(envId_, envId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline SingleSendMailResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // Event ID
-    std::shared_ptr<string> envId_ = nullptr;
+    shared_ptr<string> envId_ {};
     // Request ID
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

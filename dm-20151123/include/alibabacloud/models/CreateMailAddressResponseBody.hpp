@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->mailAddressId_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // mailAddressId Field Functions 
     bool hasMailAddressId() const { return this->mailAddressId_ != nullptr;};
     void deleteMailAddressId() { this->mailAddressId_ = nullptr;};
-    inline string mailAddressId() const { DARABONBA_PTR_GET_DEFAULT(mailAddressId_, "") };
+    inline string getMailAddressId() const { DARABONBA_PTR_GET_DEFAULT(mailAddressId_, "") };
     inline CreateMailAddressResponseBody& setMailAddressId(string mailAddressId) { DARABONBA_PTR_SET_VALUE(mailAddressId_, mailAddressId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateMailAddressResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // Mail address ID
-    std::shared_ptr<string> mailAddressId_ = nullptr;
+    shared_ptr<string> mailAddressId_ {};
     // Request ID
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

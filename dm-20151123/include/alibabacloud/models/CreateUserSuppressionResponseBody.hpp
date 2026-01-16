@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->suppressionId_ == nullptr; };
+        && this->suppressionId_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateUserSuppressionResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // suppressionId Field Functions 
     bool hasSuppressionId() const { return this->suppressionId_ != nullptr;};
     void deleteSuppressionId() { this->suppressionId_ = nullptr;};
-    inline string suppressionId() const { DARABONBA_PTR_GET_DEFAULT(suppressionId_, "") };
+    inline string getSuppressionId() const { DARABONBA_PTR_GET_DEFAULT(suppressionId_, "") };
     inline CreateUserSuppressionResponseBody& setSuppressionId(string suppressionId) { DARABONBA_PTR_SET_VALUE(suppressionId_, suppressionId) };
 
 
   protected:
     // Request ID
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Invalid address number
-    std::shared_ptr<string> suppressionId_ = nullptr;
+    shared_ptr<string> suppressionId_ {};
   };
 
   } // namespace Models

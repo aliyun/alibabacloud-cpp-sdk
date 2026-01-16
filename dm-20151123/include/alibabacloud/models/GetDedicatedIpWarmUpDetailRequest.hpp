@@ -36,40 +36,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dedicatedIp_ == nullptr
-        && return this->endDayMark_ == nullptr && return this->esp_ == nullptr && return this->startDayMark_ == nullptr; };
+        && this->endDayMark_ == nullptr && this->esp_ == nullptr && this->startDayMark_ == nullptr; };
     // dedicatedIp Field Functions 
     bool hasDedicatedIp() const { return this->dedicatedIp_ != nullptr;};
     void deleteDedicatedIp() { this->dedicatedIp_ = nullptr;};
-    inline string dedicatedIp() const { DARABONBA_PTR_GET_DEFAULT(dedicatedIp_, "") };
+    inline string getDedicatedIp() const { DARABONBA_PTR_GET_DEFAULT(dedicatedIp_, "") };
     inline GetDedicatedIpWarmUpDetailRequest& setDedicatedIp(string dedicatedIp) { DARABONBA_PTR_SET_VALUE(dedicatedIp_, dedicatedIp) };
 
 
     // endDayMark Field Functions 
     bool hasEndDayMark() const { return this->endDayMark_ != nullptr;};
     void deleteEndDayMark() { this->endDayMark_ = nullptr;};
-    inline int64_t endDayMark() const { DARABONBA_PTR_GET_DEFAULT(endDayMark_, 0L) };
+    inline int64_t getEndDayMark() const { DARABONBA_PTR_GET_DEFAULT(endDayMark_, 0L) };
     inline GetDedicatedIpWarmUpDetailRequest& setEndDayMark(int64_t endDayMark) { DARABONBA_PTR_SET_VALUE(endDayMark_, endDayMark) };
 
 
     // esp Field Functions 
     bool hasEsp() const { return this->esp_ != nullptr;};
     void deleteEsp() { this->esp_ = nullptr;};
-    inline string esp() const { DARABONBA_PTR_GET_DEFAULT(esp_, "") };
+    inline string getEsp() const { DARABONBA_PTR_GET_DEFAULT(esp_, "") };
     inline GetDedicatedIpWarmUpDetailRequest& setEsp(string esp) { DARABONBA_PTR_SET_VALUE(esp_, esp) };
 
 
     // startDayMark Field Functions 
     bool hasStartDayMark() const { return this->startDayMark_ != nullptr;};
     void deleteStartDayMark() { this->startDayMark_ = nullptr;};
-    inline int64_t startDayMark() const { DARABONBA_PTR_GET_DEFAULT(startDayMark_, 0L) };
+    inline int64_t getStartDayMark() const { DARABONBA_PTR_GET_DEFAULT(startDayMark_, 0L) };
     inline GetDedicatedIpWarmUpDetailRequest& setStartDayMark(int64_t startDayMark) { DARABONBA_PTR_SET_VALUE(startDayMark_, startDayMark) };
 
 
   protected:
-    std::shared_ptr<string> dedicatedIp_ = nullptr;
-    std::shared_ptr<int64_t> endDayMark_ = nullptr;
-    std::shared_ptr<string> esp_ = nullptr;
-    std::shared_ptr<int64_t> startDayMark_ = nullptr;
+    shared_ptr<string> dedicatedIp_ {};
+    shared_ptr<int64_t> endDayMark_ {};
+    shared_ptr<string> esp_ {};
+    shared_ptr<int64_t> startDayMark_ {};
   };
 
   } // namespace Models

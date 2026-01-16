@@ -36,43 +36,43 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->all_ == nullptr
-        && return this->keyword_ == nullptr && return this->pageIndex_ == nullptr && return this->pageSize_ == nullptr; };
+        && this->keyword_ == nullptr && this->pageIndex_ == nullptr && this->pageSize_ == nullptr; };
     // all Field Functions 
     bool hasAll() const { return this->all_ != nullptr;};
     void deleteAll() { this->all_ = nullptr;};
-    inline bool all() const { DARABONBA_PTR_GET_DEFAULT(all_, false) };
+    inline bool getAll() const { DARABONBA_PTR_GET_DEFAULT(all_, false) };
     inline DedicatedIpPoolListRequest& setAll(bool all) { DARABONBA_PTR_SET_VALUE(all_, all) };
 
 
     // keyword Field Functions 
     bool hasKeyword() const { return this->keyword_ != nullptr;};
     void deleteKeyword() { this->keyword_ = nullptr;};
-    inline string keyword() const { DARABONBA_PTR_GET_DEFAULT(keyword_, "") };
+    inline string getKeyword() const { DARABONBA_PTR_GET_DEFAULT(keyword_, "") };
     inline DedicatedIpPoolListRequest& setKeyword(string keyword) { DARABONBA_PTR_SET_VALUE(keyword_, keyword) };
 
 
     // pageIndex Field Functions 
     bool hasPageIndex() const { return this->pageIndex_ != nullptr;};
     void deletePageIndex() { this->pageIndex_ = nullptr;};
-    inline int32_t pageIndex() const { DARABONBA_PTR_GET_DEFAULT(pageIndex_, 0) };
+    inline int32_t getPageIndex() const { DARABONBA_PTR_GET_DEFAULT(pageIndex_, 0) };
     inline DedicatedIpPoolListRequest& setPageIndex(int32_t pageIndex) { DARABONBA_PTR_SET_VALUE(pageIndex_, pageIndex) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DedicatedIpPoolListRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
   protected:
-    std::shared_ptr<bool> all_ = nullptr;
+    shared_ptr<bool> all_ {};
     // Search keyword for the name
-    std::shared_ptr<string> keyword_ = nullptr;
+    shared_ptr<string> keyword_ {};
     // Page index, starting from 1
-    std::shared_ptr<int32_t> pageIndex_ = nullptr;
+    shared_ptr<int32_t> pageIndex_ {};
     // Number of items per page
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
   };
 
   } // namespace Models

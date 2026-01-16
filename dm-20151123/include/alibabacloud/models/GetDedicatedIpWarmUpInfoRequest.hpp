@@ -33,12 +33,12 @@ namespace Models
     // dedicatedIp Field Functions 
     bool hasDedicatedIp() const { return this->dedicatedIp_ != nullptr;};
     void deleteDedicatedIp() { this->dedicatedIp_ = nullptr;};
-    inline string dedicatedIp() const { DARABONBA_PTR_GET_DEFAULT(dedicatedIp_, "") };
+    inline string getDedicatedIp() const { DARABONBA_PTR_GET_DEFAULT(dedicatedIp_, "") };
     inline GetDedicatedIpWarmUpInfoRequest& setDedicatedIp(string dedicatedIp) { DARABONBA_PTR_SET_VALUE(dedicatedIp_, dedicatedIp) };
 
 
   protected:
-    std::shared_ptr<string> dedicatedIp_ = nullptr;
+    shared_ptr<string> dedicatedIp_ {};
   };
 
   } // namespace Models

@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->changed_ == nullptr
-        && return this->dkimPublicKey_ == nullptr && return this->dkimRsaLength_ == nullptr && return this->hostname_ == nullptr && return this->requestId_ == nullptr; };
+        && this->dkimPublicKey_ == nullptr && this->dkimRsaLength_ == nullptr && this->hostname_ == nullptr && this->requestId_ == nullptr; };
     // changed Field Functions 
     bool hasChanged() const { return this->changed_ != nullptr;};
     void deleteChanged() { this->changed_ = nullptr;};
-    inline bool changed() const { DARABONBA_PTR_GET_DEFAULT(changed_, false) };
+    inline bool getChanged() const { DARABONBA_PTR_GET_DEFAULT(changed_, false) };
     inline ChangeDomainDkimRecordResponseBody& setChanged(bool changed) { DARABONBA_PTR_SET_VALUE(changed_, changed) };
 
 
     // dkimPublicKey Field Functions 
     bool hasDkimPublicKey() const { return this->dkimPublicKey_ != nullptr;};
     void deleteDkimPublicKey() { this->dkimPublicKey_ = nullptr;};
-    inline string dkimPublicKey() const { DARABONBA_PTR_GET_DEFAULT(dkimPublicKey_, "") };
+    inline string getDkimPublicKey() const { DARABONBA_PTR_GET_DEFAULT(dkimPublicKey_, "") };
     inline ChangeDomainDkimRecordResponseBody& setDkimPublicKey(string dkimPublicKey) { DARABONBA_PTR_SET_VALUE(dkimPublicKey_, dkimPublicKey) };
 
 
     // dkimRsaLength Field Functions 
     bool hasDkimRsaLength() const { return this->dkimRsaLength_ != nullptr;};
     void deleteDkimRsaLength() { this->dkimRsaLength_ = nullptr;};
-    inline int32_t dkimRsaLength() const { DARABONBA_PTR_GET_DEFAULT(dkimRsaLength_, 0) };
+    inline int32_t getDkimRsaLength() const { DARABONBA_PTR_GET_DEFAULT(dkimRsaLength_, 0) };
     inline ChangeDomainDkimRecordResponseBody& setDkimRsaLength(int32_t dkimRsaLength) { DARABONBA_PTR_SET_VALUE(dkimRsaLength_, dkimRsaLength) };
 
 
     // hostname Field Functions 
     bool hasHostname() const { return this->hostname_ != nullptr;};
     void deleteHostname() { this->hostname_ = nullptr;};
-    inline string hostname() const { DARABONBA_PTR_GET_DEFAULT(hostname_, "") };
+    inline string getHostname() const { DARABONBA_PTR_GET_DEFAULT(hostname_, "") };
     inline ChangeDomainDkimRecordResponseBody& setHostname(string hostname) { DARABONBA_PTR_SET_VALUE(hostname_, hostname) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ChangeDomainDkimRecordResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<bool> changed_ = nullptr;
-    std::shared_ptr<string> dkimPublicKey_ = nullptr;
-    std::shared_ptr<int32_t> dkimRsaLength_ = nullptr;
-    std::shared_ptr<string> hostname_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<bool> changed_ {};
+    shared_ptr<string> dkimPublicKey_ {};
+    shared_ptr<int32_t> dkimRsaLength_ {};
+    shared_ptr<string> hostname_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->buyResourceIds_ == nullptr
-        && return this->id_ == nullptr && return this->updateResource_ == nullptr; };
+        && this->id_ == nullptr && this->updateResource_ == nullptr; };
     // buyResourceIds Field Functions 
     bool hasBuyResourceIds() const { return this->buyResourceIds_ != nullptr;};
     void deleteBuyResourceIds() { this->buyResourceIds_ = nullptr;};
-    inline string buyResourceIds() const { DARABONBA_PTR_GET_DEFAULT(buyResourceIds_, "") };
+    inline string getBuyResourceIds() const { DARABONBA_PTR_GET_DEFAULT(buyResourceIds_, "") };
     inline DedicatedIpPoolUpdateRequest& setBuyResourceIds(string buyResourceIds) { DARABONBA_PTR_SET_VALUE(buyResourceIds_, buyResourceIds) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline string id() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+    inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline DedicatedIpPoolUpdateRequest& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // updateResource Field Functions 
     bool hasUpdateResource() const { return this->updateResource_ != nullptr;};
     void deleteUpdateResource() { this->updateResource_ = nullptr;};
-    inline bool updateResource() const { DARABONBA_PTR_GET_DEFAULT(updateResource_, false) };
+    inline bool getUpdateResource() const { DARABONBA_PTR_GET_DEFAULT(updateResource_, false) };
     inline DedicatedIpPoolUpdateRequest& setUpdateResource(bool updateResource) { DARABONBA_PTR_SET_VALUE(updateResource_, updateResource) };
 
 
   protected:
     // Purchased IP instance IDs, separated by commas; sourced from the DedicatedIpNonePoolList API\\"s returned IP purchase instance IDs
-    std::shared_ptr<string> buyResourceIds_ = nullptr;
+    shared_ptr<string> buyResourceIds_ {};
     // IP pool ID
-    std::shared_ptr<string> id_ = nullptr;
+    shared_ptr<string> id_ {};
     // Whether to change the associated IP, enter true
-    std::shared_ptr<bool> updateResource_ = nullptr;
+    shared_ptr<bool> updateResource_ {};
   };
 
   } // namespace Models

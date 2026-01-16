@@ -48,96 +48,96 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->address_ == nullptr
-        && return this->endBounceTime_ == nullptr && return this->endCreateTime_ == nullptr && return this->ownerId_ == nullptr && return this->pageNo_ == nullptr && return this->pageSize_ == nullptr
-        && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->startBounceTime_ == nullptr && return this->startCreateTime_ == nullptr; };
+        && this->endBounceTime_ == nullptr && this->endCreateTime_ == nullptr && this->ownerId_ == nullptr && this->pageNo_ == nullptr && this->pageSize_ == nullptr
+        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->startBounceTime_ == nullptr && this->startCreateTime_ == nullptr; };
     // address Field Functions 
     bool hasAddress() const { return this->address_ != nullptr;};
     void deleteAddress() { this->address_ = nullptr;};
-    inline string address() const { DARABONBA_PTR_GET_DEFAULT(address_, "") };
+    inline string getAddress() const { DARABONBA_PTR_GET_DEFAULT(address_, "") };
     inline ListUserSuppressionRequest& setAddress(string address) { DARABONBA_PTR_SET_VALUE(address_, address) };
 
 
     // endBounceTime Field Functions 
     bool hasEndBounceTime() const { return this->endBounceTime_ != nullptr;};
     void deleteEndBounceTime() { this->endBounceTime_ = nullptr;};
-    inline int32_t endBounceTime() const { DARABONBA_PTR_GET_DEFAULT(endBounceTime_, 0) };
+    inline int32_t getEndBounceTime() const { DARABONBA_PTR_GET_DEFAULT(endBounceTime_, 0) };
     inline ListUserSuppressionRequest& setEndBounceTime(int32_t endBounceTime) { DARABONBA_PTR_SET_VALUE(endBounceTime_, endBounceTime) };
 
 
     // endCreateTime Field Functions 
     bool hasEndCreateTime() const { return this->endCreateTime_ != nullptr;};
     void deleteEndCreateTime() { this->endCreateTime_ = nullptr;};
-    inline int32_t endCreateTime() const { DARABONBA_PTR_GET_DEFAULT(endCreateTime_, 0) };
+    inline int32_t getEndCreateTime() const { DARABONBA_PTR_GET_DEFAULT(endCreateTime_, 0) };
     inline ListUserSuppressionRequest& setEndCreateTime(int32_t endCreateTime) { DARABONBA_PTR_SET_VALUE(endCreateTime_, endCreateTime) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline ListUserSuppressionRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // pageNo Field Functions 
     bool hasPageNo() const { return this->pageNo_ != nullptr;};
     void deletePageNo() { this->pageNo_ = nullptr;};
-    inline int32_t pageNo() const { DARABONBA_PTR_GET_DEFAULT(pageNo_, 0) };
+    inline int32_t getPageNo() const { DARABONBA_PTR_GET_DEFAULT(pageNo_, 0) };
     inline ListUserSuppressionRequest& setPageNo(int32_t pageNo) { DARABONBA_PTR_SET_VALUE(pageNo_, pageNo) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListUserSuppressionRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline ListUserSuppressionRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline ListUserSuppressionRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // startBounceTime Field Functions 
     bool hasStartBounceTime() const { return this->startBounceTime_ != nullptr;};
     void deleteStartBounceTime() { this->startBounceTime_ = nullptr;};
-    inline int32_t startBounceTime() const { DARABONBA_PTR_GET_DEFAULT(startBounceTime_, 0) };
+    inline int32_t getStartBounceTime() const { DARABONBA_PTR_GET_DEFAULT(startBounceTime_, 0) };
     inline ListUserSuppressionRequest& setStartBounceTime(int32_t startBounceTime) { DARABONBA_PTR_SET_VALUE(startBounceTime_, startBounceTime) };
 
 
     // startCreateTime Field Functions 
     bool hasStartCreateTime() const { return this->startCreateTime_ != nullptr;};
     void deleteStartCreateTime() { this->startCreateTime_ = nullptr;};
-    inline int32_t startCreateTime() const { DARABONBA_PTR_GET_DEFAULT(startCreateTime_, 0) };
+    inline int32_t getStartCreateTime() const { DARABONBA_PTR_GET_DEFAULT(startCreateTime_, 0) };
     inline ListUserSuppressionRequest& setStartCreateTime(int32_t startCreateTime) { DARABONBA_PTR_SET_VALUE(startCreateTime_, startCreateTime) };
 
 
   protected:
     // Email address or domain name
-    std::shared_ptr<string> address_ = nullptr;
+    shared_ptr<string> address_ {};
     // End time of the last bounce hit, timestamp, accurate to the second. The span between start and end times cannot exceed 7 days.
-    std::shared_ptr<int32_t> endBounceTime_ = nullptr;
+    shared_ptr<int32_t> endBounceTime_ {};
     // End creation time, timestamp, accurate to the second. The span between start and end times cannot exceed 7 days.
-    std::shared_ptr<int32_t> endCreateTime_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<int32_t> endCreateTime_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // Current page number
-    std::shared_ptr<int32_t> pageNo_ = nullptr;
+    shared_ptr<int32_t> pageNo_ {};
     // Page size
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
     // Start time of the last bounce hit, timestamp, accurate to the second.
-    std::shared_ptr<int32_t> startBounceTime_ = nullptr;
+    shared_ptr<int32_t> startBounceTime_ {};
     // Start creation time, timestamp, accurate to the second.
-    std::shared_ptr<int32_t> startCreateTime_ = nullptr;
+    shared_ptr<int32_t> startCreateTime_ {};
   };
 
   } // namespace Models
