@@ -13,6 +13,7 @@ namespace Models
   class CreatStockOssCheckTaskRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreatStockOssCheckTaskRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(BucketPrefixFilterConfig, bucketPrefixFilterConfig_);
       DARABONBA_PTR_TO_JSON(Buckets, buckets_);
       DARABONBA_PTR_TO_JSON(CallbackId, callbackId_);
       DARABONBA_PTR_TO_JSON(DistinctHistoryTasks, distinctHistoryTasks_);
@@ -43,6 +44,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TaskType, taskType_);
     };
     friend void from_json(const Darabonba::Json& j, CreatStockOssCheckTaskRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(BucketPrefixFilterConfig, bucketPrefixFilterConfig_);
       DARABONBA_PTR_FROM_JSON(Buckets, buckets_);
       DARABONBA_PTR_FROM_JSON(CallbackId, callbackId_);
       DARABONBA_PTR_FROM_JSON(DistinctHistoryTasks, distinctHistoryTasks_);
@@ -83,13 +85,20 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->buckets_ == nullptr
-        && this->callbackId_ == nullptr && this->distinctHistoryTasks_ == nullptr && this->endTime_ == nullptr && this->executeDate_ == nullptr && this->executeTime_ == nullptr
-        && this->freeze_ == nullptr && this->freezeHighRisk1_ == nullptr && this->freezeHighRisk2_ == nullptr && this->freezeMediumRisk1_ == nullptr && this->freezeMediumRisk2_ == nullptr
-        && this->freezeRestorePath_ == nullptr && this->freezeType_ == nullptr && this->isInc_ == nullptr && this->mediaType_ == nullptr && this->prefixFilterType_ == nullptr
-        && this->prefixFilters_ == nullptr && this->priority_ == nullptr && this->referer_ == nullptr && this->regionId_ == nullptr && this->scanLimit_ == nullptr
-        && this->scanNoFileType_ == nullptr && this->scanResourceType_ == nullptr && this->scanService_ == nullptr && this->startTime_ == nullptr && this->taskCycle_ == nullptr
-        && this->taskName_ == nullptr && this->taskType_ == nullptr; };
+    virtual bool empty() const override { return this->bucketPrefixFilterConfig_ == nullptr
+        && this->buckets_ == nullptr && this->callbackId_ == nullptr && this->distinctHistoryTasks_ == nullptr && this->endTime_ == nullptr && this->executeDate_ == nullptr
+        && this->executeTime_ == nullptr && this->freeze_ == nullptr && this->freezeHighRisk1_ == nullptr && this->freezeHighRisk2_ == nullptr && this->freezeMediumRisk1_ == nullptr
+        && this->freezeMediumRisk2_ == nullptr && this->freezeRestorePath_ == nullptr && this->freezeType_ == nullptr && this->isInc_ == nullptr && this->mediaType_ == nullptr
+        && this->prefixFilterType_ == nullptr && this->prefixFilters_ == nullptr && this->priority_ == nullptr && this->referer_ == nullptr && this->regionId_ == nullptr
+        && this->scanLimit_ == nullptr && this->scanNoFileType_ == nullptr && this->scanResourceType_ == nullptr && this->scanService_ == nullptr && this->startTime_ == nullptr
+        && this->taskCycle_ == nullptr && this->taskName_ == nullptr && this->taskType_ == nullptr; };
+    // bucketPrefixFilterConfig Field Functions 
+    bool hasBucketPrefixFilterConfig() const { return this->bucketPrefixFilterConfig_ != nullptr;};
+    void deleteBucketPrefixFilterConfig() { this->bucketPrefixFilterConfig_ = nullptr;};
+    inline string getBucketPrefixFilterConfig() const { DARABONBA_PTR_GET_DEFAULT(bucketPrefixFilterConfig_, "") };
+    inline CreatStockOssCheckTaskRequest& setBucketPrefixFilterConfig(string bucketPrefixFilterConfig) { DARABONBA_PTR_SET_VALUE(bucketPrefixFilterConfig_, bucketPrefixFilterConfig) };
+
+
     // buckets Field Functions 
     bool hasBuckets() const { return this->buckets_ != nullptr;};
     void deleteBuckets() { this->buckets_ = nullptr;};
@@ -287,6 +296,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> bucketPrefixFilterConfig_ {};
     // OSS buckets
     shared_ptr<string> buckets_ {};
     // Callback ID

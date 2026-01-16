@@ -2,6 +2,8 @@
 #ifndef ALIBABACLOUD_MODELS_GETOSSCHECKTASKINFORESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_GETOSSCHECKTASKINFORESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
+#include <map>
+#include <alibabacloud/models/ConfigBucketPrefixFilterConfigValue.hpp>
 #include <vector>
 using namespace std;
 using json = nlohmann::json;
@@ -63,6 +65,7 @@ namespace Models
     class Config : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Config& obj) { 
+        DARABONBA_PTR_TO_JSON(BucketPrefixFilterConfig, bucketPrefixFilterConfig_);
         DARABONBA_PTR_TO_JSON(CallbackId, callbackId_);
         DARABONBA_PTR_TO_JSON(DistinctHistoryTasks, distinctHistoryTasks_);
         DARABONBA_PTR_TO_JSON(EndTime, endTime_);
@@ -89,6 +92,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(UserFreezeConfig, userFreezeConfig_);
       };
       friend void from_json(const Darabonba::Json& j, Config& obj) { 
+        DARABONBA_PTR_FROM_JSON(BucketPrefixFilterConfig, bucketPrefixFilterConfig_);
         DARABONBA_PTR_FROM_JSON(CallbackId, callbackId_);
         DARABONBA_PTR_FROM_JSON(DistinctHistoryTasks, distinctHistoryTasks_);
         DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
@@ -229,12 +233,21 @@ namespace Models
         shared_ptr<string> serviceName_ {};
       };
 
-      virtual bool empty() const override { return this->callbackId_ == nullptr
-        && this->distinctHistoryTasks_ == nullptr && this->endTime_ == nullptr && this->executeDate_ == nullptr && this->executeTime_ == nullptr && this->freeze_ == nullptr
-        && this->freezeHighRisk1_ == nullptr && this->freezeHighRisk2_ == nullptr && this->freezeMediumRisk1_ == nullptr && this->freezeMediumRisk2_ == nullptr && this->freezeRestorePath_ == nullptr
-        && this->freezeType_ == nullptr && this->prefixFilterType_ == nullptr && this->prefixFilters_ == nullptr && this->priority_ == nullptr && this->referer_ == nullptr
-        && this->scanLimit_ == nullptr && this->scanNoFileType_ == nullptr && this->scanResourceType_ == nullptr && this->scanService_ == nullptr && this->scanServiceInfos_ == nullptr
-        && this->startTime_ == nullptr && this->taskCycle_ == nullptr && this->userFreezeConfig_ == nullptr; };
+      virtual bool empty() const override { return this->bucketPrefixFilterConfig_ == nullptr
+        && this->callbackId_ == nullptr && this->distinctHistoryTasks_ == nullptr && this->endTime_ == nullptr && this->executeDate_ == nullptr && this->executeTime_ == nullptr
+        && this->freeze_ == nullptr && this->freezeHighRisk1_ == nullptr && this->freezeHighRisk2_ == nullptr && this->freezeMediumRisk1_ == nullptr && this->freezeMediumRisk2_ == nullptr
+        && this->freezeRestorePath_ == nullptr && this->freezeType_ == nullptr && this->prefixFilterType_ == nullptr && this->prefixFilters_ == nullptr && this->priority_ == nullptr
+        && this->referer_ == nullptr && this->scanLimit_ == nullptr && this->scanNoFileType_ == nullptr && this->scanResourceType_ == nullptr && this->scanService_ == nullptr
+        && this->scanServiceInfos_ == nullptr && this->startTime_ == nullptr && this->taskCycle_ == nullptr && this->userFreezeConfig_ == nullptr; };
+      // bucketPrefixFilterConfig Field Functions 
+      bool hasBucketPrefixFilterConfig() const { return this->bucketPrefixFilterConfig_ != nullptr;};
+      void deleteBucketPrefixFilterConfig() { this->bucketPrefixFilterConfig_ = nullptr;};
+      inline const map<string, ConfigBucketPrefixFilterConfigValue> & getBucketPrefixFilterConfig() const { DARABONBA_PTR_GET_CONST(bucketPrefixFilterConfig_, map<string, ConfigBucketPrefixFilterConfigValue>) };
+      inline map<string, ConfigBucketPrefixFilterConfigValue> getBucketPrefixFilterConfig() { DARABONBA_PTR_GET(bucketPrefixFilterConfig_, map<string, ConfigBucketPrefixFilterConfigValue>) };
+      inline Config& setBucketPrefixFilterConfig(const map<string, ConfigBucketPrefixFilterConfigValue> & bucketPrefixFilterConfig) { DARABONBA_PTR_SET_VALUE(bucketPrefixFilterConfig_, bucketPrefixFilterConfig) };
+      inline Config& setBucketPrefixFilterConfig(map<string, ConfigBucketPrefixFilterConfigValue> && bucketPrefixFilterConfig) { DARABONBA_PTR_SET_RVALUE(bucketPrefixFilterConfig_, bucketPrefixFilterConfig) };
+
+
       // callbackId Field Functions 
       bool hasCallbackId() const { return this->callbackId_ != nullptr;};
       void deleteCallbackId() { this->callbackId_ = nullptr;};
@@ -412,6 +425,7 @@ namespace Models
 
 
     protected:
+      shared_ptr<map<string, ConfigBucketPrefixFilterConfigValue>> bucketPrefixFilterConfig_ {};
       shared_ptr<int64_t> callbackId_ {};
       shared_ptr<bool> distinctHistoryTasks_ {};
       shared_ptr<string> endTime_ {};

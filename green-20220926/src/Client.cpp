@@ -498,6 +498,10 @@ CopyServiceConfigResponse Client::copyServiceConfig(const CopyServiceConfigReque
 CreatStockOssCheckTaskResponse Client::creatStockOssCheckTaskWithOptions(const CreatStockOssCheckTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasBucketPrefixFilterConfig()) {
+    query["BucketPrefixFilterConfig"] = request.getBucketPrefixFilterConfig();
+  }
+
   if (!!request.hasBuckets()) {
     query["Buckets"] = request.getBuckets();
   }
@@ -827,6 +831,10 @@ CreatePreCheckResponse Client::createPreCheckWithOptions(const CreatePreCheckReq
   }
 
   json body = {};
+  if (!!request.hasBucketPrefixFilterConfig()) {
+    body["BucketPrefixFilterConfig"] = request.getBucketPrefixFilterConfig();
+  }
+
   if (!!request.hasBuckets()) {
     body["Buckets"] = request.getBuckets();
   }

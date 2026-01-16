@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_GREEN20220926MODEL_HPP_
 #define ALIBABACLOUD_GREEN20220926MODEL_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/ConfigBucketPrefixFilterConfigValue.hpp>
 #include <alibabacloud/models/AddAnswerSampleRequest.hpp>
 #include <alibabacloud/models/AddAnswerSampleResponseBody.hpp>
 #include <alibabacloud/models/AddAnswerSampleResponse.hpp>
