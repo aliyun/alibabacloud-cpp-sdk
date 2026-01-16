@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->arn_ == nullptr
-        && return this->size_ == nullptr; };
+        && this->size_ == nullptr; };
     // arn Field Functions 
     bool hasArn() const { return this->arn_ != nullptr;};
     void deleteArn() { this->arn_ = nullptr;};
-    inline string arn() const { DARABONBA_PTR_GET_DEFAULT(arn_, "") };
+    inline string getArn() const { DARABONBA_PTR_GET_DEFAULT(arn_, "") };
     inline FunctionLayer& setArn(string arn) { DARABONBA_PTR_SET_VALUE(arn_, arn) };
 
 
     // size Field Functions 
     bool hasSize() const { return this->size_ != nullptr;};
     void deleteSize() { this->size_ = nullptr;};
-    inline int64_t size() const { DARABONBA_PTR_GET_DEFAULT(size_, 0L) };
+    inline int64_t getSize() const { DARABONBA_PTR_GET_DEFAULT(size_, 0L) };
     inline FunctionLayer& setSize(int64_t size) { DARABONBA_PTR_SET_VALUE(size_, size) };
 
 
   protected:
-    std::shared_ptr<string> arn_ = nullptr;
-    std::shared_ptr<int64_t> size_ = nullptr;
+    shared_ptr<string> arn_ {};
+    shared_ptr<int64_t> size_ {};
   };
 
   } // namespace Models

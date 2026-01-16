@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->prefix_ == nullptr
-        && return this->suffix_ == nullptr; };
+        && this->suffix_ == nullptr; };
     // prefix Field Functions 
     bool hasPrefix() const { return this->prefix_ != nullptr;};
     void deletePrefix() { this->prefix_ = nullptr;};
-    inline string prefix() const { DARABONBA_PTR_GET_DEFAULT(prefix_, "") };
+    inline string getPrefix() const { DARABONBA_PTR_GET_DEFAULT(prefix_, "") };
     inline Key& setPrefix(string prefix) { DARABONBA_PTR_SET_VALUE(prefix_, prefix) };
 
 
     // suffix Field Functions 
     bool hasSuffix() const { return this->suffix_ != nullptr;};
     void deleteSuffix() { this->suffix_ = nullptr;};
-    inline string suffix() const { DARABONBA_PTR_GET_DEFAULT(suffix_, "") };
+    inline string getSuffix() const { DARABONBA_PTR_GET_DEFAULT(suffix_, "") };
     inline Key& setSuffix(string suffix) { DARABONBA_PTR_SET_VALUE(suffix_, suffix) };
 
 
   protected:
-    std::shared_ptr<string> prefix_ = nullptr;
-    std::shared_ptr<string> suffix_ = nullptr;
+    shared_ptr<string> prefix_ {};
+    shared_ptr<string> suffix_ {};
   };
 
   } // namespace Models

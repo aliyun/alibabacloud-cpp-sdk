@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->currentError_ == nullptr
-        && return this->resourceCount_ == nullptr; };
+        && this->resourceCount_ == nullptr; };
     // currentError Field Functions 
     bool hasCurrentError() const { return this->currentError_ != nullptr;};
     void deleteCurrentError() { this->currentError_ = nullptr;};
-    inline string currentError() const { DARABONBA_PTR_GET_DEFAULT(currentError_, "") };
+    inline string getCurrentError() const { DARABONBA_PTR_GET_DEFAULT(currentError_, "") };
     inline ScalingStatus& setCurrentError(string currentError) { DARABONBA_PTR_SET_VALUE(currentError_, currentError) };
 
 
     // resourceCount Field Functions 
     bool hasResourceCount() const { return this->resourceCount_ != nullptr;};
     void deleteResourceCount() { this->resourceCount_ = nullptr;};
-    inline int64_t resourceCount() const { DARABONBA_PTR_GET_DEFAULT(resourceCount_, 0L) };
+    inline int64_t getResourceCount() const { DARABONBA_PTR_GET_DEFAULT(resourceCount_, 0L) };
     inline ScalingStatus& setResourceCount(int64_t resourceCount) { DARABONBA_PTR_SET_VALUE(resourceCount_, resourceCount) };
 
 
   protected:
-    std::shared_ptr<string> currentError_ = nullptr;
-    std::shared_ptr<int64_t> resourceCount_ = nullptr;
+    shared_ptr<string> currentError_ {};
+    shared_ptr<int64_t> resourceCount_ {};
   };
 
   } // namespace Models

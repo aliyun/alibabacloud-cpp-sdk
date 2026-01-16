@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->maxRetryTime_ == nullptr
-        && return this->triggerInterval_ == nullptr; };
+        && this->triggerInterval_ == nullptr; };
     // maxRetryTime Field Functions 
     bool hasMaxRetryTime() const { return this->maxRetryTime_ != nullptr;};
     void deleteMaxRetryTime() { this->maxRetryTime_ = nullptr;};
-    inline int32_t maxRetryTime() const { DARABONBA_PTR_GET_DEFAULT(maxRetryTime_, 0) };
+    inline int32_t getMaxRetryTime() const { DARABONBA_PTR_GET_DEFAULT(maxRetryTime_, 0) };
     inline JobConfig& setMaxRetryTime(int32_t maxRetryTime) { DARABONBA_PTR_SET_VALUE(maxRetryTime_, maxRetryTime) };
 
 
     // triggerInterval Field Functions 
     bool hasTriggerInterval() const { return this->triggerInterval_ != nullptr;};
     void deleteTriggerInterval() { this->triggerInterval_ = nullptr;};
-    inline int32_t triggerInterval() const { DARABONBA_PTR_GET_DEFAULT(triggerInterval_, 0) };
+    inline int32_t getTriggerInterval() const { DARABONBA_PTR_GET_DEFAULT(triggerInterval_, 0) };
     inline JobConfig& setTriggerInterval(int32_t triggerInterval) { DARABONBA_PTR_SET_VALUE(triggerInterval_, triggerInterval) };
 
 
   protected:
-    std::shared_ptr<int32_t> maxRetryTime_ = nullptr;
-    std::shared_ptr<int32_t> triggerInterval_ = nullptr;
+    shared_ptr<int32_t> maxRetryTime_ {};
+    shared_ptr<int32_t> triggerInterval_ {};
   };
 
   } // namespace Models

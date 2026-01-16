@@ -33,13 +33,13 @@ namespace Models
     // qualifier Field Functions 
     bool hasQualifier() const { return this->qualifier_ != nullptr;};
     void deleteQualifier() { this->qualifier_ = nullptr;};
-    inline string qualifier() const { DARABONBA_PTR_GET_DEFAULT(qualifier_, "") };
+    inline string getQualifier() const { DARABONBA_PTR_GET_DEFAULT(qualifier_, "") };
     inline DeleteProvisionConfigRequest& setQualifier(string qualifier) { DARABONBA_PTR_SET_VALUE(qualifier_, qualifier) };
 
 
   protected:
     // The function alias.
-    std::shared_ptr<string> qualifier_ = nullptr;
+    shared_ptr<string> qualifier_ {};
   };
 
   } // namespace Models

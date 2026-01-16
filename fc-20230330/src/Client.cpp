@@ -52,7 +52,7 @@ ChangeResourceGroupResponse Client::changeResourceGroupWithOptions(const ChangeR
   request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "ChangeResourceGroup"},
@@ -94,7 +94,7 @@ CreateAliasResponse Client::createAliasWithOptions(const string &functionName, c
   request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "CreateAlias"},
@@ -136,7 +136,7 @@ CreateCustomDomainResponse Client::createCustomDomainWithOptions(const CreateCus
   request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "CreateCustomDomain"},
@@ -180,7 +180,7 @@ CreateFunctionResponse Client::createFunctionWithOptions(const CreateFunctionReq
   request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "CreateFunction"},
@@ -222,7 +222,7 @@ CreateLayerVersionResponse Client::createLayerVersionWithOptions(const string &l
   request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "CreateLayerVersion"},
@@ -262,13 +262,13 @@ CreateSessionResponse Client::createSessionWithOptions(const string &functionNam
   request.validate();
   json query = {};
   if (!!request.hasQualifier()) {
-    query["qualifier"] = request.qualifier();
+    query["qualifier"] = request.getQualifier();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "CreateSession"},
@@ -308,7 +308,7 @@ CreateTriggerResponse Client::createTriggerWithOptions(const string &functionNam
   request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "CreateTrigger"},
@@ -348,7 +348,7 @@ CreateVpcBindingResponse Client::createVpcBindingWithOptions(const string &funct
   request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "CreateVpcBinding"},
@@ -424,7 +424,7 @@ DeleteAsyncInvokeConfigResponse Client::deleteAsyncInvokeConfigWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasQualifier()) {
-    query["qualifier"] = request.qualifier();
+    query["qualifier"] = request.getQualifier();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -649,7 +649,7 @@ DeleteProvisionConfigResponse Client::deleteProvisionConfigWithOptions(const str
   request.validate();
   json query = {};
   if (!!request.hasQualifier()) {
-    query["qualifier"] = request.qualifier();
+    query["qualifier"] = request.getQualifier();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -694,7 +694,7 @@ DeleteScalingConfigResponse Client::deleteScalingConfigWithOptions(const string 
   request.validate();
   json query = {};
   if (!!request.hasQualifier()) {
-    query["qualifier"] = request.qualifier();
+    query["qualifier"] = request.getQualifier();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -739,7 +739,7 @@ DeleteSessionResponse Client::deleteSessionWithOptions(const string &functionNam
   request.validate();
   json query = {};
   if (!!request.hasQualifier()) {
-    query["qualifier"] = request.qualifier();
+    query["qualifier"] = request.getQualifier();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -856,7 +856,7 @@ DescribeRegionsResponse Client::describeRegionsWithOptions(const DescribeRegions
   request.validate();
   json query = {};
   if (!!request.hasAcceptLanguage()) {
-    query["AcceptLanguage"] = request.acceptLanguage();
+    query["AcceptLanguage"] = request.getAcceptLanguage();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -903,11 +903,11 @@ DisableFunctionInvocationResponse Client::disableFunctionInvocationWithOptions(c
   request.validate();
   json body = {};
   if (!!request.hasAbortOngoingRequest()) {
-    body["abortOngoingRequest"] = request.abortOngoingRequest();
+    body["abortOngoingRequest"] = request.getAbortOngoingRequest();
   }
 
   if (!!request.hasReason()) {
-    body["reason"] = request.reason();
+    body["reason"] = request.getReason();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1026,7 +1026,7 @@ GetAsyncInvokeConfigResponse Client::getAsyncInvokeConfigWithOptions(const strin
   request.validate();
   json query = {};
   if (!!request.hasQualifier()) {
-    query["qualifier"] = request.qualifier();
+    query["qualifier"] = request.getQualifier();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1071,7 +1071,7 @@ GetAsyncTaskResponse Client::getAsyncTaskWithOptions(const string &functionName,
   request.validate();
   json query = {};
   if (!!request.hasQualifier()) {
-    query["qualifier"] = request.qualifier();
+    query["qualifier"] = request.getQualifier();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1188,7 +1188,7 @@ GetFunctionResponse Client::getFunctionWithOptions(const string &functionName, c
   request.validate();
   json query = {};
   if (!!request.hasQualifier()) {
-    query["qualifier"] = request.qualifier();
+    query["qualifier"] = request.getQualifier();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1233,7 +1233,7 @@ GetFunctionCodeResponse Client::getFunctionCodeWithOptions(const string &functio
   request.validate();
   json query = {};
   if (!!request.hasQualifier()) {
-    query["qualifier"] = request.qualifier();
+    query["qualifier"] = request.getQualifier();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1350,7 +1350,7 @@ GetProvisionConfigResponse Client::getProvisionConfigWithOptions(const string &f
   request.validate();
   json query = {};
   if (!!request.hasQualifier()) {
-    query["qualifier"] = request.qualifier();
+    query["qualifier"] = request.getQualifier();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1395,7 +1395,7 @@ GetScalingConfigResponse Client::getScalingConfigWithOptions(const string &funct
   request.validate();
   json query = {};
   if (!!request.hasQualifier()) {
-    query["qualifier"] = request.qualifier();
+    query["qualifier"] = request.getQualifier();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1440,7 +1440,7 @@ GetSessionResponse Client::getSessionWithOptions(const string &functionName, con
   request.validate();
   json query = {};
   if (!!request.hasQualifier()) {
-    query["qualifier"] = request.qualifier();
+    query["qualifier"] = request.getQualifier();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1521,31 +1521,31 @@ InvokeFunctionResponse Client::invokeFunctionWithOptions(const string &functionN
   request.validate();
   json query = {};
   if (!!request.hasQualifier()) {
-    query["qualifier"] = request.qualifier();
+    query["qualifier"] = request.getQualifier();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXFcAsyncTaskId()) {
-    realHeaders["x-fc-async-task-id"] = Darabonba::Convert::stringVal(headers.xFcAsyncTaskId());
+    realHeaders["x-fc-async-task-id"] = Darabonba::Convert::stringVal(headers.getXFcAsyncTaskId());
   }
 
   if (!!headers.hasXFcInvocationType()) {
-    realHeaders["x-fc-invocation-type"] = Darabonba::Convert::stringVal(headers.xFcInvocationType());
+    realHeaders["x-fc-invocation-type"] = Darabonba::Convert::stringVal(headers.getXFcInvocationType());
   }
 
   if (!!headers.hasXFcLogType()) {
-    realHeaders["x-fc-log-type"] = Darabonba::Convert::stringVal(headers.xFcLogType());
+    realHeaders["x-fc-log-type"] = Darabonba::Convert::stringVal(headers.getXFcLogType());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , realHeaders},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()},
-    {"stream" , request.body()}
+    {"body" , request.getBody()},
+    {"stream" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "InvokeFunction"},
@@ -1602,15 +1602,15 @@ ListAliasesResponse Client::listAliasesWithOptions(const string &functionName, c
   request.validate();
   json query = {};
   if (!!request.hasLimit()) {
-    query["limit"] = request.limit();
+    query["limit"] = request.getLimit();
   }
 
   if (!!request.hasNextToken()) {
-    query["nextToken"] = request.nextToken();
+    query["nextToken"] = request.getNextToken();
   }
 
   if (!!request.hasPrefix()) {
-    query["prefix"] = request.prefix();
+    query["prefix"] = request.getPrefix();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1655,15 +1655,15 @@ ListAsyncInvokeConfigsResponse Client::listAsyncInvokeConfigsWithOptions(const L
   request.validate();
   json query = {};
   if (!!request.hasFunctionName()) {
-    query["functionName"] = request.functionName();
+    query["functionName"] = request.getFunctionName();
   }
 
   if (!!request.hasLimit()) {
-    query["limit"] = request.limit();
+    query["limit"] = request.getLimit();
   }
 
   if (!!request.hasNextToken()) {
-    query["nextToken"] = request.nextToken();
+    query["nextToken"] = request.getNextToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1708,39 +1708,39 @@ ListAsyncTasksResponse Client::listAsyncTasksWithOptions(const string &functionN
   request.validate();
   json query = {};
   if (!!request.hasIncludePayload()) {
-    query["includePayload"] = request.includePayload();
+    query["includePayload"] = request.getIncludePayload();
   }
 
   if (!!request.hasLimit()) {
-    query["limit"] = request.limit();
+    query["limit"] = request.getLimit();
   }
 
   if (!!request.hasNextToken()) {
-    query["nextToken"] = request.nextToken();
+    query["nextToken"] = request.getNextToken();
   }
 
   if (!!request.hasPrefix()) {
-    query["prefix"] = request.prefix();
+    query["prefix"] = request.getPrefix();
   }
 
   if (!!request.hasQualifier()) {
-    query["qualifier"] = request.qualifier();
+    query["qualifier"] = request.getQualifier();
   }
 
   if (!!request.hasSortOrderByTime()) {
-    query["sortOrderByTime"] = request.sortOrderByTime();
+    query["sortOrderByTime"] = request.getSortOrderByTime();
   }
 
   if (!!request.hasStartedTimeBegin()) {
-    query["startedTimeBegin"] = request.startedTimeBegin();
+    query["startedTimeBegin"] = request.getStartedTimeBegin();
   }
 
   if (!!request.hasStartedTimeEnd()) {
-    query["startedTimeEnd"] = request.startedTimeEnd();
+    query["startedTimeEnd"] = request.getStartedTimeEnd();
   }
 
   if (!!request.hasStatus()) {
-    query["status"] = request.status();
+    query["status"] = request.getStatus();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1785,15 +1785,15 @@ ListConcurrencyConfigsResponse Client::listConcurrencyConfigsWithOptions(const L
   request.validate();
   json query = {};
   if (!!request.hasFunctionName()) {
-    query["functionName"] = request.functionName();
+    query["functionName"] = request.getFunctionName();
   }
 
   if (!!request.hasLimit()) {
-    query["limit"] = request.limit();
+    query["limit"] = request.getLimit();
   }
 
   if (!!request.hasNextToken()) {
-    query["nextToken"] = request.nextToken();
+    query["nextToken"] = request.getNextToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1838,15 +1838,15 @@ ListCustomDomainsResponse Client::listCustomDomainsWithOptions(const ListCustomD
   request.validate();
   json query = {};
   if (!!request.hasLimit()) {
-    query["limit"] = request.limit();
+    query["limit"] = request.getLimit();
   }
 
   if (!!request.hasNextToken()) {
-    query["nextToken"] = request.nextToken();
+    query["nextToken"] = request.getNextToken();
   }
 
   if (!!request.hasPrefix()) {
-    query["prefix"] = request.prefix();
+    query["prefix"] = request.getPrefix();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1891,15 +1891,15 @@ ListFunctionVersionsResponse Client::listFunctionVersionsWithOptions(const strin
   request.validate();
   json query = {};
   if (!!request.hasDirection()) {
-    query["direction"] = request.direction();
+    query["direction"] = request.getDirection();
   }
 
   if (!!request.hasLimit()) {
-    query["limit"] = request.limit();
+    query["limit"] = request.getLimit();
   }
 
   if (!!request.hasNextToken()) {
-    query["nextToken"] = request.nextToken();
+    query["nextToken"] = request.getNextToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1947,48 +1947,48 @@ ListFunctionsResponse Client::listFunctionsWithOptions(const ListFunctionsReques
   ListFunctionsShrinkRequest request = ListFunctionsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasTags()) {
-    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tags(), "tags", "json"));
+    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTags(), "tags", "json"));
   }
 
   json query = {};
   if (!!request.hasDescription()) {
-    query["description"] = request.description();
+    query["description"] = request.getDescription();
   }
 
   if (!!request.hasFcVersion()) {
-    query["fcVersion"] = request.fcVersion();
+    query["fcVersion"] = request.getFcVersion();
   }
 
   if (!!request.hasFunctionName()) {
-    query["functionName"] = request.functionName();
+    query["functionName"] = request.getFunctionName();
   }
 
   if (!!request.hasGpuType()) {
-    query["gpuType"] = request.gpuType();
+    query["gpuType"] = request.getGpuType();
   }
 
   if (!!request.hasLimit()) {
-    query["limit"] = request.limit();
+    query["limit"] = request.getLimit();
   }
 
   if (!!request.hasNextToken()) {
-    query["nextToken"] = request.nextToken();
+    query["nextToken"] = request.getNextToken();
   }
 
   if (!!request.hasPrefix()) {
-    query["prefix"] = request.prefix();
+    query["prefix"] = request.getPrefix();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["resourceGroupId"] = request.resourceGroupId();
+    query["resourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasRuntime()) {
-    query["runtime"] = request.runtime();
+    query["runtime"] = request.getRuntime();
   }
 
   if (!!request.hasTagsShrink()) {
-    query["tags"] = request.tagsShrink();
+    query["tags"] = request.getTagsShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2036,44 +2036,44 @@ ListInstancesResponse Client::listInstancesWithOptions(const string &functionNam
   ListInstancesShrinkRequest request = ListInstancesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasInstanceIds()) {
-    request.setInstanceIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.instanceIds(), "instanceIds", "json"));
+    request.setInstanceIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getInstanceIds(), "instanceIds", "json"));
   }
 
   if (!!tmpReq.hasInstanceStatus()) {
-    request.setInstanceStatusShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.instanceStatus(), "instanceStatus", "json"));
+    request.setInstanceStatusShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getInstanceStatus(), "instanceStatus", "json"));
   }
 
   json query = {};
   if (!!request.hasEndTimeMs()) {
-    query["endTimeMs"] = request.endTimeMs();
+    query["endTimeMs"] = request.getEndTimeMs();
   }
 
   if (!!request.hasInstanceIdsShrink()) {
-    query["instanceIds"] = request.instanceIdsShrink();
+    query["instanceIds"] = request.getInstanceIdsShrink();
   }
 
   if (!!request.hasInstanceStatusShrink()) {
-    query["instanceStatus"] = request.instanceStatusShrink();
+    query["instanceStatus"] = request.getInstanceStatusShrink();
   }
 
   if (!!request.hasLimit()) {
-    query["limit"] = request.limit();
+    query["limit"] = request.getLimit();
   }
 
   if (!!request.hasQualifier()) {
-    query["qualifier"] = request.qualifier();
+    query["qualifier"] = request.getQualifier();
   }
 
   if (!!request.hasStartKey()) {
-    query["startKey"] = request.startKey();
+    query["startKey"] = request.getStartKey();
   }
 
   if (!!request.hasStartTimeMs()) {
-    query["startTimeMs"] = request.startTimeMs();
+    query["startTimeMs"] = request.getStartTimeMs();
   }
 
   if (!!request.hasWithAllActive()) {
-    query["withAllActive"] = request.withAllActive();
+    query["withAllActive"] = request.getWithAllActive();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2118,11 +2118,11 @@ ListLayerVersionsResponse Client::listLayerVersionsWithOptions(const string &lay
   request.validate();
   json query = {};
   if (!!request.hasLimit()) {
-    query["limit"] = request.limit();
+    query["limit"] = request.getLimit();
   }
 
   if (!!request.hasStartVersion()) {
-    query["startVersion"] = request.startVersion();
+    query["startVersion"] = request.getStartVersion();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2167,23 +2167,23 @@ ListLayersResponse Client::listLayersWithOptions(const ListLayersRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasLimit()) {
-    query["limit"] = request.limit();
+    query["limit"] = request.getLimit();
   }
 
   if (!!request.hasNextToken()) {
-    query["nextToken"] = request.nextToken();
+    query["nextToken"] = request.getNextToken();
   }
 
   if (!!request.hasOfficial()) {
-    query["official"] = request.official();
+    query["official"] = request.getOfficial();
   }
 
   if (!!request.hasPrefix()) {
-    query["prefix"] = request.prefix();
+    query["prefix"] = request.getPrefix();
   }
 
   if (!!request.hasPublic()) {
-    query["public"] = request._public();
+    query["public"] = request.getPublic();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2228,15 +2228,15 @@ ListProvisionConfigsResponse Client::listProvisionConfigsWithOptions(const ListP
   request.validate();
   json query = {};
   if (!!request.hasFunctionName()) {
-    query["functionName"] = request.functionName();
+    query["functionName"] = request.getFunctionName();
   }
 
   if (!!request.hasLimit()) {
-    query["limit"] = request.limit();
+    query["limit"] = request.getLimit();
   }
 
   if (!!request.hasNextToken()) {
-    query["nextToken"] = request.nextToken();
+    query["nextToken"] = request.getNextToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2281,15 +2281,15 @@ ListScalingConfigsResponse Client::listScalingConfigsWithOptions(const ListScali
   request.validate();
   json query = {};
   if (!!request.hasFunctionName()) {
-    query["functionName"] = request.functionName();
+    query["functionName"] = request.getFunctionName();
   }
 
   if (!!request.hasLimit()) {
-    query["limit"] = request.limit();
+    query["limit"] = request.getLimit();
   }
 
   if (!!request.hasNextToken()) {
-    query["nextToken"] = request.nextToken();
+    query["nextToken"] = request.getNextToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2334,23 +2334,23 @@ ListSessionsResponse Client::listSessionsWithOptions(const string &functionName,
   request.validate();
   json query = {};
   if (!!request.hasLimit()) {
-    query["limit"] = request.limit();
+    query["limit"] = request.getLimit();
   }
 
   if (!!request.hasNextToken()) {
-    query["nextToken"] = request.nextToken();
+    query["nextToken"] = request.getNextToken();
   }
 
   if (!!request.hasQualifier()) {
-    query["qualifier"] = request.qualifier();
+    query["qualifier"] = request.getQualifier();
   }
 
   if (!!request.hasSessionId()) {
-    query["sessionId"] = request.sessionId();
+    query["sessionId"] = request.getSessionId();
   }
 
   if (!!request.hasSessionStatus()) {
-    query["sessionStatus"] = request.sessionStatus();
+    query["sessionStatus"] = request.getSessionStatus();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2396,32 +2396,32 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
   ListTagResourcesShrinkRequest request = ListTagResourcesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasResourceId()) {
-    request.setResourceIdShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.resourceId(), "ResourceId", "json"));
+    request.setResourceIdShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getResourceId(), "ResourceId", "json"));
   }
 
   if (!!tmpReq.hasTag()) {
-    request.setTagShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tag(), "Tag", "json"));
+    request.setTagShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTag(), "Tag", "json"));
   }
 
   json query = {};
   if (!!request.hasLimit()) {
-    query["Limit"] = request.limit();
+    query["Limit"] = request.getLimit();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasResourceIdShrink()) {
-    query["ResourceId"] = request.resourceIdShrink();
+    query["ResourceId"] = request.getResourceIdShrink();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTagShrink()) {
-    query["Tag"] = request.tagShrink();
+    query["Tag"] = request.getTagShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2466,15 +2466,15 @@ ListTriggersResponse Client::listTriggersWithOptions(const string &functionName,
   request.validate();
   json query = {};
   if (!!request.hasLimit()) {
-    query["limit"] = request.limit();
+    query["limit"] = request.getLimit();
   }
 
   if (!!request.hasNextToken()) {
-    query["nextToken"] = request.nextToken();
+    query["nextToken"] = request.getNextToken();
   }
 
   if (!!request.hasPrefix()) {
-    query["prefix"] = request.prefix();
+    query["prefix"] = request.getPrefix();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2555,7 +2555,7 @@ PublishFunctionVersionResponse Client::publishFunctionVersionWithOptions(const s
   request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "PublishFunctionVersion"},
@@ -2595,13 +2595,13 @@ PutAsyncInvokeConfigResponse Client::putAsyncInvokeConfigWithOptions(const strin
   request.validate();
   json query = {};
   if (!!request.hasQualifier()) {
-    query["qualifier"] = request.qualifier();
+    query["qualifier"] = request.getQualifier();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "PutAsyncInvokeConfig"},
@@ -2641,7 +2641,7 @@ PutConcurrencyConfigResponse Client::putConcurrencyConfigWithOptions(const strin
   request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "PutConcurrencyConfig"},
@@ -2681,11 +2681,11 @@ PutLayerACLResponse Client::putLayerACLWithOptions(const string &layerName, cons
   request.validate();
   json query = {};
   if (!!request.hasAcl()) {
-    query["acl"] = request.acl();
+    query["acl"] = request.getAcl();
   }
 
   if (!!request.hasPublic()) {
-    query["public"] = request._public();
+    query["public"] = request.getPublic();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2730,13 +2730,13 @@ PutProvisionConfigResponse Client::putProvisionConfigWithOptions(const string &f
   request.validate();
   json query = {};
   if (!!request.hasQualifier()) {
-    query["qualifier"] = request.qualifier();
+    query["qualifier"] = request.getQualifier();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "PutProvisionConfig"},
@@ -2776,13 +2776,13 @@ PutScalingConfigResponse Client::putScalingConfigWithOptions(const string &funct
   request.validate();
   json query = {};
   if (!!request.hasQualifier()) {
-    query["qualifier"] = request.qualifier();
+    query["qualifier"] = request.getQualifier();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "PutScalingConfig"},
@@ -2822,7 +2822,7 @@ StopAsyncTaskResponse Client::stopAsyncTaskWithOptions(const string &functionNam
   request.validate();
   json query = {};
   if (!!request.hasQualifier()) {
-    query["qualifier"] = request.qualifier();
+    query["qualifier"] = request.getQualifier();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2869,7 +2869,7 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
   request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "TagResources"},
@@ -2912,28 +2912,28 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
   UntagResourcesShrinkRequest request = UntagResourcesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasResourceId()) {
-    request.setResourceIdShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.resourceId(), "ResourceId", "json"));
+    request.setResourceIdShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getResourceId(), "ResourceId", "json"));
   }
 
   if (!!tmpReq.hasTagKey()) {
-    request.setTagKeyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tagKey(), "TagKey", "json"));
+    request.setTagKeyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTagKey(), "TagKey", "json"));
   }
 
   json query = {};
   if (!!request.hasAll()) {
-    query["All"] = request.all();
+    query["All"] = request.getAll();
   }
 
   if (!!request.hasResourceIdShrink()) {
-    query["ResourceId"] = request.resourceIdShrink();
+    query["ResourceId"] = request.getResourceIdShrink();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTagKeyShrink()) {
-    query["TagKey"] = request.tagKeyShrink();
+    query["TagKey"] = request.getTagKeyShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2978,7 +2978,7 @@ UpdateAliasResponse Client::updateAliasWithOptions(const string &functionName, c
   request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "UpdateAlias"},
@@ -3018,7 +3018,7 @@ UpdateCustomDomainResponse Client::updateCustomDomainWithOptions(const string &d
   request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "UpdateCustomDomain"},
@@ -3058,7 +3058,7 @@ UpdateFunctionResponse Client::updateFunctionWithOptions(const string &functionN
   request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "UpdateFunction"},
@@ -3098,13 +3098,13 @@ UpdateSessionResponse Client::updateSessionWithOptions(const string &functionNam
   request.validate();
   json query = {};
   if (!!request.hasQualifier()) {
-    query["qualifier"] = request.qualifier();
+    query["qualifier"] = request.getQualifier();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "UpdateSession"},
@@ -3144,7 +3144,7 @@ UpdateTriggerResponse Client::updateTriggerWithOptions(const string &functionNam
   request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "UpdateTrigger"},

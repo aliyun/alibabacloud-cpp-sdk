@@ -34,8 +34,8 @@ namespace Models
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const CreateVpcBindingInput & body() const { DARABONBA_PTR_GET_CONST(body_, CreateVpcBindingInput) };
-    inline CreateVpcBindingInput body() { DARABONBA_PTR_GET(body_, CreateVpcBindingInput) };
+    inline const CreateVpcBindingInput & getBody() const { DARABONBA_PTR_GET_CONST(body_, CreateVpcBindingInput) };
+    inline CreateVpcBindingInput getBody() { DARABONBA_PTR_GET(body_, CreateVpcBindingInput) };
     inline CreateVpcBindingRequest& setBody(const CreateVpcBindingInput & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
     inline CreateVpcBindingRequest& setBody(CreateVpcBindingInput && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
@@ -44,7 +44,7 @@ namespace Models
     // The VPC binding configurations.
     // 
     // This parameter is required.
-    std::shared_ptr<CreateVpcBindingInput> body_ = nullptr;
+    shared_ptr<CreateVpcBindingInput> body_ {};
   };
 
   } // namespace Models

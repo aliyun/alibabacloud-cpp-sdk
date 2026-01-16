@@ -52,13 +52,13 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accelerationInfo_ == nullptr
-        && return this->accelerationType_ == nullptr && return this->acrInstanceId_ == nullptr && return this->command_ == nullptr && return this->entrypoint_ == nullptr && return this->healthCheckConfig_ == nullptr
-        && return this->image_ == nullptr && return this->port_ == nullptr && return this->registryConfig_ == nullptr && return this->resolvedImageUri_ == nullptr; };
+        && this->accelerationType_ == nullptr && this->acrInstanceId_ == nullptr && this->command_ == nullptr && this->entrypoint_ == nullptr && this->healthCheckConfig_ == nullptr
+        && this->image_ == nullptr && this->port_ == nullptr && this->registryConfig_ == nullptr && this->resolvedImageUri_ == nullptr; };
     // accelerationInfo Field Functions 
     bool hasAccelerationInfo() const { return this->accelerationInfo_ != nullptr;};
     void deleteAccelerationInfo() { this->accelerationInfo_ = nullptr;};
-    inline const AccelerationInfo & accelerationInfo() const { DARABONBA_PTR_GET_CONST(accelerationInfo_, AccelerationInfo) };
-    inline AccelerationInfo accelerationInfo() { DARABONBA_PTR_GET(accelerationInfo_, AccelerationInfo) };
+    inline const AccelerationInfo & getAccelerationInfo() const { DARABONBA_PTR_GET_CONST(accelerationInfo_, AccelerationInfo) };
+    inline AccelerationInfo getAccelerationInfo() { DARABONBA_PTR_GET(accelerationInfo_, AccelerationInfo) };
     inline CustomContainerConfig& setAccelerationInfo(const AccelerationInfo & accelerationInfo) { DARABONBA_PTR_SET_VALUE(accelerationInfo_, accelerationInfo) };
     inline CustomContainerConfig& setAccelerationInfo(AccelerationInfo && accelerationInfo) { DARABONBA_PTR_SET_RVALUE(accelerationInfo_, accelerationInfo) };
 
@@ -66,22 +66,22 @@ namespace Models
     // accelerationType Field Functions 
     bool hasAccelerationType() const { return this->accelerationType_ != nullptr;};
     void deleteAccelerationType() { this->accelerationType_ = nullptr;};
-    inline string accelerationType() const { DARABONBA_PTR_GET_DEFAULT(accelerationType_, "") };
+    inline string getAccelerationType() const { DARABONBA_PTR_GET_DEFAULT(accelerationType_, "") };
     inline CustomContainerConfig& setAccelerationType(string accelerationType) { DARABONBA_PTR_SET_VALUE(accelerationType_, accelerationType) };
 
 
     // acrInstanceId Field Functions 
     bool hasAcrInstanceId() const { return this->acrInstanceId_ != nullptr;};
     void deleteAcrInstanceId() { this->acrInstanceId_ = nullptr;};
-    inline string acrInstanceId() const { DARABONBA_PTR_GET_DEFAULT(acrInstanceId_, "") };
+    inline string getAcrInstanceId() const { DARABONBA_PTR_GET_DEFAULT(acrInstanceId_, "") };
     inline CustomContainerConfig& setAcrInstanceId(string acrInstanceId) { DARABONBA_PTR_SET_VALUE(acrInstanceId_, acrInstanceId) };
 
 
     // command Field Functions 
     bool hasCommand() const { return this->command_ != nullptr;};
     void deleteCommand() { this->command_ = nullptr;};
-    inline const vector<string> & command() const { DARABONBA_PTR_GET_CONST(command_, vector<string>) };
-    inline vector<string> command() { DARABONBA_PTR_GET(command_, vector<string>) };
+    inline const vector<string> & getCommand() const { DARABONBA_PTR_GET_CONST(command_, vector<string>) };
+    inline vector<string> getCommand() { DARABONBA_PTR_GET(command_, vector<string>) };
     inline CustomContainerConfig& setCommand(const vector<string> & command) { DARABONBA_PTR_SET_VALUE(command_, command) };
     inline CustomContainerConfig& setCommand(vector<string> && command) { DARABONBA_PTR_SET_RVALUE(command_, command) };
 
@@ -89,8 +89,8 @@ namespace Models
     // entrypoint Field Functions 
     bool hasEntrypoint() const { return this->entrypoint_ != nullptr;};
     void deleteEntrypoint() { this->entrypoint_ = nullptr;};
-    inline const vector<string> & entrypoint() const { DARABONBA_PTR_GET_CONST(entrypoint_, vector<string>) };
-    inline vector<string> entrypoint() { DARABONBA_PTR_GET(entrypoint_, vector<string>) };
+    inline const vector<string> & getEntrypoint() const { DARABONBA_PTR_GET_CONST(entrypoint_, vector<string>) };
+    inline vector<string> getEntrypoint() { DARABONBA_PTR_GET(entrypoint_, vector<string>) };
     inline CustomContainerConfig& setEntrypoint(const vector<string> & entrypoint) { DARABONBA_PTR_SET_VALUE(entrypoint_, entrypoint) };
     inline CustomContainerConfig& setEntrypoint(vector<string> && entrypoint) { DARABONBA_PTR_SET_RVALUE(entrypoint_, entrypoint) };
 
@@ -98,8 +98,8 @@ namespace Models
     // healthCheckConfig Field Functions 
     bool hasHealthCheckConfig() const { return this->healthCheckConfig_ != nullptr;};
     void deleteHealthCheckConfig() { this->healthCheckConfig_ = nullptr;};
-    inline const CustomHealthCheckConfig & healthCheckConfig() const { DARABONBA_PTR_GET_CONST(healthCheckConfig_, CustomHealthCheckConfig) };
-    inline CustomHealthCheckConfig healthCheckConfig() { DARABONBA_PTR_GET(healthCheckConfig_, CustomHealthCheckConfig) };
+    inline const CustomHealthCheckConfig & getHealthCheckConfig() const { DARABONBA_PTR_GET_CONST(healthCheckConfig_, CustomHealthCheckConfig) };
+    inline CustomHealthCheckConfig getHealthCheckConfig() { DARABONBA_PTR_GET(healthCheckConfig_, CustomHealthCheckConfig) };
     inline CustomContainerConfig& setHealthCheckConfig(const CustomHealthCheckConfig & healthCheckConfig) { DARABONBA_PTR_SET_VALUE(healthCheckConfig_, healthCheckConfig) };
     inline CustomContainerConfig& setHealthCheckConfig(CustomHealthCheckConfig && healthCheckConfig) { DARABONBA_PTR_SET_RVALUE(healthCheckConfig_, healthCheckConfig) };
 
@@ -107,22 +107,22 @@ namespace Models
     // image Field Functions 
     bool hasImage() const { return this->image_ != nullptr;};
     void deleteImage() { this->image_ = nullptr;};
-    inline string image() const { DARABONBA_PTR_GET_DEFAULT(image_, "") };
+    inline string getImage() const { DARABONBA_PTR_GET_DEFAULT(image_, "") };
     inline CustomContainerConfig& setImage(string image) { DARABONBA_PTR_SET_VALUE(image_, image) };
 
 
     // port Field Functions 
     bool hasPort() const { return this->port_ != nullptr;};
     void deletePort() { this->port_ = nullptr;};
-    inline int32_t port() const { DARABONBA_PTR_GET_DEFAULT(port_, 0) };
+    inline int32_t getPort() const { DARABONBA_PTR_GET_DEFAULT(port_, 0) };
     inline CustomContainerConfig& setPort(int32_t port) { DARABONBA_PTR_SET_VALUE(port_, port) };
 
 
     // registryConfig Field Functions 
     bool hasRegistryConfig() const { return this->registryConfig_ != nullptr;};
     void deleteRegistryConfig() { this->registryConfig_ = nullptr;};
-    inline const RegistryConfig & registryConfig() const { DARABONBA_PTR_GET_CONST(registryConfig_, RegistryConfig) };
-    inline RegistryConfig registryConfig() { DARABONBA_PTR_GET(registryConfig_, RegistryConfig) };
+    inline const RegistryConfig & getRegistryConfig() const { DARABONBA_PTR_GET_CONST(registryConfig_, RegistryConfig) };
+    inline RegistryConfig getRegistryConfig() { DARABONBA_PTR_GET(registryConfig_, RegistryConfig) };
     inline CustomContainerConfig& setRegistryConfig(const RegistryConfig & registryConfig) { DARABONBA_PTR_SET_VALUE(registryConfig_, registryConfig) };
     inline CustomContainerConfig& setRegistryConfig(RegistryConfig && registryConfig) { DARABONBA_PTR_SET_RVALUE(registryConfig_, registryConfig) };
 
@@ -130,21 +130,21 @@ namespace Models
     // resolvedImageUri Field Functions 
     bool hasResolvedImageUri() const { return this->resolvedImageUri_ != nullptr;};
     void deleteResolvedImageUri() { this->resolvedImageUri_ = nullptr;};
-    inline string resolvedImageUri() const { DARABONBA_PTR_GET_DEFAULT(resolvedImageUri_, "") };
+    inline string getResolvedImageUri() const { DARABONBA_PTR_GET_DEFAULT(resolvedImageUri_, "") };
     inline CustomContainerConfig& setResolvedImageUri(string resolvedImageUri) { DARABONBA_PTR_SET_VALUE(resolvedImageUri_, resolvedImageUri) };
 
 
   protected:
-    std::shared_ptr<AccelerationInfo> accelerationInfo_ = nullptr;
-    std::shared_ptr<string> accelerationType_ = nullptr;
-    std::shared_ptr<string> acrInstanceId_ = nullptr;
-    std::shared_ptr<vector<string>> command_ = nullptr;
-    std::shared_ptr<vector<string>> entrypoint_ = nullptr;
-    std::shared_ptr<CustomHealthCheckConfig> healthCheckConfig_ = nullptr;
-    std::shared_ptr<string> image_ = nullptr;
-    std::shared_ptr<int32_t> port_ = nullptr;
-    std::shared_ptr<RegistryConfig> registryConfig_ = nullptr;
-    std::shared_ptr<string> resolvedImageUri_ = nullptr;
+    shared_ptr<AccelerationInfo> accelerationInfo_ {};
+    shared_ptr<string> accelerationType_ {};
+    shared_ptr<string> acrInstanceId_ {};
+    shared_ptr<vector<string>> command_ {};
+    shared_ptr<vector<string>> entrypoint_ {};
+    shared_ptr<CustomHealthCheckConfig> healthCheckConfig_ {};
+    shared_ptr<string> image_ {};
+    shared_ptr<int32_t> port_ {};
+    shared_ptr<RegistryConfig> registryConfig_ {};
+    shared_ptr<string> resolvedImageUri_ {};
   };
 
   } // namespace Models

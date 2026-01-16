@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->limit_ == nullptr
-        && return this->startVersion_ == nullptr; };
+        && this->startVersion_ == nullptr; };
     // limit Field Functions 
     bool hasLimit() const { return this->limit_ != nullptr;};
     void deleteLimit() { this->limit_ = nullptr;};
-    inline int32_t limit() const { DARABONBA_PTR_GET_DEFAULT(limit_, 0) };
+    inline int32_t getLimit() const { DARABONBA_PTR_GET_DEFAULT(limit_, 0) };
     inline ListLayerVersionsRequest& setLimit(int32_t limit) { DARABONBA_PTR_SET_VALUE(limit_, limit) };
 
 
     // startVersion Field Functions 
     bool hasStartVersion() const { return this->startVersion_ != nullptr;};
     void deleteStartVersion() { this->startVersion_ = nullptr;};
-    inline string startVersion() const { DARABONBA_PTR_GET_DEFAULT(startVersion_, "") };
+    inline string getStartVersion() const { DARABONBA_PTR_GET_DEFAULT(startVersion_, "") };
     inline ListLayerVersionsRequest& setStartVersion(string startVersion) { DARABONBA_PTR_SET_VALUE(startVersion_, startVersion) };
 
 
   protected:
     // The number of versions to be returned.
-    std::shared_ptr<int32_t> limit_ = nullptr;
+    shared_ptr<int32_t> limit_ {};
     // The initial version of the layer.
-    std::shared_ptr<string> startVersion_ = nullptr;
+    shared_ptr<string> startVersion_ {};
   };
 
   } // namespace Models

@@ -36,12 +36,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dnsOptions_ == nullptr
-        && return this->nameServers_ == nullptr && return this->searches_ == nullptr; };
+        && this->nameServers_ == nullptr && this->searches_ == nullptr; };
     // dnsOptions Field Functions 
     bool hasDnsOptions() const { return this->dnsOptions_ != nullptr;};
     void deleteDnsOptions() { this->dnsOptions_ = nullptr;};
-    inline const vector<DNSOption> & dnsOptions() const { DARABONBA_PTR_GET_CONST(dnsOptions_, vector<DNSOption>) };
-    inline vector<DNSOption> dnsOptions() { DARABONBA_PTR_GET(dnsOptions_, vector<DNSOption>) };
+    inline const vector<DNSOption> & getDnsOptions() const { DARABONBA_PTR_GET_CONST(dnsOptions_, vector<DNSOption>) };
+    inline vector<DNSOption> getDnsOptions() { DARABONBA_PTR_GET(dnsOptions_, vector<DNSOption>) };
     inline CustomDNS& setDnsOptions(const vector<DNSOption> & dnsOptions) { DARABONBA_PTR_SET_VALUE(dnsOptions_, dnsOptions) };
     inline CustomDNS& setDnsOptions(vector<DNSOption> && dnsOptions) { DARABONBA_PTR_SET_RVALUE(dnsOptions_, dnsOptions) };
 
@@ -49,8 +49,8 @@ namespace Models
     // nameServers Field Functions 
     bool hasNameServers() const { return this->nameServers_ != nullptr;};
     void deleteNameServers() { this->nameServers_ = nullptr;};
-    inline const vector<string> & nameServers() const { DARABONBA_PTR_GET_CONST(nameServers_, vector<string>) };
-    inline vector<string> nameServers() { DARABONBA_PTR_GET(nameServers_, vector<string>) };
+    inline const vector<string> & getNameServers() const { DARABONBA_PTR_GET_CONST(nameServers_, vector<string>) };
+    inline vector<string> getNameServers() { DARABONBA_PTR_GET(nameServers_, vector<string>) };
     inline CustomDNS& setNameServers(const vector<string> & nameServers) { DARABONBA_PTR_SET_VALUE(nameServers_, nameServers) };
     inline CustomDNS& setNameServers(vector<string> && nameServers) { DARABONBA_PTR_SET_RVALUE(nameServers_, nameServers) };
 
@@ -58,16 +58,16 @@ namespace Models
     // searches Field Functions 
     bool hasSearches() const { return this->searches_ != nullptr;};
     void deleteSearches() { this->searches_ = nullptr;};
-    inline const vector<string> & searches() const { DARABONBA_PTR_GET_CONST(searches_, vector<string>) };
-    inline vector<string> searches() { DARABONBA_PTR_GET(searches_, vector<string>) };
+    inline const vector<string> & getSearches() const { DARABONBA_PTR_GET_CONST(searches_, vector<string>) };
+    inline vector<string> getSearches() { DARABONBA_PTR_GET(searches_, vector<string>) };
     inline CustomDNS& setSearches(const vector<string> & searches) { DARABONBA_PTR_SET_VALUE(searches_, searches) };
     inline CustomDNS& setSearches(vector<string> && searches) { DARABONBA_PTR_SET_RVALUE(searches_, searches) };
 
 
   protected:
-    std::shared_ptr<vector<DNSOption>> dnsOptions_ = nullptr;
-    std::shared_ptr<vector<string>> nameServers_ = nullptr;
-    std::shared_ptr<vector<string>> searches_ = nullptr;
+    shared_ptr<vector<DNSOption>> dnsOptions_ {};
+    shared_ptr<vector<string>> nameServers_ {};
+    shared_ptr<vector<string>> searches_ {};
   };
 
   } // namespace Models

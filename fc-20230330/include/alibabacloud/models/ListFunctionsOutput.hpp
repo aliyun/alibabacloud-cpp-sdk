@@ -34,12 +34,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->functions_ == nullptr
-        && return this->nextToken_ == nullptr; };
+        && this->nextToken_ == nullptr; };
     // functions Field Functions 
     bool hasFunctions() const { return this->functions_ != nullptr;};
     void deleteFunctions() { this->functions_ = nullptr;};
-    inline const vector<Function> & functions() const { DARABONBA_PTR_GET_CONST(functions_, vector<Function>) };
-    inline vector<Function> functions() { DARABONBA_PTR_GET(functions_, vector<Function>) };
+    inline const vector<Function> & getFunctions() const { DARABONBA_PTR_GET_CONST(functions_, vector<Function>) };
+    inline vector<Function> getFunctions() { DARABONBA_PTR_GET(functions_, vector<Function>) };
     inline ListFunctionsOutput& setFunctions(const vector<Function> & functions) { DARABONBA_PTR_SET_VALUE(functions_, functions) };
     inline ListFunctionsOutput& setFunctions(vector<Function> && functions) { DARABONBA_PTR_SET_RVALUE(functions_, functions) };
 
@@ -47,13 +47,13 @@ namespace Models
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListFunctionsOutput& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
   protected:
-    std::shared_ptr<vector<Function>> functions_ = nullptr;
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<vector<Function>> functions_ {};
+    shared_ptr<string> nextToken_ {};
   };
 
   } // namespace Models

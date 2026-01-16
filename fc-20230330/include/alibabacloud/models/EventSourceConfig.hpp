@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->eventSourceParameters_ == nullptr
-        && return this->eventSourceType_ == nullptr; };
+        && this->eventSourceType_ == nullptr; };
     // eventSourceParameters Field Functions 
     bool hasEventSourceParameters() const { return this->eventSourceParameters_ != nullptr;};
     void deleteEventSourceParameters() { this->eventSourceParameters_ = nullptr;};
-    inline const EventSourceParameters & eventSourceParameters() const { DARABONBA_PTR_GET_CONST(eventSourceParameters_, EventSourceParameters) };
-    inline EventSourceParameters eventSourceParameters() { DARABONBA_PTR_GET(eventSourceParameters_, EventSourceParameters) };
+    inline const EventSourceParameters & getEventSourceParameters() const { DARABONBA_PTR_GET_CONST(eventSourceParameters_, EventSourceParameters) };
+    inline EventSourceParameters getEventSourceParameters() { DARABONBA_PTR_GET(eventSourceParameters_, EventSourceParameters) };
     inline EventSourceConfig& setEventSourceParameters(const EventSourceParameters & eventSourceParameters) { DARABONBA_PTR_SET_VALUE(eventSourceParameters_, eventSourceParameters) };
     inline EventSourceConfig& setEventSourceParameters(EventSourceParameters && eventSourceParameters) { DARABONBA_PTR_SET_RVALUE(eventSourceParameters_, eventSourceParameters) };
 
@@ -46,13 +46,13 @@ namespace Models
     // eventSourceType Field Functions 
     bool hasEventSourceType() const { return this->eventSourceType_ != nullptr;};
     void deleteEventSourceType() { this->eventSourceType_ = nullptr;};
-    inline string eventSourceType() const { DARABONBA_PTR_GET_DEFAULT(eventSourceType_, "") };
+    inline string getEventSourceType() const { DARABONBA_PTR_GET_DEFAULT(eventSourceType_, "") };
     inline EventSourceConfig& setEventSourceType(string eventSourceType) { DARABONBA_PTR_SET_VALUE(eventSourceType_, eventSourceType) };
 
 
   protected:
-    std::shared_ptr<EventSourceParameters> eventSourceParameters_ = nullptr;
-    std::shared_ptr<string> eventSourceType_ = nullptr;
+    shared_ptr<EventSourceParameters> eventSourceParameters_ {};
+    shared_ptr<string> eventSourceType_ {};
   };
 
   } // namespace Models

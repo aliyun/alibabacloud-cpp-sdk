@@ -33,12 +33,12 @@ namespace Models
     // arn Field Functions 
     bool hasArn() const { return this->arn_ != nullptr;};
     void deleteArn() { this->arn_ = nullptr;};
-    inline string arn() const { DARABONBA_PTR_GET_DEFAULT(arn_, "") };
+    inline string getArn() const { DARABONBA_PTR_GET_DEFAULT(arn_, "") };
     inline DeadLetterQueue& setArn(string arn) { DARABONBA_PTR_SET_VALUE(arn_, arn) };
 
 
   protected:
-    std::shared_ptr<string> arn_ = nullptr;
+    shared_ptr<string> arn_ {};
   };
 
   } // namespace Models

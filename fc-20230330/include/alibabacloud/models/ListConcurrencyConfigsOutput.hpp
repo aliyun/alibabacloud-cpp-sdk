@@ -34,12 +34,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->configs_ == nullptr
-        && return this->nextToken_ == nullptr; };
+        && this->nextToken_ == nullptr; };
     // configs Field Functions 
     bool hasConfigs() const { return this->configs_ != nullptr;};
     void deleteConfigs() { this->configs_ = nullptr;};
-    inline const vector<ConcurrencyConfig> & configs() const { DARABONBA_PTR_GET_CONST(configs_, vector<ConcurrencyConfig>) };
-    inline vector<ConcurrencyConfig> configs() { DARABONBA_PTR_GET(configs_, vector<ConcurrencyConfig>) };
+    inline const vector<ConcurrencyConfig> & getConfigs() const { DARABONBA_PTR_GET_CONST(configs_, vector<ConcurrencyConfig>) };
+    inline vector<ConcurrencyConfig> getConfigs() { DARABONBA_PTR_GET(configs_, vector<ConcurrencyConfig>) };
     inline ListConcurrencyConfigsOutput& setConfigs(const vector<ConcurrencyConfig> & configs) { DARABONBA_PTR_SET_VALUE(configs_, configs) };
     inline ListConcurrencyConfigsOutput& setConfigs(vector<ConcurrencyConfig> && configs) { DARABONBA_PTR_SET_RVALUE(configs_, configs) };
 
@@ -47,13 +47,13 @@ namespace Models
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListConcurrencyConfigsOutput& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
   protected:
-    std::shared_ptr<vector<ConcurrencyConfig>> configs_ = nullptr;
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<vector<ConcurrencyConfig>> configs_ {};
+    shared_ptr<string> nextToken_ {};
   };
 
   } // namespace Models

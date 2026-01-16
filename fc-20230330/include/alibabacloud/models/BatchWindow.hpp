@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->countBasedWindow_ == nullptr
-        && return this->timeBasedWindow_ == nullptr; };
+        && this->timeBasedWindow_ == nullptr; };
     // countBasedWindow Field Functions 
     bool hasCountBasedWindow() const { return this->countBasedWindow_ != nullptr;};
     void deleteCountBasedWindow() { this->countBasedWindow_ = nullptr;};
-    inline int32_t countBasedWindow() const { DARABONBA_PTR_GET_DEFAULT(countBasedWindow_, 0) };
+    inline int32_t getCountBasedWindow() const { DARABONBA_PTR_GET_DEFAULT(countBasedWindow_, 0) };
     inline BatchWindow& setCountBasedWindow(int32_t countBasedWindow) { DARABONBA_PTR_SET_VALUE(countBasedWindow_, countBasedWindow) };
 
 
     // timeBasedWindow Field Functions 
     bool hasTimeBasedWindow() const { return this->timeBasedWindow_ != nullptr;};
     void deleteTimeBasedWindow() { this->timeBasedWindow_ = nullptr;};
-    inline int32_t timeBasedWindow() const { DARABONBA_PTR_GET_DEFAULT(timeBasedWindow_, 0) };
+    inline int32_t getTimeBasedWindow() const { DARABONBA_PTR_GET_DEFAULT(timeBasedWindow_, 0) };
     inline BatchWindow& setTimeBasedWindow(int32_t timeBasedWindow) { DARABONBA_PTR_SET_VALUE(timeBasedWindow_, timeBasedWindow) };
 
 
   protected:
-    std::shared_ptr<int32_t> countBasedWindow_ = nullptr;
-    std::shared_ptr<int32_t> timeBasedWindow_ = nullptr;
+    shared_ptr<int32_t> countBasedWindow_ {};
+    shared_ptr<int32_t> timeBasedWindow_ {};
   };
 
   } // namespace Models

@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->filterTag_ == nullptr
-        && return this->notifyContentFormat_ == nullptr && return this->notifyStrategy_ == nullptr; };
+        && this->notifyContentFormat_ == nullptr && this->notifyStrategy_ == nullptr; };
     // filterTag Field Functions 
     bool hasFilterTag() const { return this->filterTag_ != nullptr;};
     void deleteFilterTag() { this->filterTag_ = nullptr;};
-    inline string filterTag() const { DARABONBA_PTR_GET_DEFAULT(filterTag_, "") };
+    inline string getFilterTag() const { DARABONBA_PTR_GET_DEFAULT(filterTag_, "") };
     inline MNSTopicTriggerConfig& setFilterTag(string filterTag) { DARABONBA_PTR_SET_VALUE(filterTag_, filterTag) };
 
 
     // notifyContentFormat Field Functions 
     bool hasNotifyContentFormat() const { return this->notifyContentFormat_ != nullptr;};
     void deleteNotifyContentFormat() { this->notifyContentFormat_ = nullptr;};
-    inline string notifyContentFormat() const { DARABONBA_PTR_GET_DEFAULT(notifyContentFormat_, "") };
+    inline string getNotifyContentFormat() const { DARABONBA_PTR_GET_DEFAULT(notifyContentFormat_, "") };
     inline MNSTopicTriggerConfig& setNotifyContentFormat(string notifyContentFormat) { DARABONBA_PTR_SET_VALUE(notifyContentFormat_, notifyContentFormat) };
 
 
     // notifyStrategy Field Functions 
     bool hasNotifyStrategy() const { return this->notifyStrategy_ != nullptr;};
     void deleteNotifyStrategy() { this->notifyStrategy_ = nullptr;};
-    inline string notifyStrategy() const { DARABONBA_PTR_GET_DEFAULT(notifyStrategy_, "") };
+    inline string getNotifyStrategy() const { DARABONBA_PTR_GET_DEFAULT(notifyStrategy_, "") };
     inline MNSTopicTriggerConfig& setNotifyStrategy(string notifyStrategy) { DARABONBA_PTR_SET_VALUE(notifyStrategy_, notifyStrategy) };
 
 
   protected:
-    std::shared_ptr<string> filterTag_ = nullptr;
-    std::shared_ptr<string> notifyContentFormat_ = nullptr;
-    std::shared_ptr<string> notifyStrategy_ = nullptr;
+    shared_ptr<string> filterTag_ {};
+    shared_ptr<string> notifyContentFormat_ {};
+    shared_ptr<string> notifyStrategy_ {};
   };
 
   } // namespace Models

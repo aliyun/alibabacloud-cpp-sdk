@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->match_ == nullptr
-        && return this->replacement_ == nullptr; };
+        && this->replacement_ == nullptr; };
     // match Field Functions 
     bool hasMatch() const { return this->match_ != nullptr;};
     void deleteMatch() { this->match_ = nullptr;};
-    inline string match() const { DARABONBA_PTR_GET_DEFAULT(match_, "") };
+    inline string getMatch() const { DARABONBA_PTR_GET_DEFAULT(match_, "") };
     inline WildcardRule& setMatch(string match) { DARABONBA_PTR_SET_VALUE(match_, match) };
 
 
     // replacement Field Functions 
     bool hasReplacement() const { return this->replacement_ != nullptr;};
     void deleteReplacement() { this->replacement_ = nullptr;};
-    inline string replacement() const { DARABONBA_PTR_GET_DEFAULT(replacement_, "") };
+    inline string getReplacement() const { DARABONBA_PTR_GET_DEFAULT(replacement_, "") };
     inline WildcardRule& setReplacement(string replacement) { DARABONBA_PTR_SET_VALUE(replacement_, replacement) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> match_ = nullptr;
+    shared_ptr<string> match_ {};
     // This parameter is required.
-    std::shared_ptr<string> replacement_ = nullptr;
+    shared_ptr<string> replacement_ {};
   };
 
   } // namespace Models

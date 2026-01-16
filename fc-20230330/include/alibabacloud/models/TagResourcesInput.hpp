@@ -36,12 +36,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->resourceId_ == nullptr
-        && return this->resourceType_ == nullptr && return this->tag_ == nullptr; };
+        && this->resourceType_ == nullptr && this->tag_ == nullptr; };
     // resourceId Field Functions 
     bool hasResourceId() const { return this->resourceId_ != nullptr;};
     void deleteResourceId() { this->resourceId_ = nullptr;};
-    inline const vector<string> & resourceId() const { DARABONBA_PTR_GET_CONST(resourceId_, vector<string>) };
-    inline vector<string> resourceId() { DARABONBA_PTR_GET(resourceId_, vector<string>) };
+    inline const vector<string> & getResourceId() const { DARABONBA_PTR_GET_CONST(resourceId_, vector<string>) };
+    inline vector<string> getResourceId() { DARABONBA_PTR_GET(resourceId_, vector<string>) };
     inline TagResourcesInput& setResourceId(const vector<string> & resourceId) { DARABONBA_PTR_SET_VALUE(resourceId_, resourceId) };
     inline TagResourcesInput& setResourceId(vector<string> && resourceId) { DARABONBA_PTR_SET_RVALUE(resourceId_, resourceId) };
 
@@ -49,25 +49,25 @@ namespace Models
     // resourceType Field Functions 
     bool hasResourceType() const { return this->resourceType_ != nullptr;};
     void deleteResourceType() { this->resourceType_ = nullptr;};
-    inline string resourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
+    inline string getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
     inline TagResourcesInput& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
 
 
     // tag Field Functions 
     bool hasTag() const { return this->tag_ != nullptr;};
     void deleteTag() { this->tag_ = nullptr;};
-    inline const vector<Tag> & tag() const { DARABONBA_PTR_GET_CONST(tag_, vector<Tag>) };
-    inline vector<Tag> tag() { DARABONBA_PTR_GET(tag_, vector<Tag>) };
+    inline const vector<Tag> & getTag() const { DARABONBA_PTR_GET_CONST(tag_, vector<Tag>) };
+    inline vector<Tag> getTag() { DARABONBA_PTR_GET(tag_, vector<Tag>) };
     inline TagResourcesInput& setTag(const vector<Tag> & tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
     inline TagResourcesInput& setTag(vector<Tag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<vector<string>> resourceId_ = nullptr;
-    std::shared_ptr<string> resourceType_ = nullptr;
+    shared_ptr<vector<string>> resourceId_ {};
+    shared_ptr<string> resourceType_ {};
     // This parameter is required.
-    std::shared_ptr<vector<Tag>> tag_ = nullptr;
+    shared_ptr<vector<Tag>> tag_ {};
   };
 
   } // namespace Models

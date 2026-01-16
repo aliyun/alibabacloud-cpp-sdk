@@ -34,8 +34,8 @@ namespace Models
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const CreateTriggerInput & body() const { DARABONBA_PTR_GET_CONST(body_, CreateTriggerInput) };
-    inline CreateTriggerInput body() { DARABONBA_PTR_GET(body_, CreateTriggerInput) };
+    inline const CreateTriggerInput & getBody() const { DARABONBA_PTR_GET_CONST(body_, CreateTriggerInput) };
+    inline CreateTriggerInput getBody() { DARABONBA_PTR_GET(body_, CreateTriggerInput) };
     inline CreateTriggerRequest& setBody(const CreateTriggerInput & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
     inline CreateTriggerRequest& setBody(CreateTriggerInput && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
@@ -44,7 +44,7 @@ namespace Models
     // The trigger configurations.
     // 
     // This parameter is required.
-    std::shared_ptr<CreateTriggerInput> body_ = nullptr;
+    shared_ptr<CreateTriggerInput> body_ {};
   };
 
   } // namespace Models

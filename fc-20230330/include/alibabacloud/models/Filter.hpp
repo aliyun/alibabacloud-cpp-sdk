@@ -34,14 +34,14 @@ namespace Models
     // key Field Functions 
     bool hasKey() const { return this->key_ != nullptr;};
     void deleteKey() { this->key_ = nullptr;};
-    inline const Key & key() const { DARABONBA_PTR_GET_CONST(key_, Key) };
-    inline Key key() { DARABONBA_PTR_GET(key_, Key) };
+    inline const Key & getKey() const { DARABONBA_PTR_GET_CONST(key_, Key) };
+    inline Key getKey() { DARABONBA_PTR_GET(key_, Key) };
     inline Filter& setKey(const Key & key) { DARABONBA_PTR_SET_VALUE(key_, key) };
     inline Filter& setKey(Key && key) { DARABONBA_PTR_SET_RVALUE(key_, key) };
 
 
   protected:
-    std::shared_ptr<Key> key_ = nullptr;
+    shared_ptr<Key> key_ {};
   };
 
   } // namespace Models

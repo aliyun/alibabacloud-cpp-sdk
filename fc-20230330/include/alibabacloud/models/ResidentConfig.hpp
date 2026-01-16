@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->count_ == nullptr
-        && return this->poolId_ == nullptr; };
+        && this->poolId_ == nullptr; };
     // count Field Functions 
     bool hasCount() const { return this->count_ != nullptr;};
     void deleteCount() { this->count_ = nullptr;};
-    inline int64_t count() const { DARABONBA_PTR_GET_DEFAULT(count_, 0L) };
+    inline int64_t getCount() const { DARABONBA_PTR_GET_DEFAULT(count_, 0L) };
     inline ResidentConfig& setCount(int64_t count) { DARABONBA_PTR_SET_VALUE(count_, count) };
 
 
     // poolId Field Functions 
     bool hasPoolId() const { return this->poolId_ != nullptr;};
     void deletePoolId() { this->poolId_ = nullptr;};
-    inline string poolId() const { DARABONBA_PTR_GET_DEFAULT(poolId_, "") };
+    inline string getPoolId() const { DARABONBA_PTR_GET_DEFAULT(poolId_, "") };
     inline ResidentConfig& setPoolId(string poolId) { DARABONBA_PTR_SET_VALUE(poolId_, poolId) };
 
 
   protected:
-    std::shared_ptr<int64_t> count_ = nullptr;
-    std::shared_ptr<string> poolId_ = nullptr;
+    shared_ptr<int64_t> count_ {};
+    shared_ptr<string> poolId_ {};
   };
 
   } // namespace Models

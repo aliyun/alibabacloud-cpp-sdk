@@ -34,12 +34,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->elasticConfigs_ == nullptr
-        && return this->nextToken_ == nullptr; };
+        && this->nextToken_ == nullptr; };
     // elasticConfigs Field Functions 
     bool hasElasticConfigs() const { return this->elasticConfigs_ != nullptr;};
     void deleteElasticConfigs() { this->elasticConfigs_ = nullptr;};
-    inline const vector<ElasticConfigStatus> & elasticConfigs() const { DARABONBA_PTR_GET_CONST(elasticConfigs_, vector<ElasticConfigStatus>) };
-    inline vector<ElasticConfigStatus> elasticConfigs() { DARABONBA_PTR_GET(elasticConfigs_, vector<ElasticConfigStatus>) };
+    inline const vector<ElasticConfigStatus> & getElasticConfigs() const { DARABONBA_PTR_GET_CONST(elasticConfigs_, vector<ElasticConfigStatus>) };
+    inline vector<ElasticConfigStatus> getElasticConfigs() { DARABONBA_PTR_GET(elasticConfigs_, vector<ElasticConfigStatus>) };
     inline ListElasticConfigsOutput& setElasticConfigs(const vector<ElasticConfigStatus> & elasticConfigs) { DARABONBA_PTR_SET_VALUE(elasticConfigs_, elasticConfigs) };
     inline ListElasticConfigsOutput& setElasticConfigs(vector<ElasticConfigStatus> && elasticConfigs) { DARABONBA_PTR_SET_RVALUE(elasticConfigs_, elasticConfigs) };
 
@@ -47,13 +47,13 @@ namespace Models
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListElasticConfigsOutput& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
   protected:
-    std::shared_ptr<vector<ElasticConfigStatus>> elasticConfigs_ = nullptr;
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<vector<ElasticConfigStatus>> elasticConfigs_ {};
+    shared_ptr<string> nextToken_ {};
   };
 
   } // namespace Models

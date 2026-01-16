@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->onFailure_ == nullptr
-        && return this->onSuccess_ == nullptr; };
+        && this->onSuccess_ == nullptr; };
     // onFailure Field Functions 
     bool hasOnFailure() const { return this->onFailure_ != nullptr;};
     void deleteOnFailure() { this->onFailure_ = nullptr;};
-    inline const Destination & onFailure() const { DARABONBA_PTR_GET_CONST(onFailure_, Destination) };
-    inline Destination onFailure() { DARABONBA_PTR_GET(onFailure_, Destination) };
+    inline const Destination & getOnFailure() const { DARABONBA_PTR_GET_CONST(onFailure_, Destination) };
+    inline Destination getOnFailure() { DARABONBA_PTR_GET(onFailure_, Destination) };
     inline DestinationConfig& setOnFailure(const Destination & onFailure) { DARABONBA_PTR_SET_VALUE(onFailure_, onFailure) };
     inline DestinationConfig& setOnFailure(Destination && onFailure) { DARABONBA_PTR_SET_RVALUE(onFailure_, onFailure) };
 
@@ -46,15 +46,15 @@ namespace Models
     // onSuccess Field Functions 
     bool hasOnSuccess() const { return this->onSuccess_ != nullptr;};
     void deleteOnSuccess() { this->onSuccess_ = nullptr;};
-    inline const Destination & onSuccess() const { DARABONBA_PTR_GET_CONST(onSuccess_, Destination) };
-    inline Destination onSuccess() { DARABONBA_PTR_GET(onSuccess_, Destination) };
+    inline const Destination & getOnSuccess() const { DARABONBA_PTR_GET_CONST(onSuccess_, Destination) };
+    inline Destination getOnSuccess() { DARABONBA_PTR_GET(onSuccess_, Destination) };
     inline DestinationConfig& setOnSuccess(const Destination & onSuccess) { DARABONBA_PTR_SET_VALUE(onSuccess_, onSuccess) };
     inline DestinationConfig& setOnSuccess(Destination && onSuccess) { DARABONBA_PTR_SET_RVALUE(onSuccess_, onSuccess) };
 
 
   protected:
-    std::shared_ptr<Destination> onFailure_ = nullptr;
-    std::shared_ptr<Destination> onSuccess_ = nullptr;
+    shared_ptr<Destination> onFailure_ {};
+    shared_ptr<Destination> onSuccess_ {};
   };
 
   } // namespace Models

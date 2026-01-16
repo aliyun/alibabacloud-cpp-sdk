@@ -36,40 +36,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->eventDetail_ == nullptr
-        && return this->eventId_ == nullptr && return this->status_ == nullptr && return this->timestamp_ == nullptr; };
+        && this->eventId_ == nullptr && this->status_ == nullptr && this->timestamp_ == nullptr; };
     // eventDetail Field Functions 
     bool hasEventDetail() const { return this->eventDetail_ != nullptr;};
     void deleteEventDetail() { this->eventDetail_ = nullptr;};
-    inline string eventDetail() const { DARABONBA_PTR_GET_DEFAULT(eventDetail_, "") };
+    inline string getEventDetail() const { DARABONBA_PTR_GET_DEFAULT(eventDetail_, "") };
     inline AsyncTaskEvent& setEventDetail(string eventDetail) { DARABONBA_PTR_SET_VALUE(eventDetail_, eventDetail) };
 
 
     // eventId Field Functions 
     bool hasEventId() const { return this->eventId_ != nullptr;};
     void deleteEventId() { this->eventId_ = nullptr;};
-    inline int64_t eventId() const { DARABONBA_PTR_GET_DEFAULT(eventId_, 0L) };
+    inline int64_t getEventId() const { DARABONBA_PTR_GET_DEFAULT(eventId_, 0L) };
     inline AsyncTaskEvent& setEventId(int64_t eventId) { DARABONBA_PTR_SET_VALUE(eventId_, eventId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline AsyncTaskEvent& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // timestamp Field Functions 
     bool hasTimestamp() const { return this->timestamp_ != nullptr;};
     void deleteTimestamp() { this->timestamp_ = nullptr;};
-    inline int64_t timestamp() const { DARABONBA_PTR_GET_DEFAULT(timestamp_, 0L) };
+    inline int64_t getTimestamp() const { DARABONBA_PTR_GET_DEFAULT(timestamp_, 0L) };
     inline AsyncTaskEvent& setTimestamp(int64_t timestamp) { DARABONBA_PTR_SET_VALUE(timestamp_, timestamp) };
 
 
   protected:
-    std::shared_ptr<string> eventDetail_ = nullptr;
-    std::shared_ptr<int64_t> eventId_ = nullptr;
-    std::shared_ptr<string> status_ = nullptr;
-    std::shared_ptr<int64_t> timestamp_ = nullptr;
+    shared_ptr<string> eventDetail_ {};
+    shared_ptr<int64_t> eventId_ {};
+    shared_ptr<string> status_ {};
+    shared_ptr<int64_t> timestamp_ {};
   };
 
   } // namespace Models

@@ -38,12 +38,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->compatibleRuntime_ == nullptr && return this->description_ == nullptr && return this->license_ == nullptr; };
+        && this->compatibleRuntime_ == nullptr && this->description_ == nullptr && this->license_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline const InputCodeLocation & code() const { DARABONBA_PTR_GET_CONST(code_, InputCodeLocation) };
-    inline InputCodeLocation code() { DARABONBA_PTR_GET(code_, InputCodeLocation) };
+    inline const InputCodeLocation & getCode() const { DARABONBA_PTR_GET_CONST(code_, InputCodeLocation) };
+    inline InputCodeLocation getCode() { DARABONBA_PTR_GET(code_, InputCodeLocation) };
     inline CreateLayerVersionInput& setCode(const InputCodeLocation & code) { DARABONBA_PTR_SET_VALUE(code_, code) };
     inline CreateLayerVersionInput& setCode(InputCodeLocation && code) { DARABONBA_PTR_SET_RVALUE(code_, code) };
 
@@ -51,8 +51,8 @@ namespace Models
     // compatibleRuntime Field Functions 
     bool hasCompatibleRuntime() const { return this->compatibleRuntime_ != nullptr;};
     void deleteCompatibleRuntime() { this->compatibleRuntime_ = nullptr;};
-    inline const vector<string> & compatibleRuntime() const { DARABONBA_PTR_GET_CONST(compatibleRuntime_, vector<string>) };
-    inline vector<string> compatibleRuntime() { DARABONBA_PTR_GET(compatibleRuntime_, vector<string>) };
+    inline const vector<string> & getCompatibleRuntime() const { DARABONBA_PTR_GET_CONST(compatibleRuntime_, vector<string>) };
+    inline vector<string> getCompatibleRuntime() { DARABONBA_PTR_GET(compatibleRuntime_, vector<string>) };
     inline CreateLayerVersionInput& setCompatibleRuntime(const vector<string> & compatibleRuntime) { DARABONBA_PTR_SET_VALUE(compatibleRuntime_, compatibleRuntime) };
     inline CreateLayerVersionInput& setCompatibleRuntime(vector<string> && compatibleRuntime) { DARABONBA_PTR_SET_RVALUE(compatibleRuntime_, compatibleRuntime) };
 
@@ -60,22 +60,22 @@ namespace Models
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateLayerVersionInput& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // license Field Functions 
     bool hasLicense() const { return this->license_ != nullptr;};
     void deleteLicense() { this->license_ = nullptr;};
-    inline string license() const { DARABONBA_PTR_GET_DEFAULT(license_, "") };
+    inline string getLicense() const { DARABONBA_PTR_GET_DEFAULT(license_, "") };
     inline CreateLayerVersionInput& setLicense(string license) { DARABONBA_PTR_SET_VALUE(license_, license) };
 
 
   protected:
-    std::shared_ptr<InputCodeLocation> code_ = nullptr;
-    std::shared_ptr<vector<string>> compatibleRuntime_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<string> license_ = nullptr;
+    shared_ptr<InputCodeLocation> code_ {};
+    shared_ptr<vector<string>> compatibleRuntime_ {};
+    shared_ptr<string> description_ {};
+    shared_ptr<string> license_ {};
   };
 
   } // namespace Models

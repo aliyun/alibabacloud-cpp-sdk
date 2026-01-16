@@ -34,26 +34,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->nextToken_ == nullptr
-        && return this->sessions_ == nullptr; };
+        && this->sessions_ == nullptr; };
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListSessionsOutput& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // sessions Field Functions 
     bool hasSessions() const { return this->sessions_ != nullptr;};
     void deleteSessions() { this->sessions_ = nullptr;};
-    inline const vector<Session> & sessions() const { DARABONBA_PTR_GET_CONST(sessions_, vector<Session>) };
-    inline vector<Session> sessions() { DARABONBA_PTR_GET(sessions_, vector<Session>) };
+    inline const vector<Session> & getSessions() const { DARABONBA_PTR_GET_CONST(sessions_, vector<Session>) };
+    inline vector<Session> getSessions() { DARABONBA_PTR_GET(sessions_, vector<Session>) };
     inline ListSessionsOutput& setSessions(const vector<Session> & sessions) { DARABONBA_PTR_SET_VALUE(sessions_, sessions) };
     inline ListSessionsOutput& setSessions(vector<Session> && sessions) { DARABONBA_PTR_SET_RVALUE(sessions_, sessions) };
 
 
   protected:
-    std::shared_ptr<string> nextToken_ = nullptr;
-    std::shared_ptr<vector<Session>> sessions_ = nullptr;
+    shared_ptr<string> nextToken_ {};
+    shared_ptr<vector<Session>> sessions_ {};
   };
 
   } // namespace Models

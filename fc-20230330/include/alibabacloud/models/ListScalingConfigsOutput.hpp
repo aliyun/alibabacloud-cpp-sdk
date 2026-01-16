@@ -34,26 +34,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->nextToken_ == nullptr
-        && return this->scalingConfigs_ == nullptr; };
+        && this->scalingConfigs_ == nullptr; };
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListScalingConfigsOutput& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // scalingConfigs Field Functions 
     bool hasScalingConfigs() const { return this->scalingConfigs_ != nullptr;};
     void deleteScalingConfigs() { this->scalingConfigs_ = nullptr;};
-    inline const vector<ScalingConfigStatus> & scalingConfigs() const { DARABONBA_PTR_GET_CONST(scalingConfigs_, vector<ScalingConfigStatus>) };
-    inline vector<ScalingConfigStatus> scalingConfigs() { DARABONBA_PTR_GET(scalingConfigs_, vector<ScalingConfigStatus>) };
+    inline const vector<ScalingConfigStatus> & getScalingConfigs() const { DARABONBA_PTR_GET_CONST(scalingConfigs_, vector<ScalingConfigStatus>) };
+    inline vector<ScalingConfigStatus> getScalingConfigs() { DARABONBA_PTR_GET(scalingConfigs_, vector<ScalingConfigStatus>) };
     inline ListScalingConfigsOutput& setScalingConfigs(const vector<ScalingConfigStatus> & scalingConfigs) { DARABONBA_PTR_SET_VALUE(scalingConfigs_, scalingConfigs) };
     inline ListScalingConfigsOutput& setScalingConfigs(vector<ScalingConfigStatus> && scalingConfigs) { DARABONBA_PTR_SET_RVALUE(scalingConfigs_, scalingConfigs) };
 
 
   protected:
-    std::shared_ptr<string> nextToken_ = nullptr;
-    std::shared_ptr<vector<ScalingConfigStatus>> scalingConfigs_ = nullptr;
+    shared_ptr<string> nextToken_ {};
+    shared_ptr<vector<ScalingConfigStatus>> scalingConfigs_ {};
   };
 
   } // namespace Models

@@ -34,8 +34,8 @@ namespace Models
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const UpdateCustomDomainInput & body() const { DARABONBA_PTR_GET_CONST(body_, UpdateCustomDomainInput) };
-    inline UpdateCustomDomainInput body() { DARABONBA_PTR_GET(body_, UpdateCustomDomainInput) };
+    inline const UpdateCustomDomainInput & getBody() const { DARABONBA_PTR_GET_CONST(body_, UpdateCustomDomainInput) };
+    inline UpdateCustomDomainInput getBody() { DARABONBA_PTR_GET(body_, UpdateCustomDomainInput) };
     inline UpdateCustomDomainRequest& setBody(const UpdateCustomDomainInput & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
     inline UpdateCustomDomainRequest& setBody(UpdateCustomDomainInput && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
@@ -44,7 +44,7 @@ namespace Models
     // The information about the custom domain name.
     // 
     // This parameter is required.
-    std::shared_ptr<UpdateCustomDomainInput> body_ = nullptr;
+    shared_ptr<UpdateCustomDomainInput> body_ {};
   };
 
   } // namespace Models

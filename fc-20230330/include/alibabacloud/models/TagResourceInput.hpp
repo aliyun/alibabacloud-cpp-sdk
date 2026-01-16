@@ -33,28 +33,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->resourceArn_ == nullptr
-        && return this->tags_ == nullptr; };
+        && this->tags_ == nullptr; };
     // resourceArn Field Functions 
     bool hasResourceArn() const { return this->resourceArn_ != nullptr;};
     void deleteResourceArn() { this->resourceArn_ = nullptr;};
-    inline string resourceArn() const { DARABONBA_PTR_GET_DEFAULT(resourceArn_, "") };
+    inline string getResourceArn() const { DARABONBA_PTR_GET_DEFAULT(resourceArn_, "") };
     inline TagResourceInput& setResourceArn(string resourceArn) { DARABONBA_PTR_SET_VALUE(resourceArn_, resourceArn) };
 
 
     // tags Field Functions 
     bool hasTags() const { return this->tags_ != nullptr;};
     void deleteTags() { this->tags_ = nullptr;};
-    inline const map<string, string> & tags() const { DARABONBA_PTR_GET_CONST(tags_, map<string, string>) };
-    inline map<string, string> tags() { DARABONBA_PTR_GET(tags_, map<string, string>) };
+    inline const map<string, string> & getTags() const { DARABONBA_PTR_GET_CONST(tags_, map<string, string>) };
+    inline map<string, string> getTags() { DARABONBA_PTR_GET(tags_, map<string, string>) };
     inline TagResourceInput& setTags(const map<string, string> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
     inline TagResourceInput& setTags(map<string, string> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> resourceArn_ = nullptr;
+    shared_ptr<string> resourceArn_ {};
     // This parameter is required.
-    std::shared_ptr<map<string, string>> tags_ = nullptr;
+    shared_ptr<map<string, string>> tags_ {};
   };
 
   } // namespace Models

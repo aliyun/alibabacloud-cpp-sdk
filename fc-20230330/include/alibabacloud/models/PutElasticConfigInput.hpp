@@ -39,26 +39,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->minInstances_ == nullptr
-        && return this->residentPoolId_ == nullptr && return this->scalingPolicies_ == nullptr && return this->scheduledPolicies_ == nullptr; };
+        && this->residentPoolId_ == nullptr && this->scalingPolicies_ == nullptr && this->scheduledPolicies_ == nullptr; };
     // minInstances Field Functions 
     bool hasMinInstances() const { return this->minInstances_ != nullptr;};
     void deleteMinInstances() { this->minInstances_ = nullptr;};
-    inline int64_t minInstances() const { DARABONBA_PTR_GET_DEFAULT(minInstances_, 0L) };
+    inline int64_t getMinInstances() const { DARABONBA_PTR_GET_DEFAULT(minInstances_, 0L) };
     inline PutElasticConfigInput& setMinInstances(int64_t minInstances) { DARABONBA_PTR_SET_VALUE(minInstances_, minInstances) };
 
 
     // residentPoolId Field Functions 
     bool hasResidentPoolId() const { return this->residentPoolId_ != nullptr;};
     void deleteResidentPoolId() { this->residentPoolId_ = nullptr;};
-    inline string residentPoolId() const { DARABONBA_PTR_GET_DEFAULT(residentPoolId_, "") };
+    inline string getResidentPoolId() const { DARABONBA_PTR_GET_DEFAULT(residentPoolId_, "") };
     inline PutElasticConfigInput& setResidentPoolId(string residentPoolId) { DARABONBA_PTR_SET_VALUE(residentPoolId_, residentPoolId) };
 
 
     // scalingPolicies Field Functions 
     bool hasScalingPolicies() const { return this->scalingPolicies_ != nullptr;};
     void deleteScalingPolicies() { this->scalingPolicies_ = nullptr;};
-    inline const vector<ScalingPolicy> & scalingPolicies() const { DARABONBA_PTR_GET_CONST(scalingPolicies_, vector<ScalingPolicy>) };
-    inline vector<ScalingPolicy> scalingPolicies() { DARABONBA_PTR_GET(scalingPolicies_, vector<ScalingPolicy>) };
+    inline const vector<ScalingPolicy> & getScalingPolicies() const { DARABONBA_PTR_GET_CONST(scalingPolicies_, vector<ScalingPolicy>) };
+    inline vector<ScalingPolicy> getScalingPolicies() { DARABONBA_PTR_GET(scalingPolicies_, vector<ScalingPolicy>) };
     inline PutElasticConfigInput& setScalingPolicies(const vector<ScalingPolicy> & scalingPolicies) { DARABONBA_PTR_SET_VALUE(scalingPolicies_, scalingPolicies) };
     inline PutElasticConfigInput& setScalingPolicies(vector<ScalingPolicy> && scalingPolicies) { DARABONBA_PTR_SET_RVALUE(scalingPolicies_, scalingPolicies) };
 
@@ -66,17 +66,17 @@ namespace Models
     // scheduledPolicies Field Functions 
     bool hasScheduledPolicies() const { return this->scheduledPolicies_ != nullptr;};
     void deleteScheduledPolicies() { this->scheduledPolicies_ = nullptr;};
-    inline const vector<ScheduledPolicy> & scheduledPolicies() const { DARABONBA_PTR_GET_CONST(scheduledPolicies_, vector<ScheduledPolicy>) };
-    inline vector<ScheduledPolicy> scheduledPolicies() { DARABONBA_PTR_GET(scheduledPolicies_, vector<ScheduledPolicy>) };
+    inline const vector<ScheduledPolicy> & getScheduledPolicies() const { DARABONBA_PTR_GET_CONST(scheduledPolicies_, vector<ScheduledPolicy>) };
+    inline vector<ScheduledPolicy> getScheduledPolicies() { DARABONBA_PTR_GET(scheduledPolicies_, vector<ScheduledPolicy>) };
     inline PutElasticConfigInput& setScheduledPolicies(const vector<ScheduledPolicy> & scheduledPolicies) { DARABONBA_PTR_SET_VALUE(scheduledPolicies_, scheduledPolicies) };
     inline PutElasticConfigInput& setScheduledPolicies(vector<ScheduledPolicy> && scheduledPolicies) { DARABONBA_PTR_SET_RVALUE(scheduledPolicies_, scheduledPolicies) };
 
 
   protected:
-    std::shared_ptr<int64_t> minInstances_ = nullptr;
-    std::shared_ptr<string> residentPoolId_ = nullptr;
-    std::shared_ptr<vector<ScalingPolicy>> scalingPolicies_ = nullptr;
-    std::shared_ptr<vector<ScheduledPolicy>> scheduledPolicies_ = nullptr;
+    shared_ptr<int64_t> minInstances_ {};
+    shared_ptr<string> residentPoolId_ {};
+    shared_ptr<vector<ScalingPolicy>> scalingPolicies_ {};
+    shared_ptr<vector<ScheduledPolicy>> scheduledPolicies_ {};
   };
 
   } // namespace Models

@@ -34,15 +34,15 @@ namespace Models
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const ChangeResourceGroupInput & body() const { DARABONBA_PTR_GET_CONST(body_, ChangeResourceGroupInput) };
-    inline ChangeResourceGroupInput body() { DARABONBA_PTR_GET(body_, ChangeResourceGroupInput) };
+    inline const ChangeResourceGroupInput & getBody() const { DARABONBA_PTR_GET_CONST(body_, ChangeResourceGroupInput) };
+    inline ChangeResourceGroupInput getBody() { DARABONBA_PTR_GET(body_, ChangeResourceGroupInput) };
     inline ChangeResourceGroupRequest& setBody(const ChangeResourceGroupInput & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
     inline ChangeResourceGroupRequest& setBody(ChangeResourceGroupInput && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
 
   protected:
     // The request details for updating the resource group.
-    std::shared_ptr<ChangeResourceGroupInput> body_ = nullptr;
+    shared_ptr<ChangeResourceGroupInput> body_ {};
   };
 
   } // namespace Models

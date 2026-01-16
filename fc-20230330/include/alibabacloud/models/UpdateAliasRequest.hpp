@@ -34,8 +34,8 @@ namespace Models
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const UpdateAliasInput & body() const { DARABONBA_PTR_GET_CONST(body_, UpdateAliasInput) };
-    inline UpdateAliasInput body() { DARABONBA_PTR_GET(body_, UpdateAliasInput) };
+    inline const UpdateAliasInput & getBody() const { DARABONBA_PTR_GET_CONST(body_, UpdateAliasInput) };
+    inline UpdateAliasInput getBody() { DARABONBA_PTR_GET(body_, UpdateAliasInput) };
     inline UpdateAliasRequest& setBody(const UpdateAliasInput & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
     inline UpdateAliasRequest& setBody(UpdateAliasInput && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
@@ -44,7 +44,7 @@ namespace Models
     // The alias information to be updated.
     // 
     // This parameter is required.
-    std::shared_ptr<UpdateAliasInput> body_ = nullptr;
+    shared_ptr<UpdateAliasInput> body_ {};
   };
 
   } // namespace Models

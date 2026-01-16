@@ -34,8 +34,8 @@ namespace Models
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const CreateLayerVersionInput & body() const { DARABONBA_PTR_GET_CONST(body_, CreateLayerVersionInput) };
-    inline CreateLayerVersionInput body() { DARABONBA_PTR_GET(body_, CreateLayerVersionInput) };
+    inline const CreateLayerVersionInput & getBody() const { DARABONBA_PTR_GET_CONST(body_, CreateLayerVersionInput) };
+    inline CreateLayerVersionInput getBody() { DARABONBA_PTR_GET(body_, CreateLayerVersionInput) };
     inline CreateLayerVersionRequest& setBody(const CreateLayerVersionInput & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
     inline CreateLayerVersionRequest& setBody(CreateLayerVersionInput && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
@@ -44,7 +44,7 @@ namespace Models
     // The information about layer configurations.
     // 
     // This parameter is required.
-    std::shared_ptr<CreateLayerVersionInput> body_ = nullptr;
+    shared_ptr<CreateLayerVersionInput> body_ {};
   };
 
   } // namespace Models

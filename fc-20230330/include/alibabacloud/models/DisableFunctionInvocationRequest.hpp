@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->abortOngoingRequest_ == nullptr
-        && return this->reason_ == nullptr; };
+        && this->reason_ == nullptr; };
     // abortOngoingRequest Field Functions 
     bool hasAbortOngoingRequest() const { return this->abortOngoingRequest_ != nullptr;};
     void deleteAbortOngoingRequest() { this->abortOngoingRequest_ = nullptr;};
-    inline bool abortOngoingRequest() const { DARABONBA_PTR_GET_DEFAULT(abortOngoingRequest_, false) };
+    inline bool getAbortOngoingRequest() const { DARABONBA_PTR_GET_DEFAULT(abortOngoingRequest_, false) };
     inline DisableFunctionInvocationRequest& setAbortOngoingRequest(bool abortOngoingRequest) { DARABONBA_PTR_SET_VALUE(abortOngoingRequest_, abortOngoingRequest) };
 
 
     // reason Field Functions 
     bool hasReason() const { return this->reason_ != nullptr;};
     void deleteReason() { this->reason_ = nullptr;};
-    inline string reason() const { DARABONBA_PTR_GET_DEFAULT(reason_, "") };
+    inline string getReason() const { DARABONBA_PTR_GET_DEFAULT(reason_, "") };
     inline DisableFunctionInvocationRequest& setReason(string reason) { DARABONBA_PTR_SET_VALUE(reason_, reason) };
 
 
   protected:
     // Specifies whether to immediately terminate all ongoing requests.
-    std::shared_ptr<bool> abortOngoingRequest_ = nullptr;
+    shared_ptr<bool> abortOngoingRequest_ {};
     // The reason for disabling the function\\"s invocation.
-    std::shared_ptr<string> reason_ = nullptr;
+    shared_ptr<string> reason_ {};
   };
 
   } // namespace Models

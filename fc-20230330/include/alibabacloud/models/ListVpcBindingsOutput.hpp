@@ -34,14 +34,14 @@ namespace Models
     // vpcIds Field Functions 
     bool hasVpcIds() const { return this->vpcIds_ != nullptr;};
     void deleteVpcIds() { this->vpcIds_ = nullptr;};
-    inline const vector<string> & vpcIds() const { DARABONBA_PTR_GET_CONST(vpcIds_, vector<string>) };
-    inline vector<string> vpcIds() { DARABONBA_PTR_GET(vpcIds_, vector<string>) };
+    inline const vector<string> & getVpcIds() const { DARABONBA_PTR_GET_CONST(vpcIds_, vector<string>) };
+    inline vector<string> getVpcIds() { DARABONBA_PTR_GET(vpcIds_, vector<string>) };
     inline ListVpcBindingsOutput& setVpcIds(const vector<string> & vpcIds) { DARABONBA_PTR_SET_VALUE(vpcIds_, vpcIds) };
     inline ListVpcBindingsOutput& setVpcIds(vector<string> && vpcIds) { DARABONBA_PTR_SET_RVALUE(vpcIds_, vpcIds) };
 
 
   protected:
-    std::shared_ptr<vector<string>> vpcIds_ = nullptr;
+    shared_ptr<vector<string>> vpcIds_ {};
   };
 
   } // namespace Models

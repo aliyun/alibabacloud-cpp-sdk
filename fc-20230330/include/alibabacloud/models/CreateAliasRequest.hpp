@@ -34,8 +34,8 @@ namespace Models
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const CreateAliasInput & body() const { DARABONBA_PTR_GET_CONST(body_, CreateAliasInput) };
-    inline CreateAliasInput body() { DARABONBA_PTR_GET(body_, CreateAliasInput) };
+    inline const CreateAliasInput & getBody() const { DARABONBA_PTR_GET_CONST(body_, CreateAliasInput) };
+    inline CreateAliasInput getBody() { DARABONBA_PTR_GET(body_, CreateAliasInput) };
     inline CreateAliasRequest& setBody(const CreateAliasInput & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
     inline CreateAliasRequest& setBody(CreateAliasInput && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
@@ -44,7 +44,7 @@ namespace Models
     // The request parameters for creating an alias.
     // 
     // This parameter is required.
-    std::shared_ptr<CreateAliasInput> body_ = nullptr;
+    shared_ptr<CreateAliasInput> body_ {};
   };
 
   } // namespace Models

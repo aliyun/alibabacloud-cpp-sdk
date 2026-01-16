@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->urlInternet_ == nullptr
-        && return this->urlIntranet_ == nullptr; };
+        && this->urlIntranet_ == nullptr; };
     // urlInternet Field Functions 
     bool hasUrlInternet() const { return this->urlInternet_ != nullptr;};
     void deleteUrlInternet() { this->urlInternet_ = nullptr;};
-    inline string urlInternet() const { DARABONBA_PTR_GET_DEFAULT(urlInternet_, "") };
+    inline string getUrlInternet() const { DARABONBA_PTR_GET_DEFAULT(urlInternet_, "") };
     inline HTTPTrigger& setUrlInternet(string urlInternet) { DARABONBA_PTR_SET_VALUE(urlInternet_, urlInternet) };
 
 
     // urlIntranet Field Functions 
     bool hasUrlIntranet() const { return this->urlIntranet_ != nullptr;};
     void deleteUrlIntranet() { this->urlIntranet_ = nullptr;};
-    inline string urlIntranet() const { DARABONBA_PTR_GET_DEFAULT(urlIntranet_, "") };
+    inline string getUrlIntranet() const { DARABONBA_PTR_GET_DEFAULT(urlIntranet_, "") };
     inline HTTPTrigger& setUrlIntranet(string urlIntranet) { DARABONBA_PTR_SET_VALUE(urlIntranet_, urlIntranet) };
 
 
   protected:
-    std::shared_ptr<string> urlInternet_ = nullptr;
-    std::shared_ptr<string> urlIntranet_ = nullptr;
+    shared_ptr<string> urlInternet_ {};
+    shared_ptr<string> urlIntranet_ {};
   };
 
   } // namespace Models

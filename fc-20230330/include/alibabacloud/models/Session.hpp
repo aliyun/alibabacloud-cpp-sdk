@@ -59,49 +59,49 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->containerId_ == nullptr
-        && return this->createdTime_ == nullptr && return this->disableSessionIdReuse_ == nullptr && return this->functionName_ == nullptr && return this->lastModifiedTime_ == nullptr && return this->nasConfig_ == nullptr
-        && return this->ossMountConfig_ == nullptr && return this->polarFsConfig_ == nullptr && return this->qualifier_ == nullptr && return this->sessionAffinityType_ == nullptr && return this->sessionId_ == nullptr
-        && return this->sessionIdleTimeoutInSeconds_ == nullptr && return this->sessionStatus_ == nullptr && return this->sessionTTLInSeconds_ == nullptr; };
+        && this->createdTime_ == nullptr && this->disableSessionIdReuse_ == nullptr && this->functionName_ == nullptr && this->lastModifiedTime_ == nullptr && this->nasConfig_ == nullptr
+        && this->ossMountConfig_ == nullptr && this->polarFsConfig_ == nullptr && this->qualifier_ == nullptr && this->sessionAffinityType_ == nullptr && this->sessionId_ == nullptr
+        && this->sessionIdleTimeoutInSeconds_ == nullptr && this->sessionStatus_ == nullptr && this->sessionTTLInSeconds_ == nullptr; };
     // containerId Field Functions 
     bool hasContainerId() const { return this->containerId_ != nullptr;};
     void deleteContainerId() { this->containerId_ = nullptr;};
-    inline string containerId() const { DARABONBA_PTR_GET_DEFAULT(containerId_, "") };
+    inline string getContainerId() const { DARABONBA_PTR_GET_DEFAULT(containerId_, "") };
     inline Session& setContainerId(string containerId) { DARABONBA_PTR_SET_VALUE(containerId_, containerId) };
 
 
     // createdTime Field Functions 
     bool hasCreatedTime() const { return this->createdTime_ != nullptr;};
     void deleteCreatedTime() { this->createdTime_ = nullptr;};
-    inline string createdTime() const { DARABONBA_PTR_GET_DEFAULT(createdTime_, "") };
+    inline string getCreatedTime() const { DARABONBA_PTR_GET_DEFAULT(createdTime_, "") };
     inline Session& setCreatedTime(string createdTime) { DARABONBA_PTR_SET_VALUE(createdTime_, createdTime) };
 
 
     // disableSessionIdReuse Field Functions 
     bool hasDisableSessionIdReuse() const { return this->disableSessionIdReuse_ != nullptr;};
     void deleteDisableSessionIdReuse() { this->disableSessionIdReuse_ = nullptr;};
-    inline bool disableSessionIdReuse() const { DARABONBA_PTR_GET_DEFAULT(disableSessionIdReuse_, false) };
+    inline bool getDisableSessionIdReuse() const { DARABONBA_PTR_GET_DEFAULT(disableSessionIdReuse_, false) };
     inline Session& setDisableSessionIdReuse(bool disableSessionIdReuse) { DARABONBA_PTR_SET_VALUE(disableSessionIdReuse_, disableSessionIdReuse) };
 
 
     // functionName Field Functions 
     bool hasFunctionName() const { return this->functionName_ != nullptr;};
     void deleteFunctionName() { this->functionName_ = nullptr;};
-    inline string functionName() const { DARABONBA_PTR_GET_DEFAULT(functionName_, "") };
+    inline string getFunctionName() const { DARABONBA_PTR_GET_DEFAULT(functionName_, "") };
     inline Session& setFunctionName(string functionName) { DARABONBA_PTR_SET_VALUE(functionName_, functionName) };
 
 
     // lastModifiedTime Field Functions 
     bool hasLastModifiedTime() const { return this->lastModifiedTime_ != nullptr;};
     void deleteLastModifiedTime() { this->lastModifiedTime_ = nullptr;};
-    inline string lastModifiedTime() const { DARABONBA_PTR_GET_DEFAULT(lastModifiedTime_, "") };
+    inline string getLastModifiedTime() const { DARABONBA_PTR_GET_DEFAULT(lastModifiedTime_, "") };
     inline Session& setLastModifiedTime(string lastModifiedTime) { DARABONBA_PTR_SET_VALUE(lastModifiedTime_, lastModifiedTime) };
 
 
     // nasConfig Field Functions 
     bool hasNasConfig() const { return this->nasConfig_ != nullptr;};
     void deleteNasConfig() { this->nasConfig_ = nullptr;};
-    inline const NASConfig & nasConfig() const { DARABONBA_PTR_GET_CONST(nasConfig_, NASConfig) };
-    inline NASConfig nasConfig() { DARABONBA_PTR_GET(nasConfig_, NASConfig) };
+    inline const NASConfig & getNasConfig() const { DARABONBA_PTR_GET_CONST(nasConfig_, NASConfig) };
+    inline NASConfig getNasConfig() { DARABONBA_PTR_GET(nasConfig_, NASConfig) };
     inline Session& setNasConfig(const NASConfig & nasConfig) { DARABONBA_PTR_SET_VALUE(nasConfig_, nasConfig) };
     inline Session& setNasConfig(NASConfig && nasConfig) { DARABONBA_PTR_SET_RVALUE(nasConfig_, nasConfig) };
 
@@ -109,8 +109,8 @@ namespace Models
     // ossMountConfig Field Functions 
     bool hasOssMountConfig() const { return this->ossMountConfig_ != nullptr;};
     void deleteOssMountConfig() { this->ossMountConfig_ = nullptr;};
-    inline const OSSMountConfig & ossMountConfig() const { DARABONBA_PTR_GET_CONST(ossMountConfig_, OSSMountConfig) };
-    inline OSSMountConfig ossMountConfig() { DARABONBA_PTR_GET(ossMountConfig_, OSSMountConfig) };
+    inline const OSSMountConfig & getOssMountConfig() const { DARABONBA_PTR_GET_CONST(ossMountConfig_, OSSMountConfig) };
+    inline OSSMountConfig getOssMountConfig() { DARABONBA_PTR_GET(ossMountConfig_, OSSMountConfig) };
     inline Session& setOssMountConfig(const OSSMountConfig & ossMountConfig) { DARABONBA_PTR_SET_VALUE(ossMountConfig_, ossMountConfig) };
     inline Session& setOssMountConfig(OSSMountConfig && ossMountConfig) { DARABONBA_PTR_SET_RVALUE(ossMountConfig_, ossMountConfig) };
 
@@ -118,8 +118,8 @@ namespace Models
     // polarFsConfig Field Functions 
     bool hasPolarFsConfig() const { return this->polarFsConfig_ != nullptr;};
     void deletePolarFsConfig() { this->polarFsConfig_ = nullptr;};
-    inline const PolarFsConfig & polarFsConfig() const { DARABONBA_PTR_GET_CONST(polarFsConfig_, PolarFsConfig) };
-    inline PolarFsConfig polarFsConfig() { DARABONBA_PTR_GET(polarFsConfig_, PolarFsConfig) };
+    inline const PolarFsConfig & getPolarFsConfig() const { DARABONBA_PTR_GET_CONST(polarFsConfig_, PolarFsConfig) };
+    inline PolarFsConfig getPolarFsConfig() { DARABONBA_PTR_GET(polarFsConfig_, PolarFsConfig) };
     inline Session& setPolarFsConfig(const PolarFsConfig & polarFsConfig) { DARABONBA_PTR_SET_VALUE(polarFsConfig_, polarFsConfig) };
     inline Session& setPolarFsConfig(PolarFsConfig && polarFsConfig) { DARABONBA_PTR_SET_RVALUE(polarFsConfig_, polarFsConfig) };
 
@@ -127,60 +127,60 @@ namespace Models
     // qualifier Field Functions 
     bool hasQualifier() const { return this->qualifier_ != nullptr;};
     void deleteQualifier() { this->qualifier_ = nullptr;};
-    inline string qualifier() const { DARABONBA_PTR_GET_DEFAULT(qualifier_, "") };
+    inline string getQualifier() const { DARABONBA_PTR_GET_DEFAULT(qualifier_, "") };
     inline Session& setQualifier(string qualifier) { DARABONBA_PTR_SET_VALUE(qualifier_, qualifier) };
 
 
     // sessionAffinityType Field Functions 
     bool hasSessionAffinityType() const { return this->sessionAffinityType_ != nullptr;};
     void deleteSessionAffinityType() { this->sessionAffinityType_ = nullptr;};
-    inline string sessionAffinityType() const { DARABONBA_PTR_GET_DEFAULT(sessionAffinityType_, "") };
+    inline string getSessionAffinityType() const { DARABONBA_PTR_GET_DEFAULT(sessionAffinityType_, "") };
     inline Session& setSessionAffinityType(string sessionAffinityType) { DARABONBA_PTR_SET_VALUE(sessionAffinityType_, sessionAffinityType) };
 
 
     // sessionId Field Functions 
     bool hasSessionId() const { return this->sessionId_ != nullptr;};
     void deleteSessionId() { this->sessionId_ = nullptr;};
-    inline string sessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
+    inline string getSessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
     inline Session& setSessionId(string sessionId) { DARABONBA_PTR_SET_VALUE(sessionId_, sessionId) };
 
 
     // sessionIdleTimeoutInSeconds Field Functions 
     bool hasSessionIdleTimeoutInSeconds() const { return this->sessionIdleTimeoutInSeconds_ != nullptr;};
     void deleteSessionIdleTimeoutInSeconds() { this->sessionIdleTimeoutInSeconds_ = nullptr;};
-    inline int64_t sessionIdleTimeoutInSeconds() const { DARABONBA_PTR_GET_DEFAULT(sessionIdleTimeoutInSeconds_, 0L) };
+    inline int64_t getSessionIdleTimeoutInSeconds() const { DARABONBA_PTR_GET_DEFAULT(sessionIdleTimeoutInSeconds_, 0L) };
     inline Session& setSessionIdleTimeoutInSeconds(int64_t sessionIdleTimeoutInSeconds) { DARABONBA_PTR_SET_VALUE(sessionIdleTimeoutInSeconds_, sessionIdleTimeoutInSeconds) };
 
 
     // sessionStatus Field Functions 
     bool hasSessionStatus() const { return this->sessionStatus_ != nullptr;};
     void deleteSessionStatus() { this->sessionStatus_ = nullptr;};
-    inline string sessionStatus() const { DARABONBA_PTR_GET_DEFAULT(sessionStatus_, "") };
+    inline string getSessionStatus() const { DARABONBA_PTR_GET_DEFAULT(sessionStatus_, "") };
     inline Session& setSessionStatus(string sessionStatus) { DARABONBA_PTR_SET_VALUE(sessionStatus_, sessionStatus) };
 
 
     // sessionTTLInSeconds Field Functions 
     bool hasSessionTTLInSeconds() const { return this->sessionTTLInSeconds_ != nullptr;};
     void deleteSessionTTLInSeconds() { this->sessionTTLInSeconds_ = nullptr;};
-    inline int64_t sessionTTLInSeconds() const { DARABONBA_PTR_GET_DEFAULT(sessionTTLInSeconds_, 0L) };
+    inline int64_t getSessionTTLInSeconds() const { DARABONBA_PTR_GET_DEFAULT(sessionTTLInSeconds_, 0L) };
     inline Session& setSessionTTLInSeconds(int64_t sessionTTLInSeconds) { DARABONBA_PTR_SET_VALUE(sessionTTLInSeconds_, sessionTTLInSeconds) };
 
 
   protected:
-    std::shared_ptr<string> containerId_ = nullptr;
-    std::shared_ptr<string> createdTime_ = nullptr;
-    std::shared_ptr<bool> disableSessionIdReuse_ = nullptr;
-    std::shared_ptr<string> functionName_ = nullptr;
-    std::shared_ptr<string> lastModifiedTime_ = nullptr;
-    std::shared_ptr<NASConfig> nasConfig_ = nullptr;
-    std::shared_ptr<OSSMountConfig> ossMountConfig_ = nullptr;
-    std::shared_ptr<PolarFsConfig> polarFsConfig_ = nullptr;
-    std::shared_ptr<string> qualifier_ = nullptr;
-    std::shared_ptr<string> sessionAffinityType_ = nullptr;
-    std::shared_ptr<string> sessionId_ = nullptr;
-    std::shared_ptr<int64_t> sessionIdleTimeoutInSeconds_ = nullptr;
-    std::shared_ptr<string> sessionStatus_ = nullptr;
-    std::shared_ptr<int64_t> sessionTTLInSeconds_ = nullptr;
+    shared_ptr<string> containerId_ {};
+    shared_ptr<string> createdTime_ {};
+    shared_ptr<bool> disableSessionIdReuse_ {};
+    shared_ptr<string> functionName_ {};
+    shared_ptr<string> lastModifiedTime_ {};
+    shared_ptr<NASConfig> nasConfig_ {};
+    shared_ptr<OSSMountConfig> ossMountConfig_ {};
+    shared_ptr<PolarFsConfig> polarFsConfig_ {};
+    shared_ptr<string> qualifier_ {};
+    shared_ptr<string> sessionAffinityType_ {};
+    shared_ptr<string> sessionId_ {};
+    shared_ptr<int64_t> sessionIdleTimeoutInSeconds_ {};
+    shared_ptr<string> sessionStatus_ {};
+    shared_ptr<int64_t> sessionTTLInSeconds_ {};
   };
 
   } // namespace Models

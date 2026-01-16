@@ -37,12 +37,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->additionalVersionWeight_ == nullptr
-        && return this->aliasName_ == nullptr && return this->description_ == nullptr && return this->versionId_ == nullptr; };
+        && this->aliasName_ == nullptr && this->description_ == nullptr && this->versionId_ == nullptr; };
     // additionalVersionWeight Field Functions 
     bool hasAdditionalVersionWeight() const { return this->additionalVersionWeight_ != nullptr;};
     void deleteAdditionalVersionWeight() { this->additionalVersionWeight_ = nullptr;};
-    inline const map<string, float> & additionalVersionWeight() const { DARABONBA_PTR_GET_CONST(additionalVersionWeight_, map<string, float>) };
-    inline map<string, float> additionalVersionWeight() { DARABONBA_PTR_GET(additionalVersionWeight_, map<string, float>) };
+    inline const map<string, float> & getAdditionalVersionWeight() const { DARABONBA_PTR_GET_CONST(additionalVersionWeight_, map<string, float>) };
+    inline map<string, float> getAdditionalVersionWeight() { DARABONBA_PTR_GET(additionalVersionWeight_, map<string, float>) };
     inline CreateAliasInput& setAdditionalVersionWeight(const map<string, float> & additionalVersionWeight) { DARABONBA_PTR_SET_VALUE(additionalVersionWeight_, additionalVersionWeight) };
     inline CreateAliasInput& setAdditionalVersionWeight(map<string, float> && additionalVersionWeight) { DARABONBA_PTR_SET_RVALUE(additionalVersionWeight_, additionalVersionWeight) };
 
@@ -50,31 +50,31 @@ namespace Models
     // aliasName Field Functions 
     bool hasAliasName() const { return this->aliasName_ != nullptr;};
     void deleteAliasName() { this->aliasName_ = nullptr;};
-    inline string aliasName() const { DARABONBA_PTR_GET_DEFAULT(aliasName_, "") };
+    inline string getAliasName() const { DARABONBA_PTR_GET_DEFAULT(aliasName_, "") };
     inline CreateAliasInput& setAliasName(string aliasName) { DARABONBA_PTR_SET_VALUE(aliasName_, aliasName) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateAliasInput& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // versionId Field Functions 
     bool hasVersionId() const { return this->versionId_ != nullptr;};
     void deleteVersionId() { this->versionId_ = nullptr;};
-    inline string versionId() const { DARABONBA_PTR_GET_DEFAULT(versionId_, "") };
+    inline string getVersionId() const { DARABONBA_PTR_GET_DEFAULT(versionId_, "") };
     inline CreateAliasInput& setVersionId(string versionId) { DARABONBA_PTR_SET_VALUE(versionId_, versionId) };
 
 
   protected:
-    std::shared_ptr<map<string, float>> additionalVersionWeight_ = nullptr;
+    shared_ptr<map<string, float>> additionalVersionWeight_ {};
     // This parameter is required.
-    std::shared_ptr<string> aliasName_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> aliasName_ {};
+    shared_ptr<string> description_ {};
     // This parameter is required.
-    std::shared_ptr<string> versionId_ = nullptr;
+    shared_ptr<string> versionId_ {};
   };
 
   } // namespace Models

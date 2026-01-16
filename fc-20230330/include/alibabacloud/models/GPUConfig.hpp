@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->gpuMemorySize_ == nullptr
-        && return this->gpuType_ == nullptr; };
+        && this->gpuType_ == nullptr; };
     // gpuMemorySize Field Functions 
     bool hasGpuMemorySize() const { return this->gpuMemorySize_ != nullptr;};
     void deleteGpuMemorySize() { this->gpuMemorySize_ = nullptr;};
-    inline int32_t gpuMemorySize() const { DARABONBA_PTR_GET_DEFAULT(gpuMemorySize_, 0) };
+    inline int32_t getGpuMemorySize() const { DARABONBA_PTR_GET_DEFAULT(gpuMemorySize_, 0) };
     inline GPUConfig& setGpuMemorySize(int32_t gpuMemorySize) { DARABONBA_PTR_SET_VALUE(gpuMemorySize_, gpuMemorySize) };
 
 
     // gpuType Field Functions 
     bool hasGpuType() const { return this->gpuType_ != nullptr;};
     void deleteGpuType() { this->gpuType_ = nullptr;};
-    inline string gpuType() const { DARABONBA_PTR_GET_DEFAULT(gpuType_, "") };
+    inline string getGpuType() const { DARABONBA_PTR_GET_DEFAULT(gpuType_, "") };
     inline GPUConfig& setGpuType(string gpuType) { DARABONBA_PTR_SET_VALUE(gpuType_, gpuType) };
 
 
   protected:
-    std::shared_ptr<int32_t> gpuMemorySize_ = nullptr;
-    std::shared_ptr<string> gpuType_ = nullptr;
+    shared_ptr<int32_t> gpuMemorySize_ {};
+    shared_ptr<string> gpuType_ {};
   };
 
   } // namespace Models

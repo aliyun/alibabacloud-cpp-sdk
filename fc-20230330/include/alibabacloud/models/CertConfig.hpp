@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->certName_ == nullptr
-        && return this->certificate_ == nullptr && return this->privateKey_ == nullptr; };
+        && this->certificate_ == nullptr && this->privateKey_ == nullptr; };
     // certName Field Functions 
     bool hasCertName() const { return this->certName_ != nullptr;};
     void deleteCertName() { this->certName_ = nullptr;};
-    inline string certName() const { DARABONBA_PTR_GET_DEFAULT(certName_, "") };
+    inline string getCertName() const { DARABONBA_PTR_GET_DEFAULT(certName_, "") };
     inline CertConfig& setCertName(string certName) { DARABONBA_PTR_SET_VALUE(certName_, certName) };
 
 
     // certificate Field Functions 
     bool hasCertificate() const { return this->certificate_ != nullptr;};
     void deleteCertificate() { this->certificate_ = nullptr;};
-    inline string certificate() const { DARABONBA_PTR_GET_DEFAULT(certificate_, "") };
+    inline string getCertificate() const { DARABONBA_PTR_GET_DEFAULT(certificate_, "") };
     inline CertConfig& setCertificate(string certificate) { DARABONBA_PTR_SET_VALUE(certificate_, certificate) };
 
 
     // privateKey Field Functions 
     bool hasPrivateKey() const { return this->privateKey_ != nullptr;};
     void deletePrivateKey() { this->privateKey_ = nullptr;};
-    inline string privateKey() const { DARABONBA_PTR_GET_DEFAULT(privateKey_, "") };
+    inline string getPrivateKey() const { DARABONBA_PTR_GET_DEFAULT(privateKey_, "") };
     inline CertConfig& setPrivateKey(string privateKey) { DARABONBA_PTR_SET_VALUE(privateKey_, privateKey) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> certName_ = nullptr;
+    shared_ptr<string> certName_ {};
     // This parameter is required.
-    std::shared_ptr<string> certificate_ = nullptr;
+    shared_ptr<string> certificate_ {};
     // This parameter is required.
-    std::shared_ptr<string> privateKey_ = nullptr;
+    shared_ptr<string> privateKey_ {};
   };
 
   } // namespace Models

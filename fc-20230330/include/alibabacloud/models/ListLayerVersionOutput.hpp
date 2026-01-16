@@ -34,12 +34,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->layers_ == nullptr
-        && return this->nextVersion_ == nullptr; };
+        && this->nextVersion_ == nullptr; };
     // layers Field Functions 
     bool hasLayers() const { return this->layers_ != nullptr;};
     void deleteLayers() { this->layers_ = nullptr;};
-    inline const vector<Layer> & layers() const { DARABONBA_PTR_GET_CONST(layers_, vector<Layer>) };
-    inline vector<Layer> layers() { DARABONBA_PTR_GET(layers_, vector<Layer>) };
+    inline const vector<Layer> & getLayers() const { DARABONBA_PTR_GET_CONST(layers_, vector<Layer>) };
+    inline vector<Layer> getLayers() { DARABONBA_PTR_GET(layers_, vector<Layer>) };
     inline ListLayerVersionOutput& setLayers(const vector<Layer> & layers) { DARABONBA_PTR_SET_VALUE(layers_, layers) };
     inline ListLayerVersionOutput& setLayers(vector<Layer> && layers) { DARABONBA_PTR_SET_RVALUE(layers_, layers) };
 
@@ -47,13 +47,13 @@ namespace Models
     // nextVersion Field Functions 
     bool hasNextVersion() const { return this->nextVersion_ != nullptr;};
     void deleteNextVersion() { this->nextVersion_ = nullptr;};
-    inline int32_t nextVersion() const { DARABONBA_PTR_GET_DEFAULT(nextVersion_, 0) };
+    inline int32_t getNextVersion() const { DARABONBA_PTR_GET_DEFAULT(nextVersion_, 0) };
     inline ListLayerVersionOutput& setNextVersion(int32_t nextVersion) { DARABONBA_PTR_SET_VALUE(nextVersion_, nextVersion) };
 
 
   protected:
-    std::shared_ptr<vector<Layer>> layers_ = nullptr;
-    std::shared_ptr<int32_t> nextVersion_ = nullptr;
+    shared_ptr<vector<Layer>> layers_ {};
+    shared_ptr<int32_t> nextVersion_ {};
   };
 
   } // namespace Models

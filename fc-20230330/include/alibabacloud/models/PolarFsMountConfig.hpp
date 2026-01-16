@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->mountDir_ == nullptr && return this->remoteDir_ == nullptr; };
+        && this->mountDir_ == nullptr && this->remoteDir_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline PolarFsMountConfig& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // mountDir Field Functions 
     bool hasMountDir() const { return this->mountDir_ != nullptr;};
     void deleteMountDir() { this->mountDir_ = nullptr;};
-    inline string mountDir() const { DARABONBA_PTR_GET_DEFAULT(mountDir_, "") };
+    inline string getMountDir() const { DARABONBA_PTR_GET_DEFAULT(mountDir_, "") };
     inline PolarFsMountConfig& setMountDir(string mountDir) { DARABONBA_PTR_SET_VALUE(mountDir_, mountDir) };
 
 
     // remoteDir Field Functions 
     bool hasRemoteDir() const { return this->remoteDir_ != nullptr;};
     void deleteRemoteDir() { this->remoteDir_ = nullptr;};
-    inline string remoteDir() const { DARABONBA_PTR_GET_DEFAULT(remoteDir_, "") };
+    inline string getRemoteDir() const { DARABONBA_PTR_GET_DEFAULT(remoteDir_, "") };
     inline PolarFsMountConfig& setRemoteDir(string remoteDir) { DARABONBA_PTR_SET_VALUE(remoteDir_, remoteDir) };
 
 
   protected:
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> mountDir_ = nullptr;
-    std::shared_ptr<string> remoteDir_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> mountDir_ {};
+    shared_ptr<string> remoteDir_ {};
   };
 
   } // namespace Models

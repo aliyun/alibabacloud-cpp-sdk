@@ -52,20 +52,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->acl_ == nullptr
-        && return this->code_ == nullptr && return this->codeChecksum_ == nullptr && return this->codeSize_ == nullptr && return this->compatibleRuntime_ == nullptr && return this->createTime_ == nullptr
-        && return this->description_ == nullptr && return this->layerName_ == nullptr && return this->layerVersionArn_ == nullptr && return this->license_ == nullptr && return this->version_ == nullptr; };
+        && this->code_ == nullptr && this->codeChecksum_ == nullptr && this->codeSize_ == nullptr && this->compatibleRuntime_ == nullptr && this->createTime_ == nullptr
+        && this->description_ == nullptr && this->layerName_ == nullptr && this->layerVersionArn_ == nullptr && this->license_ == nullptr && this->version_ == nullptr; };
     // acl Field Functions 
     bool hasAcl() const { return this->acl_ != nullptr;};
     void deleteAcl() { this->acl_ = nullptr;};
-    inline string acl() const { DARABONBA_PTR_GET_DEFAULT(acl_, "") };
+    inline string getAcl() const { DARABONBA_PTR_GET_DEFAULT(acl_, "") };
     inline Layer& setAcl(string acl) { DARABONBA_PTR_SET_VALUE(acl_, acl) };
 
 
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline const OutputCodeLocation & code() const { DARABONBA_PTR_GET_CONST(code_, OutputCodeLocation) };
-    inline OutputCodeLocation code() { DARABONBA_PTR_GET(code_, OutputCodeLocation) };
+    inline const OutputCodeLocation & getCode() const { DARABONBA_PTR_GET_CONST(code_, OutputCodeLocation) };
+    inline OutputCodeLocation getCode() { DARABONBA_PTR_GET(code_, OutputCodeLocation) };
     inline Layer& setCode(const OutputCodeLocation & code) { DARABONBA_PTR_SET_VALUE(code_, code) };
     inline Layer& setCode(OutputCodeLocation && code) { DARABONBA_PTR_SET_RVALUE(code_, code) };
 
@@ -73,22 +73,22 @@ namespace Models
     // codeChecksum Field Functions 
     bool hasCodeChecksum() const { return this->codeChecksum_ != nullptr;};
     void deleteCodeChecksum() { this->codeChecksum_ = nullptr;};
-    inline string codeChecksum() const { DARABONBA_PTR_GET_DEFAULT(codeChecksum_, "") };
+    inline string getCodeChecksum() const { DARABONBA_PTR_GET_DEFAULT(codeChecksum_, "") };
     inline Layer& setCodeChecksum(string codeChecksum) { DARABONBA_PTR_SET_VALUE(codeChecksum_, codeChecksum) };
 
 
     // codeSize Field Functions 
     bool hasCodeSize() const { return this->codeSize_ != nullptr;};
     void deleteCodeSize() { this->codeSize_ = nullptr;};
-    inline int64_t codeSize() const { DARABONBA_PTR_GET_DEFAULT(codeSize_, 0L) };
+    inline int64_t getCodeSize() const { DARABONBA_PTR_GET_DEFAULT(codeSize_, 0L) };
     inline Layer& setCodeSize(int64_t codeSize) { DARABONBA_PTR_SET_VALUE(codeSize_, codeSize) };
 
 
     // compatibleRuntime Field Functions 
     bool hasCompatibleRuntime() const { return this->compatibleRuntime_ != nullptr;};
     void deleteCompatibleRuntime() { this->compatibleRuntime_ = nullptr;};
-    inline const vector<string> & compatibleRuntime() const { DARABONBA_PTR_GET_CONST(compatibleRuntime_, vector<string>) };
-    inline vector<string> compatibleRuntime() { DARABONBA_PTR_GET(compatibleRuntime_, vector<string>) };
+    inline const vector<string> & getCompatibleRuntime() const { DARABONBA_PTR_GET_CONST(compatibleRuntime_, vector<string>) };
+    inline vector<string> getCompatibleRuntime() { DARABONBA_PTR_GET(compatibleRuntime_, vector<string>) };
     inline Layer& setCompatibleRuntime(const vector<string> & compatibleRuntime) { DARABONBA_PTR_SET_VALUE(compatibleRuntime_, compatibleRuntime) };
     inline Layer& setCompatibleRuntime(vector<string> && compatibleRuntime) { DARABONBA_PTR_SET_RVALUE(compatibleRuntime_, compatibleRuntime) };
 
@@ -96,58 +96,58 @@ namespace Models
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
-    inline string createTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
+    inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
     inline Layer& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline Layer& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // layerName Field Functions 
     bool hasLayerName() const { return this->layerName_ != nullptr;};
     void deleteLayerName() { this->layerName_ = nullptr;};
-    inline string layerName() const { DARABONBA_PTR_GET_DEFAULT(layerName_, "") };
+    inline string getLayerName() const { DARABONBA_PTR_GET_DEFAULT(layerName_, "") };
     inline Layer& setLayerName(string layerName) { DARABONBA_PTR_SET_VALUE(layerName_, layerName) };
 
 
     // layerVersionArn Field Functions 
     bool hasLayerVersionArn() const { return this->layerVersionArn_ != nullptr;};
     void deleteLayerVersionArn() { this->layerVersionArn_ = nullptr;};
-    inline string layerVersionArn() const { DARABONBA_PTR_GET_DEFAULT(layerVersionArn_, "") };
+    inline string getLayerVersionArn() const { DARABONBA_PTR_GET_DEFAULT(layerVersionArn_, "") };
     inline Layer& setLayerVersionArn(string layerVersionArn) { DARABONBA_PTR_SET_VALUE(layerVersionArn_, layerVersionArn) };
 
 
     // license Field Functions 
     bool hasLicense() const { return this->license_ != nullptr;};
     void deleteLicense() { this->license_ = nullptr;};
-    inline string license() const { DARABONBA_PTR_GET_DEFAULT(license_, "") };
+    inline string getLicense() const { DARABONBA_PTR_GET_DEFAULT(license_, "") };
     inline Layer& setLicense(string license) { DARABONBA_PTR_SET_VALUE(license_, license) };
 
 
     // version Field Functions 
     bool hasVersion() const { return this->version_ != nullptr;};
     void deleteVersion() { this->version_ = nullptr;};
-    inline int32_t version() const { DARABONBA_PTR_GET_DEFAULT(version_, 0) };
+    inline int32_t getVersion() const { DARABONBA_PTR_GET_DEFAULT(version_, 0) };
     inline Layer& setVersion(int32_t version) { DARABONBA_PTR_SET_VALUE(version_, version) };
 
 
   protected:
-    std::shared_ptr<string> acl_ = nullptr;
-    std::shared_ptr<OutputCodeLocation> code_ = nullptr;
-    std::shared_ptr<string> codeChecksum_ = nullptr;
-    std::shared_ptr<int64_t> codeSize_ = nullptr;
-    std::shared_ptr<vector<string>> compatibleRuntime_ = nullptr;
-    std::shared_ptr<string> createTime_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> acl_ {};
+    shared_ptr<OutputCodeLocation> code_ {};
+    shared_ptr<string> codeChecksum_ {};
+    shared_ptr<int64_t> codeSize_ {};
+    shared_ptr<vector<string>> compatibleRuntime_ {};
+    shared_ptr<string> createTime_ {};
+    shared_ptr<string> description_ {};
     // This parameter is required.
-    std::shared_ptr<string> layerName_ = nullptr;
-    std::shared_ptr<string> layerVersionArn_ = nullptr;
-    std::shared_ptr<string> license_ = nullptr;
-    std::shared_ptr<int32_t> version_ = nullptr;
+    shared_ptr<string> layerName_ {};
+    shared_ptr<string> layerVersionArn_ {};
+    shared_ptr<string> license_ {};
+    shared_ptr<int32_t> version_ {};
   };
 
   } // namespace Models

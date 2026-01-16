@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->body_ == nullptr
-        && return this->qualifier_ == nullptr; };
+        && this->qualifier_ == nullptr; };
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const PutAsyncInvokeConfigInput & body() const { DARABONBA_PTR_GET_CONST(body_, PutAsyncInvokeConfigInput) };
-    inline PutAsyncInvokeConfigInput body() { DARABONBA_PTR_GET(body_, PutAsyncInvokeConfigInput) };
+    inline const PutAsyncInvokeConfigInput & getBody() const { DARABONBA_PTR_GET_CONST(body_, PutAsyncInvokeConfigInput) };
+    inline PutAsyncInvokeConfigInput getBody() { DARABONBA_PTR_GET(body_, PutAsyncInvokeConfigInput) };
     inline PutAsyncInvokeConfigRequest& setBody(const PutAsyncInvokeConfigInput & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
     inline PutAsyncInvokeConfigRequest& setBody(PutAsyncInvokeConfigInput && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
@@ -46,7 +46,7 @@ namespace Models
     // qualifier Field Functions 
     bool hasQualifier() const { return this->qualifier_ != nullptr;};
     void deleteQualifier() { this->qualifier_ = nullptr;};
-    inline string qualifier() const { DARABONBA_PTR_GET_DEFAULT(qualifier_, "") };
+    inline string getQualifier() const { DARABONBA_PTR_GET_DEFAULT(qualifier_, "") };
     inline PutAsyncInvokeConfigRequest& setQualifier(string qualifier) { DARABONBA_PTR_SET_VALUE(qualifier_, qualifier) };
 
 
@@ -54,9 +54,9 @@ namespace Models
     // The configurations of asynchronous function invocations.
     // 
     // This parameter is required.
-    std::shared_ptr<PutAsyncInvokeConfigInput> body_ = nullptr;
+    shared_ptr<PutAsyncInvokeConfigInput> body_ {};
     // The version or alias of the function.
-    std::shared_ptr<string> qualifier_ = nullptr;
+    shared_ptr<string> qualifier_ {};
   };
 
   } // namespace Models

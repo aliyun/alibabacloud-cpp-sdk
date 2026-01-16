@@ -34,26 +34,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->nextToken_ == nullptr
-        && return this->provisionConfigs_ == nullptr; };
+        && this->provisionConfigs_ == nullptr; };
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListProvisionConfigsOutput& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // provisionConfigs Field Functions 
     bool hasProvisionConfigs() const { return this->provisionConfigs_ != nullptr;};
     void deleteProvisionConfigs() { this->provisionConfigs_ = nullptr;};
-    inline const vector<ProvisionConfig> & provisionConfigs() const { DARABONBA_PTR_GET_CONST(provisionConfigs_, vector<ProvisionConfig>) };
-    inline vector<ProvisionConfig> provisionConfigs() { DARABONBA_PTR_GET(provisionConfigs_, vector<ProvisionConfig>) };
+    inline const vector<ProvisionConfig> & getProvisionConfigs() const { DARABONBA_PTR_GET_CONST(provisionConfigs_, vector<ProvisionConfig>) };
+    inline vector<ProvisionConfig> getProvisionConfigs() { DARABONBA_PTR_GET(provisionConfigs_, vector<ProvisionConfig>) };
     inline ListProvisionConfigsOutput& setProvisionConfigs(const vector<ProvisionConfig> & provisionConfigs) { DARABONBA_PTR_SET_VALUE(provisionConfigs_, provisionConfigs) };
     inline ListProvisionConfigsOutput& setProvisionConfigs(vector<ProvisionConfig> && provisionConfigs) { DARABONBA_PTR_SET_RVALUE(provisionConfigs_, provisionConfigs) };
 
 
   protected:
-    std::shared_ptr<string> nextToken_ = nullptr;
-    std::shared_ptr<vector<ProvisionConfig>> provisionConfigs_ = nullptr;
+    shared_ptr<string> nextToken_ {};
+    shared_ptr<vector<ProvisionConfig>> provisionConfigs_ {};
   };
 
   } // namespace Models

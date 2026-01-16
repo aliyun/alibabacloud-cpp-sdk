@@ -34,8 +34,8 @@ namespace Models
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const CreateFunctionInput & body() const { DARABONBA_PTR_GET_CONST(body_, CreateFunctionInput) };
-    inline CreateFunctionInput body() { DARABONBA_PTR_GET(body_, CreateFunctionInput) };
+    inline const CreateFunctionInput & getBody() const { DARABONBA_PTR_GET_CONST(body_, CreateFunctionInput) };
+    inline CreateFunctionInput getBody() { DARABONBA_PTR_GET(body_, CreateFunctionInput) };
     inline CreateFunctionRequest& setBody(const CreateFunctionInput & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
     inline CreateFunctionRequest& setBody(CreateFunctionInput && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
@@ -44,7 +44,7 @@ namespace Models
     // The information about function configurations.
     // 
     // This parameter is required.
-    std::shared_ptr<CreateFunctionInput> body_ = nullptr;
+    shared_ptr<CreateFunctionInput> body_ {};
   };
 
   } // namespace Models

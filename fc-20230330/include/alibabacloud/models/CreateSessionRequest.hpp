@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->body_ == nullptr
-        && return this->qualifier_ == nullptr; };
+        && this->qualifier_ == nullptr; };
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const CreateSessionInput & body() const { DARABONBA_PTR_GET_CONST(body_, CreateSessionInput) };
-    inline CreateSessionInput body() { DARABONBA_PTR_GET(body_, CreateSessionInput) };
+    inline const CreateSessionInput & getBody() const { DARABONBA_PTR_GET_CONST(body_, CreateSessionInput) };
+    inline CreateSessionInput getBody() { DARABONBA_PTR_GET(body_, CreateSessionInput) };
     inline CreateSessionRequest& setBody(const CreateSessionInput & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
     inline CreateSessionRequest& setBody(CreateSessionInput && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
@@ -46,15 +46,15 @@ namespace Models
     // qualifier Field Functions 
     bool hasQualifier() const { return this->qualifier_ != nullptr;};
     void deleteQualifier() { this->qualifier_ = nullptr;};
-    inline string qualifier() const { DARABONBA_PTR_GET_DEFAULT(qualifier_, "") };
+    inline string getQualifier() const { DARABONBA_PTR_GET_DEFAULT(qualifier_, "") };
     inline CreateSessionRequest& setQualifier(string qualifier) { DARABONBA_PTR_SET_VALUE(qualifier_, qualifier) };
 
 
   protected:
     // Creates session configurations.
-    std::shared_ptr<CreateSessionInput> body_ = nullptr;
+    shared_ptr<CreateSessionInput> body_ {};
     // Specifies the version or alias to which the sesion belongs.
-    std::shared_ptr<string> qualifier_ = nullptr;
+    shared_ptr<string> qualifier_ {};
   };
 
   } // namespace Models

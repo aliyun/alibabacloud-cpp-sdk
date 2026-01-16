@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->concurrency_ == nullptr
-        && return this->eventSchema_ == nullptr; };
+        && this->eventSchema_ == nullptr; };
     // concurrency Field Functions 
     bool hasConcurrency() const { return this->concurrency_ != nullptr;};
     void deleteConcurrency() { this->concurrency_ = nullptr;};
-    inline int64_t concurrency() const { DARABONBA_PTR_GET_DEFAULT(concurrency_, 0L) };
+    inline int64_t getConcurrency() const { DARABONBA_PTR_GET_DEFAULT(concurrency_, 0L) };
     inline DeliveryOption& setConcurrency(int64_t concurrency) { DARABONBA_PTR_SET_VALUE(concurrency_, concurrency) };
 
 
     // eventSchema Field Functions 
     bool hasEventSchema() const { return this->eventSchema_ != nullptr;};
     void deleteEventSchema() { this->eventSchema_ = nullptr;};
-    inline string eventSchema() const { DARABONBA_PTR_GET_DEFAULT(eventSchema_, "") };
+    inline string getEventSchema() const { DARABONBA_PTR_GET_DEFAULT(eventSchema_, "") };
     inline DeliveryOption& setEventSchema(string eventSchema) { DARABONBA_PTR_SET_VALUE(eventSchema_, eventSchema) };
 
 
   protected:
-    std::shared_ptr<int64_t> concurrency_ = nullptr;
-    std::shared_ptr<string> eventSchema_ = nullptr;
+    shared_ptr<int64_t> concurrency_ {};
+    shared_ptr<string> eventSchema_ {};
   };
 
   } // namespace Models

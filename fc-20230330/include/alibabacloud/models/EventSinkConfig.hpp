@@ -34,14 +34,14 @@ namespace Models
     // deliveryOption Field Functions 
     bool hasDeliveryOption() const { return this->deliveryOption_ != nullptr;};
     void deleteDeliveryOption() { this->deliveryOption_ = nullptr;};
-    inline const DeliveryOption & deliveryOption() const { DARABONBA_PTR_GET_CONST(deliveryOption_, DeliveryOption) };
-    inline DeliveryOption deliveryOption() { DARABONBA_PTR_GET(deliveryOption_, DeliveryOption) };
+    inline const DeliveryOption & getDeliveryOption() const { DARABONBA_PTR_GET_CONST(deliveryOption_, DeliveryOption) };
+    inline DeliveryOption getDeliveryOption() { DARABONBA_PTR_GET(deliveryOption_, DeliveryOption) };
     inline EventSinkConfig& setDeliveryOption(const DeliveryOption & deliveryOption) { DARABONBA_PTR_SET_VALUE(deliveryOption_, deliveryOption) };
     inline EventSinkConfig& setDeliveryOption(DeliveryOption && deliveryOption) { DARABONBA_PTR_SET_RVALUE(deliveryOption_, deliveryOption) };
 
 
   protected:
-    std::shared_ptr<DeliveryOption> deliveryOption_ = nullptr;
+    shared_ptr<DeliveryOption> deliveryOption_ {};
   };
 
   } // namespace Models

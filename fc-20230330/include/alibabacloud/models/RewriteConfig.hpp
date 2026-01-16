@@ -38,12 +38,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->equalRules_ == nullptr
-        && return this->regexRules_ == nullptr && return this->wildcardRules_ == nullptr; };
+        && this->regexRules_ == nullptr && this->wildcardRules_ == nullptr; };
     // equalRules Field Functions 
     bool hasEqualRules() const { return this->equalRules_ != nullptr;};
     void deleteEqualRules() { this->equalRules_ = nullptr;};
-    inline const vector<EqualRule> & equalRules() const { DARABONBA_PTR_GET_CONST(equalRules_, vector<EqualRule>) };
-    inline vector<EqualRule> equalRules() { DARABONBA_PTR_GET(equalRules_, vector<EqualRule>) };
+    inline const vector<EqualRule> & getEqualRules() const { DARABONBA_PTR_GET_CONST(equalRules_, vector<EqualRule>) };
+    inline vector<EqualRule> getEqualRules() { DARABONBA_PTR_GET(equalRules_, vector<EqualRule>) };
     inline RewriteConfig& setEqualRules(const vector<EqualRule> & equalRules) { DARABONBA_PTR_SET_VALUE(equalRules_, equalRules) };
     inline RewriteConfig& setEqualRules(vector<EqualRule> && equalRules) { DARABONBA_PTR_SET_RVALUE(equalRules_, equalRules) };
 
@@ -51,8 +51,8 @@ namespace Models
     // regexRules Field Functions 
     bool hasRegexRules() const { return this->regexRules_ != nullptr;};
     void deleteRegexRules() { this->regexRules_ = nullptr;};
-    inline const vector<RegexRule> & regexRules() const { DARABONBA_PTR_GET_CONST(regexRules_, vector<RegexRule>) };
-    inline vector<RegexRule> regexRules() { DARABONBA_PTR_GET(regexRules_, vector<RegexRule>) };
+    inline const vector<RegexRule> & getRegexRules() const { DARABONBA_PTR_GET_CONST(regexRules_, vector<RegexRule>) };
+    inline vector<RegexRule> getRegexRules() { DARABONBA_PTR_GET(regexRules_, vector<RegexRule>) };
     inline RewriteConfig& setRegexRules(const vector<RegexRule> & regexRules) { DARABONBA_PTR_SET_VALUE(regexRules_, regexRules) };
     inline RewriteConfig& setRegexRules(vector<RegexRule> && regexRules) { DARABONBA_PTR_SET_RVALUE(regexRules_, regexRules) };
 
@@ -60,16 +60,16 @@ namespace Models
     // wildcardRules Field Functions 
     bool hasWildcardRules() const { return this->wildcardRules_ != nullptr;};
     void deleteWildcardRules() { this->wildcardRules_ = nullptr;};
-    inline const vector<WildcardRule> & wildcardRules() const { DARABONBA_PTR_GET_CONST(wildcardRules_, vector<WildcardRule>) };
-    inline vector<WildcardRule> wildcardRules() { DARABONBA_PTR_GET(wildcardRules_, vector<WildcardRule>) };
+    inline const vector<WildcardRule> & getWildcardRules() const { DARABONBA_PTR_GET_CONST(wildcardRules_, vector<WildcardRule>) };
+    inline vector<WildcardRule> getWildcardRules() { DARABONBA_PTR_GET(wildcardRules_, vector<WildcardRule>) };
     inline RewriteConfig& setWildcardRules(const vector<WildcardRule> & wildcardRules) { DARABONBA_PTR_SET_VALUE(wildcardRules_, wildcardRules) };
     inline RewriteConfig& setWildcardRules(vector<WildcardRule> && wildcardRules) { DARABONBA_PTR_SET_RVALUE(wildcardRules_, wildcardRules) };
 
 
   protected:
-    std::shared_ptr<vector<EqualRule>> equalRules_ = nullptr;
-    std::shared_ptr<vector<RegexRule>> regexRules_ = nullptr;
-    std::shared_ptr<vector<WildcardRule>> wildcardRules_ = nullptr;
+    shared_ptr<vector<EqualRule>> equalRules_ {};
+    shared_ptr<vector<RegexRule>> regexRules_ {};
+    shared_ptr<vector<WildcardRule>> wildcardRules_ {};
   };
 
   } // namespace Models

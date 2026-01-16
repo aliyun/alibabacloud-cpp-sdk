@@ -34,8 +34,8 @@ namespace Models
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const UpdateTriggerInput & body() const { DARABONBA_PTR_GET_CONST(body_, UpdateTriggerInput) };
-    inline UpdateTriggerInput body() { DARABONBA_PTR_GET(body_, UpdateTriggerInput) };
+    inline const UpdateTriggerInput & getBody() const { DARABONBA_PTR_GET_CONST(body_, UpdateTriggerInput) };
+    inline UpdateTriggerInput getBody() { DARABONBA_PTR_GET(body_, UpdateTriggerInput) };
     inline UpdateTriggerRequest& setBody(const UpdateTriggerInput & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
     inline UpdateTriggerRequest& setBody(UpdateTriggerInput && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
@@ -44,7 +44,7 @@ namespace Models
     // The trigger configurations.
     // 
     // This parameter is required.
-    std::shared_ptr<UpdateTriggerInput> body_ = nullptr;
+    shared_ptr<UpdateTriggerInput> body_ {};
   };
 
   } // namespace Models

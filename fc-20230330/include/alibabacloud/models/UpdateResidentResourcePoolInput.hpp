@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->name_ == nullptr
-        && return this->useScaling_ == nullptr; };
+        && this->useScaling_ == nullptr; };
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline UpdateResidentResourcePoolInput& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // useScaling Field Functions 
     bool hasUseScaling() const { return this->useScaling_ != nullptr;};
     void deleteUseScaling() { this->useScaling_ = nullptr;};
-    inline bool useScaling() const { DARABONBA_PTR_GET_DEFAULT(useScaling_, false) };
+    inline bool getUseScaling() const { DARABONBA_PTR_GET_DEFAULT(useScaling_, false) };
     inline UpdateResidentResourcePoolInput& setUseScaling(bool useScaling) { DARABONBA_PTR_SET_VALUE(useScaling_, useScaling) };
 
 
   protected:
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<bool> useScaling_ = nullptr;
+    shared_ptr<string> name_ {};
+    shared_ptr<bool> useScaling_ {};
   };
 
   } // namespace Models

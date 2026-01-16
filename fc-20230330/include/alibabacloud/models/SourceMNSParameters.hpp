@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->isBase64Decode_ == nullptr
-        && return this->queueName_ == nullptr && return this->regionId_ == nullptr; };
+        && this->queueName_ == nullptr && this->regionId_ == nullptr; };
     // isBase64Decode Field Functions 
     bool hasIsBase64Decode() const { return this->isBase64Decode_ != nullptr;};
     void deleteIsBase64Decode() { this->isBase64Decode_ = nullptr;};
-    inline bool isBase64Decode() const { DARABONBA_PTR_GET_DEFAULT(isBase64Decode_, false) };
+    inline bool getIsBase64Decode() const { DARABONBA_PTR_GET_DEFAULT(isBase64Decode_, false) };
     inline SourceMNSParameters& setIsBase64Decode(bool isBase64Decode) { DARABONBA_PTR_SET_VALUE(isBase64Decode_, isBase64Decode) };
 
 
     // queueName Field Functions 
     bool hasQueueName() const { return this->queueName_ != nullptr;};
     void deleteQueueName() { this->queueName_ = nullptr;};
-    inline string queueName() const { DARABONBA_PTR_GET_DEFAULT(queueName_, "") };
+    inline string getQueueName() const { DARABONBA_PTR_GET_DEFAULT(queueName_, "") };
     inline SourceMNSParameters& setQueueName(string queueName) { DARABONBA_PTR_SET_VALUE(queueName_, queueName) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline SourceMNSParameters& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
-    std::shared_ptr<bool> isBase64Decode_ = nullptr;
-    std::shared_ptr<string> queueName_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<bool> isBase64Decode_ {};
+    shared_ptr<string> queueName_ {};
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

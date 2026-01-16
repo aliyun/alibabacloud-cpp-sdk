@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->sessionConcurrencyPerInstance_ == nullptr
-        && return this->sseEndpointPath_ == nullptr; };
+        && this->sseEndpointPath_ == nullptr; };
     // sessionConcurrencyPerInstance Field Functions 
     bool hasSessionConcurrencyPerInstance() const { return this->sessionConcurrencyPerInstance_ != nullptr;};
     void deleteSessionConcurrencyPerInstance() { this->sessionConcurrencyPerInstance_ = nullptr;};
-    inline int64_t sessionConcurrencyPerInstance() const { DARABONBA_PTR_GET_DEFAULT(sessionConcurrencyPerInstance_, 0L) };
+    inline int64_t getSessionConcurrencyPerInstance() const { DARABONBA_PTR_GET_DEFAULT(sessionConcurrencyPerInstance_, 0L) };
     inline MCPSSESessionAffinityConfig& setSessionConcurrencyPerInstance(int64_t sessionConcurrencyPerInstance) { DARABONBA_PTR_SET_VALUE(sessionConcurrencyPerInstance_, sessionConcurrencyPerInstance) };
 
 
     // sseEndpointPath Field Functions 
     bool hasSseEndpointPath() const { return this->sseEndpointPath_ != nullptr;};
     void deleteSseEndpointPath() { this->sseEndpointPath_ = nullptr;};
-    inline string sseEndpointPath() const { DARABONBA_PTR_GET_DEFAULT(sseEndpointPath_, "") };
+    inline string getSseEndpointPath() const { DARABONBA_PTR_GET_DEFAULT(sseEndpointPath_, "") };
     inline MCPSSESessionAffinityConfig& setSseEndpointPath(string sseEndpointPath) { DARABONBA_PTR_SET_VALUE(sseEndpointPath_, sseEndpointPath) };
 
 
   protected:
-    std::shared_ptr<int64_t> sessionConcurrencyPerInstance_ = nullptr;
-    std::shared_ptr<string> sseEndpointPath_ = nullptr;
+    shared_ptr<int64_t> sessionConcurrencyPerInstance_ {};
+    shared_ptr<string> sseEndpointPath_ {};
   };
 
   } // namespace Models

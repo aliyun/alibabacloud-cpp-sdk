@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->sessionConcurrencyPerInstance_ == nullptr
-        && return this->sessionIdleTimeoutInSeconds_ == nullptr && return this->sessionTTLInSeconds_ == nullptr; };
+        && this->sessionIdleTimeoutInSeconds_ == nullptr && this->sessionTTLInSeconds_ == nullptr; };
     // sessionConcurrencyPerInstance Field Functions 
     bool hasSessionConcurrencyPerInstance() const { return this->sessionConcurrencyPerInstance_ != nullptr;};
     void deleteSessionConcurrencyPerInstance() { this->sessionConcurrencyPerInstance_ = nullptr;};
-    inline int64_t sessionConcurrencyPerInstance() const { DARABONBA_PTR_GET_DEFAULT(sessionConcurrencyPerInstance_, 0L) };
+    inline int64_t getSessionConcurrencyPerInstance() const { DARABONBA_PTR_GET_DEFAULT(sessionConcurrencyPerInstance_, 0L) };
     inline MCPStreamableSessionAffinityConfig& setSessionConcurrencyPerInstance(int64_t sessionConcurrencyPerInstance) { DARABONBA_PTR_SET_VALUE(sessionConcurrencyPerInstance_, sessionConcurrencyPerInstance) };
 
 
     // sessionIdleTimeoutInSeconds Field Functions 
     bool hasSessionIdleTimeoutInSeconds() const { return this->sessionIdleTimeoutInSeconds_ != nullptr;};
     void deleteSessionIdleTimeoutInSeconds() { this->sessionIdleTimeoutInSeconds_ = nullptr;};
-    inline int64_t sessionIdleTimeoutInSeconds() const { DARABONBA_PTR_GET_DEFAULT(sessionIdleTimeoutInSeconds_, 0L) };
+    inline int64_t getSessionIdleTimeoutInSeconds() const { DARABONBA_PTR_GET_DEFAULT(sessionIdleTimeoutInSeconds_, 0L) };
     inline MCPStreamableSessionAffinityConfig& setSessionIdleTimeoutInSeconds(int64_t sessionIdleTimeoutInSeconds) { DARABONBA_PTR_SET_VALUE(sessionIdleTimeoutInSeconds_, sessionIdleTimeoutInSeconds) };
 
 
     // sessionTTLInSeconds Field Functions 
     bool hasSessionTTLInSeconds() const { return this->sessionTTLInSeconds_ != nullptr;};
     void deleteSessionTTLInSeconds() { this->sessionTTLInSeconds_ = nullptr;};
-    inline int64_t sessionTTLInSeconds() const { DARABONBA_PTR_GET_DEFAULT(sessionTTLInSeconds_, 0L) };
+    inline int64_t getSessionTTLInSeconds() const { DARABONBA_PTR_GET_DEFAULT(sessionTTLInSeconds_, 0L) };
     inline MCPStreamableSessionAffinityConfig& setSessionTTLInSeconds(int64_t sessionTTLInSeconds) { DARABONBA_PTR_SET_VALUE(sessionTTLInSeconds_, sessionTTLInSeconds) };
 
 
   protected:
-    std::shared_ptr<int64_t> sessionConcurrencyPerInstance_ = nullptr;
-    std::shared_ptr<int64_t> sessionIdleTimeoutInSeconds_ = nullptr;
-    std::shared_ptr<int64_t> sessionTTLInSeconds_ = nullptr;
+    shared_ptr<int64_t> sessionConcurrencyPerInstance_ {};
+    shared_ptr<int64_t> sessionIdleTimeoutInSeconds_ {};
+    shared_ptr<int64_t> sessionTTLInSeconds_ {};
   };
 
   } // namespace Models

@@ -36,40 +36,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->checksum_ == nullptr
-        && return this->ossBucketName_ == nullptr && return this->ossObjectName_ == nullptr && return this->zipFile_ == nullptr; };
+        && this->ossBucketName_ == nullptr && this->ossObjectName_ == nullptr && this->zipFile_ == nullptr; };
     // checksum Field Functions 
     bool hasChecksum() const { return this->checksum_ != nullptr;};
     void deleteChecksum() { this->checksum_ = nullptr;};
-    inline string checksum() const { DARABONBA_PTR_GET_DEFAULT(checksum_, "") };
+    inline string getChecksum() const { DARABONBA_PTR_GET_DEFAULT(checksum_, "") };
     inline InputCodeLocation& setChecksum(string checksum) { DARABONBA_PTR_SET_VALUE(checksum_, checksum) };
 
 
     // ossBucketName Field Functions 
     bool hasOssBucketName() const { return this->ossBucketName_ != nullptr;};
     void deleteOssBucketName() { this->ossBucketName_ = nullptr;};
-    inline string ossBucketName() const { DARABONBA_PTR_GET_DEFAULT(ossBucketName_, "") };
+    inline string getOssBucketName() const { DARABONBA_PTR_GET_DEFAULT(ossBucketName_, "") };
     inline InputCodeLocation& setOssBucketName(string ossBucketName) { DARABONBA_PTR_SET_VALUE(ossBucketName_, ossBucketName) };
 
 
     // ossObjectName Field Functions 
     bool hasOssObjectName() const { return this->ossObjectName_ != nullptr;};
     void deleteOssObjectName() { this->ossObjectName_ = nullptr;};
-    inline string ossObjectName() const { DARABONBA_PTR_GET_DEFAULT(ossObjectName_, "") };
+    inline string getOssObjectName() const { DARABONBA_PTR_GET_DEFAULT(ossObjectName_, "") };
     inline InputCodeLocation& setOssObjectName(string ossObjectName) { DARABONBA_PTR_SET_VALUE(ossObjectName_, ossObjectName) };
 
 
     // zipFile Field Functions 
     bool hasZipFile() const { return this->zipFile_ != nullptr;};
     void deleteZipFile() { this->zipFile_ = nullptr;};
-    inline string zipFile() const { DARABONBA_PTR_GET_DEFAULT(zipFile_, "") };
+    inline string getZipFile() const { DARABONBA_PTR_GET_DEFAULT(zipFile_, "") };
     inline InputCodeLocation& setZipFile(string zipFile) { DARABONBA_PTR_SET_VALUE(zipFile_, zipFile) };
 
 
   protected:
-    std::shared_ptr<string> checksum_ = nullptr;
-    std::shared_ptr<string> ossBucketName_ = nullptr;
-    std::shared_ptr<string> ossObjectName_ = nullptr;
-    std::shared_ptr<string> zipFile_ = nullptr;
+    shared_ptr<string> checksum_ {};
+    shared_ptr<string> ossBucketName_ {};
+    shared_ptr<string> ossObjectName_ {};
+    shared_ptr<string> zipFile_ {};
   };
 
   } // namespace Models

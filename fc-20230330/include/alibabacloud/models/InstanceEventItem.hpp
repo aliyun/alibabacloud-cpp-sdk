@@ -40,12 +40,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->children_ == nullptr
-        && return this->level_ == nullptr && return this->message_ == nullptr && return this->time_ == nullptr && return this->type_ == nullptr; };
+        && this->level_ == nullptr && this->message_ == nullptr && this->time_ == nullptr && this->type_ == nullptr; };
     // children Field Functions 
     bool hasChildren() const { return this->children_ != nullptr;};
     void deleteChildren() { this->children_ = nullptr;};
-    inline const vector<InstanceEventItem> & children() const { DARABONBA_PTR_GET_CONST(children_, vector<InstanceEventItem>) };
-    inline vector<InstanceEventItem> children() { DARABONBA_PTR_GET(children_, vector<InstanceEventItem>) };
+    inline const vector<InstanceEventItem> & getChildren() const { DARABONBA_PTR_GET_CONST(children_, vector<InstanceEventItem>) };
+    inline vector<InstanceEventItem> getChildren() { DARABONBA_PTR_GET(children_, vector<InstanceEventItem>) };
     inline InstanceEventItem& setChildren(const vector<InstanceEventItem> & children) { DARABONBA_PTR_SET_VALUE(children_, children) };
     inline InstanceEventItem& setChildren(vector<InstanceEventItem> && children) { DARABONBA_PTR_SET_RVALUE(children_, children) };
 
@@ -53,37 +53,37 @@ namespace Models
     // level Field Functions 
     bool hasLevel() const { return this->level_ != nullptr;};
     void deleteLevel() { this->level_ = nullptr;};
-    inline string level() const { DARABONBA_PTR_GET_DEFAULT(level_, "") };
+    inline string getLevel() const { DARABONBA_PTR_GET_DEFAULT(level_, "") };
     inline InstanceEventItem& setLevel(string level) { DARABONBA_PTR_SET_VALUE(level_, level) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline InstanceEventItem& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // time Field Functions 
     bool hasTime() const { return this->time_ != nullptr;};
     void deleteTime() { this->time_ = nullptr;};
-    inline string time() const { DARABONBA_PTR_GET_DEFAULT(time_, "") };
+    inline string getTime() const { DARABONBA_PTR_GET_DEFAULT(time_, "") };
     inline InstanceEventItem& setTime(string time) { DARABONBA_PTR_SET_VALUE(time_, time) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline InstanceEventItem& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
-    std::shared_ptr<vector<InstanceEventItem>> children_ = nullptr;
-    std::shared_ptr<string> level_ = nullptr;
-    std::shared_ptr<string> message_ = nullptr;
-    std::shared_ptr<string> time_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<vector<InstanceEventItem>> children_ {};
+    shared_ptr<string> level_ {};
+    shared_ptr<string> message_ {};
+    shared_ptr<string> time_ {};
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

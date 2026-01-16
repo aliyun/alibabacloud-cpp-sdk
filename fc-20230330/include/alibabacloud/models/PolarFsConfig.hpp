@@ -36,19 +36,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->groupId_ == nullptr
-        && return this->mountPoints_ == nullptr && return this->userId_ == nullptr; };
+        && this->mountPoints_ == nullptr && this->userId_ == nullptr; };
     // groupId Field Functions 
     bool hasGroupId() const { return this->groupId_ != nullptr;};
     void deleteGroupId() { this->groupId_ = nullptr;};
-    inline int32_t groupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, 0) };
+    inline int32_t getGroupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, 0) };
     inline PolarFsConfig& setGroupId(int32_t groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
 
 
     // mountPoints Field Functions 
     bool hasMountPoints() const { return this->mountPoints_ != nullptr;};
     void deleteMountPoints() { this->mountPoints_ = nullptr;};
-    inline const vector<PolarFsMountConfig> & mountPoints() const { DARABONBA_PTR_GET_CONST(mountPoints_, vector<PolarFsMountConfig>) };
-    inline vector<PolarFsMountConfig> mountPoints() { DARABONBA_PTR_GET(mountPoints_, vector<PolarFsMountConfig>) };
+    inline const vector<PolarFsMountConfig> & getMountPoints() const { DARABONBA_PTR_GET_CONST(mountPoints_, vector<PolarFsMountConfig>) };
+    inline vector<PolarFsMountConfig> getMountPoints() { DARABONBA_PTR_GET(mountPoints_, vector<PolarFsMountConfig>) };
     inline PolarFsConfig& setMountPoints(const vector<PolarFsMountConfig> & mountPoints) { DARABONBA_PTR_SET_VALUE(mountPoints_, mountPoints) };
     inline PolarFsConfig& setMountPoints(vector<PolarFsMountConfig> && mountPoints) { DARABONBA_PTR_SET_RVALUE(mountPoints_, mountPoints) };
 
@@ -56,14 +56,14 @@ namespace Models
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline int32_t userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, 0) };
+    inline int32_t getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, 0) };
     inline PolarFsConfig& setUserId(int32_t userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
   protected:
-    std::shared_ptr<int32_t> groupId_ = nullptr;
-    std::shared_ptr<vector<PolarFsMountConfig>> mountPoints_ = nullptr;
-    std::shared_ptr<int32_t> userId_ = nullptr;
+    shared_ptr<int32_t> groupId_ {};
+    shared_ptr<vector<PolarFsMountConfig>> mountPoints_ {};
+    shared_ptr<int32_t> userId_ {};
   };
 
   } // namespace Models

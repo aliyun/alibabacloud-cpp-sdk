@@ -33,13 +33,13 @@ namespace Models
     // reservedConcurrency Field Functions 
     bool hasReservedConcurrency() const { return this->reservedConcurrency_ != nullptr;};
     void deleteReservedConcurrency() { this->reservedConcurrency_ = nullptr;};
-    inline int64_t reservedConcurrency() const { DARABONBA_PTR_GET_DEFAULT(reservedConcurrency_, 0L) };
+    inline int64_t getReservedConcurrency() const { DARABONBA_PTR_GET_DEFAULT(reservedConcurrency_, 0L) };
     inline PutConcurrencyInput& setReservedConcurrency(int64_t reservedConcurrency) { DARABONBA_PTR_SET_VALUE(reservedConcurrency_, reservedConcurrency) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<int64_t> reservedConcurrency_ = nullptr;
+    shared_ptr<int64_t> reservedConcurrency_ {};
   };
 
   } // namespace Models

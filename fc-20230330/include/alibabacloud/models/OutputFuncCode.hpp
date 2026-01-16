@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->checksum_ == nullptr
-        && return this->url_ == nullptr; };
+        && this->url_ == nullptr; };
     // checksum Field Functions 
     bool hasChecksum() const { return this->checksum_ != nullptr;};
     void deleteChecksum() { this->checksum_ = nullptr;};
-    inline string checksum() const { DARABONBA_PTR_GET_DEFAULT(checksum_, "") };
+    inline string getChecksum() const { DARABONBA_PTR_GET_DEFAULT(checksum_, "") };
     inline OutputFuncCode& setChecksum(string checksum) { DARABONBA_PTR_SET_VALUE(checksum_, checksum) };
 
 
     // url Field Functions 
     bool hasUrl() const { return this->url_ != nullptr;};
     void deleteUrl() { this->url_ = nullptr;};
-    inline string url() const { DARABONBA_PTR_GET_DEFAULT(url_, "") };
+    inline string getUrl() const { DARABONBA_PTR_GET_DEFAULT(url_, "") };
     inline OutputFuncCode& setUrl(string url) { DARABONBA_PTR_SET_VALUE(url_, url) };
 
 
   protected:
-    std::shared_ptr<string> checksum_ = nullptr;
-    std::shared_ptr<string> url_ = nullptr;
+    shared_ptr<string> checksum_ {};
+    shared_ptr<string> url_ {};
   };
 
   } // namespace Models

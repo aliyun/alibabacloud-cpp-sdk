@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cipherSuites_ == nullptr
-        && return this->maxVersion_ == nullptr && return this->minVersion_ == nullptr; };
+        && this->maxVersion_ == nullptr && this->minVersion_ == nullptr; };
     // cipherSuites Field Functions 
     bool hasCipherSuites() const { return this->cipherSuites_ != nullptr;};
     void deleteCipherSuites() { this->cipherSuites_ = nullptr;};
-    inline const vector<string> & cipherSuites() const { DARABONBA_PTR_GET_CONST(cipherSuites_, vector<string>) };
-    inline vector<string> cipherSuites() { DARABONBA_PTR_GET(cipherSuites_, vector<string>) };
+    inline const vector<string> & getCipherSuites() const { DARABONBA_PTR_GET_CONST(cipherSuites_, vector<string>) };
+    inline vector<string> getCipherSuites() { DARABONBA_PTR_GET(cipherSuites_, vector<string>) };
     inline TLSConfig& setCipherSuites(const vector<string> & cipherSuites) { DARABONBA_PTR_SET_VALUE(cipherSuites_, cipherSuites) };
     inline TLSConfig& setCipherSuites(vector<string> && cipherSuites) { DARABONBA_PTR_SET_RVALUE(cipherSuites_, cipherSuites) };
 
@@ -48,23 +48,23 @@ namespace Models
     // maxVersion Field Functions 
     bool hasMaxVersion() const { return this->maxVersion_ != nullptr;};
     void deleteMaxVersion() { this->maxVersion_ = nullptr;};
-    inline string maxVersion() const { DARABONBA_PTR_GET_DEFAULT(maxVersion_, "") };
+    inline string getMaxVersion() const { DARABONBA_PTR_GET_DEFAULT(maxVersion_, "") };
     inline TLSConfig& setMaxVersion(string maxVersion) { DARABONBA_PTR_SET_VALUE(maxVersion_, maxVersion) };
 
 
     // minVersion Field Functions 
     bool hasMinVersion() const { return this->minVersion_ != nullptr;};
     void deleteMinVersion() { this->minVersion_ = nullptr;};
-    inline string minVersion() const { DARABONBA_PTR_GET_DEFAULT(minVersion_, "") };
+    inline string getMinVersion() const { DARABONBA_PTR_GET_DEFAULT(minVersion_, "") };
     inline TLSConfig& setMinVersion(string minVersion) { DARABONBA_PTR_SET_VALUE(minVersion_, minVersion) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<vector<string>> cipherSuites_ = nullptr;
-    std::shared_ptr<string> maxVersion_ = nullptr;
+    shared_ptr<vector<string>> cipherSuites_ {};
+    shared_ptr<string> maxVersion_ {};
     // This parameter is required.
-    std::shared_ptr<string> minVersion_ = nullptr;
+    shared_ptr<string> minVersion_ {};
   };
 
   } // namespace Models

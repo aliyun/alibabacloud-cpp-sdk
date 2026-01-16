@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cronExpression_ == nullptr
-        && return this->enable_ == nullptr && return this->payload_ == nullptr; };
+        && this->enable_ == nullptr && this->payload_ == nullptr; };
     // cronExpression Field Functions 
     bool hasCronExpression() const { return this->cronExpression_ != nullptr;};
     void deleteCronExpression() { this->cronExpression_ = nullptr;};
-    inline string cronExpression() const { DARABONBA_PTR_GET_DEFAULT(cronExpression_, "") };
+    inline string getCronExpression() const { DARABONBA_PTR_GET_DEFAULT(cronExpression_, "") };
     inline TimerTriggerConfig& setCronExpression(string cronExpression) { DARABONBA_PTR_SET_VALUE(cronExpression_, cronExpression) };
 
 
     // enable Field Functions 
     bool hasEnable() const { return this->enable_ != nullptr;};
     void deleteEnable() { this->enable_ = nullptr;};
-    inline bool enable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
+    inline bool getEnable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
     inline TimerTriggerConfig& setEnable(bool enable) { DARABONBA_PTR_SET_VALUE(enable_, enable) };
 
 
     // payload Field Functions 
     bool hasPayload() const { return this->payload_ != nullptr;};
     void deletePayload() { this->payload_ = nullptr;};
-    inline string payload() const { DARABONBA_PTR_GET_DEFAULT(payload_, "") };
+    inline string getPayload() const { DARABONBA_PTR_GET_DEFAULT(payload_, "") };
     inline TimerTriggerConfig& setPayload(string payload) { DARABONBA_PTR_SET_VALUE(payload_, payload) };
 
 
   protected:
-    std::shared_ptr<string> cronExpression_ = nullptr;
-    std::shared_ptr<bool> enable_ = nullptr;
-    std::shared_ptr<string> payload_ = nullptr;
+    shared_ptr<string> cronExpression_ {};
+    shared_ptr<bool> enable_ {};
+    shared_ptr<string> payload_ {};
   };
 
   } // namespace Models

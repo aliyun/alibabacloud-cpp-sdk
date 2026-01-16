@@ -34,26 +34,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->nextToken_ == nullptr
-        && return this->resources_ == nullptr; };
+        && this->resources_ == nullptr; };
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListTaggedResourcesOutput& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // resources Field Functions 
     bool hasResources() const { return this->resources_ != nullptr;};
     void deleteResources() { this->resources_ = nullptr;};
-    inline const vector<Resource> & resources() const { DARABONBA_PTR_GET_CONST(resources_, vector<Resource>) };
-    inline vector<Resource> resources() { DARABONBA_PTR_GET(resources_, vector<Resource>) };
+    inline const vector<Resource> & getResources() const { DARABONBA_PTR_GET_CONST(resources_, vector<Resource>) };
+    inline vector<Resource> getResources() { DARABONBA_PTR_GET(resources_, vector<Resource>) };
     inline ListTaggedResourcesOutput& setResources(const vector<Resource> & resources) { DARABONBA_PTR_SET_VALUE(resources_, resources) };
     inline ListTaggedResourcesOutput& setResources(vector<Resource> && resources) { DARABONBA_PTR_SET_RVALUE(resources_, resources) };
 
 
   protected:
-    std::shared_ptr<string> nextToken_ = nullptr;
-    std::shared_ptr<vector<Resource>> resources_ = nullptr;
+    shared_ptr<string> nextToken_ {};
+    shared_ptr<vector<Resource>> resources_ {};
   };
 
   } // namespace Models

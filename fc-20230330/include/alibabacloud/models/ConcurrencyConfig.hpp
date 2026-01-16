@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->functionArn_ == nullptr
-        && return this->reservedConcurrency_ == nullptr; };
+        && this->reservedConcurrency_ == nullptr; };
     // functionArn Field Functions 
     bool hasFunctionArn() const { return this->functionArn_ != nullptr;};
     void deleteFunctionArn() { this->functionArn_ = nullptr;};
-    inline string functionArn() const { DARABONBA_PTR_GET_DEFAULT(functionArn_, "") };
+    inline string getFunctionArn() const { DARABONBA_PTR_GET_DEFAULT(functionArn_, "") };
     inline ConcurrencyConfig& setFunctionArn(string functionArn) { DARABONBA_PTR_SET_VALUE(functionArn_, functionArn) };
 
 
     // reservedConcurrency Field Functions 
     bool hasReservedConcurrency() const { return this->reservedConcurrency_ != nullptr;};
     void deleteReservedConcurrency() { this->reservedConcurrency_ = nullptr;};
-    inline int64_t reservedConcurrency() const { DARABONBA_PTR_GET_DEFAULT(reservedConcurrency_, 0L) };
+    inline int64_t getReservedConcurrency() const { DARABONBA_PTR_GET_DEFAULT(reservedConcurrency_, 0L) };
     inline ConcurrencyConfig& setReservedConcurrency(int64_t reservedConcurrency) { DARABONBA_PTR_SET_VALUE(reservedConcurrency_, reservedConcurrency) };
 
 
   protected:
-    std::shared_ptr<string> functionArn_ = nullptr;
-    std::shared_ptr<int64_t> reservedConcurrency_ = nullptr;
+    shared_ptr<string> functionArn_ {};
+    shared_ptr<int64_t> reservedConcurrency_ {};
   };
 
   } // namespace Models

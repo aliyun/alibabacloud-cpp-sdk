@@ -34,8 +34,8 @@ namespace Models
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const PutConcurrencyInput & body() const { DARABONBA_PTR_GET_CONST(body_, PutConcurrencyInput) };
-    inline PutConcurrencyInput body() { DARABONBA_PTR_GET(body_, PutConcurrencyInput) };
+    inline const PutConcurrencyInput & getBody() const { DARABONBA_PTR_GET_CONST(body_, PutConcurrencyInput) };
+    inline PutConcurrencyInput getBody() { DARABONBA_PTR_GET(body_, PutConcurrencyInput) };
     inline PutConcurrencyConfigRequest& setBody(const PutConcurrencyInput & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
     inline PutConcurrencyConfigRequest& setBody(PutConcurrencyInput && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
@@ -44,7 +44,7 @@ namespace Models
     // The concurrency configurations.
     // 
     // This parameter is required.
-    std::shared_ptr<PutConcurrencyInput> body_ = nullptr;
+    shared_ptr<PutConcurrencyInput> body_ {};
   };
 
   } // namespace Models

@@ -37,19 +37,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->all_ == nullptr
-        && return this->resourceId_ == nullptr && return this->resourceType_ == nullptr && return this->tagKey_ == nullptr; };
+        && this->resourceId_ == nullptr && this->resourceType_ == nullptr && this->tagKey_ == nullptr; };
     // all Field Functions 
     bool hasAll() const { return this->all_ != nullptr;};
     void deleteAll() { this->all_ = nullptr;};
-    inline bool all() const { DARABONBA_PTR_GET_DEFAULT(all_, false) };
+    inline bool getAll() const { DARABONBA_PTR_GET_DEFAULT(all_, false) };
     inline UntagResourcesRequest& setAll(bool all) { DARABONBA_PTR_SET_VALUE(all_, all) };
 
 
     // resourceId Field Functions 
     bool hasResourceId() const { return this->resourceId_ != nullptr;};
     void deleteResourceId() { this->resourceId_ = nullptr;};
-    inline const vector<string> & resourceId() const { DARABONBA_PTR_GET_CONST(resourceId_, vector<string>) };
-    inline vector<string> resourceId() { DARABONBA_PTR_GET(resourceId_, vector<string>) };
+    inline const vector<string> & getResourceId() const { DARABONBA_PTR_GET_CONST(resourceId_, vector<string>) };
+    inline vector<string> getResourceId() { DARABONBA_PTR_GET(resourceId_, vector<string>) };
     inline UntagResourcesRequest& setResourceId(const vector<string> & resourceId) { DARABONBA_PTR_SET_VALUE(resourceId_, resourceId) };
     inline UntagResourcesRequest& setResourceId(vector<string> && resourceId) { DARABONBA_PTR_SET_RVALUE(resourceId_, resourceId) };
 
@@ -57,32 +57,32 @@ namespace Models
     // resourceType Field Functions 
     bool hasResourceType() const { return this->resourceType_ != nullptr;};
     void deleteResourceType() { this->resourceType_ = nullptr;};
-    inline string resourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
+    inline string getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
     inline UntagResourcesRequest& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
 
 
     // tagKey Field Functions 
     bool hasTagKey() const { return this->tagKey_ != nullptr;};
     void deleteTagKey() { this->tagKey_ = nullptr;};
-    inline const vector<string> & tagKey() const { DARABONBA_PTR_GET_CONST(tagKey_, vector<string>) };
-    inline vector<string> tagKey() { DARABONBA_PTR_GET(tagKey_, vector<string>) };
+    inline const vector<string> & getTagKey() const { DARABONBA_PTR_GET_CONST(tagKey_, vector<string>) };
+    inline vector<string> getTagKey() { DARABONBA_PTR_GET(tagKey_, vector<string>) };
     inline UntagResourcesRequest& setTagKey(const vector<string> & tagKey) { DARABONBA_PTR_SET_VALUE(tagKey_, tagKey) };
     inline UntagResourcesRequest& setTagKey(vector<string> && tagKey) { DARABONBA_PTR_SET_RVALUE(tagKey_, tagKey) };
 
 
   protected:
     // Specifies whether to delete all tags.
-    std::shared_ptr<bool> all_ = nullptr;
+    shared_ptr<bool> all_ {};
     // The resource identifiers.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> resourceId_ = nullptr;
+    shared_ptr<vector<string>> resourceId_ {};
     // The resource type.
     // 
     // This parameter is required.
-    std::shared_ptr<string> resourceType_ = nullptr;
+    shared_ptr<string> resourceType_ {};
     // The tag to remove. You can specify a maximum of 50 tags.
-    std::shared_ptr<vector<string>> tagKey_ = nullptr;
+    shared_ptr<vector<string>> tagKey_ {};
   };
 
   } // namespace Models

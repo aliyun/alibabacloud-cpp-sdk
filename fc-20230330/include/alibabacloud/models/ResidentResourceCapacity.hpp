@@ -40,62 +40,62 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->gpuType_ == nullptr
-        && return this->totalCpuCores_ == nullptr && return this->totalDiskSize_ == nullptr && return this->totalGpuCards_ == nullptr && return this->totalGpuMemorySize_ == nullptr && return this->totalMemorySize_ == nullptr; };
+        && this->totalCpuCores_ == nullptr && this->totalDiskSize_ == nullptr && this->totalGpuCards_ == nullptr && this->totalGpuMemorySize_ == nullptr && this->totalMemorySize_ == nullptr; };
     // gpuType Field Functions 
     bool hasGpuType() const { return this->gpuType_ != nullptr;};
     void deleteGpuType() { this->gpuType_ = nullptr;};
-    inline string gpuType() const { DARABONBA_PTR_GET_DEFAULT(gpuType_, "") };
+    inline string getGpuType() const { DARABONBA_PTR_GET_DEFAULT(gpuType_, "") };
     inline ResidentResourceCapacity& setGpuType(string gpuType) { DARABONBA_PTR_SET_VALUE(gpuType_, gpuType) };
 
 
     // totalCpuCores Field Functions 
     bool hasTotalCpuCores() const { return this->totalCpuCores_ != nullptr;};
     void deleteTotalCpuCores() { this->totalCpuCores_ = nullptr;};
-    inline int64_t totalCpuCores() const { DARABONBA_PTR_GET_DEFAULT(totalCpuCores_, 0L) };
+    inline int64_t getTotalCpuCores() const { DARABONBA_PTR_GET_DEFAULT(totalCpuCores_, 0L) };
     inline ResidentResourceCapacity& setTotalCpuCores(int64_t totalCpuCores) { DARABONBA_PTR_SET_VALUE(totalCpuCores_, totalCpuCores) };
 
 
     // totalDiskSize Field Functions 
     bool hasTotalDiskSize() const { return this->totalDiskSize_ != nullptr;};
     void deleteTotalDiskSize() { this->totalDiskSize_ = nullptr;};
-    inline int64_t totalDiskSize() const { DARABONBA_PTR_GET_DEFAULT(totalDiskSize_, 0L) };
+    inline int64_t getTotalDiskSize() const { DARABONBA_PTR_GET_DEFAULT(totalDiskSize_, 0L) };
     inline ResidentResourceCapacity& setTotalDiskSize(int64_t totalDiskSize) { DARABONBA_PTR_SET_VALUE(totalDiskSize_, totalDiskSize) };
 
 
     // totalGpuCards Field Functions 
     bool hasTotalGpuCards() const { return this->totalGpuCards_ != nullptr;};
     void deleteTotalGpuCards() { this->totalGpuCards_ = nullptr;};
-    inline int64_t totalGpuCards() const { DARABONBA_PTR_GET_DEFAULT(totalGpuCards_, 0L) };
+    inline int64_t getTotalGpuCards() const { DARABONBA_PTR_GET_DEFAULT(totalGpuCards_, 0L) };
     inline ResidentResourceCapacity& setTotalGpuCards(int64_t totalGpuCards) { DARABONBA_PTR_SET_VALUE(totalGpuCards_, totalGpuCards) };
 
 
     // totalGpuMemorySize Field Functions 
     bool hasTotalGpuMemorySize() const { return this->totalGpuMemorySize_ != nullptr;};
     void deleteTotalGpuMemorySize() { this->totalGpuMemorySize_ = nullptr;};
-    inline int64_t totalGpuMemorySize() const { DARABONBA_PTR_GET_DEFAULT(totalGpuMemorySize_, 0L) };
+    inline int64_t getTotalGpuMemorySize() const { DARABONBA_PTR_GET_DEFAULT(totalGpuMemorySize_, 0L) };
     inline ResidentResourceCapacity& setTotalGpuMemorySize(int64_t totalGpuMemorySize) { DARABONBA_PTR_SET_VALUE(totalGpuMemorySize_, totalGpuMemorySize) };
 
 
     // totalMemorySize Field Functions 
     bool hasTotalMemorySize() const { return this->totalMemorySize_ != nullptr;};
     void deleteTotalMemorySize() { this->totalMemorySize_ = nullptr;};
-    inline int64_t totalMemorySize() const { DARABONBA_PTR_GET_DEFAULT(totalMemorySize_, 0L) };
+    inline int64_t getTotalMemorySize() const { DARABONBA_PTR_GET_DEFAULT(totalMemorySize_, 0L) };
     inline ResidentResourceCapacity& setTotalMemorySize(int64_t totalMemorySize) { DARABONBA_PTR_SET_VALUE(totalMemorySize_, totalMemorySize) };
 
 
   protected:
     // GPU 卡型
-    std::shared_ptr<string> gpuType_ = nullptr;
+    shared_ptr<string> gpuType_ {};
     // CPU 总核数
-    std::shared_ptr<int64_t> totalCpuCores_ = nullptr;
+    shared_ptr<int64_t> totalCpuCores_ {};
     // 总磁盘大小，单位 GB
-    std::shared_ptr<int64_t> totalDiskSize_ = nullptr;
+    shared_ptr<int64_t> totalDiskSize_ {};
     // GPU总卡数
-    std::shared_ptr<int64_t> totalGpuCards_ = nullptr;
+    shared_ptr<int64_t> totalGpuCards_ {};
     // 总显存大小，单位 GB
-    std::shared_ptr<int64_t> totalGpuMemorySize_ = nullptr;
+    shared_ptr<int64_t> totalGpuMemorySize_ {};
     // 总内存大小，单位 GB
-    std::shared_ptr<int64_t> totalMemorySize_ = nullptr;
+    shared_ptr<int64_t> totalMemorySize_ {};
   };
 
   } // namespace Models

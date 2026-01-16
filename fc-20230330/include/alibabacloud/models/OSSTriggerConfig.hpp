@@ -34,12 +34,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->events_ == nullptr
-        && return this->filter_ == nullptr; };
+        && this->filter_ == nullptr; };
     // events Field Functions 
     bool hasEvents() const { return this->events_ != nullptr;};
     void deleteEvents() { this->events_ = nullptr;};
-    inline const vector<string> & events() const { DARABONBA_PTR_GET_CONST(events_, vector<string>) };
-    inline vector<string> events() { DARABONBA_PTR_GET(events_, vector<string>) };
+    inline const vector<string> & getEvents() const { DARABONBA_PTR_GET_CONST(events_, vector<string>) };
+    inline vector<string> getEvents() { DARABONBA_PTR_GET(events_, vector<string>) };
     inline OSSTriggerConfig& setEvents(const vector<string> & events) { DARABONBA_PTR_SET_VALUE(events_, events) };
     inline OSSTriggerConfig& setEvents(vector<string> && events) { DARABONBA_PTR_SET_RVALUE(events_, events) };
 
@@ -47,15 +47,15 @@ namespace Models
     // filter Field Functions 
     bool hasFilter() const { return this->filter_ != nullptr;};
     void deleteFilter() { this->filter_ = nullptr;};
-    inline const Filter & filter() const { DARABONBA_PTR_GET_CONST(filter_, Filter) };
-    inline Filter filter() { DARABONBA_PTR_GET(filter_, Filter) };
+    inline const Filter & getFilter() const { DARABONBA_PTR_GET_CONST(filter_, Filter) };
+    inline Filter getFilter() { DARABONBA_PTR_GET(filter_, Filter) };
     inline OSSTriggerConfig& setFilter(const Filter & filter) { DARABONBA_PTR_SET_VALUE(filter_, filter) };
     inline OSSTriggerConfig& setFilter(Filter && filter) { DARABONBA_PTR_SET_RVALUE(filter_, filter) };
 
 
   protected:
-    std::shared_ptr<vector<string>> events_ = nullptr;
-    std::shared_ptr<Filter> filter_ = nullptr;
+    shared_ptr<vector<string>> events_ {};
+    shared_ptr<Filter> filter_ {};
   };
 
   } // namespace Models

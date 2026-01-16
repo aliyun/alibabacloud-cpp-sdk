@@ -36,34 +36,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->direction_ == nullptr
-        && return this->nextToken_ == nullptr && return this->versions_ == nullptr; };
+        && this->nextToken_ == nullptr && this->versions_ == nullptr; };
     // direction Field Functions 
     bool hasDirection() const { return this->direction_ != nullptr;};
     void deleteDirection() { this->direction_ = nullptr;};
-    inline string direction() const { DARABONBA_PTR_GET_DEFAULT(direction_, "") };
+    inline string getDirection() const { DARABONBA_PTR_GET_DEFAULT(direction_, "") };
     inline ListVersionsOutput& setDirection(string direction) { DARABONBA_PTR_SET_VALUE(direction_, direction) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListVersionsOutput& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // versions Field Functions 
     bool hasVersions() const { return this->versions_ != nullptr;};
     void deleteVersions() { this->versions_ = nullptr;};
-    inline const vector<Version> & versions() const { DARABONBA_PTR_GET_CONST(versions_, vector<Version>) };
-    inline vector<Version> versions() { DARABONBA_PTR_GET(versions_, vector<Version>) };
+    inline const vector<Version> & getVersions() const { DARABONBA_PTR_GET_CONST(versions_, vector<Version>) };
+    inline vector<Version> getVersions() { DARABONBA_PTR_GET(versions_, vector<Version>) };
     inline ListVersionsOutput& setVersions(const vector<Version> & versions) { DARABONBA_PTR_SET_VALUE(versions_, versions) };
     inline ListVersionsOutput& setVersions(vector<Version> && versions) { DARABONBA_PTR_SET_RVALUE(versions_, versions) };
 
 
   protected:
-    std::shared_ptr<string> direction_ = nullptr;
-    std::shared_ptr<string> nextToken_ = nullptr;
-    std::shared_ptr<vector<Version>> versions_ = nullptr;
+    shared_ptr<string> direction_ {};
+    shared_ptr<string> nextToken_ {};
+    shared_ptr<vector<Version>> versions_ {};
   };
 
   } // namespace Models

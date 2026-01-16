@@ -34,12 +34,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instances_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // instances Field Functions 
     bool hasInstances() const { return this->instances_ != nullptr;};
     void deleteInstances() { this->instances_ = nullptr;};
-    inline const vector<InstanceInfo> & instances() const { DARABONBA_PTR_GET_CONST(instances_, vector<InstanceInfo>) };
-    inline vector<InstanceInfo> instances() { DARABONBA_PTR_GET(instances_, vector<InstanceInfo>) };
+    inline const vector<InstanceInfo> & getInstances() const { DARABONBA_PTR_GET_CONST(instances_, vector<InstanceInfo>) };
+    inline vector<InstanceInfo> getInstances() { DARABONBA_PTR_GET(instances_, vector<InstanceInfo>) };
     inline ListInstancesOutput& setInstances(const vector<InstanceInfo> & instances) { DARABONBA_PTR_SET_VALUE(instances_, instances) };
     inline ListInstancesOutput& setInstances(vector<InstanceInfo> && instances) { DARABONBA_PTR_SET_RVALUE(instances_, instances) };
 
@@ -47,13 +47,13 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListInstancesOutput& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<vector<InstanceInfo>> instances_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<vector<InstanceInfo>> instances_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

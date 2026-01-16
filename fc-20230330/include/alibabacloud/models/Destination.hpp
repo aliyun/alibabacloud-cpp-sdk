@@ -33,12 +33,12 @@ namespace Models
     // destination Field Functions 
     bool hasDestination() const { return this->destination_ != nullptr;};
     void deleteDestination() { this->destination_ = nullptr;};
-    inline string destination() const { DARABONBA_PTR_GET_DEFAULT(destination_, "") };
+    inline string getDestination() const { DARABONBA_PTR_GET_DEFAULT(destination_, "") };
     inline Destination& setDestination(string destination) { DARABONBA_PTR_SET_VALUE(destination_, destination) };
 
 
   protected:
-    std::shared_ptr<string> destination_ = nullptr;
+    shared_ptr<string> destination_ {};
   };
 
   } // namespace Models

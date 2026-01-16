@@ -46,12 +46,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->sourceDTSParameters_ == nullptr
-        && return this->sourceKafkaParameters_ == nullptr && return this->sourceMNSParameters_ == nullptr && return this->sourceMQTTParameters_ == nullptr && return this->sourceRabbitMQParameters_ == nullptr && return this->sourceRocketMQParameters_ == nullptr; };
+        && this->sourceKafkaParameters_ == nullptr && this->sourceMNSParameters_ == nullptr && this->sourceMQTTParameters_ == nullptr && this->sourceRabbitMQParameters_ == nullptr && this->sourceRocketMQParameters_ == nullptr; };
     // sourceDTSParameters Field Functions 
     bool hasSourceDTSParameters() const { return this->sourceDTSParameters_ != nullptr;};
     void deleteSourceDTSParameters() { this->sourceDTSParameters_ = nullptr;};
-    inline const SourceDTSParameters & sourceDTSParameters() const { DARABONBA_PTR_GET_CONST(sourceDTSParameters_, SourceDTSParameters) };
-    inline SourceDTSParameters sourceDTSParameters() { DARABONBA_PTR_GET(sourceDTSParameters_, SourceDTSParameters) };
+    inline const SourceDTSParameters & getSourceDTSParameters() const { DARABONBA_PTR_GET_CONST(sourceDTSParameters_, SourceDTSParameters) };
+    inline SourceDTSParameters getSourceDTSParameters() { DARABONBA_PTR_GET(sourceDTSParameters_, SourceDTSParameters) };
     inline EventSourceParameters& setSourceDTSParameters(const SourceDTSParameters & sourceDTSParameters) { DARABONBA_PTR_SET_VALUE(sourceDTSParameters_, sourceDTSParameters) };
     inline EventSourceParameters& setSourceDTSParameters(SourceDTSParameters && sourceDTSParameters) { DARABONBA_PTR_SET_RVALUE(sourceDTSParameters_, sourceDTSParameters) };
 
@@ -59,8 +59,8 @@ namespace Models
     // sourceKafkaParameters Field Functions 
     bool hasSourceKafkaParameters() const { return this->sourceKafkaParameters_ != nullptr;};
     void deleteSourceKafkaParameters() { this->sourceKafkaParameters_ = nullptr;};
-    inline const SourceKafkaParameters & sourceKafkaParameters() const { DARABONBA_PTR_GET_CONST(sourceKafkaParameters_, SourceKafkaParameters) };
-    inline SourceKafkaParameters sourceKafkaParameters() { DARABONBA_PTR_GET(sourceKafkaParameters_, SourceKafkaParameters) };
+    inline const SourceKafkaParameters & getSourceKafkaParameters() const { DARABONBA_PTR_GET_CONST(sourceKafkaParameters_, SourceKafkaParameters) };
+    inline SourceKafkaParameters getSourceKafkaParameters() { DARABONBA_PTR_GET(sourceKafkaParameters_, SourceKafkaParameters) };
     inline EventSourceParameters& setSourceKafkaParameters(const SourceKafkaParameters & sourceKafkaParameters) { DARABONBA_PTR_SET_VALUE(sourceKafkaParameters_, sourceKafkaParameters) };
     inline EventSourceParameters& setSourceKafkaParameters(SourceKafkaParameters && sourceKafkaParameters) { DARABONBA_PTR_SET_RVALUE(sourceKafkaParameters_, sourceKafkaParameters) };
 
@@ -68,8 +68,8 @@ namespace Models
     // sourceMNSParameters Field Functions 
     bool hasSourceMNSParameters() const { return this->sourceMNSParameters_ != nullptr;};
     void deleteSourceMNSParameters() { this->sourceMNSParameters_ = nullptr;};
-    inline const SourceMNSParameters & sourceMNSParameters() const { DARABONBA_PTR_GET_CONST(sourceMNSParameters_, SourceMNSParameters) };
-    inline SourceMNSParameters sourceMNSParameters() { DARABONBA_PTR_GET(sourceMNSParameters_, SourceMNSParameters) };
+    inline const SourceMNSParameters & getSourceMNSParameters() const { DARABONBA_PTR_GET_CONST(sourceMNSParameters_, SourceMNSParameters) };
+    inline SourceMNSParameters getSourceMNSParameters() { DARABONBA_PTR_GET(sourceMNSParameters_, SourceMNSParameters) };
     inline EventSourceParameters& setSourceMNSParameters(const SourceMNSParameters & sourceMNSParameters) { DARABONBA_PTR_SET_VALUE(sourceMNSParameters_, sourceMNSParameters) };
     inline EventSourceParameters& setSourceMNSParameters(SourceMNSParameters && sourceMNSParameters) { DARABONBA_PTR_SET_RVALUE(sourceMNSParameters_, sourceMNSParameters) };
 
@@ -77,8 +77,8 @@ namespace Models
     // sourceMQTTParameters Field Functions 
     bool hasSourceMQTTParameters() const { return this->sourceMQTTParameters_ != nullptr;};
     void deleteSourceMQTTParameters() { this->sourceMQTTParameters_ = nullptr;};
-    inline const SourceMQTTParameters & sourceMQTTParameters() const { DARABONBA_PTR_GET_CONST(sourceMQTTParameters_, SourceMQTTParameters) };
-    inline SourceMQTTParameters sourceMQTTParameters() { DARABONBA_PTR_GET(sourceMQTTParameters_, SourceMQTTParameters) };
+    inline const SourceMQTTParameters & getSourceMQTTParameters() const { DARABONBA_PTR_GET_CONST(sourceMQTTParameters_, SourceMQTTParameters) };
+    inline SourceMQTTParameters getSourceMQTTParameters() { DARABONBA_PTR_GET(sourceMQTTParameters_, SourceMQTTParameters) };
     inline EventSourceParameters& setSourceMQTTParameters(const SourceMQTTParameters & sourceMQTTParameters) { DARABONBA_PTR_SET_VALUE(sourceMQTTParameters_, sourceMQTTParameters) };
     inline EventSourceParameters& setSourceMQTTParameters(SourceMQTTParameters && sourceMQTTParameters) { DARABONBA_PTR_SET_RVALUE(sourceMQTTParameters_, sourceMQTTParameters) };
 
@@ -86,8 +86,8 @@ namespace Models
     // sourceRabbitMQParameters Field Functions 
     bool hasSourceRabbitMQParameters() const { return this->sourceRabbitMQParameters_ != nullptr;};
     void deleteSourceRabbitMQParameters() { this->sourceRabbitMQParameters_ = nullptr;};
-    inline const SourceRabbitMQParameters & sourceRabbitMQParameters() const { DARABONBA_PTR_GET_CONST(sourceRabbitMQParameters_, SourceRabbitMQParameters) };
-    inline SourceRabbitMQParameters sourceRabbitMQParameters() { DARABONBA_PTR_GET(sourceRabbitMQParameters_, SourceRabbitMQParameters) };
+    inline const SourceRabbitMQParameters & getSourceRabbitMQParameters() const { DARABONBA_PTR_GET_CONST(sourceRabbitMQParameters_, SourceRabbitMQParameters) };
+    inline SourceRabbitMQParameters getSourceRabbitMQParameters() { DARABONBA_PTR_GET(sourceRabbitMQParameters_, SourceRabbitMQParameters) };
     inline EventSourceParameters& setSourceRabbitMQParameters(const SourceRabbitMQParameters & sourceRabbitMQParameters) { DARABONBA_PTR_SET_VALUE(sourceRabbitMQParameters_, sourceRabbitMQParameters) };
     inline EventSourceParameters& setSourceRabbitMQParameters(SourceRabbitMQParameters && sourceRabbitMQParameters) { DARABONBA_PTR_SET_RVALUE(sourceRabbitMQParameters_, sourceRabbitMQParameters) };
 
@@ -95,19 +95,19 @@ namespace Models
     // sourceRocketMQParameters Field Functions 
     bool hasSourceRocketMQParameters() const { return this->sourceRocketMQParameters_ != nullptr;};
     void deleteSourceRocketMQParameters() { this->sourceRocketMQParameters_ = nullptr;};
-    inline const SourceRocketMQParameters & sourceRocketMQParameters() const { DARABONBA_PTR_GET_CONST(sourceRocketMQParameters_, SourceRocketMQParameters) };
-    inline SourceRocketMQParameters sourceRocketMQParameters() { DARABONBA_PTR_GET(sourceRocketMQParameters_, SourceRocketMQParameters) };
+    inline const SourceRocketMQParameters & getSourceRocketMQParameters() const { DARABONBA_PTR_GET_CONST(sourceRocketMQParameters_, SourceRocketMQParameters) };
+    inline SourceRocketMQParameters getSourceRocketMQParameters() { DARABONBA_PTR_GET(sourceRocketMQParameters_, SourceRocketMQParameters) };
     inline EventSourceParameters& setSourceRocketMQParameters(const SourceRocketMQParameters & sourceRocketMQParameters) { DARABONBA_PTR_SET_VALUE(sourceRocketMQParameters_, sourceRocketMQParameters) };
     inline EventSourceParameters& setSourceRocketMQParameters(SourceRocketMQParameters && sourceRocketMQParameters) { DARABONBA_PTR_SET_RVALUE(sourceRocketMQParameters_, sourceRocketMQParameters) };
 
 
   protected:
-    std::shared_ptr<SourceDTSParameters> sourceDTSParameters_ = nullptr;
-    std::shared_ptr<SourceKafkaParameters> sourceKafkaParameters_ = nullptr;
-    std::shared_ptr<SourceMNSParameters> sourceMNSParameters_ = nullptr;
-    std::shared_ptr<SourceMQTTParameters> sourceMQTTParameters_ = nullptr;
-    std::shared_ptr<SourceRabbitMQParameters> sourceRabbitMQParameters_ = nullptr;
-    std::shared_ptr<SourceRocketMQParameters> sourceRocketMQParameters_ = nullptr;
+    shared_ptr<SourceDTSParameters> sourceDTSParameters_ {};
+    shared_ptr<SourceKafkaParameters> sourceKafkaParameters_ {};
+    shared_ptr<SourceMNSParameters> sourceMNSParameters_ {};
+    shared_ptr<SourceMQTTParameters> sourceMQTTParameters_ {};
+    shared_ptr<SourceRabbitMQParameters> sourceRabbitMQParameters_ {};
+    shared_ptr<SourceRocketMQParameters> sourceRocketMQParameters_ {};
   };
 
   } // namespace Models

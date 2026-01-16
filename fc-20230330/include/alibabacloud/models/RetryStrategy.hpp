@@ -33,12 +33,12 @@ namespace Models
     // pushRetryStrategy Field Functions 
     bool hasPushRetryStrategy() const { return this->pushRetryStrategy_ != nullptr;};
     void deletePushRetryStrategy() { this->pushRetryStrategy_ = nullptr;};
-    inline string pushRetryStrategy() const { DARABONBA_PTR_GET_DEFAULT(pushRetryStrategy_, "") };
+    inline string getPushRetryStrategy() const { DARABONBA_PTR_GET_DEFAULT(pushRetryStrategy_, "") };
     inline RetryStrategy& setPushRetryStrategy(string pushRetryStrategy) { DARABONBA_PTR_SET_VALUE(pushRetryStrategy_, pushRetryStrategy) };
 
 
   protected:
-    std::shared_ptr<string> pushRetryStrategy_ = nullptr;
+    shared_ptr<string> pushRetryStrategy_ {};
   };
 
   } // namespace Models

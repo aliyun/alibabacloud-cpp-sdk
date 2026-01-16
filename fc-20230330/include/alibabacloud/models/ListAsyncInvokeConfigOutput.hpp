@@ -34,12 +34,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->configs_ == nullptr
-        && return this->nextToken_ == nullptr; };
+        && this->nextToken_ == nullptr; };
     // configs Field Functions 
     bool hasConfigs() const { return this->configs_ != nullptr;};
     void deleteConfigs() { this->configs_ = nullptr;};
-    inline const vector<AsyncConfig> & configs() const { DARABONBA_PTR_GET_CONST(configs_, vector<AsyncConfig>) };
-    inline vector<AsyncConfig> configs() { DARABONBA_PTR_GET(configs_, vector<AsyncConfig>) };
+    inline const vector<AsyncConfig> & getConfigs() const { DARABONBA_PTR_GET_CONST(configs_, vector<AsyncConfig>) };
+    inline vector<AsyncConfig> getConfigs() { DARABONBA_PTR_GET(configs_, vector<AsyncConfig>) };
     inline ListAsyncInvokeConfigOutput& setConfigs(const vector<AsyncConfig> & configs) { DARABONBA_PTR_SET_VALUE(configs_, configs) };
     inline ListAsyncInvokeConfigOutput& setConfigs(vector<AsyncConfig> && configs) { DARABONBA_PTR_SET_RVALUE(configs_, configs) };
 
@@ -47,13 +47,13 @@ namespace Models
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListAsyncInvokeConfigOutput& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
   protected:
-    std::shared_ptr<vector<AsyncConfig>> configs_ = nullptr;
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<vector<AsyncConfig>> configs_ {};
+    shared_ptr<string> nextToken_ {};
   };
 
   } // namespace Models

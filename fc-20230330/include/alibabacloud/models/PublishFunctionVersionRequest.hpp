@@ -34,8 +34,8 @@ namespace Models
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const PublishVersionInput & body() const { DARABONBA_PTR_GET_CONST(body_, PublishVersionInput) };
-    inline PublishVersionInput body() { DARABONBA_PTR_GET(body_, PublishVersionInput) };
+    inline const PublishVersionInput & getBody() const { DARABONBA_PTR_GET_CONST(body_, PublishVersionInput) };
+    inline PublishVersionInput getBody() { DARABONBA_PTR_GET(body_, PublishVersionInput) };
     inline PublishFunctionVersionRequest& setBody(const PublishVersionInput & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
     inline PublishFunctionVersionRequest& setBody(PublishVersionInput && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
@@ -44,7 +44,7 @@ namespace Models
     // The information about the function version.
     // 
     // This parameter is required.
-    std::shared_ptr<PublishVersionInput> body_ = nullptr;
+    shared_ptr<PublishVersionInput> body_ {};
   };
 
   } // namespace Models

@@ -37,42 +37,42 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->authConfig_ == nullptr
-        && return this->authType_ == nullptr && return this->disableURLInternet_ == nullptr && return this->methods_ == nullptr; };
+        && this->authType_ == nullptr && this->disableURLInternet_ == nullptr && this->methods_ == nullptr; };
     // authConfig Field Functions 
     bool hasAuthConfig() const { return this->authConfig_ != nullptr;};
     void deleteAuthConfig() { this->authConfig_ = nullptr;};
-    inline string authConfig() const { DARABONBA_PTR_GET_DEFAULT(authConfig_, "") };
+    inline string getAuthConfig() const { DARABONBA_PTR_GET_DEFAULT(authConfig_, "") };
     inline HTTPTriggerConfig& setAuthConfig(string authConfig) { DARABONBA_PTR_SET_VALUE(authConfig_, authConfig) };
 
 
     // authType Field Functions 
     bool hasAuthType() const { return this->authType_ != nullptr;};
     void deleteAuthType() { this->authType_ = nullptr;};
-    inline string authType() const { DARABONBA_PTR_GET_DEFAULT(authType_, "") };
+    inline string getAuthType() const { DARABONBA_PTR_GET_DEFAULT(authType_, "") };
     inline HTTPTriggerConfig& setAuthType(string authType) { DARABONBA_PTR_SET_VALUE(authType_, authType) };
 
 
     // disableURLInternet Field Functions 
     bool hasDisableURLInternet() const { return this->disableURLInternet_ != nullptr;};
     void deleteDisableURLInternet() { this->disableURLInternet_ = nullptr;};
-    inline bool disableURLInternet() const { DARABONBA_PTR_GET_DEFAULT(disableURLInternet_, false) };
+    inline bool getDisableURLInternet() const { DARABONBA_PTR_GET_DEFAULT(disableURLInternet_, false) };
     inline HTTPTriggerConfig& setDisableURLInternet(bool disableURLInternet) { DARABONBA_PTR_SET_VALUE(disableURLInternet_, disableURLInternet) };
 
 
     // methods Field Functions 
     bool hasMethods() const { return this->methods_ != nullptr;};
     void deleteMethods() { this->methods_ = nullptr;};
-    inline const vector<string> & methods() const { DARABONBA_PTR_GET_CONST(methods_, vector<string>) };
-    inline vector<string> methods() { DARABONBA_PTR_GET(methods_, vector<string>) };
+    inline const vector<string> & getMethods() const { DARABONBA_PTR_GET_CONST(methods_, vector<string>) };
+    inline vector<string> getMethods() { DARABONBA_PTR_GET(methods_, vector<string>) };
     inline HTTPTriggerConfig& setMethods(const vector<string> & methods) { DARABONBA_PTR_SET_VALUE(methods_, methods) };
     inline HTTPTriggerConfig& setMethods(vector<string> && methods) { DARABONBA_PTR_SET_RVALUE(methods_, methods) };
 
 
   protected:
-    std::shared_ptr<string> authConfig_ = nullptr;
-    std::shared_ptr<string> authType_ = nullptr;
-    std::shared_ptr<bool> disableURLInternet_ = nullptr;
-    std::shared_ptr<vector<string>> methods_ = nullptr;
+    shared_ptr<string> authConfig_ {};
+    shared_ptr<string> authType_ {};
+    shared_ptr<bool> disableURLInternet_ {};
+    shared_ptr<vector<string>> methods_ {};
   };
 
   } // namespace Models

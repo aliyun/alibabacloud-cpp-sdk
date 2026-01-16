@@ -34,26 +34,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->nextToken_ == nullptr
-        && return this->tasks_ == nullptr; };
+        && this->tasks_ == nullptr; };
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListAsyncTaskOutput& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // tasks Field Functions 
     bool hasTasks() const { return this->tasks_ != nullptr;};
     void deleteTasks() { this->tasks_ = nullptr;};
-    inline const vector<AsyncTask> & tasks() const { DARABONBA_PTR_GET_CONST(tasks_, vector<AsyncTask>) };
-    inline vector<AsyncTask> tasks() { DARABONBA_PTR_GET(tasks_, vector<AsyncTask>) };
+    inline const vector<AsyncTask> & getTasks() const { DARABONBA_PTR_GET_CONST(tasks_, vector<AsyncTask>) };
+    inline vector<AsyncTask> getTasks() { DARABONBA_PTR_GET(tasks_, vector<AsyncTask>) };
     inline ListAsyncTaskOutput& setTasks(const vector<AsyncTask> & tasks) { DARABONBA_PTR_SET_VALUE(tasks_, tasks) };
     inline ListAsyncTaskOutput& setTasks(vector<AsyncTask> && tasks) { DARABONBA_PTR_SET_RVALUE(tasks_, tasks) };
 
 
   protected:
-    std::shared_ptr<string> nextToken_ = nullptr;
-    std::shared_ptr<vector<AsyncTask>> tasks_ = nullptr;
+    shared_ptr<string> nextToken_ {};
+    shared_ptr<vector<AsyncTask>> tasks_ {};
   };
 
   } // namespace Models

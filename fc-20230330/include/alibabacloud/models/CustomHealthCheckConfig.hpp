@@ -40,56 +40,56 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->failureThreshold_ == nullptr
-        && return this->httpGetUrl_ == nullptr && return this->initialDelaySeconds_ == nullptr && return this->periodSeconds_ == nullptr && return this->successThreshold_ == nullptr && return this->timeoutSeconds_ == nullptr; };
+        && this->httpGetUrl_ == nullptr && this->initialDelaySeconds_ == nullptr && this->periodSeconds_ == nullptr && this->successThreshold_ == nullptr && this->timeoutSeconds_ == nullptr; };
     // failureThreshold Field Functions 
     bool hasFailureThreshold() const { return this->failureThreshold_ != nullptr;};
     void deleteFailureThreshold() { this->failureThreshold_ = nullptr;};
-    inline int32_t failureThreshold() const { DARABONBA_PTR_GET_DEFAULT(failureThreshold_, 0) };
+    inline int32_t getFailureThreshold() const { DARABONBA_PTR_GET_DEFAULT(failureThreshold_, 0) };
     inline CustomHealthCheckConfig& setFailureThreshold(int32_t failureThreshold) { DARABONBA_PTR_SET_VALUE(failureThreshold_, failureThreshold) };
 
 
     // httpGetUrl Field Functions 
     bool hasHttpGetUrl() const { return this->httpGetUrl_ != nullptr;};
     void deleteHttpGetUrl() { this->httpGetUrl_ = nullptr;};
-    inline string httpGetUrl() const { DARABONBA_PTR_GET_DEFAULT(httpGetUrl_, "") };
+    inline string getHttpGetUrl() const { DARABONBA_PTR_GET_DEFAULT(httpGetUrl_, "") };
     inline CustomHealthCheckConfig& setHttpGetUrl(string httpGetUrl) { DARABONBA_PTR_SET_VALUE(httpGetUrl_, httpGetUrl) };
 
 
     // initialDelaySeconds Field Functions 
     bool hasInitialDelaySeconds() const { return this->initialDelaySeconds_ != nullptr;};
     void deleteInitialDelaySeconds() { this->initialDelaySeconds_ = nullptr;};
-    inline int32_t initialDelaySeconds() const { DARABONBA_PTR_GET_DEFAULT(initialDelaySeconds_, 0) };
+    inline int32_t getInitialDelaySeconds() const { DARABONBA_PTR_GET_DEFAULT(initialDelaySeconds_, 0) };
     inline CustomHealthCheckConfig& setInitialDelaySeconds(int32_t initialDelaySeconds) { DARABONBA_PTR_SET_VALUE(initialDelaySeconds_, initialDelaySeconds) };
 
 
     // periodSeconds Field Functions 
     bool hasPeriodSeconds() const { return this->periodSeconds_ != nullptr;};
     void deletePeriodSeconds() { this->periodSeconds_ = nullptr;};
-    inline int32_t periodSeconds() const { DARABONBA_PTR_GET_DEFAULT(periodSeconds_, 0) };
+    inline int32_t getPeriodSeconds() const { DARABONBA_PTR_GET_DEFAULT(periodSeconds_, 0) };
     inline CustomHealthCheckConfig& setPeriodSeconds(int32_t periodSeconds) { DARABONBA_PTR_SET_VALUE(periodSeconds_, periodSeconds) };
 
 
     // successThreshold Field Functions 
     bool hasSuccessThreshold() const { return this->successThreshold_ != nullptr;};
     void deleteSuccessThreshold() { this->successThreshold_ = nullptr;};
-    inline int32_t successThreshold() const { DARABONBA_PTR_GET_DEFAULT(successThreshold_, 0) };
+    inline int32_t getSuccessThreshold() const { DARABONBA_PTR_GET_DEFAULT(successThreshold_, 0) };
     inline CustomHealthCheckConfig& setSuccessThreshold(int32_t successThreshold) { DARABONBA_PTR_SET_VALUE(successThreshold_, successThreshold) };
 
 
     // timeoutSeconds Field Functions 
     bool hasTimeoutSeconds() const { return this->timeoutSeconds_ != nullptr;};
     void deleteTimeoutSeconds() { this->timeoutSeconds_ = nullptr;};
-    inline int32_t timeoutSeconds() const { DARABONBA_PTR_GET_DEFAULT(timeoutSeconds_, 0) };
+    inline int32_t getTimeoutSeconds() const { DARABONBA_PTR_GET_DEFAULT(timeoutSeconds_, 0) };
     inline CustomHealthCheckConfig& setTimeoutSeconds(int32_t timeoutSeconds) { DARABONBA_PTR_SET_VALUE(timeoutSeconds_, timeoutSeconds) };
 
 
   protected:
-    std::shared_ptr<int32_t> failureThreshold_ = nullptr;
-    std::shared_ptr<string> httpGetUrl_ = nullptr;
-    std::shared_ptr<int32_t> initialDelaySeconds_ = nullptr;
-    std::shared_ptr<int32_t> periodSeconds_ = nullptr;
-    std::shared_ptr<int32_t> successThreshold_ = nullptr;
-    std::shared_ptr<int32_t> timeoutSeconds_ = nullptr;
+    shared_ptr<int32_t> failureThreshold_ {};
+    shared_ptr<string> httpGetUrl_ {};
+    shared_ptr<int32_t> initialDelaySeconds_ {};
+    shared_ptr<int32_t> periodSeconds_ {};
+    shared_ptr<int32_t> successThreshold_ {};
+    shared_ptr<int32_t> timeoutSeconds_ {};
   };
 
   } // namespace Models

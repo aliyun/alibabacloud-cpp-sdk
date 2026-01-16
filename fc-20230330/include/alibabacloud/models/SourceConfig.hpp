@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->logstore_ == nullptr
-        && return this->startTime_ == nullptr; };
+        && this->startTime_ == nullptr; };
     // logstore Field Functions 
     bool hasLogstore() const { return this->logstore_ != nullptr;};
     void deleteLogstore() { this->logstore_ = nullptr;};
-    inline string logstore() const { DARABONBA_PTR_GET_DEFAULT(logstore_, "") };
+    inline string getLogstore() const { DARABONBA_PTR_GET_DEFAULT(logstore_, "") };
     inline SourceConfig& setLogstore(string logstore) { DARABONBA_PTR_SET_VALUE(logstore_, logstore) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline int64_t startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
+    inline int64_t getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
     inline SourceConfig& setStartTime(int64_t startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
   protected:
-    std::shared_ptr<string> logstore_ = nullptr;
-    std::shared_ptr<int64_t> startTime_ = nullptr;
+    shared_ptr<string> logstore_ {};
+    shared_ptr<int64_t> startTime_ {};
   };
 
   } // namespace Models

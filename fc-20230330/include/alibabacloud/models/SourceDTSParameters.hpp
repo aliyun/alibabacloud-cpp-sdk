@@ -44,73 +44,73 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->brokerUrl_ == nullptr
-        && return this->initCheckPoint_ == nullptr && return this->password_ == nullptr && return this->regionId_ == nullptr && return this->sid_ == nullptr && return this->taskId_ == nullptr
-        && return this->topic_ == nullptr && return this->username_ == nullptr; };
+        && this->initCheckPoint_ == nullptr && this->password_ == nullptr && this->regionId_ == nullptr && this->sid_ == nullptr && this->taskId_ == nullptr
+        && this->topic_ == nullptr && this->username_ == nullptr; };
     // brokerUrl Field Functions 
     bool hasBrokerUrl() const { return this->brokerUrl_ != nullptr;};
     void deleteBrokerUrl() { this->brokerUrl_ = nullptr;};
-    inline string brokerUrl() const { DARABONBA_PTR_GET_DEFAULT(brokerUrl_, "") };
+    inline string getBrokerUrl() const { DARABONBA_PTR_GET_DEFAULT(brokerUrl_, "") };
     inline SourceDTSParameters& setBrokerUrl(string brokerUrl) { DARABONBA_PTR_SET_VALUE(brokerUrl_, brokerUrl) };
 
 
     // initCheckPoint Field Functions 
     bool hasInitCheckPoint() const { return this->initCheckPoint_ != nullptr;};
     void deleteInitCheckPoint() { this->initCheckPoint_ = nullptr;};
-    inline int32_t initCheckPoint() const { DARABONBA_PTR_GET_DEFAULT(initCheckPoint_, 0) };
+    inline int32_t getInitCheckPoint() const { DARABONBA_PTR_GET_DEFAULT(initCheckPoint_, 0) };
     inline SourceDTSParameters& setInitCheckPoint(int32_t initCheckPoint) { DARABONBA_PTR_SET_VALUE(initCheckPoint_, initCheckPoint) };
 
 
     // password Field Functions 
     bool hasPassword() const { return this->password_ != nullptr;};
     void deletePassword() { this->password_ = nullptr;};
-    inline string password() const { DARABONBA_PTR_GET_DEFAULT(password_, "") };
+    inline string getPassword() const { DARABONBA_PTR_GET_DEFAULT(password_, "") };
     inline SourceDTSParameters& setPassword(string password) { DARABONBA_PTR_SET_VALUE(password_, password) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline SourceDTSParameters& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // sid Field Functions 
     bool hasSid() const { return this->sid_ != nullptr;};
     void deleteSid() { this->sid_ = nullptr;};
-    inline string sid() const { DARABONBA_PTR_GET_DEFAULT(sid_, "") };
+    inline string getSid() const { DARABONBA_PTR_GET_DEFAULT(sid_, "") };
     inline SourceDTSParameters& setSid(string sid) { DARABONBA_PTR_SET_VALUE(sid_, sid) };
 
 
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline string taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+    inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
     inline SourceDTSParameters& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
     // topic Field Functions 
     bool hasTopic() const { return this->topic_ != nullptr;};
     void deleteTopic() { this->topic_ = nullptr;};
-    inline string topic() const { DARABONBA_PTR_GET_DEFAULT(topic_, "") };
+    inline string getTopic() const { DARABONBA_PTR_GET_DEFAULT(topic_, "") };
     inline SourceDTSParameters& setTopic(string topic) { DARABONBA_PTR_SET_VALUE(topic_, topic) };
 
 
     // username Field Functions 
     bool hasUsername() const { return this->username_ != nullptr;};
     void deleteUsername() { this->username_ = nullptr;};
-    inline string username() const { DARABONBA_PTR_GET_DEFAULT(username_, "") };
+    inline string getUsername() const { DARABONBA_PTR_GET_DEFAULT(username_, "") };
     inline SourceDTSParameters& setUsername(string username) { DARABONBA_PTR_SET_VALUE(username_, username) };
 
 
   protected:
-    std::shared_ptr<string> brokerUrl_ = nullptr;
-    std::shared_ptr<int32_t> initCheckPoint_ = nullptr;
-    std::shared_ptr<string> password_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> sid_ = nullptr;
-    std::shared_ptr<string> taskId_ = nullptr;
-    std::shared_ptr<string> topic_ = nullptr;
-    std::shared_ptr<string> username_ = nullptr;
+    shared_ptr<string> brokerUrl_ {};
+    shared_ptr<int32_t> initCheckPoint_ {};
+    shared_ptr<string> password_ {};
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> sid_ {};
+    shared_ptr<string> taskId_ {};
+    shared_ptr<string> topic_ {};
+    shared_ptr<string> username_ {};
   };
 
   } // namespace Models

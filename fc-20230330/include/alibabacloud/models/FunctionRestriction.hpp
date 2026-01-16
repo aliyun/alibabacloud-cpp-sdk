@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->disable_ == nullptr
-        && return this->lastModifiedTime_ == nullptr && return this->reason_ == nullptr; };
+        && this->lastModifiedTime_ == nullptr && this->reason_ == nullptr; };
     // disable Field Functions 
     bool hasDisable() const { return this->disable_ != nullptr;};
     void deleteDisable() { this->disable_ = nullptr;};
-    inline bool disable() const { DARABONBA_PTR_GET_DEFAULT(disable_, false) };
+    inline bool getDisable() const { DARABONBA_PTR_GET_DEFAULT(disable_, false) };
     inline FunctionRestriction& setDisable(bool disable) { DARABONBA_PTR_SET_VALUE(disable_, disable) };
 
 
     // lastModifiedTime Field Functions 
     bool hasLastModifiedTime() const { return this->lastModifiedTime_ != nullptr;};
     void deleteLastModifiedTime() { this->lastModifiedTime_ = nullptr;};
-    inline string lastModifiedTime() const { DARABONBA_PTR_GET_DEFAULT(lastModifiedTime_, "") };
+    inline string getLastModifiedTime() const { DARABONBA_PTR_GET_DEFAULT(lastModifiedTime_, "") };
     inline FunctionRestriction& setLastModifiedTime(string lastModifiedTime) { DARABONBA_PTR_SET_VALUE(lastModifiedTime_, lastModifiedTime) };
 
 
     // reason Field Functions 
     bool hasReason() const { return this->reason_ != nullptr;};
     void deleteReason() { this->reason_ = nullptr;};
-    inline string reason() const { DARABONBA_PTR_GET_DEFAULT(reason_, "") };
+    inline string getReason() const { DARABONBA_PTR_GET_DEFAULT(reason_, "") };
     inline FunctionRestriction& setReason(string reason) { DARABONBA_PTR_SET_VALUE(reason_, reason) };
 
 
   protected:
-    std::shared_ptr<bool> disable_ = nullptr;
-    std::shared_ptr<string> lastModifiedTime_ = nullptr;
-    std::shared_ptr<string> reason_ = nullptr;
+    shared_ptr<bool> disable_ {};
+    shared_ptr<string> lastModifiedTime_ {};
+    shared_ptr<string> reason_ {};
   };
 
   } // namespace Models

@@ -34,8 +34,8 @@ namespace Models
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const TagResourcesInput & body() const { DARABONBA_PTR_GET_CONST(body_, TagResourcesInput) };
-    inline TagResourcesInput body() { DARABONBA_PTR_GET(body_, TagResourcesInput) };
+    inline const TagResourcesInput & getBody() const { DARABONBA_PTR_GET_CONST(body_, TagResourcesInput) };
+    inline TagResourcesInput getBody() { DARABONBA_PTR_GET(body_, TagResourcesInput) };
     inline TagResourcesRequest& setBody(const TagResourcesInput & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
     inline TagResourcesRequest& setBody(TagResourcesInput && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
@@ -44,7 +44,7 @@ namespace Models
     // The configuration of the resource tag.
     // 
     // This parameter is required.
-    std::shared_ptr<TagResourcesInput> body_ = nullptr;
+    shared_ptr<TagResourcesInput> body_ {};
   };
 
   } // namespace Models

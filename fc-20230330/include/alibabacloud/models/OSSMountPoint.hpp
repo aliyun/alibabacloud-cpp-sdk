@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bucketName_ == nullptr
-        && return this->bucketPath_ == nullptr && return this->endpoint_ == nullptr && return this->mountDir_ == nullptr && return this->readOnly_ == nullptr; };
+        && this->bucketPath_ == nullptr && this->endpoint_ == nullptr && this->mountDir_ == nullptr && this->readOnly_ == nullptr; };
     // bucketName Field Functions 
     bool hasBucketName() const { return this->bucketName_ != nullptr;};
     void deleteBucketName() { this->bucketName_ = nullptr;};
-    inline string bucketName() const { DARABONBA_PTR_GET_DEFAULT(bucketName_, "") };
+    inline string getBucketName() const { DARABONBA_PTR_GET_DEFAULT(bucketName_, "") };
     inline OSSMountPoint& setBucketName(string bucketName) { DARABONBA_PTR_SET_VALUE(bucketName_, bucketName) };
 
 
     // bucketPath Field Functions 
     bool hasBucketPath() const { return this->bucketPath_ != nullptr;};
     void deleteBucketPath() { this->bucketPath_ = nullptr;};
-    inline string bucketPath() const { DARABONBA_PTR_GET_DEFAULT(bucketPath_, "") };
+    inline string getBucketPath() const { DARABONBA_PTR_GET_DEFAULT(bucketPath_, "") };
     inline OSSMountPoint& setBucketPath(string bucketPath) { DARABONBA_PTR_SET_VALUE(bucketPath_, bucketPath) };
 
 
     // endpoint Field Functions 
     bool hasEndpoint() const { return this->endpoint_ != nullptr;};
     void deleteEndpoint() { this->endpoint_ = nullptr;};
-    inline string endpoint() const { DARABONBA_PTR_GET_DEFAULT(endpoint_, "") };
+    inline string getEndpoint() const { DARABONBA_PTR_GET_DEFAULT(endpoint_, "") };
     inline OSSMountPoint& setEndpoint(string endpoint) { DARABONBA_PTR_SET_VALUE(endpoint_, endpoint) };
 
 
     // mountDir Field Functions 
     bool hasMountDir() const { return this->mountDir_ != nullptr;};
     void deleteMountDir() { this->mountDir_ = nullptr;};
-    inline string mountDir() const { DARABONBA_PTR_GET_DEFAULT(mountDir_, "") };
+    inline string getMountDir() const { DARABONBA_PTR_GET_DEFAULT(mountDir_, "") };
     inline OSSMountPoint& setMountDir(string mountDir) { DARABONBA_PTR_SET_VALUE(mountDir_, mountDir) };
 
 
     // readOnly Field Functions 
     bool hasReadOnly() const { return this->readOnly_ != nullptr;};
     void deleteReadOnly() { this->readOnly_ = nullptr;};
-    inline bool readOnly() const { DARABONBA_PTR_GET_DEFAULT(readOnly_, false) };
+    inline bool getReadOnly() const { DARABONBA_PTR_GET_DEFAULT(readOnly_, false) };
     inline OSSMountPoint& setReadOnly(bool readOnly) { DARABONBA_PTR_SET_VALUE(readOnly_, readOnly) };
 
 
   protected:
-    std::shared_ptr<string> bucketName_ = nullptr;
-    std::shared_ptr<string> bucketPath_ = nullptr;
-    std::shared_ptr<string> endpoint_ = nullptr;
-    std::shared_ptr<string> mountDir_ = nullptr;
-    std::shared_ptr<bool> readOnly_ = nullptr;
+    shared_ptr<string> bucketName_ {};
+    shared_ptr<string> bucketPath_ {};
+    shared_ptr<string> endpoint_ {};
+    shared_ptr<string> mountDir_ {};
+    shared_ptr<bool> readOnly_ {};
   };
 
   } // namespace Models

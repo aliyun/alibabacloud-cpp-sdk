@@ -53,48 +53,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->currentError_ == nullptr
-        && return this->currentInstances_ == nullptr && return this->enableMixMode_ == nullptr && return this->enableOnDemandScaling_ == nullptr && return this->functionArn_ == nullptr && return this->horizontalScalingPolicies_ == nullptr
-        && return this->minInstances_ == nullptr && return this->requestDispatchPolicy_ == nullptr && return this->residentPoolId_ == nullptr && return this->scheduledPolicies_ == nullptr && return this->targetInstances_ == nullptr; };
+        && this->currentInstances_ == nullptr && this->enableMixMode_ == nullptr && this->enableOnDemandScaling_ == nullptr && this->functionArn_ == nullptr && this->horizontalScalingPolicies_ == nullptr
+        && this->minInstances_ == nullptr && this->requestDispatchPolicy_ == nullptr && this->residentPoolId_ == nullptr && this->scheduledPolicies_ == nullptr && this->targetInstances_ == nullptr; };
     // currentError Field Functions 
     bool hasCurrentError() const { return this->currentError_ != nullptr;};
     void deleteCurrentError() { this->currentError_ = nullptr;};
-    inline string currentError() const { DARABONBA_PTR_GET_DEFAULT(currentError_, "") };
+    inline string getCurrentError() const { DARABONBA_PTR_GET_DEFAULT(currentError_, "") };
     inline ScalingConfigStatus& setCurrentError(string currentError) { DARABONBA_PTR_SET_VALUE(currentError_, currentError) };
 
 
     // currentInstances Field Functions 
     bool hasCurrentInstances() const { return this->currentInstances_ != nullptr;};
     void deleteCurrentInstances() { this->currentInstances_ = nullptr;};
-    inline int64_t currentInstances() const { DARABONBA_PTR_GET_DEFAULT(currentInstances_, 0L) };
+    inline int64_t getCurrentInstances() const { DARABONBA_PTR_GET_DEFAULT(currentInstances_, 0L) };
     inline ScalingConfigStatus& setCurrentInstances(int64_t currentInstances) { DARABONBA_PTR_SET_VALUE(currentInstances_, currentInstances) };
 
 
     // enableMixMode Field Functions 
     bool hasEnableMixMode() const { return this->enableMixMode_ != nullptr;};
     void deleteEnableMixMode() { this->enableMixMode_ = nullptr;};
-    inline bool enableMixMode() const { DARABONBA_PTR_GET_DEFAULT(enableMixMode_, false) };
+    inline bool getEnableMixMode() const { DARABONBA_PTR_GET_DEFAULT(enableMixMode_, false) };
     inline ScalingConfigStatus& setEnableMixMode(bool enableMixMode) { DARABONBA_PTR_SET_VALUE(enableMixMode_, enableMixMode) };
 
 
     // enableOnDemandScaling Field Functions 
     bool hasEnableOnDemandScaling() const { return this->enableOnDemandScaling_ != nullptr;};
     void deleteEnableOnDemandScaling() { this->enableOnDemandScaling_ = nullptr;};
-    inline bool enableOnDemandScaling() const { DARABONBA_PTR_GET_DEFAULT(enableOnDemandScaling_, false) };
+    inline bool getEnableOnDemandScaling() const { DARABONBA_PTR_GET_DEFAULT(enableOnDemandScaling_, false) };
     inline ScalingConfigStatus& setEnableOnDemandScaling(bool enableOnDemandScaling) { DARABONBA_PTR_SET_VALUE(enableOnDemandScaling_, enableOnDemandScaling) };
 
 
     // functionArn Field Functions 
     bool hasFunctionArn() const { return this->functionArn_ != nullptr;};
     void deleteFunctionArn() { this->functionArn_ = nullptr;};
-    inline string functionArn() const { DARABONBA_PTR_GET_DEFAULT(functionArn_, "") };
+    inline string getFunctionArn() const { DARABONBA_PTR_GET_DEFAULT(functionArn_, "") };
     inline ScalingConfigStatus& setFunctionArn(string functionArn) { DARABONBA_PTR_SET_VALUE(functionArn_, functionArn) };
 
 
     // horizontalScalingPolicies Field Functions 
     bool hasHorizontalScalingPolicies() const { return this->horizontalScalingPolicies_ != nullptr;};
     void deleteHorizontalScalingPolicies() { this->horizontalScalingPolicies_ = nullptr;};
-    inline const vector<ScalingPolicy> & horizontalScalingPolicies() const { DARABONBA_PTR_GET_CONST(horizontalScalingPolicies_, vector<ScalingPolicy>) };
-    inline vector<ScalingPolicy> horizontalScalingPolicies() { DARABONBA_PTR_GET(horizontalScalingPolicies_, vector<ScalingPolicy>) };
+    inline const vector<ScalingPolicy> & getHorizontalScalingPolicies() const { DARABONBA_PTR_GET_CONST(horizontalScalingPolicies_, vector<ScalingPolicy>) };
+    inline vector<ScalingPolicy> getHorizontalScalingPolicies() { DARABONBA_PTR_GET(horizontalScalingPolicies_, vector<ScalingPolicy>) };
     inline ScalingConfigStatus& setHorizontalScalingPolicies(const vector<ScalingPolicy> & horizontalScalingPolicies) { DARABONBA_PTR_SET_VALUE(horizontalScalingPolicies_, horizontalScalingPolicies) };
     inline ScalingConfigStatus& setHorizontalScalingPolicies(vector<ScalingPolicy> && horizontalScalingPolicies) { DARABONBA_PTR_SET_RVALUE(horizontalScalingPolicies_, horizontalScalingPolicies) };
 
@@ -102,29 +102,29 @@ namespace Models
     // minInstances Field Functions 
     bool hasMinInstances() const { return this->minInstances_ != nullptr;};
     void deleteMinInstances() { this->minInstances_ = nullptr;};
-    inline int64_t minInstances() const { DARABONBA_PTR_GET_DEFAULT(minInstances_, 0L) };
+    inline int64_t getMinInstances() const { DARABONBA_PTR_GET_DEFAULT(minInstances_, 0L) };
     inline ScalingConfigStatus& setMinInstances(int64_t minInstances) { DARABONBA_PTR_SET_VALUE(minInstances_, minInstances) };
 
 
     // requestDispatchPolicy Field Functions 
     bool hasRequestDispatchPolicy() const { return this->requestDispatchPolicy_ != nullptr;};
     void deleteRequestDispatchPolicy() { this->requestDispatchPolicy_ = nullptr;};
-    inline string requestDispatchPolicy() const { DARABONBA_PTR_GET_DEFAULT(requestDispatchPolicy_, "") };
+    inline string getRequestDispatchPolicy() const { DARABONBA_PTR_GET_DEFAULT(requestDispatchPolicy_, "") };
     inline ScalingConfigStatus& setRequestDispatchPolicy(string requestDispatchPolicy) { DARABONBA_PTR_SET_VALUE(requestDispatchPolicy_, requestDispatchPolicy) };
 
 
     // residentPoolId Field Functions 
     bool hasResidentPoolId() const { return this->residentPoolId_ != nullptr;};
     void deleteResidentPoolId() { this->residentPoolId_ = nullptr;};
-    inline string residentPoolId() const { DARABONBA_PTR_GET_DEFAULT(residentPoolId_, "") };
+    inline string getResidentPoolId() const { DARABONBA_PTR_GET_DEFAULT(residentPoolId_, "") };
     inline ScalingConfigStatus& setResidentPoolId(string residentPoolId) { DARABONBA_PTR_SET_VALUE(residentPoolId_, residentPoolId) };
 
 
     // scheduledPolicies Field Functions 
     bool hasScheduledPolicies() const { return this->scheduledPolicies_ != nullptr;};
     void deleteScheduledPolicies() { this->scheduledPolicies_ = nullptr;};
-    inline const vector<ScheduledPolicy> & scheduledPolicies() const { DARABONBA_PTR_GET_CONST(scheduledPolicies_, vector<ScheduledPolicy>) };
-    inline vector<ScheduledPolicy> scheduledPolicies() { DARABONBA_PTR_GET(scheduledPolicies_, vector<ScheduledPolicy>) };
+    inline const vector<ScheduledPolicy> & getScheduledPolicies() const { DARABONBA_PTR_GET_CONST(scheduledPolicies_, vector<ScheduledPolicy>) };
+    inline vector<ScheduledPolicy> getScheduledPolicies() { DARABONBA_PTR_GET(scheduledPolicies_, vector<ScheduledPolicy>) };
     inline ScalingConfigStatus& setScheduledPolicies(const vector<ScheduledPolicy> & scheduledPolicies) { DARABONBA_PTR_SET_VALUE(scheduledPolicies_, scheduledPolicies) };
     inline ScalingConfigStatus& setScheduledPolicies(vector<ScheduledPolicy> && scheduledPolicies) { DARABONBA_PTR_SET_RVALUE(scheduledPolicies_, scheduledPolicies) };
 
@@ -132,22 +132,22 @@ namespace Models
     // targetInstances Field Functions 
     bool hasTargetInstances() const { return this->targetInstances_ != nullptr;};
     void deleteTargetInstances() { this->targetInstances_ = nullptr;};
-    inline int64_t targetInstances() const { DARABONBA_PTR_GET_DEFAULT(targetInstances_, 0L) };
+    inline int64_t getTargetInstances() const { DARABONBA_PTR_GET_DEFAULT(targetInstances_, 0L) };
     inline ScalingConfigStatus& setTargetInstances(int64_t targetInstances) { DARABONBA_PTR_SET_VALUE(targetInstances_, targetInstances) };
 
 
   protected:
-    std::shared_ptr<string> currentError_ = nullptr;
-    std::shared_ptr<int64_t> currentInstances_ = nullptr;
-    std::shared_ptr<bool> enableMixMode_ = nullptr;
-    std::shared_ptr<bool> enableOnDemandScaling_ = nullptr;
-    std::shared_ptr<string> functionArn_ = nullptr;
-    std::shared_ptr<vector<ScalingPolicy>> horizontalScalingPolicies_ = nullptr;
-    std::shared_ptr<int64_t> minInstances_ = nullptr;
-    std::shared_ptr<string> requestDispatchPolicy_ = nullptr;
-    std::shared_ptr<string> residentPoolId_ = nullptr;
-    std::shared_ptr<vector<ScheduledPolicy>> scheduledPolicies_ = nullptr;
-    std::shared_ptr<int64_t> targetInstances_ = nullptr;
+    shared_ptr<string> currentError_ {};
+    shared_ptr<int64_t> currentInstances_ {};
+    shared_ptr<bool> enableMixMode_ {};
+    shared_ptr<bool> enableOnDemandScaling_ {};
+    shared_ptr<string> functionArn_ {};
+    shared_ptr<vector<ScalingPolicy>> horizontalScalingPolicies_ {};
+    shared_ptr<int64_t> minInstances_ {};
+    shared_ptr<string> requestDispatchPolicy_ {};
+    shared_ptr<string> residentPoolId_ {};
+    shared_ptr<vector<ScheduledPolicy>> scheduledPolicies_ {};
+    shared_ptr<int64_t> targetInstances_ {};
   };
 
   } // namespace Models
