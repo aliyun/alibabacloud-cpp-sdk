@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InstanceUuid, instanceUuid_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
+      DARABONBA_PTR_TO_JSON(ParentIdentifier, parentIdentifier_);
       DARABONBA_PTR_TO_JSON(ShowSize, showSize_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(Type, type_);
@@ -30,6 +31,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(InstanceUuid, instanceUuid_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
+      DARABONBA_PTR_FROM_JSON(ParentIdentifier, parentIdentifier_);
       DARABONBA_PTR_FROM_JSON(ShowSize, showSize_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(Type, type_);
@@ -47,7 +49,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->afterDate_ == nullptr
         && this->beforeDate_ == nullptr && this->currentPage_ == nullptr && this->instanceUuid_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr
-        && this->showSize_ == nullptr && this->status_ == nullptr && this->type_ == nullptr; };
+        && this->parentIdentifier_ == nullptr && this->showSize_ == nullptr && this->status_ == nullptr && this->type_ == nullptr; };
     // afterDate Field Functions 
     bool hasAfterDate() const { return this->afterDate_ != nullptr;};
     void deleteAfterDate() { this->afterDate_ = nullptr;};
@@ -90,6 +92,13 @@ namespace Models
     inline ListCertRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
+    // parentIdentifier Field Functions 
+    bool hasParentIdentifier() const { return this->parentIdentifier_ != nullptr;};
+    void deleteParentIdentifier() { this->parentIdentifier_ = nullptr;};
+    inline string getParentIdentifier() const { DARABONBA_PTR_GET_DEFAULT(parentIdentifier_, "") };
+    inline ListCertRequest& setParentIdentifier(string parentIdentifier) { DARABONBA_PTR_SET_VALUE(parentIdentifier_, parentIdentifier) };
+
+
     // showSize Field Functions 
     bool hasShowSize() const { return this->showSize_ != nullptr;};
     void deleteShowSize() { this->showSize_ = nullptr;};
@@ -118,6 +127,7 @@ namespace Models
     shared_ptr<string> instanceUuid_ {};
     shared_ptr<int32_t> maxResults_ {};
     shared_ptr<string> nextToken_ {};
+    shared_ptr<string> parentIdentifier_ {};
     shared_ptr<int32_t> showSize_ {};
     shared_ptr<string> status_ {};
     shared_ptr<string> type_ {};

@@ -156,6 +156,10 @@ CreateClientCertificateResponse Client::createClientCertificateWithOptions(const
     query["Algorithm"] = request.getAlgorithm();
   }
 
+  if (!!request.hasAliasName()) {
+    query["AliasName"] = request.getAliasName();
+  }
+
   if (!!request.hasBeforeTime()) {
     query["BeforeTime"] = request.getBeforeTime();
   }
@@ -228,9 +232,15 @@ CreateClientCertificateResponse Client::createClientCertificateWithOptions(const
     query["Years"] = request.getYears();
   }
 
+  json body = {};
+  if (!!request.hasClientToken()) {
+    body["ClientToken"] = request.getClientToken();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
   Params params = Params(json({
     {"action" , "CreateClientCertificate"},
     {"version" , "2020-06-30"},
@@ -1805,6 +1815,10 @@ ListCertResponse Client::listCertWithOptions(const ListCertRequest &request, con
 
   if (!!request.hasNextToken()) {
     query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasParentIdentifier()) {
+    query["ParentIdentifier"] = request.getParentIdentifier();
   }
 
   if (!!request.hasShowSize()) {

@@ -16,7 +16,9 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreateClientCertificateRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AfterTime, afterTime_);
       DARABONBA_PTR_TO_JSON(Algorithm, algorithm_);
+      DARABONBA_PTR_TO_JSON(AliasName, aliasName_);
       DARABONBA_PTR_TO_JSON(BeforeTime, beforeTime_);
+      DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(CommonName, commonName_);
       DARABONBA_PTR_TO_JSON(Country, country_);
       DARABONBA_PTR_TO_JSON(CustomIdentifier, customIdentifier_);
@@ -38,7 +40,9 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, CreateClientCertificateRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AfterTime, afterTime_);
       DARABONBA_PTR_FROM_JSON(Algorithm, algorithm_);
+      DARABONBA_PTR_FROM_JSON(AliasName, aliasName_);
       DARABONBA_PTR_FROM_JSON(BeforeTime, beforeTime_);
+      DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(CommonName, commonName_);
       DARABONBA_PTR_FROM_JSON(Country, country_);
       DARABONBA_PTR_FROM_JSON(CustomIdentifier, customIdentifier_);
@@ -111,10 +115,11 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->afterTime_ == nullptr
-        && this->algorithm_ == nullptr && this->beforeTime_ == nullptr && this->commonName_ == nullptr && this->country_ == nullptr && this->customIdentifier_ == nullptr
-        && this->days_ == nullptr && this->enableCrl_ == nullptr && this->immediately_ == nullptr && this->locality_ == nullptr && this->months_ == nullptr
-        && this->organization_ == nullptr && this->organizationUnit_ == nullptr && this->parentIdentifier_ == nullptr && this->resourceGroupId_ == nullptr && this->sanType_ == nullptr
-        && this->sanValue_ == nullptr && this->state_ == nullptr && this->tags_ == nullptr && this->years_ == nullptr; };
+        && this->algorithm_ == nullptr && this->aliasName_ == nullptr && this->beforeTime_ == nullptr && this->clientToken_ == nullptr && this->commonName_ == nullptr
+        && this->country_ == nullptr && this->customIdentifier_ == nullptr && this->days_ == nullptr && this->enableCrl_ == nullptr && this->immediately_ == nullptr
+        && this->locality_ == nullptr && this->months_ == nullptr && this->organization_ == nullptr && this->organizationUnit_ == nullptr && this->parentIdentifier_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->sanType_ == nullptr && this->sanValue_ == nullptr && this->state_ == nullptr && this->tags_ == nullptr
+        && this->years_ == nullptr; };
     // afterTime Field Functions 
     bool hasAfterTime() const { return this->afterTime_ != nullptr;};
     void deleteAfterTime() { this->afterTime_ = nullptr;};
@@ -129,11 +134,25 @@ namespace Models
     inline CreateClientCertificateRequest& setAlgorithm(string algorithm) { DARABONBA_PTR_SET_VALUE(algorithm_, algorithm) };
 
 
+    // aliasName Field Functions 
+    bool hasAliasName() const { return this->aliasName_ != nullptr;};
+    void deleteAliasName() { this->aliasName_ = nullptr;};
+    inline string getAliasName() const { DARABONBA_PTR_GET_DEFAULT(aliasName_, "") };
+    inline CreateClientCertificateRequest& setAliasName(string aliasName) { DARABONBA_PTR_SET_VALUE(aliasName_, aliasName) };
+
+
     // beforeTime Field Functions 
     bool hasBeforeTime() const { return this->beforeTime_ != nullptr;};
     void deleteBeforeTime() { this->beforeTime_ = nullptr;};
     inline int64_t getBeforeTime() const { DARABONBA_PTR_GET_DEFAULT(beforeTime_, 0L) };
     inline CreateClientCertificateRequest& setBeforeTime(int64_t beforeTime) { DARABONBA_PTR_SET_VALUE(beforeTime_, beforeTime) };
+
+
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline CreateClientCertificateRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // commonName Field Functions 
@@ -276,10 +295,12 @@ namespace Models
     // 
     // > You can call the [DescribeCACertificate] operation to query the key algorithm of an intermediate CA certificate.
     shared_ptr<string> algorithm_ {};
+    shared_ptr<string> aliasName_ {};
     // The issuance time of the client certificate. This value is a UNIX timestamp. The default value is the time when you call this operation. Unit: seconds.
     // 
     // >  The **BeforeTime** and **AfterTime** parameters must be both empty or both specified.
     shared_ptr<int64_t> beforeTime_ {};
+    shared_ptr<string> clientToken_ {};
     // The name of the client certificate user. In most cases, the user of a client certificate is an individual, a company, an organization, or an application. We recommend that you enter the common name of a user. Examples: Bob, Alibaba, Alibaba Cloud password platform, and Tmall Genie.
     shared_ptr<string> commonName_ {};
     // The country in which the organization is located. Default value: CN.

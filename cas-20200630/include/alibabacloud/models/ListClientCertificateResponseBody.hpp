@@ -16,6 +16,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ListClientCertificateResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(CertificateList, certificateList_);
       DARABONBA_PTR_TO_JSON(CurrentPage, currentPage_);
+      DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(PageCount, pageCount_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(ShowSize, showSize_);
@@ -24,6 +25,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, ListClientCertificateResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(CertificateList, certificateList_);
       DARABONBA_PTR_FROM_JSON(CurrentPage, currentPage_);
+      DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(PageCount, pageCount_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(ShowSize, showSize_);
@@ -45,12 +47,14 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const CertificateList& obj) { 
         DARABONBA_PTR_TO_JSON(AfterDate, afterDate_);
         DARABONBA_PTR_TO_JSON(Algorithm, algorithm_);
+        DARABONBA_PTR_TO_JSON(AliasName, aliasName_);
         DARABONBA_PTR_TO_JSON(BeforeDate, beforeDate_);
         DARABONBA_PTR_TO_JSON(CertificateType, certificateType_);
         DARABONBA_PTR_TO_JSON(CommonName, commonName_);
         DARABONBA_PTR_TO_JSON(CountryCode, countryCode_);
         DARABONBA_PTR_TO_JSON(CustomIdentifier, customIdentifier_);
         DARABONBA_PTR_TO_JSON(Days, days_);
+        DARABONBA_PTR_TO_JSON(Id, id_);
         DARABONBA_PTR_TO_JSON(Identifier, identifier_);
         DARABONBA_PTR_TO_JSON(KeySize, keySize_);
         DARABONBA_PTR_TO_JSON(Locality, locality_);
@@ -71,12 +75,14 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, CertificateList& obj) { 
         DARABONBA_PTR_FROM_JSON(AfterDate, afterDate_);
         DARABONBA_PTR_FROM_JSON(Algorithm, algorithm_);
+        DARABONBA_PTR_FROM_JSON(AliasName, aliasName_);
         DARABONBA_PTR_FROM_JSON(BeforeDate, beforeDate_);
         DARABONBA_PTR_FROM_JSON(CertificateType, certificateType_);
         DARABONBA_PTR_FROM_JSON(CommonName, commonName_);
         DARABONBA_PTR_FROM_JSON(CountryCode, countryCode_);
         DARABONBA_PTR_FROM_JSON(CustomIdentifier, customIdentifier_);
         DARABONBA_PTR_FROM_JSON(Days, days_);
+        DARABONBA_PTR_FROM_JSON(Id, id_);
         DARABONBA_PTR_FROM_JSON(Identifier, identifier_);
         DARABONBA_PTR_FROM_JSON(KeySize, keySize_);
         DARABONBA_PTR_FROM_JSON(Locality, locality_);
@@ -106,11 +112,11 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->afterDate_ == nullptr
-        && this->algorithm_ == nullptr && this->beforeDate_ == nullptr && this->certificateType_ == nullptr && this->commonName_ == nullptr && this->countryCode_ == nullptr
-        && this->customIdentifier_ == nullptr && this->days_ == nullptr && this->identifier_ == nullptr && this->keySize_ == nullptr && this->locality_ == nullptr
-        && this->md5_ == nullptr && this->organization_ == nullptr && this->organizationUnit_ == nullptr && this->parentIdentifier_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->sans_ == nullptr && this->serialNumber_ == nullptr && this->sha2_ == nullptr && this->signAlgorithm_ == nullptr && this->state_ == nullptr
-        && this->status_ == nullptr && this->subjectDN_ == nullptr && this->x509Certificate_ == nullptr; };
+        && this->algorithm_ == nullptr && this->aliasName_ == nullptr && this->beforeDate_ == nullptr && this->certificateType_ == nullptr && this->commonName_ == nullptr
+        && this->countryCode_ == nullptr && this->customIdentifier_ == nullptr && this->days_ == nullptr && this->id_ == nullptr && this->identifier_ == nullptr
+        && this->keySize_ == nullptr && this->locality_ == nullptr && this->md5_ == nullptr && this->organization_ == nullptr && this->organizationUnit_ == nullptr
+        && this->parentIdentifier_ == nullptr && this->resourceGroupId_ == nullptr && this->sans_ == nullptr && this->serialNumber_ == nullptr && this->sha2_ == nullptr
+        && this->signAlgorithm_ == nullptr && this->state_ == nullptr && this->status_ == nullptr && this->subjectDN_ == nullptr && this->x509Certificate_ == nullptr; };
       // afterDate Field Functions 
       bool hasAfterDate() const { return this->afterDate_ != nullptr;};
       void deleteAfterDate() { this->afterDate_ = nullptr;};
@@ -123,6 +129,13 @@ namespace Models
       void deleteAlgorithm() { this->algorithm_ = nullptr;};
       inline string getAlgorithm() const { DARABONBA_PTR_GET_DEFAULT(algorithm_, "") };
       inline CertificateList& setAlgorithm(string algorithm) { DARABONBA_PTR_SET_VALUE(algorithm_, algorithm) };
+
+
+      // aliasName Field Functions 
+      bool hasAliasName() const { return this->aliasName_ != nullptr;};
+      void deleteAliasName() { this->aliasName_ = nullptr;};
+      inline string getAliasName() const { DARABONBA_PTR_GET_DEFAULT(aliasName_, "") };
+      inline CertificateList& setAliasName(string aliasName) { DARABONBA_PTR_SET_VALUE(aliasName_, aliasName) };
 
 
       // beforeDate Field Functions 
@@ -165,6 +178,13 @@ namespace Models
       void deleteDays() { this->days_ = nullptr;};
       inline int32_t getDays() const { DARABONBA_PTR_GET_DEFAULT(days_, 0) };
       inline CertificateList& setDays(int32_t days) { DARABONBA_PTR_SET_VALUE(days_, days) };
+
+
+      // id Field Functions 
+      bool hasId() const { return this->id_ != nullptr;};
+      void deleteId() { this->id_ = nullptr;};
+      inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+      inline CertificateList& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
       // identifier Field Functions 
@@ -288,6 +308,7 @@ namespace Models
       // *   **ECC**: the elliptic curve cryptography (ECC) algorithm.
       // *   **SM2**: the SM2 algorithm, which is developed and approved by the State Cryptography Administration of China.
       shared_ptr<string> algorithm_ {};
+      shared_ptr<string> aliasName_ {};
       // The issuance date of the certificate. This value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> beforeDate_ {};
       // The type of the certificate. Valid values:
@@ -304,6 +325,7 @@ namespace Models
       shared_ptr<string> customIdentifier_ {};
       // The validity period of the certificate. Unit: days.
       shared_ptr<int32_t> days_ {};
+      shared_ptr<int64_t> id_ {};
       // The unique identifier of the certificate.
       shared_ptr<string> identifier_ {};
       // The key length of the certificate.
@@ -359,7 +381,8 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->certificateList_ == nullptr
-        && this->currentPage_ == nullptr && this->pageCount_ == nullptr && this->requestId_ == nullptr && this->showSize_ == nullptr && this->totalCount_ == nullptr; };
+        && this->currentPage_ == nullptr && this->maxResults_ == nullptr && this->pageCount_ == nullptr && this->requestId_ == nullptr && this->showSize_ == nullptr
+        && this->totalCount_ == nullptr; };
     // certificateList Field Functions 
     bool hasCertificateList() const { return this->certificateList_ != nullptr;};
     void deleteCertificateList() { this->certificateList_ = nullptr;};
@@ -374,6 +397,13 @@ namespace Models
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
     inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline ListClientCertificateResponseBody& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
+
+
+    // maxResults Field Functions 
+    bool hasMaxResults() const { return this->maxResults_ != nullptr;};
+    void deleteMaxResults() { this->maxResults_ = nullptr;};
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline ListClientCertificateResponseBody& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // pageCount Field Functions 
@@ -409,6 +439,7 @@ namespace Models
     shared_ptr<vector<ListClientCertificateResponseBody::CertificateList>> certificateList_ {};
     // The page number of the current page.
     shared_ptr<int32_t> currentPage_ {};
+    shared_ptr<int32_t> maxResults_ {};
     // The total number of pages returned.
     shared_ptr<int32_t> pageCount_ {};
     // The ID of the request.

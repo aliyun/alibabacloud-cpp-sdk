@@ -177,8 +177,8 @@ namespace Models
       // id Field Functions 
       bool hasId() const { return this->id_ != nullptr;};
       void deleteId() { this->id_ = nullptr;};
-      inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
-      inline List& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+      inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+      inline List& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
       // identifier Field Functions 
@@ -250,7 +250,7 @@ namespace Models
       shared_ptr<string> commonName_ {};
       shared_ptr<string> customIdentifier_ {};
       shared_ptr<string> extra_ {};
-      shared_ptr<string> id_ {};
+      shared_ptr<int64_t> id_ {};
       shared_ptr<string> identifier_ {};
       shared_ptr<bool> keyExportable_ {};
       shared_ptr<string> organization_ {};

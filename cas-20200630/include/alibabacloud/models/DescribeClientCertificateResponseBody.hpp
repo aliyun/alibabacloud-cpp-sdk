@@ -37,6 +37,7 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Certificate& obj) { 
         DARABONBA_PTR_TO_JSON(AfterDate, afterDate_);
         DARABONBA_PTR_TO_JSON(Algorithm, algorithm_);
+        DARABONBA_PTR_TO_JSON(AliasName, aliasName_);
         DARABONBA_PTR_TO_JSON(BeforeDate, beforeDate_);
         DARABONBA_PTR_TO_JSON(CertChain, certChain_);
         DARABONBA_PTR_TO_JSON(CertificateType, certificateType_);
@@ -44,6 +45,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(CountryCode, countryCode_);
         DARABONBA_PTR_TO_JSON(CustomIdentifier, customIdentifier_);
         DARABONBA_PTR_TO_JSON(Days, days_);
+        DARABONBA_PTR_TO_JSON(FullAlgorithm, fullAlgorithm_);
+        DARABONBA_PTR_TO_JSON(Id, id_);
         DARABONBA_PTR_TO_JSON(Identifier, identifier_);
         DARABONBA_PTR_TO_JSON(KeySize, keySize_);
         DARABONBA_PTR_TO_JSON(Locality, locality_);
@@ -60,11 +63,13 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(SubjectDN, subjectDN_);
         DARABONBA_PTR_TO_JSON(Tags, tags_);
+        DARABONBA_PTR_TO_JSON(UploadFlag, uploadFlag_);
         DARABONBA_PTR_TO_JSON(X509Certificate, x509Certificate_);
       };
       friend void from_json(const Darabonba::Json& j, Certificate& obj) { 
         DARABONBA_PTR_FROM_JSON(AfterDate, afterDate_);
         DARABONBA_PTR_FROM_JSON(Algorithm, algorithm_);
+        DARABONBA_PTR_FROM_JSON(AliasName, aliasName_);
         DARABONBA_PTR_FROM_JSON(BeforeDate, beforeDate_);
         DARABONBA_PTR_FROM_JSON(CertChain, certChain_);
         DARABONBA_PTR_FROM_JSON(CertificateType, certificateType_);
@@ -72,6 +77,8 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(CountryCode, countryCode_);
         DARABONBA_PTR_FROM_JSON(CustomIdentifier, customIdentifier_);
         DARABONBA_PTR_FROM_JSON(Days, days_);
+        DARABONBA_PTR_FROM_JSON(FullAlgorithm, fullAlgorithm_);
+        DARABONBA_PTR_FROM_JSON(Id, id_);
         DARABONBA_PTR_FROM_JSON(Identifier, identifier_);
         DARABONBA_PTR_FROM_JSON(KeySize, keySize_);
         DARABONBA_PTR_FROM_JSON(Locality, locality_);
@@ -88,6 +95,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(SubjectDN, subjectDN_);
         DARABONBA_PTR_FROM_JSON(Tags, tags_);
+        DARABONBA_PTR_FROM_JSON(UploadFlag, uploadFlag_);
         DARABONBA_PTR_FROM_JSON(X509Certificate, x509Certificate_);
       };
       Certificate() = default ;
@@ -144,11 +152,12 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->afterDate_ == nullptr
-        && this->algorithm_ == nullptr && this->beforeDate_ == nullptr && this->certChain_ == nullptr && this->certificateType_ == nullptr && this->commonName_ == nullptr
-        && this->countryCode_ == nullptr && this->customIdentifier_ == nullptr && this->days_ == nullptr && this->identifier_ == nullptr && this->keySize_ == nullptr
-        && this->locality_ == nullptr && this->md5_ == nullptr && this->organization_ == nullptr && this->organizationUnit_ == nullptr && this->parentIdentifier_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->sans_ == nullptr && this->serialNumber_ == nullptr && this->sha2_ == nullptr && this->signAlgorithm_ == nullptr
-        && this->state_ == nullptr && this->status_ == nullptr && this->subjectDN_ == nullptr && this->tags_ == nullptr && this->x509Certificate_ == nullptr; };
+        && this->algorithm_ == nullptr && this->aliasName_ == nullptr && this->beforeDate_ == nullptr && this->certChain_ == nullptr && this->certificateType_ == nullptr
+        && this->commonName_ == nullptr && this->countryCode_ == nullptr && this->customIdentifier_ == nullptr && this->days_ == nullptr && this->fullAlgorithm_ == nullptr
+        && this->id_ == nullptr && this->identifier_ == nullptr && this->keySize_ == nullptr && this->locality_ == nullptr && this->md5_ == nullptr
+        && this->organization_ == nullptr && this->organizationUnit_ == nullptr && this->parentIdentifier_ == nullptr && this->resourceGroupId_ == nullptr && this->sans_ == nullptr
+        && this->serialNumber_ == nullptr && this->sha2_ == nullptr && this->signAlgorithm_ == nullptr && this->state_ == nullptr && this->status_ == nullptr
+        && this->subjectDN_ == nullptr && this->tags_ == nullptr && this->uploadFlag_ == nullptr && this->x509Certificate_ == nullptr; };
       // afterDate Field Functions 
       bool hasAfterDate() const { return this->afterDate_ != nullptr;};
       void deleteAfterDate() { this->afterDate_ = nullptr;};
@@ -161,6 +170,13 @@ namespace Models
       void deleteAlgorithm() { this->algorithm_ = nullptr;};
       inline string getAlgorithm() const { DARABONBA_PTR_GET_DEFAULT(algorithm_, "") };
       inline Certificate& setAlgorithm(string algorithm) { DARABONBA_PTR_SET_VALUE(algorithm_, algorithm) };
+
+
+      // aliasName Field Functions 
+      bool hasAliasName() const { return this->aliasName_ != nullptr;};
+      void deleteAliasName() { this->aliasName_ = nullptr;};
+      inline string getAliasName() const { DARABONBA_PTR_GET_DEFAULT(aliasName_, "") };
+      inline Certificate& setAliasName(string aliasName) { DARABONBA_PTR_SET_VALUE(aliasName_, aliasName) };
 
 
       // beforeDate Field Functions 
@@ -210,6 +226,20 @@ namespace Models
       void deleteDays() { this->days_ = nullptr;};
       inline int32_t getDays() const { DARABONBA_PTR_GET_DEFAULT(days_, 0) };
       inline Certificate& setDays(int32_t days) { DARABONBA_PTR_SET_VALUE(days_, days) };
+
+
+      // fullAlgorithm Field Functions 
+      bool hasFullAlgorithm() const { return this->fullAlgorithm_ != nullptr;};
+      void deleteFullAlgorithm() { this->fullAlgorithm_ = nullptr;};
+      inline string getFullAlgorithm() const { DARABONBA_PTR_GET_DEFAULT(fullAlgorithm_, "") };
+      inline Certificate& setFullAlgorithm(string fullAlgorithm) { DARABONBA_PTR_SET_VALUE(fullAlgorithm_, fullAlgorithm) };
+
+
+      // id Field Functions 
+      bool hasId() const { return this->id_ != nullptr;};
+      void deleteId() { this->id_ = nullptr;};
+      inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+      inline Certificate& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
       // identifier Field Functions 
@@ -326,6 +356,13 @@ namespace Models
       inline Certificate& setTags(vector<Certificate::Tags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
 
 
+      // uploadFlag Field Functions 
+      bool hasUploadFlag() const { return this->uploadFlag_ != nullptr;};
+      void deleteUploadFlag() { this->uploadFlag_ = nullptr;};
+      inline int32_t getUploadFlag() const { DARABONBA_PTR_GET_DEFAULT(uploadFlag_, 0) };
+      inline Certificate& setUploadFlag(int32_t uploadFlag) { DARABONBA_PTR_SET_VALUE(uploadFlag_, uploadFlag) };
+
+
       // x509Certificate Field Functions 
       bool hasX509Certificate() const { return this->x509Certificate_ != nullptr;};
       void deleteX509Certificate() { this->x509Certificate_ = nullptr;};
@@ -342,6 +379,7 @@ namespace Models
       // *   **ECC**: the elliptic curve cryptography (ECC) algorithm.
       // *   **SM2**: the SM2 algorithm, which is developed and approved by the State Cryptography Administration of China.
       shared_ptr<string> algorithm_ {};
+      shared_ptr<string> aliasName_ {};
       // The issuance date of the certificate. This value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> beforeDate_ {};
       shared_ptr<string> certChain_ {};
@@ -359,6 +397,8 @@ namespace Models
       shared_ptr<string> customIdentifier_ {};
       // The validity period of the certificate. Unit: days.
       shared_ptr<int32_t> days_ {};
+      shared_ptr<string> fullAlgorithm_ {};
+      shared_ptr<int64_t> id_ {};
       // The unique identifier of the certificate.
       shared_ptr<string> identifier_ {};
       // The key length of the certificate.
@@ -410,6 +450,7 @@ namespace Models
       // *   **CN**: the common name
       shared_ptr<string> subjectDN_ {};
       shared_ptr<vector<Certificate::Tags>> tags_ {};
+      shared_ptr<int32_t> uploadFlag_ {};
       // The content of the certificate.
       shared_ptr<string> x509Certificate_ {};
     };
