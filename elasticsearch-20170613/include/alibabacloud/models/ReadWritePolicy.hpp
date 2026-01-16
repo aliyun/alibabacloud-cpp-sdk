@@ -33,33 +33,33 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoGeneratePk_ != nullptr
-        && this->writeHa_ != nullptr && this->writePolicy_ != nullptr; };
+    virtual bool empty() const override { return this->autoGeneratePk_ == nullptr
+        && this->writeHa_ == nullptr && this->writePolicy_ == nullptr; };
     // autoGeneratePk Field Functions 
     bool hasAutoGeneratePk() const { return this->autoGeneratePk_ != nullptr;};
     void deleteAutoGeneratePk() { this->autoGeneratePk_ = nullptr;};
-    inline bool autoGeneratePk() const { DARABONBA_PTR_GET_DEFAULT(autoGeneratePk_, false) };
+    inline bool getAutoGeneratePk() const { DARABONBA_PTR_GET_DEFAULT(autoGeneratePk_, false) };
     inline ReadWritePolicy& setAutoGeneratePk(bool autoGeneratePk) { DARABONBA_PTR_SET_VALUE(autoGeneratePk_, autoGeneratePk) };
 
 
     // writeHa Field Functions 
     bool hasWriteHa() const { return this->writeHa_ != nullptr;};
     void deleteWriteHa() { this->writeHa_ = nullptr;};
-    inline bool writeHa() const { DARABONBA_PTR_GET_DEFAULT(writeHa_, false) };
+    inline bool getWriteHa() const { DARABONBA_PTR_GET_DEFAULT(writeHa_, false) };
     inline ReadWritePolicy& setWriteHa(bool writeHa) { DARABONBA_PTR_SET_VALUE(writeHa_, writeHa) };
 
 
     // writePolicy Field Functions 
     bool hasWritePolicy() const { return this->writePolicy_ != nullptr;};
     void deleteWritePolicy() { this->writePolicy_ = nullptr;};
-    inline string writePolicy() const { DARABONBA_PTR_GET_DEFAULT(writePolicy_, "") };
+    inline string getWritePolicy() const { DARABONBA_PTR_GET_DEFAULT(writePolicy_, "") };
     inline ReadWritePolicy& setWritePolicy(string writePolicy) { DARABONBA_PTR_SET_VALUE(writePolicy_, writePolicy) };
 
 
   protected:
-    std::shared_ptr<bool> autoGeneratePk_ = nullptr;
-    std::shared_ptr<bool> writeHa_ = nullptr;
-    std::shared_ptr<string> writePolicy_ = nullptr;
+    shared_ptr<bool> autoGeneratePk_ {};
+    shared_ptr<bool> writeHa_ {};
+    shared_ptr<string> writePolicy_ {};
   };
 
   } // namespace Models

@@ -42,14 +42,14 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->endpoints_ != nullptr
-        && this->esInstanceId_ != nullptr && this->password_ != nullptr && this->pipelineIds_ != nullptr && this->pipelineManagementType_ != nullptr && this->userName_ != nullptr
-        && this->clientToken_ != nullptr; };
+    virtual bool empty() const override { return this->endpoints_ == nullptr
+        && this->esInstanceId_ == nullptr && this->password_ == nullptr && this->pipelineIds_ == nullptr && this->pipelineManagementType_ == nullptr && this->userName_ == nullptr
+        && this->clientToken_ == nullptr; };
     // endpoints Field Functions 
     bool hasEndpoints() const { return this->endpoints_ != nullptr;};
     void deleteEndpoints() { this->endpoints_ = nullptr;};
-    inline const vector<string> & endpoints() const { DARABONBA_PTR_GET_CONST(endpoints_, vector<string>) };
-    inline vector<string> endpoints() { DARABONBA_PTR_GET(endpoints_, vector<string>) };
+    inline const vector<string> & getEndpoints() const { DARABONBA_PTR_GET_CONST(endpoints_, vector<string>) };
+    inline vector<string> getEndpoints() { DARABONBA_PTR_GET(endpoints_, vector<string>) };
     inline UpdatePipelineManagementConfigRequest& setEndpoints(const vector<string> & endpoints) { DARABONBA_PTR_SET_VALUE(endpoints_, endpoints) };
     inline UpdatePipelineManagementConfigRequest& setEndpoints(vector<string> && endpoints) { DARABONBA_PTR_SET_RVALUE(endpoints_, endpoints) };
 
@@ -57,22 +57,22 @@ namespace Models
     // esInstanceId Field Functions 
     bool hasEsInstanceId() const { return this->esInstanceId_ != nullptr;};
     void deleteEsInstanceId() { this->esInstanceId_ = nullptr;};
-    inline string esInstanceId() const { DARABONBA_PTR_GET_DEFAULT(esInstanceId_, "") };
+    inline string getEsInstanceId() const { DARABONBA_PTR_GET_DEFAULT(esInstanceId_, "") };
     inline UpdatePipelineManagementConfigRequest& setEsInstanceId(string esInstanceId) { DARABONBA_PTR_SET_VALUE(esInstanceId_, esInstanceId) };
 
 
     // password Field Functions 
     bool hasPassword() const { return this->password_ != nullptr;};
     void deletePassword() { this->password_ = nullptr;};
-    inline string password() const { DARABONBA_PTR_GET_DEFAULT(password_, "") };
+    inline string getPassword() const { DARABONBA_PTR_GET_DEFAULT(password_, "") };
     inline UpdatePipelineManagementConfigRequest& setPassword(string password) { DARABONBA_PTR_SET_VALUE(password_, password) };
 
 
     // pipelineIds Field Functions 
     bool hasPipelineIds() const { return this->pipelineIds_ != nullptr;};
     void deletePipelineIds() { this->pipelineIds_ = nullptr;};
-    inline const vector<string> & pipelineIds() const { DARABONBA_PTR_GET_CONST(pipelineIds_, vector<string>) };
-    inline vector<string> pipelineIds() { DARABONBA_PTR_GET(pipelineIds_, vector<string>) };
+    inline const vector<string> & getPipelineIds() const { DARABONBA_PTR_GET_CONST(pipelineIds_, vector<string>) };
+    inline vector<string> getPipelineIds() { DARABONBA_PTR_GET(pipelineIds_, vector<string>) };
     inline UpdatePipelineManagementConfigRequest& setPipelineIds(const vector<string> & pipelineIds) { DARABONBA_PTR_SET_VALUE(pipelineIds_, pipelineIds) };
     inline UpdatePipelineManagementConfigRequest& setPipelineIds(vector<string> && pipelineIds) { DARABONBA_PTR_SET_RVALUE(pipelineIds_, pipelineIds) };
 
@@ -80,32 +80,32 @@ namespace Models
     // pipelineManagementType Field Functions 
     bool hasPipelineManagementType() const { return this->pipelineManagementType_ != nullptr;};
     void deletePipelineManagementType() { this->pipelineManagementType_ = nullptr;};
-    inline string pipelineManagementType() const { DARABONBA_PTR_GET_DEFAULT(pipelineManagementType_, "") };
+    inline string getPipelineManagementType() const { DARABONBA_PTR_GET_DEFAULT(pipelineManagementType_, "") };
     inline UpdatePipelineManagementConfigRequest& setPipelineManagementType(string pipelineManagementType) { DARABONBA_PTR_SET_VALUE(pipelineManagementType_, pipelineManagementType) };
 
 
     // userName Field Functions 
     bool hasUserName() const { return this->userName_ != nullptr;};
     void deleteUserName() { this->userName_ = nullptr;};
-    inline string userName() const { DARABONBA_PTR_GET_DEFAULT(userName_, "") };
+    inline string getUserName() const { DARABONBA_PTR_GET_DEFAULT(userName_, "") };
     inline UpdatePipelineManagementConfigRequest& setUserName(string userName) { DARABONBA_PTR_SET_VALUE(userName_, userName) };
 
 
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline UpdatePipelineManagementConfigRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
   protected:
-    std::shared_ptr<vector<string>> endpoints_ = nullptr;
-    std::shared_ptr<string> esInstanceId_ = nullptr;
-    std::shared_ptr<string> password_ = nullptr;
-    std::shared_ptr<vector<string>> pipelineIds_ = nullptr;
-    std::shared_ptr<string> pipelineManagementType_ = nullptr;
-    std::shared_ptr<string> userName_ = nullptr;
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<vector<string>> endpoints_ {};
+    shared_ptr<string> esInstanceId_ {};
+    shared_ptr<string> password_ {};
+    shared_ptr<vector<string>> pipelineIds_ {};
+    shared_ptr<string> pipelineManagementType_ {};
+    shared_ptr<string> userName_ {};
+    shared_ptr<string> clientToken_ {};
   };
 
   } // namespace Models

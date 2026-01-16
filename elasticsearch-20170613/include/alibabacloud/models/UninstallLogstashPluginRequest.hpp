@@ -32,13 +32,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->body_ != nullptr
-        && this->clientToken_ != nullptr; };
+    virtual bool empty() const override { return this->body_ == nullptr
+        && this->clientToken_ == nullptr; };
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const vector<string> & body() const { DARABONBA_PTR_GET_CONST(body_, vector<string>) };
-    inline vector<string> body() { DARABONBA_PTR_GET(body_, vector<string>) };
+    inline const vector<string> & getBody() const { DARABONBA_PTR_GET_CONST(body_, vector<string>) };
+    inline vector<string> getBody() { DARABONBA_PTR_GET(body_, vector<string>) };
     inline UninstallLogstashPluginRequest& setBody(const vector<string> & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
     inline UninstallLogstashPluginRequest& setBody(vector<string> && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
@@ -46,13 +46,13 @@ namespace Models
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline UninstallLogstashPluginRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
   protected:
-    std::shared_ptr<vector<string>> body_ = nullptr;
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<vector<string>> body_ {};
+    shared_ptr<string> clientToken_ {};
   };
 
   } // namespace Models

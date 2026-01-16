@@ -35,44 +35,44 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->actionType_ != nullptr
-        && this->networkType_ != nullptr && this->nodeType_ != nullptr && this->clientToken_ != nullptr; };
+    virtual bool empty() const override { return this->actionType_ == nullptr
+        && this->networkType_ == nullptr && this->nodeType_ == nullptr && this->clientToken_ == nullptr; };
     // actionType Field Functions 
     bool hasActionType() const { return this->actionType_ != nullptr;};
     void deleteActionType() { this->actionType_ = nullptr;};
-    inline string actionType() const { DARABONBA_PTR_GET_DEFAULT(actionType_, "") };
+    inline string getActionType() const { DARABONBA_PTR_GET_DEFAULT(actionType_, "") };
     inline TriggerNetworkRequest& setActionType(string actionType) { DARABONBA_PTR_SET_VALUE(actionType_, actionType) };
 
 
     // networkType Field Functions 
     bool hasNetworkType() const { return this->networkType_ != nullptr;};
     void deleteNetworkType() { this->networkType_ = nullptr;};
-    inline string networkType() const { DARABONBA_PTR_GET_DEFAULT(networkType_, "") };
+    inline string getNetworkType() const { DARABONBA_PTR_GET_DEFAULT(networkType_, "") };
     inline TriggerNetworkRequest& setNetworkType(string networkType) { DARABONBA_PTR_SET_VALUE(networkType_, networkType) };
 
 
     // nodeType Field Functions 
     bool hasNodeType() const { return this->nodeType_ != nullptr;};
     void deleteNodeType() { this->nodeType_ = nullptr;};
-    inline string nodeType() const { DARABONBA_PTR_GET_DEFAULT(nodeType_, "") };
+    inline string getNodeType() const { DARABONBA_PTR_GET_DEFAULT(nodeType_, "") };
     inline TriggerNetworkRequest& setNodeType(string nodeType) { DARABONBA_PTR_SET_VALUE(nodeType_, nodeType) };
 
 
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline TriggerNetworkRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> actionType_ = nullptr;
+    shared_ptr<string> actionType_ {};
     // This parameter is required.
-    std::shared_ptr<string> networkType_ = nullptr;
+    shared_ptr<string> networkType_ {};
     // This parameter is required.
-    std::shared_ptr<string> nodeType_ = nullptr;
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> nodeType_ {};
+    shared_ptr<string> clientToken_ {};
   };
 
   } // namespace Models

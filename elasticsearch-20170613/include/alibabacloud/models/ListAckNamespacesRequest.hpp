@@ -31,27 +31,27 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->page_ != nullptr
-        && this->size_ != nullptr; };
+    virtual bool empty() const override { return this->page_ == nullptr
+        && this->size_ == nullptr; };
     // page Field Functions 
     bool hasPage() const { return this->page_ != nullptr;};
     void deletePage() { this->page_ = nullptr;};
-    inline int32_t page() const { DARABONBA_PTR_GET_DEFAULT(page_, 0) };
+    inline int32_t getPage() const { DARABONBA_PTR_GET_DEFAULT(page_, 0) };
     inline ListAckNamespacesRequest& setPage(int32_t page) { DARABONBA_PTR_SET_VALUE(page_, page) };
 
 
     // size Field Functions 
     bool hasSize() const { return this->size_ != nullptr;};
     void deleteSize() { this->size_ = nullptr;};
-    inline int32_t size() const { DARABONBA_PTR_GET_DEFAULT(size_, 0) };
+    inline int32_t getSize() const { DARABONBA_PTR_GET_DEFAULT(size_, 0) };
     inline ListAckNamespacesRequest& setSize(int32_t size) { DARABONBA_PTR_SET_VALUE(size_, size) };
 
 
   protected:
     // The number of the page to return.
-    std::shared_ptr<int32_t> page_ = nullptr;
+    shared_ptr<int32_t> page_ {};
     // The number of entries to return on each page.
-    std::shared_ptr<int32_t> size_ = nullptr;
+    shared_ptr<int32_t> size_ {};
   };
 
   } // namespace Models

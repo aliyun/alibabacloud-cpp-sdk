@@ -31,25 +31,25 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->body_ != nullptr
-        && this->force_ != nullptr; };
+    virtual bool empty() const override { return this->body_ == nullptr
+        && this->force_ == nullptr; };
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline string body() const { DARABONBA_PTR_GET_DEFAULT(body_, "") };
+    inline string getBody() const { DARABONBA_PTR_GET_DEFAULT(body_, "") };
     inline InstallUserPluginsRequest& setBody(string body) { DARABONBA_PTR_SET_VALUE(body_, body) };
 
 
     // force Field Functions 
     bool hasForce() const { return this->force_ != nullptr;};
     void deleteForce() { this->force_ = nullptr;};
-    inline bool force() const { DARABONBA_PTR_GET_DEFAULT(force_, false) };
+    inline bool getForce() const { DARABONBA_PTR_GET_DEFAULT(force_, false) };
     inline InstallUserPluginsRequest& setForce(bool force) { DARABONBA_PTR_SET_VALUE(force_, force) };
 
 
   protected:
-    std::shared_ptr<string> body_ = nullptr;
-    std::shared_ptr<bool> force_ = nullptr;
+    shared_ptr<string> body_ {};
+    shared_ptr<bool> force_ {};
   };
 
   } // namespace Models

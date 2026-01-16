@@ -29,11 +29,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->usageScenario_ != nullptr; };
+    virtual bool empty() const override { return this->usageScenario_ == nullptr; };
     // usageScenario Field Functions 
     bool hasUsageScenario() const { return this->usageScenario_ != nullptr;};
     void deleteUsageScenario() { this->usageScenario_ = nullptr;};
-    inline string usageScenario() const { DARABONBA_PTR_GET_DEFAULT(usageScenario_, "") };
+    inline string getUsageScenario() const { DARABONBA_PTR_GET_DEFAULT(usageScenario_, "") };
     inline RecommendTemplatesRequest& setUsageScenario(string usageScenario) { DARABONBA_PTR_SET_VALUE(usageScenario_, usageScenario) };
 
 
@@ -49,7 +49,7 @@ namespace Models
     // ****
     // 
     // This parameter is required.
-    std::shared_ptr<string> usageScenario_ = nullptr;
+    shared_ptr<string> usageScenario_ {};
   };
 
   } // namespace Models

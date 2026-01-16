@@ -31,25 +31,25 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->isManaged_ != nullptr
-        && this->name_ != nullptr; };
+    virtual bool empty() const override { return this->isManaged_ == nullptr
+        && this->name_ == nullptr; };
     // isManaged Field Functions 
     bool hasIsManaged() const { return this->isManaged_ != nullptr;};
     void deleteIsManaged() { this->isManaged_ = nullptr;};
-    inline bool isManaged() const { DARABONBA_PTR_GET_DEFAULT(isManaged_, false) };
+    inline bool getIsManaged() const { DARABONBA_PTR_GET_DEFAULT(isManaged_, false) };
     inline ListDataStreamsRequest& setIsManaged(bool isManaged) { DARABONBA_PTR_SET_VALUE(isManaged_, isManaged) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline ListDataStreamsRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
   protected:
-    std::shared_ptr<bool> isManaged_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<bool> isManaged_ {};
+    shared_ptr<string> name_ {};
   };
 
   } // namespace Models

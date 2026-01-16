@@ -29,17 +29,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->extended_ != nullptr; };
+    virtual bool empty() const override { return this->extended_ == nullptr; };
     // extended Field Functions 
     bool hasExtended() const { return this->extended_ != nullptr;};
     void deleteExtended() { this->extended_ = nullptr;};
-    inline bool extended() const { DARABONBA_PTR_GET_DEFAULT(extended_, false) };
+    inline bool getExtended() const { DARABONBA_PTR_GET_DEFAULT(extended_, false) };
     inline ListAllNodeRequest& setExtended(bool extended) { DARABONBA_PTR_SET_VALUE(extended_, extended) };
 
 
   protected:
     // The Java Virtual Machine (JVM) heap memory usage of the node.
-    std::shared_ptr<bool> extended_ = nullptr;
+    shared_ptr<bool> extended_ {};
   };
 
   } // namespace Models

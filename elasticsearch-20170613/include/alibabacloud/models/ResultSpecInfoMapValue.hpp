@@ -41,66 +41,66 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cpuCount_ != nullptr
-        && this->memorySize_ != nullptr && this->enable_ != nullptr && this->spec_ != nullptr && this->specGroupType_ != nullptr && this->disk_ != nullptr
-        && this->diskType_ != nullptr; };
+    virtual bool empty() const override { return this->cpuCount_ == nullptr
+        && this->memorySize_ == nullptr && this->enable_ == nullptr && this->spec_ == nullptr && this->specGroupType_ == nullptr && this->disk_ == nullptr
+        && this->diskType_ == nullptr; };
     // cpuCount Field Functions 
     bool hasCpuCount() const { return this->cpuCount_ != nullptr;};
     void deleteCpuCount() { this->cpuCount_ = nullptr;};
-    inline string cpuCount() const { DARABONBA_PTR_GET_DEFAULT(cpuCount_, "") };
+    inline string getCpuCount() const { DARABONBA_PTR_GET_DEFAULT(cpuCount_, "") };
     inline ResultSpecInfoMapValue& setCpuCount(string cpuCount) { DARABONBA_PTR_SET_VALUE(cpuCount_, cpuCount) };
 
 
     // memorySize Field Functions 
     bool hasMemorySize() const { return this->memorySize_ != nullptr;};
     void deleteMemorySize() { this->memorySize_ = nullptr;};
-    inline string memorySize() const { DARABONBA_PTR_GET_DEFAULT(memorySize_, "") };
+    inline string getMemorySize() const { DARABONBA_PTR_GET_DEFAULT(memorySize_, "") };
     inline ResultSpecInfoMapValue& setMemorySize(string memorySize) { DARABONBA_PTR_SET_VALUE(memorySize_, memorySize) };
 
 
     // enable Field Functions 
     bool hasEnable() const { return this->enable_ != nullptr;};
     void deleteEnable() { this->enable_ = nullptr;};
-    inline string enable() const { DARABONBA_PTR_GET_DEFAULT(enable_, "") };
+    inline string getEnable() const { DARABONBA_PTR_GET_DEFAULT(enable_, "") };
     inline ResultSpecInfoMapValue& setEnable(string enable) { DARABONBA_PTR_SET_VALUE(enable_, enable) };
 
 
     // spec Field Functions 
     bool hasSpec() const { return this->spec_ != nullptr;};
     void deleteSpec() { this->spec_ = nullptr;};
-    inline string spec() const { DARABONBA_PTR_GET_DEFAULT(spec_, "") };
+    inline string getSpec() const { DARABONBA_PTR_GET_DEFAULT(spec_, "") };
     inline ResultSpecInfoMapValue& setSpec(string spec) { DARABONBA_PTR_SET_VALUE(spec_, spec) };
 
 
     // specGroupType Field Functions 
     bool hasSpecGroupType() const { return this->specGroupType_ != nullptr;};
     void deleteSpecGroupType() { this->specGroupType_ = nullptr;};
-    inline string specGroupType() const { DARABONBA_PTR_GET_DEFAULT(specGroupType_, "") };
+    inline string getSpecGroupType() const { DARABONBA_PTR_GET_DEFAULT(specGroupType_, "") };
     inline ResultSpecInfoMapValue& setSpecGroupType(string specGroupType) { DARABONBA_PTR_SET_VALUE(specGroupType_, specGroupType) };
 
 
     // disk Field Functions 
     bool hasDisk() const { return this->disk_ != nullptr;};
     void deleteDisk() { this->disk_ = nullptr;};
-    inline string disk() const { DARABONBA_PTR_GET_DEFAULT(disk_, "") };
+    inline string getDisk() const { DARABONBA_PTR_GET_DEFAULT(disk_, "") };
     inline ResultSpecInfoMapValue& setDisk(string disk) { DARABONBA_PTR_SET_VALUE(disk_, disk) };
 
 
     // diskType Field Functions 
     bool hasDiskType() const { return this->diskType_ != nullptr;};
     void deleteDiskType() { this->diskType_ = nullptr;};
-    inline string diskType() const { DARABONBA_PTR_GET_DEFAULT(diskType_, "") };
+    inline string getDiskType() const { DARABONBA_PTR_GET_DEFAULT(diskType_, "") };
     inline ResultSpecInfoMapValue& setDiskType(string diskType) { DARABONBA_PTR_SET_VALUE(diskType_, diskType) };
 
 
   protected:
-    std::shared_ptr<string> cpuCount_ = nullptr;
-    std::shared_ptr<string> memorySize_ = nullptr;
-    std::shared_ptr<string> enable_ = nullptr;
-    std::shared_ptr<string> spec_ = nullptr;
-    std::shared_ptr<string> specGroupType_ = nullptr;
-    std::shared_ptr<string> disk_ = nullptr;
-    std::shared_ptr<string> diskType_ = nullptr;
+    shared_ptr<string> cpuCount_ {};
+    shared_ptr<string> memorySize_ {};
+    shared_ptr<string> enable_ {};
+    shared_ptr<string> spec_ {};
+    shared_ptr<string> specGroupType_ {};
+    shared_ptr<string> disk_ {};
+    shared_ptr<string> diskType_ {};
   };
 
   } // namespace Models

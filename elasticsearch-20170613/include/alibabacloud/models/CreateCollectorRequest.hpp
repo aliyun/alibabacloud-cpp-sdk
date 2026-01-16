@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_CREATECOLLECTORREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/CreateCollectorRequestConfigs.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -47,14 +46,58 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->collectorPaths_ != nullptr
-        && this->configs_ != nullptr && this->dryRun_ != nullptr && this->extendConfigs_ != nullptr && this->name_ != nullptr && this->resType_ != nullptr
-        && this->resVersion_ != nullptr && this->vpcId_ != nullptr && this->clientToken_ != nullptr; };
+    class Configs : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Configs& obj) { 
+        DARABONBA_PTR_TO_JSON(content, content_);
+        DARABONBA_PTR_TO_JSON(fileName, fileName_);
+      };
+      friend void from_json(const Darabonba::Json& j, Configs& obj) { 
+        DARABONBA_PTR_FROM_JSON(content, content_);
+        DARABONBA_PTR_FROM_JSON(fileName, fileName_);
+      };
+      Configs() = default ;
+      Configs(const Configs &) = default ;
+      Configs(Configs &&) = default ;
+      Configs(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Configs() = default ;
+      Configs& operator=(const Configs &) = default ;
+      Configs& operator=(Configs &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->content_ == nullptr
+        && this->fileName_ == nullptr; };
+      // content Field Functions 
+      bool hasContent() const { return this->content_ != nullptr;};
+      void deleteContent() { this->content_ = nullptr;};
+      inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
+      inline Configs& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
+
+
+      // fileName Field Functions 
+      bool hasFileName() const { return this->fileName_ != nullptr;};
+      void deleteFileName() { this->fileName_ = nullptr;};
+      inline string getFileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
+      inline Configs& setFileName(string fileName) { DARABONBA_PTR_SET_VALUE(fileName_, fileName) };
+
+
+    protected:
+      // This parameter is required.
+      shared_ptr<string> content_ {};
+      // This parameter is required.
+      shared_ptr<string> fileName_ {};
+    };
+
+    virtual bool empty() const override { return this->collectorPaths_ == nullptr
+        && this->configs_ == nullptr && this->dryRun_ == nullptr && this->extendConfigs_ == nullptr && this->name_ == nullptr && this->resType_ == nullptr
+        && this->resVersion_ == nullptr && this->vpcId_ == nullptr && this->clientToken_ == nullptr; };
     // collectorPaths Field Functions 
     bool hasCollectorPaths() const { return this->collectorPaths_ != nullptr;};
     void deleteCollectorPaths() { this->collectorPaths_ = nullptr;};
-    inline const vector<string> & collectorPaths() const { DARABONBA_PTR_GET_CONST(collectorPaths_, vector<string>) };
-    inline vector<string> collectorPaths() { DARABONBA_PTR_GET(collectorPaths_, vector<string>) };
+    inline const vector<string> & getCollectorPaths() const { DARABONBA_PTR_GET_CONST(collectorPaths_, vector<string>) };
+    inline vector<string> getCollectorPaths() { DARABONBA_PTR_GET(collectorPaths_, vector<string>) };
     inline CreateCollectorRequest& setCollectorPaths(const vector<string> & collectorPaths) { DARABONBA_PTR_SET_VALUE(collectorPaths_, collectorPaths) };
     inline CreateCollectorRequest& setCollectorPaths(vector<string> && collectorPaths) { DARABONBA_PTR_SET_RVALUE(collectorPaths_, collectorPaths) };
 
@@ -62,24 +105,24 @@ namespace Models
     // configs Field Functions 
     bool hasConfigs() const { return this->configs_ != nullptr;};
     void deleteConfigs() { this->configs_ = nullptr;};
-    inline const vector<CreateCollectorRequestConfigs> & configs() const { DARABONBA_PTR_GET_CONST(configs_, vector<CreateCollectorRequestConfigs>) };
-    inline vector<CreateCollectorRequestConfigs> configs() { DARABONBA_PTR_GET(configs_, vector<CreateCollectorRequestConfigs>) };
-    inline CreateCollectorRequest& setConfigs(const vector<CreateCollectorRequestConfigs> & configs) { DARABONBA_PTR_SET_VALUE(configs_, configs) };
-    inline CreateCollectorRequest& setConfigs(vector<CreateCollectorRequestConfigs> && configs) { DARABONBA_PTR_SET_RVALUE(configs_, configs) };
+    inline const vector<CreateCollectorRequest::Configs> & getConfigs() const { DARABONBA_PTR_GET_CONST(configs_, vector<CreateCollectorRequest::Configs>) };
+    inline vector<CreateCollectorRequest::Configs> getConfigs() { DARABONBA_PTR_GET(configs_, vector<CreateCollectorRequest::Configs>) };
+    inline CreateCollectorRequest& setConfigs(const vector<CreateCollectorRequest::Configs> & configs) { DARABONBA_PTR_SET_VALUE(configs_, configs) };
+    inline CreateCollectorRequest& setConfigs(vector<CreateCollectorRequest::Configs> && configs) { DARABONBA_PTR_SET_RVALUE(configs_, configs) };
 
 
     // dryRun Field Functions 
     bool hasDryRun() const { return this->dryRun_ != nullptr;};
     void deleteDryRun() { this->dryRun_ = nullptr;};
-    inline bool dryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
     inline CreateCollectorRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // extendConfigs Field Functions 
     bool hasExtendConfigs() const { return this->extendConfigs_ != nullptr;};
     void deleteExtendConfigs() { this->extendConfigs_ = nullptr;};
-    inline const vector<Darabonba::Json> & extendConfigs() const { DARABONBA_PTR_GET_CONST(extendConfigs_, vector<Darabonba::Json>) };
-    inline vector<Darabonba::Json> extendConfigs() { DARABONBA_PTR_GET(extendConfigs_, vector<Darabonba::Json>) };
+    inline const vector<Darabonba::Json> & getExtendConfigs() const { DARABONBA_PTR_GET_CONST(extendConfigs_, vector<Darabonba::Json>) };
+    inline vector<Darabonba::Json> getExtendConfigs() { DARABONBA_PTR_GET(extendConfigs_, vector<Darabonba::Json>) };
     inline CreateCollectorRequest& setExtendConfigs(const vector<Darabonba::Json> & extendConfigs) { DARABONBA_PTR_SET_VALUE(extendConfigs_, extendConfigs) };
     inline CreateCollectorRequest& setExtendConfigs(vector<Darabonba::Json> && extendConfigs) { DARABONBA_PTR_SET_RVALUE(extendConfigs_, extendConfigs) };
 
@@ -87,56 +130,56 @@ namespace Models
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateCollectorRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // resType Field Functions 
     bool hasResType() const { return this->resType_ != nullptr;};
     void deleteResType() { this->resType_ = nullptr;};
-    inline string resType() const { DARABONBA_PTR_GET_DEFAULT(resType_, "") };
+    inline string getResType() const { DARABONBA_PTR_GET_DEFAULT(resType_, "") };
     inline CreateCollectorRequest& setResType(string resType) { DARABONBA_PTR_SET_VALUE(resType_, resType) };
 
 
     // resVersion Field Functions 
     bool hasResVersion() const { return this->resVersion_ != nullptr;};
     void deleteResVersion() { this->resVersion_ = nullptr;};
-    inline string resVersion() const { DARABONBA_PTR_GET_DEFAULT(resVersion_, "") };
+    inline string getResVersion() const { DARABONBA_PTR_GET_DEFAULT(resVersion_, "") };
     inline CreateCollectorRequest& setResVersion(string resVersion) { DARABONBA_PTR_SET_VALUE(resVersion_, resVersion) };
 
 
     // vpcId Field Functions 
     bool hasVpcId() const { return this->vpcId_ != nullptr;};
     void deleteVpcId() { this->vpcId_ = nullptr;};
-    inline string vpcId() const { DARABONBA_PTR_GET_DEFAULT(vpcId_, "") };
+    inline string getVpcId() const { DARABONBA_PTR_GET_DEFAULT(vpcId_, "") };
     inline CreateCollectorRequest& setVpcId(string vpcId) { DARABONBA_PTR_SET_VALUE(vpcId_, vpcId) };
 
 
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline CreateCollectorRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
   protected:
-    std::shared_ptr<vector<string>> collectorPaths_ = nullptr;
+    shared_ptr<vector<string>> collectorPaths_ {};
     // This parameter is required.
-    std::shared_ptr<vector<CreateCollectorRequestConfigs>> configs_ = nullptr;
+    shared_ptr<vector<CreateCollectorRequest::Configs>> configs_ {};
     // This parameter is required.
-    std::shared_ptr<bool> dryRun_ = nullptr;
+    shared_ptr<bool> dryRun_ {};
     // This parameter is required.
-    std::shared_ptr<vector<Darabonba::Json>> extendConfigs_ = nullptr;
+    shared_ptr<vector<Darabonba::Json>> extendConfigs_ {};
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // This parameter is required.
-    std::shared_ptr<string> resType_ = nullptr;
+    shared_ptr<string> resType_ {};
     // This parameter is required.
-    std::shared_ptr<string> resVersion_ = nullptr;
+    shared_ptr<string> resVersion_ {};
     // This parameter is required.
-    std::shared_ptr<string> vpcId_ = nullptr;
+    shared_ptr<string> vpcId_ {};
     // The ID of the created crawer.
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
   };
 
   } // namespace Models

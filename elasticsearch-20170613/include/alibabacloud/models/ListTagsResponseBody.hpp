@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_LISTTAGSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/ListTagsResponseBodyResult.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -33,28 +32,70 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->requestId_ != nullptr
-        && this->result_ != nullptr; };
+    class Result : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Result& obj) { 
+        DARABONBA_PTR_TO_JSON(TagKey, tagKey_);
+        DARABONBA_PTR_TO_JSON(TagValue, tagValue_);
+      };
+      friend void from_json(const Darabonba::Json& j, Result& obj) { 
+        DARABONBA_PTR_FROM_JSON(TagKey, tagKey_);
+        DARABONBA_PTR_FROM_JSON(TagValue, tagValue_);
+      };
+      Result() = default ;
+      Result(const Result &) = default ;
+      Result(Result &&) = default ;
+      Result(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Result() = default ;
+      Result& operator=(const Result &) = default ;
+      Result& operator=(Result &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->tagKey_ == nullptr
+        && this->tagValue_ == nullptr; };
+      // tagKey Field Functions 
+      bool hasTagKey() const { return this->tagKey_ != nullptr;};
+      void deleteTagKey() { this->tagKey_ = nullptr;};
+      inline string getTagKey() const { DARABONBA_PTR_GET_DEFAULT(tagKey_, "") };
+      inline Result& setTagKey(string tagKey) { DARABONBA_PTR_SET_VALUE(tagKey_, tagKey) };
+
+
+      // tagValue Field Functions 
+      bool hasTagValue() const { return this->tagValue_ != nullptr;};
+      void deleteTagValue() { this->tagValue_ = nullptr;};
+      inline string getTagValue() const { DARABONBA_PTR_GET_DEFAULT(tagValue_, "") };
+      inline Result& setTagValue(string tagValue) { DARABONBA_PTR_SET_VALUE(tagValue_, tagValue) };
+
+
+    protected:
+      shared_ptr<string> tagKey_ {};
+      shared_ptr<string> tagValue_ {};
+    };
+
+    virtual bool empty() const override { return this->requestId_ == nullptr
+        && this->result_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListTagsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // result Field Functions 
     bool hasResult() const { return this->result_ != nullptr;};
     void deleteResult() { this->result_ = nullptr;};
-    inline const vector<ListTagsResponseBodyResult> & result() const { DARABONBA_PTR_GET_CONST(result_, vector<ListTagsResponseBodyResult>) };
-    inline vector<ListTagsResponseBodyResult> result() { DARABONBA_PTR_GET(result_, vector<ListTagsResponseBodyResult>) };
-    inline ListTagsResponseBody& setResult(const vector<ListTagsResponseBodyResult> & result) { DARABONBA_PTR_SET_VALUE(result_, result) };
-    inline ListTagsResponseBody& setResult(vector<ListTagsResponseBodyResult> && result) { DARABONBA_PTR_SET_RVALUE(result_, result) };
+    inline const vector<ListTagsResponseBody::Result> & getResult() const { DARABONBA_PTR_GET_CONST(result_, vector<ListTagsResponseBody::Result>) };
+    inline vector<ListTagsResponseBody::Result> getResult() { DARABONBA_PTR_GET(result_, vector<ListTagsResponseBody::Result>) };
+    inline ListTagsResponseBody& setResult(const vector<ListTagsResponseBody::Result> & result) { DARABONBA_PTR_SET_VALUE(result_, result) };
+    inline ListTagsResponseBody& setResult(vector<ListTagsResponseBody::Result> && result) { DARABONBA_PTR_SET_RVALUE(result_, result) };
 
 
   protected:
     // The key of the tag.
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<vector<ListTagsResponseBodyResult>> result_ = nullptr;
+    shared_ptr<string> requestId_ {};
+    shared_ptr<vector<ListTagsResponseBody::Result>> result_ {};
   };
 
   } // namespace Models

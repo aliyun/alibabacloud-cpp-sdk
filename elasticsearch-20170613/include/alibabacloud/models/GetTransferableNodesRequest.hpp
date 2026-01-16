@@ -31,19 +31,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->count_ != nullptr
-        && this->nodeType_ != nullptr; };
+    virtual bool empty() const override { return this->count_ == nullptr
+        && this->nodeType_ == nullptr; };
     // count Field Functions 
     bool hasCount() const { return this->count_ != nullptr;};
     void deleteCount() { this->count_ = nullptr;};
-    inline int32_t count() const { DARABONBA_PTR_GET_DEFAULT(count_, 0) };
+    inline int32_t getCount() const { DARABONBA_PTR_GET_DEFAULT(count_, 0) };
     inline GetTransferableNodesRequest& setCount(int32_t count) { DARABONBA_PTR_SET_VALUE(count_, count) };
 
 
     // nodeType Field Functions 
     bool hasNodeType() const { return this->nodeType_ != nullptr;};
     void deleteNodeType() { this->nodeType_ = nullptr;};
-    inline string nodeType() const { DARABONBA_PTR_GET_DEFAULT(nodeType_, "") };
+    inline string getNodeType() const { DARABONBA_PTR_GET_DEFAULT(nodeType_, "") };
     inline GetTransferableNodesRequest& setNodeType(string nodeType) { DARABONBA_PTR_SET_VALUE(nodeType_, nodeType) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The number of nodes to be migrated.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> count_ = nullptr;
+    shared_ptr<int32_t> count_ {};
     // The type of nodes.**WORKER**represents a hot node,**WORKER_WARM** represents a warm node.
     // 
     // This parameter is required.
-    std::shared_ptr<string> nodeType_ = nullptr;
+    shared_ptr<string> nodeType_ {};
   };
 
   } // namespace Models

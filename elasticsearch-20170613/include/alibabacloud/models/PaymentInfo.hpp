@@ -35,41 +35,41 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoRenewDuration_ != nullptr
-        && this->duration_ != nullptr && this->isAutoRenew_ != nullptr && this->pricingCycle_ != nullptr; };
+    virtual bool empty() const override { return this->autoRenewDuration_ == nullptr
+        && this->duration_ == nullptr && this->isAutoRenew_ == nullptr && this->pricingCycle_ == nullptr; };
     // autoRenewDuration Field Functions 
     bool hasAutoRenewDuration() const { return this->autoRenewDuration_ != nullptr;};
     void deleteAutoRenewDuration() { this->autoRenewDuration_ = nullptr;};
-    inline int64_t autoRenewDuration() const { DARABONBA_PTR_GET_DEFAULT(autoRenewDuration_, 0L) };
+    inline int64_t getAutoRenewDuration() const { DARABONBA_PTR_GET_DEFAULT(autoRenewDuration_, 0L) };
     inline PaymentInfo& setAutoRenewDuration(int64_t autoRenewDuration) { DARABONBA_PTR_SET_VALUE(autoRenewDuration_, autoRenewDuration) };
 
 
     // duration Field Functions 
     bool hasDuration() const { return this->duration_ != nullptr;};
     void deleteDuration() { this->duration_ = nullptr;};
-    inline int64_t duration() const { DARABONBA_PTR_GET_DEFAULT(duration_, 0L) };
+    inline int64_t getDuration() const { DARABONBA_PTR_GET_DEFAULT(duration_, 0L) };
     inline PaymentInfo& setDuration(int64_t duration) { DARABONBA_PTR_SET_VALUE(duration_, duration) };
 
 
     // isAutoRenew Field Functions 
     bool hasIsAutoRenew() const { return this->isAutoRenew_ != nullptr;};
     void deleteIsAutoRenew() { this->isAutoRenew_ = nullptr;};
-    inline bool isAutoRenew() const { DARABONBA_PTR_GET_DEFAULT(isAutoRenew_, false) };
+    inline bool getIsAutoRenew() const { DARABONBA_PTR_GET_DEFAULT(isAutoRenew_, false) };
     inline PaymentInfo& setIsAutoRenew(bool isAutoRenew) { DARABONBA_PTR_SET_VALUE(isAutoRenew_, isAutoRenew) };
 
 
     // pricingCycle Field Functions 
     bool hasPricingCycle() const { return this->pricingCycle_ != nullptr;};
     void deletePricingCycle() { this->pricingCycle_ = nullptr;};
-    inline string pricingCycle() const { DARABONBA_PTR_GET_DEFAULT(pricingCycle_, "") };
+    inline string getPricingCycle() const { DARABONBA_PTR_GET_DEFAULT(pricingCycle_, "") };
     inline PaymentInfo& setPricingCycle(string pricingCycle) { DARABONBA_PTR_SET_VALUE(pricingCycle_, pricingCycle) };
 
 
   protected:
-    std::shared_ptr<int64_t> autoRenewDuration_ = nullptr;
-    std::shared_ptr<int64_t> duration_ = nullptr;
-    std::shared_ptr<bool> isAutoRenew_ = nullptr;
-    std::shared_ptr<string> pricingCycle_ = nullptr;
+    shared_ptr<int64_t> autoRenewDuration_ {};
+    shared_ptr<int64_t> duration_ {};
+    shared_ptr<bool> isAutoRenew_ {};
+    shared_ptr<string> pricingCycle_ {};
   };
 
   } // namespace Models

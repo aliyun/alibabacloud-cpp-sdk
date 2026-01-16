@@ -33,26 +33,26 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->count_ != nullptr
-        && this->ignoreStatus_ != nullptr && this->nodeType_ != nullptr; };
+    virtual bool empty() const override { return this->count_ == nullptr
+        && this->ignoreStatus_ == nullptr && this->nodeType_ == nullptr; };
     // count Field Functions 
     bool hasCount() const { return this->count_ != nullptr;};
     void deleteCount() { this->count_ = nullptr;};
-    inline int32_t count() const { DARABONBA_PTR_GET_DEFAULT(count_, 0) };
+    inline int32_t getCount() const { DARABONBA_PTR_GET_DEFAULT(count_, 0) };
     inline GetSuggestShrinkableNodesRequest& setCount(int32_t count) { DARABONBA_PTR_SET_VALUE(count_, count) };
 
 
     // ignoreStatus Field Functions 
     bool hasIgnoreStatus() const { return this->ignoreStatus_ != nullptr;};
     void deleteIgnoreStatus() { this->ignoreStatus_ = nullptr;};
-    inline bool ignoreStatus() const { DARABONBA_PTR_GET_DEFAULT(ignoreStatus_, false) };
+    inline bool getIgnoreStatus() const { DARABONBA_PTR_GET_DEFAULT(ignoreStatus_, false) };
     inline GetSuggestShrinkableNodesRequest& setIgnoreStatus(bool ignoreStatus) { DARABONBA_PTR_SET_VALUE(ignoreStatus_, ignoreStatus) };
 
 
     // nodeType Field Functions 
     bool hasNodeType() const { return this->nodeType_ != nullptr;};
     void deleteNodeType() { this->nodeType_ = nullptr;};
-    inline string nodeType() const { DARABONBA_PTR_GET_DEFAULT(nodeType_, "") };
+    inline string getNodeType() const { DARABONBA_PTR_GET_DEFAULT(nodeType_, "") };
     inline GetSuggestShrinkableNodesRequest& setNodeType(string nodeType) { DARABONBA_PTR_SET_VALUE(nodeType_, nodeType) };
 
 
@@ -60,13 +60,13 @@ namespace Models
     // The number of nodes that you want to remove.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> count_ = nullptr;
+    shared_ptr<int32_t> count_ {};
     // Specifies whether to ignore the instance status. Default value: false.
-    std::shared_ptr<bool> ignoreStatus_ = nullptr;
+    shared_ptr<bool> ignoreStatus_ {};
     // The type of removing nodes. WORKER indicates hot node and WORKER_WARM indicates warm node.
     // 
     // This parameter is required.
-    std::shared_ptr<string> nodeType_ = nullptr;
+    shared_ptr<string> nodeType_ {};
   };
 
   } // namespace Models

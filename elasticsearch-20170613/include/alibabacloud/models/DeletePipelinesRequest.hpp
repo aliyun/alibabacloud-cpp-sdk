@@ -31,27 +31,27 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientToken_ != nullptr
-        && this->pipelineIds_ != nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && this->pipelineIds_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline DeletePipelinesRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // pipelineIds Field Functions 
     bool hasPipelineIds() const { return this->pipelineIds_ != nullptr;};
     void deletePipelineIds() { this->pipelineIds_ = nullptr;};
-    inline string pipelineIds() const { DARABONBA_PTR_GET_DEFAULT(pipelineIds_, "") };
+    inline string getPipelineIds() const { DARABONBA_PTR_GET_DEFAULT(pipelineIds_, "") };
     inline DeletePipelinesRequest& setPipelineIds(string pipelineIds) { DARABONBA_PTR_SET_VALUE(pipelineIds_, pipelineIds) };
 
 
   protected:
     // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // The ID of the pipeline.
-    std::shared_ptr<string> pipelineIds_ = nullptr;
+    shared_ptr<string> pipelineIds_ {};
   };
 
   } // namespace Models

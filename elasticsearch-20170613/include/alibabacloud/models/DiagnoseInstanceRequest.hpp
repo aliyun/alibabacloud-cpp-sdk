@@ -38,20 +38,20 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientToken_ != nullptr
-        && this->diagnoseItems_ != nullptr && this->indices_ != nullptr && this->type_ != nullptr && this->lang_ != nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && this->diagnoseItems_ == nullptr && this->indices_ == nullptr && this->type_ == nullptr && this->lang_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline DiagnoseInstanceRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // diagnoseItems Field Functions 
     bool hasDiagnoseItems() const { return this->diagnoseItems_ != nullptr;};
     void deleteDiagnoseItems() { this->diagnoseItems_ = nullptr;};
-    inline const vector<string> & diagnoseItems() const { DARABONBA_PTR_GET_CONST(diagnoseItems_, vector<string>) };
-    inline vector<string> diagnoseItems() { DARABONBA_PTR_GET(diagnoseItems_, vector<string>) };
+    inline const vector<string> & getDiagnoseItems() const { DARABONBA_PTR_GET_CONST(diagnoseItems_, vector<string>) };
+    inline vector<string> getDiagnoseItems() { DARABONBA_PTR_GET(diagnoseItems_, vector<string>) };
     inline DiagnoseInstanceRequest& setDiagnoseItems(const vector<string> & diagnoseItems) { DARABONBA_PTR_SET_VALUE(diagnoseItems_, diagnoseItems) };
     inline DiagnoseInstanceRequest& setDiagnoseItems(vector<string> && diagnoseItems) { DARABONBA_PTR_SET_RVALUE(diagnoseItems_, diagnoseItems) };
 
@@ -59,8 +59,8 @@ namespace Models
     // indices Field Functions 
     bool hasIndices() const { return this->indices_ != nullptr;};
     void deleteIndices() { this->indices_ = nullptr;};
-    inline const vector<string> & indices() const { DARABONBA_PTR_GET_CONST(indices_, vector<string>) };
-    inline vector<string> indices() { DARABONBA_PTR_GET(indices_, vector<string>) };
+    inline const vector<string> & getIndices() const { DARABONBA_PTR_GET_CONST(indices_, vector<string>) };
+    inline vector<string> getIndices() { DARABONBA_PTR_GET(indices_, vector<string>) };
     inline DiagnoseInstanceRequest& setIndices(const vector<string> & indices) { DARABONBA_PTR_SET_VALUE(indices_, indices) };
     inline DiagnoseInstanceRequest& setIndices(vector<string> && indices) { DARABONBA_PTR_SET_RVALUE(indices_, indices) };
 
@@ -68,25 +68,25 @@ namespace Models
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline DiagnoseInstanceRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DiagnoseInstanceRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
   protected:
     // The timestamp when the diagnostic report was generated.
-    std::shared_ptr<string> clientToken_ = nullptr;
-    std::shared_ptr<vector<string>> diagnoseItems_ = nullptr;
-    std::shared_ptr<vector<string>> indices_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> clientToken_ {};
+    shared_ptr<vector<string>> diagnoseItems_ {};
+    shared_ptr<vector<string>> indices_ {};
+    shared_ptr<string> type_ {};
     // The returned data.
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
   };
 
   } // namespace Models

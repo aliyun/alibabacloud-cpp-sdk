@@ -31,28 +31,28 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->body_ != nullptr
-        && this->dryRun_ != nullptr; };
+    virtual bool empty() const override { return this->body_ == nullptr
+        && this->dryRun_ == nullptr; };
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline string body() const { DARABONBA_PTR_GET_DEFAULT(body_, "") };
+    inline string getBody() const { DARABONBA_PTR_GET_DEFAULT(body_, "") };
     inline MigrateToOtherZoneRequest& setBody(string body) { DARABONBA_PTR_SET_VALUE(body_, body) };
 
 
     // dryRun Field Functions 
     bool hasDryRun() const { return this->dryRun_ != nullptr;};
     void deleteDryRun() { this->dryRun_ = nullptr;};
-    inline bool dryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
     inline MigrateToOtherZoneRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
   protected:
-    std::shared_ptr<string> body_ = nullptr;
+    shared_ptr<string> body_ {};
     // Verify whether the zone node can be migrated. true indicates that the data is only verified and the migration task is not executed. false indicates that the migration task is executed after the verification is successful.
     // 
     // This parameter is required.
-    std::shared_ptr<bool> dryRun_ = nullptr;
+    shared_ptr<bool> dryRun_ {};
   };
 
   } // namespace Models

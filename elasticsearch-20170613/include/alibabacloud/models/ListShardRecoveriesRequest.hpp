@@ -29,11 +29,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->activeOnly_ != nullptr; };
+    virtual bool empty() const override { return this->activeOnly_ == nullptr; };
     // activeOnly Field Functions 
     bool hasActiveOnly() const { return this->activeOnly_ != nullptr;};
     void deleteActiveOnly() { this->activeOnly_ = nullptr;};
-    inline bool activeOnly() const { DARABONBA_PTR_GET_DEFAULT(activeOnly_, false) };
+    inline bool getActiveOnly() const { DARABONBA_PTR_GET_DEFAULT(activeOnly_, false) };
     inline ListShardRecoveriesRequest& setActiveOnly(bool activeOnly) { DARABONBA_PTR_SET_VALUE(activeOnly_, activeOnly) };
 
 
@@ -42,7 +42,7 @@ namespace Models
     // 
     // *   true: returns information about data restoration of shards that are being restored.
     // *   false: returns information about data restoration of all shards.
-    std::shared_ptr<bool> activeOnly_ = nullptr;
+    shared_ptr<bool> activeOnly_ {};
   };
 
   } // namespace Models

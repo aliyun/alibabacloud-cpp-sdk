@@ -35,45 +35,45 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->name_ != nullptr
-        && this->page_ != nullptr && this->size_ != nullptr && this->source_ != nullptr; };
+    virtual bool empty() const override { return this->name_ == nullptr
+        && this->page_ == nullptr && this->size_ == nullptr && this->source_ == nullptr; };
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline ListPluginsRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // page Field Functions 
     bool hasPage() const { return this->page_ != nullptr;};
     void deletePage() { this->page_ = nullptr;};
-    inline string page() const { DARABONBA_PTR_GET_DEFAULT(page_, "") };
+    inline string getPage() const { DARABONBA_PTR_GET_DEFAULT(page_, "") };
     inline ListPluginsRequest& setPage(string page) { DARABONBA_PTR_SET_VALUE(page_, page) };
 
 
     // size Field Functions 
     bool hasSize() const { return this->size_ != nullptr;};
     void deleteSize() { this->size_ = nullptr;};
-    inline int32_t size() const { DARABONBA_PTR_GET_DEFAULT(size_, 0) };
+    inline int32_t getSize() const { DARABONBA_PTR_GET_DEFAULT(size_, 0) };
     inline ListPluginsRequest& setSize(int32_t size) { DARABONBA_PTR_SET_VALUE(size_, size) };
 
 
     // source Field Functions 
     bool hasSource() const { return this->source_ != nullptr;};
     void deleteSource() { this->source_ = nullptr;};
-    inline string source() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
+    inline string getSource() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
     inline ListPluginsRequest& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
 
 
   protected:
     // SYSTEM
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The ID of the request.
-    std::shared_ptr<string> page_ = nullptr;
+    shared_ptr<string> page_ {};
     // The header of the response.
-    std::shared_ptr<int32_t> size_ = nullptr;
+    shared_ptr<int32_t> size_ {};
     // The total number of entries returned.
-    std::shared_ptr<string> source_ = nullptr;
+    shared_ptr<string> source_ {};
   };
 
   } // namespace Models

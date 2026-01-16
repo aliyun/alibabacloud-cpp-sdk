@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_UPDATEDESCRIPTIONRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_UPDATEDESCRIPTIONRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/UpdateDescriptionResponseBodyResult.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -32,27 +31,58 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->requestId_ != nullptr
-        && this->result_ != nullptr; };
+    class Result : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Result& obj) { 
+        DARABONBA_PTR_TO_JSON(description, description_);
+      };
+      friend void from_json(const Darabonba::Json& j, Result& obj) { 
+        DARABONBA_PTR_FROM_JSON(description, description_);
+      };
+      Result() = default ;
+      Result(const Result &) = default ;
+      Result(Result &&) = default ;
+      Result(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Result() = default ;
+      Result& operator=(const Result &) = default ;
+      Result& operator=(Result &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->description_ == nullptr; };
+      // description Field Functions 
+      bool hasDescription() const { return this->description_ != nullptr;};
+      void deleteDescription() { this->description_ = nullptr;};
+      inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+      inline Result& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    protected:
+      shared_ptr<string> description_ {};
+    };
+
+    virtual bool empty() const override { return this->requestId_ == nullptr
+        && this->result_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline UpdateDescriptionResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // result Field Functions 
     bool hasResult() const { return this->result_ != nullptr;};
     void deleteResult() { this->result_ = nullptr;};
-    inline const UpdateDescriptionResponseBodyResult & result() const { DARABONBA_PTR_GET_CONST(result_, UpdateDescriptionResponseBodyResult) };
-    inline UpdateDescriptionResponseBodyResult result() { DARABONBA_PTR_GET(result_, UpdateDescriptionResponseBodyResult) };
-    inline UpdateDescriptionResponseBody& setResult(const UpdateDescriptionResponseBodyResult & result) { DARABONBA_PTR_SET_VALUE(result_, result) };
-    inline UpdateDescriptionResponseBody& setResult(UpdateDescriptionResponseBodyResult && result) { DARABONBA_PTR_SET_RVALUE(result_, result) };
+    inline const UpdateDescriptionResponseBody::Result & getResult() const { DARABONBA_PTR_GET_CONST(result_, UpdateDescriptionResponseBody::Result) };
+    inline UpdateDescriptionResponseBody::Result getResult() { DARABONBA_PTR_GET(result_, UpdateDescriptionResponseBody::Result) };
+    inline UpdateDescriptionResponseBody& setResult(const UpdateDescriptionResponseBody::Result & result) { DARABONBA_PTR_SET_VALUE(result_, result) };
+    inline UpdateDescriptionResponseBody& setResult(UpdateDescriptionResponseBody::Result && result) { DARABONBA_PTR_SET_RVALUE(result_, result) };
 
 
   protected:
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<UpdateDescriptionResponseBodyResult> result_ = nullptr;
+    shared_ptr<string> requestId_ {};
+    shared_ptr<UpdateDescriptionResponseBody::Result> result_ {};
   };
 
   } // namespace Models

@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_LISTAVAILABLEESINSTANCEIDSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/ListAvailableEsInstanceIdsResponseBodyResult.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -33,29 +32,95 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->requestId_ != nullptr
-        && this->result_ != nullptr; };
+    class Result : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Result& obj) { 
+        DARABONBA_PTR_TO_JSON(description, description_);
+        DARABONBA_PTR_TO_JSON(endpoint, endpoint_);
+        DARABONBA_PTR_TO_JSON(esInstanceId, esInstanceId_);
+        DARABONBA_PTR_TO_JSON(kibanaEndpoint, kibanaEndpoint_);
+      };
+      friend void from_json(const Darabonba::Json& j, Result& obj) { 
+        DARABONBA_PTR_FROM_JSON(description, description_);
+        DARABONBA_PTR_FROM_JSON(endpoint, endpoint_);
+        DARABONBA_PTR_FROM_JSON(esInstanceId, esInstanceId_);
+        DARABONBA_PTR_FROM_JSON(kibanaEndpoint, kibanaEndpoint_);
+      };
+      Result() = default ;
+      Result(const Result &) = default ;
+      Result(Result &&) = default ;
+      Result(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Result() = default ;
+      Result& operator=(const Result &) = default ;
+      Result& operator=(Result &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->description_ == nullptr
+        && this->endpoint_ == nullptr && this->esInstanceId_ == nullptr && this->kibanaEndpoint_ == nullptr; };
+      // description Field Functions 
+      bool hasDescription() const { return this->description_ != nullptr;};
+      void deleteDescription() { this->description_ = nullptr;};
+      inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+      inline Result& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+      // endpoint Field Functions 
+      bool hasEndpoint() const { return this->endpoint_ != nullptr;};
+      void deleteEndpoint() { this->endpoint_ = nullptr;};
+      inline string getEndpoint() const { DARABONBA_PTR_GET_DEFAULT(endpoint_, "") };
+      inline Result& setEndpoint(string endpoint) { DARABONBA_PTR_SET_VALUE(endpoint_, endpoint) };
+
+
+      // esInstanceId Field Functions 
+      bool hasEsInstanceId() const { return this->esInstanceId_ != nullptr;};
+      void deleteEsInstanceId() { this->esInstanceId_ = nullptr;};
+      inline string getEsInstanceId() const { DARABONBA_PTR_GET_DEFAULT(esInstanceId_, "") };
+      inline Result& setEsInstanceId(string esInstanceId) { DARABONBA_PTR_SET_VALUE(esInstanceId_, esInstanceId) };
+
+
+      // kibanaEndpoint Field Functions 
+      bool hasKibanaEndpoint() const { return this->kibanaEndpoint_ != nullptr;};
+      void deleteKibanaEndpoint() { this->kibanaEndpoint_ = nullptr;};
+      inline string getKibanaEndpoint() const { DARABONBA_PTR_GET_DEFAULT(kibanaEndpoint_, "") };
+      inline Result& setKibanaEndpoint(string kibanaEndpoint) { DARABONBA_PTR_SET_VALUE(kibanaEndpoint_, kibanaEndpoint) };
+
+
+    protected:
+      // The name of the Elasticsearch cluster.
+      shared_ptr<string> description_ {};
+      // The address that is used to access the Elasticsearch cluster over the Internet.
+      shared_ptr<string> endpoint_ {};
+      // The ID of the Elasticsearch cluster.
+      shared_ptr<string> esInstanceId_ {};
+      // The address that is used to access the Kibana console of the Elasticsearch cluster over the Internet.
+      shared_ptr<string> kibanaEndpoint_ {};
+    };
+
+    virtual bool empty() const override { return this->requestId_ == nullptr
+        && this->result_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListAvailableEsInstanceIdsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // result Field Functions 
     bool hasResult() const { return this->result_ != nullptr;};
     void deleteResult() { this->result_ = nullptr;};
-    inline const vector<ListAvailableEsInstanceIdsResponseBodyResult> & result() const { DARABONBA_PTR_GET_CONST(result_, vector<ListAvailableEsInstanceIdsResponseBodyResult>) };
-    inline vector<ListAvailableEsInstanceIdsResponseBodyResult> result() { DARABONBA_PTR_GET(result_, vector<ListAvailableEsInstanceIdsResponseBodyResult>) };
-    inline ListAvailableEsInstanceIdsResponseBody& setResult(const vector<ListAvailableEsInstanceIdsResponseBodyResult> & result) { DARABONBA_PTR_SET_VALUE(result_, result) };
-    inline ListAvailableEsInstanceIdsResponseBody& setResult(vector<ListAvailableEsInstanceIdsResponseBodyResult> && result) { DARABONBA_PTR_SET_RVALUE(result_, result) };
+    inline const vector<ListAvailableEsInstanceIdsResponseBody::Result> & getResult() const { DARABONBA_PTR_GET_CONST(result_, vector<ListAvailableEsInstanceIdsResponseBody::Result>) };
+    inline vector<ListAvailableEsInstanceIdsResponseBody::Result> getResult() { DARABONBA_PTR_GET(result_, vector<ListAvailableEsInstanceIdsResponseBody::Result>) };
+    inline ListAvailableEsInstanceIdsResponseBody& setResult(const vector<ListAvailableEsInstanceIdsResponseBody::Result> & result) { DARABONBA_PTR_SET_VALUE(result_, result) };
+    inline ListAvailableEsInstanceIdsResponseBody& setResult(vector<ListAvailableEsInstanceIdsResponseBody::Result> && result) { DARABONBA_PTR_SET_RVALUE(result_, result) };
 
 
   protected:
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The returned result.
-    std::shared_ptr<vector<ListAvailableEsInstanceIdsResponseBodyResult>> result_ = nullptr;
+    shared_ptr<vector<ListAvailableEsInstanceIdsResponseBody::Result>> result_ {};
   };
 
   } // namespace Models

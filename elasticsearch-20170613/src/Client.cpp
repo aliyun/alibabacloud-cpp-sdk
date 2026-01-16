@@ -4,7 +4,7 @@
 #include <alibabacloud/Openapi.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
-#include <darabonba/http/URL.hpp>
+#include <darabonba/encode/Encoder.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
@@ -48,19 +48,19 @@ ActivateZonesResponse Client::activateZonesWithOptions(const string &InstanceId,
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "ActivateZones"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/actions/recover-zones")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/actions/recover-zones")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -94,19 +94,19 @@ AddConnectableClusterResponse Client::addConnectableClusterWithOptions(const str
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "AddConnectableCluster"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/connected-clusters")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/connected-clusters")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -140,13 +140,13 @@ AddSnapshotRepoResponse Client::addSnapshotRepoWithOptions(const string &Instanc
   request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "AddSnapshotRepo"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/snapshot-repos")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/snapshot-repos")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -180,7 +180,7 @@ CancelDeletionResponse Client::cancelDeletionWithOptions(const string &InstanceI
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -191,7 +191,7 @@ CancelDeletionResponse Client::cancelDeletionWithOptions(const string &InstanceI
     {"action" , "CancelDeletion"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/actions/cancel-deletion")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/actions/cancel-deletion")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -225,7 +225,7 @@ CancelLogstashDeletionResponse Client::cancelLogstashDeletionWithOptions(const s
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -236,7 +236,7 @@ CancelLogstashDeletionResponse Client::cancelLogstashDeletionWithOptions(const s
     {"action" , "CancelLogstashDeletion"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/actions/cancel-deletion")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/actions/cancel-deletion")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -268,11 +268,11 @@ CancelTaskResponse Client::cancelTaskWithOptions(const string &InstanceId, const
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   if (!!request.hasTaskType()) {
-    query["taskType"] = request.taskType();
+    query["taskType"] = request.getTaskType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -283,7 +283,7 @@ CancelTaskResponse Client::cancelTaskWithOptions(const string &InstanceId, const
     {"action" , "CancelTask"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/actions/cancel-task")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/actions/cancel-task")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -315,19 +315,19 @@ CapacityPlanResponse Client::capacityPlanWithOptions(const CapacityPlanRequest &
   request.validate();
   json body = {};
   if (!!request.hasComplexQueryAvailable()) {
-    body["complexQueryAvailable"] = request.complexQueryAvailable();
+    body["complexQueryAvailable"] = request.getComplexQueryAvailable();
   }
 
   if (!!request.hasDataInfo()) {
-    body["dataInfo"] = request.dataInfo();
+    body["dataInfo"] = request.getDataInfo();
   }
 
   if (!!request.hasMetric()) {
-    body["metric"] = request.metric();
+    body["metric"] = request.getMetric();
   }
 
   if (!!request.hasUsageScenario()) {
-    body["usageScenario"] = request.usageScenario();
+    body["usageScenario"] = request.getUsageScenario();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -345,7 +345,7 @@ CapacityPlanResponse Client::capacityPlanWithOptions(const CapacityPlanRequest &
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  return json(doROARequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.pathname(), params.bodyType(), req, runtime)).get<CapacityPlanResponse>();
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<CapacityPlanResponse>();
 }
 
 /**
@@ -372,11 +372,11 @@ CloseDiagnosisResponse Client::closeDiagnosisWithOptions(const string &InstanceI
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasLang()) {
-    query["lang"] = request.lang();
+    query["lang"] = request.getLang();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -387,7 +387,7 @@ CloseDiagnosisResponse Client::closeDiagnosisWithOptions(const string &InstanceI
     {"action" , "CloseDiagnosis"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/diagnosis/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/actions/close-diagnosis")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/diagnosis/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/actions/close-diagnosis")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -419,7 +419,7 @@ CloseHttpsResponse Client::closeHttpsWithOptions(const string &InstanceId, const
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -430,7 +430,7 @@ CloseHttpsResponse Client::closeHttpsWithOptions(const string &InstanceId, const
     {"action" , "CloseHttps"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/actions/close-https")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/actions/close-https")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -462,7 +462,7 @@ CloseManagedIndexResponse Client::closeManagedIndexWithOptions(const string &Ins
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -473,7 +473,7 @@ CloseManagedIndexResponse Client::closeManagedIndexWithOptions(const string &Ins
     {"action" , "CloseManagedIndex"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/indices/" , Darabonba::Http::URL::percentEncode(Index) , "/close-managed")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/indices/" , Darabonba::Encode::Encoder::percentEncode(Index) , "/close-managed")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -507,40 +507,40 @@ CreateCollectorResponse Client::createCollectorWithOptions(const CreateCollector
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   json body = {};
   if (!!request.hasCollectorPaths()) {
-    body["collectorPaths"] = request.collectorPaths();
+    body["collectorPaths"] = request.getCollectorPaths();
   }
 
   if (!!request.hasConfigs()) {
-    body["configs"] = request.configs();
+    body["configs"] = request.getConfigs();
   }
 
   if (!!request.hasDryRun()) {
-    body["dryRun"] = request.dryRun();
+    body["dryRun"] = request.getDryRun();
   }
 
   if (!!request.hasExtendConfigs()) {
-    body["extendConfigs"] = request.extendConfigs();
+    body["extendConfigs"] = request.getExtendConfigs();
   }
 
   if (!!request.hasName()) {
-    body["name"] = request.name();
+    body["name"] = request.getName();
   }
 
   if (!!request.hasResType()) {
-    body["resType"] = request.resType();
+    body["resType"] = request.getResType();
   }
 
   if (!!request.hasResVersion()) {
-    body["resVersion"] = request.resVersion();
+    body["resVersion"] = request.getResVersion();
   }
 
   if (!!request.hasVpcId()) {
-    body["vpcId"] = request.vpcId();
+    body["vpcId"] = request.getVpcId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -586,11 +586,11 @@ CreateComponentIndexResponse Client::createComponentIndexWithOptions(const strin
   request.validate();
   json body = {};
   if (!!request.hasMeta()) {
-    body["_meta"] = request.meta();
+    body["_meta"] = request.getMeta();
   }
 
   if (!!request.hasTemplate()) {
-    body["template"] = request._template();
+    body["template"] = request.getTemplate();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -601,7 +601,7 @@ CreateComponentIndexResponse Client::createComponentIndexWithOptions(const strin
     {"action" , "CreateComponentIndex"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/component-index/" , Darabonba::Http::URL::percentEncode(name))},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/component-index/" , Darabonba::Encode::Encoder::percentEncode(name))},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -635,19 +635,19 @@ CreateDataStreamResponse Client::createDataStreamWithOptions(const string &Insta
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "CreateDataStream"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/data-streams")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/data-streams")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -681,19 +681,19 @@ CreateILMPolicyResponse Client::createILMPolicyWithOptions(const string &Instanc
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "CreateILMPolicy"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/ilm-policies")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/ilm-policies")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -727,32 +727,32 @@ CreateIndexTemplateResponse Client::createIndexTemplateWithOptions(const string 
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   json body = {};
   if (!!request.hasDataStream()) {
-    body["dataStream"] = request.dataStream();
+    body["dataStream"] = request.getDataStream();
   }
 
   if (!!request.hasIlmPolicy()) {
-    body["ilmPolicy"] = request.ilmPolicy();
+    body["ilmPolicy"] = request.getIlmPolicy();
   }
 
   if (!!request.hasIndexPatterns()) {
-    body["indexPatterns"] = request.indexPatterns();
+    body["indexPatterns"] = request.getIndexPatterns();
   }
 
   if (!!request.hasIndexTemplate()) {
-    body["indexTemplate"] = request.indexTemplate();
+    body["indexTemplate"] = request.getIndexTemplate();
   }
 
   if (!!request.hasPriority()) {
-    body["priority"] = request.priority();
+    body["priority"] = request.getPriority();
   }
 
   if (!!request.hasTemplate()) {
-    body["template"] = request._template();
+    body["template"] = request.getTemplate();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -764,7 +764,7 @@ CreateIndexTemplateResponse Client::createIndexTemplateWithOptions(const string 
     {"action" , "CreateIndexTemplate"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/index-templates")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/index-templates")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -798,40 +798,40 @@ CreateLogstashResponse Client::createLogstashWithOptions(const CreateLogstashReq
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   json body = {};
   if (!!request.hasDescription()) {
-    body["description"] = request.description();
+    body["description"] = request.getDescription();
   }
 
   if (!!request.hasNetworkConfig()) {
-    body["networkConfig"] = request.networkConfig();
+    body["networkConfig"] = request.getNetworkConfig();
   }
 
   if (!!request.hasNodeAmount()) {
-    body["nodeAmount"] = request.nodeAmount();
+    body["nodeAmount"] = request.getNodeAmount();
   }
 
   if (!!request.hasNodeSpec()) {
-    body["nodeSpec"] = request.nodeSpec();
+    body["nodeSpec"] = request.getNodeSpec();
   }
 
   if (!!request.hasPaymentInfo()) {
-    body["paymentInfo"] = request.paymentInfo();
+    body["paymentInfo"] = request.getPaymentInfo();
   }
 
   if (!!request.hasPaymentType()) {
-    body["paymentType"] = request.paymentType();
+    body["paymentType"] = request.getPaymentType();
   }
 
   if (!!request.hasResourceGroupId()) {
-    body["resourceGroupId"] = request.resourceGroupId();
+    body["resourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasVersion()) {
-    body["version"] = request.version();
+    body["version"] = request.getVersion();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -877,23 +877,23 @@ CreatePipelinesResponse Client::createPipelinesWithOptions(const string &Instanc
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasTrigger()) {
-    query["trigger"] = request.trigger();
+    query["trigger"] = request.getTrigger();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , Utils::Utils::toArray(request.body())}
+    {"body" , Utils::Utils::toArray(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "CreatePipelines"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/pipelines")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/pipelines")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -925,19 +925,19 @@ CreateSnapshotResponse Client::createSnapshotWithOptions(const string &InstanceI
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "CreateSnapshot"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/snapshots")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/snapshots")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -971,20 +971,20 @@ CreateVpcEndpointResponse Client::createVpcEndpointWithOptions(const string &Ins
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    query["dryRun"] = request.dryRun();
+    query["dryRun"] = request.getDryRun();
   }
 
   json body = {};
   if (!!request.hasServiceId()) {
-    body["serviceId"] = request.serviceId();
+    body["serviceId"] = request.getServiceId();
   }
 
   if (!!request.hasZoneId()) {
-    body["zoneId"] = request.zoneId();
+    body["zoneId"] = request.getZoneId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -996,7 +996,7 @@ CreateVpcEndpointResponse Client::createVpcEndpointWithOptions(const string &Ins
     {"action" , "CreateVpcEndpoint"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/vpc-endpoints")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/vpc-endpoints")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1032,19 +1032,19 @@ DeactivateZonesResponse Client::deactivateZonesWithOptions(const string &Instanc
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "DeactivateZones"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/actions/down-zones")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/actions/down-zones")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1078,7 +1078,7 @@ DeleteCollectorResponse Client::deleteCollectorWithOptions(const string &ResId, 
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1089,7 +1089,7 @@ DeleteCollectorResponse Client::deleteCollectorWithOptions(const string &ResId, 
     {"action" , "DeleteCollector"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/collectors/" , Darabonba::Http::URL::percentEncode(ResId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/collectors/" , Darabonba::Encode::Encoder::percentEncode(ResId))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1126,7 +1126,7 @@ DeleteComponentIndexResponse Client::deleteComponentIndexWithOptions(const strin
     {"action" , "DeleteComponentIndex"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/component-index/" , Darabonba::Http::URL::percentEncode(name))},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/component-index/" , Darabonba::Encode::Encoder::percentEncode(name))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1157,11 +1157,11 @@ DeleteConnectedClusterResponse Client::deleteConnectedClusterWithOptions(const s
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   if (!!request.hasConnectedInstanceId()) {
-    query["connectedInstanceId"] = request.connectedInstanceId();
+    query["connectedInstanceId"] = request.getConnectedInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1172,7 +1172,7 @@ DeleteConnectedClusterResponse Client::deleteConnectedClusterWithOptions(const s
     {"action" , "DeleteConnectedCluster"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/connected-clusters")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/connected-clusters")},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1204,7 +1204,7 @@ DeleteDataStreamResponse Client::deleteDataStreamWithOptions(const string &Insta
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1215,7 +1215,7 @@ DeleteDataStreamResponse Client::deleteDataStreamWithOptions(const string &Insta
     {"action" , "DeleteDataStream"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/data-streams/" , Darabonba::Http::URL::percentEncode(DataStream))},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/data-streams/" , Darabonba::Encode::Encoder::percentEncode(DataStream))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1247,11 +1247,11 @@ DeleteDataTaskResponse Client::deleteDataTaskWithOptions(const string &InstanceI
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasTaskId()) {
-    query["taskId"] = request.taskId();
+    query["taskId"] = request.getTaskId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1262,7 +1262,7 @@ DeleteDataTaskResponse Client::deleteDataTaskWithOptions(const string &InstanceI
     {"action" , "DeleteDataTask"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/data-task")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/data-task")},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1297,7 +1297,7 @@ DeleteDeprecatedTemplateResponse Client::deleteDeprecatedTemplateWithOptions(con
     {"action" , "DeleteDeprecatedTemplate"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/deprecated-templates/" , Darabonba::Http::URL::percentEncode(name))},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/deprecated-templates/" , Darabonba::Encode::Encoder::percentEncode(name))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1331,7 +1331,7 @@ DeleteILMPolicyResponse Client::deleteILMPolicyWithOptions(const string &Instanc
     {"action" , "DeleteILMPolicy"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/ilm-policies/" , Darabonba::Http::URL::percentEncode(PolicyName))},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/ilm-policies/" , Darabonba::Encode::Encoder::percentEncode(PolicyName))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1365,7 +1365,7 @@ DeleteIndexTemplateResponse Client::deleteIndexTemplateWithOptions(const string 
     {"action" , "DeleteIndexTemplate"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/index-templates/" , Darabonba::Http::URL::percentEncode(IndexTemplate))},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/index-templates/" , Darabonba::Encode::Encoder::percentEncode(IndexTemplate))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1396,11 +1396,11 @@ DeleteInstanceResponse Client::deleteInstanceWithOptions(const string &InstanceI
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDeleteType()) {
-    query["deleteType"] = request.deleteType();
+    query["deleteType"] = request.getDeleteType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1411,7 +1411,7 @@ DeleteInstanceResponse Client::deleteInstanceWithOptions(const string &InstanceI
     {"action" , "DeleteInstance"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1445,11 +1445,11 @@ DeleteLogstashResponse Client::deleteLogstashWithOptions(const string &InstanceI
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDeleteType()) {
-    query["deleteType"] = request.deleteType();
+    query["deleteType"] = request.getDeleteType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1460,7 +1460,7 @@ DeleteLogstashResponse Client::deleteLogstashWithOptions(const string &InstanceI
     {"action" , "DeleteLogstash"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Http::URL::percentEncode(InstanceId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Encode::Encoder::percentEncode(InstanceId))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1496,11 +1496,11 @@ DeletePipelinesResponse Client::deletePipelinesWithOptions(const string &Instanc
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasPipelineIds()) {
-    query["pipelineIds"] = request.pipelineIds();
+    query["pipelineIds"] = request.getPipelineIds();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1511,7 +1511,7 @@ DeletePipelinesResponse Client::deletePipelinesWithOptions(const string &Instanc
     {"action" , "DeletePipelines"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/pipelines")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/pipelines")},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1543,11 +1543,11 @@ DeleteSnapshotRepoResponse Client::deleteSnapshotRepoWithOptions(const string &I
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   if (!!request.hasRepoPath()) {
-    query["repoPath"] = request.repoPath();
+    query["repoPath"] = request.getRepoPath();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1558,7 +1558,7 @@ DeleteSnapshotRepoResponse Client::deleteSnapshotRepoWithOptions(const string &I
     {"action" , "DeleteSnapshotRepo"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/snapshot-repos")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/snapshot-repos")},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1590,7 +1590,7 @@ DeleteVpcEndpointResponse Client::deleteVpcEndpointWithOptions(const string &Ins
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1601,7 +1601,7 @@ DeleteVpcEndpointResponse Client::deleteVpcEndpointWithOptions(const string &Ins
     {"action" , "DeleteVpcEndpoint"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/vpc-endpoints/" , Darabonba::Http::URL::percentEncode(EndpointId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/vpc-endpoints/" , Darabonba::Encode::Encoder::percentEncode(EndpointId))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1640,7 +1640,7 @@ DescribeAckOperatorResponse Client::describeAckOperatorWithOptions(const string 
     {"action" , "DescribeAckOperator"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/ack-clusters/" , Darabonba::Http::URL::percentEncode(ClusterId) , "/operator")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/ack-clusters/" , Darabonba::Encode::Encoder::percentEncode(ClusterId) , "/operator")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1664,42 +1664,6 @@ DescribeAckOperatorResponse Client::describeAckOperator(const string &ClusterId)
 }
 
 /**
- * @summary Describe APM
- *
- * @param headers map
- * @param runtime runtime options for this request RuntimeOptions
- * @return DescribeApmResponse
- */
-DescribeApmResponse Client::describeApmWithOptions(const string &instanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
-  OpenApiRequest req = OpenApiRequest(json({
-    {"headers" , headers}
-  }).get<map<string, map<string, string>>>());
-  Params params = Params(json({
-    {"action" , "DescribeApm"},
-    {"version" , "2017-06-13"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/apm/" , Darabonba::Http::URL::percentEncode(instanceId))},
-    {"method" , "GET"},
-    {"authType" , "AK"},
-    {"style" , "ROA"},
-    {"reqBodyType" , "json"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<DescribeApmResponse>();
-}
-
-/**
- * @summary Describe APM
- *
- * @return DescribeApmResponse
- */
-DescribeApmResponse Client::describeApm(const string &instanceId) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  map<string, string> headers = {};
-  return describeApmWithOptions(instanceId, headers, runtime);
-}
-
-/**
  * @summary Queries the details of a shipper.
  *
  * @param headers map
@@ -1714,7 +1678,7 @@ DescribeCollectorResponse Client::describeCollectorWithOptions(const string &Res
     {"action" , "DescribeCollector"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/collectors/" , Darabonba::Http::URL::percentEncode(ResId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/collectors/" , Darabonba::Encode::Encoder::percentEncode(ResId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1750,7 +1714,7 @@ DescribeComponentIndexResponse Client::describeComponentIndexWithOptions(const s
     {"action" , "DescribeComponentIndex"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/component-index/" , Darabonba::Http::URL::percentEncode(name))},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/component-index/" , Darabonba::Encode::Encoder::percentEncode(name))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1781,7 +1745,7 @@ DescribeConnectableClustersResponse Client::describeConnectableClustersWithOptio
   request.validate();
   json query = {};
   if (!!request.hasAlreadySetItems()) {
-    query["alreadySetItems"] = request.alreadySetItems();
+    query["alreadySetItems"] = request.getAlreadySetItems();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1792,7 +1756,7 @@ DescribeConnectableClustersResponse Client::describeConnectableClustersWithOptio
     {"action" , "DescribeConnectableClusters"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/connectable-clusters")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/connectable-clusters")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1827,7 +1791,7 @@ DescribeDeprecatedTemplateResponse Client::describeDeprecatedTemplateWithOptions
     {"action" , "DescribeDeprecatedTemplate"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/deprecated-templates/" , Darabonba::Http::URL::percentEncode(name))},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/deprecated-templates/" , Darabonba::Encode::Encoder::percentEncode(name))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1858,7 +1822,7 @@ DescribeDiagnoseReportResponse Client::describeDiagnoseReportWithOptions(const s
   request.validate();
   json query = {};
   if (!!request.hasLang()) {
-    query["lang"] = request.lang();
+    query["lang"] = request.getLang();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1869,7 +1833,7 @@ DescribeDiagnoseReportResponse Client::describeDiagnoseReportWithOptions(const s
     {"action" , "DescribeDiagnoseReport"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/diagnosis/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/reports/" , Darabonba::Http::URL::percentEncode(ReportId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/diagnosis/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/reports/" , Darabonba::Encode::Encoder::percentEncode(ReportId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1899,7 +1863,7 @@ DescribeDiagnosisSettingsResponse Client::describeDiagnosisSettingsWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasLang()) {
-    query["lang"] = request.lang();
+    query["lang"] = request.getLang();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1910,7 +1874,7 @@ DescribeDiagnosisSettingsResponse Client::describeDiagnosisSettingsWithOptions(c
     {"action" , "DescribeDiagnosisSettings"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/diagnosis/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/settings")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/diagnosis/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/settings")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1945,7 +1909,7 @@ DescribeDynamicSettingsResponse Client::describeDynamicSettingsWithOptions(const
     {"action" , "DescribeDynamicSettings"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/dynamic-settings")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/dynamic-settings")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1986,7 +1950,7 @@ DescribeElasticsearchHealthResponse Client::describeElasticsearchHealthWithOptio
     {"action" , "DescribeElasticsearchHealth"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/elasticsearch-health")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/elasticsearch-health")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2025,7 +1989,7 @@ DescribeILMPolicyResponse Client::describeILMPolicyWithOptions(const string &Ins
     {"action" , "DescribeILMPolicy"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/ilm-policies/" , Darabonba::Http::URL::percentEncode(PolicyName))},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/ilm-policies/" , Darabonba::Encode::Encoder::percentEncode(PolicyName))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2057,7 +2021,7 @@ DescribeIndexTemplateResponse Client::describeIndexTemplateWithOptions(const str
     {"action" , "DescribeIndexTemplate"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/index-templates/" , Darabonba::Http::URL::percentEncode(IndexTemplate))},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/index-templates/" , Darabonba::Encode::Encoder::percentEncode(IndexTemplate))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2091,7 +2055,7 @@ DescribeInstanceResponse Client::describeInstanceWithOptions(const string &Insta
     {"action" , "DescribeInstance"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2127,7 +2091,7 @@ DescribeKibanaSettingsResponse Client::describeKibanaSettingsWithOptions(const s
     {"action" , "DescribeKibanaSettings"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/kibana-settings")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/kibana-settings")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2163,7 +2127,7 @@ DescribeLogstashResponse Client::describeLogstashWithOptions(const string &Insta
     {"action" , "DescribeLogstash"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Http::URL::percentEncode(InstanceId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Encode::Encoder::percentEncode(InstanceId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2197,7 +2161,7 @@ DescribePipelineResponse Client::describePipelineWithOptions(const string &Insta
     {"action" , "DescribePipeline"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/pipelines/" , Darabonba::Http::URL::percentEncode(PipelineId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/pipelines/" , Darabonba::Encode::Encoder::percentEncode(PipelineId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2228,7 +2192,7 @@ DescribePipelineManagementConfigResponse Client::describePipelineManagementConfi
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2239,7 +2203,7 @@ DescribePipelineManagementConfigResponse Client::describePipelineManagementConfi
     {"action" , "DescribePipelineManagementConfig"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/pipeline-management-config")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/pipeline-management-config")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2308,7 +2272,7 @@ DescribeSnapshotSettingResponse Client::describeSnapshotSettingWithOptions(const
     {"action" , "DescribeSnapshotSetting"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/snapshot-setting")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/snapshot-setting")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2342,7 +2306,7 @@ DescribeTemplatesResponse Client::describeTemplatesWithOptions(const string &Ins
     {"action" , "DescribeTemplates"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/templates")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/templates")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2376,7 +2340,7 @@ DescribeXpackMonitorConfigResponse Client::describeXpackMonitorConfigWithOptions
     {"action" , "DescribeXpackMonitorConfig"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/xpack-monitor-config")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/xpack-monitor-config")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2409,24 +2373,24 @@ DiagnoseInstanceResponse Client::diagnoseInstanceWithOptions(const string &Insta
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasLang()) {
-    query["lang"] = request.lang();
+    query["lang"] = request.getLang();
   }
 
   json body = {};
   if (!!request.hasDiagnoseItems()) {
-    body["diagnoseItems"] = request.diagnoseItems();
+    body["diagnoseItems"] = request.getDiagnoseItems();
   }
 
   if (!!request.hasIndices()) {
-    body["indices"] = request.indices();
+    body["indices"] = request.getIndices();
   }
 
   if (!!request.hasType()) {
-    body["type"] = request.type();
+    body["type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2438,7 +2402,7 @@ DiagnoseInstanceResponse Client::diagnoseInstanceWithOptions(const string &Insta
     {"action" , "DiagnoseInstance"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/diagnosis/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/actions/diagnose")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/diagnosis/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/actions/diagnose")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2475,7 +2439,7 @@ DisableKibanaPvlNetworkResponse Client::disableKibanaPvlNetworkWithOptions(const
     {"action" , "DisableKibanaPvlNetwork"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/actions/disable-kibana-private")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/actions/disable-kibana-private")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2506,32 +2470,38 @@ DisableKibanaPvlNetworkResponse Client::disableKibanaPvlNetwork(const string &In
  */
 EnableKibanaPvlNetworkResponse Client::enableKibanaPvlNetworkWithOptions(const string &InstanceId, const EnableKibanaPvlNetworkRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["clientToken"] = request.getClientToken();
+  }
+
   json body = {};
   if (!!request.hasEndpointName()) {
-    body["endpointName"] = request.endpointName();
+    body["endpointName"] = request.getEndpointName();
   }
 
   if (!!request.hasSecurityGroups()) {
-    body["securityGroups"] = request.securityGroups();
+    body["securityGroups"] = request.getSecurityGroups();
   }
 
   if (!!request.hasVSwitchIdsZone()) {
-    body["vSwitchIdsZone"] = request.vSwitchIdsZone();
+    body["vSwitchIdsZone"] = request.getVSwitchIdsZone();
   }
 
   if (!!request.hasVpcId()) {
-    body["vpcId"] = request.vpcId();
+    body["vpcId"] = request.getVpcId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
   }));
   Params params = Params(json({
     {"action" , "EnableKibanaPvlNetwork"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/actions/enable-kibana-private")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/actions/enable-kibana-private")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2565,19 +2535,19 @@ EstimatedLogstashRestartTimeResponse Client::estimatedLogstashRestartTimeWithOpt
   request.validate();
   json query = {};
   if (!!request.hasForce()) {
-    query["force"] = request.force();
+    query["force"] = request.getForce();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "EstimatedLogstashRestartTime"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/estimated-time/restart-time")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/estimated-time/restart-time")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2611,19 +2581,19 @@ EstimatedRestartTimeResponse Client::estimatedRestartTimeWithOptions(const strin
   request.validate();
   json query = {};
   if (!!request.hasForce()) {
-    query["force"] = request.force();
+    query["force"] = request.getForce();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "EstimatedRestartTime"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/estimated-time/restart-time")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/estimated-time/restart-time")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2657,7 +2627,7 @@ GetClusterDataInformationResponse Client::getClusterDataInformationWithOptions(c
   request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "GetClusterDataInformation"},
@@ -2698,7 +2668,7 @@ GetElastictaskResponse Client::getElastictaskWithOptions(const string &InstanceI
     {"action" , "GetElastictask"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/elastic-task")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/elastic-task")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2729,19 +2699,19 @@ GetEmonAlarmRecordStatisticsDistributeResponse Client::getEmonAlarmRecordStatist
   request.validate();
   json query = {};
   if (!!request.hasBody()) {
-    query["body"] = request.body();
+    query["body"] = request.getBody();
   }
 
   if (!!request.hasGroupId()) {
-    query["groupId"] = request.groupId();
+    query["groupId"] = request.getGroupId();
   }
 
   if (!!request.hasTimeEnd()) {
-    query["timeEnd"] = request.timeEnd();
+    query["timeEnd"] = request.getTimeEnd();
   }
 
   if (!!request.hasTimeStart()) {
-    query["timeStart"] = request.timeStart();
+    query["timeStart"] = request.getTimeStart();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2786,7 +2756,7 @@ GetEmonGrafanaAlertsResponse Client::getEmonGrafanaAlertsWithOptions(const strin
   request.validate();
   json query = {};
   if (!!request.hasBody()) {
-    query["body"] = request.body();
+    query["body"] = request.getBody();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2797,7 +2767,7 @@ GetEmonGrafanaAlertsResponse Client::getEmonGrafanaAlertsWithOptions(const strin
     {"action" , "GetEmonGrafanaAlerts"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/emon/projects/" , Darabonba::Http::URL::percentEncode(ProjectId) , "/grafana/proxy/api/alerts")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/emon/projects/" , Darabonba::Encode::Encoder::percentEncode(ProjectId) , "/grafana/proxy/api/alerts")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2831,7 +2801,7 @@ GetEmonGrafanaDashboardsResponse Client::getEmonGrafanaDashboardsWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasBody()) {
-    query["body"] = request.body();
+    query["body"] = request.getBody();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2842,7 +2812,7 @@ GetEmonGrafanaDashboardsResponse Client::getEmonGrafanaDashboardsWithOptions(con
     {"action" , "GetEmonGrafanaDashboards"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/emon/projects/" , Darabonba::Http::URL::percentEncode(ProjectId) , "/grafana/proxy/api/search")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/emon/projects/" , Darabonba::Encode::Encoder::percentEncode(ProjectId) , "/grafana/proxy/api/search")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2876,7 +2846,7 @@ GetEmonMonitorDataResponse Client::getEmonMonitorDataWithOptions(const string &P
   request.validate();
   json query = {};
   if (!!request.hasBody()) {
-    query["body"] = request.body();
+    query["body"] = request.getBody();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2887,7 +2857,7 @@ GetEmonMonitorDataResponse Client::getEmonMonitorDataWithOptions(const string &P
     {"action" , "GetEmonMonitorData"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/emon/projects/" , Darabonba::Http::URL::percentEncode(ProjectId) , "/metrics/query")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/emon/projects/" , Darabonba::Encode::Encoder::percentEncode(ProjectId) , "/metrics/query")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2924,7 +2894,7 @@ GetOpenStoreUsageResponse Client::getOpenStoreUsageWithOptions(const string &Ins
     {"action" , "GetOpenStoreUsage"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/openstore/usage")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/openstore/usage")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2957,7 +2927,7 @@ GetRegionConfigurationResponse Client::getRegionConfigurationWithOptions(const G
   request.validate();
   json query = {};
   if (!!request.hasZoneId()) {
-    query["zoneId"] = request.zoneId();
+    query["zoneId"] = request.getZoneId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3038,15 +3008,15 @@ GetSuggestShrinkableNodesResponse Client::getSuggestShrinkableNodesWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasCount()) {
-    query["count"] = request.count();
+    query["count"] = request.getCount();
   }
 
   if (!!request.hasIgnoreStatus()) {
-    query["ignoreStatus"] = request.ignoreStatus();
+    query["ignoreStatus"] = request.getIgnoreStatus();
   }
 
   if (!!request.hasNodeType()) {
-    query["nodeType"] = request.nodeType();
+    query["nodeType"] = request.getNodeType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3057,7 +3027,7 @@ GetSuggestShrinkableNodesResponse Client::getSuggestShrinkableNodesWithOptions(c
     {"action" , "GetSuggestShrinkableNodes"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/suggest-shrinkable-nodes")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/suggest-shrinkable-nodes")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -3091,11 +3061,11 @@ GetTransferableNodesResponse Client::getTransferableNodesWithOptions(const strin
   request.validate();
   json query = {};
   if (!!request.hasCount()) {
-    query["count"] = request.count();
+    query["count"] = request.getCount();
   }
 
   if (!!request.hasNodeType()) {
-    query["nodeType"] = request.nodeType();
+    query["nodeType"] = request.getNodeType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3106,7 +3076,7 @@ GetTransferableNodesResponse Client::getTransferableNodesWithOptions(const strin
     {"action" , "GetTransferableNodes"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/transferable-nodes")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/transferable-nodes")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -3142,13 +3112,13 @@ InitializeOperationRoleResponse Client::initializeOperationRoleWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "InitializeOperationRole"},
@@ -3192,19 +3162,19 @@ InstallAckOperatorResponse Client::installAckOperatorWithOptions(const string &C
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "InstallAckOperator"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/ack-clusters/" , Darabonba::Http::URL::percentEncode(ClusterId) , "/operator")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/ack-clusters/" , Darabonba::Encode::Encoder::percentEncode(ClusterId) , "/operator")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -3240,19 +3210,19 @@ InstallKibanaSystemPluginResponse Client::installKibanaSystemPluginWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "InstallKibanaSystemPlugin"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/kibana-plugins/system/actions/install")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/kibana-plugins/system/actions/install")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -3288,19 +3258,19 @@ InstallLogstashSystemPluginResponse Client::installLogstashSystemPluginWithOptio
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "InstallLogstashSystemPlugin"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/plugins/system/actions/install")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/plugins/system/actions/install")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -3336,19 +3306,19 @@ InstallSystemPluginResponse Client::installSystemPluginWithOptions(const string 
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "InstallSystemPlugin"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/plugins/system/actions/install")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/plugins/system/actions/install")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -3382,19 +3352,19 @@ InstallUserPluginsResponse Client::installUserPluginsWithOptions(const string &I
   request.validate();
   json query = {};
   if (!!request.hasForce()) {
-    query["force"] = request.force();
+    query["force"] = request.getForce();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "InstallUserPlugins"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/plugins/user/actions/install")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/plugins/user/actions/install")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -3426,7 +3396,7 @@ InterruptElasticsearchTaskResponse Client::interruptElasticsearchTaskWithOptions
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3437,7 +3407,7 @@ InterruptElasticsearchTaskResponse Client::interruptElasticsearchTaskWithOptions
     {"action" , "InterruptElasticsearchTask"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/actions/interrupt")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/actions/interrupt")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -3469,7 +3439,7 @@ InterruptLogstashTaskResponse Client::interruptLogstashTaskWithOptions(const str
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3480,7 +3450,7 @@ InterruptLogstashTaskResponse Client::interruptLogstashTaskWithOptions(const str
     {"action" , "InterruptLogstashTask"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/actions/interrupt")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/actions/interrupt")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -3514,15 +3484,15 @@ ListAckClustersResponse Client::listAckClustersWithOptions(const ListAckClusters
   request.validate();
   json query = {};
   if (!!request.hasPage()) {
-    query["page"] = request.page();
+    query["page"] = request.getPage();
   }
 
   if (!!request.hasSize()) {
-    query["size"] = request.size();
+    query["size"] = request.getSize();
   }
 
   if (!!request.hasVpcId()) {
-    query["vpcId"] = request.vpcId();
+    query["vpcId"] = request.getVpcId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3569,11 +3539,11 @@ ListAckNamespacesResponse Client::listAckNamespacesWithOptions(const string &Clu
   request.validate();
   json query = {};
   if (!!request.hasPage()) {
-    query["page"] = request.page();
+    query["page"] = request.getPage();
   }
 
   if (!!request.hasSize()) {
-    query["size"] = request.size();
+    query["size"] = request.getSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3584,7 +3554,7 @@ ListAckNamespacesResponse Client::listAckNamespacesWithOptions(const string &Clu
     {"action" , "ListAckNamespaces"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/ack-clusters/" , Darabonba::Http::URL::percentEncode(ClusterId) , "/namespaces")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/ack-clusters/" , Darabonba::Encode::Encoder::percentEncode(ClusterId) , "/namespaces")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -3620,35 +3590,35 @@ ListActionRecordsResponse Client::listActionRecordsWithOptions(const string &Ins
   request.validate();
   json query = {};
   if (!!request.hasActionNames()) {
-    query["actionNames"] = request.actionNames();
+    query["actionNames"] = request.getActionNames();
   }
 
   if (!!request.hasEndTime()) {
-    query["endTime"] = request.endTime();
+    query["endTime"] = request.getEndTime();
   }
 
   if (!!request.hasFilter()) {
-    query["filter"] = request.filter();
+    query["filter"] = request.getFilter();
   }
 
   if (!!request.hasPage()) {
-    query["page"] = request.page();
+    query["page"] = request.getPage();
   }
 
   if (!!request.hasRequestId()) {
-    query["requestId"] = request.requestId();
+    query["requestId"] = request.getRequestId();
   }
 
   if (!!request.hasSize()) {
-    query["size"] = request.size();
+    query["size"] = request.getSize();
   }
 
   if (!!request.hasStartTime()) {
-    query["startTime"] = request.startTime();
+    query["startTime"] = request.getStartTime();
   }
 
   if (!!request.hasUserId()) {
-    query["userId"] = request.userId();
+    query["userId"] = request.getUserId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3659,7 +3629,7 @@ ListActionRecordsResponse Client::listActionRecordsWithOptions(const string &Ins
     {"action" , "ListActionRecords"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/action-records")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/action-records")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -3693,7 +3663,7 @@ ListAllNodeResponse Client::listAllNodeWithOptions(const string &InstanceId, con
   request.validate();
   json query = {};
   if (!!request.hasExtended()) {
-    query["extended"] = request.extended();
+    query["extended"] = request.getExtended();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3704,7 +3674,7 @@ ListAllNodeResponse Client::listAllNodeWithOptions(const string &InstanceId, con
     {"action" , "ListAllNode"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/nodes")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/nodes")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -3738,7 +3708,7 @@ ListAlternativeSnapshotReposResponse Client::listAlternativeSnapshotReposWithOpt
   request.validate();
   json query = {};
   if (!!request.hasAlreadySetItems()) {
-    query["alreadySetItems"] = request.alreadySetItems();
+    query["alreadySetItems"] = request.getAlreadySetItems();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3749,7 +3719,7 @@ ListAlternativeSnapshotReposResponse Client::listAlternativeSnapshotReposWithOpt
     {"action" , "ListAlternativeSnapshotRepos"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/alternative-snapshot-repos")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/alternative-snapshot-repos")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -3772,67 +3742,6 @@ ListAlternativeSnapshotReposResponse Client::listAlternativeSnapshotRepos(const 
 }
 
 /**
- * @summary ListApm
- *
- * @param request ListApmRequest
- * @param headers map
- * @param runtime runtime options for this request RuntimeOptions
- * @return ListApmResponse
- */
-ListApmResponse Client::listApmWithOptions(const ListApmRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json query = {};
-  if (!!request.hasDescription()) {
-    query["description"] = request.description();
-  }
-
-  if (!!request.hasInstanceId()) {
-    query["instanceId"] = request.instanceId();
-  }
-
-  if (!!request.hasOutput()) {
-    query["output"] = request.output();
-  }
-
-  if (!!request.hasPage()) {
-    query["page"] = request.page();
-  }
-
-  if (!!request.hasSize()) {
-    query["size"] = request.size();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"headers" , headers},
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
-  Params params = Params(json({
-    {"action" , "ListApm"},
-    {"version" , "2017-06-13"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/apm")},
-    {"method" , "GET"},
-    {"authType" , "AK"},
-    {"style" , "ROA"},
-    {"reqBodyType" , "json"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<ListApmResponse>();
-}
-
-/**
- * @summary ListApm
- *
- * @param request ListApmRequest
- * @return ListApmResponse
- */
-ListApmResponse Client::listApm(const ListApmRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  map<string, string> headers = {};
-  return listApmWithOptions(request, headers, runtime);
-}
-
-/**
  * @summary Queries the Elasticsearch clusters that can be associated with a Logstash cluster when you configure the X-Pack Monitoring feature for the Logstash cluster.
  *
  * @param headers map
@@ -3847,7 +3756,7 @@ ListAvailableEsInstanceIdsResponse Client::listAvailableEsInstanceIdsWithOptions
     {"action" , "ListAvailableEsInstanceIds"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/available-elasticsearch-for-centralized-management")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/available-elasticsearch-for-centralized-management")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -3880,27 +3789,27 @@ ListCollectorsResponse Client::listCollectorsWithOptions(const ListCollectorsReq
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["instanceId"] = request.instanceId();
+    query["instanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasName()) {
-    query["name"] = request.name();
+    query["name"] = request.getName();
   }
 
   if (!!request.hasPage()) {
-    query["page"] = request.page();
+    query["page"] = request.getPage();
   }
 
   if (!!request.hasResId()) {
-    query["resId"] = request.resId();
+    query["resId"] = request.getResId();
   }
 
   if (!!request.hasSize()) {
-    query["size"] = request.size();
+    query["size"] = request.getSize();
   }
 
   if (!!request.hasSourceType()) {
-    query["sourceType"] = request.sourceType();
+    query["sourceType"] = request.getSourceType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3945,15 +3854,15 @@ ListComponentIndicesResponse Client::listComponentIndicesWithOptions(const strin
   request.validate();
   json query = {};
   if (!!request.hasName()) {
-    query["name"] = request.name();
+    query["name"] = request.getName();
   }
 
   if (!!request.hasPage()) {
-    query["page"] = request.page();
+    query["page"] = request.getPage();
   }
 
   if (!!request.hasSize()) {
-    query["size"] = request.size();
+    query["size"] = request.getSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3964,7 +3873,7 @@ ListComponentIndicesResponse Client::listComponentIndicesWithOptions(const strin
     {"action" , "ListComponentIndices"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/component-index")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/component-index")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -4001,7 +3910,7 @@ ListConnectedClustersResponse Client::listConnectedClustersWithOptions(const str
     {"action" , "ListConnectedClusters"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/connected-clusters")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/connected-clusters")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -4034,11 +3943,11 @@ ListDataStreamsResponse Client::listDataStreamsWithOptions(const string &Instanc
   request.validate();
   json query = {};
   if (!!request.hasIsManaged()) {
-    query["isManaged"] = request.isManaged();
+    query["isManaged"] = request.getIsManaged();
   }
 
   if (!!request.hasName()) {
-    query["name"] = request.name();
+    query["name"] = request.getName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4049,7 +3958,7 @@ ListDataStreamsResponse Client::listDataStreamsWithOptions(const string &Instanc
     {"action" , "ListDataStreams"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/data-streams")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/data-streams")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -4084,7 +3993,7 @@ ListDataTasksResponse Client::listDataTasksWithOptions(const string &InstanceId,
     {"action" , "ListDataTasks"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/data-task")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/data-task")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -4115,15 +4024,15 @@ ListDefaultCollectorConfigurationsResponse Client::listDefaultCollectorConfigura
   request.validate();
   json query = {};
   if (!!request.hasResType()) {
-    query["resType"] = request.resType();
+    query["resType"] = request.getResType();
   }
 
   if (!!request.hasResVersion()) {
-    query["resVersion"] = request.resVersion();
+    query["resVersion"] = request.getResVersion();
   }
 
   if (!!request.hasSourceType()) {
-    query["sourceType"] = request.sourceType();
+    query["sourceType"] = request.getSourceType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4168,15 +4077,15 @@ ListDeprecatedTemplatesResponse Client::listDeprecatedTemplatesWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasName()) {
-    query["name"] = request.name();
+    query["name"] = request.getName();
   }
 
   if (!!request.hasPage()) {
-    query["page"] = request.page();
+    query["page"] = request.getPage();
   }
 
   if (!!request.hasSize()) {
-    query["size"] = request.size();
+    query["size"] = request.getSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4187,7 +4096,7 @@ ListDeprecatedTemplatesResponse Client::listDeprecatedTemplatesWithOptions(const
     {"action" , "ListDeprecatedTemplates"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/deprecated-templates")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/deprecated-templates")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -4221,7 +4130,7 @@ ListDiagnoseIndicesResponse Client::listDiagnoseIndicesWithOptions(const string 
   request.validate();
   json query = {};
   if (!!request.hasLang()) {
-    query["lang"] = request.lang();
+    query["lang"] = request.getLang();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4232,7 +4141,7 @@ ListDiagnoseIndicesResponse Client::listDiagnoseIndicesWithOptions(const string 
     {"action" , "ListDiagnoseIndices"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/diagnosis/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/indices")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/diagnosis/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/indices")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -4266,31 +4175,31 @@ ListDiagnoseReportResponse Client::listDiagnoseReportWithOptions(const string &I
   request.validate();
   json query = {};
   if (!!request.hasDetail()) {
-    query["detail"] = request.detail();
+    query["detail"] = request.getDetail();
   }
 
   if (!!request.hasEndTime()) {
-    query["endTime"] = request.endTime();
+    query["endTime"] = request.getEndTime();
   }
 
   if (!!request.hasLang()) {
-    query["lang"] = request.lang();
+    query["lang"] = request.getLang();
   }
 
   if (!!request.hasPage()) {
-    query["page"] = request.page();
+    query["page"] = request.getPage();
   }
 
   if (!!request.hasSize()) {
-    query["size"] = request.size();
+    query["size"] = request.getSize();
   }
 
   if (!!request.hasStartTime()) {
-    query["startTime"] = request.startTime();
+    query["startTime"] = request.getStartTime();
   }
 
   if (!!request.hasTrigger()) {
-    query["trigger"] = request.trigger();
+    query["trigger"] = request.getTrigger();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4301,7 +4210,7 @@ ListDiagnoseReportResponse Client::listDiagnoseReportWithOptions(const string &I
     {"action" , "ListDiagnoseReport"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/diagnosis/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/reports")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/diagnosis/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/reports")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -4335,27 +4244,27 @@ ListDiagnoseReportIdsResponse Client::listDiagnoseReportIdsWithOptions(const str
   request.validate();
   json query = {};
   if (!!request.hasEndTime()) {
-    query["endTime"] = request.endTime();
+    query["endTime"] = request.getEndTime();
   }
 
   if (!!request.hasLang()) {
-    query["lang"] = request.lang();
+    query["lang"] = request.getLang();
   }
 
   if (!!request.hasPage()) {
-    query["page"] = request.page();
+    query["page"] = request.getPage();
   }
 
   if (!!request.hasSize()) {
-    query["size"] = request.size();
+    query["size"] = request.getSize();
   }
 
   if (!!request.hasStartTime()) {
-    query["startTime"] = request.startTime();
+    query["startTime"] = request.getStartTime();
   }
 
   if (!!request.hasTrigger()) {
-    query["trigger"] = request.trigger();
+    query["trigger"] = request.getTrigger();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4366,7 +4275,7 @@ ListDiagnoseReportIdsResponse Client::listDiagnoseReportIdsWithOptions(const str
     {"action" , "ListDiagnoseReportIds"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/diagnosis/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/report-ids")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/diagnosis/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/report-ids")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -4400,7 +4309,7 @@ ListDiagnosisItemsResponse Client::listDiagnosisItemsWithOptions(const ListDiagn
   request.validate();
   json query = {};
   if (!!request.hasLang()) {
-    query["lang"] = request.lang();
+    query["lang"] = request.getLang();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4443,15 +4352,15 @@ ListDictInformationResponse Client::listDictInformationWithOptions(const string 
   request.validate();
   json query = {};
   if (!!request.hasAnalyzerType()) {
-    query["analyzerType"] = request.analyzerType();
+    query["analyzerType"] = request.getAnalyzerType();
   }
 
   if (!!request.hasBucketName()) {
-    query["bucketName"] = request.bucketName();
+    query["bucketName"] = request.getBucketName();
   }
 
   if (!!request.hasKey()) {
-    query["key"] = request.key();
+    query["key"] = request.getKey();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4462,7 +4371,7 @@ ListDictInformationResponse Client::listDictInformationWithOptions(const string 
     {"action" , "ListDictInformation"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/dict/_info")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/dict/_info")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -4494,11 +4403,11 @@ ListDictsResponse Client::listDictsWithOptions(const string &InstanceId, const L
   request.validate();
   json query = {};
   if (!!request.hasAnalyzerType()) {
-    query["analyzerType"] = request.analyzerType();
+    query["analyzerType"] = request.getAnalyzerType();
   }
 
   if (!!request.hasName()) {
-    query["name"] = request.name();
+    query["name"] = request.getName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4509,7 +4418,7 @@ ListDictsResponse Client::listDictsWithOptions(const string &InstanceId, const L
     {"action" , "ListDicts"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/dicts")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/dicts")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -4545,27 +4454,27 @@ ListEcsInstancesResponse Client::listEcsInstancesWithOptions(const ListEcsInstan
   request.validate();
   json query = {};
   if (!!request.hasEcsInstanceIds()) {
-    query["ecsInstanceIds"] = request.ecsInstanceIds();
+    query["ecsInstanceIds"] = request.getEcsInstanceIds();
   }
 
   if (!!request.hasEcsInstanceName()) {
-    query["ecsInstanceName"] = request.ecsInstanceName();
+    query["ecsInstanceName"] = request.getEcsInstanceName();
   }
 
   if (!!request.hasPage()) {
-    query["page"] = request.page();
+    query["page"] = request.getPage();
   }
 
   if (!!request.hasSize()) {
-    query["size"] = request.size();
+    query["size"] = request.getSize();
   }
 
   if (!!request.hasTags()) {
-    query["tags"] = request.tags();
+    query["tags"] = request.getTags();
   }
 
   if (!!request.hasVpcId()) {
-    query["vpcId"] = request.vpcId();
+    query["vpcId"] = request.getVpcId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4615,7 +4524,7 @@ ListExtendfilesResponse Client::listExtendfilesWithOptions(const string &Instanc
     {"action" , "ListExtendfiles"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/extendfiles")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/extendfiles")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -4646,7 +4555,7 @@ ListILMPoliciesResponse Client::listILMPoliciesWithOptions(const string &Instanc
   request.validate();
   json query = {};
   if (!!request.hasPolicyName()) {
-    query["policyName"] = request.policyName();
+    query["policyName"] = request.getPolicyName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4657,7 +4566,7 @@ ListILMPoliciesResponse Client::listILMPoliciesWithOptions(const string &Instanc
     {"action" , "ListILMPolicies"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/ilm-policies")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/ilm-policies")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -4687,15 +4596,15 @@ ListIndexTemplatesResponse Client::listIndexTemplatesWithOptions(const string &I
   request.validate();
   json query = {};
   if (!!request.hasIndexTemplate()) {
-    query["indexTemplate"] = request.indexTemplate();
+    query["indexTemplate"] = request.getIndexTemplate();
   }
 
   if (!!request.hasPage()) {
-    query["page"] = request.page();
+    query["page"] = request.getPage();
   }
 
   if (!!request.hasSize()) {
-    query["size"] = request.size();
+    query["size"] = request.getSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4706,7 +4615,7 @@ ListIndexTemplatesResponse Client::listIndexTemplatesWithOptions(const string &I
     {"action" , "ListIndexTemplates"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/index-templates")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/index-templates")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -4738,51 +4647,51 @@ ListInstanceResponse Client::listInstanceWithOptions(const ListInstanceRequest &
   request.validate();
   json query = {};
   if (!!request.hasDescription()) {
-    query["description"] = request.description();
+    query["description"] = request.getDescription();
   }
 
   if (!!request.hasEsVersion()) {
-    query["esVersion"] = request.esVersion();
+    query["esVersion"] = request.getEsVersion();
   }
 
   if (!!request.hasInstanceCategory()) {
-    query["instanceCategory"] = request.instanceCategory();
+    query["instanceCategory"] = request.getInstanceCategory();
   }
 
   if (!!request.hasInstanceId()) {
-    query["instanceId"] = request.instanceId();
+    query["instanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasPage()) {
-    query["page"] = request.page();
+    query["page"] = request.getPage();
   }
 
   if (!!request.hasPaymentType()) {
-    query["paymentType"] = request.paymentType();
+    query["paymentType"] = request.getPaymentType();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["resourceGroupId"] = request.resourceGroupId();
+    query["resourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasSize()) {
-    query["size"] = request.size();
+    query["size"] = request.getSize();
   }
 
   if (!!request.hasStatus()) {
-    query["status"] = request.status();
+    query["status"] = request.getStatus();
   }
 
   if (!!request.hasTags()) {
-    query["tags"] = request.tags();
+    query["tags"] = request.getTags();
   }
 
   if (!!request.hasVpcId()) {
-    query["vpcId"] = request.vpcId();
+    query["vpcId"] = request.getVpcId();
   }
 
   if (!!request.hasZoneId()) {
-    query["zoneId"] = request.zoneId();
+    query["zoneId"] = request.getZoneId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4828,74 +4737,74 @@ ListInstanceHistoryEventsResponse Client::listInstanceHistoryEventsWithOptions(c
   ListInstanceHistoryEventsShrinkRequest request = ListInstanceHistoryEventsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasEventCycleStatus()) {
-    request.setEventCycleStatusShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.eventCycleStatus(), "eventCycleStatus", "simple"));
+    request.setEventCycleStatusShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEventCycleStatus(), "eventCycleStatus", "simple"));
   }
 
   if (!!tmpReq.hasEventLevel()) {
-    request.setEventLevelShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.eventLevel(), "eventLevel", "simple"));
+    request.setEventLevelShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEventLevel(), "eventLevel", "simple"));
   }
 
   if (!!tmpReq.hasEventType()) {
-    request.setEventTypeShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.eventType(), "eventType", "simple"));
+    request.setEventTypeShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEventType(), "eventType", "simple"));
   }
 
   json query = {};
   if (!!request.hasEventCreateEndTime()) {
-    query["eventCreateEndTime"] = request.eventCreateEndTime();
+    query["eventCreateEndTime"] = request.getEventCreateEndTime();
   }
 
   if (!!request.hasEventCreateStartTime()) {
-    query["eventCreateStartTime"] = request.eventCreateStartTime();
+    query["eventCreateStartTime"] = request.getEventCreateStartTime();
   }
 
   if (!!request.hasEventCycleStatusShrink()) {
-    query["eventCycleStatus"] = request.eventCycleStatusShrink();
+    query["eventCycleStatus"] = request.getEventCycleStatusShrink();
   }
 
   if (!!request.hasEventExecuteEndTime()) {
-    query["eventExecuteEndTime"] = request.eventExecuteEndTime();
+    query["eventExecuteEndTime"] = request.getEventExecuteEndTime();
   }
 
   if (!!request.hasEventExecuteStartTime()) {
-    query["eventExecuteStartTime"] = request.eventExecuteStartTime();
+    query["eventExecuteStartTime"] = request.getEventExecuteStartTime();
   }
 
   if (!!request.hasEventFinashEndTime()) {
-    query["eventFinashEndTime"] = request.eventFinashEndTime();
+    query["eventFinashEndTime"] = request.getEventFinashEndTime();
   }
 
   if (!!request.hasEventFinashStartTime()) {
-    query["eventFinashStartTime"] = request.eventFinashStartTime();
+    query["eventFinashStartTime"] = request.getEventFinashStartTime();
   }
 
   if (!!request.hasEventLevelShrink()) {
-    query["eventLevel"] = request.eventLevelShrink();
+    query["eventLevel"] = request.getEventLevelShrink();
   }
 
   if (!!request.hasEventTypeShrink()) {
-    query["eventType"] = request.eventTypeShrink();
+    query["eventType"] = request.getEventTypeShrink();
   }
 
   if (!!request.hasInstanceId()) {
-    query["instanceId"] = request.instanceId();
+    query["instanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasNodeIP()) {
-    query["nodeIP"] = request.nodeIP();
+    query["nodeIP"] = request.getNodeIP();
   }
 
   if (!!request.hasPage()) {
-    query["page"] = request.page();
+    query["page"] = request.getPage();
   }
 
   if (!!request.hasSize()) {
-    query["size"] = request.size();
+    query["size"] = request.getSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , Utils::Utils::toArray(request.body())}
+    {"body" , Utils::Utils::toArray(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "ListInstanceHistoryEvents"},
@@ -4935,27 +4844,27 @@ ListInstanceIndicesResponse Client::listInstanceIndicesWithOptions(const string 
   request.validate();
   json query = {};
   if (!!request.hasAll()) {
-    query["all"] = request.all();
+    query["all"] = request.getAll();
   }
 
   if (!!request.hasIsManaged()) {
-    query["isManaged"] = request.isManaged();
+    query["isManaged"] = request.getIsManaged();
   }
 
   if (!!request.hasIsOpenstore()) {
-    query["isOpenstore"] = request.isOpenstore();
+    query["isOpenstore"] = request.getIsOpenstore();
   }
 
   if (!!request.hasName()) {
-    query["name"] = request.name();
+    query["name"] = request.getName();
   }
 
   if (!!request.hasPage()) {
-    query["page"] = request.page();
+    query["page"] = request.getPage();
   }
 
   if (!!request.hasSize()) {
-    query["size"] = request.size();
+    query["size"] = request.getSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4966,7 +4875,7 @@ ListInstanceIndicesResponse Client::listInstanceIndicesWithOptions(const string 
     {"action" , "ListInstanceIndices"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/indices")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/indices")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -5000,11 +4909,11 @@ ListKibanaPluginsResponse Client::listKibanaPluginsWithOptions(const string &Ins
   request.validate();
   json query = {};
   if (!!request.hasPage()) {
-    query["page"] = request.page();
+    query["page"] = request.getPage();
   }
 
   if (!!request.hasSize()) {
-    query["size"] = request.size();
+    query["size"] = request.getSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5015,7 +4924,7 @@ ListKibanaPluginsResponse Client::listKibanaPluginsWithOptions(const string &Ins
     {"action" , "ListKibanaPlugins"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/kibana-plugins")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/kibana-plugins")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -5052,7 +4961,7 @@ ListKibanaPvlNetworkResponse Client::listKibanaPvlNetworkWithOptions(const strin
     {"action" , "ListKibanaPvlNetwork"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/actions/get-kibana-private")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/actions/get-kibana-private")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -5085,31 +4994,31 @@ ListLogstashResponse Client::listLogstashWithOptions(const ListLogstashRequest &
   request.validate();
   json query = {};
   if (!!request.hasDescription()) {
-    query["description"] = request.description();
+    query["description"] = request.getDescription();
   }
 
   if (!!request.hasInstanceId()) {
-    query["instanceId"] = request.instanceId();
+    query["instanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasPage()) {
-    query["page"] = request.page();
+    query["page"] = request.getPage();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["resourceGroupId"] = request.resourceGroupId();
+    query["resourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasSize()) {
-    query["size"] = request.size();
+    query["size"] = request.getSize();
   }
 
   if (!!request.hasTags()) {
-    query["tags"] = request.tags();
+    query["tags"] = request.getTags();
   }
 
   if (!!request.hasVersion()) {
-    query["version"] = request.version();
+    query["version"] = request.getVersion();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5154,27 +5063,27 @@ ListLogstashLogResponse Client::listLogstashLogWithOptions(const string &Instanc
   request.validate();
   json query = {};
   if (!!request.hasBeginTime()) {
-    query["beginTime"] = request.beginTime();
+    query["beginTime"] = request.getBeginTime();
   }
 
   if (!!request.hasEndTime()) {
-    query["endTime"] = request.endTime();
+    query["endTime"] = request.getEndTime();
   }
 
   if (!!request.hasPage()) {
-    query["page"] = request.page();
+    query["page"] = request.getPage();
   }
 
   if (!!request.hasQuery()) {
-    query["query"] = request.query();
+    query["query"] = request.getQuery();
   }
 
   if (!!request.hasSize()) {
-    query["size"] = request.size();
+    query["size"] = request.getSize();
   }
 
   if (!!request.hasType()) {
-    query["type"] = request.type();
+    query["type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5185,7 +5094,7 @@ ListLogstashLogResponse Client::listLogstashLogWithOptions(const string &Instanc
     {"action" , "ListLogstashLog"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/search-log")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/search-log")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -5219,19 +5128,19 @@ ListLogstashPluginsResponse Client::listLogstashPluginsWithOptions(const string 
   request.validate();
   json query = {};
   if (!!request.hasName()) {
-    query["name"] = request.name();
+    query["name"] = request.getName();
   }
 
   if (!!request.hasPage()) {
-    query["page"] = request.page();
+    query["page"] = request.getPage();
   }
 
   if (!!request.hasSize()) {
-    query["size"] = request.size();
+    query["size"] = request.getSize();
   }
 
   if (!!request.hasSource()) {
-    query["source"] = request.source();
+    query["source"] = request.getSource();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5242,7 +5151,7 @@ ListLogstashPluginsResponse Client::listLogstashPluginsWithOptions(const string 
     {"action" , "ListLogstashPlugins"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/plugins")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/plugins")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -5276,23 +5185,23 @@ ListNodesResponse Client::listNodesWithOptions(const string &ResId, const ListNo
   request.validate();
   json query = {};
   if (!!request.hasEcsInstanceIds()) {
-    query["ecsInstanceIds"] = request.ecsInstanceIds();
+    query["ecsInstanceIds"] = request.getEcsInstanceIds();
   }
 
   if (!!request.hasEcsInstanceName()) {
-    query["ecsInstanceName"] = request.ecsInstanceName();
+    query["ecsInstanceName"] = request.getEcsInstanceName();
   }
 
   if (!!request.hasPage()) {
-    query["page"] = request.page();
+    query["page"] = request.getPage();
   }
 
   if (!!request.hasSize()) {
-    query["size"] = request.size();
+    query["size"] = request.getSize();
   }
 
   if (!!request.hasTags()) {
-    query["tags"] = request.tags();
+    query["tags"] = request.getTags();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5303,7 +5212,7 @@ ListNodesResponse Client::listNodesWithOptions(const string &ResId, const ListNo
     {"action" , "ListNodes"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/collectors/" , Darabonba::Http::URL::percentEncode(ResId) , "/nodes")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/collectors/" , Darabonba::Encode::Encoder::percentEncode(ResId) , "/nodes")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -5337,15 +5246,15 @@ ListPipelineResponse Client::listPipelineWithOptions(const string &InstanceId, c
   request.validate();
   json query = {};
   if (!!request.hasPage()) {
-    query["page"] = request.page();
+    query["page"] = request.getPage();
   }
 
   if (!!request.hasPipelineId()) {
-    query["pipelineId"] = request.pipelineId();
+    query["pipelineId"] = request.getPipelineId();
   }
 
   if (!!request.hasSize()) {
-    query["size"] = request.size();
+    query["size"] = request.getSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5356,7 +5265,7 @@ ListPipelineResponse Client::listPipelineWithOptions(const string &InstanceId, c
     {"action" , "ListPipeline"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/pipelines")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/pipelines")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -5390,13 +5299,13 @@ ListPipelineIdsResponse Client::listPipelineIdsWithOptions(const string &Instanc
   request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "ListPipelineIds"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/pipeline-ids")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/pipeline-ids")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -5430,19 +5339,19 @@ ListPluginsResponse Client::listPluginsWithOptions(const string &InstanceId, con
   request.validate();
   json query = {};
   if (!!request.hasName()) {
-    query["name"] = request.name();
+    query["name"] = request.getName();
   }
 
   if (!!request.hasPage()) {
-    query["page"] = request.page();
+    query["page"] = request.getPage();
   }
 
   if (!!request.hasSize()) {
-    query["size"] = request.size();
+    query["size"] = request.getSize();
   }
 
   if (!!request.hasSource()) {
-    query["source"] = request.source();
+    query["source"] = request.getSource();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5453,7 +5362,7 @@ ListPluginsResponse Client::listPluginsWithOptions(const string &InstanceId, con
     {"action" , "ListPlugins"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/plugins")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/plugins")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -5487,27 +5396,27 @@ ListSearchLogResponse Client::listSearchLogWithOptions(const string &InstanceId,
   request.validate();
   json query = {};
   if (!!request.hasBeginTime()) {
-    query["beginTime"] = request.beginTime();
+    query["beginTime"] = request.getBeginTime();
   }
 
   if (!!request.hasEndTime()) {
-    query["endTime"] = request.endTime();
+    query["endTime"] = request.getEndTime();
   }
 
   if (!!request.hasPage()) {
-    query["page"] = request.page();
+    query["page"] = request.getPage();
   }
 
   if (!!request.hasQuery()) {
-    query["query"] = request.query();
+    query["query"] = request.getQuery();
   }
 
   if (!!request.hasSize()) {
-    query["size"] = request.size();
+    query["size"] = request.getSize();
   }
 
   if (!!request.hasType()) {
-    query["type"] = request.type();
+    query["type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5518,7 +5427,7 @@ ListSearchLogResponse Client::listSearchLogWithOptions(const string &InstanceId,
     {"action" , "ListSearchLog"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/search-log")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/search-log")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -5554,7 +5463,7 @@ ListShardRecoveriesResponse Client::listShardRecoveriesWithOptions(const string 
   request.validate();
   json query = {};
   if (!!request.hasActiveOnly()) {
-    query["activeOnly"] = request.activeOnly();
+    query["activeOnly"] = request.getActiveOnly();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5565,7 +5474,7 @@ ListShardRecoveriesResponse Client::listShardRecoveriesWithOptions(const string 
     {"action" , "ListShardRecoveries"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/cat-recovery")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/cat-recovery")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -5604,7 +5513,7 @@ ListSnapshotReposByInstanceIdResponse Client::listSnapshotReposByInstanceIdWithO
     {"action" , "ListSnapshotReposByInstanceId"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/snapshot-repos")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/snapshot-repos")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -5637,27 +5546,27 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
   request.validate();
   json query = {};
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasPage()) {
-    query["Page"] = request.page();
+    query["Page"] = request.getPage();
   }
 
   if (!!request.hasResourceIds()) {
-    query["ResourceIds"] = request.resourceIds();
+    query["ResourceIds"] = request.getResourceIds();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasSize()) {
-    query["Size"] = request.size();
+    query["Size"] = request.getSize();
   }
 
   if (!!request.hasTags()) {
-    query["Tags"] = request.tags();
+    query["Tags"] = request.getTags();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5702,11 +5611,11 @@ ListTagsResponse Client::listTagsWithOptions(const ListTagsRequest &request, con
   request.validate();
   json query = {};
   if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
+    query["pageSize"] = request.getPageSize();
   }
 
   if (!!request.hasResourceType()) {
-    query["resourceType"] = request.resourceType();
+    query["resourceType"] = request.getResourceType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5751,11 +5660,11 @@ ListVpcEndpointsResponse Client::listVpcEndpointsWithOptions(const string &Insta
   request.validate();
   json query = {};
   if (!!request.hasPage()) {
-    query["page"] = request.page();
+    query["page"] = request.getPage();
   }
 
   if (!!request.hasSize()) {
-    query["size"] = request.size();
+    query["size"] = request.getSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5766,7 +5675,7 @@ ListVpcEndpointsResponse Client::listVpcEndpointsWithOptions(const string &Insta
     {"action" , "ListVpcEndpoints"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/vpc-endpoints")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/vpc-endpoints")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -5806,19 +5715,19 @@ MigrateToOtherZoneResponse Client::migrateToOtherZoneWithOptions(const string &I
   request.validate();
   json query = {};
   if (!!request.hasDryRun()) {
-    query["dryRun"] = request.dryRun();
+    query["dryRun"] = request.getDryRun();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "MigrateToOtherZone"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/actions/migrate-zones")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/actions/migrate-zones")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -5858,19 +5767,19 @@ ModifyDeployMachineResponse Client::modifyDeployMachineWithOptions(const string 
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "ModifyDeployMachine"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/collectors/" , Darabonba::Http::URL::percentEncode(ResId) , "/actions/modify-deploy-machines")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/collectors/" , Darabonba::Encode::Encoder::percentEncode(ResId) , "/actions/modify-deploy-machines")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -5902,13 +5811,13 @@ ModifyElastictaskResponse Client::modifyElastictaskWithOptions(const string &Ins
   request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "ModifyElastictask"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/elastic-task")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/elastic-task")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -5956,19 +5865,19 @@ ModifyInstanceMaintainTimeResponse Client::modifyInstanceMaintainTimeWithOptions
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "ModifyInstanceMaintainTime"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/actions/modify-maintaintime")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/actions/modify-maintaintime")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -6023,28 +5932,28 @@ ModifyWhiteIpsResponse Client::modifyWhiteIpsWithOptions(const string &InstanceI
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   json body = {};
   if (!!request.hasModifyMode()) {
-    body["modifyMode"] = request.modifyMode();
+    body["modifyMode"] = request.getModifyMode();
   }
 
   if (!!request.hasNetworkType()) {
-    body["networkType"] = request.networkType();
+    body["networkType"] = request.getNetworkType();
   }
 
   if (!!request.hasNodeType()) {
-    body["nodeType"] = request.nodeType();
+    body["nodeType"] = request.getNodeType();
   }
 
   if (!!request.hasWhiteIpGroup()) {
-    body["whiteIpGroup"] = request.whiteIpGroup();
+    body["whiteIpGroup"] = request.getWhiteIpGroup();
   }
 
   if (!!request.hasWhiteIpList()) {
-    body["whiteIpList"] = request.whiteIpList();
+    body["whiteIpList"] = request.getWhiteIpList();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6056,7 +5965,7 @@ ModifyWhiteIpsResponse Client::modifyWhiteIpsWithOptions(const string &InstanceI
     {"action" , "ModifyWhiteIps"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/actions/modify-white-ips")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/actions/modify-white-ips")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -6095,19 +6004,19 @@ MoveResourceGroupResponse Client::moveResourceGroupWithOptions(const string &Ins
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "MoveResourceGroup"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/resourcegroup")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/resourcegroup")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -6139,11 +6048,11 @@ OpenDiagnosisResponse Client::openDiagnosisWithOptions(const string &InstanceId,
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasLang()) {
-    query["lang"] = request.lang();
+    query["lang"] = request.getLang();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6154,7 +6063,7 @@ OpenDiagnosisResponse Client::openDiagnosisWithOptions(const string &InstanceId,
     {"action" , "OpenDiagnosis"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/diagnosis/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/actions/open-diagnosis")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/diagnosis/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/actions/open-diagnosis")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -6186,7 +6095,7 @@ OpenHttpsResponse Client::openHttpsWithOptions(const string &InstanceId, const O
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6197,7 +6106,7 @@ OpenHttpsResponse Client::openHttpsWithOptions(const string &InstanceId, const O
     {"action" , "OpenHttps"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/actions/open-https")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/actions/open-https")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -6231,7 +6140,7 @@ PostEmonTryAlarmRuleResponse Client::postEmonTryAlarmRuleWithOptions(const strin
   request.validate();
   json query = {};
   if (!!request.hasBody()) {
-    query["body"] = request.body();
+    query["body"] = request.getBody();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6242,7 +6151,7 @@ PostEmonTryAlarmRuleResponse Client::postEmonTryAlarmRuleWithOptions(const strin
     {"action" , "PostEmonTryAlarmRule"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/emon/projects/" , Darabonba::Http::URL::percentEncode(ProjectId) , "/alarm-groups/" , Darabonba::Http::URL::percentEncode(AlarmGroupId) , "/alarm-rules/_test")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/emon/projects/" , Darabonba::Encode::Encoder::percentEncode(ProjectId) , "/alarm-groups/" , Darabonba::Encode::Encoder::percentEncode(AlarmGroupId) , "/alarm-rules/_test")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -6274,7 +6183,7 @@ RecommendTemplatesResponse Client::recommendTemplatesWithOptions(const string &I
   request.validate();
   json query = {};
   if (!!request.hasUsageScenario()) {
-    query["usageScenario"] = request.usageScenario();
+    query["usageScenario"] = request.getUsageScenario();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6285,7 +6194,7 @@ RecommendTemplatesResponse Client::recommendTemplatesWithOptions(const string &I
     {"action" , "RecommendTemplates"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/recommended-templates")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/recommended-templates")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -6317,19 +6226,19 @@ ReinstallCollectorResponse Client::reinstallCollectorWithOptions(const string &R
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "ReinstallCollector"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/collectors/" , Darabonba::Http::URL::percentEncode(ResId) , "/actions/reinstall")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/collectors/" , Darabonba::Encode::Encoder::percentEncode(ResId) , "/actions/reinstall")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -6352,42 +6261,6 @@ ReinstallCollectorResponse Client::reinstallCollector(const string &ResId, const
 }
 
 /**
- * @summary RemoveApm
- *
- * @param headers map
- * @param runtime runtime options for this request RuntimeOptions
- * @return RemoveApmResponse
- */
-RemoveApmResponse Client::removeApmWithOptions(const string &instanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
-  OpenApiRequest req = OpenApiRequest(json({
-    {"headers" , headers}
-  }).get<map<string, map<string, string>>>());
-  Params params = Params(json({
-    {"action" , "RemoveApm"},
-    {"version" , "2017-06-13"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/apm/" , Darabonba::Http::URL::percentEncode(instanceId))},
-    {"method" , "DELETE"},
-    {"authType" , "AK"},
-    {"style" , "ROA"},
-    {"reqBodyType" , "json"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<RemoveApmResponse>();
-}
-
-/**
- * @summary RemoveApm
- *
- * @return RemoveApmResponse
- */
-RemoveApmResponse Client::removeApm(const string &instanceId) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  map<string, string> headers = {};
-  return removeApmWithOptions(instanceId, headers, runtime);
-}
-
-/**
  * @summary Call RenewInstance to renew a subscription instance.
  *
  * @param request RenewInstanceRequest
@@ -6399,19 +6272,19 @@ RenewInstanceResponse Client::renewInstanceWithOptions(const string &InstanceId,
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "RenewInstance"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/actions/renew")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/actions/renew")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -6445,19 +6318,19 @@ RenewLogstashResponse Client::renewLogstashWithOptions(const string &InstanceId,
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "RenewLogstash"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/actions/renew")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/actions/renew")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -6491,7 +6364,7 @@ RestartCollectorResponse Client::restartCollectorWithOptions(const string &ResId
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6502,7 +6375,7 @@ RestartCollectorResponse Client::restartCollectorWithOptions(const string &ResId
     {"action" , "RestartCollector"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/collectors/" , Darabonba::Http::URL::percentEncode(ResId) , "/actions/restart")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/collectors/" , Darabonba::Encode::Encoder::percentEncode(ResId) , "/actions/restart")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -6538,23 +6411,23 @@ RestartInstanceResponse Client::restartInstanceWithOptions(const string &Instanc
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   if (!!request.hasForce()) {
-    query["force"] = request.force();
+    query["force"] = request.getForce();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "RestartInstance"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/actions/restart")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/actions/restart")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -6590,32 +6463,32 @@ RestartLogstashResponse Client::restartLogstashWithOptions(const string &Instanc
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   if (!!request.hasForce()) {
-    query["force"] = request.force();
+    query["force"] = request.getForce();
   }
 
   json body = {};
   if (!!request.hasBatchCount()) {
-    body["batchCount"] = request.batchCount();
+    body["batchCount"] = request.getBatchCount();
   }
 
   if (!!request.hasBlueGreenDep()) {
-    body["blueGreenDep"] = request.blueGreenDep();
+    body["blueGreenDep"] = request.getBlueGreenDep();
   }
 
   if (!!request.hasNodeTypes()) {
-    body["nodeTypes"] = request.nodeTypes();
+    body["nodeTypes"] = request.getNodeTypes();
   }
 
   if (!!request.hasNodes()) {
-    body["nodes"] = request.nodes();
+    body["nodes"] = request.getNodes();
   }
 
   if (!!request.hasRestartType()) {
-    body["restartType"] = request.restartType();
+    body["restartType"] = request.getRestartType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6627,7 +6500,7 @@ RestartLogstashResponse Client::restartLogstashWithOptions(const string &Instanc
     {"action" , "RestartLogstash"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/actions/restart")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/actions/restart")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -6659,7 +6532,7 @@ ResumeElasticsearchTaskResponse Client::resumeElasticsearchTaskWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6670,7 +6543,7 @@ ResumeElasticsearchTaskResponse Client::resumeElasticsearchTaskWithOptions(const
     {"action" , "ResumeElasticsearchTask"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/actions/resume")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/actions/resume")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -6702,7 +6575,7 @@ ResumeLogstashTaskResponse Client::resumeLogstashTaskWithOptions(const string &I
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6713,7 +6586,7 @@ ResumeLogstashTaskResponse Client::resumeLogstashTaskWithOptions(const string &I
     {"action" , "ResumeLogstashTask"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/actions/resume")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/actions/resume")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -6747,7 +6620,7 @@ RolloverDataStreamResponse Client::rolloverDataStreamWithOptions(const string &I
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6758,7 +6631,7 @@ RolloverDataStreamResponse Client::rolloverDataStreamWithOptions(const string &I
     {"action" , "RolloverDataStream"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/data-streams/" , Darabonba::Http::URL::percentEncode(DataStream) , "/rollover")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/data-streams/" , Darabonba::Encode::Encoder::percentEncode(DataStream) , "/rollover")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -6792,19 +6665,19 @@ RunPipelinesResponse Client::runPipelinesWithOptions(const string &InstanceId, c
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "RunPipelines"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/pipelines/action/run")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/pipelines/action/run")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -6838,31 +6711,31 @@ ShrinkNodeResponse Client::shrinkNodeWithOptions(const string &InstanceId, const
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   if (!!request.hasCount()) {
-    query["count"] = request.count();
+    query["count"] = request.getCount();
   }
 
   if (!!request.hasIgnoreStatus()) {
-    query["ignoreStatus"] = request.ignoreStatus();
+    query["ignoreStatus"] = request.getIgnoreStatus();
   }
 
   if (!!request.hasNodeType()) {
-    query["nodeType"] = request.nodeType();
+    query["nodeType"] = request.getNodeType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , Utils::Utils::toArray(request.body())}
+    {"body" , Utils::Utils::toArray(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "ShrinkNode"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/actions/shrink")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/actions/shrink")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -6885,42 +6758,6 @@ ShrinkNodeResponse Client::shrinkNode(const string &InstanceId, const ShrinkNode
 }
 
 /**
- * @summary StartApm
- *
- * @param headers map
- * @param runtime runtime options for this request RuntimeOptions
- * @return StartApmResponse
- */
-StartApmResponse Client::startApmWithOptions(const string &instanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
-  OpenApiRequest req = OpenApiRequest(json({
-    {"headers" , headers}
-  }).get<map<string, map<string, string>>>());
-  Params params = Params(json({
-    {"action" , "StartApm"},
-    {"version" , "2017-06-13"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/apm/" , Darabonba::Http::URL::percentEncode(instanceId) , "/actions/start")},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "ROA"},
-    {"reqBodyType" , "json"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<StartApmResponse>();
-}
-
-/**
- * @summary StartApm
- *
- * @return StartApmResponse
- */
-StartApmResponse Client::startApm(const string &instanceId) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  map<string, string> headers = {};
-  return startApmWithOptions(instanceId, headers, runtime);
-}
-
-/**
  * @summary Starts a collector to collect data.
  *
  * @param request StartCollectorRequest
@@ -6932,7 +6769,7 @@ StartCollectorResponse Client::startCollectorWithOptions(const string &ResId, co
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6943,7 +6780,7 @@ StartCollectorResponse Client::startCollectorWithOptions(const string &ResId, co
     {"action" , "StartCollector"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/collectors/" , Darabonba::Http::URL::percentEncode(ResId) , "/actions/start")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/collectors/" , Darabonba::Encode::Encoder::percentEncode(ResId) , "/actions/start")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -6966,42 +6803,6 @@ StartCollectorResponse Client::startCollector(const string &ResId, const StartCo
 }
 
 /**
- * @summary StopApm
- *
- * @param headers map
- * @param runtime runtime options for this request RuntimeOptions
- * @return StopApmResponse
- */
-StopApmResponse Client::stopApmWithOptions(const string &instanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
-  OpenApiRequest req = OpenApiRequest(json({
-    {"headers" , headers}
-  }).get<map<string, map<string, string>>>());
-  Params params = Params(json({
-    {"action" , "StopApm"},
-    {"version" , "2017-06-13"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/apm/" , Darabonba::Http::URL::percentEncode(instanceId) , "/actions/stop")},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "ROA"},
-    {"reqBodyType" , "json"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<StopApmResponse>();
-}
-
-/**
- * @summary StopApm
- *
- * @return StopApmResponse
- */
-StopApmResponse Client::stopApm(const string &instanceId) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  map<string, string> headers = {};
-  return stopApmWithOptions(instanceId, headers, runtime);
-}
-
-/**
  * @summary Stops a shipper.
  *
  * @param request StopCollectorRequest
@@ -7013,7 +6814,7 @@ StopCollectorResponse Client::stopCollectorWithOptions(const string &ResId, cons
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7024,7 +6825,7 @@ StopCollectorResponse Client::stopCollectorWithOptions(const string &ResId, cons
     {"action" , "StopCollector"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/collectors/" , Darabonba::Http::URL::percentEncode(ResId) , "/actions/stop")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/collectors/" , Darabonba::Encode::Encoder::percentEncode(ResId) , "/actions/stop")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -7058,19 +6859,19 @@ StopPipelinesResponse Client::stopPipelinesWithOptions(const string &InstanceId,
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "StopPipelines"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/pipelines/action/stop")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/pipelines/action/stop")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -7104,15 +6905,15 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
   request.validate();
   json body = {};
   if (!!request.hasResourceIds()) {
-    body["ResourceIds"] = request.resourceIds();
+    body["ResourceIds"] = request.getResourceIds();
   }
 
   if (!!request.hasResourceType()) {
-    body["ResourceType"] = request.resourceType();
+    body["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTags()) {
-    body["Tags"] = request.tags();
+    body["Tags"] = request.getTags();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7157,23 +6958,23 @@ TransferNodeResponse Client::transferNodeWithOptions(const string &InstanceId, c
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   if (!!request.hasNodeType()) {
-    query["nodeType"] = request.nodeType();
+    query["nodeType"] = request.getNodeType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , Utils::Utils::toArray(request.body())}
+    {"body" , Utils::Utils::toArray(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "TransferNode"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/actions/transfer")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/actions/transfer")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -7207,20 +7008,20 @@ TriggerNetworkResponse Client::triggerNetworkWithOptions(const string &InstanceI
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   json body = {};
   if (!!request.hasActionType()) {
-    body["actionType"] = request.actionType();
+    body["actionType"] = request.getActionType();
   }
 
   if (!!request.hasNetworkType()) {
-    body["networkType"] = request.networkType();
+    body["networkType"] = request.getNetworkType();
   }
 
   if (!!request.hasNodeType()) {
-    body["nodeType"] = request.nodeType();
+    body["nodeType"] = request.getNodeType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7232,7 +7033,7 @@ TriggerNetworkResponse Client::triggerNetworkWithOptions(const string &InstanceI
     {"action" , "TriggerNetwork"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/actions/network-trigger")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/actions/network-trigger")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -7255,6 +7056,96 @@ TriggerNetworkResponse Client::triggerNetwork(const string &InstanceId, const Tr
 }
 
 /**
+ * @summary 可用区关机
+ *
+ * @param request TurnOffZoneRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return TurnOffZoneResponse
+ */
+TurnOffZoneResponse Client::turnOffZoneWithOptions(const string &instanceId, const TurnOffZoneRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasZone()) {
+    query["zone"] = request.getZone();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "TurnOffZone"},
+    {"version" , "2017-06-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/actions/turnOff-zone")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<TurnOffZoneResponse>();
+}
+
+/**
+ * @summary 可用区关机
+ *
+ * @param request TurnOffZoneRequest
+ * @return TurnOffZoneResponse
+ */
+TurnOffZoneResponse Client::turnOffZone(const string &instanceId, const TurnOffZoneRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return turnOffZoneWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
+ * @summary 可用区开机
+ *
+ * @param request TurnOnZoneRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return TurnOnZoneResponse
+ */
+TurnOnZoneResponse Client::turnOnZoneWithOptions(const string &instanceId, const TurnOnZoneRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasZone()) {
+    query["zone"] = request.getZone();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "TurnOnZone"},
+    {"version" , "2017-06-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/actions/turnOn-zone")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<TurnOnZoneResponse>();
+}
+
+/**
+ * @summary 可用区开机
+ *
+ * @param request TurnOnZoneRequest
+ * @return TurnOnZoneResponse
+ */
+TurnOnZoneResponse Client::turnOnZone(const string &instanceId, const TurnOnZoneRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return turnOnZoneWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
  * @summary Call the UninstallKibanaPlugin to uninstall the Kibana plug-in.
  *
  * @param request UninstallKibanaPluginRequest
@@ -7266,19 +7157,19 @@ UninstallKibanaPluginResponse Client::uninstallKibanaPluginWithOptions(const str
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "UninstallKibanaPlugin"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/kibana-plugins/actions/uninstall")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/kibana-plugins/actions/uninstall")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -7312,19 +7203,19 @@ UninstallLogstashPluginResponse Client::uninstallLogstashPluginWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "UninstallLogstashPlugin"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/plugins/actions/uninstall")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/plugins/actions/uninstall")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -7358,23 +7249,23 @@ UninstallPluginResponse Client::uninstallPluginWithOptions(const string &Instanc
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   if (!!request.hasForce()) {
-    query["force"] = request.force();
+    query["force"] = request.getForce();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "UninstallPlugin"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/plugins/actions/uninstall")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/plugins/actions/uninstall")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -7413,23 +7304,23 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
   request.validate();
   json query = {};
   if (!!request.hasAll()) {
-    query["All"] = request.all();
+    query["All"] = request.getAll();
   }
 
   if (!!request.hasResourceIds()) {
-    query["ResourceIds"] = request.resourceIds();
+    query["ResourceIds"] = request.getResourceIds();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTagKeys()) {
-    query["TagKeys"] = request.tagKeys();
+    query["TagKeys"] = request.getTagKeys();
   }
 
   if (!!request.hasBody()) {
-    query["body"] = request.body();
+    query["body"] = request.getBody();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7481,12 +7372,12 @@ UpdateAdminPasswordResponse Client::updateAdminPasswordWithOptions(const string 
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   json body = {};
   if (!!request.hasEsAdminPassword()) {
-    body["esAdminPassword"] = request.esAdminPassword();
+    body["esAdminPassword"] = request.getEsAdminPassword();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7498,7 +7389,7 @@ UpdateAdminPasswordResponse Client::updateAdminPasswordWithOptions(const string 
     {"action" , "UpdateAdminPassword"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/admin-pwd")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/admin-pwd")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -7534,19 +7425,19 @@ UpdateAdvancedSettingResponse Client::updateAdvancedSettingWithOptions(const str
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "UpdateAdvancedSetting"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/actions/update-advanced-setting")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/actions/update-advanced-setting")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -7585,19 +7476,19 @@ UpdateAliwsDictResponse Client::updateAliwsDictWithOptions(const string &Instanc
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "UpdateAliwsDict"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/aliws-dict")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/aliws-dict")},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -7625,67 +7516,6 @@ UpdateAliwsDictResponse Client::updateAliwsDict(const string &InstanceId, const 
 }
 
 /**
- * @summary 修改APM实规格配置
- *
- * @param request UpdateApmRequest
- * @param headers map
- * @param runtime runtime options for this request RuntimeOptions
- * @return UpdateApmResponse
- */
-UpdateApmResponse Client::updateApmWithOptions(const string &instanceId, const UpdateApmRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json body = {};
-  if (!!request.hasDescription()) {
-    body["description"] = request.description();
-  }
-
-  if (!!request.hasOutputES()) {
-    body["outputES"] = request.outputES();
-  }
-
-  if (!!request.hasOutputESPassword()) {
-    body["outputESPassword"] = request.outputESPassword();
-  }
-
-  if (!!request.hasOutputESUserName()) {
-    body["outputESUserName"] = request.outputESUserName();
-  }
-
-  if (!!request.hasToken()) {
-    body["token"] = request.token();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"headers" , headers},
-    {"body" , Utils::Utils::parseToMap(body)}
-  }));
-  Params params = Params(json({
-    {"action" , "UpdateApm"},
-    {"version" , "2017-06-13"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/apm/" , Darabonba::Http::URL::percentEncode(instanceId))},
-    {"method" , "PUT"},
-    {"authType" , "AK"},
-    {"style" , "ROA"},
-    {"reqBodyType" , "json"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<UpdateApmResponse>();
-}
-
-/**
- * @summary 修改APM实规格配置
- *
- * @param request UpdateApmRequest
- * @return UpdateApmResponse
- */
-UpdateApmResponse Client::updateApm(const string &instanceId, const UpdateApmRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  map<string, string> headers = {};
-  return updateApmWithOptions(instanceId, request, headers, runtime);
-}
-
-/**
  * @deprecated OpenAPI UpdateBlackIps is deprecated
  *
  * @summary 修改ES实例访问黑名单，已废弃
@@ -7699,7 +7529,7 @@ UpdateBlackIpsResponse Client::updateBlackIpsWithOptions(const string &InstanceI
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7710,7 +7540,7 @@ UpdateBlackIpsResponse Client::updateBlackIpsWithOptions(const string &InstanceI
     {"action" , "UpdateBlackIps"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/black-ips")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/black-ips")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -7746,19 +7576,19 @@ UpdateCollectorResponse Client::updateCollectorWithOptions(const string &ResId, 
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "UpdateCollector"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/collectors/" , Darabonba::Http::URL::percentEncode(ResId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/collectors/" , Darabonba::Encode::Encoder::percentEncode(ResId))},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -7792,19 +7622,19 @@ UpdateCollectorNameResponse Client::updateCollectorNameWithOptions(const string 
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "UpdateCollectorName"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/collectors/" , Darabonba::Http::URL::percentEncode(ResId) , "/actions/rename")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/collectors/" , Darabonba::Encode::Encoder::percentEncode(ResId) , "/actions/rename")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -7838,11 +7668,11 @@ UpdateComponentIndexResponse Client::updateComponentIndexWithOptions(const strin
   request.validate();
   json body = {};
   if (!!request.hasMeta()) {
-    body["_meta"] = request.meta();
+    body["_meta"] = request.getMeta();
   }
 
   if (!!request.hasTemplate()) {
-    body["template"] = request._template();
+    body["template"] = request.getTemplate();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7853,7 +7683,7 @@ UpdateComponentIndexResponse Client::updateComponentIndexWithOptions(const strin
     {"action" , "UpdateComponentIndex"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/component-index/" , Darabonba::Http::URL::percentEncode(name))},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/component-index/" , Darabonba::Encode::Encoder::percentEncode(name))},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -7887,12 +7717,12 @@ UpdateDescriptionResponse Client::updateDescriptionWithOptions(const string &Ins
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   json body = {};
   if (!!request.hasDescription()) {
-    body["description"] = request.description();
+    body["description"] = request.getDescription();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7904,7 +7734,7 @@ UpdateDescriptionResponse Client::updateDescriptionWithOptions(const string &Ins
     {"action" , "UpdateDescription"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/description")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/description")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -7938,23 +7768,23 @@ UpdateDiagnosisSettingsResponse Client::updateDiagnosisSettingsWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasLang()) {
-    query["lang"] = request.lang();
+    query["lang"] = request.getLang();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "UpdateDiagnosisSettings"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/diagnosis/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/settings")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/diagnosis/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/settings")},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -7992,19 +7822,19 @@ UpdateDictResponse Client::updateDictWithOptions(const string &InstanceId, const
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "UpdateDict"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/dict")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/dict")},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -8042,27 +7872,27 @@ UpdateDynamicSettingsResponse Client::updateDynamicSettingsWithOptions(const str
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasMode()) {
-    query["mode"] = request.mode();
+    query["mode"] = request.getMode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "UpdateDynamicSettings"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/dynamic-settings")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/dynamic-settings")},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -8094,19 +7924,19 @@ UpdateExtendConfigResponse Client::updateExtendConfigWithOptions(const string &I
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "UpdateExtendConfig"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/extend-configs/actions/update")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/extend-configs/actions/update")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -8140,19 +7970,19 @@ UpdateExtendfilesResponse Client::updateExtendfilesWithOptions(const string &Ins
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "UpdateExtendfiles"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/extendfiles")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/extendfiles")},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -8192,19 +8022,19 @@ UpdateHotIkDictsResponse Client::updateHotIkDictsWithOptions(const string &Insta
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "UpdateHotIkDicts"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/ik-hot-dict")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/ik-hot-dict")},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -8242,19 +8072,19 @@ UpdateILMPolicyResponse Client::updateILMPolicyWithOptions(const string &Instanc
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "UpdateILMPolicy"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/ilm-policies/" , Darabonba::Http::URL::percentEncode(PolicyName))},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/ilm-policies/" , Darabonba::Encode::Encoder::percentEncode(PolicyName))},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -8288,19 +8118,19 @@ UpdateIndexTemplateResponse Client::updateIndexTemplateWithOptions(const string 
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "UpdateIndexTemplate"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/index-templates/" , Darabonba::Http::URL::percentEncode(IndexTemplate))},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/index-templates/" , Darabonba::Encode::Encoder::percentEncode(IndexTemplate))},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -8336,48 +8166,52 @@ UpdateInstanceResponse Client::updateInstanceWithOptions(const string &InstanceI
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   if (!!request.hasForce()) {
-    query["force"] = request.force();
+    query["force"] = request.getForce();
   }
 
   if (!!request.hasOrderActionType()) {
-    query["orderActionType"] = request.orderActionType();
+    query["orderActionType"] = request.getOrderActionType();
   }
 
   json body = {};
   if (!!request.hasClientNodeConfiguration()) {
-    body["clientNodeConfiguration"] = request.clientNodeConfiguration();
+    body["clientNodeConfiguration"] = request.getClientNodeConfiguration();
   }
 
   if (!!request.hasElasticDataNodeConfiguration()) {
-    body["elasticDataNodeConfiguration"] = request.elasticDataNodeConfiguration();
+    body["elasticDataNodeConfiguration"] = request.getElasticDataNodeConfiguration();
   }
 
   if (!!request.hasInstanceCategory()) {
-    body["instanceCategory"] = request.instanceCategory();
+    body["instanceCategory"] = request.getInstanceCategory();
   }
 
   if (!!request.hasKibanaConfiguration()) {
-    body["kibanaConfiguration"] = request.kibanaConfiguration();
+    body["kibanaConfiguration"] = request.getKibanaConfiguration();
   }
 
   if (!!request.hasMasterConfiguration()) {
-    body["masterConfiguration"] = request.masterConfiguration();
+    body["masterConfiguration"] = request.getMasterConfiguration();
   }
 
   if (!!request.hasNodeAmount()) {
-    body["nodeAmount"] = request.nodeAmount();
+    body["nodeAmount"] = request.getNodeAmount();
   }
 
   if (!!request.hasNodeSpec()) {
-    body["nodeSpec"] = request.nodeSpec();
+    body["nodeSpec"] = request.getNodeSpec();
+  }
+
+  if (!!request.hasUpdateType()) {
+    body["updateType"] = request.getUpdateType();
   }
 
   if (!!request.hasWarmNodeConfiguration()) {
-    body["warmNodeConfiguration"] = request.warmNodeConfiguration();
+    body["warmNodeConfiguration"] = request.getWarmNodeConfiguration();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8389,7 +8223,7 @@ UpdateInstanceResponse Client::updateInstanceWithOptions(const string &InstanceI
     {"action" , "UpdateInstance"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId))},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -8425,19 +8259,28 @@ UpdateInstanceChargeTypeResponse Client::updateInstanceChargeTypeWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
+  }
+
+  json body = {};
+  if (!!request.hasPaymentInfo()) {
+    body["paymentInfo"] = request.getPaymentInfo();
+  }
+
+  if (!!request.hasPaymentType()) {
+    body["paymentType"] = request.getPaymentType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , Utils::Utils::parseToMap(body)}
   }));
   Params params = Params(json({
     {"action" , "UpdateInstanceChargeType"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/actions/convert-pay-type")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/actions/convert-pay-type")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -8474,27 +8317,32 @@ UpdateInstanceSettingsResponse Client::updateInstanceSettingsWithOptions(const s
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   if (!!request.hasForce()) {
-    query["force"] = request.force();
+    query["force"] = request.getForce();
   }
 
   if (!!request.hasUpdateStrategy()) {
-    query["updateStrategy"] = request.updateStrategy();
+    query["updateStrategy"] = request.getUpdateStrategy();
+  }
+
+  json body = {};
+  if (!!request.hasEsConfig()) {
+    body["esConfig"] = request.getEsConfig();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , Utils::Utils::parseToMap(body)}
   }));
   Params params = Params(json({
     {"action" , "UpdateInstanceSettings"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/instance-settings")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/instance-settings")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -8530,17 +8378,21 @@ UpdateInstanceSettingsResponse Client::updateInstanceSettings(const string &Inst
 UpdateKibanaPvlNetworkResponse Client::updateKibanaPvlNetworkWithOptions(const string &InstanceId, const UpdateKibanaPvlNetworkRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasClientToken()) {
+    query["clientToken"] = request.getClientToken();
+  }
+
   if (!!request.hasPvlId()) {
-    query["pvlId"] = request.pvlId();
+    query["pvlId"] = request.getPvlId();
   }
 
   json body = {};
   if (!!request.hasEndpointName()) {
-    body["endpointName"] = request.endpointName();
+    body["endpointName"] = request.getEndpointName();
   }
 
   if (!!request.hasSecurityGroups()) {
-    body["securityGroups"] = request.securityGroups();
+    body["securityGroups"] = request.getSecurityGroups();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8552,7 +8404,7 @@ UpdateKibanaPvlNetworkResponse Client::updateKibanaPvlNetworkWithOptions(const s
     {"action" , "UpdateKibanaPvlNetwork"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/actions/update-kibana-private")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/actions/update-kibana-private")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -8586,19 +8438,19 @@ UpdateKibanaSettingsResponse Client::updateKibanaSettingsWithOptions(const strin
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "UpdateKibanaSettings"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/actions/update-kibana-settings")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/actions/update-kibana-settings")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -8638,20 +8490,20 @@ UpdateKibanaWhiteIpsResponse Client::updateKibanaWhiteIpsWithOptions(const strin
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   if (!!request.hasModifyMode()) {
-    query["modifyMode"] = request.modifyMode();
+    query["modifyMode"] = request.getModifyMode();
   }
 
   json body = {};
   if (!!request.hasKibanaIPWhitelist()) {
-    body["kibanaIPWhitelist"] = request.kibanaIPWhitelist();
+    body["kibanaIPWhitelist"] = request.getKibanaIPWhitelist();
   }
 
   if (!!request.hasWhiteIpGroup()) {
-    body["whiteIpGroup"] = request.whiteIpGroup();
+    body["whiteIpGroup"] = request.getWhiteIpGroup();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8663,7 +8515,7 @@ UpdateKibanaWhiteIpsResponse Client::updateKibanaWhiteIpsWithOptions(const strin
     {"action" , "UpdateKibanaWhiteIps"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/kibana-white-ips")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/kibana-white-ips")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -8703,16 +8555,16 @@ UpdateLogstashResponse Client::updateLogstashWithOptions(const string &InstanceI
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   json body = {};
   if (!!request.hasNodeAmount()) {
-    body["nodeAmount"] = request.nodeAmount();
+    body["nodeAmount"] = request.getNodeAmount();
   }
 
   if (!!request.hasNodeSpec()) {
-    body["nodeSpec"] = request.nodeSpec();
+    body["nodeSpec"] = request.getNodeSpec();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8724,7 +8576,7 @@ UpdateLogstashResponse Client::updateLogstashWithOptions(const string &InstanceI
     {"action" , "UpdateLogstash"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Http::URL::percentEncode(InstanceId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Encode::Encoder::percentEncode(InstanceId))},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -8758,19 +8610,19 @@ UpdateLogstashChargeTypeResponse Client::updateLogstashChargeTypeWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "UpdateLogstashChargeType"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/actions/convert-pay-type")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/actions/convert-pay-type")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -8806,12 +8658,12 @@ UpdateLogstashDescriptionResponse Client::updateLogstashDescriptionWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   json body = {};
   if (!!request.hasDescription()) {
-    body["description"] = request.description();
+    body["description"] = request.getDescription();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8823,7 +8675,7 @@ UpdateLogstashDescriptionResponse Client::updateLogstashDescriptionWithOptions(c
     {"action" , "UpdateLogstashDescription"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/description")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/description")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -8862,19 +8714,19 @@ UpdateLogstashSettingsResponse Client::updateLogstashSettingsWithOptions(const s
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "UpdateLogstashSettings"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/instance-settings")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/instance-settings")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -8911,32 +8763,32 @@ UpdatePipelineManagementConfigResponse Client::updatePipelineManagementConfigWit
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   json body = {};
   if (!!request.hasEndpoints()) {
-    body["endpoints"] = request.endpoints();
+    body["endpoints"] = request.getEndpoints();
   }
 
   if (!!request.hasEsInstanceId()) {
-    body["esInstanceId"] = request.esInstanceId();
+    body["esInstanceId"] = request.getEsInstanceId();
   }
 
   if (!!request.hasPassword()) {
-    body["password"] = request.password();
+    body["password"] = request.getPassword();
   }
 
   if (!!request.hasPipelineIds()) {
-    body["pipelineIds"] = request.pipelineIds();
+    body["pipelineIds"] = request.getPipelineIds();
   }
 
   if (!!request.hasPipelineManagementType()) {
-    body["pipelineManagementType"] = request.pipelineManagementType();
+    body["pipelineManagementType"] = request.getPipelineManagementType();
   }
 
   if (!!request.hasUserName()) {
-    body["userName"] = request.userName();
+    body["userName"] = request.getUserName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8948,7 +8800,7 @@ UpdatePipelineManagementConfigResponse Client::updatePipelineManagementConfigWit
     {"action" , "UpdatePipelineManagementConfig"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/pipeline-management-config")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/pipeline-management-config")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -8982,23 +8834,23 @@ UpdatePipelinesResponse Client::updatePipelinesWithOptions(const string &Instanc
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   if (!!request.hasTrigger()) {
-    query["trigger"] = request.trigger();
+    query["trigger"] = request.getTrigger();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "UpdatePipelines"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/pipelines")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/pipelines")},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -9045,23 +8897,23 @@ UpdatePrivateNetworkWhiteIpsResponse Client::updatePrivateNetworkWhiteIpsWithOpt
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   if (!!request.hasModifyMode()) {
-    query["modifyMode"] = request.modifyMode();
+    query["modifyMode"] = request.getModifyMode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "UpdatePrivateNetworkWhiteIps"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/private-network-white-ips")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/private-network-white-ips")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -9111,19 +8963,19 @@ UpdatePublicNetworkResponse Client::updatePublicNetworkWithOptions(const string 
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "UpdatePublicNetwork"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/public-network")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/public-network")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -9173,23 +9025,23 @@ UpdatePublicWhiteIpsResponse Client::updatePublicWhiteIpsWithOptions(const strin
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   if (!!request.hasModifyMode()) {
-    query["modifyMode"] = request.modifyMode();
+    query["modifyMode"] = request.getModifyMode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "UpdatePublicWhiteIps"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/public-white-ips")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/public-white-ips")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -9236,19 +9088,19 @@ UpdateReadWritePolicyResponse Client::updateReadWritePolicyWithOptions(const str
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "UpdateReadWritePolicy"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/actions/update-read-write-policy")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/actions/update-read-write-policy")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -9282,13 +9134,13 @@ UpdateSnapshotSettingResponse Client::updateSnapshotSettingWithOptions(const str
   request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "UpdateSnapshotSetting"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/snapshot-setting")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/snapshot-setting")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -9326,19 +9178,19 @@ UpdateSynonymsDictsResponse Client::updateSynonymsDictsWithOptions(const string 
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "UpdateSynonymsDicts"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/synonymsDict")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/synonymsDict")},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -9374,19 +9226,19 @@ UpdateTemplateResponse Client::updateTemplateWithOptions(const string &InstanceI
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "UpdateTemplate"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/templates/" , Darabonba::Http::URL::percentEncode(TemplateName))},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/templates/" , Darabonba::Encode::Encoder::percentEncode(TemplateName))},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -9423,20 +9275,20 @@ UpdateWhiteIpsResponse Client::updateWhiteIpsWithOptions(const string &InstanceI
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   if (!!request.hasModifyMode()) {
-    query["modifyMode"] = request.modifyMode();
+    query["modifyMode"] = request.getModifyMode();
   }
 
   json body = {};
   if (!!request.hasEsIPWhitelist()) {
-    body["esIPWhitelist"] = request.esIPWhitelist();
+    body["esIPWhitelist"] = request.getEsIPWhitelist();
   }
 
   if (!!request.hasWhiteIpGroup()) {
-    body["whiteIpGroup"] = request.whiteIpGroup();
+    body["whiteIpGroup"] = request.getWhiteIpGroup();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9448,7 +9300,7 @@ UpdateWhiteIpsResponse Client::updateWhiteIpsWithOptions(const string &InstanceI
     {"action" , "UpdateWhiteIps"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/white-ips")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/white-ips")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -9487,24 +9339,24 @@ UpdateXpackMonitorConfigResponse Client::updateXpackMonitorConfigWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   json body = {};
   if (!!request.hasEnable()) {
-    body["enable"] = request.enable();
+    body["enable"] = request.getEnable();
   }
 
   if (!!request.hasEndpoints()) {
-    body["endpoints"] = request.endpoints();
+    body["endpoints"] = request.getEndpoints();
   }
 
   if (!!request.hasPassword()) {
-    body["password"] = request.password();
+    body["password"] = request.getPassword();
   }
 
   if (!!request.hasUserName()) {
-    body["userName"] = request.userName();
+    body["userName"] = request.getUserName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9516,7 +9368,7 @@ UpdateXpackMonitorConfigResponse Client::updateXpackMonitorConfigWithOptions(con
     {"action" , "UpdateXpackMonitorConfig"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/xpack-monitor-config")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/xpack-monitor-config")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -9552,28 +9404,28 @@ UpgradeEngineVersionResponse Client::upgradeEngineVersionWithOptions(const strin
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    query["dryRun"] = request.dryRun();
+    query["dryRun"] = request.getDryRun();
   }
 
   if (!!request.hasUpdateStrategy()) {
-    query["updateStrategy"] = request.updateStrategy();
+    query["updateStrategy"] = request.getUpdateStrategy();
   }
 
   json body = {};
   if (!!request.hasPlugins()) {
-    body["plugins"] = request.plugins();
+    body["plugins"] = request.getPlugins();
   }
 
   if (!!request.hasType()) {
-    body["type"] = request.type();
+    body["type"] = request.getType();
   }
 
   if (!!request.hasVersion()) {
-    body["version"] = request.version();
+    body["version"] = request.getVersion();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9585,7 +9437,7 @@ UpgradeEngineVersionResponse Client::upgradeEngineVersionWithOptions(const strin
     {"action" , "UpgradeEngineVersion"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/actions/upgrade-version")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/actions/upgrade-version")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -9623,19 +9475,19 @@ ValidateConnectionResponse Client::validateConnectionWithOptions(const string &I
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "ValidateConnection"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/validate-connection")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/logstashes/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/validate-connection")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -9671,27 +9523,27 @@ ValidateShrinkNodesResponse Client::validateShrinkNodesWithOptions(const string 
   request.validate();
   json query = {};
   if (!!request.hasCount()) {
-    query["count"] = request.count();
+    query["count"] = request.getCount();
   }
 
   if (!!request.hasIgnoreStatus()) {
-    query["ignoreStatus"] = request.ignoreStatus();
+    query["ignoreStatus"] = request.getIgnoreStatus();
   }
 
   if (!!request.hasNodeType()) {
-    query["nodeType"] = request.nodeType();
+    query["nodeType"] = request.getNodeType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , Utils::Utils::toArray(request.body())}
+    {"body" , Utils::Utils::toArray(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "ValidateShrinkNodes"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/validate-shrink-nodes")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/validate-shrink-nodes")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -9723,11 +9575,11 @@ ValidateSlrPermissionResponse Client::validateSlrPermissionWithOptions(const Val
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasRolename()) {
-    query["rolename"] = request.rolename();
+    query["rolename"] = request.getRolename();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9770,19 +9622,19 @@ ValidateTransferableNodesResponse Client::validateTransferableNodesWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasNodeType()) {
-    query["nodeType"] = request.nodeType();
+    query["nodeType"] = request.getNodeType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , Utils::Utils::toArray(request.body())}
+    {"body" , Utils::Utils::toArray(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "ValidateTransferableNodes"},
     {"version" , "2017-06-13"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/validate-transfer-nodes")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/validate-transfer-nodes")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -9818,76 +9670,76 @@ CreateInstanceResponse Client::createInstanceWithOptions(const CreateInstanceReq
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   json body = {};
   if (!!request.hasClientNodeConfiguration()) {
-    body["clientNodeConfiguration"] = request.clientNodeConfiguration();
+    body["clientNodeConfiguration"] = request.getClientNodeConfiguration();
   }
 
   if (!!request.hasDescription()) {
-    body["description"] = request.description();
+    body["description"] = request.getDescription();
   }
 
   if (!!request.hasElasticDataNodeConfiguration()) {
-    body["elasticDataNodeConfiguration"] = request.elasticDataNodeConfiguration();
+    body["elasticDataNodeConfiguration"] = request.getElasticDataNodeConfiguration();
   }
 
   if (!!request.hasEsAdminPassword()) {
-    body["esAdminPassword"] = request.esAdminPassword();
+    body["esAdminPassword"] = request.getEsAdminPassword();
   }
 
   if (!!request.hasEsVersion()) {
-    body["esVersion"] = request.esVersion();
+    body["esVersion"] = request.getEsVersion();
   }
 
   if (!!request.hasInstanceCategory()) {
-    body["instanceCategory"] = request.instanceCategory();
+    body["instanceCategory"] = request.getInstanceCategory();
   }
 
   if (!!request.hasKibanaConfiguration()) {
-    body["kibanaConfiguration"] = request.kibanaConfiguration();
+    body["kibanaConfiguration"] = request.getKibanaConfiguration();
   }
 
   if (!!request.hasMasterConfiguration()) {
-    body["masterConfiguration"] = request.masterConfiguration();
+    body["masterConfiguration"] = request.getMasterConfiguration();
   }
 
   if (!!request.hasNetworkConfig()) {
-    body["networkConfig"] = request.networkConfig();
+    body["networkConfig"] = request.getNetworkConfig();
   }
 
   if (!!request.hasNodeAmount()) {
-    body["nodeAmount"] = request.nodeAmount();
+    body["nodeAmount"] = request.getNodeAmount();
   }
 
   if (!!request.hasNodeSpec()) {
-    body["nodeSpec"] = request.nodeSpec();
+    body["nodeSpec"] = request.getNodeSpec();
   }
 
   if (!!request.hasPaymentInfo()) {
-    body["paymentInfo"] = request.paymentInfo();
+    body["paymentInfo"] = request.getPaymentInfo();
   }
 
   if (!!request.hasPaymentType()) {
-    body["paymentType"] = request.paymentType();
+    body["paymentType"] = request.getPaymentType();
   }
 
   if (!!request.hasResourceGroupId()) {
-    body["resourceGroupId"] = request.resourceGroupId();
+    body["resourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasTags()) {
-    body["tags"] = request.tags();
+    body["tags"] = request.getTags();
   }
 
   if (!!request.hasWarmNodeConfiguration()) {
-    body["warmNodeConfiguration"] = request.warmNodeConfiguration();
+    body["warmNodeConfiguration"] = request.getWarmNodeConfiguration();
   }
 
   if (!!request.hasZoneCount()) {
-    body["zoneCount"] = request.zoneCount();
+    body["zoneCount"] = request.getZoneCount();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

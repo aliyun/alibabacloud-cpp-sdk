@@ -603,22 +603,6 @@ namespace Elasticsearch20170613
       Models::DescribeAckOperatorResponse describeAckOperator(const string &ClusterId);
 
       /**
-       * @summary Describe APM
-       *
-       * @param headers map
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeApmResponse
-       */
-      Models::DescribeApmResponse describeApmWithOptions(const string &instanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Describe APM
-       *
-       * @return DescribeApmResponse
-       */
-      Models::DescribeApmResponse describeApm(const string &instanceId);
-
-      /**
        * @summary Queries the details of a shipper.
        *
        * @param headers map
@@ -1429,24 +1413,6 @@ namespace Elasticsearch20170613
        * @return ListAlternativeSnapshotReposResponse
        */
       Models::ListAlternativeSnapshotReposResponse listAlternativeSnapshotRepos(const string &InstanceId, const Models::ListAlternativeSnapshotReposRequest &request);
-
-      /**
-       * @summary ListApm
-       *
-       * @param request ListApmRequest
-       * @param headers map
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ListApmResponse
-       */
-      Models::ListApmResponse listApmWithOptions(const Models::ListApmRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary ListApm
-       *
-       * @param request ListApmRequest
-       * @return ListApmResponse
-       */
-      Models::ListApmResponse listApm(const Models::ListApmRequest &request);
 
       /**
        * @summary Queries the Elasticsearch clusters that can be associated with a Logstash cluster when you configure the X-Pack Monitoring feature for the Logstash cluster.
@@ -2317,22 +2283,6 @@ namespace Elasticsearch20170613
       Models::ReinstallCollectorResponse reinstallCollector(const string &ResId, const Models::ReinstallCollectorRequest &request);
 
       /**
-       * @summary RemoveApm
-       *
-       * @param headers map
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return RemoveApmResponse
-       */
-      Models::RemoveApmResponse removeApmWithOptions(const string &instanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary RemoveApm
-       *
-       * @return RemoveApmResponse
-       */
-      Models::RemoveApmResponse removeApm(const string &instanceId);
-
-      /**
        * @summary Call RenewInstance to renew a subscription instance.
        *
        * @param request RenewInstanceRequest
@@ -2513,22 +2463,6 @@ namespace Elasticsearch20170613
       Models::ShrinkNodeResponse shrinkNode(const string &InstanceId, const Models::ShrinkNodeRequest &request);
 
       /**
-       * @summary StartApm
-       *
-       * @param headers map
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return StartApmResponse
-       */
-      Models::StartApmResponse startApmWithOptions(const string &instanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary StartApm
-       *
-       * @return StartApmResponse
-       */
-      Models::StartApmResponse startApm(const string &instanceId);
-
-      /**
        * @summary Starts a collector to collect data.
        *
        * @param request StartCollectorRequest
@@ -2545,22 +2479,6 @@ namespace Elasticsearch20170613
        * @return StartCollectorResponse
        */
       Models::StartCollectorResponse startCollector(const string &ResId, const Models::StartCollectorRequest &request);
-
-      /**
-       * @summary StopApm
-       *
-       * @param headers map
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return StopApmResponse
-       */
-      Models::StopApmResponse stopApmWithOptions(const string &instanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary StopApm
-       *
-       * @return StopApmResponse
-       */
-      Models::StopApmResponse stopApm(const string &instanceId);
 
       /**
        * @summary Stops a shipper.
@@ -2651,6 +2569,42 @@ namespace Elasticsearch20170613
        * @return TriggerNetworkResponse
        */
       Models::TriggerNetworkResponse triggerNetwork(const string &InstanceId, const Models::TriggerNetworkRequest &request);
+
+      /**
+       * @summary 可用区关机
+       *
+       * @param request TurnOffZoneRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return TurnOffZoneResponse
+       */
+      Models::TurnOffZoneResponse turnOffZoneWithOptions(const string &instanceId, const Models::TurnOffZoneRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 可用区关机
+       *
+       * @param request TurnOffZoneRequest
+       * @return TurnOffZoneResponse
+       */
+      Models::TurnOffZoneResponse turnOffZone(const string &instanceId, const Models::TurnOffZoneRequest &request);
+
+      /**
+       * @summary 可用区开机
+       *
+       * @param request TurnOnZoneRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return TurnOnZoneResponse
+       */
+      Models::TurnOnZoneResponse turnOnZoneWithOptions(const string &instanceId, const Models::TurnOnZoneRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 可用区开机
+       *
+       * @param request TurnOnZoneRequest
+       * @return TurnOnZoneResponse
+       */
+      Models::TurnOnZoneResponse turnOnZone(const string &instanceId, const Models::TurnOnZoneRequest &request);
 
       /**
        * @summary Call the UninstallKibanaPlugin to uninstall the Kibana plug-in.
@@ -2801,24 +2755,6 @@ namespace Elasticsearch20170613
        * @return UpdateAliwsDictResponse
        */
       Models::UpdateAliwsDictResponse updateAliwsDict(const string &InstanceId, const Models::UpdateAliwsDictRequest &request);
-
-      /**
-       * @summary 修改APM实规格配置
-       *
-       * @param request UpdateApmRequest
-       * @param headers map
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return UpdateApmResponse
-       */
-      Models::UpdateApmResponse updateApmWithOptions(const string &instanceId, const Models::UpdateApmRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 修改APM实规格配置
-       *
-       * @param request UpdateApmRequest
-       * @return UpdateApmResponse
-       */
-      Models::UpdateApmResponse updateApm(const string &instanceId, const Models::UpdateApmRequest &request);
 
       /**
        * @deprecated OpenAPI UpdateBlackIps is deprecated

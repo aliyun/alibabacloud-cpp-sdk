@@ -35,41 +35,41 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->body_ != nullptr
-        && this->groupId_ != nullptr && this->timeEnd_ != nullptr && this->timeStart_ != nullptr; };
+    virtual bool empty() const override { return this->body_ == nullptr
+        && this->groupId_ == nullptr && this->timeEnd_ == nullptr && this->timeStart_ == nullptr; };
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline string body() const { DARABONBA_PTR_GET_DEFAULT(body_, "") };
+    inline string getBody() const { DARABONBA_PTR_GET_DEFAULT(body_, "") };
     inline GetEmonAlarmRecordStatisticsDistributeRequest& setBody(string body) { DARABONBA_PTR_SET_VALUE(body_, body) };
 
 
     // groupId Field Functions 
     bool hasGroupId() const { return this->groupId_ != nullptr;};
     void deleteGroupId() { this->groupId_ = nullptr;};
-    inline string groupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
+    inline string getGroupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
     inline GetEmonAlarmRecordStatisticsDistributeRequest& setGroupId(string groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
 
 
     // timeEnd Field Functions 
     bool hasTimeEnd() const { return this->timeEnd_ != nullptr;};
     void deleteTimeEnd() { this->timeEnd_ = nullptr;};
-    inline int64_t timeEnd() const { DARABONBA_PTR_GET_DEFAULT(timeEnd_, 0L) };
+    inline int64_t getTimeEnd() const { DARABONBA_PTR_GET_DEFAULT(timeEnd_, 0L) };
     inline GetEmonAlarmRecordStatisticsDistributeRequest& setTimeEnd(int64_t timeEnd) { DARABONBA_PTR_SET_VALUE(timeEnd_, timeEnd) };
 
 
     // timeStart Field Functions 
     bool hasTimeStart() const { return this->timeStart_ != nullptr;};
     void deleteTimeStart() { this->timeStart_ = nullptr;};
-    inline int64_t timeStart() const { DARABONBA_PTR_GET_DEFAULT(timeStart_, 0L) };
+    inline int64_t getTimeStart() const { DARABONBA_PTR_GET_DEFAULT(timeStart_, 0L) };
     inline GetEmonAlarmRecordStatisticsDistributeRequest& setTimeStart(int64_t timeStart) { DARABONBA_PTR_SET_VALUE(timeStart_, timeStart) };
 
 
   protected:
-    std::shared_ptr<string> body_ = nullptr;
-    std::shared_ptr<string> groupId_ = nullptr;
-    std::shared_ptr<int64_t> timeEnd_ = nullptr;
-    std::shared_ptr<int64_t> timeStart_ = nullptr;
+    shared_ptr<string> body_ {};
+    shared_ptr<string> groupId_ {};
+    shared_ptr<int64_t> timeEnd_ {};
+    shared_ptr<int64_t> timeStart_ {};
   };
 
   } // namespace Models

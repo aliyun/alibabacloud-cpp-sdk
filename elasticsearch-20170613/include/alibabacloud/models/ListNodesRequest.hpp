@@ -37,54 +37,54 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ecsInstanceIds_ != nullptr
-        && this->ecsInstanceName_ != nullptr && this->page_ != nullptr && this->size_ != nullptr && this->tags_ != nullptr; };
+    virtual bool empty() const override { return this->ecsInstanceIds_ == nullptr
+        && this->ecsInstanceName_ == nullptr && this->page_ == nullptr && this->size_ == nullptr && this->tags_ == nullptr; };
     // ecsInstanceIds Field Functions 
     bool hasEcsInstanceIds() const { return this->ecsInstanceIds_ != nullptr;};
     void deleteEcsInstanceIds() { this->ecsInstanceIds_ = nullptr;};
-    inline string ecsInstanceIds() const { DARABONBA_PTR_GET_DEFAULT(ecsInstanceIds_, "") };
+    inline string getEcsInstanceIds() const { DARABONBA_PTR_GET_DEFAULT(ecsInstanceIds_, "") };
     inline ListNodesRequest& setEcsInstanceIds(string ecsInstanceIds) { DARABONBA_PTR_SET_VALUE(ecsInstanceIds_, ecsInstanceIds) };
 
 
     // ecsInstanceName Field Functions 
     bool hasEcsInstanceName() const { return this->ecsInstanceName_ != nullptr;};
     void deleteEcsInstanceName() { this->ecsInstanceName_ = nullptr;};
-    inline string ecsInstanceName() const { DARABONBA_PTR_GET_DEFAULT(ecsInstanceName_, "") };
+    inline string getEcsInstanceName() const { DARABONBA_PTR_GET_DEFAULT(ecsInstanceName_, "") };
     inline ListNodesRequest& setEcsInstanceName(string ecsInstanceName) { DARABONBA_PTR_SET_VALUE(ecsInstanceName_, ecsInstanceName) };
 
 
     // page Field Functions 
     bool hasPage() const { return this->page_ != nullptr;};
     void deletePage() { this->page_ = nullptr;};
-    inline int32_t page() const { DARABONBA_PTR_GET_DEFAULT(page_, 0) };
+    inline int32_t getPage() const { DARABONBA_PTR_GET_DEFAULT(page_, 0) };
     inline ListNodesRequest& setPage(int32_t page) { DARABONBA_PTR_SET_VALUE(page_, page) };
 
 
     // size Field Functions 
     bool hasSize() const { return this->size_ != nullptr;};
     void deleteSize() { this->size_ = nullptr;};
-    inline int32_t size() const { DARABONBA_PTR_GET_DEFAULT(size_, 0) };
+    inline int32_t getSize() const { DARABONBA_PTR_GET_DEFAULT(size_, 0) };
     inline ListNodesRequest& setSize(int32_t size) { DARABONBA_PTR_SET_VALUE(size_, size) };
 
 
     // tags Field Functions 
     bool hasTags() const { return this->tags_ != nullptr;};
     void deleteTags() { this->tags_ = nullptr;};
-    inline string tags() const { DARABONBA_PTR_GET_DEFAULT(tags_, "") };
+    inline string getTags() const { DARABONBA_PTR_GET_DEFAULT(tags_, "") };
     inline ListNodesRequest& setTags(string tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
 
 
   protected:
     // The IDs of the ECS instances.
-    std::shared_ptr<string> ecsInstanceIds_ = nullptr;
+    shared_ptr<string> ecsInstanceIds_ {};
     // The name of the ECS instance.
-    std::shared_ptr<string> ecsInstanceName_ = nullptr;
+    shared_ptr<string> ecsInstanceName_ {};
     // The number of the page to return.
-    std::shared_ptr<int32_t> page_ = nullptr;
+    shared_ptr<int32_t> page_ {};
     // The number of entries to return on each page.
-    std::shared_ptr<int32_t> size_ = nullptr;
+    shared_ptr<int32_t> size_ {};
     // The tags of the ECS instance. You must configure tagKey and tagValue.
-    std::shared_ptr<string> tags_ = nullptr;
+    shared_ptr<string> tags_ {};
   };
 
   } // namespace Models

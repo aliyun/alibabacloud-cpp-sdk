@@ -43,74 +43,74 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->actionNames_ != nullptr
-        && this->endTime_ != nullptr && this->filter_ != nullptr && this->page_ != nullptr && this->requestId_ != nullptr && this->size_ != nullptr
-        && this->startTime_ != nullptr && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->actionNames_ == nullptr
+        && this->endTime_ == nullptr && this->filter_ == nullptr && this->page_ == nullptr && this->requestId_ == nullptr && this->size_ == nullptr
+        && this->startTime_ == nullptr && this->userId_ == nullptr; };
     // actionNames Field Functions 
     bool hasActionNames() const { return this->actionNames_ != nullptr;};
     void deleteActionNames() { this->actionNames_ = nullptr;};
-    inline string actionNames() const { DARABONBA_PTR_GET_DEFAULT(actionNames_, "") };
+    inline string getActionNames() const { DARABONBA_PTR_GET_DEFAULT(actionNames_, "") };
     inline ListActionRecordsRequest& setActionNames(string actionNames) { DARABONBA_PTR_SET_VALUE(actionNames_, actionNames) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline int64_t endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
+    inline int64_t getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
     inline ListActionRecordsRequest& setEndTime(int64_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // filter Field Functions 
     bool hasFilter() const { return this->filter_ != nullptr;};
     void deleteFilter() { this->filter_ = nullptr;};
-    inline string filter() const { DARABONBA_PTR_GET_DEFAULT(filter_, "") };
+    inline string getFilter() const { DARABONBA_PTR_GET_DEFAULT(filter_, "") };
     inline ListActionRecordsRequest& setFilter(string filter) { DARABONBA_PTR_SET_VALUE(filter_, filter) };
 
 
     // page Field Functions 
     bool hasPage() const { return this->page_ != nullptr;};
     void deletePage() { this->page_ = nullptr;};
-    inline int32_t page() const { DARABONBA_PTR_GET_DEFAULT(page_, 0) };
+    inline int32_t getPage() const { DARABONBA_PTR_GET_DEFAULT(page_, 0) };
     inline ListActionRecordsRequest& setPage(int32_t page) { DARABONBA_PTR_SET_VALUE(page_, page) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListActionRecordsRequest& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // size Field Functions 
     bool hasSize() const { return this->size_ != nullptr;};
     void deleteSize() { this->size_ = nullptr;};
-    inline int32_t size() const { DARABONBA_PTR_GET_DEFAULT(size_, 0) };
+    inline int32_t getSize() const { DARABONBA_PTR_GET_DEFAULT(size_, 0) };
     inline ListActionRecordsRequest& setSize(int32_t size) { DARABONBA_PTR_SET_VALUE(size_, size) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline int64_t startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
+    inline int64_t getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
     inline ListActionRecordsRequest& setStartTime(int64_t startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline ListActionRecordsRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
   protected:
-    std::shared_ptr<string> actionNames_ = nullptr;
-    std::shared_ptr<int64_t> endTime_ = nullptr;
-    std::shared_ptr<string> filter_ = nullptr;
-    std::shared_ptr<int32_t> page_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<int32_t> size_ = nullptr;
-    std::shared_ptr<int64_t> startTime_ = nullptr;
-    std::shared_ptr<string> userId_ = nullptr;
+    shared_ptr<string> actionNames_ {};
+    shared_ptr<int64_t> endTime_ {};
+    shared_ptr<string> filter_ {};
+    shared_ptr<int32_t> page_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<int32_t> size_ {};
+    shared_ptr<int64_t> startTime_ {};
+    shared_ptr<string> userId_ {};
   };
 
   } // namespace Models

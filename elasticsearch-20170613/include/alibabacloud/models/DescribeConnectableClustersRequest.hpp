@@ -29,17 +29,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alreadySetItems_ != nullptr; };
+    virtual bool empty() const override { return this->alreadySetItems_ == nullptr; };
     // alreadySetItems Field Functions 
     bool hasAlreadySetItems() const { return this->alreadySetItems_ != nullptr;};
     void deleteAlreadySetItems() { this->alreadySetItems_ = nullptr;};
-    inline bool alreadySetItems() const { DARABONBA_PTR_GET_DEFAULT(alreadySetItems_, false) };
+    inline bool getAlreadySetItems() const { DARABONBA_PTR_GET_DEFAULT(alreadySetItems_, false) };
     inline DescribeConnectableClustersRequest& setAlreadySetItems(bool alreadySetItems) { DARABONBA_PTR_SET_VALUE(alreadySetItems_, alreadySetItems) };
 
 
   protected:
     // The ID of the instance that can communicate with each other.
-    std::shared_ptr<bool> alreadySetItems_ = nullptr;
+    shared_ptr<bool> alreadySetItems_ {};
   };
 
   } // namespace Models

@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_DESCRIBESNAPSHOTSETTINGRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_DESCRIBESNAPSHOTSETTINGRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/DescribeSnapshotSettingResponseBodyResult.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -32,29 +31,73 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->requestId_ != nullptr
-        && this->result_ != nullptr; };
+    class Result : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Result& obj) { 
+        DARABONBA_PTR_TO_JSON(Enable, enable_);
+        DARABONBA_PTR_TO_JSON(QuartzRegex, quartzRegex_);
+      };
+      friend void from_json(const Darabonba::Json& j, Result& obj) { 
+        DARABONBA_PTR_FROM_JSON(Enable, enable_);
+        DARABONBA_PTR_FROM_JSON(QuartzRegex, quartzRegex_);
+      };
+      Result() = default ;
+      Result(const Result &) = default ;
+      Result(Result &&) = default ;
+      Result(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Result() = default ;
+      Result& operator=(const Result &) = default ;
+      Result& operator=(Result &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->enable_ == nullptr
+        && this->quartzRegex_ == nullptr; };
+      // enable Field Functions 
+      bool hasEnable() const { return this->enable_ != nullptr;};
+      void deleteEnable() { this->enable_ = nullptr;};
+      inline bool getEnable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
+      inline Result& setEnable(bool enable) { DARABONBA_PTR_SET_VALUE(enable_, enable) };
+
+
+      // quartzRegex Field Functions 
+      bool hasQuartzRegex() const { return this->quartzRegex_ != nullptr;};
+      void deleteQuartzRegex() { this->quartzRegex_ = nullptr;};
+      inline string getQuartzRegex() const { DARABONBA_PTR_GET_DEFAULT(quartzRegex_, "") };
+      inline Result& setQuartzRegex(string quartzRegex) { DARABONBA_PTR_SET_VALUE(quartzRegex_, quartzRegex) };
+
+
+    protected:
+      // Whether to enable automatic backup.
+      shared_ptr<bool> enable_ {};
+      // Automatic backup time configuration, using Quartz Cron expression.
+      shared_ptr<string> quartzRegex_ {};
+    };
+
+    virtual bool empty() const override { return this->requestId_ == nullptr
+        && this->result_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeSnapshotSettingResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // result Field Functions 
     bool hasResult() const { return this->result_ != nullptr;};
     void deleteResult() { this->result_ = nullptr;};
-    inline const DescribeSnapshotSettingResponseBodyResult & result() const { DARABONBA_PTR_GET_CONST(result_, DescribeSnapshotSettingResponseBodyResult) };
-    inline DescribeSnapshotSettingResponseBodyResult result() { DARABONBA_PTR_GET(result_, DescribeSnapshotSettingResponseBodyResult) };
-    inline DescribeSnapshotSettingResponseBody& setResult(const DescribeSnapshotSettingResponseBodyResult & result) { DARABONBA_PTR_SET_VALUE(result_, result) };
-    inline DescribeSnapshotSettingResponseBody& setResult(DescribeSnapshotSettingResponseBodyResult && result) { DARABONBA_PTR_SET_RVALUE(result_, result) };
+    inline const DescribeSnapshotSettingResponseBody::Result & getResult() const { DARABONBA_PTR_GET_CONST(result_, DescribeSnapshotSettingResponseBody::Result) };
+    inline DescribeSnapshotSettingResponseBody::Result getResult() { DARABONBA_PTR_GET(result_, DescribeSnapshotSettingResponseBody::Result) };
+    inline DescribeSnapshotSettingResponseBody& setResult(const DescribeSnapshotSettingResponseBody::Result & result) { DARABONBA_PTR_SET_VALUE(result_, result) };
+    inline DescribeSnapshotSettingResponseBody& setResult(DescribeSnapshotSettingResponseBody::Result && result) { DARABONBA_PTR_SET_RVALUE(result_, result) };
 
 
   protected:
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The return results.
-    std::shared_ptr<DescribeSnapshotSettingResponseBodyResult> result_ = nullptr;
+    shared_ptr<DescribeSnapshotSettingResponseBody::Result> result_ {};
   };
 
   } // namespace Models

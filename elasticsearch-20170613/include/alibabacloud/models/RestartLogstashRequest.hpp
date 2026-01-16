@@ -42,28 +42,28 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->batchCount_ != nullptr
-        && this->blueGreenDep_ != nullptr && this->nodeTypes_ != nullptr && this->nodes_ != nullptr && this->restartType_ != nullptr && this->clientToken_ != nullptr
-        && this->force_ != nullptr; };
+    virtual bool empty() const override { return this->batchCount_ == nullptr
+        && this->blueGreenDep_ == nullptr && this->nodeTypes_ == nullptr && this->nodes_ == nullptr && this->restartType_ == nullptr && this->clientToken_ == nullptr
+        && this->force_ == nullptr; };
     // batchCount Field Functions 
     bool hasBatchCount() const { return this->batchCount_ != nullptr;};
     void deleteBatchCount() { this->batchCount_ = nullptr;};
-    inline double batchCount() const { DARABONBA_PTR_GET_DEFAULT(batchCount_, 0.0) };
+    inline double getBatchCount() const { DARABONBA_PTR_GET_DEFAULT(batchCount_, 0.0) };
     inline RestartLogstashRequest& setBatchCount(double batchCount) { DARABONBA_PTR_SET_VALUE(batchCount_, batchCount) };
 
 
     // blueGreenDep Field Functions 
     bool hasBlueGreenDep() const { return this->blueGreenDep_ != nullptr;};
     void deleteBlueGreenDep() { this->blueGreenDep_ = nullptr;};
-    inline bool blueGreenDep() const { DARABONBA_PTR_GET_DEFAULT(blueGreenDep_, false) };
+    inline bool getBlueGreenDep() const { DARABONBA_PTR_GET_DEFAULT(blueGreenDep_, false) };
     inline RestartLogstashRequest& setBlueGreenDep(bool blueGreenDep) { DARABONBA_PTR_SET_VALUE(blueGreenDep_, blueGreenDep) };
 
 
     // nodeTypes Field Functions 
     bool hasNodeTypes() const { return this->nodeTypes_ != nullptr;};
     void deleteNodeTypes() { this->nodeTypes_ = nullptr;};
-    inline const vector<string> & nodeTypes() const { DARABONBA_PTR_GET_CONST(nodeTypes_, vector<string>) };
-    inline vector<string> nodeTypes() { DARABONBA_PTR_GET(nodeTypes_, vector<string>) };
+    inline const vector<string> & getNodeTypes() const { DARABONBA_PTR_GET_CONST(nodeTypes_, vector<string>) };
+    inline vector<string> getNodeTypes() { DARABONBA_PTR_GET(nodeTypes_, vector<string>) };
     inline RestartLogstashRequest& setNodeTypes(const vector<string> & nodeTypes) { DARABONBA_PTR_SET_VALUE(nodeTypes_, nodeTypes) };
     inline RestartLogstashRequest& setNodeTypes(vector<string> && nodeTypes) { DARABONBA_PTR_SET_RVALUE(nodeTypes_, nodeTypes) };
 
@@ -71,8 +71,8 @@ namespace Models
     // nodes Field Functions 
     bool hasNodes() const { return this->nodes_ != nullptr;};
     void deleteNodes() { this->nodes_ = nullptr;};
-    inline const vector<string> & nodes() const { DARABONBA_PTR_GET_CONST(nodes_, vector<string>) };
-    inline vector<string> nodes() { DARABONBA_PTR_GET(nodes_, vector<string>) };
+    inline const vector<string> & getNodes() const { DARABONBA_PTR_GET_CONST(nodes_, vector<string>) };
+    inline vector<string> getNodes() { DARABONBA_PTR_GET(nodes_, vector<string>) };
     inline RestartLogstashRequest& setNodes(const vector<string> & nodes) { DARABONBA_PTR_SET_VALUE(nodes_, nodes) };
     inline RestartLogstashRequest& setNodes(vector<string> && nodes) { DARABONBA_PTR_SET_RVALUE(nodes_, nodes) };
 
@@ -80,32 +80,32 @@ namespace Models
     // restartType Field Functions 
     bool hasRestartType() const { return this->restartType_ != nullptr;};
     void deleteRestartType() { this->restartType_ = nullptr;};
-    inline string restartType() const { DARABONBA_PTR_GET_DEFAULT(restartType_, "") };
+    inline string getRestartType() const { DARABONBA_PTR_GET_DEFAULT(restartType_, "") };
     inline RestartLogstashRequest& setRestartType(string restartType) { DARABONBA_PTR_SET_VALUE(restartType_, restartType) };
 
 
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline RestartLogstashRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // force Field Functions 
     bool hasForce() const { return this->force_ != nullptr;};
     void deleteForce() { this->force_ = nullptr;};
-    inline bool force() const { DARABONBA_PTR_GET_DEFAULT(force_, false) };
+    inline bool getForce() const { DARABONBA_PTR_GET_DEFAULT(force_, false) };
     inline RestartLogstashRequest& setForce(bool force) { DARABONBA_PTR_SET_VALUE(force_, force) };
 
 
   protected:
-    std::shared_ptr<double> batchCount_ = nullptr;
-    std::shared_ptr<bool> blueGreenDep_ = nullptr;
-    std::shared_ptr<vector<string>> nodeTypes_ = nullptr;
-    std::shared_ptr<vector<string>> nodes_ = nullptr;
-    std::shared_ptr<string> restartType_ = nullptr;
-    std::shared_ptr<string> clientToken_ = nullptr;
-    std::shared_ptr<bool> force_ = nullptr;
+    shared_ptr<double> batchCount_ {};
+    shared_ptr<bool> blueGreenDep_ {};
+    shared_ptr<vector<string>> nodeTypes_ {};
+    shared_ptr<vector<string>> nodes_ {};
+    shared_ptr<string> restartType_ {};
+    shared_ptr<string> clientToken_ {};
+    shared_ptr<bool> force_ {};
   };
 
   } // namespace Models

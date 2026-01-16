@@ -39,63 +39,63 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ecsInstanceIds_ != nullptr
-        && this->ecsInstanceName_ != nullptr && this->page_ != nullptr && this->size_ != nullptr && this->tags_ != nullptr && this->vpcId_ != nullptr; };
+    virtual bool empty() const override { return this->ecsInstanceIds_ == nullptr
+        && this->ecsInstanceName_ == nullptr && this->page_ == nullptr && this->size_ == nullptr && this->tags_ == nullptr && this->vpcId_ == nullptr; };
     // ecsInstanceIds Field Functions 
     bool hasEcsInstanceIds() const { return this->ecsInstanceIds_ != nullptr;};
     void deleteEcsInstanceIds() { this->ecsInstanceIds_ = nullptr;};
-    inline string ecsInstanceIds() const { DARABONBA_PTR_GET_DEFAULT(ecsInstanceIds_, "") };
+    inline string getEcsInstanceIds() const { DARABONBA_PTR_GET_DEFAULT(ecsInstanceIds_, "") };
     inline ListEcsInstancesRequest& setEcsInstanceIds(string ecsInstanceIds) { DARABONBA_PTR_SET_VALUE(ecsInstanceIds_, ecsInstanceIds) };
 
 
     // ecsInstanceName Field Functions 
     bool hasEcsInstanceName() const { return this->ecsInstanceName_ != nullptr;};
     void deleteEcsInstanceName() { this->ecsInstanceName_ = nullptr;};
-    inline string ecsInstanceName() const { DARABONBA_PTR_GET_DEFAULT(ecsInstanceName_, "") };
+    inline string getEcsInstanceName() const { DARABONBA_PTR_GET_DEFAULT(ecsInstanceName_, "") };
     inline ListEcsInstancesRequest& setEcsInstanceName(string ecsInstanceName) { DARABONBA_PTR_SET_VALUE(ecsInstanceName_, ecsInstanceName) };
 
 
     // page Field Functions 
     bool hasPage() const { return this->page_ != nullptr;};
     void deletePage() { this->page_ = nullptr;};
-    inline int32_t page() const { DARABONBA_PTR_GET_DEFAULT(page_, 0) };
+    inline int32_t getPage() const { DARABONBA_PTR_GET_DEFAULT(page_, 0) };
     inline ListEcsInstancesRequest& setPage(int32_t page) { DARABONBA_PTR_SET_VALUE(page_, page) };
 
 
     // size Field Functions 
     bool hasSize() const { return this->size_ != nullptr;};
     void deleteSize() { this->size_ = nullptr;};
-    inline int32_t size() const { DARABONBA_PTR_GET_DEFAULT(size_, 0) };
+    inline int32_t getSize() const { DARABONBA_PTR_GET_DEFAULT(size_, 0) };
     inline ListEcsInstancesRequest& setSize(int32_t size) { DARABONBA_PTR_SET_VALUE(size_, size) };
 
 
     // tags Field Functions 
     bool hasTags() const { return this->tags_ != nullptr;};
     void deleteTags() { this->tags_ = nullptr;};
-    inline string tags() const { DARABONBA_PTR_GET_DEFAULT(tags_, "") };
+    inline string getTags() const { DARABONBA_PTR_GET_DEFAULT(tags_, "") };
     inline ListEcsInstancesRequest& setTags(string tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
 
 
     // vpcId Field Functions 
     bool hasVpcId() const { return this->vpcId_ != nullptr;};
     void deleteVpcId() { this->vpcId_ = nullptr;};
-    inline string vpcId() const { DARABONBA_PTR_GET_DEFAULT(vpcId_, "") };
+    inline string getVpcId() const { DARABONBA_PTR_GET_DEFAULT(vpcId_, "") };
     inline ListEcsInstancesRequest& setVpcId(string vpcId) { DARABONBA_PTR_SET_VALUE(vpcId_, vpcId) };
 
 
   protected:
     // test
-    std::shared_ptr<string> ecsInstanceIds_ = nullptr;
+    shared_ptr<string> ecsInstanceIds_ {};
     // [{ "tagKey":"a","tagValue":"b"}]
-    std::shared_ptr<string> ecsInstanceName_ = nullptr;
+    shared_ptr<string> ecsInstanceName_ {};
     // 10
-    std::shared_ptr<int32_t> page_ = nullptr;
+    shared_ptr<int32_t> page_ {};
     // ["i-bp13y63575oypr9d\\*\\*\\*\\*","i-bp1gyhphjaj73jsr\\*\\*\\*\\*"]
-    std::shared_ptr<int32_t> size_ = nullptr;
+    shared_ptr<int32_t> size_ {};
     // vpc-bp16k1dvzxtmagcva\\*\\*\\*\\*
-    std::shared_ptr<string> tags_ = nullptr;
+    shared_ptr<string> tags_ {};
     // The ID of the request.
-    std::shared_ptr<string> vpcId_ = nullptr;
+    shared_ptr<string> vpcId_ {};
   };
 
   } // namespace Models
