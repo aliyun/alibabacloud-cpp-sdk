@@ -651,6 +651,14 @@ CreateIndexResponse Client::createIndexWithOptions(const string &WorkspaceId, co
     query["chunkMode"] = request.getChunkMode();
   }
 
+  if (!!request.hasDatabase()) {
+    query["database"] = request.getDatabase();
+  }
+
+  if (!!request.hasDatasourceCode()) {
+    query["datasourceCode"] = request.getDatasourceCode();
+  }
+
   if (!!request.hasEnableHeaders()) {
     query["enableHeaders"] = request.getEnableHeaders();
   }
@@ -669,6 +677,10 @@ CreateIndexResponse Client::createIndexWithOptions(const string &WorkspaceId, co
 
   if (!!request.hasPipelineRetrieveRateLimitStrategy()) {
     query["pipelineRetrieveRateLimitStrategy"] = request.getPipelineRetrieveRateLimitStrategy();
+  }
+
+  if (!!request.hasTable()) {
+    query["table"] = request.getTable();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

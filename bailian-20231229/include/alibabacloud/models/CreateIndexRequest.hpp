@@ -35,11 +35,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(StructureType, structureType_);
       DARABONBA_PTR_TO_JSON(TableIds, tableIds_);
       DARABONBA_PTR_TO_JSON(chunkMode, chunkMode_);
+      DARABONBA_PTR_TO_JSON(database, database_);
+      DARABONBA_PTR_TO_JSON(datasourceCode, datasourceCode_);
       DARABONBA_PTR_TO_JSON(enableHeaders, enableHeaders_);
       DARABONBA_PTR_TO_JSON(metaExtractColumns, metaExtractColumns_);
       DARABONBA_PTR_TO_JSON(pipelineCommercialCu, pipelineCommercialCu_);
       DARABONBA_PTR_TO_JSON(pipelineCommercialType, pipelineCommercialType_);
       DARABONBA_PTR_TO_JSON(pipelineRetrieveRateLimitStrategy, pipelineRetrieveRateLimitStrategy_);
+      DARABONBA_PTR_TO_JSON(table, table_);
     };
     friend void from_json(const Darabonba::Json& j, CreateIndexRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CategoryIds, categoryIds_);
@@ -63,11 +66,14 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(StructureType, structureType_);
       DARABONBA_PTR_FROM_JSON(TableIds, tableIds_);
       DARABONBA_PTR_FROM_JSON(chunkMode, chunkMode_);
+      DARABONBA_PTR_FROM_JSON(database, database_);
+      DARABONBA_PTR_FROM_JSON(datasourceCode, datasourceCode_);
       DARABONBA_PTR_FROM_JSON(enableHeaders, enableHeaders_);
       DARABONBA_PTR_FROM_JSON(metaExtractColumns, metaExtractColumns_);
       DARABONBA_PTR_FROM_JSON(pipelineCommercialCu, pipelineCommercialCu_);
       DARABONBA_PTR_FROM_JSON(pipelineCommercialType, pipelineCommercialType_);
       DARABONBA_PTR_FROM_JSON(pipelineRetrieveRateLimitStrategy, pipelineRetrieveRateLimitStrategy_);
+      DARABONBA_PTR_FROM_JSON(table, table_);
     };
     CreateIndexRequest() = default ;
     CreateIndexRequest(const CreateIndexRequest &) = default ;
@@ -402,7 +408,8 @@ namespace Models
         && this->documentIds_ == nullptr && this->embeddingModelName_ == nullptr && this->enableRewrite_ == nullptr && this->name_ == nullptr && this->overlapSize_ == nullptr
         && this->rerankMinScore_ == nullptr && this->rerankModelName_ == nullptr && this->separator_ == nullptr && this->sinkInstanceId_ == nullptr && this->sinkRegion_ == nullptr
         && this->sinkType_ == nullptr && this->sourceType_ == nullptr && this->structureType_ == nullptr && this->tableIds_ == nullptr && this->chunkMode_ == nullptr
-        && this->enableHeaders_ == nullptr && this->metaExtractColumns_ == nullptr && this->pipelineCommercialCu_ == nullptr && this->pipelineCommercialType_ == nullptr && this->pipelineRetrieveRateLimitStrategy_ == nullptr; };
+        && this->database_ == nullptr && this->datasourceCode_ == nullptr && this->enableHeaders_ == nullptr && this->metaExtractColumns_ == nullptr && this->pipelineCommercialCu_ == nullptr
+        && this->pipelineCommercialType_ == nullptr && this->pipelineRetrieveRateLimitStrategy_ == nullptr && this->table_ == nullptr; };
     // categoryIds Field Functions 
     bool hasCategoryIds() const { return this->categoryIds_ != nullptr;};
     void deleteCategoryIds() { this->categoryIds_ = nullptr;};
@@ -560,6 +567,20 @@ namespace Models
     inline CreateIndexRequest& setChunkMode(string chunkMode) { DARABONBA_PTR_SET_VALUE(chunkMode_, chunkMode) };
 
 
+    // database Field Functions 
+    bool hasDatabase() const { return this->database_ != nullptr;};
+    void deleteDatabase() { this->database_ = nullptr;};
+    inline string getDatabase() const { DARABONBA_PTR_GET_DEFAULT(database_, "") };
+    inline CreateIndexRequest& setDatabase(string database) { DARABONBA_PTR_SET_VALUE(database_, database) };
+
+
+    // datasourceCode Field Functions 
+    bool hasDatasourceCode() const { return this->datasourceCode_ != nullptr;};
+    void deleteDatasourceCode() { this->datasourceCode_ = nullptr;};
+    inline string getDatasourceCode() const { DARABONBA_PTR_GET_DEFAULT(datasourceCode_, "") };
+    inline CreateIndexRequest& setDatasourceCode(string datasourceCode) { DARABONBA_PTR_SET_VALUE(datasourceCode_, datasourceCode) };
+
+
     // enableHeaders Field Functions 
     bool hasEnableHeaders() const { return this->enableHeaders_ != nullptr;};
     void deleteEnableHeaders() { this->enableHeaders_ = nullptr;};
@@ -595,6 +616,13 @@ namespace Models
     void deletePipelineRetrieveRateLimitStrategy() { this->pipelineRetrieveRateLimitStrategy_ = nullptr;};
     inline string getPipelineRetrieveRateLimitStrategy() const { DARABONBA_PTR_GET_DEFAULT(pipelineRetrieveRateLimitStrategy_, "") };
     inline CreateIndexRequest& setPipelineRetrieveRateLimitStrategy(string pipelineRetrieveRateLimitStrategy) { DARABONBA_PTR_SET_VALUE(pipelineRetrieveRateLimitStrategy_, pipelineRetrieveRateLimitStrategy) };
+
+
+    // table Field Functions 
+    bool hasTable() const { return this->table_ != nullptr;};
+    void deleteTable() { this->table_ = nullptr;};
+    inline string getTable() const { DARABONBA_PTR_GET_DEFAULT(table_, "") };
+    inline CreateIndexRequest& setTable(string table) { DARABONBA_PTR_SET_VALUE(table_, table) };
 
 
   protected:
@@ -689,6 +717,8 @@ namespace Models
     shared_ptr<vector<string>> tableIds_ {};
     // > This parameter is not available. Do not specify this parameter.
     shared_ptr<string> chunkMode_ {};
+    shared_ptr<string> database_ {};
+    shared_ptr<string> datasourceCode_ {};
     // Whether to treat the first row of all .xlsx and .xls files as headers and concatenate them into each text chunk. This prevents the models from mistakenly interpreting headers as regular data rows.
     // 
     // > Enable this feature only when all imported files are in .xlsx or .xls format and contain headers. Otherwise, leave it disabled.
@@ -705,6 +735,7 @@ namespace Models
     shared_ptr<int32_t> pipelineCommercialCu_ {};
     shared_ptr<string> pipelineCommercialType_ {};
     shared_ptr<string> pipelineRetrieveRateLimitStrategy_ {};
+    shared_ptr<string> table_ {};
   };
 
   } // namespace Models
