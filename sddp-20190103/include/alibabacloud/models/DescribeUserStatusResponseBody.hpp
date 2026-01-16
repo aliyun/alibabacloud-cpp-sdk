@@ -35,6 +35,7 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const UserStatus& obj) { 
         DARABONBA_PTR_TO_JSON(AccessKeyId, accessKeyId_);
+        DARABONBA_PTR_TO_JSON(AssetRoleAuthed, assetRoleAuthed_);
         DARABONBA_PTR_TO_JSON(AuditClosable, auditClosable_);
         DARABONBA_PTR_TO_JSON(AuditReleasable, auditReleasable_);
         DARABONBA_PTR_TO_JSON(Authed, authed_);
@@ -57,6 +58,7 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, UserStatus& obj) { 
         DARABONBA_PTR_FROM_JSON(AccessKeyId, accessKeyId_);
+        DARABONBA_PTR_FROM_JSON(AssetRoleAuthed, assetRoleAuthed_);
         DARABONBA_PTR_FROM_JSON(AuditClosable, auditClosable_);
         DARABONBA_PTR_FROM_JSON(AuditReleasable, auditReleasable_);
         DARABONBA_PTR_FROM_JSON(Authed, authed_);
@@ -89,15 +91,22 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->accessKeyId_ == nullptr
-        && this->auditClosable_ == nullptr && this->auditReleasable_ == nullptr && this->authed_ == nullptr && this->chargeType_ == nullptr && this->dataManagerRole_ == nullptr
-        && this->instanceId_ == nullptr && this->instanceNum_ == nullptr && this->instanceTotalCount_ == nullptr && this->labStatus_ == nullptr && this->ossTotalSize_ == nullptr
-        && this->protectionDays_ == nullptr && this->purchased_ == nullptr && this->releaseDays_ == nullptr && this->releaseTime_ == nullptr && this->remainDays_ == nullptr
-        && this->trail_ == nullptr && this->useAgentAudit_ == nullptr && this->useInstanceNum_ == nullptr && this->useOssSize_ == nullptr; };
+        && this->assetRoleAuthed_ == nullptr && this->auditClosable_ == nullptr && this->auditReleasable_ == nullptr && this->authed_ == nullptr && this->chargeType_ == nullptr
+        && this->dataManagerRole_ == nullptr && this->instanceId_ == nullptr && this->instanceNum_ == nullptr && this->instanceTotalCount_ == nullptr && this->labStatus_ == nullptr
+        && this->ossTotalSize_ == nullptr && this->protectionDays_ == nullptr && this->purchased_ == nullptr && this->releaseDays_ == nullptr && this->releaseTime_ == nullptr
+        && this->remainDays_ == nullptr && this->trail_ == nullptr && this->useAgentAudit_ == nullptr && this->useInstanceNum_ == nullptr && this->useOssSize_ == nullptr; };
       // accessKeyId Field Functions 
       bool hasAccessKeyId() const { return this->accessKeyId_ != nullptr;};
       void deleteAccessKeyId() { this->accessKeyId_ = nullptr;};
       inline string getAccessKeyId() const { DARABONBA_PTR_GET_DEFAULT(accessKeyId_, "") };
       inline UserStatus& setAccessKeyId(string accessKeyId) { DARABONBA_PTR_SET_VALUE(accessKeyId_, accessKeyId) };
+
+
+      // assetRoleAuthed Field Functions 
+      bool hasAssetRoleAuthed() const { return this->assetRoleAuthed_ != nullptr;};
+      void deleteAssetRoleAuthed() { this->assetRoleAuthed_ = nullptr;};
+      inline bool getAssetRoleAuthed() const { DARABONBA_PTR_GET_DEFAULT(assetRoleAuthed_, false) };
+      inline UserStatus& setAssetRoleAuthed(bool assetRoleAuthed) { DARABONBA_PTR_SET_VALUE(assetRoleAuthed_, assetRoleAuthed) };
 
 
       // auditClosable Field Functions 
@@ -236,6 +245,7 @@ namespace Models
     protected:
       // The AccessKey ID of the current account.
       shared_ptr<string> accessKeyId_ {};
+      shared_ptr<bool> assetRoleAuthed_ {};
       // Indicates whether the SQL Explorer feature can be disabled. Valid values:
       // 
       // *   **true**: yes

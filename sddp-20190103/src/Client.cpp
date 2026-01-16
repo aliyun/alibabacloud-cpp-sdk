@@ -460,6 +460,10 @@ CreateSlrRoleResponse Client::createSlrRoleWithOptions(const CreateSlrRoleReques
     query["Lang"] = request.getLang();
   }
 
+  if (!!request.hasServiceName()) {
+    query["ServiceName"] = request.getServiceName();
+  }
+
   if (!!request.hasSourceIp()) {
     query["SourceIp"] = request.getSourceIp();
   }

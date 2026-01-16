@@ -15,11 +15,13 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreateSlrRoleRequest& obj) { 
       DARABONBA_PTR_TO_JSON(FeatureType, featureType_);
       DARABONBA_PTR_TO_JSON(Lang, lang_);
+      DARABONBA_PTR_TO_JSON(ServiceName, serviceName_);
       DARABONBA_PTR_TO_JSON(SourceIp, sourceIp_);
     };
     friend void from_json(const Darabonba::Json& j, CreateSlrRoleRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(FeatureType, featureType_);
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
+      DARABONBA_PTR_FROM_JSON(ServiceName, serviceName_);
       DARABONBA_PTR_FROM_JSON(SourceIp, sourceIp_);
     };
     CreateSlrRoleRequest() = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->featureType_ == nullptr
-        && this->lang_ == nullptr && this->sourceIp_ == nullptr; };
+        && this->lang_ == nullptr && this->serviceName_ == nullptr && this->sourceIp_ == nullptr; };
     // featureType Field Functions 
     bool hasFeatureType() const { return this->featureType_ != nullptr;};
     void deleteFeatureType() { this->featureType_ = nullptr;};
@@ -47,6 +49,13 @@ namespace Models
     void deleteLang() { this->lang_ = nullptr;};
     inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline CreateSlrRoleRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
+
+
+    // serviceName Field Functions 
+    bool hasServiceName() const { return this->serviceName_ != nullptr;};
+    void deleteServiceName() { this->serviceName_ = nullptr;};
+    inline string getServiceName() const { DARABONBA_PTR_GET_DEFAULT(serviceName_, "") };
+    inline CreateSlrRoleRequest& setServiceName(string serviceName) { DARABONBA_PTR_SET_VALUE(serviceName_, serviceName) };
 
 
     // sourceIp Field Functions 
@@ -64,6 +73,7 @@ namespace Models
     // *   **zh_cn**: Simplified Chinese
     // *   **en_us**: English
     shared_ptr<string> lang_ {};
+    shared_ptr<string> serviceName_ {};
     // This parameter is deprecated.
     shared_ptr<string> sourceIp_ {};
   };
