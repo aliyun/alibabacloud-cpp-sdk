@@ -38,13 +38,16 @@ namespace Models
       DARABONBA_PTR_TO_JSON(GmtPublish, gmtPublish_);
       DARABONBA_PTR_TO_JSON(IconUrl, iconUrl_);
       DARABONBA_PTR_TO_JSON(Name, name_);
+      DARABONBA_PTR_TO_JSON(PartnerDetail, partnerDetail_);
       DARABONBA_PTR_TO_JSON(Profile, profile_);
+      DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(SiteHost, siteHost_);
       DARABONBA_PTR_TO_JSON(Slug, slug_);
       DARABONBA_PTR_TO_JSON(SourceType, sourceType_);
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(StatusText, statusText_);
+      DARABONBA_PTR_TO_JSON(Tags, tags_);
       DARABONBA_PTR_TO_JSON(ThumbnailUrl, thumbnailUrl_);
       DARABONBA_PTR_TO_JSON(UserId, userId_);
     };
@@ -69,13 +72,16 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(GmtPublish, gmtPublish_);
       DARABONBA_PTR_FROM_JSON(IconUrl, iconUrl_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
+      DARABONBA_PTR_FROM_JSON(PartnerDetail, partnerDetail_);
       DARABONBA_PTR_FROM_JSON(Profile, profile_);
+      DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(SiteHost, siteHost_);
       DARABONBA_PTR_FROM_JSON(Slug, slug_);
       DARABONBA_PTR_FROM_JSON(SourceType, sourceType_);
       DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(StatusText, statusText_);
+      DARABONBA_PTR_FROM_JSON(Tags, tags_);
       DARABONBA_PTR_FROM_JSON(ThumbnailUrl, thumbnailUrl_);
       DARABONBA_PTR_FROM_JSON(UserId, userId_);
     };
@@ -90,13 +96,213 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Tags : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Tags& obj) { 
+        DARABONBA_PTR_TO_JSON(TagKey, tagKey_);
+        DARABONBA_PTR_TO_JSON(TagValue, tagValue_);
+      };
+      friend void from_json(const Darabonba::Json& j, Tags& obj) { 
+        DARABONBA_PTR_FROM_JSON(TagKey, tagKey_);
+        DARABONBA_PTR_FROM_JSON(TagValue, tagValue_);
+      };
+      Tags() = default ;
+      Tags(const Tags &) = default ;
+      Tags(Tags &&) = default ;
+      Tags(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Tags() = default ;
+      Tags& operator=(const Tags &) = default ;
+      Tags& operator=(Tags &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->tagKey_ == nullptr
+        && this->tagValue_ == nullptr; };
+      // tagKey Field Functions 
+      bool hasTagKey() const { return this->tagKey_ != nullptr;};
+      void deleteTagKey() { this->tagKey_ = nullptr;};
+      inline string getTagKey() const { DARABONBA_PTR_GET_DEFAULT(tagKey_, "") };
+      inline Tags& setTagKey(string tagKey) { DARABONBA_PTR_SET_VALUE(tagKey_, tagKey) };
+
+
+      // tagValue Field Functions 
+      bool hasTagValue() const { return this->tagValue_ != nullptr;};
+      void deleteTagValue() { this->tagValue_ = nullptr;};
+      inline string getTagValue() const { DARABONBA_PTR_GET_DEFAULT(tagValue_, "") };
+      inline Tags& setTagValue(string tagValue) { DARABONBA_PTR_SET_VALUE(tagValue_, tagValue) };
+
+
+    protected:
+      shared_ptr<string> tagKey_ {};
+      shared_ptr<string> tagValue_ {};
+    };
+
+    class PartnerDetail : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const PartnerDetail& obj) { 
+        DARABONBA_PTR_TO_JSON(BindData, bindData_);
+        DARABONBA_PTR_TO_JSON(PartnerId, partnerId_);
+        DARABONBA_PTR_TO_JSON(Status, status_);
+      };
+      friend void from_json(const Darabonba::Json& j, PartnerDetail& obj) { 
+        DARABONBA_PTR_FROM_JSON(BindData, bindData_);
+        DARABONBA_PTR_FROM_JSON(PartnerId, partnerId_);
+        DARABONBA_PTR_FROM_JSON(Status, status_);
+      };
+      PartnerDetail() = default ;
+      PartnerDetail(const PartnerDetail &) = default ;
+      PartnerDetail(PartnerDetail &&) = default ;
+      PartnerDetail(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~PartnerDetail() = default ;
+      PartnerDetail& operator=(const PartnerDetail &) = default ;
+      PartnerDetail& operator=(PartnerDetail &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class BindData : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const BindData& obj) { 
+          DARABONBA_PTR_TO_JSON(BizId, bizId_);
+          DARABONBA_PTR_TO_JSON(GmtCreate, gmtCreate_);
+          DARABONBA_PTR_TO_JSON(GmtModified, gmtModified_);
+          DARABONBA_PTR_TO_JSON(Id, id_);
+          DARABONBA_PTR_TO_JSON(Mobile, mobile_);
+          DARABONBA_PTR_TO_JSON(ParentPk, parentPk_);
+          DARABONBA_PTR_TO_JSON(PartnerId, partnerId_);
+          DARABONBA_PTR_TO_JSON(UserId, userId_);
+        };
+        friend void from_json(const Darabonba::Json& j, BindData& obj) { 
+          DARABONBA_PTR_FROM_JSON(BizId, bizId_);
+          DARABONBA_PTR_FROM_JSON(GmtCreate, gmtCreate_);
+          DARABONBA_PTR_FROM_JSON(GmtModified, gmtModified_);
+          DARABONBA_PTR_FROM_JSON(Id, id_);
+          DARABONBA_PTR_FROM_JSON(Mobile, mobile_);
+          DARABONBA_PTR_FROM_JSON(ParentPk, parentPk_);
+          DARABONBA_PTR_FROM_JSON(PartnerId, partnerId_);
+          DARABONBA_PTR_FROM_JSON(UserId, userId_);
+        };
+        BindData() = default ;
+        BindData(const BindData &) = default ;
+        BindData(BindData &&) = default ;
+        BindData(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~BindData() = default ;
+        BindData& operator=(const BindData &) = default ;
+        BindData& operator=(BindData &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->bizId_ == nullptr
+        && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->id_ == nullptr && this->mobile_ == nullptr && this->parentPk_ == nullptr
+        && this->partnerId_ == nullptr && this->userId_ == nullptr; };
+        // bizId Field Functions 
+        bool hasBizId() const { return this->bizId_ != nullptr;};
+        void deleteBizId() { this->bizId_ = nullptr;};
+        inline string getBizId() const { DARABONBA_PTR_GET_DEFAULT(bizId_, "") };
+        inline BindData& setBizId(string bizId) { DARABONBA_PTR_SET_VALUE(bizId_, bizId) };
+
+
+        // gmtCreate Field Functions 
+        bool hasGmtCreate() const { return this->gmtCreate_ != nullptr;};
+        void deleteGmtCreate() { this->gmtCreate_ = nullptr;};
+        inline string getGmtCreate() const { DARABONBA_PTR_GET_DEFAULT(gmtCreate_, "") };
+        inline BindData& setGmtCreate(string gmtCreate) { DARABONBA_PTR_SET_VALUE(gmtCreate_, gmtCreate) };
+
+
+        // gmtModified Field Functions 
+        bool hasGmtModified() const { return this->gmtModified_ != nullptr;};
+        void deleteGmtModified() { this->gmtModified_ = nullptr;};
+        inline string getGmtModified() const { DARABONBA_PTR_GET_DEFAULT(gmtModified_, "") };
+        inline BindData& setGmtModified(string gmtModified) { DARABONBA_PTR_SET_VALUE(gmtModified_, gmtModified) };
+
+
+        // id Field Functions 
+        bool hasId() const { return this->id_ != nullptr;};
+        void deleteId() { this->id_ = nullptr;};
+        inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+        inline BindData& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+        // mobile Field Functions 
+        bool hasMobile() const { return this->mobile_ != nullptr;};
+        void deleteMobile() { this->mobile_ = nullptr;};
+        inline string getMobile() const { DARABONBA_PTR_GET_DEFAULT(mobile_, "") };
+        inline BindData& setMobile(string mobile) { DARABONBA_PTR_SET_VALUE(mobile_, mobile) };
+
+
+        // parentPk Field Functions 
+        bool hasParentPk() const { return this->parentPk_ != nullptr;};
+        void deleteParentPk() { this->parentPk_ = nullptr;};
+        inline string getParentPk() const { DARABONBA_PTR_GET_DEFAULT(parentPk_, "") };
+        inline BindData& setParentPk(string parentPk) { DARABONBA_PTR_SET_VALUE(parentPk_, parentPk) };
+
+
+        // partnerId Field Functions 
+        bool hasPartnerId() const { return this->partnerId_ != nullptr;};
+        void deletePartnerId() { this->partnerId_ = nullptr;};
+        inline string getPartnerId() const { DARABONBA_PTR_GET_DEFAULT(partnerId_, "") };
+        inline BindData& setPartnerId(string partnerId) { DARABONBA_PTR_SET_VALUE(partnerId_, partnerId) };
+
+
+        // userId Field Functions 
+        bool hasUserId() const { return this->userId_ != nullptr;};
+        void deleteUserId() { this->userId_ = nullptr;};
+        inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+        inline BindData& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
+
+
+      protected:
+        shared_ptr<string> bizId_ {};
+        shared_ptr<string> gmtCreate_ {};
+        shared_ptr<string> gmtModified_ {};
+        shared_ptr<string> id_ {};
+        shared_ptr<string> mobile_ {};
+        shared_ptr<string> parentPk_ {};
+        shared_ptr<string> partnerId_ {};
+        shared_ptr<string> userId_ {};
+      };
+
+      virtual bool empty() const override { return this->bindData_ == nullptr
+        && this->partnerId_ == nullptr && this->status_ == nullptr; };
+      // bindData Field Functions 
+      bool hasBindData() const { return this->bindData_ != nullptr;};
+      void deleteBindData() { this->bindData_ = nullptr;};
+      inline const PartnerDetail::BindData & getBindData() const { DARABONBA_PTR_GET_CONST(bindData_, PartnerDetail::BindData) };
+      inline PartnerDetail::BindData getBindData() { DARABONBA_PTR_GET(bindData_, PartnerDetail::BindData) };
+      inline PartnerDetail& setBindData(const PartnerDetail::BindData & bindData) { DARABONBA_PTR_SET_VALUE(bindData_, bindData) };
+      inline PartnerDetail& setBindData(PartnerDetail::BindData && bindData) { DARABONBA_PTR_SET_RVALUE(bindData_, bindData) };
+
+
+      // partnerId Field Functions 
+      bool hasPartnerId() const { return this->partnerId_ != nullptr;};
+      void deletePartnerId() { this->partnerId_ = nullptr;};
+      inline string getPartnerId() const { DARABONBA_PTR_GET_DEFAULT(partnerId_, "") };
+      inline PartnerDetail& setPartnerId(string partnerId) { DARABONBA_PTR_SET_VALUE(partnerId_, partnerId) };
+
+
+      // status Field Functions 
+      bool hasStatus() const { return this->status_ != nullptr;};
+      void deleteStatus() { this->status_ = nullptr;};
+      inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+      inline PartnerDetail& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+    protected:
+      shared_ptr<PartnerDetail::BindData> bindData_ {};
+      shared_ptr<string> partnerId_ {};
+      shared_ptr<string> status_ {};
+    };
+
     virtual bool empty() const override { return this->aiStaffList_ == nullptr
         && this->appOperationAddress_ == nullptr && this->appServiceList_ == nullptr && this->appSubType_ == nullptr && this->appType_ == nullptr && this->bizId_ == nullptr
         && this->buildType_ == nullptr && this->createTime_ == nullptr && this->deleted_ == nullptr && this->description_ == nullptr && this->designSpecBizId_ == nullptr
         && this->designSpecId_ == nullptr && this->domain_ == nullptr && this->endTime_ == nullptr && this->espBizId_ == nullptr && this->gmtDelete_ == nullptr
-        && this->gmtModified_ == nullptr && this->gmtPublish_ == nullptr && this->iconUrl_ == nullptr && this->name_ == nullptr && this->profile_ == nullptr
-        && this->siteHost_ == nullptr && this->slug_ == nullptr && this->sourceType_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr
-        && this->statusText_ == nullptr && this->thumbnailUrl_ == nullptr && this->userId_ == nullptr; };
+        && this->gmtModified_ == nullptr && this->gmtPublish_ == nullptr && this->iconUrl_ == nullptr && this->name_ == nullptr && this->partnerDetail_ == nullptr
+        && this->profile_ == nullptr && this->resourceGroupId_ == nullptr && this->siteHost_ == nullptr && this->slug_ == nullptr && this->sourceType_ == nullptr
+        && this->startTime_ == nullptr && this->status_ == nullptr && this->statusText_ == nullptr && this->tags_ == nullptr && this->thumbnailUrl_ == nullptr
+        && this->userId_ == nullptr; };
     // aiStaffList Field Functions 
     bool hasAiStaffList() const { return this->aiStaffList_ != nullptr;};
     void deleteAiStaffList() { this->aiStaffList_ = nullptr;};
@@ -243,6 +449,15 @@ namespace Models
     inline AppInstanceAggregate& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+    // partnerDetail Field Functions 
+    bool hasPartnerDetail() const { return this->partnerDetail_ != nullptr;};
+    void deletePartnerDetail() { this->partnerDetail_ = nullptr;};
+    inline const AppInstanceAggregate::PartnerDetail & getPartnerDetail() const { DARABONBA_PTR_GET_CONST(partnerDetail_, AppInstanceAggregate::PartnerDetail) };
+    inline AppInstanceAggregate::PartnerDetail getPartnerDetail() { DARABONBA_PTR_GET(partnerDetail_, AppInstanceAggregate::PartnerDetail) };
+    inline AppInstanceAggregate& setPartnerDetail(const AppInstanceAggregate::PartnerDetail & partnerDetail) { DARABONBA_PTR_SET_VALUE(partnerDetail_, partnerDetail) };
+    inline AppInstanceAggregate& setPartnerDetail(AppInstanceAggregate::PartnerDetail && partnerDetail) { DARABONBA_PTR_SET_RVALUE(partnerDetail_, partnerDetail) };
+
+
     // profile Field Functions 
     bool hasProfile() const { return this->profile_ != nullptr;};
     void deleteProfile() { this->profile_ = nullptr;};
@@ -250,6 +465,13 @@ namespace Models
     inline AppInstanceProfile getProfile() { DARABONBA_PTR_GET(profile_, AppInstanceProfile) };
     inline AppInstanceAggregate& setProfile(const AppInstanceProfile & profile) { DARABONBA_PTR_SET_VALUE(profile_, profile) };
     inline AppInstanceAggregate& setProfile(AppInstanceProfile && profile) { DARABONBA_PTR_SET_RVALUE(profile_, profile) };
+
+
+    // resourceGroupId Field Functions 
+    bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
+    void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline AppInstanceAggregate& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // siteHost Field Functions 
@@ -294,6 +516,15 @@ namespace Models
     inline AppInstanceAggregate& setStatusText(string statusText) { DARABONBA_PTR_SET_VALUE(statusText_, statusText) };
 
 
+    // tags Field Functions 
+    bool hasTags() const { return this->tags_ != nullptr;};
+    void deleteTags() { this->tags_ = nullptr;};
+    inline const vector<AppInstanceAggregate::Tags> & getTags() const { DARABONBA_PTR_GET_CONST(tags_, vector<AppInstanceAggregate::Tags>) };
+    inline vector<AppInstanceAggregate::Tags> getTags() { DARABONBA_PTR_GET(tags_, vector<AppInstanceAggregate::Tags>) };
+    inline AppInstanceAggregate& setTags(const vector<AppInstanceAggregate::Tags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+    inline AppInstanceAggregate& setTags(vector<AppInstanceAggregate::Tags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
+
+
     // thumbnailUrl Field Functions 
     bool hasThumbnailUrl() const { return this->thumbnailUrl_ != nullptr;};
     void deleteThumbnailUrl() { this->thumbnailUrl_ = nullptr;};
@@ -329,7 +560,9 @@ namespace Models
     shared_ptr<string> gmtPublish_ {};
     shared_ptr<string> iconUrl_ {};
     shared_ptr<string> name_ {};
+    shared_ptr<AppInstanceAggregate::PartnerDetail> partnerDetail_ {};
     shared_ptr<AppInstanceProfile> profile_ {};
+    shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> siteHost_ {};
     shared_ptr<string> slug_ {};
     shared_ptr<string> sourceType_ {};
@@ -337,6 +570,7 @@ namespace Models
     // trial,draft,live,refunded,expired,released
     shared_ptr<string> status_ {};
     shared_ptr<string> statusText_ {};
+    shared_ptr<vector<AppInstanceAggregate::Tags>> tags_ {};
     shared_ptr<string> thumbnailUrl_ {};
     shared_ptr<string> userId_ {};
   };

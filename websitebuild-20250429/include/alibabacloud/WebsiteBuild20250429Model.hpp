@@ -16,6 +16,7 @@
 #include <alibabacloud/models/BindAppDomainResponseBody.hpp>
 #include <alibabacloud/models/BindAppDomainResponse.hpp>
 #include <alibabacloud/models/CreateAppInstanceRequest.hpp>
+#include <alibabacloud/models/CreateAppInstanceShrinkRequest.hpp>
 #include <alibabacloud/models/CreateAppInstanceResponseBody.hpp>
 #include <alibabacloud/models/CreateAppInstanceResponse.hpp>
 #include <alibabacloud/models/CreateAppInstanceTicketRequest.hpp>

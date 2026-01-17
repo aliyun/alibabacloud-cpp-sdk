@@ -92,12 +92,18 @@ BindAppDomainResponse Client::bindAppDomain(const BindAppDomainRequest &request)
 /**
  * @summary Create a website instance
  *
- * @param request CreateAppInstanceRequest
+ * @param tmpReq CreateAppInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateAppInstanceResponse
  */
-CreateAppInstanceResponse Client::createAppInstanceWithOptions(const CreateAppInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+CreateAppInstanceResponse Client::createAppInstanceWithOptions(const CreateAppInstanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateAppInstanceShrinkRequest request = CreateAppInstanceShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasTags()) {
+    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTags(), "Tags", "json"));
+  }
+
   json query = {};
   if (!!request.hasApplicationType()) {
     query["ApplicationType"] = request.getApplicationType();
@@ -139,9 +145,19 @@ CreateAppInstanceResponse Client::createAppInstanceWithOptions(const CreateAppIn
     query["SiteVersion"] = request.getSiteVersion();
   }
 
+  json body = {};
+  if (!!request.hasResourceGroupId()) {
+    body["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasTagsShrink()) {
+    body["Tags"] = request.getTagsShrink();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
   Params params = Params(json({
     {"action" , "CreateAppInstance"},
     {"version" , "2025-04-29"},
