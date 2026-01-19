@@ -33,7 +33,7 @@ namespace Models
     // phoneNumber Field Functions 
     bool hasPhoneNumber() const { return this->phoneNumber_ != nullptr;};
     void deletePhoneNumber() { this->phoneNumber_ = nullptr;};
-    inline string phoneNumber() const { DARABONBA_PTR_GET_DEFAULT(phoneNumber_, "") };
+    inline string getPhoneNumber() const { DARABONBA_PTR_GET_DEFAULT(phoneNumber_, "") };
     inline GetUserIdByPhoneNumberRequest& setPhoneNumber(string phoneNumber) { DARABONBA_PTR_SET_VALUE(phoneNumber_, phoneNumber) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The mobile number of the user who owns the account.
     // 
     // This parameter is required.
-    std::shared_ptr<string> phoneNumber_ = nullptr;
+    shared_ptr<string> phoneNumber_ {};
   };
 
   } // namespace Models

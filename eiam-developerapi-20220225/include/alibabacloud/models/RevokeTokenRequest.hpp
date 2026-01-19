@@ -36,46 +36,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientId_ == nullptr
-        && return this->clientSecret_ == nullptr && return this->token_ == nullptr && return this->tokenTypeHint_ == nullptr; };
+        && this->clientSecret_ == nullptr && this->token_ == nullptr && this->tokenTypeHint_ == nullptr; };
     // clientId Field Functions 
     bool hasClientId() const { return this->clientId_ != nullptr;};
     void deleteClientId() { this->clientId_ = nullptr;};
-    inline string clientId() const { DARABONBA_PTR_GET_DEFAULT(clientId_, "") };
+    inline string getClientId() const { DARABONBA_PTR_GET_DEFAULT(clientId_, "") };
     inline RevokeTokenRequest& setClientId(string clientId) { DARABONBA_PTR_SET_VALUE(clientId_, clientId) };
 
 
     // clientSecret Field Functions 
     bool hasClientSecret() const { return this->clientSecret_ != nullptr;};
     void deleteClientSecret() { this->clientSecret_ = nullptr;};
-    inline string clientSecret() const { DARABONBA_PTR_GET_DEFAULT(clientSecret_, "") };
+    inline string getClientSecret() const { DARABONBA_PTR_GET_DEFAULT(clientSecret_, "") };
     inline RevokeTokenRequest& setClientSecret(string clientSecret) { DARABONBA_PTR_SET_VALUE(clientSecret_, clientSecret) };
 
 
     // token Field Functions 
     bool hasToken() const { return this->token_ != nullptr;};
     void deleteToken() { this->token_ = nullptr;};
-    inline string token() const { DARABONBA_PTR_GET_DEFAULT(token_, "") };
+    inline string getToken() const { DARABONBA_PTR_GET_DEFAULT(token_, "") };
     inline RevokeTokenRequest& setToken(string token) { DARABONBA_PTR_SET_VALUE(token_, token) };
 
 
     // tokenTypeHint Field Functions 
     bool hasTokenTypeHint() const { return this->tokenTypeHint_ != nullptr;};
     void deleteTokenTypeHint() { this->tokenTypeHint_ = nullptr;};
-    inline string tokenTypeHint() const { DARABONBA_PTR_GET_DEFAULT(tokenTypeHint_, "") };
+    inline string getTokenTypeHint() const { DARABONBA_PTR_GET_DEFAULT(tokenTypeHint_, "") };
     inline RevokeTokenRequest& setTokenTypeHint(string tokenTypeHint) { DARABONBA_PTR_SET_VALUE(tokenTypeHint_, tokenTypeHint) };
 
 
   protected:
     // The client ID.
-    std::shared_ptr<string> clientId_ = nullptr;
+    shared_ptr<string> clientId_ {};
     // The client secret.
-    std::shared_ptr<string> clientSecret_ = nullptr;
+    shared_ptr<string> clientSecret_ {};
     // The token to be revoked.
     // 
     // This parameter is required.
-    std::shared_ptr<string> token_ = nullptr;
+    shared_ptr<string> token_ {};
     // The type of the token. Valid values: access_token refresh_token
-    std::shared_ptr<string> tokenTypeHint_ = nullptr;
+    shared_ptr<string> tokenTypeHint_ {};
   };
 
   } // namespace Models

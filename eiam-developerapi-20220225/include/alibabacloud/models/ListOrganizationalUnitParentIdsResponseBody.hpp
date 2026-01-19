@@ -34,15 +34,15 @@ namespace Models
     // parentIds Field Functions 
     bool hasParentIds() const { return this->parentIds_ != nullptr;};
     void deleteParentIds() { this->parentIds_ = nullptr;};
-    inline const vector<string> & parentIds() const { DARABONBA_PTR_GET_CONST(parentIds_, vector<string>) };
-    inline vector<string> parentIds() { DARABONBA_PTR_GET(parentIds_, vector<string>) };
+    inline const vector<string> & getParentIds() const { DARABONBA_PTR_GET_CONST(parentIds_, vector<string>) };
+    inline vector<string> getParentIds() { DARABONBA_PTR_GET(parentIds_, vector<string>) };
     inline ListOrganizationalUnitParentIdsResponseBody& setParentIds(const vector<string> & parentIds) { DARABONBA_PTR_SET_VALUE(parentIds_, parentIds) };
     inline ListOrganizationalUnitParentIdsResponseBody& setParentIds(vector<string> && parentIds) { DARABONBA_PTR_SET_RVALUE(parentIds_, parentIds) };
 
 
   protected:
     // The IDs of the parent organizational units. The IDs of the organizational unit are ordered based on their levels from high to low. Only the IDs of the organizational units within the authorization scope are displayed.
-    std::shared_ptr<vector<string>> parentIds_ = nullptr;
+    shared_ptr<vector<string>> parentIds_ {};
   };
 
   } // namespace Models

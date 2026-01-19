@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->organizationalUnitExternalId_ == nullptr
-        && return this->organizationalUnitSourceId_ == nullptr && return this->organizationalUnitSourceType_ == nullptr; };
+        && this->organizationalUnitSourceId_ == nullptr && this->organizationalUnitSourceType_ == nullptr; };
     // organizationalUnitExternalId Field Functions 
     bool hasOrganizationalUnitExternalId() const { return this->organizationalUnitExternalId_ != nullptr;};
     void deleteOrganizationalUnitExternalId() { this->organizationalUnitExternalId_ = nullptr;};
-    inline string organizationalUnitExternalId() const { DARABONBA_PTR_GET_DEFAULT(organizationalUnitExternalId_, "") };
+    inline string getOrganizationalUnitExternalId() const { DARABONBA_PTR_GET_DEFAULT(organizationalUnitExternalId_, "") };
     inline GetOrganizationalUnitIdByExternalIdRequest& setOrganizationalUnitExternalId(string organizationalUnitExternalId) { DARABONBA_PTR_SET_VALUE(organizationalUnitExternalId_, organizationalUnitExternalId) };
 
 
     // organizationalUnitSourceId Field Functions 
     bool hasOrganizationalUnitSourceId() const { return this->organizationalUnitSourceId_ != nullptr;};
     void deleteOrganizationalUnitSourceId() { this->organizationalUnitSourceId_ = nullptr;};
-    inline string organizationalUnitSourceId() const { DARABONBA_PTR_GET_DEFAULT(organizationalUnitSourceId_, "") };
+    inline string getOrganizationalUnitSourceId() const { DARABONBA_PTR_GET_DEFAULT(organizationalUnitSourceId_, "") };
     inline GetOrganizationalUnitIdByExternalIdRequest& setOrganizationalUnitSourceId(string organizationalUnitSourceId) { DARABONBA_PTR_SET_VALUE(organizationalUnitSourceId_, organizationalUnitSourceId) };
 
 
     // organizationalUnitSourceType Field Functions 
     bool hasOrganizationalUnitSourceType() const { return this->organizationalUnitSourceType_ != nullptr;};
     void deleteOrganizationalUnitSourceType() { this->organizationalUnitSourceType_ = nullptr;};
-    inline string organizationalUnitSourceType() const { DARABONBA_PTR_GET_DEFAULT(organizationalUnitSourceType_, "") };
+    inline string getOrganizationalUnitSourceType() const { DARABONBA_PTR_GET_DEFAULT(organizationalUnitSourceType_, "") };
     inline GetOrganizationalUnitIdByExternalIdRequest& setOrganizationalUnitSourceType(string organizationalUnitSourceType) { DARABONBA_PTR_SET_VALUE(organizationalUnitSourceType_, organizationalUnitSourceType) };
 
 
@@ -62,13 +62,13 @@ namespace Models
     // Note: For organizational units with the same source type and source ID, each organizational unit has a unique external ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> organizationalUnitExternalId_ = nullptr;
+    shared_ptr<string> organizationalUnitExternalId_ {};
     // The source ID of the organizational unit.
     // 
     // If the organizational unit was created in IDaaS, its source ID is the ID of the IDaaS instance. If the organizational unit was imported, its source ID is the enterprise ID in the source. For example, if the organizational unit was imported from DingTalk, its source ID is the corpId value of the enterprise in DingTalk.
     // 
     // This parameter is required.
-    std::shared_ptr<string> organizationalUnitSourceId_ = nullptr;
+    shared_ptr<string> organizationalUnitSourceId_ {};
     // The source type of the organizational unit. Valid values:
     // 
     // *   build_in: The organizational unit was created in IDaaS.
@@ -77,7 +77,7 @@ namespace Models
     // *   ldap: The organizational unit was imported from a Lightweight Directory Access Protocol (LDAP) service.
     // 
     // This parameter is required.
-    std::shared_ptr<string> organizationalUnitSourceType_ = nullptr;
+    shared_ptr<string> organizationalUnitSourceType_ {};
   };
 
   } // namespace Models

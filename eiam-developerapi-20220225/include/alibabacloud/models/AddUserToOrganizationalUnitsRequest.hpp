@@ -34,15 +34,15 @@ namespace Models
     // organizationalUnitIds Field Functions 
     bool hasOrganizationalUnitIds() const { return this->organizationalUnitIds_ != nullptr;};
     void deleteOrganizationalUnitIds() { this->organizationalUnitIds_ = nullptr;};
-    inline const vector<string> & organizationalUnitIds() const { DARABONBA_PTR_GET_CONST(organizationalUnitIds_, vector<string>) };
-    inline vector<string> organizationalUnitIds() { DARABONBA_PTR_GET(organizationalUnitIds_, vector<string>) };
+    inline const vector<string> & getOrganizationalUnitIds() const { DARABONBA_PTR_GET_CONST(organizationalUnitIds_, vector<string>) };
+    inline vector<string> getOrganizationalUnitIds() { DARABONBA_PTR_GET(organizationalUnitIds_, vector<string>) };
     inline AddUserToOrganizationalUnitsRequest& setOrganizationalUnitIds(const vector<string> & organizationalUnitIds) { DARABONBA_PTR_SET_VALUE(organizationalUnitIds_, organizationalUnitIds) };
     inline AddUserToOrganizationalUnitsRequest& setOrganizationalUnitIds(vector<string> && organizationalUnitIds) { DARABONBA_PTR_SET_RVALUE(organizationalUnitIds_, organizationalUnitIds) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<vector<string>> organizationalUnitIds_ = nullptr;
+    shared_ptr<vector<string>> organizationalUnitIds_ {};
   };
 
   } // namespace Models

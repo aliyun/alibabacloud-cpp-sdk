@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_GETUSERIDBYPHONENUMBERHEADERS_HPP_
-#define ALIBABACLOUD_MODELS_GETUSERIDBYPHONENUMBERHEADERS_HPP_
+#ifndef ALIBABACLOUD_MODELS_OBTAINCLOUDACCOUNTROLEACCESSCREDENTIALHEADERS_HPP_
+#define ALIBABACLOUD_MODELS_OBTAINCLOUDACCOUNTROLEACCESSCREDENTIALHEADERS_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
 using namespace std;
@@ -11,23 +11,23 @@ namespace EiamDeveloperapi20220225
 {
 namespace Models
 {
-  class GetUserIdByPhoneNumberHeaders : public Darabonba::Model {
+  class ObtainCloudAccountRoleAccessCredentialHeaders : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const GetUserIdByPhoneNumberHeaders& obj) { 
+    friend void to_json(Darabonba::Json& j, const ObtainCloudAccountRoleAccessCredentialHeaders& obj) { 
       DARABONBA_PTR_TO_JSON(commonHeaders, commonHeaders_);
       DARABONBA_PTR_TO_JSON(Authorization, authorization_);
     };
-    friend void from_json(const Darabonba::Json& j, GetUserIdByPhoneNumberHeaders& obj) { 
+    friend void from_json(const Darabonba::Json& j, ObtainCloudAccountRoleAccessCredentialHeaders& obj) { 
       DARABONBA_PTR_FROM_JSON(commonHeaders, commonHeaders_);
       DARABONBA_PTR_FROM_JSON(Authorization, authorization_);
     };
-    GetUserIdByPhoneNumberHeaders() = default ;
-    GetUserIdByPhoneNumberHeaders(const GetUserIdByPhoneNumberHeaders &) = default ;
-    GetUserIdByPhoneNumberHeaders(GetUserIdByPhoneNumberHeaders &&) = default ;
-    GetUserIdByPhoneNumberHeaders(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~GetUserIdByPhoneNumberHeaders() = default ;
-    GetUserIdByPhoneNumberHeaders& operator=(const GetUserIdByPhoneNumberHeaders &) = default ;
-    GetUserIdByPhoneNumberHeaders& operator=(GetUserIdByPhoneNumberHeaders &&) = default ;
+    ObtainCloudAccountRoleAccessCredentialHeaders() = default ;
+    ObtainCloudAccountRoleAccessCredentialHeaders(const ObtainCloudAccountRoleAccessCredentialHeaders &) = default ;
+    ObtainCloudAccountRoleAccessCredentialHeaders(ObtainCloudAccountRoleAccessCredentialHeaders &&) = default ;
+    ObtainCloudAccountRoleAccessCredentialHeaders(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ObtainCloudAccountRoleAccessCredentialHeaders() = default ;
+    ObtainCloudAccountRoleAccessCredentialHeaders& operator=(const ObtainCloudAccountRoleAccessCredentialHeaders &) = default ;
+    ObtainCloudAccountRoleAccessCredentialHeaders& operator=(ObtainCloudAccountRoleAccessCredentialHeaders &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -39,21 +39,19 @@ namespace Models
     void deleteCommonHeaders() { this->commonHeaders_ = nullptr;};
     inline const map<string, string> & getCommonHeaders() const { DARABONBA_PTR_GET_CONST(commonHeaders_, map<string, string>) };
     inline map<string, string> getCommonHeaders() { DARABONBA_PTR_GET(commonHeaders_, map<string, string>) };
-    inline GetUserIdByPhoneNumberHeaders& setCommonHeaders(const map<string, string> & commonHeaders) { DARABONBA_PTR_SET_VALUE(commonHeaders_, commonHeaders) };
-    inline GetUserIdByPhoneNumberHeaders& setCommonHeaders(map<string, string> && commonHeaders) { DARABONBA_PTR_SET_RVALUE(commonHeaders_, commonHeaders) };
+    inline ObtainCloudAccountRoleAccessCredentialHeaders& setCommonHeaders(const map<string, string> & commonHeaders) { DARABONBA_PTR_SET_VALUE(commonHeaders_, commonHeaders) };
+    inline ObtainCloudAccountRoleAccessCredentialHeaders& setCommonHeaders(map<string, string> && commonHeaders) { DARABONBA_PTR_SET_RVALUE(commonHeaders_, commonHeaders) };
 
 
     // authorization Field Functions 
     bool hasAuthorization() const { return this->authorization_ != nullptr;};
     void deleteAuthorization() { this->authorization_ = nullptr;};
     inline string getAuthorization() const { DARABONBA_PTR_GET_DEFAULT(authorization_, "") };
-    inline GetUserIdByPhoneNumberHeaders& setAuthorization(string authorization) { DARABONBA_PTR_SET_VALUE(authorization_, authorization) };
+    inline ObtainCloudAccountRoleAccessCredentialHeaders& setAuthorization(string authorization) { DARABONBA_PTR_SET_VALUE(authorization_, authorization) };
 
 
   protected:
     shared_ptr<map<string, string>> commonHeaders_ {};
-    // The authentication information. Format: Bearer ${access_token}. Example: Bearer ATxxxx.
-    // 
     // This parameter is required.
     shared_ptr<string> authorization_ {};
   };

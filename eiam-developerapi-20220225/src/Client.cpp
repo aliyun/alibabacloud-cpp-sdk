@@ -49,16 +49,16 @@ AddUserToOrganizationalUnitsResponse Client::addUserToOrganizationalUnitsWithOpt
   request.validate();
   json body = {};
   if (!!request.hasOrganizationalUnitIds()) {
-    body["organizationalUnitIds"] = request.organizationalUnitIds();
+    body["organizationalUnitIds"] = request.getOrganizationalUnitIds();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -76,7 +76,7 @@ AddUserToOrganizationalUnitsResponse Client::addUserToOrganizationalUnitsWithOpt
     {"reqBodyType" , "json"},
     {"bodyType" , "none"}
   }).get<map<string, string>>());
-  return json(doROARequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.pathname(), params.bodyType(), req, runtime)).get<AddUserToOrganizationalUnitsResponse>();
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<AddUserToOrganizationalUnitsResponse>();
 }
 
 /**
@@ -103,16 +103,16 @@ AddUsersToGroupResponse Client::addUsersToGroupWithOptions(const string &instanc
   request.validate();
   json body = {};
   if (!!request.hasUserIds()) {
-    body["userIds"] = request.userIds();
+    body["userIds"] = request.getUserIds();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -130,7 +130,7 @@ AddUsersToGroupResponse Client::addUsersToGroupWithOptions(const string &instanc
     {"reqBodyType" , "json"},
     {"bodyType" , "none"}
   }).get<map<string, string>>());
-  return json(doROARequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.pathname(), params.bodyType(), req, runtime)).get<AddUsersToGroupResponse>();
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<AddUsersToGroupResponse>();
 }
 
 /**
@@ -157,20 +157,20 @@ CreateGroupResponse Client::createGroupWithOptions(const string &instanceId, con
   request.validate();
   json body = {};
   if (!!request.hasGroupExternalId()) {
-    body["groupExternalId"] = request.groupExternalId();
+    body["groupExternalId"] = request.getGroupExternalId();
   }
 
   if (!!request.hasGroupName()) {
-    body["groupName"] = request.groupName();
+    body["groupName"] = request.getGroupName();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -188,7 +188,7 @@ CreateGroupResponse Client::createGroupWithOptions(const string &instanceId, con
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  return json(doROARequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.pathname(), params.bodyType(), req, runtime)).get<CreateGroupResponse>();
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<CreateGroupResponse>();
 }
 
 /**
@@ -215,28 +215,28 @@ CreateOrganizationalUnitResponse Client::createOrganizationalUnitWithOptions(con
   request.validate();
   json body = {};
   if (!!request.hasDescription()) {
-    body["description"] = request.description();
+    body["description"] = request.getDescription();
   }
 
   if (!!request.hasOrganizationalUnitExternalId()) {
-    body["organizationalUnitExternalId"] = request.organizationalUnitExternalId();
+    body["organizationalUnitExternalId"] = request.getOrganizationalUnitExternalId();
   }
 
   if (!!request.hasOrganizationalUnitName()) {
-    body["organizationalUnitName"] = request.organizationalUnitName();
+    body["organizationalUnitName"] = request.getOrganizationalUnitName();
   }
 
   if (!!request.hasParentId()) {
-    body["parentId"] = request.parentId();
+    body["parentId"] = request.getParentId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -254,7 +254,7 @@ CreateOrganizationalUnitResponse Client::createOrganizationalUnitWithOptions(con
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  return json(doROARequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.pathname(), params.bodyType(), req, runtime)).get<CreateOrganizationalUnitResponse>();
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<CreateOrganizationalUnitResponse>();
 }
 
 /**
@@ -281,64 +281,64 @@ CreateUserResponse Client::createUserWithOptions(const string &instanceId, const
   request.validate();
   json body = {};
   if (!!request.hasCustomFields()) {
-    body["customFields"] = request.customFields();
+    body["customFields"] = request.getCustomFields();
   }
 
   if (!!request.hasDescription()) {
-    body["description"] = request.description();
+    body["description"] = request.getDescription();
   }
 
   if (!!request.hasDisplayName()) {
-    body["displayName"] = request.displayName();
+    body["displayName"] = request.getDisplayName();
   }
 
   if (!!request.hasEmail()) {
-    body["email"] = request.email();
+    body["email"] = request.getEmail();
   }
 
   if (!!request.hasEmailVerified()) {
-    body["emailVerified"] = request.emailVerified();
+    body["emailVerified"] = request.getEmailVerified();
   }
 
   if (!!request.hasPassword()) {
-    body["password"] = request.password();
+    body["password"] = request.getPassword();
   }
 
   if (!!request.hasPasswordInitializationConfig()) {
-    body["passwordInitializationConfig"] = request.passwordInitializationConfig();
+    body["passwordInitializationConfig"] = request.getPasswordInitializationConfig();
   }
 
   if (!!request.hasPhoneNumber()) {
-    body["phoneNumber"] = request.phoneNumber();
+    body["phoneNumber"] = request.getPhoneNumber();
   }
 
   if (!!request.hasPhoneNumberVerified()) {
-    body["phoneNumberVerified"] = request.phoneNumberVerified();
+    body["phoneNumberVerified"] = request.getPhoneNumberVerified();
   }
 
   if (!!request.hasPhoneRegion()) {
-    body["phoneRegion"] = request.phoneRegion();
+    body["phoneRegion"] = request.getPhoneRegion();
   }
 
   if (!!request.hasPrimaryOrganizationalUnitId()) {
-    body["primaryOrganizationalUnitId"] = request.primaryOrganizationalUnitId();
+    body["primaryOrganizationalUnitId"] = request.getPrimaryOrganizationalUnitId();
   }
 
   if (!!request.hasUserExternalId()) {
-    body["userExternalId"] = request.userExternalId();
+    body["userExternalId"] = request.getUserExternalId();
   }
 
   if (!!request.hasUsername()) {
-    body["username"] = request.username();
+    body["username"] = request.getUsername();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -356,7 +356,7 @@ CreateUserResponse Client::createUserWithOptions(const string &instanceId, const
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  return json(doROARequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.pathname(), params.bodyType(), req, runtime)).get<CreateUserResponse>();
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<CreateUserResponse>();
 }
 
 /**
@@ -381,11 +381,11 @@ CreateUserResponse Client::createUser(const string &instanceId, const string &ap
 DeleteGroupResponse Client::deleteGroupWithOptions(const string &instanceId, const string &applicationId, const string &groupId, const DeleteGroupHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -402,7 +402,7 @@ DeleteGroupResponse Client::deleteGroupWithOptions(const string &instanceId, con
     {"reqBodyType" , "json"},
     {"bodyType" , "none"}
   }).get<map<string, string>>());
-  return json(doROARequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.pathname(), params.bodyType(), req, runtime)).get<DeleteGroupResponse>();
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<DeleteGroupResponse>();
 }
 
 /**
@@ -426,11 +426,11 @@ DeleteGroupResponse Client::deleteGroup(const string &instanceId, const string &
 DeleteOrganizationalUnitResponse Client::deleteOrganizationalUnitWithOptions(const string &instanceId, const string &applicationId, const string &organizationalUnitId, const DeleteOrganizationalUnitHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -447,7 +447,7 @@ DeleteOrganizationalUnitResponse Client::deleteOrganizationalUnitWithOptions(con
     {"reqBodyType" , "json"},
     {"bodyType" , "none"}
   }).get<map<string, string>>());
-  return json(doROARequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.pathname(), params.bodyType(), req, runtime)).get<DeleteOrganizationalUnitResponse>();
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<DeleteOrganizationalUnitResponse>();
 }
 
 /**
@@ -471,11 +471,11 @@ DeleteOrganizationalUnitResponse Client::deleteOrganizationalUnit(const string &
 DeleteUserResponse Client::deleteUserWithOptions(const string &instanceId, const string &applicationId, const string &userId, const DeleteUserHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -492,7 +492,7 @@ DeleteUserResponse Client::deleteUserWithOptions(const string &instanceId, const
     {"reqBodyType" , "json"},
     {"bodyType" , "none"}
   }).get<map<string, string>>());
-  return json(doROARequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.pathname(), params.bodyType(), req, runtime)).get<DeleteUserResponse>();
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<DeleteUserResponse>();
 }
 
 /**
@@ -516,11 +516,11 @@ DeleteUserResponse Client::deleteUser(const string &instanceId, const string &ap
 DisableUserResponse Client::disableUserWithOptions(const string &instanceId, const string &applicationId, const string &userId, const DisableUserHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -537,7 +537,7 @@ DisableUserResponse Client::disableUserWithOptions(const string &instanceId, con
     {"reqBodyType" , "json"},
     {"bodyType" , "none"}
   }).get<map<string, string>>());
-  return json(doROARequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.pathname(), params.bodyType(), req, runtime)).get<DisableUserResponse>();
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<DisableUserResponse>();
 }
 
 /**
@@ -561,11 +561,11 @@ DisableUserResponse Client::disableUser(const string &instanceId, const string &
 EnableUserResponse Client::enableUserWithOptions(const string &instanceId, const string &applicationId, const string &userId, const EnableUserHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -582,7 +582,7 @@ EnableUserResponse Client::enableUserWithOptions(const string &instanceId, const
     {"reqBodyType" , "json"},
     {"bodyType" , "none"}
   }).get<map<string, string>>());
-  return json(doROARequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.pathname(), params.bodyType(), req, runtime)).get<EnableUserResponse>();
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<EnableUserResponse>();
 }
 
 /**
@@ -608,7 +608,7 @@ GenerateDeviceCodeResponse Client::generateDeviceCodeWithOptions(const string &i
   request.validate();
   json query = {};
   if (!!request.hasScope()) {
-    query["scope"] = request.scope();
+    query["scope"] = request.getScope();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -626,7 +626,7 @@ GenerateDeviceCodeResponse Client::generateDeviceCodeWithOptions(const string &i
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  return json(doROARequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.pathname(), params.bodyType(), req, runtime)).get<GenerateDeviceCodeResponse>();
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<GenerateDeviceCodeResponse>();
 }
 
 /**
@@ -655,51 +655,51 @@ GenerateTokenResponse Client::generateTokenWithOptions(const string &instanceId,
   request.validate();
   json query = {};
   if (!!request.hasClientId()) {
-    query["client_id"] = request.clientId();
+    query["client_id"] = request.getClientId();
   }
 
   if (!!request.hasClientSecret()) {
-    query["client_secret"] = request.clientSecret();
+    query["client_secret"] = request.getClientSecret();
   }
 
   if (!!request.hasCode()) {
-    query["code"] = request.code();
+    query["code"] = request.getCode();
   }
 
   if (!!request.hasCodeVerifier()) {
-    query["code_verifier"] = request.codeVerifier();
+    query["code_verifier"] = request.getCodeVerifier();
   }
 
   if (!!request.hasDeviceCode()) {
-    query["device_code"] = request.deviceCode();
+    query["device_code"] = request.getDeviceCode();
   }
 
   if (!!request.hasExclusiveTag()) {
-    query["exclusive_tag"] = request.exclusiveTag();
+    query["exclusive_tag"] = request.getExclusiveTag();
   }
 
   if (!!request.hasGrantType()) {
-    query["grant_type"] = request.grantType();
+    query["grant_type"] = request.getGrantType();
   }
 
   if (!!request.hasPassword()) {
-    query["password"] = request.password();
+    query["password"] = request.getPassword();
   }
 
   if (!!request.hasRedirectUri()) {
-    query["redirect_uri"] = request.redirectUri();
+    query["redirect_uri"] = request.getRedirectUri();
   }
 
   if (!!request.hasRefreshToken()) {
-    query["refresh_token"] = request.refreshToken();
+    query["refresh_token"] = request.getRefreshToken();
   }
 
   if (!!request.hasScope()) {
-    query["scope"] = request.scope();
+    query["scope"] = request.getScope();
   }
 
   if (!!request.hasUsername()) {
-    query["username"] = request.username();
+    query["username"] = request.getUsername();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -717,7 +717,7 @@ GenerateTokenResponse Client::generateTokenWithOptions(const string &instanceId,
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  return json(doROARequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.pathname(), params.bodyType(), req, runtime)).get<GenerateTokenResponse>();
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<GenerateTokenResponse>();
 }
 
 /**
@@ -747,11 +747,11 @@ GenerateTokenResponse Client::generateToken(const string &instanceId, const stri
 GetApplicationProvisioningScopeResponse Client::getApplicationProvisioningScopeWithOptions(const string &instanceId, const string &applicationId, const GetApplicationProvisioningScopeHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -768,7 +768,7 @@ GetApplicationProvisioningScopeResponse Client::getApplicationProvisioningScopeW
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  return json(doROARequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.pathname(), params.bodyType(), req, runtime)).get<GetApplicationProvisioningScopeResponse>();
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<GetApplicationProvisioningScopeResponse>();
 }
 
 /**
@@ -795,11 +795,11 @@ GetApplicationProvisioningScopeResponse Client::getApplicationProvisioningScope(
 GetGroupResponse Client::getGroupWithOptions(const string &instanceId, const string &applicationId, const string &groupId, const GetGroupHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -816,7 +816,7 @@ GetGroupResponse Client::getGroupWithOptions(const string &instanceId, const str
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  return json(doROARequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.pathname(), params.bodyType(), req, runtime)).get<GetGroupResponse>();
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<GetGroupResponse>();
 }
 
 /**
@@ -840,11 +840,11 @@ GetGroupResponse Client::getGroup(const string &instanceId, const string &applic
 GetOrganizationalUnitResponse Client::getOrganizationalUnitWithOptions(const string &instanceId, const string &applicationId, const string &organizationalUnitId, const GetOrganizationalUnitHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -861,7 +861,7 @@ GetOrganizationalUnitResponse Client::getOrganizationalUnitWithOptions(const str
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  return json(doROARequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.pathname(), params.bodyType(), req, runtime)).get<GetOrganizationalUnitResponse>();
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<GetOrganizationalUnitResponse>();
 }
 
 /**
@@ -887,24 +887,24 @@ GetOrganizationalUnitIdByExternalIdResponse Client::getOrganizationalUnitIdByExt
   request.validate();
   json body = {};
   if (!!request.hasOrganizationalUnitExternalId()) {
-    body["organizationalUnitExternalId"] = request.organizationalUnitExternalId();
+    body["organizationalUnitExternalId"] = request.getOrganizationalUnitExternalId();
   }
 
   if (!!request.hasOrganizationalUnitSourceId()) {
-    body["organizationalUnitSourceId"] = request.organizationalUnitSourceId();
+    body["organizationalUnitSourceId"] = request.getOrganizationalUnitSourceId();
   }
 
   if (!!request.hasOrganizationalUnitSourceType()) {
-    body["organizationalUnitSourceType"] = request.organizationalUnitSourceType();
+    body["organizationalUnitSourceType"] = request.getOrganizationalUnitSourceType();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -922,7 +922,7 @@ GetOrganizationalUnitIdByExternalIdResponse Client::getOrganizationalUnitIdByExt
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  return json(doROARequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.pathname(), params.bodyType(), req, runtime)).get<GetOrganizationalUnitIdByExternalIdResponse>();
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<GetOrganizationalUnitIdByExternalIdResponse>();
 }
 
 /**
@@ -947,11 +947,11 @@ GetOrganizationalUnitIdByExternalIdResponse Client::getOrganizationalUnitIdByExt
 GetUserResponse Client::getUserWithOptions(const string &instanceId, const string &applicationId, const string &userId, const GetUserHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -968,7 +968,7 @@ GetUserResponse Client::getUserWithOptions(const string &instanceId, const strin
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  return json(doROARequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.pathname(), params.bodyType(), req, runtime)).get<GetUserResponse>();
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<GetUserResponse>();
 }
 
 /**
@@ -994,16 +994,16 @@ GetUserIdByEmailResponse Client::getUserIdByEmailWithOptions(const string &insta
   request.validate();
   json body = {};
   if (!!request.hasEmail()) {
-    body["email"] = request.email();
+    body["email"] = request.getEmail();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1021,7 +1021,7 @@ GetUserIdByEmailResponse Client::getUserIdByEmailWithOptions(const string &insta
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  return json(doROARequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.pathname(), params.bodyType(), req, runtime)).get<GetUserIdByEmailResponse>();
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<GetUserIdByEmailResponse>();
 }
 
 /**
@@ -1048,16 +1048,16 @@ GetUserIdByPhoneNumberResponse Client::getUserIdByPhoneNumberWithOptions(const s
   request.validate();
   json body = {};
   if (!!request.hasPhoneNumber()) {
-    body["phoneNumber"] = request.phoneNumber();
+    body["phoneNumber"] = request.getPhoneNumber();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1075,7 +1075,7 @@ GetUserIdByPhoneNumberResponse Client::getUserIdByPhoneNumberWithOptions(const s
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  return json(doROARequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.pathname(), params.bodyType(), req, runtime)).get<GetUserIdByPhoneNumberResponse>();
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<GetUserIdByPhoneNumberResponse>();
 }
 
 /**
@@ -1102,24 +1102,24 @@ GetUserIdByUserExternalIdResponse Client::getUserIdByUserExternalIdWithOptions(c
   request.validate();
   json body = {};
   if (!!request.hasUserExternalId()) {
-    body["userExternalId"] = request.userExternalId();
+    body["userExternalId"] = request.getUserExternalId();
   }
 
   if (!!request.hasUserSourceId()) {
-    body["userSourceId"] = request.userSourceId();
+    body["userSourceId"] = request.getUserSourceId();
   }
 
   if (!!request.hasUserSourceType()) {
-    body["userSourceType"] = request.userSourceType();
+    body["userSourceType"] = request.getUserSourceType();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1137,7 +1137,7 @@ GetUserIdByUserExternalIdResponse Client::getUserIdByUserExternalIdWithOptions(c
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  return json(doROARequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.pathname(), params.bodyType(), req, runtime)).get<GetUserIdByUserExternalIdResponse>();
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<GetUserIdByUserExternalIdResponse>();
 }
 
 /**
@@ -1164,16 +1164,16 @@ GetUserIdByUsernameResponse Client::getUserIdByUsernameWithOptions(const string 
   request.validate();
   json body = {};
   if (!!request.hasUsername()) {
-    body["username"] = request.username();
+    body["username"] = request.getUsername();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1191,7 +1191,7 @@ GetUserIdByUsernameResponse Client::getUserIdByUsernameWithOptions(const string 
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  return json(doROARequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.pathname(), params.bodyType(), req, runtime)).get<GetUserIdByUsernameResponse>();
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<GetUserIdByUsernameResponse>();
 }
 
 /**
@@ -1216,11 +1216,11 @@ GetUserIdByUsernameResponse Client::getUserIdByUsername(const string &instanceId
 GetUserInfoResponse Client::getUserInfoWithOptions(const string &instanceId, const string &applicationId, const GetUserInfoHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1237,7 +1237,7 @@ GetUserInfoResponse Client::getUserInfoWithOptions(const string &instanceId, con
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  return json(doROARequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.pathname(), params.bodyType(), req, runtime)).get<GetUserInfoResponse>();
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<GetUserInfoResponse>();
 }
 
 /**
@@ -1263,24 +1263,24 @@ ListGroupsResponse Client::listGroupsWithOptions(const string &instanceId, const
   request.validate();
   json query = {};
   if (!!request.hasGroupNameStartWith()) {
-    query["groupNameStartWith"] = request.groupNameStartWith();
+    query["groupNameStartWith"] = request.getGroupNameStartWith();
   }
 
   if (!!request.hasMaxResults()) {
-    query["maxResults"] = request.maxResults();
+    query["maxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["nextToken"] = request.nextToken();
+    query["nextToken"] = request.getNextToken();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1298,7 +1298,7 @@ ListGroupsResponse Client::listGroupsWithOptions(const string &instanceId, const
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  return json(doROARequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.pathname(), params.bodyType(), req, runtime)).get<ListGroupsResponse>();
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<ListGroupsResponse>();
 }
 
 /**
@@ -1325,20 +1325,20 @@ ListGroupsForUserResponse Client::listGroupsForUserWithOptions(const string &ins
   request.validate();
   json query = {};
   if (!!request.hasMaxResults()) {
-    query["maxResults"] = request.maxResults();
+    query["maxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["nextToken"] = request.nextToken();
+    query["nextToken"] = request.getNextToken();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1356,7 +1356,7 @@ ListGroupsForUserResponse Client::listGroupsForUserWithOptions(const string &ins
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  return json(doROARequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.pathname(), params.bodyType(), req, runtime)).get<ListGroupsForUserResponse>();
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<ListGroupsForUserResponse>();
 }
 
 /**
@@ -1381,11 +1381,11 @@ ListGroupsForUserResponse Client::listGroupsForUser(const string &instanceId, co
 ListOrganizationalUnitParentIdsResponse Client::listOrganizationalUnitParentIdsWithOptions(const string &instanceId, const string &applicationId, const string &organizationalUnitId, const ListOrganizationalUnitParentIdsHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1402,7 +1402,7 @@ ListOrganizationalUnitParentIdsResponse Client::listOrganizationalUnitParentIdsW
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  return json(doROARequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.pathname(), params.bodyType(), req, runtime)).get<ListOrganizationalUnitParentIdsResponse>();
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<ListOrganizationalUnitParentIdsResponse>();
 }
 
 /**
@@ -1428,24 +1428,24 @@ ListOrganizationalUnitsResponse Client::listOrganizationalUnitsWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasPageNumber()) {
-    query["pageNumber"] = request.pageNumber();
+    query["pageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
+    query["pageSize"] = request.getPageSize();
   }
 
   if (!!request.hasParentId()) {
-    query["parentId"] = request.parentId();
+    query["parentId"] = request.getParentId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1463,7 +1463,7 @@ ListOrganizationalUnitsResponse Client::listOrganizationalUnitsWithOptions(const
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  return json(doROARequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.pathname(), params.bodyType(), req, runtime)).get<ListOrganizationalUnitsResponse>();
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<ListOrganizationalUnitsResponse>();
 }
 
 /**
@@ -1490,24 +1490,24 @@ ListUsersResponse Client::listUsersWithOptions(const string &instanceId, const s
   request.validate();
   json query = {};
   if (!!request.hasOrganizationalUnitId()) {
-    query["organizationalUnitId"] = request.organizationalUnitId();
+    query["organizationalUnitId"] = request.getOrganizationalUnitId();
   }
 
   if (!!request.hasPageNumber()) {
-    query["pageNumber"] = request.pageNumber();
+    query["pageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
+    query["pageSize"] = request.getPageSize();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1525,7 +1525,7 @@ ListUsersResponse Client::listUsersWithOptions(const string &instanceId, const s
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  return json(doROARequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.pathname(), params.bodyType(), req, runtime)).get<ListUsersResponse>();
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<ListUsersResponse>();
 }
 
 /**
@@ -1552,20 +1552,20 @@ ListUsersForGroupResponse Client::listUsersForGroupWithOptions(const string &ins
   request.validate();
   json query = {};
   if (!!request.hasMaxResults()) {
-    query["maxResults"] = request.maxResults();
+    query["maxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["nextToken"] = request.nextToken();
+    query["nextToken"] = request.getNextToken();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1583,7 +1583,7 @@ ListUsersForGroupResponse Client::listUsersForGroupWithOptions(const string &ins
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  return json(doROARequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.pathname(), params.bodyType(), req, runtime)).get<ListUsersForGroupResponse>();
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<ListUsersForGroupResponse>();
 }
 
 /**
@@ -1599,6 +1599,60 @@ ListUsersForGroupResponse Client::listUsersForGroup(const string &instanceId, co
 }
 
 /**
+ * @summary 获取云角色（CloudAccountRole）的临时访问凭证
+ *
+ * @param request ObtainCloudAccountRoleAccessCredentialRequest
+ * @param headers ObtainCloudAccountRoleAccessCredentialHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ObtainCloudAccountRoleAccessCredentialResponse
+ */
+ObtainCloudAccountRoleAccessCredentialResponse Client::obtainCloudAccountRoleAccessCredentialWithOptions(const string &instanceId, const ObtainCloudAccountRoleAccessCredentialRequest &request, const ObtainCloudAccountRoleAccessCredentialHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCloudAccountRoleExternalId()) {
+    query["cloudAccountRoleExternalId"] = request.getCloudAccountRoleExternalId();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasAuthorization()) {
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ObtainCloudAccountRoleAccessCredential"},
+    {"version" , "2022-02-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v2/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/cloudAccountRoles/_/actions/obtainAccessCredential")},
+    {"method" , "GET"},
+    {"authType" , "Anonymous"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<ObtainCloudAccountRoleAccessCredentialResponse>();
+}
+
+/**
+ * @summary 获取云角色（CloudAccountRole）的临时访问凭证
+ *
+ * @param request ObtainCloudAccountRoleAccessCredentialRequest
+ * @return ObtainCloudAccountRoleAccessCredentialResponse
+ */
+ObtainCloudAccountRoleAccessCredentialResponse Client::obtainCloudAccountRoleAccessCredential(const string &instanceId, const ObtainCloudAccountRoleAccessCredentialRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  ObtainCloudAccountRoleAccessCredentialHeaders headers = ObtainCloudAccountRoleAccessCredentialHeaders();
+  return obtainCloudAccountRoleAccessCredentialWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
  * @summary Modifies information about an Employee Identity and Access Management (EIAM) group.
  *
  * @param request PatchGroupRequest
@@ -1610,16 +1664,16 @@ PatchGroupResponse Client::patchGroupWithOptions(const string &instanceId, const
   request.validate();
   json body = {};
   if (!!request.hasGroupName()) {
-    body["groupName"] = request.groupName();
+    body["groupName"] = request.getGroupName();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1637,7 +1691,7 @@ PatchGroupResponse Client::patchGroupWithOptions(const string &instanceId, const
     {"reqBodyType" , "json"},
     {"bodyType" , "none"}
   }).get<map<string, string>>());
-  return json(doROARequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.pathname(), params.bodyType(), req, runtime)).get<PatchGroupResponse>();
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<PatchGroupResponse>();
 }
 
 /**
@@ -1666,20 +1720,20 @@ PatchOrganizationalUnitResponse Client::patchOrganizationalUnitWithOptions(const
   request.validate();
   json body = {};
   if (!!request.hasDescription()) {
-    body["description"] = request.description();
+    body["description"] = request.getDescription();
   }
 
   if (!!request.hasOrganizationalUnitName()) {
-    body["organizationalUnitName"] = request.organizationalUnitName();
+    body["organizationalUnitName"] = request.getOrganizationalUnitName();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1697,7 +1751,7 @@ PatchOrganizationalUnitResponse Client::patchOrganizationalUnitWithOptions(const
     {"reqBodyType" , "json"},
     {"bodyType" , "none"}
   }).get<map<string, string>>());
-  return json(doROARequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.pathname(), params.bodyType(), req, runtime)).get<PatchOrganizationalUnitResponse>();
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<PatchOrganizationalUnitResponse>();
 }
 
 /**
@@ -1728,44 +1782,44 @@ PatchUserResponse Client::patchUserWithOptions(const string &instanceId, const s
   request.validate();
   json body = {};
   if (!!request.hasCustomFields()) {
-    body["customFields"] = request.customFields();
+    body["customFields"] = request.getCustomFields();
   }
 
   if (!!request.hasDisplayName()) {
-    body["displayName"] = request.displayName();
+    body["displayName"] = request.getDisplayName();
   }
 
   if (!!request.hasEmail()) {
-    body["email"] = request.email();
+    body["email"] = request.getEmail();
   }
 
   if (!!request.hasEmailVerified()) {
-    body["emailVerified"] = request.emailVerified();
+    body["emailVerified"] = request.getEmailVerified();
   }
 
   if (!!request.hasPhoneNumber()) {
-    body["phoneNumber"] = request.phoneNumber();
+    body["phoneNumber"] = request.getPhoneNumber();
   }
 
   if (!!request.hasPhoneNumberVerified()) {
-    body["phoneNumberVerified"] = request.phoneNumberVerified();
+    body["phoneNumberVerified"] = request.getPhoneNumberVerified();
   }
 
   if (!!request.hasPhoneRegion()) {
-    body["phoneRegion"] = request.phoneRegion();
+    body["phoneRegion"] = request.getPhoneRegion();
   }
 
   if (!!request.hasUsername()) {
-    body["username"] = request.username();
+    body["username"] = request.getUsername();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1783,7 +1837,7 @@ PatchUserResponse Client::patchUserWithOptions(const string &instanceId, const s
     {"reqBodyType" , "json"},
     {"bodyType" , "none"}
   }).get<map<string, string>>());
-  return json(doROARequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.pathname(), params.bodyType(), req, runtime)).get<PatchUserResponse>();
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<PatchUserResponse>();
 }
 
 /**
@@ -1812,16 +1866,16 @@ RemoveUserFromOrganizationalUnitsResponse Client::removeUserFromOrganizationalUn
   request.validate();
   json body = {};
   if (!!request.hasOrganizationalUnitIds()) {
-    body["organizationalUnitIds"] = request.organizationalUnitIds();
+    body["organizationalUnitIds"] = request.getOrganizationalUnitIds();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1839,7 +1893,7 @@ RemoveUserFromOrganizationalUnitsResponse Client::removeUserFromOrganizationalUn
     {"reqBodyType" , "json"},
     {"bodyType" , "none"}
   }).get<map<string, string>>());
-  return json(doROARequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.pathname(), params.bodyType(), req, runtime)).get<RemoveUserFromOrganizationalUnitsResponse>();
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<RemoveUserFromOrganizationalUnitsResponse>();
 }
 
 /**
@@ -1866,16 +1920,16 @@ RemoveUsersFromGroupResponse Client::removeUsersFromGroupWithOptions(const strin
   request.validate();
   json body = {};
   if (!!request.hasUserIds()) {
-    body["userIds"] = request.userIds();
+    body["userIds"] = request.getUserIds();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1893,7 +1947,7 @@ RemoveUsersFromGroupResponse Client::removeUsersFromGroupWithOptions(const strin
     {"reqBodyType" , "json"},
     {"bodyType" , "none"}
   }).get<map<string, string>>());
-  return json(doROARequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.pathname(), params.bodyType(), req, runtime)).get<RemoveUsersFromGroupResponse>();
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<RemoveUsersFromGroupResponse>();
 }
 
 /**
@@ -1920,19 +1974,19 @@ RevokeTokenResponse Client::revokeTokenWithOptions(const string &instanceId, con
   request.validate();
   json query = {};
   if (!!request.hasClientId()) {
-    query["client_id"] = request.clientId();
+    query["client_id"] = request.getClientId();
   }
 
   if (!!request.hasClientSecret()) {
-    query["client_secret"] = request.clientSecret();
+    query["client_secret"] = request.getClientSecret();
   }
 
   if (!!request.hasToken()) {
-    query["token"] = request.token();
+    query["token"] = request.getToken();
   }
 
   if (!!request.hasTokenTypeHint()) {
-    query["token_type_hint"] = request.tokenTypeHint();
+    query["token_type_hint"] = request.getTokenTypeHint();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1950,7 +2004,7 @@ RevokeTokenResponse Client::revokeTokenWithOptions(const string &instanceId, con
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  return json(doROARequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.pathname(), params.bodyType(), req, runtime)).get<RevokeTokenResponse>();
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<RevokeTokenResponse>();
 }
 
 /**
@@ -1977,16 +2031,16 @@ SetUserPrimaryOrganizationalUnitResponse Client::setUserPrimaryOrganizationalUni
   request.validate();
   json body = {};
   if (!!request.hasOrganizationalUnitId()) {
-    body["organizationalUnitId"] = request.organizationalUnitId();
+    body["organizationalUnitId"] = request.getOrganizationalUnitId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2004,7 +2058,7 @@ SetUserPrimaryOrganizationalUnitResponse Client::setUserPrimaryOrganizationalUni
     {"reqBodyType" , "json"},
     {"bodyType" , "none"}
   }).get<map<string, string>>());
-  return json(doROARequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.pathname(), params.bodyType(), req, runtime)).get<SetUserPrimaryOrganizationalUnitResponse>();
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<SetUserPrimaryOrganizationalUnitResponse>();
 }
 
 /**
@@ -2031,16 +2085,16 @@ UpdateUserPasswordResponse Client::updateUserPasswordWithOptions(const string &i
   request.validate();
   json body = {};
   if (!!request.hasPassword()) {
-    body["password"] = request.password();
+    body["password"] = request.getPassword();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2058,7 +2112,7 @@ UpdateUserPasswordResponse Client::updateUserPasswordWithOptions(const string &i
     {"reqBodyType" , "json"},
     {"bodyType" , "none"}
   }).get<map<string, string>>());
-  return json(doROARequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.pathname(), params.bodyType(), req, runtime)).get<UpdateUserPasswordResponse>();
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<UpdateUserPasswordResponse>();
 }
 
 /**

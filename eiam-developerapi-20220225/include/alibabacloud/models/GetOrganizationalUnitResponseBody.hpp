@@ -48,104 +48,104 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->createTime_ == nullptr
-        && return this->description_ == nullptr && return this->instanceId_ == nullptr && return this->organizationalUnitExternalId_ == nullptr && return this->organizationalUnitId_ == nullptr && return this->organizationalUnitName_ == nullptr
-        && return this->organizationalUnitSourceId_ == nullptr && return this->organizationalUnitSourceType_ == nullptr && return this->parentId_ == nullptr && return this->updateTime_ == nullptr; };
+        && this->description_ == nullptr && this->instanceId_ == nullptr && this->organizationalUnitExternalId_ == nullptr && this->organizationalUnitId_ == nullptr && this->organizationalUnitName_ == nullptr
+        && this->organizationalUnitSourceId_ == nullptr && this->organizationalUnitSourceType_ == nullptr && this->parentId_ == nullptr && this->updateTime_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
-    inline int64_t createTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, 0L) };
+    inline int64_t getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, 0L) };
     inline GetOrganizationalUnitResponseBody& setCreateTime(int64_t createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline GetOrganizationalUnitResponseBody& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline GetOrganizationalUnitResponseBody& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // organizationalUnitExternalId Field Functions 
     bool hasOrganizationalUnitExternalId() const { return this->organizationalUnitExternalId_ != nullptr;};
     void deleteOrganizationalUnitExternalId() { this->organizationalUnitExternalId_ = nullptr;};
-    inline string organizationalUnitExternalId() const { DARABONBA_PTR_GET_DEFAULT(organizationalUnitExternalId_, "") };
+    inline string getOrganizationalUnitExternalId() const { DARABONBA_PTR_GET_DEFAULT(organizationalUnitExternalId_, "") };
     inline GetOrganizationalUnitResponseBody& setOrganizationalUnitExternalId(string organizationalUnitExternalId) { DARABONBA_PTR_SET_VALUE(organizationalUnitExternalId_, organizationalUnitExternalId) };
 
 
     // organizationalUnitId Field Functions 
     bool hasOrganizationalUnitId() const { return this->organizationalUnitId_ != nullptr;};
     void deleteOrganizationalUnitId() { this->organizationalUnitId_ = nullptr;};
-    inline string organizationalUnitId() const { DARABONBA_PTR_GET_DEFAULT(organizationalUnitId_, "") };
+    inline string getOrganizationalUnitId() const { DARABONBA_PTR_GET_DEFAULT(organizationalUnitId_, "") };
     inline GetOrganizationalUnitResponseBody& setOrganizationalUnitId(string organizationalUnitId) { DARABONBA_PTR_SET_VALUE(organizationalUnitId_, organizationalUnitId) };
 
 
     // organizationalUnitName Field Functions 
     bool hasOrganizationalUnitName() const { return this->organizationalUnitName_ != nullptr;};
     void deleteOrganizationalUnitName() { this->organizationalUnitName_ = nullptr;};
-    inline string organizationalUnitName() const { DARABONBA_PTR_GET_DEFAULT(organizationalUnitName_, "") };
+    inline string getOrganizationalUnitName() const { DARABONBA_PTR_GET_DEFAULT(organizationalUnitName_, "") };
     inline GetOrganizationalUnitResponseBody& setOrganizationalUnitName(string organizationalUnitName) { DARABONBA_PTR_SET_VALUE(organizationalUnitName_, organizationalUnitName) };
 
 
     // organizationalUnitSourceId Field Functions 
     bool hasOrganizationalUnitSourceId() const { return this->organizationalUnitSourceId_ != nullptr;};
     void deleteOrganizationalUnitSourceId() { this->organizationalUnitSourceId_ = nullptr;};
-    inline string organizationalUnitSourceId() const { DARABONBA_PTR_GET_DEFAULT(organizationalUnitSourceId_, "") };
+    inline string getOrganizationalUnitSourceId() const { DARABONBA_PTR_GET_DEFAULT(organizationalUnitSourceId_, "") };
     inline GetOrganizationalUnitResponseBody& setOrganizationalUnitSourceId(string organizationalUnitSourceId) { DARABONBA_PTR_SET_VALUE(organizationalUnitSourceId_, organizationalUnitSourceId) };
 
 
     // organizationalUnitSourceType Field Functions 
     bool hasOrganizationalUnitSourceType() const { return this->organizationalUnitSourceType_ != nullptr;};
     void deleteOrganizationalUnitSourceType() { this->organizationalUnitSourceType_ = nullptr;};
-    inline string organizationalUnitSourceType() const { DARABONBA_PTR_GET_DEFAULT(organizationalUnitSourceType_, "") };
+    inline string getOrganizationalUnitSourceType() const { DARABONBA_PTR_GET_DEFAULT(organizationalUnitSourceType_, "") };
     inline GetOrganizationalUnitResponseBody& setOrganizationalUnitSourceType(string organizationalUnitSourceType) { DARABONBA_PTR_SET_VALUE(organizationalUnitSourceType_, organizationalUnitSourceType) };
 
 
     // parentId Field Functions 
     bool hasParentId() const { return this->parentId_ != nullptr;};
     void deleteParentId() { this->parentId_ = nullptr;};
-    inline string parentId() const { DARABONBA_PTR_GET_DEFAULT(parentId_, "") };
+    inline string getParentId() const { DARABONBA_PTR_GET_DEFAULT(parentId_, "") };
     inline GetOrganizationalUnitResponseBody& setParentId(string parentId) { DARABONBA_PTR_SET_VALUE(parentId_, parentId) };
 
 
     // updateTime Field Functions 
     bool hasUpdateTime() const { return this->updateTime_ != nullptr;};
     void deleteUpdateTime() { this->updateTime_ = nullptr;};
-    inline int64_t updateTime() const { DARABONBA_PTR_GET_DEFAULT(updateTime_, 0L) };
+    inline int64_t getUpdateTime() const { DARABONBA_PTR_GET_DEFAULT(updateTime_, 0L) };
     inline GetOrganizationalUnitResponseBody& setUpdateTime(int64_t updateTime) { DARABONBA_PTR_SET_VALUE(updateTime_, updateTime) };
 
 
   protected:
     // The time when the organizational unit was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-    std::shared_ptr<int64_t> createTime_ = nullptr;
+    shared_ptr<int64_t> createTime_ {};
     // The description of the organizational unit.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The instance ID.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The external ID of the organizational unit.
-    std::shared_ptr<string> organizationalUnitExternalId_ = nullptr;
+    shared_ptr<string> organizationalUnitExternalId_ {};
     // The ID of the organizational unit.
-    std::shared_ptr<string> organizationalUnitId_ = nullptr;
+    shared_ptr<string> organizationalUnitId_ {};
     // The name of the organizational unit.
-    std::shared_ptr<string> organizationalUnitName_ = nullptr;
+    shared_ptr<string> organizationalUnitName_ {};
     // The source ID of the organizational unit.
-    std::shared_ptr<string> organizationalUnitSourceId_ = nullptr;
+    shared_ptr<string> organizationalUnitSourceId_ {};
     // The source type of the organizational unit. Valid values:
     // 
     // *   build_in: The organizational unit was created in Identity as a Service (IDaaS).
     // *   ding_talk: The organizational unit was imported from DingTalk.
     // *   ad: The organizational unit was imported from Microsoft Active Directory (AD).
     // *   ldap: The organizational unit was imported from a Lightweight Directory Access Protocol (LDAP) service.
-    std::shared_ptr<string> organizationalUnitSourceType_ = nullptr;
+    shared_ptr<string> organizationalUnitSourceType_ {};
     // The ID of the parent organizational unit.
-    std::shared_ptr<string> parentId_ = nullptr;
+    shared_ptr<string> parentId_ {};
     // The time when the organizational unit was last updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-    std::shared_ptr<int64_t> updateTime_ = nullptr;
+    shared_ptr<int64_t> updateTime_ {};
   };
 
   } // namespace Models

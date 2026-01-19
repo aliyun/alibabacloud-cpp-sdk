@@ -40,62 +40,62 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessToken_ == nullptr
-        && return this->expiresAt_ == nullptr && return this->expiresIn_ == nullptr && return this->idToken_ == nullptr && return this->refreshToken_ == nullptr && return this->tokenType_ == nullptr; };
+        && this->expiresAt_ == nullptr && this->expiresIn_ == nullptr && this->idToken_ == nullptr && this->refreshToken_ == nullptr && this->tokenType_ == nullptr; };
     // accessToken Field Functions 
     bool hasAccessToken() const { return this->accessToken_ != nullptr;};
     void deleteAccessToken() { this->accessToken_ = nullptr;};
-    inline string accessToken() const { DARABONBA_PTR_GET_DEFAULT(accessToken_, "") };
+    inline string getAccessToken() const { DARABONBA_PTR_GET_DEFAULT(accessToken_, "") };
     inline GenerateTokenResponseBody& setAccessToken(string accessToken) { DARABONBA_PTR_SET_VALUE(accessToken_, accessToken) };
 
 
     // expiresAt Field Functions 
     bool hasExpiresAt() const { return this->expiresAt_ != nullptr;};
     void deleteExpiresAt() { this->expiresAt_ = nullptr;};
-    inline int64_t expiresAt() const { DARABONBA_PTR_GET_DEFAULT(expiresAt_, 0L) };
+    inline int64_t getExpiresAt() const { DARABONBA_PTR_GET_DEFAULT(expiresAt_, 0L) };
     inline GenerateTokenResponseBody& setExpiresAt(int64_t expiresAt) { DARABONBA_PTR_SET_VALUE(expiresAt_, expiresAt) };
 
 
     // expiresIn Field Functions 
     bool hasExpiresIn() const { return this->expiresIn_ != nullptr;};
     void deleteExpiresIn() { this->expiresIn_ = nullptr;};
-    inline int64_t expiresIn() const { DARABONBA_PTR_GET_DEFAULT(expiresIn_, 0L) };
+    inline int64_t getExpiresIn() const { DARABONBA_PTR_GET_DEFAULT(expiresIn_, 0L) };
     inline GenerateTokenResponseBody& setExpiresIn(int64_t expiresIn) { DARABONBA_PTR_SET_VALUE(expiresIn_, expiresIn) };
 
 
     // idToken Field Functions 
     bool hasIdToken() const { return this->idToken_ != nullptr;};
     void deleteIdToken() { this->idToken_ = nullptr;};
-    inline string idToken() const { DARABONBA_PTR_GET_DEFAULT(idToken_, "") };
+    inline string getIdToken() const { DARABONBA_PTR_GET_DEFAULT(idToken_, "") };
     inline GenerateTokenResponseBody& setIdToken(string idToken) { DARABONBA_PTR_SET_VALUE(idToken_, idToken) };
 
 
     // refreshToken Field Functions 
     bool hasRefreshToken() const { return this->refreshToken_ != nullptr;};
     void deleteRefreshToken() { this->refreshToken_ = nullptr;};
-    inline string refreshToken() const { DARABONBA_PTR_GET_DEFAULT(refreshToken_, "") };
+    inline string getRefreshToken() const { DARABONBA_PTR_GET_DEFAULT(refreshToken_, "") };
     inline GenerateTokenResponseBody& setRefreshToken(string refreshToken) { DARABONBA_PTR_SET_VALUE(refreshToken_, refreshToken) };
 
 
     // tokenType Field Functions 
     bool hasTokenType() const { return this->tokenType_ != nullptr;};
     void deleteTokenType() { this->tokenType_ = nullptr;};
-    inline string tokenType() const { DARABONBA_PTR_GET_DEFAULT(tokenType_, "") };
+    inline string getTokenType() const { DARABONBA_PTR_GET_DEFAULT(tokenType_, "") };
     inline GenerateTokenResponseBody& setTokenType(string tokenType) { DARABONBA_PTR_SET_VALUE(tokenType_, tokenType) };
 
 
   protected:
     // The access token.
-    std::shared_ptr<string> accessToken_ = nullptr;
+    shared_ptr<string> accessToken_ {};
     // The time when the token expires. This value is a UNIX timestamp representing the number of seconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-    std::shared_ptr<int64_t> expiresAt_ = nullptr;
+    shared_ptr<int64_t> expiresAt_ {};
     // The remaining validity period of the token. Unit: seconds.
-    std::shared_ptr<int64_t> expiresIn_ = nullptr;
+    shared_ptr<int64_t> expiresIn_ {};
     // The ID token.
-    std::shared_ptr<string> idToken_ = nullptr;
+    shared_ptr<string> idToken_ {};
     // The refresh token.
-    std::shared_ptr<string> refreshToken_ = nullptr;
+    shared_ptr<string> refreshToken_ {};
     // The type of the token. Valid values: Basic Bearer
-    std::shared_ptr<string> tokenType_ = nullptr;
+    shared_ptr<string> tokenType_ {};
   };
 
   } // namespace Models

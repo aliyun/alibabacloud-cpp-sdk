@@ -33,13 +33,13 @@ namespace Models
     // scope Field Functions 
     bool hasScope() const { return this->scope_ != nullptr;};
     void deleteScope() { this->scope_ = nullptr;};
-    inline string scope() const { DARABONBA_PTR_GET_DEFAULT(scope_, "") };
+    inline string getScope() const { DARABONBA_PTR_GET_DEFAULT(scope_, "") };
     inline GenerateDeviceCodeRequest& setScope(string scope) { DARABONBA_PTR_SET_VALUE(scope_, scope) };
 
 
   protected:
     // The authorization scope.
-    std::shared_ptr<string> scope_ = nullptr;
+    shared_ptr<string> scope_ {};
   };
 
   } // namespace Models

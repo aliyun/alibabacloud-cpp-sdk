@@ -93,6 +93,10 @@
 #include <alibabacloud/models/ListUsersForGroupRequest.hpp>
 #include <alibabacloud/models/ListUsersForGroupResponseBody.hpp>
 #include <alibabacloud/models/ListUsersForGroupResponse.hpp>
+#include <alibabacloud/models/ObtainCloudAccountRoleAccessCredentialHeaders.hpp>
+#include <alibabacloud/models/ObtainCloudAccountRoleAccessCredentialRequest.hpp>
+#include <alibabacloud/models/ObtainCloudAccountRoleAccessCredentialResponseBody.hpp>
+#include <alibabacloud/models/ObtainCloudAccountRoleAccessCredentialResponse.hpp>
 #include <alibabacloud/models/PatchGroupHeaders.hpp>
 #include <alibabacloud/models/PatchGroupRequest.hpp>
 #include <alibabacloud/models/PatchGroupResponse.hpp>
@@ -116,16 +120,5 @@
 #include <alibabacloud/models/UpdateUserPasswordHeaders.hpp>
 #include <alibabacloud/models/UpdateUserPasswordRequest.hpp>
 #include <alibabacloud/models/UpdateUserPasswordResponse.hpp>
-#include <alibabacloud/models/CreateUserRequestCustomFields.hpp>
-#include <alibabacloud/models/CreateUserRequestPasswordInitializationConfig.hpp>
-#include <alibabacloud/models/GetUserResponseBodyCustomFields.hpp>
-#include <alibabacloud/models/GetUserResponseBodyGroups.hpp>
-#include <alibabacloud/models/GetUserResponseBodyOrganizationalUnits.hpp>
-#include <alibabacloud/models/ListGroupsResponseBodyData.hpp>
-#include <alibabacloud/models/ListGroupsForUserResponseBodyData.hpp>
-#include <alibabacloud/models/ListOrganizationalUnitsResponseBodyData.hpp>
-#include <alibabacloud/models/ListUsersResponseBodyData.hpp>
-#include <alibabacloud/models/ListUsersForGroupResponseBodyData.hpp>
-#include <alibabacloud/models/PatchUserRequestCustomFields.hpp>
 
 #endif

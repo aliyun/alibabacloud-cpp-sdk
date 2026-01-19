@@ -33,7 +33,7 @@ namespace Models
     // email Field Functions 
     bool hasEmail() const { return this->email_ != nullptr;};
     void deleteEmail() { this->email_ = nullptr;};
-    inline string email() const { DARABONBA_PTR_GET_DEFAULT(email_, "") };
+    inline string getEmail() const { DARABONBA_PTR_GET_DEFAULT(email_, "") };
     inline GetUserIdByEmailRequest& setEmail(string email) { DARABONBA_PTR_SET_VALUE(email_, email) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The email address of the user who owns the account.
     // 
     // This parameter is required.
-    std::shared_ptr<string> email_ = nullptr;
+    shared_ptr<string> email_ {};
   };
 
   } // namespace Models

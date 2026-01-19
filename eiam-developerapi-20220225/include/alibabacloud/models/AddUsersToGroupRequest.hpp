@@ -34,8 +34,8 @@ namespace Models
     // userIds Field Functions 
     bool hasUserIds() const { return this->userIds_ != nullptr;};
     void deleteUserIds() { this->userIds_ = nullptr;};
-    inline const vector<string> & userIds() const { DARABONBA_PTR_GET_CONST(userIds_, vector<string>) };
-    inline vector<string> userIds() { DARABONBA_PTR_GET(userIds_, vector<string>) };
+    inline const vector<string> & getUserIds() const { DARABONBA_PTR_GET_CONST(userIds_, vector<string>) };
+    inline vector<string> getUserIds() { DARABONBA_PTR_GET(userIds_, vector<string>) };
     inline AddUsersToGroupRequest& setUserIds(const vector<string> & userIds) { DARABONBA_PTR_SET_VALUE(userIds_, userIds) };
     inline AddUsersToGroupRequest& setUserIds(vector<string> && userIds) { DARABONBA_PTR_SET_RVALUE(userIds_, userIds) };
 
@@ -44,7 +44,7 @@ namespace Models
     // The account IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> userIds_ = nullptr;
+    shared_ptr<vector<string>> userIds_ {};
   };
 
   } // namespace Models

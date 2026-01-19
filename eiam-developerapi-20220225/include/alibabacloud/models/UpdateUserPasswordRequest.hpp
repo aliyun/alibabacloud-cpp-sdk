@@ -33,12 +33,12 @@ namespace Models
     // password Field Functions 
     bool hasPassword() const { return this->password_ != nullptr;};
     void deletePassword() { this->password_ = nullptr;};
-    inline string password() const { DARABONBA_PTR_GET_DEFAULT(password_, "") };
+    inline string getPassword() const { DARABONBA_PTR_GET_DEFAULT(password_, "") };
     inline UpdateUserPasswordRequest& setPassword(string password) { DARABONBA_PTR_SET_VALUE(password_, password) };
 
 
   protected:
-    std::shared_ptr<string> password_ = nullptr;
+    shared_ptr<string> password_ {};
   };
 
   } // namespace Models

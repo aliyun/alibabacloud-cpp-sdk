@@ -33,13 +33,13 @@ namespace Models
     // organizationalUnitId Field Functions 
     bool hasOrganizationalUnitId() const { return this->organizationalUnitId_ != nullptr;};
     void deleteOrganizationalUnitId() { this->organizationalUnitId_ = nullptr;};
-    inline string organizationalUnitId() const { DARABONBA_PTR_GET_DEFAULT(organizationalUnitId_, "") };
+    inline string getOrganizationalUnitId() const { DARABONBA_PTR_GET_DEFAULT(organizationalUnitId_, "") };
     inline SetUserPrimaryOrganizationalUnitRequest& setOrganizationalUnitId(string organizationalUnitId) { DARABONBA_PTR_SET_VALUE(organizationalUnitId_, organizationalUnitId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> organizationalUnitId_ = nullptr;
+    shared_ptr<string> organizationalUnitId_ {};
   };
 
   } // namespace Models

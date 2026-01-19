@@ -32,28 +32,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->groupExternalId_ == nullptr
-        && return this->groupName_ == nullptr; };
+        && this->groupName_ == nullptr; };
     // groupExternalId Field Functions 
     bool hasGroupExternalId() const { return this->groupExternalId_ != nullptr;};
     void deleteGroupExternalId() { this->groupExternalId_ = nullptr;};
-    inline string groupExternalId() const { DARABONBA_PTR_GET_DEFAULT(groupExternalId_, "") };
+    inline string getGroupExternalId() const { DARABONBA_PTR_GET_DEFAULT(groupExternalId_, "") };
     inline CreateGroupRequest& setGroupExternalId(string groupExternalId) { DARABONBA_PTR_SET_VALUE(groupExternalId_, groupExternalId) };
 
 
     // groupName Field Functions 
     bool hasGroupName() const { return this->groupName_ != nullptr;};
     void deleteGroupName() { this->groupName_ = nullptr;};
-    inline string groupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
+    inline string getGroupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
     inline CreateGroupRequest& setGroupName(string groupName) { DARABONBA_PTR_SET_VALUE(groupName_, groupName) };
 
 
   protected:
     // The external ID.
-    std::shared_ptr<string> groupExternalId_ = nullptr;
+    shared_ptr<string> groupExternalId_ {};
     // The organization name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> groupName_ = nullptr;
+    shared_ptr<string> groupName_ {};
   };
 
   } // namespace Models

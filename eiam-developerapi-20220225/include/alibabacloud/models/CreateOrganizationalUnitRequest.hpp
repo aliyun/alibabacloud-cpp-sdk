@@ -36,50 +36,50 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->organizationalUnitExternalId_ == nullptr && return this->organizationalUnitName_ == nullptr && return this->parentId_ == nullptr; };
+        && this->organizationalUnitExternalId_ == nullptr && this->organizationalUnitName_ == nullptr && this->parentId_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateOrganizationalUnitRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // organizationalUnitExternalId Field Functions 
     bool hasOrganizationalUnitExternalId() const { return this->organizationalUnitExternalId_ != nullptr;};
     void deleteOrganizationalUnitExternalId() { this->organizationalUnitExternalId_ = nullptr;};
-    inline string organizationalUnitExternalId() const { DARABONBA_PTR_GET_DEFAULT(organizationalUnitExternalId_, "") };
+    inline string getOrganizationalUnitExternalId() const { DARABONBA_PTR_GET_DEFAULT(organizationalUnitExternalId_, "") };
     inline CreateOrganizationalUnitRequest& setOrganizationalUnitExternalId(string organizationalUnitExternalId) { DARABONBA_PTR_SET_VALUE(organizationalUnitExternalId_, organizationalUnitExternalId) };
 
 
     // organizationalUnitName Field Functions 
     bool hasOrganizationalUnitName() const { return this->organizationalUnitName_ != nullptr;};
     void deleteOrganizationalUnitName() { this->organizationalUnitName_ = nullptr;};
-    inline string organizationalUnitName() const { DARABONBA_PTR_GET_DEFAULT(organizationalUnitName_, "") };
+    inline string getOrganizationalUnitName() const { DARABONBA_PTR_GET_DEFAULT(organizationalUnitName_, "") };
     inline CreateOrganizationalUnitRequest& setOrganizationalUnitName(string organizationalUnitName) { DARABONBA_PTR_SET_VALUE(organizationalUnitName_, organizationalUnitName) };
 
 
     // parentId Field Functions 
     bool hasParentId() const { return this->parentId_ != nullptr;};
     void deleteParentId() { this->parentId_ = nullptr;};
-    inline string parentId() const { DARABONBA_PTR_GET_DEFAULT(parentId_, "") };
+    inline string getParentId() const { DARABONBA_PTR_GET_DEFAULT(parentId_, "") };
     inline CreateOrganizationalUnitRequest& setParentId(string parentId) { DARABONBA_PTR_SET_VALUE(parentId_, parentId) };
 
 
   protected:
     // The description of the organizational unit.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The external ID of the organizational unit. The external ID can be used to map external data to the data of the organizational unit in Employee Identity and Access Management (EIAM) of Identity as a Service (IDaaS). By default, the external ID is the organizational unit ID.
     // 
     // For organizational units with the same source type and source ID, each organizational unit has a unique external ID.
-    std::shared_ptr<string> organizationalUnitExternalId_ = nullptr;
+    shared_ptr<string> organizationalUnitExternalId_ {};
     // The name of the organizational unit.
     // 
     // This parameter is required.
-    std::shared_ptr<string> organizationalUnitName_ = nullptr;
+    shared_ptr<string> organizationalUnitName_ {};
     // The ID of the parent organizational unit.
     // 
     // This parameter is required.
-    std::shared_ptr<string> parentId_ = nullptr;
+    shared_ptr<string> parentId_ {};
   };
 
   } // namespace Models
