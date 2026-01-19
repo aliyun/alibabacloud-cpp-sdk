@@ -647,6 +647,23 @@ namespace Config20200907
       Models::DeleteRemediationsResponse deleteRemediations(const Models::DeleteRemediationsRequest &request);
 
       /**
+       * @summary 删除合规报告模版
+       *
+       * @param request DeleteReportTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteReportTemplateResponse
+       */
+      Models::DeleteReportTemplateResponse deleteReportTemplateWithOptions(const Models::DeleteReportTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除合规报告模版
+       *
+       * @param request DeleteReportTemplateRequest
+       * @return DeleteReportTemplateResponse
+       */
+      Models::DeleteReportTemplateResponse deleteReportTemplate(const Models::DeleteReportTemplateRequest &request);
+
+      /**
        * @summary 批量获取资源详情
        *
        * @param request DescribeDiscoveredResourceBatchRequest
@@ -897,6 +914,23 @@ namespace Config20200907
        * @return GenerateConfigRulesReportResponse
        */
       Models::GenerateConfigRulesReportResponse generateConfigRulesReport(const Models::GenerateConfigRulesReportRequest &request);
+
+      /**
+       * @summary 基于报告模版生成报告Id
+       *
+       * @param request GenerateReportFromTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GenerateReportFromTemplateResponse
+       */
+      Models::GenerateReportFromTemplateResponse generateReportFromTemplateWithOptions(const Models::GenerateReportFromTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 基于报告模版生成报告Id
+       *
+       * @param request GenerateReportFromTemplateRequest
+       * @return GenerateReportFromTemplateResponse
+       */
+      Models::GenerateReportFromTemplateResponse generateReportFromTemplate(const Models::GenerateReportFromTemplateRequest &request);
 
       /**
        * @summary Generates a resource inventory for global resources.
@@ -1683,6 +1717,23 @@ namespace Config20200907
        * @return GetRemediationTemplateResponse
        */
       Models::GetRemediationTemplateResponse getRemediationTemplate(const Models::GetRemediationTemplateRequest &request);
+
+      /**
+       * @summary 获取基于报告模版生成的报告
+       *
+       * @param request GetReportFromTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetReportFromTemplateResponse
+       */
+      Models::GetReportFromTemplateResponse getReportFromTemplateWithOptions(const Models::GetReportFromTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取基于报告模版生成的报告
+       *
+       * @param request GetReportFromTemplateRequest
+       * @return GetReportFromTemplateResponse
+       */
+      Models::GetReportFromTemplateResponse getReportFromTemplate(const Models::GetReportFromTemplateRequest &request);
 
       /**
        * @summary Queries the compliance summary based on the compliance evaluation result of a rule.
@@ -2853,6 +2904,23 @@ namespace Config20200907
        * @return TagResourcesResponse
        */
       Models::TagResourcesResponse tagResources(const Models::TagResourcesRequest &request);
+
+      /**
+       * @summary 实时测试通知
+       *
+       * @param request TriggerReportSendRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return TriggerReportSendResponse
+       */
+      Models::TriggerReportSendResponse triggerReportSendWithOptions(const Models::TriggerReportSendRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 实时测试通知
+       *
+       * @param request TriggerReportSendRequest
+       * @return TriggerReportSendResponse
+       */
+      Models::TriggerReportSendResponse triggerReportSend(const Models::TriggerReportSendRequest &request);
 
       /**
        * @summary Removes tags from specified resources.

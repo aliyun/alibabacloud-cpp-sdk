@@ -33,7 +33,7 @@ namespace Models
     // sql Field Functions 
     bool hasSql() const { return this->sql_ != nullptr;};
     void deleteSql() { this->sql_ = nullptr;};
-    inline string sql() const { DARABONBA_PTR_GET_DEFAULT(sql_, "") };
+    inline string getSql() const { DARABONBA_PTR_GET_DEFAULT(sql_, "") };
     inline ListResourcesByAdvancedSearchRequest& setSql(string sql) { DARABONBA_PTR_SET_VALUE(sql_, sql) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The SQL query statement.
     // 
     // This parameter is required.
-    std::shared_ptr<string> sql_ = nullptr;
+    shared_ptr<string> sql_ {};
   };
 
   } // namespace Models

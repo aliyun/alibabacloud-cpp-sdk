@@ -38,58 +38,58 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountIds_ == nullptr
-        && return this->aggregatorId_ == nullptr && return this->regions_ == nullptr && return this->resourceDeleted_ == nullptr && return this->resourceTypes_ == nullptr; };
+        && this->aggregatorId_ == nullptr && this->regions_ == nullptr && this->resourceDeleted_ == nullptr && this->resourceTypes_ == nullptr; };
     // accountIds Field Functions 
     bool hasAccountIds() const { return this->accountIds_ != nullptr;};
     void deleteAccountIds() { this->accountIds_ = nullptr;};
-    inline string accountIds() const { DARABONBA_PTR_GET_DEFAULT(accountIds_, "") };
+    inline string getAccountIds() const { DARABONBA_PTR_GET_DEFAULT(accountIds_, "") };
     inline GenerateAggregateResourceInventoryRequest& setAccountIds(string accountIds) { DARABONBA_PTR_SET_VALUE(accountIds_, accountIds) };
 
 
     // aggregatorId Field Functions 
     bool hasAggregatorId() const { return this->aggregatorId_ != nullptr;};
     void deleteAggregatorId() { this->aggregatorId_ = nullptr;};
-    inline string aggregatorId() const { DARABONBA_PTR_GET_DEFAULT(aggregatorId_, "") };
+    inline string getAggregatorId() const { DARABONBA_PTR_GET_DEFAULT(aggregatorId_, "") };
     inline GenerateAggregateResourceInventoryRequest& setAggregatorId(string aggregatorId) { DARABONBA_PTR_SET_VALUE(aggregatorId_, aggregatorId) };
 
 
     // regions Field Functions 
     bool hasRegions() const { return this->regions_ != nullptr;};
     void deleteRegions() { this->regions_ = nullptr;};
-    inline string regions() const { DARABONBA_PTR_GET_DEFAULT(regions_, "") };
+    inline string getRegions() const { DARABONBA_PTR_GET_DEFAULT(regions_, "") };
     inline GenerateAggregateResourceInventoryRequest& setRegions(string regions) { DARABONBA_PTR_SET_VALUE(regions_, regions) };
 
 
     // resourceDeleted Field Functions 
     bool hasResourceDeleted() const { return this->resourceDeleted_ != nullptr;};
     void deleteResourceDeleted() { this->resourceDeleted_ = nullptr;};
-    inline int32_t resourceDeleted() const { DARABONBA_PTR_GET_DEFAULT(resourceDeleted_, 0) };
+    inline int32_t getResourceDeleted() const { DARABONBA_PTR_GET_DEFAULT(resourceDeleted_, 0) };
     inline GenerateAggregateResourceInventoryRequest& setResourceDeleted(int32_t resourceDeleted) { DARABONBA_PTR_SET_VALUE(resourceDeleted_, resourceDeleted) };
 
 
     // resourceTypes Field Functions 
     bool hasResourceTypes() const { return this->resourceTypes_ != nullptr;};
     void deleteResourceTypes() { this->resourceTypes_ = nullptr;};
-    inline string resourceTypes() const { DARABONBA_PTR_GET_DEFAULT(resourceTypes_, "") };
+    inline string getResourceTypes() const { DARABONBA_PTR_GET_DEFAULT(resourceTypes_, "") };
     inline GenerateAggregateResourceInventoryRequest& setResourceTypes(string resourceTypes) { DARABONBA_PTR_SET_VALUE(resourceTypes_, resourceTypes) };
 
 
   protected:
     // The IDs of member accounts in the account group. Separate multiple member account IDs with commas (,).
-    std::shared_ptr<string> accountIds_ = nullptr;
+    shared_ptr<string> accountIds_ {};
     // The ID of the account group.
     // 
     // This parameter is required.
-    std::shared_ptr<string> aggregatorId_ = nullptr;
+    shared_ptr<string> aggregatorId_ {};
     // The IDs of the regions to which the resources belong. Separate multiple region IDs with commas (,).
-    std::shared_ptr<string> regions_ = nullptr;
+    shared_ptr<string> regions_ {};
     // Indicates whether the resource is deleted. Valid values:
     // 
     // *   1 (default): The resource is retained.
     // *   0: The resource is deleted.
-    std::shared_ptr<int32_t> resourceDeleted_ = nullptr;
+    shared_ptr<int32_t> resourceDeleted_ {};
     // The resource types. Separate multiple resource types with commas (,).
-    std::shared_ptr<string> resourceTypes_ = nullptr;
+    shared_ptr<string> resourceTypes_ {};
   };
 
   } // namespace Models

@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->complianceOption_ == nullptr
-        && return this->region_ == nullptr && return this->resourceId_ == nullptr && return this->resourceType_ == nullptr; };
+        && this->region_ == nullptr && this->resourceId_ == nullptr && this->resourceType_ == nullptr; };
     // complianceOption Field Functions 
     bool hasComplianceOption() const { return this->complianceOption_ != nullptr;};
     void deleteComplianceOption() { this->complianceOption_ = nullptr;};
-    inline int32_t complianceOption() const { DARABONBA_PTR_GET_DEFAULT(complianceOption_, 0) };
+    inline int32_t getComplianceOption() const { DARABONBA_PTR_GET_DEFAULT(complianceOption_, 0) };
     inline GetDiscoveredResourceRequest& setComplianceOption(int32_t complianceOption) { DARABONBA_PTR_SET_VALUE(complianceOption_, complianceOption) };
 
 
     // region Field Functions 
     bool hasRegion() const { return this->region_ != nullptr;};
     void deleteRegion() { this->region_ = nullptr;};
-    inline string region() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
+    inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
     inline GetDiscoveredResourceRequest& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
     // resourceId Field Functions 
     bool hasResourceId() const { return this->resourceId_ != nullptr;};
     void deleteResourceId() { this->resourceId_ = nullptr;};
-    inline string resourceId() const { DARABONBA_PTR_GET_DEFAULT(resourceId_, "") };
+    inline string getResourceId() const { DARABONBA_PTR_GET_DEFAULT(resourceId_, "") };
     inline GetDiscoveredResourceRequest& setResourceId(string resourceId) { DARABONBA_PTR_SET_VALUE(resourceId_, resourceId) };
 
 
     // resourceType Field Functions 
     bool hasResourceType() const { return this->resourceType_ != nullptr;};
     void deleteResourceType() { this->resourceType_ = nullptr;};
-    inline string resourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
+    inline string getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
     inline GetDiscoveredResourceRequest& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
 
 
@@ -70,23 +70,23 @@ namespace Models
     // 
     // *   0 (default): does not query the compliance results of the resource.
     // *   1: queries the compliance results of the resource.
-    std::shared_ptr<int32_t> complianceOption_ = nullptr;
+    shared_ptr<int32_t> complianceOption_ {};
     // The ID of the region in which the resource resides.
     // 
     // For more information about how to query the region ID of a resource, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/411702.html).
-    std::shared_ptr<string> region_ = nullptr;
+    shared_ptr<string> region_ {};
     // The resource ID.
     // 
     // For more information about how to obtain the ID of a resource, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/411702.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> resourceId_ = nullptr;
+    shared_ptr<string> resourceId_ {};
     // The type of the resource.
     // 
     // For more information about how to obtain the type of a resource, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/411702.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> resourceType_ = nullptr;
+    shared_ptr<string> resourceType_ {};
   };
 
   } // namespace Models

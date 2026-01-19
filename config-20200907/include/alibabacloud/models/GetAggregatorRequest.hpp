@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_GETAGGREGATORREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/GetAggregatorRequestTag.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -33,33 +32,85 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Tag : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Tag& obj) { 
+        DARABONBA_PTR_TO_JSON(Key, key_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, Tag& obj) { 
+        DARABONBA_PTR_FROM_JSON(Key, key_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
+      };
+      Tag() = default ;
+      Tag(const Tag &) = default ;
+      Tag(Tag &&) = default ;
+      Tag(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Tag() = default ;
+      Tag& operator=(const Tag &) = default ;
+      Tag& operator=(Tag &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline Tag& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline Tag& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      // The tag key.
+      // 
+      // The tag key cannot be an empty string. The tag key can be up to 64 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+      // 
+      // You can specify at most 20 tag keys.
+      shared_ptr<string> key_ {};
+      // The tag values.
+      // 
+      // The tag values can be an empty string or up to 128 characters in length. The tag values cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+      // 
+      // Each key-value must be unique. You can specify at most 20 tag values in each call.
+      shared_ptr<string> value_ {};
+    };
+
     virtual bool empty() const override { return this->aggregatorId_ == nullptr
-        && return this->tag_ == nullptr; };
+        && this->tag_ == nullptr; };
     // aggregatorId Field Functions 
     bool hasAggregatorId() const { return this->aggregatorId_ != nullptr;};
     void deleteAggregatorId() { this->aggregatorId_ = nullptr;};
-    inline string aggregatorId() const { DARABONBA_PTR_GET_DEFAULT(aggregatorId_, "") };
+    inline string getAggregatorId() const { DARABONBA_PTR_GET_DEFAULT(aggregatorId_, "") };
     inline GetAggregatorRequest& setAggregatorId(string aggregatorId) { DARABONBA_PTR_SET_VALUE(aggregatorId_, aggregatorId) };
 
 
     // tag Field Functions 
     bool hasTag() const { return this->tag_ != nullptr;};
     void deleteTag() { this->tag_ = nullptr;};
-    inline const vector<GetAggregatorRequestTag> & tag() const { DARABONBA_PTR_GET_CONST(tag_, vector<GetAggregatorRequestTag>) };
-    inline vector<GetAggregatorRequestTag> tag() { DARABONBA_PTR_GET(tag_, vector<GetAggregatorRequestTag>) };
-    inline GetAggregatorRequest& setTag(const vector<GetAggregatorRequestTag> & tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
-    inline GetAggregatorRequest& setTag(vector<GetAggregatorRequestTag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
+    inline const vector<GetAggregatorRequest::Tag> & getTag() const { DARABONBA_PTR_GET_CONST(tag_, vector<GetAggregatorRequest::Tag>) };
+    inline vector<GetAggregatorRequest::Tag> getTag() { DARABONBA_PTR_GET(tag_, vector<GetAggregatorRequest::Tag>) };
+    inline GetAggregatorRequest& setTag(const vector<GetAggregatorRequest::Tag> & tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
+    inline GetAggregatorRequest& setTag(vector<GetAggregatorRequest::Tag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
 
 
   protected:
     // The ID of the account group.
     // 
     // This parameter is required.
-    std::shared_ptr<string> aggregatorId_ = nullptr;
+    shared_ptr<string> aggregatorId_ {};
     // The tags of the resource.
     // 
     // You can add up to 20 tags to a resource.
-    std::shared_ptr<vector<GetAggregatorRequestTag>> tag_ = nullptr;
+    shared_ptr<vector<GetAggregatorRequest::Tag>> tag_ {};
   };
 
   } // namespace Models

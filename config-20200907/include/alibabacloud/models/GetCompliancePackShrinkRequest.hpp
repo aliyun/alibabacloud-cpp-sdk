@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->compliancePackId_ == nullptr
-        && return this->tagShrink_ == nullptr; };
+        && this->tagShrink_ == nullptr; };
     // compliancePackId Field Functions 
     bool hasCompliancePackId() const { return this->compliancePackId_ != nullptr;};
     void deleteCompliancePackId() { this->compliancePackId_ = nullptr;};
-    inline string compliancePackId() const { DARABONBA_PTR_GET_DEFAULT(compliancePackId_, "") };
+    inline string getCompliancePackId() const { DARABONBA_PTR_GET_DEFAULT(compliancePackId_, "") };
     inline GetCompliancePackShrinkRequest& setCompliancePackId(string compliancePackId) { DARABONBA_PTR_SET_VALUE(compliancePackId_, compliancePackId) };
 
 
     // tagShrink Field Functions 
     bool hasTagShrink() const { return this->tagShrink_ != nullptr;};
     void deleteTagShrink() { this->tagShrink_ = nullptr;};
-    inline string tagShrink() const { DARABONBA_PTR_GET_DEFAULT(tagShrink_, "") };
+    inline string getTagShrink() const { DARABONBA_PTR_GET_DEFAULT(tagShrink_, "") };
     inline GetCompliancePackShrinkRequest& setTagShrink(string tagShrink) { DARABONBA_PTR_SET_VALUE(tagShrink_, tagShrink) };
 
 
@@ -53,11 +53,11 @@ namespace Models
     // For more information about how to obtain the ID of a compliance package, see [ListCompliancePacks](https://help.aliyun.com/document_detail/263332.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> compliancePackId_ = nullptr;
+    shared_ptr<string> compliancePackId_ {};
     // The tags of the resource.
     // 
     // You can add up to 20 tags to a resource.
-    std::shared_ptr<string> tagShrink_ = nullptr;
+    shared_ptr<string> tagShrink_ {};
   };
 
   } // namespace Models

@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aggregatorId_ == nullptr
-        && return this->compliancePackId_ == nullptr; };
+        && this->compliancePackId_ == nullptr; };
     // aggregatorId Field Functions 
     bool hasAggregatorId() const { return this->aggregatorId_ != nullptr;};
     void deleteAggregatorId() { this->aggregatorId_ = nullptr;};
-    inline string aggregatorId() const { DARABONBA_PTR_GET_DEFAULT(aggregatorId_, "") };
+    inline string getAggregatorId() const { DARABONBA_PTR_GET_DEFAULT(aggregatorId_, "") };
     inline GetAggregateConfigRuleComplianceByPackRequest& setAggregatorId(string aggregatorId) { DARABONBA_PTR_SET_VALUE(aggregatorId_, aggregatorId) };
 
 
     // compliancePackId Field Functions 
     bool hasCompliancePackId() const { return this->compliancePackId_ != nullptr;};
     void deleteCompliancePackId() { this->compliancePackId_ = nullptr;};
-    inline string compliancePackId() const { DARABONBA_PTR_GET_DEFAULT(compliancePackId_, "") };
+    inline string getCompliancePackId() const { DARABONBA_PTR_GET_DEFAULT(compliancePackId_, "") };
     inline GetAggregateConfigRuleComplianceByPackRequest& setCompliancePackId(string compliancePackId) { DARABONBA_PTR_SET_VALUE(compliancePackId_, compliancePackId) };
 
 
@@ -53,13 +53,13 @@ namespace Models
     // For information about how to obtain the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> aggregatorId_ = nullptr;
+    shared_ptr<string> aggregatorId_ {};
     // The ID of the compliance package.
     // 
     // For information about how to obtain the ID of a compliance package, see [ListAggregateCompliancePacks](https://help.aliyun.com/document_detail/262059.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> compliancePackId_ = nullptr;
+    shared_ptr<string> compliancePackId_ {};
   };
 
   } // namespace Models

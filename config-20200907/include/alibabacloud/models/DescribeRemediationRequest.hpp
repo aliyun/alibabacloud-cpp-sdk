@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->configRuleId_ == nullptr
-        && return this->remediationId_ == nullptr; };
+        && this->remediationId_ == nullptr; };
     // configRuleId Field Functions 
     bool hasConfigRuleId() const { return this->configRuleId_ != nullptr;};
     void deleteConfigRuleId() { this->configRuleId_ = nullptr;};
-    inline string configRuleId() const { DARABONBA_PTR_GET_DEFAULT(configRuleId_, "") };
+    inline string getConfigRuleId() const { DARABONBA_PTR_GET_DEFAULT(configRuleId_, "") };
     inline DescribeRemediationRequest& setConfigRuleId(string configRuleId) { DARABONBA_PTR_SET_VALUE(configRuleId_, configRuleId) };
 
 
     // remediationId Field Functions 
     bool hasRemediationId() const { return this->remediationId_ != nullptr;};
     void deleteRemediationId() { this->remediationId_ = nullptr;};
-    inline string remediationId() const { DARABONBA_PTR_GET_DEFAULT(remediationId_, "") };
+    inline string getRemediationId() const { DARABONBA_PTR_GET_DEFAULT(remediationId_, "") };
     inline DescribeRemediationRequest& setRemediationId(string remediationId) { DARABONBA_PTR_SET_VALUE(remediationId_, remediationId) };
 
 
   protected:
     // The rule ID.
-    std::shared_ptr<string> configRuleId_ = nullptr;
+    shared_ptr<string> configRuleId_ {};
     // The ID of the remediation configuration.
-    std::shared_ptr<string> remediationId_ = nullptr;
+    shared_ptr<string> remediationId_ {};
   };
 
   } // namespace Models

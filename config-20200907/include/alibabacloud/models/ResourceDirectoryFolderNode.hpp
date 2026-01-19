@@ -42,19 +42,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountId_ == nullptr
-        && return this->children_ == nullptr && return this->displayName_ == nullptr && return this->folderId_ == nullptr && return this->folderName_ == nullptr && return this->parentFolderId_ == nullptr; };
+        && this->children_ == nullptr && this->displayName_ == nullptr && this->folderId_ == nullptr && this->folderName_ == nullptr && this->parentFolderId_ == nullptr; };
     // accountId Field Functions 
     bool hasAccountId() const { return this->accountId_ != nullptr;};
     void deleteAccountId() { this->accountId_ = nullptr;};
-    inline string accountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, "") };
+    inline string getAccountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, "") };
     inline ResourceDirectoryFolderNode& setAccountId(string accountId) { DARABONBA_PTR_SET_VALUE(accountId_, accountId) };
 
 
     // children Field Functions 
     bool hasChildren() const { return this->children_ != nullptr;};
     void deleteChildren() { this->children_ = nullptr;};
-    inline const vector<ResourceDirectoryFolderNode> & children() const { DARABONBA_PTR_GET_CONST(children_, vector<ResourceDirectoryFolderNode>) };
-    inline vector<ResourceDirectoryFolderNode> children() { DARABONBA_PTR_GET(children_, vector<ResourceDirectoryFolderNode>) };
+    inline const vector<ResourceDirectoryFolderNode> & getChildren() const { DARABONBA_PTR_GET_CONST(children_, vector<ResourceDirectoryFolderNode>) };
+    inline vector<ResourceDirectoryFolderNode> getChildren() { DARABONBA_PTR_GET(children_, vector<ResourceDirectoryFolderNode>) };
     inline ResourceDirectoryFolderNode& setChildren(const vector<ResourceDirectoryFolderNode> & children) { DARABONBA_PTR_SET_VALUE(children_, children) };
     inline ResourceDirectoryFolderNode& setChildren(vector<ResourceDirectoryFolderNode> && children) { DARABONBA_PTR_SET_RVALUE(children_, children) };
 
@@ -62,38 +62,38 @@ namespace Models
     // displayName Field Functions 
     bool hasDisplayName() const { return this->displayName_ != nullptr;};
     void deleteDisplayName() { this->displayName_ = nullptr;};
-    inline string displayName() const { DARABONBA_PTR_GET_DEFAULT(displayName_, "") };
+    inline string getDisplayName() const { DARABONBA_PTR_GET_DEFAULT(displayName_, "") };
     inline ResourceDirectoryFolderNode& setDisplayName(string displayName) { DARABONBA_PTR_SET_VALUE(displayName_, displayName) };
 
 
     // folderId Field Functions 
     bool hasFolderId() const { return this->folderId_ != nullptr;};
     void deleteFolderId() { this->folderId_ = nullptr;};
-    inline string folderId() const { DARABONBA_PTR_GET_DEFAULT(folderId_, "") };
+    inline string getFolderId() const { DARABONBA_PTR_GET_DEFAULT(folderId_, "") };
     inline ResourceDirectoryFolderNode& setFolderId(string folderId) { DARABONBA_PTR_SET_VALUE(folderId_, folderId) };
 
 
     // folderName Field Functions 
     bool hasFolderName() const { return this->folderName_ != nullptr;};
     void deleteFolderName() { this->folderName_ = nullptr;};
-    inline string folderName() const { DARABONBA_PTR_GET_DEFAULT(folderName_, "") };
+    inline string getFolderName() const { DARABONBA_PTR_GET_DEFAULT(folderName_, "") };
     inline ResourceDirectoryFolderNode& setFolderName(string folderName) { DARABONBA_PTR_SET_VALUE(folderName_, folderName) };
 
 
     // parentFolderId Field Functions 
     bool hasParentFolderId() const { return this->parentFolderId_ != nullptr;};
     void deleteParentFolderId() { this->parentFolderId_ = nullptr;};
-    inline string parentFolderId() const { DARABONBA_PTR_GET_DEFAULT(parentFolderId_, "") };
+    inline string getParentFolderId() const { DARABONBA_PTR_GET_DEFAULT(parentFolderId_, "") };
     inline ResourceDirectoryFolderNode& setParentFolderId(string parentFolderId) { DARABONBA_PTR_SET_VALUE(parentFolderId_, parentFolderId) };
 
 
   protected:
-    std::shared_ptr<string> accountId_ = nullptr;
-    std::shared_ptr<vector<ResourceDirectoryFolderNode>> children_ = nullptr;
-    std::shared_ptr<string> displayName_ = nullptr;
-    std::shared_ptr<string> folderId_ = nullptr;
-    std::shared_ptr<string> folderName_ = nullptr;
-    std::shared_ptr<string> parentFolderId_ = nullptr;
+    shared_ptr<string> accountId_ {};
+    shared_ptr<vector<ResourceDirectoryFolderNode>> children_ {};
+    shared_ptr<string> displayName_ {};
+    shared_ptr<string> folderId_ {};
+    shared_ptr<string> folderName_ {};
+    shared_ptr<string> parentFolderId_ {};
   };
 
   } // namespace Models

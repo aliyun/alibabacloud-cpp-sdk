@@ -33,13 +33,13 @@ namespace Models
     // configRuleIds Field Functions 
     bool hasConfigRuleIds() const { return this->configRuleIds_ != nullptr;};
     void deleteConfigRuleIds() { this->configRuleIds_ = nullptr;};
-    inline string configRuleIds() const { DARABONBA_PTR_GET_DEFAULT(configRuleIds_, "") };
+    inline string getConfigRuleIds() const { DARABONBA_PTR_GET_DEFAULT(configRuleIds_, "") };
     inline GetResourceComplianceGroupByRegionRequest& setConfigRuleIds(string configRuleIds) { DARABONBA_PTR_SET_VALUE(configRuleIds_, configRuleIds) };
 
 
   protected:
     // The rule IDs. Separate multiple rule IDs with commas (,).
-    std::shared_ptr<string> configRuleIds_ = nullptr;
+    shared_ptr<string> configRuleIds_ {};
   };
 
   } // namespace Models

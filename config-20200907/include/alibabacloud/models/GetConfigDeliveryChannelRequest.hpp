@@ -33,7 +33,7 @@ namespace Models
     // deliveryChannelId Field Functions 
     bool hasDeliveryChannelId() const { return this->deliveryChannelId_ != nullptr;};
     void deleteDeliveryChannelId() { this->deliveryChannelId_ = nullptr;};
-    inline string deliveryChannelId() const { DARABONBA_PTR_GET_DEFAULT(deliveryChannelId_, "") };
+    inline string getDeliveryChannelId() const { DARABONBA_PTR_GET_DEFAULT(deliveryChannelId_, "") };
     inline GetConfigDeliveryChannelRequest& setDeliveryChannelId(string deliveryChannelId) { DARABONBA_PTR_SET_VALUE(deliveryChannelId_, deliveryChannelId) };
 
 
@@ -43,7 +43,7 @@ namespace Models
     // For more information about how to obtain the ID of a delivery channel, see [DescribeDeliveryChannels](https://help.aliyun.com/document_detail/429841.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> deliveryChannelId_ = nullptr;
+    shared_ptr<string> deliveryChannelId_ {};
   };
 
   } // namespace Models

@@ -2,7 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_LISTAGGREGATECONFIGRULESRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_LISTAGGREGATECONFIGRULESRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/ListAggregateConfigRulesResponseBodyConfigRules.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -32,29 +32,499 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class ConfigRules : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const ConfigRules& obj) { 
+        DARABONBA_PTR_TO_JSON(ConfigRuleList, configRuleList_);
+        DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
+        DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+        DARABONBA_PTR_TO_JSON(TotalCount, totalCount_);
+      };
+      friend void from_json(const Darabonba::Json& j, ConfigRules& obj) { 
+        DARABONBA_PTR_FROM_JSON(ConfigRuleList, configRuleList_);
+        DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
+        DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+        DARABONBA_PTR_FROM_JSON(TotalCount, totalCount_);
+      };
+      ConfigRules() = default ;
+      ConfigRules(const ConfigRules &) = default ;
+      ConfigRules(ConfigRules &&) = default ;
+      ConfigRules(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~ConfigRules() = default ;
+      ConfigRules& operator=(const ConfigRules &) = default ;
+      ConfigRules& operator=(ConfigRules &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class ConfigRuleList : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const ConfigRuleList& obj) { 
+          DARABONBA_PTR_TO_JSON(AccountId, accountId_);
+          DARABONBA_PTR_TO_JSON(AutomationType, automationType_);
+          DARABONBA_PTR_TO_JSON(Compliance, compliance_);
+          DARABONBA_PTR_TO_JSON(ConfigRuleArn, configRuleArn_);
+          DARABONBA_PTR_TO_JSON(ConfigRuleId, configRuleId_);
+          DARABONBA_PTR_TO_JSON(ConfigRuleName, configRuleName_);
+          DARABONBA_PTR_TO_JSON(ConfigRuleState, configRuleState_);
+          DARABONBA_PTR_TO_JSON(CreateBy, createBy_);
+          DARABONBA_PTR_TO_JSON(CreateDate, createDate_);
+          DARABONBA_PTR_TO_JSON(Description, description_);
+          DARABONBA_PTR_TO_JSON(ResourceTypesScope, resourceTypesScope_);
+          DARABONBA_PTR_TO_JSON(RiskLevel, riskLevel_);
+          DARABONBA_PTR_TO_JSON(SourceIdentifier, sourceIdentifier_);
+          DARABONBA_PTR_TO_JSON(SourceOwner, sourceOwner_);
+          DARABONBA_PTR_TO_JSON(Tags, tags_);
+        };
+        friend void from_json(const Darabonba::Json& j, ConfigRuleList& obj) { 
+          DARABONBA_PTR_FROM_JSON(AccountId, accountId_);
+          DARABONBA_PTR_FROM_JSON(AutomationType, automationType_);
+          DARABONBA_PTR_FROM_JSON(Compliance, compliance_);
+          DARABONBA_PTR_FROM_JSON(ConfigRuleArn, configRuleArn_);
+          DARABONBA_PTR_FROM_JSON(ConfigRuleId, configRuleId_);
+          DARABONBA_PTR_FROM_JSON(ConfigRuleName, configRuleName_);
+          DARABONBA_PTR_FROM_JSON(ConfigRuleState, configRuleState_);
+          DARABONBA_PTR_FROM_JSON(CreateBy, createBy_);
+          DARABONBA_PTR_FROM_JSON(CreateDate, createDate_);
+          DARABONBA_PTR_FROM_JSON(Description, description_);
+          DARABONBA_PTR_FROM_JSON(ResourceTypesScope, resourceTypesScope_);
+          DARABONBA_PTR_FROM_JSON(RiskLevel, riskLevel_);
+          DARABONBA_PTR_FROM_JSON(SourceIdentifier, sourceIdentifier_);
+          DARABONBA_PTR_FROM_JSON(SourceOwner, sourceOwner_);
+          DARABONBA_PTR_FROM_JSON(Tags, tags_);
+        };
+        ConfigRuleList() = default ;
+        ConfigRuleList(const ConfigRuleList &) = default ;
+        ConfigRuleList(ConfigRuleList &&) = default ;
+        ConfigRuleList(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~ConfigRuleList() = default ;
+        ConfigRuleList& operator=(const ConfigRuleList &) = default ;
+        ConfigRuleList& operator=(ConfigRuleList &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class Tags : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const Tags& obj) { 
+            DARABONBA_PTR_TO_JSON(Key, key_);
+            DARABONBA_PTR_TO_JSON(Value, value_);
+          };
+          friend void from_json(const Darabonba::Json& j, Tags& obj) { 
+            DARABONBA_PTR_FROM_JSON(Key, key_);
+            DARABONBA_PTR_FROM_JSON(Value, value_);
+          };
+          Tags() = default ;
+          Tags(const Tags &) = default ;
+          Tags(Tags &&) = default ;
+          Tags(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~Tags() = default ;
+          Tags& operator=(const Tags &) = default ;
+          Tags& operator=(Tags &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+          // key Field Functions 
+          bool hasKey() const { return this->key_ != nullptr;};
+          void deleteKey() { this->key_ = nullptr;};
+          inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+          inline Tags& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+          // value Field Functions 
+          bool hasValue() const { return this->value_ != nullptr;};
+          void deleteValue() { this->value_ = nullptr;};
+          inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+          inline Tags& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+        protected:
+          // The tag key of the rule.
+          shared_ptr<string> key_ {};
+          // The tag value of the rule.
+          shared_ptr<string> value_ {};
+        };
+
+        class CreateBy : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const CreateBy& obj) { 
+            DARABONBA_PTR_TO_JSON(AggregatorId, aggregatorId_);
+            DARABONBA_PTR_TO_JSON(AggregatorName, aggregatorName_);
+            DARABONBA_PTR_TO_JSON(CompliancePackId, compliancePackId_);
+            DARABONBA_PTR_TO_JSON(CompliancePackName, compliancePackName_);
+            DARABONBA_PTR_TO_JSON(CreatorId, creatorId_);
+            DARABONBA_PTR_TO_JSON(CreatorName, creatorName_);
+            DARABONBA_PTR_TO_JSON(CreatorType, creatorType_);
+          };
+          friend void from_json(const Darabonba::Json& j, CreateBy& obj) { 
+            DARABONBA_PTR_FROM_JSON(AggregatorId, aggregatorId_);
+            DARABONBA_PTR_FROM_JSON(AggregatorName, aggregatorName_);
+            DARABONBA_PTR_FROM_JSON(CompliancePackId, compliancePackId_);
+            DARABONBA_PTR_FROM_JSON(CompliancePackName, compliancePackName_);
+            DARABONBA_PTR_FROM_JSON(CreatorId, creatorId_);
+            DARABONBA_PTR_FROM_JSON(CreatorName, creatorName_);
+            DARABONBA_PTR_FROM_JSON(CreatorType, creatorType_);
+          };
+          CreateBy() = default ;
+          CreateBy(const CreateBy &) = default ;
+          CreateBy(CreateBy &&) = default ;
+          CreateBy(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~CreateBy() = default ;
+          CreateBy& operator=(const CreateBy &) = default ;
+          CreateBy& operator=(CreateBy &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->aggregatorId_ == nullptr
+        && this->aggregatorName_ == nullptr && this->compliancePackId_ == nullptr && this->compliancePackName_ == nullptr && this->creatorId_ == nullptr && this->creatorName_ == nullptr
+        && this->creatorType_ == nullptr; };
+          // aggregatorId Field Functions 
+          bool hasAggregatorId() const { return this->aggregatorId_ != nullptr;};
+          void deleteAggregatorId() { this->aggregatorId_ = nullptr;};
+          inline string getAggregatorId() const { DARABONBA_PTR_GET_DEFAULT(aggregatorId_, "") };
+          inline CreateBy& setAggregatorId(string aggregatorId) { DARABONBA_PTR_SET_VALUE(aggregatorId_, aggregatorId) };
+
+
+          // aggregatorName Field Functions 
+          bool hasAggregatorName() const { return this->aggregatorName_ != nullptr;};
+          void deleteAggregatorName() { this->aggregatorName_ = nullptr;};
+          inline string getAggregatorName() const { DARABONBA_PTR_GET_DEFAULT(aggregatorName_, "") };
+          inline CreateBy& setAggregatorName(string aggregatorName) { DARABONBA_PTR_SET_VALUE(aggregatorName_, aggregatorName) };
+
+
+          // compliancePackId Field Functions 
+          bool hasCompliancePackId() const { return this->compliancePackId_ != nullptr;};
+          void deleteCompliancePackId() { this->compliancePackId_ = nullptr;};
+          inline string getCompliancePackId() const { DARABONBA_PTR_GET_DEFAULT(compliancePackId_, "") };
+          inline CreateBy& setCompliancePackId(string compliancePackId) { DARABONBA_PTR_SET_VALUE(compliancePackId_, compliancePackId) };
+
+
+          // compliancePackName Field Functions 
+          bool hasCompliancePackName() const { return this->compliancePackName_ != nullptr;};
+          void deleteCompliancePackName() { this->compliancePackName_ = nullptr;};
+          inline string getCompliancePackName() const { DARABONBA_PTR_GET_DEFAULT(compliancePackName_, "") };
+          inline CreateBy& setCompliancePackName(string compliancePackName) { DARABONBA_PTR_SET_VALUE(compliancePackName_, compliancePackName) };
+
+
+          // creatorId Field Functions 
+          bool hasCreatorId() const { return this->creatorId_ != nullptr;};
+          void deleteCreatorId() { this->creatorId_ = nullptr;};
+          inline string getCreatorId() const { DARABONBA_PTR_GET_DEFAULT(creatorId_, "") };
+          inline CreateBy& setCreatorId(string creatorId) { DARABONBA_PTR_SET_VALUE(creatorId_, creatorId) };
+
+
+          // creatorName Field Functions 
+          bool hasCreatorName() const { return this->creatorName_ != nullptr;};
+          void deleteCreatorName() { this->creatorName_ = nullptr;};
+          inline string getCreatorName() const { DARABONBA_PTR_GET_DEFAULT(creatorName_, "") };
+          inline CreateBy& setCreatorName(string creatorName) { DARABONBA_PTR_SET_VALUE(creatorName_, creatorName) };
+
+
+          // creatorType Field Functions 
+          bool hasCreatorType() const { return this->creatorType_ != nullptr;};
+          void deleteCreatorType() { this->creatorType_ = nullptr;};
+          inline string getCreatorType() const { DARABONBA_PTR_GET_DEFAULT(creatorType_, "") };
+          inline CreateBy& setCreatorType(string creatorType) { DARABONBA_PTR_SET_VALUE(creatorType_, creatorType) };
+
+
+        protected:
+          // The account group ID.
+          shared_ptr<string> aggregatorId_ {};
+          // The name of the account group.
+          shared_ptr<string> aggregatorName_ {};
+          // The compliance package ID.
+          shared_ptr<string> compliancePackId_ {};
+          // The name of the compliance package.
+          shared_ptr<string> compliancePackName_ {};
+          // The ID of the management account that created the rule.
+          shared_ptr<string> creatorId_ {};
+          // The name of the management account that create the rule.
+          shared_ptr<string> creatorName_ {};
+          // The type of the creator of the rule. The value is fixed to AGGREGATOR, which indicates an account group.
+          shared_ptr<string> creatorType_ {};
+        };
+
+        class Compliance : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const Compliance& obj) { 
+            DARABONBA_PTR_TO_JSON(ComplianceType, complianceType_);
+            DARABONBA_PTR_TO_JSON(Count, count_);
+          };
+          friend void from_json(const Darabonba::Json& j, Compliance& obj) { 
+            DARABONBA_PTR_FROM_JSON(ComplianceType, complianceType_);
+            DARABONBA_PTR_FROM_JSON(Count, count_);
+          };
+          Compliance() = default ;
+          Compliance(const Compliance &) = default ;
+          Compliance(Compliance &&) = default ;
+          Compliance(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~Compliance() = default ;
+          Compliance& operator=(const Compliance &) = default ;
+          Compliance& operator=(Compliance &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->complianceType_ == nullptr
+        && this->count_ == nullptr; };
+          // complianceType Field Functions 
+          bool hasComplianceType() const { return this->complianceType_ != nullptr;};
+          void deleteComplianceType() { this->complianceType_ = nullptr;};
+          inline string getComplianceType() const { DARABONBA_PTR_GET_DEFAULT(complianceType_, "") };
+          inline Compliance& setComplianceType(string complianceType) { DARABONBA_PTR_SET_VALUE(complianceType_, complianceType) };
+
+
+          // count Field Functions 
+          bool hasCount() const { return this->count_ != nullptr;};
+          void deleteCount() { this->count_ = nullptr;};
+          inline int32_t getCount() const { DARABONBA_PTR_GET_DEFAULT(count_, 0) };
+          inline Compliance& setCount(int32_t count) { DARABONBA_PTR_SET_VALUE(count_, count) };
+
+
+        protected:
+          // The compliance evaluation result. Valid values:
+          // 
+          // *   COMPLIANT: The resources are evaluated as compliant.
+          // *   NON_COMPLIANT: The resources are evaluated as non-compliant.
+          // *   NOT_APPLICABLE: The rule does not apply to the resources.
+          // *   INSUFFICIENT_DATA: No data is available.
+          shared_ptr<string> complianceType_ {};
+          // The number of evaluation resources that correspond to the summary result of the rule compliance evaluation.
+          shared_ptr<int32_t> count_ {};
+        };
+
+        virtual bool empty() const override { return this->accountId_ == nullptr
+        && this->automationType_ == nullptr && this->compliance_ == nullptr && this->configRuleArn_ == nullptr && this->configRuleId_ == nullptr && this->configRuleName_ == nullptr
+        && this->configRuleState_ == nullptr && this->createBy_ == nullptr && this->createDate_ == nullptr && this->description_ == nullptr && this->resourceTypesScope_ == nullptr
+        && this->riskLevel_ == nullptr && this->sourceIdentifier_ == nullptr && this->sourceOwner_ == nullptr && this->tags_ == nullptr; };
+        // accountId Field Functions 
+        bool hasAccountId() const { return this->accountId_ != nullptr;};
+        void deleteAccountId() { this->accountId_ = nullptr;};
+        inline int64_t getAccountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, 0L) };
+        inline ConfigRuleList& setAccountId(int64_t accountId) { DARABONBA_PTR_SET_VALUE(accountId_, accountId) };
+
+
+        // automationType Field Functions 
+        bool hasAutomationType() const { return this->automationType_ != nullptr;};
+        void deleteAutomationType() { this->automationType_ = nullptr;};
+        inline string getAutomationType() const { DARABONBA_PTR_GET_DEFAULT(automationType_, "") };
+        inline ConfigRuleList& setAutomationType(string automationType) { DARABONBA_PTR_SET_VALUE(automationType_, automationType) };
+
+
+        // compliance Field Functions 
+        bool hasCompliance() const { return this->compliance_ != nullptr;};
+        void deleteCompliance() { this->compliance_ = nullptr;};
+        inline const ConfigRuleList::Compliance & getCompliance() const { DARABONBA_PTR_GET_CONST(compliance_, ConfigRuleList::Compliance) };
+        inline ConfigRuleList::Compliance getCompliance() { DARABONBA_PTR_GET(compliance_, ConfigRuleList::Compliance) };
+        inline ConfigRuleList& setCompliance(const ConfigRuleList::Compliance & compliance) { DARABONBA_PTR_SET_VALUE(compliance_, compliance) };
+        inline ConfigRuleList& setCompliance(ConfigRuleList::Compliance && compliance) { DARABONBA_PTR_SET_RVALUE(compliance_, compliance) };
+
+
+        // configRuleArn Field Functions 
+        bool hasConfigRuleArn() const { return this->configRuleArn_ != nullptr;};
+        void deleteConfigRuleArn() { this->configRuleArn_ = nullptr;};
+        inline string getConfigRuleArn() const { DARABONBA_PTR_GET_DEFAULT(configRuleArn_, "") };
+        inline ConfigRuleList& setConfigRuleArn(string configRuleArn) { DARABONBA_PTR_SET_VALUE(configRuleArn_, configRuleArn) };
+
+
+        // configRuleId Field Functions 
+        bool hasConfigRuleId() const { return this->configRuleId_ != nullptr;};
+        void deleteConfigRuleId() { this->configRuleId_ = nullptr;};
+        inline string getConfigRuleId() const { DARABONBA_PTR_GET_DEFAULT(configRuleId_, "") };
+        inline ConfigRuleList& setConfigRuleId(string configRuleId) { DARABONBA_PTR_SET_VALUE(configRuleId_, configRuleId) };
+
+
+        // configRuleName Field Functions 
+        bool hasConfigRuleName() const { return this->configRuleName_ != nullptr;};
+        void deleteConfigRuleName() { this->configRuleName_ = nullptr;};
+        inline string getConfigRuleName() const { DARABONBA_PTR_GET_DEFAULT(configRuleName_, "") };
+        inline ConfigRuleList& setConfigRuleName(string configRuleName) { DARABONBA_PTR_SET_VALUE(configRuleName_, configRuleName) };
+
+
+        // configRuleState Field Functions 
+        bool hasConfigRuleState() const { return this->configRuleState_ != nullptr;};
+        void deleteConfigRuleState() { this->configRuleState_ = nullptr;};
+        inline string getConfigRuleState() const { DARABONBA_PTR_GET_DEFAULT(configRuleState_, "") };
+        inline ConfigRuleList& setConfigRuleState(string configRuleState) { DARABONBA_PTR_SET_VALUE(configRuleState_, configRuleState) };
+
+
+        // createBy Field Functions 
+        bool hasCreateBy() const { return this->createBy_ != nullptr;};
+        void deleteCreateBy() { this->createBy_ = nullptr;};
+        inline const ConfigRuleList::CreateBy & getCreateBy() const { DARABONBA_PTR_GET_CONST(createBy_, ConfigRuleList::CreateBy) };
+        inline ConfigRuleList::CreateBy getCreateBy() { DARABONBA_PTR_GET(createBy_, ConfigRuleList::CreateBy) };
+        inline ConfigRuleList& setCreateBy(const ConfigRuleList::CreateBy & createBy) { DARABONBA_PTR_SET_VALUE(createBy_, createBy) };
+        inline ConfigRuleList& setCreateBy(ConfigRuleList::CreateBy && createBy) { DARABONBA_PTR_SET_RVALUE(createBy_, createBy) };
+
+
+        // createDate Field Functions 
+        bool hasCreateDate() const { return this->createDate_ != nullptr;};
+        void deleteCreateDate() { this->createDate_ = nullptr;};
+        inline string getCreateDate() const { DARABONBA_PTR_GET_DEFAULT(createDate_, "") };
+        inline ConfigRuleList& setCreateDate(string createDate) { DARABONBA_PTR_SET_VALUE(createDate_, createDate) };
+
+
+        // description Field Functions 
+        bool hasDescription() const { return this->description_ != nullptr;};
+        void deleteDescription() { this->description_ = nullptr;};
+        inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+        inline ConfigRuleList& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+        // resourceTypesScope Field Functions 
+        bool hasResourceTypesScope() const { return this->resourceTypesScope_ != nullptr;};
+        void deleteResourceTypesScope() { this->resourceTypesScope_ = nullptr;};
+        inline string getResourceTypesScope() const { DARABONBA_PTR_GET_DEFAULT(resourceTypesScope_, "") };
+        inline ConfigRuleList& setResourceTypesScope(string resourceTypesScope) { DARABONBA_PTR_SET_VALUE(resourceTypesScope_, resourceTypesScope) };
+
+
+        // riskLevel Field Functions 
+        bool hasRiskLevel() const { return this->riskLevel_ != nullptr;};
+        void deleteRiskLevel() { this->riskLevel_ = nullptr;};
+        inline int32_t getRiskLevel() const { DARABONBA_PTR_GET_DEFAULT(riskLevel_, 0) };
+        inline ConfigRuleList& setRiskLevel(int32_t riskLevel) { DARABONBA_PTR_SET_VALUE(riskLevel_, riskLevel) };
+
+
+        // sourceIdentifier Field Functions 
+        bool hasSourceIdentifier() const { return this->sourceIdentifier_ != nullptr;};
+        void deleteSourceIdentifier() { this->sourceIdentifier_ = nullptr;};
+        inline string getSourceIdentifier() const { DARABONBA_PTR_GET_DEFAULT(sourceIdentifier_, "") };
+        inline ConfigRuleList& setSourceIdentifier(string sourceIdentifier) { DARABONBA_PTR_SET_VALUE(sourceIdentifier_, sourceIdentifier) };
+
+
+        // sourceOwner Field Functions 
+        bool hasSourceOwner() const { return this->sourceOwner_ != nullptr;};
+        void deleteSourceOwner() { this->sourceOwner_ = nullptr;};
+        inline string getSourceOwner() const { DARABONBA_PTR_GET_DEFAULT(sourceOwner_, "") };
+        inline ConfigRuleList& setSourceOwner(string sourceOwner) { DARABONBA_PTR_SET_VALUE(sourceOwner_, sourceOwner) };
+
+
+        // tags Field Functions 
+        bool hasTags() const { return this->tags_ != nullptr;};
+        void deleteTags() { this->tags_ = nullptr;};
+        inline const vector<ConfigRuleList::Tags> & getTags() const { DARABONBA_PTR_GET_CONST(tags_, vector<ConfigRuleList::Tags>) };
+        inline vector<ConfigRuleList::Tags> getTags() { DARABONBA_PTR_GET(tags_, vector<ConfigRuleList::Tags>) };
+        inline ConfigRuleList& setTags(const vector<ConfigRuleList::Tags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+        inline ConfigRuleList& setTags(vector<ConfigRuleList::Tags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
+
+
+      protected:
+        // The ID of the management account to which the rules belong.
+        shared_ptr<int64_t> accountId_ {};
+        // The type of the remediation template. Only OOS is returned, which indicates CloudOps Orchestration Service.
+        shared_ptr<string> automationType_ {};
+        // The compliance evaluation result.
+        shared_ptr<ConfigRuleList::Compliance> compliance_ {};
+        // The ARN of the rule.
+        shared_ptr<string> configRuleArn_ {};
+        // The rule ID.
+        shared_ptr<string> configRuleId_ {};
+        // The name of the rule.
+        shared_ptr<string> configRuleName_ {};
+        // The status of the rule. Valid values:
+        // 
+        // *   ACTIVE: The rule is being used to monitor resource configurations.
+        // *   DELETING: The rule is being deleted.
+        // *   EVALUATING: The rule is triggered and is being used to monitor resource configurations.
+        // *   INACTIVE: The rule is disabled.
+        shared_ptr<string> configRuleState_ {};
+        // The information about the creation of the rule.
+        shared_ptr<ConfigRuleList::CreateBy> createBy_ {};
+        shared_ptr<string> createDate_ {};
+        // The description of the rule.
+        shared_ptr<string> description_ {};
+        // The types of resources evaluated by the rule. Multiple resource types are separated with commas (,).
+        shared_ptr<string> resourceTypesScope_ {};
+        // The risk level of the resources that do not comply with the rule. Valid values:
+        // 
+        // *   1: high
+        // *   2: medium
+        // *   3: low
+        shared_ptr<int32_t> riskLevel_ {};
+        // The identifier of the rule.
+        // 
+        // *   If the rule is a managed rule, the value of this parameter is the name of the managed rule.
+        // *   If the rule is a custom rule, the value of this parameter is the Alibaba Cloud Resource Name (ARN) of a function.
+        shared_ptr<string> sourceIdentifier_ {};
+        // The type of the rule. Valid values:
+        // 
+        // *   CUSTOM_FC: a custom rule.
+        // *   ALIYUN: a managed rule.
+        shared_ptr<string> sourceOwner_ {};
+        // The tags of the rule.
+        shared_ptr<vector<ConfigRuleList::Tags>> tags_ {};
+      };
+
+      virtual bool empty() const override { return this->configRuleList_ == nullptr
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->totalCount_ == nullptr; };
+      // configRuleList Field Functions 
+      bool hasConfigRuleList() const { return this->configRuleList_ != nullptr;};
+      void deleteConfigRuleList() { this->configRuleList_ = nullptr;};
+      inline const vector<ConfigRules::ConfigRuleList> & getConfigRuleList() const { DARABONBA_PTR_GET_CONST(configRuleList_, vector<ConfigRules::ConfigRuleList>) };
+      inline vector<ConfigRules::ConfigRuleList> getConfigRuleList() { DARABONBA_PTR_GET(configRuleList_, vector<ConfigRules::ConfigRuleList>) };
+      inline ConfigRules& setConfigRuleList(const vector<ConfigRules::ConfigRuleList> & configRuleList) { DARABONBA_PTR_SET_VALUE(configRuleList_, configRuleList) };
+      inline ConfigRules& setConfigRuleList(vector<ConfigRules::ConfigRuleList> && configRuleList) { DARABONBA_PTR_SET_RVALUE(configRuleList_, configRuleList) };
+
+
+      // pageNumber Field Functions 
+      bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
+      void deletePageNumber() { this->pageNumber_ = nullptr;};
+      inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+      inline ConfigRules& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
+
+
+      // pageSize Field Functions 
+      bool hasPageSize() const { return this->pageSize_ != nullptr;};
+      void deletePageSize() { this->pageSize_ = nullptr;};
+      inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+      inline ConfigRules& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
+
+
+      // totalCount Field Functions 
+      bool hasTotalCount() const { return this->totalCount_ != nullptr;};
+      void deleteTotalCount() { this->totalCount_ = nullptr;};
+      inline int64_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0L) };
+      inline ConfigRules& setTotalCount(int64_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
+
+
+    protected:
+      // The details of the rule.
+      shared_ptr<vector<ConfigRules::ConfigRuleList>> configRuleList_ {};
+      // The number of the page returned.
+      shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries returned per page.
+      shared_ptr<int32_t> pageSize_ {};
+      // The total number of rules.
+      shared_ptr<int64_t> totalCount_ {};
+    };
+
     virtual bool empty() const override { return this->configRules_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // configRules Field Functions 
     bool hasConfigRules() const { return this->configRules_ != nullptr;};
     void deleteConfigRules() { this->configRules_ = nullptr;};
-    inline const ListAggregateConfigRulesResponseBodyConfigRules & configRules() const { DARABONBA_PTR_GET_CONST(configRules_, ListAggregateConfigRulesResponseBodyConfigRules) };
-    inline ListAggregateConfigRulesResponseBodyConfigRules configRules() { DARABONBA_PTR_GET(configRules_, ListAggregateConfigRulesResponseBodyConfigRules) };
-    inline ListAggregateConfigRulesResponseBody& setConfigRules(const ListAggregateConfigRulesResponseBodyConfigRules & configRules) { DARABONBA_PTR_SET_VALUE(configRules_, configRules) };
-    inline ListAggregateConfigRulesResponseBody& setConfigRules(ListAggregateConfigRulesResponseBodyConfigRules && configRules) { DARABONBA_PTR_SET_RVALUE(configRules_, configRules) };
+    inline const ListAggregateConfigRulesResponseBody::ConfigRules & getConfigRules() const { DARABONBA_PTR_GET_CONST(configRules_, ListAggregateConfigRulesResponseBody::ConfigRules) };
+    inline ListAggregateConfigRulesResponseBody::ConfigRules getConfigRules() { DARABONBA_PTR_GET(configRules_, ListAggregateConfigRulesResponseBody::ConfigRules) };
+    inline ListAggregateConfigRulesResponseBody& setConfigRules(const ListAggregateConfigRulesResponseBody::ConfigRules & configRules) { DARABONBA_PTR_SET_VALUE(configRules_, configRules) };
+    inline ListAggregateConfigRulesResponseBody& setConfigRules(ListAggregateConfigRulesResponseBody::ConfigRules && configRules) { DARABONBA_PTR_SET_RVALUE(configRules_, configRules) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListAggregateConfigRulesResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The queried rules.
-    std::shared_ptr<ListAggregateConfigRulesResponseBodyConfigRules> configRules_ = nullptr;
+    shared_ptr<ListAggregateConfigRulesResponseBody::ConfigRules> configRules_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

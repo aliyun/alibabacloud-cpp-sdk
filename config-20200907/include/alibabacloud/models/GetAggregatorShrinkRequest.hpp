@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aggregatorId_ == nullptr
-        && return this->tagShrink_ == nullptr; };
+        && this->tagShrink_ == nullptr; };
     // aggregatorId Field Functions 
     bool hasAggregatorId() const { return this->aggregatorId_ != nullptr;};
     void deleteAggregatorId() { this->aggregatorId_ = nullptr;};
-    inline string aggregatorId() const { DARABONBA_PTR_GET_DEFAULT(aggregatorId_, "") };
+    inline string getAggregatorId() const { DARABONBA_PTR_GET_DEFAULT(aggregatorId_, "") };
     inline GetAggregatorShrinkRequest& setAggregatorId(string aggregatorId) { DARABONBA_PTR_SET_VALUE(aggregatorId_, aggregatorId) };
 
 
     // tagShrink Field Functions 
     bool hasTagShrink() const { return this->tagShrink_ != nullptr;};
     void deleteTagShrink() { this->tagShrink_ = nullptr;};
-    inline string tagShrink() const { DARABONBA_PTR_GET_DEFAULT(tagShrink_, "") };
+    inline string getTagShrink() const { DARABONBA_PTR_GET_DEFAULT(tagShrink_, "") };
     inline GetAggregatorShrinkRequest& setTagShrink(string tagShrink) { DARABONBA_PTR_SET_VALUE(tagShrink_, tagShrink) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The ID of the account group.
     // 
     // This parameter is required.
-    std::shared_ptr<string> aggregatorId_ = nullptr;
+    shared_ptr<string> aggregatorId_ {};
     // The tags of the resource.
     // 
     // You can add up to 20 tags to a resource.
-    std::shared_ptr<string> tagShrink_ = nullptr;
+    shared_ptr<string> tagShrink_ {};
   };
 
   } // namespace Models

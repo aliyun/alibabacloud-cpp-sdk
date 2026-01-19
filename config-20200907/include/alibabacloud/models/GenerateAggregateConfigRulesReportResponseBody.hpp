@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aggregatorId_ == nullptr
-        && return this->reportId_ == nullptr && return this->requestId_ == nullptr; };
+        && this->reportId_ == nullptr && this->requestId_ == nullptr; };
     // aggregatorId Field Functions 
     bool hasAggregatorId() const { return this->aggregatorId_ != nullptr;};
     void deleteAggregatorId() { this->aggregatorId_ = nullptr;};
-    inline string aggregatorId() const { DARABONBA_PTR_GET_DEFAULT(aggregatorId_, "") };
+    inline string getAggregatorId() const { DARABONBA_PTR_GET_DEFAULT(aggregatorId_, "") };
     inline GenerateAggregateConfigRulesReportResponseBody& setAggregatorId(string aggregatorId) { DARABONBA_PTR_SET_VALUE(aggregatorId_, aggregatorId) };
 
 
     // reportId Field Functions 
     bool hasReportId() const { return this->reportId_ != nullptr;};
     void deleteReportId() { this->reportId_ = nullptr;};
-    inline string reportId() const { DARABONBA_PTR_GET_DEFAULT(reportId_, "") };
+    inline string getReportId() const { DARABONBA_PTR_GET_DEFAULT(reportId_, "") };
     inline GenerateAggregateConfigRulesReportResponseBody& setReportId(string reportId) { DARABONBA_PTR_SET_VALUE(reportId_, reportId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GenerateAggregateConfigRulesReportResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The ID of the account group.
-    std::shared_ptr<string> aggregatorId_ = nullptr;
+    shared_ptr<string> aggregatorId_ {};
     // The ID of the compliance evaluation report.
-    std::shared_ptr<string> reportId_ = nullptr;
+    shared_ptr<string> reportId_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

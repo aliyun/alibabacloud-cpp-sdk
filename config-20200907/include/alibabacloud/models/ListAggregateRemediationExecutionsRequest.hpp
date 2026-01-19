@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aggregatorId_ == nullptr
-        && return this->configRuleId_ == nullptr && return this->executionStatus_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->resourceAccountId_ == nullptr; };
+        && this->configRuleId_ == nullptr && this->executionStatus_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->resourceAccountId_ == nullptr; };
     // aggregatorId Field Functions 
     bool hasAggregatorId() const { return this->aggregatorId_ != nullptr;};
     void deleteAggregatorId() { this->aggregatorId_ = nullptr;};
-    inline string aggregatorId() const { DARABONBA_PTR_GET_DEFAULT(aggregatorId_, "") };
+    inline string getAggregatorId() const { DARABONBA_PTR_GET_DEFAULT(aggregatorId_, "") };
     inline ListAggregateRemediationExecutionsRequest& setAggregatorId(string aggregatorId) { DARABONBA_PTR_SET_VALUE(aggregatorId_, aggregatorId) };
 
 
     // configRuleId Field Functions 
     bool hasConfigRuleId() const { return this->configRuleId_ != nullptr;};
     void deleteConfigRuleId() { this->configRuleId_ = nullptr;};
-    inline string configRuleId() const { DARABONBA_PTR_GET_DEFAULT(configRuleId_, "") };
+    inline string getConfigRuleId() const { DARABONBA_PTR_GET_DEFAULT(configRuleId_, "") };
     inline ListAggregateRemediationExecutionsRequest& setConfigRuleId(string configRuleId) { DARABONBA_PTR_SET_VALUE(configRuleId_, configRuleId) };
 
 
     // executionStatus Field Functions 
     bool hasExecutionStatus() const { return this->executionStatus_ != nullptr;};
     void deleteExecutionStatus() { this->executionStatus_ = nullptr;};
-    inline string executionStatus() const { DARABONBA_PTR_GET_DEFAULT(executionStatus_, "") };
+    inline string getExecutionStatus() const { DARABONBA_PTR_GET_DEFAULT(executionStatus_, "") };
     inline ListAggregateRemediationExecutionsRequest& setExecutionStatus(string executionStatus) { DARABONBA_PTR_SET_VALUE(executionStatus_, executionStatus) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int64_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0L) };
+    inline int64_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0L) };
     inline ListAggregateRemediationExecutionsRequest& setMaxResults(int64_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListAggregateRemediationExecutionsRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // resourceAccountId Field Functions 
     bool hasResourceAccountId() const { return this->resourceAccountId_ != nullptr;};
     void deleteResourceAccountId() { this->resourceAccountId_ = nullptr;};
-    inline int64_t resourceAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceAccountId_, 0L) };
+    inline int64_t getResourceAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceAccountId_, 0L) };
     inline ListAggregateRemediationExecutionsRequest& setResourceAccountId(int64_t resourceAccountId) { DARABONBA_PTR_SET_VALUE(resourceAccountId_, resourceAccountId) };
 
 
@@ -89,24 +89,24 @@ namespace Models
     // For more information about how to obtain the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> aggregatorId_ = nullptr;
+    shared_ptr<string> aggregatorId_ {};
     // The rule ID.
     // 
     // For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> configRuleId_ = nullptr;
+    shared_ptr<string> configRuleId_ {};
     // The status of the remediation. Valid values:
     // 
     // *   Success
     // *   Failed
-    std::shared_ptr<string> executionStatus_ = nullptr;
+    shared_ptr<string> executionStatus_ {};
     // The maximum number of entries to return for a single request. Valid values: 10 to 100.
-    std::shared_ptr<int64_t> maxResults_ = nullptr;
+    shared_ptr<int64_t> maxResults_ {};
     // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The ID of the member account in the account group. When left unfilled, this rule queries the remediation result for the account that created the rule. If the account is not in the account group, the result will be empty.
-    std::shared_ptr<int64_t> resourceAccountId_ = nullptr;
+    shared_ptr<int64_t> resourceAccountId_ {};
   };
 
   } // namespace Models

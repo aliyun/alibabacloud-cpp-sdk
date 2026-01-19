@@ -2,7 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_LISTRECOMMENDMANAGEDRULESRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_LISTRECOMMENDMANAGEDRULESRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/ListRecommendManagedRulesResponseBodyRecommendedManagedRules.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -32,28 +32,154 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class RecommendedManagedRules : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const RecommendedManagedRules& obj) { 
+        DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
+        DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
+        DARABONBA_PTR_TO_JSON(RecommendedManagedRuleList, recommendedManagedRuleList_);
+        DARABONBA_PTR_TO_JSON(TotalCount, totalCount_);
+      };
+      friend void from_json(const Darabonba::Json& j, RecommendedManagedRules& obj) { 
+        DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
+        DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
+        DARABONBA_PTR_FROM_JSON(RecommendedManagedRuleList, recommendedManagedRuleList_);
+        DARABONBA_PTR_FROM_JSON(TotalCount, totalCount_);
+      };
+      RecommendedManagedRules() = default ;
+      RecommendedManagedRules(const RecommendedManagedRules &) = default ;
+      RecommendedManagedRules(RecommendedManagedRules &&) = default ;
+      RecommendedManagedRules(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~RecommendedManagedRules() = default ;
+      RecommendedManagedRules& operator=(const RecommendedManagedRules &) = default ;
+      RecommendedManagedRules& operator=(RecommendedManagedRules &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class RecommendedManagedRuleList : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const RecommendedManagedRuleList& obj) { 
+          DARABONBA_PTR_TO_JSON(ConfigRuleName, configRuleName_);
+          DARABONBA_PTR_TO_JSON(Description, description_);
+          DARABONBA_PTR_TO_JSON(Identifier, identifier_);
+          DARABONBA_PTR_TO_JSON(ResourceTypeScope, resourceTypeScope_);
+        };
+        friend void from_json(const Darabonba::Json& j, RecommendedManagedRuleList& obj) { 
+          DARABONBA_PTR_FROM_JSON(ConfigRuleName, configRuleName_);
+          DARABONBA_PTR_FROM_JSON(Description, description_);
+          DARABONBA_PTR_FROM_JSON(Identifier, identifier_);
+          DARABONBA_PTR_FROM_JSON(ResourceTypeScope, resourceTypeScope_);
+        };
+        RecommendedManagedRuleList() = default ;
+        RecommendedManagedRuleList(const RecommendedManagedRuleList &) = default ;
+        RecommendedManagedRuleList(RecommendedManagedRuleList &&) = default ;
+        RecommendedManagedRuleList(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~RecommendedManagedRuleList() = default ;
+        RecommendedManagedRuleList& operator=(const RecommendedManagedRuleList &) = default ;
+        RecommendedManagedRuleList& operator=(RecommendedManagedRuleList &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->configRuleName_ == nullptr
+        && this->description_ == nullptr && this->identifier_ == nullptr && this->resourceTypeScope_ == nullptr; };
+        // configRuleName Field Functions 
+        bool hasConfigRuleName() const { return this->configRuleName_ != nullptr;};
+        void deleteConfigRuleName() { this->configRuleName_ = nullptr;};
+        inline string getConfigRuleName() const { DARABONBA_PTR_GET_DEFAULT(configRuleName_, "") };
+        inline RecommendedManagedRuleList& setConfigRuleName(string configRuleName) { DARABONBA_PTR_SET_VALUE(configRuleName_, configRuleName) };
+
+
+        // description Field Functions 
+        bool hasDescription() const { return this->description_ != nullptr;};
+        void deleteDescription() { this->description_ = nullptr;};
+        inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+        inline RecommendedManagedRuleList& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+        // identifier Field Functions 
+        bool hasIdentifier() const { return this->identifier_ != nullptr;};
+        void deleteIdentifier() { this->identifier_ = nullptr;};
+        inline string getIdentifier() const { DARABONBA_PTR_GET_DEFAULT(identifier_, "") };
+        inline RecommendedManagedRuleList& setIdentifier(string identifier) { DARABONBA_PTR_SET_VALUE(identifier_, identifier) };
+
+
+        // resourceTypeScope Field Functions 
+        bool hasResourceTypeScope() const { return this->resourceTypeScope_ != nullptr;};
+        void deleteResourceTypeScope() { this->resourceTypeScope_ = nullptr;};
+        inline string getResourceTypeScope() const { DARABONBA_PTR_GET_DEFAULT(resourceTypeScope_, "") };
+        inline RecommendedManagedRuleList& setResourceTypeScope(string resourceTypeScope) { DARABONBA_PTR_SET_VALUE(resourceTypeScope_, resourceTypeScope) };
+
+
+      protected:
+        shared_ptr<string> configRuleName_ {};
+        shared_ptr<string> description_ {};
+        shared_ptr<string> identifier_ {};
+        shared_ptr<string> resourceTypeScope_ {};
+      };
+
+      virtual bool empty() const override { return this->maxResults_ == nullptr
+        && this->nextToken_ == nullptr && this->recommendedManagedRuleList_ == nullptr && this->totalCount_ == nullptr; };
+      // maxResults Field Functions 
+      bool hasMaxResults() const { return this->maxResults_ != nullptr;};
+      void deleteMaxResults() { this->maxResults_ = nullptr;};
+      inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+      inline RecommendedManagedRules& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
+
+
+      // nextToken Field Functions 
+      bool hasNextToken() const { return this->nextToken_ != nullptr;};
+      void deleteNextToken() { this->nextToken_ = nullptr;};
+      inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+      inline RecommendedManagedRules& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
+
+
+      // recommendedManagedRuleList Field Functions 
+      bool hasRecommendedManagedRuleList() const { return this->recommendedManagedRuleList_ != nullptr;};
+      void deleteRecommendedManagedRuleList() { this->recommendedManagedRuleList_ = nullptr;};
+      inline const vector<RecommendedManagedRules::RecommendedManagedRuleList> & getRecommendedManagedRuleList() const { DARABONBA_PTR_GET_CONST(recommendedManagedRuleList_, vector<RecommendedManagedRules::RecommendedManagedRuleList>) };
+      inline vector<RecommendedManagedRules::RecommendedManagedRuleList> getRecommendedManagedRuleList() { DARABONBA_PTR_GET(recommendedManagedRuleList_, vector<RecommendedManagedRules::RecommendedManagedRuleList>) };
+      inline RecommendedManagedRules& setRecommendedManagedRuleList(const vector<RecommendedManagedRules::RecommendedManagedRuleList> & recommendedManagedRuleList) { DARABONBA_PTR_SET_VALUE(recommendedManagedRuleList_, recommendedManagedRuleList) };
+      inline RecommendedManagedRules& setRecommendedManagedRuleList(vector<RecommendedManagedRules::RecommendedManagedRuleList> && recommendedManagedRuleList) { DARABONBA_PTR_SET_RVALUE(recommendedManagedRuleList_, recommendedManagedRuleList) };
+
+
+      // totalCount Field Functions 
+      bool hasTotalCount() const { return this->totalCount_ != nullptr;};
+      void deleteTotalCount() { this->totalCount_ = nullptr;};
+      inline int64_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0L) };
+      inline RecommendedManagedRules& setTotalCount(int64_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
+
+
+    protected:
+      shared_ptr<int32_t> maxResults_ {};
+      shared_ptr<string> nextToken_ {};
+      shared_ptr<vector<RecommendedManagedRules::RecommendedManagedRuleList>> recommendedManagedRuleList_ {};
+      shared_ptr<int64_t> totalCount_ {};
+    };
+
     virtual bool empty() const override { return this->recommendedManagedRules_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // recommendedManagedRules Field Functions 
     bool hasRecommendedManagedRules() const { return this->recommendedManagedRules_ != nullptr;};
     void deleteRecommendedManagedRules() { this->recommendedManagedRules_ = nullptr;};
-    inline const ListRecommendManagedRulesResponseBodyRecommendedManagedRules & recommendedManagedRules() const { DARABONBA_PTR_GET_CONST(recommendedManagedRules_, ListRecommendManagedRulesResponseBodyRecommendedManagedRules) };
-    inline ListRecommendManagedRulesResponseBodyRecommendedManagedRules recommendedManagedRules() { DARABONBA_PTR_GET(recommendedManagedRules_, ListRecommendManagedRulesResponseBodyRecommendedManagedRules) };
-    inline ListRecommendManagedRulesResponseBody& setRecommendedManagedRules(const ListRecommendManagedRulesResponseBodyRecommendedManagedRules & recommendedManagedRules) { DARABONBA_PTR_SET_VALUE(recommendedManagedRules_, recommendedManagedRules) };
-    inline ListRecommendManagedRulesResponseBody& setRecommendedManagedRules(ListRecommendManagedRulesResponseBodyRecommendedManagedRules && recommendedManagedRules) { DARABONBA_PTR_SET_RVALUE(recommendedManagedRules_, recommendedManagedRules) };
+    inline const ListRecommendManagedRulesResponseBody::RecommendedManagedRules & getRecommendedManagedRules() const { DARABONBA_PTR_GET_CONST(recommendedManagedRules_, ListRecommendManagedRulesResponseBody::RecommendedManagedRules) };
+    inline ListRecommendManagedRulesResponseBody::RecommendedManagedRules getRecommendedManagedRules() { DARABONBA_PTR_GET(recommendedManagedRules_, ListRecommendManagedRulesResponseBody::RecommendedManagedRules) };
+    inline ListRecommendManagedRulesResponseBody& setRecommendedManagedRules(const ListRecommendManagedRulesResponseBody::RecommendedManagedRules & recommendedManagedRules) { DARABONBA_PTR_SET_VALUE(recommendedManagedRules_, recommendedManagedRules) };
+    inline ListRecommendManagedRulesResponseBody& setRecommendedManagedRules(ListRecommendManagedRulesResponseBody::RecommendedManagedRules && recommendedManagedRules) { DARABONBA_PTR_SET_RVALUE(recommendedManagedRules_, recommendedManagedRules) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListRecommendManagedRulesResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<ListRecommendManagedRulesResponseBodyRecommendedManagedRules> recommendedManagedRules_ = nullptr;
+    shared_ptr<ListRecommendManagedRulesResponseBody::RecommendedManagedRules> recommendedManagedRules_ {};
     // Id of the request
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

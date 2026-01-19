@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->configuration_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // configuration Field Functions 
     bool hasConfiguration() const { return this->configuration_ != nullptr;};
     void deleteConfiguration() { this->configuration_ = nullptr;};
-    inline string configuration() const { DARABONBA_PTR_GET_DEFAULT(configuration_, "") };
+    inline string getConfiguration() const { DARABONBA_PTR_GET_DEFAULT(configuration_, "") };
     inline GetResourceTypePropertiesResponseBody& setConfiguration(string configuration) { DARABONBA_PTR_SET_VALUE(configuration_, configuration) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetResourceTypePropertiesResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> configuration_ = nullptr;
+    shared_ptr<string> configuration_ {};
     // Id of the request
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

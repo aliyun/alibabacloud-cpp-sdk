@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aggregatorIds_ == nullptr
-        && return this->clientToken_ == nullptr; };
+        && this->clientToken_ == nullptr; };
     // aggregatorIds Field Functions 
     bool hasAggregatorIds() const { return this->aggregatorIds_ != nullptr;};
     void deleteAggregatorIds() { this->aggregatorIds_ = nullptr;};
-    inline string aggregatorIds() const { DARABONBA_PTR_GET_DEFAULT(aggregatorIds_, "") };
+    inline string getAggregatorIds() const { DARABONBA_PTR_GET_DEFAULT(aggregatorIds_, "") };
     inline DeleteAggregatorsRequest& setAggregatorIds(string aggregatorIds) { DARABONBA_PTR_SET_VALUE(aggregatorIds_, aggregatorIds) };
 
 
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline DeleteAggregatorsRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
@@ -51,9 +51,9 @@ namespace Models
     // The ID of the account group. Separate multiple IDs with commas (,).
     // 
     // This parameter is required.
-    std::shared_ptr<string> aggregatorIds_ = nullptr;
+    shared_ptr<string> aggregatorIds_ {};
     // The client token that you want to use to ensure the idempotency of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
   };
 
   } // namespace Models

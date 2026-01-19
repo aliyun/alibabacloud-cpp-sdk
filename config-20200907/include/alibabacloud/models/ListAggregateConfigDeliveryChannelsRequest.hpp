@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aggregatorId_ == nullptr
-        && return this->deliveryChannelIds_ == nullptr; };
+        && this->deliveryChannelIds_ == nullptr; };
     // aggregatorId Field Functions 
     bool hasAggregatorId() const { return this->aggregatorId_ != nullptr;};
     void deleteAggregatorId() { this->aggregatorId_ = nullptr;};
-    inline string aggregatorId() const { DARABONBA_PTR_GET_DEFAULT(aggregatorId_, "") };
+    inline string getAggregatorId() const { DARABONBA_PTR_GET_DEFAULT(aggregatorId_, "") };
     inline ListAggregateConfigDeliveryChannelsRequest& setAggregatorId(string aggregatorId) { DARABONBA_PTR_SET_VALUE(aggregatorId_, aggregatorId) };
 
 
     // deliveryChannelIds Field Functions 
     bool hasDeliveryChannelIds() const { return this->deliveryChannelIds_ != nullptr;};
     void deleteDeliveryChannelIds() { this->deliveryChannelIds_ = nullptr;};
-    inline string deliveryChannelIds() const { DARABONBA_PTR_GET_DEFAULT(deliveryChannelIds_, "") };
+    inline string getDeliveryChannelIds() const { DARABONBA_PTR_GET_DEFAULT(deliveryChannelIds_, "") };
     inline ListAggregateConfigDeliveryChannelsRequest& setDeliveryChannelIds(string deliveryChannelIds) { DARABONBA_PTR_SET_VALUE(deliveryChannelIds_, deliveryChannelIds) };
 
 
@@ -53,9 +53,9 @@ namespace Models
     // For more information about how to obtain the ID of the account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> aggregatorId_ = nullptr;
+    shared_ptr<string> aggregatorId_ {};
     // The IDs of the delivery channels. Separate multiple IDs with commas (,).
-    std::shared_ptr<string> deliveryChannelIds_ = nullptr;
+    shared_ptr<string> deliveryChannelIds_ {};
   };
 
   } // namespace Models

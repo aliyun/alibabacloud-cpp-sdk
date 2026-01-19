@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->desAggregatorIds_ == nullptr
-        && return this->srcAggregatorId_ == nullptr && return this->srcCompliancePackIds_ == nullptr; };
+        && this->srcAggregatorId_ == nullptr && this->srcCompliancePackIds_ == nullptr; };
     // desAggregatorIds Field Functions 
     bool hasDesAggregatorIds() const { return this->desAggregatorIds_ != nullptr;};
     void deleteDesAggregatorIds() { this->desAggregatorIds_ = nullptr;};
-    inline string desAggregatorIds() const { DARABONBA_PTR_GET_DEFAULT(desAggregatorIds_, "") };
+    inline string getDesAggregatorIds() const { DARABONBA_PTR_GET_DEFAULT(desAggregatorIds_, "") };
     inline CopyCompliancePacksRequest& setDesAggregatorIds(string desAggregatorIds) { DARABONBA_PTR_SET_VALUE(desAggregatorIds_, desAggregatorIds) };
 
 
     // srcAggregatorId Field Functions 
     bool hasSrcAggregatorId() const { return this->srcAggregatorId_ != nullptr;};
     void deleteSrcAggregatorId() { this->srcAggregatorId_ = nullptr;};
-    inline string srcAggregatorId() const { DARABONBA_PTR_GET_DEFAULT(srcAggregatorId_, "") };
+    inline string getSrcAggregatorId() const { DARABONBA_PTR_GET_DEFAULT(srcAggregatorId_, "") };
     inline CopyCompliancePacksRequest& setSrcAggregatorId(string srcAggregatorId) { DARABONBA_PTR_SET_VALUE(srcAggregatorId_, srcAggregatorId) };
 
 
     // srcCompliancePackIds Field Functions 
     bool hasSrcCompliancePackIds() const { return this->srcCompliancePackIds_ != nullptr;};
     void deleteSrcCompliancePackIds() { this->srcCompliancePackIds_ = nullptr;};
-    inline string srcCompliancePackIds() const { DARABONBA_PTR_GET_DEFAULT(srcCompliancePackIds_, "") };
+    inline string getSrcCompliancePackIds() const { DARABONBA_PTR_GET_DEFAULT(srcCompliancePackIds_, "") };
     inline CopyCompliancePacksRequest& setSrcCompliancePackIds(string srcCompliancePackIds) { DARABONBA_PTR_SET_VALUE(srcCompliancePackIds_, srcCompliancePackIds) };
 
 
@@ -60,17 +60,17 @@ namespace Models
     // The IDs of the destination account groups into which the compliance packages are replicated. Separate multiple account group IDs with commas (,).
     // 
     // > If this parameter is left empty, the compliance packages are replicated to the current account group.
-    std::shared_ptr<string> desAggregatorIds_ = nullptr;
+    shared_ptr<string> desAggregatorIds_ {};
     // The ID of the account group to which the compliance packages belong.
     // 
     // For more information about how to obtain the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
-    std::shared_ptr<string> srcAggregatorId_ = nullptr;
+    shared_ptr<string> srcAggregatorId_ {};
     // The IDs of the compliance packages. Separate multiple compliance package IDs with commas (,).
     // 
     // For more information about how to obtain the ID of a compliance package, see [ListCompliancePacks](https://help.aliyun.com/document_detail/263332.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> srcCompliancePackIds_ = nullptr;
+    shared_ptr<string> srcCompliancePackIds_ {};
   };
 
   } // namespace Models

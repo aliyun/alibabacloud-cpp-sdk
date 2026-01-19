@@ -34,38 +34,38 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->regions_ == nullptr
-        && return this->resourceDeleted_ == nullptr && return this->resourceTypes_ == nullptr; };
+        && this->resourceDeleted_ == nullptr && this->resourceTypes_ == nullptr; };
     // regions Field Functions 
     bool hasRegions() const { return this->regions_ != nullptr;};
     void deleteRegions() { this->regions_ = nullptr;};
-    inline string regions() const { DARABONBA_PTR_GET_DEFAULT(regions_, "") };
+    inline string getRegions() const { DARABONBA_PTR_GET_DEFAULT(regions_, "") };
     inline GenerateResourceInventoryRequest& setRegions(string regions) { DARABONBA_PTR_SET_VALUE(regions_, regions) };
 
 
     // resourceDeleted Field Functions 
     bool hasResourceDeleted() const { return this->resourceDeleted_ != nullptr;};
     void deleteResourceDeleted() { this->resourceDeleted_ = nullptr;};
-    inline int32_t resourceDeleted() const { DARABONBA_PTR_GET_DEFAULT(resourceDeleted_, 0) };
+    inline int32_t getResourceDeleted() const { DARABONBA_PTR_GET_DEFAULT(resourceDeleted_, 0) };
     inline GenerateResourceInventoryRequest& setResourceDeleted(int32_t resourceDeleted) { DARABONBA_PTR_SET_VALUE(resourceDeleted_, resourceDeleted) };
 
 
     // resourceTypes Field Functions 
     bool hasResourceTypes() const { return this->resourceTypes_ != nullptr;};
     void deleteResourceTypes() { this->resourceTypes_ = nullptr;};
-    inline string resourceTypes() const { DARABONBA_PTR_GET_DEFAULT(resourceTypes_, "") };
+    inline string getResourceTypes() const { DARABONBA_PTR_GET_DEFAULT(resourceTypes_, "") };
     inline GenerateResourceInventoryRequest& setResourceTypes(string resourceTypes) { DARABONBA_PTR_SET_VALUE(resourceTypes_, resourceTypes) };
 
 
   protected:
     // The region IDs of the resources. Separate multiple region IDs with commas (,).
-    std::shared_ptr<string> regions_ = nullptr;
+    shared_ptr<string> regions_ {};
     // Indicates whether the resource is deleted. Valid values:
     // 
     // *   1 (default): The resource is retained.
     // *   0: The resource is deleted.
-    std::shared_ptr<int32_t> resourceDeleted_ = nullptr;
+    shared_ptr<int32_t> resourceDeleted_ {};
     // The resource types. Separate multiple resource types with commas (,).
-    std::shared_ptr<string> resourceTypes_ = nullptr;
+    shared_ptr<string> resourceTypes_ {};
   };
 
   } // namespace Models

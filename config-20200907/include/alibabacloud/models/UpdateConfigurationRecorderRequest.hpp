@@ -33,7 +33,7 @@ namespace Models
     // resourceTypes Field Functions 
     bool hasResourceTypes() const { return this->resourceTypes_ != nullptr;};
     void deleteResourceTypes() { this->resourceTypes_ = nullptr;};
-    inline string resourceTypes() const { DARABONBA_PTR_GET_DEFAULT(resourceTypes_, "") };
+    inline string getResourceTypes() const { DARABONBA_PTR_GET_DEFAULT(resourceTypes_, "") };
     inline UpdateConfigurationRecorderRequest& setResourceTypes(string resourceTypes) { DARABONBA_PTR_SET_VALUE(resourceTypes_, resourceTypes) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The resource types. Separate multiple resource types with commas (,).
     // 
     // This parameter is required.
-    std::shared_ptr<string> resourceTypes_ = nullptr;
+    shared_ptr<string> resourceTypes_ {};
   };
 
   } // namespace Models

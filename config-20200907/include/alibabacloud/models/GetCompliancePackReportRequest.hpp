@@ -33,7 +33,7 @@ namespace Models
     // compliancePackId Field Functions 
     bool hasCompliancePackId() const { return this->compliancePackId_ != nullptr;};
     void deleteCompliancePackId() { this->compliancePackId_ = nullptr;};
-    inline string compliancePackId() const { DARABONBA_PTR_GET_DEFAULT(compliancePackId_, "") };
+    inline string getCompliancePackId() const { DARABONBA_PTR_GET_DEFAULT(compliancePackId_, "") };
     inline GetCompliancePackReportRequest& setCompliancePackId(string compliancePackId) { DARABONBA_PTR_SET_VALUE(compliancePackId_, compliancePackId) };
 
 
@@ -43,7 +43,7 @@ namespace Models
     // For more information about how to obtain the ID of a compliance package, see [ListCompliancePacks](https://help.aliyun.com/document_detail/263332.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> compliancePackId_ = nullptr;
+    shared_ptr<string> compliancePackId_ {};
   };
 
   } // namespace Models

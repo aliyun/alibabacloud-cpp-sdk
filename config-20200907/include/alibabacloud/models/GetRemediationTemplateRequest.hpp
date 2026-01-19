@@ -33,7 +33,7 @@ namespace Models
     // templateIdentifier Field Functions 
     bool hasTemplateIdentifier() const { return this->templateIdentifier_ != nullptr;};
     void deleteTemplateIdentifier() { this->templateIdentifier_ = nullptr;};
-    inline string templateIdentifier() const { DARABONBA_PTR_GET_DEFAULT(templateIdentifier_, "") };
+    inline string getTemplateIdentifier() const { DARABONBA_PTR_GET_DEFAULT(templateIdentifier_, "") };
     inline GetRemediationTemplateRequest& setTemplateIdentifier(string templateIdentifier) { DARABONBA_PTR_SET_VALUE(templateIdentifier_, templateIdentifier) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the automatic remediation template.
     // 
     // For more information about how to obtain the ID of a remediation template, see [Compliance library](https://help.aliyun.com/document_detail/2337741.html).
-    std::shared_ptr<string> templateIdentifier_ = nullptr;
+    shared_ptr<string> templateIdentifier_ {};
   };
 
   } // namespace Models

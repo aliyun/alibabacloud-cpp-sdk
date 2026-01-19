@@ -54,97 +54,97 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aggregatorId_ == nullptr
-        && return this->endUpdateTimestamp_ == nullptr && return this->excludeResourceTypes_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->regions_ == nullptr
-        && return this->resourceAccountId_ == nullptr && return this->resourceDeleted_ == nullptr && return this->resourceId_ == nullptr && return this->resourceName_ == nullptr && return this->resourceOwnerId_ == nullptr
-        && return this->resourceTypes_ == nullptr && return this->startUpdateTimestamp_ == nullptr; };
+        && this->endUpdateTimestamp_ == nullptr && this->excludeResourceTypes_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->regions_ == nullptr
+        && this->resourceAccountId_ == nullptr && this->resourceDeleted_ == nullptr && this->resourceId_ == nullptr && this->resourceName_ == nullptr && this->resourceOwnerId_ == nullptr
+        && this->resourceTypes_ == nullptr && this->startUpdateTimestamp_ == nullptr; };
     // aggregatorId Field Functions 
     bool hasAggregatorId() const { return this->aggregatorId_ != nullptr;};
     void deleteAggregatorId() { this->aggregatorId_ = nullptr;};
-    inline string aggregatorId() const { DARABONBA_PTR_GET_DEFAULT(aggregatorId_, "") };
+    inline string getAggregatorId() const { DARABONBA_PTR_GET_DEFAULT(aggregatorId_, "") };
     inline ListAggregateDiscoveredResourcesRequest& setAggregatorId(string aggregatorId) { DARABONBA_PTR_SET_VALUE(aggregatorId_, aggregatorId) };
 
 
     // endUpdateTimestamp Field Functions 
     bool hasEndUpdateTimestamp() const { return this->endUpdateTimestamp_ != nullptr;};
     void deleteEndUpdateTimestamp() { this->endUpdateTimestamp_ = nullptr;};
-    inline int64_t endUpdateTimestamp() const { DARABONBA_PTR_GET_DEFAULT(endUpdateTimestamp_, 0L) };
+    inline int64_t getEndUpdateTimestamp() const { DARABONBA_PTR_GET_DEFAULT(endUpdateTimestamp_, 0L) };
     inline ListAggregateDiscoveredResourcesRequest& setEndUpdateTimestamp(int64_t endUpdateTimestamp) { DARABONBA_PTR_SET_VALUE(endUpdateTimestamp_, endUpdateTimestamp) };
 
 
     // excludeResourceTypes Field Functions 
     bool hasExcludeResourceTypes() const { return this->excludeResourceTypes_ != nullptr;};
     void deleteExcludeResourceTypes() { this->excludeResourceTypes_ = nullptr;};
-    inline string excludeResourceTypes() const { DARABONBA_PTR_GET_DEFAULT(excludeResourceTypes_, "") };
+    inline string getExcludeResourceTypes() const { DARABONBA_PTR_GET_DEFAULT(excludeResourceTypes_, "") };
     inline ListAggregateDiscoveredResourcesRequest& setExcludeResourceTypes(string excludeResourceTypes) { DARABONBA_PTR_SET_VALUE(excludeResourceTypes_, excludeResourceTypes) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListAggregateDiscoveredResourcesRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListAggregateDiscoveredResourcesRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // regions Field Functions 
     bool hasRegions() const { return this->regions_ != nullptr;};
     void deleteRegions() { this->regions_ = nullptr;};
-    inline string regions() const { DARABONBA_PTR_GET_DEFAULT(regions_, "") };
+    inline string getRegions() const { DARABONBA_PTR_GET_DEFAULT(regions_, "") };
     inline ListAggregateDiscoveredResourcesRequest& setRegions(string regions) { DARABONBA_PTR_SET_VALUE(regions_, regions) };
 
 
     // resourceAccountId Field Functions 
     bool hasResourceAccountId() const { return this->resourceAccountId_ != nullptr;};
     void deleteResourceAccountId() { this->resourceAccountId_ = nullptr;};
-    inline int64_t resourceAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceAccountId_, 0L) };
+    inline int64_t getResourceAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceAccountId_, 0L) };
     inline ListAggregateDiscoveredResourcesRequest& setResourceAccountId(int64_t resourceAccountId) { DARABONBA_PTR_SET_VALUE(resourceAccountId_, resourceAccountId) };
 
 
     // resourceDeleted Field Functions 
     bool hasResourceDeleted() const { return this->resourceDeleted_ != nullptr;};
     void deleteResourceDeleted() { this->resourceDeleted_ = nullptr;};
-    inline int32_t resourceDeleted() const { DARABONBA_PTR_GET_DEFAULT(resourceDeleted_, 0) };
+    inline int32_t getResourceDeleted() const { DARABONBA_PTR_GET_DEFAULT(resourceDeleted_, 0) };
     inline ListAggregateDiscoveredResourcesRequest& setResourceDeleted(int32_t resourceDeleted) { DARABONBA_PTR_SET_VALUE(resourceDeleted_, resourceDeleted) };
 
 
     // resourceId Field Functions 
     bool hasResourceId() const { return this->resourceId_ != nullptr;};
     void deleteResourceId() { this->resourceId_ = nullptr;};
-    inline string resourceId() const { DARABONBA_PTR_GET_DEFAULT(resourceId_, "") };
+    inline string getResourceId() const { DARABONBA_PTR_GET_DEFAULT(resourceId_, "") };
     inline ListAggregateDiscoveredResourcesRequest& setResourceId(string resourceId) { DARABONBA_PTR_SET_VALUE(resourceId_, resourceId) };
 
 
     // resourceName Field Functions 
     bool hasResourceName() const { return this->resourceName_ != nullptr;};
     void deleteResourceName() { this->resourceName_ = nullptr;};
-    inline string resourceName() const { DARABONBA_PTR_GET_DEFAULT(resourceName_, "") };
+    inline string getResourceName() const { DARABONBA_PTR_GET_DEFAULT(resourceName_, "") };
     inline ListAggregateDiscoveredResourcesRequest& setResourceName(string resourceName) { DARABONBA_PTR_SET_VALUE(resourceName_, resourceName) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline ListAggregateDiscoveredResourcesRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // resourceTypes Field Functions 
     bool hasResourceTypes() const { return this->resourceTypes_ != nullptr;};
     void deleteResourceTypes() { this->resourceTypes_ = nullptr;};
-    inline string resourceTypes() const { DARABONBA_PTR_GET_DEFAULT(resourceTypes_, "") };
+    inline string getResourceTypes() const { DARABONBA_PTR_GET_DEFAULT(resourceTypes_, "") };
     inline ListAggregateDiscoveredResourcesRequest& setResourceTypes(string resourceTypes) { DARABONBA_PTR_SET_VALUE(resourceTypes_, resourceTypes) };
 
 
     // startUpdateTimestamp Field Functions 
     bool hasStartUpdateTimestamp() const { return this->startUpdateTimestamp_ != nullptr;};
     void deleteStartUpdateTimestamp() { this->startUpdateTimestamp_ = nullptr;};
-    inline int64_t startUpdateTimestamp() const { DARABONBA_PTR_GET_DEFAULT(startUpdateTimestamp_, 0L) };
+    inline int64_t getStartUpdateTimestamp() const { DARABONBA_PTR_GET_DEFAULT(startUpdateTimestamp_, 0L) };
     inline ListAggregateDiscoveredResourcesRequest& setStartUpdateTimestamp(int64_t startUpdateTimestamp) { DARABONBA_PTR_SET_VALUE(startUpdateTimestamp_, startUpdateTimestamp) };
 
 
@@ -154,42 +154,42 @@ namespace Models
     // For more information about how to obtain the ID of the account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> aggregatorId_ = nullptr;
+    shared_ptr<string> aggregatorId_ {};
     // The end time of the time range for querying resources. The value is a timestamp in the UTC format. When you specify this parameter, take note of the following limits:
     // 
     // *   The value must be a timestamp in milliseconds.
     // *   The value cannot be less than the value of the StartUpdateTimestamp parameter. The interval between the value and the value of the StartUpdateTimestamp parameter must be less than or equal to 30 days.
     // *   The StartUpdateTimestamp and EndUpdateTimestamp parameters must be specified at the same time or left empty at the same time.
-    std::shared_ptr<int64_t> endUpdateTimestamp_ = nullptr;
+    shared_ptr<int64_t> endUpdateTimestamp_ {};
     // The types of resources that are excluded. Separate multiple values with commas (,). If this parameter conflicts with the ResourceTypes parameter, this parameter prevails.
-    std::shared_ptr<string> excludeResourceTypes_ = nullptr;
+    shared_ptr<string> excludeResourceTypes_ {};
     // The maximum number of entries to return for a single request. Valid values: 1 to 100.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
     // The `token` that you want to use to initiate the current request. If the response of the previous request is truncated, you can use this token to initiate another request and obtain the remaining entries.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The ID of the region in which the resource resides. Separate multiple region IDs with commas (,).
-    std::shared_ptr<string> regions_ = nullptr;
+    shared_ptr<string> regions_ {};
     // The ID of the Alibaba Cloud account to which the specified resource belongs in the account group.
-    std::shared_ptr<int64_t> resourceAccountId_ = nullptr;
+    shared_ptr<int64_t> resourceAccountId_ {};
     // The status of the resource. Valid values:
     // 
     // *   0: The resource is deleted. If a resource is deleted from the desired cloud service, **Deleted** is displayed in the resource list in the Cloud Config console.
     // *   1 (default): The resource is retained. If a resource is managed as expected, **Active** is displayed in the resource list in the Cloud Config console.
-    std::shared_ptr<int32_t> resourceDeleted_ = nullptr;
+    shared_ptr<int32_t> resourceDeleted_ {};
     // The resource ID.
-    std::shared_ptr<string> resourceId_ = nullptr;
-    std::shared_ptr<string> resourceName_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> resourceId_ {};
+    shared_ptr<string> resourceName_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
     // The type of the resource. Separate multiple resource types with commas (,).
-    std::shared_ptr<string> resourceTypes_ = nullptr;
+    shared_ptr<string> resourceTypes_ {};
     // The start time of the time range for querying resources. The value is a timestamp in the Coordinated Universal Time (UTC) format. When you specify this parameter, take note of the following limits:
     // 
     // *   The value must be a timestamp in milliseconds.
     // *   The value cannot be greater than the value of the EndUpdateTimestamp parameter. The interval between the value and the value of the EndUpdateTimestamp parameter must be less than or equal to 30 days.
     // *   The StartUpdateTimestamp and EndUpdateTimestamp parameters must be specified at the same time or left empty at the same time.
-    std::shared_ptr<int64_t> startUpdateTimestamp_ = nullptr;
+    shared_ptr<int64_t> startUpdateTimestamp_ {};
   };
 
   } // namespace Models

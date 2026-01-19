@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aggregatorId_ == nullptr
-        && return this->compliancePackId_ == nullptr && return this->configRuleId_ == nullptr && return this->revertEvaluation_ == nullptr; };
+        && this->compliancePackId_ == nullptr && this->configRuleId_ == nullptr && this->revertEvaluation_ == nullptr; };
     // aggregatorId Field Functions 
     bool hasAggregatorId() const { return this->aggregatorId_ != nullptr;};
     void deleteAggregatorId() { this->aggregatorId_ = nullptr;};
-    inline string aggregatorId() const { DARABONBA_PTR_GET_DEFAULT(aggregatorId_, "") };
+    inline string getAggregatorId() const { DARABONBA_PTR_GET_DEFAULT(aggregatorId_, "") };
     inline StartAggregateConfigRuleEvaluationRequest& setAggregatorId(string aggregatorId) { DARABONBA_PTR_SET_VALUE(aggregatorId_, aggregatorId) };
 
 
     // compliancePackId Field Functions 
     bool hasCompliancePackId() const { return this->compliancePackId_ != nullptr;};
     void deleteCompliancePackId() { this->compliancePackId_ = nullptr;};
-    inline string compliancePackId() const { DARABONBA_PTR_GET_DEFAULT(compliancePackId_, "") };
+    inline string getCompliancePackId() const { DARABONBA_PTR_GET_DEFAULT(compliancePackId_, "") };
     inline StartAggregateConfigRuleEvaluationRequest& setCompliancePackId(string compliancePackId) { DARABONBA_PTR_SET_VALUE(compliancePackId_, compliancePackId) };
 
 
     // configRuleId Field Functions 
     bool hasConfigRuleId() const { return this->configRuleId_ != nullptr;};
     void deleteConfigRuleId() { this->configRuleId_ = nullptr;};
-    inline string configRuleId() const { DARABONBA_PTR_GET_DEFAULT(configRuleId_, "") };
+    inline string getConfigRuleId() const { DARABONBA_PTR_GET_DEFAULT(configRuleId_, "") };
     inline StartAggregateConfigRuleEvaluationRequest& setConfigRuleId(string configRuleId) { DARABONBA_PTR_SET_VALUE(configRuleId_, configRuleId) };
 
 
     // revertEvaluation Field Functions 
     bool hasRevertEvaluation() const { return this->revertEvaluation_ != nullptr;};
     void deleteRevertEvaluation() { this->revertEvaluation_ = nullptr;};
-    inline bool revertEvaluation() const { DARABONBA_PTR_GET_DEFAULT(revertEvaluation_, false) };
+    inline bool getRevertEvaluation() const { DARABONBA_PTR_GET_DEFAULT(revertEvaluation_, false) };
     inline StartAggregateConfigRuleEvaluationRequest& setRevertEvaluation(bool revertEvaluation) { DARABONBA_PTR_SET_VALUE(revertEvaluation_, revertEvaluation) };
 
 
@@ -71,24 +71,24 @@ namespace Models
     // For more information about how to obtain the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> aggregatorId_ = nullptr;
+    shared_ptr<string> aggregatorId_ {};
     // The ID of the compliance package.
     // 
     // For more information about how to obtain the ID of a compliance package, see [ListAggregateCompliancePacks](https://help.aliyun.com/document_detail/262059.html).
     // 
     // > You must configure either the `CompliancePackId` or `ConfigRuleId` parameter.
-    std::shared_ptr<string> compliancePackId_ = nullptr;
+    shared_ptr<string> compliancePackId_ {};
     // The rule ID.
     // 
     // For more information about how to query the ID of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
     // 
     // >  You must configure either the `CompliancePackId` or `ConfigRuleId` parameter.
-    std::shared_ptr<string> configRuleId_ = nullptr;
+    shared_ptr<string> configRuleId_ {};
     // Specifies whether to re-evaluate the ignored non-compliant resource. Valid values:
     // 
     // *   true: re-evaluates the ignored non-compliant resource based on the rule.
     // *   false (default): does not re-evaluate the ignored non-compliant resource based on the rule.
-    std::shared_ptr<bool> revertEvaluation_ = nullptr;
+    shared_ptr<bool> revertEvaluation_ {};
   };
 
   } // namespace Models

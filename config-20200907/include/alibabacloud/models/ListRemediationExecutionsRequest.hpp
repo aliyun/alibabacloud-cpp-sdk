@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->configRuleId_ == nullptr
-        && return this->executionStatus_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr; };
+        && this->executionStatus_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr; };
     // configRuleId Field Functions 
     bool hasConfigRuleId() const { return this->configRuleId_ != nullptr;};
     void deleteConfigRuleId() { this->configRuleId_ = nullptr;};
-    inline string configRuleId() const { DARABONBA_PTR_GET_DEFAULT(configRuleId_, "") };
+    inline string getConfigRuleId() const { DARABONBA_PTR_GET_DEFAULT(configRuleId_, "") };
     inline ListRemediationExecutionsRequest& setConfigRuleId(string configRuleId) { DARABONBA_PTR_SET_VALUE(configRuleId_, configRuleId) };
 
 
     // executionStatus Field Functions 
     bool hasExecutionStatus() const { return this->executionStatus_ != nullptr;};
     void deleteExecutionStatus() { this->executionStatus_ = nullptr;};
-    inline string executionStatus() const { DARABONBA_PTR_GET_DEFAULT(executionStatus_, "") };
+    inline string getExecutionStatus() const { DARABONBA_PTR_GET_DEFAULT(executionStatus_, "") };
     inline ListRemediationExecutionsRequest& setExecutionStatus(string executionStatus) { DARABONBA_PTR_SET_VALUE(executionStatus_, executionStatus) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int64_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0L) };
+    inline int64_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0L) };
     inline ListRemediationExecutionsRequest& setMaxResults(int64_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListRemediationExecutionsRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
@@ -69,16 +69,16 @@ namespace Models
     // The rule ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> configRuleId_ = nullptr;
+    shared_ptr<string> configRuleId_ {};
     // The status of the remediation. Valid values:
     // 
     // *   Success
     // *   Failed
-    std::shared_ptr<string> executionStatus_ = nullptr;
+    shared_ptr<string> executionStatus_ {};
     // The maximum number of entries to return for a single request. Valid values: 10 to 100.
-    std::shared_ptr<int64_t> maxResults_ = nullptr;
+    shared_ptr<int64_t> maxResults_ {};
     // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
   };
 
   } // namespace Models

@@ -32,29 +32,29 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->stopConfigurationRecorderResult_ == nullptr; };
+        && this->stopConfigurationRecorderResult_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline StopConfigurationRecorderResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // stopConfigurationRecorderResult Field Functions 
     bool hasStopConfigurationRecorderResult() const { return this->stopConfigurationRecorderResult_ != nullptr;};
     void deleteStopConfigurationRecorderResult() { this->stopConfigurationRecorderResult_ = nullptr;};
-    inline bool stopConfigurationRecorderResult() const { DARABONBA_PTR_GET_DEFAULT(stopConfigurationRecorderResult_, false) };
+    inline bool getStopConfigurationRecorderResult() const { DARABONBA_PTR_GET_DEFAULT(stopConfigurationRecorderResult_, false) };
     inline StopConfigurationRecorderResponseBody& setStopConfigurationRecorderResult(bool stopConfigurationRecorderResult) { DARABONBA_PTR_SET_VALUE(stopConfigurationRecorderResult_, stopConfigurationRecorderResult) };
 
 
   protected:
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
     // *   true: The request was successful.
     // *   false: The request failed.
-    std::shared_ptr<bool> stopConfigurationRecorderResult_ = nullptr;
+    shared_ptr<bool> stopConfigurationRecorderResult_ {};
   };
 
   } // namespace Models

@@ -33,7 +33,7 @@ namespace Models
     // remediationIds Field Functions 
     bool hasRemediationIds() const { return this->remediationIds_ != nullptr;};
     void deleteRemediationIds() { this->remediationIds_ = nullptr;};
-    inline string remediationIds() const { DARABONBA_PTR_GET_DEFAULT(remediationIds_, "") };
+    inline string getRemediationIds() const { DARABONBA_PTR_GET_DEFAULT(remediationIds_, "") };
     inline DeleteRemediationsRequest& setRemediationIds(string remediationIds) { DARABONBA_PTR_SET_VALUE(remediationIds_, remediationIds) };
 
 
@@ -43,7 +43,7 @@ namespace Models
     // For more information about how to obtain the ID of a remediation template, see [ListRemediations](https://help.aliyun.com/document_detail/270772.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> remediationIds_ = nullptr;
+    shared_ptr<string> remediationIds_ {};
   };
 
   } // namespace Models

@@ -33,7 +33,7 @@ namespace Models
     // configRuleIds Field Functions 
     bool hasConfigRuleIds() const { return this->configRuleIds_ != nullptr;};
     void deleteConfigRuleIds() { this->configRuleIds_ = nullptr;};
-    inline string configRuleIds() const { DARABONBA_PTR_GET_DEFAULT(configRuleIds_, "") };
+    inline string getConfigRuleIds() const { DARABONBA_PTR_GET_DEFAULT(configRuleIds_, "") };
     inline DeleteConfigRulesRequest& setConfigRuleIds(string configRuleIds) { DARABONBA_PTR_SET_VALUE(configRuleIds_, configRuleIds) };
 
 
@@ -43,7 +43,7 @@ namespace Models
     // For more information about how to obtain the ID of a rule, see [ListConfigRules](https://help.aliyun.com/document_detail/609222.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> configRuleIds_ = nullptr;
+    shared_ptr<string> configRuleIds_ {};
   };
 
   } // namespace Models

@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aggregatorId_ == nullptr
-        && return this->sql_ == nullptr; };
+        && this->sql_ == nullptr; };
     // aggregatorId Field Functions 
     bool hasAggregatorId() const { return this->aggregatorId_ != nullptr;};
     void deleteAggregatorId() { this->aggregatorId_ = nullptr;};
-    inline string aggregatorId() const { DARABONBA_PTR_GET_DEFAULT(aggregatorId_, "") };
+    inline string getAggregatorId() const { DARABONBA_PTR_GET_DEFAULT(aggregatorId_, "") };
     inline CreateAggregateAdvancedSearchFileRequest& setAggregatorId(string aggregatorId) { DARABONBA_PTR_SET_VALUE(aggregatorId_, aggregatorId) };
 
 
     // sql Field Functions 
     bool hasSql() const { return this->sql_ != nullptr;};
     void deleteSql() { this->sql_ = nullptr;};
-    inline string sql() const { DARABONBA_PTR_GET_DEFAULT(sql_, "") };
+    inline string getSql() const { DARABONBA_PTR_GET_DEFAULT(sql_, "") };
     inline CreateAggregateAdvancedSearchFileRequest& setSql(string sql) { DARABONBA_PTR_SET_VALUE(sql_, sql) };
 
 
@@ -53,11 +53,11 @@ namespace Models
     // For more information about how to obtain the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> aggregatorId_ = nullptr;
+    shared_ptr<string> aggregatorId_ {};
     // The SQL statement used to query resources.
     // 
     // This parameter is required.
-    std::shared_ptr<string> sql_ = nullptr;
+    shared_ptr<string> sql_ {};
   };
 
   } // namespace Models

@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aggregatorDeliveryDataType_ == nullptr
-        && return this->data_ == nullptr && return this->integratedTypes_ == nullptr && return this->requestId_ == nullptr; };
+        && this->data_ == nullptr && this->integratedTypes_ == nullptr && this->requestId_ == nullptr; };
     // aggregatorDeliveryDataType Field Functions 
     bool hasAggregatorDeliveryDataType() const { return this->aggregatorDeliveryDataType_ != nullptr;};
     void deleteAggregatorDeliveryDataType() { this->aggregatorDeliveryDataType_ = nullptr;};
-    inline string aggregatorDeliveryDataType() const { DARABONBA_PTR_GET_DEFAULT(aggregatorDeliveryDataType_, "") };
+    inline string getAggregatorDeliveryDataType() const { DARABONBA_PTR_GET_DEFAULT(aggregatorDeliveryDataType_, "") };
     inline GetIntegratedServiceStatusResponseBody& setAggregatorDeliveryDataType(string aggregatorDeliveryDataType) { DARABONBA_PTR_SET_VALUE(aggregatorDeliveryDataType_, aggregatorDeliveryDataType) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline bool data() const { DARABONBA_PTR_GET_DEFAULT(data_, false) };
+    inline bool getData() const { DARABONBA_PTR_GET_DEFAULT(data_, false) };
     inline GetIntegratedServiceStatusResponseBody& setData(bool data) { DARABONBA_PTR_SET_VALUE(data_, data) };
 
 
     // integratedTypes Field Functions 
     bool hasIntegratedTypes() const { return this->integratedTypes_ != nullptr;};
     void deleteIntegratedTypes() { this->integratedTypes_ = nullptr;};
-    inline string integratedTypes() const { DARABONBA_PTR_GET_DEFAULT(integratedTypes_, "") };
+    inline string getIntegratedTypes() const { DARABONBA_PTR_GET_DEFAULT(integratedTypes_, "") };
     inline GetIntegratedServiceStatusResponseBody& setIntegratedTypes(string integratedTypes) { DARABONBA_PTR_SET_VALUE(integratedTypes_, integratedTypes) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetIntegratedServiceStatusResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
@@ -69,19 +69,19 @@ namespace Models
     // The type of the event that is integrated across accounts. Valid values:
     // 
     // *   NonCompliantNotification: non-compliance event
-    std::shared_ptr<string> aggregatorDeliveryDataType_ = nullptr;
+    shared_ptr<string> aggregatorDeliveryDataType_ {};
     // Indicates whether the product has been integrated. Valid values:
     // 
     // *   true
     // *   false
-    std::shared_ptr<bool> data_ = nullptr;
+    shared_ptr<bool> data_ {};
     // The types of the integrated events. Separate multiple event types with commas (,). Valid values:
     // 
     // *   ConfigurationItemChangeNotification: resource change event
     // *   NonCompliantNotification: non-compliance event
-    std::shared_ptr<string> integratedTypes_ = nullptr;
+    shared_ptr<string> integratedTypes_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

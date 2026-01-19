@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aggregatorId_ == nullptr
-        && return this->compliancePackId_ == nullptr && return this->configRuleIds_ == nullptr; };
+        && this->compliancePackId_ == nullptr && this->configRuleIds_ == nullptr; };
     // aggregatorId Field Functions 
     bool hasAggregatorId() const { return this->aggregatorId_ != nullptr;};
     void deleteAggregatorId() { this->aggregatorId_ = nullptr;};
-    inline string aggregatorId() const { DARABONBA_PTR_GET_DEFAULT(aggregatorId_, "") };
+    inline string getAggregatorId() const { DARABONBA_PTR_GET_DEFAULT(aggregatorId_, "") };
     inline ActiveAggregateConfigRulesRequest& setAggregatorId(string aggregatorId) { DARABONBA_PTR_SET_VALUE(aggregatorId_, aggregatorId) };
 
 
     // compliancePackId Field Functions 
     bool hasCompliancePackId() const { return this->compliancePackId_ != nullptr;};
     void deleteCompliancePackId() { this->compliancePackId_ = nullptr;};
-    inline string compliancePackId() const { DARABONBA_PTR_GET_DEFAULT(compliancePackId_, "") };
+    inline string getCompliancePackId() const { DARABONBA_PTR_GET_DEFAULT(compliancePackId_, "") };
     inline ActiveAggregateConfigRulesRequest& setCompliancePackId(string compliancePackId) { DARABONBA_PTR_SET_VALUE(compliancePackId_, compliancePackId) };
 
 
     // configRuleIds Field Functions 
     bool hasConfigRuleIds() const { return this->configRuleIds_ != nullptr;};
     void deleteConfigRuleIds() { this->configRuleIds_ = nullptr;};
-    inline string configRuleIds() const { DARABONBA_PTR_GET_DEFAULT(configRuleIds_, "") };
+    inline string getConfigRuleIds() const { DARABONBA_PTR_GET_DEFAULT(configRuleIds_, "") };
     inline ActiveAggregateConfigRulesRequest& setConfigRuleIds(string configRuleIds) { DARABONBA_PTR_SET_VALUE(configRuleIds_, configRuleIds) };
 
 
@@ -63,14 +63,14 @@ namespace Models
     // *   false: The request failed.
     // 
     // This parameter is required.
-    std::shared_ptr<string> aggregatorId_ = nullptr;
+    shared_ptr<string> aggregatorId_ {};
     // The rule ID.
-    std::shared_ptr<string> compliancePackId_ = nullptr;
+    shared_ptr<string> compliancePackId_ {};
     // The error code returned.
     // 
     // *   If the rule is enabled, no error code is returned.
     // *   If the rule fails to be enabled, an error code is returned. For more information about error codes, see [Error codes](https://error-center.alibabacloud.com/status/product/Config).
-    std::shared_ptr<string> configRuleIds_ = nullptr;
+    shared_ptr<string> configRuleIds_ {};
   };
 
   } // namespace Models

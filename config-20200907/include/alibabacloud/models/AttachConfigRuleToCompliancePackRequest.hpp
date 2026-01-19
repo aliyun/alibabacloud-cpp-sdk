@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->compliancePackId_ == nullptr
-        && return this->configRuleIds_ == nullptr; };
+        && this->configRuleIds_ == nullptr; };
     // compliancePackId Field Functions 
     bool hasCompliancePackId() const { return this->compliancePackId_ != nullptr;};
     void deleteCompliancePackId() { this->compliancePackId_ = nullptr;};
-    inline string compliancePackId() const { DARABONBA_PTR_GET_DEFAULT(compliancePackId_, "") };
+    inline string getCompliancePackId() const { DARABONBA_PTR_GET_DEFAULT(compliancePackId_, "") };
     inline AttachConfigRuleToCompliancePackRequest& setCompliancePackId(string compliancePackId) { DARABONBA_PTR_SET_VALUE(compliancePackId_, compliancePackId) };
 
 
     // configRuleIds Field Functions 
     bool hasConfigRuleIds() const { return this->configRuleIds_ != nullptr;};
     void deleteConfigRuleIds() { this->configRuleIds_ = nullptr;};
-    inline string configRuleIds() const { DARABONBA_PTR_GET_DEFAULT(configRuleIds_, "") };
+    inline string getConfigRuleIds() const { DARABONBA_PTR_GET_DEFAULT(configRuleIds_, "") };
     inline AttachConfigRuleToCompliancePackRequest& setConfigRuleIds(string configRuleIds) { DARABONBA_PTR_SET_VALUE(configRuleIds_, configRuleIds) };
 
 
@@ -53,13 +53,13 @@ namespace Models
     // For more information about how to obtain the ID of a compliance package, see [ListCompliancePacks](https://help.aliyun.com/document_detail/263332.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> compliancePackId_ = nullptr;
+    shared_ptr<string> compliancePackId_ {};
     // The rule ID. Separate multiple rule IDs with commas (,).
     // 
     // For more information about how to obtain the ID of a rule, see [ListConfigRules](https://help.aliyun.com/document_detail/169607.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> configRuleIds_ = nullptr;
+    shared_ptr<string> configRuleIds_ {};
   };
 
   } // namespace Models

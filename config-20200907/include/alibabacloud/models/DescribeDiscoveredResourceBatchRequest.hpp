@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->regions_ == nullptr
-        && return this->resourceIds_ == nullptr && return this->resourceTypes_ == nullptr; };
+        && this->resourceIds_ == nullptr && this->resourceTypes_ == nullptr; };
     // regions Field Functions 
     bool hasRegions() const { return this->regions_ != nullptr;};
     void deleteRegions() { this->regions_ = nullptr;};
-    inline string regions() const { DARABONBA_PTR_GET_DEFAULT(regions_, "") };
+    inline string getRegions() const { DARABONBA_PTR_GET_DEFAULT(regions_, "") };
     inline DescribeDiscoveredResourceBatchRequest& setRegions(string regions) { DARABONBA_PTR_SET_VALUE(regions_, regions) };
 
 
     // resourceIds Field Functions 
     bool hasResourceIds() const { return this->resourceIds_ != nullptr;};
     void deleteResourceIds() { this->resourceIds_ = nullptr;};
-    inline string resourceIds() const { DARABONBA_PTR_GET_DEFAULT(resourceIds_, "") };
+    inline string getResourceIds() const { DARABONBA_PTR_GET_DEFAULT(resourceIds_, "") };
     inline DescribeDiscoveredResourceBatchRequest& setResourceIds(string resourceIds) { DARABONBA_PTR_SET_VALUE(resourceIds_, resourceIds) };
 
 
     // resourceTypes Field Functions 
     bool hasResourceTypes() const { return this->resourceTypes_ != nullptr;};
     void deleteResourceTypes() { this->resourceTypes_ = nullptr;};
-    inline string resourceTypes() const { DARABONBA_PTR_GET_DEFAULT(resourceTypes_, "") };
+    inline string getResourceTypes() const { DARABONBA_PTR_GET_DEFAULT(resourceTypes_, "") };
     inline DescribeDiscoveredResourceBatchRequest& setResourceTypes(string resourceTypes) { DARABONBA_PTR_SET_VALUE(resourceTypes_, resourceTypes) };
 
 
   protected:
-    std::shared_ptr<string> regions_ = nullptr;
-    std::shared_ptr<string> resourceIds_ = nullptr;
-    std::shared_ptr<string> resourceTypes_ = nullptr;
+    shared_ptr<string> regions_ {};
+    shared_ptr<string> resourceIds_ {};
+    shared_ptr<string> resourceTypes_ {};
   };
 
   } // namespace Models

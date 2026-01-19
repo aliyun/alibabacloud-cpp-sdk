@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->enableManagedRules_ == nullptr
-        && return this->resourceEvaluateItemsShrink_ == nullptr && return this->resourceTypeFormat_ == nullptr; };
+        && this->resourceEvaluateItemsShrink_ == nullptr && this->resourceTypeFormat_ == nullptr; };
     // enableManagedRules Field Functions 
     bool hasEnableManagedRules() const { return this->enableManagedRules_ != nullptr;};
     void deleteEnableManagedRules() { this->enableManagedRules_ = nullptr;};
-    inline bool enableManagedRules() const { DARABONBA_PTR_GET_DEFAULT(enableManagedRules_, false) };
+    inline bool getEnableManagedRules() const { DARABONBA_PTR_GET_DEFAULT(enableManagedRules_, false) };
     inline EvaluatePreConfigRulesShrinkRequest& setEnableManagedRules(bool enableManagedRules) { DARABONBA_PTR_SET_VALUE(enableManagedRules_, enableManagedRules) };
 
 
     // resourceEvaluateItemsShrink Field Functions 
     bool hasResourceEvaluateItemsShrink() const { return this->resourceEvaluateItemsShrink_ != nullptr;};
     void deleteResourceEvaluateItemsShrink() { this->resourceEvaluateItemsShrink_ = nullptr;};
-    inline string resourceEvaluateItemsShrink() const { DARABONBA_PTR_GET_DEFAULT(resourceEvaluateItemsShrink_, "") };
+    inline string getResourceEvaluateItemsShrink() const { DARABONBA_PTR_GET_DEFAULT(resourceEvaluateItemsShrink_, "") };
     inline EvaluatePreConfigRulesShrinkRequest& setResourceEvaluateItemsShrink(string resourceEvaluateItemsShrink) { DARABONBA_PTR_SET_VALUE(resourceEvaluateItemsShrink_, resourceEvaluateItemsShrink) };
 
 
     // resourceTypeFormat Field Functions 
     bool hasResourceTypeFormat() const { return this->resourceTypeFormat_ != nullptr;};
     void deleteResourceTypeFormat() { this->resourceTypeFormat_ = nullptr;};
-    inline string resourceTypeFormat() const { DARABONBA_PTR_GET_DEFAULT(resourceTypeFormat_, "") };
+    inline string getResourceTypeFormat() const { DARABONBA_PTR_GET_DEFAULT(resourceTypeFormat_, "") };
     inline EvaluatePreConfigRulesShrinkRequest& setResourceTypeFormat(string resourceTypeFormat) { DARABONBA_PTR_SET_VALUE(resourceTypeFormat_, resourceTypeFormat) };
 
 
@@ -63,13 +63,13 @@ namespace Models
     // *   false: does not enable the managed rule. This is the default value.
     // 
     // >  After you create an evaluation rule, a managed rule that has the same settings as the evaluation rule is created. After you create a resource, the managed rule can be used to continuously check the compliance of the resource.
-    std::shared_ptr<bool> enableManagedRules_ = nullptr;
+    shared_ptr<bool> enableManagedRules_ {};
     // The resources that you want to evaluate.
     // 
     // This parameter is required.
-    std::shared_ptr<string> resourceEvaluateItemsShrink_ = nullptr;
+    shared_ptr<string> resourceEvaluateItemsShrink_ {};
     // 下一个查询开始Token
-    std::shared_ptr<string> resourceTypeFormat_ = nullptr;
+    shared_ptr<string> resourceTypeFormat_ {};
   };
 
   } // namespace Models

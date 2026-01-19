@@ -34,42 +34,42 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && return this->compliancePackIds_ == nullptr && return this->deleteRule_ == nullptr; };
+        && this->compliancePackIds_ == nullptr && this->deleteRule_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline DeleteCompliancePacksRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // compliancePackIds Field Functions 
     bool hasCompliancePackIds() const { return this->compliancePackIds_ != nullptr;};
     void deleteCompliancePackIds() { this->compliancePackIds_ = nullptr;};
-    inline string compliancePackIds() const { DARABONBA_PTR_GET_DEFAULT(compliancePackIds_, "") };
+    inline string getCompliancePackIds() const { DARABONBA_PTR_GET_DEFAULT(compliancePackIds_, "") };
     inline DeleteCompliancePacksRequest& setCompliancePackIds(string compliancePackIds) { DARABONBA_PTR_SET_VALUE(compliancePackIds_, compliancePackIds) };
 
 
     // deleteRule Field Functions 
     bool hasDeleteRule() const { return this->deleteRule_ != nullptr;};
     void deleteDeleteRule() { this->deleteRule_ = nullptr;};
-    inline bool deleteRule() const { DARABONBA_PTR_GET_DEFAULT(deleteRule_, false) };
+    inline bool getDeleteRule() const { DARABONBA_PTR_GET_DEFAULT(deleteRule_, false) };
     inline DeleteCompliancePacksRequest& setDeleteRule(bool deleteRule) { DARABONBA_PTR_SET_VALUE(deleteRule_, deleteRule) };
 
 
   protected:
     // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The `token` can contain only ASCII characters and cannot exceed 64 characters in length.
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // The ID of the compliance package. Separate multiple compliance package IDs with commas (,).
     // 
     // For more information about how to obtain the ID of a compliance package, see [ListCompliancePacks](https://help.aliyun.com/document_detail/263332.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> compliancePackIds_ = nullptr;
+    shared_ptr<string> compliancePackIds_ {};
     // Specifies whether to delete the rules in the compliance package. Valid values:
     // 
     // *   true: The rules are deleted.
     // *   false (default): The rules are not deleted.
-    std::shared_ptr<bool> deleteRule_ = nullptr;
+    shared_ptr<bool> deleteRule_ {};
   };
 
   } // namespace Models

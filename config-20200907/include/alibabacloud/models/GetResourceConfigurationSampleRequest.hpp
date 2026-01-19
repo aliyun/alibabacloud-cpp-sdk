@@ -32,25 +32,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->mockOnly_ == nullptr
-        && return this->resourceType_ == nullptr; };
+        && this->resourceType_ == nullptr; };
     // mockOnly Field Functions 
     bool hasMockOnly() const { return this->mockOnly_ != nullptr;};
     void deleteMockOnly() { this->mockOnly_ = nullptr;};
-    inline string mockOnly() const { DARABONBA_PTR_GET_DEFAULT(mockOnly_, "") };
+    inline string getMockOnly() const { DARABONBA_PTR_GET_DEFAULT(mockOnly_, "") };
     inline GetResourceConfigurationSampleRequest& setMockOnly(string mockOnly) { DARABONBA_PTR_SET_VALUE(mockOnly_, mockOnly) };
 
 
     // resourceType Field Functions 
     bool hasResourceType() const { return this->resourceType_ != nullptr;};
     void deleteResourceType() { this->resourceType_ = nullptr;};
-    inline string resourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
+    inline string getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
     inline GetResourceConfigurationSampleRequest& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
 
 
   protected:
-    std::shared_ptr<string> mockOnly_ = nullptr;
+    shared_ptr<string> mockOnly_ {};
     // This parameter is required.
-    std::shared_ptr<string> resourceType_ = nullptr;
+    shared_ptr<string> resourceType_ {};
   };
 
   } // namespace Models
