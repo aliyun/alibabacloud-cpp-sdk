@@ -104,6 +104,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(VSwitchIds, vSwitchIds_);
         DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
         DARABONBA_PTR_TO_JSON(VpcType, vpcType_);
+        DARABONBA_PTR_TO_JSON(VplVersion, vplVersion_);
       };
       friend void from_json(const Darabonba::Json& j, OfficeSites& obj) { 
         DARABONBA_PTR_FROM_JSON(ADConnectors, ADConnectors_);
@@ -171,6 +172,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(VSwitchIds, vSwitchIds_);
         DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
         DARABONBA_PTR_FROM_JSON(VpcType, vpcType_);
+        DARABONBA_PTR_FROM_JSON(VplVersion, vplVersion_);
       };
       OfficeSites() = default ;
       OfficeSites(const OfficeSites &) = default ;
@@ -418,7 +420,7 @@ namespace Models
         && this->rdsLicenseAddress_ == nullptr && this->rdsLicenseDomainName_ == nullptr && this->rdsLicenseStatus_ == nullptr && this->resourceAmounts_ == nullptr && this->securityProtection_ == nullptr
         && this->ssoEnabled_ == nullptr && this->ssoType_ == nullptr && this->status_ == nullptr && this->subDnsAddress_ == nullptr && this->subDomainName_ == nullptr
         && this->subnetMode_ == nullptr && this->tenantId_ == nullptr && this->totalEdsCount_ == nullptr && this->totalEdsCountForGroup_ == nullptr && this->totalResourceAmount_ == nullptr
-        && this->trustPassword_ == nullptr && this->vSwitchIds_ == nullptr && this->vpcId_ == nullptr && this->vpcType_ == nullptr; };
+        && this->trustPassword_ == nullptr && this->vSwitchIds_ == nullptr && this->vpcId_ == nullptr && this->vpcType_ == nullptr && this->vplVersion_ == nullptr; };
       // ADConnectors Field Functions 
       bool hasADConnectors() const { return this->ADConnectors_ != nullptr;};
       void deleteADConnectors() { this->ADConnectors_ = nullptr;};
@@ -890,6 +892,13 @@ namespace Models
       inline OfficeSites& setVpcType(string vpcType) { DARABONBA_PTR_SET_VALUE(vpcType_, vpcType) };
 
 
+      // vplVersion Field Functions 
+      bool hasVplVersion() const { return this->vplVersion_ != nullptr;};
+      void deleteVplVersion() { this->vplVersion_ = nullptr;};
+      inline string getVplVersion() const { DARABONBA_PTR_GET_DEFAULT(vplVersion_, "") };
+      inline OfficeSites& setVplVersion(string vplVersion) { DARABONBA_PTR_SET_VALUE(vplVersion_, vplVersion) };
+
+
     protected:
       // Details of AD connectors.
       shared_ptr<vector<OfficeSites::ADConnectors>> ADConnectors_ {};
@@ -1083,6 +1092,7 @@ namespace Models
       // *   Customized
       // *   Standard
       shared_ptr<string> vpcType_ {};
+      shared_ptr<string> vplVersion_ {};
     };
 
     virtual bool empty() const override { return this->nextToken_ == nullptr
