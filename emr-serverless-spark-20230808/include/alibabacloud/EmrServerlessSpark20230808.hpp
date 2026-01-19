@@ -663,6 +663,24 @@ namespace EmrServerlessSpark20230808
       Models::ListLivyComputeResponse listLivyCompute(const string &workspaceBizId, const Models::ListLivyComputeRequest &request);
 
       /**
+       * @summary 获取livy gateway历史session
+       *
+       * @param request ListLivyComputeSessionsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListLivyComputeSessionsResponse
+       */
+      Models::ListLivyComputeSessionsResponse listLivyComputeSessionsWithOptions(const string &workspaceId, const string &livyComputeId, const Models::ListLivyComputeSessionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取livy gateway历史session
+       *
+       * @param request ListLivyComputeSessionsRequest
+       * @return ListLivyComputeSessionsResponse
+       */
+      Models::ListLivyComputeSessionsResponse listLivyComputeSessions(const string &workspaceId, const string &livyComputeId, const Models::ListLivyComputeSessionsRequest &request);
+
+      /**
        * @summary 列出livy compute token
        *
        * @param request ListLivyComputeTokenRequest

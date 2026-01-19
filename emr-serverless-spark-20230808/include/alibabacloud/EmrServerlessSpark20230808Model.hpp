@@ -128,6 +128,9 @@
 #include <alibabacloud/models/ListLivyComputeRequest.hpp>
 #include <alibabacloud/models/ListLivyComputeResponseBody.hpp>
 #include <alibabacloud/models/ListLivyComputeResponse.hpp>
+#include <alibabacloud/models/ListLivyComputeSessionsRequest.hpp>
+#include <alibabacloud/models/ListLivyComputeSessionsResponseBody.hpp>
+#include <alibabacloud/models/ListLivyComputeSessionsResponse.hpp>
 #include <alibabacloud/models/ListLivyComputeTokenRequest.hpp>
 #include <alibabacloud/models/ListLivyComputeTokenResponseBody.hpp>
 #include <alibabacloud/models/ListLivyComputeTokenResponse.hpp>

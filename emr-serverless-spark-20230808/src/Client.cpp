@@ -2194,6 +2194,59 @@ ListLivyComputeResponse Client::listLivyCompute(const string &workspaceBizId, co
 }
 
 /**
+ * @summary 获取livy gateway历史session
+ *
+ * @param request ListLivyComputeSessionsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListLivyComputeSessionsResponse
+ */
+ListLivyComputeSessionsResponse Client::listLivyComputeSessionsWithOptions(const string &workspaceId, const string &livyComputeId, const ListLivyComputeSessionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPageNum()) {
+    query["pageNum"] = request.getPageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["regionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListLivyComputeSessions"},
+    {"version" , "2023-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/livycompute/" , Darabonba::Encode::Encoder::percentEncode(livyComputeId) , "/session")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListLivyComputeSessionsResponse>();
+}
+
+/**
+ * @summary 获取livy gateway历史session
+ *
+ * @param request ListLivyComputeSessionsRequest
+ * @return ListLivyComputeSessionsResponse
+ */
+ListLivyComputeSessionsResponse Client::listLivyComputeSessions(const string &workspaceId, const string &livyComputeId, const ListLivyComputeSessionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listLivyComputeSessionsWithOptions(workspaceId, livyComputeId, request, headers, runtime);
+}
+
+/**
  * @summary 列出livy compute token
  *
  * @param request ListLivyComputeTokenRequest
