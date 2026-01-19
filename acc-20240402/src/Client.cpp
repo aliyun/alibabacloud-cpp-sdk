@@ -17,7 +17,45 @@ namespace Acc20240402
 {
 
 AlibabaCloud::Acc20240402::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"ap-northeast-2-pop" , "acc.aliyuncs.com"},
+    {"ap-south-1" , "acc.aliyuncs.com"},
+    {"ap-southeast-2" , "acc.aliyuncs.com"},
+    {"cn-beijing-finance-1" , "acc.aliyuncs.com"},
+    {"cn-beijing-finance-pop" , "acc.aliyuncs.com"},
+    {"cn-beijing-gov-1" , "acc.aliyuncs.com"},
+    {"cn-beijing-nu16-b01" , "acc.aliyuncs.com"},
+    {"cn-edge-1" , "acc.aliyuncs.com"},
+    {"cn-fujian" , "acc.aliyuncs.com"},
+    {"cn-haidian-cm12-c01" , "acc.aliyuncs.com"},
+    {"cn-hangzhou-bj-b01" , "acc.aliyuncs.com"},
+    {"cn-hangzhou-finance" , "acc.aliyuncs.com"},
+    {"cn-hangzhou-internal-prod-1" , "acc.aliyuncs.com"},
+    {"cn-hangzhou-internal-test-1" , "acc.aliyuncs.com"},
+    {"cn-hangzhou-internal-test-2" , "acc.aliyuncs.com"},
+    {"cn-hangzhou-internal-test-3" , "acc.aliyuncs.com"},
+    {"cn-hangzhou-test-306" , "acc.aliyuncs.com"},
+    {"cn-hongkong-finance-pop" , "acc.aliyuncs.com"},
+    {"cn-huhehaote-nebula-1" , "acc.aliyuncs.com"},
+    {"cn-qingdao-nebula" , "acc.aliyuncs.com"},
+    {"cn-shanghai-et15-b01" , "acc.aliyuncs.com"},
+    {"cn-shanghai-et2-b01" , "acc.aliyuncs.com"},
+    {"cn-shanghai-inner" , "acc.aliyuncs.com"},
+    {"cn-shanghai-internal-test-1" , "acc.aliyuncs.com"},
+    {"cn-shenzhen-finance-1" , "acc.aliyuncs.com"},
+    {"cn-shenzhen-inner" , "acc.aliyuncs.com"},
+    {"cn-shenzhen-st4-d01" , "acc.aliyuncs.com"},
+    {"cn-shenzhen-su18-b01" , "acc.aliyuncs.com"},
+    {"cn-wuhan" , "acc.aliyuncs.com"},
+    {"cn-yushanfang" , "acc.aliyuncs.com"},
+    {"cn-zhangbei" , "acc.aliyuncs.com"},
+    {"cn-zhangbei-na61-b01" , "acc.aliyuncs.com"},
+    {"cn-zhangjiakou-na62-a01" , "acc.aliyuncs.com"},
+    {"cn-zhengzhou-nebula-1" , "acc.aliyuncs.com"},
+    {"eu-west-1-oxs" , "acc.aliyuncs.com"},
+    {"rus-west-1-pop" , "acc.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("acc", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -47,44 +85,44 @@ CreateImageCacheResponse Client::createImageCacheWithOptions(const CreateImageCa
   CreateImageCacheShrinkRequest request = CreateImageCacheShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasNetworkConfig()) {
-    request.setNetworkConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.networkConfig(), "NetworkConfig", "json"));
+    request.setNetworkConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNetworkConfig(), "NetworkConfig", "json"));
   }
 
   json query = {};
   if (!!request.hasAcrRegistryInfos()) {
-    query["AcrRegistryInfos"] = request.acrRegistryInfos();
+    query["AcrRegistryInfos"] = request.getAcrRegistryInfos();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasImageCacheName()) {
-    query["ImageCacheName"] = request.imageCacheName();
+    query["ImageCacheName"] = request.getImageCacheName();
   }
 
   if (!!request.hasImageRegistryCredentials()) {
-    query["ImageRegistryCredentials"] = request.imageRegistryCredentials();
+    query["ImageRegistryCredentials"] = request.getImageRegistryCredentials();
   }
 
   if (!!request.hasImages()) {
-    query["Images"] = request.images();
+    query["Images"] = request.getImages();
   }
 
   if (!!request.hasNetworkConfigShrink()) {
-    query["NetworkConfig"] = request.networkConfigShrink();
+    query["NetworkConfig"] = request.getNetworkConfigShrink();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasTags()) {
-    query["Tags"] = request.tags();
+    query["Tags"] = request.getTags();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -126,15 +164,15 @@ DeleteImageCacheResponse Client::deleteImageCacheWithOptions(const DeleteImageCa
   request.validate();
   json query = {};
   if (!!request.hasForce()) {
-    query["Force"] = request.force();
+    query["Force"] = request.getForce();
   }
 
   if (!!request.hasImageCacheId()) {
-    query["ImageCacheId"] = request.imageCacheId();
+    query["ImageCacheId"] = request.getImageCacheId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -176,11 +214,11 @@ GetImageCacheResponse Client::getImageCacheWithOptions(const GetImageCacheReques
   request.validate();
   json query = {};
   if (!!request.hasImageCacheId()) {
-    query["ImageCacheId"] = request.imageCacheId();
+    query["ImageCacheId"] = request.getImageCacheId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -222,31 +260,31 @@ ListImageCachesResponse Client::listImageCachesWithOptions(const ListImageCaches
   request.validate();
   json query = {};
   if (!!request.hasImageCacheName()) {
-    query["ImageCacheName"] = request.imageCacheName();
+    query["ImageCacheName"] = request.getImageCacheName();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasStatus()) {
-    query["Status"] = request.status();
+    query["Status"] = request.getStatus();
   }
 
   if (!!request.hasTags()) {
-    query["Tags"] = request.tags();
+    query["Tags"] = request.getTags();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

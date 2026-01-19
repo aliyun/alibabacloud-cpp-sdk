@@ -31,27 +31,27 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->imageCacheId_ != nullptr
-        && this->regionId_ != nullptr; };
+    virtual bool empty() const override { return this->imageCacheId_ == nullptr
+        && this->regionId_ == nullptr; };
     // imageCacheId Field Functions 
     bool hasImageCacheId() const { return this->imageCacheId_ != nullptr;};
     void deleteImageCacheId() { this->imageCacheId_ = nullptr;};
-    inline string imageCacheId() const { DARABONBA_PTR_GET_DEFAULT(imageCacheId_, "") };
+    inline string getImageCacheId() const { DARABONBA_PTR_GET_DEFAULT(imageCacheId_, "") };
     inline GetImageCacheRequest& setImageCacheId(string imageCacheId) { DARABONBA_PTR_SET_VALUE(imageCacheId_, imageCacheId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline GetImageCacheRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> imageCacheId_ = nullptr;
+    shared_ptr<string> imageCacheId_ {};
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

@@ -33,35 +33,35 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->force_ != nullptr
-        && this->imageCacheId_ != nullptr && this->regionId_ != nullptr; };
+    virtual bool empty() const override { return this->force_ == nullptr
+        && this->imageCacheId_ == nullptr && this->regionId_ == nullptr; };
     // force Field Functions 
     bool hasForce() const { return this->force_ != nullptr;};
     void deleteForce() { this->force_ = nullptr;};
-    inline bool force() const { DARABONBA_PTR_GET_DEFAULT(force_, false) };
+    inline bool getForce() const { DARABONBA_PTR_GET_DEFAULT(force_, false) };
     inline DeleteImageCacheRequest& setForce(bool force) { DARABONBA_PTR_SET_VALUE(force_, force) };
 
 
     // imageCacheId Field Functions 
     bool hasImageCacheId() const { return this->imageCacheId_ != nullptr;};
     void deleteImageCacheId() { this->imageCacheId_ = nullptr;};
-    inline string imageCacheId() const { DARABONBA_PTR_GET_DEFAULT(imageCacheId_, "") };
+    inline string getImageCacheId() const { DARABONBA_PTR_GET_DEFAULT(imageCacheId_, "") };
     inline DeleteImageCacheRequest& setImageCacheId(string imageCacheId) { DARABONBA_PTR_SET_VALUE(imageCacheId_, imageCacheId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteImageCacheRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
-    std::shared_ptr<bool> force_ = nullptr;
+    shared_ptr<bool> force_ {};
     // This parameter is required.
-    std::shared_ptr<string> imageCacheId_ = nullptr;
+    shared_ptr<string> imageCacheId_ {};
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

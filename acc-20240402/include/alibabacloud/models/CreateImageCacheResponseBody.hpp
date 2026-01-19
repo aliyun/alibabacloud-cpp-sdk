@@ -31,25 +31,25 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->imageCacheId_ != nullptr
-        && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->imageCacheId_ == nullptr
+        && this->requestId_ == nullptr; };
     // imageCacheId Field Functions 
     bool hasImageCacheId() const { return this->imageCacheId_ != nullptr;};
     void deleteImageCacheId() { this->imageCacheId_ = nullptr;};
-    inline string imageCacheId() const { DARABONBA_PTR_GET_DEFAULT(imageCacheId_, "") };
+    inline string getImageCacheId() const { DARABONBA_PTR_GET_DEFAULT(imageCacheId_, "") };
     inline CreateImageCacheResponseBody& setImageCacheId(string imageCacheId) { DARABONBA_PTR_SET_VALUE(imageCacheId_, imageCacheId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateImageCacheResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<string> imageCacheId_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> imageCacheId_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models
