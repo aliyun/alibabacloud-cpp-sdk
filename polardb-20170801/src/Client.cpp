@@ -5541,6 +5541,146 @@ DescribeAIDBClusterPerformanceResponse Client::describeAIDBClusterPerformance(co
 }
 
 /**
+ * @summary 查询模型算子日志
+ *
+ * @param request DescribeAIDBClusterTaskLogFilesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeAIDBClusterTaskLogFilesResponse
+ */
+DescribeAIDBClusterTaskLogFilesResponse Client::describeAIDBClusterTaskLogFilesWithOptions(const DescribeAIDBClusterTaskLogFilesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasLogType()) {
+    query["LogType"] = request.getLogType();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRelativeDBClusterId()) {
+    query["RelativeDBClusterId"] = request.getRelativeDBClusterId();
+  }
+
+  if (!!request.hasReverse()) {
+    query["Reverse"] = request.getReverse();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeAIDBClusterTaskLogFiles"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeAIDBClusterTaskLogFilesResponse>();
+}
+
+/**
+ * @summary 查询模型算子日志
+ *
+ * @param request DescribeAIDBClusterTaskLogFilesRequest
+ * @return DescribeAIDBClusterTaskLogFilesResponse
+ */
+DescribeAIDBClusterTaskLogFilesResponse Client::describeAIDBClusterTaskLogFiles(const DescribeAIDBClusterTaskLogFilesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeAIDBClusterTaskLogFilesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询模型算子指标
+ *
+ * @param request DescribeAIDBClusterTaskMetricsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeAIDBClusterTaskMetricsResponse
+ */
+DescribeAIDBClusterTaskMetricsResponse Client::describeAIDBClusterTaskMetricsWithOptions(const DescribeAIDBClusterTaskMetricsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasMetricType()) {
+    query["MetricType"] = request.getMetricType();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRelativeDBClusterId()) {
+    query["RelativeDBClusterId"] = request.getRelativeDBClusterId();
+  }
+
+  if (!!request.hasReverse()) {
+    query["Reverse"] = request.getReverse();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeAIDBClusterTaskMetrics"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeAIDBClusterTaskMetricsResponse>();
+}
+
+/**
+ * @summary 查询模型算子指标
+ *
+ * @param request DescribeAIDBClusterTaskMetricsRequest
+ * @return DescribeAIDBClusterTaskMetricsResponse
+ */
+DescribeAIDBClusterTaskMetricsResponse Client::describeAIDBClusterTaskMetrics(const DescribeAIDBClusterTaskMetricsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeAIDBClusterTaskMetricsWithOptions(request, runtime);
+}
+
+/**
  * @summary 查看custom集群列表
  *
  * @param request DescribeAIDBClustersRequest

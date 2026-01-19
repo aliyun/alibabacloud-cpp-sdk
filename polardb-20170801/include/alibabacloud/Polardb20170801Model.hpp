@@ -228,6 +228,12 @@
 #include <alibabacloud/models/DescribeAIDBClusterPerformanceRequest.hpp>
 #include <alibabacloud/models/DescribeAIDBClusterPerformanceResponseBody.hpp>
 #include <alibabacloud/models/DescribeAIDBClusterPerformanceResponse.hpp>
+#include <alibabacloud/models/DescribeAIDBClusterTaskLogFilesRequest.hpp>
+#include <alibabacloud/models/DescribeAIDBClusterTaskLogFilesResponseBody.hpp>
+#include <alibabacloud/models/DescribeAIDBClusterTaskLogFilesResponse.hpp>
+#include <alibabacloud/models/DescribeAIDBClusterTaskMetricsRequest.hpp>
+#include <alibabacloud/models/DescribeAIDBClusterTaskMetricsResponseBody.hpp>
+#include <alibabacloud/models/DescribeAIDBClusterTaskMetricsResponse.hpp>
 #include <alibabacloud/models/DescribeAIDBClustersRequest.hpp>
 #include <alibabacloud/models/DescribeAIDBClustersResponseBody.hpp>
 #include <alibabacloud/models/DescribeAIDBClustersResponse.hpp>

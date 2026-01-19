@@ -1376,6 +1376,40 @@ namespace Polardb20170801
       Models::DescribeAIDBClusterPerformanceResponse describeAIDBClusterPerformance(const Models::DescribeAIDBClusterPerformanceRequest &request);
 
       /**
+       * @summary 查询模型算子日志
+       *
+       * @param request DescribeAIDBClusterTaskLogFilesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAIDBClusterTaskLogFilesResponse
+       */
+      Models::DescribeAIDBClusterTaskLogFilesResponse describeAIDBClusterTaskLogFilesWithOptions(const Models::DescribeAIDBClusterTaskLogFilesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询模型算子日志
+       *
+       * @param request DescribeAIDBClusterTaskLogFilesRequest
+       * @return DescribeAIDBClusterTaskLogFilesResponse
+       */
+      Models::DescribeAIDBClusterTaskLogFilesResponse describeAIDBClusterTaskLogFiles(const Models::DescribeAIDBClusterTaskLogFilesRequest &request);
+
+      /**
+       * @summary 查询模型算子指标
+       *
+       * @param request DescribeAIDBClusterTaskMetricsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAIDBClusterTaskMetricsResponse
+       */
+      Models::DescribeAIDBClusterTaskMetricsResponse describeAIDBClusterTaskMetricsWithOptions(const Models::DescribeAIDBClusterTaskMetricsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询模型算子指标
+       *
+       * @param request DescribeAIDBClusterTaskMetricsRequest
+       * @return DescribeAIDBClusterTaskMetricsResponse
+       */
+      Models::DescribeAIDBClusterTaskMetricsResponse describeAIDBClusterTaskMetrics(const Models::DescribeAIDBClusterTaskMetricsRequest &request);
+
+      /**
        * @summary 查看custom集群列表
        *
        * @param request DescribeAIDBClustersRequest
