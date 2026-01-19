@@ -33,7 +33,7 @@ namespace Models
     // paths Field Functions 
     bool hasPaths() const { return this->paths_ != nullptr;};
     void deletePaths() { this->paths_ = nullptr;};
-    inline string paths() const { DARABONBA_PTR_GET_DEFAULT(paths_, "") };
+    inline string getPaths() const { DARABONBA_PTR_GET_DEFAULT(paths_, "") };
     inline GetWafQuotaRequest& setPaths(string paths) { DARABONBA_PTR_SET_VALUE(paths_, paths) };
 
 
@@ -43,7 +43,7 @@ namespace Models
     // * list: represents the quota for custom lists
     // * page: represents the quota for custom response pages
     // * scene_policy: represents the quota for scenario protection
-    std::shared_ptr<string> paths_ = nullptr;
+    shared_ptr<string> paths_ {};
   };
 
   } // namespace Models

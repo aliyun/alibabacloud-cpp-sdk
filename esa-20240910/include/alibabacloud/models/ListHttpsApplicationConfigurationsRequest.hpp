@@ -42,78 +42,78 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->configId_ == nullptr
-        && return this->configType_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->ruleName_ == nullptr && return this->siteId_ == nullptr
-        && return this->siteVersion_ == nullptr; };
+        && this->configType_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->ruleName_ == nullptr && this->siteId_ == nullptr
+        && this->siteVersion_ == nullptr; };
     // configId Field Functions 
     bool hasConfigId() const { return this->configId_ != nullptr;};
     void deleteConfigId() { this->configId_ = nullptr;};
-    inline int64_t configId() const { DARABONBA_PTR_GET_DEFAULT(configId_, 0L) };
+    inline int64_t getConfigId() const { DARABONBA_PTR_GET_DEFAULT(configId_, 0L) };
     inline ListHttpsApplicationConfigurationsRequest& setConfigId(int64_t configId) { DARABONBA_PTR_SET_VALUE(configId_, configId) };
 
 
     // configType Field Functions 
     bool hasConfigType() const { return this->configType_ != nullptr;};
     void deleteConfigType() { this->configType_ = nullptr;};
-    inline string configType() const { DARABONBA_PTR_GET_DEFAULT(configType_, "") };
+    inline string getConfigType() const { DARABONBA_PTR_GET_DEFAULT(configType_, "") };
     inline ListHttpsApplicationConfigurationsRequest& setConfigType(string configType) { DARABONBA_PTR_SET_VALUE(configType_, configType) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline ListHttpsApplicationConfigurationsRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListHttpsApplicationConfigurationsRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // ruleName Field Functions 
     bool hasRuleName() const { return this->ruleName_ != nullptr;};
     void deleteRuleName() { this->ruleName_ = nullptr;};
-    inline string ruleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
+    inline string getRuleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
     inline ListHttpsApplicationConfigurationsRequest& setRuleName(string ruleName) { DARABONBA_PTR_SET_VALUE(ruleName_, ruleName) };
 
 
     // siteId Field Functions 
     bool hasSiteId() const { return this->siteId_ != nullptr;};
     void deleteSiteId() { this->siteId_ = nullptr;};
-    inline int64_t siteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
+    inline int64_t getSiteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
     inline ListHttpsApplicationConfigurationsRequest& setSiteId(int64_t siteId) { DARABONBA_PTR_SET_VALUE(siteId_, siteId) };
 
 
     // siteVersion Field Functions 
     bool hasSiteVersion() const { return this->siteVersion_ != nullptr;};
     void deleteSiteVersion() { this->siteVersion_ = nullptr;};
-    inline int32_t siteVersion() const { DARABONBA_PTR_GET_DEFAULT(siteVersion_, 0) };
+    inline int32_t getSiteVersion() const { DARABONBA_PTR_GET_DEFAULT(siteVersion_, 0) };
     inline ListHttpsApplicationConfigurationsRequest& setSiteVersion(int32_t siteVersion) { DARABONBA_PTR_SET_VALUE(siteVersion_, siteVersion) };
 
 
   protected:
     // Configuration ID.
-    std::shared_ptr<int64_t> configId_ = nullptr;
+    shared_ptr<int64_t> configId_ {};
     // Configuration type, which can be used to query global or rule-based configurations. Possible values:
     // - global: Query global configuration.
     // - rule: Query rule-based configuration.
     // 
     // This parameter is optional. If not provided, it will not distinguish between global and rule-based configurations.
-    std::shared_ptr<string> configType_ = nullptr;
+    shared_ptr<string> configType_ {};
     // Page number, default is 1 if not provided.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // Number of items per page, maximum is 500, default is 500 if not provided.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // Rule name, which can be used to find the rule with the specified name.
-    std::shared_ptr<string> ruleName_ = nullptr;
+    shared_ptr<string> ruleName_ {};
     // Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> siteId_ = nullptr;
+    shared_ptr<int64_t> siteId_ {};
     // Site version number. For sites with version management enabled, this parameter can specify the site version for which the configuration is effective, default is version 0.
-    std::shared_ptr<int32_t> siteVersion_ = nullptr;
+    shared_ptr<int32_t> siteVersion_ {};
   };
 
   } // namespace Models

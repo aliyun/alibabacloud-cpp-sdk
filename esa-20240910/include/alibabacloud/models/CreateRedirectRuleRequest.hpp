@@ -48,75 +48,75 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->reserveQueryString_ == nullptr
-        && return this->rule_ == nullptr && return this->ruleEnable_ == nullptr && return this->ruleName_ == nullptr && return this->sequence_ == nullptr && return this->siteId_ == nullptr
-        && return this->siteVersion_ == nullptr && return this->statusCode_ == nullptr && return this->targetUrl_ == nullptr && return this->type_ == nullptr; };
+        && this->rule_ == nullptr && this->ruleEnable_ == nullptr && this->ruleName_ == nullptr && this->sequence_ == nullptr && this->siteId_ == nullptr
+        && this->siteVersion_ == nullptr && this->statusCode_ == nullptr && this->targetUrl_ == nullptr && this->type_ == nullptr; };
     // reserveQueryString Field Functions 
     bool hasReserveQueryString() const { return this->reserveQueryString_ != nullptr;};
     void deleteReserveQueryString() { this->reserveQueryString_ = nullptr;};
-    inline string reserveQueryString() const { DARABONBA_PTR_GET_DEFAULT(reserveQueryString_, "") };
+    inline string getReserveQueryString() const { DARABONBA_PTR_GET_DEFAULT(reserveQueryString_, "") };
     inline CreateRedirectRuleRequest& setReserveQueryString(string reserveQueryString) { DARABONBA_PTR_SET_VALUE(reserveQueryString_, reserveQueryString) };
 
 
     // rule Field Functions 
     bool hasRule() const { return this->rule_ != nullptr;};
     void deleteRule() { this->rule_ = nullptr;};
-    inline string rule() const { DARABONBA_PTR_GET_DEFAULT(rule_, "") };
+    inline string getRule() const { DARABONBA_PTR_GET_DEFAULT(rule_, "") };
     inline CreateRedirectRuleRequest& setRule(string rule) { DARABONBA_PTR_SET_VALUE(rule_, rule) };
 
 
     // ruleEnable Field Functions 
     bool hasRuleEnable() const { return this->ruleEnable_ != nullptr;};
     void deleteRuleEnable() { this->ruleEnable_ = nullptr;};
-    inline string ruleEnable() const { DARABONBA_PTR_GET_DEFAULT(ruleEnable_, "") };
+    inline string getRuleEnable() const { DARABONBA_PTR_GET_DEFAULT(ruleEnable_, "") };
     inline CreateRedirectRuleRequest& setRuleEnable(string ruleEnable) { DARABONBA_PTR_SET_VALUE(ruleEnable_, ruleEnable) };
 
 
     // ruleName Field Functions 
     bool hasRuleName() const { return this->ruleName_ != nullptr;};
     void deleteRuleName() { this->ruleName_ = nullptr;};
-    inline string ruleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
+    inline string getRuleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
     inline CreateRedirectRuleRequest& setRuleName(string ruleName) { DARABONBA_PTR_SET_VALUE(ruleName_, ruleName) };
 
 
     // sequence Field Functions 
     bool hasSequence() const { return this->sequence_ != nullptr;};
     void deleteSequence() { this->sequence_ = nullptr;};
-    inline int32_t sequence() const { DARABONBA_PTR_GET_DEFAULT(sequence_, 0) };
+    inline int32_t getSequence() const { DARABONBA_PTR_GET_DEFAULT(sequence_, 0) };
     inline CreateRedirectRuleRequest& setSequence(int32_t sequence) { DARABONBA_PTR_SET_VALUE(sequence_, sequence) };
 
 
     // siteId Field Functions 
     bool hasSiteId() const { return this->siteId_ != nullptr;};
     void deleteSiteId() { this->siteId_ = nullptr;};
-    inline int64_t siteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
+    inline int64_t getSiteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
     inline CreateRedirectRuleRequest& setSiteId(int64_t siteId) { DARABONBA_PTR_SET_VALUE(siteId_, siteId) };
 
 
     // siteVersion Field Functions 
     bool hasSiteVersion() const { return this->siteVersion_ != nullptr;};
     void deleteSiteVersion() { this->siteVersion_ = nullptr;};
-    inline int32_t siteVersion() const { DARABONBA_PTR_GET_DEFAULT(siteVersion_, 0) };
+    inline int32_t getSiteVersion() const { DARABONBA_PTR_GET_DEFAULT(siteVersion_, 0) };
     inline CreateRedirectRuleRequest& setSiteVersion(int32_t siteVersion) { DARABONBA_PTR_SET_VALUE(siteVersion_, siteVersion) };
 
 
     // statusCode Field Functions 
     bool hasStatusCode() const { return this->statusCode_ != nullptr;};
     void deleteStatusCode() { this->statusCode_ = nullptr;};
-    inline string statusCode() const { DARABONBA_PTR_GET_DEFAULT(statusCode_, "") };
+    inline string getStatusCode() const { DARABONBA_PTR_GET_DEFAULT(statusCode_, "") };
     inline CreateRedirectRuleRequest& setStatusCode(string statusCode) { DARABONBA_PTR_SET_VALUE(statusCode_, statusCode) };
 
 
     // targetUrl Field Functions 
     bool hasTargetUrl() const { return this->targetUrl_ != nullptr;};
     void deleteTargetUrl() { this->targetUrl_ = nullptr;};
-    inline string targetUrl() const { DARABONBA_PTR_GET_DEFAULT(targetUrl_, "") };
+    inline string getTargetUrl() const { DARABONBA_PTR_GET_DEFAULT(targetUrl_, "") };
     inline CreateRedirectRuleRequest& setTargetUrl(string targetUrl) { DARABONBA_PTR_SET_VALUE(targetUrl_, targetUrl) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline CreateRedirectRuleRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
@@ -127,24 +127,24 @@ namespace Models
     // - off: Disabled.
     // 
     // This parameter is required.
-    std::shared_ptr<string> reserveQueryString_ = nullptr;
+    shared_ptr<string> reserveQueryString_ {};
     // Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
     // - To match all incoming requests: Set the value to true
     // - To match specific requests: Set the value to a custom expression, e.g., (http.host eq \\"video.example.com\\")
-    std::shared_ptr<string> rule_ = nullptr;
+    shared_ptr<string> rule_ {};
     // Rule switch. This parameter is not required when adding a global configuration. Value range:
     // - on: Enabled.
     // - off: Disabled.
-    std::shared_ptr<string> ruleEnable_ = nullptr;
+    shared_ptr<string> ruleEnable_ {};
     // Rule name. This parameter is not required when adding a global configuration.
-    std::shared_ptr<string> ruleName_ = nullptr;
-    std::shared_ptr<int32_t> sequence_ = nullptr;
+    shared_ptr<string> ruleName_ {};
+    shared_ptr<int32_t> sequence_ {};
     // Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> siteId_ = nullptr;
+    shared_ptr<int64_t> siteId_ {};
     // Version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the version of the site for which the configuration will take effect. The default is version 0.
-    std::shared_ptr<int32_t> siteVersion_ = nullptr;
+    shared_ptr<int32_t> siteVersion_ {};
     // Response status code used by the node to respond to the client with the redirect address. Value range:
     // 
     // - 301
@@ -154,18 +154,18 @@ namespace Models
     // - 308
     // 
     // This parameter is required.
-    std::shared_ptr<string> statusCode_ = nullptr;
+    shared_ptr<string> statusCode_ {};
     // Target URL after redirection.
     // 
     // This parameter is required.
-    std::shared_ptr<string> targetUrl_ = nullptr;
+    shared_ptr<string> targetUrl_ {};
     // Redirect type. Value range:
     // 
     // - static: Static mode.
     // - dynamic: Dynamic mode.
     // 
     // This parameter is required.
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

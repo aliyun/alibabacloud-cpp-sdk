@@ -50,82 +50,82 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->checkRemainingSiteQuota_ == nullptr
-        && return this->instanceId_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->planNameEn_ == nullptr && return this->planType_ == nullptr
-        && return this->remainingExpireDays_ == nullptr && return this->sortBy_ == nullptr && return this->sortOrder_ == nullptr && return this->status_ == nullptr && return this->subscribeType_ == nullptr; };
+        && this->instanceId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->planNameEn_ == nullptr && this->planType_ == nullptr
+        && this->remainingExpireDays_ == nullptr && this->sortBy_ == nullptr && this->sortOrder_ == nullptr && this->status_ == nullptr && this->subscribeType_ == nullptr; };
     // checkRemainingSiteQuota Field Functions 
     bool hasCheckRemainingSiteQuota() const { return this->checkRemainingSiteQuota_ != nullptr;};
     void deleteCheckRemainingSiteQuota() { this->checkRemainingSiteQuota_ = nullptr;};
-    inline string checkRemainingSiteQuota() const { DARABONBA_PTR_GET_DEFAULT(checkRemainingSiteQuota_, "") };
+    inline string getCheckRemainingSiteQuota() const { DARABONBA_PTR_GET_DEFAULT(checkRemainingSiteQuota_, "") };
     inline ListUserRatePlanInstancesRequest& setCheckRemainingSiteQuota(string checkRemainingSiteQuota) { DARABONBA_PTR_SET_VALUE(checkRemainingSiteQuota_, checkRemainingSiteQuota) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ListUserRatePlanInstancesRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline ListUserRatePlanInstancesRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListUserRatePlanInstancesRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // planNameEn Field Functions 
     bool hasPlanNameEn() const { return this->planNameEn_ != nullptr;};
     void deletePlanNameEn() { this->planNameEn_ = nullptr;};
-    inline string planNameEn() const { DARABONBA_PTR_GET_DEFAULT(planNameEn_, "") };
+    inline string getPlanNameEn() const { DARABONBA_PTR_GET_DEFAULT(planNameEn_, "") };
     inline ListUserRatePlanInstancesRequest& setPlanNameEn(string planNameEn) { DARABONBA_PTR_SET_VALUE(planNameEn_, planNameEn) };
 
 
     // planType Field Functions 
     bool hasPlanType() const { return this->planType_ != nullptr;};
     void deletePlanType() { this->planType_ = nullptr;};
-    inline string planType() const { DARABONBA_PTR_GET_DEFAULT(planType_, "") };
+    inline string getPlanType() const { DARABONBA_PTR_GET_DEFAULT(planType_, "") };
     inline ListUserRatePlanInstancesRequest& setPlanType(string planType) { DARABONBA_PTR_SET_VALUE(planType_, planType) };
 
 
     // remainingExpireDays Field Functions 
     bool hasRemainingExpireDays() const { return this->remainingExpireDays_ != nullptr;};
     void deleteRemainingExpireDays() { this->remainingExpireDays_ = nullptr;};
-    inline int32_t remainingExpireDays() const { DARABONBA_PTR_GET_DEFAULT(remainingExpireDays_, 0) };
+    inline int32_t getRemainingExpireDays() const { DARABONBA_PTR_GET_DEFAULT(remainingExpireDays_, 0) };
     inline ListUserRatePlanInstancesRequest& setRemainingExpireDays(int32_t remainingExpireDays) { DARABONBA_PTR_SET_VALUE(remainingExpireDays_, remainingExpireDays) };
 
 
     // sortBy Field Functions 
     bool hasSortBy() const { return this->sortBy_ != nullptr;};
     void deleteSortBy() { this->sortBy_ = nullptr;};
-    inline string sortBy() const { DARABONBA_PTR_GET_DEFAULT(sortBy_, "") };
+    inline string getSortBy() const { DARABONBA_PTR_GET_DEFAULT(sortBy_, "") };
     inline ListUserRatePlanInstancesRequest& setSortBy(string sortBy) { DARABONBA_PTR_SET_VALUE(sortBy_, sortBy) };
 
 
     // sortOrder Field Functions 
     bool hasSortOrder() const { return this->sortOrder_ != nullptr;};
     void deleteSortOrder() { this->sortOrder_ = nullptr;};
-    inline string sortOrder() const { DARABONBA_PTR_GET_DEFAULT(sortOrder_, "") };
+    inline string getSortOrder() const { DARABONBA_PTR_GET_DEFAULT(sortOrder_, "") };
     inline ListUserRatePlanInstancesRequest& setSortOrder(string sortOrder) { DARABONBA_PTR_SET_VALUE(sortOrder_, sortOrder) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline ListUserRatePlanInstancesRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // subscribeType Field Functions 
     bool hasSubscribeType() const { return this->subscribeType_ != nullptr;};
     void deleteSubscribeType() { this->subscribeType_ = nullptr;};
-    inline string subscribeType() const { DARABONBA_PTR_GET_DEFAULT(subscribeType_, "") };
+    inline string getSubscribeType() const { DARABONBA_PTR_GET_DEFAULT(subscribeType_, "") };
     inline ListUserRatePlanInstancesRequest& setSubscribeType(string subscribeType) { DARABONBA_PTR_SET_VALUE(subscribeType_, subscribeType) };
 
 
@@ -134,34 +134,34 @@ namespace Models
     // 
     // *   true: queries only the plans that have remaining quota for associating websites.
     // *   false: queries all plans in your account.
-    std::shared_ptr<string> checkRemainingSiteQuota_ = nullptr;
+    shared_ptr<string> checkRemainingSiteQuota_ {};
     // The plan ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The page number. Valid values: **1** to **100000**. Default value: **1**.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    std::shared_ptr<string> planNameEn_ = nullptr;
-    std::shared_ptr<string> planType_ = nullptr;
-    std::shared_ptr<int32_t> remainingExpireDays_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<string> planNameEn_ {};
+    shared_ptr<string> planType_ {};
+    shared_ptr<int32_t> remainingExpireDays_ {};
     // The sorting field. By default, the queried plans are sorted by purchase time. Valid values:
     // 
     // *   CreateTime: the time when the plans were purchased.
     // *   ExpireTime: the time when the plans expire.
-    std::shared_ptr<string> sortBy_ = nullptr;
+    shared_ptr<string> sortBy_ {};
     // The order in which you want to sort the query results. Default value: desc. Valid values:
     // 
     // *   asc: in ascending order.
     // *   desc: in descending order.
-    std::shared_ptr<string> sortOrder_ = nullptr;
+    shared_ptr<string> sortOrder_ {};
     // The plan status. Valid values:
     // 
     // *   online: The plan is in service.
     // *   offline: The plan has expired within an allowable period. In this state, the plan is unavailable.
     // *   disable: The plan is released.
     // *   overdue: The plan is stopped due to overdue payments.
-    std::shared_ptr<string> status_ = nullptr;
-    std::shared_ptr<string> subscribeType_ = nullptr;
+    shared_ptr<string> status_ {};
+    shared_ptr<string> subscribeType_ {};
   };
 
   } // namespace Models

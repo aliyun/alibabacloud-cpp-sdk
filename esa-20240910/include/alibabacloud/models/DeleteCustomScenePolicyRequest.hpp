@@ -33,7 +33,7 @@ namespace Models
     // policyId Field Functions 
     bool hasPolicyId() const { return this->policyId_ != nullptr;};
     void deletePolicyId() { this->policyId_ = nullptr;};
-    inline int64_t policyId() const { DARABONBA_PTR_GET_DEFAULT(policyId_, 0L) };
+    inline int64_t getPolicyId() const { DARABONBA_PTR_GET_DEFAULT(policyId_, 0L) };
     inline DeleteCustomScenePolicyRequest& setPolicyId(int64_t policyId) { DARABONBA_PTR_SET_VALUE(policyId_, policyId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The policy ID, which can be obtained by calling the [DescribeCustomScenePolicies](https://help.aliyun.com/document_detail/2850508.html) operation.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> policyId_ = nullptr;
+    shared_ptr<int64_t> policyId_ {};
   };
 
   } // namespace Models

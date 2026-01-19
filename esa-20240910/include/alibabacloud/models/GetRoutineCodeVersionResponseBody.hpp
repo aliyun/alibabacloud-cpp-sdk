@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->codeDescription_ == nullptr
-        && return this->createTime_ == nullptr && return this->requestId_ == nullptr && return this->routineCode_ == nullptr; };
+        && this->createTime_ == nullptr && this->requestId_ == nullptr && this->routineCode_ == nullptr; };
     // codeDescription Field Functions 
     bool hasCodeDescription() const { return this->codeDescription_ != nullptr;};
     void deleteCodeDescription() { this->codeDescription_ = nullptr;};
-    inline string codeDescription() const { DARABONBA_PTR_GET_DEFAULT(codeDescription_, "") };
+    inline string getCodeDescription() const { DARABONBA_PTR_GET_DEFAULT(codeDescription_, "") };
     inline GetRoutineCodeVersionResponseBody& setCodeDescription(string codeDescription) { DARABONBA_PTR_SET_VALUE(codeDescription_, codeDescription) };
 
 
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
-    inline string createTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
+    inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
     inline GetRoutineCodeVersionResponseBody& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetRoutineCodeVersionResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // routineCode Field Functions 
     bool hasRoutineCode() const { return this->routineCode_ != nullptr;};
     void deleteRoutineCode() { this->routineCode_ = nullptr;};
-    inline string routineCode() const { DARABONBA_PTR_GET_DEFAULT(routineCode_, "") };
+    inline string getRoutineCode() const { DARABONBA_PTR_GET_DEFAULT(routineCode_, "") };
     inline GetRoutineCodeVersionResponseBody& setRoutineCode(string routineCode) { DARABONBA_PTR_SET_VALUE(routineCode_, routineCode) };
 
 
   protected:
     // The description of the code version.
-    std::shared_ptr<string> codeDescription_ = nullptr;
+    shared_ptr<string> codeDescription_ {};
     // The time when the version was created.
-    std::shared_ptr<string> createTime_ = nullptr;
+    shared_ptr<string> createTime_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The code content.
-    std::shared_ptr<string> routineCode_ = nullptr;
+    shared_ptr<string> routineCode_ {};
   };
 
   } // namespace Models

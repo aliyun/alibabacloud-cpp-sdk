@@ -38,53 +38,53 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->durationTime_ == nullptr && return this->enable_ == nullptr && return this->forever_ == nullptr && return this->reserveSetShrink_ == nullptr; };
+        && this->durationTime_ == nullptr && this->enable_ == nullptr && this->forever_ == nullptr && this->reserveSetShrink_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline UpdateEdgeContainerAppResourceReserveShrinkRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // durationTime Field Functions 
     bool hasDurationTime() const { return this->durationTime_ != nullptr;};
     void deleteDurationTime() { this->durationTime_ = nullptr;};
-    inline string durationTime() const { DARABONBA_PTR_GET_DEFAULT(durationTime_, "") };
+    inline string getDurationTime() const { DARABONBA_PTR_GET_DEFAULT(durationTime_, "") };
     inline UpdateEdgeContainerAppResourceReserveShrinkRequest& setDurationTime(string durationTime) { DARABONBA_PTR_SET_VALUE(durationTime_, durationTime) };
 
 
     // enable Field Functions 
     bool hasEnable() const { return this->enable_ != nullptr;};
     void deleteEnable() { this->enable_ = nullptr;};
-    inline bool enable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
+    inline bool getEnable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
     inline UpdateEdgeContainerAppResourceReserveShrinkRequest& setEnable(bool enable) { DARABONBA_PTR_SET_VALUE(enable_, enable) };
 
 
     // forever Field Functions 
     bool hasForever() const { return this->forever_ != nullptr;};
     void deleteForever() { this->forever_ = nullptr;};
-    inline bool forever() const { DARABONBA_PTR_GET_DEFAULT(forever_, false) };
+    inline bool getForever() const { DARABONBA_PTR_GET_DEFAULT(forever_, false) };
     inline UpdateEdgeContainerAppResourceReserveShrinkRequest& setForever(bool forever) { DARABONBA_PTR_SET_VALUE(forever_, forever) };
 
 
     // reserveSetShrink Field Functions 
     bool hasReserveSetShrink() const { return this->reserveSetShrink_ != nullptr;};
     void deleteReserveSetShrink() { this->reserveSetShrink_ = nullptr;};
-    inline string reserveSetShrink() const { DARABONBA_PTR_GET_DEFAULT(reserveSetShrink_, "") };
+    inline string getReserveSetShrink() const { DARABONBA_PTR_GET_DEFAULT(reserveSetShrink_, "") };
     inline UpdateEdgeContainerAppResourceReserveShrinkRequest& setReserveSetShrink(string reserveSetShrink) { DARABONBA_PTR_SET_VALUE(reserveSetShrink_, reserveSetShrink) };
 
 
   protected:
     // The application ID, which can be obtained by calling the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The end time of the reservation. The input time is UTC. It takes +8 hours to enter Beijing time. For example, if the current time is 2006-01-02 06:04:05, you need to enter "2006-01-02T14:04:05Z".
-    std::shared_ptr<string> durationTime_ = nullptr;
+    shared_ptr<string> durationTime_ {};
     // Whether to enable resource reservation.
-    std::shared_ptr<bool> enable_ = nullptr;
+    shared_ptr<bool> enable_ {};
     // Whether to permanently enable the reservation. Once it is enabled, you are not allowed to set the reservation deadline.
-    std::shared_ptr<bool> forever_ = nullptr;
+    shared_ptr<bool> forever_ {};
     // Reserved resource list.
-    std::shared_ptr<string> reserveSetShrink_ = nullptr;
+    shared_ptr<string> reserveSetShrink_ {};
   };
 
   } // namespace Models

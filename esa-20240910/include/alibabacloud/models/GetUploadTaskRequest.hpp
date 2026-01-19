@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->siteId_ == nullptr
-        && return this->uploadId_ == nullptr; };
+        && this->uploadId_ == nullptr; };
     // siteId Field Functions 
     bool hasSiteId() const { return this->siteId_ != nullptr;};
     void deleteSiteId() { this->siteId_ = nullptr;};
-    inline int64_t siteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
+    inline int64_t getSiteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
     inline GetUploadTaskRequest& setSiteId(int64_t siteId) { DARABONBA_PTR_SET_VALUE(siteId_, siteId) };
 
 
     // uploadId Field Functions 
     bool hasUploadId() const { return this->uploadId_ != nullptr;};
     void deleteUploadId() { this->uploadId_ = nullptr;};
-    inline int64_t uploadId() const { DARABONBA_PTR_GET_DEFAULT(uploadId_, 0L) };
+    inline int64_t getUploadId() const { DARABONBA_PTR_GET_DEFAULT(uploadId_, 0L) };
     inline GetUploadTaskRequest& setUploadId(int64_t uploadId) { DARABONBA_PTR_SET_VALUE(uploadId_, uploadId) };
 
 
   protected:
     // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
-    std::shared_ptr<int64_t> siteId_ = nullptr;
+    shared_ptr<int64_t> siteId_ {};
     // The ID of the file upload task. This field is assigned after you call the [UploadFile](https://help.aliyun.com/document_detail/2850466.html) operation.
-    std::shared_ptr<int64_t> uploadId_ = nullptr;
+    shared_ptr<int64_t> uploadId_ {};
   };
 
   } // namespace Models

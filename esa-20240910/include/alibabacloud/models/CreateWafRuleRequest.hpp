@@ -39,12 +39,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->config_ == nullptr
-        && return this->phase_ == nullptr && return this->rulesetId_ == nullptr && return this->siteId_ == nullptr && return this->siteVersion_ == nullptr; };
+        && this->phase_ == nullptr && this->rulesetId_ == nullptr && this->siteId_ == nullptr && this->siteVersion_ == nullptr; };
     // config Field Functions 
     bool hasConfig() const { return this->config_ != nullptr;};
     void deleteConfig() { this->config_ = nullptr;};
-    inline const WafRuleConfig & config() const { DARABONBA_PTR_GET_CONST(config_, WafRuleConfig) };
-    inline WafRuleConfig config() { DARABONBA_PTR_GET(config_, WafRuleConfig) };
+    inline const WafRuleConfig & getConfig() const { DARABONBA_PTR_GET_CONST(config_, WafRuleConfig) };
+    inline WafRuleConfig getConfig() { DARABONBA_PTR_GET(config_, WafRuleConfig) };
     inline CreateWafRuleRequest& setConfig(const WafRuleConfig & config) { DARABONBA_PTR_SET_VALUE(config_, config) };
     inline CreateWafRuleRequest& setConfig(WafRuleConfig && config) { DARABONBA_PTR_SET_RVALUE(config_, config) };
 
@@ -52,46 +52,46 @@ namespace Models
     // phase Field Functions 
     bool hasPhase() const { return this->phase_ != nullptr;};
     void deletePhase() { this->phase_ = nullptr;};
-    inline string phase() const { DARABONBA_PTR_GET_DEFAULT(phase_, "") };
+    inline string getPhase() const { DARABONBA_PTR_GET_DEFAULT(phase_, "") };
     inline CreateWafRuleRequest& setPhase(string phase) { DARABONBA_PTR_SET_VALUE(phase_, phase) };
 
 
     // rulesetId Field Functions 
     bool hasRulesetId() const { return this->rulesetId_ != nullptr;};
     void deleteRulesetId() { this->rulesetId_ = nullptr;};
-    inline int64_t rulesetId() const { DARABONBA_PTR_GET_DEFAULT(rulesetId_, 0L) };
+    inline int64_t getRulesetId() const { DARABONBA_PTR_GET_DEFAULT(rulesetId_, 0L) };
     inline CreateWafRuleRequest& setRulesetId(int64_t rulesetId) { DARABONBA_PTR_SET_VALUE(rulesetId_, rulesetId) };
 
 
     // siteId Field Functions 
     bool hasSiteId() const { return this->siteId_ != nullptr;};
     void deleteSiteId() { this->siteId_ = nullptr;};
-    inline int64_t siteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
+    inline int64_t getSiteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
     inline CreateWafRuleRequest& setSiteId(int64_t siteId) { DARABONBA_PTR_SET_VALUE(siteId_, siteId) };
 
 
     // siteVersion Field Functions 
     bool hasSiteVersion() const { return this->siteVersion_ != nullptr;};
     void deleteSiteVersion() { this->siteVersion_ = nullptr;};
-    inline int32_t siteVersion() const { DARABONBA_PTR_GET_DEFAULT(siteVersion_, 0) };
+    inline int32_t getSiteVersion() const { DARABONBA_PTR_GET_DEFAULT(siteVersion_, 0) };
     inline CreateWafRuleRequest& setSiteVersion(int32_t siteVersion) { DARABONBA_PTR_SET_VALUE(siteVersion_, siteVersion) };
 
 
   protected:
     // Rule configuration, specifying the detailed configuration for creating a rule.
-    std::shared_ptr<WafRuleConfig> config_ = nullptr;
+    shared_ptr<WafRuleConfig> config_ {};
     // WAF operation phase.
     // 
     // This parameter is required.
-    std::shared_ptr<string> phase_ = nullptr;
+    shared_ptr<string> phase_ {};
     // Ruleset ID.
-    std::shared_ptr<int64_t> rulesetId_ = nullptr;
+    shared_ptr<int64_t> rulesetId_ {};
     // Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> siteId_ = nullptr;
+    shared_ptr<int64_t> siteId_ {};
     // Site version.
-    std::shared_ptr<int32_t> siteVersion_ = nullptr;
+    shared_ptr<int32_t> siteVersion_ {};
   };
 
   } // namespace Models

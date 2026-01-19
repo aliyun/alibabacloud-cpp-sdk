@@ -34,41 +34,41 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoConfirmIPList_ == nullptr
-        && return this->originConverge_ == nullptr && return this->siteId_ == nullptr; };
+        && this->originConverge_ == nullptr && this->siteId_ == nullptr; };
     // autoConfirmIPList Field Functions 
     bool hasAutoConfirmIPList() const { return this->autoConfirmIPList_ != nullptr;};
     void deleteAutoConfirmIPList() { this->autoConfirmIPList_ = nullptr;};
-    inline string autoConfirmIPList() const { DARABONBA_PTR_GET_DEFAULT(autoConfirmIPList_, "") };
+    inline string getAutoConfirmIPList() const { DARABONBA_PTR_GET_DEFAULT(autoConfirmIPList_, "") };
     inline UpdateOriginProtectionRequest& setAutoConfirmIPList(string autoConfirmIPList) { DARABONBA_PTR_SET_VALUE(autoConfirmIPList_, autoConfirmIPList) };
 
 
     // originConverge Field Functions 
     bool hasOriginConverge() const { return this->originConverge_ != nullptr;};
     void deleteOriginConverge() { this->originConverge_ = nullptr;};
-    inline string originConverge() const { DARABONBA_PTR_GET_DEFAULT(originConverge_, "") };
+    inline string getOriginConverge() const { DARABONBA_PTR_GET_DEFAULT(originConverge_, "") };
     inline UpdateOriginProtectionRequest& setOriginConverge(string originConverge) { DARABONBA_PTR_SET_VALUE(originConverge_, originConverge) };
 
 
     // siteId Field Functions 
     bool hasSiteId() const { return this->siteId_ != nullptr;};
     void deleteSiteId() { this->siteId_ = nullptr;};
-    inline int64_t siteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
+    inline int64_t getSiteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
     inline UpdateOriginProtectionRequest& setSiteId(int64_t siteId) { DARABONBA_PTR_SET_VALUE(siteId_, siteId) };
 
 
   protected:
-    std::shared_ptr<string> autoConfirmIPList_ = nullptr;
+    shared_ptr<string> autoConfirmIPList_ {};
     // The IP convergence status.
     // 
     // *   on
     // *   off
     // 
     // This parameter is required.
-    std::shared_ptr<string> originConverge_ = nullptr;
+    shared_ptr<string> originConverge_ {};
     // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> siteId_ = nullptr;
+    shared_ptr<int64_t> siteId_ {};
   };
 
   } // namespace Models

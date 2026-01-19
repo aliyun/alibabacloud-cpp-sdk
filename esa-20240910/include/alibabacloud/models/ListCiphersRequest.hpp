@@ -33,7 +33,7 @@ namespace Models
     // ciphersGroup Field Functions 
     bool hasCiphersGroup() const { return this->ciphersGroup_ != nullptr;};
     void deleteCiphersGroup() { this->ciphersGroup_ = nullptr;};
-    inline string ciphersGroup() const { DARABONBA_PTR_GET_DEFAULT(ciphersGroup_, "") };
+    inline string getCiphersGroup() const { DARABONBA_PTR_GET_DEFAULT(ciphersGroup_, "") };
     inline ListCiphersRequest& setCiphersGroup(string ciphersGroup) { DARABONBA_PTR_SET_VALUE(ciphersGroup_, ciphersGroup) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The name of the cipher suite group, which can be: all, strict, custom.
     // 
     // This parameter is required.
-    std::shared_ptr<string> ciphersGroup_ = nullptr;
+    shared_ptr<string> ciphersGroup_ {};
   };
 
   } // namespace Models

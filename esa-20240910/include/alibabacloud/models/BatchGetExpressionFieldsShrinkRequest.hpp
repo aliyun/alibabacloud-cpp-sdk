@@ -40,59 +40,59 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->expressionsShrink_ == nullptr
-        && return this->instanceId_ == nullptr && return this->kind_ == nullptr && return this->phase_ == nullptr && return this->planNameEn_ == nullptr && return this->siteId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->kind_ == nullptr && this->phase_ == nullptr && this->planNameEn_ == nullptr && this->siteId_ == nullptr; };
     // expressionsShrink Field Functions 
     bool hasExpressionsShrink() const { return this->expressionsShrink_ != nullptr;};
     void deleteExpressionsShrink() { this->expressionsShrink_ = nullptr;};
-    inline string expressionsShrink() const { DARABONBA_PTR_GET_DEFAULT(expressionsShrink_, "") };
+    inline string getExpressionsShrink() const { DARABONBA_PTR_GET_DEFAULT(expressionsShrink_, "") };
     inline BatchGetExpressionFieldsShrinkRequest& setExpressionsShrink(string expressionsShrink) { DARABONBA_PTR_SET_VALUE(expressionsShrink_, expressionsShrink) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline BatchGetExpressionFieldsShrinkRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // kind Field Functions 
     bool hasKind() const { return this->kind_ != nullptr;};
     void deleteKind() { this->kind_ = nullptr;};
-    inline string kind() const { DARABONBA_PTR_GET_DEFAULT(kind_, "") };
+    inline string getKind() const { DARABONBA_PTR_GET_DEFAULT(kind_, "") };
     inline BatchGetExpressionFieldsShrinkRequest& setKind(string kind) { DARABONBA_PTR_SET_VALUE(kind_, kind) };
 
 
     // phase Field Functions 
     bool hasPhase() const { return this->phase_ != nullptr;};
     void deletePhase() { this->phase_ = nullptr;};
-    inline string phase() const { DARABONBA_PTR_GET_DEFAULT(phase_, "") };
+    inline string getPhase() const { DARABONBA_PTR_GET_DEFAULT(phase_, "") };
     inline BatchGetExpressionFieldsShrinkRequest& setPhase(string phase) { DARABONBA_PTR_SET_VALUE(phase_, phase) };
 
 
     // planNameEn Field Functions 
     bool hasPlanNameEn() const { return this->planNameEn_ != nullptr;};
     void deletePlanNameEn() { this->planNameEn_ = nullptr;};
-    inline string planNameEn() const { DARABONBA_PTR_GET_DEFAULT(planNameEn_, "") };
+    inline string getPlanNameEn() const { DARABONBA_PTR_GET_DEFAULT(planNameEn_, "") };
     inline BatchGetExpressionFieldsShrinkRequest& setPlanNameEn(string planNameEn) { DARABONBA_PTR_SET_VALUE(planNameEn_, planNameEn) };
 
 
     // siteId Field Functions 
     bool hasSiteId() const { return this->siteId_ != nullptr;};
     void deleteSiteId() { this->siteId_ = nullptr;};
-    inline int64_t siteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
+    inline int64_t getSiteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
     inline BatchGetExpressionFieldsShrinkRequest& setSiteId(int64_t siteId) { DARABONBA_PTR_SET_VALUE(siteId_, siteId) };
 
 
   protected:
     // List of expressions.
-    std::shared_ptr<string> expressionsShrink_ = nullptr;
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> kind_ = nullptr;
+    shared_ptr<string> expressionsShrink_ {};
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> kind_ {};
     // WAF Phase
-    std::shared_ptr<string> phase_ = nullptr;
-    std::shared_ptr<string> planNameEn_ = nullptr;
+    shared_ptr<string> phase_ {};
+    shared_ptr<string> planNameEn_ {};
     // Site ID
-    std::shared_ptr<int64_t> siteId_ = nullptr;
+    shared_ptr<int64_t> siteId_ {};
   };
 
   } // namespace Models

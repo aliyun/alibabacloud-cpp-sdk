@@ -38,58 +38,58 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->contentShrink_ == nullptr
-        && return this->edgeComputePurge_ == nullptr && return this->force_ == nullptr && return this->siteId_ == nullptr && return this->type_ == nullptr; };
+        && this->edgeComputePurge_ == nullptr && this->force_ == nullptr && this->siteId_ == nullptr && this->type_ == nullptr; };
     // contentShrink Field Functions 
     bool hasContentShrink() const { return this->contentShrink_ != nullptr;};
     void deleteContentShrink() { this->contentShrink_ = nullptr;};
-    inline string contentShrink() const { DARABONBA_PTR_GET_DEFAULT(contentShrink_, "") };
+    inline string getContentShrink() const { DARABONBA_PTR_GET_DEFAULT(contentShrink_, "") };
     inline PurgeCachesShrinkRequest& setContentShrink(string contentShrink) { DARABONBA_PTR_SET_VALUE(contentShrink_, contentShrink) };
 
 
     // edgeComputePurge Field Functions 
     bool hasEdgeComputePurge() const { return this->edgeComputePurge_ != nullptr;};
     void deleteEdgeComputePurge() { this->edgeComputePurge_ = nullptr;};
-    inline bool edgeComputePurge() const { DARABONBA_PTR_GET_DEFAULT(edgeComputePurge_, false) };
+    inline bool getEdgeComputePurge() const { DARABONBA_PTR_GET_DEFAULT(edgeComputePurge_, false) };
     inline PurgeCachesShrinkRequest& setEdgeComputePurge(bool edgeComputePurge) { DARABONBA_PTR_SET_VALUE(edgeComputePurge_, edgeComputePurge) };
 
 
     // force Field Functions 
     bool hasForce() const { return this->force_ != nullptr;};
     void deleteForce() { this->force_ = nullptr;};
-    inline bool force() const { DARABONBA_PTR_GET_DEFAULT(force_, false) };
+    inline bool getForce() const { DARABONBA_PTR_GET_DEFAULT(force_, false) };
     inline PurgeCachesShrinkRequest& setForce(bool force) { DARABONBA_PTR_SET_VALUE(force_, force) };
 
 
     // siteId Field Functions 
     bool hasSiteId() const { return this->siteId_ != nullptr;};
     void deleteSiteId() { this->siteId_ = nullptr;};
-    inline int64_t siteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
+    inline int64_t getSiteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
     inline PurgeCachesShrinkRequest& setSiteId(int64_t siteId) { DARABONBA_PTR_SET_VALUE(siteId_, siteId) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline PurgeCachesShrinkRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
     // Content to be refreshed.
-    std::shared_ptr<string> contentShrink_ = nullptr;
+    shared_ptr<string> contentShrink_ {};
     // Used for refreshing cached resources in edge computing, such as allowing the refresh of content cached using the CacheAPI interface of an edge function.
-    std::shared_ptr<bool> edgeComputePurge_ = nullptr;
+    shared_ptr<bool> edgeComputePurge_ {};
     // Indicates whether to refresh all resources under the directory when the content from the origin and the source resource are inconsistent. The default is false.
     // - **true**: Refreshes all resources under the specified directory.
     // - **false**: Refreshes only the changed resources under the specified directory.
     // 
     // > 
     // >  Applies to: Directory refresh, cachetag refresh, ignoreParams refresh, hostname refresh, and purge all cache of the site.
-    std::shared_ptr<bool> force_ = nullptr;
+    shared_ptr<bool> force_ {};
     // Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> siteId_ = nullptr;
+    shared_ptr<int64_t> siteId_ {};
     // The type of refresh task. Possible values:
     // - **file** (default): File refresh.
     // - **cachekey**: Cachekey refresh.
@@ -100,7 +100,7 @@ namespace Models
     // - **purgeall**: Purge all cache under the site.
     // 
     // This parameter is required.
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

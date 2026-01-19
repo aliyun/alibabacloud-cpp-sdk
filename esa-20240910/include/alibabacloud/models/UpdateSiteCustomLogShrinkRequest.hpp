@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cookiesShrink_ == nullptr
-        && return this->requestHeadersShrink_ == nullptr && return this->responseHeadersShrink_ == nullptr && return this->siteId_ == nullptr; };
+        && this->requestHeadersShrink_ == nullptr && this->responseHeadersShrink_ == nullptr && this->siteId_ == nullptr; };
     // cookiesShrink Field Functions 
     bool hasCookiesShrink() const { return this->cookiesShrink_ != nullptr;};
     void deleteCookiesShrink() { this->cookiesShrink_ = nullptr;};
-    inline string cookiesShrink() const { DARABONBA_PTR_GET_DEFAULT(cookiesShrink_, "") };
+    inline string getCookiesShrink() const { DARABONBA_PTR_GET_DEFAULT(cookiesShrink_, "") };
     inline UpdateSiteCustomLogShrinkRequest& setCookiesShrink(string cookiesShrink) { DARABONBA_PTR_SET_VALUE(cookiesShrink_, cookiesShrink) };
 
 
     // requestHeadersShrink Field Functions 
     bool hasRequestHeadersShrink() const { return this->requestHeadersShrink_ != nullptr;};
     void deleteRequestHeadersShrink() { this->requestHeadersShrink_ = nullptr;};
-    inline string requestHeadersShrink() const { DARABONBA_PTR_GET_DEFAULT(requestHeadersShrink_, "") };
+    inline string getRequestHeadersShrink() const { DARABONBA_PTR_GET_DEFAULT(requestHeadersShrink_, "") };
     inline UpdateSiteCustomLogShrinkRequest& setRequestHeadersShrink(string requestHeadersShrink) { DARABONBA_PTR_SET_VALUE(requestHeadersShrink_, requestHeadersShrink) };
 
 
     // responseHeadersShrink Field Functions 
     bool hasResponseHeadersShrink() const { return this->responseHeadersShrink_ != nullptr;};
     void deleteResponseHeadersShrink() { this->responseHeadersShrink_ = nullptr;};
-    inline string responseHeadersShrink() const { DARABONBA_PTR_GET_DEFAULT(responseHeadersShrink_, "") };
+    inline string getResponseHeadersShrink() const { DARABONBA_PTR_GET_DEFAULT(responseHeadersShrink_, "") };
     inline UpdateSiteCustomLogShrinkRequest& setResponseHeadersShrink(string responseHeadersShrink) { DARABONBA_PTR_SET_VALUE(responseHeadersShrink_, responseHeadersShrink) };
 
 
     // siteId Field Functions 
     bool hasSiteId() const { return this->siteId_ != nullptr;};
     void deleteSiteId() { this->siteId_ = nullptr;};
-    inline int64_t siteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
+    inline int64_t getSiteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
     inline UpdateSiteCustomLogShrinkRequest& setSiteId(int64_t siteId) { DARABONBA_PTR_SET_VALUE(siteId_, siteId) };
 
 
   protected:
     // The cookie fields.
-    std::shared_ptr<string> cookiesShrink_ = nullptr;
+    shared_ptr<string> cookiesShrink_ {};
     // The request header fields.
-    std::shared_ptr<string> requestHeadersShrink_ = nullptr;
+    shared_ptr<string> requestHeadersShrink_ {};
     // The response header fields.
-    std::shared_ptr<string> responseHeadersShrink_ = nullptr;
+    shared_ptr<string> responseHeadersShrink_ {};
     // site id
-    std::shared_ptr<int64_t> siteId_ = nullptr;
+    shared_ptr<int64_t> siteId_ {};
   };
 
   } // namespace Models

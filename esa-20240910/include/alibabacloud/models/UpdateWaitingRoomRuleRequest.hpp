@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->rule_ == nullptr
-        && return this->ruleEnable_ == nullptr && return this->ruleName_ == nullptr && return this->siteId_ == nullptr && return this->waitingRoomRuleId_ == nullptr; };
+        && this->ruleEnable_ == nullptr && this->ruleName_ == nullptr && this->siteId_ == nullptr && this->waitingRoomRuleId_ == nullptr; };
     // rule Field Functions 
     bool hasRule() const { return this->rule_ != nullptr;};
     void deleteRule() { this->rule_ = nullptr;};
-    inline string rule() const { DARABONBA_PTR_GET_DEFAULT(rule_, "") };
+    inline string getRule() const { DARABONBA_PTR_GET_DEFAULT(rule_, "") };
     inline UpdateWaitingRoomRuleRequest& setRule(string rule) { DARABONBA_PTR_SET_VALUE(rule_, rule) };
 
 
     // ruleEnable Field Functions 
     bool hasRuleEnable() const { return this->ruleEnable_ != nullptr;};
     void deleteRuleEnable() { this->ruleEnable_ = nullptr;};
-    inline string ruleEnable() const { DARABONBA_PTR_GET_DEFAULT(ruleEnable_, "") };
+    inline string getRuleEnable() const { DARABONBA_PTR_GET_DEFAULT(ruleEnable_, "") };
     inline UpdateWaitingRoomRuleRequest& setRuleEnable(string ruleEnable) { DARABONBA_PTR_SET_VALUE(ruleEnable_, ruleEnable) };
 
 
     // ruleName Field Functions 
     bool hasRuleName() const { return this->ruleName_ != nullptr;};
     void deleteRuleName() { this->ruleName_ = nullptr;};
-    inline string ruleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
+    inline string getRuleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
     inline UpdateWaitingRoomRuleRequest& setRuleName(string ruleName) { DARABONBA_PTR_SET_VALUE(ruleName_, ruleName) };
 
 
     // siteId Field Functions 
     bool hasSiteId() const { return this->siteId_ != nullptr;};
     void deleteSiteId() { this->siteId_ = nullptr;};
-    inline int64_t siteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
+    inline int64_t getSiteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
     inline UpdateWaitingRoomRuleRequest& setSiteId(int64_t siteId) { DARABONBA_PTR_SET_VALUE(siteId_, siteId) };
 
 
     // waitingRoomRuleId Field Functions 
     bool hasWaitingRoomRuleId() const { return this->waitingRoomRuleId_ != nullptr;};
     void deleteWaitingRoomRuleId() { this->waitingRoomRuleId_ = nullptr;};
-    inline int64_t waitingRoomRuleId() const { DARABONBA_PTR_GET_DEFAULT(waitingRoomRuleId_, 0L) };
+    inline int64_t getWaitingRoomRuleId() const { DARABONBA_PTR_GET_DEFAULT(waitingRoomRuleId_, 0L) };
     inline UpdateWaitingRoomRuleRequest& setWaitingRoomRuleId(int64_t waitingRoomRuleId) { DARABONBA_PTR_SET_VALUE(waitingRoomRuleId_, waitingRoomRuleId) };
 
 
@@ -80,25 +80,25 @@ namespace Models
     // - Match specific requests: Set the value to a custom expression, for example: (http.host eq "video.example.com")
     // 
     // This parameter is required.
-    std::shared_ptr<string> rule_ = nullptr;
+    shared_ptr<string> rule_ {};
     // Rule switch. This parameter is not required when adding global configuration. Value range:
     // - on: Enable.
     // - off: Disable.
     // 
     // This parameter is required.
-    std::shared_ptr<string> ruleEnable_ = nullptr;
+    shared_ptr<string> ruleEnable_ {};
     // Rule name. This parameter is not required when adding global configuration.
     // 
     // This parameter is required.
-    std::shared_ptr<string> ruleName_ = nullptr;
+    shared_ptr<string> ruleName_ {};
     // Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> siteId_ = nullptr;
+    shared_ptr<int64_t> siteId_ {};
     // The ID of the waiting room bypass rule to be updated, which can be obtained by calling the [ListWaitingRoomRules](https://help.aliyun.com/document_detail/2850279.html) interface.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> waitingRoomRuleId_ = nullptr;
+    shared_ptr<int64_t> waitingRoomRuleId_ {};
   };
 
   } // namespace Models

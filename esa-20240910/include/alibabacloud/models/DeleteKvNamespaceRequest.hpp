@@ -33,7 +33,7 @@ namespace Models
     // namespace Field Functions 
     bool hasNamespace() const { return this->namespace_ != nullptr;};
     void deleteNamespace() { this->namespace_ = nullptr;};
-    inline string _namespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
+    inline string getNamespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
     inline DeleteKvNamespaceRequest& setNamespace(string _namespace) { DARABONBA_PTR_SET_VALUE(namespace_, _namespace) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The name of the namespace that you specify when you call the [CreateKvNamespace](https://help.aliyun.com/document_detail/2850317.html) operation.
     // 
     // This parameter is required.
-    std::shared_ptr<string> namespace_ = nullptr;
+    shared_ptr<string> namespace_ {};
   };
 
   } // namespace Models

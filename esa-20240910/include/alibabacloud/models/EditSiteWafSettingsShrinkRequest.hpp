@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->settingsShrink_ == nullptr
-        && return this->siteId_ == nullptr && return this->siteVersion_ == nullptr; };
+        && this->siteId_ == nullptr && this->siteVersion_ == nullptr; };
     // settingsShrink Field Functions 
     bool hasSettingsShrink() const { return this->settingsShrink_ != nullptr;};
     void deleteSettingsShrink() { this->settingsShrink_ = nullptr;};
-    inline string settingsShrink() const { DARABONBA_PTR_GET_DEFAULT(settingsShrink_, "") };
+    inline string getSettingsShrink() const { DARABONBA_PTR_GET_DEFAULT(settingsShrink_, "") };
     inline EditSiteWafSettingsShrinkRequest& setSettingsShrink(string settingsShrink) { DARABONBA_PTR_SET_VALUE(settingsShrink_, settingsShrink) };
 
 
     // siteId Field Functions 
     bool hasSiteId() const { return this->siteId_ != nullptr;};
     void deleteSiteId() { this->siteId_ = nullptr;};
-    inline int64_t siteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
+    inline int64_t getSiteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
     inline EditSiteWafSettingsShrinkRequest& setSiteId(int64_t siteId) { DARABONBA_PTR_SET_VALUE(siteId_, siteId) };
 
 
     // siteVersion Field Functions 
     bool hasSiteVersion() const { return this->siteVersion_ != nullptr;};
     void deleteSiteVersion() { this->siteVersion_ = nullptr;};
-    inline int32_t siteVersion() const { DARABONBA_PTR_GET_DEFAULT(siteVersion_, 0) };
+    inline int32_t getSiteVersion() const { DARABONBA_PTR_GET_DEFAULT(siteVersion_, 0) };
     inline EditSiteWafSettingsShrinkRequest& setSiteVersion(int32_t siteVersion) { DARABONBA_PTR_SET_VALUE(siteVersion_, siteVersion) };
 
 
   protected:
     // WAF configuration information for the site, passed in JSON format.
-    std::shared_ptr<string> settingsShrink_ = nullptr;
+    shared_ptr<string> settingsShrink_ {};
     // Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
-    std::shared_ptr<int64_t> siteId_ = nullptr;
+    shared_ptr<int64_t> siteId_ {};
     // Site version.
-    std::shared_ptr<int32_t> siteVersion_ = nullptr;
+    shared_ptr<int32_t> siteVersion_ {};
   };
 
   } // namespace Models

@@ -36,44 +36,52 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->password_ == nullptr && return this->registry_ == nullptr && return this->username_ == nullptr; };
+        && this->password_ == nullptr && this->registry_ == nullptr && this->username_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline CreateEdgeContainerAppImageSecretRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // password Field Functions 
     bool hasPassword() const { return this->password_ != nullptr;};
     void deletePassword() { this->password_ = nullptr;};
-    inline string password() const { DARABONBA_PTR_GET_DEFAULT(password_, "") };
+    inline string getPassword() const { DARABONBA_PTR_GET_DEFAULT(password_, "") };
     inline CreateEdgeContainerAppImageSecretRequest& setPassword(string password) { DARABONBA_PTR_SET_VALUE(password_, password) };
 
 
     // registry Field Functions 
     bool hasRegistry() const { return this->registry_ != nullptr;};
     void deleteRegistry() { this->registry_ = nullptr;};
-    inline string registry() const { DARABONBA_PTR_GET_DEFAULT(registry_, "") };
+    inline string getRegistry() const { DARABONBA_PTR_GET_DEFAULT(registry_, "") };
     inline CreateEdgeContainerAppImageSecretRequest& setRegistry(string registry) { DARABONBA_PTR_SET_VALUE(registry_, registry) };
 
 
     // username Field Functions 
     bool hasUsername() const { return this->username_ != nullptr;};
     void deleteUsername() { this->username_ = nullptr;};
-    inline string username() const { DARABONBA_PTR_GET_DEFAULT(username_, "") };
+    inline string getUsername() const { DARABONBA_PTR_GET_DEFAULT(username_, "") };
     inline CreateEdgeContainerAppImageSecretRequest& setUsername(string username) { DARABONBA_PTR_SET_VALUE(username_, username) };
 
 
   protected:
+    // Application ID, which can be obtained using the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) interface.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
+    // Image repository password.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> password_ = nullptr;
+    shared_ptr<string> password_ {};
+    // Image repository address.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> registry_ = nullptr;
+    shared_ptr<string> registry_ {};
+    // Image repository username.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> username_ = nullptr;
+    shared_ptr<string> username_ {};
   };
 
   } // namespace Models

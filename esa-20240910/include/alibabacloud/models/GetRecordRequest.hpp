@@ -33,7 +33,7 @@ namespace Models
     // recordId Field Functions 
     bool hasRecordId() const { return this->recordId_ != nullptr;};
     void deleteRecordId() { this->recordId_ = nullptr;};
-    inline int64_t recordId() const { DARABONBA_PTR_GET_DEFAULT(recordId_, 0L) };
+    inline int64_t getRecordId() const { DARABONBA_PTR_GET_DEFAULT(recordId_, 0L) };
     inline GetRecordRequest& setRecordId(int64_t recordId) { DARABONBA_PTR_SET_VALUE(recordId_, recordId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The record ID, which can be obtained by calling [ListRecords](https://help.aliyun.com/document_detail/2850265.html).
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> recordId_ = nullptr;
+    shared_ptr<int64_t> recordId_ {};
   };
 
   } // namespace Models

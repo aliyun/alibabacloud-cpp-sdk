@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->equal_ == nullptr
-        && return this->greaterThan_ == nullptr && return this->greaterThanOrEqual_ == nullptr && return this->lessThan_ == nullptr && return this->lessThanOrEqual_ == nullptr; };
+        && this->greaterThan_ == nullptr && this->greaterThanOrEqual_ == nullptr && this->lessThan_ == nullptr && this->lessThanOrEqual_ == nullptr; };
     // equal Field Functions 
     bool hasEqual() const { return this->equal_ != nullptr;};
     void deleteEqual() { this->equal_ = nullptr;};
-    inline int32_t equal() const { DARABONBA_PTR_GET_DEFAULT(equal_, 0) };
+    inline int32_t getEqual() const { DARABONBA_PTR_GET_DEFAULT(equal_, 0) };
     inline WafQuotaInteger& setEqual(int32_t equal) { DARABONBA_PTR_SET_VALUE(equal_, equal) };
 
 
     // greaterThan Field Functions 
     bool hasGreaterThan() const { return this->greaterThan_ != nullptr;};
     void deleteGreaterThan() { this->greaterThan_ = nullptr;};
-    inline int32_t greaterThan() const { DARABONBA_PTR_GET_DEFAULT(greaterThan_, 0) };
+    inline int32_t getGreaterThan() const { DARABONBA_PTR_GET_DEFAULT(greaterThan_, 0) };
     inline WafQuotaInteger& setGreaterThan(int32_t greaterThan) { DARABONBA_PTR_SET_VALUE(greaterThan_, greaterThan) };
 
 
     // greaterThanOrEqual Field Functions 
     bool hasGreaterThanOrEqual() const { return this->greaterThanOrEqual_ != nullptr;};
     void deleteGreaterThanOrEqual() { this->greaterThanOrEqual_ = nullptr;};
-    inline int32_t greaterThanOrEqual() const { DARABONBA_PTR_GET_DEFAULT(greaterThanOrEqual_, 0) };
+    inline int32_t getGreaterThanOrEqual() const { DARABONBA_PTR_GET_DEFAULT(greaterThanOrEqual_, 0) };
     inline WafQuotaInteger& setGreaterThanOrEqual(int32_t greaterThanOrEqual) { DARABONBA_PTR_SET_VALUE(greaterThanOrEqual_, greaterThanOrEqual) };
 
 
     // lessThan Field Functions 
     bool hasLessThan() const { return this->lessThan_ != nullptr;};
     void deleteLessThan() { this->lessThan_ = nullptr;};
-    inline int32_t lessThan() const { DARABONBA_PTR_GET_DEFAULT(lessThan_, 0) };
+    inline int32_t getLessThan() const { DARABONBA_PTR_GET_DEFAULT(lessThan_, 0) };
     inline WafQuotaInteger& setLessThan(int32_t lessThan) { DARABONBA_PTR_SET_VALUE(lessThan_, lessThan) };
 
 
     // lessThanOrEqual Field Functions 
     bool hasLessThanOrEqual() const { return this->lessThanOrEqual_ != nullptr;};
     void deleteLessThanOrEqual() { this->lessThanOrEqual_ = nullptr;};
-    inline int32_t lessThanOrEqual() const { DARABONBA_PTR_GET_DEFAULT(lessThanOrEqual_, 0) };
+    inline int32_t getLessThanOrEqual() const { DARABONBA_PTR_GET_DEFAULT(lessThanOrEqual_, 0) };
     inline WafQuotaInteger& setLessThanOrEqual(int32_t lessThanOrEqual) { DARABONBA_PTR_SET_VALUE(lessThanOrEqual_, lessThanOrEqual) };
 
 
   protected:
-    std::shared_ptr<int32_t> equal_ = nullptr;
-    std::shared_ptr<int32_t> greaterThan_ = nullptr;
-    std::shared_ptr<int32_t> greaterThanOrEqual_ = nullptr;
-    std::shared_ptr<int32_t> lessThan_ = nullptr;
-    std::shared_ptr<int32_t> lessThanOrEqual_ = nullptr;
+    shared_ptr<int32_t> equal_ {};
+    shared_ptr<int32_t> greaterThan_ {};
+    shared_ptr<int32_t> greaterThanOrEqual_ {};
+    shared_ptr<int32_t> lessThan_ {};
+    shared_ptr<int32_t> lessThanOrEqual_ {};
   };
 
   } // namespace Models

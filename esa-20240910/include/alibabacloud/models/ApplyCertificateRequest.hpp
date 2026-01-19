@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->domains_ == nullptr
-        && return this->siteId_ == nullptr && return this->type_ == nullptr; };
+        && this->siteId_ == nullptr && this->type_ == nullptr; };
     // domains Field Functions 
     bool hasDomains() const { return this->domains_ != nullptr;};
     void deleteDomains() { this->domains_ = nullptr;};
-    inline string domains() const { DARABONBA_PTR_GET_DEFAULT(domains_, "") };
+    inline string getDomains() const { DARABONBA_PTR_GET_DEFAULT(domains_, "") };
     inline ApplyCertificateRequest& setDomains(string domains) { DARABONBA_PTR_SET_VALUE(domains_, domains) };
 
 
     // siteId Field Functions 
     bool hasSiteId() const { return this->siteId_ != nullptr;};
     void deleteSiteId() { this->siteId_ = nullptr;};
-    inline int64_t siteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
+    inline int64_t getSiteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
     inline ApplyCertificateRequest& setSiteId(int64_t siteId) { DARABONBA_PTR_SET_VALUE(siteId_, siteId) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline ApplyCertificateRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
@@ -60,13 +60,13 @@ namespace Models
     // List of domains, separated by commas.
     // 
     // This parameter is required.
-    std::shared_ptr<string> domains_ = nullptr;
+    shared_ptr<string> domains_ {};
     // Site ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> siteId_ = nullptr;
+    shared_ptr<int64_t> siteId_ {};
     // The certificate type. Valid values: lets_encrypt, digicert_single, and digicert_wildcard.
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

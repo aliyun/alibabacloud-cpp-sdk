@@ -34,35 +34,41 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->recordName_ == nullptr
-        && return this->ruleId_ == nullptr && return this->siteId_ == nullptr; };
+        && this->ruleId_ == nullptr && this->siteId_ == nullptr; };
     // recordName Field Functions 
     bool hasRecordName() const { return this->recordName_ != nullptr;};
     void deleteRecordName() { this->recordName_ = nullptr;};
-    inline string recordName() const { DARABONBA_PTR_GET_DEFAULT(recordName_, "") };
+    inline string getRecordName() const { DARABONBA_PTR_GET_DEFAULT(recordName_, "") };
     inline DeleteHttpDDoSIntelligentRuleRequest& setRecordName(string recordName) { DARABONBA_PTR_SET_VALUE(recordName_, recordName) };
 
 
     // ruleId Field Functions 
     bool hasRuleId() const { return this->ruleId_ != nullptr;};
     void deleteRuleId() { this->ruleId_ = nullptr;};
-    inline int64_t ruleId() const { DARABONBA_PTR_GET_DEFAULT(ruleId_, 0L) };
+    inline int64_t getRuleId() const { DARABONBA_PTR_GET_DEFAULT(ruleId_, 0L) };
     inline DeleteHttpDDoSIntelligentRuleRequest& setRuleId(int64_t ruleId) { DARABONBA_PTR_SET_VALUE(ruleId_, ruleId) };
 
 
     // siteId Field Functions 
     bool hasSiteId() const { return this->siteId_ != nullptr;};
     void deleteSiteId() { this->siteId_ = nullptr;};
-    inline int64_t siteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
+    inline int64_t getSiteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
     inline DeleteHttpDDoSIntelligentRuleRequest& setSiteId(int64_t siteId) { DARABONBA_PTR_SET_VALUE(siteId_, siteId) };
 
 
   protected:
+    // Record name.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> recordName_ = nullptr;
+    shared_ptr<string> recordName_ {};
+    // Rule ID.
+    // 
     // This parameter is required.
-    std::shared_ptr<int64_t> ruleId_ = nullptr;
+    shared_ptr<int64_t> ruleId_ {};
+    // Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
+    // 
     // This parameter is required.
-    std::shared_ptr<int64_t> siteId_ = nullptr;
+    shared_ptr<int64_t> siteId_ {};
   };
 
   } // namespace Models

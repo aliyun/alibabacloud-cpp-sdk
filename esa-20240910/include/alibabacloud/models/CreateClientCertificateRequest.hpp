@@ -36,48 +36,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->CSR_ == nullptr
-        && return this->pkeyType_ == nullptr && return this->siteId_ == nullptr && return this->validityDays_ == nullptr; };
+        && this->pkeyType_ == nullptr && this->siteId_ == nullptr && this->validityDays_ == nullptr; };
     // CSR Field Functions 
     bool hasCSR() const { return this->CSR_ != nullptr;};
     void deleteCSR() { this->CSR_ = nullptr;};
-    inline string CSR() const { DARABONBA_PTR_GET_DEFAULT(CSR_, "") };
+    inline string getCSR() const { DARABONBA_PTR_GET_DEFAULT(CSR_, "") };
     inline CreateClientCertificateRequest& setCSR(string CSR) { DARABONBA_PTR_SET_VALUE(CSR_, CSR) };
 
 
     // pkeyType Field Functions 
     bool hasPkeyType() const { return this->pkeyType_ != nullptr;};
     void deletePkeyType() { this->pkeyType_ = nullptr;};
-    inline string pkeyType() const { DARABONBA_PTR_GET_DEFAULT(pkeyType_, "") };
+    inline string getPkeyType() const { DARABONBA_PTR_GET_DEFAULT(pkeyType_, "") };
     inline CreateClientCertificateRequest& setPkeyType(string pkeyType) { DARABONBA_PTR_SET_VALUE(pkeyType_, pkeyType) };
 
 
     // siteId Field Functions 
     bool hasSiteId() const { return this->siteId_ != nullptr;};
     void deleteSiteId() { this->siteId_ = nullptr;};
-    inline int64_t siteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
+    inline int64_t getSiteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
     inline CreateClientCertificateRequest& setSiteId(int64_t siteId) { DARABONBA_PTR_SET_VALUE(siteId_, siteId) };
 
 
     // validityDays Field Functions 
     bool hasValidityDays() const { return this->validityDays_ != nullptr;};
     void deleteValidityDays() { this->validityDays_ = nullptr;};
-    inline int64_t validityDays() const { DARABONBA_PTR_GET_DEFAULT(validityDays_, 0L) };
+    inline int64_t getValidityDays() const { DARABONBA_PTR_GET_DEFAULT(validityDays_, 0L) };
     inline CreateClientCertificateRequest& setValidityDays(int64_t validityDays) { DARABONBA_PTR_SET_VALUE(validityDays_, validityDays) };
 
 
   protected:
     // The certificate signing request (CSR).
-    std::shared_ptr<string> CSR_ = nullptr;
+    shared_ptr<string> CSR_ {};
     // The type of the private key algorithm.
-    std::shared_ptr<string> pkeyType_ = nullptr;
+    shared_ptr<string> pkeyType_ {};
     // The website ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> siteId_ = nullptr;
+    shared_ptr<int64_t> siteId_ {};
     // The validity period of the certificate. Unit: day.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> validityDays_ = nullptr;
+    shared_ptr<int64_t> validityDays_ {};
   };
 
   } // namespace Models

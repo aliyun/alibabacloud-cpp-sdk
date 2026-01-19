@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->endTime_ == nullptr
-        && return this->fieldsShrink_ == nullptr && return this->interval_ == nullptr && return this->siteId_ == nullptr && return this->startTime_ == nullptr; };
+        && this->fieldsShrink_ == nullptr && this->interval_ == nullptr && this->siteId_ == nullptr && this->startTime_ == nullptr; };
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline DescribeSiteTimeSeriesDataShrinkRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // fieldsShrink Field Functions 
     bool hasFieldsShrink() const { return this->fieldsShrink_ != nullptr;};
     void deleteFieldsShrink() { this->fieldsShrink_ = nullptr;};
-    inline string fieldsShrink() const { DARABONBA_PTR_GET_DEFAULT(fieldsShrink_, "") };
+    inline string getFieldsShrink() const { DARABONBA_PTR_GET_DEFAULT(fieldsShrink_, "") };
     inline DescribeSiteTimeSeriesDataShrinkRequest& setFieldsShrink(string fieldsShrink) { DARABONBA_PTR_SET_VALUE(fieldsShrink_, fieldsShrink) };
 
 
     // interval Field Functions 
     bool hasInterval() const { return this->interval_ != nullptr;};
     void deleteInterval() { this->interval_ = nullptr;};
-    inline string interval() const { DARABONBA_PTR_GET_DEFAULT(interval_, "") };
+    inline string getInterval() const { DARABONBA_PTR_GET_DEFAULT(interval_, "") };
     inline DescribeSiteTimeSeriesDataShrinkRequest& setInterval(string interval) { DARABONBA_PTR_SET_VALUE(interval_, interval) };
 
 
     // siteId Field Functions 
     bool hasSiteId() const { return this->siteId_ != nullptr;};
     void deleteSiteId() { this->siteId_ = nullptr;};
-    inline string siteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, "") };
+    inline string getSiteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, "") };
     inline DescribeSiteTimeSeriesDataShrinkRequest& setSiteId(string siteId) { DARABONBA_PTR_SET_VALUE(siteId_, siteId) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline DescribeSiteTimeSeriesDataShrinkRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
@@ -80,23 +80,23 @@ namespace Models
     // The date format follows ISO8601 notation and uses UTC+0 time, in the format yyyy-MM-ddTHH:mm:ssZ.
     // 
     // > The end time must be later than the start time.
-    std::shared_ptr<string> endTime_ = nullptr;
+    shared_ptr<string> endTime_ {};
     // Query metrics.
     // 
     // This parameter is required.
-    std::shared_ptr<string> fieldsShrink_ = nullptr;
+    shared_ptr<string> fieldsShrink_ {};
     // The time granularity for querying data, in seconds.
     // 
     // Depending on the maximum time span of a single query, this parameter supports values of 60 (1 minute), 300 (5 minutes), 3600 (1 hour), and 86400 (1 day). For details, see the **Supported Query Time Granularities**.
-    std::shared_ptr<string> interval_ = nullptr;
+    shared_ptr<string> interval_ {};
     // Site ID. Obtain the site ID by calling the [ListSites](~~ListSites~~) interface.
     // 
     // If this parameter is empty, user-level data will be queried.
-    std::shared_ptr<string> siteId_ = nullptr;
+    shared_ptr<string> siteId_ {};
     // The start time for obtaining data.
     // 
     // The date format follows ISO8601 notation and uses UTC+0 time, in the format yyyy-MM-ddTHH:mm:ssZ.
-    std::shared_ptr<string> startTime_ = nullptr;
+    shared_ptr<string> startTime_ {};
   };
 
   } // namespace Models

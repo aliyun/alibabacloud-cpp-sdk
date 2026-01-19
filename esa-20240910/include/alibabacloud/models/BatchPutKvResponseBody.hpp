@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->failKeys_ == nullptr
-        && return this->requestId_ == nullptr && return this->successKeys_ == nullptr; };
+        && this->requestId_ == nullptr && this->successKeys_ == nullptr; };
     // failKeys Field Functions 
     bool hasFailKeys() const { return this->failKeys_ != nullptr;};
     void deleteFailKeys() { this->failKeys_ = nullptr;};
-    inline const vector<string> & failKeys() const { DARABONBA_PTR_GET_CONST(failKeys_, vector<string>) };
-    inline vector<string> failKeys() { DARABONBA_PTR_GET(failKeys_, vector<string>) };
+    inline const vector<string> & getFailKeys() const { DARABONBA_PTR_GET_CONST(failKeys_, vector<string>) };
+    inline vector<string> getFailKeys() { DARABONBA_PTR_GET(failKeys_, vector<string>) };
     inline BatchPutKvResponseBody& setFailKeys(const vector<string> & failKeys) { DARABONBA_PTR_SET_VALUE(failKeys_, failKeys) };
     inline BatchPutKvResponseBody& setFailKeys(vector<string> && failKeys) { DARABONBA_PTR_SET_RVALUE(failKeys_, failKeys) };
 
@@ -48,26 +48,26 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline BatchPutKvResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // successKeys Field Functions 
     bool hasSuccessKeys() const { return this->successKeys_ != nullptr;};
     void deleteSuccessKeys() { this->successKeys_ = nullptr;};
-    inline const vector<string> & successKeys() const { DARABONBA_PTR_GET_CONST(successKeys_, vector<string>) };
-    inline vector<string> successKeys() { DARABONBA_PTR_GET(successKeys_, vector<string>) };
+    inline const vector<string> & getSuccessKeys() const { DARABONBA_PTR_GET_CONST(successKeys_, vector<string>) };
+    inline vector<string> getSuccessKeys() { DARABONBA_PTR_GET(successKeys_, vector<string>) };
     inline BatchPutKvResponseBody& setSuccessKeys(const vector<string> & successKeys) { DARABONBA_PTR_SET_VALUE(successKeys_, successKeys) };
     inline BatchPutKvResponseBody& setSuccessKeys(vector<string> && successKeys) { DARABONBA_PTR_SET_RVALUE(successKeys_, successKeys) };
 
 
   protected:
     // The keys that failed to be written.
-    std::shared_ptr<vector<string>> failKeys_ = nullptr;
+    shared_ptr<vector<string>> failKeys_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The keys that were written.
-    std::shared_ptr<vector<string>> successKeys_ = nullptr;
+    shared_ptr<vector<string>> successKeys_ {};
   };
 
   } // namespace Models

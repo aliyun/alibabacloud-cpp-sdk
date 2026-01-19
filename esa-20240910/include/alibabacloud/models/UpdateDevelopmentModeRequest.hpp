@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->enable_ == nullptr
-        && return this->siteId_ == nullptr; };
+        && this->siteId_ == nullptr; };
     // enable Field Functions 
     bool hasEnable() const { return this->enable_ != nullptr;};
     void deleteEnable() { this->enable_ = nullptr;};
-    inline string enable() const { DARABONBA_PTR_GET_DEFAULT(enable_, "") };
+    inline string getEnable() const { DARABONBA_PTR_GET_DEFAULT(enable_, "") };
     inline UpdateDevelopmentModeRequest& setEnable(string enable) { DARABONBA_PTR_SET_VALUE(enable_, enable) };
 
 
     // siteId Field Functions 
     bool hasSiteId() const { return this->siteId_ != nullptr;};
     void deleteSiteId() { this->siteId_ = nullptr;};
-    inline int64_t siteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
+    inline int64_t getSiteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
     inline UpdateDevelopmentModeRequest& setSiteId(int64_t siteId) { DARABONBA_PTR_SET_VALUE(siteId_, siteId) };
 
 
@@ -54,11 +54,11 @@ namespace Models
     // *   off
     // 
     // This parameter is required.
-    std::shared_ptr<string> enable_ = nullptr;
+    shared_ptr<string> enable_ {};
     // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> siteId_ = nullptr;
+    shared_ptr<int64_t> siteId_ {};
   };
 
   } // namespace Models

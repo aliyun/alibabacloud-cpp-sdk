@@ -34,32 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->expirationTtl_ == nullptr
-        && return this->requestId_ == nullptr && return this->value_ == nullptr; };
+        && this->requestId_ == nullptr && this->value_ == nullptr; };
     // expirationTtl Field Functions 
     bool hasExpirationTtl() const { return this->expirationTtl_ != nullptr;};
     void deleteExpirationTtl() { this->expirationTtl_ = nullptr;};
-    inline string expirationTtl() const { DARABONBA_PTR_GET_DEFAULT(expirationTtl_, "") };
+    inline string getExpirationTtl() const { DARABONBA_PTR_GET_DEFAULT(expirationTtl_, "") };
     inline GetKvDetailResponseBody& setExpirationTtl(string expirationTtl) { DARABONBA_PTR_SET_VALUE(expirationTtl_, expirationTtl) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetKvDetailResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // value Field Functions 
     bool hasValue() const { return this->value_ != nullptr;};
     void deleteValue() { this->value_ = nullptr;};
-    inline string value() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+    inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
     inline GetKvDetailResponseBody& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
 
 
   protected:
-    std::shared_ptr<string> expirationTtl_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> value_ = nullptr;
+    // The expiration time of the key. Unit: seconds.
+    shared_ptr<string> expirationTtl_ {};
+    // The expiration time of the key. Unit: seconds.
+    shared_ptr<string> requestId_ {};
+    // The value of the key. The value of the root node.
+    shared_ptr<string> value_ {};
   };
 
   } // namespace Models

@@ -34,31 +34,31 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->quotaNames_ == nullptr && return this->siteId_ == nullptr; };
+        && this->quotaNames_ == nullptr && this->siteId_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ListInstanceQuotasRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // quotaNames Field Functions 
     bool hasQuotaNames() const { return this->quotaNames_ != nullptr;};
     void deleteQuotaNames() { this->quotaNames_ = nullptr;};
-    inline string quotaNames() const { DARABONBA_PTR_GET_DEFAULT(quotaNames_, "") };
+    inline string getQuotaNames() const { DARABONBA_PTR_GET_DEFAULT(quotaNames_, "") };
     inline ListInstanceQuotasRequest& setQuotaNames(string quotaNames) { DARABONBA_PTR_SET_VALUE(quotaNames_, quotaNames) };
 
 
     // siteId Field Functions 
     bool hasSiteId() const { return this->siteId_ != nullptr;};
     void deleteSiteId() { this->siteId_ = nullptr;};
-    inline int64_t siteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
+    inline int64_t getSiteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
     inline ListInstanceQuotasRequest& setSiteId(int64_t siteId) { DARABONBA_PTR_SET_VALUE(siteId_, siteId) };
 
 
   protected:
     // The plan ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The quota names in the plan. Separate multiple names with commas (,). Valid values:
     // 
     // *   **waf:phase:http_anti_scan:actions**: the actions in WAF scan protection rules.
@@ -151,9 +151,9 @@ namespace Models
     // *   **https|rule_quota**: the maximum number of SSL/TLS rules.
     // 
     // This parameter is required.
-    std::shared_ptr<string> quotaNames_ = nullptr;
+    shared_ptr<string> quotaNames_ {};
     // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
-    std::shared_ptr<int64_t> siteId_ = nullptr;
+    shared_ptr<int64_t> siteId_ {};
   };
 
   } // namespace Models

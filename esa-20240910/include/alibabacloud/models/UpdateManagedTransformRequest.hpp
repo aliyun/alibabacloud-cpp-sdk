@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->addClientGeolocationHeader_ == nullptr
-        && return this->addRealClientIpHeader_ == nullptr && return this->realClientIpHeaderName_ == nullptr && return this->siteId_ == nullptr && return this->siteVersion_ == nullptr; };
+        && this->addRealClientIpHeader_ == nullptr && this->realClientIpHeaderName_ == nullptr && this->siteId_ == nullptr && this->siteVersion_ == nullptr; };
     // addClientGeolocationHeader Field Functions 
     bool hasAddClientGeolocationHeader() const { return this->addClientGeolocationHeader_ != nullptr;};
     void deleteAddClientGeolocationHeader() { this->addClientGeolocationHeader_ = nullptr;};
-    inline string addClientGeolocationHeader() const { DARABONBA_PTR_GET_DEFAULT(addClientGeolocationHeader_, "") };
+    inline string getAddClientGeolocationHeader() const { DARABONBA_PTR_GET_DEFAULT(addClientGeolocationHeader_, "") };
     inline UpdateManagedTransformRequest& setAddClientGeolocationHeader(string addClientGeolocationHeader) { DARABONBA_PTR_SET_VALUE(addClientGeolocationHeader_, addClientGeolocationHeader) };
 
 
     // addRealClientIpHeader Field Functions 
     bool hasAddRealClientIpHeader() const { return this->addRealClientIpHeader_ != nullptr;};
     void deleteAddRealClientIpHeader() { this->addRealClientIpHeader_ = nullptr;};
-    inline string addRealClientIpHeader() const { DARABONBA_PTR_GET_DEFAULT(addRealClientIpHeader_, "") };
+    inline string getAddRealClientIpHeader() const { DARABONBA_PTR_GET_DEFAULT(addRealClientIpHeader_, "") };
     inline UpdateManagedTransformRequest& setAddRealClientIpHeader(string addRealClientIpHeader) { DARABONBA_PTR_SET_VALUE(addRealClientIpHeader_, addRealClientIpHeader) };
 
 
     // realClientIpHeaderName Field Functions 
     bool hasRealClientIpHeaderName() const { return this->realClientIpHeaderName_ != nullptr;};
     void deleteRealClientIpHeaderName() { this->realClientIpHeaderName_ = nullptr;};
-    inline string realClientIpHeaderName() const { DARABONBA_PTR_GET_DEFAULT(realClientIpHeaderName_, "") };
+    inline string getRealClientIpHeaderName() const { DARABONBA_PTR_GET_DEFAULT(realClientIpHeaderName_, "") };
     inline UpdateManagedTransformRequest& setRealClientIpHeaderName(string realClientIpHeaderName) { DARABONBA_PTR_SET_VALUE(realClientIpHeaderName_, realClientIpHeaderName) };
 
 
     // siteId Field Functions 
     bool hasSiteId() const { return this->siteId_ != nullptr;};
     void deleteSiteId() { this->siteId_ = nullptr;};
-    inline int64_t siteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
+    inline int64_t getSiteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
     inline UpdateManagedTransformRequest& setSiteId(int64_t siteId) { DARABONBA_PTR_SET_VALUE(siteId_, siteId) };
 
 
     // siteVersion Field Functions 
     bool hasSiteVersion() const { return this->siteVersion_ != nullptr;};
     void deleteSiteVersion() { this->siteVersion_ = nullptr;};
-    inline int32_t siteVersion() const { DARABONBA_PTR_GET_DEFAULT(siteVersion_, 0) };
+    inline int32_t getSiteVersion() const { DARABONBA_PTR_GET_DEFAULT(siteVersion_, 0) };
     inline UpdateManagedTransformRequest& setSiteVersion(int32_t siteVersion) { DARABONBA_PTR_SET_VALUE(siteVersion_, siteVersion) };
 
 
@@ -79,19 +79,19 @@ namespace Models
     // 
     // *   on
     // *   off
-    std::shared_ptr<string> addClientGeolocationHeader_ = nullptr;
+    shared_ptr<string> addClientGeolocationHeader_ {};
     // Specifies whether to include the "ali-real-client-ip" header that indicates the client\\"s real IP address in an origin request. Valid values:
     // 
     // *   on
     // *   off
-    std::shared_ptr<string> addRealClientIpHeader_ = nullptr;
-    std::shared_ptr<string> realClientIpHeaderName_ = nullptr;
+    shared_ptr<string> addRealClientIpHeader_ {};
+    shared_ptr<string> realClientIpHeaderName_ {};
     // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> siteId_ = nullptr;
+    shared_ptr<int64_t> siteId_ {};
     // The version number of the website. You can use this parameter to specify a version of your website to apply the feature settings. By default, version 0 is used.
-    std::shared_ptr<int32_t> siteVersion_ = nullptr;
+    shared_ptr<int32_t> siteVersion_ {};
   };
 
   } // namespace Models

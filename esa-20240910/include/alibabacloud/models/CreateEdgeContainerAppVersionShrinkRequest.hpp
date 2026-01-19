@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->containersShrink_ == nullptr && return this->name_ == nullptr && return this->remarks_ == nullptr; };
+        && this->containersShrink_ == nullptr && this->name_ == nullptr && this->remarks_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline CreateEdgeContainerAppVersionShrinkRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // containersShrink Field Functions 
     bool hasContainersShrink() const { return this->containersShrink_ != nullptr;};
     void deleteContainersShrink() { this->containersShrink_ = nullptr;};
-    inline string containersShrink() const { DARABONBA_PTR_GET_DEFAULT(containersShrink_, "") };
+    inline string getContainersShrink() const { DARABONBA_PTR_GET_DEFAULT(containersShrink_, "") };
     inline CreateEdgeContainerAppVersionShrinkRequest& setContainersShrink(string containersShrink) { DARABONBA_PTR_SET_VALUE(containersShrink_, containersShrink) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateEdgeContainerAppVersionShrinkRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // remarks Field Functions 
     bool hasRemarks() const { return this->remarks_ != nullptr;};
     void deleteRemarks() { this->remarks_ = nullptr;};
-    inline string remarks() const { DARABONBA_PTR_GET_DEFAULT(remarks_, "") };
+    inline string getRemarks() const { DARABONBA_PTR_GET_DEFAULT(remarks_, "") };
     inline CreateEdgeContainerAppVersionShrinkRequest& setRemarks(string remarks) { DARABONBA_PTR_SET_VALUE(remarks_, remarks) };
 
 
@@ -69,18 +69,18 @@ namespace Models
     // The application ID, which can be obtained by calling the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The container group to be deployed for this version, which contains information about images.\\
     // The image data contains the image address, startup command, parameters, environment variables, and probe rules. You can specify one or more images. The parameter value is a JSON string.
     // 
     // This parameter is required.
-    std::shared_ptr<string> containersShrink_ = nullptr;
+    shared_ptr<string> containersShrink_ {};
     // The version name, which must be 6 to 128 characters in length.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The description of the version.
-    std::shared_ptr<string> remarks_ = nullptr;
+    shared_ptr<string> remarks_ {};
   };
 
   } // namespace Models

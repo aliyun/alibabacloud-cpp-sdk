@@ -44,78 +44,78 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->expression_ == nullptr && return this->instanceId_ == nullptr && return this->name_ == nullptr && return this->phase_ == nullptr && return this->rulesShrink_ == nullptr
-        && return this->sharedShrink_ == nullptr && return this->status_ == nullptr; };
+        && this->expression_ == nullptr && this->instanceId_ == nullptr && this->name_ == nullptr && this->phase_ == nullptr && this->rulesShrink_ == nullptr
+        && this->sharedShrink_ == nullptr && this->status_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateUserWafRulesetShrinkRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // expression Field Functions 
     bool hasExpression() const { return this->expression_ != nullptr;};
     void deleteExpression() { this->expression_ = nullptr;};
-    inline string expression() const { DARABONBA_PTR_GET_DEFAULT(expression_, "") };
+    inline string getExpression() const { DARABONBA_PTR_GET_DEFAULT(expression_, "") };
     inline CreateUserWafRulesetShrinkRequest& setExpression(string expression) { DARABONBA_PTR_SET_VALUE(expression_, expression) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline CreateUserWafRulesetShrinkRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateUserWafRulesetShrinkRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // phase Field Functions 
     bool hasPhase() const { return this->phase_ != nullptr;};
     void deletePhase() { this->phase_ = nullptr;};
-    inline string phase() const { DARABONBA_PTR_GET_DEFAULT(phase_, "") };
+    inline string getPhase() const { DARABONBA_PTR_GET_DEFAULT(phase_, "") };
     inline CreateUserWafRulesetShrinkRequest& setPhase(string phase) { DARABONBA_PTR_SET_VALUE(phase_, phase) };
 
 
     // rulesShrink Field Functions 
     bool hasRulesShrink() const { return this->rulesShrink_ != nullptr;};
     void deleteRulesShrink() { this->rulesShrink_ = nullptr;};
-    inline string rulesShrink() const { DARABONBA_PTR_GET_DEFAULT(rulesShrink_, "") };
+    inline string getRulesShrink() const { DARABONBA_PTR_GET_DEFAULT(rulesShrink_, "") };
     inline CreateUserWafRulesetShrinkRequest& setRulesShrink(string rulesShrink) { DARABONBA_PTR_SET_VALUE(rulesShrink_, rulesShrink) };
 
 
     // sharedShrink Field Functions 
     bool hasSharedShrink() const { return this->sharedShrink_ != nullptr;};
     void deleteSharedShrink() { this->sharedShrink_ = nullptr;};
-    inline string sharedShrink() const { DARABONBA_PTR_GET_DEFAULT(sharedShrink_, "") };
+    inline string getSharedShrink() const { DARABONBA_PTR_GET_DEFAULT(sharedShrink_, "") };
     inline CreateUserWafRulesetShrinkRequest& setSharedShrink(string sharedShrink) { DARABONBA_PTR_SET_VALUE(sharedShrink_, sharedShrink) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline CreateUserWafRulesetShrinkRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
   protected:
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // This parameter is required.
-    std::shared_ptr<string> expression_ = nullptr;
+    shared_ptr<string> expression_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // This parameter is required.
-    std::shared_ptr<string> phase_ = nullptr;
-    std::shared_ptr<string> rulesShrink_ = nullptr;
-    std::shared_ptr<string> sharedShrink_ = nullptr;
+    shared_ptr<string> phase_ {};
+    shared_ptr<string> rulesShrink_ {};
+    shared_ptr<string> sharedShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models

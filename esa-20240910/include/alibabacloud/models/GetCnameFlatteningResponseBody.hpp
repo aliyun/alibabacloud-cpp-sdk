@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->flattenMode_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // flattenMode Field Functions 
     bool hasFlattenMode() const { return this->flattenMode_ != nullptr;};
     void deleteFlattenMode() { this->flattenMode_ = nullptr;};
-    inline string flattenMode() const { DARABONBA_PTR_GET_DEFAULT(flattenMode_, "") };
+    inline string getFlattenMode() const { DARABONBA_PTR_GET_DEFAULT(flattenMode_, "") };
     inline GetCnameFlatteningResponseBody& setFlattenMode(string flattenMode) { DARABONBA_PTR_SET_VALUE(flattenMode_, flattenMode) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetCnameFlatteningResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
@@ -52,9 +52,9 @@ namespace Models
     // 
     // *   flatten_all: flattens all CNAMEs.
     // *   flatten_all (default): flattens only the root domain.
-    std::shared_ptr<string> flattenMode_ = nullptr;
+    shared_ptr<string> flattenMode_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

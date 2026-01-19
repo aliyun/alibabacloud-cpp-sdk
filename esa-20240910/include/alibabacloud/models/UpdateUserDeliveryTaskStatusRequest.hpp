@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->method_ == nullptr
-        && return this->taskName_ == nullptr; };
+        && this->taskName_ == nullptr; };
     // method Field Functions 
     bool hasMethod() const { return this->method_ != nullptr;};
     void deleteMethod() { this->method_ = nullptr;};
-    inline string method() const { DARABONBA_PTR_GET_DEFAULT(method_, "") };
+    inline string getMethod() const { DARABONBA_PTR_GET_DEFAULT(method_, "") };
     inline UpdateUserDeliveryTaskStatusRequest& setMethod(string method) { DARABONBA_PTR_SET_VALUE(method_, method) };
 
 
     // taskName Field Functions 
     bool hasTaskName() const { return this->taskName_ != nullptr;};
     void deleteTaskName() { this->taskName_ = nullptr;};
-    inline string taskName() const { DARABONBA_PTR_GET_DEFAULT(taskName_, "") };
+    inline string getTaskName() const { DARABONBA_PTR_GET_DEFAULT(taskName_, "") };
     inline UpdateUserDeliveryTaskStatusRequest& setTaskName(string taskName) { DARABONBA_PTR_SET_VALUE(taskName_, taskName) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // Enables or disables the delivery task. Valid values: online and offline.
     // 
     // This parameter is required.
-    std::shared_ptr<string> method_ = nullptr;
+    shared_ptr<string> method_ {};
     // The name of the delivery task.
     // 
     // This parameter is required.
-    std::shared_ptr<string> taskName_ = nullptr;
+    shared_ptr<string> taskName_ {};
   };
 
   } // namespace Models

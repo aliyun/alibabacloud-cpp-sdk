@@ -40,61 +40,61 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoPay_ == nullptr
-        && return this->chargeType_ == nullptr && return this->instanceId_ == nullptr && return this->orderType_ == nullptr && return this->targetPlanCode_ == nullptr && return this->targetPlanName_ == nullptr; };
+        && this->chargeType_ == nullptr && this->instanceId_ == nullptr && this->orderType_ == nullptr && this->targetPlanCode_ == nullptr && this->targetPlanName_ == nullptr; };
     // autoPay Field Functions 
     bool hasAutoPay() const { return this->autoPay_ != nullptr;};
     void deleteAutoPay() { this->autoPay_ = nullptr;};
-    inline bool autoPay() const { DARABONBA_PTR_GET_DEFAULT(autoPay_, false) };
+    inline bool getAutoPay() const { DARABONBA_PTR_GET_DEFAULT(autoPay_, false) };
     inline UpdateRatePlanSpecRequest& setAutoPay(bool autoPay) { DARABONBA_PTR_SET_VALUE(autoPay_, autoPay) };
 
 
     // chargeType Field Functions 
     bool hasChargeType() const { return this->chargeType_ != nullptr;};
     void deleteChargeType() { this->chargeType_ = nullptr;};
-    inline string chargeType() const { DARABONBA_PTR_GET_DEFAULT(chargeType_, "") };
+    inline string getChargeType() const { DARABONBA_PTR_GET_DEFAULT(chargeType_, "") };
     inline UpdateRatePlanSpecRequest& setChargeType(string chargeType) { DARABONBA_PTR_SET_VALUE(chargeType_, chargeType) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline UpdateRatePlanSpecRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // orderType Field Functions 
     bool hasOrderType() const { return this->orderType_ != nullptr;};
     void deleteOrderType() { this->orderType_ = nullptr;};
-    inline string orderType() const { DARABONBA_PTR_GET_DEFAULT(orderType_, "") };
+    inline string getOrderType() const { DARABONBA_PTR_GET_DEFAULT(orderType_, "") };
     inline UpdateRatePlanSpecRequest& setOrderType(string orderType) { DARABONBA_PTR_SET_VALUE(orderType_, orderType) };
 
 
     // targetPlanCode Field Functions 
     bool hasTargetPlanCode() const { return this->targetPlanCode_ != nullptr;};
     void deleteTargetPlanCode() { this->targetPlanCode_ = nullptr;};
-    inline string targetPlanCode() const { DARABONBA_PTR_GET_DEFAULT(targetPlanCode_, "") };
+    inline string getTargetPlanCode() const { DARABONBA_PTR_GET_DEFAULT(targetPlanCode_, "") };
     inline UpdateRatePlanSpecRequest& setTargetPlanCode(string targetPlanCode) { DARABONBA_PTR_SET_VALUE(targetPlanCode_, targetPlanCode) };
 
 
     // targetPlanName Field Functions 
     bool hasTargetPlanName() const { return this->targetPlanName_ != nullptr;};
     void deleteTargetPlanName() { this->targetPlanName_ = nullptr;};
-    inline string targetPlanName() const { DARABONBA_PTR_GET_DEFAULT(targetPlanName_, "") };
+    inline string getTargetPlanName() const { DARABONBA_PTR_GET_DEFAULT(targetPlanName_, "") };
     inline UpdateRatePlanSpecRequest& setTargetPlanName(string targetPlanName) { DARABONBA_PTR_SET_VALUE(targetPlanName_, targetPlanName) };
 
 
   protected:
     // Specifies whether to enable auto payment.
-    std::shared_ptr<bool> autoPay_ = nullptr;
-    std::shared_ptr<string> chargeType_ = nullptr;
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<bool> autoPay_ {};
+    shared_ptr<string> chargeType_ {};
+    shared_ptr<string> instanceId_ {};
     // The specification update type. Valid values:
     // 
     // *   DOWNGRADE
     // *   UPGRADE
-    std::shared_ptr<string> orderType_ = nullptr;
-    std::shared_ptr<string> targetPlanCode_ = nullptr;
-    std::shared_ptr<string> targetPlanName_ = nullptr;
+    shared_ptr<string> orderType_ {};
+    shared_ptr<string> targetPlanCode_ {};
+    shared_ptr<string> targetPlanName_ {};
   };
 
   } // namespace Models

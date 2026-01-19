@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->paused_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // paused Field Functions 
     bool hasPaused() const { return this->paused_ != nullptr;};
     void deletePaused() { this->paused_ = nullptr;};
-    inline bool paused() const { DARABONBA_PTR_GET_DEFAULT(paused_, false) };
+    inline bool getPaused() const { DARABONBA_PTR_GET_DEFAULT(paused_, false) };
     inline GetSitePauseResponseBody& setPaused(bool paused) { DARABONBA_PTR_SET_VALUE(paused_, paused) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetSitePauseResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
@@ -52,9 +52,9 @@ namespace Models
     // 
     // *   true
     // *   false
-    std::shared_ptr<bool> paused_ = nullptr;
+    shared_ptr<bool> paused_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

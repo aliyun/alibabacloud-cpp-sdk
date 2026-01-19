@@ -37,12 +37,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cookies_ == nullptr
-        && return this->requestHeaders_ == nullptr && return this->responseHeaders_ == nullptr && return this->siteId_ == nullptr; };
+        && this->requestHeaders_ == nullptr && this->responseHeaders_ == nullptr && this->siteId_ == nullptr; };
     // cookies Field Functions 
     bool hasCookies() const { return this->cookies_ != nullptr;};
     void deleteCookies() { this->cookies_ = nullptr;};
-    inline const vector<string> & cookies() const { DARABONBA_PTR_GET_CONST(cookies_, vector<string>) };
-    inline vector<string> cookies() { DARABONBA_PTR_GET(cookies_, vector<string>) };
+    inline const vector<string> & getCookies() const { DARABONBA_PTR_GET_CONST(cookies_, vector<string>) };
+    inline vector<string> getCookies() { DARABONBA_PTR_GET(cookies_, vector<string>) };
     inline CreateSiteCustomLogRequest& setCookies(const vector<string> & cookies) { DARABONBA_PTR_SET_VALUE(cookies_, cookies) };
     inline CreateSiteCustomLogRequest& setCookies(vector<string> && cookies) { DARABONBA_PTR_SET_RVALUE(cookies_, cookies) };
 
@@ -50,8 +50,8 @@ namespace Models
     // requestHeaders Field Functions 
     bool hasRequestHeaders() const { return this->requestHeaders_ != nullptr;};
     void deleteRequestHeaders() { this->requestHeaders_ = nullptr;};
-    inline const vector<string> & requestHeaders() const { DARABONBA_PTR_GET_CONST(requestHeaders_, vector<string>) };
-    inline vector<string> requestHeaders() { DARABONBA_PTR_GET(requestHeaders_, vector<string>) };
+    inline const vector<string> & getRequestHeaders() const { DARABONBA_PTR_GET_CONST(requestHeaders_, vector<string>) };
+    inline vector<string> getRequestHeaders() { DARABONBA_PTR_GET(requestHeaders_, vector<string>) };
     inline CreateSiteCustomLogRequest& setRequestHeaders(const vector<string> & requestHeaders) { DARABONBA_PTR_SET_VALUE(requestHeaders_, requestHeaders) };
     inline CreateSiteCustomLogRequest& setRequestHeaders(vector<string> && requestHeaders) { DARABONBA_PTR_SET_RVALUE(requestHeaders_, requestHeaders) };
 
@@ -59,8 +59,8 @@ namespace Models
     // responseHeaders Field Functions 
     bool hasResponseHeaders() const { return this->responseHeaders_ != nullptr;};
     void deleteResponseHeaders() { this->responseHeaders_ = nullptr;};
-    inline const vector<string> & responseHeaders() const { DARABONBA_PTR_GET_CONST(responseHeaders_, vector<string>) };
-    inline vector<string> responseHeaders() { DARABONBA_PTR_GET(responseHeaders_, vector<string>) };
+    inline const vector<string> & getResponseHeaders() const { DARABONBA_PTR_GET_CONST(responseHeaders_, vector<string>) };
+    inline vector<string> getResponseHeaders() { DARABONBA_PTR_GET(responseHeaders_, vector<string>) };
     inline CreateSiteCustomLogRequest& setResponseHeaders(const vector<string> & responseHeaders) { DARABONBA_PTR_SET_VALUE(responseHeaders_, responseHeaders) };
     inline CreateSiteCustomLogRequest& setResponseHeaders(vector<string> && responseHeaders) { DARABONBA_PTR_SET_RVALUE(responseHeaders_, responseHeaders) };
 
@@ -68,19 +68,19 @@ namespace Models
     // siteId Field Functions 
     bool hasSiteId() const { return this->siteId_ != nullptr;};
     void deleteSiteId() { this->siteId_ = nullptr;};
-    inline int64_t siteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
+    inline int64_t getSiteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
     inline CreateSiteCustomLogRequest& setSiteId(int64_t siteId) { DARABONBA_PTR_SET_VALUE(siteId_, siteId) };
 
 
   protected:
     // The cookie fields.
-    std::shared_ptr<vector<string>> cookies_ = nullptr;
+    shared_ptr<vector<string>> cookies_ {};
     // The request header fields.
-    std::shared_ptr<vector<string>> requestHeaders_ = nullptr;
+    shared_ptr<vector<string>> requestHeaders_ {};
     // The response header fields.
-    std::shared_ptr<vector<string>> responseHeaders_ = nullptr;
+    shared_ptr<vector<string>> responseHeaders_ {};
     // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
-    std::shared_ptr<int64_t> siteId_ = nullptr;
+    shared_ptr<int64_t> siteId_ {};
   };
 
   } // namespace Models

@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->content_ == nullptr
-        && return this->contentType_ == nullptr && return this->description_ == nullptr && return this->id_ == nullptr && return this->name_ == nullptr; };
+        && this->contentType_ == nullptr && this->description_ == nullptr && this->id_ == nullptr && this->name_ == nullptr; };
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
-    inline string content() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
+    inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
     inline UpdatePageRequest& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
 
 
     // contentType Field Functions 
     bool hasContentType() const { return this->contentType_ != nullptr;};
     void deleteContentType() { this->contentType_ = nullptr;};
-    inline string contentType() const { DARABONBA_PTR_GET_DEFAULT(contentType_, "") };
+    inline string getContentType() const { DARABONBA_PTR_GET_DEFAULT(contentType_, "") };
     inline UpdatePageRequest& setContentType(string contentType) { DARABONBA_PTR_SET_VALUE(contentType_, contentType) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline UpdatePageRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline int64_t id() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+    inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
     inline UpdatePageRequest& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline UpdatePageRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
@@ -78,26 +78,26 @@ namespace Models
     // The Base64-encoded content of the error page. The content type is specified by the Content-Type field.
     // 
     // This parameter is required.
-    std::shared_ptr<string> content_ = nullptr;
+    shared_ptr<string> content_ {};
     // The Content-Type field in the HTTP header. Valid values:
     // 
     // *   text/html
     // *   application/json
     // 
     // This parameter is required.
-    std::shared_ptr<string> contentType_ = nullptr;
+    shared_ptr<string> contentType_ {};
     // The description of the custom error page.
     // 
     // This parameter is required.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The ID of the custom error page, which can be obtained by calling the [ListPages](https://help.aliyun.com/document_detail/2850223.html) operation.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> id_ = nullptr;
+    shared_ptr<int64_t> id_ {};
     // The name of the custom error page.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
   };
 
   } // namespace Models

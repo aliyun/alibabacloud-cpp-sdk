@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->certificate_ == nullptr
-        && return this->name_ == nullptr && return this->privateKey_ == nullptr && return this->siteId_ == nullptr; };
+        && this->name_ == nullptr && this->privateKey_ == nullptr && this->siteId_ == nullptr; };
     // certificate Field Functions 
     bool hasCertificate() const { return this->certificate_ != nullptr;};
     void deleteCertificate() { this->certificate_ = nullptr;};
-    inline string certificate() const { DARABONBA_PTR_GET_DEFAULT(certificate_, "") };
+    inline string getCertificate() const { DARABONBA_PTR_GET_DEFAULT(certificate_, "") };
     inline UploadOriginClientCertificateRequest& setCertificate(string certificate) { DARABONBA_PTR_SET_VALUE(certificate_, certificate) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline UploadOriginClientCertificateRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // privateKey Field Functions 
     bool hasPrivateKey() const { return this->privateKey_ != nullptr;};
     void deletePrivateKey() { this->privateKey_ = nullptr;};
-    inline string privateKey() const { DARABONBA_PTR_GET_DEFAULT(privateKey_, "") };
+    inline string getPrivateKey() const { DARABONBA_PTR_GET_DEFAULT(privateKey_, "") };
     inline UploadOriginClientCertificateRequest& setPrivateKey(string privateKey) { DARABONBA_PTR_SET_VALUE(privateKey_, privateKey) };
 
 
     // siteId Field Functions 
     bool hasSiteId() const { return this->siteId_ != nullptr;};
     void deleteSiteId() { this->siteId_ = nullptr;};
-    inline int64_t siteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
+    inline int64_t getSiteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
     inline UploadOriginClientCertificateRequest& setSiteId(int64_t siteId) { DARABONBA_PTR_SET_VALUE(siteId_, siteId) };
 
 
@@ -69,17 +69,17 @@ namespace Models
     // The certificate content.
     // 
     // This parameter is required.
-    std::shared_ptr<string> certificate_ = nullptr;
+    shared_ptr<string> certificate_ {};
     // The certificate name.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The private key of the certificate.
     // 
     // This parameter is required.
-    std::shared_ptr<string> privateKey_ = nullptr;
+    shared_ptr<string> privateKey_ {};
     // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> siteId_ = nullptr;
+    shared_ptr<int64_t> siteId_ {};
   };
 
   } // namespace Models

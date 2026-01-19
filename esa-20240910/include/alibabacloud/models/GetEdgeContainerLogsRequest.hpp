@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->lines_ == nullptr; };
+        && this->lines_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline GetEdgeContainerLogsRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // lines Field Functions 
     bool hasLines() const { return this->lines_ != nullptr;};
     void deleteLines() { this->lines_ = nullptr;};
-    inline int32_t lines() const { DARABONBA_PTR_GET_DEFAULT(lines_, 0) };
+    inline int32_t getLines() const { DARABONBA_PTR_GET_DEFAULT(lines_, 0) };
     inline GetEdgeContainerLogsRequest& setLines(int32_t lines) { DARABONBA_PTR_SET_VALUE(lines_, lines) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The application ID, which can be obtained by calling the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The number of log entries to output.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> lines_ = nullptr;
+    shared_ptr<int32_t> lines_ {};
   };
 
   } // namespace Models

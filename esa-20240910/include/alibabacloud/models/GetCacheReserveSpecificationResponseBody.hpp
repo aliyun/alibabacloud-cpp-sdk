@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cacheReserveCapacity_ == nullptr
-        && return this->cacheReserveRegion_ == nullptr && return this->requestId_ == nullptr; };
+        && this->cacheReserveRegion_ == nullptr && this->requestId_ == nullptr; };
     // cacheReserveCapacity Field Functions 
     bool hasCacheReserveCapacity() const { return this->cacheReserveCapacity_ != nullptr;};
     void deleteCacheReserveCapacity() { this->cacheReserveCapacity_ = nullptr;};
-    inline const vector<string> & cacheReserveCapacity() const { DARABONBA_PTR_GET_CONST(cacheReserveCapacity_, vector<string>) };
-    inline vector<string> cacheReserveCapacity() { DARABONBA_PTR_GET(cacheReserveCapacity_, vector<string>) };
+    inline const vector<string> & getCacheReserveCapacity() const { DARABONBA_PTR_GET_CONST(cacheReserveCapacity_, vector<string>) };
+    inline vector<string> getCacheReserveCapacity() { DARABONBA_PTR_GET(cacheReserveCapacity_, vector<string>) };
     inline GetCacheReserveSpecificationResponseBody& setCacheReserveCapacity(const vector<string> & cacheReserveCapacity) { DARABONBA_PTR_SET_VALUE(cacheReserveCapacity_, cacheReserveCapacity) };
     inline GetCacheReserveSpecificationResponseBody& setCacheReserveCapacity(vector<string> && cacheReserveCapacity) { DARABONBA_PTR_SET_RVALUE(cacheReserveCapacity_, cacheReserveCapacity) };
 
@@ -48,8 +48,8 @@ namespace Models
     // cacheReserveRegion Field Functions 
     bool hasCacheReserveRegion() const { return this->cacheReserveRegion_ != nullptr;};
     void deleteCacheReserveRegion() { this->cacheReserveRegion_ = nullptr;};
-    inline const vector<string> & cacheReserveRegion() const { DARABONBA_PTR_GET_CONST(cacheReserveRegion_, vector<string>) };
-    inline vector<string> cacheReserveRegion() { DARABONBA_PTR_GET(cacheReserveRegion_, vector<string>) };
+    inline const vector<string> & getCacheReserveRegion() const { DARABONBA_PTR_GET_CONST(cacheReserveRegion_, vector<string>) };
+    inline vector<string> getCacheReserveRegion() { DARABONBA_PTR_GET(cacheReserveRegion_, vector<string>) };
     inline GetCacheReserveSpecificationResponseBody& setCacheReserveRegion(const vector<string> & cacheReserveRegion) { DARABONBA_PTR_SET_VALUE(cacheReserveRegion_, cacheReserveRegion) };
     inline GetCacheReserveSpecificationResponseBody& setCacheReserveRegion(vector<string> && cacheReserveRegion) { DARABONBA_PTR_SET_RVALUE(cacheReserveRegion_, cacheReserveRegion) };
 
@@ -57,17 +57,17 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetCacheReserveSpecificationResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // List of cache retention capacity specifications.
-    std::shared_ptr<vector<string>> cacheReserveCapacity_ = nullptr;
+    shared_ptr<vector<string>> cacheReserveCapacity_ {};
     // List of cache retention region specifications.
-    std::shared_ptr<vector<string>> cacheReserveRegion_ = nullptr;
+    shared_ptr<vector<string>> cacheReserveRegion_ {};
     // Request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

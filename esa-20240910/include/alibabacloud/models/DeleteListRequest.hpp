@@ -33,7 +33,7 @@ namespace Models
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline int64_t id() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+    inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
     inline DeleteListRequest& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the custom list, which can be obtained by calling the [ListLists](https://help.aliyun.com/document_detail/2850217.html) operation.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> id_ = nullptr;
+    shared_ptr<int64_t> id_ {};
   };
 
   } // namespace Models

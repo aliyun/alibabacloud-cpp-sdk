@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->siteId_ == nullptr
-        && return this->type_ == nullptr && return this->uploadTaskName_ == nullptr && return this->url_ == nullptr; };
+        && this->type_ == nullptr && this->uploadTaskName_ == nullptr && this->url_ == nullptr; };
     // siteId Field Functions 
     bool hasSiteId() const { return this->siteId_ != nullptr;};
     void deleteSiteId() { this->siteId_ = nullptr;};
-    inline int64_t siteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
+    inline int64_t getSiteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
     inline UploadFileRequest& setSiteId(int64_t siteId) { DARABONBA_PTR_SET_VALUE(siteId_, siteId) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline UploadFileRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
     // uploadTaskName Field Functions 
     bool hasUploadTaskName() const { return this->uploadTaskName_ != nullptr;};
     void deleteUploadTaskName() { this->uploadTaskName_ = nullptr;};
-    inline string uploadTaskName() const { DARABONBA_PTR_GET_DEFAULT(uploadTaskName_, "") };
+    inline string getUploadTaskName() const { DARABONBA_PTR_GET_DEFAULT(uploadTaskName_, "") };
     inline UploadFileRequest& setUploadTaskName(string uploadTaskName) { DARABONBA_PTR_SET_VALUE(uploadTaskName_, uploadTaskName) };
 
 
     // url Field Functions 
     bool hasUrl() const { return this->url_ != nullptr;};
     void deleteUrl() { this->url_ = nullptr;};
-    inline string url() const { DARABONBA_PTR_GET_DEFAULT(url_, "") };
+    inline string getUrl() const { DARABONBA_PTR_GET_DEFAULT(url_, "") };
     inline UploadFileRequest& setUrl(string url) { DARABONBA_PTR_SET_VALUE(url_, url) };
 
 
@@ -69,7 +69,7 @@ namespace Models
     // The website ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> siteId_ = nullptr;
+    shared_ptr<int64_t> siteId_ {};
     // The type of the purge or prefetch task. Valid values:
     // 
     // *   **file** (default): purges the cache by file.
@@ -78,15 +78,15 @@ namespace Models
     // *   **ignoreParams**: purges the cache by URL with specified parameters ignored.
     // 
     // This parameter is required.
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
     // The name of the upload task.
     // 
     // This parameter is required.
-    std::shared_ptr<string> uploadTaskName_ = nullptr;
+    shared_ptr<string> uploadTaskName_ {};
     // The OSS URL of the file that contains resources to be purged or prefetched.
     // 
     // This parameter is required.
-    std::shared_ptr<string> url_ = nullptr;
+    shared_ptr<string> url_ {};
   };
 
   } // namespace Models

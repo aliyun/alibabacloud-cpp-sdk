@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->coverage_ == nullptr
-        && return this->endTime_ == nullptr && return this->siteId_ == nullptr && return this->startTime_ == nullptr; };
+        && this->endTime_ == nullptr && this->siteId_ == nullptr && this->startTime_ == nullptr; };
     // coverage Field Functions 
     bool hasCoverage() const { return this->coverage_ != nullptr;};
     void deleteCoverage() { this->coverage_ = nullptr;};
-    inline string coverage() const { DARABONBA_PTR_GET_DEFAULT(coverage_, "") };
+    inline string getCoverage() const { DARABONBA_PTR_GET_DEFAULT(coverage_, "") };
     inline DescribeDDoSBpsListRequest& setCoverage(string coverage) { DARABONBA_PTR_SET_VALUE(coverage_, coverage) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline DescribeDDoSBpsListRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // siteId Field Functions 
     bool hasSiteId() const { return this->siteId_ != nullptr;};
     void deleteSiteId() { this->siteId_ = nullptr;};
-    inline int64_t siteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
+    inline int64_t getSiteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
     inline DescribeDDoSBpsListRequest& setSiteId(int64_t siteId) { DARABONBA_PTR_SET_VALUE(siteId_, siteId) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline DescribeDDoSBpsListRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
@@ -73,19 +73,19 @@ namespace Models
     // - overseas: Global (excluding Mainland China).
     // 
     // - global: Global.
-    std::shared_ptr<string> coverage_ = nullptr;
+    shared_ptr<string> coverage_ {};
     // The end time for fetching data. In ISO8601 format, using UTC+0, formatted as: yyyy-MM-ddTHH:mm:ssZ.
     // 
     // The end time must be later than the start time, and the span between start and end times should not exceed 31 days.
-    std::shared_ptr<string> endTime_ = nullptr;
+    shared_ptr<string> endTime_ {};
     // Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) API.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> siteId_ = nullptr;
+    shared_ptr<int64_t> siteId_ {};
     // The start time for fetching data, in ISO8601 format, using UTC+0, formatted as: yyyy-MM-ddTHH:mm:ssZ.
     // 
     // This parameter is required.
-    std::shared_ptr<string> startTime_ = nullptr;
+    shared_ptr<string> startTime_ {};
   };
 
   } // namespace Models

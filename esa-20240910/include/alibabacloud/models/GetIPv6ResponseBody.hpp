@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->enable_ == nullptr
-        && return this->region_ == nullptr && return this->requestId_ == nullptr; };
+        && this->region_ == nullptr && this->requestId_ == nullptr; };
     // enable Field Functions 
     bool hasEnable() const { return this->enable_ != nullptr;};
     void deleteEnable() { this->enable_ = nullptr;};
-    inline string enable() const { DARABONBA_PTR_GET_DEFAULT(enable_, "") };
+    inline string getEnable() const { DARABONBA_PTR_GET_DEFAULT(enable_, "") };
     inline GetIPv6ResponseBody& setEnable(string enable) { DARABONBA_PTR_SET_VALUE(enable_, enable) };
 
 
     // region Field Functions 
     bool hasRegion() const { return this->region_ != nullptr;};
     void deleteRegion() { this->region_ = nullptr;};
-    inline string region() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
+    inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
     inline GetIPv6ResponseBody& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetIPv6ResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
@@ -61,10 +61,10 @@ namespace Models
     // 
     // *   **on**
     // *   **off**
-    std::shared_ptr<string> enable_ = nullptr;
-    std::shared_ptr<string> region_ = nullptr;
+    shared_ptr<string> enable_ {};
+    shared_ptr<string> region_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

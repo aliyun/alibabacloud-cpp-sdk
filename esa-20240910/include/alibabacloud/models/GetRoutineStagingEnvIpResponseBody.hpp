@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->IPV4_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // IPV4 Field Functions 
     bool hasIPV4() const { return this->IPV4_ != nullptr;};
     void deleteIPV4() { this->IPV4_ = nullptr;};
-    inline const vector<string> & IPV4() const { DARABONBA_PTR_GET_CONST(IPV4_, vector<string>) };
-    inline vector<string> IPV4() { DARABONBA_PTR_GET(IPV4_, vector<string>) };
+    inline const vector<string> & getIPV4() const { DARABONBA_PTR_GET_CONST(IPV4_, vector<string>) };
+    inline vector<string> getIPV4() { DARABONBA_PTR_GET(IPV4_, vector<string>) };
     inline GetRoutineStagingEnvIpResponseBody& setIPV4(const vector<string> & IPV4) { DARABONBA_PTR_SET_VALUE(IPV4_, IPV4) };
     inline GetRoutineStagingEnvIpResponseBody& setIPV4(vector<string> && IPV4) { DARABONBA_PTR_SET_RVALUE(IPV4_, IPV4) };
 
@@ -46,15 +46,15 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetRoutineStagingEnvIpResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The IPv4 addresses.
-    std::shared_ptr<vector<string>> IPV4_ = nullptr;
+    shared_ptr<vector<string>> IPV4_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

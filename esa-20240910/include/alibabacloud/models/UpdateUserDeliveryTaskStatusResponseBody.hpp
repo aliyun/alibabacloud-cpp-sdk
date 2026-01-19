@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->status_ == nullptr && return this->taskName_ == nullptr; };
+        && this->status_ == nullptr && this->taskName_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline UpdateUserDeliveryTaskStatusResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline UpdateUserDeliveryTaskStatusResponseBody& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // taskName Field Functions 
     bool hasTaskName() const { return this->taskName_ != nullptr;};
     void deleteTaskName() { this->taskName_ = nullptr;};
-    inline string taskName() const { DARABONBA_PTR_GET_DEFAULT(taskName_, "") };
+    inline string getTaskName() const { DARABONBA_PTR_GET_DEFAULT(taskName_, "") };
     inline UpdateUserDeliveryTaskStatusResponseBody& setTaskName(string taskName) { DARABONBA_PTR_SET_VALUE(taskName_, taskName) };
 
 
   protected:
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The status of the delivery task.
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
     // The name of the delivery task.
-    std::shared_ptr<string> taskName_ = nullptr;
+    shared_ptr<string> taskName_ {};
   };
 
   } // namespace Models

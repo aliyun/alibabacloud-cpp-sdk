@@ -43,27 +43,27 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->id_ == nullptr && return this->items_ == nullptr && return this->kind_ == nullptr && return this->name_ == nullptr && return this->requestId_ == nullptr
-        && return this->updateTime_ == nullptr; };
+        && this->id_ == nullptr && this->items_ == nullptr && this->kind_ == nullptr && this->name_ == nullptr && this->requestId_ == nullptr
+        && this->updateTime_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline GetListResponseBody& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline int64_t id() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+    inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
     inline GetListResponseBody& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // items Field Functions 
     bool hasItems() const { return this->items_ != nullptr;};
     void deleteItems() { this->items_ = nullptr;};
-    inline const vector<string> & items() const { DARABONBA_PTR_GET_CONST(items_, vector<string>) };
-    inline vector<string> items() { DARABONBA_PTR_GET(items_, vector<string>) };
+    inline const vector<string> & getItems() const { DARABONBA_PTR_GET_CONST(items_, vector<string>) };
+    inline vector<string> getItems() { DARABONBA_PTR_GET(items_, vector<string>) };
     inline GetListResponseBody& setItems(const vector<string> & items) { DARABONBA_PTR_SET_VALUE(items_, items) };
     inline GetListResponseBody& setItems(vector<string> && items) { DARABONBA_PTR_SET_RVALUE(items_, items) };
 
@@ -71,48 +71,48 @@ namespace Models
     // kind Field Functions 
     bool hasKind() const { return this->kind_ != nullptr;};
     void deleteKind() { this->kind_ = nullptr;};
-    inline string kind() const { DARABONBA_PTR_GET_DEFAULT(kind_, "") };
+    inline string getKind() const { DARABONBA_PTR_GET_DEFAULT(kind_, "") };
     inline GetListResponseBody& setKind(string kind) { DARABONBA_PTR_SET_VALUE(kind_, kind) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline GetListResponseBody& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetListResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // updateTime Field Functions 
     bool hasUpdateTime() const { return this->updateTime_ != nullptr;};
     void deleteUpdateTime() { this->updateTime_ = nullptr;};
-    inline string updateTime() const { DARABONBA_PTR_GET_DEFAULT(updateTime_, "") };
+    inline string getUpdateTime() const { DARABONBA_PTR_GET_DEFAULT(updateTime_, "") };
     inline GetListResponseBody& setUpdateTime(string updateTime) { DARABONBA_PTR_SET_VALUE(updateTime_, updateTime) };
 
 
   protected:
     // The description of the custom list.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The ID of the custom list.[](~~2850217~~)
-    std::shared_ptr<int64_t> id_ = nullptr;
+    shared_ptr<int64_t> id_ {};
     // The items in the custom list, which are displayed as an array.
-    std::shared_ptr<vector<string>> items_ = nullptr;
+    shared_ptr<vector<string>> items_ {};
     // The type of the custom list.
-    std::shared_ptr<string> kind_ = nullptr;
+    shared_ptr<string> kind_ {};
     // The name of the custom list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The time when the custom list was last modified.
-    std::shared_ptr<string> updateTime_ = nullptr;
+    shared_ptr<string> updateTime_ {};
   };
 
   } // namespace Models

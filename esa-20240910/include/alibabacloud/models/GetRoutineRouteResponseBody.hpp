@@ -52,90 +52,90 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bypass_ == nullptr
-        && return this->configId_ == nullptr && return this->configType_ == nullptr && return this->fallback_ == nullptr && return this->mode_ == nullptr && return this->requestId_ == nullptr
-        && return this->routeEnable_ == nullptr && return this->routeName_ == nullptr && return this->routineName_ == nullptr && return this->rule_ == nullptr && return this->sequence_ == nullptr
-        && return this->siteVersion_ == nullptr; };
+        && this->configId_ == nullptr && this->configType_ == nullptr && this->fallback_ == nullptr && this->mode_ == nullptr && this->requestId_ == nullptr
+        && this->routeEnable_ == nullptr && this->routeName_ == nullptr && this->routineName_ == nullptr && this->rule_ == nullptr && this->sequence_ == nullptr
+        && this->siteVersion_ == nullptr; };
     // bypass Field Functions 
     bool hasBypass() const { return this->bypass_ != nullptr;};
     void deleteBypass() { this->bypass_ = nullptr;};
-    inline string bypass() const { DARABONBA_PTR_GET_DEFAULT(bypass_, "") };
+    inline string getBypass() const { DARABONBA_PTR_GET_DEFAULT(bypass_, "") };
     inline GetRoutineRouteResponseBody& setBypass(string bypass) { DARABONBA_PTR_SET_VALUE(bypass_, bypass) };
 
 
     // configId Field Functions 
     bool hasConfigId() const { return this->configId_ != nullptr;};
     void deleteConfigId() { this->configId_ = nullptr;};
-    inline int64_t configId() const { DARABONBA_PTR_GET_DEFAULT(configId_, 0L) };
+    inline int64_t getConfigId() const { DARABONBA_PTR_GET_DEFAULT(configId_, 0L) };
     inline GetRoutineRouteResponseBody& setConfigId(int64_t configId) { DARABONBA_PTR_SET_VALUE(configId_, configId) };
 
 
     // configType Field Functions 
     bool hasConfigType() const { return this->configType_ != nullptr;};
     void deleteConfigType() { this->configType_ = nullptr;};
-    inline string configType() const { DARABONBA_PTR_GET_DEFAULT(configType_, "") };
+    inline string getConfigType() const { DARABONBA_PTR_GET_DEFAULT(configType_, "") };
     inline GetRoutineRouteResponseBody& setConfigType(string configType) { DARABONBA_PTR_SET_VALUE(configType_, configType) };
 
 
     // fallback Field Functions 
     bool hasFallback() const { return this->fallback_ != nullptr;};
     void deleteFallback() { this->fallback_ = nullptr;};
-    inline string fallback() const { DARABONBA_PTR_GET_DEFAULT(fallback_, "") };
+    inline string getFallback() const { DARABONBA_PTR_GET_DEFAULT(fallback_, "") };
     inline GetRoutineRouteResponseBody& setFallback(string fallback) { DARABONBA_PTR_SET_VALUE(fallback_, fallback) };
 
 
     // mode Field Functions 
     bool hasMode() const { return this->mode_ != nullptr;};
     void deleteMode() { this->mode_ = nullptr;};
-    inline string mode() const { DARABONBA_PTR_GET_DEFAULT(mode_, "") };
+    inline string getMode() const { DARABONBA_PTR_GET_DEFAULT(mode_, "") };
     inline GetRoutineRouteResponseBody& setMode(string mode) { DARABONBA_PTR_SET_VALUE(mode_, mode) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetRoutineRouteResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // routeEnable Field Functions 
     bool hasRouteEnable() const { return this->routeEnable_ != nullptr;};
     void deleteRouteEnable() { this->routeEnable_ = nullptr;};
-    inline string routeEnable() const { DARABONBA_PTR_GET_DEFAULT(routeEnable_, "") };
+    inline string getRouteEnable() const { DARABONBA_PTR_GET_DEFAULT(routeEnable_, "") };
     inline GetRoutineRouteResponseBody& setRouteEnable(string routeEnable) { DARABONBA_PTR_SET_VALUE(routeEnable_, routeEnable) };
 
 
     // routeName Field Functions 
     bool hasRouteName() const { return this->routeName_ != nullptr;};
     void deleteRouteName() { this->routeName_ = nullptr;};
-    inline string routeName() const { DARABONBA_PTR_GET_DEFAULT(routeName_, "") };
+    inline string getRouteName() const { DARABONBA_PTR_GET_DEFAULT(routeName_, "") };
     inline GetRoutineRouteResponseBody& setRouteName(string routeName) { DARABONBA_PTR_SET_VALUE(routeName_, routeName) };
 
 
     // routineName Field Functions 
     bool hasRoutineName() const { return this->routineName_ != nullptr;};
     void deleteRoutineName() { this->routineName_ = nullptr;};
-    inline string routineName() const { DARABONBA_PTR_GET_DEFAULT(routineName_, "") };
+    inline string getRoutineName() const { DARABONBA_PTR_GET_DEFAULT(routineName_, "") };
     inline GetRoutineRouteResponseBody& setRoutineName(string routineName) { DARABONBA_PTR_SET_VALUE(routineName_, routineName) };
 
 
     // rule Field Functions 
     bool hasRule() const { return this->rule_ != nullptr;};
     void deleteRule() { this->rule_ = nullptr;};
-    inline string rule() const { DARABONBA_PTR_GET_DEFAULT(rule_, "") };
+    inline string getRule() const { DARABONBA_PTR_GET_DEFAULT(rule_, "") };
     inline GetRoutineRouteResponseBody& setRule(string rule) { DARABONBA_PTR_SET_VALUE(rule_, rule) };
 
 
     // sequence Field Functions 
     bool hasSequence() const { return this->sequence_ != nullptr;};
     void deleteSequence() { this->sequence_ = nullptr;};
-    inline int32_t sequence() const { DARABONBA_PTR_GET_DEFAULT(sequence_, 0) };
+    inline int32_t getSequence() const { DARABONBA_PTR_GET_DEFAULT(sequence_, 0) };
     inline GetRoutineRouteResponseBody& setSequence(int32_t sequence) { DARABONBA_PTR_SET_VALUE(sequence_, sequence) };
 
 
     // siteVersion Field Functions 
     bool hasSiteVersion() const { return this->siteVersion_ != nullptr;};
     void deleteSiteVersion() { this->siteVersion_ = nullptr;};
-    inline int32_t siteVersion() const { DARABONBA_PTR_GET_DEFAULT(siteVersion_, 0) };
+    inline int32_t getSiteVersion() const { DARABONBA_PTR_GET_DEFAULT(siteVersion_, 0) };
     inline GetRoutineRouteResponseBody& setSiteVersion(int32_t siteVersion) { DARABONBA_PTR_SET_VALUE(siteVersion_, siteVersion) };
 
 
@@ -144,41 +144,41 @@ namespace Models
     // 
     // *   on
     // *   off
-    std::shared_ptr<string> bypass_ = nullptr;
+    shared_ptr<string> bypass_ {};
     // The configuration ID.
-    std::shared_ptr<int64_t> configId_ = nullptr;
+    shared_ptr<int64_t> configId_ {};
     // The configuration type to query. Valid values:
     // 
     // *   global: global configurations.
     // *   rule: queries rule configurations.
-    std::shared_ptr<string> configType_ = nullptr;
+    shared_ptr<string> configType_ {};
     // The exception origin fetch switch. After you turn on this switch, if a function exception occurs, such as CPU usage exceeding the upper limit, requests are sent back to the origin. Valid values:
     // 
     // *   on
     // *   off
-    std::shared_ptr<string> fallback_ = nullptr;
+    shared_ptr<string> fallback_ {};
     // The configuration mode. Valid values: Valid values:
     // 
     // *   simple
     // *   custom
-    std::shared_ptr<string> mode_ = nullptr;
+    shared_ptr<string> mode_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The routing switch. Valid values:
     // 
     // *   on
     // *   off
-    std::shared_ptr<string> routeEnable_ = nullptr;
+    shared_ptr<string> routeEnable_ {};
     // The route name.
-    std::shared_ptr<string> routeName_ = nullptr;
+    shared_ptr<string> routeName_ {};
     // The function name.
-    std::shared_ptr<string> routineName_ = nullptr;
+    shared_ptr<string> routineName_ {};
     // The rule content.
-    std::shared_ptr<string> rule_ = nullptr;
+    shared_ptr<string> rule_ {};
     // The order in which the rule is executed.
-    std::shared_ptr<int32_t> sequence_ = nullptr;
+    shared_ptr<int32_t> sequence_ {};
     // The version number of the website.
-    std::shared_ptr<int32_t> siteVersion_ = nullptr;
+    shared_ptr<int32_t> siteVersion_ {};
   };
 
   } // namespace Models

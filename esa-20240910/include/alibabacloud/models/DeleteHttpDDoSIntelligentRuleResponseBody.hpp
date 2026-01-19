@@ -36,41 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->recordName_ == nullptr
-        && return this->requestId_ == nullptr && return this->ruleId_ == nullptr && return this->siteId_ == nullptr; };
+        && this->requestId_ == nullptr && this->ruleId_ == nullptr && this->siteId_ == nullptr; };
     // recordName Field Functions 
     bool hasRecordName() const { return this->recordName_ != nullptr;};
     void deleteRecordName() { this->recordName_ = nullptr;};
-    inline string recordName() const { DARABONBA_PTR_GET_DEFAULT(recordName_, "") };
+    inline string getRecordName() const { DARABONBA_PTR_GET_DEFAULT(recordName_, "") };
     inline DeleteHttpDDoSIntelligentRuleResponseBody& setRecordName(string recordName) { DARABONBA_PTR_SET_VALUE(recordName_, recordName) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DeleteHttpDDoSIntelligentRuleResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // ruleId Field Functions 
     bool hasRuleId() const { return this->ruleId_ != nullptr;};
     void deleteRuleId() { this->ruleId_ = nullptr;};
-    inline int64_t ruleId() const { DARABONBA_PTR_GET_DEFAULT(ruleId_, 0L) };
+    inline int64_t getRuleId() const { DARABONBA_PTR_GET_DEFAULT(ruleId_, 0L) };
     inline DeleteHttpDDoSIntelligentRuleResponseBody& setRuleId(int64_t ruleId) { DARABONBA_PTR_SET_VALUE(ruleId_, ruleId) };
 
 
     // siteId Field Functions 
     bool hasSiteId() const { return this->siteId_ != nullptr;};
     void deleteSiteId() { this->siteId_ = nullptr;};
-    inline int64_t siteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
+    inline int64_t getSiteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
     inline DeleteHttpDDoSIntelligentRuleResponseBody& setSiteId(int64_t siteId) { DARABONBA_PTR_SET_VALUE(siteId_, siteId) };
 
 
   protected:
-    std::shared_ptr<string> recordName_ = nullptr;
-    // Id of the request
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<int64_t> ruleId_ = nullptr;
-    std::shared_ptr<int64_t> siteId_ = nullptr;
+    // Record name.
+    shared_ptr<string> recordName_ {};
+    // ID of the request
+    shared_ptr<string> requestId_ {};
+    // Rule ID.
+    shared_ptr<int64_t> ruleId_ {};
+    // Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+    shared_ptr<int64_t> siteId_ {};
   };
 
   } // namespace Models

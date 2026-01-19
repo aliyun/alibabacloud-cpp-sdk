@@ -33,7 +33,7 @@ namespace Models
     // taskName Field Functions 
     bool hasTaskName() const { return this->taskName_ != nullptr;};
     void deleteTaskName() { this->taskName_ = nullptr;};
-    inline string taskName() const { DARABONBA_PTR_GET_DEFAULT(taskName_, "") };
+    inline string getTaskName() const { DARABONBA_PTR_GET_DEFAULT(taskName_, "") };
     inline GetUserDeliveryTaskRequest& setTaskName(string taskName) { DARABONBA_PTR_SET_VALUE(taskName_, taskName) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The name of the delivery task.
     // 
     // This parameter is required.
-    std::shared_ptr<string> taskName_ = nullptr;
+    shared_ptr<string> taskName_ {};
   };
 
   } // namespace Models

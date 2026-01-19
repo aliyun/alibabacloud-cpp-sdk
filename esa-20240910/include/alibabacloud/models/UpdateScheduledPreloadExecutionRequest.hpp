@@ -38,55 +38,55 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->endTime_ == nullptr
-        && return this->id_ == nullptr && return this->interval_ == nullptr && return this->sliceLen_ == nullptr && return this->startTime_ == nullptr; };
+        && this->id_ == nullptr && this->interval_ == nullptr && this->sliceLen_ == nullptr && this->startTime_ == nullptr; };
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline UpdateScheduledPreloadExecutionRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline string id() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+    inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline UpdateScheduledPreloadExecutionRequest& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // interval Field Functions 
     bool hasInterval() const { return this->interval_ != nullptr;};
     void deleteInterval() { this->interval_ = nullptr;};
-    inline int32_t interval() const { DARABONBA_PTR_GET_DEFAULT(interval_, 0) };
+    inline int32_t getInterval() const { DARABONBA_PTR_GET_DEFAULT(interval_, 0) };
     inline UpdateScheduledPreloadExecutionRequest& setInterval(int32_t interval) { DARABONBA_PTR_SET_VALUE(interval_, interval) };
 
 
     // sliceLen Field Functions 
     bool hasSliceLen() const { return this->sliceLen_ != nullptr;};
     void deleteSliceLen() { this->sliceLen_ = nullptr;};
-    inline int32_t sliceLen() const { DARABONBA_PTR_GET_DEFAULT(sliceLen_, 0) };
+    inline int32_t getSliceLen() const { DARABONBA_PTR_GET_DEFAULT(sliceLen_, 0) };
     inline UpdateScheduledPreloadExecutionRequest& setSliceLen(int32_t sliceLen) { DARABONBA_PTR_SET_VALUE(sliceLen_, sliceLen) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline UpdateScheduledPreloadExecutionRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
   protected:
     // The end time of the prefetch plan.
-    std::shared_ptr<string> endTime_ = nullptr;
+    shared_ptr<string> endTime_ {};
     // The ID of the prefetch plan.
     // 
     // This parameter is required.
-    std::shared_ptr<string> id_ = nullptr;
+    shared_ptr<string> id_ {};
     // The time interval between each batch execution. Unit: seconds.
-    std::shared_ptr<int32_t> interval_ = nullptr;
+    shared_ptr<int32_t> interval_ {};
     // The number of URLs prefetched in each batch.
-    std::shared_ptr<int32_t> sliceLen_ = nullptr;
+    shared_ptr<int32_t> sliceLen_ {};
     // The start time of the prefetch plan.
-    std::shared_ptr<string> startTime_ = nullptr;
+    shared_ptr<string> startTime_ {};
   };
 
   } // namespace Models

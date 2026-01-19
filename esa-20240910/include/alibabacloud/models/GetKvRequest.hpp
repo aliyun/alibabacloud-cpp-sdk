@@ -34,39 +34,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->base64_ == nullptr
-        && return this->key_ == nullptr && return this->namespace_ == nullptr; };
+        && this->key_ == nullptr && this->namespace_ == nullptr; };
     // base64 Field Functions 
     bool hasBase64() const { return this->base64_ != nullptr;};
     void deleteBase64() { this->base64_ = nullptr;};
-    inline bool base64() const { DARABONBA_PTR_GET_DEFAULT(base64_, false) };
+    inline bool getBase64() const { DARABONBA_PTR_GET_DEFAULT(base64_, false) };
     inline GetKvRequest& setBase64(bool base64) { DARABONBA_PTR_SET_VALUE(base64_, base64) };
 
 
     // key Field Functions 
     bool hasKey() const { return this->key_ != nullptr;};
     void deleteKey() { this->key_ = nullptr;};
-    inline string key() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+    inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
     inline GetKvRequest& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
 
 
     // namespace Field Functions 
     bool hasNamespace() const { return this->namespace_ != nullptr;};
     void deleteNamespace() { this->namespace_ = nullptr;};
-    inline string _namespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
+    inline string getNamespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
     inline GetKvRequest& setNamespace(string _namespace) { DARABONBA_PTR_SET_VALUE(namespace_, _namespace) };
 
 
   protected:
     // Specifies whether to decode the value by using Base 64. If you call the [PutKv](https://help.aliyun.com/document_detail/2850482.html) operation and set the Base64 parameter to true, set this parameter to true to read the original content.
-    std::shared_ptr<bool> base64_ = nullptr;
+    shared_ptr<bool> base64_ {};
     // The key name for the query.
     // 
     // This parameter is required.
-    std::shared_ptr<string> key_ = nullptr;
+    shared_ptr<string> key_ {};
     // The name of the namespace that you specify when you call the [CreateKvNamespace](https://help.aliyun.com/document_detail/2850317.html) operation.
     // 
     // This parameter is required.
-    std::shared_ptr<string> namespace_ = nullptr;
+    shared_ptr<string> namespace_ {};
   };
 
   } // namespace Models

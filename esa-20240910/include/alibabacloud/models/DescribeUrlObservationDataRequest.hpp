@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientPlatform_ == nullptr
-        && return this->endTime_ == nullptr && return this->metric_ == nullptr && return this->siteId_ == nullptr && return this->startTime_ == nullptr && return this->url_ == nullptr; };
+        && this->endTime_ == nullptr && this->metric_ == nullptr && this->siteId_ == nullptr && this->startTime_ == nullptr && this->url_ == nullptr; };
     // clientPlatform Field Functions 
     bool hasClientPlatform() const { return this->clientPlatform_ != nullptr;};
     void deleteClientPlatform() { this->clientPlatform_ = nullptr;};
-    inline string clientPlatform() const { DARABONBA_PTR_GET_DEFAULT(clientPlatform_, "") };
+    inline string getClientPlatform() const { DARABONBA_PTR_GET_DEFAULT(clientPlatform_, "") };
     inline DescribeUrlObservationDataRequest& setClientPlatform(string clientPlatform) { DARABONBA_PTR_SET_VALUE(clientPlatform_, clientPlatform) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline DescribeUrlObservationDataRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // metric Field Functions 
     bool hasMetric() const { return this->metric_ != nullptr;};
     void deleteMetric() { this->metric_ = nullptr;};
-    inline string metric() const { DARABONBA_PTR_GET_DEFAULT(metric_, "") };
+    inline string getMetric() const { DARABONBA_PTR_GET_DEFAULT(metric_, "") };
     inline DescribeUrlObservationDataRequest& setMetric(string metric) { DARABONBA_PTR_SET_VALUE(metric_, metric) };
 
 
     // siteId Field Functions 
     bool hasSiteId() const { return this->siteId_ != nullptr;};
     void deleteSiteId() { this->siteId_ = nullptr;};
-    inline string siteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, "") };
+    inline string getSiteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, "") };
     inline DescribeUrlObservationDataRequest& setSiteId(string siteId) { DARABONBA_PTR_SET_VALUE(siteId_, siteId) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline DescribeUrlObservationDataRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // url Field Functions 
     bool hasUrl() const { return this->url_ != nullptr;};
     void deleteUrl() { this->url_ = nullptr;};
-    inline string url() const { DARABONBA_PTR_GET_DEFAULT(url_, "") };
+    inline string getUrl() const { DARABONBA_PTR_GET_DEFAULT(url_, "") };
     inline DescribeUrlObservationDataRequest& setUrl(string url) { DARABONBA_PTR_SET_VALUE(url_, url) };
 
 
@@ -88,11 +88,11 @@ namespace Models
     // 
     // *   PC
     // *   Mobile
-    std::shared_ptr<string> clientPlatform_ = nullptr;
+    shared_ptr<string> clientPlatform_ {};
     // The end of the time range to query.
     // 
     // Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. The time must be in UTC.
-    std::shared_ptr<string> endTime_ = nullptr;
+    shared_ptr<string> endTime_ {};
     // The metric data that is detected.
     // 
     // *   TTFB: Measures the time between when a resource initiates a request and when the first byte of the response starts to arrive.
@@ -101,17 +101,17 @@ namespace Models
     // *   CLS: A metric that measures the maximum layout mutation score for every unexpected layout change that occurs throughout the life of the page.
     // *   INP: Measures the responsiveness of the page, or how long it takes for the page to respond to user input in a visible way.
     // *   FID: Measures the time between when the user first interacts with the page and when the browser is actually able to start processing the event handler in response to that interaction.
-    std::shared_ptr<string> metric_ = nullptr;
+    shared_ptr<string> metric_ {};
     // The website ID, which can be obtained by calling the [ListSites](~~ListSites~~) operation.
     // 
     // This parameter is required.
-    std::shared_ptr<string> siteId_ = nullptr;
+    shared_ptr<string> siteId_ {};
     // The beginning of the time range to query.
     // 
     // The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
-    std::shared_ptr<string> startTime_ = nullptr;
+    shared_ptr<string> startTime_ {};
     // The URL of the web page to monitor.
-    std::shared_ptr<string> url_ = nullptr;
+    shared_ptr<string> url_ {};
   };
 
   } // namespace Models

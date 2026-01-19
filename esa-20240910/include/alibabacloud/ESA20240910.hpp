@@ -566,7 +566,7 @@ namespace ESA20240910
       Models::CreateEdgeContainerAppResponse createEdgeContainerApp(const Models::CreateEdgeContainerAppRequest &request);
 
       /**
-       * @summary 创建边缘容器应用的镜像秘钥
+       * @summary Create an image secret for the edge container application
        *
        * @param request CreateEdgeContainerAppImageSecretRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -575,7 +575,7 @@ namespace ESA20240910
       Models::CreateEdgeContainerAppImageSecretResponse createEdgeContainerAppImageSecretWithOptions(const Models::CreateEdgeContainerAppImageSecretRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建边缘容器应用的镜像秘钥
+       * @summary Create an image secret for the edge container application
        *
        * @param request CreateEdgeContainerAppImageSecretRequest
        * @return CreateEdgeContainerAppImageSecretResponse
@@ -1489,7 +1489,7 @@ namespace ESA20240910
       Models::DeleteEdgeContainerAppResponse deleteEdgeContainerApp(const Models::DeleteEdgeContainerAppRequest &request);
 
       /**
-       * @summary 删除边缘容器应用的镜像秘钥
+       * @summary Delete the image secret of an edge container application
        *
        * @param request DeleteEdgeContainerAppImageSecretRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1498,7 +1498,7 @@ namespace ESA20240910
       Models::DeleteEdgeContainerAppImageSecretResponse deleteEdgeContainerAppImageSecretWithOptions(const Models::DeleteEdgeContainerAppImageSecretRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除边缘容器应用的镜像秘钥
+       * @summary Delete the image secret of an edge container application
        *
        * @param request DeleteEdgeContainerAppImageSecretRequest
        * @return DeleteEdgeContainerAppImageSecretResponse
@@ -1540,7 +1540,7 @@ namespace ESA20240910
       Models::DeleteEdgeContainerAppVersionResponse deleteEdgeContainerAppVersion(const Models::DeleteEdgeContainerAppVersionRequest &request);
 
       /**
-       * @summary 删除深度学习和防护下发的规则
+       * @summary Delete rules for deep learning and protection distribution
        *
        * @param request DeleteHttpDDoSIntelligentRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1549,7 +1549,7 @@ namespace ESA20240910
       Models::DeleteHttpDDoSIntelligentRuleResponse deleteHttpDDoSIntelligentRuleWithOptions(const Models::DeleteHttpDDoSIntelligentRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除深度学习和防护下发的规则
+       * @summary Delete rules for deep learning and protection distribution
        *
        * @param request DeleteHttpDDoSIntelligentRuleRequest
        * @return DeleteHttpDDoSIntelligentRuleResponse
@@ -2132,17 +2132,10 @@ namespace ESA20240910
       Models::DeleteUserDeliveryTaskResponse deleteUserDeliveryTask(const Models::DeleteUserDeliveryTaskRequest &request);
 
       /**
-       * @summary 用于删除实例级别的Web应用防火墙规则集。
+       * @summary Used for deleting an instance-level Web Application Firewall (WAF) ruleset.
        *
-       * @description ## 请求说明
-       * - 本API允许用户为指定实例创建新的WAF（Web Application Firewall）规则集。
-       * - `InstanceId` 是必需参数，指定了要为其创建规则集的具体实例。
-       * - `Phase` 参数定义了规则集的应用阶段，例如自定义规则、频次控制等。
-       * - `Name` 和 `Expression` 是必填项，分别代表规则集的名字和具体的匹配表达式。
-       * - 可选参数 `Description` 提供了对规则集功能或用途的文字描述。
-       * - `Status` 控制着规则集是否立即生效 (`on`) 或者处于关闭状态 (`off`)。
-       * - 通过 `Rules` 参数可以进一步配置更详细的规则列表，每个规则都包含名称、位置、表达式及动作等属性。
-       * - 成功响应将返回新创建规则集的唯一标识符 `Id` 以及所有关联规则的ID列表 `RuleIds`。
+       * @description ## Request Description
+       * - `InstanceId` and `Id` are required parameters, specifying the WAF instance ID to be operated on and the specific ruleset ID, respectively.
        *
        * @param request DeleteUserWafRulesetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2151,17 +2144,10 @@ namespace ESA20240910
       Models::DeleteUserWafRulesetResponse deleteUserWafRulesetWithOptions(const Models::DeleteUserWafRulesetRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 用于删除实例级别的Web应用防火墙规则集。
+       * @summary Used for deleting an instance-level Web Application Firewall (WAF) ruleset.
        *
-       * @description ## 请求说明
-       * - 本API允许用户为指定实例创建新的WAF（Web Application Firewall）规则集。
-       * - `InstanceId` 是必需参数，指定了要为其创建规则集的具体实例。
-       * - `Phase` 参数定义了规则集的应用阶段，例如自定义规则、频次控制等。
-       * - `Name` 和 `Expression` 是必填项，分别代表规则集的名字和具体的匹配表达式。
-       * - 可选参数 `Description` 提供了对规则集功能或用途的文字描述。
-       * - `Status` 控制着规则集是否立即生效 (`on`) 或者处于关闭状态 (`off`)。
-       * - 通过 `Rules` 参数可以进一步配置更详细的规则列表，每个规则都包含名称、位置、表达式及动作等属性。
-       * - 成功响应将返回新创建规则集的唯一标识符 `Id` 以及所有关联规则的ID列表 `RuleIds`。
+       * @description ## Request Description
+       * - `InstanceId` and `Id` are required parameters, specifying the WAF instance ID to be operated on and the specific ruleset ID, respectively.
        *
        * @param request DeleteUserWafRulesetRequest
        * @return DeleteUserWafRulesetResponse
@@ -2339,6 +2325,23 @@ namespace ESA20240910
       Models::DescribeDDoSL7QpsListResponse describeDDoSL7QpsList(const Models::DescribeDDoSL7QpsListRequest &request);
 
       /**
+       * @summary 查询当前实例设置的Ddos最大防护弹性值
+       *
+       * @param request DescribeDdosMaxBurstGbpsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeDdosMaxBurstGbpsResponse
+       */
+      Models::DescribeDdosMaxBurstGbpsResponse describeDdosMaxBurstGbpsWithOptions(const Models::DescribeDdosMaxBurstGbpsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询当前实例设置的Ddos最大防护弹性值
+       *
+       * @param request DescribeDdosMaxBurstGbpsRequest
+       * @return DescribeDdosMaxBurstGbpsResponse
+       */
+      Models::DescribeDdosMaxBurstGbpsResponse describeDdosMaxBurstGbps(const Models::DescribeDdosMaxBurstGbpsRequest &request);
+
+      /**
        * @summary Provides monitoring data for metrics of ESA edge containers.
        *
        * @param request DescribeEdgeContainerAppStatsRequest
@@ -2388,6 +2391,57 @@ namespace ESA20240910
        * @return DescribeHttpDDoSAttackProtectionResponse
        */
       Models::DescribeHttpDDoSAttackProtectionResponse describeHttpDDoSAttackProtection(const Models::DescribeHttpDDoSAttackProtectionRequest &request);
+
+      /**
+       * @summary 查询HTTP DDoS攻击防护规则
+       *
+       * @param request DescribeHttpDDoSAttackRulesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeHttpDDoSAttackRulesResponse
+       */
+      Models::DescribeHttpDDoSAttackRulesResponse describeHttpDDoSAttackRulesWithOptions(const Models::DescribeHttpDDoSAttackRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询HTTP DDoS攻击防护规则
+       *
+       * @param request DescribeHttpDDoSAttackRulesRequest
+       * @return DescribeHttpDDoSAttackRulesResponse
+       */
+      Models::DescribeHttpDDoSAttackRulesResponse describeHttpDDoSAttackRules(const Models::DescribeHttpDDoSAttackRulesRequest &request);
+
+      /**
+       * @summary 查询深度学习和防护下发的精准访问控制规则
+       *
+       * @param request DescribeHttpDDoSIntelligentAclRulesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeHttpDDoSIntelligentAclRulesResponse
+       */
+      Models::DescribeHttpDDoSIntelligentAclRulesResponse describeHttpDDoSIntelligentAclRulesWithOptions(const Models::DescribeHttpDDoSIntelligentAclRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询深度学习和防护下发的精准访问控制规则
+       *
+       * @param request DescribeHttpDDoSIntelligentAclRulesRequest
+       * @return DescribeHttpDDoSIntelligentAclRulesResponse
+       */
+      Models::DescribeHttpDDoSIntelligentAclRulesResponse describeHttpDDoSIntelligentAclRules(const Models::DescribeHttpDDoSIntelligentAclRulesRequest &request);
+
+      /**
+       * @summary 查询深度学习和防护下发的频率控制规则
+       *
+       * @param request DescribeHttpDDoSIntelligentRateLimitRulesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeHttpDDoSIntelligentRateLimitRulesResponse
+       */
+      Models::DescribeHttpDDoSIntelligentRateLimitRulesResponse describeHttpDDoSIntelligentRateLimitRulesWithOptions(const Models::DescribeHttpDDoSIntelligentRateLimitRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询深度学习和防护下发的频率控制规则
+       *
+       * @param request DescribeHttpDDoSIntelligentRateLimitRulesRequest
+       * @return DescribeHttpDDoSIntelligentRateLimitRulesResponse
+       */
+      Models::DescribeHttpDDoSIntelligentRateLimitRulesResponse describeHttpDDoSIntelligentRateLimitRules(const Models::DescribeHttpDDoSIntelligentRateLimitRulesRequest &request);
 
       /**
        * @summary Queries whether Edge KV is activated in your Alibaba Cloud account.
@@ -3226,7 +3280,7 @@ namespace ESA20240910
       Models::GetKvAccountResponse getKvAccount();
 
       /**
-       * @summary 查询Key-Value对的某个Key的详情
+       * @summary Queries the value and time to live (TTL) of a key.
        *
        * @param request GetKvDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3235,7 +3289,7 @@ namespace ESA20240910
       Models::GetKvDetailResponse getKvDetailWithOptions(const Models::GetKvDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询Key-Value对的某个Key的详情
+       * @summary Queries the value and time to live (TTL) of a key.
        *
        * @param request GetKvDetailRequest
        * @return GetKvDetailResponse
@@ -4242,7 +4296,7 @@ namespace ESA20240910
       Models::ListESAIPInfoResponse listESAIPInfo(const Models::ListESAIPInfoRequest &request);
 
       /**
-       * @summary 获取边缘容器应用的镜像秘钥列表
+       * @summary Retrieve the list of image secrets for edge container applications
        *
        * @param request ListEdgeContainerAppImageSecretsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4251,7 +4305,7 @@ namespace ESA20240910
       Models::ListEdgeContainerAppImageSecretsResponse listEdgeContainerAppImageSecretsWithOptions(const Models::ListEdgeContainerAppImageSecretsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取边缘容器应用的镜像秘钥列表
+       * @summary Retrieve the list of image secrets for edge container applications
        *
        * @param request ListEdgeContainerAppImageSecretsRequest
        * @return ListEdgeContainerAppImageSecretsResponse
@@ -5615,6 +5669,23 @@ namespace ESA20240910
       Models::SetClientCertificateHostnamesResponse setClientCertificateHostnames(const Models::SetClientCertificateHostnamesRequest &request);
 
       /**
+       * @summary 设置Ddos实例的最大防护弹性值
+       *
+       * @param request SetDdosMaxBurstGbpsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SetDdosMaxBurstGbpsResponse
+       */
+      Models::SetDdosMaxBurstGbpsResponse setDdosMaxBurstGbpsWithOptions(const Models::SetDdosMaxBurstGbpsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 设置Ddos实例的最大防护弹性值
+       *
+       * @param request SetDdosMaxBurstGbpsRequest
+       * @return SetDdosMaxBurstGbpsResponse
+       */
+      Models::SetDdosMaxBurstGbpsResponse setDdosMaxBurstGbps(const Models::SetDdosMaxBurstGbpsRequest &request);
+
+      /**
        * @summary Configures smart HTTP DDoS protection.
        *
        * @param request SetHttpDDoSAttackIntelligentProtectionRequest
@@ -5649,7 +5720,7 @@ namespace ESA20240910
       Models::SetHttpDDoSAttackProtectionResponse setHttpDDoSAttackProtection(const Models::SetHttpDDoSAttackProtectionRequest &request);
 
       /**
-       * @summary 设置HTTP DDoS攻击防护指定规则防护动作
+       * @summary Set the Protection Action for Specified HTTP DDoS Attack Rules
        *
        * @param request SetHttpDDoSAttackRuleActionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5658,7 +5729,7 @@ namespace ESA20240910
       Models::SetHttpDDoSAttackRuleActionResponse setHttpDDoSAttackRuleActionWithOptions(const Models::SetHttpDDoSAttackRuleActionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 设置HTTP DDoS攻击防护指定规则防护动作
+       * @summary Set the Protection Action for Specified HTTP DDoS Attack Rules
        *
        * @param request SetHttpDDoSAttackRuleActionRequest
        * @return SetHttpDDoSAttackRuleActionResponse
@@ -5666,7 +5737,7 @@ namespace ESA20240910
       Models::SetHttpDDoSAttackRuleActionResponse setHttpDDoSAttackRuleAction(const Models::SetHttpDDoSAttackRuleActionRequest &request);
 
       /**
-       * @summary 设置HTTP DDoS攻击防护指定规则防护状态
+       * @summary Set the Protection Status of Specified HTTP DDoS Attack Rules
        *
        * @param request SetHttpDDoSAttackRuleStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5675,7 +5746,7 @@ namespace ESA20240910
       Models::SetHttpDDoSAttackRuleStatusResponse setHttpDDoSAttackRuleStatusWithOptions(const Models::SetHttpDDoSAttackRuleStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 设置HTTP DDoS攻击防护指定规则防护状态
+       * @summary Set the Protection Status of Specified HTTP DDoS Attack Rules
        *
        * @param request SetHttpDDoSAttackRuleStatusRequest
        * @return SetHttpDDoSAttackRuleStatusResponse

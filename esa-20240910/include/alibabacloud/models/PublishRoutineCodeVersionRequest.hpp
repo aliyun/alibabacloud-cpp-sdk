@@ -34,39 +34,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->codeVersion_ == nullptr
-        && return this->env_ == nullptr && return this->name_ == nullptr; };
+        && this->env_ == nullptr && this->name_ == nullptr; };
     // codeVersion Field Functions 
     bool hasCodeVersion() const { return this->codeVersion_ != nullptr;};
     void deleteCodeVersion() { this->codeVersion_ = nullptr;};
-    inline string codeVersion() const { DARABONBA_PTR_GET_DEFAULT(codeVersion_, "") };
+    inline string getCodeVersion() const { DARABONBA_PTR_GET_DEFAULT(codeVersion_, "") };
     inline PublishRoutineCodeVersionRequest& setCodeVersion(string codeVersion) { DARABONBA_PTR_SET_VALUE(codeVersion_, codeVersion) };
 
 
     // env Field Functions 
     bool hasEnv() const { return this->env_ != nullptr;};
     void deleteEnv() { this->env_ = nullptr;};
-    inline string env() const { DARABONBA_PTR_GET_DEFAULT(env_, "") };
+    inline string getEnv() const { DARABONBA_PTR_GET_DEFAULT(env_, "") };
     inline PublishRoutineCodeVersionRequest& setEnv(string env) { DARABONBA_PTR_SET_VALUE(env_, env) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline PublishRoutineCodeVersionRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
   protected:
     // The code version to be released.
-    std::shared_ptr<string> codeVersion_ = nullptr;
+    shared_ptr<string> codeVersion_ {};
     // The environment name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> env_ = nullptr;
+    shared_ptr<string> env_ {};
     // The routine name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
   };
 
   } // namespace Models

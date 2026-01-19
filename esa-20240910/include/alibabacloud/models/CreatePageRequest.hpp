@@ -36,51 +36,51 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->content_ == nullptr
-        && return this->contentType_ == nullptr && return this->description_ == nullptr && return this->name_ == nullptr; };
+        && this->contentType_ == nullptr && this->description_ == nullptr && this->name_ == nullptr; };
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
-    inline string content() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
+    inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
     inline CreatePageRequest& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
 
 
     // contentType Field Functions 
     bool hasContentType() const { return this->contentType_ != nullptr;};
     void deleteContentType() { this->contentType_ = nullptr;};
-    inline string contentType() const { DARABONBA_PTR_GET_DEFAULT(contentType_, "") };
+    inline string getContentType() const { DARABONBA_PTR_GET_DEFAULT(contentType_, "") };
     inline CreatePageRequest& setContentType(string contentType) { DARABONBA_PTR_SET_VALUE(contentType_, contentType) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreatePageRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreatePageRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
   protected:
     // The Base64-encoded page content. Example: "PGh0bWw+aGVsbG8gcGFnZTwvaHRtbD4=", which indicates "hello page".
-    std::shared_ptr<string> content_ = nullptr;
+    shared_ptr<string> content_ {};
     // The Content-Type field in the HTTP header. Valid values:
     // 
     // *   text/html
     // *   application/json
     // 
     // This parameter is required.
-    std::shared_ptr<string> contentType_ = nullptr;
+    shared_ptr<string> contentType_ {};
     // The description of the page.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The name of the custom error page.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
   };
 
   } // namespace Models

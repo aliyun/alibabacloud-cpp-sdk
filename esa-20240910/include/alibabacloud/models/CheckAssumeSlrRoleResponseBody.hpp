@@ -34,33 +34,33 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->errorMsg_ == nullptr
-        && return this->isExist_ == nullptr && return this->requestId_ == nullptr; };
+        && this->isExist_ == nullptr && this->requestId_ == nullptr; };
     // errorMsg Field Functions 
     bool hasErrorMsg() const { return this->errorMsg_ != nullptr;};
     void deleteErrorMsg() { this->errorMsg_ = nullptr;};
-    inline string errorMsg() const { DARABONBA_PTR_GET_DEFAULT(errorMsg_, "") };
+    inline string getErrorMsg() const { DARABONBA_PTR_GET_DEFAULT(errorMsg_, "") };
     inline CheckAssumeSlrRoleResponseBody& setErrorMsg(string errorMsg) { DARABONBA_PTR_SET_VALUE(errorMsg_, errorMsg) };
 
 
     // isExist Field Functions 
     bool hasIsExist() const { return this->isExist_ != nullptr;};
     void deleteIsExist() { this->isExist_ = nullptr;};
-    inline string isExist() const { DARABONBA_PTR_GET_DEFAULT(isExist_, "") };
+    inline string getIsExist() const { DARABONBA_PTR_GET_DEFAULT(isExist_, "") };
     inline CheckAssumeSlrRoleResponseBody& setIsExist(string isExist) { DARABONBA_PTR_SET_VALUE(isExist_, isExist) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CheckAssumeSlrRoleResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<string> errorMsg_ = nullptr;
-    std::shared_ptr<string> isExist_ = nullptr;
+    shared_ptr<string> errorMsg_ {};
+    shared_ptr<string> isExist_ {};
     // Id of the request
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

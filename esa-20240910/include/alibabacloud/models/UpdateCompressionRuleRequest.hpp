@@ -46,68 +46,68 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->brotli_ == nullptr
-        && return this->configId_ == nullptr && return this->gzip_ == nullptr && return this->rule_ == nullptr && return this->ruleEnable_ == nullptr && return this->ruleName_ == nullptr
-        && return this->sequence_ == nullptr && return this->siteId_ == nullptr && return this->zstd_ == nullptr; };
+        && this->configId_ == nullptr && this->gzip_ == nullptr && this->rule_ == nullptr && this->ruleEnable_ == nullptr && this->ruleName_ == nullptr
+        && this->sequence_ == nullptr && this->siteId_ == nullptr && this->zstd_ == nullptr; };
     // brotli Field Functions 
     bool hasBrotli() const { return this->brotli_ != nullptr;};
     void deleteBrotli() { this->brotli_ = nullptr;};
-    inline string brotli() const { DARABONBA_PTR_GET_DEFAULT(brotli_, "") };
+    inline string getBrotli() const { DARABONBA_PTR_GET_DEFAULT(brotli_, "") };
     inline UpdateCompressionRuleRequest& setBrotli(string brotli) { DARABONBA_PTR_SET_VALUE(brotli_, brotli) };
 
 
     // configId Field Functions 
     bool hasConfigId() const { return this->configId_ != nullptr;};
     void deleteConfigId() { this->configId_ = nullptr;};
-    inline int64_t configId() const { DARABONBA_PTR_GET_DEFAULT(configId_, 0L) };
+    inline int64_t getConfigId() const { DARABONBA_PTR_GET_DEFAULT(configId_, 0L) };
     inline UpdateCompressionRuleRequest& setConfigId(int64_t configId) { DARABONBA_PTR_SET_VALUE(configId_, configId) };
 
 
     // gzip Field Functions 
     bool hasGzip() const { return this->gzip_ != nullptr;};
     void deleteGzip() { this->gzip_ = nullptr;};
-    inline string gzip() const { DARABONBA_PTR_GET_DEFAULT(gzip_, "") };
+    inline string getGzip() const { DARABONBA_PTR_GET_DEFAULT(gzip_, "") };
     inline UpdateCompressionRuleRequest& setGzip(string gzip) { DARABONBA_PTR_SET_VALUE(gzip_, gzip) };
 
 
     // rule Field Functions 
     bool hasRule() const { return this->rule_ != nullptr;};
     void deleteRule() { this->rule_ = nullptr;};
-    inline string rule() const { DARABONBA_PTR_GET_DEFAULT(rule_, "") };
+    inline string getRule() const { DARABONBA_PTR_GET_DEFAULT(rule_, "") };
     inline UpdateCompressionRuleRequest& setRule(string rule) { DARABONBA_PTR_SET_VALUE(rule_, rule) };
 
 
     // ruleEnable Field Functions 
     bool hasRuleEnable() const { return this->ruleEnable_ != nullptr;};
     void deleteRuleEnable() { this->ruleEnable_ = nullptr;};
-    inline string ruleEnable() const { DARABONBA_PTR_GET_DEFAULT(ruleEnable_, "") };
+    inline string getRuleEnable() const { DARABONBA_PTR_GET_DEFAULT(ruleEnable_, "") };
     inline UpdateCompressionRuleRequest& setRuleEnable(string ruleEnable) { DARABONBA_PTR_SET_VALUE(ruleEnable_, ruleEnable) };
 
 
     // ruleName Field Functions 
     bool hasRuleName() const { return this->ruleName_ != nullptr;};
     void deleteRuleName() { this->ruleName_ = nullptr;};
-    inline string ruleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
+    inline string getRuleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
     inline UpdateCompressionRuleRequest& setRuleName(string ruleName) { DARABONBA_PTR_SET_VALUE(ruleName_, ruleName) };
 
 
     // sequence Field Functions 
     bool hasSequence() const { return this->sequence_ != nullptr;};
     void deleteSequence() { this->sequence_ = nullptr;};
-    inline int32_t sequence() const { DARABONBA_PTR_GET_DEFAULT(sequence_, 0) };
+    inline int32_t getSequence() const { DARABONBA_PTR_GET_DEFAULT(sequence_, 0) };
     inline UpdateCompressionRuleRequest& setSequence(int32_t sequence) { DARABONBA_PTR_SET_VALUE(sequence_, sequence) };
 
 
     // siteId Field Functions 
     bool hasSiteId() const { return this->siteId_ != nullptr;};
     void deleteSiteId() { this->siteId_ = nullptr;};
-    inline int64_t siteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
+    inline int64_t getSiteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
     inline UpdateCompressionRuleRequest& setSiteId(int64_t siteId) { DARABONBA_PTR_SET_VALUE(siteId_, siteId) };
 
 
     // zstd Field Functions 
     bool hasZstd() const { return this->zstd_ != nullptr;};
     void deleteZstd() { this->zstd_ = nullptr;};
-    inline string zstd() const { DARABONBA_PTR_GET_DEFAULT(zstd_, "") };
+    inline string getZstd() const { DARABONBA_PTR_GET_DEFAULT(zstd_, "") };
     inline UpdateCompressionRuleRequest& setZstd(string zstd) { DARABONBA_PTR_SET_VALUE(zstd_, zstd) };
 
 
@@ -115,34 +115,34 @@ namespace Models
     // Brotli compression. Value range:
     // - on: Enable.
     // - off: Disable.
-    std::shared_ptr<string> brotli_ = nullptr;
+    shared_ptr<string> brotli_ {};
     // Configuration ID. It can be obtained by calling the [ListCompressionRules](~~ListCompressionRules~~) interface.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> configId_ = nullptr;
+    shared_ptr<int64_t> configId_ {};
     // Gzip compression. Value range:
     // - on: Enable.
     // - off: Disable.
-    std::shared_ptr<string> gzip_ = nullptr;
+    shared_ptr<string> gzip_ {};
     // Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
     // - To match all incoming requests: Set the value to true
     // - To match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
-    std::shared_ptr<string> rule_ = nullptr;
+    shared_ptr<string> rule_ {};
     // Rule switch. This parameter is not required when adding a global configuration. Value range:
     // - on: Enable.
     // - off: Disable.
-    std::shared_ptr<string> ruleEnable_ = nullptr;
+    shared_ptr<string> ruleEnable_ {};
     // Rule name. This parameter is not required when adding a global configuration.
-    std::shared_ptr<string> ruleName_ = nullptr;
-    std::shared_ptr<int32_t> sequence_ = nullptr;
+    shared_ptr<string> ruleName_ {};
+    shared_ptr<int32_t> sequence_ {};
     // Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> siteId_ = nullptr;
+    shared_ptr<int64_t> siteId_ {};
     // Zstd compression. Value range:
     // - on: Enable.
     // - off: Disable.
-    std::shared_ptr<string> zstd_ = nullptr;
+    shared_ptr<string> zstd_ {};
   };
 
   } // namespace Models

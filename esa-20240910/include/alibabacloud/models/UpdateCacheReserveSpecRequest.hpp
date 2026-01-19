@@ -36,46 +36,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoPay_ == nullptr
-        && return this->chargeType_ == nullptr && return this->instanceId_ == nullptr && return this->targetQuotaGb_ == nullptr; };
+        && this->chargeType_ == nullptr && this->instanceId_ == nullptr && this->targetQuotaGb_ == nullptr; };
     // autoPay Field Functions 
     bool hasAutoPay() const { return this->autoPay_ != nullptr;};
     void deleteAutoPay() { this->autoPay_ = nullptr;};
-    inline bool autoPay() const { DARABONBA_PTR_GET_DEFAULT(autoPay_, false) };
+    inline bool getAutoPay() const { DARABONBA_PTR_GET_DEFAULT(autoPay_, false) };
     inline UpdateCacheReserveSpecRequest& setAutoPay(bool autoPay) { DARABONBA_PTR_SET_VALUE(autoPay_, autoPay) };
 
 
     // chargeType Field Functions 
     bool hasChargeType() const { return this->chargeType_ != nullptr;};
     void deleteChargeType() { this->chargeType_ = nullptr;};
-    inline string chargeType() const { DARABONBA_PTR_GET_DEFAULT(chargeType_, "") };
+    inline string getChargeType() const { DARABONBA_PTR_GET_DEFAULT(chargeType_, "") };
     inline UpdateCacheReserveSpecRequest& setChargeType(string chargeType) { DARABONBA_PTR_SET_VALUE(chargeType_, chargeType) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline UpdateCacheReserveSpecRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // targetQuotaGb Field Functions 
     bool hasTargetQuotaGb() const { return this->targetQuotaGb_ != nullptr;};
     void deleteTargetQuotaGb() { this->targetQuotaGb_ = nullptr;};
-    inline int64_t targetQuotaGb() const { DARABONBA_PTR_GET_DEFAULT(targetQuotaGb_, 0L) };
+    inline int64_t getTargetQuotaGb() const { DARABONBA_PTR_GET_DEFAULT(targetQuotaGb_, 0L) };
     inline UpdateCacheReserveSpecRequest& setTargetQuotaGb(int64_t targetQuotaGb) { DARABONBA_PTR_SET_VALUE(targetQuotaGb_, targetQuotaGb) };
 
 
   protected:
     // Automatic payment.
-    std::shared_ptr<bool> autoPay_ = nullptr;
+    shared_ptr<bool> autoPay_ {};
     // Billing type. Valid values:
     // - PREPAY
     // - POSTPAY
-    std::shared_ptr<string> chargeType_ = nullptr;
+    shared_ptr<string> chargeType_ {};
     // Instance ID.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // Cache requested size, in GB.
-    std::shared_ptr<int64_t> targetQuotaGb_ = nullptr;
+    shared_ptr<int64_t> targetQuotaGb_ {};
   };
 
   } // namespace Models

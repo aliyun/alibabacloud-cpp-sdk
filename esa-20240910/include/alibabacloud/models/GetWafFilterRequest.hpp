@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->phase_ == nullptr
-        && return this->siteId_ == nullptr && return this->target_ == nullptr && return this->type_ == nullptr; };
+        && this->siteId_ == nullptr && this->target_ == nullptr && this->type_ == nullptr; };
     // phase Field Functions 
     bool hasPhase() const { return this->phase_ != nullptr;};
     void deletePhase() { this->phase_ = nullptr;};
-    inline string phase() const { DARABONBA_PTR_GET_DEFAULT(phase_, "") };
+    inline string getPhase() const { DARABONBA_PTR_GET_DEFAULT(phase_, "") };
     inline GetWafFilterRequest& setPhase(string phase) { DARABONBA_PTR_SET_VALUE(phase_, phase) };
 
 
     // siteId Field Functions 
     bool hasSiteId() const { return this->siteId_ != nullptr;};
     void deleteSiteId() { this->siteId_ = nullptr;};
-    inline int64_t siteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
+    inline int64_t getSiteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
     inline GetWafFilterRequest& setSiteId(int64_t siteId) { DARABONBA_PTR_SET_VALUE(siteId_, siteId) };
 
 
     // target Field Functions 
     bool hasTarget() const { return this->target_ != nullptr;};
     void deleteTarget() { this->target_ = nullptr;};
-    inline string target() const { DARABONBA_PTR_GET_DEFAULT(target_, "") };
+    inline string getTarget() const { DARABONBA_PTR_GET_DEFAULT(target_, "") };
     inline GetWafFilterRequest& setTarget(string target) { DARABONBA_PTR_SET_VALUE(target_, target) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline GetWafFilterRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
     // The WAF rule category to which the filter conditions to query belong.
-    std::shared_ptr<string> phase_ = nullptr;
+    shared_ptr<string> phase_ {};
     // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
-    std::shared_ptr<int64_t> siteId_ = nullptr;
+    shared_ptr<int64_t> siteId_ {};
     // The condition for matching incoming requests.
-    std::shared_ptr<string> target_ = nullptr;
+    shared_ptr<string> target_ {};
     // The rule type.
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

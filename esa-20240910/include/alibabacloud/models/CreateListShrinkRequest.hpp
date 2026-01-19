@@ -36,46 +36,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->itemsShrink_ == nullptr && return this->kind_ == nullptr && return this->name_ == nullptr; };
+        && this->itemsShrink_ == nullptr && this->kind_ == nullptr && this->name_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateListShrinkRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // itemsShrink Field Functions 
     bool hasItemsShrink() const { return this->itemsShrink_ != nullptr;};
     void deleteItemsShrink() { this->itemsShrink_ = nullptr;};
-    inline string itemsShrink() const { DARABONBA_PTR_GET_DEFAULT(itemsShrink_, "") };
+    inline string getItemsShrink() const { DARABONBA_PTR_GET_DEFAULT(itemsShrink_, "") };
     inline CreateListShrinkRequest& setItemsShrink(string itemsShrink) { DARABONBA_PTR_SET_VALUE(itemsShrink_, itemsShrink) };
 
 
     // kind Field Functions 
     bool hasKind() const { return this->kind_ != nullptr;};
     void deleteKind() { this->kind_ = nullptr;};
-    inline string kind() const { DARABONBA_PTR_GET_DEFAULT(kind_, "") };
+    inline string getKind() const { DARABONBA_PTR_GET_DEFAULT(kind_, "") };
     inline CreateListShrinkRequest& setKind(string kind) { DARABONBA_PTR_SET_VALUE(kind_, kind) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateListShrinkRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
   protected:
     // The description of the list that you want to create.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The items in the list that you want to create.
-    std::shared_ptr<string> itemsShrink_ = nullptr;
+    shared_ptr<string> itemsShrink_ {};
     // The type of the list that you want to create.
-    std::shared_ptr<string> kind_ = nullptr;
+    shared_ptr<string> kind_ {};
     // The name of the list that you want to create.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
   };
 
   } // namespace Models

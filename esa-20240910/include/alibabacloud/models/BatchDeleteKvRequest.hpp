@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->keys_ == nullptr
-        && return this->namespace_ == nullptr; };
+        && this->namespace_ == nullptr; };
     // keys Field Functions 
     bool hasKeys() const { return this->keys_ != nullptr;};
     void deleteKeys() { this->keys_ = nullptr;};
-    inline const vector<string> & keys() const { DARABONBA_PTR_GET_CONST(keys_, vector<string>) };
-    inline vector<string> keys() { DARABONBA_PTR_GET(keys_, vector<string>) };
+    inline const vector<string> & getKeys() const { DARABONBA_PTR_GET_CONST(keys_, vector<string>) };
+    inline vector<string> getKeys() { DARABONBA_PTR_GET(keys_, vector<string>) };
     inline BatchDeleteKvRequest& setKeys(const vector<string> & keys) { DARABONBA_PTR_SET_VALUE(keys_, keys) };
     inline BatchDeleteKvRequest& setKeys(vector<string> && keys) { DARABONBA_PTR_SET_RVALUE(keys_, keys) };
 
@@ -46,7 +46,7 @@ namespace Models
     // namespace Field Functions 
     bool hasNamespace() const { return this->namespace_ != nullptr;};
     void deleteNamespace() { this->namespace_ = nullptr;};
-    inline string _namespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
+    inline string getNamespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
     inline BatchDeleteKvRequest& setNamespace(string _namespace) { DARABONBA_PTR_SET_VALUE(namespace_, _namespace) };
 
 
@@ -54,11 +54,11 @@ namespace Models
     // The keys that you want to delete. You can delete a maximum of 10,000 key-value pairs at a time.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> keys_ = nullptr;
+    shared_ptr<vector<string>> keys_ {};
     // The name of the namespace that you specify when you call the [CreateKvNamespace](https://help.aliyun.com/document_detail/2850317.html) operation.
     // 
     // This parameter is required.
-    std::shared_ptr<string> namespace_ = nullptr;
+    shared_ptr<string> namespace_ {};
   };
 
   } // namespace Models

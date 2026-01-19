@@ -32,28 +32,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->codeDescription_ == nullptr
-        && return this->name_ == nullptr; };
+        && this->name_ == nullptr; };
     // codeDescription Field Functions 
     bool hasCodeDescription() const { return this->codeDescription_ != nullptr;};
     void deleteCodeDescription() { this->codeDescription_ = nullptr;};
-    inline string codeDescription() const { DARABONBA_PTR_GET_DEFAULT(codeDescription_, "") };
+    inline string getCodeDescription() const { DARABONBA_PTR_GET_DEFAULT(codeDescription_, "") };
     inline CommitRoutineStagingCodeRequest& setCodeDescription(string codeDescription) { DARABONBA_PTR_SET_VALUE(codeDescription_, codeDescription) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CommitRoutineStagingCodeRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
   protected:
     // The description of the code version.
-    std::shared_ptr<string> codeDescription_ = nullptr;
+    shared_ptr<string> codeDescription_ {};
     // The routine name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
   };
 
   } // namespace Models

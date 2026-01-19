@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->passed_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // passed Field Functions 
     bool hasPassed() const { return this->passed_ != nullptr;};
     void deletePassed() { this->passed_ = nullptr;};
-    inline bool passed() const { DARABONBA_PTR_GET_DEFAULT(passed_, false) };
+    inline bool getPassed() const { DARABONBA_PTR_GET_DEFAULT(passed_, false) };
     inline VerifySiteResponseBody& setPassed(bool passed) { DARABONBA_PTR_SET_VALUE(passed_, passed) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline VerifySiteResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
@@ -52,9 +52,9 @@ namespace Models
     // 
     // *   **true**
     // *   **false**
-    std::shared_ptr<bool> passed_ = nullptr;
+    shared_ptr<bool> passed_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

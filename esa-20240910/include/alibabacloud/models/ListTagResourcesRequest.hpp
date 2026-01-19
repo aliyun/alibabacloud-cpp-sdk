@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_LISTTAGRESOURCESREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/ListTagResourcesRequestTag.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -45,42 +44,86 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Tag : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Tag& obj) { 
+        DARABONBA_PTR_TO_JSON(Key, key_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, Tag& obj) { 
+        DARABONBA_PTR_FROM_JSON(Key, key_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
+      };
+      Tag() = default ;
+      Tag(const Tag &) = default ;
+      Tag(Tag &&) = default ;
+      Tag(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Tag() = default ;
+      Tag& operator=(const Tag &) = default ;
+      Tag& operator=(Tag &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline Tag& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline Tag& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      // The tag key.
+      shared_ptr<string> key_ {};
+      // The tag value.
+      shared_ptr<string> value_ {};
+    };
+
     virtual bool empty() const override { return this->maxItem_ == nullptr
-        && return this->nextToken_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr && return this->resourceId_ == nullptr && return this->resourceType_ == nullptr
-        && return this->securityToken_ == nullptr && return this->tag_ == nullptr; };
+        && this->nextToken_ == nullptr && this->ownerId_ == nullptr && this->regionId_ == nullptr && this->resourceId_ == nullptr && this->resourceType_ == nullptr
+        && this->securityToken_ == nullptr && this->tag_ == nullptr; };
     // maxItem Field Functions 
     bool hasMaxItem() const { return this->maxItem_ != nullptr;};
     void deleteMaxItem() { this->maxItem_ = nullptr;};
-    inline int32_t maxItem() const { DARABONBA_PTR_GET_DEFAULT(maxItem_, 0) };
+    inline int32_t getMaxItem() const { DARABONBA_PTR_GET_DEFAULT(maxItem_, 0) };
     inline ListTagResourcesRequest& setMaxItem(int32_t maxItem) { DARABONBA_PTR_SET_VALUE(maxItem_, maxItem) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListTagResourcesRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline ListTagResourcesRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ListTagResourcesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceId Field Functions 
     bool hasResourceId() const { return this->resourceId_ != nullptr;};
     void deleteResourceId() { this->resourceId_ = nullptr;};
-    inline const vector<string> & resourceId() const { DARABONBA_PTR_GET_CONST(resourceId_, vector<string>) };
-    inline vector<string> resourceId() { DARABONBA_PTR_GET(resourceId_, vector<string>) };
+    inline const vector<string> & getResourceId() const { DARABONBA_PTR_GET_CONST(resourceId_, vector<string>) };
+    inline vector<string> getResourceId() { DARABONBA_PTR_GET(resourceId_, vector<string>) };
     inline ListTagResourcesRequest& setResourceId(const vector<string> & resourceId) { DARABONBA_PTR_SET_VALUE(resourceId_, resourceId) };
     inline ListTagResourcesRequest& setResourceId(vector<string> && resourceId) { DARABONBA_PTR_SET_RVALUE(resourceId_, resourceId) };
 
@@ -88,47 +131,47 @@ namespace Models
     // resourceType Field Functions 
     bool hasResourceType() const { return this->resourceType_ != nullptr;};
     void deleteResourceType() { this->resourceType_ = nullptr;};
-    inline string resourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
+    inline string getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
     inline ListTagResourcesRequest& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
 
 
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
-    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
     inline ListTagResourcesRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
     // tag Field Functions 
     bool hasTag() const { return this->tag_ != nullptr;};
     void deleteTag() { this->tag_ = nullptr;};
-    inline const vector<ListTagResourcesRequestTag> & tag() const { DARABONBA_PTR_GET_CONST(tag_, vector<ListTagResourcesRequestTag>) };
-    inline vector<ListTagResourcesRequestTag> tag() { DARABONBA_PTR_GET(tag_, vector<ListTagResourcesRequestTag>) };
-    inline ListTagResourcesRequest& setTag(const vector<ListTagResourcesRequestTag> & tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
-    inline ListTagResourcesRequest& setTag(vector<ListTagResourcesRequestTag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
+    inline const vector<ListTagResourcesRequest::Tag> & getTag() const { DARABONBA_PTR_GET_CONST(tag_, vector<ListTagResourcesRequest::Tag>) };
+    inline vector<ListTagResourcesRequest::Tag> getTag() { DARABONBA_PTR_GET(tag_, vector<ListTagResourcesRequest::Tag>) };
+    inline ListTagResourcesRequest& setTag(const vector<ListTagResourcesRequest::Tag> & tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
+    inline ListTagResourcesRequest& setTag(vector<ListTagResourcesRequest::Tag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
 
 
   protected:
     // The maximum number of tags to return.
-    std::shared_ptr<int32_t> maxItem_ = nullptr;
+    shared_ptr<int32_t> maxItem_ {};
     // The pagination token that is used in the next request to retrieve a new page of results.
     // 
     // >  This parameter is not required for the first request. If not all results are returned in one query, you can specify the token that is obtained from the previous query as the value of **NextToken**.
-    std::shared_ptr<string> nextToken_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<string> nextToken_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // The ID of the region where the resources reside.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The website ID.
-    std::shared_ptr<vector<string>> resourceId_ = nullptr;
+    shared_ptr<vector<string>> resourceId_ {};
     // The resource type.
     // 
     // This parameter is required.
-    std::shared_ptr<string> resourceType_ = nullptr;
-    std::shared_ptr<string> securityToken_ = nullptr;
+    shared_ptr<string> resourceType_ {};
+    shared_ptr<string> securityToken_ {};
     // A list of tags. You can enter up to 20 tags.
-    std::shared_ptr<vector<ListTagResourcesRequestTag>> tag_ = nullptr;
+    shared_ptr<vector<ListTagResourcesRequest::Tag>> tag_ {};
   };
 
   } // namespace Models

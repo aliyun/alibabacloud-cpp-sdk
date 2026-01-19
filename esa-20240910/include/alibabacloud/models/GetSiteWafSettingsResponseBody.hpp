@@ -33,28 +33,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->settings_ == nullptr; };
+        && this->settings_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetSiteWafSettingsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // settings Field Functions 
     bool hasSettings() const { return this->settings_ != nullptr;};
     void deleteSettings() { this->settings_ = nullptr;};
-    inline const WafSiteSettings & settings() const { DARABONBA_PTR_GET_CONST(settings_, WafSiteSettings) };
-    inline WafSiteSettings settings() { DARABONBA_PTR_GET(settings_, WafSiteSettings) };
+    inline const WafSiteSettings & getSettings() const { DARABONBA_PTR_GET_CONST(settings_, WafSiteSettings) };
+    inline WafSiteSettings getSettings() { DARABONBA_PTR_GET(settings_, WafSiteSettings) };
     inline GetSiteWafSettingsResponseBody& setSettings(const WafSiteSettings & settings) { DARABONBA_PTR_SET_VALUE(settings_, settings) };
     inline GetSiteWafSettingsResponseBody& setSettings(WafSiteSettings && settings) { DARABONBA_PTR_SET_RVALUE(settings_, settings) };
 
 
   protected:
     // Request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Details of site WAF configuration.
-    std::shared_ptr<WafSiteSettings> settings_ = nullptr;
+    shared_ptr<WafSiteSettings> settings_ {};
   };
 
   } // namespace Models

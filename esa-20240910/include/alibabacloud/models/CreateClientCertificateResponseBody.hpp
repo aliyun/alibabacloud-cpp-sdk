@@ -56,136 +56,136 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->CACertificateId_ == nullptr
-        && return this->certificate_ == nullptr && return this->commonName_ == nullptr && return this->fingerprintSha256_ == nullptr && return this->id_ == nullptr && return this->issuer_ == nullptr
-        && return this->notAfter_ == nullptr && return this->notBefore_ == nullptr && return this->privateKey_ == nullptr && return this->requestId_ == nullptr && return this->serialNumber_ == nullptr
-        && return this->signatureAlgorithm_ == nullptr && return this->status_ == nullptr && return this->validityDays_ == nullptr; };
+        && this->certificate_ == nullptr && this->commonName_ == nullptr && this->fingerprintSha256_ == nullptr && this->id_ == nullptr && this->issuer_ == nullptr
+        && this->notAfter_ == nullptr && this->notBefore_ == nullptr && this->privateKey_ == nullptr && this->requestId_ == nullptr && this->serialNumber_ == nullptr
+        && this->signatureAlgorithm_ == nullptr && this->status_ == nullptr && this->validityDays_ == nullptr; };
     // CACertificateId Field Functions 
     bool hasCACertificateId() const { return this->CACertificateId_ != nullptr;};
     void deleteCACertificateId() { this->CACertificateId_ = nullptr;};
-    inline string CACertificateId() const { DARABONBA_PTR_GET_DEFAULT(CACertificateId_, "") };
+    inline string getCACertificateId() const { DARABONBA_PTR_GET_DEFAULT(CACertificateId_, "") };
     inline CreateClientCertificateResponseBody& setCACertificateId(string CACertificateId) { DARABONBA_PTR_SET_VALUE(CACertificateId_, CACertificateId) };
 
 
     // certificate Field Functions 
     bool hasCertificate() const { return this->certificate_ != nullptr;};
     void deleteCertificate() { this->certificate_ = nullptr;};
-    inline string certificate() const { DARABONBA_PTR_GET_DEFAULT(certificate_, "") };
+    inline string getCertificate() const { DARABONBA_PTR_GET_DEFAULT(certificate_, "") };
     inline CreateClientCertificateResponseBody& setCertificate(string certificate) { DARABONBA_PTR_SET_VALUE(certificate_, certificate) };
 
 
     // commonName Field Functions 
     bool hasCommonName() const { return this->commonName_ != nullptr;};
     void deleteCommonName() { this->commonName_ = nullptr;};
-    inline string commonName() const { DARABONBA_PTR_GET_DEFAULT(commonName_, "") };
+    inline string getCommonName() const { DARABONBA_PTR_GET_DEFAULT(commonName_, "") };
     inline CreateClientCertificateResponseBody& setCommonName(string commonName) { DARABONBA_PTR_SET_VALUE(commonName_, commonName) };
 
 
     // fingerprintSha256 Field Functions 
     bool hasFingerprintSha256() const { return this->fingerprintSha256_ != nullptr;};
     void deleteFingerprintSha256() { this->fingerprintSha256_ = nullptr;};
-    inline string fingerprintSha256() const { DARABONBA_PTR_GET_DEFAULT(fingerprintSha256_, "") };
+    inline string getFingerprintSha256() const { DARABONBA_PTR_GET_DEFAULT(fingerprintSha256_, "") };
     inline CreateClientCertificateResponseBody& setFingerprintSha256(string fingerprintSha256) { DARABONBA_PTR_SET_VALUE(fingerprintSha256_, fingerprintSha256) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline string id() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+    inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline CreateClientCertificateResponseBody& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // issuer Field Functions 
     bool hasIssuer() const { return this->issuer_ != nullptr;};
     void deleteIssuer() { this->issuer_ = nullptr;};
-    inline string issuer() const { DARABONBA_PTR_GET_DEFAULT(issuer_, "") };
+    inline string getIssuer() const { DARABONBA_PTR_GET_DEFAULT(issuer_, "") };
     inline CreateClientCertificateResponseBody& setIssuer(string issuer) { DARABONBA_PTR_SET_VALUE(issuer_, issuer) };
 
 
     // notAfter Field Functions 
     bool hasNotAfter() const { return this->notAfter_ != nullptr;};
     void deleteNotAfter() { this->notAfter_ = nullptr;};
-    inline string notAfter() const { DARABONBA_PTR_GET_DEFAULT(notAfter_, "") };
+    inline string getNotAfter() const { DARABONBA_PTR_GET_DEFAULT(notAfter_, "") };
     inline CreateClientCertificateResponseBody& setNotAfter(string notAfter) { DARABONBA_PTR_SET_VALUE(notAfter_, notAfter) };
 
 
     // notBefore Field Functions 
     bool hasNotBefore() const { return this->notBefore_ != nullptr;};
     void deleteNotBefore() { this->notBefore_ = nullptr;};
-    inline string notBefore() const { DARABONBA_PTR_GET_DEFAULT(notBefore_, "") };
+    inline string getNotBefore() const { DARABONBA_PTR_GET_DEFAULT(notBefore_, "") };
     inline CreateClientCertificateResponseBody& setNotBefore(string notBefore) { DARABONBA_PTR_SET_VALUE(notBefore_, notBefore) };
 
 
     // privateKey Field Functions 
     bool hasPrivateKey() const { return this->privateKey_ != nullptr;};
     void deletePrivateKey() { this->privateKey_ = nullptr;};
-    inline string privateKey() const { DARABONBA_PTR_GET_DEFAULT(privateKey_, "") };
+    inline string getPrivateKey() const { DARABONBA_PTR_GET_DEFAULT(privateKey_, "") };
     inline CreateClientCertificateResponseBody& setPrivateKey(string privateKey) { DARABONBA_PTR_SET_VALUE(privateKey_, privateKey) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateClientCertificateResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // serialNumber Field Functions 
     bool hasSerialNumber() const { return this->serialNumber_ != nullptr;};
     void deleteSerialNumber() { this->serialNumber_ = nullptr;};
-    inline string serialNumber() const { DARABONBA_PTR_GET_DEFAULT(serialNumber_, "") };
+    inline string getSerialNumber() const { DARABONBA_PTR_GET_DEFAULT(serialNumber_, "") };
     inline CreateClientCertificateResponseBody& setSerialNumber(string serialNumber) { DARABONBA_PTR_SET_VALUE(serialNumber_, serialNumber) };
 
 
     // signatureAlgorithm Field Functions 
     bool hasSignatureAlgorithm() const { return this->signatureAlgorithm_ != nullptr;};
     void deleteSignatureAlgorithm() { this->signatureAlgorithm_ = nullptr;};
-    inline string signatureAlgorithm() const { DARABONBA_PTR_GET_DEFAULT(signatureAlgorithm_, "") };
+    inline string getSignatureAlgorithm() const { DARABONBA_PTR_GET_DEFAULT(signatureAlgorithm_, "") };
     inline CreateClientCertificateResponseBody& setSignatureAlgorithm(string signatureAlgorithm) { DARABONBA_PTR_SET_VALUE(signatureAlgorithm_, signatureAlgorithm) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline CreateClientCertificateResponseBody& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // validityDays Field Functions 
     bool hasValidityDays() const { return this->validityDays_ != nullptr;};
     void deleteValidityDays() { this->validityDays_ = nullptr;};
-    inline string validityDays() const { DARABONBA_PTR_GET_DEFAULT(validityDays_, "") };
+    inline string getValidityDays() const { DARABONBA_PTR_GET_DEFAULT(validityDays_, "") };
     inline CreateClientCertificateResponseBody& setValidityDays(string validityDays) { DARABONBA_PTR_SET_VALUE(validityDays_, validityDays) };
 
 
   protected:
     // The ID of the CA certificate.
-    std::shared_ptr<string> CACertificateId_ = nullptr;
+    shared_ptr<string> CACertificateId_ {};
     // The certificate content.
-    std::shared_ptr<string> certificate_ = nullptr;
+    shared_ptr<string> certificate_ {};
     // The Common Name of the certificate.
-    std::shared_ptr<string> commonName_ = nullptr;
+    shared_ptr<string> commonName_ {};
     // The SHA-256 fingerprint of the certificate.
-    std::shared_ptr<string> fingerprintSha256_ = nullptr;
+    shared_ptr<string> fingerprintSha256_ {};
     // The certificate ID on ESA.
-    std::shared_ptr<string> id_ = nullptr;
+    shared_ptr<string> id_ {};
     // The CA that issued the certificate.
-    std::shared_ptr<string> issuer_ = nullptr;
+    shared_ptr<string> issuer_ {};
     // The time when the certificate expires.
-    std::shared_ptr<string> notAfter_ = nullptr;
+    shared_ptr<string> notAfter_ {};
     // The time when the certificate takes effect.
-    std::shared_ptr<string> notBefore_ = nullptr;
+    shared_ptr<string> notBefore_ {};
     // The private key of the certificate.
-    std::shared_ptr<string> privateKey_ = nullptr;
+    shared_ptr<string> privateKey_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The serial number of the certificate.
-    std::shared_ptr<string> serialNumber_ = nullptr;
+    shared_ptr<string> serialNumber_ {};
     // The signature algorithm of the certificate.
-    std::shared_ptr<string> signatureAlgorithm_ = nullptr;
+    shared_ptr<string> signatureAlgorithm_ {};
     // The status of the certificate.
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
     // The validity period of the certificate. Unit: day.
-    std::shared_ptr<string> validityDays_ = nullptr;
+    shared_ptr<string> validityDays_ {};
   };
 
   } // namespace Models

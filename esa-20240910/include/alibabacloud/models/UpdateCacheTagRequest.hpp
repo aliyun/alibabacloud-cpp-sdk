@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->caseInsensitive_ == nullptr
-        && return this->siteId_ == nullptr && return this->siteVersion_ == nullptr && return this->tagName_ == nullptr; };
+        && this->siteId_ == nullptr && this->siteVersion_ == nullptr && this->tagName_ == nullptr; };
     // caseInsensitive Field Functions 
     bool hasCaseInsensitive() const { return this->caseInsensitive_ != nullptr;};
     void deleteCaseInsensitive() { this->caseInsensitive_ = nullptr;};
-    inline string caseInsensitive() const { DARABONBA_PTR_GET_DEFAULT(caseInsensitive_, "") };
+    inline string getCaseInsensitive() const { DARABONBA_PTR_GET_DEFAULT(caseInsensitive_, "") };
     inline UpdateCacheTagRequest& setCaseInsensitive(string caseInsensitive) { DARABONBA_PTR_SET_VALUE(caseInsensitive_, caseInsensitive) };
 
 
     // siteId Field Functions 
     bool hasSiteId() const { return this->siteId_ != nullptr;};
     void deleteSiteId() { this->siteId_ = nullptr;};
-    inline int64_t siteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
+    inline int64_t getSiteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
     inline UpdateCacheTagRequest& setSiteId(int64_t siteId) { DARABONBA_PTR_SET_VALUE(siteId_, siteId) };
 
 
     // siteVersion Field Functions 
     bool hasSiteVersion() const { return this->siteVersion_ != nullptr;};
     void deleteSiteVersion() { this->siteVersion_ = nullptr;};
-    inline int32_t siteVersion() const { DARABONBA_PTR_GET_DEFAULT(siteVersion_, 0) };
+    inline int32_t getSiteVersion() const { DARABONBA_PTR_GET_DEFAULT(siteVersion_, 0) };
     inline UpdateCacheTagRequest& setSiteVersion(int32_t siteVersion) { DARABONBA_PTR_SET_VALUE(siteVersion_, siteVersion) };
 
 
     // tagName Field Functions 
     bool hasTagName() const { return this->tagName_ != nullptr;};
     void deleteTagName() { this->tagName_ = nullptr;};
-    inline string tagName() const { DARABONBA_PTR_GET_DEFAULT(tagName_, "") };
+    inline string getTagName() const { DARABONBA_PTR_GET_DEFAULT(tagName_, "") };
     inline UpdateCacheTagRequest& setTagName(string tagName) { DARABONBA_PTR_SET_VALUE(tagName_, tagName) };
 
 
@@ -70,15 +70,15 @@ namespace Models
     // 
     // *   on
     // *   off
-    std::shared_ptr<string> caseInsensitive_ = nullptr;
+    shared_ptr<string> caseInsensitive_ {};
     // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> siteId_ = nullptr;
+    shared_ptr<int64_t> siteId_ {};
     // The version number of the website configurations. You can use this parameter to specify a version of your website to apply the feature settings. By default, version 0 is used.
-    std::shared_ptr<int32_t> siteVersion_ = nullptr;
+    shared_ptr<int32_t> siteVersion_ {};
     // The name of the custom cache tag.
-    std::shared_ptr<string> tagName_ = nullptr;
+    shared_ptr<string> tagName_ {};
   };
 
   } // namespace Models

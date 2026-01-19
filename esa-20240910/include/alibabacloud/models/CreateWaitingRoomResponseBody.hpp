@@ -32,25 +32,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->waitingRoomId_ == nullptr; };
+        && this->waitingRoomId_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateWaitingRoomResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // waitingRoomId Field Functions 
     bool hasWaitingRoomId() const { return this->waitingRoomId_ != nullptr;};
     void deleteWaitingRoomId() { this->waitingRoomId_ = nullptr;};
-    inline string waitingRoomId() const { DARABONBA_PTR_GET_DEFAULT(waitingRoomId_, "") };
+    inline string getWaitingRoomId() const { DARABONBA_PTR_GET_DEFAULT(waitingRoomId_, "") };
     inline CreateWaitingRoomResponseBody& setWaitingRoomId(string waitingRoomId) { DARABONBA_PTR_SET_VALUE(waitingRoomId_, waitingRoomId) };
 
 
   protected:
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> waitingRoomId_ = nullptr;
+    shared_ptr<string> requestId_ {};
+    shared_ptr<string> waitingRoomId_ {};
   };
 
   } // namespace Models

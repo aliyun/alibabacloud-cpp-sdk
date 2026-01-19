@@ -36,48 +36,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->detail_ == nullptr
-        && return this->recordName_ == nullptr && return this->siteId_ == nullptr && return this->validOnly_ == nullptr; };
+        && this->recordName_ == nullptr && this->siteId_ == nullptr && this->validOnly_ == nullptr; };
     // detail Field Functions 
     bool hasDetail() const { return this->detail_ != nullptr;};
     void deleteDetail() { this->detail_ = nullptr;};
-    inline bool detail() const { DARABONBA_PTR_GET_DEFAULT(detail_, false) };
+    inline bool getDetail() const { DARABONBA_PTR_GET_DEFAULT(detail_, false) };
     inline ListCertificatesByRecordRequest& setDetail(bool detail) { DARABONBA_PTR_SET_VALUE(detail_, detail) };
 
 
     // recordName Field Functions 
     bool hasRecordName() const { return this->recordName_ != nullptr;};
     void deleteRecordName() { this->recordName_ = nullptr;};
-    inline string recordName() const { DARABONBA_PTR_GET_DEFAULT(recordName_, "") };
+    inline string getRecordName() const { DARABONBA_PTR_GET_DEFAULT(recordName_, "") };
     inline ListCertificatesByRecordRequest& setRecordName(string recordName) { DARABONBA_PTR_SET_VALUE(recordName_, recordName) };
 
 
     // siteId Field Functions 
     bool hasSiteId() const { return this->siteId_ != nullptr;};
     void deleteSiteId() { this->siteId_ = nullptr;};
-    inline int64_t siteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
+    inline int64_t getSiteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
     inline ListCertificatesByRecordRequest& setSiteId(int64_t siteId) { DARABONBA_PTR_SET_VALUE(siteId_, siteId) };
 
 
     // validOnly Field Functions 
     bool hasValidOnly() const { return this->validOnly_ != nullptr;};
     void deleteValidOnly() { this->validOnly_ = nullptr;};
-    inline bool validOnly() const { DARABONBA_PTR_GET_DEFAULT(validOnly_, false) };
+    inline bool getValidOnly() const { DARABONBA_PTR_GET_DEFAULT(validOnly_, false) };
     inline ListCertificatesByRecordRequest& setValidOnly(bool validOnly) { DARABONBA_PTR_SET_VALUE(validOnly_, validOnly) };
 
 
   protected:
     // Specifies whether to return the certificate details. 0 indicates that the certificate details are not returned. 1 indicates that the certificate details are returned.
-    std::shared_ptr<bool> detail_ = nullptr;
+    shared_ptr<bool> detail_ {};
     // The record name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> recordName_ = nullptr;
+    shared_ptr<string> recordName_ {};
     // The website ID, which can be obtained by calling the [ListSites](~~ListSites~~) operation.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> siteId_ = nullptr;
+    shared_ptr<int64_t> siteId_ {};
     // Specifies whether to return only valid certificates. 0 indicates that all matched certificates are returned. 1 indicates that only valid certificates are returned.
-    std::shared_ptr<bool> validOnly_ = nullptr;
+    shared_ptr<bool> validOnly_ {};
   };
 
   } // namespace Models

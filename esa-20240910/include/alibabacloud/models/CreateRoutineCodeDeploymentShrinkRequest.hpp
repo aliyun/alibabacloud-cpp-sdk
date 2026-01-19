@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->codeVersionsShrink_ == nullptr
-        && return this->env_ == nullptr && return this->name_ == nullptr && return this->strategy_ == nullptr; };
+        && this->env_ == nullptr && this->name_ == nullptr && this->strategy_ == nullptr; };
     // codeVersionsShrink Field Functions 
     bool hasCodeVersionsShrink() const { return this->codeVersionsShrink_ != nullptr;};
     void deleteCodeVersionsShrink() { this->codeVersionsShrink_ = nullptr;};
-    inline string codeVersionsShrink() const { DARABONBA_PTR_GET_DEFAULT(codeVersionsShrink_, "") };
+    inline string getCodeVersionsShrink() const { DARABONBA_PTR_GET_DEFAULT(codeVersionsShrink_, "") };
     inline CreateRoutineCodeDeploymentShrinkRequest& setCodeVersionsShrink(string codeVersionsShrink) { DARABONBA_PTR_SET_VALUE(codeVersionsShrink_, codeVersionsShrink) };
 
 
     // env Field Functions 
     bool hasEnv() const { return this->env_ != nullptr;};
     void deleteEnv() { this->env_ = nullptr;};
-    inline string env() const { DARABONBA_PTR_GET_DEFAULT(env_, "") };
+    inline string getEnv() const { DARABONBA_PTR_GET_DEFAULT(env_, "") };
     inline CreateRoutineCodeDeploymentShrinkRequest& setEnv(string env) { DARABONBA_PTR_SET_VALUE(env_, env) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateRoutineCodeDeploymentShrinkRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // strategy Field Functions 
     bool hasStrategy() const { return this->strategy_ != nullptr;};
     void deleteStrategy() { this->strategy_ = nullptr;};
-    inline string strategy() const { DARABONBA_PTR_GET_DEFAULT(strategy_, "") };
+    inline string getStrategy() const { DARABONBA_PTR_GET_DEFAULT(strategy_, "") };
     inline CreateRoutineCodeDeploymentShrinkRequest& setStrategy(string strategy) { DARABONBA_PTR_SET_VALUE(strategy_, strategy) };
 
 
@@ -69,19 +69,19 @@ namespace Models
     // The configuration list of phased release version numbers. A maximum of two versions are supported, and the sum of the total proportions is equal to 100.
     // 
     // This parameter is required.
-    std::shared_ptr<string> codeVersionsShrink_ = nullptr;
+    shared_ptr<string> codeVersionsShrink_ {};
     // The name of the environment. Only supports test environment `staging` or production environment `production`.
     // 
     // This parameter is required.
-    std::shared_ptr<string> env_ = nullptr;
+    shared_ptr<string> env_ {};
     // The function name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The deployment policy. Valid value: percentage.
     // 
     // This parameter is required.
-    std::shared_ptr<string> strategy_ = nullptr;
+    shared_ptr<string> strategy_ {};
   };
 
   } // namespace Models

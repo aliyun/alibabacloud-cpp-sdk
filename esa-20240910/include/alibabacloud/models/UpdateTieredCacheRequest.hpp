@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cacheArchitectureMode_ == nullptr
-        && return this->siteId_ == nullptr; };
+        && this->siteId_ == nullptr; };
     // cacheArchitectureMode Field Functions 
     bool hasCacheArchitectureMode() const { return this->cacheArchitectureMode_ != nullptr;};
     void deleteCacheArchitectureMode() { this->cacheArchitectureMode_ = nullptr;};
-    inline string cacheArchitectureMode() const { DARABONBA_PTR_GET_DEFAULT(cacheArchitectureMode_, "") };
+    inline string getCacheArchitectureMode() const { DARABONBA_PTR_GET_DEFAULT(cacheArchitectureMode_, "") };
     inline UpdateTieredCacheRequest& setCacheArchitectureMode(string cacheArchitectureMode) { DARABONBA_PTR_SET_VALUE(cacheArchitectureMode_, cacheArchitectureMode) };
 
 
     // siteId Field Functions 
     bool hasSiteId() const { return this->siteId_ != nullptr;};
     void deleteSiteId() { this->siteId_ = nullptr;};
-    inline int64_t siteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
+    inline int64_t getSiteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
     inline UpdateTieredCacheRequest& setSiteId(int64_t siteId) { DARABONBA_PTR_SET_VALUE(siteId_, siteId) };
 
 
@@ -56,11 +56,11 @@ namespace Models
     // *   edge_regional_smart: edge tiered cache + regional tiered cache + smart tiered cache.
     // 
     // This parameter is required.
-    std::shared_ptr<string> cacheArchitectureMode_ = nullptr;
+    shared_ptr<string> cacheArchitectureMode_ {};
     // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> siteId_ = nullptr;
+    shared_ptr<int64_t> siteId_ {};
   };
 
   } // namespace Models

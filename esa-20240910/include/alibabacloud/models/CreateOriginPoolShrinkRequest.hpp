@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->enabled_ == nullptr
-        && return this->name_ == nullptr && return this->originsShrink_ == nullptr && return this->siteId_ == nullptr; };
+        && this->name_ == nullptr && this->originsShrink_ == nullptr && this->siteId_ == nullptr; };
     // enabled Field Functions 
     bool hasEnabled() const { return this->enabled_ != nullptr;};
     void deleteEnabled() { this->enabled_ = nullptr;};
-    inline bool enabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
+    inline bool getEnabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
     inline CreateOriginPoolShrinkRequest& setEnabled(bool enabled) { DARABONBA_PTR_SET_VALUE(enabled_, enabled) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateOriginPoolShrinkRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // originsShrink Field Functions 
     bool hasOriginsShrink() const { return this->originsShrink_ != nullptr;};
     void deleteOriginsShrink() { this->originsShrink_ = nullptr;};
-    inline string originsShrink() const { DARABONBA_PTR_GET_DEFAULT(originsShrink_, "") };
+    inline string getOriginsShrink() const { DARABONBA_PTR_GET_DEFAULT(originsShrink_, "") };
     inline CreateOriginPoolShrinkRequest& setOriginsShrink(string originsShrink) { DARABONBA_PTR_SET_VALUE(originsShrink_, originsShrink) };
 
 
     // siteId Field Functions 
     bool hasSiteId() const { return this->siteId_ != nullptr;};
     void deleteSiteId() { this->siteId_ = nullptr;};
-    inline int64_t siteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
+    inline int64_t getSiteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
     inline CreateOriginPoolShrinkRequest& setSiteId(int64_t siteId) { DARABONBA_PTR_SET_VALUE(siteId_, siteId) };
 
 
@@ -70,17 +70,17 @@ namespace Models
     // 
     // - true: Enabled;
     // - false: Disabled.
-    std::shared_ptr<bool> enabled_ = nullptr;
+    shared_ptr<bool> enabled_ {};
     // The name of the origin address pool, which must be unique within a site.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // Information about the origins added to the origin address pool, with multiple origins passed as an array.
-    std::shared_ptr<string> originsShrink_ = nullptr;
+    shared_ptr<string> originsShrink_ {};
     // The site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> siteId_ = nullptr;
+    shared_ptr<int64_t> siteId_ {};
   };
 
   } // namespace Models

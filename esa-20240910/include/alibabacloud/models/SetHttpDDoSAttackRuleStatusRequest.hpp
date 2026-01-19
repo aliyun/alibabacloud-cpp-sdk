@@ -34,35 +34,45 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ruleIds_ == nullptr
-        && return this->siteId_ == nullptr && return this->status_ == nullptr; };
+        && this->siteId_ == nullptr && this->status_ == nullptr; };
     // ruleIds Field Functions 
     bool hasRuleIds() const { return this->ruleIds_ != nullptr;};
     void deleteRuleIds() { this->ruleIds_ = nullptr;};
-    inline string ruleIds() const { DARABONBA_PTR_GET_DEFAULT(ruleIds_, "") };
+    inline string getRuleIds() const { DARABONBA_PTR_GET_DEFAULT(ruleIds_, "") };
     inline SetHttpDDoSAttackRuleStatusRequest& setRuleIds(string ruleIds) { DARABONBA_PTR_SET_VALUE(ruleIds_, ruleIds) };
 
 
     // siteId Field Functions 
     bool hasSiteId() const { return this->siteId_ != nullptr;};
     void deleteSiteId() { this->siteId_ = nullptr;};
-    inline int64_t siteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
+    inline int64_t getSiteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
     inline SetHttpDDoSAttackRuleStatusRequest& setSiteId(int64_t siteId) { DARABONBA_PTR_SET_VALUE(siteId_, siteId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline SetHttpDDoSAttackRuleStatusRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
   protected:
+    // List of rule IDs to be operated on, separated by English commas (,).
+    // > You can call the [DescribeHttpDDoSAttackRules](~~DescribeHttpDDoSAttackRules~~) interface to get this parameter.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> ruleIds_ = nullptr;
+    shared_ptr<string> ruleIds_ {};
+    // Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+    // 
     // This parameter is required.
-    std::shared_ptr<int64_t> siteId_ = nullptr;
+    shared_ptr<int64_t> siteId_ {};
+    // Rule status
+    // 
+    // - **on**: Enable.
+    // - **off**: Disable.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models

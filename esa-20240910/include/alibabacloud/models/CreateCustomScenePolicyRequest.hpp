@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->endTime_ == nullptr
-        && return this->name_ == nullptr && return this->objects_ == nullptr && return this->siteIds_ == nullptr && return this->startTime_ == nullptr && return this->template_ == nullptr; };
+        && this->name_ == nullptr && this->objects_ == nullptr && this->siteIds_ == nullptr && this->startTime_ == nullptr && this->template_ == nullptr; };
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline CreateCustomScenePolicyRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateCustomScenePolicyRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // objects Field Functions 
     bool hasObjects() const { return this->objects_ != nullptr;};
     void deleteObjects() { this->objects_ = nullptr;};
-    inline string objects() const { DARABONBA_PTR_GET_DEFAULT(objects_, "") };
+    inline string getObjects() const { DARABONBA_PTR_GET_DEFAULT(objects_, "") };
     inline CreateCustomScenePolicyRequest& setObjects(string objects) { DARABONBA_PTR_SET_VALUE(objects_, objects) };
 
 
     // siteIds Field Functions 
     bool hasSiteIds() const { return this->siteIds_ != nullptr;};
     void deleteSiteIds() { this->siteIds_ = nullptr;};
-    inline string siteIds() const { DARABONBA_PTR_GET_DEFAULT(siteIds_, "") };
+    inline string getSiteIds() const { DARABONBA_PTR_GET_DEFAULT(siteIds_, "") };
     inline CreateCustomScenePolicyRequest& setSiteIds(string siteIds) { DARABONBA_PTR_SET_VALUE(siteIds_, siteIds) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline CreateCustomScenePolicyRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // template Field Functions 
     bool hasTemplate() const { return this->template_ != nullptr;};
     void deleteTemplate() { this->template_ = nullptr;};
-    inline string _template() const { DARABONBA_PTR_GET_DEFAULT(template_, "") };
+    inline string getTemplate() const { DARABONBA_PTR_GET_DEFAULT(template_, "") };
     inline CreateCustomScenePolicyRequest& setTemplate(string _template) { DARABONBA_PTR_SET_VALUE(template_, _template) };
 
 
@@ -89,26 +89,26 @@ namespace Models
     // The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
     // 
     // This parameter is required.
-    std::shared_ptr<string> endTime_ = nullptr;
+    shared_ptr<string> endTime_ {};
     // The policy name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The IDs of the websites that you want to associate with the policy. Separate multiple IDs with commas (,).
-    std::shared_ptr<string> objects_ = nullptr;
-    std::shared_ptr<string> siteIds_ = nullptr;
+    shared_ptr<string> objects_ {};
+    shared_ptr<string> siteIds_ {};
     // The time when the policy takes effect.
     // 
     // The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
     // 
     // This parameter is required.
-    std::shared_ptr<string> startTime_ = nullptr;
+    shared_ptr<string> startTime_ {};
     // The name of the policy template. Valid value:
     // 
     // *   **promotion**: major events.
     // 
     // This parameter is required.
-    std::shared_ptr<string> template_ = nullptr;
+    shared_ptr<string> template_ {};
   };
 
   } // namespace Models

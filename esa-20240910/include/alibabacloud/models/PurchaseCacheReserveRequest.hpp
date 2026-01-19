@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoPay_ == nullptr
-        && return this->autoRenew_ == nullptr && return this->chargeType_ == nullptr && return this->crRegion_ == nullptr && return this->period_ == nullptr && return this->quotaGb_ == nullptr; };
+        && this->autoRenew_ == nullptr && this->chargeType_ == nullptr && this->crRegion_ == nullptr && this->period_ == nullptr && this->quotaGb_ == nullptr; };
     // autoPay Field Functions 
     bool hasAutoPay() const { return this->autoPay_ != nullptr;};
     void deleteAutoPay() { this->autoPay_ = nullptr;};
-    inline bool autoPay() const { DARABONBA_PTR_GET_DEFAULT(autoPay_, false) };
+    inline bool getAutoPay() const { DARABONBA_PTR_GET_DEFAULT(autoPay_, false) };
     inline PurchaseCacheReserveRequest& setAutoPay(bool autoPay) { DARABONBA_PTR_SET_VALUE(autoPay_, autoPay) };
 
 
     // autoRenew Field Functions 
     bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
     void deleteAutoRenew() { this->autoRenew_ = nullptr;};
-    inline bool autoRenew() const { DARABONBA_PTR_GET_DEFAULT(autoRenew_, false) };
+    inline bool getAutoRenew() const { DARABONBA_PTR_GET_DEFAULT(autoRenew_, false) };
     inline PurchaseCacheReserveRequest& setAutoRenew(bool autoRenew) { DARABONBA_PTR_SET_VALUE(autoRenew_, autoRenew) };
 
 
     // chargeType Field Functions 
     bool hasChargeType() const { return this->chargeType_ != nullptr;};
     void deleteChargeType() { this->chargeType_ = nullptr;};
-    inline string chargeType() const { DARABONBA_PTR_GET_DEFAULT(chargeType_, "") };
+    inline string getChargeType() const { DARABONBA_PTR_GET_DEFAULT(chargeType_, "") };
     inline PurchaseCacheReserveRequest& setChargeType(string chargeType) { DARABONBA_PTR_SET_VALUE(chargeType_, chargeType) };
 
 
     // crRegion Field Functions 
     bool hasCrRegion() const { return this->crRegion_ != nullptr;};
     void deleteCrRegion() { this->crRegion_ = nullptr;};
-    inline string crRegion() const { DARABONBA_PTR_GET_DEFAULT(crRegion_, "") };
+    inline string getCrRegion() const { DARABONBA_PTR_GET_DEFAULT(crRegion_, "") };
     inline PurchaseCacheReserveRequest& setCrRegion(string crRegion) { DARABONBA_PTR_SET_VALUE(crRegion_, crRegion) };
 
 
     // period Field Functions 
     bool hasPeriod() const { return this->period_ != nullptr;};
     void deletePeriod() { this->period_ = nullptr;};
-    inline int32_t period() const { DARABONBA_PTR_GET_DEFAULT(period_, 0) };
+    inline int32_t getPeriod() const { DARABONBA_PTR_GET_DEFAULT(period_, 0) };
     inline PurchaseCacheReserveRequest& setPeriod(int32_t period) { DARABONBA_PTR_SET_VALUE(period_, period) };
 
 
     // quotaGb Field Functions 
     bool hasQuotaGb() const { return this->quotaGb_ != nullptr;};
     void deleteQuotaGb() { this->quotaGb_ = nullptr;};
-    inline int64_t quotaGb() const { DARABONBA_PTR_GET_DEFAULT(quotaGb_, 0L) };
+    inline int64_t getQuotaGb() const { DARABONBA_PTR_GET_DEFAULT(quotaGb_, 0L) };
     inline PurchaseCacheReserveRequest& setQuotaGb(int64_t quotaGb) { DARABONBA_PTR_SET_VALUE(quotaGb_, quotaGb) };
 
 
@@ -87,23 +87,23 @@ namespace Models
     // Whether to automatically pay. The default value is false.
     // - true: Automatically pay.
     // - false: Do not automatically pay.
-    std::shared_ptr<bool> autoPay_ = nullptr;
+    shared_ptr<bool> autoPay_ {};
     // Whether to auto-renew:
     // - true: Auto-renew.
     // - false: Do not auto-renew.
-    std::shared_ptr<bool> autoRenew_ = nullptr;
+    shared_ptr<bool> autoRenew_ {};
     // Billing type
     // - PREPAY: Prepaid.
     // - POSTPAY: Postpaid.
-    std::shared_ptr<string> chargeType_ = nullptr;
+    shared_ptr<string> chargeType_ {};
     // Cache retention region
     // - HK: Hong Kong, China
     // - CN-beijing: Mainland China - Beijing
-    std::shared_ptr<string> crRegion_ = nullptr;
+    shared_ptr<string> crRegion_ {};
     // Purchase period (unit: month).
-    std::shared_ptr<int32_t> period_ = nullptr;
+    shared_ptr<int32_t> period_ {};
     // Cache retention specification (unit: GB).
-    std::shared_ptr<int64_t> quotaGb_ = nullptr;
+    shared_ptr<int64_t> quotaGb_ {};
   };
 
   } // namespace Models

@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aiMode_ == nullptr
-        && return this->aiTemplate_ == nullptr && return this->siteId_ == nullptr; };
+        && this->aiTemplate_ == nullptr && this->siteId_ == nullptr; };
     // aiMode Field Functions 
     bool hasAiMode() const { return this->aiMode_ != nullptr;};
     void deleteAiMode() { this->aiMode_ = nullptr;};
-    inline string aiMode() const { DARABONBA_PTR_GET_DEFAULT(aiMode_, "") };
+    inline string getAiMode() const { DARABONBA_PTR_GET_DEFAULT(aiMode_, "") };
     inline SetHttpDDoSAttackIntelligentProtectionRequest& setAiMode(string aiMode) { DARABONBA_PTR_SET_VALUE(aiMode_, aiMode) };
 
 
     // aiTemplate Field Functions 
     bool hasAiTemplate() const { return this->aiTemplate_ != nullptr;};
     void deleteAiTemplate() { this->aiTemplate_ = nullptr;};
-    inline string aiTemplate() const { DARABONBA_PTR_GET_DEFAULT(aiTemplate_, "") };
+    inline string getAiTemplate() const { DARABONBA_PTR_GET_DEFAULT(aiTemplate_, "") };
     inline SetHttpDDoSAttackIntelligentProtectionRequest& setAiTemplate(string aiTemplate) { DARABONBA_PTR_SET_VALUE(aiTemplate_, aiTemplate) };
 
 
     // siteId Field Functions 
     bool hasSiteId() const { return this->siteId_ != nullptr;};
     void deleteSiteId() { this->siteId_ = nullptr;};
-    inline int64_t siteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
+    inline int64_t getSiteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
     inline SetHttpDDoSAttackIntelligentProtectionRequest& setSiteId(int64_t siteId) { DARABONBA_PTR_SET_VALUE(siteId_, siteId) };
 
 
@@ -63,7 +63,7 @@ namespace Models
     // *   **defense**: block.
     // 
     // This parameter is required.
-    std::shared_ptr<string> aiMode_ = nullptr;
+    shared_ptr<string> aiMode_ {};
     // The level of smart HTTP DDoS protection. Valid values:
     // 
     // *   **level0**: very loose.
@@ -72,11 +72,11 @@ namespace Models
     // *   **level90**: strict.
     // 
     // This parameter is required.
-    std::shared_ptr<string> aiTemplate_ = nullptr;
+    shared_ptr<string> aiTemplate_ {};
     // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> siteId_ = nullptr;
+    shared_ptr<int64_t> siteId_ {};
   };
 
   } // namespace Models

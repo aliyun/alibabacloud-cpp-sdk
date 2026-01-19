@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->coverage_ == nullptr
-        && return this->siteId_ == nullptr; };
+        && this->siteId_ == nullptr; };
     // coverage Field Functions 
     bool hasCoverage() const { return this->coverage_ != nullptr;};
     void deleteCoverage() { this->coverage_ = nullptr;};
-    inline string coverage() const { DARABONBA_PTR_GET_DEFAULT(coverage_, "") };
+    inline string getCoverage() const { DARABONBA_PTR_GET_DEFAULT(coverage_, "") };
     inline UpdateSiteCoverageRequest& setCoverage(string coverage) { DARABONBA_PTR_SET_VALUE(coverage_, coverage) };
 
 
     // siteId Field Functions 
     bool hasSiteId() const { return this->siteId_ != nullptr;};
     void deleteSiteId() { this->siteId_ = nullptr;};
-    inline int64_t siteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
+    inline int64_t getSiteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
     inline UpdateSiteCoverageRequest& setSiteId(int64_t siteId) { DARABONBA_PTR_SET_VALUE(siteId_, siteId) };
 
 
@@ -55,11 +55,11 @@ namespace Models
     // *   **overseas**: outside the Chinese mainland
     // 
     // This parameter is required.
-    std::shared_ptr<string> coverage_ = nullptr;
+    shared_ptr<string> coverage_ {};
     // The website ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> siteId_ = nullptr;
+    shared_ptr<int64_t> siteId_ {};
   };
 
   } // namespace Models

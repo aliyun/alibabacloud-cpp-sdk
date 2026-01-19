@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->recordId_ == nullptr
-        && return this->securityToken_ == nullptr; };
+        && this->securityToken_ == nullptr; };
     // recordId Field Functions 
     bool hasRecordId() const { return this->recordId_ != nullptr;};
     void deleteRecordId() { this->recordId_ = nullptr;};
-    inline int64_t recordId() const { DARABONBA_PTR_GET_DEFAULT(recordId_, 0L) };
+    inline int64_t getRecordId() const { DARABONBA_PTR_GET_DEFAULT(recordId_, 0L) };
     inline DeleteRecordRequest& setRecordId(int64_t recordId) { DARABONBA_PTR_SET_VALUE(recordId_, recordId) };
 
 
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
-    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
     inline DeleteRecordRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
@@ -51,8 +51,8 @@ namespace Models
     // The record ID, which can be obtained by calling [ListRecords](https://help.aliyun.com/document_detail/2850265.html).
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> recordId_ = nullptr;
-    std::shared_ptr<string> securityToken_ = nullptr;
+    shared_ptr<int64_t> recordId_ {};
+    shared_ptr<string> securityToken_ {};
   };
 
   } // namespace Models

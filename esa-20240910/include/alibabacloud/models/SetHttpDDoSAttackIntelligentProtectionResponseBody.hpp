@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aiMode_ == nullptr
-        && return this->aiTemplate_ == nullptr && return this->requestId_ == nullptr && return this->siteId_ == nullptr; };
+        && this->aiTemplate_ == nullptr && this->requestId_ == nullptr && this->siteId_ == nullptr; };
     // aiMode Field Functions 
     bool hasAiMode() const { return this->aiMode_ != nullptr;};
     void deleteAiMode() { this->aiMode_ = nullptr;};
-    inline string aiMode() const { DARABONBA_PTR_GET_DEFAULT(aiMode_, "") };
+    inline string getAiMode() const { DARABONBA_PTR_GET_DEFAULT(aiMode_, "") };
     inline SetHttpDDoSAttackIntelligentProtectionResponseBody& setAiMode(string aiMode) { DARABONBA_PTR_SET_VALUE(aiMode_, aiMode) };
 
 
     // aiTemplate Field Functions 
     bool hasAiTemplate() const { return this->aiTemplate_ != nullptr;};
     void deleteAiTemplate() { this->aiTemplate_ = nullptr;};
-    inline string aiTemplate() const { DARABONBA_PTR_GET_DEFAULT(aiTemplate_, "") };
+    inline string getAiTemplate() const { DARABONBA_PTR_GET_DEFAULT(aiTemplate_, "") };
     inline SetHttpDDoSAttackIntelligentProtectionResponseBody& setAiTemplate(string aiTemplate) { DARABONBA_PTR_SET_VALUE(aiTemplate_, aiTemplate) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline SetHttpDDoSAttackIntelligentProtectionResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // siteId Field Functions 
     bool hasSiteId() const { return this->siteId_ != nullptr;};
     void deleteSiteId() { this->siteId_ = nullptr;};
-    inline int64_t siteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
+    inline int64_t getSiteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
     inline SetHttpDDoSAttackIntelligentProtectionResponseBody& setSiteId(int64_t siteId) { DARABONBA_PTR_SET_VALUE(siteId_, siteId) };
 
 
@@ -70,18 +70,18 @@ namespace Models
     // 
     // *   **observe**: alert.
     // *   **defense**: block.
-    std::shared_ptr<string> aiMode_ = nullptr;
+    shared_ptr<string> aiMode_ {};
     // The level of smart HTTP DDoS protection. Valid values:
     // 
     // *   **level0**: very loose.
     // *   **level30**: loose.
     // *   **level60**: normal.
     // *   **level90**: strict.
-    std::shared_ptr<string> aiTemplate_ = nullptr;
+    shared_ptr<string> aiTemplate_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The website ID.
-    std::shared_ptr<int64_t> siteId_ = nullptr;
+    shared_ptr<int64_t> siteId_ {};
   };
 
   } // namespace Models

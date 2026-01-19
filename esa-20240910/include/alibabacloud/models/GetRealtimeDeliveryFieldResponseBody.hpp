@@ -34,12 +34,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fieldContent_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // fieldContent Field Functions 
     bool hasFieldContent() const { return this->fieldContent_ != nullptr;};
     void deleteFieldContent() { this->fieldContent_ = nullptr;};
-    inline const map<string, FieldContentValue> & fieldContent() const { DARABONBA_PTR_GET_CONST(fieldContent_, map<string, FieldContentValue>) };
-    inline map<string, FieldContentValue> fieldContent() { DARABONBA_PTR_GET(fieldContent_, map<string, FieldContentValue>) };
+    inline const map<string, FieldContentValue> & getFieldContent() const { DARABONBA_PTR_GET_CONST(fieldContent_, map<string, FieldContentValue>) };
+    inline map<string, FieldContentValue> getFieldContent() { DARABONBA_PTR_GET(fieldContent_, map<string, FieldContentValue>) };
     inline GetRealtimeDeliveryFieldResponseBody& setFieldContent(const map<string, FieldContentValue> & fieldContent) { DARABONBA_PTR_SET_VALUE(fieldContent_, fieldContent) };
     inline GetRealtimeDeliveryFieldResponseBody& setFieldContent(map<string, FieldContentValue> && fieldContent) { DARABONBA_PTR_SET_RVALUE(fieldContent_, fieldContent) };
 
@@ -47,15 +47,15 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetRealtimeDeliveryFieldResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The fields returned.
-    std::shared_ptr<map<string, FieldContentValue>> fieldContent_ = nullptr;
+    shared_ptr<map<string, FieldContentValue>> fieldContent_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

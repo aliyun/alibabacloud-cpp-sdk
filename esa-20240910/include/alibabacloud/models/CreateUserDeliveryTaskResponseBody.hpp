@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dataCenter_ == nullptr
-        && return this->requestId_ == nullptr && return this->status_ == nullptr && return this->taskName_ == nullptr; };
+        && this->requestId_ == nullptr && this->status_ == nullptr && this->taskName_ == nullptr; };
     // dataCenter Field Functions 
     bool hasDataCenter() const { return this->dataCenter_ != nullptr;};
     void deleteDataCenter() { this->dataCenter_ = nullptr;};
-    inline string dataCenter() const { DARABONBA_PTR_GET_DEFAULT(dataCenter_, "") };
+    inline string getDataCenter() const { DARABONBA_PTR_GET_DEFAULT(dataCenter_, "") };
     inline CreateUserDeliveryTaskResponseBody& setDataCenter(string dataCenter) { DARABONBA_PTR_SET_VALUE(dataCenter_, dataCenter) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateUserDeliveryTaskResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline CreateUserDeliveryTaskResponseBody& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // taskName Field Functions 
     bool hasTaskName() const { return this->taskName_ != nullptr;};
     void deleteTaskName() { this->taskName_ = nullptr;};
-    inline string taskName() const { DARABONBA_PTR_GET_DEFAULT(taskName_, "") };
+    inline string getTaskName() const { DARABONBA_PTR_GET_DEFAULT(taskName_, "") };
     inline CreateUserDeliveryTaskResponseBody& setTaskName(string taskName) { DARABONBA_PTR_SET_VALUE(taskName_, taskName) };
 
 
@@ -70,13 +70,13 @@ namespace Models
     // 
     // *   cn: the Chinese mainland.
     // *   sg: outside the Chinese mainland.
-    std::shared_ptr<string> dataCenter_ = nullptr;
+    shared_ptr<string> dataCenter_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The status of the delivery task.
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
     // The name of the delivery task.
-    std::shared_ptr<string> taskName_ = nullptr;
+    shared_ptr<string> taskName_ {};
   };
 
   } // namespace Models

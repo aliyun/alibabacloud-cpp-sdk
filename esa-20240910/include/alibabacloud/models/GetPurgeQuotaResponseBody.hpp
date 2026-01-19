@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->quota_ == nullptr
-        && return this->requestId_ == nullptr && return this->usage_ == nullptr; };
+        && this->requestId_ == nullptr && this->usage_ == nullptr; };
     // quota Field Functions 
     bool hasQuota() const { return this->quota_ != nullptr;};
     void deleteQuota() { this->quota_ = nullptr;};
-    inline string quota() const { DARABONBA_PTR_GET_DEFAULT(quota_, "") };
+    inline string getQuota() const { DARABONBA_PTR_GET_DEFAULT(quota_, "") };
     inline GetPurgeQuotaResponseBody& setQuota(string quota) { DARABONBA_PTR_SET_VALUE(quota_, quota) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetPurgeQuotaResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // usage Field Functions 
     bool hasUsage() const { return this->usage_ != nullptr;};
     void deleteUsage() { this->usage_ = nullptr;};
-    inline string usage() const { DARABONBA_PTR_GET_DEFAULT(usage_, "") };
+    inline string getUsage() const { DARABONBA_PTR_GET_DEFAULT(usage_, "") };
     inline GetPurgeQuotaResponseBody& setUsage(string usage) { DARABONBA_PTR_SET_VALUE(usage_, usage) };
 
 
   protected:
     // The total quota.
-    std::shared_ptr<string> quota_ = nullptr;
+    shared_ptr<string> quota_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The quota usage.
-    std::shared_ptr<string> usage_ = nullptr;
+    shared_ptr<string> usage_ {};
   };
 
   } // namespace Models

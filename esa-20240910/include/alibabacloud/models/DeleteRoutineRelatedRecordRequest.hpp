@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->name_ == nullptr
-        && return this->recordId_ == nullptr && return this->recordName_ == nullptr && return this->siteId_ == nullptr; };
+        && this->recordId_ == nullptr && this->recordName_ == nullptr && this->siteId_ == nullptr; };
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline DeleteRoutineRelatedRecordRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // recordId Field Functions 
     bool hasRecordId() const { return this->recordId_ != nullptr;};
     void deleteRecordId() { this->recordId_ = nullptr;};
-    inline int64_t recordId() const { DARABONBA_PTR_GET_DEFAULT(recordId_, 0L) };
+    inline int64_t getRecordId() const { DARABONBA_PTR_GET_DEFAULT(recordId_, 0L) };
     inline DeleteRoutineRelatedRecordRequest& setRecordId(int64_t recordId) { DARABONBA_PTR_SET_VALUE(recordId_, recordId) };
 
 
     // recordName Field Functions 
     bool hasRecordName() const { return this->recordName_ != nullptr;};
     void deleteRecordName() { this->recordName_ = nullptr;};
-    inline string recordName() const { DARABONBA_PTR_GET_DEFAULT(recordName_, "") };
+    inline string getRecordName() const { DARABONBA_PTR_GET_DEFAULT(recordName_, "") };
     inline DeleteRoutineRelatedRecordRequest& setRecordName(string recordName) { DARABONBA_PTR_SET_VALUE(recordName_, recordName) };
 
 
     // siteId Field Functions 
     bool hasSiteId() const { return this->siteId_ != nullptr;};
     void deleteSiteId() { this->siteId_ = nullptr;};
-    inline int64_t siteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
+    inline int64_t getSiteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
     inline DeleteRoutineRelatedRecordRequest& setSiteId(int64_t siteId) { DARABONBA_PTR_SET_VALUE(siteId_, siteId) };
 
 
@@ -69,19 +69,19 @@ namespace Models
     // The routine name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The record ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> recordId_ = nullptr;
+    shared_ptr<int64_t> recordId_ {};
     // The record name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> recordName_ = nullptr;
+    shared_ptr<string> recordName_ {};
     // The website ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> siteId_ = nullptr;
+    shared_ptr<int64_t> siteId_ {};
   };
 
   } // namespace Models

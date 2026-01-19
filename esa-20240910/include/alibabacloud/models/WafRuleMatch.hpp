@@ -44,20 +44,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->convertToLower_ == nullptr
-        && return this->criteria_ == nullptr && return this->logic_ == nullptr && return this->matchOperator_ == nullptr && return this->matchType_ == nullptr && return this->matchValue_ == nullptr
-        && return this->negate_ == nullptr; };
+        && this->criteria_ == nullptr && this->logic_ == nullptr && this->matchOperator_ == nullptr && this->matchType_ == nullptr && this->matchValue_ == nullptr
+        && this->negate_ == nullptr; };
     // convertToLower Field Functions 
     bool hasConvertToLower() const { return this->convertToLower_ != nullptr;};
     void deleteConvertToLower() { this->convertToLower_ = nullptr;};
-    inline bool convertToLower() const { DARABONBA_PTR_GET_DEFAULT(convertToLower_, false) };
+    inline bool getConvertToLower() const { DARABONBA_PTR_GET_DEFAULT(convertToLower_, false) };
     inline WafRuleMatch& setConvertToLower(bool convertToLower) { DARABONBA_PTR_SET_VALUE(convertToLower_, convertToLower) };
 
 
     // criteria Field Functions 
     bool hasCriteria() const { return this->criteria_ != nullptr;};
     void deleteCriteria() { this->criteria_ = nullptr;};
-    inline const vector<WafRuleMatch> & criteria() const { DARABONBA_PTR_GET_CONST(criteria_, vector<WafRuleMatch>) };
-    inline vector<WafRuleMatch> criteria() { DARABONBA_PTR_GET(criteria_, vector<WafRuleMatch>) };
+    inline const vector<WafRuleMatch> & getCriteria() const { DARABONBA_PTR_GET_CONST(criteria_, vector<WafRuleMatch>) };
+    inline vector<WafRuleMatch> getCriteria() { DARABONBA_PTR_GET(criteria_, vector<WafRuleMatch>) };
     inline WafRuleMatch& setCriteria(const vector<WafRuleMatch> & criteria) { DARABONBA_PTR_SET_VALUE(criteria_, criteria) };
     inline WafRuleMatch& setCriteria(vector<WafRuleMatch> && criteria) { DARABONBA_PTR_SET_RVALUE(criteria_, criteria) };
 
@@ -65,48 +65,48 @@ namespace Models
     // logic Field Functions 
     bool hasLogic() const { return this->logic_ != nullptr;};
     void deleteLogic() { this->logic_ = nullptr;};
-    inline string logic() const { DARABONBA_PTR_GET_DEFAULT(logic_, "") };
+    inline string getLogic() const { DARABONBA_PTR_GET_DEFAULT(logic_, "") };
     inline WafRuleMatch& setLogic(string logic) { DARABONBA_PTR_SET_VALUE(logic_, logic) };
 
 
     // matchOperator Field Functions 
     bool hasMatchOperator() const { return this->matchOperator_ != nullptr;};
     void deleteMatchOperator() { this->matchOperator_ = nullptr;};
-    inline string matchOperator() const { DARABONBA_PTR_GET_DEFAULT(matchOperator_, "") };
+    inline string getMatchOperator() const { DARABONBA_PTR_GET_DEFAULT(matchOperator_, "") };
     inline WafRuleMatch& setMatchOperator(string matchOperator) { DARABONBA_PTR_SET_VALUE(matchOperator_, matchOperator) };
 
 
     // matchType Field Functions 
     bool hasMatchType() const { return this->matchType_ != nullptr;};
     void deleteMatchType() { this->matchType_ = nullptr;};
-    inline string matchType() const { DARABONBA_PTR_GET_DEFAULT(matchType_, "") };
+    inline string getMatchType() const { DARABONBA_PTR_GET_DEFAULT(matchType_, "") };
     inline WafRuleMatch& setMatchType(string matchType) { DARABONBA_PTR_SET_VALUE(matchType_, matchType) };
 
 
     // matchValue Field Functions 
     bool hasMatchValue() const { return this->matchValue_ != nullptr;};
     void deleteMatchValue() { this->matchValue_ = nullptr;};
-    inline     const Darabonba::Json & matchValue() const { DARABONBA_GET(matchValue_) };
-    Darabonba::Json & matchValue() { DARABONBA_GET(matchValue_) };
+    inline     const Darabonba::Json & getMatchValue() const { DARABONBA_GET(matchValue_) };
+    Darabonba::Json & getMatchValue() { DARABONBA_GET(matchValue_) };
     inline WafRuleMatch& setMatchValue(const Darabonba::Json & matchValue) { DARABONBA_SET_VALUE(matchValue_, matchValue) };
-    inline WafRuleMatch& setMatchValue(Darabonba::Json & matchValue) { DARABONBA_SET_RVALUE(matchValue_, matchValue) };
+    inline WafRuleMatch& setMatchValue(Darabonba::Json && matchValue) { DARABONBA_SET_RVALUE(matchValue_, matchValue) };
 
 
     // negate Field Functions 
     bool hasNegate() const { return this->negate_ != nullptr;};
     void deleteNegate() { this->negate_ = nullptr;};
-    inline bool negate() const { DARABONBA_PTR_GET_DEFAULT(negate_, false) };
+    inline bool getNegate() const { DARABONBA_PTR_GET_DEFAULT(negate_, false) };
     inline WafRuleMatch& setNegate(bool negate) { DARABONBA_PTR_SET_VALUE(negate_, negate) };
 
 
   protected:
-    std::shared_ptr<bool> convertToLower_ = nullptr;
-    std::shared_ptr<vector<WafRuleMatch>> criteria_ = nullptr;
-    std::shared_ptr<string> logic_ = nullptr;
-    std::shared_ptr<string> matchOperator_ = nullptr;
-    std::shared_ptr<string> matchType_ = nullptr;
-    Darabonba::Json matchValue_ = nullptr;
-    std::shared_ptr<bool> negate_ = nullptr;
+    shared_ptr<bool> convertToLower_ {};
+    shared_ptr<vector<WafRuleMatch>> criteria_ {};
+    shared_ptr<string> logic_ {};
+    shared_ptr<string> matchOperator_ {};
+    shared_ptr<string> matchType_ {};
+    Darabonba::Json matchValue_ {};
+    shared_ptr<bool> negate_ {};
   };
 
   } // namespace Models

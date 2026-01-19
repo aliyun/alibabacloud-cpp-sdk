@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->check_ == nullptr
-        && return this->description_ == nullptr && return this->projectName_ == nullptr && return this->requestId_ == nullptr; };
+        && this->description_ == nullptr && this->projectName_ == nullptr && this->requestId_ == nullptr; };
     // check Field Functions 
     bool hasCheck() const { return this->check_ != nullptr;};
     void deleteCheck() { this->check_ = nullptr;};
-    inline bool check() const { DARABONBA_PTR_GET_DEFAULT(check_, false) };
+    inline bool getCheck() const { DARABONBA_PTR_GET_DEFAULT(check_, false) };
     inline CheckUserProjectNameResponseBody& setCheck(bool check) { DARABONBA_PTR_SET_VALUE(check_, check) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CheckUserProjectNameResponseBody& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // projectName Field Functions 
     bool hasProjectName() const { return this->projectName_ != nullptr;};
     void deleteProjectName() { this->projectName_ = nullptr;};
-    inline string projectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
+    inline string getProjectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
     inline CheckUserProjectNameResponseBody& setProjectName(string projectName) { DARABONBA_PTR_SET_VALUE(projectName_, projectName) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CheckUserProjectNameResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
@@ -70,13 +70,13 @@ namespace Models
     // 
     // *   **true**
     // *   **false**
-    std::shared_ptr<bool> check_ = nullptr;
+    shared_ptr<bool> check_ {};
     // The reason why the name passed or failed the check.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The name of the real-time log delivery task.
-    std::shared_ptr<string> projectName_ = nullptr;
+    shared_ptr<string> projectName_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

@@ -47,48 +47,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->expression_ == nullptr && return this->instanceId_ == nullptr && return this->name_ == nullptr && return this->phase_ == nullptr && return this->rules_ == nullptr
-        && return this->shared_ == nullptr && return this->status_ == nullptr; };
+        && this->expression_ == nullptr && this->instanceId_ == nullptr && this->name_ == nullptr && this->phase_ == nullptr && this->rules_ == nullptr
+        && this->shared_ == nullptr && this->status_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateUserWafRulesetRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // expression Field Functions 
     bool hasExpression() const { return this->expression_ != nullptr;};
     void deleteExpression() { this->expression_ = nullptr;};
-    inline string expression() const { DARABONBA_PTR_GET_DEFAULT(expression_, "") };
+    inline string getExpression() const { DARABONBA_PTR_GET_DEFAULT(expression_, "") };
     inline CreateUserWafRulesetRequest& setExpression(string expression) { DARABONBA_PTR_SET_VALUE(expression_, expression) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline CreateUserWafRulesetRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateUserWafRulesetRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // phase Field Functions 
     bool hasPhase() const { return this->phase_ != nullptr;};
     void deletePhase() { this->phase_ = nullptr;};
-    inline string phase() const { DARABONBA_PTR_GET_DEFAULT(phase_, "") };
+    inline string getPhase() const { DARABONBA_PTR_GET_DEFAULT(phase_, "") };
     inline CreateUserWafRulesetRequest& setPhase(string phase) { DARABONBA_PTR_SET_VALUE(phase_, phase) };
 
 
     // rules Field Functions 
     bool hasRules() const { return this->rules_ != nullptr;};
     void deleteRules() { this->rules_ = nullptr;};
-    inline const vector<WafRuleConfig> & rules() const { DARABONBA_PTR_GET_CONST(rules_, vector<WafRuleConfig>) };
-    inline vector<WafRuleConfig> rules() { DARABONBA_PTR_GET(rules_, vector<WafRuleConfig>) };
+    inline const vector<WafRuleConfig> & getRules() const { DARABONBA_PTR_GET_CONST(rules_, vector<WafRuleConfig>) };
+    inline vector<WafRuleConfig> getRules() { DARABONBA_PTR_GET(rules_, vector<WafRuleConfig>) };
     inline CreateUserWafRulesetRequest& setRules(const vector<WafRuleConfig> & rules) { DARABONBA_PTR_SET_VALUE(rules_, rules) };
     inline CreateUserWafRulesetRequest& setRules(vector<WafRuleConfig> && rules) { DARABONBA_PTR_SET_RVALUE(rules_, rules) };
 
@@ -96,8 +96,8 @@ namespace Models
     // shared Field Functions 
     bool hasShared() const { return this->shared_ != nullptr;};
     void deleteShared() { this->shared_ = nullptr;};
-    inline const WafBatchRuleShared & shared() const { DARABONBA_PTR_GET_CONST(shared_, WafBatchRuleShared) };
-    inline WafBatchRuleShared shared() { DARABONBA_PTR_GET(shared_, WafBatchRuleShared) };
+    inline const WafBatchRuleShared & getShared() const { DARABONBA_PTR_GET_CONST(shared_, WafBatchRuleShared) };
+    inline WafBatchRuleShared getShared() { DARABONBA_PTR_GET(shared_, WafBatchRuleShared) };
     inline CreateUserWafRulesetRequest& setShared(const WafBatchRuleShared & shared) { DARABONBA_PTR_SET_VALUE(shared_, shared) };
     inline CreateUserWafRulesetRequest& setShared(WafBatchRuleShared && shared) { DARABONBA_PTR_SET_RVALUE(shared_, shared) };
 
@@ -105,24 +105,24 @@ namespace Models
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline CreateUserWafRulesetRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
   protected:
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // This parameter is required.
-    std::shared_ptr<string> expression_ = nullptr;
+    shared_ptr<string> expression_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // This parameter is required.
-    std::shared_ptr<string> phase_ = nullptr;
-    std::shared_ptr<vector<WafRuleConfig>> rules_ = nullptr;
-    std::shared_ptr<WafBatchRuleShared> shared_ = nullptr;
+    shared_ptr<string> phase_ {};
+    shared_ptr<vector<WafRuleConfig>> rules_ {};
+    shared_ptr<WafBatchRuleShared> shared_ {};
     // This parameter is required.
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models

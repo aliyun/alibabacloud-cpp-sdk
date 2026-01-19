@@ -33,28 +33,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->enable_ == nullptr
-        && return this->value_ == nullptr; };
+        && this->value_ == nullptr; };
     // enable Field Functions 
     bool hasEnable() const { return this->enable_ != nullptr;};
     void deleteEnable() { this->enable_ = nullptr;};
-    inline bool enable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
+    inline bool getEnable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
     inline QuotaListItemsValue& setEnable(bool enable) { DARABONBA_PTR_SET_VALUE(enable_, enable) };
 
 
     // value Field Functions 
     bool hasValue() const { return this->value_ != nullptr;};
     void deleteValue() { this->value_ = nullptr;};
-    inline const WafQuotaString & value() const { DARABONBA_PTR_GET_CONST(value_, WafQuotaString) };
-    inline WafQuotaString value() { DARABONBA_PTR_GET(value_, WafQuotaString) };
+    inline const WafQuotaString & getValue() const { DARABONBA_PTR_GET_CONST(value_, WafQuotaString) };
+    inline WafQuotaString getValue() { DARABONBA_PTR_GET(value_, WafQuotaString) };
     inline QuotaListItemsValue& setValue(const WafQuotaString & value) { DARABONBA_PTR_SET_VALUE(value_, value) };
     inline QuotaListItemsValue& setValue(WafQuotaString && value) { DARABONBA_PTR_SET_RVALUE(value_, value) };
 
 
   protected:
     // The switch for the type of item in the custom list.
-    std::shared_ptr<bool> enable_ = nullptr;
+    shared_ptr<bool> enable_ {};
     // Format restrictions for the type of item in the custom list.
-    std::shared_ptr<WafQuotaString> value_ = nullptr;
+    shared_ptr<WafQuotaString> value_ {};
   };
 
   } // namespace Models

@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->recordListShrink_ == nullptr
-        && return this->siteId_ == nullptr; };
+        && this->siteId_ == nullptr; };
     // recordListShrink Field Functions 
     bool hasRecordListShrink() const { return this->recordListShrink_ != nullptr;};
     void deleteRecordListShrink() { this->recordListShrink_ = nullptr;};
-    inline string recordListShrink() const { DARABONBA_PTR_GET_DEFAULT(recordListShrink_, "") };
+    inline string getRecordListShrink() const { DARABONBA_PTR_GET_DEFAULT(recordListShrink_, "") };
     inline BatchCreateRecordsShrinkRequest& setRecordListShrink(string recordListShrink) { DARABONBA_PTR_SET_VALUE(recordListShrink_, recordListShrink) };
 
 
     // siteId Field Functions 
     bool hasSiteId() const { return this->siteId_ != nullptr;};
     void deleteSiteId() { this->siteId_ = nullptr;};
-    inline int64_t siteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
+    inline int64_t getSiteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
     inline BatchCreateRecordsShrinkRequest& setSiteId(int64_t siteId) { DARABONBA_PTR_SET_VALUE(siteId_, siteId) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The list of DNS records to be created.
     // 
     // This parameter is required.
-    std::shared_ptr<string> recordListShrink_ = nullptr;
+    shared_ptr<string> recordListShrink_ {};
     // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> siteId_ = nullptr;
+    shared_ptr<int64_t> siteId_ {};
   };
 
   } // namespace Models

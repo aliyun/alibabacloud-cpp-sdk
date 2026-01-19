@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->loadBalancerIds_ == nullptr
-        && return this->poolType_ == nullptr && return this->siteId_ == nullptr; };
+        && this->poolType_ == nullptr && this->siteId_ == nullptr; };
     // loadBalancerIds Field Functions 
     bool hasLoadBalancerIds() const { return this->loadBalancerIds_ != nullptr;};
     void deleteLoadBalancerIds() { this->loadBalancerIds_ = nullptr;};
-    inline string loadBalancerIds() const { DARABONBA_PTR_GET_DEFAULT(loadBalancerIds_, "") };
+    inline string getLoadBalancerIds() const { DARABONBA_PTR_GET_DEFAULT(loadBalancerIds_, "") };
     inline ListLoadBalancerOriginStatusRequest& setLoadBalancerIds(string loadBalancerIds) { DARABONBA_PTR_SET_VALUE(loadBalancerIds_, loadBalancerIds) };
 
 
     // poolType Field Functions 
     bool hasPoolType() const { return this->poolType_ != nullptr;};
     void deletePoolType() { this->poolType_ = nullptr;};
-    inline string poolType() const { DARABONBA_PTR_GET_DEFAULT(poolType_, "") };
+    inline string getPoolType() const { DARABONBA_PTR_GET_DEFAULT(poolType_, "") };
     inline ListLoadBalancerOriginStatusRequest& setPoolType(string poolType) { DARABONBA_PTR_SET_VALUE(poolType_, poolType) };
 
 
     // siteId Field Functions 
     bool hasSiteId() const { return this->siteId_ != nullptr;};
     void deleteSiteId() { this->siteId_ = nullptr;};
-    inline int64_t siteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
+    inline int64_t getSiteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
     inline ListLoadBalancerOriginStatusRequest& setSiteId(int64_t siteId) { DARABONBA_PTR_SET_VALUE(siteId_, siteId) };
 
 
@@ -60,13 +60,13 @@ namespace Models
     // Load balancer ID. When querying multiple load balancers, separate the IDs with commas. A maximum of 100 load balancer IDs can be passed at once. Load balancer IDs can be obtained by calling the [ListLoadBalancers](https://help.aliyun.com/document_detail/2868897.html) interface.
     // 
     // This parameter is required.
-    std::shared_ptr<string> loadBalancerIds_ = nullptr;
+    shared_ptr<string> loadBalancerIds_ {};
     // Source address pool type. Various source address pools are configured under the load balancer, including default pools, fallback pools, and primary region pools. Only the status of origins in the default pool affects the status of the load balancer itself. Passing `default_pool` means only querying the status of origins in the default source address pool under the load balancer.
-    std::shared_ptr<string> poolType_ = nullptr;
+    shared_ptr<string> poolType_ {};
     // Site ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> siteId_ = nullptr;
+    shared_ptr<int64_t> siteId_ {};
   };
 
   } // namespace Models

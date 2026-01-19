@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->sdkType_ == nullptr
-        && return this->siteId_ == nullptr && return this->url_ == nullptr; };
+        && this->siteId_ == nullptr && this->url_ == nullptr; };
     // sdkType Field Functions 
     bool hasSdkType() const { return this->sdkType_ != nullptr;};
     void deleteSdkType() { this->sdkType_ = nullptr;};
-    inline string sdkType() const { DARABONBA_PTR_GET_DEFAULT(sdkType_, "") };
+    inline string getSdkType() const { DARABONBA_PTR_GET_DEFAULT(sdkType_, "") };
     inline CreateUrlObservationRequest& setSdkType(string sdkType) { DARABONBA_PTR_SET_VALUE(sdkType_, sdkType) };
 
 
     // siteId Field Functions 
     bool hasSiteId() const { return this->siteId_ != nullptr;};
     void deleteSiteId() { this->siteId_ = nullptr;};
-    inline int64_t siteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
+    inline int64_t getSiteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
     inline CreateUrlObservationRequest& setSiteId(int64_t siteId) { DARABONBA_PTR_SET_VALUE(siteId_, siteId) };
 
 
     // url Field Functions 
     bool hasUrl() const { return this->url_ != nullptr;};
     void deleteUrl() { this->url_ = nullptr;};
-    inline string url() const { DARABONBA_PTR_GET_DEFAULT(url_, "") };
+    inline string getUrl() const { DARABONBA_PTR_GET_DEFAULT(url_, "") };
     inline CreateUrlObservationRequest& setUrl(string url) { DARABONBA_PTR_SET_VALUE(url_, url) };
 
 
@@ -63,15 +63,15 @@ namespace Models
     // *   **manual**
     // 
     // This parameter is required.
-    std::shared_ptr<string> sdkType_ = nullptr;
+    shared_ptr<string> sdkType_ {};
     // The website ID, which can be obtained by calling the [ListSites](~~ListSites~~) operation.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> siteId_ = nullptr;
+    shared_ptr<int64_t> siteId_ {};
     // The URL of the web page to monitor.
     // 
     // This parameter is required.
-    std::shared_ptr<string> url_ = nullptr;
+    shared_ptr<string> url_ {};
   };
 
   } // namespace Models

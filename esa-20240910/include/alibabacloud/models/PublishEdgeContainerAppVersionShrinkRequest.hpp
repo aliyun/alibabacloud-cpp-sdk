@@ -46,68 +46,68 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->fullRelease_ == nullptr && return this->percentage_ == nullptr && return this->publishEnv_ == nullptr && return this->publishType_ == nullptr && return this->regionsShrink_ == nullptr
-        && return this->remarks_ == nullptr && return this->startTime_ == nullptr && return this->versionId_ == nullptr; };
+        && this->fullRelease_ == nullptr && this->percentage_ == nullptr && this->publishEnv_ == nullptr && this->publishType_ == nullptr && this->regionsShrink_ == nullptr
+        && this->remarks_ == nullptr && this->startTime_ == nullptr && this->versionId_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline PublishEdgeContainerAppVersionShrinkRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // fullRelease Field Functions 
     bool hasFullRelease() const { return this->fullRelease_ != nullptr;};
     void deleteFullRelease() { this->fullRelease_ = nullptr;};
-    inline bool fullRelease() const { DARABONBA_PTR_GET_DEFAULT(fullRelease_, false) };
+    inline bool getFullRelease() const { DARABONBA_PTR_GET_DEFAULT(fullRelease_, false) };
     inline PublishEdgeContainerAppVersionShrinkRequest& setFullRelease(bool fullRelease) { DARABONBA_PTR_SET_VALUE(fullRelease_, fullRelease) };
 
 
     // percentage Field Functions 
     bool hasPercentage() const { return this->percentage_ != nullptr;};
     void deletePercentage() { this->percentage_ = nullptr;};
-    inline int32_t percentage() const { DARABONBA_PTR_GET_DEFAULT(percentage_, 0) };
+    inline int32_t getPercentage() const { DARABONBA_PTR_GET_DEFAULT(percentage_, 0) };
     inline PublishEdgeContainerAppVersionShrinkRequest& setPercentage(int32_t percentage) { DARABONBA_PTR_SET_VALUE(percentage_, percentage) };
 
 
     // publishEnv Field Functions 
     bool hasPublishEnv() const { return this->publishEnv_ != nullptr;};
     void deletePublishEnv() { this->publishEnv_ = nullptr;};
-    inline string publishEnv() const { DARABONBA_PTR_GET_DEFAULT(publishEnv_, "") };
+    inline string getPublishEnv() const { DARABONBA_PTR_GET_DEFAULT(publishEnv_, "") };
     inline PublishEdgeContainerAppVersionShrinkRequest& setPublishEnv(string publishEnv) { DARABONBA_PTR_SET_VALUE(publishEnv_, publishEnv) };
 
 
     // publishType Field Functions 
     bool hasPublishType() const { return this->publishType_ != nullptr;};
     void deletePublishType() { this->publishType_ = nullptr;};
-    inline string publishType() const { DARABONBA_PTR_GET_DEFAULT(publishType_, "") };
+    inline string getPublishType() const { DARABONBA_PTR_GET_DEFAULT(publishType_, "") };
     inline PublishEdgeContainerAppVersionShrinkRequest& setPublishType(string publishType) { DARABONBA_PTR_SET_VALUE(publishType_, publishType) };
 
 
     // regionsShrink Field Functions 
     bool hasRegionsShrink() const { return this->regionsShrink_ != nullptr;};
     void deleteRegionsShrink() { this->regionsShrink_ = nullptr;};
-    inline string regionsShrink() const { DARABONBA_PTR_GET_DEFAULT(regionsShrink_, "") };
+    inline string getRegionsShrink() const { DARABONBA_PTR_GET_DEFAULT(regionsShrink_, "") };
     inline PublishEdgeContainerAppVersionShrinkRequest& setRegionsShrink(string regionsShrink) { DARABONBA_PTR_SET_VALUE(regionsShrink_, regionsShrink) };
 
 
     // remarks Field Functions 
     bool hasRemarks() const { return this->remarks_ != nullptr;};
     void deleteRemarks() { this->remarks_ = nullptr;};
-    inline string remarks() const { DARABONBA_PTR_GET_DEFAULT(remarks_, "") };
+    inline string getRemarks() const { DARABONBA_PTR_GET_DEFAULT(remarks_, "") };
     inline PublishEdgeContainerAppVersionShrinkRequest& setRemarks(string remarks) { DARABONBA_PTR_SET_VALUE(remarks_, remarks) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline PublishEdgeContainerAppVersionShrinkRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // versionId Field Functions 
     bool hasVersionId() const { return this->versionId_ != nullptr;};
     void deleteVersionId() { this->versionId_ = nullptr;};
-    inline string versionId() const { DARABONBA_PTR_GET_DEFAULT(versionId_, "") };
+    inline string getVersionId() const { DARABONBA_PTR_GET_DEFAULT(versionId_, "") };
     inline PublishEdgeContainerAppVersionShrinkRequest& setVersionId(string versionId) { DARABONBA_PTR_SET_VALUE(versionId_, versionId) };
 
 
@@ -115,37 +115,37 @@ namespace Models
     // The application ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // Specifies whether to fully release the version. This parameter takes effect only when PublishType is set to region.
-    std::shared_ptr<bool> fullRelease_ = nullptr;
+    shared_ptr<bool> fullRelease_ {};
     // The release percentage. Valid values: 1 to 100. Default value: 100.
-    std::shared_ptr<int32_t> percentage_ = nullptr;
+    shared_ptr<int32_t> percentage_ {};
     // The environment to which you want to release the version. Valid values:
     // 
     // *   prod: the production environment.
     // *   staging: the staging environment.
     // 
     // This parameter is required.
-    std::shared_ptr<string> publishEnv_ = nullptr;
+    shared_ptr<string> publishEnv_ {};
     // Specifies how the version is released. Valid values:
     // 
     // *   percentage: releases the version by percentage.
     // *   region: releases the version by region.
     // 
     // If you do not specify this parameter, the version is released by percentage by default.
-    std::shared_ptr<string> publishType_ = nullptr;
+    shared_ptr<string> publishType_ {};
     // The regions to which the version is released.
-    std::shared_ptr<string> regionsShrink_ = nullptr;
+    shared_ptr<string> regionsShrink_ {};
     // The remarks. This parameter is empty by default.
-    std::shared_ptr<string> remarks_ = nullptr;
+    shared_ptr<string> remarks_ {};
     // The time when the application version starts to be released. If you do not specify this parameter, the current time is used by default.
     // 
     // Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
-    std::shared_ptr<string> startTime_ = nullptr;
+    shared_ptr<string> startTime_ {};
     // The version ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> versionId_ = nullptr;
+    shared_ptr<string> versionId_ {};
   };
 
   } // namespace Models

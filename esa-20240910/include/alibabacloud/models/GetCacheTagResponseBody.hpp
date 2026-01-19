@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->caseInsensitive_ == nullptr
-        && return this->requestId_ == nullptr && return this->siteVersion_ == nullptr && return this->tagName_ == nullptr; };
+        && this->requestId_ == nullptr && this->siteVersion_ == nullptr && this->tagName_ == nullptr; };
     // caseInsensitive Field Functions 
     bool hasCaseInsensitive() const { return this->caseInsensitive_ != nullptr;};
     void deleteCaseInsensitive() { this->caseInsensitive_ = nullptr;};
-    inline string caseInsensitive() const { DARABONBA_PTR_GET_DEFAULT(caseInsensitive_, "") };
+    inline string getCaseInsensitive() const { DARABONBA_PTR_GET_DEFAULT(caseInsensitive_, "") };
     inline GetCacheTagResponseBody& setCaseInsensitive(string caseInsensitive) { DARABONBA_PTR_SET_VALUE(caseInsensitive_, caseInsensitive) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetCacheTagResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // siteVersion Field Functions 
     bool hasSiteVersion() const { return this->siteVersion_ != nullptr;};
     void deleteSiteVersion() { this->siteVersion_ = nullptr;};
-    inline int32_t siteVersion() const { DARABONBA_PTR_GET_DEFAULT(siteVersion_, 0) };
+    inline int32_t getSiteVersion() const { DARABONBA_PTR_GET_DEFAULT(siteVersion_, 0) };
     inline GetCacheTagResponseBody& setSiteVersion(int32_t siteVersion) { DARABONBA_PTR_SET_VALUE(siteVersion_, siteVersion) };
 
 
     // tagName Field Functions 
     bool hasTagName() const { return this->tagName_ != nullptr;};
     void deleteTagName() { this->tagName_ = nullptr;};
-    inline string tagName() const { DARABONBA_PTR_GET_DEFAULT(tagName_, "") };
+    inline string getTagName() const { DARABONBA_PTR_GET_DEFAULT(tagName_, "") };
     inline GetCacheTagResponseBody& setTagName(string tagName) { DARABONBA_PTR_SET_VALUE(tagName_, tagName) };
 
 
@@ -69,13 +69,13 @@ namespace Models
     // Whether to ignore case. Possible values:
     // - on: Enabled, ignores case.
     // - off: Disabled, does not ignore case.
-    std::shared_ptr<string> caseInsensitive_ = nullptr;
+    shared_ptr<string> caseInsensitive_ {};
     // Request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Version number of the site.
-    std::shared_ptr<int32_t> siteVersion_ = nullptr;
+    shared_ptr<int32_t> siteVersion_ {};
     // Custom CacheTag name.
-    std::shared_ptr<string> tagName_ = nullptr;
+    shared_ptr<string> tagName_ {};
   };
 
   } // namespace Models

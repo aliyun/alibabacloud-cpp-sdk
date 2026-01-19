@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->siteId_ == nullptr
-        && return this->waitingRoomEventId_ == nullptr; };
+        && this->waitingRoomEventId_ == nullptr; };
     // siteId Field Functions 
     bool hasSiteId() const { return this->siteId_ != nullptr;};
     void deleteSiteId() { this->siteId_ = nullptr;};
-    inline int64_t siteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
+    inline int64_t getSiteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
     inline DeleteWaitingRoomEventRequest& setSiteId(int64_t siteId) { DARABONBA_PTR_SET_VALUE(siteId_, siteId) };
 
 
     // waitingRoomEventId Field Functions 
     bool hasWaitingRoomEventId() const { return this->waitingRoomEventId_ != nullptr;};
     void deleteWaitingRoomEventId() { this->waitingRoomEventId_ = nullptr;};
-    inline int64_t waitingRoomEventId() const { DARABONBA_PTR_GET_DEFAULT(waitingRoomEventId_, 0L) };
+    inline int64_t getWaitingRoomEventId() const { DARABONBA_PTR_GET_DEFAULT(waitingRoomEventId_, 0L) };
     inline DeleteWaitingRoomEventRequest& setWaitingRoomEventId(int64_t waitingRoomEventId) { DARABONBA_PTR_SET_VALUE(waitingRoomEventId_, waitingRoomEventId) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> siteId_ = nullptr;
+    shared_ptr<int64_t> siteId_ {};
     // The ID of the waiting room event.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> waitingRoomEventId_ = nullptr;
+    shared_ptr<int64_t> waitingRoomEventId_ {};
   };
 
   } // namespace Models

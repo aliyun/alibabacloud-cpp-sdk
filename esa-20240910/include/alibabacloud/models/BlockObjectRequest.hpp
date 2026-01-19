@@ -39,12 +39,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->content_ == nullptr
-        && return this->extension_ == nullptr && return this->maxage_ == nullptr && return this->siteId_ == nullptr && return this->type_ == nullptr; };
+        && this->extension_ == nullptr && this->maxage_ == nullptr && this->siteId_ == nullptr && this->type_ == nullptr; };
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
-    inline const vector<string> & content() const { DARABONBA_PTR_GET_CONST(content_, vector<string>) };
-    inline vector<string> content() { DARABONBA_PTR_GET(content_, vector<string>) };
+    inline const vector<string> & getContent() const { DARABONBA_PTR_GET_CONST(content_, vector<string>) };
+    inline vector<string> getContent() { DARABONBA_PTR_GET(content_, vector<string>) };
     inline BlockObjectRequest& setContent(const vector<string> & content) { DARABONBA_PTR_SET_VALUE(content_, content) };
     inline BlockObjectRequest& setContent(vector<string> && content) { DARABONBA_PTR_SET_RVALUE(content_, content) };
 
@@ -52,28 +52,28 @@ namespace Models
     // extension Field Functions 
     bool hasExtension() const { return this->extension_ != nullptr;};
     void deleteExtension() { this->extension_ = nullptr;};
-    inline string extension() const { DARABONBA_PTR_GET_DEFAULT(extension_, "") };
+    inline string getExtension() const { DARABONBA_PTR_GET_DEFAULT(extension_, "") };
     inline BlockObjectRequest& setExtension(string extension) { DARABONBA_PTR_SET_VALUE(extension_, extension) };
 
 
     // maxage Field Functions 
     bool hasMaxage() const { return this->maxage_ != nullptr;};
     void deleteMaxage() { this->maxage_ = nullptr;};
-    inline int32_t maxage() const { DARABONBA_PTR_GET_DEFAULT(maxage_, 0) };
+    inline int32_t getMaxage() const { DARABONBA_PTR_GET_DEFAULT(maxage_, 0) };
     inline BlockObjectRequest& setMaxage(int32_t maxage) { DARABONBA_PTR_SET_VALUE(maxage_, maxage) };
 
 
     // siteId Field Functions 
     bool hasSiteId() const { return this->siteId_ != nullptr;};
     void deleteSiteId() { this->siteId_ = nullptr;};
-    inline int64_t siteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
+    inline int64_t getSiteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
     inline BlockObjectRequest& setSiteId(int64_t siteId) { DARABONBA_PTR_SET_VALUE(siteId_, siteId) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline BlockObjectRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
@@ -81,22 +81,22 @@ namespace Models
     // The content to block.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> content_ = nullptr;
+    shared_ptr<vector<string>> content_ {};
     // The blocking period that you can extend. Set the value to 2year.
-    std::shared_ptr<string> extension_ = nullptr;
+    shared_ptr<string> extension_ {};
     // The period of time during which the URL is blocked. Unit: seconds. Specify this parameter if Type is set to block.
-    std::shared_ptr<int32_t> maxage_ = nullptr;
+    shared_ptr<int32_t> maxage_ {};
     // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> siteId_ = nullptr;
+    shared_ptr<int64_t> siteId_ {};
     // The type. Valid values:
     // 
     // *   **block**
     // *   **unblock**
     // 
     // This parameter is required.
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

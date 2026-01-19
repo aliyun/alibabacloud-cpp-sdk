@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_CREATEWAITINGROOMREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/CreateWaitingRoomRequestHostNameAndPath.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -63,129 +62,190 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class HostNameAndPath : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const HostNameAndPath& obj) { 
+        DARABONBA_PTR_TO_JSON(Domain, domain_);
+        DARABONBA_PTR_TO_JSON(Path, path_);
+        DARABONBA_PTR_TO_JSON(Subdomain, subdomain_);
+      };
+      friend void from_json(const Darabonba::Json& j, HostNameAndPath& obj) { 
+        DARABONBA_PTR_FROM_JSON(Domain, domain_);
+        DARABONBA_PTR_FROM_JSON(Path, path_);
+        DARABONBA_PTR_FROM_JSON(Subdomain, subdomain_);
+      };
+      HostNameAndPath() = default ;
+      HostNameAndPath(const HostNameAndPath &) = default ;
+      HostNameAndPath(HostNameAndPath &&) = default ;
+      HostNameAndPath(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~HostNameAndPath() = default ;
+      HostNameAndPath& operator=(const HostNameAndPath &) = default ;
+      HostNameAndPath& operator=(HostNameAndPath &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->domain_ == nullptr
+        && this->path_ == nullptr && this->subdomain_ == nullptr; };
+      // domain Field Functions 
+      bool hasDomain() const { return this->domain_ != nullptr;};
+      void deleteDomain() { this->domain_ = nullptr;};
+      inline string getDomain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
+      inline HostNameAndPath& setDomain(string domain) { DARABONBA_PTR_SET_VALUE(domain_, domain) };
+
+
+      // path Field Functions 
+      bool hasPath() const { return this->path_ != nullptr;};
+      void deletePath() { this->path_ = nullptr;};
+      inline string getPath() const { DARABONBA_PTR_GET_DEFAULT(path_, "") };
+      inline HostNameAndPath& setPath(string path) { DARABONBA_PTR_SET_VALUE(path_, path) };
+
+
+      // subdomain Field Functions 
+      bool hasSubdomain() const { return this->subdomain_ != nullptr;};
+      void deleteSubdomain() { this->subdomain_ = nullptr;};
+      inline string getSubdomain() const { DARABONBA_PTR_GET_DEFAULT(subdomain_, "") };
+      inline HostNameAndPath& setSubdomain(string subdomain) { DARABONBA_PTR_SET_VALUE(subdomain_, subdomain) };
+
+
+    protected:
+      // The domain name.
+      // 
+      // This parameter is required.
+      shared_ptr<string> domain_ {};
+      // The path.
+      // 
+      // This parameter is required.
+      shared_ptr<string> path_ {};
+      // The subdomain.
+      // 
+      // This parameter is required.
+      shared_ptr<string> subdomain_ {};
+    };
+
     virtual bool empty() const override { return this->cookieName_ == nullptr
-        && return this->customPageHtml_ == nullptr && return this->description_ == nullptr && return this->disableSessionRenewalEnable_ == nullptr && return this->enable_ == nullptr && return this->hostNameAndPath_ == nullptr
-        && return this->jsonResponseEnable_ == nullptr && return this->language_ == nullptr && return this->name_ == nullptr && return this->newUsersPerMinute_ == nullptr && return this->queueAllEnable_ == nullptr
-        && return this->queuingMethod_ == nullptr && return this->queuingStatusCode_ == nullptr && return this->sessionDuration_ == nullptr && return this->siteId_ == nullptr && return this->totalActiveUsers_ == nullptr
-        && return this->waitingRoomType_ == nullptr; };
+        && this->customPageHtml_ == nullptr && this->description_ == nullptr && this->disableSessionRenewalEnable_ == nullptr && this->enable_ == nullptr && this->hostNameAndPath_ == nullptr
+        && this->jsonResponseEnable_ == nullptr && this->language_ == nullptr && this->name_ == nullptr && this->newUsersPerMinute_ == nullptr && this->queueAllEnable_ == nullptr
+        && this->queuingMethod_ == nullptr && this->queuingStatusCode_ == nullptr && this->sessionDuration_ == nullptr && this->siteId_ == nullptr && this->totalActiveUsers_ == nullptr
+        && this->waitingRoomType_ == nullptr; };
     // cookieName Field Functions 
     bool hasCookieName() const { return this->cookieName_ != nullptr;};
     void deleteCookieName() { this->cookieName_ = nullptr;};
-    inline string cookieName() const { DARABONBA_PTR_GET_DEFAULT(cookieName_, "") };
+    inline string getCookieName() const { DARABONBA_PTR_GET_DEFAULT(cookieName_, "") };
     inline CreateWaitingRoomRequest& setCookieName(string cookieName) { DARABONBA_PTR_SET_VALUE(cookieName_, cookieName) };
 
 
     // customPageHtml Field Functions 
     bool hasCustomPageHtml() const { return this->customPageHtml_ != nullptr;};
     void deleteCustomPageHtml() { this->customPageHtml_ = nullptr;};
-    inline string customPageHtml() const { DARABONBA_PTR_GET_DEFAULT(customPageHtml_, "") };
+    inline string getCustomPageHtml() const { DARABONBA_PTR_GET_DEFAULT(customPageHtml_, "") };
     inline CreateWaitingRoomRequest& setCustomPageHtml(string customPageHtml) { DARABONBA_PTR_SET_VALUE(customPageHtml_, customPageHtml) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateWaitingRoomRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // disableSessionRenewalEnable Field Functions 
     bool hasDisableSessionRenewalEnable() const { return this->disableSessionRenewalEnable_ != nullptr;};
     void deleteDisableSessionRenewalEnable() { this->disableSessionRenewalEnable_ = nullptr;};
-    inline string disableSessionRenewalEnable() const { DARABONBA_PTR_GET_DEFAULT(disableSessionRenewalEnable_, "") };
+    inline string getDisableSessionRenewalEnable() const { DARABONBA_PTR_GET_DEFAULT(disableSessionRenewalEnable_, "") };
     inline CreateWaitingRoomRequest& setDisableSessionRenewalEnable(string disableSessionRenewalEnable) { DARABONBA_PTR_SET_VALUE(disableSessionRenewalEnable_, disableSessionRenewalEnable) };
 
 
     // enable Field Functions 
     bool hasEnable() const { return this->enable_ != nullptr;};
     void deleteEnable() { this->enable_ = nullptr;};
-    inline string enable() const { DARABONBA_PTR_GET_DEFAULT(enable_, "") };
+    inline string getEnable() const { DARABONBA_PTR_GET_DEFAULT(enable_, "") };
     inline CreateWaitingRoomRequest& setEnable(string enable) { DARABONBA_PTR_SET_VALUE(enable_, enable) };
 
 
     // hostNameAndPath Field Functions 
     bool hasHostNameAndPath() const { return this->hostNameAndPath_ != nullptr;};
     void deleteHostNameAndPath() { this->hostNameAndPath_ = nullptr;};
-    inline const vector<CreateWaitingRoomRequestHostNameAndPath> & hostNameAndPath() const { DARABONBA_PTR_GET_CONST(hostNameAndPath_, vector<CreateWaitingRoomRequestHostNameAndPath>) };
-    inline vector<CreateWaitingRoomRequestHostNameAndPath> hostNameAndPath() { DARABONBA_PTR_GET(hostNameAndPath_, vector<CreateWaitingRoomRequestHostNameAndPath>) };
-    inline CreateWaitingRoomRequest& setHostNameAndPath(const vector<CreateWaitingRoomRequestHostNameAndPath> & hostNameAndPath) { DARABONBA_PTR_SET_VALUE(hostNameAndPath_, hostNameAndPath) };
-    inline CreateWaitingRoomRequest& setHostNameAndPath(vector<CreateWaitingRoomRequestHostNameAndPath> && hostNameAndPath) { DARABONBA_PTR_SET_RVALUE(hostNameAndPath_, hostNameAndPath) };
+    inline const vector<CreateWaitingRoomRequest::HostNameAndPath> & getHostNameAndPath() const { DARABONBA_PTR_GET_CONST(hostNameAndPath_, vector<CreateWaitingRoomRequest::HostNameAndPath>) };
+    inline vector<CreateWaitingRoomRequest::HostNameAndPath> getHostNameAndPath() { DARABONBA_PTR_GET(hostNameAndPath_, vector<CreateWaitingRoomRequest::HostNameAndPath>) };
+    inline CreateWaitingRoomRequest& setHostNameAndPath(const vector<CreateWaitingRoomRequest::HostNameAndPath> & hostNameAndPath) { DARABONBA_PTR_SET_VALUE(hostNameAndPath_, hostNameAndPath) };
+    inline CreateWaitingRoomRequest& setHostNameAndPath(vector<CreateWaitingRoomRequest::HostNameAndPath> && hostNameAndPath) { DARABONBA_PTR_SET_RVALUE(hostNameAndPath_, hostNameAndPath) };
 
 
     // jsonResponseEnable Field Functions 
     bool hasJsonResponseEnable() const { return this->jsonResponseEnable_ != nullptr;};
     void deleteJsonResponseEnable() { this->jsonResponseEnable_ = nullptr;};
-    inline string jsonResponseEnable() const { DARABONBA_PTR_GET_DEFAULT(jsonResponseEnable_, "") };
+    inline string getJsonResponseEnable() const { DARABONBA_PTR_GET_DEFAULT(jsonResponseEnable_, "") };
     inline CreateWaitingRoomRequest& setJsonResponseEnable(string jsonResponseEnable) { DARABONBA_PTR_SET_VALUE(jsonResponseEnable_, jsonResponseEnable) };
 
 
     // language Field Functions 
     bool hasLanguage() const { return this->language_ != nullptr;};
     void deleteLanguage() { this->language_ = nullptr;};
-    inline string language() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
+    inline string getLanguage() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
     inline CreateWaitingRoomRequest& setLanguage(string language) { DARABONBA_PTR_SET_VALUE(language_, language) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateWaitingRoomRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // newUsersPerMinute Field Functions 
     bool hasNewUsersPerMinute() const { return this->newUsersPerMinute_ != nullptr;};
     void deleteNewUsersPerMinute() { this->newUsersPerMinute_ = nullptr;};
-    inline string newUsersPerMinute() const { DARABONBA_PTR_GET_DEFAULT(newUsersPerMinute_, "") };
+    inline string getNewUsersPerMinute() const { DARABONBA_PTR_GET_DEFAULT(newUsersPerMinute_, "") };
     inline CreateWaitingRoomRequest& setNewUsersPerMinute(string newUsersPerMinute) { DARABONBA_PTR_SET_VALUE(newUsersPerMinute_, newUsersPerMinute) };
 
 
     // queueAllEnable Field Functions 
     bool hasQueueAllEnable() const { return this->queueAllEnable_ != nullptr;};
     void deleteQueueAllEnable() { this->queueAllEnable_ = nullptr;};
-    inline string queueAllEnable() const { DARABONBA_PTR_GET_DEFAULT(queueAllEnable_, "") };
+    inline string getQueueAllEnable() const { DARABONBA_PTR_GET_DEFAULT(queueAllEnable_, "") };
     inline CreateWaitingRoomRequest& setQueueAllEnable(string queueAllEnable) { DARABONBA_PTR_SET_VALUE(queueAllEnable_, queueAllEnable) };
 
 
     // queuingMethod Field Functions 
     bool hasQueuingMethod() const { return this->queuingMethod_ != nullptr;};
     void deleteQueuingMethod() { this->queuingMethod_ = nullptr;};
-    inline string queuingMethod() const { DARABONBA_PTR_GET_DEFAULT(queuingMethod_, "") };
+    inline string getQueuingMethod() const { DARABONBA_PTR_GET_DEFAULT(queuingMethod_, "") };
     inline CreateWaitingRoomRequest& setQueuingMethod(string queuingMethod) { DARABONBA_PTR_SET_VALUE(queuingMethod_, queuingMethod) };
 
 
     // queuingStatusCode Field Functions 
     bool hasQueuingStatusCode() const { return this->queuingStatusCode_ != nullptr;};
     void deleteQueuingStatusCode() { this->queuingStatusCode_ = nullptr;};
-    inline string queuingStatusCode() const { DARABONBA_PTR_GET_DEFAULT(queuingStatusCode_, "") };
+    inline string getQueuingStatusCode() const { DARABONBA_PTR_GET_DEFAULT(queuingStatusCode_, "") };
     inline CreateWaitingRoomRequest& setQueuingStatusCode(string queuingStatusCode) { DARABONBA_PTR_SET_VALUE(queuingStatusCode_, queuingStatusCode) };
 
 
     // sessionDuration Field Functions 
     bool hasSessionDuration() const { return this->sessionDuration_ != nullptr;};
     void deleteSessionDuration() { this->sessionDuration_ = nullptr;};
-    inline string sessionDuration() const { DARABONBA_PTR_GET_DEFAULT(sessionDuration_, "") };
+    inline string getSessionDuration() const { DARABONBA_PTR_GET_DEFAULT(sessionDuration_, "") };
     inline CreateWaitingRoomRequest& setSessionDuration(string sessionDuration) { DARABONBA_PTR_SET_VALUE(sessionDuration_, sessionDuration) };
 
 
     // siteId Field Functions 
     bool hasSiteId() const { return this->siteId_ != nullptr;};
     void deleteSiteId() { this->siteId_ = nullptr;};
-    inline int64_t siteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
+    inline int64_t getSiteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
     inline CreateWaitingRoomRequest& setSiteId(int64_t siteId) { DARABONBA_PTR_SET_VALUE(siteId_, siteId) };
 
 
     // totalActiveUsers Field Functions 
     bool hasTotalActiveUsers() const { return this->totalActiveUsers_ != nullptr;};
     void deleteTotalActiveUsers() { this->totalActiveUsers_ = nullptr;};
-    inline string totalActiveUsers() const { DARABONBA_PTR_GET_DEFAULT(totalActiveUsers_, "") };
+    inline string getTotalActiveUsers() const { DARABONBA_PTR_GET_DEFAULT(totalActiveUsers_, "") };
     inline CreateWaitingRoomRequest& setTotalActiveUsers(string totalActiveUsers) { DARABONBA_PTR_SET_VALUE(totalActiveUsers_, totalActiveUsers) };
 
 
     // waitingRoomType Field Functions 
     bool hasWaitingRoomType() const { return this->waitingRoomType_ != nullptr;};
     void deleteWaitingRoomType() { this->waitingRoomType_ = nullptr;};
-    inline string waitingRoomType() const { DARABONBA_PTR_GET_DEFAULT(waitingRoomType_, "") };
+    inline string getWaitingRoomType() const { DARABONBA_PTR_GET_DEFAULT(waitingRoomType_, "") };
     inline CreateWaitingRoomRequest& setWaitingRoomType(string waitingRoomType) { DARABONBA_PTR_SET_VALUE(waitingRoomType_, waitingRoomType) };
 
 
@@ -193,51 +253,51 @@ namespace Models
     // The name of the custom cookie.
     // 
     // This parameter is required.
-    std::shared_ptr<string> cookieName_ = nullptr;
+    shared_ptr<string> cookieName_ {};
     // The content of the custom waiting room page. You must specify this parameter if you set WaitingRoomType to custom. The content must be Base64-encoded.
-    std::shared_ptr<string> customPageHtml_ = nullptr;
+    shared_ptr<string> customPageHtml_ {};
     // The description of the waiting room.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // Specifies whether to disable session renewal. Valid values:
     // 
     // *   on
     // *   off
-    std::shared_ptr<string> disableSessionRenewalEnable_ = nullptr;
+    shared_ptr<string> disableSessionRenewalEnable_ {};
     // Specifies whether to enable the waiting room. Valid values:
     // 
     // *   on
     // *   off
     // 
     // This parameter is required.
-    std::shared_ptr<string> enable_ = nullptr;
+    shared_ptr<string> enable_ {};
     // The hostname and path.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<CreateWaitingRoomRequestHostNameAndPath>> hostNameAndPath_ = nullptr;
+    shared_ptr<vector<CreateWaitingRoomRequest::HostNameAndPath>> hostNameAndPath_ {};
     // Specifies whether to enable JSON response. If you set this parameter to on, a JSON body is returned for requests to the waiting room with the header Accept: application/json. Valid values:
     // 
     // *   on
     // *   off
-    std::shared_ptr<string> jsonResponseEnable_ = nullptr;
+    shared_ptr<string> jsonResponseEnable_ {};
     // The language of the waiting room page. You must specify this parameter if you set WaitingRoomType to default. Valid values:
     // 
     // *   enus: English.
     // *   zhcn: Simplified Chinese.
     // *   zhhk: Traditional Chinese.
-    std::shared_ptr<string> language_ = nullptr;
+    shared_ptr<string> language_ {};
     // The name of the waiting room.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The maximum number of new users per minute.
     // 
     // This parameter is required.
-    std::shared_ptr<string> newUsersPerMinute_ = nullptr;
+    shared_ptr<string> newUsersPerMinute_ {};
     // Specifies whether to queue all requests. Valid values:
     // 
     // *   on
     // *   off
-    std::shared_ptr<string> queueAllEnable_ = nullptr;
+    shared_ptr<string> queueAllEnable_ {};
     // The queuing method. Valid values:
     // 
     // *   random: Users gain access to the origin randomly, regardless of the arrival time.
@@ -246,7 +306,7 @@ namespace Models
     // *   reject-all: Users are blocked from reaching the origin.
     // 
     // This parameter is required.
-    std::shared_ptr<string> queuingMethod_ = nullptr;
+    shared_ptr<string> queuingMethod_ {};
     // The HTTP status code to return while a user is in the queue. Valid values:
     // 
     // *   200
@@ -254,26 +314,26 @@ namespace Models
     // *   429
     // 
     // This parameter is required.
-    std::shared_ptr<string> queuingStatusCode_ = nullptr;
+    shared_ptr<string> queuingStatusCode_ {};
     // The maximum duration for which a session remains valid after a user leaves the origin. Unit: minutes.
     // 
     // This parameter is required.
-    std::shared_ptr<string> sessionDuration_ = nullptr;
+    shared_ptr<string> sessionDuration_ {};
     // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> siteId_ = nullptr;
+    shared_ptr<int64_t> siteId_ {};
     // The maximum number of active users.
     // 
     // This parameter is required.
-    std::shared_ptr<string> totalActiveUsers_ = nullptr;
+    shared_ptr<string> totalActiveUsers_ {};
     // The type of the waiting room. Valid values:
     // 
     // *   default
     // *   custom
     // 
     // This parameter is required.
-    std::shared_ptr<string> waitingRoomType_ = nullptr;
+    shared_ptr<string> waitingRoomType_ {};
   };
 
   } // namespace Models

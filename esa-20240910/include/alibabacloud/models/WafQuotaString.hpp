@@ -33,12 +33,12 @@ namespace Models
     // regexp Field Functions 
     bool hasRegexp() const { return this->regexp_ != nullptr;};
     void deleteRegexp() { this->regexp_ = nullptr;};
-    inline string regexp() const { DARABONBA_PTR_GET_DEFAULT(regexp_, "") };
+    inline string getRegexp() const { DARABONBA_PTR_GET_DEFAULT(regexp_, "") };
     inline WafQuotaString& setRegexp(string regexp) { DARABONBA_PTR_SET_VALUE(regexp_, regexp) };
 
 
   protected:
-    std::shared_ptr<string> regexp_ = nullptr;
+    shared_ptr<string> regexp_ {};
   };
 
   } // namespace Models

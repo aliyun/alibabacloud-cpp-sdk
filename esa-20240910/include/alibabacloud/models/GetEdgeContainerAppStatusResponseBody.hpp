@@ -2,7 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_GETEDGECONTAINERAPPSTATUSRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_GETEDGECONTAINERAPPSTATUSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/GetEdgeContainerAppStatusResponseBodyAppStatus.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -32,29 +32,271 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class AppStatus : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const AppStatus& obj) { 
+        DARABONBA_PTR_TO_JSON(BaseLineVersion, baseLineVersion_);
+        DARABONBA_PTR_TO_JSON(DeployStatus, deployStatus_);
+        DARABONBA_PTR_TO_JSON(DeployTime, deployTime_);
+        DARABONBA_PTR_TO_JSON(DeployedVersion, deployedVersion_);
+        DARABONBA_PTR_TO_JSON(ExpectPercentage, expectPercentage_);
+        DARABONBA_PTR_TO_JSON(FullRelease, fullRelease_);
+        DARABONBA_PTR_TO_JSON(PublishEnv, publishEnv_);
+        DARABONBA_PTR_TO_JSON(PublishPercentage, publishPercentage_);
+        DARABONBA_PTR_TO_JSON(PublishStatus, publishStatus_);
+        DARABONBA_PTR_TO_JSON(PublishTime, publishTime_);
+        DARABONBA_PTR_TO_JSON(PublishType, publishType_);
+        DARABONBA_PTR_TO_JSON(PublishingVersion, publishingVersion_);
+        DARABONBA_PTR_TO_JSON(Regions, regions_);
+        DARABONBA_PTR_TO_JSON(RollbackTime, rollbackTime_);
+        DARABONBA_PTR_TO_JSON(UnDeployTime, unDeployTime_);
+      };
+      friend void from_json(const Darabonba::Json& j, AppStatus& obj) { 
+        DARABONBA_PTR_FROM_JSON(BaseLineVersion, baseLineVersion_);
+        DARABONBA_PTR_FROM_JSON(DeployStatus, deployStatus_);
+        DARABONBA_PTR_FROM_JSON(DeployTime, deployTime_);
+        DARABONBA_PTR_FROM_JSON(DeployedVersion, deployedVersion_);
+        DARABONBA_PTR_FROM_JSON(ExpectPercentage, expectPercentage_);
+        DARABONBA_PTR_FROM_JSON(FullRelease, fullRelease_);
+        DARABONBA_PTR_FROM_JSON(PublishEnv, publishEnv_);
+        DARABONBA_PTR_FROM_JSON(PublishPercentage, publishPercentage_);
+        DARABONBA_PTR_FROM_JSON(PublishStatus, publishStatus_);
+        DARABONBA_PTR_FROM_JSON(PublishTime, publishTime_);
+        DARABONBA_PTR_FROM_JSON(PublishType, publishType_);
+        DARABONBA_PTR_FROM_JSON(PublishingVersion, publishingVersion_);
+        DARABONBA_PTR_FROM_JSON(Regions, regions_);
+        DARABONBA_PTR_FROM_JSON(RollbackTime, rollbackTime_);
+        DARABONBA_PTR_FROM_JSON(UnDeployTime, unDeployTime_);
+      };
+      AppStatus() = default ;
+      AppStatus(const AppStatus &) = default ;
+      AppStatus(AppStatus &&) = default ;
+      AppStatus(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~AppStatus() = default ;
+      AppStatus& operator=(const AppStatus &) = default ;
+      AppStatus& operator=(AppStatus &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Regions : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Regions& obj) { 
+          DARABONBA_PTR_TO_JSON(Region, region_);
+        };
+        friend void from_json(const Darabonba::Json& j, Regions& obj) { 
+          DARABONBA_PTR_FROM_JSON(Region, region_);
+        };
+        Regions() = default ;
+        Regions(const Regions &) = default ;
+        Regions(Regions &&) = default ;
+        Regions(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Regions() = default ;
+        Regions& operator=(const Regions &) = default ;
+        Regions& operator=(Regions &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->region_ == nullptr; };
+        // region Field Functions 
+        bool hasRegion() const { return this->region_ != nullptr;};
+        void deleteRegion() { this->region_ = nullptr;};
+        inline const vector<string> & getRegion() const { DARABONBA_PTR_GET_CONST(region_, vector<string>) };
+        inline vector<string> getRegion() { DARABONBA_PTR_GET(region_, vector<string>) };
+        inline Regions& setRegion(const vector<string> & region) { DARABONBA_PTR_SET_VALUE(region_, region) };
+        inline Regions& setRegion(vector<string> && region) { DARABONBA_PTR_SET_RVALUE(region_, region) };
+
+
+      protected:
+        shared_ptr<vector<string>> region_ {};
+      };
+
+      virtual bool empty() const override { return this->baseLineVersion_ == nullptr
+        && this->deployStatus_ == nullptr && this->deployTime_ == nullptr && this->deployedVersion_ == nullptr && this->expectPercentage_ == nullptr && this->fullRelease_ == nullptr
+        && this->publishEnv_ == nullptr && this->publishPercentage_ == nullptr && this->publishStatus_ == nullptr && this->publishTime_ == nullptr && this->publishType_ == nullptr
+        && this->publishingVersion_ == nullptr && this->regions_ == nullptr && this->rollbackTime_ == nullptr && this->unDeployTime_ == nullptr; };
+      // baseLineVersion Field Functions 
+      bool hasBaseLineVersion() const { return this->baseLineVersion_ != nullptr;};
+      void deleteBaseLineVersion() { this->baseLineVersion_ = nullptr;};
+      inline string getBaseLineVersion() const { DARABONBA_PTR_GET_DEFAULT(baseLineVersion_, "") };
+      inline AppStatus& setBaseLineVersion(string baseLineVersion) { DARABONBA_PTR_SET_VALUE(baseLineVersion_, baseLineVersion) };
+
+
+      // deployStatus Field Functions 
+      bool hasDeployStatus() const { return this->deployStatus_ != nullptr;};
+      void deleteDeployStatus() { this->deployStatus_ = nullptr;};
+      inline string getDeployStatus() const { DARABONBA_PTR_GET_DEFAULT(deployStatus_, "") };
+      inline AppStatus& setDeployStatus(string deployStatus) { DARABONBA_PTR_SET_VALUE(deployStatus_, deployStatus) };
+
+
+      // deployTime Field Functions 
+      bool hasDeployTime() const { return this->deployTime_ != nullptr;};
+      void deleteDeployTime() { this->deployTime_ = nullptr;};
+      inline string getDeployTime() const { DARABONBA_PTR_GET_DEFAULT(deployTime_, "") };
+      inline AppStatus& setDeployTime(string deployTime) { DARABONBA_PTR_SET_VALUE(deployTime_, deployTime) };
+
+
+      // deployedVersion Field Functions 
+      bool hasDeployedVersion() const { return this->deployedVersion_ != nullptr;};
+      void deleteDeployedVersion() { this->deployedVersion_ = nullptr;};
+      inline string getDeployedVersion() const { DARABONBA_PTR_GET_DEFAULT(deployedVersion_, "") };
+      inline AppStatus& setDeployedVersion(string deployedVersion) { DARABONBA_PTR_SET_VALUE(deployedVersion_, deployedVersion) };
+
+
+      // expectPercentage Field Functions 
+      bool hasExpectPercentage() const { return this->expectPercentage_ != nullptr;};
+      void deleteExpectPercentage() { this->expectPercentage_ = nullptr;};
+      inline int32_t getExpectPercentage() const { DARABONBA_PTR_GET_DEFAULT(expectPercentage_, 0) };
+      inline AppStatus& setExpectPercentage(int32_t expectPercentage) { DARABONBA_PTR_SET_VALUE(expectPercentage_, expectPercentage) };
+
+
+      // fullRelease Field Functions 
+      bool hasFullRelease() const { return this->fullRelease_ != nullptr;};
+      void deleteFullRelease() { this->fullRelease_ = nullptr;};
+      inline bool getFullRelease() const { DARABONBA_PTR_GET_DEFAULT(fullRelease_, false) };
+      inline AppStatus& setFullRelease(bool fullRelease) { DARABONBA_PTR_SET_VALUE(fullRelease_, fullRelease) };
+
+
+      // publishEnv Field Functions 
+      bool hasPublishEnv() const { return this->publishEnv_ != nullptr;};
+      void deletePublishEnv() { this->publishEnv_ = nullptr;};
+      inline string getPublishEnv() const { DARABONBA_PTR_GET_DEFAULT(publishEnv_, "") };
+      inline AppStatus& setPublishEnv(string publishEnv) { DARABONBA_PTR_SET_VALUE(publishEnv_, publishEnv) };
+
+
+      // publishPercentage Field Functions 
+      bool hasPublishPercentage() const { return this->publishPercentage_ != nullptr;};
+      void deletePublishPercentage() { this->publishPercentage_ = nullptr;};
+      inline int32_t getPublishPercentage() const { DARABONBA_PTR_GET_DEFAULT(publishPercentage_, 0) };
+      inline AppStatus& setPublishPercentage(int32_t publishPercentage) { DARABONBA_PTR_SET_VALUE(publishPercentage_, publishPercentage) };
+
+
+      // publishStatus Field Functions 
+      bool hasPublishStatus() const { return this->publishStatus_ != nullptr;};
+      void deletePublishStatus() { this->publishStatus_ = nullptr;};
+      inline string getPublishStatus() const { DARABONBA_PTR_GET_DEFAULT(publishStatus_, "") };
+      inline AppStatus& setPublishStatus(string publishStatus) { DARABONBA_PTR_SET_VALUE(publishStatus_, publishStatus) };
+
+
+      // publishTime Field Functions 
+      bool hasPublishTime() const { return this->publishTime_ != nullptr;};
+      void deletePublishTime() { this->publishTime_ = nullptr;};
+      inline string getPublishTime() const { DARABONBA_PTR_GET_DEFAULT(publishTime_, "") };
+      inline AppStatus& setPublishTime(string publishTime) { DARABONBA_PTR_SET_VALUE(publishTime_, publishTime) };
+
+
+      // publishType Field Functions 
+      bool hasPublishType() const { return this->publishType_ != nullptr;};
+      void deletePublishType() { this->publishType_ = nullptr;};
+      inline string getPublishType() const { DARABONBA_PTR_GET_DEFAULT(publishType_, "") };
+      inline AppStatus& setPublishType(string publishType) { DARABONBA_PTR_SET_VALUE(publishType_, publishType) };
+
+
+      // publishingVersion Field Functions 
+      bool hasPublishingVersion() const { return this->publishingVersion_ != nullptr;};
+      void deletePublishingVersion() { this->publishingVersion_ = nullptr;};
+      inline string getPublishingVersion() const { DARABONBA_PTR_GET_DEFAULT(publishingVersion_, "") };
+      inline AppStatus& setPublishingVersion(string publishingVersion) { DARABONBA_PTR_SET_VALUE(publishingVersion_, publishingVersion) };
+
+
+      // regions Field Functions 
+      bool hasRegions() const { return this->regions_ != nullptr;};
+      void deleteRegions() { this->regions_ = nullptr;};
+      inline const AppStatus::Regions & getRegions() const { DARABONBA_PTR_GET_CONST(regions_, AppStatus::Regions) };
+      inline AppStatus::Regions getRegions() { DARABONBA_PTR_GET(regions_, AppStatus::Regions) };
+      inline AppStatus& setRegions(const AppStatus::Regions & regions) { DARABONBA_PTR_SET_VALUE(regions_, regions) };
+      inline AppStatus& setRegions(AppStatus::Regions && regions) { DARABONBA_PTR_SET_RVALUE(regions_, regions) };
+
+
+      // rollbackTime Field Functions 
+      bool hasRollbackTime() const { return this->rollbackTime_ != nullptr;};
+      void deleteRollbackTime() { this->rollbackTime_ = nullptr;};
+      inline string getRollbackTime() const { DARABONBA_PTR_GET_DEFAULT(rollbackTime_, "") };
+      inline AppStatus& setRollbackTime(string rollbackTime) { DARABONBA_PTR_SET_VALUE(rollbackTime_, rollbackTime) };
+
+
+      // unDeployTime Field Functions 
+      bool hasUnDeployTime() const { return this->unDeployTime_ != nullptr;};
+      void deleteUnDeployTime() { this->unDeployTime_ = nullptr;};
+      inline string getUnDeployTime() const { DARABONBA_PTR_GET_DEFAULT(unDeployTime_, "") };
+      inline AppStatus& setUnDeployTime(string unDeployTime) { DARABONBA_PTR_SET_VALUE(unDeployTime_, unDeployTime) };
+
+
+    protected:
+      // The base version of the application.
+      shared_ptr<string> baseLineVersion_ {};
+      // The deployment status of the application.
+      // 
+      // *   **undeploy**: The application is not deployed.
+      // *   **deploying**: The application is being deployed.
+      // *   **deployed**: The application is deployed.
+      // *   **undeploying**: The deployment is being canceled.
+      shared_ptr<string> deployStatus_ {};
+      // The time when the application was deployed. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+      shared_ptr<string> deployTime_ {};
+      // The release version of the application.
+      shared_ptr<string> deployedVersion_ {};
+      // The expected release percentage of the application.
+      shared_ptr<int32_t> expectPercentage_ {};
+      // Specifies whether to fully release the version. This parameter takes effect only when PublishType is set to region.
+      shared_ptr<bool> fullRelease_ {};
+      // The environment to which the application was released. Valid values:
+      // 
+      // *   **prod**: the production environment.
+      // *   **staging**: the staging environment.
+      shared_ptr<string> publishEnv_ {};
+      // The release percentage of the application.
+      shared_ptr<int32_t> publishPercentage_ {};
+      // The release status of the application. Valid values:
+      // 
+      // *   **publishing**
+      // *   **published**
+      // *   **rollbacking**
+      // *   **rollbacked**
+      shared_ptr<string> publishStatus_ {};
+      // The time when the application was released. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+      shared_ptr<string> publishTime_ {};
+      // Specifies how the version is released. Valid values:
+      // 
+      // *   percentage: releases the version by percentage.
+      // *   region: releases the version by region.
+      // 
+      // If you do not specify this parameter, the version is released by percentage by default.
+      shared_ptr<string> publishType_ {};
+      // The release version of the application.
+      shared_ptr<string> publishingVersion_ {};
+      // The regions to which the version is released.
+      shared_ptr<AppStatus::Regions> regions_ {};
+      // The time when the last rollback was performed.
+      shared_ptr<string> rollbackTime_ {};
+      // The time when the application deployment was canceled. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+      shared_ptr<string> unDeployTime_ {};
+    };
+
     virtual bool empty() const override { return this->appStatus_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // appStatus Field Functions 
     bool hasAppStatus() const { return this->appStatus_ != nullptr;};
     void deleteAppStatus() { this->appStatus_ = nullptr;};
-    inline const GetEdgeContainerAppStatusResponseBodyAppStatus & appStatus() const { DARABONBA_PTR_GET_CONST(appStatus_, GetEdgeContainerAppStatusResponseBodyAppStatus) };
-    inline GetEdgeContainerAppStatusResponseBodyAppStatus appStatus() { DARABONBA_PTR_GET(appStatus_, GetEdgeContainerAppStatusResponseBodyAppStatus) };
-    inline GetEdgeContainerAppStatusResponseBody& setAppStatus(const GetEdgeContainerAppStatusResponseBodyAppStatus & appStatus) { DARABONBA_PTR_SET_VALUE(appStatus_, appStatus) };
-    inline GetEdgeContainerAppStatusResponseBody& setAppStatus(GetEdgeContainerAppStatusResponseBodyAppStatus && appStatus) { DARABONBA_PTR_SET_RVALUE(appStatus_, appStatus) };
+    inline const GetEdgeContainerAppStatusResponseBody::AppStatus & getAppStatus() const { DARABONBA_PTR_GET_CONST(appStatus_, GetEdgeContainerAppStatusResponseBody::AppStatus) };
+    inline GetEdgeContainerAppStatusResponseBody::AppStatus getAppStatus() { DARABONBA_PTR_GET(appStatus_, GetEdgeContainerAppStatusResponseBody::AppStatus) };
+    inline GetEdgeContainerAppStatusResponseBody& setAppStatus(const GetEdgeContainerAppStatusResponseBody::AppStatus & appStatus) { DARABONBA_PTR_SET_VALUE(appStatus_, appStatus) };
+    inline GetEdgeContainerAppStatusResponseBody& setAppStatus(GetEdgeContainerAppStatusResponseBody::AppStatus && appStatus) { DARABONBA_PTR_SET_RVALUE(appStatus_, appStatus) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetEdgeContainerAppStatusResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The status of the application.
-    std::shared_ptr<GetEdgeContainerAppStatusResponseBodyAppStatus> appStatus_ = nullptr;
+    shared_ptr<GetEdgeContainerAppStatusResponseBody::AppStatus> appStatus_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

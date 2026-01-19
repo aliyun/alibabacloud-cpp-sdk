@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->globalMode_ == nullptr
-        && return this->requestId_ == nullptr && return this->siteId_ == nullptr; };
+        && this->requestId_ == nullptr && this->siteId_ == nullptr; };
     // globalMode Field Functions 
     bool hasGlobalMode() const { return this->globalMode_ != nullptr;};
     void deleteGlobalMode() { this->globalMode_ = nullptr;};
-    inline string globalMode() const { DARABONBA_PTR_GET_DEFAULT(globalMode_, "") };
+    inline string getGlobalMode() const { DARABONBA_PTR_GET_DEFAULT(globalMode_, "") };
     inline DescribeHttpDDoSAttackProtectionResponseBody& setGlobalMode(string globalMode) { DARABONBA_PTR_SET_VALUE(globalMode_, globalMode) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeHttpDDoSAttackProtectionResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // siteId Field Functions 
     bool hasSiteId() const { return this->siteId_ != nullptr;};
     void deleteSiteId() { this->siteId_ = nullptr;};
-    inline int64_t siteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
+    inline int64_t getSiteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
     inline DescribeHttpDDoSAttackProtectionResponseBody& setSiteId(int64_t siteId) { DARABONBA_PTR_SET_VALUE(siteId_, siteId) };
 
 
@@ -63,11 +63,11 @@ namespace Models
     // *   **weak**: loose.
     // *   **default**: normal.
     // *   **hard**: strict.
-    std::shared_ptr<string> globalMode_ = nullptr;
+    shared_ptr<string> globalMode_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The website ID.
-    std::shared_ptr<int64_t> siteId_ = nullptr;
+    shared_ptr<int64_t> siteId_ {};
   };
 
   } // namespace Models

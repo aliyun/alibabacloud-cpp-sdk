@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->hostnames_ == nullptr
-        && return this->id_ == nullptr && return this->siteId_ == nullptr; };
+        && this->id_ == nullptr && this->siteId_ == nullptr; };
     // hostnames Field Functions 
     bool hasHostnames() const { return this->hostnames_ != nullptr;};
     void deleteHostnames() { this->hostnames_ = nullptr;};
-    inline const vector<string> & hostnames() const { DARABONBA_PTR_GET_CONST(hostnames_, vector<string>) };
-    inline vector<string> hostnames() { DARABONBA_PTR_GET(hostnames_, vector<string>) };
+    inline const vector<string> & getHostnames() const { DARABONBA_PTR_GET_CONST(hostnames_, vector<string>) };
+    inline vector<string> getHostnames() { DARABONBA_PTR_GET(hostnames_, vector<string>) };
     inline SetClientCertificateHostnamesRequest& setHostnames(const vector<string> & hostnames) { DARABONBA_PTR_SET_VALUE(hostnames_, hostnames) };
     inline SetClientCertificateHostnamesRequest& setHostnames(vector<string> && hostnames) { DARABONBA_PTR_SET_RVALUE(hostnames_, hostnames) };
 
@@ -48,14 +48,14 @@ namespace Models
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline string id() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+    inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline SetClientCertificateHostnamesRequest& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // siteId Field Functions 
     bool hasSiteId() const { return this->siteId_ != nullptr;};
     void deleteSiteId() { this->siteId_ = nullptr;};
-    inline int64_t siteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
+    inline int64_t getSiteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
     inline SetClientCertificateHostnamesRequest& setSiteId(int64_t siteId) { DARABONBA_PTR_SET_VALUE(siteId_, siteId) };
 
 
@@ -63,13 +63,13 @@ namespace Models
     // The domain names to associate.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> hostnames_ = nullptr;
+    shared_ptr<vector<string>> hostnames_ {};
     // The ID of the client CA certificate.
-    std::shared_ptr<string> id_ = nullptr;
+    shared_ptr<string> id_ {};
     // The website ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> siteId_ = nullptr;
+    shared_ptr<int64_t> siteId_ {};
   };
 
   } // namespace Models

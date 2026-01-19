@@ -33,13 +33,13 @@ namespace Models
     // staticValue Field Functions 
     bool hasStaticValue() const { return this->staticValue_ != nullptr;};
     void deleteStaticValue() { this->staticValue_ = nullptr;};
-    inline string staticValue() const { DARABONBA_PTR_GET_DEFAULT(staticValue_, "") };
+    inline string getStaticValue() const { DARABONBA_PTR_GET_DEFAULT(staticValue_, "") };
     inline HttpDeliveryQueryParamValue& setStaticValue(string staticValue) { DARABONBA_PTR_SET_VALUE(staticValue_, staticValue) };
 
 
   protected:
     // The static variable.
-    std::shared_ptr<string> staticValue_ = nullptr;
+    shared_ptr<string> staticValue_ {};
   };
 
   } // namespace Models

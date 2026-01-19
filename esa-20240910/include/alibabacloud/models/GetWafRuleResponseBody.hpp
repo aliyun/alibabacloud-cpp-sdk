@@ -47,13 +47,13 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->config_ == nullptr
-        && return this->id_ == nullptr && return this->name_ == nullptr && return this->phase_ == nullptr && return this->position_ == nullptr && return this->requestId_ == nullptr
-        && return this->rulesetId_ == nullptr && return this->status_ == nullptr && return this->updateTime_ == nullptr; };
+        && this->id_ == nullptr && this->name_ == nullptr && this->phase_ == nullptr && this->position_ == nullptr && this->requestId_ == nullptr
+        && this->rulesetId_ == nullptr && this->status_ == nullptr && this->updateTime_ == nullptr; };
     // config Field Functions 
     bool hasConfig() const { return this->config_ != nullptr;};
     void deleteConfig() { this->config_ = nullptr;};
-    inline const WafRuleConfig & config() const { DARABONBA_PTR_GET_CONST(config_, WafRuleConfig) };
-    inline WafRuleConfig config() { DARABONBA_PTR_GET(config_, WafRuleConfig) };
+    inline const WafRuleConfig & getConfig() const { DARABONBA_PTR_GET_CONST(config_, WafRuleConfig) };
+    inline WafRuleConfig getConfig() { DARABONBA_PTR_GET(config_, WafRuleConfig) };
     inline GetWafRuleResponseBody& setConfig(const WafRuleConfig & config) { DARABONBA_PTR_SET_VALUE(config_, config) };
     inline GetWafRuleResponseBody& setConfig(WafRuleConfig && config) { DARABONBA_PTR_SET_RVALUE(config_, config) };
 
@@ -61,81 +61,81 @@ namespace Models
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline int64_t id() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+    inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
     inline GetWafRuleResponseBody& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline GetWafRuleResponseBody& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // phase Field Functions 
     bool hasPhase() const { return this->phase_ != nullptr;};
     void deletePhase() { this->phase_ = nullptr;};
-    inline string phase() const { DARABONBA_PTR_GET_DEFAULT(phase_, "") };
+    inline string getPhase() const { DARABONBA_PTR_GET_DEFAULT(phase_, "") };
     inline GetWafRuleResponseBody& setPhase(string phase) { DARABONBA_PTR_SET_VALUE(phase_, phase) };
 
 
     // position Field Functions 
     bool hasPosition() const { return this->position_ != nullptr;};
     void deletePosition() { this->position_ = nullptr;};
-    inline int64_t position() const { DARABONBA_PTR_GET_DEFAULT(position_, 0L) };
+    inline int64_t getPosition() const { DARABONBA_PTR_GET_DEFAULT(position_, 0L) };
     inline GetWafRuleResponseBody& setPosition(int64_t position) { DARABONBA_PTR_SET_VALUE(position_, position) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetWafRuleResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // rulesetId Field Functions 
     bool hasRulesetId() const { return this->rulesetId_ != nullptr;};
     void deleteRulesetId() { this->rulesetId_ = nullptr;};
-    inline int64_t rulesetId() const { DARABONBA_PTR_GET_DEFAULT(rulesetId_, 0L) };
+    inline int64_t getRulesetId() const { DARABONBA_PTR_GET_DEFAULT(rulesetId_, 0L) };
     inline GetWafRuleResponseBody& setRulesetId(int64_t rulesetId) { DARABONBA_PTR_SET_VALUE(rulesetId_, rulesetId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline GetWafRuleResponseBody& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // updateTime Field Functions 
     bool hasUpdateTime() const { return this->updateTime_ != nullptr;};
     void deleteUpdateTime() { this->updateTime_ = nullptr;};
-    inline string updateTime() const { DARABONBA_PTR_GET_DEFAULT(updateTime_, "") };
+    inline string getUpdateTime() const { DARABONBA_PTR_GET_DEFAULT(updateTime_, "") };
     inline GetWafRuleResponseBody& setUpdateTime(string updateTime) { DARABONBA_PTR_SET_VALUE(updateTime_, updateTime) };
 
 
   protected:
     // Rule configuration.
-    std::shared_ptr<WafRuleConfig> config_ = nullptr;
+    shared_ptr<WafRuleConfig> config_ {};
     // The ID of the WAF rule, which can be obtained by calling the [ListWafRules](https://help.aliyun.com/document_detail/2878257.html) interface.
-    std::shared_ptr<int64_t> id_ = nullptr;
+    shared_ptr<int64_t> id_ {};
     // Rule name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // WAF operation phase.
     // 
     // This parameter is required.
-    std::shared_ptr<string> phase_ = nullptr;
+    shared_ptr<string> phase_ {};
     // The position of the rule in the rule set.
-    std::shared_ptr<int64_t> position_ = nullptr;
+    shared_ptr<int64_t> position_ {};
     // Request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<int64_t> rulesetId_ = nullptr;
+    shared_ptr<string> requestId_ {};
+    shared_ptr<int64_t> rulesetId_ {};
     // Rule status.
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
     // The last modified time of the rule.
-    std::shared_ptr<string> updateTime_ = nullptr;
+    shared_ptr<string> updateTime_ {};
   };
 
   } // namespace Models

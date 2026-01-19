@@ -33,7 +33,7 @@ namespace Models
     // siteName Field Functions 
     bool hasSiteName() const { return this->siteName_ != nullptr;};
     void deleteSiteName() { this->siteName_ = nullptr;};
-    inline string siteName() const { DARABONBA_PTR_GET_DEFAULT(siteName_, "") };
+    inline string getSiteName() const { DARABONBA_PTR_GET_DEFAULT(siteName_, "") };
     inline CheckSiteNameRequest& setSiteName(string siteName) { DARABONBA_PTR_SET_VALUE(siteName_, siteName) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The website name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> siteName_ = nullptr;
+    shared_ptr<string> siteName_ {};
   };
 
   } // namespace Models

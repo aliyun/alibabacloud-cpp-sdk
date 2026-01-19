@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->hostnamesShrink_ == nullptr
-        && return this->id_ == nullptr && return this->siteId_ == nullptr; };
+        && this->id_ == nullptr && this->siteId_ == nullptr; };
     // hostnamesShrink Field Functions 
     bool hasHostnamesShrink() const { return this->hostnamesShrink_ != nullptr;};
     void deleteHostnamesShrink() { this->hostnamesShrink_ = nullptr;};
-    inline string hostnamesShrink() const { DARABONBA_PTR_GET_DEFAULT(hostnamesShrink_, "") };
+    inline string getHostnamesShrink() const { DARABONBA_PTR_GET_DEFAULT(hostnamesShrink_, "") };
     inline SetOriginClientCertificateHostnamesShrinkRequest& setHostnamesShrink(string hostnamesShrink) { DARABONBA_PTR_SET_VALUE(hostnamesShrink_, hostnamesShrink) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline string id() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+    inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline SetOriginClientCertificateHostnamesShrinkRequest& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // siteId Field Functions 
     bool hasSiteId() const { return this->siteId_ != nullptr;};
     void deleteSiteId() { this->siteId_ = nullptr;};
-    inline int64_t siteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
+    inline int64_t getSiteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
     inline SetOriginClientCertificateHostnamesShrinkRequest& setSiteId(int64_t siteId) { DARABONBA_PTR_SET_VALUE(siteId_, siteId) };
 
 
@@ -60,15 +60,15 @@ namespace Models
     // The domain names to associate.
     // 
     // This parameter is required.
-    std::shared_ptr<string> hostnamesShrink_ = nullptr;
+    shared_ptr<string> hostnamesShrink_ {};
     // The certificate ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> id_ = nullptr;
+    shared_ptr<string> id_ {};
     // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> siteId_ = nullptr;
+    shared_ptr<int64_t> siteId_ {};
   };
 
   } // namespace Models

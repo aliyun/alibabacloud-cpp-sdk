@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->canaryAreas_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // canaryAreas Field Functions 
     bool hasCanaryAreas() const { return this->canaryAreas_ != nullptr;};
     void deleteCanaryAreas() { this->canaryAreas_ = nullptr;};
-    inline const vector<string> & canaryAreas() const { DARABONBA_PTR_GET_CONST(canaryAreas_, vector<string>) };
-    inline vector<string> canaryAreas() { DARABONBA_PTR_GET(canaryAreas_, vector<string>) };
+    inline const vector<string> & getCanaryAreas() const { DARABONBA_PTR_GET_CONST(canaryAreas_, vector<string>) };
+    inline vector<string> getCanaryAreas() { DARABONBA_PTR_GET(canaryAreas_, vector<string>) };
     inline ListRoutineCanaryAreasResponseBody& setCanaryAreas(const vector<string> & canaryAreas) { DARABONBA_PTR_SET_VALUE(canaryAreas_, canaryAreas) };
     inline ListRoutineCanaryAreasResponseBody& setCanaryAreas(vector<string> && canaryAreas) { DARABONBA_PTR_SET_RVALUE(canaryAreas_, canaryAreas) };
 
@@ -46,15 +46,15 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListRoutineCanaryAreasResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The regions for canary release.
-    std::shared_ptr<vector<string>> canaryAreas_ = nullptr;
+    shared_ptr<vector<string>> canaryAreas_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models
