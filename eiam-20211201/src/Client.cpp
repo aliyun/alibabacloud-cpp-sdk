@@ -402,6 +402,284 @@ AuthorizeApplicationToUsersResponse Client::authorizeApplicationToUsers(const Au
 }
 
 /**
+ * @summary 授权指定ResourceServer下的Scope给Client
+ *
+ * @param request AuthorizeResourceServerScopesToClientRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AuthorizeResourceServerScopesToClientResponse
+ */
+AuthorizeResourceServerScopesToClientResponse Client::authorizeResourceServerScopesToClientWithOptions(const AuthorizeResourceServerScopesToClientRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientApplicationId()) {
+    query["ClientApplicationId"] = request.getClientApplicationId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasResourceServerApplicationId()) {
+    query["ResourceServerApplicationId"] = request.getResourceServerApplicationId();
+  }
+
+  if (!!request.hasResourceServerScopeIds()) {
+    query["ResourceServerScopeIds"] = request.getResourceServerScopeIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AuthorizeResourceServerScopesToClient"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AuthorizeResourceServerScopesToClientResponse>();
+}
+
+/**
+ * @summary 授权指定ResourceServer下的Scope给Client
+ *
+ * @param request AuthorizeResourceServerScopesToClientRequest
+ * @return AuthorizeResourceServerScopesToClientResponse
+ */
+AuthorizeResourceServerScopesToClientResponse Client::authorizeResourceServerScopesToClient(const AuthorizeResourceServerScopesToClientRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return authorizeResourceServerScopesToClientWithOptions(request, runtime);
+}
+
+/**
+ * @summary 授予组ResourceServerScope权限
+ *
+ * @param request AuthorizeResourceServerScopesToGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AuthorizeResourceServerScopesToGroupResponse
+ */
+AuthorizeResourceServerScopesToGroupResponse Client::authorizeResourceServerScopesToGroupWithOptions(const AuthorizeResourceServerScopesToGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasGroupId()) {
+    query["GroupId"] = request.getGroupId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasResourceServerScopeIds()) {
+    query["ResourceServerScopeIds"] = request.getResourceServerScopeIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AuthorizeResourceServerScopesToGroup"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AuthorizeResourceServerScopesToGroupResponse>();
+}
+
+/**
+ * @summary 授予组ResourceServerScope权限
+ *
+ * @param request AuthorizeResourceServerScopesToGroupRequest
+ * @return AuthorizeResourceServerScopesToGroupResponse
+ */
+AuthorizeResourceServerScopesToGroupResponse Client::authorizeResourceServerScopesToGroup(const AuthorizeResourceServerScopesToGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return authorizeResourceServerScopesToGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary 授予组织ResourceServerScope权限
+ *
+ * @param request AuthorizeResourceServerScopesToOrganizationalUnitRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AuthorizeResourceServerScopesToOrganizationalUnitResponse
+ */
+AuthorizeResourceServerScopesToOrganizationalUnitResponse Client::authorizeResourceServerScopesToOrganizationalUnitWithOptions(const AuthorizeResourceServerScopesToOrganizationalUnitRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasOrganizationalUnitId()) {
+    query["OrganizationalUnitId"] = request.getOrganizationalUnitId();
+  }
+
+  if (!!request.hasResourceServerScopeIds()) {
+    query["ResourceServerScopeIds"] = request.getResourceServerScopeIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AuthorizeResourceServerScopesToOrganizationalUnit"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AuthorizeResourceServerScopesToOrganizationalUnitResponse>();
+}
+
+/**
+ * @summary 授予组织ResourceServerScope权限
+ *
+ * @param request AuthorizeResourceServerScopesToOrganizationalUnitRequest
+ * @return AuthorizeResourceServerScopesToOrganizationalUnitResponse
+ */
+AuthorizeResourceServerScopesToOrganizationalUnitResponse Client::authorizeResourceServerScopesToOrganizationalUnit(const AuthorizeResourceServerScopesToOrganizationalUnitRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return authorizeResourceServerScopesToOrganizationalUnitWithOptions(request, runtime);
+}
+
+/**
+ * @summary 授予用户ResourceServerScope权限
+ *
+ * @param request AuthorizeResourceServerScopesToUserRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AuthorizeResourceServerScopesToUserResponse
+ */
+AuthorizeResourceServerScopesToUserResponse Client::authorizeResourceServerScopesToUserWithOptions(const AuthorizeResourceServerScopesToUserRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasResourceServerScopeIds()) {
+    query["ResourceServerScopeIds"] = request.getResourceServerScopeIds();
+  }
+
+  if (!!request.hasUserId()) {
+    query["UserId"] = request.getUserId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AuthorizeResourceServerScopesToUser"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AuthorizeResourceServerScopesToUserResponse>();
+}
+
+/**
+ * @summary 授予用户ResourceServerScope权限
+ *
+ * @param request AuthorizeResourceServerScopesToUserRequest
+ * @return AuthorizeResourceServerScopesToUserResponse
+ */
+AuthorizeResourceServerScopesToUserResponse Client::authorizeResourceServerScopesToUser(const AuthorizeResourceServerScopesToUserRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return authorizeResourceServerScopesToUserWithOptions(request, runtime);
+}
+
+/**
+ * @summary 授权指定ResourceServer给Client
+ *
+ * @param request AuthorizeResourceServerToClientRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AuthorizeResourceServerToClientResponse
+ */
+AuthorizeResourceServerToClientResponse Client::authorizeResourceServerToClientWithOptions(const AuthorizeResourceServerToClientRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientApplicationId()) {
+    query["ClientApplicationId"] = request.getClientApplicationId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasResourceServerApplicationId()) {
+    query["ResourceServerApplicationId"] = request.getResourceServerApplicationId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AuthorizeResourceServerToClient"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AuthorizeResourceServerToClientResponse>();
+}
+
+/**
+ * @summary 授权指定ResourceServer给Client
+ *
+ * @param request AuthorizeResourceServerToClientRequest
+ * @return AuthorizeResourceServerToClientResponse
+ */
+AuthorizeResourceServerToClientResponse Client::authorizeResourceServerToClient(const AuthorizeResourceServerToClientRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return authorizeResourceServerToClientWithOptions(request, runtime);
+}
+
+/**
  * @summary 绑定三方登录账户
  *
  * @param request BindUserAuthnSourceMappingRequest
@@ -646,6 +924,64 @@ CreateApplicationFederatedCredentialResponse Client::createApplicationFederatedC
 }
 
 /**
+ * @summary 创建应用角色
+ *
+ * @param request CreateApplicationRoleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateApplicationRoleResponse
+ */
+CreateApplicationRoleResponse Client::createApplicationRoleWithOptions(const CreateApplicationRoleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasApplicationRoleName()) {
+    query["ApplicationRoleName"] = request.getApplicationRoleName();
+  }
+
+  if (!!request.hasApplicationRoleValue()) {
+    query["ApplicationRoleValue"] = request.getApplicationRoleValue();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateApplicationRole"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateApplicationRoleResponse>();
+}
+
+/**
+ * @summary 创建应用角色
+ *
+ * @param request CreateApplicationRoleRequest
+ * @return CreateApplicationRoleResponse
+ */
+CreateApplicationRoleResponse Client::createApplicationRole(const CreateApplicationRoleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createApplicationRoleWithOptions(request, runtime);
+}
+
+/**
  * @summary 创建应用Token
  *
  * @param request CreateApplicationTokenRequest
@@ -743,6 +1079,192 @@ CreateBrandResponse Client::createBrandWithOptions(const CreateBrandRequest &req
 CreateBrandResponse Client::createBrand(const CreateBrandRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createBrandWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建应用ClientPublicKey
+ *
+ * @param request CreateClientPublicKeyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateClientPublicKeyResponse
+ */
+CreateClientPublicKeyResponse Client::createClientPublicKeyWithOptions(const CreateClientPublicKeyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAlgorithmType()) {
+    query["AlgorithmType"] = request.getAlgorithmType();
+  }
+
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasPublicKey()) {
+    query["PublicKey"] = request.getPublicKey();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateClientPublicKey"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateClientPublicKeyResponse>();
+}
+
+/**
+ * @summary 创建应用ClientPublicKey
+ *
+ * @param request CreateClientPublicKeyRequest
+ * @return CreateClientPublicKeyResponse
+ */
+CreateClientPublicKeyResponse Client::createClientPublicKey(const CreateClientPublicKeyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createClientPublicKeyWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建云账号
+ *
+ * @param request CreateCloudAccountRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateCloudAccountResponse
+ */
+CreateCloudAccountResponse Client::createCloudAccountWithOptions(const CreateCloudAccountRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasCloudAccountExternalId()) {
+    query["CloudAccountExternalId"] = request.getCloudAccountExternalId();
+  }
+
+  if (!!request.hasCloudAccountName()) {
+    query["CloudAccountName"] = request.getCloudAccountName();
+  }
+
+  if (!!request.hasCloudAccountProviderName()) {
+    query["CloudAccountProviderName"] = request.getCloudAccountProviderName();
+  }
+
+  if (!!request.hasCloudAccountVendorType()) {
+    query["CloudAccountVendorType"] = request.getCloudAccountVendorType();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateCloudAccount"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateCloudAccountResponse>();
+}
+
+/**
+ * @summary 创建云账号
+ *
+ * @param request CreateCloudAccountRequest
+ * @return CreateCloudAccountResponse
+ */
+CreateCloudAccountResponse Client::createCloudAccount(const CreateCloudAccountRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createCloudAccountWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建云角色
+ *
+ * @param request CreateCloudAccountRoleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateCloudAccountRoleResponse
+ */
+CreateCloudAccountRoleResponse Client::createCloudAccountRoleWithOptions(const CreateCloudAccountRoleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasCloudAccountId()) {
+    query["CloudAccountId"] = request.getCloudAccountId();
+  }
+
+  if (!!request.hasCloudAccountRoleName()) {
+    query["CloudAccountRoleName"] = request.getCloudAccountRoleName();
+  }
+
+  if (!!request.hasCloudAccountRoleType()) {
+    query["CloudAccountRoleType"] = request.getCloudAccountRoleType();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateCloudAccountRole"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateCloudAccountRoleResponse>();
+}
+
+/**
+ * @summary 创建云角色
+ *
+ * @param request CreateCloudAccountRoleRequest
+ * @return CreateCloudAccountRoleResponse
+ */
+CreateCloudAccountRoleResponse Client::createCloudAccountRole(const CreateCloudAccountRoleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createCloudAccountRoleWithOptions(request, runtime);
 }
 
 /**
@@ -1498,6 +2020,68 @@ CreateOrganizationalUnitResponse Client::createOrganizationalUnit(const CreateOr
 }
 
 /**
+ * @summary 创建指定ResourceServer下的Scope
+ *
+ * @param request CreateResourceServerScopeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateResourceServerScopeResponse
+ */
+CreateResourceServerScopeResponse Client::createResourceServerScopeWithOptions(const CreateResourceServerScopeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasAuthorizationType()) {
+    query["AuthorizationType"] = request.getAuthorizationType();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasResourceServerScopeName()) {
+    query["ResourceServerScopeName"] = request.getResourceServerScopeName();
+  }
+
+  if (!!request.hasResourceServerScopeType()) {
+    query["ResourceServerScopeType"] = request.getResourceServerScopeType();
+  }
+
+  if (!!request.hasResourceServerScopeValue()) {
+    query["ResourceServerScopeValue"] = request.getResourceServerScopeValue();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateResourceServerScope"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateResourceServerScopeResponse>();
+}
+
+/**
+ * @summary 创建指定ResourceServer下的Scope
+ *
+ * @param request CreateResourceServerScopeRequest
+ * @return CreateResourceServerScopeResponse
+ */
+CreateResourceServerScopeResponse Client::createResourceServerScope(const CreateResourceServerScopeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createResourceServerScopeWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates an account in an Identity as a Service (IDaaS) Enterprise Identity Access Management (EIAM) instance.
  *
  * @param request CreateUserRequest
@@ -1750,6 +2334,56 @@ DeleteApplicationFederatedCredentialResponse Client::deleteApplicationFederatedC
 }
 
 /**
+ * @summary 删除应用角色
+ *
+ * @param request DeleteApplicationRoleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteApplicationRoleResponse
+ */
+DeleteApplicationRoleResponse Client::deleteApplicationRoleWithOptions(const DeleteApplicationRoleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasApplicationRoleId()) {
+    query["ApplicationRoleId"] = request.getApplicationRoleId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteApplicationRole"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteApplicationRoleResponse>();
+}
+
+/**
+ * @summary 删除应用角色
+ *
+ * @param request DeleteApplicationRoleRequest
+ * @return DeleteApplicationRoleResponse
+ */
+DeleteApplicationRoleResponse Client::deleteApplicationRole(const DeleteApplicationRoleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteApplicationRoleWithOptions(request, runtime);
+}
+
+/**
  * @summary 删除ApplicationToken
  *
  * @param request DeleteApplicationTokenRequest
@@ -1843,6 +2477,152 @@ DeleteBrandResponse Client::deleteBrandWithOptions(const DeleteBrandRequest &req
 DeleteBrandResponse Client::deleteBrand(const DeleteBrandRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteBrandWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除指定的应用ClientPublicKey
+ *
+ * @param request DeleteClientPublicKeyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteClientPublicKeyResponse
+ */
+DeleteClientPublicKeyResponse Client::deleteClientPublicKeyWithOptions(const DeleteClientPublicKeyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasClientPublicKeyId()) {
+    query["ClientPublicKeyId"] = request.getClientPublicKeyId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteClientPublicKey"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteClientPublicKeyResponse>();
+}
+
+/**
+ * @summary 删除指定的应用ClientPublicKey
+ *
+ * @param request DeleteClientPublicKeyRequest
+ * @return DeleteClientPublicKeyResponse
+ */
+DeleteClientPublicKeyResponse Client::deleteClientPublicKey(const DeleteClientPublicKeyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteClientPublicKeyWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除云账号
+ *
+ * @param request DeleteCloudAccountRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteCloudAccountResponse
+ */
+DeleteCloudAccountResponse Client::deleteCloudAccountWithOptions(const DeleteCloudAccountRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCloudAccountId()) {
+    query["CloudAccountId"] = request.getCloudAccountId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteCloudAccount"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteCloudAccountResponse>();
+}
+
+/**
+ * @summary 删除云账号
+ *
+ * @param request DeleteCloudAccountRequest
+ * @return DeleteCloudAccountResponse
+ */
+DeleteCloudAccountResponse Client::deleteCloudAccount(const DeleteCloudAccountRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteCloudAccountWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除云角色
+ *
+ * @param request DeleteCloudAccountRoleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteCloudAccountRoleResponse
+ */
+DeleteCloudAccountRoleResponse Client::deleteCloudAccountRoleWithOptions(const DeleteCloudAccountRoleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCloudAccountId()) {
+    query["CloudAccountId"] = request.getCloudAccountId();
+  }
+
+  if (!!request.hasCloudAccountRoleId()) {
+    query["CloudAccountRoleId"] = request.getCloudAccountRoleId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteCloudAccountRole"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteCloudAccountRoleResponse>();
+}
+
+/**
+ * @summary 删除云角色
+ *
+ * @param request DeleteCloudAccountRoleRequest
+ * @return DeleteCloudAccountRoleResponse
+ */
+DeleteCloudAccountRoleResponse Client::deleteCloudAccountRole(const DeleteCloudAccountRoleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteCloudAccountRoleWithOptions(request, runtime);
 }
 
 /**
@@ -2406,6 +3186,56 @@ DeleteOrganizationalUnitChildrenResponse Client::deleteOrganizationalUnitChildre
 }
 
 /**
+ * @summary 删除指定ResourceServer下的Scope
+ *
+ * @param request DeleteResourceServerScopeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteResourceServerScopeResponse
+ */
+DeleteResourceServerScopeResponse Client::deleteResourceServerScopeWithOptions(const DeleteResourceServerScopeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasResourceServerScopeId()) {
+    query["ResourceServerScopeId"] = request.getResourceServerScopeId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteResourceServerScope"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteResourceServerScopeResponse>();
+}
+
+/**
+ * @summary 删除指定ResourceServer下的Scope
+ *
+ * @param request DeleteResourceServerScopeRequest
+ * @return DeleteResourceServerScopeResponse
+ */
+DeleteResourceServerScopeResponse Client::deleteResourceServerScope(const DeleteResourceServerScopeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteResourceServerScopeWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS). The information related to the account is cleared.
  *
  * @param request DeleteUserRequest
@@ -2744,6 +3574,52 @@ DisableApplicationFederatedCredentialResponse Client::disableApplicationFederate
 }
 
 /**
+ * @summary 禁用M2M Client 能力
+ *
+ * @param request DisableApplicationM2MClientRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DisableApplicationM2MClientResponse
+ */
+DisableApplicationM2MClientResponse Client::disableApplicationM2MClientWithOptions(const DisableApplicationM2MClientRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DisableApplicationM2MClient"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DisableApplicationM2MClientResponse>();
+}
+
+/**
+ * @summary 禁用M2M Client 能力
+ *
+ * @param request DisableApplicationM2MClientRequest
+ * @return DisableApplicationM2MClientResponse
+ */
+DisableApplicationM2MClientResponse Client::disableApplicationM2MClient(const DisableApplicationM2MClientRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return disableApplicationM2MClientWithOptions(request, runtime);
+}
+
+/**
  * @summary Disables the account synchronization feature for an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
  *
  * @param request DisableApplicationProvisioningRequest
@@ -2787,6 +3663,52 @@ DisableApplicationProvisioningResponse Client::disableApplicationProvisioningWit
 DisableApplicationProvisioningResponse Client::disableApplicationProvisioning(const DisableApplicationProvisioningRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return disableApplicationProvisioningWithOptions(request, runtime);
+}
+
+/**
+ * @summary 禁用ResourceServer能力
+ *
+ * @param request DisableApplicationResourceServerRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DisableApplicationResourceServerResponse
+ */
+DisableApplicationResourceServerResponse Client::disableApplicationResourceServerWithOptions(const DisableApplicationResourceServerRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DisableApplicationResourceServer"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DisableApplicationResourceServerResponse>();
+}
+
+/**
+ * @summary 禁用ResourceServer能力
+ *
+ * @param request DisableApplicationResourceServerRequest
+ * @return DisableApplicationResourceServerResponse
+ */
+DisableApplicationResourceServerResponse Client::disableApplicationResourceServer(const DisableApplicationResourceServerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return disableApplicationResourceServerWithOptions(request, runtime);
 }
 
 /**
@@ -2929,6 +3851,114 @@ DisableBrandResponse Client::disableBrandWithOptions(const DisableBrandRequest &
 DisableBrandResponse Client::disableBrand(const DisableBrandRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return disableBrandWithOptions(request, runtime);
+}
+
+/**
+ * @summary 禁用指定的应用ClientPublicKey
+ *
+ * @param request DisableClientPublicKeyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DisableClientPublicKeyResponse
+ */
+DisableClientPublicKeyResponse Client::disableClientPublicKeyWithOptions(const DisableClientPublicKeyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasClientPublicKeyId()) {
+    query["ClientPublicKeyId"] = request.getClientPublicKeyId();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DisableClientPublicKey"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DisableClientPublicKeyResponse>();
+}
+
+/**
+ * @summary 禁用指定的应用ClientPublicKey
+ *
+ * @param request DisableClientPublicKeyRequest
+ * @return DisableClientPublicKeyResponse
+ */
+DisableClientPublicKeyResponse Client::disableClientPublicKey(const DisableClientPublicKeyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return disableClientPublicKeyWithOptions(request, runtime);
+}
+
+/**
+ * @summary 禁用云角色
+ *
+ * @param request DisableCloudAccountRoleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DisableCloudAccountRoleResponse
+ */
+DisableCloudAccountRoleResponse Client::disableCloudAccountRoleWithOptions(const DisableCloudAccountRoleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasCloudAccountId()) {
+    query["CloudAccountId"] = request.getCloudAccountId();
+  }
+
+  if (!!request.hasCloudAccountRoleId()) {
+    query["CloudAccountRoleId"] = request.getCloudAccountRoleId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DisableCloudAccountRole"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DisableCloudAccountRoleResponse>();
+}
+
+/**
+ * @summary 禁用云角色
+ *
+ * @param request DisableCloudAccountRoleRequest
+ * @return DisableCloudAccountRoleResponse
+ */
+DisableCloudAccountRoleResponse Client::disableCloudAccountRole(const DisableCloudAccountRoleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return disableCloudAccountRoleWithOptions(request, runtime);
 }
 
 /**
@@ -3350,6 +4380,52 @@ DisableInternalAuthenticationSourceResponse Client::disableInternalAuthenticatio
 }
 
 /**
+ * @summary 禁用资源服务器自定义主体
+ *
+ * @param request DisableResourceServerCustomSubjectRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DisableResourceServerCustomSubjectResponse
+ */
+DisableResourceServerCustomSubjectResponse Client::disableResourceServerCustomSubjectWithOptions(const DisableResourceServerCustomSubjectRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DisableResourceServerCustomSubject"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DisableResourceServerCustomSubjectResponse>();
+}
+
+/**
+ * @summary 禁用资源服务器自定义主体
+ *
+ * @param request DisableResourceServerCustomSubjectRequest
+ * @return DisableResourceServerCustomSubjectResponse
+ */
+DisableResourceServerCustomSubjectResponse Client::disableResourceServerCustomSubject(const DisableResourceServerCustomSubjectRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return disableResourceServerCustomSubjectWithOptions(request, runtime);
+}
+
+/**
  * @summary Disables an Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM) account. If the account is disabled, a success message is returned.
  *
  * @param request DisableUserRequest
@@ -3588,6 +4664,52 @@ EnableApplicationFederatedCredentialResponse Client::enableApplicationFederatedC
 }
 
 /**
+ * @summary 启用M2M Client 能力
+ *
+ * @param request EnableApplicationM2MClientRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EnableApplicationM2MClientResponse
+ */
+EnableApplicationM2MClientResponse Client::enableApplicationM2MClientWithOptions(const EnableApplicationM2MClientRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "EnableApplicationM2MClient"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EnableApplicationM2MClientResponse>();
+}
+
+/**
+ * @summary 启用M2M Client 能力
+ *
+ * @param request EnableApplicationM2MClientRequest
+ * @return EnableApplicationM2MClientResponse
+ */
+EnableApplicationM2MClientResponse Client::enableApplicationM2MClient(const EnableApplicationM2MClientRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return enableApplicationM2MClientWithOptions(request, runtime);
+}
+
+/**
  * @summary Enables the account synchronization feature for an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
  *
  * @param request EnableApplicationProvisioningRequest
@@ -3631,6 +4753,52 @@ EnableApplicationProvisioningResponse Client::enableApplicationProvisioningWithO
 EnableApplicationProvisioningResponse Client::enableApplicationProvisioning(const EnableApplicationProvisioningRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return enableApplicationProvisioningWithOptions(request, runtime);
+}
+
+/**
+ * @summary 启用ResourceServer能力
+ *
+ * @param request EnableApplicationResourceServerRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EnableApplicationResourceServerResponse
+ */
+EnableApplicationResourceServerResponse Client::enableApplicationResourceServerWithOptions(const EnableApplicationResourceServerRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "EnableApplicationResourceServer"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EnableApplicationResourceServerResponse>();
+}
+
+/**
+ * @summary 启用ResourceServer能力
+ *
+ * @param request EnableApplicationResourceServerRequest
+ * @return EnableApplicationResourceServerResponse
+ */
+EnableApplicationResourceServerResponse Client::enableApplicationResourceServer(const EnableApplicationResourceServerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return enableApplicationResourceServerWithOptions(request, runtime);
 }
 
 /**
@@ -3773,6 +4941,114 @@ EnableBrandResponse Client::enableBrandWithOptions(const EnableBrandRequest &req
 EnableBrandResponse Client::enableBrand(const EnableBrandRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return enableBrandWithOptions(request, runtime);
+}
+
+/**
+ * @summary 启用指定的应用ClientPublicKey
+ *
+ * @param request EnableClientPublicKeyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EnableClientPublicKeyResponse
+ */
+EnableClientPublicKeyResponse Client::enableClientPublicKeyWithOptions(const EnableClientPublicKeyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasClientPublicKeyId()) {
+    query["ClientPublicKeyId"] = request.getClientPublicKeyId();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "EnableClientPublicKey"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EnableClientPublicKeyResponse>();
+}
+
+/**
+ * @summary 启用指定的应用ClientPublicKey
+ *
+ * @param request EnableClientPublicKeyRequest
+ * @return EnableClientPublicKeyResponse
+ */
+EnableClientPublicKeyResponse Client::enableClientPublicKey(const EnableClientPublicKeyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return enableClientPublicKeyWithOptions(request, runtime);
+}
+
+/**
+ * @summary 启用云角色
+ *
+ * @param request EnableCloudAccountRoleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EnableCloudAccountRoleResponse
+ */
+EnableCloudAccountRoleResponse Client::enableCloudAccountRoleWithOptions(const EnableCloudAccountRoleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasCloudAccountId()) {
+    query["CloudAccountId"] = request.getCloudAccountId();
+  }
+
+  if (!!request.hasCloudAccountRoleId()) {
+    query["CloudAccountRoleId"] = request.getCloudAccountRoleId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "EnableCloudAccountRole"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EnableCloudAccountRoleResponse>();
+}
+
+/**
+ * @summary 启用云角色
+ *
+ * @param request EnableCloudAccountRoleRequest
+ * @return EnableCloudAccountRoleResponse
+ */
+EnableCloudAccountRoleResponse Client::enableCloudAccountRole(const EnableCloudAccountRoleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return enableCloudAccountRoleWithOptions(request, runtime);
 }
 
 /**
@@ -4191,6 +5467,52 @@ EnableInternalAuthenticationSourceResponse Client::enableInternalAuthenticationS
 EnableInternalAuthenticationSourceResponse Client::enableInternalAuthenticationSource(const EnableInternalAuthenticationSourceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return enableInternalAuthenticationSourceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 启用资源服务器自定义主体
+ *
+ * @param request EnableResourceServerCustomSubjectRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EnableResourceServerCustomSubjectResponse
+ */
+EnableResourceServerCustomSubjectResponse Client::enableResourceServerCustomSubjectWithOptions(const EnableResourceServerCustomSubjectRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "EnableResourceServerCustomSubject"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EnableResourceServerCustomSubjectResponse>();
+}
+
+/**
+ * @summary 启用资源服务器自定义主体
+ *
+ * @param request EnableResourceServerCustomSubjectRequest
+ * @return EnableResourceServerCustomSubjectResponse
+ */
+EnableResourceServerCustomSubjectResponse Client::enableResourceServerCustomSubject(const EnableResourceServerCustomSubjectRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return enableResourceServerCustomSubjectWithOptions(request, runtime);
 }
 
 /**
@@ -4662,6 +5984,56 @@ GetApplicationProvisioningScopeResponse Client::getApplicationProvisioningScope(
 }
 
 /**
+ * @summary 获取角色信息
+ *
+ * @param request GetApplicationRoleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetApplicationRoleResponse
+ */
+GetApplicationRoleResponse Client::getApplicationRoleWithOptions(const GetApplicationRoleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasApplicationRoleId()) {
+    query["ApplicationRoleId"] = request.getApplicationRoleId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetApplicationRole"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetApplicationRoleResponse>();
+}
+
+/**
+ * @summary 获取角色信息
+ *
+ * @param request GetApplicationRoleRequest
+ * @return GetApplicationRoleResponse
+ */
+GetApplicationRoleResponse Client::getApplicationRole(const GetApplicationRoleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getApplicationRoleWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the single sign-on (SSO) configuration attributes of an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
  *
  * @param request GetApplicationSsoConfigRequest
@@ -4793,6 +6165,152 @@ GetBrandResponse Client::getBrandWithOptions(const GetBrandRequest &request, con
 GetBrandResponse Client::getBrand(const GetBrandRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getBrandWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询指定应用ClientPublicKey
+ *
+ * @param request GetClientPublicKeyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetClientPublicKeyResponse
+ */
+GetClientPublicKeyResponse Client::getClientPublicKeyWithOptions(const GetClientPublicKeyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasClientPublicKeyId()) {
+    query["ClientPublicKeyId"] = request.getClientPublicKeyId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetClientPublicKey"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetClientPublicKeyResponse>();
+}
+
+/**
+ * @summary 查询指定应用ClientPublicKey
+ *
+ * @param request GetClientPublicKeyRequest
+ * @return GetClientPublicKeyResponse
+ */
+GetClientPublicKeyResponse Client::getClientPublicKey(const GetClientPublicKeyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getClientPublicKeyWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取云账号
+ *
+ * @param request GetCloudAccountRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetCloudAccountResponse
+ */
+GetCloudAccountResponse Client::getCloudAccountWithOptions(const GetCloudAccountRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCloudAccountId()) {
+    query["CloudAccountId"] = request.getCloudAccountId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetCloudAccount"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetCloudAccountResponse>();
+}
+
+/**
+ * @summary 获取云账号
+ *
+ * @param request GetCloudAccountRequest
+ * @return GetCloudAccountResponse
+ */
+GetCloudAccountResponse Client::getCloudAccount(const GetCloudAccountRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getCloudAccountWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取云角色
+ *
+ * @param request GetCloudAccountRoleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetCloudAccountRoleResponse
+ */
+GetCloudAccountRoleResponse Client::getCloudAccountRoleWithOptions(const GetCloudAccountRoleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCloudAccountId()) {
+    query["CloudAccountId"] = request.getCloudAccountId();
+  }
+
+  if (!!request.hasCloudAccountRoleId()) {
+    query["CloudAccountRoleId"] = request.getCloudAccountRoleId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetCloudAccountRole"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetCloudAccountRoleResponse>();
+}
+
+/**
+ * @summary 获取云角色
+ *
+ * @param request GetCloudAccountRoleRequest
+ * @return GetCloudAccountRoleResponse
+ */
+GetCloudAccountRoleResponse Client::getCloudAccountRole(const GetCloudAccountRoleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getCloudAccountRoleWithOptions(request, runtime);
 }
 
 /**
@@ -5650,6 +7168,56 @@ GetPasswordInitializationConfigurationResponse Client::getPasswordInitialization
 }
 
 /**
+ * @summary 查询指定ResourceServer下的Scope
+ *
+ * @param request GetResourceServerScopeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetResourceServerScopeResponse
+ */
+GetResourceServerScopeResponse Client::getResourceServerScopeWithOptions(const GetResourceServerScopeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasResourceServerScopeId()) {
+    query["ResourceServerScopeId"] = request.getResourceServerScopeId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetResourceServerScope"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetResourceServerScopeResponse>();
+}
+
+/**
+ * @summary 查询指定ResourceServer下的Scope
+ *
+ * @param request GetResourceServerScopeRequest
+ * @return GetResourceServerScopeResponse
+ */
+GetResourceServerScopeResponse Client::getResourceServerScope(const GetResourceServerScopeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getResourceServerScopeWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the information about the root organizational unit in Identity as a Service (IDaaS) Employee IAM (EIAM).
  *
  * @param request GetRootOrganizationalUnitRequest
@@ -6051,6 +7619,64 @@ ListApplicationFederatedCredentialsForProviderResponse Client::listApplicationFe
 ListApplicationFederatedCredentialsForProviderResponse Client::listApplicationFederatedCredentialsForProvider(const ListApplicationFederatedCredentialsForProviderRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listApplicationFederatedCredentialsForProviderWithOptions(request, runtime);
+}
+
+/**
+ * @summary 游标分页查询应用角色
+ *
+ * @param request ListApplicationRolesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListApplicationRolesResponse
+ */
+ListApplicationRolesResponse Client::listApplicationRolesWithOptions(const ListApplicationRolesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasFilter()) {
+    query["Filter"] = request.getFilter();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListApplicationRoles"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListApplicationRolesResponse>();
+}
+
+/**
+ * @summary 游标分页查询应用角色
+ *
+ * @param request ListApplicationRolesRequest
+ * @return ListApplicationRolesResponse
+ */
+ListApplicationRolesResponse Client::listApplicationRoles(const ListApplicationRolesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listApplicationRolesWithOptions(request, runtime);
 }
 
 /**
@@ -6577,6 +8203,172 @@ ListBrandsResponse Client::listBrandsWithOptions(const ListBrandsRequest &reques
 ListBrandsResponse Client::listBrands(const ListBrandsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listBrandsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询指定应用所属的全部ClientPublicKey
+ *
+ * @param request ListClientPublicKeysRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListClientPublicKeysResponse
+ */
+ListClientPublicKeysResponse Client::listClientPublicKeysWithOptions(const ListClientPublicKeysRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListClientPublicKeys"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListClientPublicKeysResponse>();
+}
+
+/**
+ * @summary 查询指定应用所属的全部ClientPublicKey
+ *
+ * @param request ListClientPublicKeysRequest
+ * @return ListClientPublicKeysResponse
+ */
+ListClientPublicKeysResponse Client::listClientPublicKeys(const ListClientPublicKeysRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listClientPublicKeysWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询云角色列表
+ *
+ * @param request ListCloudAccountRolesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListCloudAccountRolesResponse
+ */
+ListCloudAccountRolesResponse Client::listCloudAccountRolesWithOptions(const ListCloudAccountRolesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCloudAccountId()) {
+    query["CloudAccountId"] = request.getCloudAccountId();
+  }
+
+  if (!!request.hasFilter()) {
+    query["Filter"] = request.getFilter();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListCloudAccountRoles"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListCloudAccountRolesResponse>();
+}
+
+/**
+ * @summary 查询云角色列表
+ *
+ * @param request ListCloudAccountRolesRequest
+ * @return ListCloudAccountRolesResponse
+ */
+ListCloudAccountRolesResponse Client::listCloudAccountRoles(const ListCloudAccountRolesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listCloudAccountRolesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询云账号列表
+ *
+ * @param request ListCloudAccountsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListCloudAccountsResponse
+ */
+ListCloudAccountsResponse Client::listCloudAccountsWithOptions(const ListCloudAccountsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFilter()) {
+    query["Filter"] = request.getFilter();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListCloudAccounts"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListCloudAccountsResponse>();
+}
+
+/**
+ * @summary 查询云账号列表
+ *
+ * @param request ListCloudAccountsRequest
+ * @return ListCloudAccountsResponse
+ */
+ListCloudAccountsResponse Client::listCloudAccounts(const ListCloudAccountsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listCloudAccountsWithOptions(request, runtime);
 }
 
 /**
@@ -7257,6 +9049,64 @@ ListGroupsForApplicationResponse Client::listGroupsForApplication(const ListGrou
 }
 
 /**
+ * @summary 查询ResourceServer授权的组和Scope权限
+ *
+ * @param request ListGroupsForResourceServerRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListGroupsForResourceServerResponse
+ */
+ListGroupsForResourceServerResponse Client::listGroupsForResourceServerWithOptions(const ListGroupsForResourceServerRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasFilter()) {
+    query["Filter"] = request.getFilter();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListGroupsForResourceServer"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListGroupsForResourceServerResponse>();
+}
+
+/**
+ * @summary 查询ResourceServer授权的组和Scope权限
+ *
+ * @param request ListGroupsForResourceServerRequest
+ * @return ListGroupsForResourceServerResponse
+ */
+ListGroupsForResourceServerResponse Client::listGroupsForResourceServer(const ListGroupsForResourceServerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listGroupsForResourceServerWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries a list of account groups to which an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS) belongs.
  *
  * @param request ListGroupsForUserRequest
@@ -7892,6 +9742,64 @@ ListOrganizationalUnitsForApplicationResponse Client::listOrganizationalUnitsFor
 }
 
 /**
+ * @summary 查询被授权到组织的ResourceServers和Scopes权限
+ *
+ * @param request ListOrganizationalUnitsForResourceServerRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListOrganizationalUnitsForResourceServerResponse
+ */
+ListOrganizationalUnitsForResourceServerResponse Client::listOrganizationalUnitsForResourceServerWithOptions(const ListOrganizationalUnitsForResourceServerRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasFilter()) {
+    query["Filter"] = request.getFilter();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListOrganizationalUnitsForResourceServer"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListOrganizationalUnitsForResourceServerResponse>();
+}
+
+/**
+ * @summary 查询被授权到组织的ResourceServers和Scopes权限
+ *
+ * @param request ListOrganizationalUnitsForResourceServerRequest
+ * @return ListOrganizationalUnitsForResourceServerResponse
+ */
+ListOrganizationalUnitsForResourceServerResponse Client::listOrganizationalUnitsForResourceServer(const ListOrganizationalUnitsForResourceServerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listOrganizationalUnitsForResourceServerWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the supported Alibaba Cloud regions.
  *
  * @param request ListRegionsRequest
@@ -7922,6 +9830,64 @@ ListRegionsResponse Client::listRegionsWithOptions(const Darabonba::RuntimeOptio
 ListRegionsResponse Client::listRegions() {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listRegionsWithOptions(runtime);
+}
+
+/**
+ * @summary 查询用户的被授予ResourceServers和Scopes的权限
+ *
+ * @param request ListResourceServersForUserRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListResourceServersForUserResponse
+ */
+ListResourceServersForUserResponse Client::listResourceServersForUserWithOptions(const ListResourceServersForUserRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFilter()) {
+    query["Filter"] = request.getFilter();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasUserId()) {
+    query["UserId"] = request.getUserId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListResourceServersForUser"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListResourceServersForUserResponse>();
+}
+
+/**
+ * @summary 查询用户的被授予ResourceServers和Scopes的权限
+ *
+ * @param request ListResourceServersForUserRequest
+ * @return ListResourceServersForUserResponse
+ */
+ListResourceServersForUserResponse Client::listResourceServersForUser(const ListResourceServersForUserRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listResourceServersForUserWithOptions(request, runtime);
 }
 
 /**
@@ -8288,6 +10254,64 @@ ListUsersForGroupResponse Client::listUsersForGroupWithOptions(const ListUsersFo
 ListUsersForGroupResponse Client::listUsersForGroup(const ListUsersForGroupRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listUsersForGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询ResourceServer授权的用户和Scope权限
+ *
+ * @param request ListUsersForResourceServerRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListUsersForResourceServerResponse
+ */
+ListUsersForResourceServerResponse Client::listUsersForResourceServerWithOptions(const ListUsersForResourceServerRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasFilter()) {
+    query["Filter"] = request.getFilter();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListUsersForResourceServer"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListUsersForResourceServerResponse>();
+}
+
+/**
+ * @summary 查询ResourceServer授权的用户和Scope权限
+ *
+ * @param request ListUsersForResourceServerRequest
+ * @return ListUsersForResourceServerResponse
+ */
+ListUsersForResourceServerResponse Client::listUsersForResourceServer(const ListUsersForResourceServerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listUsersForResourceServerWithOptions(request, runtime);
 }
 
 /**
@@ -8807,6 +10831,272 @@ RevokeApplicationFromUsersResponse Client::revokeApplicationFromUsers(const Revo
 }
 
 /**
+ * @summary 解除指定ResourceServer到Client的授权
+ *
+ * @param request RevokeResourceServerFromClientRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RevokeResourceServerFromClientResponse
+ */
+RevokeResourceServerFromClientResponse Client::revokeResourceServerFromClientWithOptions(const RevokeResourceServerFromClientRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientApplicationId()) {
+    query["ClientApplicationId"] = request.getClientApplicationId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasResourceServerApplicationId()) {
+    query["ResourceServerApplicationId"] = request.getResourceServerApplicationId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RevokeResourceServerFromClient"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RevokeResourceServerFromClientResponse>();
+}
+
+/**
+ * @summary 解除指定ResourceServer到Client的授权
+ *
+ * @param request RevokeResourceServerFromClientRequest
+ * @return RevokeResourceServerFromClientResponse
+ */
+RevokeResourceServerFromClientResponse Client::revokeResourceServerFromClient(const RevokeResourceServerFromClientRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return revokeResourceServerFromClientWithOptions(request, runtime);
+}
+
+/**
+ * @summary 解除指定ResourceServer下的Scope给Client
+ *
+ * @param request RevokeResourceServerScopesFromClientRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RevokeResourceServerScopesFromClientResponse
+ */
+RevokeResourceServerScopesFromClientResponse Client::revokeResourceServerScopesFromClientWithOptions(const RevokeResourceServerScopesFromClientRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientApplicationId()) {
+    query["ClientApplicationId"] = request.getClientApplicationId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasResourceServerApplicationId()) {
+    query["ResourceServerApplicationId"] = request.getResourceServerApplicationId();
+  }
+
+  if (!!request.hasResourceServerScopeIds()) {
+    query["ResourceServerScopeIds"] = request.getResourceServerScopeIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RevokeResourceServerScopesFromClient"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RevokeResourceServerScopesFromClientResponse>();
+}
+
+/**
+ * @summary 解除指定ResourceServer下的Scope给Client
+ *
+ * @param request RevokeResourceServerScopesFromClientRequest
+ * @return RevokeResourceServerScopesFromClientResponse
+ */
+RevokeResourceServerScopesFromClientResponse Client::revokeResourceServerScopesFromClient(const RevokeResourceServerScopesFromClientRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return revokeResourceServerScopesFromClientWithOptions(request, runtime);
+}
+
+/**
+ * @summary 取消被授予到组的ResourceServerScope权限
+ *
+ * @param request RevokeResourceServerScopesFromGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RevokeResourceServerScopesFromGroupResponse
+ */
+RevokeResourceServerScopesFromGroupResponse Client::revokeResourceServerScopesFromGroupWithOptions(const RevokeResourceServerScopesFromGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasGroupId()) {
+    query["GroupId"] = request.getGroupId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasResourceServerScopeIds()) {
+    query["ResourceServerScopeIds"] = request.getResourceServerScopeIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RevokeResourceServerScopesFromGroup"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RevokeResourceServerScopesFromGroupResponse>();
+}
+
+/**
+ * @summary 取消被授予到组的ResourceServerScope权限
+ *
+ * @param request RevokeResourceServerScopesFromGroupRequest
+ * @return RevokeResourceServerScopesFromGroupResponse
+ */
+RevokeResourceServerScopesFromGroupResponse Client::revokeResourceServerScopesFromGroup(const RevokeResourceServerScopesFromGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return revokeResourceServerScopesFromGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary 取消被授予到组织的ResourceServerScope权限
+ *
+ * @param request RevokeResourceServerScopesFromOrganizationalUnitRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RevokeResourceServerScopesFromOrganizationalUnitResponse
+ */
+RevokeResourceServerScopesFromOrganizationalUnitResponse Client::revokeResourceServerScopesFromOrganizationalUnitWithOptions(const RevokeResourceServerScopesFromOrganizationalUnitRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasOrganizationalUnitId()) {
+    query["OrganizationalUnitId"] = request.getOrganizationalUnitId();
+  }
+
+  if (!!request.hasResourceServerScopeIds()) {
+    query["ResourceServerScopeIds"] = request.getResourceServerScopeIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RevokeResourceServerScopesFromOrganizationalUnit"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RevokeResourceServerScopesFromOrganizationalUnitResponse>();
+}
+
+/**
+ * @summary 取消被授予到组织的ResourceServerScope权限
+ *
+ * @param request RevokeResourceServerScopesFromOrganizationalUnitRequest
+ * @return RevokeResourceServerScopesFromOrganizationalUnitResponse
+ */
+RevokeResourceServerScopesFromOrganizationalUnitResponse Client::revokeResourceServerScopesFromOrganizationalUnit(const RevokeResourceServerScopesFromOrganizationalUnitRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return revokeResourceServerScopesFromOrganizationalUnitWithOptions(request, runtime);
+}
+
+/**
+ * @summary 取消被授予用户的ResourceServerScope权限
+ *
+ * @param request RevokeResourceServerScopesFromUserRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RevokeResourceServerScopesFromUserResponse
+ */
+RevokeResourceServerScopesFromUserResponse Client::revokeResourceServerScopesFromUserWithOptions(const RevokeResourceServerScopesFromUserRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasResourceServerScopeIds()) {
+    query["ResourceServerScopeIds"] = request.getResourceServerScopeIds();
+  }
+
+  if (!!request.hasUserId()) {
+    query["UserId"] = request.getUserId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RevokeResourceServerScopesFromUser"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RevokeResourceServerScopesFromUserResponse>();
+}
+
+/**
+ * @summary 取消被授予用户的ResourceServerScope权限
+ *
+ * @param request RevokeResourceServerScopesFromUserRequest
+ * @return RevokeResourceServerScopesFromUserResponse
+ */
+RevokeResourceServerScopesFromUserResponse Client::revokeResourceServerScopesFromUser(const RevokeResourceServerScopesFromUserRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return revokeResourceServerScopesFromUserWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a synchronization job and immediately runs the job.
  *
  * @param request RunSynchronizationJobRequest
@@ -9090,6 +11380,60 @@ SetApplicationProvisioningUserPrimaryOrganizationalUnitResponse Client::setAppli
 SetApplicationProvisioningUserPrimaryOrganizationalUnitResponse Client::setApplicationProvisioningUserPrimaryOrganizationalUnit(const SetApplicationProvisioningUserPrimaryOrganizationalUnitRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return setApplicationProvisioningUserPrimaryOrganizationalUnitWithOptions(request, runtime);
+}
+
+/**
+ * @summary 设置ResourceServer的Identifier
+ *
+ * @param request SetApplicationResourceServerIdentifierRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SetApplicationResourceServerIdentifierResponse
+ */
+SetApplicationResourceServerIdentifierResponse Client::setApplicationResourceServerIdentifierWithOptions(const SetApplicationResourceServerIdentifierRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasResourceServerIdentifier()) {
+    query["ResourceServerIdentifier"] = request.getResourceServerIdentifier();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SetApplicationResourceServerIdentifier"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SetApplicationResourceServerIdentifierResponse>();
+}
+
+/**
+ * @summary 设置ResourceServer的Identifier
+ *
+ * @param request SetApplicationResourceServerIdentifierRequest
+ * @return SetApplicationResourceServerIdentifierResponse
+ */
+SetApplicationResourceServerIdentifierResponse Client::setApplicationResourceServerIdentifier(const SetApplicationResourceServerIdentifierRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return setApplicationResourceServerIdentifierWithOptions(request, runtime);
 }
 
 /**
@@ -9612,6 +11956,60 @@ SetPasswordInitializationConfigurationResponse Client::setPasswordInitialization
 SetPasswordInitializationConfigurationResponse Client::setPasswordInitializationConfiguration(const SetPasswordInitializationConfigurationRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return setPasswordInitializationConfigurationWithOptions(request, runtime);
+}
+
+/**
+ * @summary 设置指定的应用ClientPublicKey优先启用状态
+ *
+ * @param request SetPrimaryClientPublicKeyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SetPrimaryClientPublicKeyResponse
+ */
+SetPrimaryClientPublicKeyResponse Client::setPrimaryClientPublicKeyWithOptions(const SetPrimaryClientPublicKeyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasClientPublicKeyId()) {
+    query["ClientPublicKeyId"] = request.getClientPublicKeyId();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SetPrimaryClientPublicKey"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SetPrimaryClientPublicKeyResponse>();
+}
+
+/**
+ * @summary 设置指定的应用ClientPublicKey优先启用状态
+ *
+ * @param request SetPrimaryClientPublicKeyRequest
+ * @return SetPrimaryClientPublicKeyResponse
+ */
+SetPrimaryClientPublicKeyResponse Client::setPrimaryClientPublicKey(const SetPrimaryClientPublicKeyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return setPrimaryClientPublicKeyWithOptions(request, runtime);
 }
 
 /**
@@ -10143,6 +12541,118 @@ UpdateApplicationInfoResponse Client::updateApplicationInfo(const UpdateApplicat
 }
 
 /**
+ * @summary 修改应用角色
+ *
+ * @param request UpdateApplicationRoleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateApplicationRoleResponse
+ */
+UpdateApplicationRoleResponse Client::updateApplicationRoleWithOptions(const UpdateApplicationRoleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasApplicationRoleId()) {
+    query["ApplicationRoleId"] = request.getApplicationRoleId();
+  }
+
+  if (!!request.hasApplicationRoleName()) {
+    query["ApplicationRoleName"] = request.getApplicationRoleName();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateApplicationRole"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateApplicationRoleResponse>();
+}
+
+/**
+ * @summary 修改应用角色
+ *
+ * @param request UpdateApplicationRoleRequest
+ * @return UpdateApplicationRoleResponse
+ */
+UpdateApplicationRoleResponse Client::updateApplicationRole(const UpdateApplicationRoleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateApplicationRoleWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改应用角色描述
+ *
+ * @param request UpdateApplicationRoleDescriptionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateApplicationRoleDescriptionResponse
+ */
+UpdateApplicationRoleDescriptionResponse Client::updateApplicationRoleDescriptionWithOptions(const UpdateApplicationRoleDescriptionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasApplicationRoleId()) {
+    query["ApplicationRoleId"] = request.getApplicationRoleId();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateApplicationRoleDescription"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateApplicationRoleDescriptionResponse>();
+}
+
+/**
+ * @summary 修改应用角色描述
+ *
+ * @param request UpdateApplicationRoleDescriptionRequest
+ * @return UpdateApplicationRoleDescriptionResponse
+ */
+UpdateApplicationRoleDescriptionResponse Client::updateApplicationRoleDescription(const UpdateApplicationRoleDescriptionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateApplicationRoleDescriptionWithOptions(request, runtime);
+}
+
+/**
  * @summary 更新模板应用的SSO参数
  *
  * @param request UpdateApplicationSsoFormParamsRequest
@@ -10294,6 +12804,172 @@ UpdateBrandResponse Client::updateBrandWithOptions(const UpdateBrandRequest &req
 UpdateBrandResponse Client::updateBrand(const UpdateBrandRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateBrandWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新云账号
+ *
+ * @param request UpdateCloudAccountRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateCloudAccountResponse
+ */
+UpdateCloudAccountResponse Client::updateCloudAccountWithOptions(const UpdateCloudAccountRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasCloudAccountId()) {
+    query["CloudAccountId"] = request.getCloudAccountId();
+  }
+
+  if (!!request.hasCloudAccountName()) {
+    query["CloudAccountName"] = request.getCloudAccountName();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateCloudAccount"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateCloudAccountResponse>();
+}
+
+/**
+ * @summary 更新云账号
+ *
+ * @param request UpdateCloudAccountRequest
+ * @return UpdateCloudAccountResponse
+ */
+UpdateCloudAccountResponse Client::updateCloudAccount(const UpdateCloudAccountRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateCloudAccountWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新云账号描述
+ *
+ * @param request UpdateCloudAccountDescriptionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateCloudAccountDescriptionResponse
+ */
+UpdateCloudAccountDescriptionResponse Client::updateCloudAccountDescriptionWithOptions(const UpdateCloudAccountDescriptionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasCloudAccountId()) {
+    query["CloudAccountId"] = request.getCloudAccountId();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateCloudAccountDescription"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateCloudAccountDescriptionResponse>();
+}
+
+/**
+ * @summary 更新云账号描述
+ *
+ * @param request UpdateCloudAccountDescriptionRequest
+ * @return UpdateCloudAccountDescriptionResponse
+ */
+UpdateCloudAccountDescriptionResponse Client::updateCloudAccountDescription(const UpdateCloudAccountDescriptionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateCloudAccountDescriptionWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新云角色描述
+ *
+ * @param request UpdateCloudAccountRoleDescriptionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateCloudAccountRoleDescriptionResponse
+ */
+UpdateCloudAccountRoleDescriptionResponse Client::updateCloudAccountRoleDescriptionWithOptions(const UpdateCloudAccountRoleDescriptionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasCloudAccountId()) {
+    query["CloudAccountId"] = request.getCloudAccountId();
+  }
+
+  if (!!request.hasCloudAccountRoleId()) {
+    query["CloudAccountRoleId"] = request.getCloudAccountRoleId();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateCloudAccountRoleDescription"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateCloudAccountRoleDescriptionResponse>();
+}
+
+/**
+ * @summary 更新云角色描述
+ *
+ * @param request UpdateCloudAccountRoleDescriptionRequest
+ * @return UpdateCloudAccountRoleDescriptionResponse
+ */
+UpdateCloudAccountRoleDescriptionResponse Client::updateCloudAccountRoleDescription(const UpdateCloudAccountRoleDescriptionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateCloudAccountRoleDescriptionWithOptions(request, runtime);
 }
 
 /**
@@ -11256,6 +13932,60 @@ UpdateOrganizationalUnitParentIdResponse Client::updateOrganizationalUnitParentI
 UpdateOrganizationalUnitParentIdResponse Client::updateOrganizationalUnitParentId(const UpdateOrganizationalUnitParentIdRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateOrganizationalUnitParentIdWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新指定ResourceServer下的Scope
+ *
+ * @param request UpdateResourceServerScopeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateResourceServerScopeResponse
+ */
+UpdateResourceServerScopeResponse Client::updateResourceServerScopeWithOptions(const UpdateResourceServerScopeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasResourceServerScopeId()) {
+    query["ResourceServerScopeId"] = request.getResourceServerScopeId();
+  }
+
+  if (!!request.hasResourceServerScopeName()) {
+    query["ResourceServerScopeName"] = request.getResourceServerScopeName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateResourceServerScope"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateResourceServerScopeResponse>();
+}
+
+/**
+ * @summary 更新指定ResourceServer下的Scope
+ *
+ * @param request UpdateResourceServerScopeRequest
+ * @return UpdateResourceServerScopeResponse
+ */
+UpdateResourceServerScopeResponse Client::updateResourceServerScope(const UpdateResourceServerScopeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateResourceServerScopeWithOptions(request, runtime);
 }
 
 /**
