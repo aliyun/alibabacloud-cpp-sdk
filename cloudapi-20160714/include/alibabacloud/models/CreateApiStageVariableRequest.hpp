@@ -42,54 +42,54 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->groupId_ == nullptr
-        && return this->securityToken_ == nullptr && return this->stageId_ == nullptr && return this->stageRouteModel_ == nullptr && return this->supportRoute_ == nullptr && return this->variableName_ == nullptr
-        && return this->variableValue_ == nullptr; };
+        && this->securityToken_ == nullptr && this->stageId_ == nullptr && this->stageRouteModel_ == nullptr && this->supportRoute_ == nullptr && this->variableName_ == nullptr
+        && this->variableValue_ == nullptr; };
     // groupId Field Functions 
     bool hasGroupId() const { return this->groupId_ != nullptr;};
     void deleteGroupId() { this->groupId_ = nullptr;};
-    inline string groupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
+    inline string getGroupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
     inline CreateApiStageVariableRequest& setGroupId(string groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
 
 
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
-    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
     inline CreateApiStageVariableRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
     // stageId Field Functions 
     bool hasStageId() const { return this->stageId_ != nullptr;};
     void deleteStageId() { this->stageId_ = nullptr;};
-    inline string stageId() const { DARABONBA_PTR_GET_DEFAULT(stageId_, "") };
+    inline string getStageId() const { DARABONBA_PTR_GET_DEFAULT(stageId_, "") };
     inline CreateApiStageVariableRequest& setStageId(string stageId) { DARABONBA_PTR_SET_VALUE(stageId_, stageId) };
 
 
     // stageRouteModel Field Functions 
     bool hasStageRouteModel() const { return this->stageRouteModel_ != nullptr;};
     void deleteStageRouteModel() { this->stageRouteModel_ = nullptr;};
-    inline string stageRouteModel() const { DARABONBA_PTR_GET_DEFAULT(stageRouteModel_, "") };
+    inline string getStageRouteModel() const { DARABONBA_PTR_GET_DEFAULT(stageRouteModel_, "") };
     inline CreateApiStageVariableRequest& setStageRouteModel(string stageRouteModel) { DARABONBA_PTR_SET_VALUE(stageRouteModel_, stageRouteModel) };
 
 
     // supportRoute Field Functions 
     bool hasSupportRoute() const { return this->supportRoute_ != nullptr;};
     void deleteSupportRoute() { this->supportRoute_ = nullptr;};
-    inline bool supportRoute() const { DARABONBA_PTR_GET_DEFAULT(supportRoute_, false) };
+    inline bool getSupportRoute() const { DARABONBA_PTR_GET_DEFAULT(supportRoute_, false) };
     inline CreateApiStageVariableRequest& setSupportRoute(bool supportRoute) { DARABONBA_PTR_SET_VALUE(supportRoute_, supportRoute) };
 
 
     // variableName Field Functions 
     bool hasVariableName() const { return this->variableName_ != nullptr;};
     void deleteVariableName() { this->variableName_ = nullptr;};
-    inline string variableName() const { DARABONBA_PTR_GET_DEFAULT(variableName_, "") };
+    inline string getVariableName() const { DARABONBA_PTR_GET_DEFAULT(variableName_, "") };
     inline CreateApiStageVariableRequest& setVariableName(string variableName) { DARABONBA_PTR_SET_VALUE(variableName_, variableName) };
 
 
     // variableValue Field Functions 
     bool hasVariableValue() const { return this->variableValue_ != nullptr;};
     void deleteVariableValue() { this->variableValue_ = nullptr;};
-    inline string variableValue() const { DARABONBA_PTR_GET_DEFAULT(variableValue_, "") };
+    inline string getVariableValue() const { DARABONBA_PTR_GET_DEFAULT(variableValue_, "") };
     inline CreateApiStageVariableRequest& setVariableValue(string variableValue) { DARABONBA_PTR_SET_VALUE(variableValue_, variableValue) };
 
 
@@ -97,22 +97,22 @@ namespace Models
     // The ID of the API group.
     // 
     // This parameter is required.
-    std::shared_ptr<string> groupId_ = nullptr;
-    std::shared_ptr<string> securityToken_ = nullptr;
+    shared_ptr<string> groupId_ {};
+    shared_ptr<string> securityToken_ {};
     // The ID of the runtime environment.
     // 
     // This parameter is required.
-    std::shared_ptr<string> stageId_ = nullptr;
+    shared_ptr<string> stageId_ {};
     // The routing model of the environment.
-    std::shared_ptr<string> stageRouteModel_ = nullptr;
+    shared_ptr<string> stageRouteModel_ {};
     // Specifies whether routing is supported.
-    std::shared_ptr<bool> supportRoute_ = nullptr;
+    shared_ptr<bool> supportRoute_ {};
     // The name of the variable to be added. This parameter is case-sensitive.
     // 
     // This parameter is required.
-    std::shared_ptr<string> variableName_ = nullptr;
+    shared_ptr<string> variableName_ {};
     // The value of the variable.
-    std::shared_ptr<string> variableValue_ = nullptr;
+    shared_ptr<string> variableValue_ {};
   };
 
   } // namespace Models

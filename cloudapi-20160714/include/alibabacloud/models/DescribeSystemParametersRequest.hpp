@@ -33,12 +33,12 @@ namespace Models
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
-    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
     inline DescribeSystemParametersRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
   protected:
-    std::shared_ptr<string> securityToken_ = nullptr;
+    shared_ptr<string> securityToken_ {};
   };
 
   } // namespace Models

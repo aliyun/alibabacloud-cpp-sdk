@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->operationUid_ == nullptr
-        && return this->securityToken_ == nullptr; };
+        && this->securityToken_ == nullptr; };
     // operationUid Field Functions 
     bool hasOperationUid() const { return this->operationUid_ != nullptr;};
     void deleteOperationUid() { this->operationUid_ = nullptr;};
-    inline string operationUid() const { DARABONBA_PTR_GET_DEFAULT(operationUid_, "") };
+    inline string getOperationUid() const { DARABONBA_PTR_GET_DEFAULT(operationUid_, "") };
     inline DescribeDeployApiTaskRequest& setOperationUid(string operationUid) { DARABONBA_PTR_SET_VALUE(operationUid_, operationUid) };
 
 
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
-    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
     inline DescribeDeployApiTaskRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
@@ -51,8 +51,8 @@ namespace Models
     // The task ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> operationUid_ = nullptr;
-    std::shared_ptr<string> securityToken_ = nullptr;
+    shared_ptr<string> operationUid_ {};
+    shared_ptr<string> securityToken_ {};
   };
 
   } // namespace Models

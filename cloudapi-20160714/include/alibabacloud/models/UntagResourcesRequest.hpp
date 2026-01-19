@@ -39,19 +39,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->all_ == nullptr
-        && return this->resourceId_ == nullptr && return this->resourceType_ == nullptr && return this->securityToken_ == nullptr && return this->tagKey_ == nullptr; };
+        && this->resourceId_ == nullptr && this->resourceType_ == nullptr && this->securityToken_ == nullptr && this->tagKey_ == nullptr; };
     // all Field Functions 
     bool hasAll() const { return this->all_ != nullptr;};
     void deleteAll() { this->all_ = nullptr;};
-    inline bool all() const { DARABONBA_PTR_GET_DEFAULT(all_, false) };
+    inline bool getAll() const { DARABONBA_PTR_GET_DEFAULT(all_, false) };
     inline UntagResourcesRequest& setAll(bool all) { DARABONBA_PTR_SET_VALUE(all_, all) };
 
 
     // resourceId Field Functions 
     bool hasResourceId() const { return this->resourceId_ != nullptr;};
     void deleteResourceId() { this->resourceId_ = nullptr;};
-    inline const vector<string> & resourceId() const { DARABONBA_PTR_GET_CONST(resourceId_, vector<string>) };
-    inline vector<string> resourceId() { DARABONBA_PTR_GET(resourceId_, vector<string>) };
+    inline const vector<string> & getResourceId() const { DARABONBA_PTR_GET_CONST(resourceId_, vector<string>) };
+    inline vector<string> getResourceId() { DARABONBA_PTR_GET(resourceId_, vector<string>) };
     inline UntagResourcesRequest& setResourceId(const vector<string> & resourceId) { DARABONBA_PTR_SET_VALUE(resourceId_, resourceId) };
     inline UntagResourcesRequest& setResourceId(vector<string> && resourceId) { DARABONBA_PTR_SET_RVALUE(resourceId_, resourceId) };
 
@@ -59,22 +59,22 @@ namespace Models
     // resourceType Field Functions 
     bool hasResourceType() const { return this->resourceType_ != nullptr;};
     void deleteResourceType() { this->resourceType_ = nullptr;};
-    inline string resourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
+    inline string getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
     inline UntagResourcesRequest& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
 
 
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
-    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
     inline UntagResourcesRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
     // tagKey Field Functions 
     bool hasTagKey() const { return this->tagKey_ != nullptr;};
     void deleteTagKey() { this->tagKey_ = nullptr;};
-    inline const vector<string> & tagKey() const { DARABONBA_PTR_GET_CONST(tagKey_, vector<string>) };
-    inline vector<string> tagKey() { DARABONBA_PTR_GET(tagKey_, vector<string>) };
+    inline const vector<string> & getTagKey() const { DARABONBA_PTR_GET_CONST(tagKey_, vector<string>) };
+    inline vector<string> getTagKey() { DARABONBA_PTR_GET(tagKey_, vector<string>) };
     inline UntagResourcesRequest& setTagKey(const vector<string> & tagKey) { DARABONBA_PTR_SET_VALUE(tagKey_, tagKey) };
     inline UntagResourcesRequest& setTagKey(vector<string> && tagKey) { DARABONBA_PTR_SET_RVALUE(tagKey_, tagKey) };
 
@@ -84,11 +84,11 @@ namespace Models
     // 
     // *   **true**
     // *   **false**
-    std::shared_ptr<bool> all_ = nullptr;
+    shared_ptr<bool> all_ {};
     // The resource IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> resourceId_ = nullptr;
+    shared_ptr<vector<string>> resourceId_ {};
     // The type of the resource. Tags are bound to API groups, plug-ins, and applications. You can use tags to manage cloud resources by group. Valid values:
     // 
     // *   **apiGroup**
@@ -96,11 +96,11 @@ namespace Models
     // *   **app**
     // 
     // This parameter is required.
-    std::shared_ptr<string> resourceType_ = nullptr;
+    shared_ptr<string> resourceType_ {};
     // The security token included in the WebSocket request header. The system uses this token to authenticate the request.
-    std::shared_ptr<string> securityToken_ = nullptr;
+    shared_ptr<string> securityToken_ {};
     // The tag keys of the resource.
-    std::shared_ptr<vector<string>> tagKey_ = nullptr;
+    shared_ptr<vector<string>> tagKey_ {};
   };
 
   } // namespace Models

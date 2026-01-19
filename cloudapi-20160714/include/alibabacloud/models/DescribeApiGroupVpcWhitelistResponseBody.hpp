@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->vpcIds_ == nullptr; };
+        && this->vpcIds_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeApiGroupVpcWhitelistResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // vpcIds Field Functions 
     bool hasVpcIds() const { return this->vpcIds_ != nullptr;};
     void deleteVpcIds() { this->vpcIds_ = nullptr;};
-    inline string vpcIds() const { DARABONBA_PTR_GET_DEFAULT(vpcIds_, "") };
+    inline string getVpcIds() const { DARABONBA_PTR_GET_DEFAULT(vpcIds_, "") };
     inline DescribeApiGroupVpcWhitelistResponseBody& setVpcIds(string vpcIds) { DARABONBA_PTR_SET_VALUE(vpcIds_, vpcIds) };
 
 
   protected:
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The ID of the VPC.
-    std::shared_ptr<string> vpcIds_ = nullptr;
+    shared_ptr<string> vpcIds_ {};
   };
 
   } // namespace Models

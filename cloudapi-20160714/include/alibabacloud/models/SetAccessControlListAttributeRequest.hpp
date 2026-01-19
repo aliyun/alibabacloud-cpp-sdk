@@ -34,34 +34,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aclId_ == nullptr
-        && return this->aclName_ == nullptr && return this->securityToken_ == nullptr; };
+        && this->aclName_ == nullptr && this->securityToken_ == nullptr; };
     // aclId Field Functions 
     bool hasAclId() const { return this->aclId_ != nullptr;};
     void deleteAclId() { this->aclId_ = nullptr;};
-    inline string aclId() const { DARABONBA_PTR_GET_DEFAULT(aclId_, "") };
+    inline string getAclId() const { DARABONBA_PTR_GET_DEFAULT(aclId_, "") };
     inline SetAccessControlListAttributeRequest& setAclId(string aclId) { DARABONBA_PTR_SET_VALUE(aclId_, aclId) };
 
 
     // aclName Field Functions 
     bool hasAclName() const { return this->aclName_ != nullptr;};
     void deleteAclName() { this->aclName_ = nullptr;};
-    inline string aclName() const { DARABONBA_PTR_GET_DEFAULT(aclName_, "") };
+    inline string getAclName() const { DARABONBA_PTR_GET_DEFAULT(aclName_, "") };
     inline SetAccessControlListAttributeRequest& setAclName(string aclName) { DARABONBA_PTR_SET_VALUE(aclName_, aclName) };
 
 
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
-    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
     inline SetAccessControlListAttributeRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> aclId_ = nullptr;
+    shared_ptr<string> aclId_ {};
     // This parameter is required.
-    std::shared_ptr<string> aclName_ = nullptr;
-    std::shared_ptr<string> securityToken_ = nullptr;
+    shared_ptr<string> aclName_ {};
+    shared_ptr<string> securityToken_ {};
   };
 
   } // namespace Models

@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appKey_ == nullptr
-        && return this->newAppKey_ == nullptr && return this->newAppSecret_ == nullptr && return this->securityToken_ == nullptr; };
+        && this->newAppKey_ == nullptr && this->newAppSecret_ == nullptr && this->securityToken_ == nullptr; };
     // appKey Field Functions 
     bool hasAppKey() const { return this->appKey_ != nullptr;};
     void deleteAppKey() { this->appKey_ = nullptr;};
-    inline string appKey() const { DARABONBA_PTR_GET_DEFAULT(appKey_, "") };
+    inline string getAppKey() const { DARABONBA_PTR_GET_DEFAULT(appKey_, "") };
     inline ResetAppSecretRequest& setAppKey(string appKey) { DARABONBA_PTR_SET_VALUE(appKey_, appKey) };
 
 
     // newAppKey Field Functions 
     bool hasNewAppKey() const { return this->newAppKey_ != nullptr;};
     void deleteNewAppKey() { this->newAppKey_ = nullptr;};
-    inline string newAppKey() const { DARABONBA_PTR_GET_DEFAULT(newAppKey_, "") };
+    inline string getNewAppKey() const { DARABONBA_PTR_GET_DEFAULT(newAppKey_, "") };
     inline ResetAppSecretRequest& setNewAppKey(string newAppKey) { DARABONBA_PTR_SET_VALUE(newAppKey_, newAppKey) };
 
 
     // newAppSecret Field Functions 
     bool hasNewAppSecret() const { return this->newAppSecret_ != nullptr;};
     void deleteNewAppSecret() { this->newAppSecret_ = nullptr;};
-    inline string newAppSecret() const { DARABONBA_PTR_GET_DEFAULT(newAppSecret_, "") };
+    inline string getNewAppSecret() const { DARABONBA_PTR_GET_DEFAULT(newAppSecret_, "") };
     inline ResetAppSecretRequest& setNewAppSecret(string newAppSecret) { DARABONBA_PTR_SET_VALUE(newAppSecret_, newAppSecret) };
 
 
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
-    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
     inline ResetAppSecretRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
@@ -69,12 +69,12 @@ namespace Models
     // The key of the application that is used to make an API call.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appKey_ = nullptr;
+    shared_ptr<string> appKey_ {};
     // The new AppKey that you set must be globally unique.
-    std::shared_ptr<string> newAppKey_ = nullptr;
+    shared_ptr<string> newAppKey_ {};
     // The new key of the application. To improve compatibility, we recommend that you use other parameters.
-    std::shared_ptr<string> newAppSecret_ = nullptr;
-    std::shared_ptr<string> securityToken_ = nullptr;
+    shared_ptr<string> newAppSecret_ {};
+    shared_ptr<string> securityToken_ {};
   };
 
   } // namespace Models

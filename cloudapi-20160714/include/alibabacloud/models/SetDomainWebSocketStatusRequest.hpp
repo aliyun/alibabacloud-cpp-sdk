@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->actionValue_ == nullptr
-        && return this->domainName_ == nullptr && return this->groupId_ == nullptr && return this->securityToken_ == nullptr && return this->WSSEnable_ == nullptr; };
+        && this->domainName_ == nullptr && this->groupId_ == nullptr && this->securityToken_ == nullptr && this->WSSEnable_ == nullptr; };
     // actionValue Field Functions 
     bool hasActionValue() const { return this->actionValue_ != nullptr;};
     void deleteActionValue() { this->actionValue_ = nullptr;};
-    inline string actionValue() const { DARABONBA_PTR_GET_DEFAULT(actionValue_, "") };
+    inline string getActionValue() const { DARABONBA_PTR_GET_DEFAULT(actionValue_, "") };
     inline SetDomainWebSocketStatusRequest& setActionValue(string actionValue) { DARABONBA_PTR_SET_VALUE(actionValue_, actionValue) };
 
 
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
-    inline string domainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
+    inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline SetDomainWebSocketStatusRequest& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
 
 
     // groupId Field Functions 
     bool hasGroupId() const { return this->groupId_ != nullptr;};
     void deleteGroupId() { this->groupId_ = nullptr;};
-    inline string groupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
+    inline string getGroupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
     inline SetDomainWebSocketStatusRequest& setGroupId(string groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
 
 
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
-    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
     inline SetDomainWebSocketStatusRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
     // WSSEnable Field Functions 
     bool hasWSSEnable() const { return this->WSSEnable_ != nullptr;};
     void deleteWSSEnable() { this->WSSEnable_ = nullptr;};
-    inline string WSSEnable() const { DARABONBA_PTR_GET_DEFAULT(WSSEnable_, "") };
+    inline string getWSSEnable() const { DARABONBA_PTR_GET_DEFAULT(WSSEnable_, "") };
     inline SetDomainWebSocketStatusRequest& setWSSEnable(string WSSEnable) { DARABONBA_PTR_SET_VALUE(WSSEnable_, WSSEnable) };
 
 
@@ -78,18 +78,18 @@ namespace Models
     // The action.
     // 
     // This parameter is required.
-    std::shared_ptr<string> actionValue_ = nullptr;
+    shared_ptr<string> actionValue_ {};
     // The custom domain name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> domainName_ = nullptr;
+    shared_ptr<string> domainName_ {};
     // The ID of the API group.
     // 
     // This parameter is required.
-    std::shared_ptr<string> groupId_ = nullptr;
-    std::shared_ptr<string> securityToken_ = nullptr;
+    shared_ptr<string> groupId_ {};
+    shared_ptr<string> securityToken_ {};
     // If enable WSS.
-    std::shared_ptr<string> WSSEnable_ = nullptr;
+    shared_ptr<string> WSSEnable_ {};
   };
 
   } // namespace Models

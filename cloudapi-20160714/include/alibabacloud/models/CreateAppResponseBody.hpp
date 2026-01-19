@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->requestId_ == nullptr && return this->tagStatus_ == nullptr; };
+        && this->requestId_ == nullptr && this->tagStatus_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline int64_t appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, 0L) };
+    inline int64_t getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, 0L) };
     inline CreateAppResponseBody& setAppId(int64_t appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateAppResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // tagStatus Field Functions 
     bool hasTagStatus() const { return this->tagStatus_ != nullptr;};
     void deleteTagStatus() { this->tagStatus_ = nullptr;};
-    inline bool tagStatus() const { DARABONBA_PTR_GET_DEFAULT(tagStatus_, false) };
+    inline bool getTagStatus() const { DARABONBA_PTR_GET_DEFAULT(tagStatus_, false) };
     inline CreateAppResponseBody& setTagStatus(bool tagStatus) { DARABONBA_PTR_SET_VALUE(tagStatus_, tagStatus) };
 
 
   protected:
     // The unique ID of the application.
-    std::shared_ptr<int64_t> appId_ = nullptr;
+    shared_ptr<int64_t> appId_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Indicates whether the tag exists. If the value is **true**, the tag exists. If the value is **false**, the tag does not exist.
-    std::shared_ptr<bool> tagStatus_ = nullptr;
+    shared_ptr<bool> tagStatus_ {};
   };
 
   } // namespace Models

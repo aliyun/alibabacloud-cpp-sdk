@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->groupId_ == nullptr
-        && return this->securityToken_ == nullptr && return this->vpcIds_ == nullptr; };
+        && this->securityToken_ == nullptr && this->vpcIds_ == nullptr; };
     // groupId Field Functions 
     bool hasGroupId() const { return this->groupId_ != nullptr;};
     void deleteGroupId() { this->groupId_ = nullptr;};
-    inline string groupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
+    inline string getGroupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
     inline ModifyApiGroupVpcWhitelistRequest& setGroupId(string groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
 
 
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
-    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
     inline ModifyApiGroupVpcWhitelistRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
     // vpcIds Field Functions 
     bool hasVpcIds() const { return this->vpcIds_ != nullptr;};
     void deleteVpcIds() { this->vpcIds_ = nullptr;};
-    inline string vpcIds() const { DARABONBA_PTR_GET_DEFAULT(vpcIds_, "") };
+    inline string getVpcIds() const { DARABONBA_PTR_GET_DEFAULT(vpcIds_, "") };
     inline ModifyApiGroupVpcWhitelistRequest& setVpcIds(string vpcIds) { DARABONBA_PTR_SET_VALUE(vpcIds_, vpcIds) };
 
 
@@ -60,12 +60,12 @@ namespace Models
     // The ID of the API group.
     // 
     // This parameter is required.
-    std::shared_ptr<string> groupId_ = nullptr;
-    std::shared_ptr<string> securityToken_ = nullptr;
+    shared_ptr<string> groupId_ {};
+    shared_ptr<string> securityToken_ {};
     // The ID of the VPC instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> vpcIds_ = nullptr;
+    shared_ptr<string> vpcIds_ {};
   };
 
   } // namespace Models

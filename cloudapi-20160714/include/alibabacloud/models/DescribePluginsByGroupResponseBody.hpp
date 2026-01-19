@@ -2,7 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_DESCRIBEPLUGINSBYGROUPRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_DESCRIBEPLUGINSBYGROUPRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/DescribePluginsByGroupResponseBodyPlugins.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -38,56 +38,200 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Plugins : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Plugins& obj) { 
+        DARABONBA_PTR_TO_JSON(PluginAttribute, pluginAttribute_);
+      };
+      friend void from_json(const Darabonba::Json& j, Plugins& obj) { 
+        DARABONBA_PTR_FROM_JSON(PluginAttribute, pluginAttribute_);
+      };
+      Plugins() = default ;
+      Plugins(const Plugins &) = default ;
+      Plugins(Plugins &&) = default ;
+      Plugins(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Plugins() = default ;
+      Plugins& operator=(const Plugins &) = default ;
+      Plugins& operator=(Plugins &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class PluginAttribute : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const PluginAttribute& obj) { 
+          DARABONBA_PTR_TO_JSON(CreatedTime, createdTime_);
+          DARABONBA_PTR_TO_JSON(Description, description_);
+          DARABONBA_PTR_TO_JSON(ModifiedTime, modifiedTime_);
+          DARABONBA_PTR_TO_JSON(PluginData, pluginData_);
+          DARABONBA_PTR_TO_JSON(PluginId, pluginId_);
+          DARABONBA_PTR_TO_JSON(PluginName, pluginName_);
+          DARABONBA_PTR_TO_JSON(PluginType, pluginType_);
+          DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+        };
+        friend void from_json(const Darabonba::Json& j, PluginAttribute& obj) { 
+          DARABONBA_PTR_FROM_JSON(CreatedTime, createdTime_);
+          DARABONBA_PTR_FROM_JSON(Description, description_);
+          DARABONBA_PTR_FROM_JSON(ModifiedTime, modifiedTime_);
+          DARABONBA_PTR_FROM_JSON(PluginData, pluginData_);
+          DARABONBA_PTR_FROM_JSON(PluginId, pluginId_);
+          DARABONBA_PTR_FROM_JSON(PluginName, pluginName_);
+          DARABONBA_PTR_FROM_JSON(PluginType, pluginType_);
+          DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+        };
+        PluginAttribute() = default ;
+        PluginAttribute(const PluginAttribute &) = default ;
+        PluginAttribute(PluginAttribute &&) = default ;
+        PluginAttribute(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~PluginAttribute() = default ;
+        PluginAttribute& operator=(const PluginAttribute &) = default ;
+        PluginAttribute& operator=(PluginAttribute &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->createdTime_ == nullptr
+        && this->description_ == nullptr && this->modifiedTime_ == nullptr && this->pluginData_ == nullptr && this->pluginId_ == nullptr && this->pluginName_ == nullptr
+        && this->pluginType_ == nullptr && this->regionId_ == nullptr; };
+        // createdTime Field Functions 
+        bool hasCreatedTime() const { return this->createdTime_ != nullptr;};
+        void deleteCreatedTime() { this->createdTime_ = nullptr;};
+        inline string getCreatedTime() const { DARABONBA_PTR_GET_DEFAULT(createdTime_, "") };
+        inline PluginAttribute& setCreatedTime(string createdTime) { DARABONBA_PTR_SET_VALUE(createdTime_, createdTime) };
+
+
+        // description Field Functions 
+        bool hasDescription() const { return this->description_ != nullptr;};
+        void deleteDescription() { this->description_ = nullptr;};
+        inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+        inline PluginAttribute& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+        // modifiedTime Field Functions 
+        bool hasModifiedTime() const { return this->modifiedTime_ != nullptr;};
+        void deleteModifiedTime() { this->modifiedTime_ = nullptr;};
+        inline string getModifiedTime() const { DARABONBA_PTR_GET_DEFAULT(modifiedTime_, "") };
+        inline PluginAttribute& setModifiedTime(string modifiedTime) { DARABONBA_PTR_SET_VALUE(modifiedTime_, modifiedTime) };
+
+
+        // pluginData Field Functions 
+        bool hasPluginData() const { return this->pluginData_ != nullptr;};
+        void deletePluginData() { this->pluginData_ = nullptr;};
+        inline string getPluginData() const { DARABONBA_PTR_GET_DEFAULT(pluginData_, "") };
+        inline PluginAttribute& setPluginData(string pluginData) { DARABONBA_PTR_SET_VALUE(pluginData_, pluginData) };
+
+
+        // pluginId Field Functions 
+        bool hasPluginId() const { return this->pluginId_ != nullptr;};
+        void deletePluginId() { this->pluginId_ = nullptr;};
+        inline string getPluginId() const { DARABONBA_PTR_GET_DEFAULT(pluginId_, "") };
+        inline PluginAttribute& setPluginId(string pluginId) { DARABONBA_PTR_SET_VALUE(pluginId_, pluginId) };
+
+
+        // pluginName Field Functions 
+        bool hasPluginName() const { return this->pluginName_ != nullptr;};
+        void deletePluginName() { this->pluginName_ = nullptr;};
+        inline string getPluginName() const { DARABONBA_PTR_GET_DEFAULT(pluginName_, "") };
+        inline PluginAttribute& setPluginName(string pluginName) { DARABONBA_PTR_SET_VALUE(pluginName_, pluginName) };
+
+
+        // pluginType Field Functions 
+        bool hasPluginType() const { return this->pluginType_ != nullptr;};
+        void deletePluginType() { this->pluginType_ = nullptr;};
+        inline string getPluginType() const { DARABONBA_PTR_GET_DEFAULT(pluginType_, "") };
+        inline PluginAttribute& setPluginType(string pluginType) { DARABONBA_PTR_SET_VALUE(pluginType_, pluginType) };
+
+
+        // regionId Field Functions 
+        bool hasRegionId() const { return this->regionId_ != nullptr;};
+        void deleteRegionId() { this->regionId_ = nullptr;};
+        inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+        inline PluginAttribute& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
+
+
+      protected:
+        // Creation time, in GMT
+        shared_ptr<string> createdTime_ {};
+        // Plugin description
+        shared_ptr<string> description_ {};
+        // Last modified time, in GMT
+        shared_ptr<string> modifiedTime_ {};
+        // Plugin definition statement
+        shared_ptr<string> pluginData_ {};
+        // Plugin ID
+        shared_ptr<string> pluginId_ {};
+        // Plugin name
+        shared_ptr<string> pluginName_ {};
+        // Plugin type
+        shared_ptr<string> pluginType_ {};
+        // 插件所在Region
+        shared_ptr<string> regionId_ {};
+      };
+
+      virtual bool empty() const override { return this->pluginAttribute_ == nullptr; };
+      // pluginAttribute Field Functions 
+      bool hasPluginAttribute() const { return this->pluginAttribute_ != nullptr;};
+      void deletePluginAttribute() { this->pluginAttribute_ = nullptr;};
+      inline const vector<Plugins::PluginAttribute> & getPluginAttribute() const { DARABONBA_PTR_GET_CONST(pluginAttribute_, vector<Plugins::PluginAttribute>) };
+      inline vector<Plugins::PluginAttribute> getPluginAttribute() { DARABONBA_PTR_GET(pluginAttribute_, vector<Plugins::PluginAttribute>) };
+      inline Plugins& setPluginAttribute(const vector<Plugins::PluginAttribute> & pluginAttribute) { DARABONBA_PTR_SET_VALUE(pluginAttribute_, pluginAttribute) };
+      inline Plugins& setPluginAttribute(vector<Plugins::PluginAttribute> && pluginAttribute) { DARABONBA_PTR_SET_RVALUE(pluginAttribute_, pluginAttribute) };
+
+
+    protected:
+      shared_ptr<vector<Plugins::PluginAttribute>> pluginAttribute_ {};
+    };
+
     virtual bool empty() const override { return this->pageNumber_ == nullptr
-        && return this->pageSize_ == nullptr && return this->plugins_ == nullptr && return this->requestId_ == nullptr && return this->totalCount_ == nullptr; };
+        && this->pageSize_ == nullptr && this->plugins_ == nullptr && this->requestId_ == nullptr && this->totalCount_ == nullptr; };
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline DescribePluginsByGroupResponseBody& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DescribePluginsByGroupResponseBody& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // plugins Field Functions 
     bool hasPlugins() const { return this->plugins_ != nullptr;};
     void deletePlugins() { this->plugins_ = nullptr;};
-    inline const DescribePluginsByGroupResponseBodyPlugins & plugins() const { DARABONBA_PTR_GET_CONST(plugins_, DescribePluginsByGroupResponseBodyPlugins) };
-    inline DescribePluginsByGroupResponseBodyPlugins plugins() { DARABONBA_PTR_GET(plugins_, DescribePluginsByGroupResponseBodyPlugins) };
-    inline DescribePluginsByGroupResponseBody& setPlugins(const DescribePluginsByGroupResponseBodyPlugins & plugins) { DARABONBA_PTR_SET_VALUE(plugins_, plugins) };
-    inline DescribePluginsByGroupResponseBody& setPlugins(DescribePluginsByGroupResponseBodyPlugins && plugins) { DARABONBA_PTR_SET_RVALUE(plugins_, plugins) };
+    inline const DescribePluginsByGroupResponseBody::Plugins & getPlugins() const { DARABONBA_PTR_GET_CONST(plugins_, DescribePluginsByGroupResponseBody::Plugins) };
+    inline DescribePluginsByGroupResponseBody::Plugins getPlugins() { DARABONBA_PTR_GET(plugins_, DescribePluginsByGroupResponseBody::Plugins) };
+    inline DescribePluginsByGroupResponseBody& setPlugins(const DescribePluginsByGroupResponseBody::Plugins & plugins) { DARABONBA_PTR_SET_VALUE(plugins_, plugins) };
+    inline DescribePluginsByGroupResponseBody& setPlugins(DescribePluginsByGroupResponseBody::Plugins && plugins) { DARABONBA_PTR_SET_RVALUE(plugins_, plugins) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribePluginsByGroupResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // totalCount Field Functions 
     bool hasTotalCount() const { return this->totalCount_ != nullptr;};
     void deleteTotalCount() { this->totalCount_ = nullptr;};
-    inline int32_t totalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
+    inline int32_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
     inline DescribePluginsByGroupResponseBody& setTotalCount(int32_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
 
 
   protected:
     // Pagination parameter: current page number
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // Pagination parameter: number of items per page.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // Returns information about the plugins
-    std::shared_ptr<DescribePluginsByGroupResponseBodyPlugins> plugins_ = nullptr;
+    shared_ptr<DescribePluginsByGroupResponseBody::Plugins> plugins_ {};
     // Request ID
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Total number of results returned
-    std::shared_ptr<int32_t> totalCount_ = nullptr;
+    shared_ptr<int32_t> totalCount_ {};
   };
 
   } // namespace Models

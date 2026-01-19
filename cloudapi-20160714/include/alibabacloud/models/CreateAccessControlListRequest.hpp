@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aclName_ == nullptr
-        && return this->addressIPVersion_ == nullptr && return this->securityToken_ == nullptr; };
+        && this->addressIPVersion_ == nullptr && this->securityToken_ == nullptr; };
     // aclName Field Functions 
     bool hasAclName() const { return this->aclName_ != nullptr;};
     void deleteAclName() { this->aclName_ = nullptr;};
-    inline string aclName() const { DARABONBA_PTR_GET_DEFAULT(aclName_, "") };
+    inline string getAclName() const { DARABONBA_PTR_GET_DEFAULT(aclName_, "") };
     inline CreateAccessControlListRequest& setAclName(string aclName) { DARABONBA_PTR_SET_VALUE(aclName_, aclName) };
 
 
     // addressIPVersion Field Functions 
     bool hasAddressIPVersion() const { return this->addressIPVersion_ != nullptr;};
     void deleteAddressIPVersion() { this->addressIPVersion_ = nullptr;};
-    inline string addressIPVersion() const { DARABONBA_PTR_GET_DEFAULT(addressIPVersion_, "") };
+    inline string getAddressIPVersion() const { DARABONBA_PTR_GET_DEFAULT(addressIPVersion_, "") };
     inline CreateAccessControlListRequest& setAddressIPVersion(string addressIPVersion) { DARABONBA_PTR_SET_VALUE(addressIPVersion_, addressIPVersion) };
 
 
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
-    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
     inline CreateAccessControlListRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
@@ -60,13 +60,13 @@ namespace Models
     // The name of the ACL. The name must be 1 to 30 characters in length, and can contain letters, digits, periods (.), hyphens (-), forward slashes (/), and underscores (_). The name must be unique within the region.
     // 
     // This parameter is required.
-    std::shared_ptr<string> aclName_ = nullptr;
+    shared_ptr<string> aclName_ {};
     // The IP protocol version of the ACL. Valid values:
     // 
     // *   **IPv4**
     // *   **IPv6**
-    std::shared_ptr<string> addressIPVersion_ = nullptr;
-    std::shared_ptr<string> securityToken_ = nullptr;
+    shared_ptr<string> addressIPVersion_ {};
+    shared_ptr<string> securityToken_ {};
   };
 
   } // namespace Models

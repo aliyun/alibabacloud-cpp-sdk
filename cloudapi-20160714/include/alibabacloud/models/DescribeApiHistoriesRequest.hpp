@@ -42,76 +42,76 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apiId_ == nullptr
-        && return this->apiName_ == nullptr && return this->groupId_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->securityToken_ == nullptr
-        && return this->stageName_ == nullptr; };
+        && this->apiName_ == nullptr && this->groupId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->securityToken_ == nullptr
+        && this->stageName_ == nullptr; };
     // apiId Field Functions 
     bool hasApiId() const { return this->apiId_ != nullptr;};
     void deleteApiId() { this->apiId_ = nullptr;};
-    inline string apiId() const { DARABONBA_PTR_GET_DEFAULT(apiId_, "") };
+    inline string getApiId() const { DARABONBA_PTR_GET_DEFAULT(apiId_, "") };
     inline DescribeApiHistoriesRequest& setApiId(string apiId) { DARABONBA_PTR_SET_VALUE(apiId_, apiId) };
 
 
     // apiName Field Functions 
     bool hasApiName() const { return this->apiName_ != nullptr;};
     void deleteApiName() { this->apiName_ = nullptr;};
-    inline string apiName() const { DARABONBA_PTR_GET_DEFAULT(apiName_, "") };
+    inline string getApiName() const { DARABONBA_PTR_GET_DEFAULT(apiName_, "") };
     inline DescribeApiHistoriesRequest& setApiName(string apiName) { DARABONBA_PTR_SET_VALUE(apiName_, apiName) };
 
 
     // groupId Field Functions 
     bool hasGroupId() const { return this->groupId_ != nullptr;};
     void deleteGroupId() { this->groupId_ = nullptr;};
-    inline string groupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
+    inline string getGroupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
     inline DescribeApiHistoriesRequest& setGroupId(string groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline DescribeApiHistoriesRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DescribeApiHistoriesRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
-    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
     inline DescribeApiHistoriesRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
     // stageName Field Functions 
     bool hasStageName() const { return this->stageName_ != nullptr;};
     void deleteStageName() { this->stageName_ = nullptr;};
-    inline string stageName() const { DARABONBA_PTR_GET_DEFAULT(stageName_, "") };
+    inline string getStageName() const { DARABONBA_PTR_GET_DEFAULT(stageName_, "") };
     inline DescribeApiHistoriesRequest& setStageName(string stageName) { DARABONBA_PTR_SET_VALUE(stageName_, stageName) };
 
 
   protected:
     // The ID of the API.
-    std::shared_ptr<string> apiId_ = nullptr;
+    shared_ptr<string> apiId_ {};
     // The name of the API. The name is used for fuzzy match.
-    std::shared_ptr<string> apiName_ = nullptr;
+    shared_ptr<string> apiName_ {};
     // The ID of the API group.
     // 
     // This parameter is required.
-    std::shared_ptr<string> groupId_ = nullptr;
+    shared_ptr<string> groupId_ {};
     // The number of the page to return. Pages start from page 1. Default value: 1.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // The number of entries to return on each page. Maximum value: 100. Default value: 10.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    std::shared_ptr<string> securityToken_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<string> securityToken_ {};
     // The name of the runtime environment. Valid values:
     // 
     // *   **RELEASE**
     // *   **TEST**
-    std::shared_ptr<string> stageName_ = nullptr;
+    shared_ptr<string> stageName_ {};
   };
 
   } // namespace Models

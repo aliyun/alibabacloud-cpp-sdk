@@ -32,27 +32,27 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->securityToken_ == nullptr
-        && return this->trafficControlId_ == nullptr; };
+        && this->trafficControlId_ == nullptr; };
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
-    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
     inline DeleteTrafficControlRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
     // trafficControlId Field Functions 
     bool hasTrafficControlId() const { return this->trafficControlId_ != nullptr;};
     void deleteTrafficControlId() { this->trafficControlId_ = nullptr;};
-    inline string trafficControlId() const { DARABONBA_PTR_GET_DEFAULT(trafficControlId_, "") };
+    inline string getTrafficControlId() const { DARABONBA_PTR_GET_DEFAULT(trafficControlId_, "") };
     inline DeleteTrafficControlRequest& setTrafficControlId(string trafficControlId) { DARABONBA_PTR_SET_VALUE(trafficControlId_, trafficControlId) };
 
 
   protected:
-    std::shared_ptr<string> securityToken_ = nullptr;
+    shared_ptr<string> securityToken_ {};
     // The ID of the throttling policy.
     // 
     // This parameter is required.
-    std::shared_ptr<string> trafficControlId_ = nullptr;
+    shared_ptr<string> trafficControlId_ {};
   };
 
   } // namespace Models

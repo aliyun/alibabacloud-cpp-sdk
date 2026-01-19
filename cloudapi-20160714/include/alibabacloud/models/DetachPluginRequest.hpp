@@ -38,50 +38,50 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apiId_ == nullptr
-        && return this->groupId_ == nullptr && return this->pluginId_ == nullptr && return this->securityToken_ == nullptr && return this->stageName_ == nullptr; };
+        && this->groupId_ == nullptr && this->pluginId_ == nullptr && this->securityToken_ == nullptr && this->stageName_ == nullptr; };
     // apiId Field Functions 
     bool hasApiId() const { return this->apiId_ != nullptr;};
     void deleteApiId() { this->apiId_ = nullptr;};
-    inline string apiId() const { DARABONBA_PTR_GET_DEFAULT(apiId_, "") };
+    inline string getApiId() const { DARABONBA_PTR_GET_DEFAULT(apiId_, "") };
     inline DetachPluginRequest& setApiId(string apiId) { DARABONBA_PTR_SET_VALUE(apiId_, apiId) };
 
 
     // groupId Field Functions 
     bool hasGroupId() const { return this->groupId_ != nullptr;};
     void deleteGroupId() { this->groupId_ = nullptr;};
-    inline string groupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
+    inline string getGroupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
     inline DetachPluginRequest& setGroupId(string groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
 
 
     // pluginId Field Functions 
     bool hasPluginId() const { return this->pluginId_ != nullptr;};
     void deletePluginId() { this->pluginId_ = nullptr;};
-    inline string pluginId() const { DARABONBA_PTR_GET_DEFAULT(pluginId_, "") };
+    inline string getPluginId() const { DARABONBA_PTR_GET_DEFAULT(pluginId_, "") };
     inline DetachPluginRequest& setPluginId(string pluginId) { DARABONBA_PTR_SET_VALUE(pluginId_, pluginId) };
 
 
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
-    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
     inline DetachPluginRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
     // stageName Field Functions 
     bool hasStageName() const { return this->stageName_ != nullptr;};
     void deleteStageName() { this->stageName_ = nullptr;};
-    inline string stageName() const { DARABONBA_PTR_GET_DEFAULT(stageName_, "") };
+    inline string getStageName() const { DARABONBA_PTR_GET_DEFAULT(stageName_, "") };
     inline DetachPluginRequest& setStageName(string stageName) { DARABONBA_PTR_SET_VALUE(stageName_, stageName) };
 
 
   protected:
-    std::shared_ptr<string> apiId_ = nullptr;
-    std::shared_ptr<string> groupId_ = nullptr;
+    shared_ptr<string> apiId_ {};
+    shared_ptr<string> groupId_ {};
     // This parameter is required.
-    std::shared_ptr<string> pluginId_ = nullptr;
-    std::shared_ptr<string> securityToken_ = nullptr;
+    shared_ptr<string> pluginId_ {};
+    shared_ptr<string> securityToken_ {};
     // This parameter is required.
-    std::shared_ptr<string> stageName_ = nullptr;
+    shared_ptr<string> stageName_ {};
   };
 
   } // namespace Models

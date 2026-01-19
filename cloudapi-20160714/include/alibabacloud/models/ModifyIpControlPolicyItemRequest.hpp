@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->cidrIp_ == nullptr && return this->ipControlId_ == nullptr && return this->policyItemId_ == nullptr && return this->securityToken_ == nullptr; };
+        && this->cidrIp_ == nullptr && this->ipControlId_ == nullptr && this->policyItemId_ == nullptr && this->securityToken_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline ModifyIpControlPolicyItemRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // cidrIp Field Functions 
     bool hasCidrIp() const { return this->cidrIp_ != nullptr;};
     void deleteCidrIp() { this->cidrIp_ = nullptr;};
-    inline string cidrIp() const { DARABONBA_PTR_GET_DEFAULT(cidrIp_, "") };
+    inline string getCidrIp() const { DARABONBA_PTR_GET_DEFAULT(cidrIp_, "") };
     inline ModifyIpControlPolicyItemRequest& setCidrIp(string cidrIp) { DARABONBA_PTR_SET_VALUE(cidrIp_, cidrIp) };
 
 
     // ipControlId Field Functions 
     bool hasIpControlId() const { return this->ipControlId_ != nullptr;};
     void deleteIpControlId() { this->ipControlId_ = nullptr;};
-    inline string ipControlId() const { DARABONBA_PTR_GET_DEFAULT(ipControlId_, "") };
+    inline string getIpControlId() const { DARABONBA_PTR_GET_DEFAULT(ipControlId_, "") };
     inline ModifyIpControlPolicyItemRequest& setIpControlId(string ipControlId) { DARABONBA_PTR_SET_VALUE(ipControlId_, ipControlId) };
 
 
     // policyItemId Field Functions 
     bool hasPolicyItemId() const { return this->policyItemId_ != nullptr;};
     void deletePolicyItemId() { this->policyItemId_ = nullptr;};
-    inline string policyItemId() const { DARABONBA_PTR_GET_DEFAULT(policyItemId_, "") };
+    inline string getPolicyItemId() const { DARABONBA_PTR_GET_DEFAULT(policyItemId_, "") };
     inline ModifyIpControlPolicyItemRequest& setPolicyItemId(string policyItemId) { DARABONBA_PTR_SET_VALUE(policyItemId_, policyItemId) };
 
 
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
-    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
     inline ModifyIpControlPolicyItemRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
@@ -82,20 +82,20 @@ namespace Models
     // *   If this parameter is not empty, not only IP addresses but also applications are restricted.
     // *   If this parameter is not empty and no security authentication method is specified for the API, all API calls are restricted.
     // *   If the value of the IpControlType parameter is REFUSE and the AppId parameter is not empty, API Gateway automatically ignores the AppId parameter and restricts only the IP addresses.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The IP address or CIDR block that is defined in a policy. Separate multiple IP addresses or CIDR blocks with semicolons (;). You can add a maximum of 10 IP addresses or CIDR blocks.
     // 
     // This parameter is required.
-    std::shared_ptr<string> cidrIp_ = nullptr;
+    shared_ptr<string> cidrIp_ {};
     // The ID of the ACL. The ID is unique.
     // 
     // This parameter is required.
-    std::shared_ptr<string> ipControlId_ = nullptr;
+    shared_ptr<string> ipControlId_ {};
     // The ID of the policy.
     // 
     // This parameter is required.
-    std::shared_ptr<string> policyItemId_ = nullptr;
-    std::shared_ptr<string> securityToken_ = nullptr;
+    shared_ptr<string> policyItemId_ {};
+    shared_ptr<string> securityToken_ {};
   };
 
   } // namespace Models

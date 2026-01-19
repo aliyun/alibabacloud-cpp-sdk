@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appCode_ == nullptr
-        && return this->newAppCode_ == nullptr && return this->securityToken_ == nullptr; };
+        && this->newAppCode_ == nullptr && this->securityToken_ == nullptr; };
     // appCode Field Functions 
     bool hasAppCode() const { return this->appCode_ != nullptr;};
     void deleteAppCode() { this->appCode_ = nullptr;};
-    inline string appCode() const { DARABONBA_PTR_GET_DEFAULT(appCode_, "") };
+    inline string getAppCode() const { DARABONBA_PTR_GET_DEFAULT(appCode_, "") };
     inline ResetAppCodeRequest& setAppCode(string appCode) { DARABONBA_PTR_SET_VALUE(appCode_, appCode) };
 
 
     // newAppCode Field Functions 
     bool hasNewAppCode() const { return this->newAppCode_ != nullptr;};
     void deleteNewAppCode() { this->newAppCode_ = nullptr;};
-    inline string newAppCode() const { DARABONBA_PTR_GET_DEFAULT(newAppCode_, "") };
+    inline string getNewAppCode() const { DARABONBA_PTR_GET_DEFAULT(newAppCode_, "") };
     inline ResetAppCodeRequest& setNewAppCode(string newAppCode) { DARABONBA_PTR_SET_VALUE(newAppCode_, newAppCode) };
 
 
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
-    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
     inline ResetAppCodeRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
@@ -60,10 +60,10 @@ namespace Models
     // The AppCode of the app.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appCode_ = nullptr;
+    shared_ptr<string> appCode_ {};
     // The new AppCode of the app.
-    std::shared_ptr<string> newAppCode_ = nullptr;
-    std::shared_ptr<string> securityToken_ = nullptr;
+    shared_ptr<string> newAppCode_ {};
+    shared_ptr<string> securityToken_ {};
   };
 
   } // namespace Models

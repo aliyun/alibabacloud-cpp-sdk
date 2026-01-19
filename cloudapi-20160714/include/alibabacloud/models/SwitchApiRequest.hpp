@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apiId_ == nullptr
-        && return this->description_ == nullptr && return this->groupId_ == nullptr && return this->historyVersion_ == nullptr && return this->securityToken_ == nullptr && return this->stageName_ == nullptr; };
+        && this->description_ == nullptr && this->groupId_ == nullptr && this->historyVersion_ == nullptr && this->securityToken_ == nullptr && this->stageName_ == nullptr; };
     // apiId Field Functions 
     bool hasApiId() const { return this->apiId_ != nullptr;};
     void deleteApiId() { this->apiId_ = nullptr;};
-    inline string apiId() const { DARABONBA_PTR_GET_DEFAULT(apiId_, "") };
+    inline string getApiId() const { DARABONBA_PTR_GET_DEFAULT(apiId_, "") };
     inline SwitchApiRequest& setApiId(string apiId) { DARABONBA_PTR_SET_VALUE(apiId_, apiId) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline SwitchApiRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // groupId Field Functions 
     bool hasGroupId() const { return this->groupId_ != nullptr;};
     void deleteGroupId() { this->groupId_ = nullptr;};
-    inline string groupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
+    inline string getGroupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
     inline SwitchApiRequest& setGroupId(string groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
 
 
     // historyVersion Field Functions 
     bool hasHistoryVersion() const { return this->historyVersion_ != nullptr;};
     void deleteHistoryVersion() { this->historyVersion_ = nullptr;};
-    inline string historyVersion() const { DARABONBA_PTR_GET_DEFAULT(historyVersion_, "") };
+    inline string getHistoryVersion() const { DARABONBA_PTR_GET_DEFAULT(historyVersion_, "") };
     inline SwitchApiRequest& setHistoryVersion(string historyVersion) { DARABONBA_PTR_SET_VALUE(historyVersion_, historyVersion) };
 
 
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
-    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
     inline SwitchApiRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
     // stageName Field Functions 
     bool hasStageName() const { return this->stageName_ != nullptr;};
     void deleteStageName() { this->stageName_ = nullptr;};
-    inline string stageName() const { DARABONBA_PTR_GET_DEFAULT(stageName_, "") };
+    inline string getStageName() const { DARABONBA_PTR_GET_DEFAULT(stageName_, "") };
     inline SwitchApiRequest& setStageName(string stageName) { DARABONBA_PTR_SET_VALUE(stageName_, stageName) };
 
 
@@ -87,18 +87,18 @@ namespace Models
     // The API ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> apiId_ = nullptr;
+    shared_ptr<string> apiId_ {};
     // The description. The description can be up to 200 characters in length.
     // 
     // This parameter is required.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The API group ID.
-    std::shared_ptr<string> groupId_ = nullptr;
+    shared_ptr<string> groupId_ {};
     // The historical version number of the API.
     // 
     // This parameter is required.
-    std::shared_ptr<string> historyVersion_ = nullptr;
-    std::shared_ptr<string> securityToken_ = nullptr;
+    shared_ptr<string> historyVersion_ {};
+    shared_ptr<string> securityToken_ {};
     // The environment. Valid values:
     // 
     // *   **RELEASE**: the production environment
@@ -106,7 +106,7 @@ namespace Models
     // *   **TEST**: the test environment
     // 
     // This parameter is required.
-    std::shared_ptr<string> stageName_ = nullptr;
+    shared_ptr<string> stageName_ {};
   };
 
   } // namespace Models

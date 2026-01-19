@@ -38,55 +38,55 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->securityToken_ == nullptr
-        && return this->signatureId_ == nullptr && return this->signatureKey_ == nullptr && return this->signatureName_ == nullptr && return this->signatureSecret_ == nullptr; };
+        && this->signatureId_ == nullptr && this->signatureKey_ == nullptr && this->signatureName_ == nullptr && this->signatureSecret_ == nullptr; };
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
-    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
     inline ModifySignatureRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
     // signatureId Field Functions 
     bool hasSignatureId() const { return this->signatureId_ != nullptr;};
     void deleteSignatureId() { this->signatureId_ = nullptr;};
-    inline string signatureId() const { DARABONBA_PTR_GET_DEFAULT(signatureId_, "") };
+    inline string getSignatureId() const { DARABONBA_PTR_GET_DEFAULT(signatureId_, "") };
     inline ModifySignatureRequest& setSignatureId(string signatureId) { DARABONBA_PTR_SET_VALUE(signatureId_, signatureId) };
 
 
     // signatureKey Field Functions 
     bool hasSignatureKey() const { return this->signatureKey_ != nullptr;};
     void deleteSignatureKey() { this->signatureKey_ = nullptr;};
-    inline string signatureKey() const { DARABONBA_PTR_GET_DEFAULT(signatureKey_, "") };
+    inline string getSignatureKey() const { DARABONBA_PTR_GET_DEFAULT(signatureKey_, "") };
     inline ModifySignatureRequest& setSignatureKey(string signatureKey) { DARABONBA_PTR_SET_VALUE(signatureKey_, signatureKey) };
 
 
     // signatureName Field Functions 
     bool hasSignatureName() const { return this->signatureName_ != nullptr;};
     void deleteSignatureName() { this->signatureName_ = nullptr;};
-    inline string signatureName() const { DARABONBA_PTR_GET_DEFAULT(signatureName_, "") };
+    inline string getSignatureName() const { DARABONBA_PTR_GET_DEFAULT(signatureName_, "") };
     inline ModifySignatureRequest& setSignatureName(string signatureName) { DARABONBA_PTR_SET_VALUE(signatureName_, signatureName) };
 
 
     // signatureSecret Field Functions 
     bool hasSignatureSecret() const { return this->signatureSecret_ != nullptr;};
     void deleteSignatureSecret() { this->signatureSecret_ = nullptr;};
-    inline string signatureSecret() const { DARABONBA_PTR_GET_DEFAULT(signatureSecret_, "") };
+    inline string getSignatureSecret() const { DARABONBA_PTR_GET_DEFAULT(signatureSecret_, "") };
     inline ModifySignatureRequest& setSignatureSecret(string signatureSecret) { DARABONBA_PTR_SET_VALUE(signatureSecret_, signatureSecret) };
 
 
   protected:
     // The security token included in the WebSocket request header. The system uses this token to authenticate the request.
-    std::shared_ptr<string> securityToken_ = nullptr;
+    shared_ptr<string> securityToken_ {};
     // The ID of the signature key that you want to manage.
     // 
     // This parameter is required.
-    std::shared_ptr<string> signatureId_ = nullptr;
+    shared_ptr<string> signatureId_ {};
     // The new Key value of the key. The value must be 6 to 20 characters in length and can contain letters, digits, and underscores (_). It must start with a letter.
-    std::shared_ptr<string> signatureKey_ = nullptr;
+    shared_ptr<string> signatureKey_ {};
     // The new name of the key. The name must be 4 to 50 characters in length and can contain letters, digits, and underscores (_). It must start with a letter.
-    std::shared_ptr<string> signatureName_ = nullptr;
+    shared_ptr<string> signatureName_ {};
     // The new Secret value of the key. The value must be 6 to 30 characters in length and can contain letters, digits, and special characters. Special characters include underscores (_), at signs (@), number signs (#), exclamation points (!), and asterisks (\\*). The value must start with a letter.
-    std::shared_ptr<string> signatureSecret_ = nullptr;
+    shared_ptr<string> signatureSecret_ {};
   };
 
   } // namespace Models

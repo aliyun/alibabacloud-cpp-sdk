@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apiProductId_ == nullptr
-        && return this->securityToken_ == nullptr; };
+        && this->securityToken_ == nullptr; };
     // apiProductId Field Functions 
     bool hasApiProductId() const { return this->apiProductId_ != nullptr;};
     void deleteApiProductId() { this->apiProductId_ = nullptr;};
-    inline string apiProductId() const { DARABONBA_PTR_GET_DEFAULT(apiProductId_, "") };
+    inline string getApiProductId() const { DARABONBA_PTR_GET_DEFAULT(apiProductId_, "") };
     inline DeleteApiProductRequest& setApiProductId(string apiProductId) { DARABONBA_PTR_SET_VALUE(apiProductId_, apiProductId) };
 
 
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
-    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
     inline DeleteApiProductRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
@@ -51,8 +51,8 @@ namespace Models
     // The ID of the API product.
     // 
     // This parameter is required.
-    std::shared_ptr<string> apiProductId_ = nullptr;
-    std::shared_ptr<string> securityToken_ = nullptr;
+    shared_ptr<string> apiProductId_ {};
+    shared_ptr<string> securityToken_ {};
   };
 
   } // namespace Models

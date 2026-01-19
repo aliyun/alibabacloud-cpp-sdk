@@ -38,51 +38,51 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->backendId_ == nullptr
-        && return this->backendName_ == nullptr && return this->backendType_ == nullptr && return this->description_ == nullptr && return this->securityToken_ == nullptr; };
+        && this->backendName_ == nullptr && this->backendType_ == nullptr && this->description_ == nullptr && this->securityToken_ == nullptr; };
     // backendId Field Functions 
     bool hasBackendId() const { return this->backendId_ != nullptr;};
     void deleteBackendId() { this->backendId_ = nullptr;};
-    inline string backendId() const { DARABONBA_PTR_GET_DEFAULT(backendId_, "") };
+    inline string getBackendId() const { DARABONBA_PTR_GET_DEFAULT(backendId_, "") };
     inline ModifyBackendRequest& setBackendId(string backendId) { DARABONBA_PTR_SET_VALUE(backendId_, backendId) };
 
 
     // backendName Field Functions 
     bool hasBackendName() const { return this->backendName_ != nullptr;};
     void deleteBackendName() { this->backendName_ = nullptr;};
-    inline string backendName() const { DARABONBA_PTR_GET_DEFAULT(backendName_, "") };
+    inline string getBackendName() const { DARABONBA_PTR_GET_DEFAULT(backendName_, "") };
     inline ModifyBackendRequest& setBackendName(string backendName) { DARABONBA_PTR_SET_VALUE(backendName_, backendName) };
 
 
     // backendType Field Functions 
     bool hasBackendType() const { return this->backendType_ != nullptr;};
     void deleteBackendType() { this->backendType_ = nullptr;};
-    inline string backendType() const { DARABONBA_PTR_GET_DEFAULT(backendType_, "") };
+    inline string getBackendType() const { DARABONBA_PTR_GET_DEFAULT(backendType_, "") };
     inline ModifyBackendRequest& setBackendType(string backendType) { DARABONBA_PTR_SET_VALUE(backendType_, backendType) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline ModifyBackendRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
-    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
     inline ModifyBackendRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> backendId_ = nullptr;
+    shared_ptr<string> backendId_ {};
     // This parameter is required.
-    std::shared_ptr<string> backendName_ = nullptr;
+    shared_ptr<string> backendName_ {};
     // This parameter is required.
-    std::shared_ptr<string> backendType_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<string> securityToken_ = nullptr;
+    shared_ptr<string> backendType_ {};
+    shared_ptr<string> description_ {};
+    shared_ptr<string> securityToken_ {};
   };
 
   } // namespace Models

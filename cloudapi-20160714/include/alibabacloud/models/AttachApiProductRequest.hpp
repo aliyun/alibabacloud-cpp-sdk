@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_ATTACHAPIPRODUCTREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/AttachApiProductRequestApis.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -35,28 +34,80 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Apis : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Apis& obj) { 
+        DARABONBA_PTR_TO_JSON(ApiId, apiId_);
+        DARABONBA_PTR_TO_JSON(StageName, stageName_);
+      };
+      friend void from_json(const Darabonba::Json& j, Apis& obj) { 
+        DARABONBA_PTR_FROM_JSON(ApiId, apiId_);
+        DARABONBA_PTR_FROM_JSON(StageName, stageName_);
+      };
+      Apis() = default ;
+      Apis(const Apis &) = default ;
+      Apis(Apis &&) = default ;
+      Apis(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Apis() = default ;
+      Apis& operator=(const Apis &) = default ;
+      Apis& operator=(Apis &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->apiId_ == nullptr
+        && this->stageName_ == nullptr; };
+      // apiId Field Functions 
+      bool hasApiId() const { return this->apiId_ != nullptr;};
+      void deleteApiId() { this->apiId_ = nullptr;};
+      inline string getApiId() const { DARABONBA_PTR_GET_DEFAULT(apiId_, "") };
+      inline Apis& setApiId(string apiId) { DARABONBA_PTR_SET_VALUE(apiId_, apiId) };
+
+
+      // stageName Field Functions 
+      bool hasStageName() const { return this->stageName_ != nullptr;};
+      void deleteStageName() { this->stageName_ = nullptr;};
+      inline string getStageName() const { DARABONBA_PTR_GET_DEFAULT(stageName_, "") };
+      inline Apis& setStageName(string stageName) { DARABONBA_PTR_SET_VALUE(stageName_, stageName) };
+
+
+    protected:
+      // The API ID.
+      // 
+      // This parameter is required.
+      shared_ptr<string> apiId_ {};
+      // The environment. Valid values:
+      // 
+      // *   **RELEASE**: the production environment
+      // *   **PRE**: the staging environment
+      // *   **TEST**: the test environment
+      // 
+      // This parameter is required.
+      shared_ptr<string> stageName_ {};
+    };
+
     virtual bool empty() const override { return this->apiProductId_ == nullptr
-        && return this->apis_ == nullptr && return this->securityToken_ == nullptr; };
+        && this->apis_ == nullptr && this->securityToken_ == nullptr; };
     // apiProductId Field Functions 
     bool hasApiProductId() const { return this->apiProductId_ != nullptr;};
     void deleteApiProductId() { this->apiProductId_ = nullptr;};
-    inline string apiProductId() const { DARABONBA_PTR_GET_DEFAULT(apiProductId_, "") };
+    inline string getApiProductId() const { DARABONBA_PTR_GET_DEFAULT(apiProductId_, "") };
     inline AttachApiProductRequest& setApiProductId(string apiProductId) { DARABONBA_PTR_SET_VALUE(apiProductId_, apiProductId) };
 
 
     // apis Field Functions 
     bool hasApis() const { return this->apis_ != nullptr;};
     void deleteApis() { this->apis_ = nullptr;};
-    inline const vector<AttachApiProductRequestApis> & apis() const { DARABONBA_PTR_GET_CONST(apis_, vector<AttachApiProductRequestApis>) };
-    inline vector<AttachApiProductRequestApis> apis() { DARABONBA_PTR_GET(apis_, vector<AttachApiProductRequestApis>) };
-    inline AttachApiProductRequest& setApis(const vector<AttachApiProductRequestApis> & apis) { DARABONBA_PTR_SET_VALUE(apis_, apis) };
-    inline AttachApiProductRequest& setApis(vector<AttachApiProductRequestApis> && apis) { DARABONBA_PTR_SET_RVALUE(apis_, apis) };
+    inline const vector<AttachApiProductRequest::Apis> & getApis() const { DARABONBA_PTR_GET_CONST(apis_, vector<AttachApiProductRequest::Apis>) };
+    inline vector<AttachApiProductRequest::Apis> getApis() { DARABONBA_PTR_GET(apis_, vector<AttachApiProductRequest::Apis>) };
+    inline AttachApiProductRequest& setApis(const vector<AttachApiProductRequest::Apis> & apis) { DARABONBA_PTR_SET_VALUE(apis_, apis) };
+    inline AttachApiProductRequest& setApis(vector<AttachApiProductRequest::Apis> && apis) { DARABONBA_PTR_SET_RVALUE(apis_, apis) };
 
 
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
-    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
     inline AttachApiProductRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
@@ -64,12 +115,12 @@ namespace Models
     // The ID of the API product.
     // 
     // This parameter is required.
-    std::shared_ptr<string> apiProductId_ = nullptr;
+    shared_ptr<string> apiProductId_ {};
     // The APIs to be attached.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<AttachApiProductRequestApis>> apis_ = nullptr;
-    std::shared_ptr<string> securityToken_ = nullptr;
+    shared_ptr<vector<AttachApiProductRequest::Apis>> apis_ {};
+    shared_ptr<string> securityToken_ {};
   };
 
   } // namespace Models

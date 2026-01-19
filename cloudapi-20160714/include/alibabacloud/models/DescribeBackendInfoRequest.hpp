@@ -32,25 +32,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->backendId_ == nullptr
-        && return this->securityToken_ == nullptr; };
+        && this->securityToken_ == nullptr; };
     // backendId Field Functions 
     bool hasBackendId() const { return this->backendId_ != nullptr;};
     void deleteBackendId() { this->backendId_ = nullptr;};
-    inline string backendId() const { DARABONBA_PTR_GET_DEFAULT(backendId_, "") };
+    inline string getBackendId() const { DARABONBA_PTR_GET_DEFAULT(backendId_, "") };
     inline DescribeBackendInfoRequest& setBackendId(string backendId) { DARABONBA_PTR_SET_VALUE(backendId_, backendId) };
 
 
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
-    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
     inline DescribeBackendInfoRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
   protected:
     // The ID of the backend service.
-    std::shared_ptr<string> backendId_ = nullptr;
-    std::shared_ptr<string> securityToken_ = nullptr;
+    shared_ptr<string> backendId_ {};
+    shared_ptr<string> securityToken_ {};
   };
 
   } // namespace Models

@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->appKey_ == nullptr; };
+        && this->appKey_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline DeleteAppKeyRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // appKey Field Functions 
     bool hasAppKey() const { return this->appKey_ != nullptr;};
     void deleteAppKey() { this->appKey_ = nullptr;};
-    inline string appKey() const { DARABONBA_PTR_GET_DEFAULT(appKey_, "") };
+    inline string getAppKey() const { DARABONBA_PTR_GET_DEFAULT(appKey_, "") };
     inline DeleteAppKeyRequest& setAppKey(string appKey) { DARABONBA_PTR_SET_VALUE(appKey_, appKey) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The application ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The AppKey of the application. The AppKey is used for calling an API.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appKey_ = nullptr;
+    shared_ptr<string> appKey_ {};
   };
 
   } // namespace Models

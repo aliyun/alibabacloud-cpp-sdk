@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apiIds_ == nullptr
-        && return this->groupId_ == nullptr && return this->securityToken_ == nullptr && return this->signatureId_ == nullptr && return this->stageName_ == nullptr; };
+        && this->groupId_ == nullptr && this->securityToken_ == nullptr && this->signatureId_ == nullptr && this->stageName_ == nullptr; };
     // apiIds Field Functions 
     bool hasApiIds() const { return this->apiIds_ != nullptr;};
     void deleteApiIds() { this->apiIds_ = nullptr;};
-    inline string apiIds() const { DARABONBA_PTR_GET_DEFAULT(apiIds_, "") };
+    inline string getApiIds() const { DARABONBA_PTR_GET_DEFAULT(apiIds_, "") };
     inline SetSignatureApisRequest& setApiIds(string apiIds) { DARABONBA_PTR_SET_VALUE(apiIds_, apiIds) };
 
 
     // groupId Field Functions 
     bool hasGroupId() const { return this->groupId_ != nullptr;};
     void deleteGroupId() { this->groupId_ = nullptr;};
-    inline string groupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
+    inline string getGroupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
     inline SetSignatureApisRequest& setGroupId(string groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
 
 
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
-    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
     inline SetSignatureApisRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
     // signatureId Field Functions 
     bool hasSignatureId() const { return this->signatureId_ != nullptr;};
     void deleteSignatureId() { this->signatureId_ = nullptr;};
-    inline string signatureId() const { DARABONBA_PTR_GET_DEFAULT(signatureId_, "") };
+    inline string getSignatureId() const { DARABONBA_PTR_GET_DEFAULT(signatureId_, "") };
     inline SetSignatureApisRequest& setSignatureId(string signatureId) { DARABONBA_PTR_SET_VALUE(signatureId_, signatureId) };
 
 
     // stageName Field Functions 
     bool hasStageName() const { return this->stageName_ != nullptr;};
     void deleteStageName() { this->stageName_ = nullptr;};
-    inline string stageName() const { DARABONBA_PTR_GET_DEFAULT(stageName_, "") };
+    inline string getStageName() const { DARABONBA_PTR_GET_DEFAULT(stageName_, "") };
     inline SetSignatureApisRequest& setStageName(string stageName) { DARABONBA_PTR_SET_VALUE(stageName_, stageName) };
 
 
@@ -78,16 +78,16 @@ namespace Models
     // The API IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<string> apiIds_ = nullptr;
+    shared_ptr<string> apiIds_ {};
     // The API group ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> groupId_ = nullptr;
-    std::shared_ptr<string> securityToken_ = nullptr;
+    shared_ptr<string> groupId_ {};
+    shared_ptr<string> securityToken_ {};
     // The signature ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> signatureId_ = nullptr;
+    shared_ptr<string> signatureId_ {};
     // The environment. Valid values:
     // 
     // *   **RELEASE**: the production environment
@@ -95,7 +95,7 @@ namespace Models
     // *   **TEST**: the testing environment
     // 
     // This parameter is required.
-    std::shared_ptr<string> stageName_ = nullptr;
+    shared_ptr<string> stageName_ {};
   };
 
   } // namespace Models

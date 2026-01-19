@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->appKey_ == nullptr && return this->appSecret_ == nullptr; };
+        && this->appKey_ == nullptr && this->appSecret_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline CreateAppKeyRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // appKey Field Functions 
     bool hasAppKey() const { return this->appKey_ != nullptr;};
     void deleteAppKey() { this->appKey_ = nullptr;};
-    inline string appKey() const { DARABONBA_PTR_GET_DEFAULT(appKey_, "") };
+    inline string getAppKey() const { DARABONBA_PTR_GET_DEFAULT(appKey_, "") };
     inline CreateAppKeyRequest& setAppKey(string appKey) { DARABONBA_PTR_SET_VALUE(appKey_, appKey) };
 
 
     // appSecret Field Functions 
     bool hasAppSecret() const { return this->appSecret_ != nullptr;};
     void deleteAppSecret() { this->appSecret_ = nullptr;};
-    inline string appSecret() const { DARABONBA_PTR_GET_DEFAULT(appSecret_, "") };
+    inline string getAppSecret() const { DARABONBA_PTR_GET_DEFAULT(appSecret_, "") };
     inline CreateAppKeyRequest& setAppSecret(string appSecret) { DARABONBA_PTR_SET_VALUE(appSecret_, appSecret) };
 
 
@@ -60,11 +60,11 @@ namespace Models
     // The application ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The application AppKey.
-    std::shared_ptr<string> appKey_ = nullptr;
+    shared_ptr<string> appKey_ {};
     // The application AppSecret.
-    std::shared_ptr<string> appSecret_ = nullptr;
+    shared_ptr<string> appSecret_ {};
   };
 
   } // namespace Models

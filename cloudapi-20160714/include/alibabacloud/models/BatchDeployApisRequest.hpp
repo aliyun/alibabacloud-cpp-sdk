@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_BATCHDEPLOYAPISREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/BatchDeployApisRequestApi.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -37,46 +36,94 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Api : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Api& obj) { 
+        DARABONBA_PTR_TO_JSON(ApiUid, apiUid_);
+        DARABONBA_PTR_TO_JSON(GroupId, groupId_);
+      };
+      friend void from_json(const Darabonba::Json& j, Api& obj) { 
+        DARABONBA_PTR_FROM_JSON(ApiUid, apiUid_);
+        DARABONBA_PTR_FROM_JSON(GroupId, groupId_);
+      };
+      Api() = default ;
+      Api(const Api &) = default ;
+      Api(Api &&) = default ;
+      Api(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Api() = default ;
+      Api& operator=(const Api &) = default ;
+      Api& operator=(Api &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->apiUid_ == nullptr
+        && this->groupId_ == nullptr; };
+      // apiUid Field Functions 
+      bool hasApiUid() const { return this->apiUid_ != nullptr;};
+      void deleteApiUid() { this->apiUid_ = nullptr;};
+      inline string getApiUid() const { DARABONBA_PTR_GET_DEFAULT(apiUid_, "") };
+      inline Api& setApiUid(string apiUid) { DARABONBA_PTR_SET_VALUE(apiUid_, apiUid) };
+
+
+      // groupId Field Functions 
+      bool hasGroupId() const { return this->groupId_ != nullptr;};
+      void deleteGroupId() { this->groupId_ = nullptr;};
+      inline string getGroupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
+      inline Api& setGroupId(string groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
+
+
+    protected:
+      // The API ID.
+      // 
+      // This parameter is required.
+      shared_ptr<string> apiUid_ {};
+      // The API group ID.
+      // 
+      // This parameter is required.
+      shared_ptr<string> groupId_ {};
+    };
+
     virtual bool empty() const override { return this->api_ == nullptr
-        && return this->description_ == nullptr && return this->securityToken_ == nullptr && return this->stageName_ == nullptr; };
+        && this->description_ == nullptr && this->securityToken_ == nullptr && this->stageName_ == nullptr; };
     // api Field Functions 
     bool hasApi() const { return this->api_ != nullptr;};
     void deleteApi() { this->api_ = nullptr;};
-    inline const vector<BatchDeployApisRequestApi> & api() const { DARABONBA_PTR_GET_CONST(api_, vector<BatchDeployApisRequestApi>) };
-    inline vector<BatchDeployApisRequestApi> api() { DARABONBA_PTR_GET(api_, vector<BatchDeployApisRequestApi>) };
-    inline BatchDeployApisRequest& setApi(const vector<BatchDeployApisRequestApi> & api) { DARABONBA_PTR_SET_VALUE(api_, api) };
-    inline BatchDeployApisRequest& setApi(vector<BatchDeployApisRequestApi> && api) { DARABONBA_PTR_SET_RVALUE(api_, api) };
+    inline const vector<BatchDeployApisRequest::Api> & getApi() const { DARABONBA_PTR_GET_CONST(api_, vector<BatchDeployApisRequest::Api>) };
+    inline vector<BatchDeployApisRequest::Api> getApi() { DARABONBA_PTR_GET(api_, vector<BatchDeployApisRequest::Api>) };
+    inline BatchDeployApisRequest& setApi(const vector<BatchDeployApisRequest::Api> & api) { DARABONBA_PTR_SET_VALUE(api_, api) };
+    inline BatchDeployApisRequest& setApi(vector<BatchDeployApisRequest::Api> && api) { DARABONBA_PTR_SET_RVALUE(api_, api) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline BatchDeployApisRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
-    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
     inline BatchDeployApisRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
     // stageName Field Functions 
     bool hasStageName() const { return this->stageName_ != nullptr;};
     void deleteStageName() { this->stageName_ = nullptr;};
-    inline string stageName() const { DARABONBA_PTR_GET_DEFAULT(stageName_, "") };
+    inline string getStageName() const { DARABONBA_PTR_GET_DEFAULT(stageName_, "") };
     inline BatchDeployApisRequest& setStageName(string stageName) { DARABONBA_PTR_SET_VALUE(stageName_, stageName) };
 
 
   protected:
     // The APIs that you want to publish.
-    std::shared_ptr<vector<BatchDeployApisRequestApi>> api_ = nullptr;
+    shared_ptr<vector<BatchDeployApisRequest::Api>> api_ {};
     // The description.
     // 
     // This parameter is required.
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<string> securityToken_ = nullptr;
+    shared_ptr<string> description_ {};
+    shared_ptr<string> securityToken_ {};
     // The name of the runtime environment. Valid values:
     // 
     // *   **RELEASE**
@@ -84,7 +131,7 @@ namespace Models
     // *   PRE: the pre-release environment
     // 
     // This parameter is required.
-    std::shared_ptr<string> stageName_ = nullptr;
+    shared_ptr<string> stageName_ {};
   };
 
   } // namespace Models

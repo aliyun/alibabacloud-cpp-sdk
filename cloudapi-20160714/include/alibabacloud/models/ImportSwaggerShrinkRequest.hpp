@@ -42,54 +42,54 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->data_ == nullptr
-        && return this->dataFormat_ == nullptr && return this->dryRun_ == nullptr && return this->globalConditionShrink_ == nullptr && return this->groupId_ == nullptr && return this->overwrite_ == nullptr
-        && return this->securityToken_ == nullptr; };
+        && this->dataFormat_ == nullptr && this->dryRun_ == nullptr && this->globalConditionShrink_ == nullptr && this->groupId_ == nullptr && this->overwrite_ == nullptr
+        && this->securityToken_ == nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline string data() const { DARABONBA_PTR_GET_DEFAULT(data_, "") };
+    inline string getData() const { DARABONBA_PTR_GET_DEFAULT(data_, "") };
     inline ImportSwaggerShrinkRequest& setData(string data) { DARABONBA_PTR_SET_VALUE(data_, data) };
 
 
     // dataFormat Field Functions 
     bool hasDataFormat() const { return this->dataFormat_ != nullptr;};
     void deleteDataFormat() { this->dataFormat_ = nullptr;};
-    inline string dataFormat() const { DARABONBA_PTR_GET_DEFAULT(dataFormat_, "") };
+    inline string getDataFormat() const { DARABONBA_PTR_GET_DEFAULT(dataFormat_, "") };
     inline ImportSwaggerShrinkRequest& setDataFormat(string dataFormat) { DARABONBA_PTR_SET_VALUE(dataFormat_, dataFormat) };
 
 
     // dryRun Field Functions 
     bool hasDryRun() const { return this->dryRun_ != nullptr;};
     void deleteDryRun() { this->dryRun_ = nullptr;};
-    inline bool dryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
     inline ImportSwaggerShrinkRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // globalConditionShrink Field Functions 
     bool hasGlobalConditionShrink() const { return this->globalConditionShrink_ != nullptr;};
     void deleteGlobalConditionShrink() { this->globalConditionShrink_ = nullptr;};
-    inline string globalConditionShrink() const { DARABONBA_PTR_GET_DEFAULT(globalConditionShrink_, "") };
+    inline string getGlobalConditionShrink() const { DARABONBA_PTR_GET_DEFAULT(globalConditionShrink_, "") };
     inline ImportSwaggerShrinkRequest& setGlobalConditionShrink(string globalConditionShrink) { DARABONBA_PTR_SET_VALUE(globalConditionShrink_, globalConditionShrink) };
 
 
     // groupId Field Functions 
     bool hasGroupId() const { return this->groupId_ != nullptr;};
     void deleteGroupId() { this->groupId_ = nullptr;};
-    inline string groupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
+    inline string getGroupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
     inline ImportSwaggerShrinkRequest& setGroupId(string groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
 
 
     // overwrite Field Functions 
     bool hasOverwrite() const { return this->overwrite_ != nullptr;};
     void deleteOverwrite() { this->overwrite_ = nullptr;};
-    inline bool overwrite() const { DARABONBA_PTR_GET_DEFAULT(overwrite_, false) };
+    inline bool getOverwrite() const { DARABONBA_PTR_GET_DEFAULT(overwrite_, false) };
     inline ImportSwaggerShrinkRequest& setOverwrite(bool overwrite) { DARABONBA_PTR_SET_VALUE(overwrite_, overwrite) };
 
 
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
-    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
     inline ImportSwaggerShrinkRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
@@ -97,29 +97,29 @@ namespace Models
     // The Swagger text content.
     // 
     // This parameter is required.
-    std::shared_ptr<string> data_ = nullptr;
+    shared_ptr<string> data_ {};
     // The Swagger text format:
     // 
     // *   json
     // *   yaml
     // 
     // This parameter is required.
-    std::shared_ptr<string> dataFormat_ = nullptr;
+    shared_ptr<string> dataFormat_ {};
     // The pre-inspection.
-    std::shared_ptr<bool> dryRun_ = nullptr;
+    shared_ptr<bool> dryRun_ {};
     // The global conditions.
-    std::shared_ptr<string> globalConditionShrink_ = nullptr;
+    shared_ptr<string> globalConditionShrink_ {};
     // The ID of the API group to which the Swagger is imported.
     // 
     // This parameter is required.
-    std::shared_ptr<string> groupId_ = nullptr;
+    shared_ptr<string> groupId_ {};
     // Specifies whether to overwrite the existing API.
     // 
     // APIs with the same HTTP request type and backend request path are considered the same.
     // 
     // This parameter is required.
-    std::shared_ptr<bool> overwrite_ = nullptr;
-    std::shared_ptr<string> securityToken_ = nullptr;
+    shared_ptr<bool> overwrite_ {};
+    shared_ptr<string> securityToken_ {};
   };
 
   } // namespace Models

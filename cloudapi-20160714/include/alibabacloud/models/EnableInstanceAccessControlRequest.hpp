@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aclId_ == nullptr
-        && return this->aclType_ == nullptr && return this->addressIPVersion_ == nullptr && return this->instanceId_ == nullptr && return this->securityToken_ == nullptr; };
+        && this->aclType_ == nullptr && this->addressIPVersion_ == nullptr && this->instanceId_ == nullptr && this->securityToken_ == nullptr; };
     // aclId Field Functions 
     bool hasAclId() const { return this->aclId_ != nullptr;};
     void deleteAclId() { this->aclId_ = nullptr;};
-    inline string aclId() const { DARABONBA_PTR_GET_DEFAULT(aclId_, "") };
+    inline string getAclId() const { DARABONBA_PTR_GET_DEFAULT(aclId_, "") };
     inline EnableInstanceAccessControlRequest& setAclId(string aclId) { DARABONBA_PTR_SET_VALUE(aclId_, aclId) };
 
 
     // aclType Field Functions 
     bool hasAclType() const { return this->aclType_ != nullptr;};
     void deleteAclType() { this->aclType_ = nullptr;};
-    inline string aclType() const { DARABONBA_PTR_GET_DEFAULT(aclType_, "") };
+    inline string getAclType() const { DARABONBA_PTR_GET_DEFAULT(aclType_, "") };
     inline EnableInstanceAccessControlRequest& setAclType(string aclType) { DARABONBA_PTR_SET_VALUE(aclType_, aclType) };
 
 
     // addressIPVersion Field Functions 
     bool hasAddressIPVersion() const { return this->addressIPVersion_ != nullptr;};
     void deleteAddressIPVersion() { this->addressIPVersion_ = nullptr;};
-    inline string addressIPVersion() const { DARABONBA_PTR_GET_DEFAULT(addressIPVersion_, "") };
+    inline string getAddressIPVersion() const { DARABONBA_PTR_GET_DEFAULT(addressIPVersion_, "") };
     inline EnableInstanceAccessControlRequest& setAddressIPVersion(string addressIPVersion) { DARABONBA_PTR_SET_VALUE(addressIPVersion_, addressIPVersion) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline EnableInstanceAccessControlRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
-    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
     inline EnableInstanceAccessControlRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
@@ -78,21 +78,21 @@ namespace Models
     // The ID of the access control policy.
     // 
     // This parameter is required.
-    std::shared_ptr<string> aclId_ = nullptr;
+    shared_ptr<string> aclId_ {};
     // The ACL type. Valid values:
     // 
     // *   black: blacklist
     // *   white: whitelist
     // 
     // This parameter is required.
-    std::shared_ptr<string> aclType_ = nullptr;
+    shared_ptr<string> aclType_ {};
     // The IP version. Valid values: **ipv4** and **ipv6**.
-    std::shared_ptr<string> addressIPVersion_ = nullptr;
+    shared_ptr<string> addressIPVersion_ {};
     // The ID of the instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> securityToken_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> securityToken_ {};
   };
 
   } // namespace Models

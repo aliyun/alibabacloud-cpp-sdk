@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->securityToken_ == nullptr && return this->vpcAccessId_ == nullptr; };
+        && this->securityToken_ == nullptr && this->vpcAccessId_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ValidateVpcConnectivityRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
-    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
     inline ValidateVpcConnectivityRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
     // vpcAccessId Field Functions 
     bool hasVpcAccessId() const { return this->vpcAccessId_ != nullptr;};
     void deleteVpcAccessId() { this->vpcAccessId_ = nullptr;};
-    inline string vpcAccessId() const { DARABONBA_PTR_GET_DEFAULT(vpcAccessId_, "") };
+    inline string getVpcAccessId() const { DARABONBA_PTR_GET_DEFAULT(vpcAccessId_, "") };
     inline ValidateVpcConnectivityRequest& setVpcAccessId(string vpcAccessId) { DARABONBA_PTR_SET_VALUE(vpcAccessId_, vpcAccessId) };
 
 
@@ -60,12 +60,12 @@ namespace Models
     // The ID of the API Gateway instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> securityToken_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> securityToken_ {};
     // The ID of the VPC access authorization.
     // 
     // This parameter is required.
-    std::shared_ptr<string> vpcAccessId_ = nullptr;
+    shared_ptr<string> vpcAccessId_ {};
   };
 
   } // namespace Models

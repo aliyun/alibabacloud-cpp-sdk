@@ -34,34 +34,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->authAppCode_ == nullptr
-        && return this->groupId_ == nullptr && return this->securityToken_ == nullptr; };
+        && this->groupId_ == nullptr && this->securityToken_ == nullptr; };
     // authAppCode Field Functions 
     bool hasAuthAppCode() const { return this->authAppCode_ != nullptr;};
     void deleteAuthAppCode() { this->authAppCode_ = nullptr;};
-    inline string authAppCode() const { DARABONBA_PTR_GET_DEFAULT(authAppCode_, "") };
+    inline string getAuthAppCode() const { DARABONBA_PTR_GET_DEFAULT(authAppCode_, "") };
     inline SetGroupAuthAppCodeRequest& setAuthAppCode(string authAppCode) { DARABONBA_PTR_SET_VALUE(authAppCode_, authAppCode) };
 
 
     // groupId Field Functions 
     bool hasGroupId() const { return this->groupId_ != nullptr;};
     void deleteGroupId() { this->groupId_ = nullptr;};
-    inline string groupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
+    inline string getGroupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
     inline SetGroupAuthAppCodeRequest& setGroupId(string groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
 
 
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
-    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
     inline SetGroupAuthAppCodeRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> authAppCode_ = nullptr;
+    shared_ptr<string> authAppCode_ {};
     // This parameter is required.
-    std::shared_ptr<string> groupId_ = nullptr;
-    std::shared_ptr<string> securityToken_ = nullptr;
+    shared_ptr<string> groupId_ {};
+    shared_ptr<string> securityToken_ {};
   };
 
   } // namespace Models

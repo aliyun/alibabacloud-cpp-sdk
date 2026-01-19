@@ -38,52 +38,52 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aclName_ == nullptr
-        && return this->addressIPVersion_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->securityToken_ == nullptr; };
+        && this->addressIPVersion_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->securityToken_ == nullptr; };
     // aclName Field Functions 
     bool hasAclName() const { return this->aclName_ != nullptr;};
     void deleteAclName() { this->aclName_ = nullptr;};
-    inline string aclName() const { DARABONBA_PTR_GET_DEFAULT(aclName_, "") };
+    inline string getAclName() const { DARABONBA_PTR_GET_DEFAULT(aclName_, "") };
     inline DescribeAccessControlListsRequest& setAclName(string aclName) { DARABONBA_PTR_SET_VALUE(aclName_, aclName) };
 
 
     // addressIPVersion Field Functions 
     bool hasAddressIPVersion() const { return this->addressIPVersion_ != nullptr;};
     void deleteAddressIPVersion() { this->addressIPVersion_ = nullptr;};
-    inline string addressIPVersion() const { DARABONBA_PTR_GET_DEFAULT(addressIPVersion_, "") };
+    inline string getAddressIPVersion() const { DARABONBA_PTR_GET_DEFAULT(addressIPVersion_, "") };
     inline DescribeAccessControlListsRequest& setAddressIPVersion(string addressIPVersion) { DARABONBA_PTR_SET_VALUE(addressIPVersion_, addressIPVersion) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline DescribeAccessControlListsRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DescribeAccessControlListsRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
-    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
     inline DescribeAccessControlListsRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
   protected:
     // The name of the access control policy.
-    std::shared_ptr<string> aclName_ = nullptr;
+    shared_ptr<string> aclName_ {};
     // IP版本，可以设置为**ipv4**或者**ipv6**。
-    std::shared_ptr<string> addressIPVersion_ = nullptr;
+    shared_ptr<string> addressIPVersion_ {};
     // The page number of the current page.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // The number of entries to return on each page.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    std::shared_ptr<string> securityToken_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<string> securityToken_ {};
   };
 
   } // namespace Models

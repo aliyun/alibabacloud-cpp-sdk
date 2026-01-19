@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->logType_ == nullptr
-        && return this->securityToken_ == nullptr; };
+        && this->securityToken_ == nullptr; };
     // logType Field Functions 
     bool hasLogType() const { return this->logType_ != nullptr;};
     void deleteLogType() { this->logType_ = nullptr;};
-    inline string logType() const { DARABONBA_PTR_GET_DEFAULT(logType_, "") };
+    inline string getLogType() const { DARABONBA_PTR_GET_DEFAULT(logType_, "") };
     inline DescribeLogConfigRequest& setLogType(string logType) { DARABONBA_PTR_SET_VALUE(logType_, logType) };
 
 
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
-    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
     inline DescribeLogConfigRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
@@ -53,8 +53,8 @@ namespace Models
     // Valid values:
     // 
     // *   PROVIDER
-    std::shared_ptr<string> logType_ = nullptr;
-    std::shared_ptr<string> securityToken_ = nullptr;
+    shared_ptr<string> logType_ {};
+    shared_ptr<string> securityToken_ {};
   };
 
   } // namespace Models

@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->groupId_ == nullptr
-        && return this->securityToken_ == nullptr && return this->stageId_ == nullptr && return this->variableName_ == nullptr; };
+        && this->securityToken_ == nullptr && this->stageId_ == nullptr && this->variableName_ == nullptr; };
     // groupId Field Functions 
     bool hasGroupId() const { return this->groupId_ != nullptr;};
     void deleteGroupId() { this->groupId_ = nullptr;};
-    inline string groupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
+    inline string getGroupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
     inline DeleteApiStageVariableRequest& setGroupId(string groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
 
 
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
-    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
     inline DeleteApiStageVariableRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
     // stageId Field Functions 
     bool hasStageId() const { return this->stageId_ != nullptr;};
     void deleteStageId() { this->stageId_ = nullptr;};
-    inline string stageId() const { DARABONBA_PTR_GET_DEFAULT(stageId_, "") };
+    inline string getStageId() const { DARABONBA_PTR_GET_DEFAULT(stageId_, "") };
     inline DeleteApiStageVariableRequest& setStageId(string stageId) { DARABONBA_PTR_SET_VALUE(stageId_, stageId) };
 
 
     // variableName Field Functions 
     bool hasVariableName() const { return this->variableName_ != nullptr;};
     void deleteVariableName() { this->variableName_ = nullptr;};
-    inline string variableName() const { DARABONBA_PTR_GET_DEFAULT(variableName_, "") };
+    inline string getVariableName() const { DARABONBA_PTR_GET_DEFAULT(variableName_, "") };
     inline DeleteApiStageVariableRequest& setVariableName(string variableName) { DARABONBA_PTR_SET_VALUE(variableName_, variableName) };
 
 
@@ -69,16 +69,16 @@ namespace Models
     // The ID of the API group.
     // 
     // This parameter is required.
-    std::shared_ptr<string> groupId_ = nullptr;
-    std::shared_ptr<string> securityToken_ = nullptr;
+    shared_ptr<string> groupId_ {};
+    shared_ptr<string> securityToken_ {};
     // The ID of the environment.
     // 
     // This parameter is required.
-    std::shared_ptr<string> stageId_ = nullptr;
+    shared_ptr<string> stageId_ {};
     // The name of the variable to be deleted. This parameter is case-sensitive.
     // 
     // This parameter is required.
-    std::shared_ptr<string> variableName_ = nullptr;
+    shared_ptr<string> variableName_ {};
   };
 
   } // namespace Models

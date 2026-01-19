@@ -44,61 +44,61 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->groupId_ == nullptr
-        && return this->httpsPolicy_ == nullptr && return this->innerDomainEnable_ == nullptr && return this->internetEnable_ == nullptr && return this->internetIPV6Enable_ == nullptr && return this->securityToken_ == nullptr
-        && return this->vpcIntranetEnable_ == nullptr && return this->vpcSlbIntranetEnable_ == nullptr; };
+        && this->httpsPolicy_ == nullptr && this->innerDomainEnable_ == nullptr && this->internetEnable_ == nullptr && this->internetIPV6Enable_ == nullptr && this->securityToken_ == nullptr
+        && this->vpcIntranetEnable_ == nullptr && this->vpcSlbIntranetEnable_ == nullptr; };
     // groupId Field Functions 
     bool hasGroupId() const { return this->groupId_ != nullptr;};
     void deleteGroupId() { this->groupId_ = nullptr;};
-    inline string groupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
+    inline string getGroupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
     inline ModifyApiGroupNetworkPolicyRequest& setGroupId(string groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
 
 
     // httpsPolicy Field Functions 
     bool hasHttpsPolicy() const { return this->httpsPolicy_ != nullptr;};
     void deleteHttpsPolicy() { this->httpsPolicy_ = nullptr;};
-    inline string httpsPolicy() const { DARABONBA_PTR_GET_DEFAULT(httpsPolicy_, "") };
+    inline string getHttpsPolicy() const { DARABONBA_PTR_GET_DEFAULT(httpsPolicy_, "") };
     inline ModifyApiGroupNetworkPolicyRequest& setHttpsPolicy(string httpsPolicy) { DARABONBA_PTR_SET_VALUE(httpsPolicy_, httpsPolicy) };
 
 
     // innerDomainEnable Field Functions 
     bool hasInnerDomainEnable() const { return this->innerDomainEnable_ != nullptr;};
     void deleteInnerDomainEnable() { this->innerDomainEnable_ = nullptr;};
-    inline bool innerDomainEnable() const { DARABONBA_PTR_GET_DEFAULT(innerDomainEnable_, false) };
+    inline bool getInnerDomainEnable() const { DARABONBA_PTR_GET_DEFAULT(innerDomainEnable_, false) };
     inline ModifyApiGroupNetworkPolicyRequest& setInnerDomainEnable(bool innerDomainEnable) { DARABONBA_PTR_SET_VALUE(innerDomainEnable_, innerDomainEnable) };
 
 
     // internetEnable Field Functions 
     bool hasInternetEnable() const { return this->internetEnable_ != nullptr;};
     void deleteInternetEnable() { this->internetEnable_ = nullptr;};
-    inline bool internetEnable() const { DARABONBA_PTR_GET_DEFAULT(internetEnable_, false) };
+    inline bool getInternetEnable() const { DARABONBA_PTR_GET_DEFAULT(internetEnable_, false) };
     inline ModifyApiGroupNetworkPolicyRequest& setInternetEnable(bool internetEnable) { DARABONBA_PTR_SET_VALUE(internetEnable_, internetEnable) };
 
 
     // internetIPV6Enable Field Functions 
     bool hasInternetIPV6Enable() const { return this->internetIPV6Enable_ != nullptr;};
     void deleteInternetIPV6Enable() { this->internetIPV6Enable_ = nullptr;};
-    inline bool internetIPV6Enable() const { DARABONBA_PTR_GET_DEFAULT(internetIPV6Enable_, false) };
+    inline bool getInternetIPV6Enable() const { DARABONBA_PTR_GET_DEFAULT(internetIPV6Enable_, false) };
     inline ModifyApiGroupNetworkPolicyRequest& setInternetIPV6Enable(bool internetIPV6Enable) { DARABONBA_PTR_SET_VALUE(internetIPV6Enable_, internetIPV6Enable) };
 
 
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
-    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
     inline ModifyApiGroupNetworkPolicyRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
     // vpcIntranetEnable Field Functions 
     bool hasVpcIntranetEnable() const { return this->vpcIntranetEnable_ != nullptr;};
     void deleteVpcIntranetEnable() { this->vpcIntranetEnable_ = nullptr;};
-    inline bool vpcIntranetEnable() const { DARABONBA_PTR_GET_DEFAULT(vpcIntranetEnable_, false) };
+    inline bool getVpcIntranetEnable() const { DARABONBA_PTR_GET_DEFAULT(vpcIntranetEnable_, false) };
     inline ModifyApiGroupNetworkPolicyRequest& setVpcIntranetEnable(bool vpcIntranetEnable) { DARABONBA_PTR_SET_VALUE(vpcIntranetEnable_, vpcIntranetEnable) };
 
 
     // vpcSlbIntranetEnable Field Functions 
     bool hasVpcSlbIntranetEnable() const { return this->vpcSlbIntranetEnable_ != nullptr;};
     void deleteVpcSlbIntranetEnable() { this->vpcSlbIntranetEnable_ = nullptr;};
-    inline bool vpcSlbIntranetEnable() const { DARABONBA_PTR_GET_DEFAULT(vpcSlbIntranetEnable_, false) };
+    inline bool getVpcSlbIntranetEnable() const { DARABONBA_PTR_GET_DEFAULT(vpcSlbIntranetEnable_, false) };
     inline ModifyApiGroupNetworkPolicyRequest& setVpcSlbIntranetEnable(bool vpcSlbIntranetEnable) { DARABONBA_PTR_SET_VALUE(vpcSlbIntranetEnable_, vpcSlbIntranetEnable) };
 
 
@@ -106,23 +106,23 @@ namespace Models
     // The ID of the API group.
     // 
     // This parameter is required.
-    std::shared_ptr<string> groupId_ = nullptr;
+    shared_ptr<string> groupId_ {};
     // The HTTPS security policy.
-    std::shared_ptr<string> httpsPolicy_ = nullptr;
+    shared_ptr<string> httpsPolicy_ {};
     // Specifies whether to disable the public second-level domain name.
-    std::shared_ptr<bool> innerDomainEnable_ = nullptr;
+    shared_ptr<bool> innerDomainEnable_ {};
     // Specifies whether to enable the virtual private cloud (VPC) second-level domain name.
-    std::shared_ptr<bool> internetEnable_ = nullptr;
+    shared_ptr<bool> internetEnable_ {};
     // Specifies whether to enable IPv6. Valid values: **true** and **false**.
-    std::shared_ptr<bool> internetIPV6Enable_ = nullptr;
-    std::shared_ptr<string> securityToken_ = nullptr;
+    shared_ptr<bool> internetIPV6Enable_ {};
+    shared_ptr<string> securityToken_ {};
     // Specifies whether to enable the VPC domain name. Valid values:
     // 
     // *   TRUE
     // *   FALSE
-    std::shared_ptr<bool> vpcIntranetEnable_ = nullptr;
+    shared_ptr<bool> vpcIntranetEnable_ {};
     // Specifies whether to enable the self-calling domain name.
-    std::shared_ptr<bool> vpcSlbIntranetEnable_ = nullptr;
+    shared_ptr<bool> vpcSlbIntranetEnable_ {};
   };
 
   } // namespace Models

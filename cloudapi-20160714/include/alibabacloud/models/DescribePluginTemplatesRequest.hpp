@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->language_ == nullptr
-        && return this->pluginName_ == nullptr && return this->securityToken_ == nullptr; };
+        && this->pluginName_ == nullptr && this->securityToken_ == nullptr; };
     // language Field Functions 
     bool hasLanguage() const { return this->language_ != nullptr;};
     void deleteLanguage() { this->language_ = nullptr;};
-    inline string language() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
+    inline string getLanguage() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
     inline DescribePluginTemplatesRequest& setLanguage(string language) { DARABONBA_PTR_SET_VALUE(language_, language) };
 
 
     // pluginName Field Functions 
     bool hasPluginName() const { return this->pluginName_ != nullptr;};
     void deletePluginName() { this->pluginName_ = nullptr;};
-    inline string pluginName() const { DARABONBA_PTR_GET_DEFAULT(pluginName_, "") };
+    inline string getPluginName() const { DARABONBA_PTR_GET_DEFAULT(pluginName_, "") };
     inline DescribePluginTemplatesRequest& setPluginName(string pluginName) { DARABONBA_PTR_SET_VALUE(pluginName_, pluginName) };
 
 
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
-    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
     inline DescribePluginTemplatesRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
@@ -62,10 +62,10 @@ namespace Models
     // *   en: English
     // *   zh-CN: Chinese.
     // *   ja: Japanese
-    std::shared_ptr<string> language_ = nullptr;
+    shared_ptr<string> language_ {};
     // The name of the plug-in.
-    std::shared_ptr<string> pluginName_ = nullptr;
-    std::shared_ptr<string> securityToken_ = nullptr;
+    shared_ptr<string> pluginName_ {};
+    shared_ptr<string> securityToken_ {};
   };
 
   } // namespace Models

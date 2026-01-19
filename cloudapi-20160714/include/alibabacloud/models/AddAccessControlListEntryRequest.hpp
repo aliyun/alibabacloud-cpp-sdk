@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aclEntrys_ == nullptr
-        && return this->aclId_ == nullptr && return this->securityToken_ == nullptr; };
+        && this->aclId_ == nullptr && this->securityToken_ == nullptr; };
     // aclEntrys Field Functions 
     bool hasAclEntrys() const { return this->aclEntrys_ != nullptr;};
     void deleteAclEntrys() { this->aclEntrys_ = nullptr;};
-    inline string aclEntrys() const { DARABONBA_PTR_GET_DEFAULT(aclEntrys_, "") };
+    inline string getAclEntrys() const { DARABONBA_PTR_GET_DEFAULT(aclEntrys_, "") };
     inline AddAccessControlListEntryRequest& setAclEntrys(string aclEntrys) { DARABONBA_PTR_SET_VALUE(aclEntrys_, aclEntrys) };
 
 
     // aclId Field Functions 
     bool hasAclId() const { return this->aclId_ != nullptr;};
     void deleteAclId() { this->aclId_ = nullptr;};
-    inline string aclId() const { DARABONBA_PTR_GET_DEFAULT(aclId_, "") };
+    inline string getAclId() const { DARABONBA_PTR_GET_DEFAULT(aclId_, "") };
     inline AddAccessControlListEntryRequest& setAclId(string aclId) { DARABONBA_PTR_SET_VALUE(aclId_, aclId) };
 
 
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
-    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
     inline AddAccessControlListEntryRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
@@ -63,12 +63,12 @@ namespace Models
     // *   comment: the description of the ACL.
     // 
     // > You can add at most 50 IP addresses or CIDR blocks to an ACL in each call. If the IP address or CIDR block that you want to add to an ACL already exists, the IP address or CIDR block is not added. The entries that you add must be CIDR blocks.
-    std::shared_ptr<string> aclEntrys_ = nullptr;
+    shared_ptr<string> aclEntrys_ {};
     // The ID of the access control list (ACL).
     // 
     // This parameter is required.
-    std::shared_ptr<string> aclId_ = nullptr;
-    std::shared_ptr<string> securityToken_ = nullptr;
+    shared_ptr<string> aclId_ {};
+    shared_ptr<string> securityToken_ {};
   };
 
   } // namespace Models

@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ipControlId_ == nullptr
-        && return this->securityToken_ == nullptr; };
+        && this->securityToken_ == nullptr; };
     // ipControlId Field Functions 
     bool hasIpControlId() const { return this->ipControlId_ != nullptr;};
     void deleteIpControlId() { this->ipControlId_ = nullptr;};
-    inline string ipControlId() const { DARABONBA_PTR_GET_DEFAULT(ipControlId_, "") };
+    inline string getIpControlId() const { DARABONBA_PTR_GET_DEFAULT(ipControlId_, "") };
     inline DeleteIpControlRequest& setIpControlId(string ipControlId) { DARABONBA_PTR_SET_VALUE(ipControlId_, ipControlId) };
 
 
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
-    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
     inline DeleteIpControlRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
@@ -51,8 +51,8 @@ namespace Models
     // The ID of the ACL. The ID is unique.
     // 
     // This parameter is required.
-    std::shared_ptr<string> ipControlId_ = nullptr;
-    std::shared_ptr<string> securityToken_ = nullptr;
+    shared_ptr<string> ipControlId_ {};
+    shared_ptr<string> securityToken_ {};
   };
 
   } // namespace Models

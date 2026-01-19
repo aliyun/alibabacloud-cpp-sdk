@@ -32,25 +32,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceClusterName_ == nullptr
-        && return this->securityToken_ == nullptr; };
+        && this->securityToken_ == nullptr; };
     // instanceClusterName Field Functions 
     bool hasInstanceClusterName() const { return this->instanceClusterName_ != nullptr;};
     void deleteInstanceClusterName() { this->instanceClusterName_ = nullptr;};
-    inline string instanceClusterName() const { DARABONBA_PTR_GET_DEFAULT(instanceClusterName_, "") };
+    inline string getInstanceClusterName() const { DARABONBA_PTR_GET_DEFAULT(instanceClusterName_, "") };
     inline DescribeInstanceClusterInfoRequest& setInstanceClusterName(string instanceClusterName) { DARABONBA_PTR_SET_VALUE(instanceClusterName_, instanceClusterName) };
 
 
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
-    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
     inline DescribeInstanceClusterInfoRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
   protected:
     // The name of the dedicated instance cluster.
-    std::shared_ptr<string> instanceClusterName_ = nullptr;
-    std::shared_ptr<string> securityToken_ = nullptr;
+    shared_ptr<string> instanceClusterName_ {};
+    shared_ptr<string> securityToken_ {};
   };
 
   } // namespace Models

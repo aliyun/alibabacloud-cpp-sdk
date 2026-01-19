@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apiId_ == nullptr
-        && return this->marketChargingMode_ == nullptr && return this->needCharging_ == nullptr && return this->requestId_ == nullptr; };
+        && this->marketChargingMode_ == nullptr && this->needCharging_ == nullptr && this->requestId_ == nullptr; };
     // apiId Field Functions 
     bool hasApiId() const { return this->apiId_ != nullptr;};
     void deleteApiId() { this->apiId_ = nullptr;};
-    inline string apiId() const { DARABONBA_PTR_GET_DEFAULT(apiId_, "") };
+    inline string getApiId() const { DARABONBA_PTR_GET_DEFAULT(apiId_, "") };
     inline DescribeApiMarketAttributesResponseBody& setApiId(string apiId) { DARABONBA_PTR_SET_VALUE(apiId_, apiId) };
 
 
     // marketChargingMode Field Functions 
     bool hasMarketChargingMode() const { return this->marketChargingMode_ != nullptr;};
     void deleteMarketChargingMode() { this->marketChargingMode_ = nullptr;};
-    inline string marketChargingMode() const { DARABONBA_PTR_GET_DEFAULT(marketChargingMode_, "") };
+    inline string getMarketChargingMode() const { DARABONBA_PTR_GET_DEFAULT(marketChargingMode_, "") };
     inline DescribeApiMarketAttributesResponseBody& setMarketChargingMode(string marketChargingMode) { DARABONBA_PTR_SET_VALUE(marketChargingMode_, marketChargingMode) };
 
 
     // needCharging Field Functions 
     bool hasNeedCharging() const { return this->needCharging_ != nullptr;};
     void deleteNeedCharging() { this->needCharging_ = nullptr;};
-    inline string needCharging() const { DARABONBA_PTR_GET_DEFAULT(needCharging_, "") };
+    inline string getNeedCharging() const { DARABONBA_PTR_GET_DEFAULT(needCharging_, "") };
     inline DescribeApiMarketAttributesResponseBody& setNeedCharging(string needCharging) { DARABONBA_PTR_SET_VALUE(needCharging_, needCharging) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeApiMarketAttributesResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The ID of the API.
-    std::shared_ptr<string> apiId_ = nullptr;
+    shared_ptr<string> apiId_ {};
     // The billing method used by the Alibaba Cloud Marketplace.
-    std::shared_ptr<string> marketChargingMode_ = nullptr;
+    shared_ptr<string> marketChargingMode_ {};
     // Indicates whether fees are charged.
-    std::shared_ptr<string> needCharging_ = nullptr;
+    shared_ptr<string> needCharging_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

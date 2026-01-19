@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->datasetId_ == nullptr
-        && return this->datasetItemId_ == nullptr && return this->securityToken_ == nullptr && return this->value_ == nullptr; };
+        && this->datasetItemId_ == nullptr && this->securityToken_ == nullptr && this->value_ == nullptr; };
     // datasetId Field Functions 
     bool hasDatasetId() const { return this->datasetId_ != nullptr;};
     void deleteDatasetId() { this->datasetId_ = nullptr;};
-    inline string datasetId() const { DARABONBA_PTR_GET_DEFAULT(datasetId_, "") };
+    inline string getDatasetId() const { DARABONBA_PTR_GET_DEFAULT(datasetId_, "") };
     inline DescribeDatasetItemInfoRequest& setDatasetId(string datasetId) { DARABONBA_PTR_SET_VALUE(datasetId_, datasetId) };
 
 
     // datasetItemId Field Functions 
     bool hasDatasetItemId() const { return this->datasetItemId_ != nullptr;};
     void deleteDatasetItemId() { this->datasetItemId_ = nullptr;};
-    inline string datasetItemId() const { DARABONBA_PTR_GET_DEFAULT(datasetItemId_, "") };
+    inline string getDatasetItemId() const { DARABONBA_PTR_GET_DEFAULT(datasetItemId_, "") };
     inline DescribeDatasetItemInfoRequest& setDatasetItemId(string datasetItemId) { DARABONBA_PTR_SET_VALUE(datasetItemId_, datasetItemId) };
 
 
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
-    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
     inline DescribeDatasetItemInfoRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
     // value Field Functions 
     bool hasValue() const { return this->value_ != nullptr;};
     void deleteValue() { this->value_ = nullptr;};
-    inline string value() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+    inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
     inline DescribeDatasetItemInfoRequest& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
 
 
@@ -69,12 +69,12 @@ namespace Models
     // The ID of the dataset.
     // 
     // This parameter is required.
-    std::shared_ptr<string> datasetId_ = nullptr;
+    shared_ptr<string> datasetId_ {};
     // The ID of the data entry.
-    std::shared_ptr<string> datasetItemId_ = nullptr;
-    std::shared_ptr<string> securityToken_ = nullptr;
+    shared_ptr<string> datasetItemId_ {};
+    shared_ptr<string> securityToken_ {};
     // The value of the data entry.
-    std::shared_ptr<string> value_ = nullptr;
+    shared_ptr<string> value_ {};
   };
 
   } // namespace Models

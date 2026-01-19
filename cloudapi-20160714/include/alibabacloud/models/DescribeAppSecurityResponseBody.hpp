@@ -40,62 +40,62 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appCode_ == nullptr
-        && return this->appKey_ == nullptr && return this->appSecret_ == nullptr && return this->createdTime_ == nullptr && return this->modifiedTime_ == nullptr && return this->requestId_ == nullptr; };
+        && this->appKey_ == nullptr && this->appSecret_ == nullptr && this->createdTime_ == nullptr && this->modifiedTime_ == nullptr && this->requestId_ == nullptr; };
     // appCode Field Functions 
     bool hasAppCode() const { return this->appCode_ != nullptr;};
     void deleteAppCode() { this->appCode_ = nullptr;};
-    inline string appCode() const { DARABONBA_PTR_GET_DEFAULT(appCode_, "") };
+    inline string getAppCode() const { DARABONBA_PTR_GET_DEFAULT(appCode_, "") };
     inline DescribeAppSecurityResponseBody& setAppCode(string appCode) { DARABONBA_PTR_SET_VALUE(appCode_, appCode) };
 
 
     // appKey Field Functions 
     bool hasAppKey() const { return this->appKey_ != nullptr;};
     void deleteAppKey() { this->appKey_ = nullptr;};
-    inline string appKey() const { DARABONBA_PTR_GET_DEFAULT(appKey_, "") };
+    inline string getAppKey() const { DARABONBA_PTR_GET_DEFAULT(appKey_, "") };
     inline DescribeAppSecurityResponseBody& setAppKey(string appKey) { DARABONBA_PTR_SET_VALUE(appKey_, appKey) };
 
 
     // appSecret Field Functions 
     bool hasAppSecret() const { return this->appSecret_ != nullptr;};
     void deleteAppSecret() { this->appSecret_ = nullptr;};
-    inline string appSecret() const { DARABONBA_PTR_GET_DEFAULT(appSecret_, "") };
+    inline string getAppSecret() const { DARABONBA_PTR_GET_DEFAULT(appSecret_, "") };
     inline DescribeAppSecurityResponseBody& setAppSecret(string appSecret) { DARABONBA_PTR_SET_VALUE(appSecret_, appSecret) };
 
 
     // createdTime Field Functions 
     bool hasCreatedTime() const { return this->createdTime_ != nullptr;};
     void deleteCreatedTime() { this->createdTime_ = nullptr;};
-    inline string createdTime() const { DARABONBA_PTR_GET_DEFAULT(createdTime_, "") };
+    inline string getCreatedTime() const { DARABONBA_PTR_GET_DEFAULT(createdTime_, "") };
     inline DescribeAppSecurityResponseBody& setCreatedTime(string createdTime) { DARABONBA_PTR_SET_VALUE(createdTime_, createdTime) };
 
 
     // modifiedTime Field Functions 
     bool hasModifiedTime() const { return this->modifiedTime_ != nullptr;};
     void deleteModifiedTime() { this->modifiedTime_ = nullptr;};
-    inline string modifiedTime() const { DARABONBA_PTR_GET_DEFAULT(modifiedTime_, "") };
+    inline string getModifiedTime() const { DARABONBA_PTR_GET_DEFAULT(modifiedTime_, "") };
     inline DescribeAppSecurityResponseBody& setModifiedTime(string modifiedTime) { DARABONBA_PTR_SET_VALUE(modifiedTime_, modifiedTime) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeAppSecurityResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The AppCode of the app.
-    std::shared_ptr<string> appCode_ = nullptr;
+    shared_ptr<string> appCode_ {};
     // The key of the app.
-    std::shared_ptr<string> appKey_ = nullptr;
+    shared_ptr<string> appKey_ {};
     // The password of the app.
-    std::shared_ptr<string> appSecret_ = nullptr;
+    shared_ptr<string> appSecret_ {};
     // The creation time (UTC) of the key, which is the same as the app creation time.
-    std::shared_ptr<string> createdTime_ = nullptr;
+    shared_ptr<string> createdTime_ {};
     // The modification time (UTC) of the key.
-    std::shared_ptr<string> modifiedTime_ = nullptr;
+    shared_ptr<string> modifiedTime_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

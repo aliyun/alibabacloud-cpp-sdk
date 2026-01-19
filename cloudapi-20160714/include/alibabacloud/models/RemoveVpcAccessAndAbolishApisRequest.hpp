@@ -38,51 +38,51 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->needBatchWork_ == nullptr && return this->port_ == nullptr && return this->securityToken_ == nullptr && return this->vpcId_ == nullptr; };
+        && this->needBatchWork_ == nullptr && this->port_ == nullptr && this->securityToken_ == nullptr && this->vpcId_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline RemoveVpcAccessAndAbolishApisRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // needBatchWork Field Functions 
     bool hasNeedBatchWork() const { return this->needBatchWork_ != nullptr;};
     void deleteNeedBatchWork() { this->needBatchWork_ = nullptr;};
-    inline bool needBatchWork() const { DARABONBA_PTR_GET_DEFAULT(needBatchWork_, false) };
+    inline bool getNeedBatchWork() const { DARABONBA_PTR_GET_DEFAULT(needBatchWork_, false) };
     inline RemoveVpcAccessAndAbolishApisRequest& setNeedBatchWork(bool needBatchWork) { DARABONBA_PTR_SET_VALUE(needBatchWork_, needBatchWork) };
 
 
     // port Field Functions 
     bool hasPort() const { return this->port_ != nullptr;};
     void deletePort() { this->port_ = nullptr;};
-    inline int32_t port() const { DARABONBA_PTR_GET_DEFAULT(port_, 0) };
+    inline int32_t getPort() const { DARABONBA_PTR_GET_DEFAULT(port_, 0) };
     inline RemoveVpcAccessAndAbolishApisRequest& setPort(int32_t port) { DARABONBA_PTR_SET_VALUE(port_, port) };
 
 
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
-    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
     inline RemoveVpcAccessAndAbolishApisRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
     // vpcId Field Functions 
     bool hasVpcId() const { return this->vpcId_ != nullptr;};
     void deleteVpcId() { this->vpcId_ = nullptr;};
-    inline string vpcId() const { DARABONBA_PTR_GET_DEFAULT(vpcId_, "") };
+    inline string getVpcId() const { DARABONBA_PTR_GET_DEFAULT(vpcId_, "") };
     inline RemoveVpcAccessAndAbolishApisRequest& setVpcId(string vpcId) { DARABONBA_PTR_SET_VALUE(vpcId_, vpcId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<bool> needBatchWork_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<bool> needBatchWork_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> port_ = nullptr;
-    std::shared_ptr<string> securityToken_ = nullptr;
+    shared_ptr<int32_t> port_ {};
+    shared_ptr<string> securityToken_ {};
     // This parameter is required.
-    std::shared_ptr<string> vpcId_ = nullptr;
+    shared_ptr<string> vpcId_ {};
   };
 
   } // namespace Models

@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->groupId_ == nullptr
-        && return this->modelName_ == nullptr; };
+        && this->modelName_ == nullptr; };
     // groupId Field Functions 
     bool hasGroupId() const { return this->groupId_ != nullptr;};
     void deleteGroupId() { this->groupId_ = nullptr;};
-    inline string groupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
+    inline string getGroupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
     inline DeleteModelRequest& setGroupId(string groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
 
 
     // modelName Field Functions 
     bool hasModelName() const { return this->modelName_ != nullptr;};
     void deleteModelName() { this->modelName_ = nullptr;};
-    inline string modelName() const { DARABONBA_PTR_GET_DEFAULT(modelName_, "") };
+    inline string getModelName() const { DARABONBA_PTR_GET_DEFAULT(modelName_, "") };
     inline DeleteModelRequest& setModelName(string modelName) { DARABONBA_PTR_SET_VALUE(modelName_, modelName) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The ID of the API group to which the model belongs.
     // 
     // This parameter is required.
-    std::shared_ptr<string> groupId_ = nullptr;
+    shared_ptr<string> groupId_ {};
     // The name of the model.
     // 
     // This parameter is required.
-    std::shared_ptr<string> modelName_ = nullptr;
+    shared_ptr<string> modelName_ {};
   };
 
   } // namespace Models

@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->signatureId_ == nullptr && return this->signatureName_ == nullptr; };
+        && this->signatureId_ == nullptr && this->signatureName_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ModifySignatureResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // signatureId Field Functions 
     bool hasSignatureId() const { return this->signatureId_ != nullptr;};
     void deleteSignatureId() { this->signatureId_ = nullptr;};
-    inline string signatureId() const { DARABONBA_PTR_GET_DEFAULT(signatureId_, "") };
+    inline string getSignatureId() const { DARABONBA_PTR_GET_DEFAULT(signatureId_, "") };
     inline ModifySignatureResponseBody& setSignatureId(string signatureId) { DARABONBA_PTR_SET_VALUE(signatureId_, signatureId) };
 
 
     // signatureName Field Functions 
     bool hasSignatureName() const { return this->signatureName_ != nullptr;};
     void deleteSignatureName() { this->signatureName_ = nullptr;};
-    inline string signatureName() const { DARABONBA_PTR_GET_DEFAULT(signatureName_, "") };
+    inline string getSignatureName() const { DARABONBA_PTR_GET_DEFAULT(signatureName_, "") };
     inline ModifySignatureResponseBody& setSignatureName(string signatureName) { DARABONBA_PTR_SET_VALUE(signatureName_, signatureName) };
 
 
   protected:
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The ID of the key.
-    std::shared_ptr<string> signatureId_ = nullptr;
+    shared_ptr<string> signatureId_ {};
     // The name of the key.
-    std::shared_ptr<string> signatureName_ = nullptr;
+    shared_ptr<string> signatureName_ {};
   };
 
   } // namespace Models

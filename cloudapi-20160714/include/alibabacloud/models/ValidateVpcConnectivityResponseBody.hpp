@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->connected_ == nullptr
-        && return this->ipType_ == nullptr && return this->requestId_ == nullptr; };
+        && this->ipType_ == nullptr && this->requestId_ == nullptr; };
     // connected Field Functions 
     bool hasConnected() const { return this->connected_ != nullptr;};
     void deleteConnected() { this->connected_ = nullptr;};
-    inline bool connected() const { DARABONBA_PTR_GET_DEFAULT(connected_, false) };
+    inline bool getConnected() const { DARABONBA_PTR_GET_DEFAULT(connected_, false) };
     inline ValidateVpcConnectivityResponseBody& setConnected(bool connected) { DARABONBA_PTR_SET_VALUE(connected_, connected) };
 
 
     // ipType Field Functions 
     bool hasIpType() const { return this->ipType_ != nullptr;};
     void deleteIpType() { this->ipType_ = nullptr;};
-    inline string ipType() const { DARABONBA_PTR_GET_DEFAULT(ipType_, "") };
+    inline string getIpType() const { DARABONBA_PTR_GET_DEFAULT(ipType_, "") };
     inline ValidateVpcConnectivityResponseBody& setIpType(string ipType) { DARABONBA_PTR_SET_VALUE(ipType_, ipType) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ValidateVpcConnectivityResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
@@ -61,15 +61,15 @@ namespace Models
     // 
     // *   **true**
     // *   **false**
-    std::shared_ptr<bool> connected_ = nullptr;
+    shared_ptr<bool> connected_ {};
     // Indicates whether the instance in the authorization is an ECS instance or an SLB instance when the instance ID in the authorization is an IP address. Valid values:
     // 
     // *   **ECS**
     // *   **SLB**
     // *   **INVALID**: The instance type corresponding to the IP address is invalid.
-    std::shared_ptr<string> ipType_ = nullptr;
+    shared_ptr<string> ipType_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

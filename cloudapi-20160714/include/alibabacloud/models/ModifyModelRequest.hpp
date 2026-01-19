@@ -38,57 +38,57 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->groupId_ == nullptr && return this->modelName_ == nullptr && return this->newModelName_ == nullptr && return this->schema_ == nullptr; };
+        && this->groupId_ == nullptr && this->modelName_ == nullptr && this->newModelName_ == nullptr && this->schema_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline ModifyModelRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // groupId Field Functions 
     bool hasGroupId() const { return this->groupId_ != nullptr;};
     void deleteGroupId() { this->groupId_ = nullptr;};
-    inline string groupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
+    inline string getGroupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
     inline ModifyModelRequest& setGroupId(string groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
 
 
     // modelName Field Functions 
     bool hasModelName() const { return this->modelName_ != nullptr;};
     void deleteModelName() { this->modelName_ = nullptr;};
-    inline string modelName() const { DARABONBA_PTR_GET_DEFAULT(modelName_, "") };
+    inline string getModelName() const { DARABONBA_PTR_GET_DEFAULT(modelName_, "") };
     inline ModifyModelRequest& setModelName(string modelName) { DARABONBA_PTR_SET_VALUE(modelName_, modelName) };
 
 
     // newModelName Field Functions 
     bool hasNewModelName() const { return this->newModelName_ != nullptr;};
     void deleteNewModelName() { this->newModelName_ = nullptr;};
-    inline string newModelName() const { DARABONBA_PTR_GET_DEFAULT(newModelName_, "") };
+    inline string getNewModelName() const { DARABONBA_PTR_GET_DEFAULT(newModelName_, "") };
     inline ModifyModelRequest& setNewModelName(string newModelName) { DARABONBA_PTR_SET_VALUE(newModelName_, newModelName) };
 
 
     // schema Field Functions 
     bool hasSchema() const { return this->schema_ != nullptr;};
     void deleteSchema() { this->schema_ = nullptr;};
-    inline string schema() const { DARABONBA_PTR_GET_DEFAULT(schema_, "") };
+    inline string getSchema() const { DARABONBA_PTR_GET_DEFAULT(schema_, "") };
     inline ModifyModelRequest& setSchema(string schema) { DARABONBA_PTR_SET_VALUE(schema_, schema) };
 
 
   protected:
     // The description of the new model definition.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The ID of the API group to which the model belongs.
     // 
     // This parameter is required.
-    std::shared_ptr<string> groupId_ = nullptr;
+    shared_ptr<string> groupId_ {};
     // The name of the model.
     // 
     // This parameter is required.
-    std::shared_ptr<string> modelName_ = nullptr;
+    shared_ptr<string> modelName_ {};
     // The new name of the model.
-    std::shared_ptr<string> newModelName_ = nullptr;
+    shared_ptr<string> newModelName_ {};
     // The new definition of the model.
-    std::shared_ptr<string> schema_ = nullptr;
+    shared_ptr<string> schema_ {};
   };
 
   } // namespace Models

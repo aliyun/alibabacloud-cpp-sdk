@@ -39,19 +39,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apiProductId_ == nullptr
-        && return this->appIds_ == nullptr && return this->authValidTime_ == nullptr && return this->description_ == nullptr && return this->securityToken_ == nullptr; };
+        && this->appIds_ == nullptr && this->authValidTime_ == nullptr && this->description_ == nullptr && this->securityToken_ == nullptr; };
     // apiProductId Field Functions 
     bool hasApiProductId() const { return this->apiProductId_ != nullptr;};
     void deleteApiProductId() { this->apiProductId_ = nullptr;};
-    inline string apiProductId() const { DARABONBA_PTR_GET_DEFAULT(apiProductId_, "") };
+    inline string getApiProductId() const { DARABONBA_PTR_GET_DEFAULT(apiProductId_, "") };
     inline SetAppsAuthToApiProductRequest& setApiProductId(string apiProductId) { DARABONBA_PTR_SET_VALUE(apiProductId_, apiProductId) };
 
 
     // appIds Field Functions 
     bool hasAppIds() const { return this->appIds_ != nullptr;};
     void deleteAppIds() { this->appIds_ = nullptr;};
-    inline const vector<int64_t> & appIds() const { DARABONBA_PTR_GET_CONST(appIds_, vector<int64_t>) };
-    inline vector<int64_t> appIds() { DARABONBA_PTR_GET(appIds_, vector<int64_t>) };
+    inline const vector<int64_t> & getAppIds() const { DARABONBA_PTR_GET_CONST(appIds_, vector<int64_t>) };
+    inline vector<int64_t> getAppIds() { DARABONBA_PTR_GET(appIds_, vector<int64_t>) };
     inline SetAppsAuthToApiProductRequest& setAppIds(const vector<int64_t> & appIds) { DARABONBA_PTR_SET_VALUE(appIds_, appIds) };
     inline SetAppsAuthToApiProductRequest& setAppIds(vector<int64_t> && appIds) { DARABONBA_PTR_SET_RVALUE(appIds_, appIds) };
 
@@ -59,21 +59,21 @@ namespace Models
     // authValidTime Field Functions 
     bool hasAuthValidTime() const { return this->authValidTime_ != nullptr;};
     void deleteAuthValidTime() { this->authValidTime_ = nullptr;};
-    inline string authValidTime() const { DARABONBA_PTR_GET_DEFAULT(authValidTime_, "") };
+    inline string getAuthValidTime() const { DARABONBA_PTR_GET_DEFAULT(authValidTime_, "") };
     inline SetAppsAuthToApiProductRequest& setAuthValidTime(string authValidTime) { DARABONBA_PTR_SET_VALUE(authValidTime_, authValidTime) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline SetAppsAuthToApiProductRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
-    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
     inline SetAppsAuthToApiProductRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
@@ -81,16 +81,16 @@ namespace Models
     // The ID of the API product.
     // 
     // This parameter is required.
-    std::shared_ptr<string> apiProductId_ = nullptr;
+    shared_ptr<string> apiProductId_ {};
     // The IDs of the applications that you want to authorize.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<int64_t>> appIds_ = nullptr;
+    shared_ptr<vector<int64_t>> appIds_ {};
     // The time (UTC) when the authorization expires. If this parameter is empty, the authorization does not expire.
-    std::shared_ptr<string> authValidTime_ = nullptr;
+    shared_ptr<string> authValidTime_ {};
     // The description of the authorization.
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<string> securityToken_ = nullptr;
+    shared_ptr<string> description_ {};
+    shared_ptr<string> securityToken_ {};
   };
 
   } // namespace Models
