@@ -26,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InstanceIp, instanceIp_);
       DARABONBA_PTR_TO_JSON(InstanceMemory, instanceMemory_);
       DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
+      DARABONBA_PTR_TO_JSON(InstancePhase, instancePhase_);
       DARABONBA_PTR_TO_JSON(InstanceStatus, instanceStatus_);
       DARABONBA_PTR_TO_JSON(InstanceSystemDiskSize, instanceSystemDiskSize_);
       DARABONBA_PTR_TO_JSON(InstanceTenantIp, instanceTenantIp_);
@@ -52,6 +53,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(InstanceIp, instanceIp_);
       DARABONBA_PTR_FROM_JSON(InstanceMemory, instanceMemory_);
       DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
+      DARABONBA_PTR_FROM_JSON(InstancePhase, instancePhase_);
       DARABONBA_PTR_FROM_JSON(InstanceStatus, instanceStatus_);
       DARABONBA_PTR_FROM_JSON(InstanceSystemDiskSize, instanceSystemDiskSize_);
       DARABONBA_PTR_FROM_JSON(InstanceTenantIp, instanceTenantIp_);
@@ -121,9 +123,9 @@ namespace Models
     virtual bool empty() const override { return this->arch_ == nullptr
         && this->autoRenewal_ == nullptr && this->chargeType_ == nullptr && this->createTime_ == nullptr && this->expiredTime_ == nullptr && this->instanceCpuCount_ == nullptr
         && this->instanceGpuCount_ == nullptr && this->instanceGpuMemory_ == nullptr && this->instanceId_ == nullptr && this->instanceIp_ == nullptr && this->instanceMemory_ == nullptr
-        && this->instanceName_ == nullptr && this->instanceStatus_ == nullptr && this->instanceSystemDiskSize_ == nullptr && this->instanceTenantIp_ == nullptr && this->instanceType_ == nullptr
-        && this->instanceUsedCpu_ == nullptr && this->instanceUsedGpu_ == nullptr && this->instanceUsedGpuMemory_ == nullptr && this->instanceUsedMemory_ == nullptr && this->labels_ == nullptr
-        && this->region_ == nullptr && this->resourceId_ == nullptr && this->zone_ == nullptr; };
+        && this->instanceName_ == nullptr && this->instancePhase_ == nullptr && this->instanceStatus_ == nullptr && this->instanceSystemDiskSize_ == nullptr && this->instanceTenantIp_ == nullptr
+        && this->instanceType_ == nullptr && this->instanceUsedCpu_ == nullptr && this->instanceUsedGpu_ == nullptr && this->instanceUsedGpuMemory_ == nullptr && this->instanceUsedMemory_ == nullptr
+        && this->labels_ == nullptr && this->region_ == nullptr && this->resourceId_ == nullptr && this->zone_ == nullptr; };
     // arch Field Functions 
     bool hasArch() const { return this->arch_ != nullptr;};
     void deleteArch() { this->arch_ = nullptr;};
@@ -206,6 +208,13 @@ namespace Models
     void deleteInstanceName() { this->instanceName_ = nullptr;};
     inline string getInstanceName() const { DARABONBA_PTR_GET_DEFAULT(instanceName_, "") };
     inline ResourceInstance& setInstanceName(string instanceName) { DARABONBA_PTR_SET_VALUE(instanceName_, instanceName) };
+
+
+    // instancePhase Field Functions 
+    bool hasInstancePhase() const { return this->instancePhase_ != nullptr;};
+    void deleteInstancePhase() { this->instancePhase_ = nullptr;};
+    inline string getInstancePhase() const { DARABONBA_PTR_GET_DEFAULT(instancePhase_, "") };
+    inline ResourceInstance& setInstancePhase(string instancePhase) { DARABONBA_PTR_SET_VALUE(instancePhase_, instancePhase) };
 
 
     // instanceStatus Field Functions 
@@ -307,6 +316,7 @@ namespace Models
     shared_ptr<string> instanceIp_ {};
     shared_ptr<string> instanceMemory_ {};
     shared_ptr<string> instanceName_ {};
+    shared_ptr<string> instancePhase_ {};
     shared_ptr<string> instanceStatus_ {};
     shared_ptr<int32_t> instanceSystemDiskSize_ {};
     shared_ptr<string> instanceTenantIp_ {};
