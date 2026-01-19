@@ -559,6 +559,10 @@ CreateDBInstanceResponse Client::createDBInstanceWithOptions(const CreateDBInsta
     query["ClusterNodeType"] = request.getClusterNodeType();
   }
 
+  if (!!request.hasConfigPatternType()) {
+    query["ConfigPatternType"] = request.getConfigPatternType();
+  }
+
   if (!!request.hasConnectionString()) {
     query["ConnectionString"] = request.getConnectionString();
   }

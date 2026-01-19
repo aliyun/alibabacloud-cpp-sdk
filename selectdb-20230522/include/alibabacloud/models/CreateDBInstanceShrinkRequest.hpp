@@ -1,8 +1,7 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_CREATEDBINSTANCEREQUEST_HPP_
-#define ALIBABACLOUD_MODELS_CREATEDBINSTANCEREQUEST_HPP_
+#ifndef ALIBABACLOUD_MODELS_CREATEDBINSTANCESHRINKREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_CREATEDBINSTANCESHRINKREQUEST_HPP_
 #include <darabonba/Core.hpp>
-#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -11,22 +10,23 @@ namespace Selectdb20230522
 {
 namespace Models
 {
-  class CreateDBInstanceRequest : public Darabonba::Model {
+  class CreateDBInstanceShrinkRequest : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const CreateDBInstanceRequest& obj) { 
+    friend void to_json(Darabonba::Json& j, const CreateDBInstanceShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AddVPCIPs, addVPCIPs_);
       DARABONBA_PTR_TO_JSON(CacheSize, cacheSize_);
       DARABONBA_PTR_TO_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(ClusterNodeCount, clusterNodeCount_);
       DARABONBA_PTR_TO_JSON(ClusterNodeType, clusterNodeType_);
+      DARABONBA_PTR_TO_JSON(ConfigPatternType, configPatternType_);
       DARABONBA_PTR_TO_JSON(ConnectionString, connectionString_);
       DARABONBA_PTR_TO_JSON(DBInstanceClass, DBInstanceClass_);
       DARABONBA_PTR_TO_JSON(DBInstanceDescription, DBInstanceDescription_);
       DARABONBA_PTR_TO_JSON(DeployScheme, deployScheme_);
       DARABONBA_PTR_TO_JSON(Engine, engine_);
       DARABONBA_PTR_TO_JSON(EngineVersion, engineVersion_);
-      DARABONBA_PTR_TO_JSON(MultiZone, multiZone_);
+      DARABONBA_PTR_TO_JSON(MultiZone, multiZoneShrink_);
       DARABONBA_PTR_TO_JSON(Period, period_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
@@ -34,26 +34,27 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ScaleMax, scaleMax_);
       DARABONBA_PTR_TO_JSON(ScaleMin, scaleMin_);
       DARABONBA_PTR_TO_JSON(SecurityIPList, securityIPList_);
-      DARABONBA_PTR_TO_JSON(Tag, tag_);
+      DARABONBA_PTR_TO_JSON(Tag, tagShrink_);
       DARABONBA_PTR_TO_JSON(UsedTime, usedTime_);
       DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
       DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
       DARABONBA_PTR_TO_JSON(ZoneId, zoneId_);
     };
-    friend void from_json(const Darabonba::Json& j, CreateDBInstanceRequest& obj) { 
+    friend void from_json(const Darabonba::Json& j, CreateDBInstanceShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AddVPCIPs, addVPCIPs_);
       DARABONBA_PTR_FROM_JSON(CacheSize, cacheSize_);
       DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(ClusterNodeCount, clusterNodeCount_);
       DARABONBA_PTR_FROM_JSON(ClusterNodeType, clusterNodeType_);
+      DARABONBA_PTR_FROM_JSON(ConfigPatternType, configPatternType_);
       DARABONBA_PTR_FROM_JSON(ConnectionString, connectionString_);
       DARABONBA_PTR_FROM_JSON(DBInstanceClass, DBInstanceClass_);
       DARABONBA_PTR_FROM_JSON(DBInstanceDescription, DBInstanceDescription_);
       DARABONBA_PTR_FROM_JSON(DeployScheme, deployScheme_);
       DARABONBA_PTR_FROM_JSON(Engine, engine_);
       DARABONBA_PTR_FROM_JSON(EngineVersion, engineVersion_);
-      DARABONBA_PTR_FROM_JSON(MultiZone, multiZone_);
+      DARABONBA_PTR_FROM_JSON(MultiZone, multiZoneShrink_);
       DARABONBA_PTR_FROM_JSON(Period, period_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
@@ -61,296 +62,209 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ScaleMax, scaleMax_);
       DARABONBA_PTR_FROM_JSON(ScaleMin, scaleMin_);
       DARABONBA_PTR_FROM_JSON(SecurityIPList, securityIPList_);
-      DARABONBA_PTR_FROM_JSON(Tag, tag_);
+      DARABONBA_PTR_FROM_JSON(Tag, tagShrink_);
       DARABONBA_PTR_FROM_JSON(UsedTime, usedTime_);
       DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
       DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
       DARABONBA_PTR_FROM_JSON(ZoneId, zoneId_);
     };
-    CreateDBInstanceRequest() = default ;
-    CreateDBInstanceRequest(const CreateDBInstanceRequest &) = default ;
-    CreateDBInstanceRequest(CreateDBInstanceRequest &&) = default ;
-    CreateDBInstanceRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~CreateDBInstanceRequest() = default ;
-    CreateDBInstanceRequest& operator=(const CreateDBInstanceRequest &) = default ;
-    CreateDBInstanceRequest& operator=(CreateDBInstanceRequest &&) = default ;
+    CreateDBInstanceShrinkRequest() = default ;
+    CreateDBInstanceShrinkRequest(const CreateDBInstanceShrinkRequest &) = default ;
+    CreateDBInstanceShrinkRequest(CreateDBInstanceShrinkRequest &&) = default ;
+    CreateDBInstanceShrinkRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~CreateDBInstanceShrinkRequest() = default ;
+    CreateDBInstanceShrinkRequest& operator=(const CreateDBInstanceShrinkRequest &) = default ;
+    CreateDBInstanceShrinkRequest& operator=(CreateDBInstanceShrinkRequest &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    class Tag : public Darabonba::Model {
-    public:
-      friend void to_json(Darabonba::Json& j, const Tag& obj) { 
-        DARABONBA_PTR_TO_JSON(Key, key_);
-        DARABONBA_PTR_TO_JSON(Value, value_);
-      };
-      friend void from_json(const Darabonba::Json& j, Tag& obj) { 
-        DARABONBA_PTR_FROM_JSON(Key, key_);
-        DARABONBA_PTR_FROM_JSON(Value, value_);
-      };
-      Tag() = default ;
-      Tag(const Tag &) = default ;
-      Tag(Tag &&) = default ;
-      Tag(const Darabonba::Json & obj) { from_json(obj, *this); };
-      virtual ~Tag() = default ;
-      Tag& operator=(const Tag &) = default ;
-      Tag& operator=(Tag &&) = default ;
-      virtual void validate() const override {
-      };
-      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
-      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->key_ == nullptr
-        && this->value_ == nullptr; };
-      // key Field Functions 
-      bool hasKey() const { return this->key_ != nullptr;};
-      void deleteKey() { this->key_ = nullptr;};
-      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
-      inline Tag& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
-
-
-      // value Field Functions 
-      bool hasValue() const { return this->value_ != nullptr;};
-      void deleteValue() { this->value_ = nullptr;};
-      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
-      inline Tag& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
-
-
-    protected:
-      // The tag key.
-      shared_ptr<string> key_ {};
-      // The tag value.
-      shared_ptr<string> value_ {};
-    };
-
-    class MultiZone : public Darabonba::Model {
-    public:
-      friend void to_json(Darabonba::Json& j, const MultiZone& obj) { 
-        DARABONBA_PTR_TO_JSON(VSwitchIds, vSwitchIds_);
-        DARABONBA_PTR_TO_JSON(ZoneId, zoneId_);
-      };
-      friend void from_json(const Darabonba::Json& j, MultiZone& obj) { 
-        DARABONBA_PTR_FROM_JSON(VSwitchIds, vSwitchIds_);
-        DARABONBA_PTR_FROM_JSON(ZoneId, zoneId_);
-      };
-      MultiZone() = default ;
-      MultiZone(const MultiZone &) = default ;
-      MultiZone(MultiZone &&) = default ;
-      MultiZone(const Darabonba::Json & obj) { from_json(obj, *this); };
-      virtual ~MultiZone() = default ;
-      MultiZone& operator=(const MultiZone &) = default ;
-      MultiZone& operator=(MultiZone &&) = default ;
-      virtual void validate() const override {
-      };
-      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
-      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->vSwitchIds_ == nullptr
-        && this->zoneId_ == nullptr; };
-      // vSwitchIds Field Functions 
-      bool hasVSwitchIds() const { return this->vSwitchIds_ != nullptr;};
-      void deleteVSwitchIds() { this->vSwitchIds_ = nullptr;};
-      inline const vector<string> & getVSwitchIds() const { DARABONBA_PTR_GET_CONST(vSwitchIds_, vector<string>) };
-      inline vector<string> getVSwitchIds() { DARABONBA_PTR_GET(vSwitchIds_, vector<string>) };
-      inline MultiZone& setVSwitchIds(const vector<string> & vSwitchIds) { DARABONBA_PTR_SET_VALUE(vSwitchIds_, vSwitchIds) };
-      inline MultiZone& setVSwitchIds(vector<string> && vSwitchIds) { DARABONBA_PTR_SET_RVALUE(vSwitchIds_, vSwitchIds) };
-
-
-      // zoneId Field Functions 
-      bool hasZoneId() const { return this->zoneId_ != nullptr;};
-      void deleteZoneId() { this->zoneId_ = nullptr;};
-      inline string getZoneId() const { DARABONBA_PTR_GET_DEFAULT(zoneId_, "") };
-      inline MultiZone& setZoneId(string zoneId) { DARABONBA_PTR_SET_VALUE(zoneId_, zoneId) };
-
-
-    protected:
-      // The vSwitch IDs.
-      shared_ptr<vector<string>> vSwitchIds_ {};
-      // The zone ID.
-      shared_ptr<string> zoneId_ {};
-    };
-
     virtual bool empty() const override { return this->addVPCIPs_ == nullptr
         && this->cacheSize_ == nullptr && this->chargeType_ == nullptr && this->clientToken_ == nullptr && this->clusterNodeCount_ == nullptr && this->clusterNodeType_ == nullptr
-        && this->connectionString_ == nullptr && this->DBInstanceClass_ == nullptr && this->DBInstanceDescription_ == nullptr && this->deployScheme_ == nullptr && this->engine_ == nullptr
-        && this->engineVersion_ == nullptr && this->multiZone_ == nullptr && this->period_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->resourceOwnerId_ == nullptr && this->scaleMax_ == nullptr && this->scaleMin_ == nullptr && this->securityIPList_ == nullptr && this->tag_ == nullptr
-        && this->usedTime_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->configPatternType_ == nullptr && this->connectionString_ == nullptr && this->DBInstanceClass_ == nullptr && this->DBInstanceDescription_ == nullptr && this->deployScheme_ == nullptr
+        && this->engine_ == nullptr && this->engineVersion_ == nullptr && this->multiZoneShrink_ == nullptr && this->period_ == nullptr && this->regionId_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->resourceOwnerId_ == nullptr && this->scaleMax_ == nullptr && this->scaleMin_ == nullptr && this->securityIPList_ == nullptr
+        && this->tagShrink_ == nullptr && this->usedTime_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
     // addVPCIPs Field Functions 
     bool hasAddVPCIPs() const { return this->addVPCIPs_ != nullptr;};
     void deleteAddVPCIPs() { this->addVPCIPs_ = nullptr;};
     inline string getAddVPCIPs() const { DARABONBA_PTR_GET_DEFAULT(addVPCIPs_, "") };
-    inline CreateDBInstanceRequest& setAddVPCIPs(string addVPCIPs) { DARABONBA_PTR_SET_VALUE(addVPCIPs_, addVPCIPs) };
+    inline CreateDBInstanceShrinkRequest& setAddVPCIPs(string addVPCIPs) { DARABONBA_PTR_SET_VALUE(addVPCIPs_, addVPCIPs) };
 
 
     // cacheSize Field Functions 
     bool hasCacheSize() const { return this->cacheSize_ != nullptr;};
     void deleteCacheSize() { this->cacheSize_ = nullptr;};
     inline int32_t getCacheSize() const { DARABONBA_PTR_GET_DEFAULT(cacheSize_, 0) };
-    inline CreateDBInstanceRequest& setCacheSize(int32_t cacheSize) { DARABONBA_PTR_SET_VALUE(cacheSize_, cacheSize) };
+    inline CreateDBInstanceShrinkRequest& setCacheSize(int32_t cacheSize) { DARABONBA_PTR_SET_VALUE(cacheSize_, cacheSize) };
 
 
     // chargeType Field Functions 
     bool hasChargeType() const { return this->chargeType_ != nullptr;};
     void deleteChargeType() { this->chargeType_ = nullptr;};
     inline string getChargeType() const { DARABONBA_PTR_GET_DEFAULT(chargeType_, "") };
-    inline CreateDBInstanceRequest& setChargeType(string chargeType) { DARABONBA_PTR_SET_VALUE(chargeType_, chargeType) };
+    inline CreateDBInstanceShrinkRequest& setChargeType(string chargeType) { DARABONBA_PTR_SET_VALUE(chargeType_, chargeType) };
 
 
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
     inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
-    inline CreateDBInstanceRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+    inline CreateDBInstanceShrinkRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // clusterNodeCount Field Functions 
     bool hasClusterNodeCount() const { return this->clusterNodeCount_ != nullptr;};
     void deleteClusterNodeCount() { this->clusterNodeCount_ = nullptr;};
     inline int32_t getClusterNodeCount() const { DARABONBA_PTR_GET_DEFAULT(clusterNodeCount_, 0) };
-    inline CreateDBInstanceRequest& setClusterNodeCount(int32_t clusterNodeCount) { DARABONBA_PTR_SET_VALUE(clusterNodeCount_, clusterNodeCount) };
+    inline CreateDBInstanceShrinkRequest& setClusterNodeCount(int32_t clusterNodeCount) { DARABONBA_PTR_SET_VALUE(clusterNodeCount_, clusterNodeCount) };
 
 
     // clusterNodeType Field Functions 
     bool hasClusterNodeType() const { return this->clusterNodeType_ != nullptr;};
     void deleteClusterNodeType() { this->clusterNodeType_ = nullptr;};
     inline string getClusterNodeType() const { DARABONBA_PTR_GET_DEFAULT(clusterNodeType_, "") };
-    inline CreateDBInstanceRequest& setClusterNodeType(string clusterNodeType) { DARABONBA_PTR_SET_VALUE(clusterNodeType_, clusterNodeType) };
+    inline CreateDBInstanceShrinkRequest& setClusterNodeType(string clusterNodeType) { DARABONBA_PTR_SET_VALUE(clusterNodeType_, clusterNodeType) };
+
+
+    // configPatternType Field Functions 
+    bool hasConfigPatternType() const { return this->configPatternType_ != nullptr;};
+    void deleteConfigPatternType() { this->configPatternType_ = nullptr;};
+    inline string getConfigPatternType() const { DARABONBA_PTR_GET_DEFAULT(configPatternType_, "") };
+    inline CreateDBInstanceShrinkRequest& setConfigPatternType(string configPatternType) { DARABONBA_PTR_SET_VALUE(configPatternType_, configPatternType) };
 
 
     // connectionString Field Functions 
     bool hasConnectionString() const { return this->connectionString_ != nullptr;};
     void deleteConnectionString() { this->connectionString_ = nullptr;};
     inline string getConnectionString() const { DARABONBA_PTR_GET_DEFAULT(connectionString_, "") };
-    inline CreateDBInstanceRequest& setConnectionString(string connectionString) { DARABONBA_PTR_SET_VALUE(connectionString_, connectionString) };
+    inline CreateDBInstanceShrinkRequest& setConnectionString(string connectionString) { DARABONBA_PTR_SET_VALUE(connectionString_, connectionString) };
 
 
     // DBInstanceClass Field Functions 
     bool hasDBInstanceClass() const { return this->DBInstanceClass_ != nullptr;};
     void deleteDBInstanceClass() { this->DBInstanceClass_ = nullptr;};
     inline string getDBInstanceClass() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceClass_, "") };
-    inline CreateDBInstanceRequest& setDBInstanceClass(string DBInstanceClass) { DARABONBA_PTR_SET_VALUE(DBInstanceClass_, DBInstanceClass) };
+    inline CreateDBInstanceShrinkRequest& setDBInstanceClass(string DBInstanceClass) { DARABONBA_PTR_SET_VALUE(DBInstanceClass_, DBInstanceClass) };
 
 
     // DBInstanceDescription Field Functions 
     bool hasDBInstanceDescription() const { return this->DBInstanceDescription_ != nullptr;};
     void deleteDBInstanceDescription() { this->DBInstanceDescription_ = nullptr;};
     inline string getDBInstanceDescription() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceDescription_, "") };
-    inline CreateDBInstanceRequest& setDBInstanceDescription(string DBInstanceDescription) { DARABONBA_PTR_SET_VALUE(DBInstanceDescription_, DBInstanceDescription) };
+    inline CreateDBInstanceShrinkRequest& setDBInstanceDescription(string DBInstanceDescription) { DARABONBA_PTR_SET_VALUE(DBInstanceDescription_, DBInstanceDescription) };
 
 
     // deployScheme Field Functions 
     bool hasDeployScheme() const { return this->deployScheme_ != nullptr;};
     void deleteDeployScheme() { this->deployScheme_ = nullptr;};
     inline string getDeployScheme() const { DARABONBA_PTR_GET_DEFAULT(deployScheme_, "") };
-    inline CreateDBInstanceRequest& setDeployScheme(string deployScheme) { DARABONBA_PTR_SET_VALUE(deployScheme_, deployScheme) };
+    inline CreateDBInstanceShrinkRequest& setDeployScheme(string deployScheme) { DARABONBA_PTR_SET_VALUE(deployScheme_, deployScheme) };
 
 
     // engine Field Functions 
     bool hasEngine() const { return this->engine_ != nullptr;};
     void deleteEngine() { this->engine_ = nullptr;};
     inline string getEngine() const { DARABONBA_PTR_GET_DEFAULT(engine_, "") };
-    inline CreateDBInstanceRequest& setEngine(string engine) { DARABONBA_PTR_SET_VALUE(engine_, engine) };
+    inline CreateDBInstanceShrinkRequest& setEngine(string engine) { DARABONBA_PTR_SET_VALUE(engine_, engine) };
 
 
     // engineVersion Field Functions 
     bool hasEngineVersion() const { return this->engineVersion_ != nullptr;};
     void deleteEngineVersion() { this->engineVersion_ = nullptr;};
     inline string getEngineVersion() const { DARABONBA_PTR_GET_DEFAULT(engineVersion_, "") };
-    inline CreateDBInstanceRequest& setEngineVersion(string engineVersion) { DARABONBA_PTR_SET_VALUE(engineVersion_, engineVersion) };
+    inline CreateDBInstanceShrinkRequest& setEngineVersion(string engineVersion) { DARABONBA_PTR_SET_VALUE(engineVersion_, engineVersion) };
 
 
-    // multiZone Field Functions 
-    bool hasMultiZone() const { return this->multiZone_ != nullptr;};
-    void deleteMultiZone() { this->multiZone_ = nullptr;};
-    inline const vector<CreateDBInstanceRequest::MultiZone> & getMultiZone() const { DARABONBA_PTR_GET_CONST(multiZone_, vector<CreateDBInstanceRequest::MultiZone>) };
-    inline vector<CreateDBInstanceRequest::MultiZone> getMultiZone() { DARABONBA_PTR_GET(multiZone_, vector<CreateDBInstanceRequest::MultiZone>) };
-    inline CreateDBInstanceRequest& setMultiZone(const vector<CreateDBInstanceRequest::MultiZone> & multiZone) { DARABONBA_PTR_SET_VALUE(multiZone_, multiZone) };
-    inline CreateDBInstanceRequest& setMultiZone(vector<CreateDBInstanceRequest::MultiZone> && multiZone) { DARABONBA_PTR_SET_RVALUE(multiZone_, multiZone) };
+    // multiZoneShrink Field Functions 
+    bool hasMultiZoneShrink() const { return this->multiZoneShrink_ != nullptr;};
+    void deleteMultiZoneShrink() { this->multiZoneShrink_ = nullptr;};
+    inline string getMultiZoneShrink() const { DARABONBA_PTR_GET_DEFAULT(multiZoneShrink_, "") };
+    inline CreateDBInstanceShrinkRequest& setMultiZoneShrink(string multiZoneShrink) { DARABONBA_PTR_SET_VALUE(multiZoneShrink_, multiZoneShrink) };
 
 
     // period Field Functions 
     bool hasPeriod() const { return this->period_ != nullptr;};
     void deletePeriod() { this->period_ = nullptr;};
     inline string getPeriod() const { DARABONBA_PTR_GET_DEFAULT(period_, "") };
-    inline CreateDBInstanceRequest& setPeriod(string period) { DARABONBA_PTR_SET_VALUE(period_, period) };
+    inline CreateDBInstanceShrinkRequest& setPeriod(string period) { DARABONBA_PTR_SET_VALUE(period_, period) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
     inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
-    inline CreateDBInstanceRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
+    inline CreateDBInstanceShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
     inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
-    inline CreateDBInstanceRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
+    inline CreateDBInstanceShrinkRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
     inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
-    inline CreateDBInstanceRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
+    inline CreateDBInstanceShrinkRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // scaleMax Field Functions 
     bool hasScaleMax() const { return this->scaleMax_ != nullptr;};
     void deleteScaleMax() { this->scaleMax_ = nullptr;};
     inline double getScaleMax() const { DARABONBA_PTR_GET_DEFAULT(scaleMax_, 0.0) };
-    inline CreateDBInstanceRequest& setScaleMax(double scaleMax) { DARABONBA_PTR_SET_VALUE(scaleMax_, scaleMax) };
+    inline CreateDBInstanceShrinkRequest& setScaleMax(double scaleMax) { DARABONBA_PTR_SET_VALUE(scaleMax_, scaleMax) };
 
 
     // scaleMin Field Functions 
     bool hasScaleMin() const { return this->scaleMin_ != nullptr;};
     void deleteScaleMin() { this->scaleMin_ = nullptr;};
     inline double getScaleMin() const { DARABONBA_PTR_GET_DEFAULT(scaleMin_, 0.0) };
-    inline CreateDBInstanceRequest& setScaleMin(double scaleMin) { DARABONBA_PTR_SET_VALUE(scaleMin_, scaleMin) };
+    inline CreateDBInstanceShrinkRequest& setScaleMin(double scaleMin) { DARABONBA_PTR_SET_VALUE(scaleMin_, scaleMin) };
 
 
     // securityIPList Field Functions 
     bool hasSecurityIPList() const { return this->securityIPList_ != nullptr;};
     void deleteSecurityIPList() { this->securityIPList_ = nullptr;};
     inline string getSecurityIPList() const { DARABONBA_PTR_GET_DEFAULT(securityIPList_, "") };
-    inline CreateDBInstanceRequest& setSecurityIPList(string securityIPList) { DARABONBA_PTR_SET_VALUE(securityIPList_, securityIPList) };
+    inline CreateDBInstanceShrinkRequest& setSecurityIPList(string securityIPList) { DARABONBA_PTR_SET_VALUE(securityIPList_, securityIPList) };
 
 
-    // tag Field Functions 
-    bool hasTag() const { return this->tag_ != nullptr;};
-    void deleteTag() { this->tag_ = nullptr;};
-    inline const vector<CreateDBInstanceRequest::Tag> & getTag() const { DARABONBA_PTR_GET_CONST(tag_, vector<CreateDBInstanceRequest::Tag>) };
-    inline vector<CreateDBInstanceRequest::Tag> getTag() { DARABONBA_PTR_GET(tag_, vector<CreateDBInstanceRequest::Tag>) };
-    inline CreateDBInstanceRequest& setTag(const vector<CreateDBInstanceRequest::Tag> & tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
-    inline CreateDBInstanceRequest& setTag(vector<CreateDBInstanceRequest::Tag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
+    // tagShrink Field Functions 
+    bool hasTagShrink() const { return this->tagShrink_ != nullptr;};
+    void deleteTagShrink() { this->tagShrink_ = nullptr;};
+    inline string getTagShrink() const { DARABONBA_PTR_GET_DEFAULT(tagShrink_, "") };
+    inline CreateDBInstanceShrinkRequest& setTagShrink(string tagShrink) { DARABONBA_PTR_SET_VALUE(tagShrink_, tagShrink) };
 
 
     // usedTime Field Functions 
     bool hasUsedTime() const { return this->usedTime_ != nullptr;};
     void deleteUsedTime() { this->usedTime_ = nullptr;};
     inline int32_t getUsedTime() const { DARABONBA_PTR_GET_DEFAULT(usedTime_, 0) };
-    inline CreateDBInstanceRequest& setUsedTime(int32_t usedTime) { DARABONBA_PTR_SET_VALUE(usedTime_, usedTime) };
+    inline CreateDBInstanceShrinkRequest& setUsedTime(int32_t usedTime) { DARABONBA_PTR_SET_VALUE(usedTime_, usedTime) };
 
 
     // vSwitchId Field Functions 
     bool hasVSwitchId() const { return this->vSwitchId_ != nullptr;};
     void deleteVSwitchId() { this->vSwitchId_ = nullptr;};
     inline string getVSwitchId() const { DARABONBA_PTR_GET_DEFAULT(vSwitchId_, "") };
-    inline CreateDBInstanceRequest& setVSwitchId(string vSwitchId) { DARABONBA_PTR_SET_VALUE(vSwitchId_, vSwitchId) };
+    inline CreateDBInstanceShrinkRequest& setVSwitchId(string vSwitchId) { DARABONBA_PTR_SET_VALUE(vSwitchId_, vSwitchId) };
 
 
     // vpcId Field Functions 
     bool hasVpcId() const { return this->vpcId_ != nullptr;};
     void deleteVpcId() { this->vpcId_ = nullptr;};
     inline string getVpcId() const { DARABONBA_PTR_GET_DEFAULT(vpcId_, "") };
-    inline CreateDBInstanceRequest& setVpcId(string vpcId) { DARABONBA_PTR_SET_VALUE(vpcId_, vpcId) };
+    inline CreateDBInstanceShrinkRequest& setVpcId(string vpcId) { DARABONBA_PTR_SET_VALUE(vpcId_, vpcId) };
 
 
     // zoneId Field Functions 
     bool hasZoneId() const { return this->zoneId_ != nullptr;};
     void deleteZoneId() { this->zoneId_ = nullptr;};
     inline string getZoneId() const { DARABONBA_PTR_GET_DEFAULT(zoneId_, "") };
-    inline CreateDBInstanceRequest& setZoneId(string zoneId) { DARABONBA_PTR_SET_VALUE(zoneId_, zoneId) };
+    inline CreateDBInstanceShrinkRequest& setZoneId(string zoneId) { DARABONBA_PTR_SET_VALUE(zoneId_, zoneId) };
 
 
   protected:
@@ -374,6 +288,7 @@ namespace Models
     shared_ptr<string> clientToken_ {};
     shared_ptr<int32_t> clusterNodeCount_ {};
     shared_ptr<string> clusterNodeType_ {};
+    shared_ptr<string> configPatternType_ {};
     // The instance endpoint.
     shared_ptr<string> connectionString_ {};
     // The instance type. You can call the [DescribeAllDBInstanceClass](https://help.aliyun.com/document_detail/2853363.html) operation to query instance types.
@@ -395,7 +310,7 @@ namespace Models
     // > 
     // 
     // *   This parameter takes effect and is required only when DeployScheme is set to multi_az.
-    shared_ptr<vector<CreateDBInstanceRequest::MultiZone>> multiZone_ {};
+    shared_ptr<string> multiZoneShrink_ {};
     // The unit of the subscription duration of the cluster. Valid values:
     // 
     // *   **Year**: subscription on a yearly basis.
@@ -415,7 +330,7 @@ namespace Models
     // The IP addresses in the whitelist of the instance. Separate multiple IP addresses with commas (,).
     shared_ptr<string> securityIPList_ {};
     // The instance tags.
-    shared_ptr<vector<CreateDBInstanceRequest::Tag>> tag_ {};
+    shared_ptr<string> tagShrink_ {};
     // The subscription duration of the instance. Valid values:
     // 
     // *   If Period is set to Year, valid values of UsedTime are 1, 2, 3, 4, and 5.

@@ -16,6 +16,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DescribeDBInstanceAttributeResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(CanUpgradeVersions, canUpgradeVersions_);
       DARABONBA_PTR_TO_JSON(ChargeType, chargeType_);
+      DARABONBA_PTR_TO_JSON(ConfigPatternType, configPatternType_);
       DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
       DARABONBA_PTR_TO_JSON(DBClusterList, DBClusterList_);
       DARABONBA_PTR_TO_JSON(DBInstanceId, DBInstanceId_);
@@ -50,6 +51,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, DescribeDBInstanceAttributeResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(CanUpgradeVersions, canUpgradeVersions_);
       DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
+      DARABONBA_PTR_FROM_JSON(ConfigPatternType, configPatternType_);
       DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
       DARABONBA_PTR_FROM_JSON(DBClusterList, DBClusterList_);
       DARABONBA_PTR_FROM_JSON(DBInstanceId, DBInstanceId_);
@@ -592,13 +594,13 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->canUpgradeVersions_ == nullptr
-        && this->chargeType_ == nullptr && this->createTime_ == nullptr && this->DBClusterList_ == nullptr && this->DBInstanceId_ == nullptr && this->deployScheme_ == nullptr
-        && this->description_ == nullptr && this->engine_ == nullptr && this->engineMinorVersion_ == nullptr && this->engineVersion_ == nullptr && this->expireTime_ == nullptr
-        && this->gmtModified_ == nullptr && this->lockMode_ == nullptr && this->lockReason_ == nullptr && this->maintainEndtime_ == nullptr && this->maintainStarttime_ == nullptr
-        && this->multiZone_ == nullptr && this->objectStoreSize_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr && this->resourceCpu_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->secGroupConnValid_ == nullptr && this->serverless_ == nullptr && this->status_ == nullptr && this->storageSize_ == nullptr
-        && this->subDomain_ == nullptr && this->tags_ == nullptr && this->vSwitchId_ == nullptr && this->virtualClusterList_ == nullptr && this->vpcId_ == nullptr
-        && this->zoneId_ == nullptr; };
+        && this->chargeType_ == nullptr && this->configPatternType_ == nullptr && this->createTime_ == nullptr && this->DBClusterList_ == nullptr && this->DBInstanceId_ == nullptr
+        && this->deployScheme_ == nullptr && this->description_ == nullptr && this->engine_ == nullptr && this->engineMinorVersion_ == nullptr && this->engineVersion_ == nullptr
+        && this->expireTime_ == nullptr && this->gmtModified_ == nullptr && this->lockMode_ == nullptr && this->lockReason_ == nullptr && this->maintainEndtime_ == nullptr
+        && this->maintainStarttime_ == nullptr && this->multiZone_ == nullptr && this->objectStoreSize_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr
+        && this->resourceCpu_ == nullptr && this->resourceGroupId_ == nullptr && this->secGroupConnValid_ == nullptr && this->serverless_ == nullptr && this->status_ == nullptr
+        && this->storageSize_ == nullptr && this->subDomain_ == nullptr && this->tags_ == nullptr && this->vSwitchId_ == nullptr && this->virtualClusterList_ == nullptr
+        && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
     // canUpgradeVersions Field Functions 
     bool hasCanUpgradeVersions() const { return this->canUpgradeVersions_ != nullptr;};
     void deleteCanUpgradeVersions() { this->canUpgradeVersions_ = nullptr;};
@@ -613,6 +615,13 @@ namespace Models
     void deleteChargeType() { this->chargeType_ = nullptr;};
     inline string getChargeType() const { DARABONBA_PTR_GET_DEFAULT(chargeType_, "") };
     inline DescribeDBInstanceAttributeResponseBody& setChargeType(string chargeType) { DARABONBA_PTR_SET_VALUE(chargeType_, chargeType) };
+
+
+    // configPatternType Field Functions 
+    bool hasConfigPatternType() const { return this->configPatternType_ != nullptr;};
+    void deleteConfigPatternType() { this->configPatternType_ = nullptr;};
+    inline string getConfigPatternType() const { DARABONBA_PTR_GET_DEFAULT(configPatternType_, "") };
+    inline DescribeDBInstanceAttributeResponseBody& setConfigPatternType(string configPatternType) { DARABONBA_PTR_SET_VALUE(configPatternType_, configPatternType) };
 
 
     // createTime Field Functions 
@@ -841,6 +850,7 @@ namespace Models
     // *   **Postpaid**: pay-as-you-go.
     // *   **Prepaid**: subscription.
     shared_ptr<string> chargeType_ {};
+    shared_ptr<string> configPatternType_ {};
     // The time when the instance was created.
     shared_ptr<string> createTime_ {};
     // The information about each cluster returned.
