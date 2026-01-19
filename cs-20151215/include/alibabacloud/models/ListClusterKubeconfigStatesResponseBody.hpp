@@ -42,6 +42,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(account_type, accountType_);
         DARABONBA_PTR_TO_JSON(cert_expire_time, certExpireTime_);
         DARABONBA_PTR_TO_JSON(cert_state, certState_);
+        DARABONBA_PTR_TO_JSON(cloud_service_name, cloudServiceName_);
         DARABONBA_PTR_TO_JSON(cloud_service_roles, cloudServiceRoles_);
         DARABONBA_PTR_TO_JSON(revokable, revokable_);
       };
@@ -53,6 +54,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(account_type, accountType_);
         DARABONBA_PTR_FROM_JSON(cert_expire_time, certExpireTime_);
         DARABONBA_PTR_FROM_JSON(cert_state, certState_);
+        DARABONBA_PTR_FROM_JSON(cloud_service_name, cloudServiceName_);
         DARABONBA_PTR_FROM_JSON(cloud_service_roles, cloudServiceRoles_);
         DARABONBA_PTR_FROM_JSON(revokable, revokable_);
       };
@@ -131,7 +133,7 @@ namespace Models
 
       virtual bool empty() const override { return this->accountDisplayName_ == nullptr
         && this->accountId_ == nullptr && this->accountName_ == nullptr && this->accountState_ == nullptr && this->accountType_ == nullptr && this->certExpireTime_ == nullptr
-        && this->certState_ == nullptr && this->cloudServiceRoles_ == nullptr && this->revokable_ == nullptr; };
+        && this->certState_ == nullptr && this->cloudServiceName_ == nullptr && this->cloudServiceRoles_ == nullptr && this->revokable_ == nullptr; };
       // accountDisplayName Field Functions 
       bool hasAccountDisplayName() const { return this->accountDisplayName_ != nullptr;};
       void deleteAccountDisplayName() { this->accountDisplayName_ = nullptr;};
@@ -181,6 +183,13 @@ namespace Models
       inline States& setCertState(string certState) { DARABONBA_PTR_SET_VALUE(certState_, certState) };
 
 
+      // cloudServiceName Field Functions 
+      bool hasCloudServiceName() const { return this->cloudServiceName_ != nullptr;};
+      void deleteCloudServiceName() { this->cloudServiceName_ = nullptr;};
+      inline string getCloudServiceName() const { DARABONBA_PTR_GET_DEFAULT(cloudServiceName_, "") };
+      inline States& setCloudServiceName(string cloudServiceName) { DARABONBA_PTR_SET_VALUE(cloudServiceName_, cloudServiceName) };
+
+
       // cloudServiceRoles Field Functions 
       bool hasCloudServiceRoles() const { return this->cloudServiceRoles_ != nullptr;};
       void deleteCloudServiceRoles() { this->cloudServiceRoles_ = nullptr;};
@@ -224,6 +233,7 @@ namespace Models
       // *   Expired: The certificate is expired.
       // *   Unknown: The status of the certificate is unknown.
       shared_ptr<string> certState_ {};
+      shared_ptr<string> cloudServiceName_ {};
       shared_ptr<vector<States::CloudServiceRoles>> cloudServiceRoles_ {};
       // Indicates whether the client certificate for the kubeconfig file can be revoked.
       shared_ptr<bool> revokable_ {};
