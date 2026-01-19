@@ -1205,6 +1205,10 @@ RefundAppInstanceForPartnerResponse Client::refundAppInstanceForPartnerWithOptio
     query["BizId"] = request.getBizId();
   }
 
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
   if (!!request.hasRefundReason()) {
     query["RefundReason"] = request.getRefundReason();
   }
