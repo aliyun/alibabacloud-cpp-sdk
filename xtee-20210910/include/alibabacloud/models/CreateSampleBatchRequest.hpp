@@ -46,68 +46,68 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->batchName_ == nullptr && return this->dataType_ == nullptr && return this->dataValue_ == nullptr && return this->description_ == nullptr && return this->ossFileName_ == nullptr
-        && return this->regId_ == nullptr && return this->sampleBatchType_ == nullptr && return this->serviceList_ == nullptr; };
+        && this->batchName_ == nullptr && this->dataType_ == nullptr && this->dataValue_ == nullptr && this->description_ == nullptr && this->ossFileName_ == nullptr
+        && this->regId_ == nullptr && this->sampleBatchType_ == nullptr && this->serviceList_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline CreateSampleBatchRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // batchName Field Functions 
     bool hasBatchName() const { return this->batchName_ != nullptr;};
     void deleteBatchName() { this->batchName_ = nullptr;};
-    inline string batchName() const { DARABONBA_PTR_GET_DEFAULT(batchName_, "") };
+    inline string getBatchName() const { DARABONBA_PTR_GET_DEFAULT(batchName_, "") };
     inline CreateSampleBatchRequest& setBatchName(string batchName) { DARABONBA_PTR_SET_VALUE(batchName_, batchName) };
 
 
     // dataType Field Functions 
     bool hasDataType() const { return this->dataType_ != nullptr;};
     void deleteDataType() { this->dataType_ = nullptr;};
-    inline string dataType() const { DARABONBA_PTR_GET_DEFAULT(dataType_, "") };
+    inline string getDataType() const { DARABONBA_PTR_GET_DEFAULT(dataType_, "") };
     inline CreateSampleBatchRequest& setDataType(string dataType) { DARABONBA_PTR_SET_VALUE(dataType_, dataType) };
 
 
     // dataValue Field Functions 
     bool hasDataValue() const { return this->dataValue_ != nullptr;};
     void deleteDataValue() { this->dataValue_ = nullptr;};
-    inline string dataValue() const { DARABONBA_PTR_GET_DEFAULT(dataValue_, "") };
+    inline string getDataValue() const { DARABONBA_PTR_GET_DEFAULT(dataValue_, "") };
     inline CreateSampleBatchRequest& setDataValue(string dataValue) { DARABONBA_PTR_SET_VALUE(dataValue_, dataValue) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateSampleBatchRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // ossFileName Field Functions 
     bool hasOssFileName() const { return this->ossFileName_ != nullptr;};
     void deleteOssFileName() { this->ossFileName_ = nullptr;};
-    inline string ossFileName() const { DARABONBA_PTR_GET_DEFAULT(ossFileName_, "") };
+    inline string getOssFileName() const { DARABONBA_PTR_GET_DEFAULT(ossFileName_, "") };
     inline CreateSampleBatchRequest& setOssFileName(string ossFileName) { DARABONBA_PTR_SET_VALUE(ossFileName_, ossFileName) };
 
 
     // regId Field Functions 
     bool hasRegId() const { return this->regId_ != nullptr;};
     void deleteRegId() { this->regId_ = nullptr;};
-    inline string regId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
+    inline string getRegId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
     inline CreateSampleBatchRequest& setRegId(string regId) { DARABONBA_PTR_SET_VALUE(regId_, regId) };
 
 
     // sampleBatchType Field Functions 
     bool hasSampleBatchType() const { return this->sampleBatchType_ != nullptr;};
     void deleteSampleBatchType() { this->sampleBatchType_ = nullptr;};
-    inline string sampleBatchType() const { DARABONBA_PTR_GET_DEFAULT(sampleBatchType_, "") };
+    inline string getSampleBatchType() const { DARABONBA_PTR_GET_DEFAULT(sampleBatchType_, "") };
     inline CreateSampleBatchRequest& setSampleBatchType(string sampleBatchType) { DARABONBA_PTR_SET_VALUE(sampleBatchType_, sampleBatchType) };
 
 
     // serviceList Field Functions 
     bool hasServiceList() const { return this->serviceList_ != nullptr;};
     void deleteServiceList() { this->serviceList_ = nullptr;};
-    inline string serviceList() const { DARABONBA_PTR_GET_DEFAULT(serviceList_, "") };
+    inline string getServiceList() const { DARABONBA_PTR_GET_DEFAULT(serviceList_, "") };
     inline CreateSampleBatchRequest& setServiceList(string serviceList) { DARABONBA_PTR_SET_VALUE(serviceList_, serviceList) };
 
 
@@ -115,23 +115,23 @@ namespace Models
     // Sets the language type for requests and received messages, with a default value of **zh**. Values:
     // - **zh**: Chinese
     // - **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // Sample batch name
-    std::shared_ptr<string> batchName_ = nullptr;
+    shared_ptr<string> batchName_ {};
     // Data type
-    std::shared_ptr<string> dataType_ = nullptr;
+    shared_ptr<string> dataType_ {};
     // Content of the list entered in the text box
-    std::shared_ptr<string> dataValue_ = nullptr;
+    shared_ptr<string> dataValue_ {};
     // Description information.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // Uploaded OSS address.
-    std::shared_ptr<string> ossFileName_ = nullptr;
+    shared_ptr<string> ossFileName_ {};
     // Region code
-    std::shared_ptr<string> regId_ = nullptr;
+    shared_ptr<string> regId_ {};
     // Specific type of sample list
-    std::shared_ptr<string> sampleBatchType_ = nullptr;
+    shared_ptr<string> sampleBatchType_ {};
     // Service list
-    std::shared_ptr<string> serviceList_ = nullptr;
+    shared_ptr<string> serviceList_ {};
   };
 
   } // namespace Models

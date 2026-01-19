@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->bizType_ == nullptr && return this->regId_ == nullptr && return this->timeType_ == nullptr; };
+        && this->bizType_ == nullptr && this->regId_ == nullptr && this->timeType_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeCustVariableConfigListRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // bizType Field Functions 
     bool hasBizType() const { return this->bizType_ != nullptr;};
     void deleteBizType() { this->bizType_ = nullptr;};
-    inline string bizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
+    inline string getBizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
     inline DescribeCustVariableConfigListRequest& setBizType(string bizType) { DARABONBA_PTR_SET_VALUE(bizType_, bizType) };
 
 
     // regId Field Functions 
     bool hasRegId() const { return this->regId_ != nullptr;};
     void deleteRegId() { this->regId_ = nullptr;};
-    inline string regId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
+    inline string getRegId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
     inline DescribeCustVariableConfigListRequest& setRegId(string regId) { DARABONBA_PTR_SET_VALUE(regId_, regId) };
 
 
     // timeType Field Functions 
     bool hasTimeType() const { return this->timeType_ != nullptr;};
     void deleteTimeType() { this->timeType_ = nullptr;};
-    inline string timeType() const { DARABONBA_PTR_GET_DEFAULT(timeType_, "") };
+    inline string getTimeType() const { DARABONBA_PTR_GET_DEFAULT(timeType_, "") };
     inline DescribeCustVariableConfigListRequest& setTimeType(string timeType) { DARABONBA_PTR_SET_VALUE(timeType_, timeType) };
 
 
@@ -69,15 +69,15 @@ namespace Models
     // Set the language type for requests and received messages, default value is **zh**. Values: 
     // - **zh**: Chinese
     // - **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // Configuration type
     // 
     // This parameter is required.
-    std::shared_ptr<string> bizType_ = nullptr;
+    shared_ptr<string> bizType_ {};
     // Region code
-    std::shared_ptr<string> regId_ = nullptr;
+    shared_ptr<string> regId_ {};
     // Time type
-    std::shared_ptr<string> timeType_ = nullptr;
+    shared_ptr<string> timeType_ {};
   };
 
   } // namespace Models

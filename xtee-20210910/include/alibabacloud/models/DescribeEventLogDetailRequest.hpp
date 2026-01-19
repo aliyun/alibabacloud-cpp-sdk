@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->regId_ == nullptr && return this->reqIdByLog_ == nullptr; };
+        && this->regId_ == nullptr && this->reqIdByLog_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeEventLogDetailRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // regId Field Functions 
     bool hasRegId() const { return this->regId_ != nullptr;};
     void deleteRegId() { this->regId_ = nullptr;};
-    inline string regId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
+    inline string getRegId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
     inline DescribeEventLogDetailRequest& setRegId(string regId) { DARABONBA_PTR_SET_VALUE(regId_, regId) };
 
 
     // reqIdByLog Field Functions 
     bool hasReqIdByLog() const { return this->reqIdByLog_ != nullptr;};
     void deleteReqIdByLog() { this->reqIdByLog_ = nullptr;};
-    inline string reqIdByLog() const { DARABONBA_PTR_GET_DEFAULT(reqIdByLog_, "") };
+    inline string getReqIdByLog() const { DARABONBA_PTR_GET_DEFAULT(reqIdByLog_, "") };
     inline DescribeEventLogDetailRequest& setReqIdByLog(string reqIdByLog) { DARABONBA_PTR_SET_VALUE(reqIdByLog_, reqIdByLog) };
 
 
@@ -60,13 +60,13 @@ namespace Models
     // Set the language type for requests and received messages, default value is **zh**. Values:
     // - **zh**: Chinese
     // - **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // Region code
-    std::shared_ptr<string> regId_ = nullptr;
+    shared_ptr<string> regId_ {};
     // Log details.
     // 
     // This parameter is required.
-    std::shared_ptr<string> reqIdByLog_ = nullptr;
+    shared_ptr<string> reqIdByLog_ {};
   };
 
   } // namespace Models

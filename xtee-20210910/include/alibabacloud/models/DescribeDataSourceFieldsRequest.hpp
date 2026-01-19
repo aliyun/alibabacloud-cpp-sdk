@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->dataSourceCode_ == nullptr && return this->regId_ == nullptr; };
+        && this->dataSourceCode_ == nullptr && this->regId_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeDataSourceFieldsRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // dataSourceCode Field Functions 
     bool hasDataSourceCode() const { return this->dataSourceCode_ != nullptr;};
     void deleteDataSourceCode() { this->dataSourceCode_ = nullptr;};
-    inline string dataSourceCode() const { DARABONBA_PTR_GET_DEFAULT(dataSourceCode_, "") };
+    inline string getDataSourceCode() const { DARABONBA_PTR_GET_DEFAULT(dataSourceCode_, "") };
     inline DescribeDataSourceFieldsRequest& setDataSourceCode(string dataSourceCode) { DARABONBA_PTR_SET_VALUE(dataSourceCode_, dataSourceCode) };
 
 
     // regId Field Functions 
     bool hasRegId() const { return this->regId_ != nullptr;};
     void deleteRegId() { this->regId_ = nullptr;};
-    inline string regId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
+    inline string getRegId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
     inline DescribeDataSourceFieldsRequest& setRegId(string regId) { DARABONBA_PTR_SET_VALUE(regId_, regId) };
 
 
@@ -60,15 +60,15 @@ namespace Models
     // Set the language type for requests and received messages, default value is **zh**. Values:
     // - **zh**: Chinese
     // - **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // Data source code
     // 
     // This parameter is required.
-    std::shared_ptr<string> dataSourceCode_ = nullptr;
+    shared_ptr<string> dataSourceCode_ {};
     // Region code
     // 
     // This parameter is required.
-    std::shared_ptr<string> regId_ = nullptr;
+    shared_ptr<string> regId_ {};
   };
 
   } // namespace Models

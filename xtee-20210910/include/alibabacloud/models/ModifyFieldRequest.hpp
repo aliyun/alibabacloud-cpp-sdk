@@ -44,61 +44,61 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->classify_ == nullptr && return this->description_ == nullptr && return this->enumData_ == nullptr && return this->id_ == nullptr && return this->name_ == nullptr
-        && return this->regId_ == nullptr && return this->title_ == nullptr; };
+        && this->classify_ == nullptr && this->description_ == nullptr && this->enumData_ == nullptr && this->id_ == nullptr && this->name_ == nullptr
+        && this->regId_ == nullptr && this->title_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline ModifyFieldRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // classify Field Functions 
     bool hasClassify() const { return this->classify_ != nullptr;};
     void deleteClassify() { this->classify_ = nullptr;};
-    inline string classify() const { DARABONBA_PTR_GET_DEFAULT(classify_, "") };
+    inline string getClassify() const { DARABONBA_PTR_GET_DEFAULT(classify_, "") };
     inline ModifyFieldRequest& setClassify(string classify) { DARABONBA_PTR_SET_VALUE(classify_, classify) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline ModifyFieldRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // enumData Field Functions 
     bool hasEnumData() const { return this->enumData_ != nullptr;};
     void deleteEnumData() { this->enumData_ = nullptr;};
-    inline string enumData() const { DARABONBA_PTR_GET_DEFAULT(enumData_, "") };
+    inline string getEnumData() const { DARABONBA_PTR_GET_DEFAULT(enumData_, "") };
     inline ModifyFieldRequest& setEnumData(string enumData) { DARABONBA_PTR_SET_VALUE(enumData_, enumData) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline int64_t id() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+    inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
     inline ModifyFieldRequest& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline ModifyFieldRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // regId Field Functions 
     bool hasRegId() const { return this->regId_ != nullptr;};
     void deleteRegId() { this->regId_ = nullptr;};
-    inline string regId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
+    inline string getRegId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
     inline ModifyFieldRequest& setRegId(string regId) { DARABONBA_PTR_SET_VALUE(regId_, regId) };
 
 
     // title Field Functions 
     bool hasTitle() const { return this->title_ != nullptr;};
     void deleteTitle() { this->title_ = nullptr;};
-    inline string title() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
+    inline string getTitle() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
     inline ModifyFieldRequest& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
 
 
@@ -106,23 +106,23 @@ namespace Models
     // Sets the language type for requests and received messages, default value is **zh**. Values:
     // - **zh**: Chinese
     // - **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // Field classification
-    std::shared_ptr<string> classify_ = nullptr;
+    shared_ptr<string> classify_ {};
     // Description information.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // Enum type
-    std::shared_ptr<string> enumData_ = nullptr;
+    shared_ptr<string> enumData_ {};
     // Variable ID
-    std::shared_ptr<int64_t> id_ = nullptr;
+    shared_ptr<int64_t> id_ {};
     // Variable name
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // Region code
     // 
     // This parameter is required.
-    std::shared_ptr<string> regId_ = nullptr;
+    shared_ptr<string> regId_ {};
     // Title.
-    std::shared_ptr<string> title_ = nullptr;
+    shared_ptr<string> title_ {};
   };
 
   } // namespace Models

@@ -42,54 +42,54 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->createType_ == nullptr && return this->currentPage_ == nullptr && return this->pageSize_ == nullptr && return this->regId_ == nullptr && return this->value_ == nullptr
-        && return this->variableId_ == nullptr; };
+        && this->createType_ == nullptr && this->currentPage_ == nullptr && this->pageSize_ == nullptr && this->regId_ == nullptr && this->value_ == nullptr
+        && this->variableId_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeNameListRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // createType Field Functions 
     bool hasCreateType() const { return this->createType_ != nullptr;};
     void deleteCreateType() { this->createType_ = nullptr;};
-    inline string createType() const { DARABONBA_PTR_GET_DEFAULT(createType_, "") };
+    inline string getCreateType() const { DARABONBA_PTR_GET_DEFAULT(createType_, "") };
     inline DescribeNameListRequest& setCreateType(string createType) { DARABONBA_PTR_SET_VALUE(createType_, createType) };
 
 
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline string currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, "") };
+    inline string getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, "") };
     inline DescribeNameListRequest& setCurrentPage(string currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline string pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
+    inline string getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
     inline DescribeNameListRequest& setPageSize(string pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // regId Field Functions 
     bool hasRegId() const { return this->regId_ != nullptr;};
     void deleteRegId() { this->regId_ = nullptr;};
-    inline string regId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
+    inline string getRegId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
     inline DescribeNameListRequest& setRegId(string regId) { DARABONBA_PTR_SET_VALUE(regId_, regId) };
 
 
     // value Field Functions 
     bool hasValue() const { return this->value_ != nullptr;};
     void deleteValue() { this->value_ = nullptr;};
-    inline string value() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+    inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
     inline DescribeNameListRequest& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
 
 
     // variableId Field Functions 
     bool hasVariableId() const { return this->variableId_ != nullptr;};
     void deleteVariableId() { this->variableId_ = nullptr;};
-    inline string variableId() const { DARABONBA_PTR_GET_DEFAULT(variableId_, "") };
+    inline string getVariableId() const { DARABONBA_PTR_GET_DEFAULT(variableId_, "") };
     inline DescribeNameListRequest& setVariableId(string variableId) { DARABONBA_PTR_SET_VALUE(variableId_, variableId) };
 
 
@@ -97,19 +97,19 @@ namespace Models
     // Sets the language type for requests and received messages, with a default value of **zh**. Values: 
     // - **zh**: Chinese
     // - **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // Creation type.
-    std::shared_ptr<string> createType_ = nullptr;
+    shared_ptr<string> createType_ {};
     // Current page number.
-    std::shared_ptr<string> currentPage_ = nullptr;
+    shared_ptr<string> currentPage_ {};
     // Page size, with a default value of 10.
-    std::shared_ptr<string> pageSize_ = nullptr;
+    shared_ptr<string> pageSize_ {};
     // Region code.
-    std::shared_ptr<string> regId_ = nullptr;
+    shared_ptr<string> regId_ {};
     // Search value.
-    std::shared_ptr<string> value_ = nullptr;
+    shared_ptr<string> value_ {};
     // Variable ID.
-    std::shared_ptr<string> variableId_ = nullptr;
+    shared_ptr<string> variableId_ {};
   };
 
   } // namespace Models

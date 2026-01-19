@@ -33,13 +33,13 @@ namespace Models
     // regId Field Functions 
     bool hasRegId() const { return this->regId_ != nullptr;};
     void deleteRegId() { this->regId_ = nullptr;};
-    inline string regId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
+    inline string getRegId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
     inline ModelSampleDownloadRequest& setRegId(string regId) { DARABONBA_PTR_SET_VALUE(regId_, regId) };
 
 
   protected:
     // Region code.
-    std::shared_ptr<string> regId_ = nullptr;
+    shared_ptr<string> regId_ {};
   };
 
   } // namespace Models

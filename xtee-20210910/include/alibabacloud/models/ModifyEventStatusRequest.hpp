@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->createType_ == nullptr && return this->eventCode_ == nullptr && return this->fromEventSatus_ == nullptr && return this->regId_ == nullptr && return this->toEventSatus_ == nullptr; };
+        && this->createType_ == nullptr && this->eventCode_ == nullptr && this->fromEventSatus_ == nullptr && this->regId_ == nullptr && this->toEventSatus_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline ModifyEventStatusRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // createType Field Functions 
     bool hasCreateType() const { return this->createType_ != nullptr;};
     void deleteCreateType() { this->createType_ = nullptr;};
-    inline string createType() const { DARABONBA_PTR_GET_DEFAULT(createType_, "") };
+    inline string getCreateType() const { DARABONBA_PTR_GET_DEFAULT(createType_, "") };
     inline ModifyEventStatusRequest& setCreateType(string createType) { DARABONBA_PTR_SET_VALUE(createType_, createType) };
 
 
     // eventCode Field Functions 
     bool hasEventCode() const { return this->eventCode_ != nullptr;};
     void deleteEventCode() { this->eventCode_ = nullptr;};
-    inline string eventCode() const { DARABONBA_PTR_GET_DEFAULT(eventCode_, "") };
+    inline string getEventCode() const { DARABONBA_PTR_GET_DEFAULT(eventCode_, "") };
     inline ModifyEventStatusRequest& setEventCode(string eventCode) { DARABONBA_PTR_SET_VALUE(eventCode_, eventCode) };
 
 
     // fromEventSatus Field Functions 
     bool hasFromEventSatus() const { return this->fromEventSatus_ != nullptr;};
     void deleteFromEventSatus() { this->fromEventSatus_ = nullptr;};
-    inline string fromEventSatus() const { DARABONBA_PTR_GET_DEFAULT(fromEventSatus_, "") };
+    inline string getFromEventSatus() const { DARABONBA_PTR_GET_DEFAULT(fromEventSatus_, "") };
     inline ModifyEventStatusRequest& setFromEventSatus(string fromEventSatus) { DARABONBA_PTR_SET_VALUE(fromEventSatus_, fromEventSatus) };
 
 
     // regId Field Functions 
     bool hasRegId() const { return this->regId_ != nullptr;};
     void deleteRegId() { this->regId_ = nullptr;};
-    inline string regId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
+    inline string getRegId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
     inline ModifyEventStatusRequest& setRegId(string regId) { DARABONBA_PTR_SET_VALUE(regId_, regId) };
 
 
     // toEventSatus Field Functions 
     bool hasToEventSatus() const { return this->toEventSatus_ != nullptr;};
     void deleteToEventSatus() { this->toEventSatus_ = nullptr;};
-    inline string toEventSatus() const { DARABONBA_PTR_GET_DEFAULT(toEventSatus_, "") };
+    inline string getToEventSatus() const { DARABONBA_PTR_GET_DEFAULT(toEventSatus_, "") };
     inline ModifyEventStatusRequest& setToEventSatus(string toEventSatus) { DARABONBA_PTR_SET_VALUE(toEventSatus_, toEventSatus) };
 
 
@@ -87,17 +87,17 @@ namespace Models
     // Sets the language type for requests and received messages, default value is **zh**. Values: 
     // - **zh**: Chinese
     // - **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // Creation type
-    std::shared_ptr<string> createType_ = nullptr;
+    shared_ptr<string> createType_ {};
     // Event code
-    std::shared_ptr<string> eventCode_ = nullptr;
+    shared_ptr<string> eventCode_ {};
     // Initial event status, to avoid duplicate submissions or historical replays
-    std::shared_ptr<string> fromEventSatus_ = nullptr;
+    shared_ptr<string> fromEventSatus_ {};
     // Region code
-    std::shared_ptr<string> regId_ = nullptr;
+    shared_ptr<string> regId_ {};
     // Updated event status
-    std::shared_ptr<string> toEventSatus_ = nullptr;
+    shared_ptr<string> toEventSatus_ {};
   };
 
   } // namespace Models

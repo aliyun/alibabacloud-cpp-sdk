@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->name_ == nullptr && return this->regId_ == nullptr && return this->sampleId_ == nullptr && return this->variablesStr_ == nullptr && return this->velocitiesStr_ == nullptr; };
+        && this->name_ == nullptr && this->regId_ == nullptr && this->sampleId_ == nullptr && this->variablesStr_ == nullptr && this->velocitiesStr_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline CreateRecommendTaskRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateRecommendTaskRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // regId Field Functions 
     bool hasRegId() const { return this->regId_ != nullptr;};
     void deleteRegId() { this->regId_ = nullptr;};
-    inline string regId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
+    inline string getRegId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
     inline CreateRecommendTaskRequest& setRegId(string regId) { DARABONBA_PTR_SET_VALUE(regId_, regId) };
 
 
     // sampleId Field Functions 
     bool hasSampleId() const { return this->sampleId_ != nullptr;};
     void deleteSampleId() { this->sampleId_ = nullptr;};
-    inline int64_t sampleId() const { DARABONBA_PTR_GET_DEFAULT(sampleId_, 0L) };
+    inline int64_t getSampleId() const { DARABONBA_PTR_GET_DEFAULT(sampleId_, 0L) };
     inline CreateRecommendTaskRequest& setSampleId(int64_t sampleId) { DARABONBA_PTR_SET_VALUE(sampleId_, sampleId) };
 
 
     // variablesStr Field Functions 
     bool hasVariablesStr() const { return this->variablesStr_ != nullptr;};
     void deleteVariablesStr() { this->variablesStr_ = nullptr;};
-    inline string variablesStr() const { DARABONBA_PTR_GET_DEFAULT(variablesStr_, "") };
+    inline string getVariablesStr() const { DARABONBA_PTR_GET_DEFAULT(variablesStr_, "") };
     inline CreateRecommendTaskRequest& setVariablesStr(string variablesStr) { DARABONBA_PTR_SET_VALUE(variablesStr_, variablesStr) };
 
 
     // velocitiesStr Field Functions 
     bool hasVelocitiesStr() const { return this->velocitiesStr_ != nullptr;};
     void deleteVelocitiesStr() { this->velocitiesStr_ = nullptr;};
-    inline string velocitiesStr() const { DARABONBA_PTR_GET_DEFAULT(velocitiesStr_, "") };
+    inline string getVelocitiesStr() const { DARABONBA_PTR_GET_DEFAULT(velocitiesStr_, "") };
     inline CreateRecommendTaskRequest& setVelocitiesStr(string velocitiesStr) { DARABONBA_PTR_SET_VALUE(velocitiesStr_, velocitiesStr) };
 
 
@@ -87,25 +87,25 @@ namespace Models
     // Set the language type for requests and received messages, default value is **zh**. Values:
     // - **zh**: Chinese
     // - **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // Name
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // Region code
-    std::shared_ptr<string> regId_ = nullptr;
+    shared_ptr<string> regId_ {};
     // Task ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> sampleId_ = nullptr;
+    shared_ptr<int64_t> sampleId_ {};
     // Variables to be calculated, variables
     // 
     // This parameter is required.
-    std::shared_ptr<string> variablesStr_ = nullptr;
+    shared_ptr<string> variablesStr_ {};
     // Indicator effect
     // 
     // This parameter is required.
-    std::shared_ptr<string> velocitiesStr_ = nullptr;
+    shared_ptr<string> velocitiesStr_ {};
   };
 
   } // namespace Models

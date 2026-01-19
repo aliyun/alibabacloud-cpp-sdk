@@ -42,54 +42,54 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->batchNo_ == nullptr && return this->currentPage_ == nullptr && return this->monitorObj_ == nullptr && return this->monitorStatus_ == nullptr && return this->pageSize_ == nullptr
-        && return this->regId_ == nullptr; };
+        && this->batchNo_ == nullptr && this->currentPage_ == nullptr && this->monitorObj_ == nullptr && this->monitorStatus_ == nullptr && this->pageSize_ == nullptr
+        && this->regId_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeLoanExecListRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // batchNo Field Functions 
     bool hasBatchNo() const { return this->batchNo_ != nullptr;};
     void deleteBatchNo() { this->batchNo_ = nullptr;};
-    inline string batchNo() const { DARABONBA_PTR_GET_DEFAULT(batchNo_, "") };
+    inline string getBatchNo() const { DARABONBA_PTR_GET_DEFAULT(batchNo_, "") };
     inline DescribeLoanExecListRequest& setBatchNo(string batchNo) { DARABONBA_PTR_SET_VALUE(batchNo_, batchNo) };
 
 
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline string currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, "") };
+    inline string getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, "") };
     inline DescribeLoanExecListRequest& setCurrentPage(string currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // monitorObj Field Functions 
     bool hasMonitorObj() const { return this->monitorObj_ != nullptr;};
     void deleteMonitorObj() { this->monitorObj_ = nullptr;};
-    inline string monitorObj() const { DARABONBA_PTR_GET_DEFAULT(monitorObj_, "") };
+    inline string getMonitorObj() const { DARABONBA_PTR_GET_DEFAULT(monitorObj_, "") };
     inline DescribeLoanExecListRequest& setMonitorObj(string monitorObj) { DARABONBA_PTR_SET_VALUE(monitorObj_, monitorObj) };
 
 
     // monitorStatus Field Functions 
     bool hasMonitorStatus() const { return this->monitorStatus_ != nullptr;};
     void deleteMonitorStatus() { this->monitorStatus_ = nullptr;};
-    inline string monitorStatus() const { DARABONBA_PTR_GET_DEFAULT(monitorStatus_, "") };
+    inline string getMonitorStatus() const { DARABONBA_PTR_GET_DEFAULT(monitorStatus_, "") };
     inline DescribeLoanExecListRequest& setMonitorStatus(string monitorStatus) { DARABONBA_PTR_SET_VALUE(monitorStatus_, monitorStatus) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline string pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
+    inline string getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
     inline DescribeLoanExecListRequest& setPageSize(string pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // regId Field Functions 
     bool hasRegId() const { return this->regId_ != nullptr;};
     void deleteRegId() { this->regId_ = nullptr;};
-    inline string regId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
+    inline string getRegId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
     inline DescribeLoanExecListRequest& setRegId(string regId) { DARABONBA_PTR_SET_VALUE(regId_, regId) };
 
 
@@ -97,19 +97,19 @@ namespace Models
     // Set the language type for request and response messages, default value is **zh**. Values:
     // - **zh**: Chinese
     // - **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // Import batch number.
-    std::shared_ptr<string> batchNo_ = nullptr;
+    shared_ptr<string> batchNo_ {};
     // Current page number.
-    std::shared_ptr<string> currentPage_ = nullptr;
+    shared_ptr<string> currentPage_ {};
     // Monitoring metric data.
-    std::shared_ptr<string> monitorObj_ = nullptr;
+    shared_ptr<string> monitorObj_ {};
     // Status
-    std::shared_ptr<string> monitorStatus_ = nullptr;
+    shared_ptr<string> monitorStatus_ {};
     // Page size, with a default value of 10.
-    std::shared_ptr<string> pageSize_ = nullptr;
+    shared_ptr<string> pageSize_ {};
     // Region code
-    std::shared_ptr<string> regId_ = nullptr;
+    shared_ptr<string> regId_ {};
   };
 
   } // namespace Models

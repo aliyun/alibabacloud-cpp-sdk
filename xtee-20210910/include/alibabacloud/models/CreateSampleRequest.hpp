@@ -46,68 +46,68 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->clientFileName_ == nullptr && return this->clientPath_ == nullptr && return this->fileType_ == nullptr && return this->regId_ == nullptr && return this->sampleTag_ == nullptr
-        && return this->sampleType_ == nullptr && return this->sampleValues_ == nullptr && return this->uploadType_ == nullptr; };
+        && this->clientFileName_ == nullptr && this->clientPath_ == nullptr && this->fileType_ == nullptr && this->regId_ == nullptr && this->sampleTag_ == nullptr
+        && this->sampleType_ == nullptr && this->sampleValues_ == nullptr && this->uploadType_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline CreateSampleRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // clientFileName Field Functions 
     bool hasClientFileName() const { return this->clientFileName_ != nullptr;};
     void deleteClientFileName() { this->clientFileName_ = nullptr;};
-    inline string clientFileName() const { DARABONBA_PTR_GET_DEFAULT(clientFileName_, "") };
+    inline string getClientFileName() const { DARABONBA_PTR_GET_DEFAULT(clientFileName_, "") };
     inline CreateSampleRequest& setClientFileName(string clientFileName) { DARABONBA_PTR_SET_VALUE(clientFileName_, clientFileName) };
 
 
     // clientPath Field Functions 
     bool hasClientPath() const { return this->clientPath_ != nullptr;};
     void deleteClientPath() { this->clientPath_ = nullptr;};
-    inline string clientPath() const { DARABONBA_PTR_GET_DEFAULT(clientPath_, "") };
+    inline string getClientPath() const { DARABONBA_PTR_GET_DEFAULT(clientPath_, "") };
     inline CreateSampleRequest& setClientPath(string clientPath) { DARABONBA_PTR_SET_VALUE(clientPath_, clientPath) };
 
 
     // fileType Field Functions 
     bool hasFileType() const { return this->fileType_ != nullptr;};
     void deleteFileType() { this->fileType_ = nullptr;};
-    inline string fileType() const { DARABONBA_PTR_GET_DEFAULT(fileType_, "") };
+    inline string getFileType() const { DARABONBA_PTR_GET_DEFAULT(fileType_, "") };
     inline CreateSampleRequest& setFileType(string fileType) { DARABONBA_PTR_SET_VALUE(fileType_, fileType) };
 
 
     // regId Field Functions 
     bool hasRegId() const { return this->regId_ != nullptr;};
     void deleteRegId() { this->regId_ = nullptr;};
-    inline string regId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
+    inline string getRegId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
     inline CreateSampleRequest& setRegId(string regId) { DARABONBA_PTR_SET_VALUE(regId_, regId) };
 
 
     // sampleTag Field Functions 
     bool hasSampleTag() const { return this->sampleTag_ != nullptr;};
     void deleteSampleTag() { this->sampleTag_ = nullptr;};
-    inline string sampleTag() const { DARABONBA_PTR_GET_DEFAULT(sampleTag_, "") };
+    inline string getSampleTag() const { DARABONBA_PTR_GET_DEFAULT(sampleTag_, "") };
     inline CreateSampleRequest& setSampleTag(string sampleTag) { DARABONBA_PTR_SET_VALUE(sampleTag_, sampleTag) };
 
 
     // sampleType Field Functions 
     bool hasSampleType() const { return this->sampleType_ != nullptr;};
     void deleteSampleType() { this->sampleType_ = nullptr;};
-    inline string sampleType() const { DARABONBA_PTR_GET_DEFAULT(sampleType_, "") };
+    inline string getSampleType() const { DARABONBA_PTR_GET_DEFAULT(sampleType_, "") };
     inline CreateSampleRequest& setSampleType(string sampleType) { DARABONBA_PTR_SET_VALUE(sampleType_, sampleType) };
 
 
     // sampleValues Field Functions 
     bool hasSampleValues() const { return this->sampleValues_ != nullptr;};
     void deleteSampleValues() { this->sampleValues_ = nullptr;};
-    inline string sampleValues() const { DARABONBA_PTR_GET_DEFAULT(sampleValues_, "") };
+    inline string getSampleValues() const { DARABONBA_PTR_GET_DEFAULT(sampleValues_, "") };
     inline CreateSampleRequest& setSampleValues(string sampleValues) { DARABONBA_PTR_SET_VALUE(sampleValues_, sampleValues) };
 
 
     // uploadType Field Functions 
     bool hasUploadType() const { return this->uploadType_ != nullptr;};
     void deleteUploadType() { this->uploadType_ = nullptr;};
-    inline string uploadType() const { DARABONBA_PTR_GET_DEFAULT(uploadType_, "") };
+    inline string getUploadType() const { DARABONBA_PTR_GET_DEFAULT(uploadType_, "") };
     inline CreateSampleRequest& setUploadType(string uploadType) { DARABONBA_PTR_SET_VALUE(uploadType_, uploadType) };
 
 
@@ -115,23 +115,23 @@ namespace Models
     // Sets the language type for requests and received messages, with a default value of **zh**. Values: 
     // - **zh**: Chinese
     // - **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // OSS client uploaded file name
-    std::shared_ptr<string> clientFileName_ = nullptr;
+    shared_ptr<string> clientFileName_ {};
     // OSS client address
-    std::shared_ptr<string> clientPath_ = nullptr;
+    shared_ptr<string> clientPath_ {};
     // File type
-    std::shared_ptr<string> fileType_ = nullptr;
+    shared_ptr<string> fileType_ {};
     // Region code
-    std::shared_ptr<string> regId_ = nullptr;
+    shared_ptr<string> regId_ {};
     // Sample tag
-    std::shared_ptr<string> sampleTag_ = nullptr;
+    shared_ptr<string> sampleTag_ {};
     // Sample type
-    std::shared_ptr<string> sampleType_ = nullptr;
+    shared_ptr<string> sampleType_ {};
     // Sample values
-    std::shared_ptr<string> sampleValues_ = nullptr;
+    shared_ptr<string> sampleValues_ {};
     // Upload type
-    std::shared_ptr<string> uploadType_ = nullptr;
+    shared_ptr<string> uploadType_ {};
   };
 
   } // namespace Models

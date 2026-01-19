@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->objectCode_ == nullptr && return this->objectId_ == nullptr && return this->regId_ == nullptr && return this->type_ == nullptr && return this->version_ == nullptr; };
+        && this->objectCode_ == nullptr && this->objectId_ == nullptr && this->regId_ == nullptr && this->type_ == nullptr && this->version_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeExpressionVariableVersionDetailRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // objectCode Field Functions 
     bool hasObjectCode() const { return this->objectCode_ != nullptr;};
     void deleteObjectCode() { this->objectCode_ = nullptr;};
-    inline string objectCode() const { DARABONBA_PTR_GET_DEFAULT(objectCode_, "") };
+    inline string getObjectCode() const { DARABONBA_PTR_GET_DEFAULT(objectCode_, "") };
     inline DescribeExpressionVariableVersionDetailRequest& setObjectCode(string objectCode) { DARABONBA_PTR_SET_VALUE(objectCode_, objectCode) };
 
 
     // objectId Field Functions 
     bool hasObjectId() const { return this->objectId_ != nullptr;};
     void deleteObjectId() { this->objectId_ = nullptr;};
-    inline int64_t objectId() const { DARABONBA_PTR_GET_DEFAULT(objectId_, 0L) };
+    inline int64_t getObjectId() const { DARABONBA_PTR_GET_DEFAULT(objectId_, 0L) };
     inline DescribeExpressionVariableVersionDetailRequest& setObjectId(int64_t objectId) { DARABONBA_PTR_SET_VALUE(objectId_, objectId) };
 
 
     // regId Field Functions 
     bool hasRegId() const { return this->regId_ != nullptr;};
     void deleteRegId() { this->regId_ = nullptr;};
-    inline string regId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
+    inline string getRegId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
     inline DescribeExpressionVariableVersionDetailRequest& setRegId(string regId) { DARABONBA_PTR_SET_VALUE(regId_, regId) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline DescribeExpressionVariableVersionDetailRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
     // version Field Functions 
     bool hasVersion() const { return this->version_ != nullptr;};
     void deleteVersion() { this->version_ = nullptr;};
-    inline int64_t version() const { DARABONBA_PTR_GET_DEFAULT(version_, 0L) };
+    inline int64_t getVersion() const { DARABONBA_PTR_GET_DEFAULT(version_, 0L) };
     inline DescribeExpressionVariableVersionDetailRequest& setVersion(int64_t version) { DARABONBA_PTR_SET_VALUE(version_, version) };
 
 
@@ -87,17 +87,17 @@ namespace Models
     // Sets the language type for requests and received messages, default value is **zh**. Values:
     // - **zh**: Chinese
     // - **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // Associated variable code.
-    std::shared_ptr<string> objectCode_ = nullptr;
+    shared_ptr<string> objectCode_ {};
     // Associated variable primary key ID.
-    std::shared_ptr<int64_t> objectId_ = nullptr;
+    shared_ptr<int64_t> objectId_ {};
     // Region code.
-    std::shared_ptr<string> regId_ = nullptr;
+    shared_ptr<string> regId_ {};
     // Variable type.
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
     // Version number.
-    std::shared_ptr<int64_t> version_ = nullptr;
+    shared_ptr<int64_t> version_ {};
   };
 
   } // namespace Models

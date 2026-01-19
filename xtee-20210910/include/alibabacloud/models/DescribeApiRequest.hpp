@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->apiId_ == nullptr && return this->apiRegionId_ == nullptr && return this->apiType_ == nullptr && return this->regId_ == nullptr; };
+        && this->apiId_ == nullptr && this->apiRegionId_ == nullptr && this->apiType_ == nullptr && this->regId_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeApiRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // apiId Field Functions 
     bool hasApiId() const { return this->apiId_ != nullptr;};
     void deleteApiId() { this->apiId_ = nullptr;};
-    inline string apiId() const { DARABONBA_PTR_GET_DEFAULT(apiId_, "") };
+    inline string getApiId() const { DARABONBA_PTR_GET_DEFAULT(apiId_, "") };
     inline DescribeApiRequest& setApiId(string apiId) { DARABONBA_PTR_SET_VALUE(apiId_, apiId) };
 
 
     // apiRegionId Field Functions 
     bool hasApiRegionId() const { return this->apiRegionId_ != nullptr;};
     void deleteApiRegionId() { this->apiRegionId_ = nullptr;};
-    inline string apiRegionId() const { DARABONBA_PTR_GET_DEFAULT(apiRegionId_, "") };
+    inline string getApiRegionId() const { DARABONBA_PTR_GET_DEFAULT(apiRegionId_, "") };
     inline DescribeApiRequest& setApiRegionId(string apiRegionId) { DARABONBA_PTR_SET_VALUE(apiRegionId_, apiRegionId) };
 
 
     // apiType Field Functions 
     bool hasApiType() const { return this->apiType_ != nullptr;};
     void deleteApiType() { this->apiType_ = nullptr;};
-    inline string apiType() const { DARABONBA_PTR_GET_DEFAULT(apiType_, "") };
+    inline string getApiType() const { DARABONBA_PTR_GET_DEFAULT(apiType_, "") };
     inline DescribeApiRequest& setApiType(string apiType) { DARABONBA_PTR_SET_VALUE(apiType_, apiType) };
 
 
     // regId Field Functions 
     bool hasRegId() const { return this->regId_ != nullptr;};
     void deleteRegId() { this->regId_ = nullptr;};
-    inline string regId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
+    inline string getRegId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
     inline DescribeApiRequest& setRegId(string regId) { DARABONBA_PTR_SET_VALUE(regId_, regId) };
 
 
@@ -78,21 +78,21 @@ namespace Models
     // Set the language type for requests and received messages, default value is **zh**. Values: 
     // - **zh**: Chinese
     // - **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // API unique ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> apiId_ = nullptr;
+    shared_ptr<string> apiId_ {};
     // Region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> apiRegionId_ = nullptr;
+    shared_ptr<string> apiRegionId_ {};
     // API type
     // 
     // This parameter is required.
-    std::shared_ptr<string> apiType_ = nullptr;
+    shared_ptr<string> apiType_ {};
     // Region code
-    std::shared_ptr<string> regId_ = nullptr;
+    shared_ptr<string> regId_ {};
   };
 
   } // namespace Models

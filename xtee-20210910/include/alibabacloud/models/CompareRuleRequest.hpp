@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->previousRuleVersionId_ == nullptr && return this->regId_ == nullptr && return this->ruleVersionId_ == nullptr; };
+        && this->previousRuleVersionId_ == nullptr && this->regId_ == nullptr && this->ruleVersionId_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline CompareRuleRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // previousRuleVersionId Field Functions 
     bool hasPreviousRuleVersionId() const { return this->previousRuleVersionId_ != nullptr;};
     void deletePreviousRuleVersionId() { this->previousRuleVersionId_ = nullptr;};
-    inline int64_t previousRuleVersionId() const { DARABONBA_PTR_GET_DEFAULT(previousRuleVersionId_, 0L) };
+    inline int64_t getPreviousRuleVersionId() const { DARABONBA_PTR_GET_DEFAULT(previousRuleVersionId_, 0L) };
     inline CompareRuleRequest& setPreviousRuleVersionId(int64_t previousRuleVersionId) { DARABONBA_PTR_SET_VALUE(previousRuleVersionId_, previousRuleVersionId) };
 
 
     // regId Field Functions 
     bool hasRegId() const { return this->regId_ != nullptr;};
     void deleteRegId() { this->regId_ = nullptr;};
-    inline string regId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
+    inline string getRegId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
     inline CompareRuleRequest& setRegId(string regId) { DARABONBA_PTR_SET_VALUE(regId_, regId) };
 
 
     // ruleVersionId Field Functions 
     bool hasRuleVersionId() const { return this->ruleVersionId_ != nullptr;};
     void deleteRuleVersionId() { this->ruleVersionId_ = nullptr;};
-    inline int64_t ruleVersionId() const { DARABONBA_PTR_GET_DEFAULT(ruleVersionId_, 0L) };
+    inline int64_t getRuleVersionId() const { DARABONBA_PTR_GET_DEFAULT(ruleVersionId_, 0L) };
     inline CompareRuleRequest& setRuleVersionId(int64_t ruleVersionId) { DARABONBA_PTR_SET_VALUE(ruleVersionId_, ruleVersionId) };
 
 
@@ -69,13 +69,13 @@ namespace Models
     // Sets the language type for requests and received messages, with a default value of **zh**. Values:
     // - **zh**: Chinese
     // - **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // Primary key ID of the previous policy version.
-    std::shared_ptr<int64_t> previousRuleVersionId_ = nullptr;
+    shared_ptr<int64_t> previousRuleVersionId_ {};
     // Region code.
-    std::shared_ptr<string> regId_ = nullptr;
+    shared_ptr<string> regId_ {};
     // Primary key ID of the policy version.
-    std::shared_ptr<int64_t> ruleVersionId_ = nullptr;
+    shared_ptr<int64_t> ruleVersionId_ {};
   };
 
   } // namespace Models

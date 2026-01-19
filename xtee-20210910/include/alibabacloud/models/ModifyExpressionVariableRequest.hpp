@@ -54,97 +54,97 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->dataVersion_ == nullptr && return this->description_ == nullptr && return this->eventCode_ == nullptr && return this->expression_ == nullptr && return this->expressionTitle_ == nullptr
-        && return this->expressionVariable_ == nullptr && return this->id_ == nullptr && return this->name_ == nullptr && return this->outlier_ == nullptr && return this->outputs_ == nullptr
-        && return this->regId_ == nullptr && return this->title_ == nullptr; };
+        && this->dataVersion_ == nullptr && this->description_ == nullptr && this->eventCode_ == nullptr && this->expression_ == nullptr && this->expressionTitle_ == nullptr
+        && this->expressionVariable_ == nullptr && this->id_ == nullptr && this->name_ == nullptr && this->outlier_ == nullptr && this->outputs_ == nullptr
+        && this->regId_ == nullptr && this->title_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline ModifyExpressionVariableRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // dataVersion Field Functions 
     bool hasDataVersion() const { return this->dataVersion_ != nullptr;};
     void deleteDataVersion() { this->dataVersion_ = nullptr;};
-    inline int64_t dataVersion() const { DARABONBA_PTR_GET_DEFAULT(dataVersion_, 0L) };
+    inline int64_t getDataVersion() const { DARABONBA_PTR_GET_DEFAULT(dataVersion_, 0L) };
     inline ModifyExpressionVariableRequest& setDataVersion(int64_t dataVersion) { DARABONBA_PTR_SET_VALUE(dataVersion_, dataVersion) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline ModifyExpressionVariableRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // eventCode Field Functions 
     bool hasEventCode() const { return this->eventCode_ != nullptr;};
     void deleteEventCode() { this->eventCode_ = nullptr;};
-    inline string eventCode() const { DARABONBA_PTR_GET_DEFAULT(eventCode_, "") };
+    inline string getEventCode() const { DARABONBA_PTR_GET_DEFAULT(eventCode_, "") };
     inline ModifyExpressionVariableRequest& setEventCode(string eventCode) { DARABONBA_PTR_SET_VALUE(eventCode_, eventCode) };
 
 
     // expression Field Functions 
     bool hasExpression() const { return this->expression_ != nullptr;};
     void deleteExpression() { this->expression_ = nullptr;};
-    inline string expression() const { DARABONBA_PTR_GET_DEFAULT(expression_, "") };
+    inline string getExpression() const { DARABONBA_PTR_GET_DEFAULT(expression_, "") };
     inline ModifyExpressionVariableRequest& setExpression(string expression) { DARABONBA_PTR_SET_VALUE(expression_, expression) };
 
 
     // expressionTitle Field Functions 
     bool hasExpressionTitle() const { return this->expressionTitle_ != nullptr;};
     void deleteExpressionTitle() { this->expressionTitle_ = nullptr;};
-    inline string expressionTitle() const { DARABONBA_PTR_GET_DEFAULT(expressionTitle_, "") };
+    inline string getExpressionTitle() const { DARABONBA_PTR_GET_DEFAULT(expressionTitle_, "") };
     inline ModifyExpressionVariableRequest& setExpressionTitle(string expressionTitle) { DARABONBA_PTR_SET_VALUE(expressionTitle_, expressionTitle) };
 
 
     // expressionVariable Field Functions 
     bool hasExpressionVariable() const { return this->expressionVariable_ != nullptr;};
     void deleteExpressionVariable() { this->expressionVariable_ = nullptr;};
-    inline string expressionVariable() const { DARABONBA_PTR_GET_DEFAULT(expressionVariable_, "") };
+    inline string getExpressionVariable() const { DARABONBA_PTR_GET_DEFAULT(expressionVariable_, "") };
     inline ModifyExpressionVariableRequest& setExpressionVariable(string expressionVariable) { DARABONBA_PTR_SET_VALUE(expressionVariable_, expressionVariable) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline int64_t id() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+    inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
     inline ModifyExpressionVariableRequest& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline ModifyExpressionVariableRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // outlier Field Functions 
     bool hasOutlier() const { return this->outlier_ != nullptr;};
     void deleteOutlier() { this->outlier_ = nullptr;};
-    inline string outlier() const { DARABONBA_PTR_GET_DEFAULT(outlier_, "") };
+    inline string getOutlier() const { DARABONBA_PTR_GET_DEFAULT(outlier_, "") };
     inline ModifyExpressionVariableRequest& setOutlier(string outlier) { DARABONBA_PTR_SET_VALUE(outlier_, outlier) };
 
 
     // outputs Field Functions 
     bool hasOutputs() const { return this->outputs_ != nullptr;};
     void deleteOutputs() { this->outputs_ = nullptr;};
-    inline string outputs() const { DARABONBA_PTR_GET_DEFAULT(outputs_, "") };
+    inline string getOutputs() const { DARABONBA_PTR_GET_DEFAULT(outputs_, "") };
     inline ModifyExpressionVariableRequest& setOutputs(string outputs) { DARABONBA_PTR_SET_VALUE(outputs_, outputs) };
 
 
     // regId Field Functions 
     bool hasRegId() const { return this->regId_ != nullptr;};
     void deleteRegId() { this->regId_ = nullptr;};
-    inline string regId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
+    inline string getRegId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
     inline ModifyExpressionVariableRequest& setRegId(string regId) { DARABONBA_PTR_SET_VALUE(regId_, regId) };
 
 
     // title Field Functions 
     bool hasTitle() const { return this->title_ != nullptr;};
     void deleteTitle() { this->title_ = nullptr;};
-    inline string title() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
+    inline string getTitle() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
     inline ModifyExpressionVariableRequest& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
 
 
@@ -152,49 +152,49 @@ namespace Models
     // Sets the language type for requests and received messages, with a default value of **zh**. Values:
     // - **zh**: Chinese
     // - **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // Data version.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> dataVersion_ = nullptr;
+    shared_ptr<int64_t> dataVersion_ {};
     // Description.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // Event code
     // 
     // This parameter is required.
-    std::shared_ptr<string> eventCode_ = nullptr;
+    shared_ptr<string> eventCode_ {};
     // Expression
     // 
     // This parameter is required.
-    std::shared_ptr<string> expression_ = nullptr;
+    shared_ptr<string> expression_ {};
     // Expression display
     // 
     // This parameter is required.
-    std::shared_ptr<string> expressionTitle_ = nullptr;
+    shared_ptr<string> expressionTitle_ {};
     // Calculation expression variable
-    std::shared_ptr<string> expressionVariable_ = nullptr;
+    shared_ptr<string> expressionVariable_ {};
     // Variable ID
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> id_ = nullptr;
+    shared_ptr<int64_t> id_ {};
     // Variable name
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // Outlier
     // 
     // This parameter is required.
-    std::shared_ptr<string> outlier_ = nullptr;
+    shared_ptr<string> outlier_ {};
     // Output
     // 
     // This parameter is required.
-    std::shared_ptr<string> outputs_ = nullptr;
+    shared_ptr<string> outputs_ {};
     // Region code
     // 
     // This parameter is required.
-    std::shared_ptr<string> regId_ = nullptr;
+    shared_ptr<string> regId_ {};
     // Title.
     // 
     // This parameter is required.
-    std::shared_ptr<string> title_ = nullptr;
+    shared_ptr<string> title_ {};
   };
 
   } // namespace Models

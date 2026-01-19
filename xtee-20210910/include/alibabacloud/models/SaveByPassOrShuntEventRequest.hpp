@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->eventId_ == nullptr && return this->eventName_ == nullptr && return this->eventType_ == nullptr && return this->regId_ == nullptr; };
+        && this->eventId_ == nullptr && this->eventName_ == nullptr && this->eventType_ == nullptr && this->regId_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline SaveByPassOrShuntEventRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // eventId Field Functions 
     bool hasEventId() const { return this->eventId_ != nullptr;};
     void deleteEventId() { this->eventId_ = nullptr;};
-    inline int64_t eventId() const { DARABONBA_PTR_GET_DEFAULT(eventId_, 0L) };
+    inline int64_t getEventId() const { DARABONBA_PTR_GET_DEFAULT(eventId_, 0L) };
     inline SaveByPassOrShuntEventRequest& setEventId(int64_t eventId) { DARABONBA_PTR_SET_VALUE(eventId_, eventId) };
 
 
     // eventName Field Functions 
     bool hasEventName() const { return this->eventName_ != nullptr;};
     void deleteEventName() { this->eventName_ = nullptr;};
-    inline string eventName() const { DARABONBA_PTR_GET_DEFAULT(eventName_, "") };
+    inline string getEventName() const { DARABONBA_PTR_GET_DEFAULT(eventName_, "") };
     inline SaveByPassOrShuntEventRequest& setEventName(string eventName) { DARABONBA_PTR_SET_VALUE(eventName_, eventName) };
 
 
     // eventType Field Functions 
     bool hasEventType() const { return this->eventType_ != nullptr;};
     void deleteEventType() { this->eventType_ = nullptr;};
-    inline string eventType() const { DARABONBA_PTR_GET_DEFAULT(eventType_, "") };
+    inline string getEventType() const { DARABONBA_PTR_GET_DEFAULT(eventType_, "") };
     inline SaveByPassOrShuntEventRequest& setEventType(string eventType) { DARABONBA_PTR_SET_VALUE(eventType_, eventType) };
 
 
     // regId Field Functions 
     bool hasRegId() const { return this->regId_ != nullptr;};
     void deleteRegId() { this->regId_ = nullptr;};
-    inline string regId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
+    inline string getRegId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
     inline SaveByPassOrShuntEventRequest& setRegId(string regId) { DARABONBA_PTR_SET_VALUE(regId_, regId) };
 
 
@@ -78,15 +78,15 @@ namespace Models
     // Sets the language type for requests and received messages, default value is **zh**. Values:
     // - **zh**: Chinese
     // - **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // Event ID.
-    std::shared_ptr<int64_t> eventId_ = nullptr;
+    shared_ptr<int64_t> eventId_ {};
     // Event name.
-    std::shared_ptr<string> eventName_ = nullptr;
+    shared_ptr<string> eventName_ {};
     // Event type
-    std::shared_ptr<string> eventType_ = nullptr;
+    shared_ptr<string> eventType_ {};
     // Region code
-    std::shared_ptr<string> regId_ = nullptr;
+    shared_ptr<string> regId_ {};
   };
 
   } // namespace Models

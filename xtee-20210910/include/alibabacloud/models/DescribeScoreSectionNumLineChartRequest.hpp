@@ -42,54 +42,54 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->beginTime_ == nullptr && return this->byPassEventCodes_ == nullptr && return this->endTime_ == nullptr && return this->mainEventCodes_ == nullptr && return this->regId_ == nullptr
-        && return this->shuntEventCodes_ == nullptr; };
+        && this->beginTime_ == nullptr && this->byPassEventCodes_ == nullptr && this->endTime_ == nullptr && this->mainEventCodes_ == nullptr && this->regId_ == nullptr
+        && this->shuntEventCodes_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeScoreSectionNumLineChartRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // beginTime Field Functions 
     bool hasBeginTime() const { return this->beginTime_ != nullptr;};
     void deleteBeginTime() { this->beginTime_ = nullptr;};
-    inline string beginTime() const { DARABONBA_PTR_GET_DEFAULT(beginTime_, "") };
+    inline string getBeginTime() const { DARABONBA_PTR_GET_DEFAULT(beginTime_, "") };
     inline DescribeScoreSectionNumLineChartRequest& setBeginTime(string beginTime) { DARABONBA_PTR_SET_VALUE(beginTime_, beginTime) };
 
 
     // byPassEventCodes Field Functions 
     bool hasByPassEventCodes() const { return this->byPassEventCodes_ != nullptr;};
     void deleteByPassEventCodes() { this->byPassEventCodes_ = nullptr;};
-    inline string byPassEventCodes() const { DARABONBA_PTR_GET_DEFAULT(byPassEventCodes_, "") };
+    inline string getByPassEventCodes() const { DARABONBA_PTR_GET_DEFAULT(byPassEventCodes_, "") };
     inline DescribeScoreSectionNumLineChartRequest& setByPassEventCodes(string byPassEventCodes) { DARABONBA_PTR_SET_VALUE(byPassEventCodes_, byPassEventCodes) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline DescribeScoreSectionNumLineChartRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // mainEventCodes Field Functions 
     bool hasMainEventCodes() const { return this->mainEventCodes_ != nullptr;};
     void deleteMainEventCodes() { this->mainEventCodes_ = nullptr;};
-    inline string mainEventCodes() const { DARABONBA_PTR_GET_DEFAULT(mainEventCodes_, "") };
+    inline string getMainEventCodes() const { DARABONBA_PTR_GET_DEFAULT(mainEventCodes_, "") };
     inline DescribeScoreSectionNumLineChartRequest& setMainEventCodes(string mainEventCodes) { DARABONBA_PTR_SET_VALUE(mainEventCodes_, mainEventCodes) };
 
 
     // regId Field Functions 
     bool hasRegId() const { return this->regId_ != nullptr;};
     void deleteRegId() { this->regId_ = nullptr;};
-    inline string regId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
+    inline string getRegId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
     inline DescribeScoreSectionNumLineChartRequest& setRegId(string regId) { DARABONBA_PTR_SET_VALUE(regId_, regId) };
 
 
     // shuntEventCodes Field Functions 
     bool hasShuntEventCodes() const { return this->shuntEventCodes_ != nullptr;};
     void deleteShuntEventCodes() { this->shuntEventCodes_ = nullptr;};
-    inline string shuntEventCodes() const { DARABONBA_PTR_GET_DEFAULT(shuntEventCodes_, "") };
+    inline string getShuntEventCodes() const { DARABONBA_PTR_GET_DEFAULT(shuntEventCodes_, "") };
     inline DescribeScoreSectionNumLineChartRequest& setShuntEventCodes(string shuntEventCodes) { DARABONBA_PTR_SET_VALUE(shuntEventCodes_, shuntEventCodes) };
 
 
@@ -97,23 +97,23 @@ namespace Models
     // Sets the language type for requests and received messages, default value is **zh**. Values:
     // - **zh**: Chinese
     // - **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // Start timestamp, in milliseconds.
     // 
     // This parameter is required.
-    std::shared_ptr<string> beginTime_ = nullptr;
+    shared_ptr<string> beginTime_ {};
     // Bypass event code
-    std::shared_ptr<string> byPassEventCodes_ = nullptr;
+    shared_ptr<string> byPassEventCodes_ {};
     // End timestamp, in milliseconds.
     // 
     // This parameter is required.
-    std::shared_ptr<string> endTime_ = nullptr;
+    shared_ptr<string> endTime_ {};
     // Main event code
-    std::shared_ptr<string> mainEventCodes_ = nullptr;
+    shared_ptr<string> mainEventCodes_ {};
     // Region code
-    std::shared_ptr<string> regId_ = nullptr;
+    shared_ptr<string> regId_ {};
     // Diversion event code
-    std::shared_ptr<string> shuntEventCodes_ = nullptr;
+    shared_ptr<string> shuntEventCodes_ {};
   };
 
   } // namespace Models

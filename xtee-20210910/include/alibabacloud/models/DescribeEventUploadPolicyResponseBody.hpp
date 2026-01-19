@@ -42,72 +42,72 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessId_ == nullptr
-        && return this->host_ == nullptr && return this->key_ == nullptr && return this->policy_ == nullptr && return this->requestId_ == nullptr && return this->signature_ == nullptr
-        && return this->stsToken_ == nullptr; };
+        && this->host_ == nullptr && this->key_ == nullptr && this->policy_ == nullptr && this->requestId_ == nullptr && this->signature_ == nullptr
+        && this->stsToken_ == nullptr; };
     // accessId Field Functions 
     bool hasAccessId() const { return this->accessId_ != nullptr;};
     void deleteAccessId() { this->accessId_ = nullptr;};
-    inline string accessId() const { DARABONBA_PTR_GET_DEFAULT(accessId_, "") };
+    inline string getAccessId() const { DARABONBA_PTR_GET_DEFAULT(accessId_, "") };
     inline DescribeEventUploadPolicyResponseBody& setAccessId(string accessId) { DARABONBA_PTR_SET_VALUE(accessId_, accessId) };
 
 
     // host Field Functions 
     bool hasHost() const { return this->host_ != nullptr;};
     void deleteHost() { this->host_ = nullptr;};
-    inline string host() const { DARABONBA_PTR_GET_DEFAULT(host_, "") };
+    inline string getHost() const { DARABONBA_PTR_GET_DEFAULT(host_, "") };
     inline DescribeEventUploadPolicyResponseBody& setHost(string host) { DARABONBA_PTR_SET_VALUE(host_, host) };
 
 
     // key Field Functions 
     bool hasKey() const { return this->key_ != nullptr;};
     void deleteKey() { this->key_ = nullptr;};
-    inline string key() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+    inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
     inline DescribeEventUploadPolicyResponseBody& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
 
 
     // policy Field Functions 
     bool hasPolicy() const { return this->policy_ != nullptr;};
     void deletePolicy() { this->policy_ = nullptr;};
-    inline string policy() const { DARABONBA_PTR_GET_DEFAULT(policy_, "") };
+    inline string getPolicy() const { DARABONBA_PTR_GET_DEFAULT(policy_, "") };
     inline DescribeEventUploadPolicyResponseBody& setPolicy(string policy) { DARABONBA_PTR_SET_VALUE(policy_, policy) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeEventUploadPolicyResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // signature Field Functions 
     bool hasSignature() const { return this->signature_ != nullptr;};
     void deleteSignature() { this->signature_ = nullptr;};
-    inline string signature() const { DARABONBA_PTR_GET_DEFAULT(signature_, "") };
+    inline string getSignature() const { DARABONBA_PTR_GET_DEFAULT(signature_, "") };
     inline DescribeEventUploadPolicyResponseBody& setSignature(string signature) { DARABONBA_PTR_SET_VALUE(signature_, signature) };
 
 
     // stsToken Field Functions 
     bool hasStsToken() const { return this->stsToken_ != nullptr;};
     void deleteStsToken() { this->stsToken_ = nullptr;};
-    inline string stsToken() const { DARABONBA_PTR_GET_DEFAULT(stsToken_, "") };
+    inline string getStsToken() const { DARABONBA_PTR_GET_DEFAULT(stsToken_, "") };
     inline DescribeEventUploadPolicyResponseBody& setStsToken(string stsToken) { DARABONBA_PTR_SET_VALUE(stsToken_, stsToken) };
 
 
   protected:
     // ID for accessing OSS
-    std::shared_ptr<string> accessId_ = nullptr;
+    shared_ptr<string> accessId_ {};
     // OSS host.
-    std::shared_ptr<string> host_ = nullptr;
+    shared_ptr<string> host_ {};
     // The Key required for file upload.
-    std::shared_ptr<string> key_ = nullptr;
+    shared_ptr<string> key_ {};
     // OSS security policy
-    std::shared_ptr<string> policy_ = nullptr;
+    shared_ptr<string> policy_ {};
     // Request ID
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Signature data.
-    std::shared_ptr<string> signature_ = nullptr;
+    shared_ptr<string> signature_ {};
     // Temporary identity credential.
-    std::shared_ptr<string> stsToken_ = nullptr;
+    shared_ptr<string> stsToken_ {};
   };
 
   } // namespace Models

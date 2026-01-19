@@ -32,28 +32,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->resultObject_ == nullptr; };
+        && this->resultObject_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeExpressionVariableDetailResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // resultObject Field Functions 
     bool hasResultObject() const { return this->resultObject_ != nullptr;};
     void deleteResultObject() { this->resultObject_ = nullptr;};
-    inline     const Darabonba::Json & resultObject() const { DARABONBA_GET(resultObject_) };
-    Darabonba::Json & resultObject() { DARABONBA_GET(resultObject_) };
+    inline     const Darabonba::Json & getResultObject() const { DARABONBA_GET(resultObject_) };
+    Darabonba::Json & getResultObject() { DARABONBA_GET(resultObject_) };
     inline DescribeExpressionVariableDetailResponseBody& setResultObject(const Darabonba::Json & resultObject) { DARABONBA_SET_VALUE(resultObject_, resultObject) };
-    inline DescribeExpressionVariableDetailResponseBody& setResultObject(Darabonba::Json & resultObject) { DARABONBA_SET_RVALUE(resultObject_, resultObject) };
+    inline DescribeExpressionVariableDetailResponseBody& setResultObject(Darabonba::Json && resultObject) { DARABONBA_SET_RVALUE(resultObject_, resultObject) };
 
 
   protected:
     // Request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Returned object
-    Darabonba::Json resultObject_ = nullptr;
+    Darabonba::Json resultObject_ {};
   };
 
   } // namespace Models

@@ -33,28 +33,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->bizData_ == nullptr; };
+        && this->bizData_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeSafConsoleResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // bizData Field Functions 
     bool hasBizData() const { return this->bizData_ != nullptr;};
     void deleteBizData() { this->bizData_ = nullptr;};
-    inline const vector<string> & bizData() const { DARABONBA_PTR_GET_CONST(bizData_, vector<string>) };
-    inline vector<string> bizData() { DARABONBA_PTR_GET(bizData_, vector<string>) };
+    inline const vector<string> & getBizData() const { DARABONBA_PTR_GET_CONST(bizData_, vector<string>) };
+    inline vector<string> getBizData() { DARABONBA_PTR_GET(bizData_, vector<string>) };
     inline DescribeSafConsoleResponseBody& setBizData(const vector<string> & bizData) { DARABONBA_PTR_SET_VALUE(bizData_, bizData) };
     inline DescribeSafConsoleResponseBody& setBizData(vector<string> && bizData) { DARABONBA_PTR_SET_RVALUE(bizData_, bizData) };
 
 
   protected:
     // Request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Returned result.
-    std::shared_ptr<vector<string>> bizData_ = nullptr;
+    shared_ptr<vector<string>> bizData_ {};
   };
 
   } // namespace Models

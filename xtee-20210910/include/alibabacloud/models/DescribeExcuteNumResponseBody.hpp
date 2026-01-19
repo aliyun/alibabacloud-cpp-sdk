@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->categories_ == nullptr
-        && return this->data_ == nullptr && return this->requestId_ == nullptr; };
+        && this->data_ == nullptr && this->requestId_ == nullptr; };
     // categories Field Functions 
     bool hasCategories() const { return this->categories_ != nullptr;};
     void deleteCategories() { this->categories_ = nullptr;};
-    inline const vector<string> & categories() const { DARABONBA_PTR_GET_CONST(categories_, vector<string>) };
-    inline vector<string> categories() { DARABONBA_PTR_GET(categories_, vector<string>) };
+    inline const vector<string> & getCategories() const { DARABONBA_PTR_GET_CONST(categories_, vector<string>) };
+    inline vector<string> getCategories() { DARABONBA_PTR_GET(categories_, vector<string>) };
     inline DescribeExcuteNumResponseBody& setCategories(const vector<string> & categories) { DARABONBA_PTR_SET_VALUE(categories_, categories) };
     inline DescribeExcuteNumResponseBody& setCategories(vector<string> && categories) { DARABONBA_PTR_SET_RVALUE(categories_, categories) };
 
@@ -48,8 +48,8 @@ namespace Models
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const vector<string> & data() const { DARABONBA_PTR_GET_CONST(data_, vector<string>) };
-    inline vector<string> data() { DARABONBA_PTR_GET(data_, vector<string>) };
+    inline const vector<string> & getData() const { DARABONBA_PTR_GET_CONST(data_, vector<string>) };
+    inline vector<string> getData() { DARABONBA_PTR_GET(data_, vector<string>) };
     inline DescribeExcuteNumResponseBody& setData(const vector<string> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
     inline DescribeExcuteNumResponseBody& setData(vector<string> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
@@ -57,17 +57,17 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeExcuteNumResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // Service category names.
-    std::shared_ptr<vector<string>> categories_ = nullptr;
+    shared_ptr<vector<string>> categories_ {};
     // Returned data.
-    std::shared_ptr<vector<string>> data_ = nullptr;
+    shared_ptr<vector<string>> data_ {};
     // Request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

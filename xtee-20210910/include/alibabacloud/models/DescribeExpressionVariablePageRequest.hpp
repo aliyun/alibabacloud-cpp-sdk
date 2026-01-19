@@ -44,61 +44,61 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->currentPage_ == nullptr && return this->eventCode_ == nullptr && return this->outputs_ == nullptr && return this->pageSize_ == nullptr && return this->regId_ == nullptr
-        && return this->status_ == nullptr && return this->value_ == nullptr; };
+        && this->currentPage_ == nullptr && this->eventCode_ == nullptr && this->outputs_ == nullptr && this->pageSize_ == nullptr && this->regId_ == nullptr
+        && this->status_ == nullptr && this->value_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeExpressionVariablePageRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline string currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, "") };
+    inline string getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, "") };
     inline DescribeExpressionVariablePageRequest& setCurrentPage(string currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // eventCode Field Functions 
     bool hasEventCode() const { return this->eventCode_ != nullptr;};
     void deleteEventCode() { this->eventCode_ = nullptr;};
-    inline string eventCode() const { DARABONBA_PTR_GET_DEFAULT(eventCode_, "") };
+    inline string getEventCode() const { DARABONBA_PTR_GET_DEFAULT(eventCode_, "") };
     inline DescribeExpressionVariablePageRequest& setEventCode(string eventCode) { DARABONBA_PTR_SET_VALUE(eventCode_, eventCode) };
 
 
     // outputs Field Functions 
     bool hasOutputs() const { return this->outputs_ != nullptr;};
     void deleteOutputs() { this->outputs_ = nullptr;};
-    inline string outputs() const { DARABONBA_PTR_GET_DEFAULT(outputs_, "") };
+    inline string getOutputs() const { DARABONBA_PTR_GET_DEFAULT(outputs_, "") };
     inline DescribeExpressionVariablePageRequest& setOutputs(string outputs) { DARABONBA_PTR_SET_VALUE(outputs_, outputs) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline string pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
+    inline string getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
     inline DescribeExpressionVariablePageRequest& setPageSize(string pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // regId Field Functions 
     bool hasRegId() const { return this->regId_ != nullptr;};
     void deleteRegId() { this->regId_ = nullptr;};
-    inline string regId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
+    inline string getRegId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
     inline DescribeExpressionVariablePageRequest& setRegId(string regId) { DARABONBA_PTR_SET_VALUE(regId_, regId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline DescribeExpressionVariablePageRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // value Field Functions 
     bool hasValue() const { return this->value_ != nullptr;};
     void deleteValue() { this->value_ = nullptr;};
-    inline string value() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+    inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
     inline DescribeExpressionVariablePageRequest& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
 
 
@@ -106,27 +106,27 @@ namespace Models
     // Sets the language type for requests and received messages, with a default value of **zh**. Values:
     // - **zh**: Chinese
     // - **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // Current page number.
     // 
     // This parameter is required.
-    std::shared_ptr<string> currentPage_ = nullptr;
+    shared_ptr<string> currentPage_ {};
     // Event code.
-    std::shared_ptr<string> eventCode_ = nullptr;
+    shared_ptr<string> eventCode_ {};
     // Variable return type.
-    std::shared_ptr<string> outputs_ = nullptr;
+    shared_ptr<string> outputs_ {};
     // Page size, with a default value of 10.
     // 
     // This parameter is required.
-    std::shared_ptr<string> pageSize_ = nullptr;
+    shared_ptr<string> pageSize_ {};
     // Region code.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regId_ = nullptr;
+    shared_ptr<string> regId_ {};
     // Status.
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
     // Variable name/description.
-    std::shared_ptr<string> value_ = nullptr;
+    shared_ptr<string> value_ {};
   };
 
   } // namespace Models

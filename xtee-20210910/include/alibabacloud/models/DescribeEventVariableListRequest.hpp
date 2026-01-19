@@ -42,76 +42,76 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->createType_ == nullptr && return this->filterDTO_ == nullptr && return this->refObjId_ == nullptr && return this->refObjType_ == nullptr && return this->regId_ == nullptr
-        && return this->type_ == nullptr; };
+        && this->createType_ == nullptr && this->filterDTO_ == nullptr && this->refObjId_ == nullptr && this->refObjType_ == nullptr && this->regId_ == nullptr
+        && this->type_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeEventVariableListRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // createType Field Functions 
     bool hasCreateType() const { return this->createType_ != nullptr;};
     void deleteCreateType() { this->createType_ = nullptr;};
-    inline string createType() const { DARABONBA_PTR_GET_DEFAULT(createType_, "") };
+    inline string getCreateType() const { DARABONBA_PTR_GET_DEFAULT(createType_, "") };
     inline DescribeEventVariableListRequest& setCreateType(string createType) { DARABONBA_PTR_SET_VALUE(createType_, createType) };
 
 
     // filterDTO Field Functions 
     bool hasFilterDTO() const { return this->filterDTO_ != nullptr;};
     void deleteFilterDTO() { this->filterDTO_ = nullptr;};
-    inline string filterDTO() const { DARABONBA_PTR_GET_DEFAULT(filterDTO_, "") };
+    inline string getFilterDTO() const { DARABONBA_PTR_GET_DEFAULT(filterDTO_, "") };
     inline DescribeEventVariableListRequest& setFilterDTO(string filterDTO) { DARABONBA_PTR_SET_VALUE(filterDTO_, filterDTO) };
 
 
     // refObjId Field Functions 
     bool hasRefObjId() const { return this->refObjId_ != nullptr;};
     void deleteRefObjId() { this->refObjId_ = nullptr;};
-    inline string refObjId() const { DARABONBA_PTR_GET_DEFAULT(refObjId_, "") };
+    inline string getRefObjId() const { DARABONBA_PTR_GET_DEFAULT(refObjId_, "") };
     inline DescribeEventVariableListRequest& setRefObjId(string refObjId) { DARABONBA_PTR_SET_VALUE(refObjId_, refObjId) };
 
 
     // refObjType Field Functions 
     bool hasRefObjType() const { return this->refObjType_ != nullptr;};
     void deleteRefObjType() { this->refObjType_ = nullptr;};
-    inline string refObjType() const { DARABONBA_PTR_GET_DEFAULT(refObjType_, "") };
+    inline string getRefObjType() const { DARABONBA_PTR_GET_DEFAULT(refObjType_, "") };
     inline DescribeEventVariableListRequest& setRefObjType(string refObjType) { DARABONBA_PTR_SET_VALUE(refObjType_, refObjType) };
 
 
     // regId Field Functions 
     bool hasRegId() const { return this->regId_ != nullptr;};
     void deleteRegId() { this->regId_ = nullptr;};
-    inline string regId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
+    inline string getRegId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
     inline DescribeEventVariableListRequest& setRegId(string regId) { DARABONBA_PTR_SET_VALUE(regId_, regId) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline DescribeEventVariableListRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
     // Sets the language type for requests and received messages, with a default value of **zh**. The values are: - **zh**: Chinese - **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // Create Type.
-    std::shared_ptr<string> createType_ = nullptr;
+    shared_ptr<string> createType_ {};
     // Filter object.
-    std::shared_ptr<string> filterDTO_ = nullptr;
+    shared_ptr<string> filterDTO_ {};
     // Associated event eventCode.
     // 
     // This parameter is required.
-    std::shared_ptr<string> refObjId_ = nullptr;
+    shared_ptr<string> refObjId_ {};
     // Association Type.
     // 
     // This parameter is required.
-    std::shared_ptr<string> refObjType_ = nullptr;
+    shared_ptr<string> refObjType_ {};
     // Region Code.
-    std::shared_ptr<string> regId_ = nullptr;
+    shared_ptr<string> regId_ {};
     // type.
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

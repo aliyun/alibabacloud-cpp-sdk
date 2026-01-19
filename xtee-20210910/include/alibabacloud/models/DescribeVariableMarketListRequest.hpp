@@ -48,75 +48,75 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->chargingMode_ == nullptr && return this->currentPage_ == nullptr && return this->pageSize_ == nullptr && return this->paging_ == nullptr && return this->queryContent_ == nullptr
-        && return this->regId_ == nullptr && return this->scenesStr_ == nullptr && return this->source_ == nullptr && return this->title_ == nullptr; };
+        && this->chargingMode_ == nullptr && this->currentPage_ == nullptr && this->pageSize_ == nullptr && this->paging_ == nullptr && this->queryContent_ == nullptr
+        && this->regId_ == nullptr && this->scenesStr_ == nullptr && this->source_ == nullptr && this->title_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeVariableMarketListRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // chargingMode Field Functions 
     bool hasChargingMode() const { return this->chargingMode_ != nullptr;};
     void deleteChargingMode() { this->chargingMode_ = nullptr;};
-    inline string chargingMode() const { DARABONBA_PTR_GET_DEFAULT(chargingMode_, "") };
+    inline string getChargingMode() const { DARABONBA_PTR_GET_DEFAULT(chargingMode_, "") };
     inline DescribeVariableMarketListRequest& setChargingMode(string chargingMode) { DARABONBA_PTR_SET_VALUE(chargingMode_, chargingMode) };
 
 
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline DescribeVariableMarketListRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DescribeVariableMarketListRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // paging Field Functions 
     bool hasPaging() const { return this->paging_ != nullptr;};
     void deletePaging() { this->paging_ = nullptr;};
-    inline string paging() const { DARABONBA_PTR_GET_DEFAULT(paging_, "") };
+    inline string getPaging() const { DARABONBA_PTR_GET_DEFAULT(paging_, "") };
     inline DescribeVariableMarketListRequest& setPaging(string paging) { DARABONBA_PTR_SET_VALUE(paging_, paging) };
 
 
     // queryContent Field Functions 
     bool hasQueryContent() const { return this->queryContent_ != nullptr;};
     void deleteQueryContent() { this->queryContent_ = nullptr;};
-    inline string queryContent() const { DARABONBA_PTR_GET_DEFAULT(queryContent_, "") };
+    inline string getQueryContent() const { DARABONBA_PTR_GET_DEFAULT(queryContent_, "") };
     inline DescribeVariableMarketListRequest& setQueryContent(string queryContent) { DARABONBA_PTR_SET_VALUE(queryContent_, queryContent) };
 
 
     // regId Field Functions 
     bool hasRegId() const { return this->regId_ != nullptr;};
     void deleteRegId() { this->regId_ = nullptr;};
-    inline string regId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
+    inline string getRegId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
     inline DescribeVariableMarketListRequest& setRegId(string regId) { DARABONBA_PTR_SET_VALUE(regId_, regId) };
 
 
     // scenesStr Field Functions 
     bool hasScenesStr() const { return this->scenesStr_ != nullptr;};
     void deleteScenesStr() { this->scenesStr_ = nullptr;};
-    inline string scenesStr() const { DARABONBA_PTR_GET_DEFAULT(scenesStr_, "") };
+    inline string getScenesStr() const { DARABONBA_PTR_GET_DEFAULT(scenesStr_, "") };
     inline DescribeVariableMarketListRequest& setScenesStr(string scenesStr) { DARABONBA_PTR_SET_VALUE(scenesStr_, scenesStr) };
 
 
     // source Field Functions 
     bool hasSource() const { return this->source_ != nullptr;};
     void deleteSource() { this->source_ = nullptr;};
-    inline string source() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
+    inline string getSource() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
     inline DescribeVariableMarketListRequest& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
 
 
     // title Field Functions 
     bool hasTitle() const { return this->title_ != nullptr;};
     void deleteTitle() { this->title_ = nullptr;};
-    inline string title() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
+    inline string getTitle() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
     inline DescribeVariableMarketListRequest& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
 
 
@@ -124,27 +124,27 @@ namespace Models
     // Sets the language type for requests and received messages, with a default value of **zh**. Values:
     // - **zh**: Chinese
     // - **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // Charging mode
-    std::shared_ptr<string> chargingMode_ = nullptr;
+    shared_ptr<string> chargingMode_ {};
     // Current page number.
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
+    shared_ptr<int32_t> currentPage_ {};
     // Page size, with a default value of 10.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // Paging indicator, default is true.
-    std::shared_ptr<string> paging_ = nullptr;
+    shared_ptr<string> paging_ {};
     // Query content, supports fuzzy search.
     // 
     //  Title/Description
-    std::shared_ptr<string> queryContent_ = nullptr;
+    shared_ptr<string> queryContent_ {};
     // Region code
-    std::shared_ptr<string> regId_ = nullptr;
+    shared_ptr<string> regId_ {};
     // Scenario
-    std::shared_ptr<string> scenesStr_ = nullptr;
+    shared_ptr<string> scenesStr_ {};
     // Source
-    std::shared_ptr<string> source_ = nullptr;
+    shared_ptr<string> source_ {};
     // Title.
-    std::shared_ptr<string> title_ = nullptr;
+    shared_ptr<string> title_ {};
   };
 
   } // namespace Models

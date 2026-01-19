@@ -50,82 +50,82 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->condition_ == nullptr && return this->eventBeginTime_ == nullptr && return this->eventCode_ == nullptr && return this->eventEndTime_ == nullptr && return this->fieldName_ == nullptr
-        && return this->fieldValue_ == nullptr && return this->id_ == nullptr && return this->name_ == nullptr && return this->regId_ == nullptr && return this->type_ == nullptr; };
+        && this->condition_ == nullptr && this->eventBeginTime_ == nullptr && this->eventCode_ == nullptr && this->eventEndTime_ == nullptr && this->fieldName_ == nullptr
+        && this->fieldValue_ == nullptr && this->id_ == nullptr && this->name_ == nullptr && this->regId_ == nullptr && this->type_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline UpdateAnalysisConditionFavoriteRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // condition Field Functions 
     bool hasCondition() const { return this->condition_ != nullptr;};
     void deleteCondition() { this->condition_ = nullptr;};
-    inline string condition() const { DARABONBA_PTR_GET_DEFAULT(condition_, "") };
+    inline string getCondition() const { DARABONBA_PTR_GET_DEFAULT(condition_, "") };
     inline UpdateAnalysisConditionFavoriteRequest& setCondition(string condition) { DARABONBA_PTR_SET_VALUE(condition_, condition) };
 
 
     // eventBeginTime Field Functions 
     bool hasEventBeginTime() const { return this->eventBeginTime_ != nullptr;};
     void deleteEventBeginTime() { this->eventBeginTime_ = nullptr;};
-    inline int64_t eventBeginTime() const { DARABONBA_PTR_GET_DEFAULT(eventBeginTime_, 0L) };
+    inline int64_t getEventBeginTime() const { DARABONBA_PTR_GET_DEFAULT(eventBeginTime_, 0L) };
     inline UpdateAnalysisConditionFavoriteRequest& setEventBeginTime(int64_t eventBeginTime) { DARABONBA_PTR_SET_VALUE(eventBeginTime_, eventBeginTime) };
 
 
     // eventCode Field Functions 
     bool hasEventCode() const { return this->eventCode_ != nullptr;};
     void deleteEventCode() { this->eventCode_ = nullptr;};
-    inline string eventCode() const { DARABONBA_PTR_GET_DEFAULT(eventCode_, "") };
+    inline string getEventCode() const { DARABONBA_PTR_GET_DEFAULT(eventCode_, "") };
     inline UpdateAnalysisConditionFavoriteRequest& setEventCode(string eventCode) { DARABONBA_PTR_SET_VALUE(eventCode_, eventCode) };
 
 
     // eventEndTime Field Functions 
     bool hasEventEndTime() const { return this->eventEndTime_ != nullptr;};
     void deleteEventEndTime() { this->eventEndTime_ = nullptr;};
-    inline int64_t eventEndTime() const { DARABONBA_PTR_GET_DEFAULT(eventEndTime_, 0L) };
+    inline int64_t getEventEndTime() const { DARABONBA_PTR_GET_DEFAULT(eventEndTime_, 0L) };
     inline UpdateAnalysisConditionFavoriteRequest& setEventEndTime(int64_t eventEndTime) { DARABONBA_PTR_SET_VALUE(eventEndTime_, eventEndTime) };
 
 
     // fieldName Field Functions 
     bool hasFieldName() const { return this->fieldName_ != nullptr;};
     void deleteFieldName() { this->fieldName_ = nullptr;};
-    inline string fieldName() const { DARABONBA_PTR_GET_DEFAULT(fieldName_, "") };
+    inline string getFieldName() const { DARABONBA_PTR_GET_DEFAULT(fieldName_, "") };
     inline UpdateAnalysisConditionFavoriteRequest& setFieldName(string fieldName) { DARABONBA_PTR_SET_VALUE(fieldName_, fieldName) };
 
 
     // fieldValue Field Functions 
     bool hasFieldValue() const { return this->fieldValue_ != nullptr;};
     void deleteFieldValue() { this->fieldValue_ = nullptr;};
-    inline string fieldValue() const { DARABONBA_PTR_GET_DEFAULT(fieldValue_, "") };
+    inline string getFieldValue() const { DARABONBA_PTR_GET_DEFAULT(fieldValue_, "") };
     inline UpdateAnalysisConditionFavoriteRequest& setFieldValue(string fieldValue) { DARABONBA_PTR_SET_VALUE(fieldValue_, fieldValue) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline int64_t id() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+    inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
     inline UpdateAnalysisConditionFavoriteRequest& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline UpdateAnalysisConditionFavoriteRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // regId Field Functions 
     bool hasRegId() const { return this->regId_ != nullptr;};
     void deleteRegId() { this->regId_ = nullptr;};
-    inline string regId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
+    inline string getRegId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
     inline UpdateAnalysisConditionFavoriteRequest& setRegId(string regId) { DARABONBA_PTR_SET_VALUE(regId_, regId) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline UpdateAnalysisConditionFavoriteRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
@@ -133,31 +133,31 @@ namespace Models
     // Sets the language type for requests and received messages, with a default value of **zh**. Values:
     // - **zh**: Chinese
     // - **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // Condition value.
-    std::shared_ptr<string> condition_ = nullptr;
+    shared_ptr<string> condition_ {};
     // Start time, accurate to milliseconds (ms).
-    std::shared_ptr<int64_t> eventBeginTime_ = nullptr;
+    shared_ptr<int64_t> eventBeginTime_ {};
     // Event code
-    std::shared_ptr<string> eventCode_ = nullptr;
+    shared_ptr<string> eventCode_ {};
     // End time, accurate to milliseconds (ms).
-    std::shared_ptr<int64_t> eventEndTime_ = nullptr;
+    shared_ptr<int64_t> eventEndTime_ {};
     // Field name
-    std::shared_ptr<string> fieldName_ = nullptr;
+    shared_ptr<string> fieldName_ {};
     // Field value
-    std::shared_ptr<string> fieldValue_ = nullptr;
+    shared_ptr<string> fieldValue_ {};
     // Primary key ID
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> id_ = nullptr;
+    shared_ptr<int64_t> id_ {};
     // Condition name
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // Region code
     // 
     // This parameter is required.
-    std::shared_ptr<string> regId_ = nullptr;
+    shared_ptr<string> regId_ {};
     // Type, BASIC: Basic query, ADVANCE: Advanced query, BATCH: Batch query
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

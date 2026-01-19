@@ -48,75 +48,75 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->createType_ == nullptr && return this->data_ == nullptr && return this->description_ == nullptr && return this->importType_ == nullptr && return this->memo_ == nullptr
-        && return this->nameListType_ == nullptr && return this->regId_ == nullptr && return this->title_ == nullptr && return this->variableId_ == nullptr; };
+        && this->createType_ == nullptr && this->data_ == nullptr && this->description_ == nullptr && this->importType_ == nullptr && this->memo_ == nullptr
+        && this->nameListType_ == nullptr && this->regId_ == nullptr && this->title_ == nullptr && this->variableId_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline ImportNameListRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // createType Field Functions 
     bool hasCreateType() const { return this->createType_ != nullptr;};
     void deleteCreateType() { this->createType_ = nullptr;};
-    inline string createType() const { DARABONBA_PTR_GET_DEFAULT(createType_, "") };
+    inline string getCreateType() const { DARABONBA_PTR_GET_DEFAULT(createType_, "") };
     inline ImportNameListRequest& setCreateType(string createType) { DARABONBA_PTR_SET_VALUE(createType_, createType) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline string data() const { DARABONBA_PTR_GET_DEFAULT(data_, "") };
+    inline string getData() const { DARABONBA_PTR_GET_DEFAULT(data_, "") };
     inline ImportNameListRequest& setData(string data) { DARABONBA_PTR_SET_VALUE(data_, data) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline ImportNameListRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // importType Field Functions 
     bool hasImportType() const { return this->importType_ != nullptr;};
     void deleteImportType() { this->importType_ = nullptr;};
-    inline string importType() const { DARABONBA_PTR_GET_DEFAULT(importType_, "") };
+    inline string getImportType() const { DARABONBA_PTR_GET_DEFAULT(importType_, "") };
     inline ImportNameListRequest& setImportType(string importType) { DARABONBA_PTR_SET_VALUE(importType_, importType) };
 
 
     // memo Field Functions 
     bool hasMemo() const { return this->memo_ != nullptr;};
     void deleteMemo() { this->memo_ = nullptr;};
-    inline string memo() const { DARABONBA_PTR_GET_DEFAULT(memo_, "") };
+    inline string getMemo() const { DARABONBA_PTR_GET_DEFAULT(memo_, "") };
     inline ImportNameListRequest& setMemo(string memo) { DARABONBA_PTR_SET_VALUE(memo_, memo) };
 
 
     // nameListType Field Functions 
     bool hasNameListType() const { return this->nameListType_ != nullptr;};
     void deleteNameListType() { this->nameListType_ = nullptr;};
-    inline string nameListType() const { DARABONBA_PTR_GET_DEFAULT(nameListType_, "") };
+    inline string getNameListType() const { DARABONBA_PTR_GET_DEFAULT(nameListType_, "") };
     inline ImportNameListRequest& setNameListType(string nameListType) { DARABONBA_PTR_SET_VALUE(nameListType_, nameListType) };
 
 
     // regId Field Functions 
     bool hasRegId() const { return this->regId_ != nullptr;};
     void deleteRegId() { this->regId_ = nullptr;};
-    inline string regId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
+    inline string getRegId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
     inline ImportNameListRequest& setRegId(string regId) { DARABONBA_PTR_SET_VALUE(regId_, regId) };
 
 
     // title Field Functions 
     bool hasTitle() const { return this->title_ != nullptr;};
     void deleteTitle() { this->title_ = nullptr;};
-    inline string title() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
+    inline string getTitle() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
     inline ImportNameListRequest& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
 
 
     // variableId Field Functions 
     bool hasVariableId() const { return this->variableId_ != nullptr;};
     void deleteVariableId() { this->variableId_ = nullptr;};
-    inline int64_t variableId() const { DARABONBA_PTR_GET_DEFAULT(variableId_, 0L) };
+    inline int64_t getVariableId() const { DARABONBA_PTR_GET_DEFAULT(variableId_, 0L) };
     inline ImportNameListRequest& setVariableId(int64_t variableId) { DARABONBA_PTR_SET_VALUE(variableId_, variableId) };
 
 
@@ -124,13 +124,13 @@ namespace Models
     // Set the language type for request and response messages, default value is **zh**. Values:
     // - **zh**: Chinese
     // - **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // Creation type
-    std::shared_ptr<string> createType_ = nullptr;
+    shared_ptr<string> createType_ {};
     // Import name list.
-    std::shared_ptr<string> data_ = nullptr;
+    shared_ptr<string> data_ {};
     // Description information.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // Document import type:
     // 
     // 
@@ -139,19 +139,19 @@ namespace Models
     // NONE: Do not upload for now
     // 
     // This parameter is required.
-    std::shared_ptr<string> importType_ = nullptr;
+    shared_ptr<string> importType_ {};
     // name content memo
-    std::shared_ptr<string> memo_ = nullptr;
+    shared_ptr<string> memo_ {};
     // nameListType
-    std::shared_ptr<string> nameListType_ = nullptr;
+    shared_ptr<string> nameListType_ {};
     // Region code
-    std::shared_ptr<string> regId_ = nullptr;
+    shared_ptr<string> regId_ {};
     // Title.
     // 
     // This parameter is required.
-    std::shared_ptr<string> title_ = nullptr;
+    shared_ptr<string> title_ {};
     // Variable ID
-    std::shared_ptr<int64_t> variableId_ = nullptr;
+    shared_ptr<int64_t> variableId_ {};
   };
 
   } // namespace Models

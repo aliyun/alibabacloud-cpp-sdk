@@ -46,68 +46,68 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->currentPage_ == nullptr && return this->eventBeginTime_ == nullptr && return this->eventCodes_ == nullptr && return this->eventEndTime_ == nullptr && return this->fieldName_ == nullptr
-        && return this->fieldValue_ == nullptr && return this->pageSize_ == nullptr && return this->regId_ == nullptr; };
+        && this->currentPage_ == nullptr && this->eventBeginTime_ == nullptr && this->eventCodes_ == nullptr && this->eventEndTime_ == nullptr && this->fieldName_ == nullptr
+        && this->fieldValue_ == nullptr && this->pageSize_ == nullptr && this->regId_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeBasicSearchPageListRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int64_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0L) };
+    inline int64_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0L) };
     inline DescribeBasicSearchPageListRequest& setCurrentPage(int64_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // eventBeginTime Field Functions 
     bool hasEventBeginTime() const { return this->eventBeginTime_ != nullptr;};
     void deleteEventBeginTime() { this->eventBeginTime_ = nullptr;};
-    inline int64_t eventBeginTime() const { DARABONBA_PTR_GET_DEFAULT(eventBeginTime_, 0L) };
+    inline int64_t getEventBeginTime() const { DARABONBA_PTR_GET_DEFAULT(eventBeginTime_, 0L) };
     inline DescribeBasicSearchPageListRequest& setEventBeginTime(int64_t eventBeginTime) { DARABONBA_PTR_SET_VALUE(eventBeginTime_, eventBeginTime) };
 
 
     // eventCodes Field Functions 
     bool hasEventCodes() const { return this->eventCodes_ != nullptr;};
     void deleteEventCodes() { this->eventCodes_ = nullptr;};
-    inline string eventCodes() const { DARABONBA_PTR_GET_DEFAULT(eventCodes_, "") };
+    inline string getEventCodes() const { DARABONBA_PTR_GET_DEFAULT(eventCodes_, "") };
     inline DescribeBasicSearchPageListRequest& setEventCodes(string eventCodes) { DARABONBA_PTR_SET_VALUE(eventCodes_, eventCodes) };
 
 
     // eventEndTime Field Functions 
     bool hasEventEndTime() const { return this->eventEndTime_ != nullptr;};
     void deleteEventEndTime() { this->eventEndTime_ = nullptr;};
-    inline int64_t eventEndTime() const { DARABONBA_PTR_GET_DEFAULT(eventEndTime_, 0L) };
+    inline int64_t getEventEndTime() const { DARABONBA_PTR_GET_DEFAULT(eventEndTime_, 0L) };
     inline DescribeBasicSearchPageListRequest& setEventEndTime(int64_t eventEndTime) { DARABONBA_PTR_SET_VALUE(eventEndTime_, eventEndTime) };
 
 
     // fieldName Field Functions 
     bool hasFieldName() const { return this->fieldName_ != nullptr;};
     void deleteFieldName() { this->fieldName_ = nullptr;};
-    inline string fieldName() const { DARABONBA_PTR_GET_DEFAULT(fieldName_, "") };
+    inline string getFieldName() const { DARABONBA_PTR_GET_DEFAULT(fieldName_, "") };
     inline DescribeBasicSearchPageListRequest& setFieldName(string fieldName) { DARABONBA_PTR_SET_VALUE(fieldName_, fieldName) };
 
 
     // fieldValue Field Functions 
     bool hasFieldValue() const { return this->fieldValue_ != nullptr;};
     void deleteFieldValue() { this->fieldValue_ = nullptr;};
-    inline string fieldValue() const { DARABONBA_PTR_GET_DEFAULT(fieldValue_, "") };
+    inline string getFieldValue() const { DARABONBA_PTR_GET_DEFAULT(fieldValue_, "") };
     inline DescribeBasicSearchPageListRequest& setFieldValue(string fieldValue) { DARABONBA_PTR_SET_VALUE(fieldValue_, fieldValue) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int64_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
+    inline int64_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
     inline DescribeBasicSearchPageListRequest& setPageSize(int64_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // regId Field Functions 
     bool hasRegId() const { return this->regId_ != nullptr;};
     void deleteRegId() { this->regId_ = nullptr;};
-    inline string regId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
+    inline string getRegId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
     inline DescribeBasicSearchPageListRequest& setRegId(string regId) { DARABONBA_PTR_SET_VALUE(regId_, regId) };
 
 
@@ -115,35 +115,35 @@ namespace Models
     // Sets the language type for requests and received messages, with a default value of **zh**. Values:
     // - **zh**: Chinese
     // - **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // Current page number.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> currentPage_ = nullptr;
+    shared_ptr<int64_t> currentPage_ {};
     // Query start time, accurate to milliseconds (ms).
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> eventBeginTime_ = nullptr;
+    shared_ptr<int64_t> eventBeginTime_ {};
     // Event code.
     // 
     // This parameter is required.
-    std::shared_ptr<string> eventCodes_ = nullptr;
+    shared_ptr<string> eventCodes_ {};
     // End time, accurate to milliseconds (ms).
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> eventEndTime_ = nullptr;
+    shared_ptr<int64_t> eventEndTime_ {};
     // Field name
-    std::shared_ptr<string> fieldName_ = nullptr;
+    shared_ptr<string> fieldName_ {};
     // Field value
-    std::shared_ptr<string> fieldValue_ = nullptr;
+    shared_ptr<string> fieldValue_ {};
     // Page size, with a default value of 10
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> pageSize_ = nullptr;
+    shared_ptr<int64_t> pageSize_ {};
     // Region code
     // 
     // This parameter is required.
-    std::shared_ptr<string> regId_ = nullptr;
+    shared_ptr<string> regId_ {};
   };
 
   } // namespace Models

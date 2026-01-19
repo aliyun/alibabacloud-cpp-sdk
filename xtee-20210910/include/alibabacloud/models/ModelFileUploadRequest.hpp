@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->objectName_ == nullptr
-        && return this->regId_ == nullptr; };
+        && this->regId_ == nullptr; };
     // objectName Field Functions 
     bool hasObjectName() const { return this->objectName_ != nullptr;};
     void deleteObjectName() { this->objectName_ = nullptr;};
-    inline string objectName() const { DARABONBA_PTR_GET_DEFAULT(objectName_, "") };
+    inline string getObjectName() const { DARABONBA_PTR_GET_DEFAULT(objectName_, "") };
     inline ModelFileUploadRequest& setObjectName(string objectName) { DARABONBA_PTR_SET_VALUE(objectName_, objectName) };
 
 
     // regId Field Functions 
     bool hasRegId() const { return this->regId_ != nullptr;};
     void deleteRegId() { this->regId_ = nullptr;};
-    inline string regId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
+    inline string getRegId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
     inline ModelFileUploadRequest& setRegId(string regId) { DARABONBA_PTR_SET_VALUE(regId_, regId) };
 
 
@@ -51,9 +51,9 @@ namespace Models
     // File name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> objectName_ = nullptr;
+    shared_ptr<string> objectName_ {};
     // Region code.
-    std::shared_ptr<string> regId_ = nullptr;
+    shared_ptr<string> regId_ {};
   };
 
   } // namespace Models

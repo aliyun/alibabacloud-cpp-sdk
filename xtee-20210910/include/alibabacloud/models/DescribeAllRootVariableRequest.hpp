@@ -48,75 +48,75 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->sourceIp_ == nullptr && return this->deviceVariableIds_ == nullptr && return this->eventCode_ == nullptr && return this->expressionVariableIds_ == nullptr && return this->id_ == nullptr
-        && return this->nativeVariableIds_ == nullptr && return this->queryVariableIds_ == nullptr && return this->regId_ == nullptr && return this->velocityVariableIds_ == nullptr; };
+        && this->sourceIp_ == nullptr && this->deviceVariableIds_ == nullptr && this->eventCode_ == nullptr && this->expressionVariableIds_ == nullptr && this->id_ == nullptr
+        && this->nativeVariableIds_ == nullptr && this->queryVariableIds_ == nullptr && this->regId_ == nullptr && this->velocityVariableIds_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeAllRootVariableRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // sourceIp Field Functions 
     bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
     void deleteSourceIp() { this->sourceIp_ = nullptr;};
-    inline string sourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
+    inline string getSourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
     inline DescribeAllRootVariableRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
 
 
     // deviceVariableIds Field Functions 
     bool hasDeviceVariableIds() const { return this->deviceVariableIds_ != nullptr;};
     void deleteDeviceVariableIds() { this->deviceVariableIds_ = nullptr;};
-    inline string deviceVariableIds() const { DARABONBA_PTR_GET_DEFAULT(deviceVariableIds_, "") };
+    inline string getDeviceVariableIds() const { DARABONBA_PTR_GET_DEFAULT(deviceVariableIds_, "") };
     inline DescribeAllRootVariableRequest& setDeviceVariableIds(string deviceVariableIds) { DARABONBA_PTR_SET_VALUE(deviceVariableIds_, deviceVariableIds) };
 
 
     // eventCode Field Functions 
     bool hasEventCode() const { return this->eventCode_ != nullptr;};
     void deleteEventCode() { this->eventCode_ = nullptr;};
-    inline string eventCode() const { DARABONBA_PTR_GET_DEFAULT(eventCode_, "") };
+    inline string getEventCode() const { DARABONBA_PTR_GET_DEFAULT(eventCode_, "") };
     inline DescribeAllRootVariableRequest& setEventCode(string eventCode) { DARABONBA_PTR_SET_VALUE(eventCode_, eventCode) };
 
 
     // expressionVariableIds Field Functions 
     bool hasExpressionVariableIds() const { return this->expressionVariableIds_ != nullptr;};
     void deleteExpressionVariableIds() { this->expressionVariableIds_ = nullptr;};
-    inline string expressionVariableIds() const { DARABONBA_PTR_GET_DEFAULT(expressionVariableIds_, "") };
+    inline string getExpressionVariableIds() const { DARABONBA_PTR_GET_DEFAULT(expressionVariableIds_, "") };
     inline DescribeAllRootVariableRequest& setExpressionVariableIds(string expressionVariableIds) { DARABONBA_PTR_SET_VALUE(expressionVariableIds_, expressionVariableIds) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline int64_t id() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+    inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
     inline DescribeAllRootVariableRequest& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // nativeVariableIds Field Functions 
     bool hasNativeVariableIds() const { return this->nativeVariableIds_ != nullptr;};
     void deleteNativeVariableIds() { this->nativeVariableIds_ = nullptr;};
-    inline string nativeVariableIds() const { DARABONBA_PTR_GET_DEFAULT(nativeVariableIds_, "") };
+    inline string getNativeVariableIds() const { DARABONBA_PTR_GET_DEFAULT(nativeVariableIds_, "") };
     inline DescribeAllRootVariableRequest& setNativeVariableIds(string nativeVariableIds) { DARABONBA_PTR_SET_VALUE(nativeVariableIds_, nativeVariableIds) };
 
 
     // queryVariableIds Field Functions 
     bool hasQueryVariableIds() const { return this->queryVariableIds_ != nullptr;};
     void deleteQueryVariableIds() { this->queryVariableIds_ = nullptr;};
-    inline string queryVariableIds() const { DARABONBA_PTR_GET_DEFAULT(queryVariableIds_, "") };
+    inline string getQueryVariableIds() const { DARABONBA_PTR_GET_DEFAULT(queryVariableIds_, "") };
     inline DescribeAllRootVariableRequest& setQueryVariableIds(string queryVariableIds) { DARABONBA_PTR_SET_VALUE(queryVariableIds_, queryVariableIds) };
 
 
     // regId Field Functions 
     bool hasRegId() const { return this->regId_ != nullptr;};
     void deleteRegId() { this->regId_ = nullptr;};
-    inline string regId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
+    inline string getRegId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
     inline DescribeAllRootVariableRequest& setRegId(string regId) { DARABONBA_PTR_SET_VALUE(regId_, regId) };
 
 
     // velocityVariableIds Field Functions 
     bool hasVelocityVariableIds() const { return this->velocityVariableIds_ != nullptr;};
     void deleteVelocityVariableIds() { this->velocityVariableIds_ = nullptr;};
-    inline string velocityVariableIds() const { DARABONBA_PTR_GET_DEFAULT(velocityVariableIds_, "") };
+    inline string getVelocityVariableIds() const { DARABONBA_PTR_GET_DEFAULT(velocityVariableIds_, "") };
     inline DescribeAllRootVariableRequest& setVelocityVariableIds(string velocityVariableIds) { DARABONBA_PTR_SET_VALUE(velocityVariableIds_, velocityVariableIds) };
 
 
@@ -124,25 +124,25 @@ namespace Models
     // Set the language type for requests and received messages, default value is **zh**. Values: 
     // - **zh**: Chinese
     // - **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // Request source IP. No need to fill in, the system will automatically obtain it.
-    std::shared_ptr<string> sourceIp_ = nullptr;
+    shared_ptr<string> sourceIp_ {};
     // Device variable list
-    std::shared_ptr<string> deviceVariableIds_ = nullptr;
+    shared_ptr<string> deviceVariableIds_ {};
     // Event code
-    std::shared_ptr<string> eventCode_ = nullptr;
+    shared_ptr<string> eventCode_ {};
     // Custom variable list
-    std::shared_ptr<string> expressionVariableIds_ = nullptr;
+    shared_ptr<string> expressionVariableIds_ {};
     // Variable ID.
-    std::shared_ptr<int64_t> id_ = nullptr;
+    shared_ptr<int64_t> id_ {};
     // Event field list
-    std::shared_ptr<string> nativeVariableIds_ = nullptr;
+    shared_ptr<string> nativeVariableIds_ {};
     // Custom query variable
-    std::shared_ptr<string> queryVariableIds_ = nullptr;
+    shared_ptr<string> queryVariableIds_ {};
     // Region code
-    std::shared_ptr<string> regId_ = nullptr;
+    shared_ptr<string> regId_ {};
     // Custom cumulative variable
-    std::shared_ptr<string> velocityVariableIds_ = nullptr;
+    shared_ptr<string> velocityVariableIds_ {};
   };
 
   } // namespace Models

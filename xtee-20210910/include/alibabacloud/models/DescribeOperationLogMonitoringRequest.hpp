@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->endDate_ == nullptr && return this->regId_ == nullptr && return this->startDate_ == nullptr && return this->userNameSearch_ == nullptr; };
+        && this->endDate_ == nullptr && this->regId_ == nullptr && this->startDate_ == nullptr && this->userNameSearch_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeOperationLogMonitoringRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // endDate Field Functions 
     bool hasEndDate() const { return this->endDate_ != nullptr;};
     void deleteEndDate() { this->endDate_ = nullptr;};
-    inline string endDate() const { DARABONBA_PTR_GET_DEFAULT(endDate_, "") };
+    inline string getEndDate() const { DARABONBA_PTR_GET_DEFAULT(endDate_, "") };
     inline DescribeOperationLogMonitoringRequest& setEndDate(string endDate) { DARABONBA_PTR_SET_VALUE(endDate_, endDate) };
 
 
     // regId Field Functions 
     bool hasRegId() const { return this->regId_ != nullptr;};
     void deleteRegId() { this->regId_ = nullptr;};
-    inline string regId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
+    inline string getRegId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
     inline DescribeOperationLogMonitoringRequest& setRegId(string regId) { DARABONBA_PTR_SET_VALUE(regId_, regId) };
 
 
     // startDate Field Functions 
     bool hasStartDate() const { return this->startDate_ != nullptr;};
     void deleteStartDate() { this->startDate_ = nullptr;};
-    inline string startDate() const { DARABONBA_PTR_GET_DEFAULT(startDate_, "") };
+    inline string getStartDate() const { DARABONBA_PTR_GET_DEFAULT(startDate_, "") };
     inline DescribeOperationLogMonitoringRequest& setStartDate(string startDate) { DARABONBA_PTR_SET_VALUE(startDate_, startDate) };
 
 
     // userNameSearch Field Functions 
     bool hasUserNameSearch() const { return this->userNameSearch_ != nullptr;};
     void deleteUserNameSearch() { this->userNameSearch_ = nullptr;};
-    inline string userNameSearch() const { DARABONBA_PTR_GET_DEFAULT(userNameSearch_, "") };
+    inline string getUserNameSearch() const { DARABONBA_PTR_GET_DEFAULT(userNameSearch_, "") };
     inline DescribeOperationLogMonitoringRequest& setUserNameSearch(string userNameSearch) { DARABONBA_PTR_SET_VALUE(userNameSearch_, userNameSearch) };
 
 
@@ -79,15 +79,15 @@ namespace Models
     // 
     // - **zh** (default): Chinese
     // - **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // End date (in yyyy-MM-dd format, and the interval from the start date cannot exceed 90 days)
-    std::shared_ptr<string> endDate_ = nullptr;
+    shared_ptr<string> endDate_ {};
     // Region code.
-    std::shared_ptr<string> regId_ = nullptr;
+    shared_ptr<string> regId_ {};
     // Start date (in yyyy-MM-dd format, and the interval from the current date cannot exceed 90 days)
-    std::shared_ptr<string> startDate_ = nullptr;
+    shared_ptr<string> startDate_ {};
     // Operator.
-    std::shared_ptr<string> userNameSearch_ = nullptr;
+    shared_ptr<string> userNameSearch_ {};
   };
 
   } // namespace Models

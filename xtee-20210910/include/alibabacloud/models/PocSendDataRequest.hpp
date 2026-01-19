@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->batchNo_ == nullptr
-        && return this->lang_ == nullptr && return this->paramsList_ == nullptr && return this->regId_ == nullptr && return this->token_ == nullptr; };
+        && this->lang_ == nullptr && this->paramsList_ == nullptr && this->regId_ == nullptr && this->token_ == nullptr; };
     // batchNo Field Functions 
     bool hasBatchNo() const { return this->batchNo_ != nullptr;};
     void deleteBatchNo() { this->batchNo_ = nullptr;};
-    inline int64_t batchNo() const { DARABONBA_PTR_GET_DEFAULT(batchNo_, 0L) };
+    inline int64_t getBatchNo() const { DARABONBA_PTR_GET_DEFAULT(batchNo_, 0L) };
     inline PocSendDataRequest& setBatchNo(int64_t batchNo) { DARABONBA_PTR_SET_VALUE(batchNo_, batchNo) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline PocSendDataRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // paramsList Field Functions 
     bool hasParamsList() const { return this->paramsList_ != nullptr;};
     void deleteParamsList() { this->paramsList_ = nullptr;};
-    inline string paramsList() const { DARABONBA_PTR_GET_DEFAULT(paramsList_, "") };
+    inline string getParamsList() const { DARABONBA_PTR_GET_DEFAULT(paramsList_, "") };
     inline PocSendDataRequest& setParamsList(string paramsList) { DARABONBA_PTR_SET_VALUE(paramsList_, paramsList) };
 
 
     // regId Field Functions 
     bool hasRegId() const { return this->regId_ != nullptr;};
     void deleteRegId() { this->regId_ = nullptr;};
-    inline string regId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
+    inline string getRegId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
     inline PocSendDataRequest& setRegId(string regId) { DARABONBA_PTR_SET_VALUE(regId_, regId) };
 
 
     // token Field Functions 
     bool hasToken() const { return this->token_ != nullptr;};
     void deleteToken() { this->token_ = nullptr;};
-    inline string token() const { DARABONBA_PTR_GET_DEFAULT(token_, "") };
+    inline string getToken() const { DARABONBA_PTR_GET_DEFAULT(token_, "") };
     inline PocSendDataRequest& setToken(string token) { DARABONBA_PTR_SET_VALUE(token_, token) };
 
 
@@ -78,21 +78,21 @@ namespace Models
     // Starting position for batch operations, starting from 0.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> batchNo_ = nullptr;
+    shared_ptr<int64_t> batchNo_ {};
     // Sets the language type for requests and received messages, default value is **zh**. Values:
     // - **zh**: Chinese
     // - **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // Return parameters, in JSON format.
     // 
     // This parameter is required.
-    std::shared_ptr<string> paramsList_ = nullptr;
+    shared_ptr<string> paramsList_ {};
     // Region code.
-    std::shared_ptr<string> regId_ = nullptr;
+    shared_ptr<string> regId_ {};
     // Task token.
     // 
     // This parameter is required.
-    std::shared_ptr<string> token_ = nullptr;
+    shared_ptr<string> token_ {};
   };
 
   } // namespace Models

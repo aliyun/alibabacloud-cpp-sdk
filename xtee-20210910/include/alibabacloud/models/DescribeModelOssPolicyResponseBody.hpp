@@ -44,81 +44,81 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessId_ == nullptr
-        && return this->host_ == nullptr && return this->key_ == nullptr && return this->message_ == nullptr && return this->policy_ == nullptr && return this->requestId_ == nullptr
-        && return this->signature_ == nullptr && return this->resultObject_ == nullptr; };
+        && this->host_ == nullptr && this->key_ == nullptr && this->message_ == nullptr && this->policy_ == nullptr && this->requestId_ == nullptr
+        && this->signature_ == nullptr && this->resultObject_ == nullptr; };
     // accessId Field Functions 
     bool hasAccessId() const { return this->accessId_ != nullptr;};
     void deleteAccessId() { this->accessId_ = nullptr;};
-    inline string accessId() const { DARABONBA_PTR_GET_DEFAULT(accessId_, "") };
+    inline string getAccessId() const { DARABONBA_PTR_GET_DEFAULT(accessId_, "") };
     inline DescribeModelOssPolicyResponseBody& setAccessId(string accessId) { DARABONBA_PTR_SET_VALUE(accessId_, accessId) };
 
 
     // host Field Functions 
     bool hasHost() const { return this->host_ != nullptr;};
     void deleteHost() { this->host_ = nullptr;};
-    inline string host() const { DARABONBA_PTR_GET_DEFAULT(host_, "") };
+    inline string getHost() const { DARABONBA_PTR_GET_DEFAULT(host_, "") };
     inline DescribeModelOssPolicyResponseBody& setHost(string host) { DARABONBA_PTR_SET_VALUE(host_, host) };
 
 
     // key Field Functions 
     bool hasKey() const { return this->key_ != nullptr;};
     void deleteKey() { this->key_ = nullptr;};
-    inline string key() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+    inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
     inline DescribeModelOssPolicyResponseBody& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline DescribeModelOssPolicyResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // policy Field Functions 
     bool hasPolicy() const { return this->policy_ != nullptr;};
     void deletePolicy() { this->policy_ = nullptr;};
-    inline string policy() const { DARABONBA_PTR_GET_DEFAULT(policy_, "") };
+    inline string getPolicy() const { DARABONBA_PTR_GET_DEFAULT(policy_, "") };
     inline DescribeModelOssPolicyResponseBody& setPolicy(string policy) { DARABONBA_PTR_SET_VALUE(policy_, policy) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeModelOssPolicyResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // signature Field Functions 
     bool hasSignature() const { return this->signature_ != nullptr;};
     void deleteSignature() { this->signature_ = nullptr;};
-    inline string signature() const { DARABONBA_PTR_GET_DEFAULT(signature_, "") };
+    inline string getSignature() const { DARABONBA_PTR_GET_DEFAULT(signature_, "") };
     inline DescribeModelOssPolicyResponseBody& setSignature(string signature) { DARABONBA_PTR_SET_VALUE(signature_, signature) };
 
 
     // resultObject Field Functions 
     bool hasResultObject() const { return this->resultObject_ != nullptr;};
     void deleteResultObject() { this->resultObject_ = nullptr;};
-    inline bool resultObject() const { DARABONBA_PTR_GET_DEFAULT(resultObject_, false) };
+    inline bool getResultObject() const { DARABONBA_PTR_GET_DEFAULT(resultObject_, false) };
     inline DescribeModelOssPolicyResponseBody& setResultObject(bool resultObject) { DARABONBA_PTR_SET_VALUE(resultObject_, resultObject) };
 
 
   protected:
     // Access ID for OSS.
-    std::shared_ptr<string> accessId_ = nullptr;
+    shared_ptr<string> accessId_ {};
     // Address.
-    std::shared_ptr<string> host_ = nullptr;
+    shared_ptr<string> host_ {};
     // OSS access key secret.
-    std::shared_ptr<string> key_ = nullptr;
+    shared_ptr<string> key_ {};
     // Error message.
-    std::shared_ptr<string> message_ = nullptr;
+    shared_ptr<string> message_ {};
     // The policy for user form upload, which is a base64-encoded string.
-    std::shared_ptr<string> policy_ = nullptr;
+    shared_ptr<string> policy_ {};
     // Request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Signature information.
-    std::shared_ptr<string> signature_ = nullptr;
+    shared_ptr<string> signature_ {};
     // Return result.
-    std::shared_ptr<bool> resultObject_ = nullptr;
+    shared_ptr<bool> resultObject_ {};
   };
 
   } // namespace Models

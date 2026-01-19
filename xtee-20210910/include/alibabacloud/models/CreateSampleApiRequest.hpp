@@ -40,64 +40,64 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dataType_ == nullptr
-        && return this->dataValue_ == nullptr && return this->lang_ == nullptr && return this->regId_ == nullptr && return this->sampleBatchType_ == nullptr && return this->serviceList_ == nullptr; };
+        && this->dataValue_ == nullptr && this->lang_ == nullptr && this->regId_ == nullptr && this->sampleBatchType_ == nullptr && this->serviceList_ == nullptr; };
     // dataType Field Functions 
     bool hasDataType() const { return this->dataType_ != nullptr;};
     void deleteDataType() { this->dataType_ = nullptr;};
-    inline string dataType() const { DARABONBA_PTR_GET_DEFAULT(dataType_, "") };
+    inline string getDataType() const { DARABONBA_PTR_GET_DEFAULT(dataType_, "") };
     inline CreateSampleApiRequest& setDataType(string dataType) { DARABONBA_PTR_SET_VALUE(dataType_, dataType) };
 
 
     // dataValue Field Functions 
     bool hasDataValue() const { return this->dataValue_ != nullptr;};
     void deleteDataValue() { this->dataValue_ = nullptr;};
-    inline string dataValue() const { DARABONBA_PTR_GET_DEFAULT(dataValue_, "") };
+    inline string getDataValue() const { DARABONBA_PTR_GET_DEFAULT(dataValue_, "") };
     inline CreateSampleApiRequest& setDataValue(string dataValue) { DARABONBA_PTR_SET_VALUE(dataValue_, dataValue) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline CreateSampleApiRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // regId Field Functions 
     bool hasRegId() const { return this->regId_ != nullptr;};
     void deleteRegId() { this->regId_ = nullptr;};
-    inline string regId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
+    inline string getRegId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
     inline CreateSampleApiRequest& setRegId(string regId) { DARABONBA_PTR_SET_VALUE(regId_, regId) };
 
 
     // sampleBatchType Field Functions 
     bool hasSampleBatchType() const { return this->sampleBatchType_ != nullptr;};
     void deleteSampleBatchType() { this->sampleBatchType_ = nullptr;};
-    inline string sampleBatchType() const { DARABONBA_PTR_GET_DEFAULT(sampleBatchType_, "") };
+    inline string getSampleBatchType() const { DARABONBA_PTR_GET_DEFAULT(sampleBatchType_, "") };
     inline CreateSampleApiRequest& setSampleBatchType(string sampleBatchType) { DARABONBA_PTR_SET_VALUE(sampleBatchType_, sampleBatchType) };
 
 
     // serviceList Field Functions 
     bool hasServiceList() const { return this->serviceList_ != nullptr;};
     void deleteServiceList() { this->serviceList_ = nullptr;};
-    inline string serviceList() const { DARABONBA_PTR_GET_DEFAULT(serviceList_, "") };
+    inline string getServiceList() const { DARABONBA_PTR_GET_DEFAULT(serviceList_, "") };
     inline CreateSampleApiRequest& setServiceList(string serviceList) { DARABONBA_PTR_SET_VALUE(serviceList_, serviceList) };
 
 
   protected:
     // Same as input parameter
-    std::shared_ptr<string> dataType_ = nullptr;
+    shared_ptr<string> dataType_ {};
     // Specific data value
-    std::shared_ptr<string> dataValue_ = nullptr;
+    shared_ptr<string> dataValue_ {};
     // Sets the language type for requests and received messages, with a default value of **zh**. Values:
     // - **zh**: Chinese
     // - **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // regionId
-    std::shared_ptr<string> regId_ = nullptr;
+    shared_ptr<string> regId_ {};
     // Sample batch type
-    std::shared_ptr<string> sampleBatchType_ = nullptr;
+    shared_ptr<string> sampleBatchType_ {};
     // Service list.
-    std::shared_ptr<string> serviceList_ = nullptr;
+    shared_ptr<string> serviceList_ {};
   };
 
   } // namespace Models

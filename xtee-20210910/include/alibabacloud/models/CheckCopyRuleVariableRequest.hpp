@@ -40,64 +40,64 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->createType_ == nullptr
-        && return this->lang_ == nullptr && return this->regId_ == nullptr && return this->sourceRuleId_ == nullptr && return this->sourceRuleIds_ == nullptr && return this->targetEventCode_ == nullptr; };
+        && this->lang_ == nullptr && this->regId_ == nullptr && this->sourceRuleId_ == nullptr && this->sourceRuleIds_ == nullptr && this->targetEventCode_ == nullptr; };
     // createType Field Functions 
     bool hasCreateType() const { return this->createType_ != nullptr;};
     void deleteCreateType() { this->createType_ = nullptr;};
-    inline string createType() const { DARABONBA_PTR_GET_DEFAULT(createType_, "") };
+    inline string getCreateType() const { DARABONBA_PTR_GET_DEFAULT(createType_, "") };
     inline CheckCopyRuleVariableRequest& setCreateType(string createType) { DARABONBA_PTR_SET_VALUE(createType_, createType) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline CheckCopyRuleVariableRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // regId Field Functions 
     bool hasRegId() const { return this->regId_ != nullptr;};
     void deleteRegId() { this->regId_ = nullptr;};
-    inline string regId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
+    inline string getRegId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
     inline CheckCopyRuleVariableRequest& setRegId(string regId) { DARABONBA_PTR_SET_VALUE(regId_, regId) };
 
 
     // sourceRuleId Field Functions 
     bool hasSourceRuleId() const { return this->sourceRuleId_ != nullptr;};
     void deleteSourceRuleId() { this->sourceRuleId_ = nullptr;};
-    inline string sourceRuleId() const { DARABONBA_PTR_GET_DEFAULT(sourceRuleId_, "") };
+    inline string getSourceRuleId() const { DARABONBA_PTR_GET_DEFAULT(sourceRuleId_, "") };
     inline CheckCopyRuleVariableRequest& setSourceRuleId(string sourceRuleId) { DARABONBA_PTR_SET_VALUE(sourceRuleId_, sourceRuleId) };
 
 
     // sourceRuleIds Field Functions 
     bool hasSourceRuleIds() const { return this->sourceRuleIds_ != nullptr;};
     void deleteSourceRuleIds() { this->sourceRuleIds_ = nullptr;};
-    inline string sourceRuleIds() const { DARABONBA_PTR_GET_DEFAULT(sourceRuleIds_, "") };
+    inline string getSourceRuleIds() const { DARABONBA_PTR_GET_DEFAULT(sourceRuleIds_, "") };
     inline CheckCopyRuleVariableRequest& setSourceRuleIds(string sourceRuleIds) { DARABONBA_PTR_SET_VALUE(sourceRuleIds_, sourceRuleIds) };
 
 
     // targetEventCode Field Functions 
     bool hasTargetEventCode() const { return this->targetEventCode_ != nullptr;};
     void deleteTargetEventCode() { this->targetEventCode_ = nullptr;};
-    inline string targetEventCode() const { DARABONBA_PTR_GET_DEFAULT(targetEventCode_, "") };
+    inline string getTargetEventCode() const { DARABONBA_PTR_GET_DEFAULT(targetEventCode_, "") };
     inline CheckCopyRuleVariableRequest& setTargetEventCode(string targetEventCode) { DARABONBA_PTR_SET_VALUE(targetEventCode_, targetEventCode) };
 
 
   protected:
     // Creation type
-    std::shared_ptr<string> createType_ = nullptr;
+    shared_ptr<string> createType_ {};
     // Sets the language type for requests and received messages, with a default value of **zh**. Values: 
     // - **zh**: Chinese
     // - **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // Region code
-    std::shared_ptr<string> regId_ = nullptr;
+    shared_ptr<string> regId_ {};
     // Source policy ID
-    std::shared_ptr<string> sourceRuleId_ = nullptr;
+    shared_ptr<string> sourceRuleId_ {};
     // Source policy IDs
-    std::shared_ptr<string> sourceRuleIds_ = nullptr;
+    shared_ptr<string> sourceRuleIds_ {};
     // Target event
-    std::shared_ptr<string> targetEventCode_ = nullptr;
+    shared_ptr<string> targetEventCode_ {};
   };
 
   } // namespace Models

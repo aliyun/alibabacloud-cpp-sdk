@@ -50,110 +50,110 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->createType_ == nullptr
-        && return this->custInsertInfo_ == nullptr && return this->custWriteInfo_ == nullptr && return this->expressionVariableInfo_ == nullptr && return this->lang_ == nullptr && return this->queryExpressionVariableInfo_ == nullptr
-        && return this->regId_ == nullptr && return this->sourceRuleId_ == nullptr && return this->sourceRuleIds_ == nullptr && return this->targetEventCode_ == nullptr && return this->targetEventName_ == nullptr; };
+        && this->custInsertInfo_ == nullptr && this->custWriteInfo_ == nullptr && this->expressionVariableInfo_ == nullptr && this->lang_ == nullptr && this->queryExpressionVariableInfo_ == nullptr
+        && this->regId_ == nullptr && this->sourceRuleId_ == nullptr && this->sourceRuleIds_ == nullptr && this->targetEventCode_ == nullptr && this->targetEventName_ == nullptr; };
     // createType Field Functions 
     bool hasCreateType() const { return this->createType_ != nullptr;};
     void deleteCreateType() { this->createType_ = nullptr;};
-    inline string createType() const { DARABONBA_PTR_GET_DEFAULT(createType_, "") };
+    inline string getCreateType() const { DARABONBA_PTR_GET_DEFAULT(createType_, "") };
     inline DeepCopyRuleRequest& setCreateType(string createType) { DARABONBA_PTR_SET_VALUE(createType_, createType) };
 
 
     // custInsertInfo Field Functions 
     bool hasCustInsertInfo() const { return this->custInsertInfo_ != nullptr;};
     void deleteCustInsertInfo() { this->custInsertInfo_ = nullptr;};
-    inline string custInsertInfo() const { DARABONBA_PTR_GET_DEFAULT(custInsertInfo_, "") };
+    inline string getCustInsertInfo() const { DARABONBA_PTR_GET_DEFAULT(custInsertInfo_, "") };
     inline DeepCopyRuleRequest& setCustInsertInfo(string custInsertInfo) { DARABONBA_PTR_SET_VALUE(custInsertInfo_, custInsertInfo) };
 
 
     // custWriteInfo Field Functions 
     bool hasCustWriteInfo() const { return this->custWriteInfo_ != nullptr;};
     void deleteCustWriteInfo() { this->custWriteInfo_ = nullptr;};
-    inline string custWriteInfo() const { DARABONBA_PTR_GET_DEFAULT(custWriteInfo_, "") };
+    inline string getCustWriteInfo() const { DARABONBA_PTR_GET_DEFAULT(custWriteInfo_, "") };
     inline DeepCopyRuleRequest& setCustWriteInfo(string custWriteInfo) { DARABONBA_PTR_SET_VALUE(custWriteInfo_, custWriteInfo) };
 
 
     // expressionVariableInfo Field Functions 
     bool hasExpressionVariableInfo() const { return this->expressionVariableInfo_ != nullptr;};
     void deleteExpressionVariableInfo() { this->expressionVariableInfo_ = nullptr;};
-    inline string expressionVariableInfo() const { DARABONBA_PTR_GET_DEFAULT(expressionVariableInfo_, "") };
+    inline string getExpressionVariableInfo() const { DARABONBA_PTR_GET_DEFAULT(expressionVariableInfo_, "") };
     inline DeepCopyRuleRequest& setExpressionVariableInfo(string expressionVariableInfo) { DARABONBA_PTR_SET_VALUE(expressionVariableInfo_, expressionVariableInfo) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DeepCopyRuleRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // queryExpressionVariableInfo Field Functions 
     bool hasQueryExpressionVariableInfo() const { return this->queryExpressionVariableInfo_ != nullptr;};
     void deleteQueryExpressionVariableInfo() { this->queryExpressionVariableInfo_ = nullptr;};
-    inline string queryExpressionVariableInfo() const { DARABONBA_PTR_GET_DEFAULT(queryExpressionVariableInfo_, "") };
+    inline string getQueryExpressionVariableInfo() const { DARABONBA_PTR_GET_DEFAULT(queryExpressionVariableInfo_, "") };
     inline DeepCopyRuleRequest& setQueryExpressionVariableInfo(string queryExpressionVariableInfo) { DARABONBA_PTR_SET_VALUE(queryExpressionVariableInfo_, queryExpressionVariableInfo) };
 
 
     // regId Field Functions 
     bool hasRegId() const { return this->regId_ != nullptr;};
     void deleteRegId() { this->regId_ = nullptr;};
-    inline string regId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
+    inline string getRegId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
     inline DeepCopyRuleRequest& setRegId(string regId) { DARABONBA_PTR_SET_VALUE(regId_, regId) };
 
 
     // sourceRuleId Field Functions 
     bool hasSourceRuleId() const { return this->sourceRuleId_ != nullptr;};
     void deleteSourceRuleId() { this->sourceRuleId_ = nullptr;};
-    inline string sourceRuleId() const { DARABONBA_PTR_GET_DEFAULT(sourceRuleId_, "") };
+    inline string getSourceRuleId() const { DARABONBA_PTR_GET_DEFAULT(sourceRuleId_, "") };
     inline DeepCopyRuleRequest& setSourceRuleId(string sourceRuleId) { DARABONBA_PTR_SET_VALUE(sourceRuleId_, sourceRuleId) };
 
 
     // sourceRuleIds Field Functions 
     bool hasSourceRuleIds() const { return this->sourceRuleIds_ != nullptr;};
     void deleteSourceRuleIds() { this->sourceRuleIds_ = nullptr;};
-    inline string sourceRuleIds() const { DARABONBA_PTR_GET_DEFAULT(sourceRuleIds_, "") };
+    inline string getSourceRuleIds() const { DARABONBA_PTR_GET_DEFAULT(sourceRuleIds_, "") };
     inline DeepCopyRuleRequest& setSourceRuleIds(string sourceRuleIds) { DARABONBA_PTR_SET_VALUE(sourceRuleIds_, sourceRuleIds) };
 
 
     // targetEventCode Field Functions 
     bool hasTargetEventCode() const { return this->targetEventCode_ != nullptr;};
     void deleteTargetEventCode() { this->targetEventCode_ = nullptr;};
-    inline string targetEventCode() const { DARABONBA_PTR_GET_DEFAULT(targetEventCode_, "") };
+    inline string getTargetEventCode() const { DARABONBA_PTR_GET_DEFAULT(targetEventCode_, "") };
     inline DeepCopyRuleRequest& setTargetEventCode(string targetEventCode) { DARABONBA_PTR_SET_VALUE(targetEventCode_, targetEventCode) };
 
 
     // targetEventName Field Functions 
     bool hasTargetEventName() const { return this->targetEventName_ != nullptr;};
     void deleteTargetEventName() { this->targetEventName_ = nullptr;};
-    inline string targetEventName() const { DARABONBA_PTR_GET_DEFAULT(targetEventName_, "") };
+    inline string getTargetEventName() const { DARABONBA_PTR_GET_DEFAULT(targetEventName_, "") };
     inline DeepCopyRuleRequest& setTargetEventName(string targetEventName) { DARABONBA_PTR_SET_VALUE(targetEventName_, targetEventName) };
 
 
   protected:
     // Creation type
-    std::shared_ptr<string> createType_ = nullptr;
+    shared_ptr<string> createType_ {};
     // Newly added cumulative variable
-    std::shared_ptr<string> custInsertInfo_ = nullptr;
+    shared_ptr<string> custInsertInfo_ {};
     // Read cumulative variable
-    std::shared_ptr<string> custWriteInfo_ = nullptr;
+    shared_ptr<string> custWriteInfo_ {};
     // Custom variables to be added
-    std::shared_ptr<string> expressionVariableInfo_ = nullptr;
+    shared_ptr<string> expressionVariableInfo_ {};
     // Sets the language type for requests and received messages, with a default value of **zh**. Values: 
     // - **zh**: Chinese
     // - **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // Custom query variables to be added
-    std::shared_ptr<string> queryExpressionVariableInfo_ = nullptr;
+    shared_ptr<string> queryExpressionVariableInfo_ {};
     // Region code
-    std::shared_ptr<string> regId_ = nullptr;
+    shared_ptr<string> regId_ {};
     // Source policy ID
-    std::shared_ptr<string> sourceRuleId_ = nullptr;
+    shared_ptr<string> sourceRuleId_ {};
     // Target policy ID
-    std::shared_ptr<string> sourceRuleIds_ = nullptr;
+    shared_ptr<string> sourceRuleIds_ {};
     // Target event
-    std::shared_ptr<string> targetEventCode_ = nullptr;
+    shared_ptr<string> targetEventCode_ {};
     // Target event name
-    std::shared_ptr<string> targetEventName_ = nullptr;
+    shared_ptr<string> targetEventName_ {};
   };
 
   } // namespace Models

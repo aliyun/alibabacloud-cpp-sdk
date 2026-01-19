@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->regId_ == nullptr && return this->taskId_ == nullptr && return this->variableIdsStr_ == nullptr; };
+        && this->regId_ == nullptr && this->taskId_ == nullptr && this->variableIdsStr_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeRecommendVariablesVelocityRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // regId Field Functions 
     bool hasRegId() const { return this->regId_ != nullptr;};
     void deleteRegId() { this->regId_ = nullptr;};
-    inline string regId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
+    inline string getRegId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
     inline DescribeRecommendVariablesVelocityRequest& setRegId(string regId) { DARABONBA_PTR_SET_VALUE(regId_, regId) };
 
 
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline int64_t taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, 0L) };
+    inline int64_t getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, 0L) };
     inline DescribeRecommendVariablesVelocityRequest& setTaskId(int64_t taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
     // variableIdsStr Field Functions 
     bool hasVariableIdsStr() const { return this->variableIdsStr_ != nullptr;};
     void deleteVariableIdsStr() { this->variableIdsStr_ = nullptr;};
-    inline string variableIdsStr() const { DARABONBA_PTR_GET_DEFAULT(variableIdsStr_, "") };
+    inline string getVariableIdsStr() const { DARABONBA_PTR_GET_DEFAULT(variableIdsStr_, "") };
     inline DescribeRecommendVariablesVelocityRequest& setVariableIdsStr(string variableIdsStr) { DARABONBA_PTR_SET_VALUE(variableIdsStr_, variableIdsStr) };
 
 
@@ -69,15 +69,15 @@ namespace Models
     // Set the language type for request and response, default value is **zh**. Values:
     // - **zh**: Chinese
     // - **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // Region Code
-    std::shared_ptr<string> regId_ = nullptr;
+    shared_ptr<string> regId_ {};
     // Task ID
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> taskId_ = nullptr;
+    shared_ptr<int64_t> taskId_ {};
     // Variable IDs
-    std::shared_ptr<string> variableIdsStr_ = nullptr;
+    shared_ptr<string> variableIdsStr_ {};
   };
 
   } // namespace Models

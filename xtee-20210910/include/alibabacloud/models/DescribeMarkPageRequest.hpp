@@ -44,61 +44,61 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->currentPage_ == nullptr && return this->direction_ == nullptr && return this->isPage_ == nullptr && return this->order_ == nullptr && return this->pageSize_ == nullptr
-        && return this->regId_ == nullptr && return this->taskLogId_ == nullptr; };
+        && this->currentPage_ == nullptr && this->direction_ == nullptr && this->isPage_ == nullptr && this->order_ == nullptr && this->pageSize_ == nullptr
+        && this->regId_ == nullptr && this->taskLogId_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeMarkPageRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline string currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, "") };
+    inline string getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, "") };
     inline DescribeMarkPageRequest& setCurrentPage(string currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // direction Field Functions 
     bool hasDirection() const { return this->direction_ != nullptr;};
     void deleteDirection() { this->direction_ = nullptr;};
-    inline string direction() const { DARABONBA_PTR_GET_DEFAULT(direction_, "") };
+    inline string getDirection() const { DARABONBA_PTR_GET_DEFAULT(direction_, "") };
     inline DescribeMarkPageRequest& setDirection(string direction) { DARABONBA_PTR_SET_VALUE(direction_, direction) };
 
 
     // isPage Field Functions 
     bool hasIsPage() const { return this->isPage_ != nullptr;};
     void deleteIsPage() { this->isPage_ = nullptr;};
-    inline bool isPage() const { DARABONBA_PTR_GET_DEFAULT(isPage_, false) };
+    inline bool getIsPage() const { DARABONBA_PTR_GET_DEFAULT(isPage_, false) };
     inline DescribeMarkPageRequest& setIsPage(bool isPage) { DARABONBA_PTR_SET_VALUE(isPage_, isPage) };
 
 
     // order Field Functions 
     bool hasOrder() const { return this->order_ != nullptr;};
     void deleteOrder() { this->order_ = nullptr;};
-    inline string order() const { DARABONBA_PTR_GET_DEFAULT(order_, "") };
+    inline string getOrder() const { DARABONBA_PTR_GET_DEFAULT(order_, "") };
     inline DescribeMarkPageRequest& setOrder(string order) { DARABONBA_PTR_SET_VALUE(order_, order) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline string pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
+    inline string getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
     inline DescribeMarkPageRequest& setPageSize(string pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // regId Field Functions 
     bool hasRegId() const { return this->regId_ != nullptr;};
     void deleteRegId() { this->regId_ = nullptr;};
-    inline string regId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
+    inline string getRegId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
     inline DescribeMarkPageRequest& setRegId(string regId) { DARABONBA_PTR_SET_VALUE(regId_, regId) };
 
 
     // taskLogId Field Functions 
     bool hasTaskLogId() const { return this->taskLogId_ != nullptr;};
     void deleteTaskLogId() { this->taskLogId_ = nullptr;};
-    inline string taskLogId() const { DARABONBA_PTR_GET_DEFAULT(taskLogId_, "") };
+    inline string getTaskLogId() const { DARABONBA_PTR_GET_DEFAULT(taskLogId_, "") };
     inline DescribeMarkPageRequest& setTaskLogId(string taskLogId) { DARABONBA_PTR_SET_VALUE(taskLogId_, taskLogId) };
 
 
@@ -106,21 +106,21 @@ namespace Models
     // Sets the language type for requests and received messages, default value is **zh**. Values:
     // - **zh**: Chinese
     // - **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // Current page number.
-    std::shared_ptr<string> currentPage_ = nullptr;
+    shared_ptr<string> currentPage_ {};
     // Order direction.
-    std::shared_ptr<string> direction_ = nullptr;
+    shared_ptr<string> direction_ {};
     // Whether to paginate.
-    std::shared_ptr<bool> isPage_ = nullptr;
+    shared_ptr<bool> isPage_ {};
     // Sorting condition.
-    std::shared_ptr<string> order_ = nullptr;
+    shared_ptr<string> order_ {};
     // Page size, default value is 10.
-    std::shared_ptr<string> pageSize_ = nullptr;
+    shared_ptr<string> pageSize_ {};
     // Region code.
-    std::shared_ptr<string> regId_ = nullptr;
+    shared_ptr<string> regId_ {};
     // Task ID.
-    std::shared_ptr<string> taskLogId_ = nullptr;
+    shared_ptr<string> taskLogId_ {};
   };
 
   } // namespace Models
