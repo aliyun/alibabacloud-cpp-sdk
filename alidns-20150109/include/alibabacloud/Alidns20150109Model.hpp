@@ -50,6 +50,9 @@
 #include <alibabacloud/models/AddRspDomainServerHoldStatusForGatewayRequest.hpp>
 #include <alibabacloud/models/AddRspDomainServerHoldStatusForGatewayResponseBody.hpp>
 #include <alibabacloud/models/AddRspDomainServerHoldStatusForGatewayResponse.hpp>
+#include <alibabacloud/models/AddRspDomainServerHoldStatusForGatewayOteRequest.hpp>
+#include <alibabacloud/models/AddRspDomainServerHoldStatusForGatewayOteResponseBody.hpp>
+#include <alibabacloud/models/AddRspDomainServerHoldStatusForGatewayOteResponse.hpp>
 #include <alibabacloud/models/BindInstanceDomainsRequest.hpp>
 #include <alibabacloud/models/BindInstanceDomainsResponseBody.hpp>
 #include <alibabacloud/models/BindInstanceDomainsResponse.hpp>
@@ -480,6 +483,9 @@
 #include <alibabacloud/models/RemoveRspDomainServerHoldStatusForGatewayRequest.hpp>
 #include <alibabacloud/models/RemoveRspDomainServerHoldStatusForGatewayResponseBody.hpp>
 #include <alibabacloud/models/RemoveRspDomainServerHoldStatusForGatewayResponse.hpp>
+#include <alibabacloud/models/RemoveRspDomainServerHoldStatusForGatewayOteRequest.hpp>
+#include <alibabacloud/models/RemoveRspDomainServerHoldStatusForGatewayOteResponseBody.hpp>
+#include <alibabacloud/models/RemoveRspDomainServerHoldStatusForGatewayOteResponse.hpp>
 #include <alibabacloud/models/ReplaceCloudGtmAddressPoolAddressRequest.hpp>
 #include <alibabacloud/models/ReplaceCloudGtmAddressPoolAddressShrinkRequest.hpp>
 #include <alibabacloud/models/ReplaceCloudGtmAddressPoolAddressResponseBody.hpp>
@@ -701,6 +707,9 @@
 #include <alibabacloud/models/UpdateRspDomainServerProhibitStatusForGatewayRequest.hpp>
 #include <alibabacloud/models/UpdateRspDomainServerProhibitStatusForGatewayResponseBody.hpp>
 #include <alibabacloud/models/UpdateRspDomainServerProhibitStatusForGatewayResponse.hpp>
+#include <alibabacloud/models/UpdateRspDomainServerProhibitStatusForGatewayOteRequest.hpp>
+#include <alibabacloud/models/UpdateRspDomainServerProhibitStatusForGatewayOteResponseBody.hpp>
+#include <alibabacloud/models/UpdateRspDomainServerProhibitStatusForGatewayOteResponse.hpp>
 #include <alibabacloud/models/ValidateDnsGtmCnameRrCanUseRequest.hpp>
 #include <alibabacloud/models/ValidateDnsGtmCnameRrCanUseResponseBody.hpp>
 #include <alibabacloud/models/ValidateDnsGtmCnameRrCanUseResponse.hpp>

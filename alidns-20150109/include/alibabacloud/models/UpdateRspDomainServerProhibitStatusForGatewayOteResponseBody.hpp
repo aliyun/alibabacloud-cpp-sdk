@@ -1,7 +1,8 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_REMOVERSPDOMAINSERVERHOLDSTATUSFORGATEWAYRESPONSEBODY_HPP_
-#define ALIBABACLOUD_MODELS_REMOVERSPDOMAINSERVERHOLDSTATUSFORGATEWAYRESPONSEBODY_HPP_
+#ifndef ALIBABACLOUD_MODELS_UPDATERSPDOMAINSERVERPROHIBITSTATUSFORGATEWAYOTERESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_UPDATERSPDOMAINSERVERPROHIBITSTATUSFORGATEWAYOTERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -10,29 +11,29 @@ namespace Alidns20150109
 {
 namespace Models
 {
-  class RemoveRspDomainServerHoldStatusForGatewayResponseBody : public Darabonba::Model {
+  class UpdateRspDomainServerProhibitStatusForGatewayOteResponseBody : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const RemoveRspDomainServerHoldStatusForGatewayResponseBody& obj) { 
+    friend void to_json(Darabonba::Json& j, const UpdateRspDomainServerProhibitStatusForGatewayOteResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(AccessDeniedDetail, accessDeniedDetail_);
       DARABONBA_PTR_TO_JSON(Data, data_);
       DARABONBA_PTR_TO_JSON(RecoverableError, recoverableError_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(Success, success_);
     };
-    friend void from_json(const Darabonba::Json& j, RemoveRspDomainServerHoldStatusForGatewayResponseBody& obj) { 
+    friend void from_json(const Darabonba::Json& j, UpdateRspDomainServerProhibitStatusForGatewayOteResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(AccessDeniedDetail, accessDeniedDetail_);
       DARABONBA_PTR_FROM_JSON(Data, data_);
       DARABONBA_PTR_FROM_JSON(RecoverableError, recoverableError_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(Success, success_);
     };
-    RemoveRspDomainServerHoldStatusForGatewayResponseBody() = default ;
-    RemoveRspDomainServerHoldStatusForGatewayResponseBody(const RemoveRspDomainServerHoldStatusForGatewayResponseBody &) = default ;
-    RemoveRspDomainServerHoldStatusForGatewayResponseBody(RemoveRspDomainServerHoldStatusForGatewayResponseBody &&) = default ;
-    RemoveRspDomainServerHoldStatusForGatewayResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~RemoveRspDomainServerHoldStatusForGatewayResponseBody() = default ;
-    RemoveRspDomainServerHoldStatusForGatewayResponseBody& operator=(const RemoveRspDomainServerHoldStatusForGatewayResponseBody &) = default ;
-    RemoveRspDomainServerHoldStatusForGatewayResponseBody& operator=(RemoveRspDomainServerHoldStatusForGatewayResponseBody &&) = default ;
+    UpdateRspDomainServerProhibitStatusForGatewayOteResponseBody() = default ;
+    UpdateRspDomainServerProhibitStatusForGatewayOteResponseBody(const UpdateRspDomainServerProhibitStatusForGatewayOteResponseBody &) = default ;
+    UpdateRspDomainServerProhibitStatusForGatewayOteResponseBody(UpdateRspDomainServerProhibitStatusForGatewayOteResponseBody &&) = default ;
+    UpdateRspDomainServerProhibitStatusForGatewayOteResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~UpdateRspDomainServerProhibitStatusForGatewayOteResponseBody() = default ;
+    UpdateRspDomainServerProhibitStatusForGatewayOteResponseBody& operator=(const UpdateRspDomainServerProhibitStatusForGatewayOteResponseBody &) = default ;
+    UpdateRspDomainServerProhibitStatusForGatewayOteResponseBody& operator=(UpdateRspDomainServerProhibitStatusForGatewayOteResponseBody &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -41,11 +42,11 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
         DARABONBA_PTR_TO_JSON(DomainName, domainName_);
-        DARABONBA_PTR_TO_JSON(ServerHoldStatus, serverHoldStatus_);
+        DARABONBA_PTR_TO_JSON(StatusList, statusList_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(DomainName, domainName_);
-        DARABONBA_PTR_FROM_JSON(ServerHoldStatus, serverHoldStatus_);
+        DARABONBA_PTR_FROM_JSON(StatusList, statusList_);
       };
       Data() = default ;
       Data(const Data &) = default ;
@@ -58,8 +59,60 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class StatusList : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const StatusList& obj) { 
+          DARABONBA_PTR_TO_JSON(DomainName, domainName_);
+          DARABONBA_PTR_TO_JSON(Status, status_);
+          DARABONBA_PTR_TO_JSON(StatusMsg, statusMsg_);
+        };
+        friend void from_json(const Darabonba::Json& j, StatusList& obj) { 
+          DARABONBA_PTR_FROM_JSON(DomainName, domainName_);
+          DARABONBA_PTR_FROM_JSON(Status, status_);
+          DARABONBA_PTR_FROM_JSON(StatusMsg, statusMsg_);
+        };
+        StatusList() = default ;
+        StatusList(const StatusList &) = default ;
+        StatusList(StatusList &&) = default ;
+        StatusList(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~StatusList() = default ;
+        StatusList& operator=(const StatusList &) = default ;
+        StatusList& operator=(StatusList &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->domainName_ == nullptr
+        && this->status_ == nullptr && this->statusMsg_ == nullptr; };
+        // domainName Field Functions 
+        bool hasDomainName() const { return this->domainName_ != nullptr;};
+        void deleteDomainName() { this->domainName_ = nullptr;};
+        inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
+        inline StatusList& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
+
+
+        // status Field Functions 
+        bool hasStatus() const { return this->status_ != nullptr;};
+        void deleteStatus() { this->status_ = nullptr;};
+        inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+        inline StatusList& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+        // statusMsg Field Functions 
+        bool hasStatusMsg() const { return this->statusMsg_ != nullptr;};
+        void deleteStatusMsg() { this->statusMsg_ = nullptr;};
+        inline string getStatusMsg() const { DARABONBA_PTR_GET_DEFAULT(statusMsg_, "") };
+        inline StatusList& setStatusMsg(string statusMsg) { DARABONBA_PTR_SET_VALUE(statusMsg_, statusMsg) };
+
+
+      protected:
+        shared_ptr<string> domainName_ {};
+        shared_ptr<string> status_ {};
+        shared_ptr<string> statusMsg_ {};
+      };
+
       virtual bool empty() const override { return this->domainName_ == nullptr
-        && this->serverHoldStatus_ == nullptr; };
+        && this->statusList_ == nullptr; };
       // domainName Field Functions 
       bool hasDomainName() const { return this->domainName_ != nullptr;};
       void deleteDomainName() { this->domainName_ = nullptr;};
@@ -67,16 +120,18 @@ namespace Models
       inline Data& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
 
 
-      // serverHoldStatus Field Functions 
-      bool hasServerHoldStatus() const { return this->serverHoldStatus_ != nullptr;};
-      void deleteServerHoldStatus() { this->serverHoldStatus_ = nullptr;};
-      inline string getServerHoldStatus() const { DARABONBA_PTR_GET_DEFAULT(serverHoldStatus_, "") };
-      inline Data& setServerHoldStatus(string serverHoldStatus) { DARABONBA_PTR_SET_VALUE(serverHoldStatus_, serverHoldStatus) };
+      // statusList Field Functions 
+      bool hasStatusList() const { return this->statusList_ != nullptr;};
+      void deleteStatusList() { this->statusList_ = nullptr;};
+      inline const vector<Data::StatusList> & getStatusList() const { DARABONBA_PTR_GET_CONST(statusList_, vector<Data::StatusList>) };
+      inline vector<Data::StatusList> getStatusList() { DARABONBA_PTR_GET(statusList_, vector<Data::StatusList>) };
+      inline Data& setStatusList(const vector<Data::StatusList> & statusList) { DARABONBA_PTR_SET_VALUE(statusList_, statusList) };
+      inline Data& setStatusList(vector<Data::StatusList> && statusList) { DARABONBA_PTR_SET_RVALUE(statusList_, statusList) };
 
 
     protected:
       shared_ptr<string> domainName_ {};
-      shared_ptr<string> serverHoldStatus_ {};
+      shared_ptr<vector<Data::StatusList>> statusList_ {};
     };
 
     class AccessDeniedDetail : public Darabonba::Model {
@@ -177,45 +232,45 @@ namespace Models
     // accessDeniedDetail Field Functions 
     bool hasAccessDeniedDetail() const { return this->accessDeniedDetail_ != nullptr;};
     void deleteAccessDeniedDetail() { this->accessDeniedDetail_ = nullptr;};
-    inline const RemoveRspDomainServerHoldStatusForGatewayResponseBody::AccessDeniedDetail & getAccessDeniedDetail() const { DARABONBA_PTR_GET_CONST(accessDeniedDetail_, RemoveRspDomainServerHoldStatusForGatewayResponseBody::AccessDeniedDetail) };
-    inline RemoveRspDomainServerHoldStatusForGatewayResponseBody::AccessDeniedDetail getAccessDeniedDetail() { DARABONBA_PTR_GET(accessDeniedDetail_, RemoveRspDomainServerHoldStatusForGatewayResponseBody::AccessDeniedDetail) };
-    inline RemoveRspDomainServerHoldStatusForGatewayResponseBody& setAccessDeniedDetail(const RemoveRspDomainServerHoldStatusForGatewayResponseBody::AccessDeniedDetail & accessDeniedDetail) { DARABONBA_PTR_SET_VALUE(accessDeniedDetail_, accessDeniedDetail) };
-    inline RemoveRspDomainServerHoldStatusForGatewayResponseBody& setAccessDeniedDetail(RemoveRspDomainServerHoldStatusForGatewayResponseBody::AccessDeniedDetail && accessDeniedDetail) { DARABONBA_PTR_SET_RVALUE(accessDeniedDetail_, accessDeniedDetail) };
+    inline const UpdateRspDomainServerProhibitStatusForGatewayOteResponseBody::AccessDeniedDetail & getAccessDeniedDetail() const { DARABONBA_PTR_GET_CONST(accessDeniedDetail_, UpdateRspDomainServerProhibitStatusForGatewayOteResponseBody::AccessDeniedDetail) };
+    inline UpdateRspDomainServerProhibitStatusForGatewayOteResponseBody::AccessDeniedDetail getAccessDeniedDetail() { DARABONBA_PTR_GET(accessDeniedDetail_, UpdateRspDomainServerProhibitStatusForGatewayOteResponseBody::AccessDeniedDetail) };
+    inline UpdateRspDomainServerProhibitStatusForGatewayOteResponseBody& setAccessDeniedDetail(const UpdateRspDomainServerProhibitStatusForGatewayOteResponseBody::AccessDeniedDetail & accessDeniedDetail) { DARABONBA_PTR_SET_VALUE(accessDeniedDetail_, accessDeniedDetail) };
+    inline UpdateRspDomainServerProhibitStatusForGatewayOteResponseBody& setAccessDeniedDetail(UpdateRspDomainServerProhibitStatusForGatewayOteResponseBody::AccessDeniedDetail && accessDeniedDetail) { DARABONBA_PTR_SET_RVALUE(accessDeniedDetail_, accessDeniedDetail) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const RemoveRspDomainServerHoldStatusForGatewayResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, RemoveRspDomainServerHoldStatusForGatewayResponseBody::Data) };
-    inline RemoveRspDomainServerHoldStatusForGatewayResponseBody::Data getData() { DARABONBA_PTR_GET(data_, RemoveRspDomainServerHoldStatusForGatewayResponseBody::Data) };
-    inline RemoveRspDomainServerHoldStatusForGatewayResponseBody& setData(const RemoveRspDomainServerHoldStatusForGatewayResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline RemoveRspDomainServerHoldStatusForGatewayResponseBody& setData(RemoveRspDomainServerHoldStatusForGatewayResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const UpdateRspDomainServerProhibitStatusForGatewayOteResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, UpdateRspDomainServerProhibitStatusForGatewayOteResponseBody::Data) };
+    inline UpdateRspDomainServerProhibitStatusForGatewayOteResponseBody::Data getData() { DARABONBA_PTR_GET(data_, UpdateRspDomainServerProhibitStatusForGatewayOteResponseBody::Data) };
+    inline UpdateRspDomainServerProhibitStatusForGatewayOteResponseBody& setData(const UpdateRspDomainServerProhibitStatusForGatewayOteResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline UpdateRspDomainServerProhibitStatusForGatewayOteResponseBody& setData(UpdateRspDomainServerProhibitStatusForGatewayOteResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // recoverableError Field Functions 
     bool hasRecoverableError() const { return this->recoverableError_ != nullptr;};
     void deleteRecoverableError() { this->recoverableError_ = nullptr;};
     inline bool getRecoverableError() const { DARABONBA_PTR_GET_DEFAULT(recoverableError_, false) };
-    inline RemoveRspDomainServerHoldStatusForGatewayResponseBody& setRecoverableError(bool recoverableError) { DARABONBA_PTR_SET_VALUE(recoverableError_, recoverableError) };
+    inline UpdateRspDomainServerProhibitStatusForGatewayOteResponseBody& setRecoverableError(bool recoverableError) { DARABONBA_PTR_SET_VALUE(recoverableError_, recoverableError) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
-    inline RemoveRspDomainServerHoldStatusForGatewayResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+    inline UpdateRspDomainServerProhibitStatusForGatewayOteResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
     inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
-    inline RemoveRspDomainServerHoldStatusForGatewayResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
+    inline UpdateRspDomainServerProhibitStatusForGatewayOteResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
-    shared_ptr<RemoveRspDomainServerHoldStatusForGatewayResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
-    shared_ptr<RemoveRspDomainServerHoldStatusForGatewayResponseBody::Data> data_ {};
+    shared_ptr<UpdateRspDomainServerProhibitStatusForGatewayOteResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
+    shared_ptr<UpdateRspDomainServerProhibitStatusForGatewayOteResponseBody::Data> data_ {};
     shared_ptr<bool> recoverableError_ {};
     shared_ptr<string> requestId_ {};
     shared_ptr<bool> success_ {};
