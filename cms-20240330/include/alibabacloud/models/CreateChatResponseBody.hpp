@@ -38,27 +38,33 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Messages& obj) { 
         DARABONBA_PTR_TO_JSON(agents, agents_);
+        DARABONBA_PTR_TO_JSON(artifacts, artifacts_);
         DARABONBA_PTR_TO_JSON(callId, callId_);
         DARABONBA_PTR_TO_JSON(contents, contents_);
         DARABONBA_PTR_TO_JSON(detail, detail_);
+        DARABONBA_PTR_TO_JSON(events, events_);
         DARABONBA_PTR_TO_JSON(parentCallId, parentCallId_);
         DARABONBA_PTR_TO_JSON(role, role_);
         DARABONBA_PTR_TO_JSON(seq, seq_);
         DARABONBA_PTR_TO_JSON(timestamp, timestamp_);
         DARABONBA_PTR_TO_JSON(tools, tools_);
         DARABONBA_PTR_TO_JSON(type, type_);
+        DARABONBA_PTR_TO_JSON(version, version_);
       };
       friend void from_json(const Darabonba::Json& j, Messages& obj) { 
         DARABONBA_PTR_FROM_JSON(agents, agents_);
+        DARABONBA_PTR_FROM_JSON(artifacts, artifacts_);
         DARABONBA_PTR_FROM_JSON(callId, callId_);
         DARABONBA_PTR_FROM_JSON(contents, contents_);
         DARABONBA_PTR_FROM_JSON(detail, detail_);
+        DARABONBA_PTR_FROM_JSON(events, events_);
         DARABONBA_PTR_FROM_JSON(parentCallId, parentCallId_);
         DARABONBA_PTR_FROM_JSON(role, role_);
         DARABONBA_PTR_FROM_JSON(seq, seq_);
         DARABONBA_PTR_FROM_JSON(timestamp, timestamp_);
         DARABONBA_PTR_FROM_JSON(tools, tools_);
         DARABONBA_PTR_FROM_JSON(type, type_);
+        DARABONBA_PTR_FROM_JSON(version, version_);
       };
       Messages() = default ;
       Messages(const Messages &) = default ;
@@ -72,8 +78,9 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->agents_ == nullptr
-        && this->callId_ == nullptr && this->contents_ == nullptr && this->detail_ == nullptr && this->parentCallId_ == nullptr && this->role_ == nullptr
-        && this->seq_ == nullptr && this->timestamp_ == nullptr && this->tools_ == nullptr && this->type_ == nullptr; };
+        && this->artifacts_ == nullptr && this->callId_ == nullptr && this->contents_ == nullptr && this->detail_ == nullptr && this->events_ == nullptr
+        && this->parentCallId_ == nullptr && this->role_ == nullptr && this->seq_ == nullptr && this->timestamp_ == nullptr && this->tools_ == nullptr
+        && this->type_ == nullptr && this->version_ == nullptr; };
       // agents Field Functions 
       bool hasAgents() const { return this->agents_ != nullptr;};
       void deleteAgents() { this->agents_ = nullptr;};
@@ -81,6 +88,15 @@ namespace Models
       inline vector<Darabonba::Json> getAgents() { DARABONBA_PTR_GET(agents_, vector<Darabonba::Json>) };
       inline Messages& setAgents(const vector<Darabonba::Json> & agents) { DARABONBA_PTR_SET_VALUE(agents_, agents) };
       inline Messages& setAgents(vector<Darabonba::Json> && agents) { DARABONBA_PTR_SET_RVALUE(agents_, agents) };
+
+
+      // artifacts Field Functions 
+      bool hasArtifacts() const { return this->artifacts_ != nullptr;};
+      void deleteArtifacts() { this->artifacts_ = nullptr;};
+      inline const vector<Darabonba::Json> & getArtifacts() const { DARABONBA_PTR_GET_CONST(artifacts_, vector<Darabonba::Json>) };
+      inline vector<Darabonba::Json> getArtifacts() { DARABONBA_PTR_GET(artifacts_, vector<Darabonba::Json>) };
+      inline Messages& setArtifacts(const vector<Darabonba::Json> & artifacts) { DARABONBA_PTR_SET_VALUE(artifacts_, artifacts) };
+      inline Messages& setArtifacts(vector<Darabonba::Json> && artifacts) { DARABONBA_PTR_SET_RVALUE(artifacts_, artifacts) };
 
 
       // callId Field Functions 
@@ -104,6 +120,15 @@ namespace Models
       void deleteDetail() { this->detail_ = nullptr;};
       inline string getDetail() const { DARABONBA_PTR_GET_DEFAULT(detail_, "") };
       inline Messages& setDetail(string detail) { DARABONBA_PTR_SET_VALUE(detail_, detail) };
+
+
+      // events Field Functions 
+      bool hasEvents() const { return this->events_ != nullptr;};
+      void deleteEvents() { this->events_ = nullptr;};
+      inline const vector<Darabonba::Json> & getEvents() const { DARABONBA_PTR_GET_CONST(events_, vector<Darabonba::Json>) };
+      inline vector<Darabonba::Json> getEvents() { DARABONBA_PTR_GET(events_, vector<Darabonba::Json>) };
+      inline Messages& setEvents(const vector<Darabonba::Json> & events) { DARABONBA_PTR_SET_VALUE(events_, events) };
+      inline Messages& setEvents(vector<Darabonba::Json> && events) { DARABONBA_PTR_SET_RVALUE(events_, events) };
 
 
       // parentCallId Field Functions 
@@ -130,8 +155,8 @@ namespace Models
       // timestamp Field Functions 
       bool hasTimestamp() const { return this->timestamp_ != nullptr;};
       void deleteTimestamp() { this->timestamp_ = nullptr;};
-      inline int64_t getTimestamp() const { DARABONBA_PTR_GET_DEFAULT(timestamp_, 0L) };
-      inline Messages& setTimestamp(int64_t timestamp) { DARABONBA_PTR_SET_VALUE(timestamp_, timestamp) };
+      inline string getTimestamp() const { DARABONBA_PTR_GET_DEFAULT(timestamp_, "") };
+      inline Messages& setTimestamp(string timestamp) { DARABONBA_PTR_SET_VALUE(timestamp_, timestamp) };
 
 
       // tools Field Functions 
@@ -150,17 +175,27 @@ namespace Models
       inline Messages& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
+      // version Field Functions 
+      bool hasVersion() const { return this->version_ != nullptr;};
+      void deleteVersion() { this->version_ = nullptr;};
+      inline string getVersion() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+      inline Messages& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
+
+
     protected:
       shared_ptr<vector<Darabonba::Json>> agents_ {};
+      shared_ptr<vector<Darabonba::Json>> artifacts_ {};
       shared_ptr<string> callId_ {};
       shared_ptr<vector<Darabonba::Json>> contents_ {};
       shared_ptr<string> detail_ {};
+      shared_ptr<vector<Darabonba::Json>> events_ {};
       shared_ptr<string> parentCallId_ {};
       shared_ptr<string> role_ {};
       shared_ptr<int32_t> seq_ {};
-      shared_ptr<int64_t> timestamp_ {};
+      shared_ptr<string> timestamp_ {};
       shared_ptr<vector<Darabonba::Json>> tools_ {};
       shared_ptr<string> type_ {};
+      shared_ptr<string> version_ {};
     };
 
     virtual bool empty() const override { return this->messages_ == nullptr

@@ -13,12 +13,14 @@ namespace Models
   class ListDigitalEmployeesRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListDigitalEmployeesRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(displayName, displayName_);
       DARABONBA_PTR_TO_JSON(employeeType, employeeType_);
       DARABONBA_PTR_TO_JSON(maxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(name, name_);
       DARABONBA_PTR_TO_JSON(nextToken, nextToken_);
     };
     friend void from_json(const Darabonba::Json& j, ListDigitalEmployeesRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(displayName, displayName_);
       DARABONBA_PTR_FROM_JSON(employeeType, employeeType_);
       DARABONBA_PTR_FROM_JSON(maxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(name, name_);
@@ -35,8 +37,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->employeeType_ == nullptr
-        && this->maxResults_ == nullptr && this->name_ == nullptr && this->nextToken_ == nullptr; };
+    virtual bool empty() const override { return this->displayName_ == nullptr
+        && this->employeeType_ == nullptr && this->maxResults_ == nullptr && this->name_ == nullptr && this->nextToken_ == nullptr; };
+    // displayName Field Functions 
+    bool hasDisplayName() const { return this->displayName_ != nullptr;};
+    void deleteDisplayName() { this->displayName_ = nullptr;};
+    inline string getDisplayName() const { DARABONBA_PTR_GET_DEFAULT(displayName_, "") };
+    inline ListDigitalEmployeesRequest& setDisplayName(string displayName) { DARABONBA_PTR_SET_VALUE(displayName_, displayName) };
+
+
     // employeeType Field Functions 
     bool hasEmployeeType() const { return this->employeeType_ != nullptr;};
     void deleteEmployeeType() { this->employeeType_ = nullptr;};
@@ -66,6 +75,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> displayName_ {};
     shared_ptr<string> employeeType_ {};
     shared_ptr<int32_t> maxResults_ {};
     shared_ptr<string> name_ {};

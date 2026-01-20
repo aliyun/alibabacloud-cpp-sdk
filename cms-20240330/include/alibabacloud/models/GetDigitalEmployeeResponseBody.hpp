@@ -54,9 +54,11 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Knowledges& obj) { 
         DARABONBA_PTR_TO_JSON(bailian, bailian_);
+        DARABONBA_PTR_TO_JSON(sop, sop_);
       };
       friend void from_json(const Darabonba::Json& j, Knowledges& obj) { 
         DARABONBA_PTR_FROM_JSON(bailian, bailian_);
+        DARABONBA_PTR_FROM_JSON(sop, sop_);
       };
       Knowledges() = default ;
       Knowledges(const Knowledges &) = default ;
@@ -131,7 +133,8 @@ namespace Models
         shared_ptr<string> workspaceId_ {};
       };
 
-      virtual bool empty() const override { return this->bailian_ == nullptr; };
+      virtual bool empty() const override { return this->bailian_ == nullptr
+        && this->sop_ == nullptr; };
       // bailian Field Functions 
       bool hasBailian() const { return this->bailian_ != nullptr;};
       void deleteBailian() { this->bailian_ = nullptr;};
@@ -141,8 +144,18 @@ namespace Models
       inline Knowledges& setBailian(vector<Knowledges::Bailian> && bailian) { DARABONBA_PTR_SET_RVALUE(bailian_, bailian) };
 
 
+      // sop Field Functions 
+      bool hasSop() const { return this->sop_ != nullptr;};
+      void deleteSop() { this->sop_ = nullptr;};
+      inline const vector<Darabonba::Json> & getSop() const { DARABONBA_PTR_GET_CONST(sop_, vector<Darabonba::Json>) };
+      inline vector<Darabonba::Json> getSop() { DARABONBA_PTR_GET(sop_, vector<Darabonba::Json>) };
+      inline Knowledges& setSop(const vector<Darabonba::Json> & sop) { DARABONBA_PTR_SET_VALUE(sop_, sop) };
+      inline Knowledges& setSop(vector<Darabonba::Json> && sop) { DARABONBA_PTR_SET_RVALUE(sop_, sop) };
+
+
     protected:
       shared_ptr<vector<Knowledges::Bailian>> bailian_ {};
+      shared_ptr<vector<Darabonba::Json>> sop_ {};
     };
 
     virtual bool empty() const override { return this->createTime_ == nullptr

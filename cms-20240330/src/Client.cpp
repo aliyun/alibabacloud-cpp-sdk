@@ -3227,6 +3227,10 @@ ListBizTracesResponse Client::listBizTraces(const ListBizTracesRequest &request)
 ListDigitalEmployeesResponse Client::listDigitalEmployeesWithOptions(const ListDigitalEmployeesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasDisplayName()) {
+    query["displayName"] = request.getDisplayName();
+  }
+
   if (!!request.hasEmployeeType()) {
     query["employeeType"] = request.getEmployeeType();
   }

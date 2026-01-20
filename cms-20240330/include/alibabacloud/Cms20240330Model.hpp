@@ -30,6 +30,7 @@
 #include <alibabacloud/models/EffectTimeRange.hpp>
 #include <alibabacloud/models/EntityDiscoverRule.hpp>
 #include <alibabacloud/models/EntityGroupBase.hpp>
+#include <alibabacloud/models/Evaluator.hpp>
 #include <alibabacloud/models/EventResourceForIncidentView.hpp>
 #include <alibabacloud/models/IncidentContactStruct.hpp>
 #include <alibabacloud/models/NotifyChannel.hpp>
@@ -188,9 +189,9 @@
 #include <alibabacloud/models/GetEntityStoreDataResponse.hpp>
 #include <alibabacloud/models/GetIntegrationPolicyResponseBody.hpp>
 #include <alibabacloud/models/GetIntegrationPolicyResponse.hpp>
-#include <alibabacloud/models/GetIntegrationVersionForCsRequest.hpp>
-#include <alibabacloud/models/GetIntegrationVersionForCsResponseBody.hpp>
-#include <alibabacloud/models/GetIntegrationVersionForCsResponse.hpp>
+#include <alibabacloud/models/GetIntegrationVersionForCSRequest.hpp>
+#include <alibabacloud/models/GetIntegrationVersionForCSResponseBody.hpp>
+#include <alibabacloud/models/GetIntegrationVersionForCSResponse.hpp>
 #include <alibabacloud/models/GetPrometheusInstanceRequest.hpp>
 #include <alibabacloud/models/GetPrometheusInstanceResponseBody.hpp>
 #include <alibabacloud/models/GetPrometheusInstanceResponse.hpp>
