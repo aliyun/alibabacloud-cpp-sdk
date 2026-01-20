@@ -29,11 +29,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->resourceShareInvitationId_ != nullptr; };
+    virtual bool empty() const override { return this->resourceShareInvitationId_ == nullptr; };
     // resourceShareInvitationId Field Functions 
     bool hasResourceShareInvitationId() const { return this->resourceShareInvitationId_ != nullptr;};
     void deleteResourceShareInvitationId() { this->resourceShareInvitationId_ = nullptr;};
-    inline string resourceShareInvitationId() const { DARABONBA_PTR_GET_DEFAULT(resourceShareInvitationId_, "") };
+    inline string getResourceShareInvitationId() const { DARABONBA_PTR_GET_DEFAULT(resourceShareInvitationId_, "") };
     inline RejectResourceShareInvitationRequest& setResourceShareInvitationId(string resourceShareInvitationId) { DARABONBA_PTR_SET_VALUE(resourceShareInvitationId_, resourceShareInvitationId) };
 
 
@@ -43,7 +43,7 @@ namespace Models
     // You can call the [ListResourceShareInvitations](https://help.aliyun.com/document_detail/450564.html) operation to obtain the ID of a resource sharing invitation.
     // 
     // This parameter is required.
-    std::shared_ptr<string> resourceShareInvitationId_ = nullptr;
+    shared_ptr<string> resourceShareInvitationId_ {};
   };
 
   } // namespace Models

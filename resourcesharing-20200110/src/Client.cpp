@@ -51,7 +51,7 @@ AcceptResourceShareInvitationResponse Client::acceptResourceShareInvitationWithO
   request.validate();
   json query = {};
   if (!!request.hasResourceShareInvitationId()) {
-    query["ResourceShareInvitationId"] = request.resourceShareInvitationId();
+    query["ResourceShareInvitationId"] = request.getResourceShareInvitationId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -100,27 +100,31 @@ AssociateResourceShareResponse Client::associateResourceShareWithOptions(const A
   request.validate();
   json query = {};
   if (!!request.hasPermissionNames()) {
-    query["PermissionNames"] = request.permissionNames();
+    query["PermissionNames"] = request.getPermissionNames();
   }
 
   if (!!request.hasResourceArns()) {
-    query["ResourceArns"] = request.resourceArns();
+    query["ResourceArns"] = request.getResourceArns();
+  }
+
+  if (!!request.hasResourceProperties()) {
+    query["ResourceProperties"] = request.getResourceProperties();
   }
 
   if (!!request.hasResourceShareId()) {
-    query["ResourceShareId"] = request.resourceShareId();
+    query["ResourceShareId"] = request.getResourceShareId();
   }
 
   if (!!request.hasResources()) {
-    query["Resources"] = request.resources();
+    query["Resources"] = request.getResources();
   }
 
   if (!!request.hasTargetProperties()) {
-    query["TargetProperties"] = request.targetProperties();
+    query["TargetProperties"] = request.getTargetProperties();
   }
 
   if (!!request.hasTargets()) {
-    query["Targets"] = request.targets();
+    query["Targets"] = request.getTargets();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -166,15 +170,15 @@ AssociateResourceSharePermissionResponse Client::associateResourceSharePermissio
   request.validate();
   json query = {};
   if (!!request.hasPermissionName()) {
-    query["PermissionName"] = request.permissionName();
+    query["PermissionName"] = request.getPermissionName();
   }
 
   if (!!request.hasReplace()) {
-    query["Replace"] = request.replace();
+    query["Replace"] = request.getReplace();
   }
 
   if (!!request.hasResourceShareId()) {
-    query["ResourceShareId"] = request.resourceShareId();
+    query["ResourceShareId"] = request.getResourceShareId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -218,15 +222,15 @@ ChangeResourceGroupResponse Client::changeResourceGroupWithOptions(const ChangeR
   request.validate();
   json query = {};
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasResourceId()) {
-    query["ResourceId"] = request.resourceId();
+    query["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceRegionId()) {
-    query["ResourceRegionId"] = request.resourceRegionId();
+    query["ResourceRegionId"] = request.getResourceRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -304,39 +308,43 @@ CreateResourceShareResponse Client::createResourceShareWithOptions(const CreateR
   request.validate();
   json query = {};
   if (!!request.hasAllowExternalTargets()) {
-    query["AllowExternalTargets"] = request.allowExternalTargets();
+    query["AllowExternalTargets"] = request.getAllowExternalTargets();
   }
 
   if (!!request.hasPermissionNames()) {
-    query["PermissionNames"] = request.permissionNames();
+    query["PermissionNames"] = request.getPermissionNames();
   }
 
   if (!!request.hasResourceArns()) {
-    query["ResourceArns"] = request.resourceArns();
+    query["ResourceArns"] = request.getResourceArns();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasResourceProperties()) {
+    query["ResourceProperties"] = request.getResourceProperties();
   }
 
   if (!!request.hasResourceShareName()) {
-    query["ResourceShareName"] = request.resourceShareName();
+    query["ResourceShareName"] = request.getResourceShareName();
   }
 
   if (!!request.hasResources()) {
-    query["Resources"] = request.resources();
+    query["Resources"] = request.getResources();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   if (!!request.hasTargetProperties()) {
-    query["TargetProperties"] = request.targetProperties();
+    query["TargetProperties"] = request.getTargetProperties();
   }
 
   if (!!request.hasTargets()) {
-    query["Targets"] = request.targets();
+    query["Targets"] = request.getTargets();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -385,7 +393,7 @@ DeleteResourceShareResponse Client::deleteResourceShareWithOptions(const DeleteR
   request.validate();
   json query = {};
   if (!!request.hasResourceShareId()) {
-    query["ResourceShareId"] = request.resourceShareId();
+    query["ResourceShareId"] = request.getResourceShareId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -431,7 +439,7 @@ DescribeRegionsResponse Client::describeRegionsWithOptions(const DescribeRegions
   request.validate();
   json query = {};
   if (!!request.hasAcceptLanguage()) {
-    query["AcceptLanguage"] = request.acceptLanguage();
+    query["AcceptLanguage"] = request.getAcceptLanguage();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -477,23 +485,23 @@ DisassociateResourceShareResponse Client::disassociateResourceShareWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasResourceArns()) {
-    query["ResourceArns"] = request.resourceArns();
+    query["ResourceArns"] = request.getResourceArns();
   }
 
   if (!!request.hasResourceOwner()) {
-    query["ResourceOwner"] = request.resourceOwner();
+    query["ResourceOwner"] = request.getResourceOwner();
   }
 
   if (!!request.hasResourceShareId()) {
-    query["ResourceShareId"] = request.resourceShareId();
+    query["ResourceShareId"] = request.getResourceShareId();
   }
 
   if (!!request.hasResources()) {
-    query["Resources"] = request.resources();
+    query["Resources"] = request.getResources();
   }
 
   if (!!request.hasTargets()) {
-    query["Targets"] = request.targets();
+    query["Targets"] = request.getTargets();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -541,11 +549,11 @@ DisassociateResourceSharePermissionResponse Client::disassociateResourceSharePer
   request.validate();
   json query = {};
   if (!!request.hasPermissionName()) {
-    query["PermissionName"] = request.permissionName();
+    query["PermissionName"] = request.getPermissionName();
   }
 
   if (!!request.hasResourceShareId()) {
-    query["ResourceShareId"] = request.resourceShareId();
+    query["ResourceShareId"] = request.getResourceShareId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -630,11 +638,11 @@ GetPermissionResponse Client::getPermissionWithOptions(const GetPermissionReques
   request.validate();
   json query = {};
   if (!!request.hasPermissionName()) {
-    query["PermissionName"] = request.permissionName();
+    query["PermissionName"] = request.getPermissionName();
   }
 
   if (!!request.hasPermissionVersion()) {
-    query["PermissionVersion"] = request.permissionVersion();
+    query["PermissionVersion"] = request.getPermissionVersion();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -680,15 +688,15 @@ ListPermissionVersionsResponse Client::listPermissionVersionsWithOptions(const L
   request.validate();
   json query = {};
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasPermissionName()) {
-    query["PermissionName"] = request.permissionName();
+    query["PermissionName"] = request.getPermissionName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -734,15 +742,15 @@ ListPermissionsResponse Client::listPermissionsWithOptions(const ListPermissions
   request.validate();
   json query = {};
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -790,35 +798,35 @@ ListResourceShareAssociationsResponse Client::listResourceShareAssociationsWithO
   request.validate();
   json query = {};
   if (!!request.hasAssociationStatus()) {
-    query["AssociationStatus"] = request.associationStatus();
+    query["AssociationStatus"] = request.getAssociationStatus();
   }
 
   if (!!request.hasAssociationType()) {
-    query["AssociationType"] = request.associationType();
+    query["AssociationType"] = request.getAssociationType();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasResourceArn()) {
-    query["ResourceArn"] = request.resourceArn();
+    query["ResourceArn"] = request.getResourceArn();
   }
 
   if (!!request.hasResourceId()) {
-    query["ResourceId"] = request.resourceId();
+    query["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceShareIds()) {
-    query["ResourceShareIds"] = request.resourceShareIds();
+    query["ResourceShareIds"] = request.getResourceShareIds();
   }
 
   if (!!request.hasTarget()) {
-    query["Target"] = request.target();
+    query["Target"] = request.getTarget();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -867,19 +875,19 @@ ListResourceShareInvitationsResponse Client::listResourceShareInvitationsWithOpt
   request.validate();
   json query = {};
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasResourceShareIds()) {
-    query["ResourceShareIds"] = request.resourceShareIds();
+    query["ResourceShareIds"] = request.getResourceShareIds();
   }
 
   if (!!request.hasResourceShareInvitationIds()) {
-    query["ResourceShareInvitationIds"] = request.resourceShareInvitationIds();
+    query["ResourceShareInvitationIds"] = request.getResourceShareInvitationIds();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -926,19 +934,19 @@ ListResourceSharePermissionsResponse Client::listResourceSharePermissionsWithOpt
   request.validate();
   json query = {};
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasResourceOwner()) {
-    query["ResourceOwner"] = request.resourceOwner();
+    query["ResourceOwner"] = request.getResourceOwner();
   }
 
   if (!!request.hasResourceShareId()) {
-    query["ResourceShareId"] = request.resourceShareId();
+    query["ResourceShareId"] = request.getResourceShareId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -986,39 +994,39 @@ ListResourceSharesResponse Client::listResourceSharesWithOptions(const ListResou
   request.validate();
   json query = {};
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasPermissionName()) {
-    query["PermissionName"] = request.permissionName();
+    query["PermissionName"] = request.getPermissionName();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasResourceOwner()) {
-    query["ResourceOwner"] = request.resourceOwner();
+    query["ResourceOwner"] = request.getResourceOwner();
   }
 
   if (!!request.hasResourceShareIds()) {
-    query["ResourceShareIds"] = request.resourceShareIds();
+    query["ResourceShareIds"] = request.getResourceShareIds();
   }
 
   if (!!request.hasResourceShareName()) {
-    query["ResourceShareName"] = request.resourceShareName();
+    query["ResourceShareName"] = request.getResourceShareName();
   }
 
   if (!!request.hasResourceShareStatus()) {
-    query["ResourceShareStatus"] = request.resourceShareStatus();
+    query["ResourceShareStatus"] = request.getResourceShareStatus();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1066,35 +1074,35 @@ ListSharedResourcesResponse Client::listSharedResourcesWithOptions(const ListSha
   request.validate();
   json query = {};
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasResourceArns()) {
-    query["ResourceArns"] = request.resourceArns();
+    query["ResourceArns"] = request.getResourceArns();
   }
 
   if (!!request.hasResourceIds()) {
-    query["ResourceIds"] = request.resourceIds();
+    query["ResourceIds"] = request.getResourceIds();
   }
 
   if (!!request.hasResourceOwner()) {
-    query["ResourceOwner"] = request.resourceOwner();
+    query["ResourceOwner"] = request.getResourceOwner();
   }
 
   if (!!request.hasResourceShareIds()) {
-    query["ResourceShareIds"] = request.resourceShareIds();
+    query["ResourceShareIds"] = request.getResourceShareIds();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTarget()) {
-    query["Target"] = request.target();
+    query["Target"] = request.getTarget();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1141,35 +1149,35 @@ ListSharedTargetsResponse Client::listSharedTargetsWithOptions(const ListSharedT
   request.validate();
   json query = {};
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasResourceArn()) {
-    query["ResourceArn"] = request.resourceArn();
+    query["ResourceArn"] = request.getResourceArn();
   }
 
   if (!!request.hasResourceId()) {
-    query["ResourceId"] = request.resourceId();
+    query["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceOwner()) {
-    query["ResourceOwner"] = request.resourceOwner();
+    query["ResourceOwner"] = request.getResourceOwner();
   }
 
   if (!!request.hasResourceShareIds()) {
-    query["ResourceShareIds"] = request.resourceShareIds();
+    query["ResourceShareIds"] = request.getResourceShareIds();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTargets()) {
-    query["Targets"] = request.targets();
+    query["Targets"] = request.getTargets();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1214,23 +1222,23 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
   request.validate();
   json query = {};
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceId()) {
-    query["ResourceId"] = request.resourceId();
+    query["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1274,7 +1282,7 @@ RejectResourceShareInvitationResponse Client::rejectResourceShareInvitationWithO
   request.validate();
   json query = {};
   if (!!request.hasResourceShareInvitationId()) {
-    query["ResourceShareInvitationId"] = request.resourceShareInvitationId();
+    query["ResourceShareInvitationId"] = request.getResourceShareInvitationId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1318,19 +1326,19 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
   request.validate();
   json query = {};
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceId()) {
-    query["ResourceId"] = request.resourceId();
+    query["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1372,23 +1380,23 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
   request.validate();
   json query = {};
   if (!!request.hasAll()) {
-    query["All"] = request.all();
+    query["All"] = request.getAll();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceId()) {
-    query["ResourceId"] = request.resourceId();
+    query["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTagKey()) {
-    query["TagKey"] = request.tagKey();
+    query["TagKey"] = request.getTagKey();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1433,15 +1441,15 @@ UpdateResourceShareResponse Client::updateResourceShareWithOptions(const UpdateR
   request.validate();
   json query = {};
   if (!!request.hasAllowExternalTargets()) {
-    query["AllowExternalTargets"] = request.allowExternalTargets();
+    query["AllowExternalTargets"] = request.getAllowExternalTargets();
   }
 
   if (!!request.hasResourceShareId()) {
-    query["ResourceShareId"] = request.resourceShareId();
+    query["ResourceShareId"] = request.getResourceShareId();
   }
 
   if (!!request.hasResourceShareName()) {
-    query["ResourceShareName"] = request.resourceShareName();
+    query["ResourceShareName"] = request.getResourceShareName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

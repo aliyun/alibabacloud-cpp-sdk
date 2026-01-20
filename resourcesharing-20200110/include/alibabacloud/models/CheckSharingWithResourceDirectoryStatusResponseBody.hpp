@@ -31,19 +31,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->enableSharingWithRd_ != nullptr
-        && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->enableSharingWithRd_ == nullptr
+        && this->requestId_ == nullptr; };
     // enableSharingWithRd Field Functions 
     bool hasEnableSharingWithRd() const { return this->enableSharingWithRd_ != nullptr;};
     void deleteEnableSharingWithRd() { this->enableSharingWithRd_ = nullptr;};
-    inline bool enableSharingWithRd() const { DARABONBA_PTR_GET_DEFAULT(enableSharingWithRd_, false) };
+    inline bool getEnableSharingWithRd() const { DARABONBA_PTR_GET_DEFAULT(enableSharingWithRd_, false) };
     inline CheckSharingWithResourceDirectoryStatusResponseBody& setEnableSharingWithRd(bool enableSharingWithRd) { DARABONBA_PTR_SET_VALUE(enableSharingWithRd_, enableSharingWithRd) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CheckSharingWithResourceDirectoryStatusResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
@@ -52,9 +52,9 @@ namespace Models
     // 
     // *   false
     // *   true
-    std::shared_ptr<bool> enableSharingWithRd_ = nullptr;
+    shared_ptr<bool> enableSharingWithRd_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

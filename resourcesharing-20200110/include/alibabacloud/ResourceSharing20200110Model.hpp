@@ -75,36 +75,5 @@
 #include <alibabacloud/models/UpdateResourceShareRequest.hpp>
 #include <alibabacloud/models/UpdateResourceShareResponseBody.hpp>
 #include <alibabacloud/models/UpdateResourceShareResponse.hpp>
-#include <alibabacloud/models/AcceptResourceShareInvitationResponseBodyResourceShareInvitationAcceptInvitationFailedDetails.hpp>
-#include <alibabacloud/models/AcceptResourceShareInvitationResponseBodyResourceShareInvitation.hpp>
-#include <alibabacloud/models/AssociateResourceShareRequestResources.hpp>
-#include <alibabacloud/models/AssociateResourceShareRequestTargetProperties.hpp>
-#include <alibabacloud/models/AssociateResourceShareResponseBodyResourceShareAssociations.hpp>
-#include <alibabacloud/models/CreateResourceShareRequestResources.hpp>
-#include <alibabacloud/models/CreateResourceShareRequestTag.hpp>
-#include <alibabacloud/models/CreateResourceShareRequestTargetProperties.hpp>
-#include <alibabacloud/models/CreateResourceShareResponseBodyResourceShare.hpp>
-#include <alibabacloud/models/DescribeRegionsResponseBodyRegions.hpp>
-#include <alibabacloud/models/DisassociateResourceShareRequestResources.hpp>
-#include <alibabacloud/models/DisassociateResourceShareResponseBodyResourceShareAssociations.hpp>
-#include <alibabacloud/models/GetPermissionResponseBodyPermission.hpp>
-#include <alibabacloud/models/ListPermissionVersionsResponseBodyPermissions.hpp>
-#include <alibabacloud/models/ListPermissionsResponseBodyPermissions.hpp>
-#include <alibabacloud/models/ListResourceShareAssociationsResponseBodyResourceShareAssociationsAssociationFailedDetails.hpp>
-#include <alibabacloud/models/ListResourceShareAssociationsResponseBodyResourceShareAssociations.hpp>
-#include <alibabacloud/models/ListResourceShareInvitationsResponseBodyResourceShareInvitationsInvitationFailedDetails.hpp>
-#include <alibabacloud/models/ListResourceShareInvitationsResponseBodyResourceShareInvitations.hpp>
-#include <alibabacloud/models/ListResourceSharePermissionsResponseBodyPermissions.hpp>
-#include <alibabacloud/models/ListResourceSharesRequestTag.hpp>
-#include <alibabacloud/models/ListResourceSharesResponseBodyResourceSharesTags.hpp>
-#include <alibabacloud/models/ListResourceSharesResponseBodyResourceShares.hpp>
-#include <alibabacloud/models/ListSharedResourcesResponseBodySharedResources.hpp>
-#include <alibabacloud/models/ListSharedTargetsResponseBodySharedTargets.hpp>
-#include <alibabacloud/models/ListTagResourcesRequestTag.hpp>
-#include <alibabacloud/models/ListTagResourcesResponseBodyTagResourcesTagResource.hpp>
-#include <alibabacloud/models/ListTagResourcesResponseBodyTagResources.hpp>
-#include <alibabacloud/models/RejectResourceShareInvitationResponseBodyResourceShareInvitation.hpp>
-#include <alibabacloud/models/TagResourcesRequestTag.hpp>
-#include <alibabacloud/models/UpdateResourceShareResponseBodyResourceShare.hpp>
 
 #endif

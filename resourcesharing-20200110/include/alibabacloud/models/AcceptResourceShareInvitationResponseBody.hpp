@@ -2,7 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_ACCEPTRESOURCESHAREINVITATIONRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_ACCEPTRESOURCESHAREINVITATIONRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/AcceptResourceShareInvitationResponseBodyResourceShareInvitation.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -32,29 +32,293 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->requestId_ != nullptr
-        && this->resourceShareInvitation_ != nullptr; };
+    class ResourceShareInvitation : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const ResourceShareInvitation& obj) { 
+        DARABONBA_PTR_TO_JSON(AcceptInvitationFailedDetails, acceptInvitationFailedDetails_);
+        DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
+        DARABONBA_PTR_TO_JSON(ReceiverAccountId, receiverAccountId_);
+        DARABONBA_PTR_TO_JSON(ResourceShareId, resourceShareId_);
+        DARABONBA_PTR_TO_JSON(ResourceShareInvitationId, resourceShareInvitationId_);
+        DARABONBA_PTR_TO_JSON(ResourceShareName, resourceShareName_);
+        DARABONBA_PTR_TO_JSON(SenderAccountId, senderAccountId_);
+        DARABONBA_PTR_TO_JSON(Status, status_);
+      };
+      friend void from_json(const Darabonba::Json& j, ResourceShareInvitation& obj) { 
+        DARABONBA_PTR_FROM_JSON(AcceptInvitationFailedDetails, acceptInvitationFailedDetails_);
+        DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
+        DARABONBA_PTR_FROM_JSON(ReceiverAccountId, receiverAccountId_);
+        DARABONBA_PTR_FROM_JSON(ResourceShareId, resourceShareId_);
+        DARABONBA_PTR_FROM_JSON(ResourceShareInvitationId, resourceShareInvitationId_);
+        DARABONBA_PTR_FROM_JSON(ResourceShareName, resourceShareName_);
+        DARABONBA_PTR_FROM_JSON(SenderAccountId, senderAccountId_);
+        DARABONBA_PTR_FROM_JSON(Status, status_);
+      };
+      ResourceShareInvitation() = default ;
+      ResourceShareInvitation(const ResourceShareInvitation &) = default ;
+      ResourceShareInvitation(ResourceShareInvitation &&) = default ;
+      ResourceShareInvitation(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~ResourceShareInvitation() = default ;
+      ResourceShareInvitation& operator=(const ResourceShareInvitation &) = default ;
+      ResourceShareInvitation& operator=(ResourceShareInvitation &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class AcceptInvitationFailedDetails : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const AcceptInvitationFailedDetails& obj) { 
+          DARABONBA_PTR_TO_JSON(AssociateType, associateType_);
+          DARABONBA_PTR_TO_JSON(FailureDescription, failureDescription_);
+          DARABONBA_PTR_TO_JSON(FailureReason, failureReason_);
+          DARABONBA_PTR_TO_JSON(OperationType, operationType_);
+          DARABONBA_PTR_TO_JSON(ResourceArn, resourceArn_);
+          DARABONBA_PTR_TO_JSON(ResourceId, resourceId_);
+          DARABONBA_PTR_TO_JSON(ResourceType, resourceType_);
+          DARABONBA_PTR_TO_JSON(Status, status_);
+          DARABONBA_PTR_TO_JSON(StatusMessage, statusMessage_);
+        };
+        friend void from_json(const Darabonba::Json& j, AcceptInvitationFailedDetails& obj) { 
+          DARABONBA_PTR_FROM_JSON(AssociateType, associateType_);
+          DARABONBA_PTR_FROM_JSON(FailureDescription, failureDescription_);
+          DARABONBA_PTR_FROM_JSON(FailureReason, failureReason_);
+          DARABONBA_PTR_FROM_JSON(OperationType, operationType_);
+          DARABONBA_PTR_FROM_JSON(ResourceArn, resourceArn_);
+          DARABONBA_PTR_FROM_JSON(ResourceId, resourceId_);
+          DARABONBA_PTR_FROM_JSON(ResourceType, resourceType_);
+          DARABONBA_PTR_FROM_JSON(Status, status_);
+          DARABONBA_PTR_FROM_JSON(StatusMessage, statusMessage_);
+        };
+        AcceptInvitationFailedDetails() = default ;
+        AcceptInvitationFailedDetails(const AcceptInvitationFailedDetails &) = default ;
+        AcceptInvitationFailedDetails(AcceptInvitationFailedDetails &&) = default ;
+        AcceptInvitationFailedDetails(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~AcceptInvitationFailedDetails() = default ;
+        AcceptInvitationFailedDetails& operator=(const AcceptInvitationFailedDetails &) = default ;
+        AcceptInvitationFailedDetails& operator=(AcceptInvitationFailedDetails &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->associateType_ == nullptr
+        && this->failureDescription_ == nullptr && this->failureReason_ == nullptr && this->operationType_ == nullptr && this->resourceArn_ == nullptr && this->resourceId_ == nullptr
+        && this->resourceType_ == nullptr && this->status_ == nullptr && this->statusMessage_ == nullptr; };
+        // associateType Field Functions 
+        bool hasAssociateType() const { return this->associateType_ != nullptr;};
+        void deleteAssociateType() { this->associateType_ = nullptr;};
+        inline string getAssociateType() const { DARABONBA_PTR_GET_DEFAULT(associateType_, "") };
+        inline AcceptInvitationFailedDetails& setAssociateType(string associateType) { DARABONBA_PTR_SET_VALUE(associateType_, associateType) };
+
+
+        // failureDescription Field Functions 
+        bool hasFailureDescription() const { return this->failureDescription_ != nullptr;};
+        void deleteFailureDescription() { this->failureDescription_ = nullptr;};
+        inline string getFailureDescription() const { DARABONBA_PTR_GET_DEFAULT(failureDescription_, "") };
+        inline AcceptInvitationFailedDetails& setFailureDescription(string failureDescription) { DARABONBA_PTR_SET_VALUE(failureDescription_, failureDescription) };
+
+
+        // failureReason Field Functions 
+        bool hasFailureReason() const { return this->failureReason_ != nullptr;};
+        void deleteFailureReason() { this->failureReason_ = nullptr;};
+        inline string getFailureReason() const { DARABONBA_PTR_GET_DEFAULT(failureReason_, "") };
+        inline AcceptInvitationFailedDetails& setFailureReason(string failureReason) { DARABONBA_PTR_SET_VALUE(failureReason_, failureReason) };
+
+
+        // operationType Field Functions 
+        bool hasOperationType() const { return this->operationType_ != nullptr;};
+        void deleteOperationType() { this->operationType_ = nullptr;};
+        inline string getOperationType() const { DARABONBA_PTR_GET_DEFAULT(operationType_, "") };
+        inline AcceptInvitationFailedDetails& setOperationType(string operationType) { DARABONBA_PTR_SET_VALUE(operationType_, operationType) };
+
+
+        // resourceArn Field Functions 
+        bool hasResourceArn() const { return this->resourceArn_ != nullptr;};
+        void deleteResourceArn() { this->resourceArn_ = nullptr;};
+        inline string getResourceArn() const { DARABONBA_PTR_GET_DEFAULT(resourceArn_, "") };
+        inline AcceptInvitationFailedDetails& setResourceArn(string resourceArn) { DARABONBA_PTR_SET_VALUE(resourceArn_, resourceArn) };
+
+
+        // resourceId Field Functions 
+        bool hasResourceId() const { return this->resourceId_ != nullptr;};
+        void deleteResourceId() { this->resourceId_ = nullptr;};
+        inline string getResourceId() const { DARABONBA_PTR_GET_DEFAULT(resourceId_, "") };
+        inline AcceptInvitationFailedDetails& setResourceId(string resourceId) { DARABONBA_PTR_SET_VALUE(resourceId_, resourceId) };
+
+
+        // resourceType Field Functions 
+        bool hasResourceType() const { return this->resourceType_ != nullptr;};
+        void deleteResourceType() { this->resourceType_ = nullptr;};
+        inline string getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
+        inline AcceptInvitationFailedDetails& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
+
+
+        // status Field Functions 
+        bool hasStatus() const { return this->status_ != nullptr;};
+        void deleteStatus() { this->status_ = nullptr;};
+        inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+        inline AcceptInvitationFailedDetails& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+        // statusMessage Field Functions 
+        bool hasStatusMessage() const { return this->statusMessage_ != nullptr;};
+        void deleteStatusMessage() { this->statusMessage_ = nullptr;};
+        inline string getStatusMessage() const { DARABONBA_PTR_GET_DEFAULT(statusMessage_, "") };
+        inline AcceptInvitationFailedDetails& setStatusMessage(string statusMessage) { DARABONBA_PTR_SET_VALUE(statusMessage_, statusMessage) };
+
+
+      protected:
+        // This parameter is deprecated. The OperationType parameter is used instead.
+        shared_ptr<string> associateType_ {};
+        // The failure description.
+        shared_ptr<string> failureDescription_ {};
+        // The failure cause. Valid values:
+        // 
+        // *   Unavailable: The resource cannot be shared.
+        // *   LimitExceeded: The number of shared resources within the Alibaba Cloud account exceeds the upper limit.
+        // *   ZonalResourceInaccessible: The resource is unavailable in this region.
+        // *   InternalError: An internal error occurred during the check.
+        shared_ptr<string> failureReason_ {};
+        // The operation type. Valid values:
+        // 
+        // *   Associate
+        shared_ptr<string> operationType_ {};
+        shared_ptr<string> resourceArn_ {};
+        // The ID of the shared resource.
+        shared_ptr<string> resourceId_ {};
+        // The type of the shared resource.
+        // 
+        // For more information about the types of resources that can be shared, see [Services that work with Resource Sharing](https://help.aliyun.com/document_detail/450526.html).
+        shared_ptr<string> resourceType_ {};
+        // This parameter is deprecated. The FailureReason parameter is used instead.
+        shared_ptr<string> status_ {};
+        // This parameter is deprecated. The FailureDescription parameter is used instead.
+        shared_ptr<string> statusMessage_ {};
+      };
+
+      virtual bool empty() const override { return this->acceptInvitationFailedDetails_ == nullptr
+        && this->createTime_ == nullptr && this->receiverAccountId_ == nullptr && this->resourceShareId_ == nullptr && this->resourceShareInvitationId_ == nullptr && this->resourceShareName_ == nullptr
+        && this->senderAccountId_ == nullptr && this->status_ == nullptr; };
+      // acceptInvitationFailedDetails Field Functions 
+      bool hasAcceptInvitationFailedDetails() const { return this->acceptInvitationFailedDetails_ != nullptr;};
+      void deleteAcceptInvitationFailedDetails() { this->acceptInvitationFailedDetails_ = nullptr;};
+      inline const vector<ResourceShareInvitation::AcceptInvitationFailedDetails> & getAcceptInvitationFailedDetails() const { DARABONBA_PTR_GET_CONST(acceptInvitationFailedDetails_, vector<ResourceShareInvitation::AcceptInvitationFailedDetails>) };
+      inline vector<ResourceShareInvitation::AcceptInvitationFailedDetails> getAcceptInvitationFailedDetails() { DARABONBA_PTR_GET(acceptInvitationFailedDetails_, vector<ResourceShareInvitation::AcceptInvitationFailedDetails>) };
+      inline ResourceShareInvitation& setAcceptInvitationFailedDetails(const vector<ResourceShareInvitation::AcceptInvitationFailedDetails> & acceptInvitationFailedDetails) { DARABONBA_PTR_SET_VALUE(acceptInvitationFailedDetails_, acceptInvitationFailedDetails) };
+      inline ResourceShareInvitation& setAcceptInvitationFailedDetails(vector<ResourceShareInvitation::AcceptInvitationFailedDetails> && acceptInvitationFailedDetails) { DARABONBA_PTR_SET_RVALUE(acceptInvitationFailedDetails_, acceptInvitationFailedDetails) };
+
+
+      // createTime Field Functions 
+      bool hasCreateTime() const { return this->createTime_ != nullptr;};
+      void deleteCreateTime() { this->createTime_ = nullptr;};
+      inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
+      inline ResourceShareInvitation& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
+
+
+      // receiverAccountId Field Functions 
+      bool hasReceiverAccountId() const { return this->receiverAccountId_ != nullptr;};
+      void deleteReceiverAccountId() { this->receiverAccountId_ = nullptr;};
+      inline string getReceiverAccountId() const { DARABONBA_PTR_GET_DEFAULT(receiverAccountId_, "") };
+      inline ResourceShareInvitation& setReceiverAccountId(string receiverAccountId) { DARABONBA_PTR_SET_VALUE(receiverAccountId_, receiverAccountId) };
+
+
+      // resourceShareId Field Functions 
+      bool hasResourceShareId() const { return this->resourceShareId_ != nullptr;};
+      void deleteResourceShareId() { this->resourceShareId_ = nullptr;};
+      inline string getResourceShareId() const { DARABONBA_PTR_GET_DEFAULT(resourceShareId_, "") };
+      inline ResourceShareInvitation& setResourceShareId(string resourceShareId) { DARABONBA_PTR_SET_VALUE(resourceShareId_, resourceShareId) };
+
+
+      // resourceShareInvitationId Field Functions 
+      bool hasResourceShareInvitationId() const { return this->resourceShareInvitationId_ != nullptr;};
+      void deleteResourceShareInvitationId() { this->resourceShareInvitationId_ = nullptr;};
+      inline string getResourceShareInvitationId() const { DARABONBA_PTR_GET_DEFAULT(resourceShareInvitationId_, "") };
+      inline ResourceShareInvitation& setResourceShareInvitationId(string resourceShareInvitationId) { DARABONBA_PTR_SET_VALUE(resourceShareInvitationId_, resourceShareInvitationId) };
+
+
+      // resourceShareName Field Functions 
+      bool hasResourceShareName() const { return this->resourceShareName_ != nullptr;};
+      void deleteResourceShareName() { this->resourceShareName_ = nullptr;};
+      inline string getResourceShareName() const { DARABONBA_PTR_GET_DEFAULT(resourceShareName_, "") };
+      inline ResourceShareInvitation& setResourceShareName(string resourceShareName) { DARABONBA_PTR_SET_VALUE(resourceShareName_, resourceShareName) };
+
+
+      // senderAccountId Field Functions 
+      bool hasSenderAccountId() const { return this->senderAccountId_ != nullptr;};
+      void deleteSenderAccountId() { this->senderAccountId_ = nullptr;};
+      inline string getSenderAccountId() const { DARABONBA_PTR_GET_DEFAULT(senderAccountId_, "") };
+      inline ResourceShareInvitation& setSenderAccountId(string senderAccountId) { DARABONBA_PTR_SET_VALUE(senderAccountId_, senderAccountId) };
+
+
+      // status Field Functions 
+      bool hasStatus() const { return this->status_ != nullptr;};
+      void deleteStatus() { this->status_ = nullptr;};
+      inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+      inline ResourceShareInvitation& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+    protected:
+      // The information about the failure.
+      shared_ptr<vector<ResourceShareInvitation::AcceptInvitationFailedDetails>> acceptInvitationFailedDetails_ {};
+      // The time when the invitation was created. The time is displayed in UTC.
+      // 
+      // This parameter is required.
+      shared_ptr<string> createTime_ {};
+      // The Alibaba Cloud account ID of the invitee.
+      // 
+      // This parameter is required.
+      shared_ptr<string> receiverAccountId_ {};
+      // The ID of the resource share.
+      // 
+      // This parameter is required.
+      shared_ptr<string> resourceShareId_ {};
+      // The ID of the resource sharing invitation.
+      // 
+      // This parameter is required.
+      shared_ptr<string> resourceShareInvitationId_ {};
+      // The name of the resource share.
+      // 
+      // This parameter is required.
+      shared_ptr<string> resourceShareName_ {};
+      // The Alibaba Cloud account ID of the inviter.
+      // 
+      // This parameter is required.
+      shared_ptr<string> senderAccountId_ {};
+      // The status of the invitation. Valid values:
+      // 
+      // *   Pending
+      // *   Accepted
+      // *   Cancelled
+      // *   Rejected
+      // *   Expired
+      // *   AcceptFailed
+      // 
+      // This parameter is required.
+      shared_ptr<string> status_ {};
+    };
+
+    virtual bool empty() const override { return this->requestId_ == nullptr
+        && this->resourceShareInvitation_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline AcceptResourceShareInvitationResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // resourceShareInvitation Field Functions 
     bool hasResourceShareInvitation() const { return this->resourceShareInvitation_ != nullptr;};
     void deleteResourceShareInvitation() { this->resourceShareInvitation_ = nullptr;};
-    inline const AcceptResourceShareInvitationResponseBodyResourceShareInvitation & resourceShareInvitation() const { DARABONBA_PTR_GET_CONST(resourceShareInvitation_, AcceptResourceShareInvitationResponseBodyResourceShareInvitation) };
-    inline AcceptResourceShareInvitationResponseBodyResourceShareInvitation resourceShareInvitation() { DARABONBA_PTR_GET(resourceShareInvitation_, AcceptResourceShareInvitationResponseBodyResourceShareInvitation) };
-    inline AcceptResourceShareInvitationResponseBody& setResourceShareInvitation(const AcceptResourceShareInvitationResponseBodyResourceShareInvitation & resourceShareInvitation) { DARABONBA_PTR_SET_VALUE(resourceShareInvitation_, resourceShareInvitation) };
-    inline AcceptResourceShareInvitationResponseBody& setResourceShareInvitation(AcceptResourceShareInvitationResponseBodyResourceShareInvitation && resourceShareInvitation) { DARABONBA_PTR_SET_RVALUE(resourceShareInvitation_, resourceShareInvitation) };
+    inline const AcceptResourceShareInvitationResponseBody::ResourceShareInvitation & getResourceShareInvitation() const { DARABONBA_PTR_GET_CONST(resourceShareInvitation_, AcceptResourceShareInvitationResponseBody::ResourceShareInvitation) };
+    inline AcceptResourceShareInvitationResponseBody::ResourceShareInvitation getResourceShareInvitation() { DARABONBA_PTR_GET(resourceShareInvitation_, AcceptResourceShareInvitationResponseBody::ResourceShareInvitation) };
+    inline AcceptResourceShareInvitationResponseBody& setResourceShareInvitation(const AcceptResourceShareInvitationResponseBody::ResourceShareInvitation & resourceShareInvitation) { DARABONBA_PTR_SET_VALUE(resourceShareInvitation_, resourceShareInvitation) };
+    inline AcceptResourceShareInvitationResponseBody& setResourceShareInvitation(AcceptResourceShareInvitationResponseBody::ResourceShareInvitation && resourceShareInvitation) { DARABONBA_PTR_SET_RVALUE(resourceShareInvitation_, resourceShareInvitation) };
 
 
   protected:
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The information about the resource sharing invitation.
-    std::shared_ptr<AcceptResourceShareInvitationResponseBodyResourceShareInvitation> resourceShareInvitation_ = nullptr;
+    shared_ptr<AcceptResourceShareInvitationResponseBody::ResourceShareInvitation> resourceShareInvitation_ {};
   };
 
   } // namespace Models

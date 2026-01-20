@@ -29,11 +29,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->resourceShareId_ != nullptr; };
+    virtual bool empty() const override { return this->resourceShareId_ == nullptr; };
     // resourceShareId Field Functions 
     bool hasResourceShareId() const { return this->resourceShareId_ != nullptr;};
     void deleteResourceShareId() { this->resourceShareId_ = nullptr;};
-    inline string resourceShareId() const { DARABONBA_PTR_GET_DEFAULT(resourceShareId_, "") };
+    inline string getResourceShareId() const { DARABONBA_PTR_GET_DEFAULT(resourceShareId_, "") };
     inline DeleteResourceShareRequest& setResourceShareId(string resourceShareId) { DARABONBA_PTR_SET_VALUE(resourceShareId_, resourceShareId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the resource share.
     // 
     // This parameter is required.
-    std::shared_ptr<string> resourceShareId_ = nullptr;
+    shared_ptr<string> resourceShareId_ {};
   };
 
   } // namespace Models

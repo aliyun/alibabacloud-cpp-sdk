@@ -33,26 +33,26 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allowExternalTargets_ != nullptr
-        && this->resourceShareId_ != nullptr && this->resourceShareName_ != nullptr; };
+    virtual bool empty() const override { return this->allowExternalTargets_ == nullptr
+        && this->resourceShareId_ == nullptr && this->resourceShareName_ == nullptr; };
     // allowExternalTargets Field Functions 
     bool hasAllowExternalTargets() const { return this->allowExternalTargets_ != nullptr;};
     void deleteAllowExternalTargets() { this->allowExternalTargets_ = nullptr;};
-    inline bool allowExternalTargets() const { DARABONBA_PTR_GET_DEFAULT(allowExternalTargets_, false) };
+    inline bool getAllowExternalTargets() const { DARABONBA_PTR_GET_DEFAULT(allowExternalTargets_, false) };
     inline UpdateResourceShareRequest& setAllowExternalTargets(bool allowExternalTargets) { DARABONBA_PTR_SET_VALUE(allowExternalTargets_, allowExternalTargets) };
 
 
     // resourceShareId Field Functions 
     bool hasResourceShareId() const { return this->resourceShareId_ != nullptr;};
     void deleteResourceShareId() { this->resourceShareId_ = nullptr;};
-    inline string resourceShareId() const { DARABONBA_PTR_GET_DEFAULT(resourceShareId_, "") };
+    inline string getResourceShareId() const { DARABONBA_PTR_GET_DEFAULT(resourceShareId_, "") };
     inline UpdateResourceShareRequest& setResourceShareId(string resourceShareId) { DARABONBA_PTR_SET_VALUE(resourceShareId_, resourceShareId) };
 
 
     // resourceShareName Field Functions 
     bool hasResourceShareName() const { return this->resourceShareName_ != nullptr;};
     void deleteResourceShareName() { this->resourceShareName_ = nullptr;};
-    inline string resourceShareName() const { DARABONBA_PTR_GET_DEFAULT(resourceShareName_, "") };
+    inline string getResourceShareName() const { DARABONBA_PTR_GET_DEFAULT(resourceShareName_, "") };
     inline UpdateResourceShareRequest& setResourceShareName(string resourceShareName) { DARABONBA_PTR_SET_VALUE(resourceShareName_, resourceShareName) };
 
 
@@ -61,11 +61,11 @@ namespace Models
     // 
     // *   false: Resources in the resource share can be shared only with accounts in the resource directory.
     // *   true: Resources in the resource share can be shared with both accounts in the resource directory and accounts outside the resource directory.
-    std::shared_ptr<bool> allowExternalTargets_ = nullptr;
+    shared_ptr<bool> allowExternalTargets_ {};
     // The ID of the resource share.
     // 
     // This parameter is required.
-    std::shared_ptr<string> resourceShareId_ = nullptr;
+    shared_ptr<string> resourceShareId_ {};
     // The new name of the resource share.
     // 
     // The name must be 1 to 50 characters in length.
@@ -73,7 +73,7 @@ namespace Models
     // The name can contain letters, digits, periods (.), underscores (_), and hyphens (-).
     // 
     // This parameter is required.
-    std::shared_ptr<string> resourceShareName_ = nullptr;
+    shared_ptr<string> resourceShareName_ {};
   };
 
   } // namespace Models

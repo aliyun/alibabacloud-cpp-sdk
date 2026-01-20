@@ -31,19 +31,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->permissionName_ != nullptr
-        && this->permissionVersion_ != nullptr; };
+    virtual bool empty() const override { return this->permissionName_ == nullptr
+        && this->permissionVersion_ == nullptr; };
     // permissionName Field Functions 
     bool hasPermissionName() const { return this->permissionName_ != nullptr;};
     void deletePermissionName() { this->permissionName_ = nullptr;};
-    inline string permissionName() const { DARABONBA_PTR_GET_DEFAULT(permissionName_, "") };
+    inline string getPermissionName() const { DARABONBA_PTR_GET_DEFAULT(permissionName_, "") };
     inline GetPermissionRequest& setPermissionName(string permissionName) { DARABONBA_PTR_SET_VALUE(permissionName_, permissionName) };
 
 
     // permissionVersion Field Functions 
     bool hasPermissionVersion() const { return this->permissionVersion_ != nullptr;};
     void deletePermissionVersion() { this->permissionVersion_ = nullptr;};
-    inline string permissionVersion() const { DARABONBA_PTR_GET_DEFAULT(permissionVersion_, "") };
+    inline string getPermissionVersion() const { DARABONBA_PTR_GET_DEFAULT(permissionVersion_, "") };
     inline GetPermissionRequest& setPermissionVersion(string permissionVersion) { DARABONBA_PTR_SET_VALUE(permissionVersion_, permissionVersion) };
 
 
@@ -51,9 +51,9 @@ namespace Models
     // The name of the permission.
     // 
     // This parameter is required.
-    std::shared_ptr<string> permissionName_ = nullptr;
+    shared_ptr<string> permissionName_ {};
     // The version of the permission.
-    std::shared_ptr<string> permissionVersion_ = nullptr;
+    shared_ptr<string> permissionVersion_ {};
   };
 
   } // namespace Models
