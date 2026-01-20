@@ -45,6 +45,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(AliyunUid, aliyunUid_);
         DARABONBA_PTR_TO_JSON(CreatorUserName, creatorUserName_);
         DARABONBA_PTR_TO_JSON(CustomAgentId, customAgentId_);
+        DARABONBA_PTR_TO_JSON(DMSUnit, DMSUnit_);
         DARABONBA_PTR_TO_JSON(DataJson, dataJson_);
         DARABONBA_PTR_TO_JSON(DefaultAgent, defaultAgent_);
         DARABONBA_PTR_TO_JSON(Description, description_);
@@ -53,14 +54,17 @@ namespace Models
         DARABONBA_PTR_TO_JSON(GmtCreated, gmtCreated_);
         DARABONBA_PTR_TO_JSON(GmtModified, gmtModified_);
         DARABONBA_PTR_TO_JSON(Instruction, instruction_);
+        DARABONBA_PTR_TO_JSON(IsScheduleTask, isScheduleTask_);
         DARABONBA_PTR_TO_JSON(Knowledge, knowledge_);
         DARABONBA_PTR_TO_JSON(KnowledgeConfigList, knowledgeConfigList_);
         DARABONBA_PTR_TO_JSON(Modifier, modifier_);
         DARABONBA_PTR_TO_JSON(ModifierUserName, modifierUserName_);
         DARABONBA_PTR_TO_JSON(Name, name_);
+        DARABONBA_PTR_TO_JSON(NextRuntime, nextRuntime_);
         DARABONBA_PTR_TO_JSON(OfflineTime, offlineTime_);
         DARABONBA_PTR_TO_JSON(Region, region_);
         DARABONBA_PTR_TO_JSON(ReleaseTime, releaseTime_);
+        DARABONBA_PTR_TO_JSON(ScheduleTaskConfig, scheduleTaskConfig_);
         DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(TextReportConfig, textReportConfig_);
         DARABONBA_PTR_TO_JSON(WebReportConfig, webReportConfig_);
@@ -71,6 +75,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(AliyunUid, aliyunUid_);
         DARABONBA_PTR_FROM_JSON(CreatorUserName, creatorUserName_);
         DARABONBA_PTR_FROM_JSON(CustomAgentId, customAgentId_);
+        DARABONBA_PTR_FROM_JSON(DMSUnit, DMSUnit_);
         DARABONBA_PTR_FROM_JSON(DataJson, dataJson_);
         DARABONBA_PTR_FROM_JSON(DefaultAgent, defaultAgent_);
         DARABONBA_PTR_FROM_JSON(Description, description_);
@@ -79,14 +84,17 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(GmtCreated, gmtCreated_);
         DARABONBA_PTR_FROM_JSON(GmtModified, gmtModified_);
         DARABONBA_PTR_FROM_JSON(Instruction, instruction_);
+        DARABONBA_PTR_FROM_JSON(IsScheduleTask, isScheduleTask_);
         DARABONBA_PTR_FROM_JSON(Knowledge, knowledge_);
         DARABONBA_PTR_FROM_JSON(KnowledgeConfigList, knowledgeConfigList_);
         DARABONBA_PTR_FROM_JSON(Modifier, modifier_);
         DARABONBA_PTR_FROM_JSON(ModifierUserName, modifierUserName_);
         DARABONBA_PTR_FROM_JSON(Name, name_);
+        DARABONBA_PTR_FROM_JSON(NextRuntime, nextRuntime_);
         DARABONBA_PTR_FROM_JSON(OfflineTime, offlineTime_);
         DARABONBA_PTR_FROM_JSON(Region, region_);
         DARABONBA_PTR_FROM_JSON(ReleaseTime, releaseTime_);
+        DARABONBA_PTR_FROM_JSON(ScheduleTaskConfig, scheduleTaskConfig_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(TextReportConfig, textReportConfig_);
         DARABONBA_PTR_FROM_JSON(WebReportConfig, webReportConfig_);
@@ -103,6 +111,58 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class ScheduleTaskConfig : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const ScheduleTaskConfig& obj) { 
+          DARABONBA_PTR_TO_JSON(CronExpression, cronExpression_);
+          DARABONBA_PTR_TO_JSON(Query, query_);
+          DARABONBA_PTR_TO_JSON(RelatedSessionId, relatedSessionId_);
+        };
+        friend void from_json(const Darabonba::Json& j, ScheduleTaskConfig& obj) { 
+          DARABONBA_PTR_FROM_JSON(CronExpression, cronExpression_);
+          DARABONBA_PTR_FROM_JSON(Query, query_);
+          DARABONBA_PTR_FROM_JSON(RelatedSessionId, relatedSessionId_);
+        };
+        ScheduleTaskConfig() = default ;
+        ScheduleTaskConfig(const ScheduleTaskConfig &) = default ;
+        ScheduleTaskConfig(ScheduleTaskConfig &&) = default ;
+        ScheduleTaskConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~ScheduleTaskConfig() = default ;
+        ScheduleTaskConfig& operator=(const ScheduleTaskConfig &) = default ;
+        ScheduleTaskConfig& operator=(ScheduleTaskConfig &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->cronExpression_ == nullptr
+        && this->query_ == nullptr && this->relatedSessionId_ == nullptr; };
+        // cronExpression Field Functions 
+        bool hasCronExpression() const { return this->cronExpression_ != nullptr;};
+        void deleteCronExpression() { this->cronExpression_ = nullptr;};
+        inline string getCronExpression() const { DARABONBA_PTR_GET_DEFAULT(cronExpression_, "") };
+        inline ScheduleTaskConfig& setCronExpression(string cronExpression) { DARABONBA_PTR_SET_VALUE(cronExpression_, cronExpression) };
+
+
+        // query Field Functions 
+        bool hasQuery() const { return this->query_ != nullptr;};
+        void deleteQuery() { this->query_ = nullptr;};
+        inline string getQuery() const { DARABONBA_PTR_GET_DEFAULT(query_, "") };
+        inline ScheduleTaskConfig& setQuery(string query) { DARABONBA_PTR_SET_VALUE(query_, query) };
+
+
+        // relatedSessionId Field Functions 
+        bool hasRelatedSessionId() const { return this->relatedSessionId_ != nullptr;};
+        void deleteRelatedSessionId() { this->relatedSessionId_ = nullptr;};
+        inline string getRelatedSessionId() const { DARABONBA_PTR_GET_DEFAULT(relatedSessionId_, "") };
+        inline ScheduleTaskConfig& setRelatedSessionId(string relatedSessionId) { DARABONBA_PTR_SET_VALUE(relatedSessionId_, relatedSessionId) };
+
+
+      protected:
+        shared_ptr<string> cronExpression_ {};
+        shared_ptr<string> query_ {};
+        shared_ptr<string> relatedSessionId_ {};
+      };
+
       class KnowledgeConfigList : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const KnowledgeConfigList& obj) { 
@@ -208,11 +268,12 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->aliyunParentUid_ == nullptr
-        && this->aliyunUid_ == nullptr && this->creatorUserName_ == nullptr && this->customAgentId_ == nullptr && this->dataJson_ == nullptr && this->defaultAgent_ == nullptr
-        && this->description_ == nullptr && this->dmsUnit_ == nullptr && this->executionConfig_ == nullptr && this->gmtCreated_ == nullptr && this->gmtModified_ == nullptr
-        && this->instruction_ == nullptr && this->knowledge_ == nullptr && this->knowledgeConfigList_ == nullptr && this->modifier_ == nullptr && this->modifierUserName_ == nullptr
-        && this->name_ == nullptr && this->offlineTime_ == nullptr && this->region_ == nullptr && this->releaseTime_ == nullptr && this->status_ == nullptr
-        && this->textReportConfig_ == nullptr && this->webReportConfig_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->aliyunUid_ == nullptr && this->creatorUserName_ == nullptr && this->customAgentId_ == nullptr && this->DMSUnit_ == nullptr && this->dataJson_ == nullptr
+        && this->defaultAgent_ == nullptr && this->description_ == nullptr && this->dmsUnit_ == nullptr && this->executionConfig_ == nullptr && this->gmtCreated_ == nullptr
+        && this->gmtModified_ == nullptr && this->instruction_ == nullptr && this->isScheduleTask_ == nullptr && this->knowledge_ == nullptr && this->knowledgeConfigList_ == nullptr
+        && this->modifier_ == nullptr && this->modifierUserName_ == nullptr && this->name_ == nullptr && this->nextRuntime_ == nullptr && this->offlineTime_ == nullptr
+        && this->region_ == nullptr && this->releaseTime_ == nullptr && this->scheduleTaskConfig_ == nullptr && this->status_ == nullptr && this->textReportConfig_ == nullptr
+        && this->webReportConfig_ == nullptr && this->workspaceId_ == nullptr; };
       // aliyunParentUid Field Functions 
       bool hasAliyunParentUid() const { return this->aliyunParentUid_ != nullptr;};
       void deleteAliyunParentUid() { this->aliyunParentUid_ = nullptr;};
@@ -239,6 +300,13 @@ namespace Models
       void deleteCustomAgentId() { this->customAgentId_ = nullptr;};
       inline string getCustomAgentId() const { DARABONBA_PTR_GET_DEFAULT(customAgentId_, "") };
       inline Data& setCustomAgentId(string customAgentId) { DARABONBA_PTR_SET_VALUE(customAgentId_, customAgentId) };
+
+
+      // DMSUnit Field Functions 
+      bool hasDMSUnit() const { return this->DMSUnit_ != nullptr;};
+      void deleteDMSUnit() { this->DMSUnit_ = nullptr;};
+      inline string getDMSUnit() const { DARABONBA_PTR_GET_DEFAULT(DMSUnit_, "") };
+      inline Data& setDMSUnit(string DMSUnit) { DARABONBA_PTR_SET_VALUE(DMSUnit_, DMSUnit) };
 
 
       // dataJson Field Functions 
@@ -299,6 +367,13 @@ namespace Models
       inline Data& setInstruction(string instruction) { DARABONBA_PTR_SET_VALUE(instruction_, instruction) };
 
 
+      // isScheduleTask Field Functions 
+      bool hasIsScheduleTask() const { return this->isScheduleTask_ != nullptr;};
+      void deleteIsScheduleTask() { this->isScheduleTask_ = nullptr;};
+      inline bool getIsScheduleTask() const { DARABONBA_PTR_GET_DEFAULT(isScheduleTask_, false) };
+      inline Data& setIsScheduleTask(bool isScheduleTask) { DARABONBA_PTR_SET_VALUE(isScheduleTask_, isScheduleTask) };
+
+
       // knowledge Field Functions 
       bool hasKnowledge() const { return this->knowledge_ != nullptr;};
       void deleteKnowledge() { this->knowledge_ = nullptr;};
@@ -336,6 +411,13 @@ namespace Models
       inline Data& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+      // nextRuntime Field Functions 
+      bool hasNextRuntime() const { return this->nextRuntime_ != nullptr;};
+      void deleteNextRuntime() { this->nextRuntime_ = nullptr;};
+      inline int64_t getNextRuntime() const { DARABONBA_PTR_GET_DEFAULT(nextRuntime_, 0L) };
+      inline Data& setNextRuntime(int64_t nextRuntime) { DARABONBA_PTR_SET_VALUE(nextRuntime_, nextRuntime) };
+
+
       // offlineTime Field Functions 
       bool hasOfflineTime() const { return this->offlineTime_ != nullptr;};
       void deleteOfflineTime() { this->offlineTime_ = nullptr;};
@@ -355,6 +437,15 @@ namespace Models
       void deleteReleaseTime() { this->releaseTime_ = nullptr;};
       inline string getReleaseTime() const { DARABONBA_PTR_GET_DEFAULT(releaseTime_, "") };
       inline Data& setReleaseTime(string releaseTime) { DARABONBA_PTR_SET_VALUE(releaseTime_, releaseTime) };
+
+
+      // scheduleTaskConfig Field Functions 
+      bool hasScheduleTaskConfig() const { return this->scheduleTaskConfig_ != nullptr;};
+      void deleteScheduleTaskConfig() { this->scheduleTaskConfig_ = nullptr;};
+      inline const Data::ScheduleTaskConfig & getScheduleTaskConfig() const { DARABONBA_PTR_GET_CONST(scheduleTaskConfig_, Data::ScheduleTaskConfig) };
+      inline Data::ScheduleTaskConfig getScheduleTaskConfig() { DARABONBA_PTR_GET(scheduleTaskConfig_, Data::ScheduleTaskConfig) };
+      inline Data& setScheduleTaskConfig(const Data::ScheduleTaskConfig & scheduleTaskConfig) { DARABONBA_PTR_SET_VALUE(scheduleTaskConfig_, scheduleTaskConfig) };
+      inline Data& setScheduleTaskConfig(Data::ScheduleTaskConfig && scheduleTaskConfig) { DARABONBA_PTR_SET_RVALUE(scheduleTaskConfig_, scheduleTaskConfig) };
 
 
       // status Field Functions 
@@ -390,6 +481,7 @@ namespace Models
       shared_ptr<string> aliyunUid_ {};
       shared_ptr<string> creatorUserName_ {};
       shared_ptr<string> customAgentId_ {};
+      shared_ptr<string> DMSUnit_ {};
       shared_ptr<string> dataJson_ {};
       shared_ptr<int32_t> defaultAgent_ {};
       shared_ptr<string> description_ {};
@@ -398,14 +490,17 @@ namespace Models
       shared_ptr<string> gmtCreated_ {};
       shared_ptr<string> gmtModified_ {};
       shared_ptr<string> instruction_ {};
+      shared_ptr<bool> isScheduleTask_ {};
       shared_ptr<string> knowledge_ {};
       shared_ptr<vector<Data::KnowledgeConfigList>> knowledgeConfigList_ {};
       shared_ptr<string> modifier_ {};
       shared_ptr<string> modifierUserName_ {};
       shared_ptr<string> name_ {};
+      shared_ptr<int64_t> nextRuntime_ {};
       shared_ptr<string> offlineTime_ {};
       shared_ptr<string> region_ {};
       shared_ptr<string> releaseTime_ {};
+      shared_ptr<Data::ScheduleTaskConfig> scheduleTaskConfig_ {};
       shared_ptr<string> status_ {};
       shared_ptr<string> textReportConfig_ {};
       shared_ptr<string> webReportConfig_ {};
