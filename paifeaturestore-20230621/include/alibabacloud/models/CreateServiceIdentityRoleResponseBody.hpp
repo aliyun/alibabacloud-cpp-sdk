@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->requestId_ == nullptr && return this->roleName_ == nullptr; };
+        && this->requestId_ == nullptr && this->roleName_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline CreateServiceIdentityRoleResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateServiceIdentityRoleResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // roleName Field Functions 
     bool hasRoleName() const { return this->roleName_ != nullptr;};
     void deleteRoleName() { this->roleName_ = nullptr;};
-    inline string roleName() const { DARABONBA_PTR_GET_DEFAULT(roleName_, "") };
+    inline string getRoleName() const { DARABONBA_PTR_GET_DEFAULT(roleName_, "") };
     inline CreateServiceIdentityRoleResponseBody& setRoleName(string roleName) { DARABONBA_PTR_SET_VALUE(roleName_, roleName) };
 
 
   protected:
-    std::shared_ptr<string> code_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> roleName_ = nullptr;
+    shared_ptr<string> code_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<string> roleName_ {};
   };
 
   } // namespace Models

@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->policy_ == nullptr
-        && return this->requestId_ == nullptr && return this->roleName_ == nullptr; };
+        && this->requestId_ == nullptr && this->roleName_ == nullptr; };
     // policy Field Functions 
     bool hasPolicy() const { return this->policy_ != nullptr;};
     void deletePolicy() { this->policy_ = nullptr;};
-    inline string policy() const { DARABONBA_PTR_GET_DEFAULT(policy_, "") };
+    inline string getPolicy() const { DARABONBA_PTR_GET_DEFAULT(policy_, "") };
     inline GetServiceIdentityRoleResponseBody& setPolicy(string policy) { DARABONBA_PTR_SET_VALUE(policy_, policy) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetServiceIdentityRoleResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // roleName Field Functions 
     bool hasRoleName() const { return this->roleName_ != nullptr;};
     void deleteRoleName() { this->roleName_ = nullptr;};
-    inline string roleName() const { DARABONBA_PTR_GET_DEFAULT(roleName_, "") };
+    inline string getRoleName() const { DARABONBA_PTR_GET_DEFAULT(roleName_, "") };
     inline GetServiceIdentityRoleResponseBody& setRoleName(string roleName) { DARABONBA_PTR_SET_VALUE(roleName_, roleName) };
 
 
   protected:
-    std::shared_ptr<string> policy_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> roleName_ = nullptr;
+    shared_ptr<string> policy_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<string> roleName_ {};
   };
 
   } // namespace Models

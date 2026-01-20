@@ -2,8 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_GETINSTANCERESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_GETINSTANCERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/GetInstanceResponseBodyFeatureDBInfo.hpp>
-#include <alibabacloud/models/GetInstanceResponseBodyFeatureDBInstanceInfo.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -49,94 +47,156 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class FeatureDBInstanceInfo : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const FeatureDBInstanceInfo& obj) { 
+        DARABONBA_PTR_TO_JSON(Status, status_);
+      };
+      friend void from_json(const Darabonba::Json& j, FeatureDBInstanceInfo& obj) { 
+        DARABONBA_PTR_FROM_JSON(Status, status_);
+      };
+      FeatureDBInstanceInfo() = default ;
+      FeatureDBInstanceInfo(const FeatureDBInstanceInfo &) = default ;
+      FeatureDBInstanceInfo(FeatureDBInstanceInfo &&) = default ;
+      FeatureDBInstanceInfo(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~FeatureDBInstanceInfo() = default ;
+      FeatureDBInstanceInfo& operator=(const FeatureDBInstanceInfo &) = default ;
+      FeatureDBInstanceInfo& operator=(FeatureDBInstanceInfo &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->status_ == nullptr; };
+      // status Field Functions 
+      bool hasStatus() const { return this->status_ != nullptr;};
+      void deleteStatus() { this->status_ = nullptr;};
+      inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+      inline FeatureDBInstanceInfo& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+    protected:
+      shared_ptr<string> status_ {};
+    };
+
+    class FeatureDBInfo : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const FeatureDBInfo& obj) { 
+        DARABONBA_PTR_TO_JSON(Status, status_);
+      };
+      friend void from_json(const Darabonba::Json& j, FeatureDBInfo& obj) { 
+        DARABONBA_PTR_FROM_JSON(Status, status_);
+      };
+      FeatureDBInfo() = default ;
+      FeatureDBInfo(const FeatureDBInfo &) = default ;
+      FeatureDBInfo(FeatureDBInfo &&) = default ;
+      FeatureDBInfo(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~FeatureDBInfo() = default ;
+      FeatureDBInfo& operator=(const FeatureDBInfo &) = default ;
+      FeatureDBInfo& operator=(FeatureDBInfo &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->status_ == nullptr; };
+      // status Field Functions 
+      bool hasStatus() const { return this->status_ != nullptr;};
+      void deleteStatus() { this->status_ = nullptr;};
+      inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+      inline FeatureDBInfo& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+    protected:
+      shared_ptr<string> status_ {};
+    };
+
     virtual bool empty() const override { return this->featureDBInfo_ == nullptr
-        && return this->featureDBInstanceInfo_ == nullptr && return this->gmtCreateTime_ == nullptr && return this->gmtModifiedTime_ == nullptr && return this->message_ == nullptr && return this->progress_ == nullptr
-        && return this->regionId_ == nullptr && return this->requestId_ == nullptr && return this->status_ == nullptr && return this->type_ == nullptr; };
+        && this->featureDBInstanceInfo_ == nullptr && this->gmtCreateTime_ == nullptr && this->gmtModifiedTime_ == nullptr && this->message_ == nullptr && this->progress_ == nullptr
+        && this->regionId_ == nullptr && this->requestId_ == nullptr && this->status_ == nullptr && this->type_ == nullptr; };
     // featureDBInfo Field Functions 
     bool hasFeatureDBInfo() const { return this->featureDBInfo_ != nullptr;};
     void deleteFeatureDBInfo() { this->featureDBInfo_ = nullptr;};
-    inline const GetInstanceResponseBodyFeatureDBInfo & featureDBInfo() const { DARABONBA_PTR_GET_CONST(featureDBInfo_, GetInstanceResponseBodyFeatureDBInfo) };
-    inline GetInstanceResponseBodyFeatureDBInfo featureDBInfo() { DARABONBA_PTR_GET(featureDBInfo_, GetInstanceResponseBodyFeatureDBInfo) };
-    inline GetInstanceResponseBody& setFeatureDBInfo(const GetInstanceResponseBodyFeatureDBInfo & featureDBInfo) { DARABONBA_PTR_SET_VALUE(featureDBInfo_, featureDBInfo) };
-    inline GetInstanceResponseBody& setFeatureDBInfo(GetInstanceResponseBodyFeatureDBInfo && featureDBInfo) { DARABONBA_PTR_SET_RVALUE(featureDBInfo_, featureDBInfo) };
+    inline const GetInstanceResponseBody::FeatureDBInfo & getFeatureDBInfo() const { DARABONBA_PTR_GET_CONST(featureDBInfo_, GetInstanceResponseBody::FeatureDBInfo) };
+    inline GetInstanceResponseBody::FeatureDBInfo getFeatureDBInfo() { DARABONBA_PTR_GET(featureDBInfo_, GetInstanceResponseBody::FeatureDBInfo) };
+    inline GetInstanceResponseBody& setFeatureDBInfo(const GetInstanceResponseBody::FeatureDBInfo & featureDBInfo) { DARABONBA_PTR_SET_VALUE(featureDBInfo_, featureDBInfo) };
+    inline GetInstanceResponseBody& setFeatureDBInfo(GetInstanceResponseBody::FeatureDBInfo && featureDBInfo) { DARABONBA_PTR_SET_RVALUE(featureDBInfo_, featureDBInfo) };
 
 
     // featureDBInstanceInfo Field Functions 
     bool hasFeatureDBInstanceInfo() const { return this->featureDBInstanceInfo_ != nullptr;};
     void deleteFeatureDBInstanceInfo() { this->featureDBInstanceInfo_ = nullptr;};
-    inline const GetInstanceResponseBodyFeatureDBInstanceInfo & featureDBInstanceInfo() const { DARABONBA_PTR_GET_CONST(featureDBInstanceInfo_, GetInstanceResponseBodyFeatureDBInstanceInfo) };
-    inline GetInstanceResponseBodyFeatureDBInstanceInfo featureDBInstanceInfo() { DARABONBA_PTR_GET(featureDBInstanceInfo_, GetInstanceResponseBodyFeatureDBInstanceInfo) };
-    inline GetInstanceResponseBody& setFeatureDBInstanceInfo(const GetInstanceResponseBodyFeatureDBInstanceInfo & featureDBInstanceInfo) { DARABONBA_PTR_SET_VALUE(featureDBInstanceInfo_, featureDBInstanceInfo) };
-    inline GetInstanceResponseBody& setFeatureDBInstanceInfo(GetInstanceResponseBodyFeatureDBInstanceInfo && featureDBInstanceInfo) { DARABONBA_PTR_SET_RVALUE(featureDBInstanceInfo_, featureDBInstanceInfo) };
+    inline const GetInstanceResponseBody::FeatureDBInstanceInfo & getFeatureDBInstanceInfo() const { DARABONBA_PTR_GET_CONST(featureDBInstanceInfo_, GetInstanceResponseBody::FeatureDBInstanceInfo) };
+    inline GetInstanceResponseBody::FeatureDBInstanceInfo getFeatureDBInstanceInfo() { DARABONBA_PTR_GET(featureDBInstanceInfo_, GetInstanceResponseBody::FeatureDBInstanceInfo) };
+    inline GetInstanceResponseBody& setFeatureDBInstanceInfo(const GetInstanceResponseBody::FeatureDBInstanceInfo & featureDBInstanceInfo) { DARABONBA_PTR_SET_VALUE(featureDBInstanceInfo_, featureDBInstanceInfo) };
+    inline GetInstanceResponseBody& setFeatureDBInstanceInfo(GetInstanceResponseBody::FeatureDBInstanceInfo && featureDBInstanceInfo) { DARABONBA_PTR_SET_RVALUE(featureDBInstanceInfo_, featureDBInstanceInfo) };
 
 
     // gmtCreateTime Field Functions 
     bool hasGmtCreateTime() const { return this->gmtCreateTime_ != nullptr;};
     void deleteGmtCreateTime() { this->gmtCreateTime_ = nullptr;};
-    inline string gmtCreateTime() const { DARABONBA_PTR_GET_DEFAULT(gmtCreateTime_, "") };
+    inline string getGmtCreateTime() const { DARABONBA_PTR_GET_DEFAULT(gmtCreateTime_, "") };
     inline GetInstanceResponseBody& setGmtCreateTime(string gmtCreateTime) { DARABONBA_PTR_SET_VALUE(gmtCreateTime_, gmtCreateTime) };
 
 
     // gmtModifiedTime Field Functions 
     bool hasGmtModifiedTime() const { return this->gmtModifiedTime_ != nullptr;};
     void deleteGmtModifiedTime() { this->gmtModifiedTime_ = nullptr;};
-    inline string gmtModifiedTime() const { DARABONBA_PTR_GET_DEFAULT(gmtModifiedTime_, "") };
+    inline string getGmtModifiedTime() const { DARABONBA_PTR_GET_DEFAULT(gmtModifiedTime_, "") };
     inline GetInstanceResponseBody& setGmtModifiedTime(string gmtModifiedTime) { DARABONBA_PTR_SET_VALUE(gmtModifiedTime_, gmtModifiedTime) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline GetInstanceResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // progress Field Functions 
     bool hasProgress() const { return this->progress_ != nullptr;};
     void deleteProgress() { this->progress_ = nullptr;};
-    inline double progress() const { DARABONBA_PTR_GET_DEFAULT(progress_, 0.0) };
+    inline double getProgress() const { DARABONBA_PTR_GET_DEFAULT(progress_, 0.0) };
     inline GetInstanceResponseBody& setProgress(double progress) { DARABONBA_PTR_SET_VALUE(progress_, progress) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline GetInstanceResponseBody& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetInstanceResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline GetInstanceResponseBody& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline GetInstanceResponseBody& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
-    std::shared_ptr<GetInstanceResponseBodyFeatureDBInfo> featureDBInfo_ = nullptr;
-    std::shared_ptr<GetInstanceResponseBodyFeatureDBInstanceInfo> featureDBInstanceInfo_ = nullptr;
-    std::shared_ptr<string> gmtCreateTime_ = nullptr;
-    std::shared_ptr<string> gmtModifiedTime_ = nullptr;
-    std::shared_ptr<string> message_ = nullptr;
-    std::shared_ptr<double> progress_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> status_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<GetInstanceResponseBody::FeatureDBInfo> featureDBInfo_ {};
+    shared_ptr<GetInstanceResponseBody::FeatureDBInstanceInfo> featureDBInstanceInfo_ {};
+    shared_ptr<string> gmtCreateTime_ {};
+    shared_ptr<string> gmtModifiedTime_ {};
+    shared_ptr<string> message_ {};
+    shared_ptr<double> progress_ {};
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<string> status_ {};
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

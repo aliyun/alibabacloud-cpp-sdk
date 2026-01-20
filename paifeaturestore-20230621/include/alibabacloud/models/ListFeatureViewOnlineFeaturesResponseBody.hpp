@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->onlineFeatures_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // onlineFeatures Field Functions 
     bool hasOnlineFeatures() const { return this->onlineFeatures_ != nullptr;};
     void deleteOnlineFeatures() { this->onlineFeatures_ = nullptr;};
-    inline const vector<string> & onlineFeatures() const { DARABONBA_PTR_GET_CONST(onlineFeatures_, vector<string>) };
-    inline vector<string> onlineFeatures() { DARABONBA_PTR_GET(onlineFeatures_, vector<string>) };
+    inline const vector<string> & getOnlineFeatures() const { DARABONBA_PTR_GET_CONST(onlineFeatures_, vector<string>) };
+    inline vector<string> getOnlineFeatures() { DARABONBA_PTR_GET(onlineFeatures_, vector<string>) };
     inline ListFeatureViewOnlineFeaturesResponseBody& setOnlineFeatures(const vector<string> & onlineFeatures) { DARABONBA_PTR_SET_VALUE(onlineFeatures_, onlineFeatures) };
     inline ListFeatureViewOnlineFeaturesResponseBody& setOnlineFeatures(vector<string> && onlineFeatures) { DARABONBA_PTR_SET_RVALUE(onlineFeatures_, onlineFeatures) };
 
@@ -46,13 +46,13 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListFeatureViewOnlineFeaturesResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<vector<string>> onlineFeatures_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<vector<string>> onlineFeatures_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

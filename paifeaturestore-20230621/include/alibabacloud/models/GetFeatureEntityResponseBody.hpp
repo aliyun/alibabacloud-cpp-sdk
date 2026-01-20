@@ -48,89 +48,89 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->gmtCreateTime_ == nullptr
-        && return this->joinId_ == nullptr && return this->name_ == nullptr && return this->owner_ == nullptr && return this->parentFeatureEntityId_ == nullptr && return this->parentFeatureEntityName_ == nullptr
-        && return this->parentJoinId_ == nullptr && return this->projectId_ == nullptr && return this->projectName_ == nullptr && return this->requestId_ == nullptr; };
+        && this->joinId_ == nullptr && this->name_ == nullptr && this->owner_ == nullptr && this->parentFeatureEntityId_ == nullptr && this->parentFeatureEntityName_ == nullptr
+        && this->parentJoinId_ == nullptr && this->projectId_ == nullptr && this->projectName_ == nullptr && this->requestId_ == nullptr; };
     // gmtCreateTime Field Functions 
     bool hasGmtCreateTime() const { return this->gmtCreateTime_ != nullptr;};
     void deleteGmtCreateTime() { this->gmtCreateTime_ = nullptr;};
-    inline string gmtCreateTime() const { DARABONBA_PTR_GET_DEFAULT(gmtCreateTime_, "") };
+    inline string getGmtCreateTime() const { DARABONBA_PTR_GET_DEFAULT(gmtCreateTime_, "") };
     inline GetFeatureEntityResponseBody& setGmtCreateTime(string gmtCreateTime) { DARABONBA_PTR_SET_VALUE(gmtCreateTime_, gmtCreateTime) };
 
 
     // joinId Field Functions 
     bool hasJoinId() const { return this->joinId_ != nullptr;};
     void deleteJoinId() { this->joinId_ = nullptr;};
-    inline string joinId() const { DARABONBA_PTR_GET_DEFAULT(joinId_, "") };
+    inline string getJoinId() const { DARABONBA_PTR_GET_DEFAULT(joinId_, "") };
     inline GetFeatureEntityResponseBody& setJoinId(string joinId) { DARABONBA_PTR_SET_VALUE(joinId_, joinId) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline GetFeatureEntityResponseBody& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // owner Field Functions 
     bool hasOwner() const { return this->owner_ != nullptr;};
     void deleteOwner() { this->owner_ = nullptr;};
-    inline string owner() const { DARABONBA_PTR_GET_DEFAULT(owner_, "") };
+    inline string getOwner() const { DARABONBA_PTR_GET_DEFAULT(owner_, "") };
     inline GetFeatureEntityResponseBody& setOwner(string owner) { DARABONBA_PTR_SET_VALUE(owner_, owner) };
 
 
     // parentFeatureEntityId Field Functions 
     bool hasParentFeatureEntityId() const { return this->parentFeatureEntityId_ != nullptr;};
     void deleteParentFeatureEntityId() { this->parentFeatureEntityId_ = nullptr;};
-    inline string parentFeatureEntityId() const { DARABONBA_PTR_GET_DEFAULT(parentFeatureEntityId_, "") };
+    inline string getParentFeatureEntityId() const { DARABONBA_PTR_GET_DEFAULT(parentFeatureEntityId_, "") };
     inline GetFeatureEntityResponseBody& setParentFeatureEntityId(string parentFeatureEntityId) { DARABONBA_PTR_SET_VALUE(parentFeatureEntityId_, parentFeatureEntityId) };
 
 
     // parentFeatureEntityName Field Functions 
     bool hasParentFeatureEntityName() const { return this->parentFeatureEntityName_ != nullptr;};
     void deleteParentFeatureEntityName() { this->parentFeatureEntityName_ = nullptr;};
-    inline string parentFeatureEntityName() const { DARABONBA_PTR_GET_DEFAULT(parentFeatureEntityName_, "") };
+    inline string getParentFeatureEntityName() const { DARABONBA_PTR_GET_DEFAULT(parentFeatureEntityName_, "") };
     inline GetFeatureEntityResponseBody& setParentFeatureEntityName(string parentFeatureEntityName) { DARABONBA_PTR_SET_VALUE(parentFeatureEntityName_, parentFeatureEntityName) };
 
 
     // parentJoinId Field Functions 
     bool hasParentJoinId() const { return this->parentJoinId_ != nullptr;};
     void deleteParentJoinId() { this->parentJoinId_ = nullptr;};
-    inline string parentJoinId() const { DARABONBA_PTR_GET_DEFAULT(parentJoinId_, "") };
+    inline string getParentJoinId() const { DARABONBA_PTR_GET_DEFAULT(parentJoinId_, "") };
     inline GetFeatureEntityResponseBody& setParentJoinId(string parentJoinId) { DARABONBA_PTR_SET_VALUE(parentJoinId_, parentJoinId) };
 
 
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline string projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, "") };
+    inline string getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, "") };
     inline GetFeatureEntityResponseBody& setProjectId(string projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
     // projectName Field Functions 
     bool hasProjectName() const { return this->projectName_ != nullptr;};
     void deleteProjectName() { this->projectName_ = nullptr;};
-    inline string projectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
+    inline string getProjectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
     inline GetFeatureEntityResponseBody& setProjectName(string projectName) { DARABONBA_PTR_SET_VALUE(projectName_, projectName) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetFeatureEntityResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<string> gmtCreateTime_ = nullptr;
-    std::shared_ptr<string> joinId_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> owner_ = nullptr;
-    std::shared_ptr<string> parentFeatureEntityId_ = nullptr;
-    std::shared_ptr<string> parentFeatureEntityName_ = nullptr;
-    std::shared_ptr<string> parentJoinId_ = nullptr;
-    std::shared_ptr<string> projectId_ = nullptr;
-    std::shared_ptr<string> projectName_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> gmtCreateTime_ {};
+    shared_ptr<string> joinId_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<string> owner_ {};
+    shared_ptr<string> parentFeatureEntityId_ {};
+    shared_ptr<string> parentFeatureEntityName_ {};
+    shared_ptr<string> parentJoinId_ {};
+    shared_ptr<string> projectId_ {};
+    shared_ptr<string> projectName_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

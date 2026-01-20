@@ -33,13 +33,13 @@ namespace Models
     // joinIdsShrink Field Functions 
     bool hasJoinIdsShrink() const { return this->joinIdsShrink_ != nullptr;};
     void deleteJoinIdsShrink() { this->joinIdsShrink_ = nullptr;};
-    inline string joinIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(joinIdsShrink_, "") };
+    inline string getJoinIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(joinIdsShrink_, "") };
     inline ListFeatureViewOnlineFeaturesShrinkRequest& setJoinIdsShrink(string joinIdsShrink) { DARABONBA_PTR_SET_VALUE(joinIdsShrink_, joinIdsShrink) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> joinIdsShrink_ = nullptr;
+    shared_ptr<string> joinIdsShrink_ {};
   };
 
   } // namespace Models

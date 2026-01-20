@@ -54,114 +54,114 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->config_ == nullptr
-        && return this->gmtCreateTime_ == nullptr && return this->gmtExecutedTime_ == nullptr && return this->gmtFinishedTime_ == nullptr && return this->gmtModifiedTime_ == nullptr && return this->objectId_ == nullptr
-        && return this->objectType_ == nullptr && return this->projectId_ == nullptr && return this->projectName_ == nullptr && return this->requestId_ == nullptr && return this->runningConfig_ == nullptr
-        && return this->status_ == nullptr && return this->type_ == nullptr; };
+        && this->gmtCreateTime_ == nullptr && this->gmtExecutedTime_ == nullptr && this->gmtFinishedTime_ == nullptr && this->gmtModifiedTime_ == nullptr && this->objectId_ == nullptr
+        && this->objectType_ == nullptr && this->projectId_ == nullptr && this->projectName_ == nullptr && this->requestId_ == nullptr && this->runningConfig_ == nullptr
+        && this->status_ == nullptr && this->type_ == nullptr; };
     // config Field Functions 
     bool hasConfig() const { return this->config_ != nullptr;};
     void deleteConfig() { this->config_ = nullptr;};
-    inline string config() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
+    inline string getConfig() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
     inline GetTaskResponseBody& setConfig(string config) { DARABONBA_PTR_SET_VALUE(config_, config) };
 
 
     // gmtCreateTime Field Functions 
     bool hasGmtCreateTime() const { return this->gmtCreateTime_ != nullptr;};
     void deleteGmtCreateTime() { this->gmtCreateTime_ = nullptr;};
-    inline string gmtCreateTime() const { DARABONBA_PTR_GET_DEFAULT(gmtCreateTime_, "") };
+    inline string getGmtCreateTime() const { DARABONBA_PTR_GET_DEFAULT(gmtCreateTime_, "") };
     inline GetTaskResponseBody& setGmtCreateTime(string gmtCreateTime) { DARABONBA_PTR_SET_VALUE(gmtCreateTime_, gmtCreateTime) };
 
 
     // gmtExecutedTime Field Functions 
     bool hasGmtExecutedTime() const { return this->gmtExecutedTime_ != nullptr;};
     void deleteGmtExecutedTime() { this->gmtExecutedTime_ = nullptr;};
-    inline string gmtExecutedTime() const { DARABONBA_PTR_GET_DEFAULT(gmtExecutedTime_, "") };
+    inline string getGmtExecutedTime() const { DARABONBA_PTR_GET_DEFAULT(gmtExecutedTime_, "") };
     inline GetTaskResponseBody& setGmtExecutedTime(string gmtExecutedTime) { DARABONBA_PTR_SET_VALUE(gmtExecutedTime_, gmtExecutedTime) };
 
 
     // gmtFinishedTime Field Functions 
     bool hasGmtFinishedTime() const { return this->gmtFinishedTime_ != nullptr;};
     void deleteGmtFinishedTime() { this->gmtFinishedTime_ = nullptr;};
-    inline string gmtFinishedTime() const { DARABONBA_PTR_GET_DEFAULT(gmtFinishedTime_, "") };
+    inline string getGmtFinishedTime() const { DARABONBA_PTR_GET_DEFAULT(gmtFinishedTime_, "") };
     inline GetTaskResponseBody& setGmtFinishedTime(string gmtFinishedTime) { DARABONBA_PTR_SET_VALUE(gmtFinishedTime_, gmtFinishedTime) };
 
 
     // gmtModifiedTime Field Functions 
     bool hasGmtModifiedTime() const { return this->gmtModifiedTime_ != nullptr;};
     void deleteGmtModifiedTime() { this->gmtModifiedTime_ = nullptr;};
-    inline string gmtModifiedTime() const { DARABONBA_PTR_GET_DEFAULT(gmtModifiedTime_, "") };
+    inline string getGmtModifiedTime() const { DARABONBA_PTR_GET_DEFAULT(gmtModifiedTime_, "") };
     inline GetTaskResponseBody& setGmtModifiedTime(string gmtModifiedTime) { DARABONBA_PTR_SET_VALUE(gmtModifiedTime_, gmtModifiedTime) };
 
 
     // objectId Field Functions 
     bool hasObjectId() const { return this->objectId_ != nullptr;};
     void deleteObjectId() { this->objectId_ = nullptr;};
-    inline string objectId() const { DARABONBA_PTR_GET_DEFAULT(objectId_, "") };
+    inline string getObjectId() const { DARABONBA_PTR_GET_DEFAULT(objectId_, "") };
     inline GetTaskResponseBody& setObjectId(string objectId) { DARABONBA_PTR_SET_VALUE(objectId_, objectId) };
 
 
     // objectType Field Functions 
     bool hasObjectType() const { return this->objectType_ != nullptr;};
     void deleteObjectType() { this->objectType_ = nullptr;};
-    inline string objectType() const { DARABONBA_PTR_GET_DEFAULT(objectType_, "") };
+    inline string getObjectType() const { DARABONBA_PTR_GET_DEFAULT(objectType_, "") };
     inline GetTaskResponseBody& setObjectType(string objectType) { DARABONBA_PTR_SET_VALUE(objectType_, objectType) };
 
 
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline string projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, "") };
+    inline string getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, "") };
     inline GetTaskResponseBody& setProjectId(string projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
     // projectName Field Functions 
     bool hasProjectName() const { return this->projectName_ != nullptr;};
     void deleteProjectName() { this->projectName_ = nullptr;};
-    inline string projectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
+    inline string getProjectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
     inline GetTaskResponseBody& setProjectName(string projectName) { DARABONBA_PTR_SET_VALUE(projectName_, projectName) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetTaskResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // runningConfig Field Functions 
     bool hasRunningConfig() const { return this->runningConfig_ != nullptr;};
     void deleteRunningConfig() { this->runningConfig_ = nullptr;};
-    inline string runningConfig() const { DARABONBA_PTR_GET_DEFAULT(runningConfig_, "") };
+    inline string getRunningConfig() const { DARABONBA_PTR_GET_DEFAULT(runningConfig_, "") };
     inline GetTaskResponseBody& setRunningConfig(string runningConfig) { DARABONBA_PTR_SET_VALUE(runningConfig_, runningConfig) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline GetTaskResponseBody& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline GetTaskResponseBody& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
-    std::shared_ptr<string> config_ = nullptr;
-    std::shared_ptr<string> gmtCreateTime_ = nullptr;
-    std::shared_ptr<string> gmtExecutedTime_ = nullptr;
-    std::shared_ptr<string> gmtFinishedTime_ = nullptr;
-    std::shared_ptr<string> gmtModifiedTime_ = nullptr;
-    std::shared_ptr<string> objectId_ = nullptr;
-    std::shared_ptr<string> objectType_ = nullptr;
-    std::shared_ptr<string> projectId_ = nullptr;
-    std::shared_ptr<string> projectName_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> runningConfig_ = nullptr;
-    std::shared_ptr<string> status_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> config_ {};
+    shared_ptr<string> gmtCreateTime_ {};
+    shared_ptr<string> gmtExecutedTime_ {};
+    shared_ptr<string> gmtFinishedTime_ {};
+    shared_ptr<string> gmtModifiedTime_ {};
+    shared_ptr<string> objectId_ {};
+    shared_ptr<string> objectType_ {};
+    shared_ptr<string> projectId_ {};
+    shared_ptr<string> projectName_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<string> runningConfig_ {};
+    shared_ptr<string> status_ {};
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

@@ -40,60 +40,60 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->name_ == nullptr && return this->offlineDatasourceId_ == nullptr && return this->offlineLifeCycle_ == nullptr && return this->onlineDatasourceId_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->name_ == nullptr && this->offlineDatasourceId_ == nullptr && this->offlineLifeCycle_ == nullptr && this->onlineDatasourceId_ == nullptr && this->workspaceId_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateProjectRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateProjectRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // offlineDatasourceId Field Functions 
     bool hasOfflineDatasourceId() const { return this->offlineDatasourceId_ != nullptr;};
     void deleteOfflineDatasourceId() { this->offlineDatasourceId_ = nullptr;};
-    inline string offlineDatasourceId() const { DARABONBA_PTR_GET_DEFAULT(offlineDatasourceId_, "") };
+    inline string getOfflineDatasourceId() const { DARABONBA_PTR_GET_DEFAULT(offlineDatasourceId_, "") };
     inline CreateProjectRequest& setOfflineDatasourceId(string offlineDatasourceId) { DARABONBA_PTR_SET_VALUE(offlineDatasourceId_, offlineDatasourceId) };
 
 
     // offlineLifeCycle Field Functions 
     bool hasOfflineLifeCycle() const { return this->offlineLifeCycle_ != nullptr;};
     void deleteOfflineLifeCycle() { this->offlineLifeCycle_ = nullptr;};
-    inline int32_t offlineLifeCycle() const { DARABONBA_PTR_GET_DEFAULT(offlineLifeCycle_, 0) };
+    inline int32_t getOfflineLifeCycle() const { DARABONBA_PTR_GET_DEFAULT(offlineLifeCycle_, 0) };
     inline CreateProjectRequest& setOfflineLifeCycle(int32_t offlineLifeCycle) { DARABONBA_PTR_SET_VALUE(offlineLifeCycle_, offlineLifeCycle) };
 
 
     // onlineDatasourceId Field Functions 
     bool hasOnlineDatasourceId() const { return this->onlineDatasourceId_ != nullptr;};
     void deleteOnlineDatasourceId() { this->onlineDatasourceId_ = nullptr;};
-    inline string onlineDatasourceId() const { DARABONBA_PTR_GET_DEFAULT(onlineDatasourceId_, "") };
+    inline string getOnlineDatasourceId() const { DARABONBA_PTR_GET_DEFAULT(onlineDatasourceId_, "") };
     inline CreateProjectRequest& setOnlineDatasourceId(string onlineDatasourceId) { DARABONBA_PTR_SET_VALUE(onlineDatasourceId_, onlineDatasourceId) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline CreateProjectRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // This parameter is required.
-    std::shared_ptr<string> offlineDatasourceId_ = nullptr;
-    std::shared_ptr<int32_t> offlineLifeCycle_ = nullptr;
+    shared_ptr<string> offlineDatasourceId_ {};
+    shared_ptr<int32_t> offlineLifeCycle_ {};
     // This parameter is required.
-    std::shared_ptr<string> onlineDatasourceId_ = nullptr;
+    shared_ptr<string> onlineDatasourceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

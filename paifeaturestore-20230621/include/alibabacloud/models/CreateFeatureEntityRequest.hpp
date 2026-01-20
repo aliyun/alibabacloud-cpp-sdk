@@ -36,43 +36,43 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->joinId_ == nullptr
-        && return this->name_ == nullptr && return this->parentFeatureEntityId_ == nullptr && return this->projectId_ == nullptr; };
+        && this->name_ == nullptr && this->parentFeatureEntityId_ == nullptr && this->projectId_ == nullptr; };
     // joinId Field Functions 
     bool hasJoinId() const { return this->joinId_ != nullptr;};
     void deleteJoinId() { this->joinId_ = nullptr;};
-    inline string joinId() const { DARABONBA_PTR_GET_DEFAULT(joinId_, "") };
+    inline string getJoinId() const { DARABONBA_PTR_GET_DEFAULT(joinId_, "") };
     inline CreateFeatureEntityRequest& setJoinId(string joinId) { DARABONBA_PTR_SET_VALUE(joinId_, joinId) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateFeatureEntityRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // parentFeatureEntityId Field Functions 
     bool hasParentFeatureEntityId() const { return this->parentFeatureEntityId_ != nullptr;};
     void deleteParentFeatureEntityId() { this->parentFeatureEntityId_ = nullptr;};
-    inline string parentFeatureEntityId() const { DARABONBA_PTR_GET_DEFAULT(parentFeatureEntityId_, "") };
+    inline string getParentFeatureEntityId() const { DARABONBA_PTR_GET_DEFAULT(parentFeatureEntityId_, "") };
     inline CreateFeatureEntityRequest& setParentFeatureEntityId(string parentFeatureEntityId) { DARABONBA_PTR_SET_VALUE(parentFeatureEntityId_, parentFeatureEntityId) };
 
 
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline string projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, "") };
+    inline string getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, "") };
     inline CreateFeatureEntityRequest& setProjectId(string projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> joinId_ = nullptr;
+    shared_ptr<string> joinId_ {};
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> parentFeatureEntityId_ = nullptr;
+    shared_ptr<string> name_ {};
+    shared_ptr<string> parentFeatureEntityId_ {};
     // This parameter is required.
-    std::shared_ptr<string> projectId_ = nullptr;
+    shared_ptr<string> projectId_ {};
   };
 
   } // namespace Models

@@ -33,13 +33,13 @@ namespace Models
     // roleName Field Functions 
     bool hasRoleName() const { return this->roleName_ != nullptr;};
     void deleteRoleName() { this->roleName_ = nullptr;};
-    inline string roleName() const { DARABONBA_PTR_GET_DEFAULT(roleName_, "") };
+    inline string getRoleName() const { DARABONBA_PTR_GET_DEFAULT(roleName_, "") };
     inline CreateServiceIdentityRoleRequest& setRoleName(string roleName) { DARABONBA_PTR_SET_VALUE(roleName_, roleName) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> roleName_ = nullptr;
+    shared_ptr<string> roleName_ {};
   };
 
   } // namespace Models

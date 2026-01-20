@@ -34,34 +34,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->config_ == nullptr
-        && return this->type_ == nullptr && return this->uri_ == nullptr; };
+        && this->type_ == nullptr && this->uri_ == nullptr; };
     // config Field Functions 
     bool hasConfig() const { return this->config_ != nullptr;};
     void deleteConfig() { this->config_ = nullptr;};
-    inline string config() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
+    inline string getConfig() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
     inline CheckInstanceDatasourceRequest& setConfig(string config) { DARABONBA_PTR_SET_VALUE(config_, config) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline CheckInstanceDatasourceRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
     // uri Field Functions 
     bool hasUri() const { return this->uri_ != nullptr;};
     void deleteUri() { this->uri_ = nullptr;};
-    inline string uri() const { DARABONBA_PTR_GET_DEFAULT(uri_, "") };
+    inline string getUri() const { DARABONBA_PTR_GET_DEFAULT(uri_, "") };
     inline CheckInstanceDatasourceRequest& setUri(string uri) { DARABONBA_PTR_SET_VALUE(uri_, uri) };
 
 
   protected:
-    std::shared_ptr<string> config_ = nullptr;
+    shared_ptr<string> config_ {};
     // This parameter is required.
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
     // This parameter is required.
-    std::shared_ptr<string> uri_ = nullptr;
+    shared_ptr<string> uri_ {};
   };
 
   } // namespace Models

@@ -54,114 +54,114 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->all_ == nullptr
-        && return this->endDate_ == nullptr && return this->name_ == nullptr && return this->order_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr
-        && return this->projectId_ == nullptr && return this->projectName_ == nullptr && return this->showStorageUsage_ == nullptr && return this->sortBy_ == nullptr && return this->startDate_ == nullptr
-        && return this->type_ == nullptr && return this->verbose_ == nullptr; };
+        && this->endDate_ == nullptr && this->name_ == nullptr && this->order_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
+        && this->projectId_ == nullptr && this->projectName_ == nullptr && this->showStorageUsage_ == nullptr && this->sortBy_ == nullptr && this->startDate_ == nullptr
+        && this->type_ == nullptr && this->verbose_ == nullptr; };
     // all Field Functions 
     bool hasAll() const { return this->all_ != nullptr;};
     void deleteAll() { this->all_ = nullptr;};
-    inline bool all() const { DARABONBA_PTR_GET_DEFAULT(all_, false) };
+    inline bool getAll() const { DARABONBA_PTR_GET_DEFAULT(all_, false) };
     inline ListDatasourceFeatureViewsRequest& setAll(bool all) { DARABONBA_PTR_SET_VALUE(all_, all) };
 
 
     // endDate Field Functions 
     bool hasEndDate() const { return this->endDate_ != nullptr;};
     void deleteEndDate() { this->endDate_ = nullptr;};
-    inline string endDate() const { DARABONBA_PTR_GET_DEFAULT(endDate_, "") };
+    inline string getEndDate() const { DARABONBA_PTR_GET_DEFAULT(endDate_, "") };
     inline ListDatasourceFeatureViewsRequest& setEndDate(string endDate) { DARABONBA_PTR_SET_VALUE(endDate_, endDate) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline ListDatasourceFeatureViewsRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // order Field Functions 
     bool hasOrder() const { return this->order_ != nullptr;};
     void deleteOrder() { this->order_ = nullptr;};
-    inline string order() const { DARABONBA_PTR_GET_DEFAULT(order_, "") };
+    inline string getOrder() const { DARABONBA_PTR_GET_DEFAULT(order_, "") };
     inline ListDatasourceFeatureViewsRequest& setOrder(string order) { DARABONBA_PTR_SET_VALUE(order_, order) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline ListDatasourceFeatureViewsRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListDatasourceFeatureViewsRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline string projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, "") };
+    inline string getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, "") };
     inline ListDatasourceFeatureViewsRequest& setProjectId(string projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
     // projectName Field Functions 
     bool hasProjectName() const { return this->projectName_ != nullptr;};
     void deleteProjectName() { this->projectName_ = nullptr;};
-    inline string projectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
+    inline string getProjectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
     inline ListDatasourceFeatureViewsRequest& setProjectName(string projectName) { DARABONBA_PTR_SET_VALUE(projectName_, projectName) };
 
 
     // showStorageUsage Field Functions 
     bool hasShowStorageUsage() const { return this->showStorageUsage_ != nullptr;};
     void deleteShowStorageUsage() { this->showStorageUsage_ = nullptr;};
-    inline bool showStorageUsage() const { DARABONBA_PTR_GET_DEFAULT(showStorageUsage_, false) };
+    inline bool getShowStorageUsage() const { DARABONBA_PTR_GET_DEFAULT(showStorageUsage_, false) };
     inline ListDatasourceFeatureViewsRequest& setShowStorageUsage(bool showStorageUsage) { DARABONBA_PTR_SET_VALUE(showStorageUsage_, showStorageUsage) };
 
 
     // sortBy Field Functions 
     bool hasSortBy() const { return this->sortBy_ != nullptr;};
     void deleteSortBy() { this->sortBy_ = nullptr;};
-    inline string sortBy() const { DARABONBA_PTR_GET_DEFAULT(sortBy_, "") };
+    inline string getSortBy() const { DARABONBA_PTR_GET_DEFAULT(sortBy_, "") };
     inline ListDatasourceFeatureViewsRequest& setSortBy(string sortBy) { DARABONBA_PTR_SET_VALUE(sortBy_, sortBy) };
 
 
     // startDate Field Functions 
     bool hasStartDate() const { return this->startDate_ != nullptr;};
     void deleteStartDate() { this->startDate_ = nullptr;};
-    inline string startDate() const { DARABONBA_PTR_GET_DEFAULT(startDate_, "") };
+    inline string getStartDate() const { DARABONBA_PTR_GET_DEFAULT(startDate_, "") };
     inline ListDatasourceFeatureViewsRequest& setStartDate(string startDate) { DARABONBA_PTR_SET_VALUE(startDate_, startDate) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline ListDatasourceFeatureViewsRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
     // verbose Field Functions 
     bool hasVerbose() const { return this->verbose_ != nullptr;};
     void deleteVerbose() { this->verbose_ = nullptr;};
-    inline bool verbose() const { DARABONBA_PTR_GET_DEFAULT(verbose_, false) };
+    inline bool getVerbose() const { DARABONBA_PTR_GET_DEFAULT(verbose_, false) };
     inline ListDatasourceFeatureViewsRequest& setVerbose(bool verbose) { DARABONBA_PTR_SET_VALUE(verbose_, verbose) };
 
 
   protected:
-    std::shared_ptr<bool> all_ = nullptr;
-    std::shared_ptr<string> endDate_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> order_ = nullptr;
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    std::shared_ptr<string> projectId_ = nullptr;
-    std::shared_ptr<string> projectName_ = nullptr;
-    std::shared_ptr<bool> showStorageUsage_ = nullptr;
-    std::shared_ptr<string> sortBy_ = nullptr;
-    std::shared_ptr<string> startDate_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
-    std::shared_ptr<bool> verbose_ = nullptr;
+    shared_ptr<bool> all_ {};
+    shared_ptr<string> endDate_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<string> order_ {};
+    shared_ptr<int32_t> pageNumber_ {};
+    shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<string> projectId_ {};
+    shared_ptr<string> projectName_ {};
+    shared_ptr<bool> showStorageUsage_ {};
+    shared_ptr<string> sortBy_ {};
+    shared_ptr<string> startDate_ {};
+    shared_ptr<string> type_ {};
+    shared_ptr<bool> verbose_ {};
   };
 
   } // namespace Models

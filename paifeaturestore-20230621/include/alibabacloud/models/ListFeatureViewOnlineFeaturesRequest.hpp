@@ -34,15 +34,15 @@ namespace Models
     // joinIds Field Functions 
     bool hasJoinIds() const { return this->joinIds_ != nullptr;};
     void deleteJoinIds() { this->joinIds_ = nullptr;};
-    inline const vector<string> & joinIds() const { DARABONBA_PTR_GET_CONST(joinIds_, vector<string>) };
-    inline vector<string> joinIds() { DARABONBA_PTR_GET(joinIds_, vector<string>) };
+    inline const vector<string> & getJoinIds() const { DARABONBA_PTR_GET_CONST(joinIds_, vector<string>) };
+    inline vector<string> getJoinIds() { DARABONBA_PTR_GET(joinIds_, vector<string>) };
     inline ListFeatureViewOnlineFeaturesRequest& setJoinIds(const vector<string> & joinIds) { DARABONBA_PTR_SET_VALUE(joinIds_, joinIds) };
     inline ListFeatureViewOnlineFeaturesRequest& setJoinIds(vector<string> && joinIds) { DARABONBA_PTR_SET_RVALUE(joinIds_, joinIds) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<vector<string>> joinIds_ = nullptr;
+    shared_ptr<vector<string>> joinIds_ {};
   };
 
   } // namespace Models

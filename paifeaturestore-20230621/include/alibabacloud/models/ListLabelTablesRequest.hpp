@@ -45,13 +45,13 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->labelTableIds_ == nullptr
-        && return this->name_ == nullptr && return this->order_ == nullptr && return this->owner_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr
-        && return this->projectId_ == nullptr && return this->sortBy_ == nullptr; };
+        && this->name_ == nullptr && this->order_ == nullptr && this->owner_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
+        && this->projectId_ == nullptr && this->sortBy_ == nullptr; };
     // labelTableIds Field Functions 
     bool hasLabelTableIds() const { return this->labelTableIds_ != nullptr;};
     void deleteLabelTableIds() { this->labelTableIds_ = nullptr;};
-    inline const vector<string> & labelTableIds() const { DARABONBA_PTR_GET_CONST(labelTableIds_, vector<string>) };
-    inline vector<string> labelTableIds() { DARABONBA_PTR_GET(labelTableIds_, vector<string>) };
+    inline const vector<string> & getLabelTableIds() const { DARABONBA_PTR_GET_CONST(labelTableIds_, vector<string>) };
+    inline vector<string> getLabelTableIds() { DARABONBA_PTR_GET(labelTableIds_, vector<string>) };
     inline ListLabelTablesRequest& setLabelTableIds(const vector<string> & labelTableIds) { DARABONBA_PTR_SET_VALUE(labelTableIds_, labelTableIds) };
     inline ListLabelTablesRequest& setLabelTableIds(vector<string> && labelTableIds) { DARABONBA_PTR_SET_RVALUE(labelTableIds_, labelTableIds) };
 
@@ -59,61 +59,61 @@ namespace Models
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline ListLabelTablesRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // order Field Functions 
     bool hasOrder() const { return this->order_ != nullptr;};
     void deleteOrder() { this->order_ = nullptr;};
-    inline string order() const { DARABONBA_PTR_GET_DEFAULT(order_, "") };
+    inline string getOrder() const { DARABONBA_PTR_GET_DEFAULT(order_, "") };
     inline ListLabelTablesRequest& setOrder(string order) { DARABONBA_PTR_SET_VALUE(order_, order) };
 
 
     // owner Field Functions 
     bool hasOwner() const { return this->owner_ != nullptr;};
     void deleteOwner() { this->owner_ = nullptr;};
-    inline string owner() const { DARABONBA_PTR_GET_DEFAULT(owner_, "") };
+    inline string getOwner() const { DARABONBA_PTR_GET_DEFAULT(owner_, "") };
     inline ListLabelTablesRequest& setOwner(string owner) { DARABONBA_PTR_SET_VALUE(owner_, owner) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int64_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0L) };
+    inline int64_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0L) };
     inline ListLabelTablesRequest& setPageNumber(int64_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int64_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
+    inline int64_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
     inline ListLabelTablesRequest& setPageSize(int64_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline string projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, "") };
+    inline string getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, "") };
     inline ListLabelTablesRequest& setProjectId(string projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
     // sortBy Field Functions 
     bool hasSortBy() const { return this->sortBy_ != nullptr;};
     void deleteSortBy() { this->sortBy_ = nullptr;};
-    inline string sortBy() const { DARABONBA_PTR_GET_DEFAULT(sortBy_, "") };
+    inline string getSortBy() const { DARABONBA_PTR_GET_DEFAULT(sortBy_, "") };
     inline ListLabelTablesRequest& setSortBy(string sortBy) { DARABONBA_PTR_SET_VALUE(sortBy_, sortBy) };
 
 
   protected:
-    std::shared_ptr<vector<string>> labelTableIds_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> order_ = nullptr;
-    std::shared_ptr<string> owner_ = nullptr;
-    std::shared_ptr<int64_t> pageNumber_ = nullptr;
-    std::shared_ptr<int64_t> pageSize_ = nullptr;
-    std::shared_ptr<string> projectId_ = nullptr;
-    std::shared_ptr<string> sortBy_ = nullptr;
+    shared_ptr<vector<string>> labelTableIds_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<string> order_ {};
+    shared_ptr<string> owner_ {};
+    shared_ptr<int64_t> pageNumber_ {};
+    shared_ptr<int64_t> pageSize_ {};
+    shared_ptr<string> projectId_ {};
+    shared_ptr<string> sortBy_ {};
   };
 
   } // namespace Models

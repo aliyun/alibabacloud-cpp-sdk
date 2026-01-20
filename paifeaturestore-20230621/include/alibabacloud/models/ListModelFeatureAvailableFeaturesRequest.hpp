@@ -33,12 +33,12 @@ namespace Models
     // featureName Field Functions 
     bool hasFeatureName() const { return this->featureName_ != nullptr;};
     void deleteFeatureName() { this->featureName_ = nullptr;};
-    inline string featureName() const { DARABONBA_PTR_GET_DEFAULT(featureName_, "") };
+    inline string getFeatureName() const { DARABONBA_PTR_GET_DEFAULT(featureName_, "") };
     inline ListModelFeatureAvailableFeaturesRequest& setFeatureName(string featureName) { DARABONBA_PTR_SET_VALUE(featureName_, featureName) };
 
 
   protected:
-    std::shared_ptr<string> featureName_ = nullptr;
+    shared_ptr<string> featureName_ {};
   };
 
   } // namespace Models

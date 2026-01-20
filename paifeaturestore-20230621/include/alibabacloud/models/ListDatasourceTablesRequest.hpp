@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->schemaName_ == nullptr
-        && return this->tableName_ == nullptr; };
+        && this->tableName_ == nullptr; };
     // schemaName Field Functions 
     bool hasSchemaName() const { return this->schemaName_ != nullptr;};
     void deleteSchemaName() { this->schemaName_ = nullptr;};
-    inline string schemaName() const { DARABONBA_PTR_GET_DEFAULT(schemaName_, "") };
+    inline string getSchemaName() const { DARABONBA_PTR_GET_DEFAULT(schemaName_, "") };
     inline ListDatasourceTablesRequest& setSchemaName(string schemaName) { DARABONBA_PTR_SET_VALUE(schemaName_, schemaName) };
 
 
     // tableName Field Functions 
     bool hasTableName() const { return this->tableName_ != nullptr;};
     void deleteTableName() { this->tableName_ = nullptr;};
-    inline string tableName() const { DARABONBA_PTR_GET_DEFAULT(tableName_, "") };
+    inline string getTableName() const { DARABONBA_PTR_GET_DEFAULT(tableName_, "") };
     inline ListDatasourceTablesRequest& setTableName(string tableName) { DARABONBA_PTR_SET_VALUE(tableName_, tableName) };
 
 
   protected:
-    std::shared_ptr<string> schemaName_ = nullptr;
-    std::shared_ptr<string> tableName_ = nullptr;
+    shared_ptr<string> schemaName_ {};
+    shared_ptr<string> tableName_ {};
   };
 
   } // namespace Models
