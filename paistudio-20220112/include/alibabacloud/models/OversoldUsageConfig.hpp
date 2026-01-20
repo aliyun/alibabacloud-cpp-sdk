@@ -36,8 +36,8 @@ namespace Models
     // disabled Field Functions 
     bool hasDisabled() const { return this->disabled_ != nullptr;};
     void deleteDisabled() { this->disabled_ = nullptr;};
-    inline string getDisabled() const { DARABONBA_PTR_GET_DEFAULT(disabled_, "") };
-    inline OversoldUsageConfig& setDisabled(string disabled) { DARABONBA_PTR_SET_VALUE(disabled_, disabled) };
+    inline bool getDisabled() const { DARABONBA_PTR_GET_DEFAULT(disabled_, false) };
+    inline OversoldUsageConfig& setDisabled(bool disabled) { DARABONBA_PTR_SET_VALUE(disabled_, disabled) };
 
 
     // disabledBy Field Functions 
@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    shared_ptr<string> disabled_ {};
+    shared_ptr<bool> disabled_ {};
     shared_ptr<string> disabledBy_ {};
   };
 
