@@ -156,10 +156,12 @@ namespace Models
           friend void to_json(Darabonba::Json& j, const FencePolicy& obj) { 
             DARABONBA_PTR_TO_JSON(enabledModules, enabledModules_);
             DARABONBA_PTR_TO_JSON(interceptPolicy, interceptPolicy_);
+            DARABONBA_PTR_TO_JSON(serviceName, serviceName_);
           };
           friend void from_json(const Darabonba::Json& j, FencePolicy& obj) { 
             DARABONBA_PTR_FROM_JSON(enabledModules, enabledModules_);
             DARABONBA_PTR_FROM_JSON(interceptPolicy, interceptPolicy_);
+            DARABONBA_PTR_FROM_JSON(serviceName, serviceName_);
           };
           FencePolicy() = default ;
           FencePolicy(const FencePolicy &) = default ;
@@ -173,7 +175,7 @@ namespace Models
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
           virtual bool empty() const override { return this->enabledModules_ == nullptr
-        && this->interceptPolicy_ == nullptr; };
+        && this->interceptPolicy_ == nullptr && this->serviceName_ == nullptr; };
           // enabledModules Field Functions 
           bool hasEnabledModules() const { return this->enabledModules_ != nullptr;};
           void deleteEnabledModules() { this->enabledModules_ = nullptr;};
@@ -192,9 +194,17 @@ namespace Models
           inline FencePolicy& setInterceptPolicy(map<string, string> && interceptPolicy) { DARABONBA_PTR_SET_RVALUE(interceptPolicy_, interceptPolicy) };
 
 
+          // serviceName Field Functions 
+          bool hasServiceName() const { return this->serviceName_ != nullptr;};
+          void deleteServiceName() { this->serviceName_ = nullptr;};
+          inline string getServiceName() const { DARABONBA_PTR_GET_DEFAULT(serviceName_, "") };
+          inline FencePolicy& setServiceName(string serviceName) { DARABONBA_PTR_SET_VALUE(serviceName_, serviceName) };
+
+
         protected:
           shared_ptr<vector<string>> enabledModules_ {};
           shared_ptr<map<string, string>> interceptPolicy_ {};
+          shared_ptr<string> serviceName_ {};
         };
 
         virtual bool empty() const override { return this->emptyProtect_ == nullptr
