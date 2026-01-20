@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->account_ == nullptr
-        && return this->DBInstanceId_ == nullptr && return this->dmlAuthSettingShrink_ == nullptr && return this->regionId_ == nullptr; };
+        && this->DBInstanceId_ == nullptr && this->dmlAuthSettingShrink_ == nullptr && this->regionId_ == nullptr; };
     // account Field Functions 
     bool hasAccount() const { return this->account_ != nullptr;};
     void deleteAccount() { this->account_ = nullptr;};
-    inline string account() const { DARABONBA_PTR_GET_DEFAULT(account_, "") };
+    inline string getAccount() const { DARABONBA_PTR_GET_DEFAULT(account_, "") };
     inline ModifyAccountAuthorityShrinkRequest& setAccount(string account) { DARABONBA_PTR_SET_VALUE(account_, account) };
 
 
     // DBInstanceId Field Functions 
     bool hasDBInstanceId() const { return this->DBInstanceId_ != nullptr;};
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
-    inline string DBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
+    inline string getDBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
     inline ModifyAccountAuthorityShrinkRequest& setDBInstanceId(string DBInstanceId) { DARABONBA_PTR_SET_VALUE(DBInstanceId_, DBInstanceId) };
 
 
     // dmlAuthSettingShrink Field Functions 
     bool hasDmlAuthSettingShrink() const { return this->dmlAuthSettingShrink_ != nullptr;};
     void deleteDmlAuthSettingShrink() { this->dmlAuthSettingShrink_ = nullptr;};
-    inline string dmlAuthSettingShrink() const { DARABONBA_PTR_GET_DEFAULT(dmlAuthSettingShrink_, "") };
+    inline string getDmlAuthSettingShrink() const { DARABONBA_PTR_GET_DEFAULT(dmlAuthSettingShrink_, "") };
     inline ModifyAccountAuthorityShrinkRequest& setDmlAuthSettingShrink(string dmlAuthSettingShrink) { DARABONBA_PTR_SET_VALUE(dmlAuthSettingShrink_, dmlAuthSettingShrink) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ModifyAccountAuthorityShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -69,19 +69,19 @@ namespace Models
     // The name of the database account.
     // 
     // This parameter is required.
-    std::shared_ptr<string> account_ = nullptr;
+    shared_ptr<string> account_ {};
     // The cluster ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBInstanceId_ = nullptr;
+    shared_ptr<string> DBInstanceId_ {};
     // The information about permissions.
     // 
     // This parameter is required.
-    std::shared_ptr<string> dmlAuthSettingShrink_ = nullptr;
+    shared_ptr<string> dmlAuthSettingShrink_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

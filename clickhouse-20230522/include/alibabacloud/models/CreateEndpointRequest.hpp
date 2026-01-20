@@ -38,60 +38,60 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->computingGroupId_ == nullptr
-        && return this->connectionPrefix_ == nullptr && return this->DBInstanceId_ == nullptr && return this->DBInstanceNetType_ == nullptr && return this->regionId_ == nullptr; };
+        && this->connectionPrefix_ == nullptr && this->DBInstanceId_ == nullptr && this->DBInstanceNetType_ == nullptr && this->regionId_ == nullptr; };
     // computingGroupId Field Functions 
     bool hasComputingGroupId() const { return this->computingGroupId_ != nullptr;};
     void deleteComputingGroupId() { this->computingGroupId_ = nullptr;};
-    inline string computingGroupId() const { DARABONBA_PTR_GET_DEFAULT(computingGroupId_, "") };
+    inline string getComputingGroupId() const { DARABONBA_PTR_GET_DEFAULT(computingGroupId_, "") };
     inline CreateEndpointRequest& setComputingGroupId(string computingGroupId) { DARABONBA_PTR_SET_VALUE(computingGroupId_, computingGroupId) };
 
 
     // connectionPrefix Field Functions 
     bool hasConnectionPrefix() const { return this->connectionPrefix_ != nullptr;};
     void deleteConnectionPrefix() { this->connectionPrefix_ = nullptr;};
-    inline string connectionPrefix() const { DARABONBA_PTR_GET_DEFAULT(connectionPrefix_, "") };
+    inline string getConnectionPrefix() const { DARABONBA_PTR_GET_DEFAULT(connectionPrefix_, "") };
     inline CreateEndpointRequest& setConnectionPrefix(string connectionPrefix) { DARABONBA_PTR_SET_VALUE(connectionPrefix_, connectionPrefix) };
 
 
     // DBInstanceId Field Functions 
     bool hasDBInstanceId() const { return this->DBInstanceId_ != nullptr;};
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
-    inline string DBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
+    inline string getDBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
     inline CreateEndpointRequest& setDBInstanceId(string DBInstanceId) { DARABONBA_PTR_SET_VALUE(DBInstanceId_, DBInstanceId) };
 
 
     // DBInstanceNetType Field Functions 
     bool hasDBInstanceNetType() const { return this->DBInstanceNetType_ != nullptr;};
     void deleteDBInstanceNetType() { this->DBInstanceNetType_ = nullptr;};
-    inline string DBInstanceNetType() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceNetType_, "") };
+    inline string getDBInstanceNetType() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceNetType_, "") };
     inline CreateEndpointRequest& setDBInstanceNetType(string DBInstanceNetType) { DARABONBA_PTR_SET_VALUE(DBInstanceNetType_, DBInstanceNetType) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreateEndpointRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
-    std::shared_ptr<string> computingGroupId_ = nullptr;
+    shared_ptr<string> computingGroupId_ {};
     // The prefix of the new endpoint. The prefix of the ConnectionString parameter.
-    std::shared_ptr<string> connectionPrefix_ = nullptr;
+    shared_ptr<string> connectionPrefix_ {};
     // The cluster ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBInstanceId_ = nullptr;
+    shared_ptr<string> DBInstanceId_ {};
     // The network type.
     // 
     // Valid values:
     // 
     // *   Public
-    std::shared_ptr<string> DBInstanceNetType_ = nullptr;
+    shared_ptr<string> DBInstanceNetType_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

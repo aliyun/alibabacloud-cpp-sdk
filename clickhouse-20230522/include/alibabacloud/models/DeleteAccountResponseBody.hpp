@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_DELETEACCOUNTRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_DELETEACCOUNTRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/DeleteAccountResponseBodyData.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -32,29 +31,73 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(Account, account_);
+        DARABONBA_PTR_TO_JSON(DBInstanceId, DBInstanceId_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(Account, account_);
+        DARABONBA_PTR_FROM_JSON(DBInstanceId, DBInstanceId_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->account_ == nullptr
+        && this->DBInstanceId_ == nullptr; };
+      // account Field Functions 
+      bool hasAccount() const { return this->account_ != nullptr;};
+      void deleteAccount() { this->account_ = nullptr;};
+      inline string getAccount() const { DARABONBA_PTR_GET_DEFAULT(account_, "") };
+      inline Data& setAccount(string account) { DARABONBA_PTR_SET_VALUE(account_, account) };
+
+
+      // DBInstanceId Field Functions 
+      bool hasDBInstanceId() const { return this->DBInstanceId_ != nullptr;};
+      void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
+      inline string getDBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
+      inline Data& setDBInstanceId(string DBInstanceId) { DARABONBA_PTR_SET_VALUE(DBInstanceId_, DBInstanceId) };
+
+
+    protected:
+      // The name of the account.
+      shared_ptr<string> account_ {};
+      // The cluster ID.
+      shared_ptr<string> DBInstanceId_ {};
+    };
+
     virtual bool empty() const override { return this->data_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const DeleteAccountResponseBodyData & data() const { DARABONBA_PTR_GET_CONST(data_, DeleteAccountResponseBodyData) };
-    inline DeleteAccountResponseBodyData data() { DARABONBA_PTR_GET(data_, DeleteAccountResponseBodyData) };
-    inline DeleteAccountResponseBody& setData(const DeleteAccountResponseBodyData & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline DeleteAccountResponseBody& setData(DeleteAccountResponseBodyData && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const DeleteAccountResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, DeleteAccountResponseBody::Data) };
+    inline DeleteAccountResponseBody::Data getData() { DARABONBA_PTR_GET(data_, DeleteAccountResponseBody::Data) };
+    inline DeleteAccountResponseBody& setData(const DeleteAccountResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline DeleteAccountResponseBody& setData(DeleteAccountResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DeleteAccountResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The data returned.
-    std::shared_ptr<DeleteAccountResponseBodyData> data_ = nullptr;
+    shared_ptr<DeleteAccountResponseBody::Data> data_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models
