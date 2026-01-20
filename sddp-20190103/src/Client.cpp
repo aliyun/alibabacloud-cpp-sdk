@@ -722,6 +722,10 @@ DescribeAuditLogsResponse Client::describeAuditLogsWithOptions(const DescribeAud
     query["RuleID"] = request.getRuleID();
   }
 
+  if (!!request.hasRuleId()) {
+    query["RuleId"] = request.getRuleId();
+  }
+
   if (!!request.hasRuleName()) {
     query["RuleName"] = request.getRuleName();
   }
