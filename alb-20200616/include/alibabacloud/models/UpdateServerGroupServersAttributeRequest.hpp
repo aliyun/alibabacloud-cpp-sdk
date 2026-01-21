@@ -110,33 +110,12 @@ namespace Models
 
 
     protected:
-      // The description of the backend server. The description must be 2 to 256 characters in length, and cannot start with http:// or https://.
       shared_ptr<string> description_ {};
-      // The port that is used by the backend server. Valid values: **1** to **65535**.
-      // 
-      // > You do not need to set this parameter if **ServerType** is set to **Fc**.
       shared_ptr<int32_t> port_ {};
-      // The ID of the backend server.
-      // 
-      // *   Specify the ID of an Elastic Compute Service (ECS) instance, an elastic network interface (ENI), or an elastic container instance if you set **ServerType** to **Ecs**, **Eni**, or **Eci**.
-      // *   Specify an IP address if you set **ServerType** to **Ip**.
-      // *   Specify the Alibaba Cloud Resource Name (ARN) of a Function Compute function if you set **ServerType** to **Fc**.
       shared_ptr<string> serverId_ {};
-      // The IP address of the backend server.
       shared_ptr<string> serverIp_ {};
-      // The type of the backend server. Valid values:
-      // 
-      // *   **Ecs**: ECS instance
-      // *   **Eni**: ENI
-      // *   **Eci**: elastic container instance
-      // *   **Ip**: IP address
-      // *   **Fc**: Function Compute
-      // 
       // This parameter is required.
       shared_ptr<string> serverType_ {};
-      // The weight of the backend server. Valid values: **0** to **100**. Default value: **100**. If the value is set to **0**, no requests are forwarded to the server. You can specify up to 40 servers in each call.
-      // 
-      // > You do not need to set this parameter if **ServerType** is set to **Fc**.
       shared_ptr<int32_t> weight_ {};
     };
 
@@ -188,8 +167,6 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> serverGroupId_ {};
-    // The server groups. You can specify at most 40 server groups in each call.
-    // 
     // This parameter is required.
     shared_ptr<vector<UpdateServerGroupServersAttributeRequest::Servers>> servers_ {};
   };

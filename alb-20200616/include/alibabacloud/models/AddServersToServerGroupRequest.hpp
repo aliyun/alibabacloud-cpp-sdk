@@ -120,42 +120,13 @@ namespace Models
 
 
     protected:
-      // The description of the backend server. The description must be 2 to 256 characters in length and cannot start with http:// or https://.
       shared_ptr<string> description_ {};
-      // The port that is used by the backend server. Valid values: **1** to **65535**. You can specify at most 200 servers in each call.
-      // 
-      // >  This parameter is required if you set **ServerType** to **Ecs**, **Eni**, **Eci**, or **Ip**. You do not need to set this parameter if **ServerType** is set to **Fc**.
       shared_ptr<int32_t> port_ {};
-      // Specifies whether to enable the remote IP feature. You can specify at most 200 servers in each call. Default values:
-      // 
-      // *   **true**: enables the feature.
-      // *   **false**: disables the feature.
-      // 
-      // >  This parameter takes effect only when **ServerType** is set to **Ip**.
       shared_ptr<bool> remoteIpEnabled_ {};
-      // The ID of the server group. You can specify at most 200 servers in each call.
-      // 
-      // *   If the server group is of the **Instance** type, set ServerId to the ID of a resource of the **Ecs**, **Eni**, or **Eci** type.
-      // *   If the server group is of the **Ip** type, set this parameter to IP addresses.
-      // *   If the server group is of the **Fc** type, set ServerId to an Alibaba Cloud Resource Name (ARN).
       shared_ptr<string> serverId_ {};
-      // The IP address of the backend server. You can specify at most 200 servers in each call.
-      // 
-      // >  You do not need to set this parameter if you set **ServerType** to **Fc**.
       shared_ptr<string> serverIp_ {};
-      // The type of the backend server. You can specify at most 200 servers in each call. Default values:
-      // 
-      // *   **Ecs**: Elastic Compute Service (ECS) instance
-      // *   **Eni**: elastic network interface (ENI)
-      // *   **Eci**: elastic container instance
-      // *   **Ip**: IP address
-      // *   **Fc**: Function Compute
-      // 
       // This parameter is required.
       shared_ptr<string> serverType_ {};
-      // The weight of the backend server. Valid values: **0** to **100**. Default value: **100**. If the value is set to **0**, no requests are forwarded to the server. You can specify at most 200 servers in each call.
-      // 
-      // >  You do not need to set this parameter if you set **ServerType** to **Fc**.
       shared_ptr<int32_t> weight_ {};
     };
 
@@ -207,8 +178,6 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> serverGroupId_ {};
-    // The backend servers. You can specify at most 200 servers in each call.
-    // 
     // This parameter is required.
     shared_ptr<vector<AddServersToServerGroupRequest::Servers>> servers_ {};
   };

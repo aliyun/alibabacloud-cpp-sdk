@@ -133,13 +133,19 @@ AddServersToServerGroupResponse Client::addServersToServerGroupWithOptions(const
     query["ServerGroupId"] = request.getServerGroupId();
   }
 
+  json body = {};
+  json bodyFlat = {};
   if (!!request.hasServers()) {
-    query["Servers"] = request.getServers();
+    bodyFlat["Servers"] = request.getServers();
   }
 
+  body = Darabonba::Core::merge(body,
+    Utils::Utils::query(bodyFlat)
+  );
   OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
   Params params = Params(json({
     {"action" , "AddServersToServerGroup"},
     {"version" , "2020-06-16"},
@@ -4104,10 +4110,6 @@ RemoveServersFromServerGroupResponse Client::removeServersFromServerGroup(const 
 ReplaceServersInServerGroupResponse Client::replaceServersInServerGroupWithOptions(const ReplaceServersInServerGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasAddedServers()) {
-    query["AddedServers"] = request.getAddedServers();
-  }
-
   if (!!request.hasClientToken()) {
     query["ClientToken"] = request.getClientToken();
   }
@@ -4124,9 +4126,19 @@ ReplaceServersInServerGroupResponse Client::replaceServersInServerGroupWithOptio
     query["ServerGroupId"] = request.getServerGroupId();
   }
 
+  json body = {};
+  json bodyFlat = {};
+  if (!!request.hasAddedServers()) {
+    bodyFlat["AddedServers"] = request.getAddedServers();
+  }
+
+  body = Darabonba::Core::merge(body,
+    Utils::Utils::query(bodyFlat)
+  );
   OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
   Params params = Params(json({
     {"action" , "ReplaceServersInServerGroup"},
     {"version" , "2020-06-16"},
@@ -5446,13 +5458,19 @@ UpdateServerGroupServersAttributeResponse Client::updateServerGroupServersAttrib
     query["ServerGroupId"] = request.getServerGroupId();
   }
 
+  json body = {};
+  json bodyFlat = {};
   if (!!request.hasServers()) {
-    query["Servers"] = request.getServers();
+    bodyFlat["Servers"] = request.getServers();
   }
 
+  body = Darabonba::Core::merge(body,
+    Utils::Utils::query(bodyFlat)
+  );
   OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
   Params params = Params(json({
     {"action" , "UpdateServerGroupServersAttribute"},
     {"version" , "2020-06-16"},

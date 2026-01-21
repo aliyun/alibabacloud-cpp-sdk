@@ -189,30 +189,11 @@ namespace Models
 
 
     protected:
-      // The description of the backend server. The description must be 2 to 256 characters in length, and cannot start with http:// or https://.
       shared_ptr<string> description_ {};
-      // The port used by the backend server in the server group. Valid values: **1** to **65535**. You can specify at most 200 servers in each call.
       shared_ptr<int32_t> port_ {};
-      // The ID of the backend server. You can specify at most 200 servers in each call.
-      // 
-      // *   If the server group is of the **Instance** type, set ServerId to the ID of a resource of the **Ecs**, **Eni**, or **Eci** type.
-      // *   If the server group is of the **Ip** type, set ServerId to IP addresses.
-      // 
-      // >  You cannot perform this operation on a server group of the Function Compute type. You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the type of server groups.
-      // 
-      // This parameter is required.
       shared_ptr<string> serverId_ {};
-      // The IP address of the elastic network interface (ENI) in exclusive mode.
       shared_ptr<string> serverIp_ {};
-      // The type of backend server. You can specify at most 200 servers in each call. Valid values:
-      // 
-      // *   **Ecs**: Elastic Compute Service (ECS) instance
-      // *   **Eni**: ENI
-      // *   **Eci**: elastic container instance
       shared_ptr<string> serverType_ {};
-      // The weight of the backend server. You can specify at most 200 servers in each call.
-      // 
-      // Valid values: **0** to **100**. Default value: **100**. If the value is set to **0**, no requests are forwarded to the server.
       shared_ptr<int32_t> weight_ {};
     };
 
@@ -258,8 +239,6 @@ namespace Models
 
 
   protected:
-    // The backend servers. You can specify at most 200 servers in each call.
-    // 
     // This parameter is required.
     shared_ptr<vector<ReplaceServersInServerGroupRequest::AddedServers>> addedServers_ {};
     // The client token that is used to ensure the idempotence of the request.
