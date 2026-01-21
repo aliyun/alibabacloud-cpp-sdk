@@ -58,6 +58,7 @@ namespace Models
         friend void to_json(Darabonba::Json& j, const RuleList& obj) { 
           DARABONBA_PTR_TO_JSON(Action, action_);
           DARABONBA_PTR_TO_JSON(ConditionList, conditionList_);
+          DARABONBA_PTR_TO_JSON(ExpirePeriod, expirePeriod_);
           DARABONBA_PTR_TO_JSON(Expires, expires_);
           DARABONBA_PTR_TO_JSON(Name, name_);
           DARABONBA_PTR_TO_JSON(Owner, owner_);
@@ -65,6 +66,7 @@ namespace Models
         friend void from_json(const Darabonba::Json& j, RuleList& obj) { 
           DARABONBA_PTR_FROM_JSON(Action, action_);
           DARABONBA_PTR_FROM_JSON(ConditionList, conditionList_);
+          DARABONBA_PTR_FROM_JSON(ExpirePeriod, expirePeriod_);
           DARABONBA_PTR_FROM_JSON(Expires, expires_);
           DARABONBA_PTR_FROM_JSON(Name, name_);
           DARABONBA_PTR_FROM_JSON(Owner, owner_);
@@ -161,7 +163,7 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->action_ == nullptr
-        && this->conditionList_ == nullptr && this->expires_ == nullptr && this->name_ == nullptr && this->owner_ == nullptr; };
+        && this->conditionList_ == nullptr && this->expirePeriod_ == nullptr && this->expires_ == nullptr && this->name_ == nullptr && this->owner_ == nullptr; };
         // action Field Functions 
         bool hasAction() const { return this->action_ != nullptr;};
         void deleteAction() { this->action_ = nullptr;};
@@ -176,6 +178,13 @@ namespace Models
         inline vector<RuleList::ConditionList> getConditionList() { DARABONBA_PTR_GET(conditionList_, vector<RuleList::ConditionList>) };
         inline RuleList& setConditionList(const vector<RuleList::ConditionList> & conditionList) { DARABONBA_PTR_SET_VALUE(conditionList_, conditionList) };
         inline RuleList& setConditionList(vector<RuleList::ConditionList> && conditionList) { DARABONBA_PTR_SET_RVALUE(conditionList_, conditionList) };
+
+
+        // expirePeriod Field Functions 
+        bool hasExpirePeriod() const { return this->expirePeriod_ != nullptr;};
+        void deleteExpirePeriod() { this->expirePeriod_ = nullptr;};
+        inline int64_t getExpirePeriod() const { DARABONBA_PTR_GET_DEFAULT(expirePeriod_, 0L) };
+        inline RuleList& setExpirePeriod(int64_t expirePeriod) { DARABONBA_PTR_SET_VALUE(expirePeriod_, expirePeriod) };
 
 
         // expires Field Functions 
@@ -208,6 +217,7 @@ namespace Models
         shared_ptr<string> action_ {};
         // The match conditions.
         shared_ptr<vector<RuleList::ConditionList>> conditionList_ {};
+        shared_ptr<int64_t> expirePeriod_ {};
         // The validity period of the rule. Unit: seconds. This parameter takes effect only when **action** of a rule is **block**. Access requests that match the rule are blocked within the specified validity period of the rule. The value **0** indicates that the whitelist takes effect all the time.
         shared_ptr<int64_t> expires_ {};
         // The name of the scheduling rule.

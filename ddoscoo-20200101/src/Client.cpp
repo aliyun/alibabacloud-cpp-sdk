@@ -7525,6 +7525,10 @@ DescribeWebPreciseAccessRuleResponse Client::describeWebPreciseAccessRuleWithOpt
     query["Domains"] = request.getDomains();
   }
 
+  if (!!request.hasOwner()) {
+    query["Owner"] = request.getOwner();
+  }
+
   if (!!request.hasResourceGroupId()) {
     query["ResourceGroupId"] = request.getResourceGroupId();
   }

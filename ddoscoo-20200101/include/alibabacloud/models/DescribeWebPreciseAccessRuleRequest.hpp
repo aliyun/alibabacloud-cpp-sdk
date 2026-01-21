@@ -15,10 +15,12 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DescribeWebPreciseAccessRuleRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Domains, domains_);
+      DARABONBA_PTR_TO_JSON(Owner, owner_);
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeWebPreciseAccessRuleRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Domains, domains_);
+      DARABONBA_PTR_FROM_JSON(Owner, owner_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
     };
     DescribeWebPreciseAccessRuleRequest() = default ;
@@ -33,7 +35,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->domains_ == nullptr
-        && this->resourceGroupId_ == nullptr; };
+        && this->owner_ == nullptr && this->resourceGroupId_ == nullptr; };
     // domains Field Functions 
     bool hasDomains() const { return this->domains_ != nullptr;};
     void deleteDomains() { this->domains_ = nullptr;};
@@ -41,6 +43,13 @@ namespace Models
     inline vector<string> getDomains() { DARABONBA_PTR_GET(domains_, vector<string>) };
     inline DescribeWebPreciseAccessRuleRequest& setDomains(const vector<string> & domains) { DARABONBA_PTR_SET_VALUE(domains_, domains) };
     inline DescribeWebPreciseAccessRuleRequest& setDomains(vector<string> && domains) { DARABONBA_PTR_SET_RVALUE(domains_, domains) };
+
+
+    // owner Field Functions 
+    bool hasOwner() const { return this->owner_ != nullptr;};
+    void deleteOwner() { this->owner_ = nullptr;};
+    inline string getOwner() const { DARABONBA_PTR_GET_DEFAULT(owner_, "") };
+    inline DescribeWebPreciseAccessRuleRequest& setOwner(string owner) { DARABONBA_PTR_SET_VALUE(owner_, owner) };
 
 
     // resourceGroupId Field Functions 
@@ -57,6 +66,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<vector<string>> domains_ {};
+    shared_ptr<string> owner_ {};
     // The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
     shared_ptr<string> resourceGroupId_ {};
   };
