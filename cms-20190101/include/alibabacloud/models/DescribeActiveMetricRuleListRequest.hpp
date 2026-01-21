@@ -33,7 +33,7 @@ namespace Models
     // product Field Functions 
     bool hasProduct() const { return this->product_ != nullptr;};
     void deleteProduct() { this->product_ = nullptr;};
-    inline string product() const { DARABONBA_PTR_GET_DEFAULT(product_, "") };
+    inline string getProduct() const { DARABONBA_PTR_GET_DEFAULT(product_, "") };
     inline DescribeActiveMetricRuleListRequest& setProduct(string product) { DARABONBA_PTR_SET_VALUE(product_, product) };
 
 
@@ -43,7 +43,7 @@ namespace Models
     // For more information about how to obtain the name of a cloud service, see [DescribeProductsOfActiveMetricRule](https://help.aliyun.com/document_detail/114930.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> product_ = nullptr;
+    shared_ptr<string> product_ {};
   };
 
   } // namespace Models

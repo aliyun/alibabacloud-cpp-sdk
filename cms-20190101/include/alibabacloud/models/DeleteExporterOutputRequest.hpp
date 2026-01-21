@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->destName_ == nullptr
-        && return this->regionId_ == nullptr; };
+        && this->regionId_ == nullptr; };
     // destName Field Functions 
     bool hasDestName() const { return this->destName_ != nullptr;};
     void deleteDestName() { this->destName_ = nullptr;};
-    inline string destName() const { DARABONBA_PTR_GET_DEFAULT(destName_, "") };
+    inline string getDestName() const { DARABONBA_PTR_GET_DEFAULT(destName_, "") };
     inline DeleteExporterOutputRequest& setDestName(string destName) { DARABONBA_PTR_SET_VALUE(destName_, destName) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteExporterOutputRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -51,8 +51,8 @@ namespace Models
     // The name of the configuration set.
     // 
     // This parameter is required.
-    std::shared_ptr<string> destName_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> destName_ {};
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

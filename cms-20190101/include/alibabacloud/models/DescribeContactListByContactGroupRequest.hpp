@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->contactGroupName_ == nullptr
-        && return this->regionId_ == nullptr; };
+        && this->regionId_ == nullptr; };
     // contactGroupName Field Functions 
     bool hasContactGroupName() const { return this->contactGroupName_ != nullptr;};
     void deleteContactGroupName() { this->contactGroupName_ = nullptr;};
-    inline string contactGroupName() const { DARABONBA_PTR_GET_DEFAULT(contactGroupName_, "") };
+    inline string getContactGroupName() const { DARABONBA_PTR_GET_DEFAULT(contactGroupName_, "") };
     inline DescribeContactListByContactGroupRequest& setContactGroupName(string contactGroupName) { DARABONBA_PTR_SET_VALUE(contactGroupName_, contactGroupName) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeContactListByContactGroupRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -51,8 +51,8 @@ namespace Models
     // The name of the alert contact group.
     // 
     // This parameter is required.
-    std::shared_ptr<string> contactGroupName_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> contactGroupName_ {};
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

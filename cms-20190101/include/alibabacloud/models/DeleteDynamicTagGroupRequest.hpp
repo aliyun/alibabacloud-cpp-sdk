@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dynamicTagRuleId_ == nullptr
-        && return this->regionId_ == nullptr; };
+        && this->regionId_ == nullptr; };
     // dynamicTagRuleId Field Functions 
     bool hasDynamicTagRuleId() const { return this->dynamicTagRuleId_ != nullptr;};
     void deleteDynamicTagRuleId() { this->dynamicTagRuleId_ = nullptr;};
-    inline string dynamicTagRuleId() const { DARABONBA_PTR_GET_DEFAULT(dynamicTagRuleId_, "") };
+    inline string getDynamicTagRuleId() const { DARABONBA_PTR_GET_DEFAULT(dynamicTagRuleId_, "") };
     inline DeleteDynamicTagGroupRequest& setDynamicTagRuleId(string dynamicTagRuleId) { DARABONBA_PTR_SET_VALUE(dynamicTagRuleId_, dynamicTagRuleId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteDynamicTagGroupRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -53,8 +53,8 @@ namespace Models
     // For information about how to obtain the ID of a tag rule, see [DescribeDynamicTagRuleList](https://help.aliyun.com/document_detail/150126.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> dynamicTagRuleId_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> dynamicTagRuleId_ {};
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

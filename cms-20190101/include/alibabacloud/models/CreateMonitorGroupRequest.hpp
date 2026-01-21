@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->contactGroups_ == nullptr
-        && return this->groupName_ == nullptr && return this->regionId_ == nullptr; };
+        && this->groupName_ == nullptr && this->regionId_ == nullptr; };
     // contactGroups Field Functions 
     bool hasContactGroups() const { return this->contactGroups_ != nullptr;};
     void deleteContactGroups() { this->contactGroups_ = nullptr;};
-    inline string contactGroups() const { DARABONBA_PTR_GET_DEFAULT(contactGroups_, "") };
+    inline string getContactGroups() const { DARABONBA_PTR_GET_DEFAULT(contactGroups_, "") };
     inline CreateMonitorGroupRequest& setContactGroups(string contactGroups) { DARABONBA_PTR_SET_VALUE(contactGroups_, contactGroups) };
 
 
     // groupName Field Functions 
     bool hasGroupName() const { return this->groupName_ != nullptr;};
     void deleteGroupName() { this->groupName_ = nullptr;};
-    inline string groupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
+    inline string getGroupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
     inline CreateMonitorGroupRequest& setGroupName(string groupName) { DARABONBA_PTR_SET_VALUE(groupName_, groupName) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreateMonitorGroupRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -60,12 +60,12 @@ namespace Models
     // The alert contact group. The alert notifications of the application group are sent to the alert contacts that belong to the alert contact group.
     // 
     // >  An alert contact group can contain one or more alert contacts. For information about how to create alert contacts and alert contact groups, see [PutContact](~~PutContact~~) and [PutContactGroup](~~PutContactGroup~~).
-    std::shared_ptr<string> contactGroups_ = nullptr;
+    shared_ptr<string> contactGroups_ {};
     // The name of the application group.
     // 
     // This parameter is required.
-    std::shared_ptr<string> groupName_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> groupName_ {};
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

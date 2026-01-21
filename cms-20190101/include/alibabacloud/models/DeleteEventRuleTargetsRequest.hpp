@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ids_ == nullptr
-        && return this->regionId_ == nullptr && return this->ruleName_ == nullptr; };
+        && this->regionId_ == nullptr && this->ruleName_ == nullptr; };
     // ids Field Functions 
     bool hasIds() const { return this->ids_ != nullptr;};
     void deleteIds() { this->ids_ = nullptr;};
-    inline const vector<string> & ids() const { DARABONBA_PTR_GET_CONST(ids_, vector<string>) };
-    inline vector<string> ids() { DARABONBA_PTR_GET(ids_, vector<string>) };
+    inline const vector<string> & getIds() const { DARABONBA_PTR_GET_CONST(ids_, vector<string>) };
+    inline vector<string> getIds() { DARABONBA_PTR_GET(ids_, vector<string>) };
     inline DeleteEventRuleTargetsRequest& setIds(const vector<string> & ids) { DARABONBA_PTR_SET_VALUE(ids_, ids) };
     inline DeleteEventRuleTargetsRequest& setIds(vector<string> && ids) { DARABONBA_PTR_SET_RVALUE(ids_, ids) };
 
@@ -48,14 +48,14 @@ namespace Models
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteEventRuleTargetsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // ruleName Field Functions 
     bool hasRuleName() const { return this->ruleName_ != nullptr;};
     void deleteRuleName() { this->ruleName_ = nullptr;};
-    inline string ruleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
+    inline string getRuleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
     inline DeleteEventRuleTargetsRequest& setRuleName(string ruleName) { DARABONBA_PTR_SET_VALUE(ruleName_, ruleName) };
 
 
@@ -63,14 +63,14 @@ namespace Models
     // The IDs of event-triggered alert rules.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> ids_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<vector<string>> ids_ {};
+    shared_ptr<string> regionId_ {};
     // The name of the event-triggered alert rule.
     // 
     // For information about how to obtain the name of an event-triggered alert rule, see [DescribeEventRuleList](https://help.aliyun.com/document_detail/114996.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> ruleName_ = nullptr;
+    shared_ptr<string> ruleName_ {};
   };
 
   } // namespace Models

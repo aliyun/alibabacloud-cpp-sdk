@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_PUTGROUPMETRICRULERESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_PUTGROUPMETRICRULERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/PutGroupMetricRuleResponseBodyResult.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -38,42 +37,74 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Result : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Result& obj) { 
+        DARABONBA_PTR_TO_JSON(RuleId, ruleId_);
+      };
+      friend void from_json(const Darabonba::Json& j, Result& obj) { 
+        DARABONBA_PTR_FROM_JSON(RuleId, ruleId_);
+      };
+      Result() = default ;
+      Result(const Result &) = default ;
+      Result(Result &&) = default ;
+      Result(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Result() = default ;
+      Result& operator=(const Result &) = default ;
+      Result& operator=(Result &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->ruleId_ == nullptr; };
+      // ruleId Field Functions 
+      bool hasRuleId() const { return this->ruleId_ != nullptr;};
+      void deleteRuleId() { this->ruleId_ = nullptr;};
+      inline string getRuleId() const { DARABONBA_PTR_GET_DEFAULT(ruleId_, "") };
+      inline Result& setRuleId(string ruleId) { DARABONBA_PTR_SET_VALUE(ruleId_, ruleId) };
+
+
+    protected:
+      // The ID of the alert rule.
+      shared_ptr<string> ruleId_ {};
+    };
+
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->message_ == nullptr && return this->requestId_ == nullptr && return this->result_ == nullptr && return this->success_ == nullptr; };
+        && this->message_ == nullptr && this->requestId_ == nullptr && this->result_ == nullptr && this->success_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline PutGroupMetricRuleResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline PutGroupMetricRuleResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline PutGroupMetricRuleResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // result Field Functions 
     bool hasResult() const { return this->result_ != nullptr;};
     void deleteResult() { this->result_ = nullptr;};
-    inline const PutGroupMetricRuleResponseBodyResult & result() const { DARABONBA_PTR_GET_CONST(result_, PutGroupMetricRuleResponseBodyResult) };
-    inline PutGroupMetricRuleResponseBodyResult result() { DARABONBA_PTR_GET(result_, PutGroupMetricRuleResponseBodyResult) };
-    inline PutGroupMetricRuleResponseBody& setResult(const PutGroupMetricRuleResponseBodyResult & result) { DARABONBA_PTR_SET_VALUE(result_, result) };
-    inline PutGroupMetricRuleResponseBody& setResult(PutGroupMetricRuleResponseBodyResult && result) { DARABONBA_PTR_SET_RVALUE(result_, result) };
+    inline const PutGroupMetricRuleResponseBody::Result & getResult() const { DARABONBA_PTR_GET_CONST(result_, PutGroupMetricRuleResponseBody::Result) };
+    inline PutGroupMetricRuleResponseBody::Result getResult() { DARABONBA_PTR_GET(result_, PutGroupMetricRuleResponseBody::Result) };
+    inline PutGroupMetricRuleResponseBody& setResult(const PutGroupMetricRuleResponseBody::Result & result) { DARABONBA_PTR_SET_VALUE(result_, result) };
+    inline PutGroupMetricRuleResponseBody& setResult(PutGroupMetricRuleResponseBody::Result && result) { DARABONBA_PTR_SET_RVALUE(result_, result) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline PutGroupMetricRuleResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
@@ -81,18 +112,18 @@ namespace Models
     // The HTTP status code.
     // 
     // >  The status code 200 indicates that the request was successful.
-    std::shared_ptr<string> code_ = nullptr;
+    shared_ptr<string> code_ {};
     // The error message.
-    std::shared_ptr<string> message_ = nullptr;
+    shared_ptr<string> message_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The result of the request.
-    std::shared_ptr<PutGroupMetricRuleResponseBodyResult> result_ = nullptr;
+    shared_ptr<PutGroupMetricRuleResponseBody::Result> result_ {};
     // Indicates whether the request was successful. Valid values:
     // 
     // *   true
     // *   false
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

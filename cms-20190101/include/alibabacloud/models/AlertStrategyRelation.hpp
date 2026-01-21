@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->alertName_ == nullptr
-        && return this->strategyUuid_ == nullptr; };
+        && this->strategyUuid_ == nullptr; };
     // alertName Field Functions 
     bool hasAlertName() const { return this->alertName_ != nullptr;};
     void deleteAlertName() { this->alertName_ = nullptr;};
-    inline string alertName() const { DARABONBA_PTR_GET_DEFAULT(alertName_, "") };
+    inline string getAlertName() const { DARABONBA_PTR_GET_DEFAULT(alertName_, "") };
     inline AlertStrategyRelation& setAlertName(string alertName) { DARABONBA_PTR_SET_VALUE(alertName_, alertName) };
 
 
     // strategyUuid Field Functions 
     bool hasStrategyUuid() const { return this->strategyUuid_ != nullptr;};
     void deleteStrategyUuid() { this->strategyUuid_ = nullptr;};
-    inline string strategyUuid() const { DARABONBA_PTR_GET_DEFAULT(strategyUuid_, "") };
+    inline string getStrategyUuid() const { DARABONBA_PTR_GET_DEFAULT(strategyUuid_, "") };
     inline AlertStrategyRelation& setStrategyUuid(string strategyUuid) { DARABONBA_PTR_SET_VALUE(strategyUuid_, strategyUuid) };
 
 
   protected:
-    std::shared_ptr<string> alertName_ = nullptr;
-    std::shared_ptr<string> strategyUuid_ = nullptr;
+    shared_ptr<string> alertName_ {};
+    shared_ptr<string> strategyUuid_ {};
   };
 
   } // namespace Models

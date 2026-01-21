@@ -34,38 +34,38 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->groupId_ == nullptr
-        && return this->policyType_ == nullptr && return this->regionId_ == nullptr; };
+        && this->policyType_ == nullptr && this->regionId_ == nullptr; };
     // groupId Field Functions 
     bool hasGroupId() const { return this->groupId_ != nullptr;};
     void deleteGroupId() { this->groupId_ = nullptr;};
-    inline string groupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
+    inline string getGroupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
     inline DeleteMonitorGroupNotifyPolicyRequest& setGroupId(string groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
 
 
     // policyType Field Functions 
     bool hasPolicyType() const { return this->policyType_ != nullptr;};
     void deletePolicyType() { this->policyType_ = nullptr;};
-    inline string policyType() const { DARABONBA_PTR_GET_DEFAULT(policyType_, "") };
+    inline string getPolicyType() const { DARABONBA_PTR_GET_DEFAULT(policyType_, "") };
     inline DeleteMonitorGroupNotifyPolicyRequest& setPolicyType(string policyType) { DARABONBA_PTR_SET_VALUE(policyType_, policyType) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteMonitorGroupNotifyPolicyRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
     // The ID of the application group.
-    std::shared_ptr<string> groupId_ = nullptr;
+    shared_ptr<string> groupId_ {};
     // The type of the policy.
     // 
     // Valid value: PauseNotify.
     // 
     // This parameter is required.
-    std::shared_ptr<string> policyType_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> policyType_ {};
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

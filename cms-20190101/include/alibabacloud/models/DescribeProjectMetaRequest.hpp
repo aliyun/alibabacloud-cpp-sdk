@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->labels_ == nullptr
-        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr; };
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr; };
     // labels Field Functions 
     bool hasLabels() const { return this->labels_ != nullptr;};
     void deleteLabels() { this->labels_ = nullptr;};
-    inline string labels() const { DARABONBA_PTR_GET_DEFAULT(labels_, "") };
+    inline string getLabels() const { DARABONBA_PTR_GET_DEFAULT(labels_, "") };
     inline DescribeProjectMetaRequest& setLabels(string labels) { DARABONBA_PTR_SET_VALUE(labels_, labels) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline DescribeProjectMetaRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DescribeProjectMetaRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
@@ -62,13 +62,13 @@ namespace Models
     // You can filter services only by the tag whose `name` is `product`. Example: {"name":"product","value":"ECS"}.
     // 
     // > We recommend that you do not use the special tags in the CloudMonitor console.
-    std::shared_ptr<string> labels_ = nullptr;
+    shared_ptr<string> labels_ {};
     // The page number.
     // 
     // Valid values: 1 to 100.
     // 
     // Default value: 1.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     // 
     // Valid values: 1 to 10000.
@@ -76,7 +76,7 @@ namespace Models
     // Default value: 30.
     // 
     // > The value of this parameter is not limited. You can view a large number of entries per page.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
   };
 
   } // namespace Models

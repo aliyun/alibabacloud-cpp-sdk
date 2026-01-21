@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->groupId_ == nullptr
-        && return this->id_ == nullptr && return this->regionId_ == nullptr; };
+        && this->id_ == nullptr && this->regionId_ == nullptr; };
     // groupId Field Functions 
     bool hasGroupId() const { return this->groupId_ != nullptr;};
     void deleteGroupId() { this->groupId_ = nullptr;};
-    inline string groupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
+    inline string getGroupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
     inline DeleteGroupMonitoringAgentProcessRequest& setGroupId(string groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline string id() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+    inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline DeleteGroupMonitoringAgentProcessRequest& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteGroupMonitoringAgentProcessRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -60,12 +60,12 @@ namespace Models
     // The ID of the application group.
     // 
     // This parameter is required.
-    std::shared_ptr<string> groupId_ = nullptr;
+    shared_ptr<string> groupId_ {};
     // The ID of the process monitoring task.
     // 
     // This parameter is required.
-    std::shared_ptr<string> id_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> id_ {};
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

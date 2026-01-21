@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->id_ == nullptr
-        && return this->regionId_ == nullptr; };
+        && this->regionId_ == nullptr; };
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline const vector<string> & id() const { DARABONBA_PTR_GET_CONST(id_, vector<string>) };
-    inline vector<string> id() { DARABONBA_PTR_GET(id_, vector<string>) };
+    inline const vector<string> & getId() const { DARABONBA_PTR_GET_CONST(id_, vector<string>) };
+    inline vector<string> getId() { DARABONBA_PTR_GET(id_, vector<string>) };
     inline DeleteMetricRulesRequest& setId(const vector<string> & id) { DARABONBA_PTR_SET_VALUE(id_, id) };
     inline DeleteMetricRulesRequest& setId(vector<string> && id) { DARABONBA_PTR_SET_RVALUE(id_, id) };
 
@@ -46,14 +46,14 @@ namespace Models
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteMetricRulesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<vector<string>> id_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<vector<string>> id_ {};
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

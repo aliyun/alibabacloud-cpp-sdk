@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->isDeleteAlarms_ == nullptr
-        && return this->regionId_ == nullptr && return this->taskIds_ == nullptr; };
+        && this->regionId_ == nullptr && this->taskIds_ == nullptr; };
     // isDeleteAlarms Field Functions 
     bool hasIsDeleteAlarms() const { return this->isDeleteAlarms_ != nullptr;};
     void deleteIsDeleteAlarms() { this->isDeleteAlarms_ = nullptr;};
-    inline bool isDeleteAlarms() const { DARABONBA_PTR_GET_DEFAULT(isDeleteAlarms_, false) };
+    inline bool getIsDeleteAlarms() const { DARABONBA_PTR_GET_DEFAULT(isDeleteAlarms_, false) };
     inline DeleteSiteMonitorsRequest& setIsDeleteAlarms(bool isDeleteAlarms) { DARABONBA_PTR_SET_VALUE(isDeleteAlarms_, isDeleteAlarms) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteSiteMonitorsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // taskIds Field Functions 
     bool hasTaskIds() const { return this->taskIds_ != nullptr;};
     void deleteTaskIds() { this->taskIds_ = nullptr;};
-    inline string taskIds() const { DARABONBA_PTR_GET_DEFAULT(taskIds_, "") };
+    inline string getTaskIds() const { DARABONBA_PTR_GET_DEFAULT(taskIds_, "") };
     inline DeleteSiteMonitorsRequest& setTaskIds(string taskIds) { DARABONBA_PTR_SET_VALUE(taskIds_, taskIds) };
 
 
@@ -61,12 +61,12 @@ namespace Models
     // 
     // *   true (default value)
     // *   false
-    std::shared_ptr<bool> isDeleteAlarms_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<bool> isDeleteAlarms_ {};
+    shared_ptr<string> regionId_ {};
     // The IDs of the site monitoring tasks that you want to delete. Separate multiple task IDs with commas (,).
     // 
     // This parameter is required.
-    std::shared_ptr<string> taskIds_ = nullptr;
+    shared_ptr<string> taskIds_ {};
   };
 
   } // namespace Models

@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->name_ == nullptr
-        && return this->regionId_ == nullptr && return this->templateId_ == nullptr; };
+        && this->regionId_ == nullptr && this->templateId_ == nullptr; };
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline DescribeMetricRuleTemplateAttributeRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeMetricRuleTemplateAttributeRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // templateId Field Functions 
     bool hasTemplateId() const { return this->templateId_ != nullptr;};
     void deleteTemplateId() { this->templateId_ = nullptr;};
-    inline string templateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, "") };
+    inline string getTemplateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, "") };
     inline DescribeMetricRuleTemplateAttributeRequest& setTemplateId(string templateId) { DARABONBA_PTR_SET_VALUE(templateId_, templateId) };
 
 
@@ -60,12 +60,12 @@ namespace Models
     // The name of the alert template. You must specify at least one of the `Name` and `TemplateId` parameters.
     // 
     // For information about how to obtain the name of an alert template, see [DescribeMetricRuleTemplateList](https://help.aliyun.com/document_detail/114982.html).
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> name_ {};
+    shared_ptr<string> regionId_ {};
     // The ID of the alert template. You must specify at least one of the `Name` and `TemplateId` parameters.
     // 
     // For information about how to obtain the ID of an alert template, see [DescribeMetricRuleTemplateList](https://help.aliyun.com/document_detail/114982.html).
-    std::shared_ptr<string> templateId_ = nullptr;
+    shared_ptr<string> templateId_ {};
   };
 
   } // namespace Models

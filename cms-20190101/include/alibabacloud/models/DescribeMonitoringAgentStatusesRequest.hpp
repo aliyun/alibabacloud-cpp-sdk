@@ -34,34 +34,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->hostAvailabilityTaskId_ == nullptr
-        && return this->instanceIds_ == nullptr && return this->regionId_ == nullptr; };
+        && this->instanceIds_ == nullptr && this->regionId_ == nullptr; };
     // hostAvailabilityTaskId Field Functions 
     bool hasHostAvailabilityTaskId() const { return this->hostAvailabilityTaskId_ != nullptr;};
     void deleteHostAvailabilityTaskId() { this->hostAvailabilityTaskId_ = nullptr;};
-    inline string hostAvailabilityTaskId() const { DARABONBA_PTR_GET_DEFAULT(hostAvailabilityTaskId_, "") };
+    inline string getHostAvailabilityTaskId() const { DARABONBA_PTR_GET_DEFAULT(hostAvailabilityTaskId_, "") };
     inline DescribeMonitoringAgentStatusesRequest& setHostAvailabilityTaskId(string hostAvailabilityTaskId) { DARABONBA_PTR_SET_VALUE(hostAvailabilityTaskId_, hostAvailabilityTaskId) };
 
 
     // instanceIds Field Functions 
     bool hasInstanceIds() const { return this->instanceIds_ != nullptr;};
     void deleteInstanceIds() { this->instanceIds_ = nullptr;};
-    inline string instanceIds() const { DARABONBA_PTR_GET_DEFAULT(instanceIds_, "") };
+    inline string getInstanceIds() const { DARABONBA_PTR_GET_DEFAULT(instanceIds_, "") };
     inline DescribeMonitoringAgentStatusesRequest& setInstanceIds(string instanceIds) { DARABONBA_PTR_SET_VALUE(instanceIds_, instanceIds) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeMonitoringAgentStatusesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
     // The ID of the availability monitoring task.
-    std::shared_ptr<string> hostAvailabilityTaskId_ = nullptr;
+    shared_ptr<string> hostAvailabilityTaskId_ {};
     // The instance IDs. Separate multiple instance IDs with commas (,).
-    std::shared_ptr<string> instanceIds_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> instanceIds_ {};
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

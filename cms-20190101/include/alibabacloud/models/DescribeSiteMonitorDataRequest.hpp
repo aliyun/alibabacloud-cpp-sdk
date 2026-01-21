@@ -46,68 +46,68 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->endTime_ == nullptr
-        && return this->length_ == nullptr && return this->metricName_ == nullptr && return this->nextToken_ == nullptr && return this->period_ == nullptr && return this->regionId_ == nullptr
-        && return this->startTime_ == nullptr && return this->taskId_ == nullptr && return this->type_ == nullptr; };
+        && this->length_ == nullptr && this->metricName_ == nullptr && this->nextToken_ == nullptr && this->period_ == nullptr && this->regionId_ == nullptr
+        && this->startTime_ == nullptr && this->taskId_ == nullptr && this->type_ == nullptr; };
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline DescribeSiteMonitorDataRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // length Field Functions 
     bool hasLength() const { return this->length_ != nullptr;};
     void deleteLength() { this->length_ = nullptr;};
-    inline int32_t length() const { DARABONBA_PTR_GET_DEFAULT(length_, 0) };
+    inline int32_t getLength() const { DARABONBA_PTR_GET_DEFAULT(length_, 0) };
     inline DescribeSiteMonitorDataRequest& setLength(int32_t length) { DARABONBA_PTR_SET_VALUE(length_, length) };
 
 
     // metricName Field Functions 
     bool hasMetricName() const { return this->metricName_ != nullptr;};
     void deleteMetricName() { this->metricName_ = nullptr;};
-    inline string metricName() const { DARABONBA_PTR_GET_DEFAULT(metricName_, "") };
+    inline string getMetricName() const { DARABONBA_PTR_GET_DEFAULT(metricName_, "") };
     inline DescribeSiteMonitorDataRequest& setMetricName(string metricName) { DARABONBA_PTR_SET_VALUE(metricName_, metricName) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline DescribeSiteMonitorDataRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // period Field Functions 
     bool hasPeriod() const { return this->period_ != nullptr;};
     void deletePeriod() { this->period_ = nullptr;};
-    inline string period() const { DARABONBA_PTR_GET_DEFAULT(period_, "") };
+    inline string getPeriod() const { DARABONBA_PTR_GET_DEFAULT(period_, "") };
     inline DescribeSiteMonitorDataRequest& setPeriod(string period) { DARABONBA_PTR_SET_VALUE(period_, period) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeSiteMonitorDataRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline DescribeSiteMonitorDataRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline string taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+    inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
     inline DescribeSiteMonitorDataRequest& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline DescribeSiteMonitorDataRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
@@ -116,37 +116,37 @@ namespace Models
     // 
     // *   UNIX timestamp: the number of milliseconds that have elapsed since 00:00:00 UTC on Thursday, January 1, 1970.
     // *   UTC time: the UTC time that follows the YYYY-MM-DDThh:mm:ssZ format.
-    std::shared_ptr<string> endTime_ = nullptr;
+    shared_ptr<string> endTime_ {};
     // The number of data points to return.
-    std::shared_ptr<int32_t> length_ = nullptr;
+    shared_ptr<int32_t> length_ {};
     // The metric name. Valid values:
     // 
     // *   Availability
     // *   ResponseTime
     // 
     // This parameter is required.
-    std::shared_ptr<string> metricName_ = nullptr;
+    shared_ptr<string> metricName_ {};
     // The pagination token.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The statistical period. The value is an integral multiple of 60. Unit: seconds.
     // 
     // >  The default value equals the minimum interval at which detection requests are sent to the monitored address.
-    std::shared_ptr<string> period_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> period_ {};
+    shared_ptr<string> regionId_ {};
     // The start of the time range to query. The following formats are supported:
     // 
     // *   UNIX timestamp: the number of milliseconds that have elapsed since 00:00:00 UTC on Thursday, January 1, 1970.
     // *   UTC time: the UTC time that follows the YYYY-MM-DDThh:mm:ssZ format.
-    std::shared_ptr<string> startTime_ = nullptr;
+    shared_ptr<string> startTime_ {};
     // The job ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> taskId_ = nullptr;
+    shared_ptr<string> taskId_ {};
     // The type of the monitored object whose monitoring data is to be queried. Valid values:
     // 
     // *   metric
     // *   event
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

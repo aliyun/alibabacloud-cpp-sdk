@@ -48,34 +48,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->anchor_ == nullptr
-        && return this->code_ == nullptr && return this->cursor_ == nullptr && return this->dataResults_ == nullptr && return this->hasNext_ == nullptr && return this->length_ == nullptr
-        && return this->message_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr; };
+        && this->code_ == nullptr && this->cursor_ == nullptr && this->dataResults_ == nullptr && this->hasNext_ == nullptr && this->length_ == nullptr
+        && this->message_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
     // anchor Field Functions 
     bool hasAnchor() const { return this->anchor_ != nullptr;};
     void deleteAnchor() { this->anchor_ = nullptr;};
-    inline int64_t anchor() const { DARABONBA_PTR_GET_DEFAULT(anchor_, 0L) };
+    inline int64_t getAnchor() const { DARABONBA_PTR_GET_DEFAULT(anchor_, 0L) };
     inline BatchExportResponseBody& setAnchor(int64_t anchor) { DARABONBA_PTR_SET_VALUE(anchor_, anchor) };
 
 
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline int32_t code() const { DARABONBA_PTR_GET_DEFAULT(code_, 0) };
+    inline int32_t getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, 0) };
     inline BatchExportResponseBody& setCode(int32_t code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // cursor Field Functions 
     bool hasCursor() const { return this->cursor_ != nullptr;};
     void deleteCursor() { this->cursor_ = nullptr;};
-    inline string cursor() const { DARABONBA_PTR_GET_DEFAULT(cursor_, "") };
+    inline string getCursor() const { DARABONBA_PTR_GET_DEFAULT(cursor_, "") };
     inline BatchExportResponseBody& setCursor(string cursor) { DARABONBA_PTR_SET_VALUE(cursor_, cursor) };
 
 
     // dataResults Field Functions 
     bool hasDataResults() const { return this->dataResults_ != nullptr;};
     void deleteDataResults() { this->dataResults_ = nullptr;};
-    inline const vector<MetricStat> & dataResults() const { DARABONBA_PTR_GET_CONST(dataResults_, vector<MetricStat>) };
-    inline vector<MetricStat> dataResults() { DARABONBA_PTR_GET(dataResults_, vector<MetricStat>) };
+    inline const vector<MetricStat> & getDataResults() const { DARABONBA_PTR_GET_CONST(dataResults_, vector<MetricStat>) };
+    inline vector<MetricStat> getDataResults() { DARABONBA_PTR_GET(dataResults_, vector<MetricStat>) };
     inline BatchExportResponseBody& setDataResults(const vector<MetricStat> & dataResults) { DARABONBA_PTR_SET_VALUE(dataResults_, dataResults) };
     inline BatchExportResponseBody& setDataResults(vector<MetricStat> && dataResults) { DARABONBA_PTR_SET_RVALUE(dataResults_, dataResults) };
 
@@ -83,67 +83,67 @@ namespace Models
     // hasNext Field Functions 
     bool hasHasNext() const { return this->hasNext_ != nullptr;};
     void deleteHasNext() { this->hasNext_ = nullptr;};
-    inline bool hasNext() const { DARABONBA_PTR_GET_DEFAULT(hasNext_, false) };
+    inline bool getHasNext() const { DARABONBA_PTR_GET_DEFAULT(hasNext_, false) };
     inline BatchExportResponseBody& setHasNext(bool hasNext) { DARABONBA_PTR_SET_VALUE(hasNext_, hasNext) };
 
 
     // length Field Functions 
     bool hasLength() const { return this->length_ != nullptr;};
     void deleteLength() { this->length_ = nullptr;};
-    inline int32_t length() const { DARABONBA_PTR_GET_DEFAULT(length_, 0) };
+    inline int32_t getLength() const { DARABONBA_PTR_GET_DEFAULT(length_, 0) };
     inline BatchExportResponseBody& setLength(int32_t length) { DARABONBA_PTR_SET_VALUE(length_, length) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline BatchExportResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline BatchExportResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline BatchExportResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
     // The timestamp of the data requested by the backend. A larger timestamp indicates that the data export time is closer to the current time.
-    std::shared_ptr<int64_t> anchor_ = nullptr;
+    shared_ptr<int64_t> anchor_ {};
     // The HTTP status code.
     // 
     // >  The status code 200 indicates that the request was successful.
-    std::shared_ptr<int32_t> code_ = nullptr;
+    shared_ptr<int32_t> code_ {};
     // The Cursor information that is used to call this operation again.
     // 
     // >  If `null` is returned, the monitoring data is exported.
-    std::shared_ptr<string> cursor_ = nullptr;
+    shared_ptr<string> cursor_ {};
     // The data returned in this call.
-    std::shared_ptr<vector<MetricStat>> dataResults_ = nullptr;
+    shared_ptr<vector<MetricStat>> dataResults_ {};
     // Indicates whether the data has been exported. Valid values:
     // 
     // *   true: Some data is not exported.
     // *   false: All the data is exported.
-    std::shared_ptr<bool> hasNext_ = nullptr;
+    shared_ptr<bool> hasNext_ {};
     // The number of data entries returned in this call.
-    std::shared_ptr<int32_t> length_ = nullptr;
+    shared_ptr<int32_t> length_ {};
     // The returned message.
-    std::shared_ptr<string> message_ = nullptr;
+    shared_ptr<string> message_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
     // *   true
     // *   false
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

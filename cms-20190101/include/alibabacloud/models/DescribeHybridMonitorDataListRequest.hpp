@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->end_ == nullptr
-        && return this->namespace_ == nullptr && return this->period_ == nullptr && return this->promSQL_ == nullptr && return this->regionId_ == nullptr && return this->start_ == nullptr; };
+        && this->namespace_ == nullptr && this->period_ == nullptr && this->promSQL_ == nullptr && this->regionId_ == nullptr && this->start_ == nullptr; };
     // end Field Functions 
     bool hasEnd() const { return this->end_ != nullptr;};
     void deleteEnd() { this->end_ = nullptr;};
-    inline int64_t end() const { DARABONBA_PTR_GET_DEFAULT(end_, 0L) };
+    inline int64_t getEnd() const { DARABONBA_PTR_GET_DEFAULT(end_, 0L) };
     inline DescribeHybridMonitorDataListRequest& setEnd(int64_t end) { DARABONBA_PTR_SET_VALUE(end_, end) };
 
 
     // namespace Field Functions 
     bool hasNamespace() const { return this->namespace_ != nullptr;};
     void deleteNamespace() { this->namespace_ = nullptr;};
-    inline string _namespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
+    inline string getNamespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
     inline DescribeHybridMonitorDataListRequest& setNamespace(string _namespace) { DARABONBA_PTR_SET_VALUE(namespace_, _namespace) };
 
 
     // period Field Functions 
     bool hasPeriod() const { return this->period_ != nullptr;};
     void deletePeriod() { this->period_ = nullptr;};
-    inline string period() const { DARABONBA_PTR_GET_DEFAULT(period_, "") };
+    inline string getPeriod() const { DARABONBA_PTR_GET_DEFAULT(period_, "") };
     inline DescribeHybridMonitorDataListRequest& setPeriod(string period) { DARABONBA_PTR_SET_VALUE(period_, period) };
 
 
     // promSQL Field Functions 
     bool hasPromSQL() const { return this->promSQL_ != nullptr;};
     void deletePromSQL() { this->promSQL_ = nullptr;};
-    inline string promSQL() const { DARABONBA_PTR_GET_DEFAULT(promSQL_, "") };
+    inline string getPromSQL() const { DARABONBA_PTR_GET_DEFAULT(promSQL_, "") };
     inline DescribeHybridMonitorDataListRequest& setPromSQL(string promSQL) { DARABONBA_PTR_SET_VALUE(promSQL_, promSQL) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeHybridMonitorDataListRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // start Field Functions 
     bool hasStart() const { return this->start_ != nullptr;};
     void deleteStart() { this->start_ = nullptr;};
-    inline int64_t start() const { DARABONBA_PTR_GET_DEFAULT(start_, 0L) };
+    inline int64_t getStart() const { DARABONBA_PTR_GET_DEFAULT(start_, 0L) };
     inline DescribeHybridMonitorDataListRequest& setStart(int64_t start) { DARABONBA_PTR_SET_VALUE(start_, start) };
 
 
@@ -89,30 +89,30 @@ namespace Models
     // Unit: seconds.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> end_ = nullptr;
+    shared_ptr<int64_t> end_ {};
     // The name of the namespace.
     // 
     // For more information about how to query the names of namespaces, see [DescribeHybridMonitorNamespaceList](https://help.aliyun.com/document_detail/428880.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> namespace_ = nullptr;
+    shared_ptr<string> namespace_ {};
     // The statistical period of the monitoring data.
     // 
     // Unit: seconds.
-    std::shared_ptr<string> period_ = nullptr;
+    shared_ptr<string> period_ {};
     // The metric name.
     // 
     // >  PromQL statements are supported.
     // 
     // This parameter is required.
-    std::shared_ptr<string> promSQL_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> promSQL_ {};
+    shared_ptr<string> regionId_ {};
     // The start of the time range to query.
     // 
     // Unit: seconds.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> start_ = nullptr;
+    shared_ptr<int64_t> start_ {};
   };
 
   } // namespace Models

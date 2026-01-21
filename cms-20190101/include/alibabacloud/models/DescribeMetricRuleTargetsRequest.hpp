@@ -32,29 +32,29 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->regionId_ == nullptr
-        && return this->ruleId_ == nullptr; };
+        && this->ruleId_ == nullptr; };
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeMetricRuleTargetsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // ruleId Field Functions 
     bool hasRuleId() const { return this->ruleId_ != nullptr;};
     void deleteRuleId() { this->ruleId_ = nullptr;};
-    inline string ruleId() const { DARABONBA_PTR_GET_DEFAULT(ruleId_, "") };
+    inline string getRuleId() const { DARABONBA_PTR_GET_DEFAULT(ruleId_, "") };
     inline DescribeMetricRuleTargetsRequest& setRuleId(string ruleId) { DARABONBA_PTR_SET_VALUE(ruleId_, ruleId) };
 
 
   protected:
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The ID of the alert rule.
     // 
     // For information about how to obtain the ID of an alert rule, see [DescribeMetricRuleList](https://help.aliyun.com/document_detail/114941.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> ruleId_ = nullptr;
+    shared_ptr<string> ruleId_ {};
   };
 
   } // namespace Models

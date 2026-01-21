@@ -33,7 +33,7 @@ namespace Models
     // contactGroupName Field Functions 
     bool hasContactGroupName() const { return this->contactGroupName_ != nullptr;};
     void deleteContactGroupName() { this->contactGroupName_ = nullptr;};
-    inline string contactGroupName() const { DARABONBA_PTR_GET_DEFAULT(contactGroupName_, "") };
+    inline string getContactGroupName() const { DARABONBA_PTR_GET_DEFAULT(contactGroupName_, "") };
     inline DeleteContactGroupRequest& setContactGroupName(string contactGroupName) { DARABONBA_PTR_SET_VALUE(contactGroupName_, contactGroupName) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The name of the alert contact group.
     // 
     // This parameter is required.
-    std::shared_ptr<string> contactGroupName_ = nullptr;
+    shared_ptr<string> contactGroupName_ {};
   };
 
   } // namespace Models

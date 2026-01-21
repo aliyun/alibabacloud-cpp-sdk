@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->overwrite_ == nullptr
-        && return this->resources_ == nullptr && return this->ruleId_ == nullptr; };
+        && this->resources_ == nullptr && this->ruleId_ == nullptr; };
     // overwrite Field Functions 
     bool hasOverwrite() const { return this->overwrite_ != nullptr;};
     void deleteOverwrite() { this->overwrite_ = nullptr;};
-    inline string overwrite() const { DARABONBA_PTR_GET_DEFAULT(overwrite_, "") };
+    inline string getOverwrite() const { DARABONBA_PTR_GET_DEFAULT(overwrite_, "") };
     inline CreateMetricRuleResourcesRequest& setOverwrite(string overwrite) { DARABONBA_PTR_SET_VALUE(overwrite_, overwrite) };
 
 
     // resources Field Functions 
     bool hasResources() const { return this->resources_ != nullptr;};
     void deleteResources() { this->resources_ = nullptr;};
-    inline string resources() const { DARABONBA_PTR_GET_DEFAULT(resources_, "") };
+    inline string getResources() const { DARABONBA_PTR_GET_DEFAULT(resources_, "") };
     inline CreateMetricRuleResourcesRequest& setResources(string resources) { DARABONBA_PTR_SET_VALUE(resources_, resources) };
 
 
     // ruleId Field Functions 
     bool hasRuleId() const { return this->ruleId_ != nullptr;};
     void deleteRuleId() { this->ruleId_ = nullptr;};
-    inline string ruleId() const { DARABONBA_PTR_GET_DEFAULT(ruleId_, "") };
+    inline string getRuleId() const { DARABONBA_PTR_GET_DEFAULT(ruleId_, "") };
     inline CreateMetricRuleResourcesRequest& setRuleId(string ruleId) { DARABONBA_PTR_SET_VALUE(ruleId_, ruleId) };
 
 
@@ -61,15 +61,15 @@ namespace Models
     // 
     // *   true: The resources submitted this time overwrite the previously associated resources.
     // *   false: The resources submitted this time do not overwrite the previously associated resources. The associated resources after submission include the previously associated resources and the resources submitted this time.
-    std::shared_ptr<string> overwrite_ = nullptr;
+    shared_ptr<string> overwrite_ {};
     // The resources that are associated with the alert rule. Set the value to a JSON array.
     // 
     // >  You can add up to 100 resources each time. An alert rule can be associated with up to 3,000 resources.
     // 
     // This parameter is required.
-    std::shared_ptr<string> resources_ = nullptr;
+    shared_ptr<string> resources_ {};
     // The ID of the alert rule.
-    std::shared_ptr<string> ruleId_ = nullptr;
+    shared_ptr<string> ruleId_ {};
   };
 
   } // namespace Models

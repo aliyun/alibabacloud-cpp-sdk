@@ -34,34 +34,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->metricName_ == nullptr
-        && return this->namespace_ == nullptr && return this->regionId_ == nullptr; };
+        && this->namespace_ == nullptr && this->regionId_ == nullptr; };
     // metricName Field Functions 
     bool hasMetricName() const { return this->metricName_ != nullptr;};
     void deleteMetricName() { this->metricName_ = nullptr;};
-    inline string metricName() const { DARABONBA_PTR_GET_DEFAULT(metricName_, "") };
+    inline string getMetricName() const { DARABONBA_PTR_GET_DEFAULT(metricName_, "") };
     inline DescribeMetricRuleCountRequest& setMetricName(string metricName) { DARABONBA_PTR_SET_VALUE(metricName_, metricName) };
 
 
     // namespace Field Functions 
     bool hasNamespace() const { return this->namespace_ != nullptr;};
     void deleteNamespace() { this->namespace_ = nullptr;};
-    inline string _namespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
+    inline string getNamespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
     inline DescribeMetricRuleCountRequest& setNamespace(string _namespace) { DARABONBA_PTR_SET_VALUE(namespace_, _namespace) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeMetricRuleCountRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
     // The metric name. For more information, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
-    std::shared_ptr<string> metricName_ = nullptr;
+    shared_ptr<string> metricName_ {};
     // The namespace of the cloud service. For more information, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
-    std::shared_ptr<string> namespace_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> namespace_ {};
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

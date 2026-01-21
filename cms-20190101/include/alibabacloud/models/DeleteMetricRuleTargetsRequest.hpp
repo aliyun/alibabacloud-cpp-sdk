@@ -35,40 +35,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->regionId_ == nullptr
-        && return this->ruleId_ == nullptr && return this->targetIds_ == nullptr; };
+        && this->ruleId_ == nullptr && this->targetIds_ == nullptr; };
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteMetricRuleTargetsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // ruleId Field Functions 
     bool hasRuleId() const { return this->ruleId_ != nullptr;};
     void deleteRuleId() { this->ruleId_ = nullptr;};
-    inline string ruleId() const { DARABONBA_PTR_GET_DEFAULT(ruleId_, "") };
+    inline string getRuleId() const { DARABONBA_PTR_GET_DEFAULT(ruleId_, "") };
     inline DeleteMetricRuleTargetsRequest& setRuleId(string ruleId) { DARABONBA_PTR_SET_VALUE(ruleId_, ruleId) };
 
 
     // targetIds Field Functions 
     bool hasTargetIds() const { return this->targetIds_ != nullptr;};
     void deleteTargetIds() { this->targetIds_ = nullptr;};
-    inline const vector<string> & targetIds() const { DARABONBA_PTR_GET_CONST(targetIds_, vector<string>) };
-    inline vector<string> targetIds() { DARABONBA_PTR_GET(targetIds_, vector<string>) };
+    inline const vector<string> & getTargetIds() const { DARABONBA_PTR_GET_CONST(targetIds_, vector<string>) };
+    inline vector<string> getTargetIds() { DARABONBA_PTR_GET(targetIds_, vector<string>) };
     inline DeleteMetricRuleTargetsRequest& setTargetIds(const vector<string> & targetIds) { DARABONBA_PTR_SET_VALUE(targetIds_, targetIds) };
     inline DeleteMetricRuleTargetsRequest& setTargetIds(vector<string> && targetIds) { DARABONBA_PTR_SET_RVALUE(targetIds_, targetIds) };
 
 
   protected:
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The ID of the alert rule.
     // 
     // This parameter is required.
-    std::shared_ptr<string> ruleId_ = nullptr;
+    shared_ptr<string> ruleId_ {};
     // The resource IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> targetIds_ = nullptr;
+    shared_ptr<vector<string>> targetIds_ {};
   };
 
   } // namespace Models

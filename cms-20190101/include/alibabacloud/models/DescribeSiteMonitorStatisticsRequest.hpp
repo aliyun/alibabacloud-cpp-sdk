@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->metricName_ == nullptr
-        && return this->regionId_ == nullptr && return this->startTime_ == nullptr && return this->taskId_ == nullptr && return this->timeRange_ == nullptr; };
+        && this->regionId_ == nullptr && this->startTime_ == nullptr && this->taskId_ == nullptr && this->timeRange_ == nullptr; };
     // metricName Field Functions 
     bool hasMetricName() const { return this->metricName_ != nullptr;};
     void deleteMetricName() { this->metricName_ = nullptr;};
-    inline string metricName() const { DARABONBA_PTR_GET_DEFAULT(metricName_, "") };
+    inline string getMetricName() const { DARABONBA_PTR_GET_DEFAULT(metricName_, "") };
     inline DescribeSiteMonitorStatisticsRequest& setMetricName(string metricName) { DARABONBA_PTR_SET_VALUE(metricName_, metricName) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeSiteMonitorStatisticsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline DescribeSiteMonitorStatisticsRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline string taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+    inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
     inline DescribeSiteMonitorStatisticsRequest& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
     // timeRange Field Functions 
     bool hasTimeRange() const { return this->timeRange_ != nullptr;};
     void deleteTimeRange() { this->timeRange_ = nullptr;};
-    inline string timeRange() const { DARABONBA_PTR_GET_DEFAULT(timeRange_, "") };
+    inline string getTimeRange() const { DARABONBA_PTR_GET_DEFAULT(timeRange_, "") };
     inline DescribeSiteMonitorStatisticsRequest& setTimeRange(string timeRange) { DARABONBA_PTR_SET_VALUE(timeRange_, timeRange) };
 
 
@@ -82,22 +82,22 @@ namespace Models
     // *   ResponseTime
     // 
     // This parameter is required.
-    std::shared_ptr<string> metricName_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> metricName_ {};
+    shared_ptr<string> regionId_ {};
     // The beginning of the time range to query.
     // 
     // Unit: milliseconds. The default value is 1 hour ahead of the current time.
-    std::shared_ptr<string> startTime_ = nullptr;
+    shared_ptr<string> startTime_ {};
     // The ID of the site monitoring task.
     // 
     // For more information about how to obtain the ID of a site monitoring task, see [DescribeSiteMonitorList](https://help.aliyun.com/document_detail/115052.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> taskId_ = nullptr;
+    shared_ptr<string> taskId_ {};
     // The statistical period.
     // 
     // Unit: minutes. Default value: 1440 (one day). Maximum value: 43200 (30 days).
-    std::shared_ptr<string> timeRange_ = nullptr;
+    shared_ptr<string> timeRange_ {};
   };
 
   } // namespace Models

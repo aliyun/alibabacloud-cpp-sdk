@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->category_ == nullptr
-        && return this->groupId_ == nullptr && return this->regionId_ == nullptr; };
+        && this->groupId_ == nullptr && this->regionId_ == nullptr; };
     // category Field Functions 
     bool hasCategory() const { return this->category_ != nullptr;};
     void deleteCategory() { this->category_ = nullptr;};
-    inline string category() const { DARABONBA_PTR_GET_DEFAULT(category_, "") };
+    inline string getCategory() const { DARABONBA_PTR_GET_DEFAULT(category_, "") };
     inline DeleteMonitorGroupDynamicRuleRequest& setCategory(string category) { DARABONBA_PTR_SET_VALUE(category_, category) };
 
 
     // groupId Field Functions 
     bool hasGroupId() const { return this->groupId_ != nullptr;};
     void deleteGroupId() { this->groupId_ = nullptr;};
-    inline int64_t groupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, 0L) };
+    inline int64_t getGroupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, 0L) };
     inline DeleteMonitorGroupDynamicRuleRequest& setGroupId(int64_t groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteMonitorGroupDynamicRuleRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -60,12 +60,12 @@ namespace Models
     // The service to which the rule applies. Valid values: ecs, rds, and slb.
     // 
     // This parameter is required.
-    std::shared_ptr<string> category_ = nullptr;
+    shared_ptr<string> category_ {};
     // The ID of the application group.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> groupId_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<int64_t> groupId_ {};
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

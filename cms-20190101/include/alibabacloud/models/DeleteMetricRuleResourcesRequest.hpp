@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->resources_ == nullptr
-        && return this->ruleId_ == nullptr; };
+        && this->ruleId_ == nullptr; };
     // resources Field Functions 
     bool hasResources() const { return this->resources_ != nullptr;};
     void deleteResources() { this->resources_ = nullptr;};
-    inline string resources() const { DARABONBA_PTR_GET_DEFAULT(resources_, "") };
+    inline string getResources() const { DARABONBA_PTR_GET_DEFAULT(resources_, "") };
     inline DeleteMetricRuleResourcesRequest& setResources(string resources) { DARABONBA_PTR_SET_VALUE(resources_, resources) };
 
 
     // ruleId Field Functions 
     bool hasRuleId() const { return this->ruleId_ != nullptr;};
     void deleteRuleId() { this->ruleId_ = nullptr;};
-    inline string ruleId() const { DARABONBA_PTR_GET_DEFAULT(ruleId_, "") };
+    inline string getRuleId() const { DARABONBA_PTR_GET_DEFAULT(ruleId_, "") };
     inline DeleteMetricRuleResourcesRequest& setRuleId(string ruleId) { DARABONBA_PTR_SET_VALUE(ruleId_, ruleId) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The resources that are associated with the alert rule.
     // 
     // This parameter is required.
-    std::shared_ptr<string> resources_ = nullptr;
+    shared_ptr<string> resources_ {};
     // The ID of the alert rule.
     // 
     // This parameter is required.
-    std::shared_ptr<string> ruleId_ = nullptr;
+    shared_ptr<string> ruleId_ {};
   };
 
   } // namespace Models

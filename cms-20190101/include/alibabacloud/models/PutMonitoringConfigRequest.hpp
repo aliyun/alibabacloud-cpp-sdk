@@ -34,37 +34,37 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoInstall_ == nullptr
-        && return this->enableInstallAgentNewECS_ == nullptr && return this->regionId_ == nullptr; };
+        && this->enableInstallAgentNewECS_ == nullptr && this->regionId_ == nullptr; };
     // autoInstall Field Functions 
     bool hasAutoInstall() const { return this->autoInstall_ != nullptr;};
     void deleteAutoInstall() { this->autoInstall_ = nullptr;};
-    inline bool autoInstall() const { DARABONBA_PTR_GET_DEFAULT(autoInstall_, false) };
+    inline bool getAutoInstall() const { DARABONBA_PTR_GET_DEFAULT(autoInstall_, false) };
     inline PutMonitoringConfigRequest& setAutoInstall(bool autoInstall) { DARABONBA_PTR_SET_VALUE(autoInstall_, autoInstall) };
 
 
     // enableInstallAgentNewECS Field Functions 
     bool hasEnableInstallAgentNewECS() const { return this->enableInstallAgentNewECS_ != nullptr;};
     void deleteEnableInstallAgentNewECS() { this->enableInstallAgentNewECS_ = nullptr;};
-    inline bool enableInstallAgentNewECS() const { DARABONBA_PTR_GET_DEFAULT(enableInstallAgentNewECS_, false) };
+    inline bool getEnableInstallAgentNewECS() const { DARABONBA_PTR_GET_DEFAULT(enableInstallAgentNewECS_, false) };
     inline PutMonitoringConfigRequest& setEnableInstallAgentNewECS(bool enableInstallAgentNewECS) { DARABONBA_PTR_SET_VALUE(enableInstallAgentNewECS_, enableInstallAgentNewECS) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline PutMonitoringConfigRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
     // This parameter is deprecated.
-    std::shared_ptr<bool> autoInstall_ = nullptr;
+    shared_ptr<bool> autoInstall_ {};
     // Specifies whether to automatically install the CloudMonitor agent on new ECS instances. Valid values:
     // 
     // *   true (default): The CloudMonitor agent is automatically installed on new ECS instances.
     // *   false: The CloudMonitor agent is not automatically installed on new ECS instances.
-    std::shared_ptr<bool> enableInstallAgentNewECS_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<bool> enableInstallAgentNewECS_ {};
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

@@ -32,28 +32,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->regionId_ == nullptr
-        && return this->showUsed_ == nullptr; };
+        && this->showUsed_ == nullptr; };
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeMonitorResourceQuotaAttributeRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // showUsed Field Functions 
     bool hasShowUsed() const { return this->showUsed_ != nullptr;};
     void deleteShowUsed() { this->showUsed_ = nullptr;};
-    inline bool showUsed() const { DARABONBA_PTR_GET_DEFAULT(showUsed_, false) };
+    inline bool getShowUsed() const { DARABONBA_PTR_GET_DEFAULT(showUsed_, false) };
     inline DescribeMonitorResourceQuotaAttributeRequest& setShowUsed(bool showUsed) { DARABONBA_PTR_SET_VALUE(showUsed_, showUsed) };
 
 
   protected:
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // Specifies whether to return information about used quotas. Valid values:
     // 
     // *   true (default): yes
     // *   false: no
-    std::shared_ptr<bool> showUsed_ = nullptr;
+    shared_ptr<bool> showUsed_ {};
   };
 
   } // namespace Models

@@ -36,45 +36,45 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->contactGroups_ == nullptr
-        && return this->groupId_ == nullptr && return this->groupName_ == nullptr && return this->regionId_ == nullptr; };
+        && this->groupId_ == nullptr && this->groupName_ == nullptr && this->regionId_ == nullptr; };
     // contactGroups Field Functions 
     bool hasContactGroups() const { return this->contactGroups_ != nullptr;};
     void deleteContactGroups() { this->contactGroups_ = nullptr;};
-    inline string contactGroups() const { DARABONBA_PTR_GET_DEFAULT(contactGroups_, "") };
+    inline string getContactGroups() const { DARABONBA_PTR_GET_DEFAULT(contactGroups_, "") };
     inline ModifyMonitorGroupRequest& setContactGroups(string contactGroups) { DARABONBA_PTR_SET_VALUE(contactGroups_, contactGroups) };
 
 
     // groupId Field Functions 
     bool hasGroupId() const { return this->groupId_ != nullptr;};
     void deleteGroupId() { this->groupId_ = nullptr;};
-    inline string groupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
+    inline string getGroupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
     inline ModifyMonitorGroupRequest& setGroupId(string groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
 
 
     // groupName Field Functions 
     bool hasGroupName() const { return this->groupName_ != nullptr;};
     void deleteGroupName() { this->groupName_ = nullptr;};
-    inline string groupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
+    inline string getGroupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
     inline ModifyMonitorGroupRequest& setGroupName(string groupName) { DARABONBA_PTR_SET_VALUE(groupName_, groupName) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ModifyMonitorGroupRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
     // The alert groups that can receive alert notifications for the application group.
-    std::shared_ptr<string> contactGroups_ = nullptr;
+    shared_ptr<string> contactGroups_ {};
     // The ID of the application group.
     // 
     // This parameter is required.
-    std::shared_ptr<string> groupId_ = nullptr;
+    shared_ptr<string> groupId_ {};
     // The name of the application group.
-    std::shared_ptr<string> groupName_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> groupName_ {};
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

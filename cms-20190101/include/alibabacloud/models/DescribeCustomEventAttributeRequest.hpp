@@ -46,68 +46,68 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->endTime_ == nullptr
-        && return this->eventId_ == nullptr && return this->groupId_ == nullptr && return this->name_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr
-        && return this->regionId_ == nullptr && return this->searchKeywords_ == nullptr && return this->startTime_ == nullptr; };
+        && this->eventId_ == nullptr && this->groupId_ == nullptr && this->name_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
+        && this->regionId_ == nullptr && this->searchKeywords_ == nullptr && this->startTime_ == nullptr; };
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline DescribeCustomEventAttributeRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // eventId Field Functions 
     bool hasEventId() const { return this->eventId_ != nullptr;};
     void deleteEventId() { this->eventId_ = nullptr;};
-    inline string eventId() const { DARABONBA_PTR_GET_DEFAULT(eventId_, "") };
+    inline string getEventId() const { DARABONBA_PTR_GET_DEFAULT(eventId_, "") };
     inline DescribeCustomEventAttributeRequest& setEventId(string eventId) { DARABONBA_PTR_SET_VALUE(eventId_, eventId) };
 
 
     // groupId Field Functions 
     bool hasGroupId() const { return this->groupId_ != nullptr;};
     void deleteGroupId() { this->groupId_ = nullptr;};
-    inline string groupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
+    inline string getGroupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
     inline DescribeCustomEventAttributeRequest& setGroupId(string groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline DescribeCustomEventAttributeRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline DescribeCustomEventAttributeRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DescribeCustomEventAttributeRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeCustomEventAttributeRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // searchKeywords Field Functions 
     bool hasSearchKeywords() const { return this->searchKeywords_ != nullptr;};
     void deleteSearchKeywords() { this->searchKeywords_ = nullptr;};
-    inline string searchKeywords() const { DARABONBA_PTR_GET_DEFAULT(searchKeywords_, "") };
+    inline string getSearchKeywords() const { DARABONBA_PTR_GET_DEFAULT(searchKeywords_, "") };
     inline DescribeCustomEventAttributeRequest& setSearchKeywords(string searchKeywords) { DARABONBA_PTR_SET_VALUE(searchKeywords_, searchKeywords) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline DescribeCustomEventAttributeRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
@@ -115,27 +115,27 @@ namespace Models
     // The end of the time range to query.
     // 
     // This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-    std::shared_ptr<string> endTime_ = nullptr;
+    shared_ptr<string> endTime_ {};
     // The event ID.
-    std::shared_ptr<string> eventId_ = nullptr;
+    shared_ptr<string> eventId_ {};
     // The ID of the application group.
-    std::shared_ptr<string> groupId_ = nullptr;
+    shared_ptr<string> groupId_ {};
     // The event name.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The page number.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<string> regionId_ {};
     // The keywords that are used to search for the event.
     // 
     // *   If you need to query the custom event whose content contains a and b, set the value to a and b.
     // *   If you need to query the custom event whose content contains a or b, set the value to a or b.
-    std::shared_ptr<string> searchKeywords_ = nullptr;
+    shared_ptr<string> searchKeywords_ {};
     // The beginning of the time range to query.
     // 
     // This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-    std::shared_ptr<string> startTime_ = nullptr;
+    shared_ptr<string> startTime_ {};
   };
 
   } // namespace Models

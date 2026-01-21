@@ -33,7 +33,7 @@ namespace Models
     // contactName Field Functions 
     bool hasContactName() const { return this->contactName_ != nullptr;};
     void deleteContactName() { this->contactName_ = nullptr;};
-    inline string contactName() const { DARABONBA_PTR_GET_DEFAULT(contactName_, "") };
+    inline string getContactName() const { DARABONBA_PTR_GET_DEFAULT(contactName_, "") };
     inline DeleteContactRequest& setContactName(string contactName) { DARABONBA_PTR_SET_VALUE(contactName_, contactName) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The name of the alert contact.
     // 
     // This parameter is required.
-    std::shared_ptr<string> contactName_ = nullptr;
+    shared_ptr<string> contactName_ {};
   };
 
   } // namespace Models

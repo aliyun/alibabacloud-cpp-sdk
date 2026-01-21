@@ -34,8 +34,8 @@ namespace Models
     // ruleNames Field Functions 
     bool hasRuleNames() const { return this->ruleNames_ != nullptr;};
     void deleteRuleNames() { this->ruleNames_ = nullptr;};
-    inline const vector<string> & ruleNames() const { DARABONBA_PTR_GET_CONST(ruleNames_, vector<string>) };
-    inline vector<string> ruleNames() { DARABONBA_PTR_GET(ruleNames_, vector<string>) };
+    inline const vector<string> & getRuleNames() const { DARABONBA_PTR_GET_CONST(ruleNames_, vector<string>) };
+    inline vector<string> getRuleNames() { DARABONBA_PTR_GET(ruleNames_, vector<string>) };
     inline DeleteEventRulesRequest& setRuleNames(const vector<string> & ruleNames) { DARABONBA_PTR_SET_VALUE(ruleNames_, ruleNames) };
     inline DeleteEventRulesRequest& setRuleNames(vector<string> && ruleNames) { DARABONBA_PTR_SET_RVALUE(ruleNames_, ruleNames) };
 
@@ -44,7 +44,7 @@ namespace Models
     // The name of the alert rule. Valid values of N: 1 to 20.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> ruleNames_ = nullptr;
+    shared_ptr<vector<string>> ruleNames_ {};
   };
 
   } // namespace Models

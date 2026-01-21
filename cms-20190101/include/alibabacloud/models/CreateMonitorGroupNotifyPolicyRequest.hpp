@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->endTime_ == nullptr
-        && return this->groupId_ == nullptr && return this->policyType_ == nullptr && return this->regionId_ == nullptr && return this->startTime_ == nullptr; };
+        && this->groupId_ == nullptr && this->policyType_ == nullptr && this->regionId_ == nullptr && this->startTime_ == nullptr; };
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline int64_t endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
+    inline int64_t getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
     inline CreateMonitorGroupNotifyPolicyRequest& setEndTime(int64_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // groupId Field Functions 
     bool hasGroupId() const { return this->groupId_ != nullptr;};
     void deleteGroupId() { this->groupId_ = nullptr;};
-    inline string groupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
+    inline string getGroupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
     inline CreateMonitorGroupNotifyPolicyRequest& setGroupId(string groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
 
 
     // policyType Field Functions 
     bool hasPolicyType() const { return this->policyType_ != nullptr;};
     void deletePolicyType() { this->policyType_ = nullptr;};
-    inline string policyType() const { DARABONBA_PTR_GET_DEFAULT(policyType_, "") };
+    inline string getPolicyType() const { DARABONBA_PTR_GET_DEFAULT(policyType_, "") };
     inline CreateMonitorGroupNotifyPolicyRequest& setPolicyType(string policyType) { DARABONBA_PTR_SET_VALUE(policyType_, policyType) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreateMonitorGroupNotifyPolicyRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline int64_t startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
+    inline int64_t getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
     inline CreateMonitorGroupNotifyPolicyRequest& setStartTime(int64_t startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
@@ -80,22 +80,22 @@ namespace Models
     // This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> endTime_ = nullptr;
+    shared_ptr<int64_t> endTime_ {};
     // The ID of the application group.
     // 
     // This parameter is required.
-    std::shared_ptr<string> groupId_ = nullptr;
+    shared_ptr<string> groupId_ {};
     // The policy type. Valid value: PauseNotify.
     // 
     // This parameter is required.
-    std::shared_ptr<string> policyType_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> policyType_ {};
+    shared_ptr<string> regionId_ {};
     // The start time of the validity period for the policy.
     // 
     // This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> startTime_ = nullptr;
+    shared_ptr<int64_t> startTime_ {};
   };
 
   } // namespace Models

@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->product_ == nullptr
-        && return this->regionId_ == nullptr; };
+        && this->regionId_ == nullptr; };
     // product Field Functions 
     bool hasProduct() const { return this->product_ != nullptr;};
     void deleteProduct() { this->product_ = nullptr;};
-    inline string product() const { DARABONBA_PTR_GET_DEFAULT(product_, "") };
+    inline string getProduct() const { DARABONBA_PTR_GET_DEFAULT(product_, "") };
     inline EnableActiveMetricRuleRequest& setProduct(string product) { DARABONBA_PTR_SET_VALUE(product_, product) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline EnableActiveMetricRuleRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -63,8 +63,8 @@ namespace Models
     // *   opensearch: OpenSearch
     // 
     // This parameter is required.
-    std::shared_ptr<string> product_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> product_ {};
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

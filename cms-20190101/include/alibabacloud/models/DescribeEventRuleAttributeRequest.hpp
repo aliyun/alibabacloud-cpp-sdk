@@ -34,42 +34,42 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->regionId_ == nullptr
-        && return this->ruleName_ == nullptr && return this->silenceTime_ == nullptr; };
+        && this->ruleName_ == nullptr && this->silenceTime_ == nullptr; };
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeEventRuleAttributeRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // ruleName Field Functions 
     bool hasRuleName() const { return this->ruleName_ != nullptr;};
     void deleteRuleName() { this->ruleName_ = nullptr;};
-    inline string ruleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
+    inline string getRuleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
     inline DescribeEventRuleAttributeRequest& setRuleName(string ruleName) { DARABONBA_PTR_SET_VALUE(ruleName_, ruleName) };
 
 
     // silenceTime Field Functions 
     bool hasSilenceTime() const { return this->silenceTime_ != nullptr;};
     void deleteSilenceTime() { this->silenceTime_ = nullptr;};
-    inline string silenceTime() const { DARABONBA_PTR_GET_DEFAULT(silenceTime_, "") };
+    inline string getSilenceTime() const { DARABONBA_PTR_GET_DEFAULT(silenceTime_, "") };
     inline DescribeEventRuleAttributeRequest& setSilenceTime(string silenceTime) { DARABONBA_PTR_SET_VALUE(silenceTime_, silenceTime) };
 
 
   protected:
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The name of the event-triggered alert rule.
     // 
     // For information about how to obtain the name of an event-triggered alert rule, see [DescribeEventRuleList](https://help.aliyun.com/document_detail/114996.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> ruleName_ = nullptr;
+    shared_ptr<string> ruleName_ {};
     // The mute period during which new alert notifications are not sent even if the trigger conditions are met.
     // 
     // Unit: seconds. Default value: 86400, which indicates one day.
     // 
     // >  Only one alert notification is sent during each mute period even if the metric value exceeds the alert threshold several times.
-    std::shared_ptr<string> silenceTime_ = nullptr;
+    shared_ptr<string> silenceTime_ {};
   };
 
   } // namespace Models

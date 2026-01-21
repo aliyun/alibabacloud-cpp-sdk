@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->processId_ == nullptr && return this->processName_ == nullptr && return this->regionId_ == nullptr; };
+        && this->processId_ == nullptr && this->processName_ == nullptr && this->regionId_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DeleteMonitoringAgentProcessRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // processId Field Functions 
     bool hasProcessId() const { return this->processId_ != nullptr;};
     void deleteProcessId() { this->processId_ = nullptr;};
-    inline string processId() const { DARABONBA_PTR_GET_DEFAULT(processId_, "") };
+    inline string getProcessId() const { DARABONBA_PTR_GET_DEFAULT(processId_, "") };
     inline DeleteMonitoringAgentProcessRequest& setProcessId(string processId) { DARABONBA_PTR_SET_VALUE(processId_, processId) };
 
 
     // processName Field Functions 
     bool hasProcessName() const { return this->processName_ != nullptr;};
     void deleteProcessName() { this->processName_ = nullptr;};
-    inline string processName() const { DARABONBA_PTR_GET_DEFAULT(processName_, "") };
+    inline string getProcessName() const { DARABONBA_PTR_GET_DEFAULT(processName_, "") };
     inline DeleteMonitoringAgentProcessRequest& setProcessName(string processName) { DARABONBA_PTR_SET_VALUE(processName_, processName) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteMonitoringAgentProcessRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -69,16 +69,16 @@ namespace Models
     // The instance ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The process ID.
     // 
     // > You must configure either `ProcessId` or `ProcessName`.
-    std::shared_ptr<string> processId_ = nullptr;
+    shared_ptr<string> processId_ {};
     // The process name.
     // 
     // > You must configure either `ProcessId` or `ProcessName`.
-    std::shared_ptr<string> processName_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> processName_ {};
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

@@ -48,75 +48,75 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->groupId_ == nullptr
-        && return this->includeAliyunTask_ == nullptr && return this->keyword_ == nullptr && return this->namespace_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr
-        && return this->regionId_ == nullptr && return this->targetUserId_ == nullptr && return this->taskId_ == nullptr && return this->taskType_ == nullptr; };
+        && this->includeAliyunTask_ == nullptr && this->keyword_ == nullptr && this->namespace_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
+        && this->regionId_ == nullptr && this->targetUserId_ == nullptr && this->taskId_ == nullptr && this->taskType_ == nullptr; };
     // groupId Field Functions 
     bool hasGroupId() const { return this->groupId_ != nullptr;};
     void deleteGroupId() { this->groupId_ = nullptr;};
-    inline string groupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
+    inline string getGroupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
     inline DescribeHybridMonitorTaskListRequest& setGroupId(string groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
 
 
     // includeAliyunTask Field Functions 
     bool hasIncludeAliyunTask() const { return this->includeAliyunTask_ != nullptr;};
     void deleteIncludeAliyunTask() { this->includeAliyunTask_ = nullptr;};
-    inline bool includeAliyunTask() const { DARABONBA_PTR_GET_DEFAULT(includeAliyunTask_, false) };
+    inline bool getIncludeAliyunTask() const { DARABONBA_PTR_GET_DEFAULT(includeAliyunTask_, false) };
     inline DescribeHybridMonitorTaskListRequest& setIncludeAliyunTask(bool includeAliyunTask) { DARABONBA_PTR_SET_VALUE(includeAliyunTask_, includeAliyunTask) };
 
 
     // keyword Field Functions 
     bool hasKeyword() const { return this->keyword_ != nullptr;};
     void deleteKeyword() { this->keyword_ = nullptr;};
-    inline string keyword() const { DARABONBA_PTR_GET_DEFAULT(keyword_, "") };
+    inline string getKeyword() const { DARABONBA_PTR_GET_DEFAULT(keyword_, "") };
     inline DescribeHybridMonitorTaskListRequest& setKeyword(string keyword) { DARABONBA_PTR_SET_VALUE(keyword_, keyword) };
 
 
     // namespace Field Functions 
     bool hasNamespace() const { return this->namespace_ != nullptr;};
     void deleteNamespace() { this->namespace_ = nullptr;};
-    inline string _namespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
+    inline string getNamespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
     inline DescribeHybridMonitorTaskListRequest& setNamespace(string _namespace) { DARABONBA_PTR_SET_VALUE(namespace_, _namespace) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline DescribeHybridMonitorTaskListRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DescribeHybridMonitorTaskListRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeHybridMonitorTaskListRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // targetUserId Field Functions 
     bool hasTargetUserId() const { return this->targetUserId_ != nullptr;};
     void deleteTargetUserId() { this->targetUserId_ = nullptr;};
-    inline int64_t targetUserId() const { DARABONBA_PTR_GET_DEFAULT(targetUserId_, 0L) };
+    inline int64_t getTargetUserId() const { DARABONBA_PTR_GET_DEFAULT(targetUserId_, 0L) };
     inline DescribeHybridMonitorTaskListRequest& setTargetUserId(int64_t targetUserId) { DARABONBA_PTR_SET_VALUE(targetUserId_, targetUserId) };
 
 
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline string taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+    inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
     inline DescribeHybridMonitorTaskListRequest& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
     // taskType Field Functions 
     bool hasTaskType() const { return this->taskType_ != nullptr;};
     void deleteTaskType() { this->taskType_ = nullptr;};
-    inline string taskType() const { DARABONBA_PTR_GET_DEFAULT(taskType_, "") };
+    inline string getTaskType() const { DARABONBA_PTR_GET_DEFAULT(taskType_, "") };
     inline DescribeHybridMonitorTaskListRequest& setTaskType(string taskType) { DARABONBA_PTR_SET_VALUE(taskType_, taskType) };
 
 
@@ -124,38 +124,38 @@ namespace Models
     // The ID of the application group.
     // 
     // For information about how to obtain the ID of an application group, see [DescribeMonitorGroups](https://help.aliyun.com/document_detail/115032.html).
-    std::shared_ptr<string> groupId_ = nullptr;
+    shared_ptr<string> groupId_ {};
     // Specifies whether the returned result includes metric import tasks for Alibaba Cloud services. Valid values:
     // 
     // *   true (default): The returned result includes metric import tasks for Alibaba Cloud services.
     // *   false: The returned result excludes metric import tasks for Alibaba Cloud services.
-    std::shared_ptr<bool> includeAliyunTask_ = nullptr;
+    shared_ptr<bool> includeAliyunTask_ {};
     // The keyword that is used for the search.
-    std::shared_ptr<string> keyword_ = nullptr;
+    shared_ptr<string> keyword_ {};
     // The name of the namespace.
     // 
     // For information about how to obtain the name of a namespace, see [DescribeHybridMonitorNamespaceList](https://help.aliyun.com/document_detail/428880.html).
-    std::shared_ptr<string> namespace_ = nullptr;
+    shared_ptr<string> namespace_ {};
     // The page number.
     // 
     // Pages start from page 1. Default value: 1.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     // 
     // Pages start from page 1. Default value: 10.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<string> regionId_ {};
     // The ID of the member account.
     // 
     // > This parameter is required only if you use a management account to call this operation to delete the metric import tasks that belong to a member in a resource directory. In this case, the `TaskType` parameter is set to `aliyun_fc`.
-    std::shared_ptr<int64_t> targetUserId_ = nullptr;
+    shared_ptr<int64_t> targetUserId_ {};
     // The ID of the metric import task.
-    std::shared_ptr<string> taskId_ = nullptr;
+    shared_ptr<string> taskId_ {};
     // The type of the metric import task. Valid values:
     // 
     // *   aliyun_fc: metric import tasks for Alibaba Cloud services
     // *   aliyun_sls: metrics for logs imported from Log Service
-    std::shared_ptr<string> taskType_ = nullptr;
+    shared_ptr<string> taskType_ {};
   };
 
   } // namespace Models

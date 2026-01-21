@@ -47,13 +47,13 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->associated_ == nullptr
-        && return this->dimensions_ == nullptr && return this->logTime_ == nullptr && return this->measurements_ == nullptr && return this->metric_ == nullptr && return this->namespace_ == nullptr
-        && return this->period_ == nullptr && return this->timestamp_ == nullptr; };
+        && this->dimensions_ == nullptr && this->logTime_ == nullptr && this->measurements_ == nullptr && this->metric_ == nullptr && this->namespace_ == nullptr
+        && this->period_ == nullptr && this->timestamp_ == nullptr; };
     // associated Field Functions 
     bool hasAssociated() const { return this->associated_ != nullptr;};
     void deleteAssociated() { this->associated_ = nullptr;};
-    inline const map<string, string> & associated() const { DARABONBA_PTR_GET_CONST(associated_, map<string, string>) };
-    inline map<string, string> associated() { DARABONBA_PTR_GET(associated_, map<string, string>) };
+    inline const map<string, string> & getAssociated() const { DARABONBA_PTR_GET_CONST(associated_, map<string, string>) };
+    inline map<string, string> getAssociated() { DARABONBA_PTR_GET(associated_, map<string, string>) };
     inline MetricStat& setAssociated(const map<string, string> & associated) { DARABONBA_PTR_SET_VALUE(associated_, associated) };
     inline MetricStat& setAssociated(map<string, string> && associated) { DARABONBA_PTR_SET_RVALUE(associated_, associated) };
 
@@ -61,8 +61,8 @@ namespace Models
     // dimensions Field Functions 
     bool hasDimensions() const { return this->dimensions_ != nullptr;};
     void deleteDimensions() { this->dimensions_ = nullptr;};
-    inline const vector<Dimension> & dimensions() const { DARABONBA_PTR_GET_CONST(dimensions_, vector<Dimension>) };
-    inline vector<Dimension> dimensions() { DARABONBA_PTR_GET(dimensions_, vector<Dimension>) };
+    inline const vector<Dimension> & getDimensions() const { DARABONBA_PTR_GET_CONST(dimensions_, vector<Dimension>) };
+    inline vector<Dimension> getDimensions() { DARABONBA_PTR_GET(dimensions_, vector<Dimension>) };
     inline MetricStat& setDimensions(const vector<Dimension> & dimensions) { DARABONBA_PTR_SET_VALUE(dimensions_, dimensions) };
     inline MetricStat& setDimensions(vector<Dimension> && dimensions) { DARABONBA_PTR_SET_RVALUE(dimensions_, dimensions) };
 
@@ -70,56 +70,56 @@ namespace Models
     // logTime Field Functions 
     bool hasLogTime() const { return this->logTime_ != nullptr;};
     void deleteLogTime() { this->logTime_ = nullptr;};
-    inline int64_t logTime() const { DARABONBA_PTR_GET_DEFAULT(logTime_, 0L) };
+    inline int64_t getLogTime() const { DARABONBA_PTR_GET_DEFAULT(logTime_, 0L) };
     inline MetricStat& setLogTime(int64_t logTime) { DARABONBA_PTR_SET_VALUE(logTime_, logTime) };
 
 
     // measurements Field Functions 
     bool hasMeasurements() const { return this->measurements_ != nullptr;};
     void deleteMeasurements() { this->measurements_ = nullptr;};
-    inline     const Darabonba::Json & measurements() const { DARABONBA_GET(measurements_) };
-    Darabonba::Json & measurements() { DARABONBA_GET(measurements_) };
+    inline     const Darabonba::Json & getMeasurements() const { DARABONBA_GET(measurements_) };
+    Darabonba::Json & getMeasurements() { DARABONBA_GET(measurements_) };
     inline MetricStat& setMeasurements(const Darabonba::Json & measurements) { DARABONBA_SET_VALUE(measurements_, measurements) };
-    inline MetricStat& setMeasurements(Darabonba::Json & measurements) { DARABONBA_SET_RVALUE(measurements_, measurements) };
+    inline MetricStat& setMeasurements(Darabonba::Json && measurements) { DARABONBA_SET_RVALUE(measurements_, measurements) };
 
 
     // metric Field Functions 
     bool hasMetric() const { return this->metric_ != nullptr;};
     void deleteMetric() { this->metric_ = nullptr;};
-    inline string metric() const { DARABONBA_PTR_GET_DEFAULT(metric_, "") };
+    inline string getMetric() const { DARABONBA_PTR_GET_DEFAULT(metric_, "") };
     inline MetricStat& setMetric(string metric) { DARABONBA_PTR_SET_VALUE(metric_, metric) };
 
 
     // namespace Field Functions 
     bool hasNamespace() const { return this->namespace_ != nullptr;};
     void deleteNamespace() { this->namespace_ = nullptr;};
-    inline string _namespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
+    inline string getNamespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
     inline MetricStat& setNamespace(string _namespace) { DARABONBA_PTR_SET_VALUE(namespace_, _namespace) };
 
 
     // period Field Functions 
     bool hasPeriod() const { return this->period_ != nullptr;};
     void deletePeriod() { this->period_ = nullptr;};
-    inline int32_t period() const { DARABONBA_PTR_GET_DEFAULT(period_, 0) };
+    inline int32_t getPeriod() const { DARABONBA_PTR_GET_DEFAULT(period_, 0) };
     inline MetricStat& setPeriod(int32_t period) { DARABONBA_PTR_SET_VALUE(period_, period) };
 
 
     // timestamp Field Functions 
     bool hasTimestamp() const { return this->timestamp_ != nullptr;};
     void deleteTimestamp() { this->timestamp_ = nullptr;};
-    inline int64_t timestamp() const { DARABONBA_PTR_GET_DEFAULT(timestamp_, 0L) };
+    inline int64_t getTimestamp() const { DARABONBA_PTR_GET_DEFAULT(timestamp_, 0L) };
     inline MetricStat& setTimestamp(int64_t timestamp) { DARABONBA_PTR_SET_VALUE(timestamp_, timestamp) };
 
 
   protected:
-    std::shared_ptr<map<string, string>> associated_ = nullptr;
-    std::shared_ptr<vector<Dimension>> dimensions_ = nullptr;
-    std::shared_ptr<int64_t> logTime_ = nullptr;
-    Darabonba::Json measurements_ = nullptr;
-    std::shared_ptr<string> metric_ = nullptr;
-    std::shared_ptr<string> namespace_ = nullptr;
-    std::shared_ptr<int32_t> period_ = nullptr;
-    std::shared_ptr<int64_t> timestamp_ = nullptr;
+    shared_ptr<map<string, string>> associated_ {};
+    shared_ptr<vector<Dimension>> dimensions_ {};
+    shared_ptr<int64_t> logTime_ {};
+    Darabonba::Json measurements_ {};
+    shared_ptr<string> metric_ {};
+    shared_ptr<string> namespace_ {};
+    shared_ptr<int32_t> period_ {};
+    shared_ptr<int64_t> timestamp_ {};
   };
 
   } // namespace Models

@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->metricName_ == nullptr
-        && return this->regionId_ == nullptr; };
+        && this->regionId_ == nullptr; };
     // metricName Field Functions 
     bool hasMetricName() const { return this->metricName_ != nullptr;};
     void deleteMetricName() { this->metricName_ = nullptr;};
-    inline string metricName() const { DARABONBA_PTR_GET_DEFAULT(metricName_, "") };
+    inline string getMetricName() const { DARABONBA_PTR_GET_DEFAULT(metricName_, "") };
     inline DescribeLogMonitorAttributeRequest& setMetricName(string metricName) { DARABONBA_PTR_SET_VALUE(metricName_, metricName) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeLogMonitorAttributeRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -53,8 +53,8 @@ namespace Models
     // For more information, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> metricName_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> metricName_ {};
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

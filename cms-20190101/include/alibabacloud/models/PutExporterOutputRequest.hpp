@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->configJson_ == nullptr
-        && return this->desc_ == nullptr && return this->destName_ == nullptr && return this->destType_ == nullptr && return this->regionId_ == nullptr; };
+        && this->desc_ == nullptr && this->destName_ == nullptr && this->destType_ == nullptr && this->regionId_ == nullptr; };
     // configJson Field Functions 
     bool hasConfigJson() const { return this->configJson_ != nullptr;};
     void deleteConfigJson() { this->configJson_ = nullptr;};
-    inline string configJson() const { DARABONBA_PTR_GET_DEFAULT(configJson_, "") };
+    inline string getConfigJson() const { DARABONBA_PTR_GET_DEFAULT(configJson_, "") };
     inline PutExporterOutputRequest& setConfigJson(string configJson) { DARABONBA_PTR_SET_VALUE(configJson_, configJson) };
 
 
     // desc Field Functions 
     bool hasDesc() const { return this->desc_ != nullptr;};
     void deleteDesc() { this->desc_ = nullptr;};
-    inline string desc() const { DARABONBA_PTR_GET_DEFAULT(desc_, "") };
+    inline string getDesc() const { DARABONBA_PTR_GET_DEFAULT(desc_, "") };
     inline PutExporterOutputRequest& setDesc(string desc) { DARABONBA_PTR_SET_VALUE(desc_, desc) };
 
 
     // destName Field Functions 
     bool hasDestName() const { return this->destName_ != nullptr;};
     void deleteDestName() { this->destName_ = nullptr;};
-    inline string destName() const { DARABONBA_PTR_GET_DEFAULT(destName_, "") };
+    inline string getDestName() const { DARABONBA_PTR_GET_DEFAULT(destName_, "") };
     inline PutExporterOutputRequest& setDestName(string destName) { DARABONBA_PTR_SET_VALUE(destName_, destName) };
 
 
     // destType Field Functions 
     bool hasDestType() const { return this->destType_ != nullptr;};
     void deleteDestType() { this->destType_ = nullptr;};
-    inline string destType() const { DARABONBA_PTR_GET_DEFAULT(destType_, "") };
+    inline string getDestType() const { DARABONBA_PTR_GET_DEFAULT(destType_, "") };
     inline PutExporterOutputRequest& setDestType(string destType) { DARABONBA_PTR_SET_VALUE(destType_, destType) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline PutExporterOutputRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -84,16 +84,16 @@ namespace Models
     // *   as: the AccessKey secret.
     // 
     // This parameter is required.
-    std::shared_ptr<string> configJson_ = nullptr;
+    shared_ptr<string> configJson_ {};
     // The description of the configuration set.
-    std::shared_ptr<string> desc_ = nullptr;
+    shared_ptr<string> desc_ {};
     // The name of the configuration set.
     // 
     // This parameter is required.
-    std::shared_ptr<string> destName_ = nullptr;
+    shared_ptr<string> destName_ {};
     // The service to which the monitoring data is exported.
-    std::shared_ptr<string> destType_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> destType_ {};
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

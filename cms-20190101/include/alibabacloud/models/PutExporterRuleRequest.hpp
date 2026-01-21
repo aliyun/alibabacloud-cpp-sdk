@@ -43,20 +43,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->describe_ == nullptr
-        && return this->dstNames_ == nullptr && return this->metricName_ == nullptr && return this->namespace_ == nullptr && return this->regionId_ == nullptr && return this->ruleName_ == nullptr
-        && return this->targetWindows_ == nullptr; };
+        && this->dstNames_ == nullptr && this->metricName_ == nullptr && this->namespace_ == nullptr && this->regionId_ == nullptr && this->ruleName_ == nullptr
+        && this->targetWindows_ == nullptr; };
     // describe Field Functions 
     bool hasDescribe() const { return this->describe_ != nullptr;};
     void deleteDescribe() { this->describe_ = nullptr;};
-    inline string describe() const { DARABONBA_PTR_GET_DEFAULT(describe_, "") };
+    inline string getDescribe() const { DARABONBA_PTR_GET_DEFAULT(describe_, "") };
     inline PutExporterRuleRequest& setDescribe(string describe) { DARABONBA_PTR_SET_VALUE(describe_, describe) };
 
 
     // dstNames Field Functions 
     bool hasDstNames() const { return this->dstNames_ != nullptr;};
     void deleteDstNames() { this->dstNames_ = nullptr;};
-    inline const vector<string> & dstNames() const { DARABONBA_PTR_GET_CONST(dstNames_, vector<string>) };
-    inline vector<string> dstNames() { DARABONBA_PTR_GET(dstNames_, vector<string>) };
+    inline const vector<string> & getDstNames() const { DARABONBA_PTR_GET_CONST(dstNames_, vector<string>) };
+    inline vector<string> getDstNames() { DARABONBA_PTR_GET(dstNames_, vector<string>) };
     inline PutExporterRuleRequest& setDstNames(const vector<string> & dstNames) { DARABONBA_PTR_SET_VALUE(dstNames_, dstNames) };
     inline PutExporterRuleRequest& setDstNames(vector<string> && dstNames) { DARABONBA_PTR_SET_RVALUE(dstNames_, dstNames) };
 
@@ -64,60 +64,60 @@ namespace Models
     // metricName Field Functions 
     bool hasMetricName() const { return this->metricName_ != nullptr;};
     void deleteMetricName() { this->metricName_ = nullptr;};
-    inline string metricName() const { DARABONBA_PTR_GET_DEFAULT(metricName_, "") };
+    inline string getMetricName() const { DARABONBA_PTR_GET_DEFAULT(metricName_, "") };
     inline PutExporterRuleRequest& setMetricName(string metricName) { DARABONBA_PTR_SET_VALUE(metricName_, metricName) };
 
 
     // namespace Field Functions 
     bool hasNamespace() const { return this->namespace_ != nullptr;};
     void deleteNamespace() { this->namespace_ = nullptr;};
-    inline string _namespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
+    inline string getNamespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
     inline PutExporterRuleRequest& setNamespace(string _namespace) { DARABONBA_PTR_SET_VALUE(namespace_, _namespace) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline PutExporterRuleRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // ruleName Field Functions 
     bool hasRuleName() const { return this->ruleName_ != nullptr;};
     void deleteRuleName() { this->ruleName_ = nullptr;};
-    inline string ruleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
+    inline string getRuleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
     inline PutExporterRuleRequest& setRuleName(string ruleName) { DARABONBA_PTR_SET_VALUE(ruleName_, ruleName) };
 
 
     // targetWindows Field Functions 
     bool hasTargetWindows() const { return this->targetWindows_ != nullptr;};
     void deleteTargetWindows() { this->targetWindows_ = nullptr;};
-    inline string targetWindows() const { DARABONBA_PTR_GET_DEFAULT(targetWindows_, "") };
+    inline string getTargetWindows() const { DARABONBA_PTR_GET_DEFAULT(targetWindows_, "") };
     inline PutExporterRuleRequest& setTargetWindows(string targetWindows) { DARABONBA_PTR_SET_VALUE(targetWindows_, targetWindows) };
 
 
   protected:
     // The description of the data export rule.
-    std::shared_ptr<string> describe_ = nullptr;
+    shared_ptr<string> describe_ {};
     // The destination to which the data is exported. Valid values of N: 1 to 20.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> dstNames_ = nullptr;
+    shared_ptr<vector<string>> dstNames_ {};
     // The name of the metric.
     // 
     // > 
     // 
     // For more information, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
-    std::shared_ptr<string> metricName_ = nullptr;
+    shared_ptr<string> metricName_ {};
     // The namespace of the cloud service.
     // 
     // > For more information, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
-    std::shared_ptr<string> namespace_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> namespace_ {};
+    shared_ptr<string> regionId_ {};
     // The name of the rule.
     // 
     // > If the specified rule exists, the existing rule is modified. Otherwise, a rule is created.
-    std::shared_ptr<string> ruleName_ = nullptr;
+    shared_ptr<string> ruleName_ {};
     // The time window of the exported data. Unit: seconds.
     // 
     // > 
@@ -125,7 +125,7 @@ namespace Models
     // *   Separate multiple time windows with commas (,).
     // 
     // *   Data in a time window of less than 60 seconds cannot be exported.
-    std::shared_ptr<string> targetWindows_ = nullptr;
+    shared_ptr<string> targetWindows_ {};
   };
 
   } // namespace Models

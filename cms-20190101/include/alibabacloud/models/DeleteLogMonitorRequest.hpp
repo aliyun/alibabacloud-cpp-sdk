@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->logId_ == nullptr
-        && return this->regionId_ == nullptr; };
+        && this->regionId_ == nullptr; };
     // logId Field Functions 
     bool hasLogId() const { return this->logId_ != nullptr;};
     void deleteLogId() { this->logId_ = nullptr;};
-    inline int64_t logId() const { DARABONBA_PTR_GET_DEFAULT(logId_, 0L) };
+    inline int64_t getLogId() const { DARABONBA_PTR_GET_DEFAULT(logId_, 0L) };
     inline DeleteLogMonitorRequest& setLogId(int64_t logId) { DARABONBA_PTR_SET_VALUE(logId_, logId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteLogMonitorRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -51,8 +51,8 @@ namespace Models
     // The ID of the log monitoring metric.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> logId_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<int64_t> logId_ {};
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

@@ -36,38 +36,38 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->namespace_ == nullptr && return this->regionId_ == nullptr && return this->spec_ == nullptr; };
+        && this->namespace_ == nullptr && this->regionId_ == nullptr && this->spec_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline ModifyHybridMonitorNamespaceRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // namespace Field Functions 
     bool hasNamespace() const { return this->namespace_ != nullptr;};
     void deleteNamespace() { this->namespace_ = nullptr;};
-    inline string _namespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
+    inline string getNamespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
     inline ModifyHybridMonitorNamespaceRequest& setNamespace(string _namespace) { DARABONBA_PTR_SET_VALUE(namespace_, _namespace) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ModifyHybridMonitorNamespaceRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // spec Field Functions 
     bool hasSpec() const { return this->spec_ != nullptr;};
     void deleteSpec() { this->spec_ = nullptr;};
-    inline string spec() const { DARABONBA_PTR_GET_DEFAULT(spec_, "") };
+    inline string getSpec() const { DARABONBA_PTR_GET_DEFAULT(spec_, "") };
     inline ModifyHybridMonitorNamespaceRequest& setSpec(string spec) { DARABONBA_PTR_SET_VALUE(spec_, spec) };
 
 
   protected:
     // The description of the namespace.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The name of the namespace.
     // 
     // The name can contain letters, digits, and hyphens (-).
@@ -75,8 +75,8 @@ namespace Models
     // For information about how to obtain the name of a namespace, see [DescribeHybridMonitorNamespaceList](https://help.aliyun.com/document_detail/428880.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> namespace_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> namespace_ {};
+    shared_ptr<string> regionId_ {};
     // The data retention period. Valid values:
     // 
     // *   cms.s1.large: Data is stored for 15 days.
@@ -87,7 +87,7 @@ namespace Models
     // *   cms.s1.12xlarge: Data is stored for 376 days.
     // 
     // For information about the pricing for different retention periods, see the **Pricing** section in [Billing of the dashboard feature](https://help.aliyun.com/document_detail/223532.html).
-    std::shared_ptr<string> spec_ = nullptr;
+    shared_ptr<string> spec_ {};
   };
 
   } // namespace Models

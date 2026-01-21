@@ -33,27 +33,27 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->regionId_ == nullptr
-        && return this->ruleNames_ == nullptr; };
+        && this->ruleNames_ == nullptr; };
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DisableEventRulesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // ruleNames Field Functions 
     bool hasRuleNames() const { return this->ruleNames_ != nullptr;};
     void deleteRuleNames() { this->ruleNames_ = nullptr;};
-    inline const vector<string> & ruleNames() const { DARABONBA_PTR_GET_CONST(ruleNames_, vector<string>) };
-    inline vector<string> ruleNames() { DARABONBA_PTR_GET(ruleNames_, vector<string>) };
+    inline const vector<string> & getRuleNames() const { DARABONBA_PTR_GET_CONST(ruleNames_, vector<string>) };
+    inline vector<string> getRuleNames() { DARABONBA_PTR_GET(ruleNames_, vector<string>) };
     inline DisableEventRulesRequest& setRuleNames(const vector<string> & ruleNames) { DARABONBA_PTR_SET_VALUE(ruleNames_, ruleNames) };
     inline DisableEventRulesRequest& setRuleNames(vector<string> && ruleNames) { DARABONBA_PTR_SET_RVALUE(ruleNames_, ruleNames) };
 
 
   protected:
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // This parameter is required.
-    std::shared_ptr<vector<string>> ruleNames_ = nullptr;
+    shared_ptr<vector<string>> ruleNames_ {};
   };
 
   } // namespace Models
