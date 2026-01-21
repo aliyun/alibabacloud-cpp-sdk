@@ -13649,6 +13649,44 @@ ListSiteDeliveryTasksResponse Client::listSiteDeliveryTasks(const ListSiteDelive
 }
 
 /**
+ * @summary 查询站点回源客户端证书列表
+ *
+ * @param request ListSiteOriginClientCertificatesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListSiteOriginClientCertificatesResponse
+ */
+ListSiteOriginClientCertificatesResponse Client::listSiteOriginClientCertificatesWithOptions(const ListSiteOriginClientCertificatesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListSiteOriginClientCertificates"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListSiteOriginClientCertificatesResponse>();
+}
+
+/**
+ * @summary 查询站点回源客户端证书列表
+ *
+ * @param request ListSiteOriginClientCertificatesRequest
+ * @return ListSiteOriginClientCertificatesResponse
+ */
+ListSiteOriginClientCertificatesResponse Client::listSiteOriginClientCertificates(const ListSiteOriginClientCertificatesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listSiteOriginClientCertificatesWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the edge function routes for a website.
  *
  * @param request ListSiteRoutesRequest

@@ -4976,6 +4976,23 @@ namespace ESA20240910
       Models::ListSiteDeliveryTasksResponse listSiteDeliveryTasks(const Models::ListSiteDeliveryTasksRequest &request);
 
       /**
+       * @summary 查询站点回源客户端证书列表
+       *
+       * @param request ListSiteOriginClientCertificatesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListSiteOriginClientCertificatesResponse
+       */
+      Models::ListSiteOriginClientCertificatesResponse listSiteOriginClientCertificatesWithOptions(const Models::ListSiteOriginClientCertificatesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询站点回源客户端证书列表
+       *
+       * @param request ListSiteOriginClientCertificatesRequest
+       * @return ListSiteOriginClientCertificatesResponse
+       */
+      Models::ListSiteOriginClientCertificatesResponse listSiteOriginClientCertificates(const Models::ListSiteOriginClientCertificatesRequest &request);
+
+      /**
        * @summary Queries the edge function routes for a website.
        *
        * @param request ListSiteRoutesRequest

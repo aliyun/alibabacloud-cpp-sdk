@@ -846,6 +846,9 @@
 #include <alibabacloud/models/ListSiteDeliveryTasksRequest.hpp>
 #include <alibabacloud/models/ListSiteDeliveryTasksResponseBody.hpp>
 #include <alibabacloud/models/ListSiteDeliveryTasksResponse.hpp>
+#include <alibabacloud/models/ListSiteOriginClientCertificatesRequest.hpp>
+#include <alibabacloud/models/ListSiteOriginClientCertificatesResponseBody.hpp>
+#include <alibabacloud/models/ListSiteOriginClientCertificatesResponse.hpp>
 #include <alibabacloud/models/ListSiteRoutesRequest.hpp>
 #include <alibabacloud/models/ListSiteRoutesResponseBody.hpp>
 #include <alibabacloud/models/ListSiteRoutesResponse.hpp>
