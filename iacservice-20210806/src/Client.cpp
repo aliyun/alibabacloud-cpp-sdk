@@ -3087,6 +3087,71 @@ ListTerraformProviderVersionsResponse Client::listTerraformProviderVersions(cons
 }
 
 /**
+ * @summary 支持状态文件的资源导入和移除
+ *
+ * @param request ManageTerraformStateRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ManageTerraformStateResponse
+ */
+ManageTerraformStateResponse Client::manageTerraformStateWithOptions(const ManageTerraformStateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAction()) {
+    body["action"] = request.getAction();
+  }
+
+  if (!!request.hasClientToken()) {
+    body["clientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasIdentifier()) {
+    body["identifier"] = request.getIdentifier();
+  }
+
+  if (!!request.hasImportResourceId()) {
+    body["importResourceId"] = request.getImportResourceId();
+  }
+
+  if (!!request.hasResourceIdentifier()) {
+    body["resourceIdentifier"] = request.getResourceIdentifier();
+  }
+
+  if (!!request.hasType()) {
+    body["type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ManageTerraformState"},
+    {"version" , "2021-08-06"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/terraformState/manage")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ManageTerraformStateResponse>();
+}
+
+/**
+ * @summary 支持状态文件的资源导入和移除
+ *
+ * @param request ManageTerraformStateRequest
+ * @return ManageTerraformStateResponse
+ */
+ManageTerraformStateResponse Client::manageTerraformState(const ManageTerraformStateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return manageTerraformStateWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 控制作业
  *
  * @param request OperateJobRequest

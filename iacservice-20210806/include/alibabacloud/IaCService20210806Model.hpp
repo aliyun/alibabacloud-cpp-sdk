@@ -160,6 +160,9 @@
 #include <alibabacloud/models/ListTerraformProviderVersionsRequest.hpp>
 #include <alibabacloud/models/ListTerraformProviderVersionsResponseBody.hpp>
 #include <alibabacloud/models/ListTerraformProviderVersionsResponse.hpp>
+#include <alibabacloud/models/ManageTerraformStateRequest.hpp>
+#include <alibabacloud/models/ManageTerraformStateResponseBody.hpp>
+#include <alibabacloud/models/ManageTerraformStateResponse.hpp>
 #include <alibabacloud/models/OperateJobRequest.hpp>
 #include <alibabacloud/models/OperateJobResponseBody.hpp>
 #include <alibabacloud/models/OperateJobResponse.hpp>

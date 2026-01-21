@@ -995,6 +995,24 @@ namespace IaCService20210806
       Models::ListTerraformProviderVersionsResponse listTerraformProviderVersions(const Models::ListTerraformProviderVersionsRequest &request);
 
       /**
+       * @summary 支持状态文件的资源导入和移除
+       *
+       * @param request ManageTerraformStateRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ManageTerraformStateResponse
+       */
+      Models::ManageTerraformStateResponse manageTerraformStateWithOptions(const Models::ManageTerraformStateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 支持状态文件的资源导入和移除
+       *
+       * @param request ManageTerraformStateRequest
+       * @return ManageTerraformStateResponse
+       */
+      Models::ManageTerraformStateResponse manageTerraformState(const Models::ManageTerraformStateRequest &request);
+
+      /**
        * @summary 控制作业
        *
        * @param request OperateJobRequest
