@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_GETDATABASERESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_GETDATABASERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/GetDatabaseResponseBodyDatabase.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -32,29 +31,213 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Database : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Database& obj) { 
+        DARABONBA_PTR_TO_JSON(ActiveAddressType, activeAddressType_);
+        DARABONBA_PTR_TO_JSON(Comment, comment_);
+        DARABONBA_PTR_TO_JSON(DatabaseId, databaseId_);
+        DARABONBA_PTR_TO_JSON(DatabaseName, databaseName_);
+        DARABONBA_PTR_TO_JSON(DatabasePort, databasePort_);
+        DARABONBA_PTR_TO_JSON(DatabasePrivateAddress, databasePrivateAddress_);
+        DARABONBA_PTR_TO_JSON(DatabasePublicAddress, databasePublicAddress_);
+        DARABONBA_PTR_TO_JSON(DatabaseType, databaseType_);
+        DARABONBA_PTR_TO_JSON(NetworkDomainId, networkDomainId_);
+        DARABONBA_PTR_TO_JSON(Source, source_);
+        DARABONBA_PTR_TO_JSON(SourceInstanceId, sourceInstanceId_);
+        DARABONBA_PTR_TO_JSON(SourceInstanceRegionId, sourceInstanceRegionId_);
+        DARABONBA_PTR_TO_JSON(SourceInstanceState, sourceInstanceState_);
+      };
+      friend void from_json(const Darabonba::Json& j, Database& obj) { 
+        DARABONBA_PTR_FROM_JSON(ActiveAddressType, activeAddressType_);
+        DARABONBA_PTR_FROM_JSON(Comment, comment_);
+        DARABONBA_PTR_FROM_JSON(DatabaseId, databaseId_);
+        DARABONBA_PTR_FROM_JSON(DatabaseName, databaseName_);
+        DARABONBA_PTR_FROM_JSON(DatabasePort, databasePort_);
+        DARABONBA_PTR_FROM_JSON(DatabasePrivateAddress, databasePrivateAddress_);
+        DARABONBA_PTR_FROM_JSON(DatabasePublicAddress, databasePublicAddress_);
+        DARABONBA_PTR_FROM_JSON(DatabaseType, databaseType_);
+        DARABONBA_PTR_FROM_JSON(NetworkDomainId, networkDomainId_);
+        DARABONBA_PTR_FROM_JSON(Source, source_);
+        DARABONBA_PTR_FROM_JSON(SourceInstanceId, sourceInstanceId_);
+        DARABONBA_PTR_FROM_JSON(SourceInstanceRegionId, sourceInstanceRegionId_);
+        DARABONBA_PTR_FROM_JSON(SourceInstanceState, sourceInstanceState_);
+      };
+      Database() = default ;
+      Database(const Database &) = default ;
+      Database(Database &&) = default ;
+      Database(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Database() = default ;
+      Database& operator=(const Database &) = default ;
+      Database& operator=(Database &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->activeAddressType_ == nullptr
+        && this->comment_ == nullptr && this->databaseId_ == nullptr && this->databaseName_ == nullptr && this->databasePort_ == nullptr && this->databasePrivateAddress_ == nullptr
+        && this->databasePublicAddress_ == nullptr && this->databaseType_ == nullptr && this->networkDomainId_ == nullptr && this->source_ == nullptr && this->sourceInstanceId_ == nullptr
+        && this->sourceInstanceRegionId_ == nullptr && this->sourceInstanceState_ == nullptr; };
+      // activeAddressType Field Functions 
+      bool hasActiveAddressType() const { return this->activeAddressType_ != nullptr;};
+      void deleteActiveAddressType() { this->activeAddressType_ = nullptr;};
+      inline string getActiveAddressType() const { DARABONBA_PTR_GET_DEFAULT(activeAddressType_, "") };
+      inline Database& setActiveAddressType(string activeAddressType) { DARABONBA_PTR_SET_VALUE(activeAddressType_, activeAddressType) };
+
+
+      // comment Field Functions 
+      bool hasComment() const { return this->comment_ != nullptr;};
+      void deleteComment() { this->comment_ = nullptr;};
+      inline string getComment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
+      inline Database& setComment(string comment) { DARABONBA_PTR_SET_VALUE(comment_, comment) };
+
+
+      // databaseId Field Functions 
+      bool hasDatabaseId() const { return this->databaseId_ != nullptr;};
+      void deleteDatabaseId() { this->databaseId_ = nullptr;};
+      inline string getDatabaseId() const { DARABONBA_PTR_GET_DEFAULT(databaseId_, "") };
+      inline Database& setDatabaseId(string databaseId) { DARABONBA_PTR_SET_VALUE(databaseId_, databaseId) };
+
+
+      // databaseName Field Functions 
+      bool hasDatabaseName() const { return this->databaseName_ != nullptr;};
+      void deleteDatabaseName() { this->databaseName_ = nullptr;};
+      inline string getDatabaseName() const { DARABONBA_PTR_GET_DEFAULT(databaseName_, "") };
+      inline Database& setDatabaseName(string databaseName) { DARABONBA_PTR_SET_VALUE(databaseName_, databaseName) };
+
+
+      // databasePort Field Functions 
+      bool hasDatabasePort() const { return this->databasePort_ != nullptr;};
+      void deleteDatabasePort() { this->databasePort_ = nullptr;};
+      inline int64_t getDatabasePort() const { DARABONBA_PTR_GET_DEFAULT(databasePort_, 0L) };
+      inline Database& setDatabasePort(int64_t databasePort) { DARABONBA_PTR_SET_VALUE(databasePort_, databasePort) };
+
+
+      // databasePrivateAddress Field Functions 
+      bool hasDatabasePrivateAddress() const { return this->databasePrivateAddress_ != nullptr;};
+      void deleteDatabasePrivateAddress() { this->databasePrivateAddress_ = nullptr;};
+      inline string getDatabasePrivateAddress() const { DARABONBA_PTR_GET_DEFAULT(databasePrivateAddress_, "") };
+      inline Database& setDatabasePrivateAddress(string databasePrivateAddress) { DARABONBA_PTR_SET_VALUE(databasePrivateAddress_, databasePrivateAddress) };
+
+
+      // databasePublicAddress Field Functions 
+      bool hasDatabasePublicAddress() const { return this->databasePublicAddress_ != nullptr;};
+      void deleteDatabasePublicAddress() { this->databasePublicAddress_ = nullptr;};
+      inline string getDatabasePublicAddress() const { DARABONBA_PTR_GET_DEFAULT(databasePublicAddress_, "") };
+      inline Database& setDatabasePublicAddress(string databasePublicAddress) { DARABONBA_PTR_SET_VALUE(databasePublicAddress_, databasePublicAddress) };
+
+
+      // databaseType Field Functions 
+      bool hasDatabaseType() const { return this->databaseType_ != nullptr;};
+      void deleteDatabaseType() { this->databaseType_ = nullptr;};
+      inline string getDatabaseType() const { DARABONBA_PTR_GET_DEFAULT(databaseType_, "") };
+      inline Database& setDatabaseType(string databaseType) { DARABONBA_PTR_SET_VALUE(databaseType_, databaseType) };
+
+
+      // networkDomainId Field Functions 
+      bool hasNetworkDomainId() const { return this->networkDomainId_ != nullptr;};
+      void deleteNetworkDomainId() { this->networkDomainId_ = nullptr;};
+      inline string getNetworkDomainId() const { DARABONBA_PTR_GET_DEFAULT(networkDomainId_, "") };
+      inline Database& setNetworkDomainId(string networkDomainId) { DARABONBA_PTR_SET_VALUE(networkDomainId_, networkDomainId) };
+
+
+      // source Field Functions 
+      bool hasSource() const { return this->source_ != nullptr;};
+      void deleteSource() { this->source_ = nullptr;};
+      inline string getSource() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
+      inline Database& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
+
+
+      // sourceInstanceId Field Functions 
+      bool hasSourceInstanceId() const { return this->sourceInstanceId_ != nullptr;};
+      void deleteSourceInstanceId() { this->sourceInstanceId_ = nullptr;};
+      inline string getSourceInstanceId() const { DARABONBA_PTR_GET_DEFAULT(sourceInstanceId_, "") };
+      inline Database& setSourceInstanceId(string sourceInstanceId) { DARABONBA_PTR_SET_VALUE(sourceInstanceId_, sourceInstanceId) };
+
+
+      // sourceInstanceRegionId Field Functions 
+      bool hasSourceInstanceRegionId() const { return this->sourceInstanceRegionId_ != nullptr;};
+      void deleteSourceInstanceRegionId() { this->sourceInstanceRegionId_ = nullptr;};
+      inline string getSourceInstanceRegionId() const { DARABONBA_PTR_GET_DEFAULT(sourceInstanceRegionId_, "") };
+      inline Database& setSourceInstanceRegionId(string sourceInstanceRegionId) { DARABONBA_PTR_SET_VALUE(sourceInstanceRegionId_, sourceInstanceRegionId) };
+
+
+      // sourceInstanceState Field Functions 
+      bool hasSourceInstanceState() const { return this->sourceInstanceState_ != nullptr;};
+      void deleteSourceInstanceState() { this->sourceInstanceState_ = nullptr;};
+      inline string getSourceInstanceState() const { DARABONBA_PTR_GET_DEFAULT(sourceInstanceState_, "") };
+      inline Database& setSourceInstanceState(string sourceInstanceState) { DARABONBA_PTR_SET_VALUE(sourceInstanceState_, sourceInstanceState) };
+
+
+    protected:
+      // The address type of the database. Valid values:
+      // 
+      // *   Public
+      // *   Private
+      shared_ptr<string> activeAddressType_ {};
+      // The remarks of the database.
+      shared_ptr<string> comment_ {};
+      // The database ID.
+      shared_ptr<string> databaseId_ {};
+      // The name of the database.
+      shared_ptr<string> databaseName_ {};
+      // The port of the database.
+      shared_ptr<int64_t> databasePort_ {};
+      // The internal endpoint of the database.
+      shared_ptr<string> databasePrivateAddress_ {};
+      // The public endpoint of the database.
+      shared_ptr<string> databasePublicAddress_ {};
+      // The database engine. Valid values:
+      // 
+      // *   **mysql**
+      // *   **sqlserver**
+      // *   **postgresql**
+      // *   **oracle**
+      shared_ptr<string> databaseType_ {};
+      // The ID of the network domain to which the database belongs.
+      shared_ptr<string> networkDomainId_ {};
+      // The database type. Valid values:
+      // 
+      // *   **Local**: on-premises database.
+      // *   **Rds**: ApsaraDB RDS instance.
+      // *   **PolarDB**: PolarDB cluster.
+      shared_ptr<string> source_ {};
+      // The ID of the ApsaraDB RDS instance or PolarDB cluster.
+      // 
+      // > If **Source** is set to **Local**, this parameter is empty.
+      shared_ptr<string> sourceInstanceId_ {};
+      // The region ID of the ApsaraDB RDS instance or PolarDB cluster.
+      shared_ptr<string> sourceInstanceRegionId_ {};
+      // The status of the database. Valid values:
+      // 
+      // *   **Normal**
+      // *   **Release**
+      shared_ptr<string> sourceInstanceState_ {};
+    };
+
     virtual bool empty() const override { return this->database_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // database Field Functions 
     bool hasDatabase() const { return this->database_ != nullptr;};
     void deleteDatabase() { this->database_ = nullptr;};
-    inline const GetDatabaseResponseBodyDatabase & database() const { DARABONBA_PTR_GET_CONST(database_, GetDatabaseResponseBodyDatabase) };
-    inline GetDatabaseResponseBodyDatabase database() { DARABONBA_PTR_GET(database_, GetDatabaseResponseBodyDatabase) };
-    inline GetDatabaseResponseBody& setDatabase(const GetDatabaseResponseBodyDatabase & database) { DARABONBA_PTR_SET_VALUE(database_, database) };
-    inline GetDatabaseResponseBody& setDatabase(GetDatabaseResponseBodyDatabase && database) { DARABONBA_PTR_SET_RVALUE(database_, database) };
+    inline const GetDatabaseResponseBody::Database & getDatabase() const { DARABONBA_PTR_GET_CONST(database_, GetDatabaseResponseBody::Database) };
+    inline GetDatabaseResponseBody::Database getDatabase() { DARABONBA_PTR_GET(database_, GetDatabaseResponseBody::Database) };
+    inline GetDatabaseResponseBody& setDatabase(const GetDatabaseResponseBody::Database & database) { DARABONBA_PTR_SET_VALUE(database_, database) };
+    inline GetDatabaseResponseBody& setDatabase(GetDatabaseResponseBody::Database && database) { DARABONBA_PTR_SET_RVALUE(database_, database) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetDatabaseResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The returned detailed information about the database.
-    std::shared_ptr<GetDatabaseResponseBodyDatabase> database_ = nullptr;
+    shared_ptr<GetDatabaseResponseBody::Database> database_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

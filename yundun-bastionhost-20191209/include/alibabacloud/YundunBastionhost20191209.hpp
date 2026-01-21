@@ -354,6 +354,8 @@ namespace YundunBastionhost20191209
       Models::CreateDatabaseAccountResponse createDatabaseAccount(const Models::CreateDatabaseAccountRequest &request);
 
       /**
+       * @summary 创建导出配置的任务
+       *
        * @param request CreateExportConfigJobRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateExportConfigJobResponse
@@ -361,6 +363,8 @@ namespace YundunBastionhost20191209
       Models::CreateExportConfigJobResponse createExportConfigJobWithOptions(const Models::CreateExportConfigJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 创建导出配置的任务
+       *
        * @param request CreateExportConfigJobRequest
        * @return CreateExportConfigJobResponse
        */
@@ -452,6 +456,8 @@ namespace YundunBastionhost20191209
       Models::CreateNetworkDomainResponse createNetworkDomain(const Models::CreateNetworkDomainRequest &request);
 
       /**
+       * @summary 创建运维审批工单
+       *
        * @param request CreateOperationTicketRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateOperationTicketResponse
@@ -459,6 +465,8 @@ namespace YundunBastionhost20191209
       Models::CreateOperationTicketResponse createOperationTicketWithOptions(const Models::CreateOperationTicketRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 创建运维审批工单
+       *
        * @param request CreateOperationTicketRequest
        * @return CreateOperationTicketResponse
        */
@@ -1091,6 +1099,8 @@ namespace YundunBastionhost20191209
       Models::GetDatabaseAccountResponse getDatabaseAccount(const Models::GetDatabaseAccountRequest &request);
 
       /**
+       * @summary 获取导出配置任务进度
+       *
        * @param request GetExportConfigJobRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetExportConfigJobResponse
@@ -1098,6 +1108,8 @@ namespace YundunBastionhost20191209
       Models::GetExportConfigJobResponse getExportConfigJobWithOptions(const Models::GetExportConfigJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 获取导出配置任务进度
+       *
        * @param request GetExportConfigJobRequest
        * @return GetExportConfigJobResponse
        */
@@ -1216,6 +1228,8 @@ namespace YundunBastionhost20191209
       Models::GetInstanceLDAPAuthServerResponse getInstanceLDAPAuthServer(const Models::GetInstanceLDAPAuthServerRequest &request);
 
       /**
+       * @summary 获取堡垒机实例存储信息
+       *
        * @param request GetInstanceStoreInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetInstanceStoreInfoResponse
@@ -1223,6 +1237,8 @@ namespace YundunBastionhost20191209
       Models::GetInstanceStoreInfoResponse getInstanceStoreInfoWithOptions(const Models::GetInstanceStoreInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 获取堡垒机实例存储信息
+       *
        * @param request GetInstanceStoreInfoRequest
        * @return GetInstanceStoreInfoResponse
        */

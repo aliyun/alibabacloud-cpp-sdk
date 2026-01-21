@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->hostGroupId_ == nullptr
-        && return this->instanceId_ == nullptr && return this->regionId_ == nullptr && return this->userGroupId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->regionId_ == nullptr && this->userGroupId_ == nullptr; };
     // hostGroupId Field Functions 
     bool hasHostGroupId() const { return this->hostGroupId_ != nullptr;};
     void deleteHostGroupId() { this->hostGroupId_ = nullptr;};
-    inline string hostGroupId() const { DARABONBA_PTR_GET_DEFAULT(hostGroupId_, "") };
+    inline string getHostGroupId() const { DARABONBA_PTR_GET_DEFAULT(hostGroupId_, "") };
     inline ListHostGroupAccountNamesForUserGroupRequest& setHostGroupId(string hostGroupId) { DARABONBA_PTR_SET_VALUE(hostGroupId_, hostGroupId) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ListHostGroupAccountNamesForUserGroupRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ListHostGroupAccountNamesForUserGroupRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // userGroupId Field Functions 
     bool hasUserGroupId() const { return this->userGroupId_ != nullptr;};
     void deleteUserGroupId() { this->userGroupId_ = nullptr;};
-    inline string userGroupId() const { DARABONBA_PTR_GET_DEFAULT(userGroupId_, "") };
+    inline string getUserGroupId() const { DARABONBA_PTR_GET_DEFAULT(userGroupId_, "") };
     inline ListHostGroupAccountNamesForUserGroupRequest& setUserGroupId(string userGroupId) { DARABONBA_PTR_SET_VALUE(userGroupId_, userGroupId) };
 
 
@@ -71,23 +71,23 @@ namespace Models
     // > You can call the [ListHostGroups](https://help.aliyun.com/document_detail/201307.html) operation to query the ID of the host group.
     // 
     // This parameter is required.
-    std::shared_ptr<string> hostGroupId_ = nullptr;
+    shared_ptr<string> hostGroupId_ {};
     // The ID of the bastion host on which you want to query the host account names the user group is authorized to manage in a host group.
     // 
     // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The region ID of the bastion host on which you want to query the host account names the user group is authorized to manage in a host group.
     // 
     // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The ID of the user group.
     // 
     // > You can call the [ListUserGroups](https://help.aliyun.com/document_detail/204509.html) operation to query the ID of the user group.
     // 
     // This parameter is required.
-    std::shared_ptr<string> userGroupId_ = nullptr;
+    shared_ptr<string> userGroupId_ {};
   };
 
   } // namespace Models

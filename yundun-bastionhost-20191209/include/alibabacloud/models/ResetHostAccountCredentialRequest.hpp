@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->credentialType_ == nullptr
-        && return this->hostAccountId_ == nullptr && return this->instanceId_ == nullptr && return this->regionId_ == nullptr; };
+        && this->hostAccountId_ == nullptr && this->instanceId_ == nullptr && this->regionId_ == nullptr; };
     // credentialType Field Functions 
     bool hasCredentialType() const { return this->credentialType_ != nullptr;};
     void deleteCredentialType() { this->credentialType_ = nullptr;};
-    inline string credentialType() const { DARABONBA_PTR_GET_DEFAULT(credentialType_, "") };
+    inline string getCredentialType() const { DARABONBA_PTR_GET_DEFAULT(credentialType_, "") };
     inline ResetHostAccountCredentialRequest& setCredentialType(string credentialType) { DARABONBA_PTR_SET_VALUE(credentialType_, credentialType) };
 
 
     // hostAccountId Field Functions 
     bool hasHostAccountId() const { return this->hostAccountId_ != nullptr;};
     void deleteHostAccountId() { this->hostAccountId_ = nullptr;};
-    inline string hostAccountId() const { DARABONBA_PTR_GET_DEFAULT(hostAccountId_, "") };
+    inline string getHostAccountId() const { DARABONBA_PTR_GET_DEFAULT(hostAccountId_, "") };
     inline ResetHostAccountCredentialRequest& setHostAccountId(string hostAccountId) { DARABONBA_PTR_SET_VALUE(hostAccountId_, hostAccountId) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ResetHostAccountCredentialRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ResetHostAccountCredentialRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -72,23 +72,23 @@ namespace Models
     // *   **PrivateKey**
     // 
     // This parameter is required.
-    std::shared_ptr<string> credentialType_ = nullptr;
+    shared_ptr<string> credentialType_ {};
     // The ID of the host account for which the logon credential is to be deleted.
     // 
     // >  You can call the [ListHostAccounts](https://help.aliyun.com/document_detail/204372.html) operation to query the ID of the host account.
     // 
     // This parameter is required.
-    std::shared_ptr<string> hostAccountId_ = nullptr;
+    shared_ptr<string> hostAccountId_ {};
     // The ID of the bastion host from which you want to delete the logon credential for the host account.
     // 
     // >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The region ID of the bastion host from which you want to delete the logon credential for the host account.
     // 
     // >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

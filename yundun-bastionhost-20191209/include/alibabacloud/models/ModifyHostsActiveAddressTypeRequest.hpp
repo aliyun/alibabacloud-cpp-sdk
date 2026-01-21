@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->activeAddressType_ == nullptr
-        && return this->hostIds_ == nullptr && return this->instanceId_ == nullptr && return this->regionId_ == nullptr; };
+        && this->hostIds_ == nullptr && this->instanceId_ == nullptr && this->regionId_ == nullptr; };
     // activeAddressType Field Functions 
     bool hasActiveAddressType() const { return this->activeAddressType_ != nullptr;};
     void deleteActiveAddressType() { this->activeAddressType_ = nullptr;};
-    inline string activeAddressType() const { DARABONBA_PTR_GET_DEFAULT(activeAddressType_, "") };
+    inline string getActiveAddressType() const { DARABONBA_PTR_GET_DEFAULT(activeAddressType_, "") };
     inline ModifyHostsActiveAddressTypeRequest& setActiveAddressType(string activeAddressType) { DARABONBA_PTR_SET_VALUE(activeAddressType_, activeAddressType) };
 
 
     // hostIds Field Functions 
     bool hasHostIds() const { return this->hostIds_ != nullptr;};
     void deleteHostIds() { this->hostIds_ = nullptr;};
-    inline string hostIds() const { DARABONBA_PTR_GET_DEFAULT(hostIds_, "") };
+    inline string getHostIds() const { DARABONBA_PTR_GET_DEFAULT(hostIds_, "") };
     inline ModifyHostsActiveAddressTypeRequest& setHostIds(string hostIds) { DARABONBA_PTR_SET_VALUE(hostIds_, hostIds) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ModifyHostsActiveAddressTypeRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ModifyHostsActiveAddressTypeRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -72,23 +72,23 @@ namespace Models
     // *   **Private**: internal portal
     // 
     // This parameter is required.
-    std::shared_ptr<string> activeAddressType_ = nullptr;
+    shared_ptr<string> activeAddressType_ {};
     // The ID of the host for which you want to change the portal type. The value is a JSON string. You can add up to 100 host IDs.
     // 
     // >  You can call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to query the ID of the host.
     // 
     // This parameter is required.
-    std::shared_ptr<string> hostIds_ = nullptr;
+    shared_ptr<string> hostIds_ {};
     // The ID of the bastion host for which you want to change the portal type of the host.
     // 
     // >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The region ID of the bastion host for which you want to change the portal type of the host.
     // 
     // >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

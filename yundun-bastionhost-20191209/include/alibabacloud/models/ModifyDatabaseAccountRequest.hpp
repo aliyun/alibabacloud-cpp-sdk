@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->databaseAccountId_ == nullptr
-        && return this->databaseAccountName_ == nullptr && return this->databaseSchema_ == nullptr && return this->instanceId_ == nullptr && return this->password_ == nullptr && return this->regionId_ == nullptr; };
+        && this->databaseAccountName_ == nullptr && this->databaseSchema_ == nullptr && this->instanceId_ == nullptr && this->password_ == nullptr && this->regionId_ == nullptr; };
     // databaseAccountId Field Functions 
     bool hasDatabaseAccountId() const { return this->databaseAccountId_ != nullptr;};
     void deleteDatabaseAccountId() { this->databaseAccountId_ = nullptr;};
-    inline string databaseAccountId() const { DARABONBA_PTR_GET_DEFAULT(databaseAccountId_, "") };
+    inline string getDatabaseAccountId() const { DARABONBA_PTR_GET_DEFAULT(databaseAccountId_, "") };
     inline ModifyDatabaseAccountRequest& setDatabaseAccountId(string databaseAccountId) { DARABONBA_PTR_SET_VALUE(databaseAccountId_, databaseAccountId) };
 
 
     // databaseAccountName Field Functions 
     bool hasDatabaseAccountName() const { return this->databaseAccountName_ != nullptr;};
     void deleteDatabaseAccountName() { this->databaseAccountName_ = nullptr;};
-    inline string databaseAccountName() const { DARABONBA_PTR_GET_DEFAULT(databaseAccountName_, "") };
+    inline string getDatabaseAccountName() const { DARABONBA_PTR_GET_DEFAULT(databaseAccountName_, "") };
     inline ModifyDatabaseAccountRequest& setDatabaseAccountName(string databaseAccountName) { DARABONBA_PTR_SET_VALUE(databaseAccountName_, databaseAccountName) };
 
 
     // databaseSchema Field Functions 
     bool hasDatabaseSchema() const { return this->databaseSchema_ != nullptr;};
     void deleteDatabaseSchema() { this->databaseSchema_ = nullptr;};
-    inline string databaseSchema() const { DARABONBA_PTR_GET_DEFAULT(databaseSchema_, "") };
+    inline string getDatabaseSchema() const { DARABONBA_PTR_GET_DEFAULT(databaseSchema_, "") };
     inline ModifyDatabaseAccountRequest& setDatabaseSchema(string databaseSchema) { DARABONBA_PTR_SET_VALUE(databaseSchema_, databaseSchema) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ModifyDatabaseAccountRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // password Field Functions 
     bool hasPassword() const { return this->password_ != nullptr;};
     void deletePassword() { this->password_ = nullptr;};
-    inline string password() const { DARABONBA_PTR_GET_DEFAULT(password_, "") };
+    inline string getPassword() const { DARABONBA_PTR_GET_DEFAULT(password_, "") };
     inline ModifyDatabaseAccountRequest& setPassword(string password) { DARABONBA_PTR_SET_VALUE(password_, password) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ModifyDatabaseAccountRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -89,23 +89,23 @@ namespace Models
     // >  You can call the [ListDatabaseAccounts](https://help.aliyun.com/document_detail/2758839.html) operation to query the database account ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> databaseAccountId_ = nullptr;
+    shared_ptr<string> databaseAccountId_ {};
     // The new username of the database account. The username can be up to 128 characters in length.
-    std::shared_ptr<string> databaseAccountName_ = nullptr;
+    shared_ptr<string> databaseAccountName_ {};
     // The new name of the database. This parameter is required if the database engine is PostgreSQL or Oracle.
-    std::shared_ptr<string> databaseSchema_ = nullptr;
+    shared_ptr<string> databaseSchema_ {};
     // The ID of the bastion host that manages the database account to modify.
     // 
     // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The new password of the database account.
-    std::shared_ptr<string> password_ = nullptr;
+    shared_ptr<string> password_ {};
     // The region ID of the bastion host that manages the database account to modify.
     // 
     // >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

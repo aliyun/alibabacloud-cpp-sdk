@@ -37,12 +37,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->authorizedSecurityGroups_ == nullptr
-        && return this->instanceId_ == nullptr && return this->lang_ == nullptr && return this->regionId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->lang_ == nullptr && this->regionId_ == nullptr; };
     // authorizedSecurityGroups Field Functions 
     bool hasAuthorizedSecurityGroups() const { return this->authorizedSecurityGroups_ != nullptr;};
     void deleteAuthorizedSecurityGroups() { this->authorizedSecurityGroups_ = nullptr;};
-    inline const vector<string> & authorizedSecurityGroups() const { DARABONBA_PTR_GET_CONST(authorizedSecurityGroups_, vector<string>) };
-    inline vector<string> authorizedSecurityGroups() { DARABONBA_PTR_GET(authorizedSecurityGroups_, vector<string>) };
+    inline const vector<string> & getAuthorizedSecurityGroups() const { DARABONBA_PTR_GET_CONST(authorizedSecurityGroups_, vector<string>) };
+    inline vector<string> getAuthorizedSecurityGroups() { DARABONBA_PTR_GET(authorizedSecurityGroups_, vector<string>) };
     inline ConfigInstanceSecurityGroupsRequest& setAuthorizedSecurityGroups(const vector<string> & authorizedSecurityGroups) { DARABONBA_PTR_SET_VALUE(authorizedSecurityGroups_, authorizedSecurityGroups) };
     inline ConfigInstanceSecurityGroupsRequest& setAuthorizedSecurityGroups(vector<string> && authorizedSecurityGroups) { DARABONBA_PTR_SET_RVALUE(authorizedSecurityGroups_, authorizedSecurityGroups) };
 
@@ -50,21 +50,21 @@ namespace Models
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ConfigInstanceSecurityGroupsRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline ConfigInstanceSecurityGroupsRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ConfigInstanceSecurityGroupsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -72,20 +72,20 @@ namespace Models
     // An array that consists of the IDs of authorized security groups.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> authorizedSecurityGroups_ = nullptr;
+    shared_ptr<vector<string>> authorizedSecurityGroups_ {};
     // The ID of the bastion host.
     // 
     // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The language of the content within the request and response. Default value: **zh**. Valid values:
     // 
     // *   **zh**: Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The region ID of the bastion host.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

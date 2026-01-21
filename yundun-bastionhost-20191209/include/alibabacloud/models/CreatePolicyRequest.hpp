@@ -38,64 +38,64 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->comment_ == nullptr
-        && return this->instanceId_ == nullptr && return this->policyName_ == nullptr && return this->priority_ == nullptr && return this->regionId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->policyName_ == nullptr && this->priority_ == nullptr && this->regionId_ == nullptr; };
     // comment Field Functions 
     bool hasComment() const { return this->comment_ != nullptr;};
     void deleteComment() { this->comment_ = nullptr;};
-    inline string comment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
+    inline string getComment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
     inline CreatePolicyRequest& setComment(string comment) { DARABONBA_PTR_SET_VALUE(comment_, comment) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline CreatePolicyRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // policyName Field Functions 
     bool hasPolicyName() const { return this->policyName_ != nullptr;};
     void deletePolicyName() { this->policyName_ = nullptr;};
-    inline string policyName() const { DARABONBA_PTR_GET_DEFAULT(policyName_, "") };
+    inline string getPolicyName() const { DARABONBA_PTR_GET_DEFAULT(policyName_, "") };
     inline CreatePolicyRequest& setPolicyName(string policyName) { DARABONBA_PTR_SET_VALUE(policyName_, policyName) };
 
 
     // priority Field Functions 
     bool hasPriority() const { return this->priority_ != nullptr;};
     void deletePriority() { this->priority_ = nullptr;};
-    inline string priority() const { DARABONBA_PTR_GET_DEFAULT(priority_, "") };
+    inline string getPriority() const { DARABONBA_PTR_GET_DEFAULT(priority_, "") };
     inline CreatePolicyRequest& setPriority(string priority) { DARABONBA_PTR_SET_VALUE(priority_, priority) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreatePolicyRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
     // The remarks of the control policy. The remarks can be up to 500 characters in length.
-    std::shared_ptr<string> comment_ = nullptr;
+    shared_ptr<string> comment_ {};
     // The ID of the bastion host for which you want to create a control policy.
     // 
     // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The name of the control policy. The name can be up to 128 characters in length.
     // 
     // This parameter is required.
-    std::shared_ptr<string> policyName_ = nullptr;
+    shared_ptr<string> policyName_ {};
     // The priority of the control policy.
     // 
     // *   Valid values: 1 to 100. The default value is 1, which indicates the highest priority.
     // *   You can configure the same priority for different control policies. If multiple control policies have the same priority, the control policy that is created at the latest point in time has the highest priority. If a command control policy and a command approval policy contain the same commands, the commands are prioritized in descending order: reject, allow, and approve. In access control policies, a blacklist has a higher priority than a whitelist.
-    std::shared_ptr<string> priority_ = nullptr;
+    shared_ptr<string> priority_ {};
     // The region ID of the bastion host for which you want to create a control policy.
     // 
     // >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

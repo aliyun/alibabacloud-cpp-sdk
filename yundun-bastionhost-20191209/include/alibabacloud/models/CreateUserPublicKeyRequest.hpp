@@ -40,76 +40,76 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->comment_ == nullptr
-        && return this->instanceId_ == nullptr && return this->publicKey_ == nullptr && return this->publicKeyName_ == nullptr && return this->regionId_ == nullptr && return this->userId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->publicKey_ == nullptr && this->publicKeyName_ == nullptr && this->regionId_ == nullptr && this->userId_ == nullptr; };
     // comment Field Functions 
     bool hasComment() const { return this->comment_ != nullptr;};
     void deleteComment() { this->comment_ = nullptr;};
-    inline string comment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
+    inline string getComment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
     inline CreateUserPublicKeyRequest& setComment(string comment) { DARABONBA_PTR_SET_VALUE(comment_, comment) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline CreateUserPublicKeyRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // publicKey Field Functions 
     bool hasPublicKey() const { return this->publicKey_ != nullptr;};
     void deletePublicKey() { this->publicKey_ = nullptr;};
-    inline string publicKey() const { DARABONBA_PTR_GET_DEFAULT(publicKey_, "") };
+    inline string getPublicKey() const { DARABONBA_PTR_GET_DEFAULT(publicKey_, "") };
     inline CreateUserPublicKeyRequest& setPublicKey(string publicKey) { DARABONBA_PTR_SET_VALUE(publicKey_, publicKey) };
 
 
     // publicKeyName Field Functions 
     bool hasPublicKeyName() const { return this->publicKeyName_ != nullptr;};
     void deletePublicKeyName() { this->publicKeyName_ = nullptr;};
-    inline string publicKeyName() const { DARABONBA_PTR_GET_DEFAULT(publicKeyName_, "") };
+    inline string getPublicKeyName() const { DARABONBA_PTR_GET_DEFAULT(publicKeyName_, "") };
     inline CreateUserPublicKeyRequest& setPublicKeyName(string publicKeyName) { DARABONBA_PTR_SET_VALUE(publicKeyName_, publicKeyName) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreateUserPublicKeyRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline CreateUserPublicKeyRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
   protected:
     // The description of the public key. The description can be up to 500 characters in length.
-    std::shared_ptr<string> comment_ = nullptr;
+    shared_ptr<string> comment_ {};
     // The ID of the bastion host on which you want to create a public key for the user.
     // 
     // > You can call the [listinstances](https://help.aliyun.com/document_detail/204522.html) operation to query the ID of the bastion host.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The public key. Encode the value by using the Base64 algorithm.
     // 
     // This parameter is required.
-    std::shared_ptr<string> publicKey_ = nullptr;
+    shared_ptr<string> publicKey_ {};
     // The name of the public key.
     // 
     // This parameter is required.
-    std::shared_ptr<string> publicKeyName_ = nullptr;
+    shared_ptr<string> publicKeyName_ {};
     // Specifies the region ID of the bastion host on which you want to create a public key for the user.
     // 
     // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The ID of the user for whom you want to create a public key.
     // 
     // >  You can call the [ListUsers](https://help.aliyun.com/document_detail/204522.html) operation to query the user ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> userId_ = nullptr;
+    shared_ptr<string> userId_ {};
   };
 
   } // namespace Models

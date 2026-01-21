@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->hostAccountNames_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // hostAccountNames Field Functions 
     bool hasHostAccountNames() const { return this->hostAccountNames_ != nullptr;};
     void deleteHostAccountNames() { this->hostAccountNames_ = nullptr;};
-    inline const vector<string> & hostAccountNames() const { DARABONBA_PTR_GET_CONST(hostAccountNames_, vector<string>) };
-    inline vector<string> hostAccountNames() { DARABONBA_PTR_GET(hostAccountNames_, vector<string>) };
+    inline const vector<string> & getHostAccountNames() const { DARABONBA_PTR_GET_CONST(hostAccountNames_, vector<string>) };
+    inline vector<string> getHostAccountNames() { DARABONBA_PTR_GET(hostAccountNames_, vector<string>) };
     inline ListHostGroupAccountNamesForUserGroupResponseBody& setHostAccountNames(const vector<string> & hostAccountNames) { DARABONBA_PTR_SET_VALUE(hostAccountNames_, hostAccountNames) };
     inline ListHostGroupAccountNamesForUserGroupResponseBody& setHostAccountNames(vector<string> && hostAccountNames) { DARABONBA_PTR_SET_RVALUE(hostAccountNames_, hostAccountNames) };
 
@@ -46,15 +46,15 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListHostGroupAccountNamesForUserGroupResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The names of host accounts returned.
-    std::shared_ptr<vector<string>> hostAccountNames_ = nullptr;
+    shared_ptr<vector<string>> hostAccountNames_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

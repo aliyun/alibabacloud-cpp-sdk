@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_LISTHOSTACCOUNTSFORUSERRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/ListHostAccountsForUserResponseBodyHostAccounts.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -35,38 +34,121 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class HostAccounts : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const HostAccounts& obj) { 
+        DARABONBA_PTR_TO_JSON(HostAccountId, hostAccountId_);
+        DARABONBA_PTR_TO_JSON(HostAccountName, hostAccountName_);
+        DARABONBA_PTR_TO_JSON(HostId, hostId_);
+        DARABONBA_PTR_TO_JSON(IsAuthorized, isAuthorized_);
+        DARABONBA_PTR_TO_JSON(ProtocolName, protocolName_);
+      };
+      friend void from_json(const Darabonba::Json& j, HostAccounts& obj) { 
+        DARABONBA_PTR_FROM_JSON(HostAccountId, hostAccountId_);
+        DARABONBA_PTR_FROM_JSON(HostAccountName, hostAccountName_);
+        DARABONBA_PTR_FROM_JSON(HostId, hostId_);
+        DARABONBA_PTR_FROM_JSON(IsAuthorized, isAuthorized_);
+        DARABONBA_PTR_FROM_JSON(ProtocolName, protocolName_);
+      };
+      HostAccounts() = default ;
+      HostAccounts(const HostAccounts &) = default ;
+      HostAccounts(HostAccounts &&) = default ;
+      HostAccounts(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~HostAccounts() = default ;
+      HostAccounts& operator=(const HostAccounts &) = default ;
+      HostAccounts& operator=(HostAccounts &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->hostAccountId_ == nullptr
+        && this->hostAccountName_ == nullptr && this->hostId_ == nullptr && this->isAuthorized_ == nullptr && this->protocolName_ == nullptr; };
+      // hostAccountId Field Functions 
+      bool hasHostAccountId() const { return this->hostAccountId_ != nullptr;};
+      void deleteHostAccountId() { this->hostAccountId_ = nullptr;};
+      inline string getHostAccountId() const { DARABONBA_PTR_GET_DEFAULT(hostAccountId_, "") };
+      inline HostAccounts& setHostAccountId(string hostAccountId) { DARABONBA_PTR_SET_VALUE(hostAccountId_, hostAccountId) };
+
+
+      // hostAccountName Field Functions 
+      bool hasHostAccountName() const { return this->hostAccountName_ != nullptr;};
+      void deleteHostAccountName() { this->hostAccountName_ = nullptr;};
+      inline string getHostAccountName() const { DARABONBA_PTR_GET_DEFAULT(hostAccountName_, "") };
+      inline HostAccounts& setHostAccountName(string hostAccountName) { DARABONBA_PTR_SET_VALUE(hostAccountName_, hostAccountName) };
+
+
+      // hostId Field Functions 
+      bool hasHostId() const { return this->hostId_ != nullptr;};
+      void deleteHostId() { this->hostId_ = nullptr;};
+      inline string getHostId() const { DARABONBA_PTR_GET_DEFAULT(hostId_, "") };
+      inline HostAccounts& setHostId(string hostId) { DARABONBA_PTR_SET_VALUE(hostId_, hostId) };
+
+
+      // isAuthorized Field Functions 
+      bool hasIsAuthorized() const { return this->isAuthorized_ != nullptr;};
+      void deleteIsAuthorized() { this->isAuthorized_ = nullptr;};
+      inline bool getIsAuthorized() const { DARABONBA_PTR_GET_DEFAULT(isAuthorized_, false) };
+      inline HostAccounts& setIsAuthorized(bool isAuthorized) { DARABONBA_PTR_SET_VALUE(isAuthorized_, isAuthorized) };
+
+
+      // protocolName Field Functions 
+      bool hasProtocolName() const { return this->protocolName_ != nullptr;};
+      void deleteProtocolName() { this->protocolName_ = nullptr;};
+      inline string getProtocolName() const { DARABONBA_PTR_GET_DEFAULT(protocolName_, "") };
+      inline HostAccounts& setProtocolName(string protocolName) { DARABONBA_PTR_SET_VALUE(protocolName_, protocolName) };
+
+
+    protected:
+      // The ID of the host account.
+      shared_ptr<string> hostAccountId_ {};
+      // The name of the host account.
+      shared_ptr<string> hostAccountName_ {};
+      // The ID of the host for which the host accounts were queried.
+      shared_ptr<string> hostId_ {};
+      // Indicates whether the user is authorized to manage the host account. Valid values:
+      // 
+      // *   **true**: yes
+      // *   **false**: no
+      shared_ptr<bool> isAuthorized_ {};
+      // The protocol that is used by the host. Valid values:
+      // 
+      // *   **SSH**
+      // *   **RDP**
+      shared_ptr<string> protocolName_ {};
+    };
+
     virtual bool empty() const override { return this->hostAccounts_ == nullptr
-        && return this->requestId_ == nullptr && return this->totalCount_ == nullptr; };
+        && this->requestId_ == nullptr && this->totalCount_ == nullptr; };
     // hostAccounts Field Functions 
     bool hasHostAccounts() const { return this->hostAccounts_ != nullptr;};
     void deleteHostAccounts() { this->hostAccounts_ = nullptr;};
-    inline const vector<ListHostAccountsForUserResponseBodyHostAccounts> & hostAccounts() const { DARABONBA_PTR_GET_CONST(hostAccounts_, vector<ListHostAccountsForUserResponseBodyHostAccounts>) };
-    inline vector<ListHostAccountsForUserResponseBodyHostAccounts> hostAccounts() { DARABONBA_PTR_GET(hostAccounts_, vector<ListHostAccountsForUserResponseBodyHostAccounts>) };
-    inline ListHostAccountsForUserResponseBody& setHostAccounts(const vector<ListHostAccountsForUserResponseBodyHostAccounts> & hostAccounts) { DARABONBA_PTR_SET_VALUE(hostAccounts_, hostAccounts) };
-    inline ListHostAccountsForUserResponseBody& setHostAccounts(vector<ListHostAccountsForUserResponseBodyHostAccounts> && hostAccounts) { DARABONBA_PTR_SET_RVALUE(hostAccounts_, hostAccounts) };
+    inline const vector<ListHostAccountsForUserResponseBody::HostAccounts> & getHostAccounts() const { DARABONBA_PTR_GET_CONST(hostAccounts_, vector<ListHostAccountsForUserResponseBody::HostAccounts>) };
+    inline vector<ListHostAccountsForUserResponseBody::HostAccounts> getHostAccounts() { DARABONBA_PTR_GET(hostAccounts_, vector<ListHostAccountsForUserResponseBody::HostAccounts>) };
+    inline ListHostAccountsForUserResponseBody& setHostAccounts(const vector<ListHostAccountsForUserResponseBody::HostAccounts> & hostAccounts) { DARABONBA_PTR_SET_VALUE(hostAccounts_, hostAccounts) };
+    inline ListHostAccountsForUserResponseBody& setHostAccounts(vector<ListHostAccountsForUserResponseBody::HostAccounts> && hostAccounts) { DARABONBA_PTR_SET_RVALUE(hostAccounts_, hostAccounts) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListHostAccountsForUserResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // totalCount Field Functions 
     bool hasTotalCount() const { return this->totalCount_ != nullptr;};
     void deleteTotalCount() { this->totalCount_ = nullptr;};
-    inline int32_t totalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
+    inline int32_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
     inline ListHostAccountsForUserResponseBody& setTotalCount(int32_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
 
 
   protected:
     // An array that consists of the queried host accounts.
-    std::shared_ptr<vector<ListHostAccountsForUserResponseBodyHostAccounts>> hostAccounts_ = nullptr;
+    shared_ptr<vector<ListHostAccountsForUserResponseBody::HostAccounts>> hostAccounts_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The total number of host accounts that were queried.
-    std::shared_ptr<int32_t> totalCount_ = nullptr;
+    shared_ptr<int32_t> totalCount_ {};
   };
 
   } // namespace Models

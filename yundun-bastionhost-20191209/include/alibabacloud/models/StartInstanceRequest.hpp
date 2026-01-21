@@ -43,13 +43,13 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientSecurityGroupIds_ == nullptr
-        && return this->enablePortalPrivateAccess_ == nullptr && return this->instanceId_ == nullptr && return this->regionId_ == nullptr && return this->securityGroupIds_ == nullptr && return this->slaveVswitchId_ == nullptr
-        && return this->vswitchId_ == nullptr; };
+        && this->enablePortalPrivateAccess_ == nullptr && this->instanceId_ == nullptr && this->regionId_ == nullptr && this->securityGroupIds_ == nullptr && this->slaveVswitchId_ == nullptr
+        && this->vswitchId_ == nullptr; };
     // clientSecurityGroupIds Field Functions 
     bool hasClientSecurityGroupIds() const { return this->clientSecurityGroupIds_ != nullptr;};
     void deleteClientSecurityGroupIds() { this->clientSecurityGroupIds_ = nullptr;};
-    inline const vector<string> & clientSecurityGroupIds() const { DARABONBA_PTR_GET_CONST(clientSecurityGroupIds_, vector<string>) };
-    inline vector<string> clientSecurityGroupIds() { DARABONBA_PTR_GET(clientSecurityGroupIds_, vector<string>) };
+    inline const vector<string> & getClientSecurityGroupIds() const { DARABONBA_PTR_GET_CONST(clientSecurityGroupIds_, vector<string>) };
+    inline vector<string> getClientSecurityGroupIds() { DARABONBA_PTR_GET(clientSecurityGroupIds_, vector<string>) };
     inline StartInstanceRequest& setClientSecurityGroupIds(const vector<string> & clientSecurityGroupIds) { DARABONBA_PTR_SET_VALUE(clientSecurityGroupIds_, clientSecurityGroupIds) };
     inline StartInstanceRequest& setClientSecurityGroupIds(vector<string> && clientSecurityGroupIds) { DARABONBA_PTR_SET_RVALUE(clientSecurityGroupIds_, clientSecurityGroupIds) };
 
@@ -57,29 +57,29 @@ namespace Models
     // enablePortalPrivateAccess Field Functions 
     bool hasEnablePortalPrivateAccess() const { return this->enablePortalPrivateAccess_ != nullptr;};
     void deleteEnablePortalPrivateAccess() { this->enablePortalPrivateAccess_ = nullptr;};
-    inline bool enablePortalPrivateAccess() const { DARABONBA_PTR_GET_DEFAULT(enablePortalPrivateAccess_, false) };
+    inline bool getEnablePortalPrivateAccess() const { DARABONBA_PTR_GET_DEFAULT(enablePortalPrivateAccess_, false) };
     inline StartInstanceRequest& setEnablePortalPrivateAccess(bool enablePortalPrivateAccess) { DARABONBA_PTR_SET_VALUE(enablePortalPrivateAccess_, enablePortalPrivateAccess) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline StartInstanceRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline StartInstanceRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // securityGroupIds Field Functions 
     bool hasSecurityGroupIds() const { return this->securityGroupIds_ != nullptr;};
     void deleteSecurityGroupIds() { this->securityGroupIds_ = nullptr;};
-    inline const vector<string> & securityGroupIds() const { DARABONBA_PTR_GET_CONST(securityGroupIds_, vector<string>) };
-    inline vector<string> securityGroupIds() { DARABONBA_PTR_GET(securityGroupIds_, vector<string>) };
+    inline const vector<string> & getSecurityGroupIds() const { DARABONBA_PTR_GET_CONST(securityGroupIds_, vector<string>) };
+    inline vector<string> getSecurityGroupIds() { DARABONBA_PTR_GET(securityGroupIds_, vector<string>) };
     inline StartInstanceRequest& setSecurityGroupIds(const vector<string> & securityGroupIds) { DARABONBA_PTR_SET_VALUE(securityGroupIds_, securityGroupIds) };
     inline StartInstanceRequest& setSecurityGroupIds(vector<string> && securityGroupIds) { DARABONBA_PTR_SET_RVALUE(securityGroupIds_, securityGroupIds) };
 
@@ -87,35 +87,35 @@ namespace Models
     // slaveVswitchId Field Functions 
     bool hasSlaveVswitchId() const { return this->slaveVswitchId_ != nullptr;};
     void deleteSlaveVswitchId() { this->slaveVswitchId_ = nullptr;};
-    inline string slaveVswitchId() const { DARABONBA_PTR_GET_DEFAULT(slaveVswitchId_, "") };
+    inline string getSlaveVswitchId() const { DARABONBA_PTR_GET_DEFAULT(slaveVswitchId_, "") };
     inline StartInstanceRequest& setSlaveVswitchId(string slaveVswitchId) { DARABONBA_PTR_SET_VALUE(slaveVswitchId_, slaveVswitchId) };
 
 
     // vswitchId Field Functions 
     bool hasVswitchId() const { return this->vswitchId_ != nullptr;};
     void deleteVswitchId() { this->vswitchId_ = nullptr;};
-    inline string vswitchId() const { DARABONBA_PTR_GET_DEFAULT(vswitchId_, "") };
+    inline string getVswitchId() const { DARABONBA_PTR_GET_DEFAULT(vswitchId_, "") };
     inline StartInstanceRequest& setVswitchId(string vswitchId) { DARABONBA_PTR_SET_VALUE(vswitchId_, vswitchId) };
 
 
   protected:
-    std::shared_ptr<vector<string>> clientSecurityGroupIds_ = nullptr;
-    std::shared_ptr<bool> enablePortalPrivateAccess_ = nullptr;
+    shared_ptr<vector<string>> clientSecurityGroupIds_ {};
+    shared_ptr<bool> enablePortalPrivateAccess_ {};
     // The ID of the bastion host that you want to enable.
     // 
     // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The region ID of the bastion host.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // An array consisting of the IDs of security groups to which the bastion host is added.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> securityGroupIds_ = nullptr;
-    std::shared_ptr<string> slaveVswitchId_ = nullptr;
+    shared_ptr<vector<string>> securityGroupIds_ {};
+    shared_ptr<string> slaveVswitchId_ {};
     // The ID of the vSwitch to which the bastion host belongs.
-    std::shared_ptr<string> vswitchId_ = nullptr;
+    shared_ptr<string> vswitchId_ {};
   };
 
   } // namespace Models

@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->hostIds_ == nullptr
-        && return this->instanceId_ == nullptr && return this->port_ == nullptr && return this->protocolName_ == nullptr && return this->regionId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->port_ == nullptr && this->protocolName_ == nullptr && this->regionId_ == nullptr; };
     // hostIds Field Functions 
     bool hasHostIds() const { return this->hostIds_ != nullptr;};
     void deleteHostIds() { this->hostIds_ = nullptr;};
-    inline string hostIds() const { DARABONBA_PTR_GET_DEFAULT(hostIds_, "") };
+    inline string getHostIds() const { DARABONBA_PTR_GET_DEFAULT(hostIds_, "") };
     inline ModifyHostsPortRequest& setHostIds(string hostIds) { DARABONBA_PTR_SET_VALUE(hostIds_, hostIds) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ModifyHostsPortRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // port Field Functions 
     bool hasPort() const { return this->port_ != nullptr;};
     void deletePort() { this->port_ = nullptr;};
-    inline string port() const { DARABONBA_PTR_GET_DEFAULT(port_, "") };
+    inline string getPort() const { DARABONBA_PTR_GET_DEFAULT(port_, "") };
     inline ModifyHostsPortRequest& setPort(string port) { DARABONBA_PTR_SET_VALUE(port_, port) };
 
 
     // protocolName Field Functions 
     bool hasProtocolName() const { return this->protocolName_ != nullptr;};
     void deleteProtocolName() { this->protocolName_ = nullptr;};
-    inline string protocolName() const { DARABONBA_PTR_GET_DEFAULT(protocolName_, "") };
+    inline string getProtocolName() const { DARABONBA_PTR_GET_DEFAULT(protocolName_, "") };
     inline ModifyHostsPortRequest& setProtocolName(string protocolName) { DARABONBA_PTR_SET_VALUE(protocolName_, protocolName) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ModifyHostsPortRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -80,28 +80,28 @@ namespace Models
     // >  You can call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to query the IDs of hosts.
     // 
     // This parameter is required.
-    std::shared_ptr<string> hostIds_ = nullptr;
+    shared_ptr<string> hostIds_ {};
     // The ID of the bastion host for which you want to change the port of the host.
     // 
     // >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The new port of the host. The port number must be an integer. Valid values: 22 to 65535.
     // 
     // This parameter is required.
-    std::shared_ptr<string> port_ = nullptr;
+    shared_ptr<string> port_ {};
     // The protocol that is used to connect to the host. Valid values:
     // 
     // *   **SSH**
     // *   **RDP**
     // 
     // This parameter is required.
-    std::shared_ptr<string> protocolName_ = nullptr;
+    shared_ptr<string> protocolName_ {};
     // The region ID of the bastion host for which you want to change the port of the host.
     // 
     // >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

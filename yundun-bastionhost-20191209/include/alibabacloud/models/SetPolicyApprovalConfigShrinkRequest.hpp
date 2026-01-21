@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->approvalConfigShrink_ == nullptr
-        && return this->instanceId_ == nullptr && return this->policyId_ == nullptr && return this->regionId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->policyId_ == nullptr && this->regionId_ == nullptr; };
     // approvalConfigShrink Field Functions 
     bool hasApprovalConfigShrink() const { return this->approvalConfigShrink_ != nullptr;};
     void deleteApprovalConfigShrink() { this->approvalConfigShrink_ = nullptr;};
-    inline string approvalConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(approvalConfigShrink_, "") };
+    inline string getApprovalConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(approvalConfigShrink_, "") };
     inline SetPolicyApprovalConfigShrinkRequest& setApprovalConfigShrink(string approvalConfigShrink) { DARABONBA_PTR_SET_VALUE(approvalConfigShrink_, approvalConfigShrink) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline SetPolicyApprovalConfigShrinkRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // policyId Field Functions 
     bool hasPolicyId() const { return this->policyId_ != nullptr;};
     void deletePolicyId() { this->policyId_ = nullptr;};
-    inline string policyId() const { DARABONBA_PTR_GET_DEFAULT(policyId_, "") };
+    inline string getPolicyId() const { DARABONBA_PTR_GET_DEFAULT(policyId_, "") };
     inline SetPolicyApprovalConfigShrinkRequest& setPolicyId(string policyId) { DARABONBA_PTR_SET_VALUE(policyId_, policyId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline SetPolicyApprovalConfigShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -69,23 +69,23 @@ namespace Models
     // The O&M approval setting in the control policy.
     // 
     // This parameter is required.
-    std::shared_ptr<string> approvalConfigShrink_ = nullptr;
+    shared_ptr<string> approvalConfigShrink_ {};
     // The bastion host ID.
     // 
     // >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The ID of the control policy that you want to modify.
     // 
     // >  You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to query the control policy ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> policyId_ = nullptr;
+    shared_ptr<string> policyId_ {};
     // The region ID of the bastion host.
     // 
     // >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models
