@@ -42,54 +42,54 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && return this->dryRun_ == nullptr && return this->endpointId_ == nullptr && return this->regionId_ == nullptr && return this->replacedResource_ == nullptr && return this->serviceId_ == nullptr
-        && return this->zoneId_ == nullptr; };
+        && this->dryRun_ == nullptr && this->endpointId_ == nullptr && this->regionId_ == nullptr && this->replacedResource_ == nullptr && this->serviceId_ == nullptr
+        && this->zoneId_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline DisableVpcEndpointZoneConnectionRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // dryRun Field Functions 
     bool hasDryRun() const { return this->dryRun_ != nullptr;};
     void deleteDryRun() { this->dryRun_ = nullptr;};
-    inline bool dryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
     inline DisableVpcEndpointZoneConnectionRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // endpointId Field Functions 
     bool hasEndpointId() const { return this->endpointId_ != nullptr;};
     void deleteEndpointId() { this->endpointId_ = nullptr;};
-    inline string endpointId() const { DARABONBA_PTR_GET_DEFAULT(endpointId_, "") };
+    inline string getEndpointId() const { DARABONBA_PTR_GET_DEFAULT(endpointId_, "") };
     inline DisableVpcEndpointZoneConnectionRequest& setEndpointId(string endpointId) { DARABONBA_PTR_SET_VALUE(endpointId_, endpointId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DisableVpcEndpointZoneConnectionRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // replacedResource Field Functions 
     bool hasReplacedResource() const { return this->replacedResource_ != nullptr;};
     void deleteReplacedResource() { this->replacedResource_ = nullptr;};
-    inline bool replacedResource() const { DARABONBA_PTR_GET_DEFAULT(replacedResource_, false) };
+    inline bool getReplacedResource() const { DARABONBA_PTR_GET_DEFAULT(replacedResource_, false) };
     inline DisableVpcEndpointZoneConnectionRequest& setReplacedResource(bool replacedResource) { DARABONBA_PTR_SET_VALUE(replacedResource_, replacedResource) };
 
 
     // serviceId Field Functions 
     bool hasServiceId() const { return this->serviceId_ != nullptr;};
     void deleteServiceId() { this->serviceId_ = nullptr;};
-    inline string serviceId() const { DARABONBA_PTR_GET_DEFAULT(serviceId_, "") };
+    inline string getServiceId() const { DARABONBA_PTR_GET_DEFAULT(serviceId_, "") };
     inline DisableVpcEndpointZoneConnectionRequest& setServiceId(string serviceId) { DARABONBA_PTR_SET_VALUE(serviceId_, serviceId) };
 
 
     // zoneId Field Functions 
     bool hasZoneId() const { return this->zoneId_ != nullptr;};
     void deleteZoneId() { this->zoneId_ = nullptr;};
-    inline string zoneId() const { DARABONBA_PTR_GET_DEFAULT(zoneId_, "") };
+    inline string getZoneId() const { DARABONBA_PTR_GET_DEFAULT(zoneId_, "") };
     inline DisableVpcEndpointZoneConnectionRequest& setZoneId(string zoneId) { DARABONBA_PTR_SET_VALUE(zoneId_, zoneId) };
 
 
@@ -97,37 +97,37 @@ namespace Models
     // The client token that is used to ensure the idempotence of the request.
     // 
     // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // Specifies whether to perform only a dry run, without performing the actual request. Valid values:
     // 
     // *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
     // *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
-    std::shared_ptr<bool> dryRun_ = nullptr;
+    shared_ptr<bool> dryRun_ {};
     // The endpoint ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> endpointId_ = nullptr;
+    shared_ptr<string> endpointId_ {};
     // The ID of the region where the connection request from the endpoint is rejected.
     // 
     // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/120468.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // Specifies whether to close connections in the endpoint zone after migration. Valid values:
     // 
     // *   **true**: yes
     // *   **false** (default): no
     // 
     // >  Set the value to true if you want to close connections in the endpoint zone after migration.
-    std::shared_ptr<bool> replacedResource_ = nullptr;
+    shared_ptr<bool> replacedResource_ {};
     // The endpoint service ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> serviceId_ = nullptr;
+    shared_ptr<string> serviceId_ {};
     // The ID of the zone that is associated with the endpoint.
     // 
     // This parameter is required.
-    std::shared_ptr<string> zoneId_ = nullptr;
+    shared_ptr<string> zoneId_ {};
   };
 
   } // namespace Models

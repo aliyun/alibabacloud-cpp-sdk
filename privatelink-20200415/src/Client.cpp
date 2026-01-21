@@ -49,31 +49,31 @@ AddUserToVpcEndpointServiceResponse Client::addUserToVpcEndpointServiceWithOptio
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasServiceId()) {
-    query["ServiceId"] = request.serviceId();
+    query["ServiceId"] = request.getServiceId();
   }
 
   if (!!request.hasUserARN()) {
-    query["UserARN"] = request.userARN();
+    query["UserARN"] = request.getUserARN();
   }
 
   if (!!request.hasUserId()) {
-    query["UserId"] = request.userId();
+    query["UserId"] = request.getUserId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -123,39 +123,39 @@ AddZoneToVpcEndpointResponse Client::addZoneToVpcEndpointWithOptions(const AddZo
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasEndpointId()) {
-    query["EndpointId"] = request.endpointId();
+    query["EndpointId"] = request.getEndpointId();
   }
 
   if (!!request.hasIpv6Address()) {
-    query["Ipv6Address"] = request.ipv6Address();
+    query["Ipv6Address"] = request.getIpv6Address();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasVSwitchId()) {
-    query["VSwitchId"] = request.vSwitchId();
+    query["VSwitchId"] = request.getVSwitchId();
   }
 
   if (!!request.hasZoneId()) {
-    query["ZoneId"] = request.zoneId();
+    query["ZoneId"] = request.getZoneId();
   }
 
   if (!!request.hasIp()) {
-    query["ip"] = request.ip();
+    query["ip"] = request.getIp();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -205,35 +205,35 @@ AttachResourceToVpcEndpointServiceResponse Client::attachResourceToVpcEndpointSe
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceId()) {
-    query["ResourceId"] = request.resourceId();
+    query["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasServiceId()) {
-    query["ServiceId"] = request.serviceId();
+    query["ServiceId"] = request.getServiceId();
   }
 
   if (!!request.hasZoneId()) {
-    query["ZoneId"] = request.zoneId();
+    query["ZoneId"] = request.getZoneId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -283,27 +283,27 @@ AttachSecurityGroupToVpcEndpointResponse Client::attachSecurityGroupToVpcEndpoin
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasEndpointId()) {
-    query["EndpointId"] = request.endpointId();
+    query["EndpointId"] = request.getEndpointId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasSecurityGroupId()) {
-    query["SecurityGroupId"] = request.securityGroupId();
+    query["SecurityGroupId"] = request.getSecurityGroupId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -350,15 +350,15 @@ ChangeResourceGroupResponse Client::changeResourceGroupWithOptions(const ChangeR
   request.validate();
   json query = {};
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasResourceId()) {
-    query["ResourceId"] = request.resourceId();
+    query["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -437,79 +437,87 @@ CreateVpcEndpointResponse Client::createVpcEndpointWithOptions(const CreateVpcEn
   request.validate();
   json query = {};
   if (!!request.hasAddressIpVersion()) {
-    query["AddressIpVersion"] = request.addressIpVersion();
+    query["AddressIpVersion"] = request.getAddressIpVersion();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasCrossRegionBandwidth()) {
+    query["CrossRegionBandwidth"] = request.getCrossRegionBandwidth();
   }
 
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasEndpointDescription()) {
-    query["EndpointDescription"] = request.endpointDescription();
+    query["EndpointDescription"] = request.getEndpointDescription();
   }
 
   if (!!request.hasEndpointName()) {
-    query["EndpointName"] = request.endpointName();
+    query["EndpointName"] = request.getEndpointName();
   }
 
   if (!!request.hasEndpointType()) {
-    query["EndpointType"] = request.endpointType();
+    query["EndpointType"] = request.getEndpointType();
   }
 
   if (!!request.hasPolicyDocument()) {
-    query["PolicyDocument"] = request.policyDocument();
+    query["PolicyDocument"] = request.getPolicyDocument();
   }
 
   if (!!request.hasProtectedEnabled()) {
-    query["ProtectedEnabled"] = request.protectedEnabled();
+    query["ProtectedEnabled"] = request.getProtectedEnabled();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasSecurityGroupId()) {
-    query["SecurityGroupId"] = request.securityGroupId();
+    query["SecurityGroupId"] = request.getSecurityGroupId();
   }
 
   if (!!request.hasServiceId()) {
-    query["ServiceId"] = request.serviceId();
+    query["ServiceId"] = request.getServiceId();
   }
 
   if (!!request.hasServiceName()) {
-    query["ServiceName"] = request.serviceName();
+    query["ServiceName"] = request.getServiceName();
+  }
+
+  if (!!request.hasServiceRegionId()) {
+    query["ServiceRegionId"] = request.getServiceRegionId();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   if (!!request.hasVpcId()) {
-    query["VpcId"] = request.vpcId();
+    query["VpcId"] = request.getVpcId();
   }
 
   if (!!request.hasZone()) {
-    query["Zone"] = request.zone();
+    query["Zone"] = request.getZone();
   }
 
   if (!!request.hasZoneAffinityEnabled()) {
-    query["ZoneAffinityEnabled"] = request.zoneAffinityEnabled();
+    query["ZoneAffinityEnabled"] = request.getZoneAffinityEnabled();
   }
 
   if (!!request.hasZonePrivateIpAddressCount()) {
-    query["ZonePrivateIpAddressCount"] = request.zonePrivateIpAddressCount();
+    query["ZonePrivateIpAddressCount"] = request.getZonePrivateIpAddressCount();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -560,59 +568,63 @@ CreateVpcEndpointServiceResponse Client::createVpcEndpointServiceWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasAddressIpVersion()) {
-    query["AddressIpVersion"] = request.addressIpVersion();
+    query["AddressIpVersion"] = request.getAddressIpVersion();
   }
 
   if (!!request.hasAutoAcceptEnabled()) {
-    query["AutoAcceptEnabled"] = request.autoAcceptEnabled();
+    query["AutoAcceptEnabled"] = request.getAutoAcceptEnabled();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasPayer()) {
-    query["Payer"] = request.payer();
+    query["Payer"] = request.getPayer();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResource()) {
-    query["Resource"] = request.resource();
+    query["Resource"] = request.getResource();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasServiceDescription()) {
-    query["ServiceDescription"] = request.serviceDescription();
+    query["ServiceDescription"] = request.getServiceDescription();
   }
 
   if (!!request.hasServiceResourceType()) {
-    query["ServiceResourceType"] = request.serviceResourceType();
+    query["ServiceResourceType"] = request.getServiceResourceType();
   }
 
   if (!!request.hasServiceSupportIPv6()) {
-    query["ServiceSupportIPv6"] = request.serviceSupportIPv6();
+    query["ServiceSupportIPv6"] = request.getServiceSupportIPv6();
+  }
+
+  if (!!request.hasSupportedRegionList()) {
+    query["SupportedRegionList"] = request.getSupportedRegionList();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   if (!!request.hasZoneAffinityEnabled()) {
-    query["ZoneAffinityEnabled"] = request.zoneAffinityEnabled();
+    query["ZoneAffinityEnabled"] = request.getZoneAffinityEnabled();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -664,23 +676,23 @@ DeleteVpcEndpointResponse Client::deleteVpcEndpointWithOptions(const DeleteVpcEn
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasEndpointId()) {
-    query["EndpointId"] = request.endpointId();
+    query["EndpointId"] = request.getEndpointId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -733,23 +745,23 @@ DeleteVpcEndpointServiceResponse Client::deleteVpcEndpointServiceWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasServiceId()) {
-    query["ServiceId"] = request.serviceId();
+    query["ServiceId"] = request.getServiceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -797,15 +809,15 @@ DescribeRegionsResponse Client::describeRegionsWithOptions(const DescribeRegions
   request.validate();
   json query = {};
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasServiceResourceType()) {
-    query["ServiceResourceType"] = request.serviceResourceType();
+    query["ServiceResourceType"] = request.getServiceResourceType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -847,15 +859,15 @@ DescribeZonesResponse Client::describeZonesWithOptions(const DescribeZonesReques
   request.validate();
   json query = {};
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasServiceResourceType()) {
-    query["ServiceResourceType"] = request.serviceResourceType();
+    query["ServiceResourceType"] = request.getServiceResourceType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -900,35 +912,35 @@ DetachResourceFromVpcEndpointServiceResponse Client::detachResourceFromVpcEndpoi
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceId()) {
-    query["ResourceId"] = request.resourceId();
+    query["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasServiceId()) {
-    query["ServiceId"] = request.serviceId();
+    query["ServiceId"] = request.getServiceId();
   }
 
   if (!!request.hasZoneId()) {
-    query["ZoneId"] = request.zoneId();
+    query["ZoneId"] = request.getZoneId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -978,27 +990,27 @@ DetachSecurityGroupFromVpcEndpointResponse Client::detachSecurityGroupFromVpcEnd
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasEndpointId()) {
-    query["EndpointId"] = request.endpointId();
+    query["EndpointId"] = request.getEndpointId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasSecurityGroupId()) {
-    query["SecurityGroupId"] = request.securityGroupId();
+    query["SecurityGroupId"] = request.getSecurityGroupId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1050,27 +1062,27 @@ DisableVpcEndpointConnectionResponse Client::disableVpcEndpointConnectionWithOpt
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasEndpointId()) {
-    query["EndpointId"] = request.endpointId();
+    query["EndpointId"] = request.getEndpointId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasServiceId()) {
-    query["ServiceId"] = request.serviceId();
+    query["ServiceId"] = request.getServiceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1123,35 +1135,35 @@ DisableVpcEndpointZoneConnectionResponse Client::disableVpcEndpointZoneConnectio
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasEndpointId()) {
-    query["EndpointId"] = request.endpointId();
+    query["EndpointId"] = request.getEndpointId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasReplacedResource()) {
-    query["ReplacedResource"] = request.replacedResource();
+    query["ReplacedResource"] = request.getReplacedResource();
   }
 
   if (!!request.hasServiceId()) {
-    query["ServiceId"] = request.serviceId();
+    query["ServiceId"] = request.getServiceId();
   }
 
   if (!!request.hasZoneId()) {
-    query["ZoneId"] = request.zoneId();
+    query["ZoneId"] = request.getZoneId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1204,35 +1216,35 @@ EnableVpcEndpointConnectionResponse Client::enableVpcEndpointConnectionWithOptio
   request.validate();
   json query = {};
   if (!!request.hasBandwidth()) {
-    query["Bandwidth"] = request.bandwidth();
+    query["Bandwidth"] = request.getBandwidth();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasEndpointId()) {
-    query["EndpointId"] = request.endpointId();
+    query["EndpointId"] = request.getEndpointId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasServiceId()) {
-    query["ServiceId"] = request.serviceId();
+    query["ServiceId"] = request.getServiceId();
   }
 
   if (!!request.hasTrafficControlMode()) {
-    query["TrafficControlMode"] = request.trafficControlMode();
+    query["TrafficControlMode"] = request.getTrafficControlMode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1285,31 +1297,31 @@ EnableVpcEndpointZoneConnectionResponse Client::enableVpcEndpointZoneConnectionW
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasEndpointId()) {
-    query["EndpointId"] = request.endpointId();
+    query["EndpointId"] = request.getEndpointId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasServiceId()) {
-    query["ServiceId"] = request.serviceId();
+    query["ServiceId"] = request.getServiceId();
   }
 
   if (!!request.hasZoneId()) {
-    query["ZoneId"] = request.zoneId();
+    query["ZoneId"] = request.getZoneId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1357,15 +1369,15 @@ GetVpcEndpointAttributeResponse Client::getVpcEndpointAttributeWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasEndpointId()) {
-    query["EndpointId"] = request.endpointId();
+    query["EndpointId"] = request.getEndpointId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1407,15 +1419,15 @@ GetVpcEndpointServiceAttributeResponse Client::getVpcEndpointServiceAttributeWit
   request.validate();
   json query = {};
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasServiceId()) {
-    query["ServiceId"] = request.serviceId();
+    query["ServiceId"] = request.getServiceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1462,27 +1474,27 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceId()) {
-    query["ResourceId"] = request.resourceId();
+    query["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1529,51 +1541,51 @@ ListVpcEndpointConnectionsResponse Client::listVpcEndpointConnectionsWithOptions
   request.validate();
   json query = {};
   if (!!request.hasConnectionStatus()) {
-    query["ConnectionStatus"] = request.connectionStatus();
+    query["ConnectionStatus"] = request.getConnectionStatus();
   }
 
   if (!!request.hasEndpointId()) {
-    query["EndpointId"] = request.endpointId();
+    query["EndpointId"] = request.getEndpointId();
   }
 
   if (!!request.hasEndpointOwnerId()) {
-    query["EndpointOwnerId"] = request.endpointOwnerId();
+    query["EndpointOwnerId"] = request.getEndpointOwnerId();
   }
 
   if (!!request.hasEniId()) {
-    query["EniId"] = request.eniId();
+    query["EniId"] = request.getEniId();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasReplacedResourceId()) {
-    query["ReplacedResourceId"] = request.replacedResourceId();
+    query["ReplacedResourceId"] = request.getReplacedResourceId();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasResourceId()) {
-    query["ResourceId"] = request.resourceId();
+    query["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasServiceId()) {
-    query["ServiceId"] = request.serviceId();
+    query["ServiceId"] = request.getServiceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1615,23 +1627,23 @@ ListVpcEndpointSecurityGroupsResponse Client::listVpcEndpointSecurityGroupsWithO
   request.validate();
   json query = {};
   if (!!request.hasEndpointId()) {
-    query["EndpointId"] = request.endpointId();
+    query["EndpointId"] = request.getEndpointId();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1673,23 +1685,23 @@ ListVpcEndpointServiceResourcesResponse Client::listVpcEndpointServiceResourcesW
   request.validate();
   json query = {};
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasServiceId()) {
-    query["ServiceId"] = request.serviceId();
+    query["ServiceId"] = request.getServiceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1731,31 +1743,31 @@ ListVpcEndpointServiceUsersResponse Client::listVpcEndpointServiceUsersWithOptio
   request.validate();
   json query = {};
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasServiceId()) {
-    query["ServiceId"] = request.serviceId();
+    query["ServiceId"] = request.getServiceId();
   }
 
   if (!!request.hasUserId()) {
-    query["UserId"] = request.userId();
+    query["UserId"] = request.getUserId();
   }
 
   if (!!request.hasUserListType()) {
-    query["UserListType"] = request.userListType();
+    query["UserListType"] = request.getUserListType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1797,63 +1809,63 @@ ListVpcEndpointServicesResponse Client::listVpcEndpointServicesWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasAddressIpVersion()) {
-    query["AddressIpVersion"] = request.addressIpVersion();
+    query["AddressIpVersion"] = request.getAddressIpVersion();
   }
 
   if (!!request.hasAutoAcceptEnabled()) {
-    query["AutoAcceptEnabled"] = request.autoAcceptEnabled();
+    query["AutoAcceptEnabled"] = request.getAutoAcceptEnabled();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasResourceId()) {
-    query["ResourceId"] = request.resourceId();
+    query["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasServiceBusinessStatus()) {
-    query["ServiceBusinessStatus"] = request.serviceBusinessStatus();
+    query["ServiceBusinessStatus"] = request.getServiceBusinessStatus();
   }
 
   if (!!request.hasServiceId()) {
-    query["ServiceId"] = request.serviceId();
+    query["ServiceId"] = request.getServiceId();
   }
 
   if (!!request.hasServiceName()) {
-    query["ServiceName"] = request.serviceName();
+    query["ServiceName"] = request.getServiceName();
   }
 
   if (!!request.hasServiceResourceType()) {
-    query["ServiceResourceType"] = request.serviceResourceType();
+    query["ServiceResourceType"] = request.getServiceResourceType();
   }
 
   if (!!request.hasServiceStatus()) {
-    query["ServiceStatus"] = request.serviceStatus();
+    query["ServiceStatus"] = request.getServiceStatus();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   if (!!request.hasZoneAffinityEnabled()) {
-    query["ZoneAffinityEnabled"] = request.zoneAffinityEnabled();
+    query["ZoneAffinityEnabled"] = request.getZoneAffinityEnabled();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1895,39 +1907,43 @@ ListVpcEndpointServicesByEndUserResponse Client::listVpcEndpointServicesByEndUse
   request.validate();
   json query = {};
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasServiceId()) {
-    query["ServiceId"] = request.serviceId();
+    query["ServiceId"] = request.getServiceId();
   }
 
   if (!!request.hasServiceName()) {
-    query["ServiceName"] = request.serviceName();
+    query["ServiceName"] = request.getServiceName();
+  }
+
+  if (!!request.hasServiceRegionId()) {
+    query["ServiceRegionId"] = request.getServiceRegionId();
   }
 
   if (!!request.hasServiceType()) {
-    query["ServiceType"] = request.serviceType();
+    query["ServiceType"] = request.getServiceType();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1969,23 +1985,23 @@ ListVpcEndpointZonesResponse Client::listVpcEndpointZonesWithOptions(const ListV
   request.validate();
   json query = {};
   if (!!request.hasEndpointId()) {
-    query["EndpointId"] = request.endpointId();
+    query["EndpointId"] = request.getEndpointId();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2027,59 +2043,63 @@ ListVpcEndpointsResponse Client::listVpcEndpointsWithOptions(const ListVpcEndpoi
   request.validate();
   json query = {};
   if (!!request.hasAddressIpVersion()) {
-    query["AddressIpVersion"] = request.addressIpVersion();
+    query["AddressIpVersion"] = request.getAddressIpVersion();
   }
 
   if (!!request.hasConnectionStatus()) {
-    query["ConnectionStatus"] = request.connectionStatus();
+    query["ConnectionStatus"] = request.getConnectionStatus();
   }
 
   if (!!request.hasEndpointId()) {
-    query["EndpointId"] = request.endpointId();
+    query["EndpointId"] = request.getEndpointId();
   }
 
   if (!!request.hasEndpointName()) {
-    query["EndpointName"] = request.endpointName();
+    query["EndpointName"] = request.getEndpointName();
   }
 
   if (!!request.hasEndpointStatus()) {
-    query["EndpointStatus"] = request.endpointStatus();
+    query["EndpointStatus"] = request.getEndpointStatus();
   }
 
   if (!!request.hasEndpointType()) {
-    query["EndpointType"] = request.endpointType();
+    query["EndpointType"] = request.getEndpointType();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasServiceName()) {
-    query["ServiceName"] = request.serviceName();
+    query["ServiceName"] = request.getServiceName();
+  }
+
+  if (!!request.hasServiceRegionId()) {
+    query["ServiceRegionId"] = request.getServiceRegionId();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   if (!!request.hasVpcId()) {
-    query["VpcId"] = request.vpcId();
+    query["VpcId"] = request.getVpcId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2121,7 +2141,7 @@ OpenPrivateLinkServiceResponse Client::openPrivateLinkServiceWithOptions(const O
   request.validate();
   json query = {};
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2166,31 +2186,31 @@ RemoveUserFromVpcEndpointServiceResponse Client::removeUserFromVpcEndpointServic
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasServiceId()) {
-    query["ServiceId"] = request.serviceId();
+    query["ServiceId"] = request.getServiceId();
   }
 
   if (!!request.hasUserARN()) {
-    query["UserARN"] = request.userARN();
+    query["UserARN"] = request.getUserARN();
   }
 
   if (!!request.hasUserId()) {
-    query["UserId"] = request.userId();
+    query["UserId"] = request.getUserId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2240,27 +2260,27 @@ RemoveZoneFromVpcEndpointResponse Client::removeZoneFromVpcEndpointWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasEndpointId()) {
-    query["EndpointId"] = request.endpointId();
+    query["EndpointId"] = request.getEndpointId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasZoneId()) {
-    query["ZoneId"] = request.zoneId();
+    query["ZoneId"] = request.getZoneId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2309,28 +2329,28 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
   request.validate();
   json body = {};
   if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.clientToken();
+    body["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    body["DryRun"] = request.dryRun();
+    body["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   json bodyFlat = {};
   if (!!request.hasResourceId()) {
-    bodyFlat["ResourceId"] = request.resourceId();
+    bodyFlat["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceType()) {
-    body["ResourceType"] = request.resourceType();
+    body["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTag()) {
-    bodyFlat["Tag"] = request.tag();
+    bodyFlat["Tag"] = request.getTag();
   }
 
   body = Darabonba::Core::merge(body,
@@ -2377,36 +2397,36 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
   request.validate();
   json body = {};
   if (!!request.hasAll()) {
-    body["All"] = request.all();
+    body["All"] = request.getAll();
   }
 
   if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.clientToken();
+    body["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    body["DryRun"] = request.dryRun();
+    body["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   json bodyFlat = {};
   if (!!request.hasResourceId()) {
-    bodyFlat["ResourceId"] = request.resourceId();
+    bodyFlat["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceType()) {
-    body["ResourceType"] = request.resourceType();
+    body["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTagKey()) {
-    bodyFlat["TagKey"] = request.tagKey();
+    bodyFlat["TagKey"] = request.getTagKey();
   }
 
   body = Darabonba::Core::merge(body,
@@ -2453,47 +2473,51 @@ UpdateVpcEndpointAttributeResponse Client::updateVpcEndpointAttributeWithOptions
   request.validate();
   json query = {};
   if (!!request.hasAddressIpVersion()) {
-    query["AddressIpVersion"] = request.addressIpVersion();
+    query["AddressIpVersion"] = request.getAddressIpVersion();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasCrossRegionBandwidth()) {
+    query["CrossRegionBandwidth"] = request.getCrossRegionBandwidth();
   }
 
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasEndpointDescription()) {
-    query["EndpointDescription"] = request.endpointDescription();
+    query["EndpointDescription"] = request.getEndpointDescription();
   }
 
   if (!!request.hasEndpointId()) {
-    query["EndpointId"] = request.endpointId();
+    query["EndpointId"] = request.getEndpointId();
   }
 
   if (!!request.hasEndpointName()) {
-    query["EndpointName"] = request.endpointName();
+    query["EndpointName"] = request.getEndpointName();
   }
 
   if (!!request.hasPolicyDocument()) {
-    query["PolicyDocument"] = request.policyDocument();
+    query["PolicyDocument"] = request.getPolicyDocument();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResetPolicy()) {
-    query["ResetPolicy"] = request.resetPolicy();
+    query["ResetPolicy"] = request.getResetPolicy();
   }
 
   if (!!request.hasZoneAffinityEnabled()) {
-    query["ZoneAffinityEnabled"] = request.zoneAffinityEnabled();
+    query["ZoneAffinityEnabled"] = request.getZoneAffinityEnabled();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2539,35 +2563,35 @@ UpdateVpcEndpointConnectionAttributeResponse Client::updateVpcEndpointConnection
   request.validate();
   json query = {};
   if (!!request.hasBandwidth()) {
-    query["Bandwidth"] = request.bandwidth();
+    query["Bandwidth"] = request.getBandwidth();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasEndpointId()) {
-    query["EndpointId"] = request.endpointId();
+    query["EndpointId"] = request.getEndpointId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasServiceId()) {
-    query["ServiceId"] = request.serviceId();
+    query["ServiceId"] = request.getServiceId();
   }
 
   if (!!request.hasTrafficControlMode()) {
-    query["TrafficControlMode"] = request.trafficControlMode();
+    query["TrafficControlMode"] = request.getTrafficControlMode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2612,48 +2636,56 @@ UpdateVpcEndpointConnectionAttributeResponse Client::updateVpcEndpointConnection
 UpdateVpcEndpointServiceAttributeResponse Client::updateVpcEndpointServiceAttributeWithOptions(const UpdateVpcEndpointServiceAttributeRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAddSupportedRegionSet()) {
+    query["AddSupportedRegionSet"] = request.getAddSupportedRegionSet();
+  }
+
   if (!!request.hasAddressIpVersion()) {
-    query["AddressIpVersion"] = request.addressIpVersion();
+    query["AddressIpVersion"] = request.getAddressIpVersion();
   }
 
   if (!!request.hasAutoAcceptEnabled()) {
-    query["AutoAcceptEnabled"] = request.autoAcceptEnabled();
+    query["AutoAcceptEnabled"] = request.getAutoAcceptEnabled();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasConnectBandwidth()) {
-    query["ConnectBandwidth"] = request.connectBandwidth();
+    query["ConnectBandwidth"] = request.getConnectBandwidth();
+  }
+
+  if (!!request.hasDeleteSupportedRegionSet()) {
+    query["DeleteSupportedRegionSet"] = request.getDeleteSupportedRegionSet();
   }
 
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasServiceDescription()) {
-    query["ServiceDescription"] = request.serviceDescription();
+    query["ServiceDescription"] = request.getServiceDescription();
   }
 
   if (!!request.hasServiceId()) {
-    query["ServiceId"] = request.serviceId();
+    query["ServiceId"] = request.getServiceId();
   }
 
   if (!!request.hasServiceSupportIPv6()) {
-    query["ServiceSupportIPv6"] = request.serviceSupportIPv6();
+    query["ServiceSupportIPv6"] = request.getServiceSupportIPv6();
   }
 
   if (!!request.hasZoneAffinityEnabled()) {
-    query["ZoneAffinityEnabled"] = request.zoneAffinityEnabled();
+    query["ZoneAffinityEnabled"] = request.getZoneAffinityEnabled();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2699,35 +2731,35 @@ UpdateVpcEndpointServiceResourceAttributeResponse Client::updateVpcEndpointServi
   request.validate();
   json query = {};
   if (!!request.hasAutoAllocatedEnabled()) {
-    query["AutoAllocatedEnabled"] = request.autoAllocatedEnabled();
+    query["AutoAllocatedEnabled"] = request.getAutoAllocatedEnabled();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceId()) {
-    query["ResourceId"] = request.resourceId();
+    query["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasServiceId()) {
-    query["ServiceId"] = request.serviceId();
+    query["ServiceId"] = request.getServiceId();
   }
 
   if (!!request.hasZoneId()) {
-    query["ZoneId"] = request.zoneId();
+    query["ZoneId"] = request.getZoneId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2781,47 +2813,47 @@ UpdateVpcEndpointZoneConnectionResourceAttributeResponse Client::updateVpcEndpoi
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasEndpointId()) {
-    query["EndpointId"] = request.endpointId();
+    query["EndpointId"] = request.getEndpointId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceAllocateMode()) {
-    query["ResourceAllocateMode"] = request.resourceAllocateMode();
+    query["ResourceAllocateMode"] = request.getResourceAllocateMode();
   }
 
   if (!!request.hasResourceId()) {
-    query["ResourceId"] = request.resourceId();
+    query["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceReplaceMode()) {
-    query["ResourceReplaceMode"] = request.resourceReplaceMode();
+    query["ResourceReplaceMode"] = request.getResourceReplaceMode();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasServiceId()) {
-    query["ServiceId"] = request.serviceId();
+    query["ServiceId"] = request.getServiceId();
   }
 
   if (!!request.hasZoneId()) {
-    query["ZoneId"] = request.zoneId();
+    query["ZoneId"] = request.getZoneId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

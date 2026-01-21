@@ -33,12 +33,12 @@ namespace Models
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline OpenPrivateLinkServiceRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
   protected:
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<int64_t> ownerId_ {};
   };
 
   } // namespace Models

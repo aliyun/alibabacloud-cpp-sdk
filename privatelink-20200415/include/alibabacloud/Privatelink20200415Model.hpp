@@ -118,33 +118,5 @@
 #include <alibabacloud/models/UpdateVpcEndpointZoneConnectionResourceAttributeRequest.hpp>
 #include <alibabacloud/models/UpdateVpcEndpointZoneConnectionResourceAttributeResponseBody.hpp>
 #include <alibabacloud/models/UpdateVpcEndpointZoneConnectionResourceAttributeResponse.hpp>
-#include <alibabacloud/models/CreateVpcEndpointRequestTag.hpp>
-#include <alibabacloud/models/CreateVpcEndpointRequestZone.hpp>
-#include <alibabacloud/models/CreateVpcEndpointServiceRequestResource.hpp>
-#include <alibabacloud/models/CreateVpcEndpointServiceRequestTag.hpp>
-#include <alibabacloud/models/DescribeRegionsResponseBodyRegionsRegionServiceResourceTypes.hpp>
-#include <alibabacloud/models/DescribeRegionsResponseBodyRegionsRegion.hpp>
-#include <alibabacloud/models/DescribeRegionsResponseBodyRegions.hpp>
-#include <alibabacloud/models/DescribeZonesResponseBodyZonesZone.hpp>
-#include <alibabacloud/models/DescribeZonesResponseBodyZones.hpp>
-#include <alibabacloud/models/ListTagResourcesRequestTag.hpp>
-#include <alibabacloud/models/ListTagResourcesResponseBodyTagResources.hpp>
-#include <alibabacloud/models/ListVpcEndpointConnectionsResponseBodyConnectionsZones.hpp>
-#include <alibabacloud/models/ListVpcEndpointConnectionsResponseBodyConnections.hpp>
-#include <alibabacloud/models/ListVpcEndpointSecurityGroupsResponseBodySecurityGroups.hpp>
-#include <alibabacloud/models/ListVpcEndpointServiceResourcesResponseBodyResources.hpp>
-#include <alibabacloud/models/ListVpcEndpointServiceUsersResponseBodyUserArNs.hpp>
-#include <alibabacloud/models/ListVpcEndpointServiceUsersResponseBodyUsers.hpp>
-#include <alibabacloud/models/ListVpcEndpointServicesRequestTag.hpp>
-#include <alibabacloud/models/ListVpcEndpointServicesResponseBodyServicesTags.hpp>
-#include <alibabacloud/models/ListVpcEndpointServicesResponseBodyServices.hpp>
-#include <alibabacloud/models/ListVpcEndpointServicesByEndUserRequestTag.hpp>
-#include <alibabacloud/models/ListVpcEndpointServicesByEndUserResponseBodyServicesTags.hpp>
-#include <alibabacloud/models/ListVpcEndpointServicesByEndUserResponseBodyServices.hpp>
-#include <alibabacloud/models/ListVpcEndpointZonesResponseBodyZones.hpp>
-#include <alibabacloud/models/ListVpcEndpointsRequestTag.hpp>
-#include <alibabacloud/models/ListVpcEndpointsResponseBodyEndpointsTags.hpp>
-#include <alibabacloud/models/ListVpcEndpointsResponseBodyEndpoints.hpp>
-#include <alibabacloud/models/TagResourcesRequestTag.hpp>
 
 #endif
