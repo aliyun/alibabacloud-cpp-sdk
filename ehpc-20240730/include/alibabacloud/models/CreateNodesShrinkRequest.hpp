@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(HostnameSuffix, hostnameSuffix_);
       DARABONBA_PTR_TO_JSON(Hostnames, hostnamesShrink_);
       DARABONBA_PTR_TO_JSON(KeepAlive, keepAlive_);
+      DARABONBA_PTR_TO_JSON(MinCount, minCount_);
       DARABONBA_PTR_TO_JSON(QueueName, queueName_);
       DARABONBA_PTR_TO_JSON(RamRole, ramRole_);
       DARABONBA_PTR_TO_JSON(ReservedNodePoolId, reservedNodePoolId_);
@@ -37,6 +38,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(HostnameSuffix, hostnameSuffix_);
       DARABONBA_PTR_FROM_JSON(Hostnames, hostnamesShrink_);
       DARABONBA_PTR_FROM_JSON(KeepAlive, keepAlive_);
+      DARABONBA_PTR_FROM_JSON(MinCount, minCount_);
       DARABONBA_PTR_FROM_JSON(QueueName, queueName_);
       DARABONBA_PTR_FROM_JSON(RamRole, ramRole_);
       DARABONBA_PTR_FROM_JSON(ReservedNodePoolId, reservedNodePoolId_);
@@ -55,8 +57,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterId_ == nullptr
         && this->computeNodeShrink_ == nullptr && this->count_ == nullptr && this->deploymentSetId_ == nullptr && this->HPCInterConnect_ == nullptr && this->hostnamePrefix_ == nullptr
-        && this->hostnameSuffix_ == nullptr && this->hostnamesShrink_ == nullptr && this->keepAlive_ == nullptr && this->queueName_ == nullptr && this->ramRole_ == nullptr
-        && this->reservedNodePoolId_ == nullptr && this->vSwitchId_ == nullptr; };
+        && this->hostnameSuffix_ == nullptr && this->hostnamesShrink_ == nullptr && this->keepAlive_ == nullptr && this->minCount_ == nullptr && this->queueName_ == nullptr
+        && this->ramRole_ == nullptr && this->reservedNodePoolId_ == nullptr && this->vSwitchId_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
@@ -120,6 +122,13 @@ namespace Models
     inline CreateNodesShrinkRequest& setKeepAlive(string keepAlive) { DARABONBA_PTR_SET_VALUE(keepAlive_, keepAlive) };
 
 
+    // minCount Field Functions 
+    bool hasMinCount() const { return this->minCount_ != nullptr;};
+    void deleteMinCount() { this->minCount_ = nullptr;};
+    inline int32_t getMinCount() const { DARABONBA_PTR_GET_DEFAULT(minCount_, 0) };
+    inline CreateNodesShrinkRequest& setMinCount(int32_t minCount) { DARABONBA_PTR_SET_VALUE(minCount_, minCount) };
+
+
     // queueName Field Functions 
     bool hasQueueName() const { return this->queueName_ != nullptr;};
     void deleteQueueName() { this->queueName_ = nullptr;};
@@ -175,6 +184,7 @@ namespace Models
     shared_ptr<string> hostnamesShrink_ {};
     // Specifies whether to enable deletion protection for the added compute nodes.
     shared_ptr<string> keepAlive_ {};
+    shared_ptr<int32_t> minCount_ {};
     // The name of the queue for which you want to create compute nodes.
     shared_ptr<string> queueName_ {};
     // The Resource Access Management (RAM) role to be assumed by the added nodes.

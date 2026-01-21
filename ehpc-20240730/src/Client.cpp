@@ -453,6 +453,10 @@ CreateNodesResponse Client::createNodesWithOptions(const CreateNodesRequest &tmp
     query["KeepAlive"] = request.getKeepAlive();
   }
 
+  if (!!request.hasMinCount()) {
+    query["MinCount"] = request.getMinCount();
+  }
+
   if (!!request.hasQueueName()) {
     query["QueueName"] = request.getQueueName();
   }
