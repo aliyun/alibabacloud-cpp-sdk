@@ -39,12 +39,14 @@ namespace Models
     class Data : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(confModule, confModule_);
         DARABONBA_PTR_TO_JSON(eventId, eventId_);
         DARABONBA_PTR_TO_JSON(eventName, eventName_);
         DARABONBA_PTR_TO_JSON(eventType, eventType_);
         DARABONBA_PTR_TO_JSON(ts, ts_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(confModule, confModule_);
         DARABONBA_PTR_FROM_JSON(eventId, eventId_);
         DARABONBA_PTR_FROM_JSON(eventName, eventName_);
         DARABONBA_PTR_FROM_JSON(eventType, eventType_);
@@ -61,8 +63,15 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->eventId_ == nullptr
-        && this->eventName_ == nullptr && this->eventType_ == nullptr && this->ts_ == nullptr; };
+      virtual bool empty() const override { return this->confModule_ == nullptr
+        && this->eventId_ == nullptr && this->eventName_ == nullptr && this->eventType_ == nullptr && this->ts_ == nullptr; };
+      // confModule Field Functions 
+      bool hasConfModule() const { return this->confModule_ != nullptr;};
+      void deleteConfModule() { this->confModule_ = nullptr;};
+      inline string getConfModule() const { DARABONBA_PTR_GET_DEFAULT(confModule_, "") };
+      inline Data& setConfModule(string confModule) { DARABONBA_PTR_SET_VALUE(confModule_, confModule) };
+
+
       // eventId Field Functions 
       bool hasEventId() const { return this->eventId_ != nullptr;};
       void deleteEventId() { this->eventId_ = nullptr;};
@@ -92,6 +101,7 @@ namespace Models
 
 
     protected:
+      shared_ptr<string> confModule_ {};
       shared_ptr<string> eventId_ {};
       shared_ptr<string> eventName_ {};
       shared_ptr<string> eventType_ {};

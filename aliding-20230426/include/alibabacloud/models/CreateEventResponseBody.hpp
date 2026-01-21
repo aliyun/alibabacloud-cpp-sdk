@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(attendees, attendees_);
       DARABONBA_PTR_TO_JSON(createTime, createTime_);
       DARABONBA_PTR_TO_JSON(description, description_);
+      DARABONBA_PTR_TO_JSON(encryptedId, encryptedId_);
       DARABONBA_PTR_TO_JSON(end, end_);
       DARABONBA_PTR_TO_JSON(id, id_);
       DARABONBA_PTR_TO_JSON(isAllDay, isAllDay_);
@@ -36,6 +37,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(attendees, attendees_);
       DARABONBA_PTR_FROM_JSON(createTime, createTime_);
       DARABONBA_PTR_FROM_JSON(description, description_);
+      DARABONBA_PTR_FROM_JSON(encryptedId, encryptedId_);
       DARABONBA_PTR_FROM_JSON(end, end_);
       DARABONBA_PTR_FROM_JSON(id, id_);
       DARABONBA_PTR_FROM_JSON(isAllDay, isAllDay_);
@@ -671,10 +673,10 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->attendees_ == nullptr
-        && this->createTime_ == nullptr && this->description_ == nullptr && this->end_ == nullptr && this->id_ == nullptr && this->isAllDay_ == nullptr
-        && this->location_ == nullptr && this->onlineMeetingInfo_ == nullptr && this->organizer_ == nullptr && this->recurrence_ == nullptr && this->reminders_ == nullptr
-        && this->requestId_ == nullptr && this->richTextDescription_ == nullptr && this->start_ == nullptr && this->summary_ == nullptr && this->uiConfigs_ == nullptr
-        && this->updateTime_ == nullptr; };
+        && this->createTime_ == nullptr && this->description_ == nullptr && this->encryptedId_ == nullptr && this->end_ == nullptr && this->id_ == nullptr
+        && this->isAllDay_ == nullptr && this->location_ == nullptr && this->onlineMeetingInfo_ == nullptr && this->organizer_ == nullptr && this->recurrence_ == nullptr
+        && this->reminders_ == nullptr && this->requestId_ == nullptr && this->richTextDescription_ == nullptr && this->start_ == nullptr && this->summary_ == nullptr
+        && this->uiConfigs_ == nullptr && this->updateTime_ == nullptr; };
     // attendees Field Functions 
     bool hasAttendees() const { return this->attendees_ != nullptr;};
     void deleteAttendees() { this->attendees_ = nullptr;};
@@ -696,6 +698,13 @@ namespace Models
     void deleteDescription() { this->description_ = nullptr;};
     inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateEventResponseBody& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    // encryptedId Field Functions 
+    bool hasEncryptedId() const { return this->encryptedId_ != nullptr;};
+    void deleteEncryptedId() { this->encryptedId_ = nullptr;};
+    inline string getEncryptedId() const { DARABONBA_PTR_GET_DEFAULT(encryptedId_, "") };
+    inline CreateEventResponseBody& setEncryptedId(string encryptedId) { DARABONBA_PTR_SET_VALUE(encryptedId_, encryptedId) };
 
 
     // end Field Functions 
@@ -818,6 +827,7 @@ namespace Models
     shared_ptr<vector<CreateEventResponseBody::Attendees>> attendees_ {};
     shared_ptr<string> createTime_ {};
     shared_ptr<string> description_ {};
+    shared_ptr<string> encryptedId_ {};
     shared_ptr<CreateEventResponseBody::End> end_ {};
     shared_ptr<string> id_ {};
     shared_ptr<bool> isAllDay_ {};
