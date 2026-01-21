@@ -2,18 +2,16 @@
 #ifndef ALIBABACLOUD_ADBAI20250812MODEL_HPP_
 #define ALIBABACLOUD_ADBAI20250812MODEL_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/CreateEmbodiedAiPlatformRequest.hpp>
-#include <alibabacloud/models/CreateEmbodiedAiPlatformShrinkRequest.hpp>
-#include <alibabacloud/models/CreateEmbodiedAiPlatformResponseBody.hpp>
-#include <alibabacloud/models/CreateEmbodiedAiPlatformResponse.hpp>
-#include <alibabacloud/models/DescribeEmbodiedAiPlatformsRequest.hpp>
-#include <alibabacloud/models/DescribeEmbodiedAiPlatformsResponseBody.hpp>
-#include <alibabacloud/models/DescribeEmbodiedAiPlatformsResponse.hpp>
-#include <alibabacloud/models/CreateEmbodiedAiPlatformRequestRayConfigWorkerGroups.hpp>
-#include <alibabacloud/models/CreateEmbodiedAiPlatformRequestRayConfig.hpp>
-#include <alibabacloud/models/DescribeEmbodiedAiPlatformsResponseBodyPlatformsEapConfig.hpp>
-#include <alibabacloud/models/DescribeEmbodiedAiPlatformsResponseBodyPlatformsRayConfigWorkerGroups.hpp>
-#include <alibabacloud/models/DescribeEmbodiedAiPlatformsResponseBodyPlatformsRayConfig.hpp>
-#include <alibabacloud/models/DescribeEmbodiedAiPlatformsResponseBodyPlatforms.hpp>
+#include <alibabacloud/models/CreateAgentPlatformRequest.hpp>
+#include <alibabacloud/models/CreateAgentPlatformShrinkRequest.hpp>
+#include <alibabacloud/models/CreateAgentPlatformResponseBody.hpp>
+#include <alibabacloud/models/CreateAgentPlatformResponse.hpp>
+#include <alibabacloud/models/CreateEmbodiedAIPlatformRequest.hpp>
+#include <alibabacloud/models/CreateEmbodiedAIPlatformShrinkRequest.hpp>
+#include <alibabacloud/models/CreateEmbodiedAIPlatformResponseBody.hpp>
+#include <alibabacloud/models/CreateEmbodiedAIPlatformResponse.hpp>
+#include <alibabacloud/models/DescribeEmbodiedAIPlatformsRequest.hpp>
+#include <alibabacloud/models/DescribeEmbodiedAIPlatformsResponseBody.hpp>
+#include <alibabacloud/models/DescribeEmbodiedAIPlatformsResponse.hpp>
 
 #endif

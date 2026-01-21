@@ -38,51 +38,51 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
-        && return this->platformName_ == nullptr && return this->rayConfigShrink_ == nullptr && return this->regionId_ == nullptr && return this->webserverSpecName_ == nullptr; };
+        && this->platformName_ == nullptr && this->rayConfigShrink_ == nullptr && this->regionId_ == nullptr && this->webserverSpecName_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
-    inline string DBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
+    inline string getDBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
     inline CreateEmbodiedAIPlatformShrinkRequest& setDBClusterId(string DBClusterId) { DARABONBA_PTR_SET_VALUE(DBClusterId_, DBClusterId) };
 
 
     // platformName Field Functions 
     bool hasPlatformName() const { return this->platformName_ != nullptr;};
     void deletePlatformName() { this->platformName_ = nullptr;};
-    inline string platformName() const { DARABONBA_PTR_GET_DEFAULT(platformName_, "") };
+    inline string getPlatformName() const { DARABONBA_PTR_GET_DEFAULT(platformName_, "") };
     inline CreateEmbodiedAIPlatformShrinkRequest& setPlatformName(string platformName) { DARABONBA_PTR_SET_VALUE(platformName_, platformName) };
 
 
     // rayConfigShrink Field Functions 
     bool hasRayConfigShrink() const { return this->rayConfigShrink_ != nullptr;};
     void deleteRayConfigShrink() { this->rayConfigShrink_ = nullptr;};
-    inline string rayConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(rayConfigShrink_, "") };
+    inline string getRayConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(rayConfigShrink_, "") };
     inline CreateEmbodiedAIPlatformShrinkRequest& setRayConfigShrink(string rayConfigShrink) { DARABONBA_PTR_SET_VALUE(rayConfigShrink_, rayConfigShrink) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreateEmbodiedAIPlatformShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // webserverSpecName Field Functions 
     bool hasWebserverSpecName() const { return this->webserverSpecName_ != nullptr;};
     void deleteWebserverSpecName() { this->webserverSpecName_ = nullptr;};
-    inline string webserverSpecName() const { DARABONBA_PTR_GET_DEFAULT(webserverSpecName_, "") };
+    inline string getWebserverSpecName() const { DARABONBA_PTR_GET_DEFAULT(webserverSpecName_, "") };
     inline CreateEmbodiedAIPlatformShrinkRequest& setWebserverSpecName(string webserverSpecName) { DARABONBA_PTR_SET_VALUE(webserverSpecName_, webserverSpecName) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> DBClusterId_ = nullptr;
+    shared_ptr<string> DBClusterId_ {};
     // This parameter is required.
-    std::shared_ptr<string> platformName_ = nullptr;
-    std::shared_ptr<string> rayConfigShrink_ = nullptr;
+    shared_ptr<string> platformName_ {};
+    shared_ptr<string> rayConfigShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> webserverSpecName_ = nullptr;
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> webserverSpecName_ {};
   };
 
   } // namespace Models
