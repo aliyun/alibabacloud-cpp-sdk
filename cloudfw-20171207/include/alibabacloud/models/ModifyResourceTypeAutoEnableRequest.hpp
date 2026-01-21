@@ -14,10 +14,12 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ModifyResourceTypeAutoEnableRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Lang, lang_);
+      DARABONBA_PTR_TO_JSON(RegionNo, regionNo_);
       DARABONBA_PTR_TO_JSON(ResourceTypeAutoEnable, resourceTypeAutoEnable_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyResourceTypeAutoEnableRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
+      DARABONBA_PTR_FROM_JSON(RegionNo, regionNo_);
       DARABONBA_PTR_FROM_JSON(ResourceTypeAutoEnable, resourceTypeAutoEnable_);
     };
     ModifyResourceTypeAutoEnableRequest() = default ;
@@ -32,12 +34,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && this->resourceTypeAutoEnable_ == nullptr; };
+        && this->regionNo_ == nullptr && this->resourceTypeAutoEnable_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
     inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline ModifyResourceTypeAutoEnableRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
+
+
+    // regionNo Field Functions 
+    bool hasRegionNo() const { return this->regionNo_ != nullptr;};
+    void deleteRegionNo() { this->regionNo_ = nullptr;};
+    inline string getRegionNo() const { DARABONBA_PTR_GET_DEFAULT(regionNo_, "") };
+    inline ModifyResourceTypeAutoEnableRequest& setRegionNo(string regionNo) { DARABONBA_PTR_SET_VALUE(regionNo_, regionNo) };
 
 
     // resourceTypeAutoEnable Field Functions 
@@ -49,6 +58,7 @@ namespace Models
 
   protected:
     shared_ptr<string> lang_ {};
+    shared_ptr<string> regionNo_ {};
     shared_ptr<string> resourceTypeAutoEnable_ {};
   };
 

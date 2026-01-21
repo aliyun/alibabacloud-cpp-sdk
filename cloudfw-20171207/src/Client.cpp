@@ -694,8 +694,16 @@ BatchDeleteVpcFirewallControlPolicyResponse Client::batchDeleteVpcFirewallContro
  * @param runtime runtime options for this request RuntimeOptions
  * @return ClearLogStoreStorageResponse
  */
-ClearLogStoreStorageResponse Client::clearLogStoreStorageWithOptions(const Darabonba::RuntimeOptions &runtime) {
-  OpenApiRequest req = OpenApiRequest();
+ClearLogStoreStorageResponse Client::clearLogStoreStorageWithOptions(const ClearLogStoreStorageRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasSite()) {
+    query["Site"] = request.getSite();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ClearLogStoreStorage"},
     {"version" , "2017-12-07"},
@@ -713,11 +721,12 @@ ClearLogStoreStorageResponse Client::clearLogStoreStorageWithOptions(const Darab
 /**
  * @summary 清空防火墙日志
  *
+ * @param request ClearLogStoreStorageRequest
  * @return ClearLogStoreStorageResponse
  */
-ClearLogStoreStorageResponse Client::clearLogStoreStorage() {
+ClearLogStoreStorageResponse Client::clearLogStoreStorage(const ClearLogStoreStorageRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return clearLogStoreStorageWithOptions(runtime);
+  return clearLogStoreStorageWithOptions(request, runtime);
 }
 
 /**
@@ -9450,6 +9459,48 @@ DescribeRegionInfoResponse Client::describeRegionInfo(const DescribeRegionInfoRe
 }
 
 /**
+ * @summary 查询地域和资产类型引流设置
+ *
+ * @param request DescribeRegionResourceTypeAutoEnableRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeRegionResourceTypeAutoEnableResponse
+ */
+DescribeRegionResourceTypeAutoEnableResponse Client::describeRegionResourceTypeAutoEnableWithOptions(const DescribeRegionResourceTypeAutoEnableRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasLang()) {
+    query["Lang"] = request.getLang();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeRegionResourceTypeAutoEnable"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeRegionResourceTypeAutoEnableResponse>();
+}
+
+/**
+ * @summary 查询地域和资产类型引流设置
+ *
+ * @param request DescribeRegionResourceTypeAutoEnableRequest
+ * @return DescribeRegionResourceTypeAutoEnableResponse
+ */
+DescribeRegionResourceTypeAutoEnableResponse Client::describeRegionResourceTypeAutoEnable(const DescribeRegionResourceTypeAutoEnableRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeRegionResourceTypeAutoEnableWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询资产类型默认引流
  *
  * @param request DescribeResourceTypeAutoEnableRequest
@@ -14811,6 +14862,10 @@ ModifyResourceTypeAutoEnableResponse Client::modifyResourceTypeAutoEnableWithOpt
     query["Lang"] = request.getLang();
   }
 
+  if (!!request.hasRegionNo()) {
+    query["RegionNo"] = request.getRegionNo();
+  }
+
   if (!!request.hasResourceTypeAutoEnable()) {
     query["ResourceTypeAutoEnable"] = request.getResourceTypeAutoEnable();
   }
@@ -14917,6 +14972,10 @@ ModifySlsDispatchStatusResponse Client::modifySlsDispatchStatusWithOptions(const
 
   if (!!request.hasNewRegionId()) {
     query["NewRegionId"] = request.getNewRegionId();
+  }
+
+  if (!!request.hasSite()) {
+    query["Site"] = request.getSite();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -15263,6 +15322,14 @@ ModifyUserSlsLogStorageTimeResponse Client::modifyUserSlsLogStorageTimeWithOptio
   json query = {};
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasLogVersion()) {
+    query["LogVersion"] = request.getLogVersion();
+  }
+
+  if (!!request.hasSlsRegionId()) {
+    query["SlsRegionId"] = request.getSlsRegionId();
   }
 
   if (!!request.hasStorageTime()) {
@@ -16023,12 +16090,20 @@ PutDisableAllFwSwitchResponse Client::putDisableAllFwSwitch(const PutDisableAllF
 PutDisableFwSwitchResponse Client::putDisableFwSwitchWithOptions(const PutDisableFwSwitchRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasIpVersion()) {
+    query["IpVersion"] = request.getIpVersion();
+  }
+
   if (!!request.hasIpaddrList()) {
     query["IpaddrList"] = request.getIpaddrList();
   }
 
   if (!!request.hasLang()) {
     query["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasMemberUid()) {
+    query["MemberUid"] = request.getMemberUid();
   }
 
   if (!!request.hasRegionList()) {
@@ -16147,12 +16222,20 @@ PutEnableAllFwSwitchResponse Client::putEnableAllFwSwitch(const PutEnableAllFwSw
 PutEnableFwSwitchResponse Client::putEnableFwSwitchWithOptions(const PutEnableFwSwitchRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasIpVersion()) {
+    query["IpVersion"] = request.getIpVersion();
+  }
+
   if (!!request.hasIpaddrList()) {
     query["IpaddrList"] = request.getIpaddrList();
   }
 
   if (!!request.hasLang()) {
     query["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasMemberUid()) {
+    query["MemberUid"] = request.getMemberUid();
   }
 
   if (!!request.hasRegionList()) {
@@ -16435,6 +16518,56 @@ ResetVpcFirewallRuleHitCountResponse Client::resetVpcFirewallRuleHitCountWithOpt
 ResetVpcFirewallRuleHitCountResponse Client::resetVpcFirewallRuleHitCount(const ResetVpcFirewallRuleHitCountRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return resetVpcFirewallRuleHitCountWithOptions(request, runtime);
+}
+
+/**
+ * @summary 开启自动保护新入资产
+ *
+ * @param request SetAutoProtectNewAssetsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SetAutoProtectNewAssetsResponse
+ */
+SetAutoProtectNewAssetsResponse Client::setAutoProtectNewAssetsWithOptions(const SetAutoProtectNewAssetsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAutoProtect()) {
+    query["AutoProtect"] = request.getAutoProtect();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasSourceIp()) {
+    query["SourceIp"] = request.getSourceIp();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SetAutoProtectNewAssets"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SetAutoProtectNewAssetsResponse>();
+}
+
+/**
+ * @summary 开启自动保护新入资产
+ *
+ * @param request SetAutoProtectNewAssetsRequest
+ * @return SetAutoProtectNewAssetsResponse
+ */
+SetAutoProtectNewAssetsResponse Client::setAutoProtectNewAssets(const SetAutoProtectNewAssetsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return setAutoProtectNewAssetsWithOptions(request, runtime);
 }
 
 /**

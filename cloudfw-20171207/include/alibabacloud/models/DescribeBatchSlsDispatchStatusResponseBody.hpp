@@ -14,13 +14,17 @@ namespace Models
   class DescribeBatchSlsDispatchStatusResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeBatchSlsDispatchStatusResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(InfoList, infoList_);
       DARABONBA_PTR_TO_JSON(ItemList, itemList_);
+      DARABONBA_PTR_TO_JSON(LogVersion, logVersion_);
       DARABONBA_PTR_TO_JSON(LogstoreName, logstoreName_);
       DARABONBA_PTR_TO_JSON(ProjectName, projectName_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeBatchSlsDispatchStatusResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(InfoList, infoList_);
       DARABONBA_PTR_FROM_JSON(ItemList, itemList_);
+      DARABONBA_PTR_FROM_JSON(LogVersion, logVersion_);
       DARABONBA_PTR_FROM_JSON(LogstoreName, logstoreName_);
       DARABONBA_PTR_FROM_JSON(ProjectName, projectName_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
@@ -120,8 +124,165 @@ namespace Models
       shared_ptr<string> searchName_ {};
     };
 
-    virtual bool empty() const override { return this->itemList_ == nullptr
-        && this->logstoreName_ == nullptr && this->projectName_ == nullptr && this->requestId_ == nullptr; };
+    class InfoList : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const InfoList& obj) { 
+        DARABONBA_PTR_TO_JSON(ItemList, itemList_);
+        DARABONBA_PTR_TO_JSON(LogstoreName, logstoreName_);
+        DARABONBA_PTR_TO_JSON(ProjectName, projectName_);
+        DARABONBA_PTR_TO_JSON(Site, site_);
+      };
+      friend void from_json(const Darabonba::Json& j, InfoList& obj) { 
+        DARABONBA_PTR_FROM_JSON(ItemList, itemList_);
+        DARABONBA_PTR_FROM_JSON(LogstoreName, logstoreName_);
+        DARABONBA_PTR_FROM_JSON(ProjectName, projectName_);
+        DARABONBA_PTR_FROM_JSON(Site, site_);
+      };
+      InfoList() = default ;
+      InfoList(const InfoList &) = default ;
+      InfoList(InfoList &&) = default ;
+      InfoList(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~InfoList() = default ;
+      InfoList& operator=(const InfoList &) = default ;
+      InfoList& operator=(InfoList &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class ItemList : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const ItemList& obj) { 
+          DARABONBA_PTR_TO_JSON(ConfigStatus, configStatus_);
+          DARABONBA_PTR_TO_JSON(DispatchName, dispatchName_);
+          DARABONBA_PTR_TO_JSON(DispatchValue, dispatchValue_);
+          DARABONBA_PTR_TO_JSON(Enable, enable_);
+          DARABONBA_PTR_TO_JSON(FilterKeys, filterKeys_);
+          DARABONBA_PTR_TO_JSON(SearchName, searchName_);
+        };
+        friend void from_json(const Darabonba::Json& j, ItemList& obj) { 
+          DARABONBA_PTR_FROM_JSON(ConfigStatus, configStatus_);
+          DARABONBA_PTR_FROM_JSON(DispatchName, dispatchName_);
+          DARABONBA_PTR_FROM_JSON(DispatchValue, dispatchValue_);
+          DARABONBA_PTR_FROM_JSON(Enable, enable_);
+          DARABONBA_PTR_FROM_JSON(FilterKeys, filterKeys_);
+          DARABONBA_PTR_FROM_JSON(SearchName, searchName_);
+        };
+        ItemList() = default ;
+        ItemList(const ItemList &) = default ;
+        ItemList(ItemList &&) = default ;
+        ItemList(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~ItemList() = default ;
+        ItemList& operator=(const ItemList &) = default ;
+        ItemList& operator=(ItemList &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->configStatus_ == nullptr
+        && this->dispatchName_ == nullptr && this->dispatchValue_ == nullptr && this->enable_ == nullptr && this->filterKeys_ == nullptr && this->searchName_ == nullptr; };
+        // configStatus Field Functions 
+        bool hasConfigStatus() const { return this->configStatus_ != nullptr;};
+        void deleteConfigStatus() { this->configStatus_ = nullptr;};
+        inline string getConfigStatus() const { DARABONBA_PTR_GET_DEFAULT(configStatus_, "") };
+        inline ItemList& setConfigStatus(string configStatus) { DARABONBA_PTR_SET_VALUE(configStatus_, configStatus) };
+
+
+        // dispatchName Field Functions 
+        bool hasDispatchName() const { return this->dispatchName_ != nullptr;};
+        void deleteDispatchName() { this->dispatchName_ = nullptr;};
+        inline string getDispatchName() const { DARABONBA_PTR_GET_DEFAULT(dispatchName_, "") };
+        inline ItemList& setDispatchName(string dispatchName) { DARABONBA_PTR_SET_VALUE(dispatchName_, dispatchName) };
+
+
+        // dispatchValue Field Functions 
+        bool hasDispatchValue() const { return this->dispatchValue_ != nullptr;};
+        void deleteDispatchValue() { this->dispatchValue_ = nullptr;};
+        inline string getDispatchValue() const { DARABONBA_PTR_GET_DEFAULT(dispatchValue_, "") };
+        inline ItemList& setDispatchValue(string dispatchValue) { DARABONBA_PTR_SET_VALUE(dispatchValue_, dispatchValue) };
+
+
+        // enable Field Functions 
+        bool hasEnable() const { return this->enable_ != nullptr;};
+        void deleteEnable() { this->enable_ = nullptr;};
+        inline bool getEnable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
+        inline ItemList& setEnable(bool enable) { DARABONBA_PTR_SET_VALUE(enable_, enable) };
+
+
+        // filterKeys Field Functions 
+        bool hasFilterKeys() const { return this->filterKeys_ != nullptr;};
+        void deleteFilterKeys() { this->filterKeys_ = nullptr;};
+        inline const vector<string> & getFilterKeys() const { DARABONBA_PTR_GET_CONST(filterKeys_, vector<string>) };
+        inline vector<string> getFilterKeys() { DARABONBA_PTR_GET(filterKeys_, vector<string>) };
+        inline ItemList& setFilterKeys(const vector<string> & filterKeys) { DARABONBA_PTR_SET_VALUE(filterKeys_, filterKeys) };
+        inline ItemList& setFilterKeys(vector<string> && filterKeys) { DARABONBA_PTR_SET_RVALUE(filterKeys_, filterKeys) };
+
+
+        // searchName Field Functions 
+        bool hasSearchName() const { return this->searchName_ != nullptr;};
+        void deleteSearchName() { this->searchName_ = nullptr;};
+        inline string getSearchName() const { DARABONBA_PTR_GET_DEFAULT(searchName_, "") };
+        inline ItemList& setSearchName(string searchName) { DARABONBA_PTR_SET_VALUE(searchName_, searchName) };
+
+
+      protected:
+        shared_ptr<string> configStatus_ {};
+        shared_ptr<string> dispatchName_ {};
+        shared_ptr<string> dispatchValue_ {};
+        shared_ptr<bool> enable_ {};
+        shared_ptr<vector<string>> filterKeys_ {};
+        shared_ptr<string> searchName_ {};
+      };
+
+      virtual bool empty() const override { return this->itemList_ == nullptr
+        && this->logstoreName_ == nullptr && this->projectName_ == nullptr && this->site_ == nullptr; };
+      // itemList Field Functions 
+      bool hasItemList() const { return this->itemList_ != nullptr;};
+      void deleteItemList() { this->itemList_ = nullptr;};
+      inline const vector<InfoList::ItemList> & getItemList() const { DARABONBA_PTR_GET_CONST(itemList_, vector<InfoList::ItemList>) };
+      inline vector<InfoList::ItemList> getItemList() { DARABONBA_PTR_GET(itemList_, vector<InfoList::ItemList>) };
+      inline InfoList& setItemList(const vector<InfoList::ItemList> & itemList) { DARABONBA_PTR_SET_VALUE(itemList_, itemList) };
+      inline InfoList& setItemList(vector<InfoList::ItemList> && itemList) { DARABONBA_PTR_SET_RVALUE(itemList_, itemList) };
+
+
+      // logstoreName Field Functions 
+      bool hasLogstoreName() const { return this->logstoreName_ != nullptr;};
+      void deleteLogstoreName() { this->logstoreName_ = nullptr;};
+      inline string getLogstoreName() const { DARABONBA_PTR_GET_DEFAULT(logstoreName_, "") };
+      inline InfoList& setLogstoreName(string logstoreName) { DARABONBA_PTR_SET_VALUE(logstoreName_, logstoreName) };
+
+
+      // projectName Field Functions 
+      bool hasProjectName() const { return this->projectName_ != nullptr;};
+      void deleteProjectName() { this->projectName_ = nullptr;};
+      inline string getProjectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
+      inline InfoList& setProjectName(string projectName) { DARABONBA_PTR_SET_VALUE(projectName_, projectName) };
+
+
+      // site Field Functions 
+      bool hasSite() const { return this->site_ != nullptr;};
+      void deleteSite() { this->site_ = nullptr;};
+      inline string getSite() const { DARABONBA_PTR_GET_DEFAULT(site_, "") };
+      inline InfoList& setSite(string site) { DARABONBA_PTR_SET_VALUE(site_, site) };
+
+
+    protected:
+      shared_ptr<vector<InfoList::ItemList>> itemList_ {};
+      shared_ptr<string> logstoreName_ {};
+      shared_ptr<string> projectName_ {};
+      shared_ptr<string> site_ {};
+    };
+
+    virtual bool empty() const override { return this->infoList_ == nullptr
+        && this->itemList_ == nullptr && this->logVersion_ == nullptr && this->logstoreName_ == nullptr && this->projectName_ == nullptr && this->requestId_ == nullptr; };
+    // infoList Field Functions 
+    bool hasInfoList() const { return this->infoList_ != nullptr;};
+    void deleteInfoList() { this->infoList_ = nullptr;};
+    inline const vector<DescribeBatchSlsDispatchStatusResponseBody::InfoList> & getInfoList() const { DARABONBA_PTR_GET_CONST(infoList_, vector<DescribeBatchSlsDispatchStatusResponseBody::InfoList>) };
+    inline vector<DescribeBatchSlsDispatchStatusResponseBody::InfoList> getInfoList() { DARABONBA_PTR_GET(infoList_, vector<DescribeBatchSlsDispatchStatusResponseBody::InfoList>) };
+    inline DescribeBatchSlsDispatchStatusResponseBody& setInfoList(const vector<DescribeBatchSlsDispatchStatusResponseBody::InfoList> & infoList) { DARABONBA_PTR_SET_VALUE(infoList_, infoList) };
+    inline DescribeBatchSlsDispatchStatusResponseBody& setInfoList(vector<DescribeBatchSlsDispatchStatusResponseBody::InfoList> && infoList) { DARABONBA_PTR_SET_RVALUE(infoList_, infoList) };
+
+
     // itemList Field Functions 
     bool hasItemList() const { return this->itemList_ != nullptr;};
     void deleteItemList() { this->itemList_ = nullptr;};
@@ -129,6 +290,13 @@ namespace Models
     inline vector<DescribeBatchSlsDispatchStatusResponseBody::ItemList> getItemList() { DARABONBA_PTR_GET(itemList_, vector<DescribeBatchSlsDispatchStatusResponseBody::ItemList>) };
     inline DescribeBatchSlsDispatchStatusResponseBody& setItemList(const vector<DescribeBatchSlsDispatchStatusResponseBody::ItemList> & itemList) { DARABONBA_PTR_SET_VALUE(itemList_, itemList) };
     inline DescribeBatchSlsDispatchStatusResponseBody& setItemList(vector<DescribeBatchSlsDispatchStatusResponseBody::ItemList> && itemList) { DARABONBA_PTR_SET_RVALUE(itemList_, itemList) };
+
+
+    // logVersion Field Functions 
+    bool hasLogVersion() const { return this->logVersion_ != nullptr;};
+    void deleteLogVersion() { this->logVersion_ = nullptr;};
+    inline string getLogVersion() const { DARABONBA_PTR_GET_DEFAULT(logVersion_, "") };
+    inline DescribeBatchSlsDispatchStatusResponseBody& setLogVersion(string logVersion) { DARABONBA_PTR_SET_VALUE(logVersion_, logVersion) };
 
 
     // logstoreName Field Functions 
@@ -153,7 +321,9 @@ namespace Models
 
 
   protected:
+    shared_ptr<vector<DescribeBatchSlsDispatchStatusResponseBody::InfoList>> infoList_ {};
     shared_ptr<vector<DescribeBatchSlsDispatchStatusResponseBody::ItemList>> itemList_ {};
+    shared_ptr<string> logVersion_ {};
     shared_ptr<string> logstoreName_ {};
     shared_ptr<string> projectName_ {};
     shared_ptr<string> requestId_ {};

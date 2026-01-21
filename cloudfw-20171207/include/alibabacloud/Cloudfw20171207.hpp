@@ -222,14 +222,15 @@ namespace Cloudfw20171207
        * @param runtime runtime options for this request RuntimeOptions
        * @return ClearLogStoreStorageResponse
        */
-      Models::ClearLogStoreStorageResponse clearLogStoreStorageWithOptions(const Darabonba::RuntimeOptions &runtime);
+      Models::ClearLogStoreStorageResponse clearLogStoreStorageWithOptions(const Models::ClearLogStoreStorageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 清空防火墙日志
        *
+       * @param request ClearLogStoreStorageRequest
        * @return ClearLogStoreStorageResponse
        */
-      Models::ClearLogStoreStorageResponse clearLogStoreStorage();
+      Models::ClearLogStoreStorageResponse clearLogStoreStorage(const Models::ClearLogStoreStorageRequest &request);
 
       /**
        * @summary 创建ACK集群连接器
@@ -2872,6 +2873,23 @@ namespace Cloudfw20171207
       Models::DescribeRegionInfoResponse describeRegionInfo(const Models::DescribeRegionInfoRequest &request);
 
       /**
+       * @summary 查询地域和资产类型引流设置
+       *
+       * @param request DescribeRegionResourceTypeAutoEnableRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeRegionResourceTypeAutoEnableResponse
+       */
+      Models::DescribeRegionResourceTypeAutoEnableResponse describeRegionResourceTypeAutoEnableWithOptions(const Models::DescribeRegionResourceTypeAutoEnableRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询地域和资产类型引流设置
+       *
+       * @param request DescribeRegionResourceTypeAutoEnableRequest
+       * @return DescribeRegionResourceTypeAutoEnableResponse
+       */
+      Models::DescribeRegionResourceTypeAutoEnableResponse describeRegionResourceTypeAutoEnable(const Models::DescribeRegionResourceTypeAutoEnableRequest &request);
+
+      /**
        * @summary 查询资产类型默认引流
        *
        * @param request DescribeResourceTypeAutoEnableRequest
@@ -4912,6 +4930,23 @@ namespace Cloudfw20171207
        * @return ResetVpcFirewallRuleHitCountResponse
        */
       Models::ResetVpcFirewallRuleHitCountResponse resetVpcFirewallRuleHitCount(const Models::ResetVpcFirewallRuleHitCountRequest &request);
+
+      /**
+       * @summary 开启自动保护新入资产
+       *
+       * @param request SetAutoProtectNewAssetsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SetAutoProtectNewAssetsResponse
+       */
+      Models::SetAutoProtectNewAssetsResponse setAutoProtectNewAssetsWithOptions(const Models::SetAutoProtectNewAssetsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 开启自动保护新入资产
+       *
+       * @param request SetAutoProtectNewAssetsRequest
+       * @return SetAutoProtectNewAssetsResponse
+       */
+      Models::SetAutoProtectNewAssetsResponse setAutoProtectNewAssets(const Models::SetAutoProtectNewAssetsRequest &request);
 
       /**
        * @summary Enables or disables a NAT firewall.

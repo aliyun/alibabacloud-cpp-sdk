@@ -17,12 +17,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EnableStatus, enableStatus_);
       DARABONBA_PTR_TO_JSON(FilterKeys, filterKeys_);
       DARABONBA_PTR_TO_JSON(NewRegionId, newRegionId_);
+      DARABONBA_PTR_TO_JSON(Site, site_);
     };
     friend void from_json(const Darabonba::Json& j, ModifySlsDispatchStatusRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DispatchValue, dispatchValue_);
       DARABONBA_PTR_FROM_JSON(EnableStatus, enableStatus_);
       DARABONBA_PTR_FROM_JSON(FilterKeys, filterKeys_);
       DARABONBA_PTR_FROM_JSON(NewRegionId, newRegionId_);
+      DARABONBA_PTR_FROM_JSON(Site, site_);
     };
     ModifySlsDispatchStatusRequest() = default ;
     ModifySlsDispatchStatusRequest(const ModifySlsDispatchStatusRequest &) = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dispatchValue_ == nullptr
-        && this->enableStatus_ == nullptr && this->filterKeys_ == nullptr && this->newRegionId_ == nullptr; };
+        && this->enableStatus_ == nullptr && this->filterKeys_ == nullptr && this->newRegionId_ == nullptr && this->site_ == nullptr; };
     // dispatchValue Field Functions 
     bool hasDispatchValue() const { return this->dispatchValue_ != nullptr;};
     void deleteDispatchValue() { this->dispatchValue_ = nullptr;};
@@ -65,11 +67,19 @@ namespace Models
     inline ModifySlsDispatchStatusRequest& setNewRegionId(string newRegionId) { DARABONBA_PTR_SET_VALUE(newRegionId_, newRegionId) };
 
 
+    // site Field Functions 
+    bool hasSite() const { return this->site_ != nullptr;};
+    void deleteSite() { this->site_ = nullptr;};
+    inline string getSite() const { DARABONBA_PTR_GET_DEFAULT(site_, "") };
+    inline ModifySlsDispatchStatusRequest& setSite(string site) { DARABONBA_PTR_SET_VALUE(site_, site) };
+
+
   protected:
     shared_ptr<string> dispatchValue_ {};
     shared_ptr<bool> enableStatus_ {};
     shared_ptr<string> filterKeys_ {};
     shared_ptr<string> newRegionId_ {};
+    shared_ptr<string> site_ {};
   };
 
   } // namespace Models

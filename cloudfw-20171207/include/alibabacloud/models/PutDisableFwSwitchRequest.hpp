@@ -14,15 +14,19 @@ namespace Models
   class PutDisableFwSwitchRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const PutDisableFwSwitchRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(IpVersion, ipVersion_);
       DARABONBA_PTR_TO_JSON(IpaddrList, ipaddrList_);
       DARABONBA_PTR_TO_JSON(Lang, lang_);
+      DARABONBA_PTR_TO_JSON(MemberUid, memberUid_);
       DARABONBA_PTR_TO_JSON(RegionList, regionList_);
       DARABONBA_PTR_TO_JSON(ResourceTypeList, resourceTypeList_);
       DARABONBA_PTR_TO_JSON(SourceIp, sourceIp_);
     };
     friend void from_json(const Darabonba::Json& j, PutDisableFwSwitchRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(IpVersion, ipVersion_);
       DARABONBA_PTR_FROM_JSON(IpaddrList, ipaddrList_);
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
+      DARABONBA_PTR_FROM_JSON(MemberUid, memberUid_);
       DARABONBA_PTR_FROM_JSON(RegionList, regionList_);
       DARABONBA_PTR_FROM_JSON(ResourceTypeList, resourceTypeList_);
       DARABONBA_PTR_FROM_JSON(SourceIp, sourceIp_);
@@ -38,8 +42,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->ipaddrList_ == nullptr
-        && this->lang_ == nullptr && this->regionList_ == nullptr && this->resourceTypeList_ == nullptr && this->sourceIp_ == nullptr; };
+    virtual bool empty() const override { return this->ipVersion_ == nullptr
+        && this->ipaddrList_ == nullptr && this->lang_ == nullptr && this->memberUid_ == nullptr && this->regionList_ == nullptr && this->resourceTypeList_ == nullptr
+        && this->sourceIp_ == nullptr; };
+    // ipVersion Field Functions 
+    bool hasIpVersion() const { return this->ipVersion_ != nullptr;};
+    void deleteIpVersion() { this->ipVersion_ = nullptr;};
+    inline string getIpVersion() const { DARABONBA_PTR_GET_DEFAULT(ipVersion_, "") };
+    inline PutDisableFwSwitchRequest& setIpVersion(string ipVersion) { DARABONBA_PTR_SET_VALUE(ipVersion_, ipVersion) };
+
+
     // ipaddrList Field Functions 
     bool hasIpaddrList() const { return this->ipaddrList_ != nullptr;};
     void deleteIpaddrList() { this->ipaddrList_ = nullptr;};
@@ -54,6 +66,13 @@ namespace Models
     void deleteLang() { this->lang_ = nullptr;};
     inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline PutDisableFwSwitchRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
+
+
+    // memberUid Field Functions 
+    bool hasMemberUid() const { return this->memberUid_ != nullptr;};
+    void deleteMemberUid() { this->memberUid_ = nullptr;};
+    inline string getMemberUid() const { DARABONBA_PTR_GET_DEFAULT(memberUid_, "") };
+    inline PutDisableFwSwitchRequest& setMemberUid(string memberUid) { DARABONBA_PTR_SET_VALUE(memberUid_, memberUid) };
 
 
     // regionList Field Functions 
@@ -82,6 +101,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> ipVersion_ {};
     // The IP addresses.
     // 
     // >  You must specify at least one of the IpaddrList, RegionList, and ResourceTypeList parameters.
@@ -91,6 +111,7 @@ namespace Models
     // *   **zh**: Chinese (default)
     // *   **en**: English
     shared_ptr<string> lang_ {};
+    shared_ptr<string> memberUid_ {};
     // The regions.
     // 
     // >  You must specify at least one of the IpaddrList, RegionList, and ResourceTypeList parameters.
