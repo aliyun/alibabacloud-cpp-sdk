@@ -50,103 +50,103 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dbName_ == nullptr
-        && return this->endTime_ == nullptr && return this->polardbxInstanceId_ == nullptr && return this->recallRestoreType_ == nullptr && return this->recallType_ == nullptr && return this->regionId_ == nullptr
-        && return this->sqlPk_ == nullptr && return this->sqlType_ == nullptr && return this->startTime_ == nullptr && return this->tableName_ == nullptr && return this->traceId_ == nullptr; };
+        && this->endTime_ == nullptr && this->polardbxInstanceId_ == nullptr && this->recallRestoreType_ == nullptr && this->recallType_ == nullptr && this->regionId_ == nullptr
+        && this->sqlPk_ == nullptr && this->sqlType_ == nullptr && this->startTime_ == nullptr && this->tableName_ == nullptr && this->traceId_ == nullptr; };
     // dbName Field Functions 
     bool hasDbName() const { return this->dbName_ != nullptr;};
     void deleteDbName() { this->dbName_ = nullptr;};
-    inline string dbName() const { DARABONBA_PTR_GET_DEFAULT(dbName_, "") };
+    inline string getDbName() const { DARABONBA_PTR_GET_DEFAULT(dbName_, "") };
     inline SubmitSqlFlashbackTaskRequest& setDbName(string dbName) { DARABONBA_PTR_SET_VALUE(dbName_, dbName) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline SubmitSqlFlashbackTaskRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // polardbxInstanceId Field Functions 
     bool hasPolardbxInstanceId() const { return this->polardbxInstanceId_ != nullptr;};
     void deletePolardbxInstanceId() { this->polardbxInstanceId_ = nullptr;};
-    inline string polardbxInstanceId() const { DARABONBA_PTR_GET_DEFAULT(polardbxInstanceId_, "") };
+    inline string getPolardbxInstanceId() const { DARABONBA_PTR_GET_DEFAULT(polardbxInstanceId_, "") };
     inline SubmitSqlFlashbackTaskRequest& setPolardbxInstanceId(string polardbxInstanceId) { DARABONBA_PTR_SET_VALUE(polardbxInstanceId_, polardbxInstanceId) };
 
 
     // recallRestoreType Field Functions 
     bool hasRecallRestoreType() const { return this->recallRestoreType_ != nullptr;};
     void deleteRecallRestoreType() { this->recallRestoreType_ = nullptr;};
-    inline string recallRestoreType() const { DARABONBA_PTR_GET_DEFAULT(recallRestoreType_, "") };
+    inline string getRecallRestoreType() const { DARABONBA_PTR_GET_DEFAULT(recallRestoreType_, "") };
     inline SubmitSqlFlashbackTaskRequest& setRecallRestoreType(string recallRestoreType) { DARABONBA_PTR_SET_VALUE(recallRestoreType_, recallRestoreType) };
 
 
     // recallType Field Functions 
     bool hasRecallType() const { return this->recallType_ != nullptr;};
     void deleteRecallType() { this->recallType_ = nullptr;};
-    inline string recallType() const { DARABONBA_PTR_GET_DEFAULT(recallType_, "") };
+    inline string getRecallType() const { DARABONBA_PTR_GET_DEFAULT(recallType_, "") };
     inline SubmitSqlFlashbackTaskRequest& setRecallType(string recallType) { DARABONBA_PTR_SET_VALUE(recallType_, recallType) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline SubmitSqlFlashbackTaskRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // sqlPk Field Functions 
     bool hasSqlPk() const { return this->sqlPk_ != nullptr;};
     void deleteSqlPk() { this->sqlPk_ = nullptr;};
-    inline string sqlPk() const { DARABONBA_PTR_GET_DEFAULT(sqlPk_, "") };
+    inline string getSqlPk() const { DARABONBA_PTR_GET_DEFAULT(sqlPk_, "") };
     inline SubmitSqlFlashbackTaskRequest& setSqlPk(string sqlPk) { DARABONBA_PTR_SET_VALUE(sqlPk_, sqlPk) };
 
 
     // sqlType Field Functions 
     bool hasSqlType() const { return this->sqlType_ != nullptr;};
     void deleteSqlType() { this->sqlType_ = nullptr;};
-    inline string sqlType() const { DARABONBA_PTR_GET_DEFAULT(sqlType_, "") };
+    inline string getSqlType() const { DARABONBA_PTR_GET_DEFAULT(sqlType_, "") };
     inline SubmitSqlFlashbackTaskRequest& setSqlType(string sqlType) { DARABONBA_PTR_SET_VALUE(sqlType_, sqlType) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline SubmitSqlFlashbackTaskRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // tableName Field Functions 
     bool hasTableName() const { return this->tableName_ != nullptr;};
     void deleteTableName() { this->tableName_ = nullptr;};
-    inline string tableName() const { DARABONBA_PTR_GET_DEFAULT(tableName_, "") };
+    inline string getTableName() const { DARABONBA_PTR_GET_DEFAULT(tableName_, "") };
     inline SubmitSqlFlashbackTaskRequest& setTableName(string tableName) { DARABONBA_PTR_SET_VALUE(tableName_, tableName) };
 
 
     // traceId Field Functions 
     bool hasTraceId() const { return this->traceId_ != nullptr;};
     void deleteTraceId() { this->traceId_ = nullptr;};
-    inline string traceId() const { DARABONBA_PTR_GET_DEFAULT(traceId_, "") };
+    inline string getTraceId() const { DARABONBA_PTR_GET_DEFAULT(traceId_, "") };
     inline SubmitSqlFlashbackTaskRequest& setTraceId(string traceId) { DARABONBA_PTR_SET_VALUE(traceId_, traceId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> dbName_ = nullptr;
+    shared_ptr<string> dbName_ {};
     // This parameter is required.
-    std::shared_ptr<string> endTime_ = nullptr;
+    shared_ptr<string> endTime_ {};
     // This parameter is required.
-    std::shared_ptr<string> polardbxInstanceId_ = nullptr;
+    shared_ptr<string> polardbxInstanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> recallRestoreType_ = nullptr;
-    std::shared_ptr<string> recallType_ = nullptr;
+    shared_ptr<string> recallRestoreType_ {};
+    shared_ptr<string> recallType_ {};
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> sqlPk_ = nullptr;
-    std::shared_ptr<string> sqlType_ = nullptr;
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> sqlPk_ {};
+    shared_ptr<string> sqlType_ {};
     // This parameter is required.
-    std::shared_ptr<string> startTime_ = nullptr;
-    std::shared_ptr<string> tableName_ = nullptr;
-    std::shared_ptr<string> traceId_ = nullptr;
+    shared_ptr<string> startTime_ {};
+    shared_ptr<string> tableName_ {};
+    shared_ptr<string> traceId_ {};
   };
 
   } // namespace Models

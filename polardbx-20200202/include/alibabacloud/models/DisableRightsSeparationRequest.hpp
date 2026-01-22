@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBInstanceName_ == nullptr
-        && return this->dbaAccountName_ == nullptr && return this->dbaAccountPassword_ == nullptr && return this->regionId_ == nullptr; };
+        && this->dbaAccountName_ == nullptr && this->dbaAccountPassword_ == nullptr && this->regionId_ == nullptr; };
     // DBInstanceName Field Functions 
     bool hasDBInstanceName() const { return this->DBInstanceName_ != nullptr;};
     void deleteDBInstanceName() { this->DBInstanceName_ = nullptr;};
-    inline string DBInstanceName() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceName_, "") };
+    inline string getDBInstanceName() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceName_, "") };
     inline DisableRightsSeparationRequest& setDBInstanceName(string DBInstanceName) { DARABONBA_PTR_SET_VALUE(DBInstanceName_, DBInstanceName) };
 
 
     // dbaAccountName Field Functions 
     bool hasDbaAccountName() const { return this->dbaAccountName_ != nullptr;};
     void deleteDbaAccountName() { this->dbaAccountName_ = nullptr;};
-    inline string dbaAccountName() const { DARABONBA_PTR_GET_DEFAULT(dbaAccountName_, "") };
+    inline string getDbaAccountName() const { DARABONBA_PTR_GET_DEFAULT(dbaAccountName_, "") };
     inline DisableRightsSeparationRequest& setDbaAccountName(string dbaAccountName) { DARABONBA_PTR_SET_VALUE(dbaAccountName_, dbaAccountName) };
 
 
     // dbaAccountPassword Field Functions 
     bool hasDbaAccountPassword() const { return this->dbaAccountPassword_ != nullptr;};
     void deleteDbaAccountPassword() { this->dbaAccountPassword_ = nullptr;};
-    inline string dbaAccountPassword() const { DARABONBA_PTR_GET_DEFAULT(dbaAccountPassword_, "") };
+    inline string getDbaAccountPassword() const { DARABONBA_PTR_GET_DEFAULT(dbaAccountPassword_, "") };
     inline DisableRightsSeparationRequest& setDbaAccountPassword(string dbaAccountPassword) { DARABONBA_PTR_SET_VALUE(dbaAccountPassword_, dbaAccountPassword) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DisableRightsSeparationRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> DBInstanceName_ = nullptr;
+    shared_ptr<string> DBInstanceName_ {};
     // This parameter is required.
-    std::shared_ptr<string> dbaAccountName_ = nullptr;
+    shared_ptr<string> dbaAccountName_ {};
     // This parameter is required.
-    std::shared_ptr<string> dbaAccountPassword_ = nullptr;
+    shared_ptr<string> dbaAccountPassword_ {};
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

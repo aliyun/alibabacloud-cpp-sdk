@@ -40,56 +40,56 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->connectionStrings_ == nullptr
-        && return this->DBInstanceName_ == nullptr && return this->newMasterDBInstanceName_ == nullptr && return this->regionId_ == nullptr && return this->sourceDBInstanceName_ == nullptr && return this->swapConnectionString_ == nullptr; };
+        && this->DBInstanceName_ == nullptr && this->newMasterDBInstanceName_ == nullptr && this->regionId_ == nullptr && this->sourceDBInstanceName_ == nullptr && this->swapConnectionString_ == nullptr; };
     // connectionStrings Field Functions 
     bool hasConnectionStrings() const { return this->connectionStrings_ != nullptr;};
     void deleteConnectionStrings() { this->connectionStrings_ = nullptr;};
-    inline string connectionStrings() const { DARABONBA_PTR_GET_DEFAULT(connectionStrings_, "") };
+    inline string getConnectionStrings() const { DARABONBA_PTR_GET_DEFAULT(connectionStrings_, "") };
     inline ModifyEngineMigrationRequest& setConnectionStrings(string connectionStrings) { DARABONBA_PTR_SET_VALUE(connectionStrings_, connectionStrings) };
 
 
     // DBInstanceName Field Functions 
     bool hasDBInstanceName() const { return this->DBInstanceName_ != nullptr;};
     void deleteDBInstanceName() { this->DBInstanceName_ = nullptr;};
-    inline string DBInstanceName() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceName_, "") };
+    inline string getDBInstanceName() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceName_, "") };
     inline ModifyEngineMigrationRequest& setDBInstanceName(string DBInstanceName) { DARABONBA_PTR_SET_VALUE(DBInstanceName_, DBInstanceName) };
 
 
     // newMasterDBInstanceName Field Functions 
     bool hasNewMasterDBInstanceName() const { return this->newMasterDBInstanceName_ != nullptr;};
     void deleteNewMasterDBInstanceName() { this->newMasterDBInstanceName_ = nullptr;};
-    inline string newMasterDBInstanceName() const { DARABONBA_PTR_GET_DEFAULT(newMasterDBInstanceName_, "") };
+    inline string getNewMasterDBInstanceName() const { DARABONBA_PTR_GET_DEFAULT(newMasterDBInstanceName_, "") };
     inline ModifyEngineMigrationRequest& setNewMasterDBInstanceName(string newMasterDBInstanceName) { DARABONBA_PTR_SET_VALUE(newMasterDBInstanceName_, newMasterDBInstanceName) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ModifyEngineMigrationRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // sourceDBInstanceName Field Functions 
     bool hasSourceDBInstanceName() const { return this->sourceDBInstanceName_ != nullptr;};
     void deleteSourceDBInstanceName() { this->sourceDBInstanceName_ = nullptr;};
-    inline string sourceDBInstanceName() const { DARABONBA_PTR_GET_DEFAULT(sourceDBInstanceName_, "") };
+    inline string getSourceDBInstanceName() const { DARABONBA_PTR_GET_DEFAULT(sourceDBInstanceName_, "") };
     inline ModifyEngineMigrationRequest& setSourceDBInstanceName(string sourceDBInstanceName) { DARABONBA_PTR_SET_VALUE(sourceDBInstanceName_, sourceDBInstanceName) };
 
 
     // swapConnectionString Field Functions 
     bool hasSwapConnectionString() const { return this->swapConnectionString_ != nullptr;};
     void deleteSwapConnectionString() { this->swapConnectionString_ = nullptr;};
-    inline string swapConnectionString() const { DARABONBA_PTR_GET_DEFAULT(swapConnectionString_, "") };
+    inline string getSwapConnectionString() const { DARABONBA_PTR_GET_DEFAULT(swapConnectionString_, "") };
     inline ModifyEngineMigrationRequest& setSwapConnectionString(string swapConnectionString) { DARABONBA_PTR_SET_VALUE(swapConnectionString_, swapConnectionString) };
 
 
   protected:
-    std::shared_ptr<string> connectionStrings_ = nullptr;
-    std::shared_ptr<string> DBInstanceName_ = nullptr;
-    std::shared_ptr<string> newMasterDBInstanceName_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> sourceDBInstanceName_ = nullptr;
-    std::shared_ptr<string> swapConnectionString_ = nullptr;
+    shared_ptr<string> connectionStrings_ {};
+    shared_ptr<string> DBInstanceName_ {};
+    shared_ptr<string> newMasterDBInstanceName_ {};
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> sourceDBInstanceName_ {};
+    shared_ptr<string> swapConnectionString_ {};
   };
 
   } // namespace Models

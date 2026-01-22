@@ -36,41 +36,41 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->checkDeleteCN_ == nullptr
-        && return this->customEndpointIds_ == nullptr && return this->DBInstanceName_ == nullptr && return this->regionId_ == nullptr; };
+        && this->customEndpointIds_ == nullptr && this->DBInstanceName_ == nullptr && this->regionId_ == nullptr; };
     // checkDeleteCN Field Functions 
     bool hasCheckDeleteCN() const { return this->checkDeleteCN_ != nullptr;};
     void deleteCheckDeleteCN() { this->checkDeleteCN_ = nullptr;};
-    inline bool checkDeleteCN() const { DARABONBA_PTR_GET_DEFAULT(checkDeleteCN_, false) };
+    inline bool getCheckDeleteCN() const { DARABONBA_PTR_GET_DEFAULT(checkDeleteCN_, false) };
     inline DescribeCustomEndpointListRequest& setCheckDeleteCN(bool checkDeleteCN) { DARABONBA_PTR_SET_VALUE(checkDeleteCN_, checkDeleteCN) };
 
 
     // customEndpointIds Field Functions 
     bool hasCustomEndpointIds() const { return this->customEndpointIds_ != nullptr;};
     void deleteCustomEndpointIds() { this->customEndpointIds_ = nullptr;};
-    inline string customEndpointIds() const { DARABONBA_PTR_GET_DEFAULT(customEndpointIds_, "") };
+    inline string getCustomEndpointIds() const { DARABONBA_PTR_GET_DEFAULT(customEndpointIds_, "") };
     inline DescribeCustomEndpointListRequest& setCustomEndpointIds(string customEndpointIds) { DARABONBA_PTR_SET_VALUE(customEndpointIds_, customEndpointIds) };
 
 
     // DBInstanceName Field Functions 
     bool hasDBInstanceName() const { return this->DBInstanceName_ != nullptr;};
     void deleteDBInstanceName() { this->DBInstanceName_ = nullptr;};
-    inline string DBInstanceName() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceName_, "") };
+    inline string getDBInstanceName() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceName_, "") };
     inline DescribeCustomEndpointListRequest& setDBInstanceName(string DBInstanceName) { DARABONBA_PTR_SET_VALUE(DBInstanceName_, DBInstanceName) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeCustomEndpointListRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
-    std::shared_ptr<bool> checkDeleteCN_ = nullptr;
-    std::shared_ptr<string> customEndpointIds_ = nullptr;
+    shared_ptr<bool> checkDeleteCN_ {};
+    shared_ptr<string> customEndpointIds_ {};
     // This parameter is required.
-    std::shared_ptr<string> DBInstanceName_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> DBInstanceName_ {};
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

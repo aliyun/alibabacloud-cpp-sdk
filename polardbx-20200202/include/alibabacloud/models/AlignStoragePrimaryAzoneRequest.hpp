@@ -38,50 +38,50 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBInstanceName_ == nullptr
-        && return this->regionId_ == nullptr && return this->storageInstanceName_ == nullptr && return this->switchTime_ == nullptr && return this->switchTimeMode_ == nullptr; };
+        && this->regionId_ == nullptr && this->storageInstanceName_ == nullptr && this->switchTime_ == nullptr && this->switchTimeMode_ == nullptr; };
     // DBInstanceName Field Functions 
     bool hasDBInstanceName() const { return this->DBInstanceName_ != nullptr;};
     void deleteDBInstanceName() { this->DBInstanceName_ = nullptr;};
-    inline string DBInstanceName() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceName_, "") };
+    inline string getDBInstanceName() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceName_, "") };
     inline AlignStoragePrimaryAzoneRequest& setDBInstanceName(string DBInstanceName) { DARABONBA_PTR_SET_VALUE(DBInstanceName_, DBInstanceName) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline AlignStoragePrimaryAzoneRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // storageInstanceName Field Functions 
     bool hasStorageInstanceName() const { return this->storageInstanceName_ != nullptr;};
     void deleteStorageInstanceName() { this->storageInstanceName_ = nullptr;};
-    inline string storageInstanceName() const { DARABONBA_PTR_GET_DEFAULT(storageInstanceName_, "") };
+    inline string getStorageInstanceName() const { DARABONBA_PTR_GET_DEFAULT(storageInstanceName_, "") };
     inline AlignStoragePrimaryAzoneRequest& setStorageInstanceName(string storageInstanceName) { DARABONBA_PTR_SET_VALUE(storageInstanceName_, storageInstanceName) };
 
 
     // switchTime Field Functions 
     bool hasSwitchTime() const { return this->switchTime_ != nullptr;};
     void deleteSwitchTime() { this->switchTime_ = nullptr;};
-    inline string switchTime() const { DARABONBA_PTR_GET_DEFAULT(switchTime_, "") };
+    inline string getSwitchTime() const { DARABONBA_PTR_GET_DEFAULT(switchTime_, "") };
     inline AlignStoragePrimaryAzoneRequest& setSwitchTime(string switchTime) { DARABONBA_PTR_SET_VALUE(switchTime_, switchTime) };
 
 
     // switchTimeMode Field Functions 
     bool hasSwitchTimeMode() const { return this->switchTimeMode_ != nullptr;};
     void deleteSwitchTimeMode() { this->switchTimeMode_ = nullptr;};
-    inline string switchTimeMode() const { DARABONBA_PTR_GET_DEFAULT(switchTimeMode_, "") };
+    inline string getSwitchTimeMode() const { DARABONBA_PTR_GET_DEFAULT(switchTimeMode_, "") };
     inline AlignStoragePrimaryAzoneRequest& setSwitchTimeMode(string switchTimeMode) { DARABONBA_PTR_SET_VALUE(switchTimeMode_, switchTimeMode) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> DBInstanceName_ = nullptr;
+    shared_ptr<string> DBInstanceName_ {};
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> storageInstanceName_ = nullptr;
-    std::shared_ptr<string> switchTime_ = nullptr;
-    std::shared_ptr<string> switchTimeMode_ = nullptr;
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> storageInstanceName_ {};
+    shared_ptr<string> switchTime_ {};
+    shared_ptr<string> switchTimeMode_ {};
   };
 
   } // namespace Models

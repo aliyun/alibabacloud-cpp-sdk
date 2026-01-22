@@ -34,33 +34,33 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBInstanceName_ == nullptr
-        && return this->regionId_ == nullptr && return this->restoreTime_ == nullptr; };
+        && this->regionId_ == nullptr && this->restoreTime_ == nullptr; };
     // DBInstanceName Field Functions 
     bool hasDBInstanceName() const { return this->DBInstanceName_ != nullptr;};
     void deleteDBInstanceName() { this->DBInstanceName_ = nullptr;};
-    inline string DBInstanceName() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceName_, "") };
+    inline string getDBInstanceName() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceName_, "") };
     inline DescribeOpenBackupSetRequest& setDBInstanceName(string DBInstanceName) { DARABONBA_PTR_SET_VALUE(DBInstanceName_, DBInstanceName) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeOpenBackupSetRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // restoreTime Field Functions 
     bool hasRestoreTime() const { return this->restoreTime_ != nullptr;};
     void deleteRestoreTime() { this->restoreTime_ = nullptr;};
-    inline string restoreTime() const { DARABONBA_PTR_GET_DEFAULT(restoreTime_, "") };
+    inline string getRestoreTime() const { DARABONBA_PTR_GET_DEFAULT(restoreTime_, "") };
     inline DescribeOpenBackupSetRequest& setRestoreTime(string restoreTime) { DARABONBA_PTR_SET_VALUE(restoreTime_, restoreTime) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> DBInstanceName_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> restoreTime_ = nullptr;
+    shared_ptr<string> DBInstanceName_ {};
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> restoreTime_ {};
   };
 
   } // namespace Models

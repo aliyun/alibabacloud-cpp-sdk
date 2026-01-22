@@ -36,42 +36,42 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ids_ == nullptr
-        && return this->immediateStart_ == nullptr && return this->regionId_ == nullptr && return this->switchTime_ == nullptr; };
+        && this->immediateStart_ == nullptr && this->regionId_ == nullptr && this->switchTime_ == nullptr; };
     // ids Field Functions 
     bool hasIds() const { return this->ids_ != nullptr;};
     void deleteIds() { this->ids_ = nullptr;};
-    inline string ids() const { DARABONBA_PTR_GET_DEFAULT(ids_, "") };
+    inline string getIds() const { DARABONBA_PTR_GET_DEFAULT(ids_, "") };
     inline ModifyActiveOperationTasksRequest& setIds(string ids) { DARABONBA_PTR_SET_VALUE(ids_, ids) };
 
 
     // immediateStart Field Functions 
     bool hasImmediateStart() const { return this->immediateStart_ != nullptr;};
     void deleteImmediateStart() { this->immediateStart_ = nullptr;};
-    inline int64_t immediateStart() const { DARABONBA_PTR_GET_DEFAULT(immediateStart_, 0L) };
+    inline int64_t getImmediateStart() const { DARABONBA_PTR_GET_DEFAULT(immediateStart_, 0L) };
     inline ModifyActiveOperationTasksRequest& setImmediateStart(int64_t immediateStart) { DARABONBA_PTR_SET_VALUE(immediateStart_, immediateStart) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ModifyActiveOperationTasksRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // switchTime Field Functions 
     bool hasSwitchTime() const { return this->switchTime_ != nullptr;};
     void deleteSwitchTime() { this->switchTime_ = nullptr;};
-    inline string switchTime() const { DARABONBA_PTR_GET_DEFAULT(switchTime_, "") };
+    inline string getSwitchTime() const { DARABONBA_PTR_GET_DEFAULT(switchTime_, "") };
     inline ModifyActiveOperationTasksRequest& setSwitchTime(string switchTime) { DARABONBA_PTR_SET_VALUE(switchTime_, switchTime) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> ids_ = nullptr;
-    std::shared_ptr<int64_t> immediateStart_ = nullptr;
+    shared_ptr<string> ids_ {};
+    shared_ptr<int64_t> immediateStart_ {};
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> switchTime_ = nullptr;
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> switchTime_ {};
   };
 
   } // namespace Models

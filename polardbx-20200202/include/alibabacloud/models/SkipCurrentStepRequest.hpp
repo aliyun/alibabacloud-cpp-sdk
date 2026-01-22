@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->currentStep_ == nullptr
-        && return this->regionId_ == nullptr && return this->slinkTaskId_ == nullptr; };
+        && this->regionId_ == nullptr && this->slinkTaskId_ == nullptr; };
     // currentStep Field Functions 
     bool hasCurrentStep() const { return this->currentStep_ != nullptr;};
     void deleteCurrentStep() { this->currentStep_ = nullptr;};
-    inline string currentStep() const { DARABONBA_PTR_GET_DEFAULT(currentStep_, "") };
+    inline string getCurrentStep() const { DARABONBA_PTR_GET_DEFAULT(currentStep_, "") };
     inline SkipCurrentStepRequest& setCurrentStep(string currentStep) { DARABONBA_PTR_SET_VALUE(currentStep_, currentStep) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline SkipCurrentStepRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // slinkTaskId Field Functions 
     bool hasSlinkTaskId() const { return this->slinkTaskId_ != nullptr;};
     void deleteSlinkTaskId() { this->slinkTaskId_ = nullptr;};
-    inline string slinkTaskId() const { DARABONBA_PTR_GET_DEFAULT(slinkTaskId_, "") };
+    inline string getSlinkTaskId() const { DARABONBA_PTR_GET_DEFAULT(slinkTaskId_, "") };
     inline SkipCurrentStepRequest& setSlinkTaskId(string slinkTaskId) { DARABONBA_PTR_SET_VALUE(slinkTaskId_, slinkTaskId) };
 
 
   protected:
-    std::shared_ptr<string> currentStep_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> slinkTaskId_ = nullptr;
+    shared_ptr<string> currentStep_ {};
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> slinkTaskId_ {};
   };
 
   } // namespace Models

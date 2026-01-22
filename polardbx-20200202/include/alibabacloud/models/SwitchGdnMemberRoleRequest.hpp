@@ -36,43 +36,43 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBInstanceName_ == nullptr
-        && return this->regionId_ == nullptr && return this->switchMode_ == nullptr && return this->taskTimeout_ == nullptr; };
+        && this->regionId_ == nullptr && this->switchMode_ == nullptr && this->taskTimeout_ == nullptr; };
     // DBInstanceName Field Functions 
     bool hasDBInstanceName() const { return this->DBInstanceName_ != nullptr;};
     void deleteDBInstanceName() { this->DBInstanceName_ = nullptr;};
-    inline string DBInstanceName() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceName_, "") };
+    inline string getDBInstanceName() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceName_, "") };
     inline SwitchGdnMemberRoleRequest& setDBInstanceName(string DBInstanceName) { DARABONBA_PTR_SET_VALUE(DBInstanceName_, DBInstanceName) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline SwitchGdnMemberRoleRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // switchMode Field Functions 
     bool hasSwitchMode() const { return this->switchMode_ != nullptr;};
     void deleteSwitchMode() { this->switchMode_ = nullptr;};
-    inline string switchMode() const { DARABONBA_PTR_GET_DEFAULT(switchMode_, "") };
+    inline string getSwitchMode() const { DARABONBA_PTR_GET_DEFAULT(switchMode_, "") };
     inline SwitchGdnMemberRoleRequest& setSwitchMode(string switchMode) { DARABONBA_PTR_SET_VALUE(switchMode_, switchMode) };
 
 
     // taskTimeout Field Functions 
     bool hasTaskTimeout() const { return this->taskTimeout_ != nullptr;};
     void deleteTaskTimeout() { this->taskTimeout_ = nullptr;};
-    inline int64_t taskTimeout() const { DARABONBA_PTR_GET_DEFAULT(taskTimeout_, 0L) };
+    inline int64_t getTaskTimeout() const { DARABONBA_PTR_GET_DEFAULT(taskTimeout_, 0L) };
     inline SwitchGdnMemberRoleRequest& setTaskTimeout(int64_t taskTimeout) { DARABONBA_PTR_SET_VALUE(taskTimeout_, taskTimeout) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> DBInstanceName_ = nullptr;
+    shared_ptr<string> DBInstanceName_ {};
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // This parameter is required.
-    std::shared_ptr<string> switchMode_ = nullptr;
-    std::shared_ptr<int64_t> taskTimeout_ = nullptr;
+    shared_ptr<string> switchMode_ {};
+    shared_ptr<int64_t> taskTimeout_ {};
   };
 
   } // namespace Models

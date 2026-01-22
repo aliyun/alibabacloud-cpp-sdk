@@ -2,7 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_DESCRIBEUSERENCRYPTIONKEYLISTRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_DESCRIBEUSERENCRYPTIONKEYLISTRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/DescribeUserEncryptionKeyListResponseBodyData.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -32,27 +32,60 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(KeyIds, keyIds_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(KeyIds, keyIds_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->keyIds_ == nullptr; };
+      // keyIds Field Functions 
+      bool hasKeyIds() const { return this->keyIds_ != nullptr;};
+      void deleteKeyIds() { this->keyIds_ = nullptr;};
+      inline const vector<string> & getKeyIds() const { DARABONBA_PTR_GET_CONST(keyIds_, vector<string>) };
+      inline vector<string> getKeyIds() { DARABONBA_PTR_GET(keyIds_, vector<string>) };
+      inline Data& setKeyIds(const vector<string> & keyIds) { DARABONBA_PTR_SET_VALUE(keyIds_, keyIds) };
+      inline Data& setKeyIds(vector<string> && keyIds) { DARABONBA_PTR_SET_RVALUE(keyIds_, keyIds) };
+
+
+    protected:
+      shared_ptr<vector<string>> keyIds_ {};
+    };
+
     virtual bool empty() const override { return this->data_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const DescribeUserEncryptionKeyListResponseBodyData & data() const { DARABONBA_PTR_GET_CONST(data_, DescribeUserEncryptionKeyListResponseBodyData) };
-    inline DescribeUserEncryptionKeyListResponseBodyData data() { DARABONBA_PTR_GET(data_, DescribeUserEncryptionKeyListResponseBodyData) };
-    inline DescribeUserEncryptionKeyListResponseBody& setData(const DescribeUserEncryptionKeyListResponseBodyData & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline DescribeUserEncryptionKeyListResponseBody& setData(DescribeUserEncryptionKeyListResponseBodyData && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const DescribeUserEncryptionKeyListResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, DescribeUserEncryptionKeyListResponseBody::Data) };
+    inline DescribeUserEncryptionKeyListResponseBody::Data getData() { DARABONBA_PTR_GET(data_, DescribeUserEncryptionKeyListResponseBody::Data) };
+    inline DescribeUserEncryptionKeyListResponseBody& setData(const DescribeUserEncryptionKeyListResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline DescribeUserEncryptionKeyListResponseBody& setData(DescribeUserEncryptionKeyListResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeUserEncryptionKeyListResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<DescribeUserEncryptionKeyListResponseBodyData> data_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<DescribeUserEncryptionKeyListResponseBody::Data> data_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

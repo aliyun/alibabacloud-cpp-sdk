@@ -40,62 +40,62 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cycleTime_ == nullptr
-        && return this->cycleType_ == nullptr && return this->maintainEndTime_ == nullptr && return this->maintainStartTime_ == nullptr && return this->regionId_ == nullptr && return this->status_ == nullptr; };
+        && this->cycleType_ == nullptr && this->maintainEndTime_ == nullptr && this->maintainStartTime_ == nullptr && this->regionId_ == nullptr && this->status_ == nullptr; };
     // cycleTime Field Functions 
     bool hasCycleTime() const { return this->cycleTime_ != nullptr;};
     void deleteCycleTime() { this->cycleTime_ = nullptr;};
-    inline string cycleTime() const { DARABONBA_PTR_GET_DEFAULT(cycleTime_, "") };
+    inline string getCycleTime() const { DARABONBA_PTR_GET_DEFAULT(cycleTime_, "") };
     inline ModifyActiveOperationMaintainConfRequest& setCycleTime(string cycleTime) { DARABONBA_PTR_SET_VALUE(cycleTime_, cycleTime) };
 
 
     // cycleType Field Functions 
     bool hasCycleType() const { return this->cycleType_ != nullptr;};
     void deleteCycleType() { this->cycleType_ = nullptr;};
-    inline string cycleType() const { DARABONBA_PTR_GET_DEFAULT(cycleType_, "") };
+    inline string getCycleType() const { DARABONBA_PTR_GET_DEFAULT(cycleType_, "") };
     inline ModifyActiveOperationMaintainConfRequest& setCycleType(string cycleType) { DARABONBA_PTR_SET_VALUE(cycleType_, cycleType) };
 
 
     // maintainEndTime Field Functions 
     bool hasMaintainEndTime() const { return this->maintainEndTime_ != nullptr;};
     void deleteMaintainEndTime() { this->maintainEndTime_ = nullptr;};
-    inline string maintainEndTime() const { DARABONBA_PTR_GET_DEFAULT(maintainEndTime_, "") };
+    inline string getMaintainEndTime() const { DARABONBA_PTR_GET_DEFAULT(maintainEndTime_, "") };
     inline ModifyActiveOperationMaintainConfRequest& setMaintainEndTime(string maintainEndTime) { DARABONBA_PTR_SET_VALUE(maintainEndTime_, maintainEndTime) };
 
 
     // maintainStartTime Field Functions 
     bool hasMaintainStartTime() const { return this->maintainStartTime_ != nullptr;};
     void deleteMaintainStartTime() { this->maintainStartTime_ = nullptr;};
-    inline string maintainStartTime() const { DARABONBA_PTR_GET_DEFAULT(maintainStartTime_, "") };
+    inline string getMaintainStartTime() const { DARABONBA_PTR_GET_DEFAULT(maintainStartTime_, "") };
     inline ModifyActiveOperationMaintainConfRequest& setMaintainStartTime(string maintainStartTime) { DARABONBA_PTR_SET_VALUE(maintainStartTime_, maintainStartTime) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ModifyActiveOperationMaintainConfRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline int32_t status() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
+    inline int32_t getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
     inline ModifyActiveOperationMaintainConfRequest& setStatus(int32_t status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> cycleTime_ = nullptr;
+    shared_ptr<string> cycleTime_ {};
     // This parameter is required.
-    std::shared_ptr<string> cycleType_ = nullptr;
+    shared_ptr<string> cycleType_ {};
     // This parameter is required.
-    std::shared_ptr<string> maintainEndTime_ = nullptr;
+    shared_ptr<string> maintainEndTime_ {};
     // This parameter is required.
-    std::shared_ptr<string> maintainStartTime_ = nullptr;
+    shared_ptr<string> maintainStartTime_ {};
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> status_ = nullptr;
+    shared_ptr<int32_t> status_ {};
   };
 
   } // namespace Models

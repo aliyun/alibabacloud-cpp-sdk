@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->polardbxInstanceId_ == nullptr
-        && return this->regionId_ == nullptr; };
+        && this->regionId_ == nullptr; };
     // polardbxInstanceId Field Functions 
     bool hasPolardbxInstanceId() const { return this->polardbxInstanceId_ != nullptr;};
     void deletePolardbxInstanceId() { this->polardbxInstanceId_ = nullptr;};
-    inline string polardbxInstanceId() const { DARABONBA_PTR_GET_DEFAULT(polardbxInstanceId_, "") };
+    inline string getPolardbxInstanceId() const { DARABONBA_PTR_GET_DEFAULT(polardbxInstanceId_, "") };
     inline DescribeSqlFlashbackTaskListRequest& setPolardbxInstanceId(string polardbxInstanceId) { DARABONBA_PTR_SET_VALUE(polardbxInstanceId_, polardbxInstanceId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeSqlFlashbackTaskListRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> polardbxInstanceId_ = nullptr;
+    shared_ptr<string> polardbxInstanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

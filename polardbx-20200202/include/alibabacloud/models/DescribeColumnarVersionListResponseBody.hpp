@@ -2,7 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_DESCRIBECOLUMNARVERSIONLISTRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_DESCRIBECOLUMNARVERSIONLISTRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/DescribeColumnarVersionListResponseBodyData.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -32,28 +32,61 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(VersionList, versionList_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(VersionList, versionList_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->versionList_ == nullptr; };
+      // versionList Field Functions 
+      bool hasVersionList() const { return this->versionList_ != nullptr;};
+      void deleteVersionList() { this->versionList_ = nullptr;};
+      inline const vector<string> & getVersionList() const { DARABONBA_PTR_GET_CONST(versionList_, vector<string>) };
+      inline vector<string> getVersionList() { DARABONBA_PTR_GET(versionList_, vector<string>) };
+      inline Data& setVersionList(const vector<string> & versionList) { DARABONBA_PTR_SET_VALUE(versionList_, versionList) };
+      inline Data& setVersionList(vector<string> && versionList) { DARABONBA_PTR_SET_RVALUE(versionList_, versionList) };
+
+
+    protected:
+      shared_ptr<vector<string>> versionList_ {};
+    };
+
     virtual bool empty() const override { return this->data_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const DescribeColumnarVersionListResponseBodyData & data() const { DARABONBA_PTR_GET_CONST(data_, DescribeColumnarVersionListResponseBodyData) };
-    inline DescribeColumnarVersionListResponseBodyData data() { DARABONBA_PTR_GET(data_, DescribeColumnarVersionListResponseBodyData) };
-    inline DescribeColumnarVersionListResponseBody& setData(const DescribeColumnarVersionListResponseBodyData & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline DescribeColumnarVersionListResponseBody& setData(DescribeColumnarVersionListResponseBodyData && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const DescribeColumnarVersionListResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, DescribeColumnarVersionListResponseBody::Data) };
+    inline DescribeColumnarVersionListResponseBody::Data getData() { DARABONBA_PTR_GET(data_, DescribeColumnarVersionListResponseBody::Data) };
+    inline DescribeColumnarVersionListResponseBody& setData(const DescribeColumnarVersionListResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline DescribeColumnarVersionListResponseBody& setData(DescribeColumnarVersionListResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeColumnarVersionListResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<DescribeColumnarVersionListResponseBodyData> data_ = nullptr;
+    shared_ptr<DescribeColumnarVersionListResponseBody::Data> data_ {};
     // Id of the request
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

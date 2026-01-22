@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_DESCRIBECOMPONENTPROPETIESRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/DescribeComponentPropetiesResponseBodyProperties.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -33,28 +32,90 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Properties : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Properties& obj) { 
+        DARABONBA_PTR_TO_JSON(Name, name_);
+        DARABONBA_PTR_TO_JSON(OrderIndex, orderIndex_);
+        DARABONBA_PTR_TO_JSON(PropertyCode, propertyCode_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, Properties& obj) { 
+        DARABONBA_PTR_FROM_JSON(Name, name_);
+        DARABONBA_PTR_FROM_JSON(OrderIndex, orderIndex_);
+        DARABONBA_PTR_FROM_JSON(PropertyCode, propertyCode_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
+      };
+      Properties() = default ;
+      Properties(const Properties &) = default ;
+      Properties(Properties &&) = default ;
+      Properties(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Properties() = default ;
+      Properties& operator=(const Properties &) = default ;
+      Properties& operator=(Properties &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->name_ == nullptr
+        && this->orderIndex_ == nullptr && this->propertyCode_ == nullptr && this->value_ == nullptr; };
+      // name Field Functions 
+      bool hasName() const { return this->name_ != nullptr;};
+      void deleteName() { this->name_ = nullptr;};
+      inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+      inline Properties& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+      // orderIndex Field Functions 
+      bool hasOrderIndex() const { return this->orderIndex_ != nullptr;};
+      void deleteOrderIndex() { this->orderIndex_ = nullptr;};
+      inline string getOrderIndex() const { DARABONBA_PTR_GET_DEFAULT(orderIndex_, "") };
+      inline Properties& setOrderIndex(string orderIndex) { DARABONBA_PTR_SET_VALUE(orderIndex_, orderIndex) };
+
+
+      // propertyCode Field Functions 
+      bool hasPropertyCode() const { return this->propertyCode_ != nullptr;};
+      void deletePropertyCode() { this->propertyCode_ = nullptr;};
+      inline string getPropertyCode() const { DARABONBA_PTR_GET_DEFAULT(propertyCode_, "") };
+      inline Properties& setPropertyCode(string propertyCode) { DARABONBA_PTR_SET_VALUE(propertyCode_, propertyCode) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline Properties& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      shared_ptr<string> name_ {};
+      shared_ptr<string> orderIndex_ {};
+      shared_ptr<string> propertyCode_ {};
+      shared_ptr<string> value_ {};
+    };
+
     virtual bool empty() const override { return this->properties_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // properties Field Functions 
     bool hasProperties() const { return this->properties_ != nullptr;};
     void deleteProperties() { this->properties_ = nullptr;};
-    inline const vector<DescribeComponentPropetiesResponseBodyProperties> & properties() const { DARABONBA_PTR_GET_CONST(properties_, vector<DescribeComponentPropetiesResponseBodyProperties>) };
-    inline vector<DescribeComponentPropetiesResponseBodyProperties> properties() { DARABONBA_PTR_GET(properties_, vector<DescribeComponentPropetiesResponseBodyProperties>) };
-    inline DescribeComponentPropetiesResponseBody& setProperties(const vector<DescribeComponentPropetiesResponseBodyProperties> & properties) { DARABONBA_PTR_SET_VALUE(properties_, properties) };
-    inline DescribeComponentPropetiesResponseBody& setProperties(vector<DescribeComponentPropetiesResponseBodyProperties> && properties) { DARABONBA_PTR_SET_RVALUE(properties_, properties) };
+    inline const vector<DescribeComponentPropetiesResponseBody::Properties> & getProperties() const { DARABONBA_PTR_GET_CONST(properties_, vector<DescribeComponentPropetiesResponseBody::Properties>) };
+    inline vector<DescribeComponentPropetiesResponseBody::Properties> getProperties() { DARABONBA_PTR_GET(properties_, vector<DescribeComponentPropetiesResponseBody::Properties>) };
+    inline DescribeComponentPropetiesResponseBody& setProperties(const vector<DescribeComponentPropetiesResponseBody::Properties> & properties) { DARABONBA_PTR_SET_VALUE(properties_, properties) };
+    inline DescribeComponentPropetiesResponseBody& setProperties(vector<DescribeComponentPropetiesResponseBody::Properties> && properties) { DARABONBA_PTR_SET_RVALUE(properties_, properties) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeComponentPropetiesResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<vector<DescribeComponentPropetiesResponseBodyProperties>> properties_ = nullptr;
+    shared_ptr<vector<DescribeComponentPropetiesResponseBody::Properties>> properties_ {};
     // Id of the request
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

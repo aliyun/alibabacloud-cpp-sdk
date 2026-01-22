@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->customEndpointId_ == nullptr
-        && return this->DBInstanceName_ == nullptr && return this->regionId_ == nullptr; };
+        && this->DBInstanceName_ == nullptr && this->regionId_ == nullptr; };
     // customEndpointId Field Functions 
     bool hasCustomEndpointId() const { return this->customEndpointId_ != nullptr;};
     void deleteCustomEndpointId() { this->customEndpointId_ = nullptr;};
-    inline string customEndpointId() const { DARABONBA_PTR_GET_DEFAULT(customEndpointId_, "") };
+    inline string getCustomEndpointId() const { DARABONBA_PTR_GET_DEFAULT(customEndpointId_, "") };
     inline DeleteCustomEndpointRequest& setCustomEndpointId(string customEndpointId) { DARABONBA_PTR_SET_VALUE(customEndpointId_, customEndpointId) };
 
 
     // DBInstanceName Field Functions 
     bool hasDBInstanceName() const { return this->DBInstanceName_ != nullptr;};
     void deleteDBInstanceName() { this->DBInstanceName_ = nullptr;};
-    inline string DBInstanceName() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceName_, "") };
+    inline string getDBInstanceName() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceName_, "") };
     inline DeleteCustomEndpointRequest& setDBInstanceName(string DBInstanceName) { DARABONBA_PTR_SET_VALUE(DBInstanceName_, DBInstanceName) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteCustomEndpointRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
-    std::shared_ptr<string> customEndpointId_ = nullptr;
-    std::shared_ptr<string> DBInstanceName_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> customEndpointId_ {};
+    shared_ptr<string> DBInstanceName_ {};
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

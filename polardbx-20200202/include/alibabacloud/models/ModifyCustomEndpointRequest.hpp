@@ -42,68 +42,68 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->customEndpointId_ == nullptr
-        && return this->DBInstanceName_ == nullptr && return this->name_ == nullptr && return this->nodeAutoEnter_ == nullptr && return this->nodeIds_ == nullptr && return this->nodeRole_ == nullptr
-        && return this->regionId_ == nullptr; };
+        && this->DBInstanceName_ == nullptr && this->name_ == nullptr && this->nodeAutoEnter_ == nullptr && this->nodeIds_ == nullptr && this->nodeRole_ == nullptr
+        && this->regionId_ == nullptr; };
     // customEndpointId Field Functions 
     bool hasCustomEndpointId() const { return this->customEndpointId_ != nullptr;};
     void deleteCustomEndpointId() { this->customEndpointId_ = nullptr;};
-    inline string customEndpointId() const { DARABONBA_PTR_GET_DEFAULT(customEndpointId_, "") };
+    inline string getCustomEndpointId() const { DARABONBA_PTR_GET_DEFAULT(customEndpointId_, "") };
     inline ModifyCustomEndpointRequest& setCustomEndpointId(string customEndpointId) { DARABONBA_PTR_SET_VALUE(customEndpointId_, customEndpointId) };
 
 
     // DBInstanceName Field Functions 
     bool hasDBInstanceName() const { return this->DBInstanceName_ != nullptr;};
     void deleteDBInstanceName() { this->DBInstanceName_ = nullptr;};
-    inline string DBInstanceName() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceName_, "") };
+    inline string getDBInstanceName() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceName_, "") };
     inline ModifyCustomEndpointRequest& setDBInstanceName(string DBInstanceName) { DARABONBA_PTR_SET_VALUE(DBInstanceName_, DBInstanceName) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline ModifyCustomEndpointRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // nodeAutoEnter Field Functions 
     bool hasNodeAutoEnter() const { return this->nodeAutoEnter_ != nullptr;};
     void deleteNodeAutoEnter() { this->nodeAutoEnter_ = nullptr;};
-    inline bool nodeAutoEnter() const { DARABONBA_PTR_GET_DEFAULT(nodeAutoEnter_, false) };
+    inline bool getNodeAutoEnter() const { DARABONBA_PTR_GET_DEFAULT(nodeAutoEnter_, false) };
     inline ModifyCustomEndpointRequest& setNodeAutoEnter(bool nodeAutoEnter) { DARABONBA_PTR_SET_VALUE(nodeAutoEnter_, nodeAutoEnter) };
 
 
     // nodeIds Field Functions 
     bool hasNodeIds() const { return this->nodeIds_ != nullptr;};
     void deleteNodeIds() { this->nodeIds_ = nullptr;};
-    inline string nodeIds() const { DARABONBA_PTR_GET_DEFAULT(nodeIds_, "") };
+    inline string getNodeIds() const { DARABONBA_PTR_GET_DEFAULT(nodeIds_, "") };
     inline ModifyCustomEndpointRequest& setNodeIds(string nodeIds) { DARABONBA_PTR_SET_VALUE(nodeIds_, nodeIds) };
 
 
     // nodeRole Field Functions 
     bool hasNodeRole() const { return this->nodeRole_ != nullptr;};
     void deleteNodeRole() { this->nodeRole_ = nullptr;};
-    inline string nodeRole() const { DARABONBA_PTR_GET_DEFAULT(nodeRole_, "") };
+    inline string getNodeRole() const { DARABONBA_PTR_GET_DEFAULT(nodeRole_, "") };
     inline ModifyCustomEndpointRequest& setNodeRole(string nodeRole) { DARABONBA_PTR_SET_VALUE(nodeRole_, nodeRole) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ModifyCustomEndpointRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> customEndpointId_ = nullptr;
+    shared_ptr<string> customEndpointId_ {};
     // This parameter is required.
-    std::shared_ptr<string> DBInstanceName_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<bool> nodeAutoEnter_ = nullptr;
+    shared_ptr<string> DBInstanceName_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<bool> nodeAutoEnter_ {};
     // node ids
-    std::shared_ptr<string> nodeIds_ = nullptr;
-    std::shared_ptr<string> nodeRole_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> nodeIds_ {};
+    shared_ptr<string> nodeRole_ {};
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

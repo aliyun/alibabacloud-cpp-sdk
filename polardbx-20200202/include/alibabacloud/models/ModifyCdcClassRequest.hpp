@@ -38,51 +38,51 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->CDCNodeCount_ == nullptr
-        && return this->cdcClass_ == nullptr && return this->instanceName_ == nullptr && return this->regionId_ == nullptr && return this->switchMode_ == nullptr; };
+        && this->cdcClass_ == nullptr && this->instanceName_ == nullptr && this->regionId_ == nullptr && this->switchMode_ == nullptr; };
     // CDCNodeCount Field Functions 
     bool hasCDCNodeCount() const { return this->CDCNodeCount_ != nullptr;};
     void deleteCDCNodeCount() { this->CDCNodeCount_ = nullptr;};
-    inline string CDCNodeCount() const { DARABONBA_PTR_GET_DEFAULT(CDCNodeCount_, "") };
+    inline string getCDCNodeCount() const { DARABONBA_PTR_GET_DEFAULT(CDCNodeCount_, "") };
     inline ModifyCdcClassRequest& setCDCNodeCount(string CDCNodeCount) { DARABONBA_PTR_SET_VALUE(CDCNodeCount_, CDCNodeCount) };
 
 
     // cdcClass Field Functions 
     bool hasCdcClass() const { return this->cdcClass_ != nullptr;};
     void deleteCdcClass() { this->cdcClass_ = nullptr;};
-    inline string cdcClass() const { DARABONBA_PTR_GET_DEFAULT(cdcClass_, "") };
+    inline string getCdcClass() const { DARABONBA_PTR_GET_DEFAULT(cdcClass_, "") };
     inline ModifyCdcClassRequest& setCdcClass(string cdcClass) { DARABONBA_PTR_SET_VALUE(cdcClass_, cdcClass) };
 
 
     // instanceName Field Functions 
     bool hasInstanceName() const { return this->instanceName_ != nullptr;};
     void deleteInstanceName() { this->instanceName_ = nullptr;};
-    inline string instanceName() const { DARABONBA_PTR_GET_DEFAULT(instanceName_, "") };
+    inline string getInstanceName() const { DARABONBA_PTR_GET_DEFAULT(instanceName_, "") };
     inline ModifyCdcClassRequest& setInstanceName(string instanceName) { DARABONBA_PTR_SET_VALUE(instanceName_, instanceName) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ModifyCdcClassRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // switchMode Field Functions 
     bool hasSwitchMode() const { return this->switchMode_ != nullptr;};
     void deleteSwitchMode() { this->switchMode_ = nullptr;};
-    inline string switchMode() const { DARABONBA_PTR_GET_DEFAULT(switchMode_, "") };
+    inline string getSwitchMode() const { DARABONBA_PTR_GET_DEFAULT(switchMode_, "") };
     inline ModifyCdcClassRequest& setSwitchMode(string switchMode) { DARABONBA_PTR_SET_VALUE(switchMode_, switchMode) };
 
 
   protected:
-    std::shared_ptr<string> CDCNodeCount_ = nullptr;
+    shared_ptr<string> CDCNodeCount_ {};
     // This parameter is required.
-    std::shared_ptr<string> cdcClass_ = nullptr;
+    shared_ptr<string> cdcClass_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceName_ = nullptr;
+    shared_ptr<string> instanceName_ {};
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> switchMode_ = nullptr;
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> switchMode_ {};
   };
 
   } // namespace Models

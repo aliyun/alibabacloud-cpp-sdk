@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->columnarVersion_ == nullptr
-        && return this->DBInstanceName_ == nullptr && return this->instanceName_ == nullptr && return this->regionId_ == nullptr && return this->switchMode_ == nullptr; };
+        && this->DBInstanceName_ == nullptr && this->instanceName_ == nullptr && this->regionId_ == nullptr && this->switchMode_ == nullptr; };
     // columnarVersion Field Functions 
     bool hasColumnarVersion() const { return this->columnarVersion_ != nullptr;};
     void deleteColumnarVersion() { this->columnarVersion_ = nullptr;};
-    inline string columnarVersion() const { DARABONBA_PTR_GET_DEFAULT(columnarVersion_, "") };
+    inline string getColumnarVersion() const { DARABONBA_PTR_GET_DEFAULT(columnarVersion_, "") };
     inline UpgradeColumnarVersionRequest& setColumnarVersion(string columnarVersion) { DARABONBA_PTR_SET_VALUE(columnarVersion_, columnarVersion) };
 
 
     // DBInstanceName Field Functions 
     bool hasDBInstanceName() const { return this->DBInstanceName_ != nullptr;};
     void deleteDBInstanceName() { this->DBInstanceName_ = nullptr;};
-    inline string DBInstanceName() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceName_, "") };
+    inline string getDBInstanceName() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceName_, "") };
     inline UpgradeColumnarVersionRequest& setDBInstanceName(string DBInstanceName) { DARABONBA_PTR_SET_VALUE(DBInstanceName_, DBInstanceName) };
 
 
     // instanceName Field Functions 
     bool hasInstanceName() const { return this->instanceName_ != nullptr;};
     void deleteInstanceName() { this->instanceName_ = nullptr;};
-    inline string instanceName() const { DARABONBA_PTR_GET_DEFAULT(instanceName_, "") };
+    inline string getInstanceName() const { DARABONBA_PTR_GET_DEFAULT(instanceName_, "") };
     inline UpgradeColumnarVersionRequest& setInstanceName(string instanceName) { DARABONBA_PTR_SET_VALUE(instanceName_, instanceName) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline UpgradeColumnarVersionRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // switchMode Field Functions 
     bool hasSwitchMode() const { return this->switchMode_ != nullptr;};
     void deleteSwitchMode() { this->switchMode_ = nullptr;};
-    inline string switchMode() const { DARABONBA_PTR_GET_DEFAULT(switchMode_, "") };
+    inline string getSwitchMode() const { DARABONBA_PTR_GET_DEFAULT(switchMode_, "") };
     inline UpgradeColumnarVersionRequest& setSwitchMode(string switchMode) { DARABONBA_PTR_SET_VALUE(switchMode_, switchMode) };
 
 
   protected:
-    std::shared_ptr<string> columnarVersion_ = nullptr;
-    std::shared_ptr<string> DBInstanceName_ = nullptr;
-    std::shared_ptr<string> instanceName_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> switchMode_ = nullptr;
+    shared_ptr<string> columnarVersion_ {};
+    shared_ptr<string> DBInstanceName_ {};
+    shared_ptr<string> instanceName_ {};
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> switchMode_ {};
   };
 
   } // namespace Models

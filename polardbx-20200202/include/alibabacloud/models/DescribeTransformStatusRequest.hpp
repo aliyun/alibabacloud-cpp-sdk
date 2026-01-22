@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBInstanceName_ == nullptr
-        && return this->queryReport_ == nullptr && return this->regionId_ == nullptr; };
+        && this->queryReport_ == nullptr && this->regionId_ == nullptr; };
     // DBInstanceName Field Functions 
     bool hasDBInstanceName() const { return this->DBInstanceName_ != nullptr;};
     void deleteDBInstanceName() { this->DBInstanceName_ = nullptr;};
-    inline string DBInstanceName() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceName_, "") };
+    inline string getDBInstanceName() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceName_, "") };
     inline DescribeTransformStatusRequest& setDBInstanceName(string DBInstanceName) { DARABONBA_PTR_SET_VALUE(DBInstanceName_, DBInstanceName) };
 
 
     // queryReport Field Functions 
     bool hasQueryReport() const { return this->queryReport_ != nullptr;};
     void deleteQueryReport() { this->queryReport_ = nullptr;};
-    inline bool queryReport() const { DARABONBA_PTR_GET_DEFAULT(queryReport_, false) };
+    inline bool getQueryReport() const { DARABONBA_PTR_GET_DEFAULT(queryReport_, false) };
     inline DescribeTransformStatusRequest& setQueryReport(bool queryReport) { DARABONBA_PTR_SET_VALUE(queryReport_, queryReport) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeTransformStatusRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
-    std::shared_ptr<string> DBInstanceName_ = nullptr;
-    std::shared_ptr<bool> queryReport_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> DBInstanceName_ {};
+    shared_ptr<bool> queryReport_ {};
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models
