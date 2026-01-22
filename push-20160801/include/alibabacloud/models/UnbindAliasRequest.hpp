@@ -36,42 +36,42 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aliasName_ == nullptr
-        && return this->appKey_ == nullptr && return this->deviceId_ == nullptr && return this->unbindAll_ == nullptr; };
+        && this->appKey_ == nullptr && this->deviceId_ == nullptr && this->unbindAll_ == nullptr; };
     // aliasName Field Functions 
     bool hasAliasName() const { return this->aliasName_ != nullptr;};
     void deleteAliasName() { this->aliasName_ = nullptr;};
-    inline string aliasName() const { DARABONBA_PTR_GET_DEFAULT(aliasName_, "") };
+    inline string getAliasName() const { DARABONBA_PTR_GET_DEFAULT(aliasName_, "") };
     inline UnbindAliasRequest& setAliasName(string aliasName) { DARABONBA_PTR_SET_VALUE(aliasName_, aliasName) };
 
 
     // appKey Field Functions 
     bool hasAppKey() const { return this->appKey_ != nullptr;};
     void deleteAppKey() { this->appKey_ = nullptr;};
-    inline int64_t appKey() const { DARABONBA_PTR_GET_DEFAULT(appKey_, 0L) };
+    inline int64_t getAppKey() const { DARABONBA_PTR_GET_DEFAULT(appKey_, 0L) };
     inline UnbindAliasRequest& setAppKey(int64_t appKey) { DARABONBA_PTR_SET_VALUE(appKey_, appKey) };
 
 
     // deviceId Field Functions 
     bool hasDeviceId() const { return this->deviceId_ != nullptr;};
     void deleteDeviceId() { this->deviceId_ = nullptr;};
-    inline string deviceId() const { DARABONBA_PTR_GET_DEFAULT(deviceId_, "") };
+    inline string getDeviceId() const { DARABONBA_PTR_GET_DEFAULT(deviceId_, "") };
     inline UnbindAliasRequest& setDeviceId(string deviceId) { DARABONBA_PTR_SET_VALUE(deviceId_, deviceId) };
 
 
     // unbindAll Field Functions 
     bool hasUnbindAll() const { return this->unbindAll_ != nullptr;};
     void deleteUnbindAll() { this->unbindAll_ = nullptr;};
-    inline bool unbindAll() const { DARABONBA_PTR_GET_DEFAULT(unbindAll_, false) };
+    inline bool getUnbindAll() const { DARABONBA_PTR_GET_DEFAULT(unbindAll_, false) };
     inline UnbindAliasRequest& setUnbindAll(bool unbindAll) { DARABONBA_PTR_SET_VALUE(unbindAll_, unbindAll) };
 
 
   protected:
-    std::shared_ptr<string> aliasName_ = nullptr;
+    shared_ptr<string> aliasName_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> appKey_ = nullptr;
+    shared_ptr<int64_t> appKey_ {};
     // This parameter is required.
-    std::shared_ptr<string> deviceId_ = nullptr;
-    std::shared_ptr<bool> unbindAll_ = nullptr;
+    shared_ptr<string> deviceId_ {};
+    shared_ptr<bool> unbindAll_ {};
   };
 
   } // namespace Models

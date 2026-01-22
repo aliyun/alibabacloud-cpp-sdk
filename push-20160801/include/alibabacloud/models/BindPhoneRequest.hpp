@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appKey_ == nullptr
-        && return this->deviceId_ == nullptr && return this->phoneNumber_ == nullptr; };
+        && this->deviceId_ == nullptr && this->phoneNumber_ == nullptr; };
     // appKey Field Functions 
     bool hasAppKey() const { return this->appKey_ != nullptr;};
     void deleteAppKey() { this->appKey_ = nullptr;};
-    inline int64_t appKey() const { DARABONBA_PTR_GET_DEFAULT(appKey_, 0L) };
+    inline int64_t getAppKey() const { DARABONBA_PTR_GET_DEFAULT(appKey_, 0L) };
     inline BindPhoneRequest& setAppKey(int64_t appKey) { DARABONBA_PTR_SET_VALUE(appKey_, appKey) };
 
 
     // deviceId Field Functions 
     bool hasDeviceId() const { return this->deviceId_ != nullptr;};
     void deleteDeviceId() { this->deviceId_ = nullptr;};
-    inline string deviceId() const { DARABONBA_PTR_GET_DEFAULT(deviceId_, "") };
+    inline string getDeviceId() const { DARABONBA_PTR_GET_DEFAULT(deviceId_, "") };
     inline BindPhoneRequest& setDeviceId(string deviceId) { DARABONBA_PTR_SET_VALUE(deviceId_, deviceId) };
 
 
     // phoneNumber Field Functions 
     bool hasPhoneNumber() const { return this->phoneNumber_ != nullptr;};
     void deletePhoneNumber() { this->phoneNumber_ = nullptr;};
-    inline string phoneNumber() const { DARABONBA_PTR_GET_DEFAULT(phoneNumber_, "") };
+    inline string getPhoneNumber() const { DARABONBA_PTR_GET_DEFAULT(phoneNumber_, "") };
     inline BindPhoneRequest& setPhoneNumber(string phoneNumber) { DARABONBA_PTR_SET_VALUE(phoneNumber_, phoneNumber) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<int64_t> appKey_ = nullptr;
+    shared_ptr<int64_t> appKey_ {};
     // This parameter is required.
-    std::shared_ptr<string> deviceId_ = nullptr;
+    shared_ptr<string> deviceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> phoneNumber_ = nullptr;
+    shared_ptr<string> phoneNumber_ {};
   };
 
   } // namespace Models

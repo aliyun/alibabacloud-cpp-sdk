@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->account_ == nullptr
-        && return this->appKey_ == nullptr; };
+        && this->appKey_ == nullptr; };
     // account Field Functions 
     bool hasAccount() const { return this->account_ != nullptr;};
     void deleteAccount() { this->account_ = nullptr;};
-    inline string account() const { DARABONBA_PTR_GET_DEFAULT(account_, "") };
+    inline string getAccount() const { DARABONBA_PTR_GET_DEFAULT(account_, "") };
     inline QueryDevicesByAccountRequest& setAccount(string account) { DARABONBA_PTR_SET_VALUE(account_, account) };
 
 
     // appKey Field Functions 
     bool hasAppKey() const { return this->appKey_ != nullptr;};
     void deleteAppKey() { this->appKey_ = nullptr;};
-    inline int64_t appKey() const { DARABONBA_PTR_GET_DEFAULT(appKey_, 0L) };
+    inline int64_t getAppKey() const { DARABONBA_PTR_GET_DEFAULT(appKey_, 0L) };
     inline QueryDevicesByAccountRequest& setAppKey(int64_t appKey) { DARABONBA_PTR_SET_VALUE(appKey_, appKey) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> account_ = nullptr;
+    shared_ptr<string> account_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> appKey_ = nullptr;
+    shared_ptr<int64_t> appKey_ {};
   };
 
   } // namespace Models

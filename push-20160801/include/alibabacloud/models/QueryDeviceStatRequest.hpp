@@ -38,52 +38,52 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appKey_ == nullptr
-        && return this->deviceType_ == nullptr && return this->endTime_ == nullptr && return this->queryType_ == nullptr && return this->startTime_ == nullptr; };
+        && this->deviceType_ == nullptr && this->endTime_ == nullptr && this->queryType_ == nullptr && this->startTime_ == nullptr; };
     // appKey Field Functions 
     bool hasAppKey() const { return this->appKey_ != nullptr;};
     void deleteAppKey() { this->appKey_ = nullptr;};
-    inline int64_t appKey() const { DARABONBA_PTR_GET_DEFAULT(appKey_, 0L) };
+    inline int64_t getAppKey() const { DARABONBA_PTR_GET_DEFAULT(appKey_, 0L) };
     inline QueryDeviceStatRequest& setAppKey(int64_t appKey) { DARABONBA_PTR_SET_VALUE(appKey_, appKey) };
 
 
     // deviceType Field Functions 
     bool hasDeviceType() const { return this->deviceType_ != nullptr;};
     void deleteDeviceType() { this->deviceType_ = nullptr;};
-    inline string deviceType() const { DARABONBA_PTR_GET_DEFAULT(deviceType_, "") };
+    inline string getDeviceType() const { DARABONBA_PTR_GET_DEFAULT(deviceType_, "") };
     inline QueryDeviceStatRequest& setDeviceType(string deviceType) { DARABONBA_PTR_SET_VALUE(deviceType_, deviceType) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline QueryDeviceStatRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // queryType Field Functions 
     bool hasQueryType() const { return this->queryType_ != nullptr;};
     void deleteQueryType() { this->queryType_ = nullptr;};
-    inline string queryType() const { DARABONBA_PTR_GET_DEFAULT(queryType_, "") };
+    inline string getQueryType() const { DARABONBA_PTR_GET_DEFAULT(queryType_, "") };
     inline QueryDeviceStatRequest& setQueryType(string queryType) { DARABONBA_PTR_SET_VALUE(queryType_, queryType) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline QueryDeviceStatRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<int64_t> appKey_ = nullptr;
-    std::shared_ptr<string> deviceType_ = nullptr;
+    shared_ptr<int64_t> appKey_ {};
+    shared_ptr<string> deviceType_ {};
     // This parameter is required.
-    std::shared_ptr<string> endTime_ = nullptr;
+    shared_ptr<string> endTime_ {};
     // This parameter is required.
-    std::shared_ptr<string> queryType_ = nullptr;
+    shared_ptr<string> queryType_ {};
     // This parameter is required.
-    std::shared_ptr<string> startTime_ = nullptr;
+    shared_ptr<string> startTime_ {};
   };
 
   } // namespace Models

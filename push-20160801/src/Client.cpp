@@ -102,15 +102,15 @@ BindAliasResponse Client::bindAliasWithOptions(const BindAliasRequest &request, 
   request.validate();
   json query = {};
   if (!!request.hasAliasName()) {
-    query["AliasName"] = request.aliasName();
+    query["AliasName"] = request.getAliasName();
   }
 
   if (!!request.hasAppKey()) {
-    query["AppKey"] = request.appKey();
+    query["AppKey"] = request.getAppKey();
   }
 
   if (!!request.hasDeviceId()) {
-    query["DeviceId"] = request.deviceId();
+    query["DeviceId"] = request.getDeviceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -152,15 +152,15 @@ BindPhoneResponse Client::bindPhoneWithOptions(const BindPhoneRequest &request, 
   request.validate();
   json query = {};
   if (!!request.hasAppKey()) {
-    query["AppKey"] = request.appKey();
+    query["AppKey"] = request.getAppKey();
   }
 
   if (!!request.hasDeviceId()) {
-    query["DeviceId"] = request.deviceId();
+    query["DeviceId"] = request.getDeviceId();
   }
 
   if (!!request.hasPhoneNumber()) {
-    query["PhoneNumber"] = request.phoneNumber();
+    query["PhoneNumber"] = request.getPhoneNumber();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -202,19 +202,19 @@ BindTagResponse Client::bindTagWithOptions(const BindTagRequest &request, const 
   request.validate();
   json query = {};
   if (!!request.hasAppKey()) {
-    query["AppKey"] = request.appKey();
+    query["AppKey"] = request.getAppKey();
   }
 
   if (!!request.hasClientKey()) {
-    query["ClientKey"] = request.clientKey();
+    query["ClientKey"] = request.getClientKey();
   }
 
   if (!!request.hasKeyType()) {
-    query["KeyType"] = request.keyType();
+    query["KeyType"] = request.getKeyType();
   }
 
   if (!!request.hasTagName()) {
-    query["TagName"] = request.tagName();
+    query["TagName"] = request.getTagName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -256,11 +256,11 @@ CancelPushResponse Client::cancelPushWithOptions(const CancelPushRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasAppKey()) {
-    query["AppKey"] = request.appKey();
+    query["AppKey"] = request.getAppKey();
   }
 
   if (!!request.hasMessageId()) {
-    query["MessageId"] = request.messageId();
+    query["MessageId"] = request.getMessageId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -300,7 +300,7 @@ CheckCertificateResponse Client::checkCertificateWithOptions(const CheckCertific
   request.validate();
   json query = {};
   if (!!request.hasAppKey()) {
-    query["AppKey"] = request.appKey();
+    query["AppKey"] = request.getAppKey();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -342,11 +342,11 @@ CheckDeviceResponse Client::checkDeviceWithOptions(const CheckDeviceRequest &req
   request.validate();
   json query = {};
   if (!!request.hasAppKey()) {
-    query["AppKey"] = request.appKey();
+    query["AppKey"] = request.getAppKey();
   }
 
   if (!!request.hasDeviceId()) {
-    query["DeviceId"] = request.deviceId();
+    query["DeviceId"] = request.getDeviceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -390,11 +390,11 @@ CheckDevicesResponse Client::checkDevicesWithOptions(const CheckDevicesRequest &
   request.validate();
   json query = {};
   if (!!request.hasAppKey()) {
-    query["AppKey"] = request.appKey();
+    query["AppKey"] = request.getAppKey();
   }
 
   if (!!request.hasDeviceIds()) {
-    query["DeviceIds"] = request.deviceIds();
+    query["DeviceIds"] = request.getDeviceIds();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -436,11 +436,11 @@ CompleteContinuouslyPushResponse Client::completeContinuouslyPushWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasAppKey()) {
-    query["AppKey"] = request.appKey();
+    query["AppKey"] = request.getAppKey();
   }
 
   if (!!request.hasMessageId()) {
-    query["MessageId"] = request.messageId();
+    query["MessageId"] = request.getMessageId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -482,19 +482,19 @@ ContinuouslyPushResponse Client::continuouslyPushWithOptions(const ContinuouslyP
   request.validate();
   json query = {};
   if (!!request.hasAppKey()) {
-    query["AppKey"] = request.appKey();
+    query["AppKey"] = request.getAppKey();
   }
 
   if (!!request.hasMessageId()) {
-    query["MessageId"] = request.messageId();
+    query["MessageId"] = request.getMessageId();
   }
 
   if (!!request.hasTarget()) {
-    query["Target"] = request.target();
+    query["Target"] = request.getTarget();
   }
 
   if (!!request.hasTargetValue()) {
-    query["TargetValue"] = request.targetValue();
+    query["TargetValue"] = request.getTargetValue();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -573,7 +573,7 @@ ListTagsResponse Client::listTagsWithOptions(const ListTagsRequest &request, con
   request.validate();
   json query = {};
   if (!!request.hasAppKey()) {
-    query["AppKey"] = request.appKey();
+    query["AppKey"] = request.getAppKey();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -615,16 +615,16 @@ MassPushResponse Client::massPushWithOptions(const MassPushRequest &request, con
   request.validate();
   json query = {};
   if (!!request.hasAppKey()) {
-    query["AppKey"] = request.appKey();
+    query["AppKey"] = request.getAppKey();
   }
 
   if (!!request.hasIdempotentToken()) {
-    query["IdempotentToken"] = request.idempotentToken();
+    query["IdempotentToken"] = request.getIdempotentToken();
   }
 
   json body = {};
   if (!!request.hasPushTask()) {
-    body["PushTask"] = request.pushTask();
+    body["PushTask"] = request.getPushTask();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -668,20 +668,20 @@ MassPushV2Response Client::massPushV2WithOptions(const MassPushV2Request &tmpReq
   MassPushV2ShrinkRequest request = MassPushV2ShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasPushTasks()) {
-    request.setPushTasksShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.pushTasks(), "PushTasks", "json"));
+    request.setPushTasksShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPushTasks(), "PushTasks", "json"));
   }
 
   json query = {};
   if (!!request.hasAppKey()) {
-    query["AppKey"] = request.appKey();
+    query["AppKey"] = request.getAppKey();
   }
 
   if (!!request.hasIdempotentToken()) {
-    query["IdempotentToken"] = request.idempotentToken();
+    query["IdempotentToken"] = request.getIdempotentToken();
   }
 
   if (!!request.hasPushTasksShrink()) {
-    query["PushTasks"] = request.pushTasksShrink();
+    query["PushTasks"] = request.getPushTasksShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -724,472 +724,476 @@ PushResponse Client::pushWithOptions(const PushRequest &tmpReq, const Darabonba:
   PushShrinkRequest request = PushShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasAndroidOppoPrivateContentParameters()) {
-    request.setAndroidOppoPrivateContentParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.androidOppoPrivateContentParameters(), "AndroidOppoPrivateContentParameters", "json"));
+    request.setAndroidOppoPrivateContentParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAndroidOppoPrivateContentParameters(), "AndroidOppoPrivateContentParameters", "json"));
   }
 
   if (!!tmpReq.hasAndroidOppoPrivateTitleParameters()) {
-    request.setAndroidOppoPrivateTitleParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.androidOppoPrivateTitleParameters(), "AndroidOppoPrivateTitleParameters", "json"));
+    request.setAndroidOppoPrivateTitleParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAndroidOppoPrivateTitleParameters(), "AndroidOppoPrivateTitleParameters", "json"));
   }
 
   json query = {};
   if (!!request.hasAndroidActivity()) {
-    query["AndroidActivity"] = request.androidActivity();
+    query["AndroidActivity"] = request.getAndroidActivity();
   }
 
   if (!!request.hasAndroidBadgeAddNum()) {
-    query["AndroidBadgeAddNum"] = request.androidBadgeAddNum();
+    query["AndroidBadgeAddNum"] = request.getAndroidBadgeAddNum();
   }
 
   if (!!request.hasAndroidBadgeClass()) {
-    query["AndroidBadgeClass"] = request.androidBadgeClass();
+    query["AndroidBadgeClass"] = request.getAndroidBadgeClass();
   }
 
   if (!!request.hasAndroidBadgeSetNum()) {
-    query["AndroidBadgeSetNum"] = request.androidBadgeSetNum();
+    query["AndroidBadgeSetNum"] = request.getAndroidBadgeSetNum();
   }
 
   if (!!request.hasAndroidBigBody()) {
-    query["AndroidBigBody"] = request.androidBigBody();
+    query["AndroidBigBody"] = request.getAndroidBigBody();
   }
 
   if (!!request.hasAndroidBigPictureUrl()) {
-    query["AndroidBigPictureUrl"] = request.androidBigPictureUrl();
+    query["AndroidBigPictureUrl"] = request.getAndroidBigPictureUrl();
   }
 
   if (!!request.hasAndroidBigTitle()) {
-    query["AndroidBigTitle"] = request.androidBigTitle();
+    query["AndroidBigTitle"] = request.getAndroidBigTitle();
   }
 
   if (!!request.hasAndroidExtParameters()) {
-    query["AndroidExtParameters"] = request.androidExtParameters();
+    query["AndroidExtParameters"] = request.getAndroidExtParameters();
   }
 
   if (!!request.hasAndroidHonorTargetUserType()) {
-    query["AndroidHonorTargetUserType"] = request.androidHonorTargetUserType();
+    query["AndroidHonorTargetUserType"] = request.getAndroidHonorTargetUserType();
+  }
+
+  if (!!request.hasAndroidHuaweiBusinessType()) {
+    query["AndroidHuaweiBusinessType"] = request.getAndroidHuaweiBusinessType();
   }
 
   if (!!request.hasAndroidHuaweiLiveNotificationPayload()) {
-    query["AndroidHuaweiLiveNotificationPayload"] = request.androidHuaweiLiveNotificationPayload();
+    query["AndroidHuaweiLiveNotificationPayload"] = request.getAndroidHuaweiLiveNotificationPayload();
   }
 
   if (!!request.hasAndroidHuaweiReceiptId()) {
-    query["AndroidHuaweiReceiptId"] = request.androidHuaweiReceiptId();
+    query["AndroidHuaweiReceiptId"] = request.getAndroidHuaweiReceiptId();
   }
 
   if (!!request.hasAndroidHuaweiTargetUserType()) {
-    query["AndroidHuaweiTargetUserType"] = request.androidHuaweiTargetUserType();
+    query["AndroidHuaweiTargetUserType"] = request.getAndroidHuaweiTargetUserType();
   }
 
   if (!!request.hasAndroidImageUrl()) {
-    query["AndroidImageUrl"] = request.androidImageUrl();
+    query["AndroidImageUrl"] = request.getAndroidImageUrl();
   }
 
   if (!!request.hasAndroidInboxBody()) {
-    query["AndroidInboxBody"] = request.androidInboxBody();
+    query["AndroidInboxBody"] = request.getAndroidInboxBody();
   }
 
   if (!!request.hasAndroidMeizuNoticeMsgType()) {
-    query["AndroidMeizuNoticeMsgType"] = request.androidMeizuNoticeMsgType();
+    query["AndroidMeizuNoticeMsgType"] = request.getAndroidMeizuNoticeMsgType();
   }
 
   if (!!request.hasAndroidMessageHuaweiCategory()) {
-    query["AndroidMessageHuaweiCategory"] = request.androidMessageHuaweiCategory();
+    query["AndroidMessageHuaweiCategory"] = request.getAndroidMessageHuaweiCategory();
   }
 
   if (!!request.hasAndroidMessageHuaweiUrgency()) {
-    query["AndroidMessageHuaweiUrgency"] = request.androidMessageHuaweiUrgency();
+    query["AndroidMessageHuaweiUrgency"] = request.getAndroidMessageHuaweiUrgency();
   }
 
   if (!!request.hasAndroidMessageOppoCategory()) {
-    query["AndroidMessageOppoCategory"] = request.androidMessageOppoCategory();
+    query["AndroidMessageOppoCategory"] = request.getAndroidMessageOppoCategory();
   }
 
   if (!!request.hasAndroidMessageOppoNotifyLevel()) {
-    query["AndroidMessageOppoNotifyLevel"] = request.androidMessageOppoNotifyLevel();
+    query["AndroidMessageOppoNotifyLevel"] = request.getAndroidMessageOppoNotifyLevel();
   }
 
   if (!!request.hasAndroidMessageVivoCategory()) {
-    query["AndroidMessageVivoCategory"] = request.androidMessageVivoCategory();
+    query["AndroidMessageVivoCategory"] = request.getAndroidMessageVivoCategory();
   }
 
   if (!!request.hasAndroidMusic()) {
-    query["AndroidMusic"] = request.androidMusic();
+    query["AndroidMusic"] = request.getAndroidMusic();
   }
 
   if (!!request.hasAndroidNotificationBarPriority()) {
-    query["AndroidNotificationBarPriority"] = request.androidNotificationBarPriority();
+    query["AndroidNotificationBarPriority"] = request.getAndroidNotificationBarPriority();
   }
 
   if (!!request.hasAndroidNotificationBarType()) {
-    query["AndroidNotificationBarType"] = request.androidNotificationBarType();
+    query["AndroidNotificationBarType"] = request.getAndroidNotificationBarType();
   }
 
   if (!!request.hasAndroidNotificationChannel()) {
-    query["AndroidNotificationChannel"] = request.androidNotificationChannel();
+    query["AndroidNotificationChannel"] = request.getAndroidNotificationChannel();
   }
 
   if (!!request.hasAndroidNotificationGroup()) {
-    query["AndroidNotificationGroup"] = request.androidNotificationGroup();
+    query["AndroidNotificationGroup"] = request.getAndroidNotificationGroup();
   }
 
   if (!!request.hasAndroidNotificationHonorChannel()) {
-    query["AndroidNotificationHonorChannel"] = request.androidNotificationHonorChannel();
+    query["AndroidNotificationHonorChannel"] = request.getAndroidNotificationHonorChannel();
   }
 
   if (!!request.hasAndroidNotificationHuaweiChannel()) {
-    query["AndroidNotificationHuaweiChannel"] = request.androidNotificationHuaweiChannel();
+    query["AndroidNotificationHuaweiChannel"] = request.getAndroidNotificationHuaweiChannel();
   }
 
   if (!!request.hasAndroidNotificationNotifyId()) {
-    query["AndroidNotificationNotifyId"] = request.androidNotificationNotifyId();
+    query["AndroidNotificationNotifyId"] = request.getAndroidNotificationNotifyId();
   }
 
   if (!!request.hasAndroidNotificationThreadId()) {
-    query["AndroidNotificationThreadId"] = request.androidNotificationThreadId();
+    query["AndroidNotificationThreadId"] = request.getAndroidNotificationThreadId();
   }
 
   if (!!request.hasAndroidNotificationVivoChannel()) {
-    query["AndroidNotificationVivoChannel"] = request.androidNotificationVivoChannel();
+    query["AndroidNotificationVivoChannel"] = request.getAndroidNotificationVivoChannel();
   }
 
   if (!!request.hasAndroidNotificationXiaomiChannel()) {
-    query["AndroidNotificationXiaomiChannel"] = request.androidNotificationXiaomiChannel();
+    query["AndroidNotificationXiaomiChannel"] = request.getAndroidNotificationXiaomiChannel();
   }
 
   if (!!request.hasAndroidNotifyType()) {
-    query["AndroidNotifyType"] = request.androidNotifyType();
+    query["AndroidNotifyType"] = request.getAndroidNotifyType();
   }
 
   if (!!request.hasAndroidOpenType()) {
-    query["AndroidOpenType"] = request.androidOpenType();
+    query["AndroidOpenType"] = request.getAndroidOpenType();
   }
 
   if (!!request.hasAndroidOpenUrl()) {
-    query["AndroidOpenUrl"] = request.androidOpenUrl();
+    query["AndroidOpenUrl"] = request.getAndroidOpenUrl();
   }
 
   if (!!request.hasAndroidOppoDeleteIntentData()) {
-    query["AndroidOppoDeleteIntentData"] = request.androidOppoDeleteIntentData();
+    query["AndroidOppoDeleteIntentData"] = request.getAndroidOppoDeleteIntentData();
   }
 
   if (!!request.hasAndroidOppoIntelligentIntent()) {
-    query["AndroidOppoIntelligentIntent"] = request.androidOppoIntelligentIntent();
+    query["AndroidOppoIntelligentIntent"] = request.getAndroidOppoIntelligentIntent();
   }
 
   if (!!request.hasAndroidOppoIntentEnv()) {
-    query["AndroidOppoIntentEnv"] = request.androidOppoIntentEnv();
+    query["AndroidOppoIntentEnv"] = request.getAndroidOppoIntentEnv();
   }
 
   if (!!request.hasAndroidOppoPrivateContentParametersShrink()) {
-    query["AndroidOppoPrivateContentParameters"] = request.androidOppoPrivateContentParametersShrink();
+    query["AndroidOppoPrivateContentParameters"] = request.getAndroidOppoPrivateContentParametersShrink();
   }
 
   if (!!request.hasAndroidOppoPrivateMsgTemplateId()) {
-    query["AndroidOppoPrivateMsgTemplateId"] = request.androidOppoPrivateMsgTemplateId();
+    query["AndroidOppoPrivateMsgTemplateId"] = request.getAndroidOppoPrivateMsgTemplateId();
   }
 
   if (!!request.hasAndroidOppoPrivateTitleParametersShrink()) {
-    query["AndroidOppoPrivateTitleParameters"] = request.androidOppoPrivateTitleParametersShrink();
+    query["AndroidOppoPrivateTitleParameters"] = request.getAndroidOppoPrivateTitleParametersShrink();
   }
 
   if (!!request.hasAndroidPopupActivity()) {
-    query["AndroidPopupActivity"] = request.androidPopupActivity();
+    query["AndroidPopupActivity"] = request.getAndroidPopupActivity();
   }
 
   if (!!request.hasAndroidPopupBody()) {
-    query["AndroidPopupBody"] = request.androidPopupBody();
+    query["AndroidPopupBody"] = request.getAndroidPopupBody();
   }
 
   if (!!request.hasAndroidPopupTitle()) {
-    query["AndroidPopupTitle"] = request.androidPopupTitle();
+    query["AndroidPopupTitle"] = request.getAndroidPopupTitle();
   }
 
   if (!!request.hasAndroidRemind()) {
-    query["AndroidRemind"] = request.androidRemind();
+    query["AndroidRemind"] = request.getAndroidRemind();
   }
 
   if (!!request.hasAndroidRenderStyle()) {
-    query["AndroidRenderStyle"] = request.androidRenderStyle();
+    query["AndroidRenderStyle"] = request.getAndroidRenderStyle();
   }
 
   if (!!request.hasAndroidTargetUserType()) {
-    query["AndroidTargetUserType"] = request.androidTargetUserType();
+    query["AndroidTargetUserType"] = request.getAndroidTargetUserType();
   }
 
   if (!!request.hasAndroidVivoPushMode()) {
-    query["AndroidVivoPushMode"] = request.androidVivoPushMode();
+    query["AndroidVivoPushMode"] = request.getAndroidVivoPushMode();
   }
 
   if (!!request.hasAndroidVivoReceiptId()) {
-    query["AndroidVivoReceiptId"] = request.androidVivoReceiptId();
+    query["AndroidVivoReceiptId"] = request.getAndroidVivoReceiptId();
   }
 
   if (!!request.hasAndroidXiaoMiActivity()) {
-    query["AndroidXiaoMiActivity"] = request.androidXiaoMiActivity();
+    query["AndroidXiaoMiActivity"] = request.getAndroidXiaoMiActivity();
   }
 
   if (!!request.hasAndroidXiaoMiNotifyBody()) {
-    query["AndroidXiaoMiNotifyBody"] = request.androidXiaoMiNotifyBody();
+    query["AndroidXiaoMiNotifyBody"] = request.getAndroidXiaoMiNotifyBody();
   }
 
   if (!!request.hasAndroidXiaoMiNotifyTitle()) {
-    query["AndroidXiaoMiNotifyTitle"] = request.androidXiaoMiNotifyTitle();
+    query["AndroidXiaoMiNotifyTitle"] = request.getAndroidXiaoMiNotifyTitle();
   }
 
   if (!!request.hasAndroidXiaomiBigPictureUrl()) {
-    query["AndroidXiaomiBigPictureUrl"] = request.androidXiaomiBigPictureUrl();
+    query["AndroidXiaomiBigPictureUrl"] = request.getAndroidXiaomiBigPictureUrl();
   }
 
   if (!!request.hasAndroidXiaomiImageUrl()) {
-    query["AndroidXiaomiImageUrl"] = request.androidXiaomiImageUrl();
+    query["AndroidXiaomiImageUrl"] = request.getAndroidXiaomiImageUrl();
   }
 
   if (!!request.hasAppKey()) {
-    query["AppKey"] = request.appKey();
+    query["AppKey"] = request.getAppKey();
   }
 
   if (!!request.hasBody()) {
-    query["Body"] = request.body();
+    query["Body"] = request.getBody();
   }
 
   if (!!request.hasDeviceType()) {
-    query["DeviceType"] = request.deviceType();
+    query["DeviceType"] = request.getDeviceType();
   }
 
   if (!!request.hasExpireTime()) {
-    query["ExpireTime"] = request.expireTime();
+    query["ExpireTime"] = request.getExpireTime();
   }
 
   if (!!request.hasHarmonyAction()) {
-    query["HarmonyAction"] = request.harmonyAction();
+    query["HarmonyAction"] = request.getHarmonyAction();
   }
 
   if (!!request.hasHarmonyActionType()) {
-    query["HarmonyActionType"] = request.harmonyActionType();
+    query["HarmonyActionType"] = request.getHarmonyActionType();
   }
 
   if (!!request.hasHarmonyBadgeAddNum()) {
-    query["HarmonyBadgeAddNum"] = request.harmonyBadgeAddNum();
+    query["HarmonyBadgeAddNum"] = request.getHarmonyBadgeAddNum();
   }
 
   if (!!request.hasHarmonyBadgeSetNum()) {
-    query["HarmonyBadgeSetNum"] = request.harmonyBadgeSetNum();
+    query["HarmonyBadgeSetNum"] = request.getHarmonyBadgeSetNum();
   }
 
   if (!!request.hasHarmonyCategory()) {
-    query["HarmonyCategory"] = request.harmonyCategory();
+    query["HarmonyCategory"] = request.getHarmonyCategory();
   }
 
   if (!!request.hasHarmonyExtParameters()) {
-    query["HarmonyExtParameters"] = request.harmonyExtParameters();
+    query["HarmonyExtParameters"] = request.getHarmonyExtParameters();
   }
 
   if (!!request.hasHarmonyExtensionExtraData()) {
-    query["HarmonyExtensionExtraData"] = request.harmonyExtensionExtraData();
+    query["HarmonyExtensionExtraData"] = request.getHarmonyExtensionExtraData();
   }
 
   if (!!request.hasHarmonyExtensionPush()) {
-    query["HarmonyExtensionPush"] = request.harmonyExtensionPush();
+    query["HarmonyExtensionPush"] = request.getHarmonyExtensionPush();
   }
 
   if (!!request.hasHarmonyImageUrl()) {
-    query["HarmonyImageUrl"] = request.harmonyImageUrl();
+    query["HarmonyImageUrl"] = request.getHarmonyImageUrl();
   }
 
   if (!!request.hasHarmonyInboxContent()) {
-    query["HarmonyInboxContent"] = request.harmonyInboxContent();
+    query["HarmonyInboxContent"] = request.getHarmonyInboxContent();
   }
 
   if (!!request.hasHarmonyLiveViewPayload()) {
-    query["HarmonyLiveViewPayload"] = request.harmonyLiveViewPayload();
+    query["HarmonyLiveViewPayload"] = request.getHarmonyLiveViewPayload();
   }
 
   if (!!request.hasHarmonyNotificationSlotType()) {
-    query["HarmonyNotificationSlotType"] = request.harmonyNotificationSlotType();
+    query["HarmonyNotificationSlotType"] = request.getHarmonyNotificationSlotType();
   }
 
   if (!!request.hasHarmonyNotifyId()) {
-    query["HarmonyNotifyId"] = request.harmonyNotifyId();
+    query["HarmonyNotifyId"] = request.getHarmonyNotifyId();
   }
 
   if (!!request.hasHarmonyReceiptId()) {
-    query["HarmonyReceiptId"] = request.harmonyReceiptId();
+    query["HarmonyReceiptId"] = request.getHarmonyReceiptId();
   }
 
   if (!!request.hasHarmonyRemind()) {
-    query["HarmonyRemind"] = request.harmonyRemind();
+    query["HarmonyRemind"] = request.getHarmonyRemind();
   }
 
   if (!!request.hasHarmonyRemindBody()) {
-    query["HarmonyRemindBody"] = request.harmonyRemindBody();
+    query["HarmonyRemindBody"] = request.getHarmonyRemindBody();
   }
 
   if (!!request.hasHarmonyRemindTitle()) {
-    query["HarmonyRemindTitle"] = request.harmonyRemindTitle();
+    query["HarmonyRemindTitle"] = request.getHarmonyRemindTitle();
   }
 
   if (!!request.hasHarmonyRenderStyle()) {
-    query["HarmonyRenderStyle"] = request.harmonyRenderStyle();
+    query["HarmonyRenderStyle"] = request.getHarmonyRenderStyle();
   }
 
   if (!!request.hasHarmonyTestMessage()) {
-    query["HarmonyTestMessage"] = request.harmonyTestMessage();
+    query["HarmonyTestMessage"] = request.getHarmonyTestMessage();
   }
 
   if (!!request.hasHarmonyUri()) {
-    query["HarmonyUri"] = request.harmonyUri();
+    query["HarmonyUri"] = request.getHarmonyUri();
   }
 
   if (!!request.hasIdempotentToken()) {
-    query["IdempotentToken"] = request.idempotentToken();
+    query["IdempotentToken"] = request.getIdempotentToken();
   }
 
   if (!!request.hasJobKey()) {
-    query["JobKey"] = request.jobKey();
+    query["JobKey"] = request.getJobKey();
   }
 
   if (!!request.hasPushTime()) {
-    query["PushTime"] = request.pushTime();
+    query["PushTime"] = request.getPushTime();
   }
 
   if (!!request.hasPushType()) {
-    query["PushType"] = request.pushType();
+    query["PushType"] = request.getPushType();
   }
 
   if (!!request.hasSendChannels()) {
-    query["SendChannels"] = request.sendChannels();
+    query["SendChannels"] = request.getSendChannels();
   }
 
   if (!!request.hasSendSpeed()) {
-    query["SendSpeed"] = request.sendSpeed();
+    query["SendSpeed"] = request.getSendSpeed();
   }
 
   if (!!request.hasSmsDelaySecs()) {
-    query["SmsDelaySecs"] = request.smsDelaySecs();
+    query["SmsDelaySecs"] = request.getSmsDelaySecs();
   }
 
   if (!!request.hasSmsParams()) {
-    query["SmsParams"] = request.smsParams();
+    query["SmsParams"] = request.getSmsParams();
   }
 
   if (!!request.hasSmsSendPolicy()) {
-    query["SmsSendPolicy"] = request.smsSendPolicy();
+    query["SmsSendPolicy"] = request.getSmsSendPolicy();
   }
 
   if (!!request.hasSmsSignName()) {
-    query["SmsSignName"] = request.smsSignName();
+    query["SmsSignName"] = request.getSmsSignName();
   }
 
   if (!!request.hasSmsTemplateName()) {
-    query["SmsTemplateName"] = request.smsTemplateName();
+    query["SmsTemplateName"] = request.getSmsTemplateName();
   }
 
   if (!!request.hasStoreOffline()) {
-    query["StoreOffline"] = request.storeOffline();
+    query["StoreOffline"] = request.getStoreOffline();
   }
 
   if (!!request.hasTarget()) {
-    query["Target"] = request.target();
+    query["Target"] = request.getTarget();
   }
 
   if (!!request.hasTargetValue()) {
-    query["TargetValue"] = request.targetValue();
+    query["TargetValue"] = request.getTargetValue();
   }
 
   if (!!request.hasTitle()) {
-    query["Title"] = request.title();
+    query["Title"] = request.getTitle();
   }
 
   if (!!request.hasTrim()) {
-    query["Trim"] = request.trim();
+    query["Trim"] = request.getTrim();
   }
 
   if (!!request.hasIOSApnsEnv()) {
-    query["iOSApnsEnv"] = request.iOSApnsEnv();
+    query["iOSApnsEnv"] = request.getIOSApnsEnv();
   }
 
   if (!!request.hasIOSBadge()) {
-    query["iOSBadge"] = request.iOSBadge();
+    query["iOSBadge"] = request.getIOSBadge();
   }
 
   if (!!request.hasIOSBadgeAutoIncrement()) {
-    query["iOSBadgeAutoIncrement"] = request.iOSBadgeAutoIncrement();
+    query["iOSBadgeAutoIncrement"] = request.getIOSBadgeAutoIncrement();
   }
 
   if (!!request.hasIOSExtParameters()) {
-    query["iOSExtParameters"] = request.iOSExtParameters();
+    query["iOSExtParameters"] = request.getIOSExtParameters();
   }
 
   if (!!request.hasIOSInterruptionLevel()) {
-    query["iOSInterruptionLevel"] = request.iOSInterruptionLevel();
+    query["iOSInterruptionLevel"] = request.getIOSInterruptionLevel();
   }
 
   if (!!request.hasIOSLiveActivityAttributes()) {
-    query["iOSLiveActivityAttributes"] = request.iOSLiveActivityAttributes();
+    query["iOSLiveActivityAttributes"] = request.getIOSLiveActivityAttributes();
   }
 
   if (!!request.hasIOSLiveActivityAttributesType()) {
-    query["iOSLiveActivityAttributesType"] = request.iOSLiveActivityAttributesType();
+    query["iOSLiveActivityAttributesType"] = request.getIOSLiveActivityAttributesType();
   }
 
   if (!!request.hasIOSLiveActivityContentState()) {
-    query["iOSLiveActivityContentState"] = request.iOSLiveActivityContentState();
+    query["iOSLiveActivityContentState"] = request.getIOSLiveActivityContentState();
   }
 
   if (!!request.hasIOSLiveActivityDismissalDate()) {
-    query["iOSLiveActivityDismissalDate"] = request.iOSLiveActivityDismissalDate();
+    query["iOSLiveActivityDismissalDate"] = request.getIOSLiveActivityDismissalDate();
   }
 
   if (!!request.hasIOSLiveActivityEvent()) {
-    query["iOSLiveActivityEvent"] = request.iOSLiveActivityEvent();
+    query["iOSLiveActivityEvent"] = request.getIOSLiveActivityEvent();
   }
 
   if (!!request.hasIOSLiveActivityId()) {
-    query["iOSLiveActivityId"] = request.iOSLiveActivityId();
+    query["iOSLiveActivityId"] = request.getIOSLiveActivityId();
   }
 
   if (!!request.hasIOSLiveActivityStaleDate()) {
-    query["iOSLiveActivityStaleDate"] = request.iOSLiveActivityStaleDate();
+    query["iOSLiveActivityStaleDate"] = request.getIOSLiveActivityStaleDate();
   }
 
   if (!!request.hasIOSMusic()) {
-    query["iOSMusic"] = request.iOSMusic();
+    query["iOSMusic"] = request.getIOSMusic();
   }
 
   if (!!request.hasIOSMutableContent()) {
-    query["iOSMutableContent"] = request.iOSMutableContent();
+    query["iOSMutableContent"] = request.getIOSMutableContent();
   }
 
   if (!!request.hasIOSNotificationCategory()) {
-    query["iOSNotificationCategory"] = request.iOSNotificationCategory();
+    query["iOSNotificationCategory"] = request.getIOSNotificationCategory();
   }
 
   if (!!request.hasIOSNotificationCollapseId()) {
-    query["iOSNotificationCollapseId"] = request.iOSNotificationCollapseId();
+    query["iOSNotificationCollapseId"] = request.getIOSNotificationCollapseId();
   }
 
   if (!!request.hasIOSNotificationThreadId()) {
-    query["iOSNotificationThreadId"] = request.iOSNotificationThreadId();
+    query["iOSNotificationThreadId"] = request.getIOSNotificationThreadId();
   }
 
   if (!!request.hasIOSRelevanceScore()) {
-    query["iOSRelevanceScore"] = request.iOSRelevanceScore();
+    query["iOSRelevanceScore"] = request.getIOSRelevanceScore();
   }
 
   if (!!request.hasIOSRemind()) {
-    query["iOSRemind"] = request.iOSRemind();
+    query["iOSRemind"] = request.getIOSRemind();
   }
 
   if (!!request.hasIOSRemindBody()) {
-    query["iOSRemindBody"] = request.iOSRemindBody();
+    query["iOSRemindBody"] = request.getIOSRemindBody();
   }
 
   if (!!request.hasIOSSilentNotification()) {
-    query["iOSSilentNotification"] = request.iOSSilentNotification();
+    query["iOSSilentNotification"] = request.getIOSSilentNotification();
   }
 
   if (!!request.hasIOSSubtitle()) {
-    query["iOSSubtitle"] = request.iOSSubtitle();
+    query["iOSSubtitle"] = request.getIOSSubtitle();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1231,31 +1235,31 @@ PushMessageToAndroidResponse Client::pushMessageToAndroidWithOptions(const PushM
   request.validate();
   json query = {};
   if (!!request.hasAppKey()) {
-    query["AppKey"] = request.appKey();
+    query["AppKey"] = request.getAppKey();
   }
 
   if (!!request.hasBody()) {
-    query["Body"] = request.body();
+    query["Body"] = request.getBody();
   }
 
   if (!!request.hasJobKey()) {
-    query["JobKey"] = request.jobKey();
+    query["JobKey"] = request.getJobKey();
   }
 
   if (!!request.hasStoreOffline()) {
-    query["StoreOffline"] = request.storeOffline();
+    query["StoreOffline"] = request.getStoreOffline();
   }
 
   if (!!request.hasTarget()) {
-    query["Target"] = request.target();
+    query["Target"] = request.getTarget();
   }
 
   if (!!request.hasTargetValue()) {
-    query["TargetValue"] = request.targetValue();
+    query["TargetValue"] = request.getTargetValue();
   }
 
   if (!!request.hasTitle()) {
-    query["Title"] = request.title();
+    query["Title"] = request.getTitle();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1297,31 +1301,31 @@ PushMessageToiOSResponse Client::pushMessageToiOSWithOptions(const PushMessageTo
   request.validate();
   json query = {};
   if (!!request.hasAppKey()) {
-    query["AppKey"] = request.appKey();
+    query["AppKey"] = request.getAppKey();
   }
 
   if (!!request.hasBody()) {
-    query["Body"] = request.body();
+    query["Body"] = request.getBody();
   }
 
   if (!!request.hasJobKey()) {
-    query["JobKey"] = request.jobKey();
+    query["JobKey"] = request.getJobKey();
   }
 
   if (!!request.hasStoreOffline()) {
-    query["StoreOffline"] = request.storeOffline();
+    query["StoreOffline"] = request.getStoreOffline();
   }
 
   if (!!request.hasTarget()) {
-    query["Target"] = request.target();
+    query["Target"] = request.getTarget();
   }
 
   if (!!request.hasTargetValue()) {
-    query["TargetValue"] = request.targetValue();
+    query["TargetValue"] = request.getTargetValue();
   }
 
   if (!!request.hasTitle()) {
-    query["Title"] = request.title();
+    query["Title"] = request.getTitle();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1363,35 +1367,35 @@ PushNoticeToAndroidResponse Client::pushNoticeToAndroidWithOptions(const PushNot
   request.validate();
   json query = {};
   if (!!request.hasAppKey()) {
-    query["AppKey"] = request.appKey();
+    query["AppKey"] = request.getAppKey();
   }
 
   if (!!request.hasBody()) {
-    query["Body"] = request.body();
+    query["Body"] = request.getBody();
   }
 
   if (!!request.hasExtParameters()) {
-    query["ExtParameters"] = request.extParameters();
+    query["ExtParameters"] = request.getExtParameters();
   }
 
   if (!!request.hasJobKey()) {
-    query["JobKey"] = request.jobKey();
+    query["JobKey"] = request.getJobKey();
   }
 
   if (!!request.hasStoreOffline()) {
-    query["StoreOffline"] = request.storeOffline();
+    query["StoreOffline"] = request.getStoreOffline();
   }
 
   if (!!request.hasTarget()) {
-    query["Target"] = request.target();
+    query["Target"] = request.getTarget();
   }
 
   if (!!request.hasTargetValue()) {
-    query["TargetValue"] = request.targetValue();
+    query["TargetValue"] = request.getTargetValue();
   }
 
   if (!!request.hasTitle()) {
-    query["Title"] = request.title();
+    query["Title"] = request.getTitle();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1433,35 +1437,35 @@ PushNoticeToiOSResponse Client::pushNoticeToiOSWithOptions(const PushNoticeToiOS
   request.validate();
   json query = {};
   if (!!request.hasApnsEnv()) {
-    query["ApnsEnv"] = request.apnsEnv();
+    query["ApnsEnv"] = request.getApnsEnv();
   }
 
   if (!!request.hasAppKey()) {
-    query["AppKey"] = request.appKey();
+    query["AppKey"] = request.getAppKey();
   }
 
   if (!!request.hasBody()) {
-    query["Body"] = request.body();
+    query["Body"] = request.getBody();
   }
 
   if (!!request.hasExtParameters()) {
-    query["ExtParameters"] = request.extParameters();
+    query["ExtParameters"] = request.getExtParameters();
   }
 
   if (!!request.hasJobKey()) {
-    query["JobKey"] = request.jobKey();
+    query["JobKey"] = request.getJobKey();
   }
 
   if (!!request.hasTarget()) {
-    query["Target"] = request.target();
+    query["Target"] = request.getTarget();
   }
 
   if (!!request.hasTargetValue()) {
-    query["TargetValue"] = request.targetValue();
+    query["TargetValue"] = request.getTargetValue();
   }
 
   if (!!request.hasTitle()) {
-    query["Title"] = request.title();
+    query["Title"] = request.getTitle();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1504,20 +1508,20 @@ PushV2Response Client::pushV2WithOptions(const PushV2Request &tmpReq, const Dara
   PushV2ShrinkRequest request = PushV2ShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasPushTask()) {
-    request.setPushTaskShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.pushTask(), "PushTask", "json"));
+    request.setPushTaskShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPushTask(), "PushTask", "json"));
   }
 
   json query = {};
   if (!!request.hasAppKey()) {
-    query["AppKey"] = request.appKey();
+    query["AppKey"] = request.getAppKey();
   }
 
   if (!!request.hasIdempotentToken()) {
-    query["IdempotentToken"] = request.idempotentToken();
+    query["IdempotentToken"] = request.getIdempotentToken();
   }
 
   if (!!request.hasPushTaskShrink()) {
-    query["PushTask"] = request.pushTaskShrink();
+    query["PushTask"] = request.getPushTaskShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1559,11 +1563,11 @@ QueryAliasesResponse Client::queryAliasesWithOptions(const QueryAliasesRequest &
   request.validate();
   json query = {};
   if (!!request.hasAppKey()) {
-    query["AppKey"] = request.appKey();
+    query["AppKey"] = request.getAppKey();
   }
 
   if (!!request.hasDeviceId()) {
-    query["DeviceId"] = request.deviceId();
+    query["DeviceId"] = request.getDeviceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1605,11 +1609,11 @@ QueryDeviceInfoResponse Client::queryDeviceInfoWithOptions(const QueryDeviceInfo
   request.validate();
   json query = {};
   if (!!request.hasAppKey()) {
-    query["AppKey"] = request.appKey();
+    query["AppKey"] = request.getAppKey();
   }
 
   if (!!request.hasDeviceId()) {
-    query["DeviceId"] = request.deviceId();
+    query["DeviceId"] = request.getDeviceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1651,23 +1655,23 @@ QueryDeviceStatResponse Client::queryDeviceStatWithOptions(const QueryDeviceStat
   request.validate();
   json query = {};
   if (!!request.hasAppKey()) {
-    query["AppKey"] = request.appKey();
+    query["AppKey"] = request.getAppKey();
   }
 
   if (!!request.hasDeviceType()) {
-    query["DeviceType"] = request.deviceType();
+    query["DeviceType"] = request.getDeviceType();
   }
 
   if (!!request.hasEndTime()) {
-    query["EndTime"] = request.endTime();
+    query["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasQueryType()) {
-    query["QueryType"] = request.queryType();
+    query["QueryType"] = request.getQueryType();
   }
 
   if (!!request.hasStartTime()) {
-    query["StartTime"] = request.startTime();
+    query["StartTime"] = request.getStartTime();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1709,11 +1713,11 @@ QueryDevicesByAccountResponse Client::queryDevicesByAccountWithOptions(const Que
   request.validate();
   json query = {};
   if (!!request.hasAccount()) {
-    query["Account"] = request.account();
+    query["Account"] = request.getAccount();
   }
 
   if (!!request.hasAppKey()) {
-    query["AppKey"] = request.appKey();
+    query["AppKey"] = request.getAppKey();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1755,11 +1759,11 @@ QueryDevicesByAliasResponse Client::queryDevicesByAliasWithOptions(const QueryDe
   request.validate();
   json query = {};
   if (!!request.hasAlias()) {
-    query["Alias"] = request.alias();
+    query["Alias"] = request.getAlias();
   }
 
   if (!!request.hasAppKey()) {
-    query["AppKey"] = request.appKey();
+    query["AppKey"] = request.getAppKey();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1799,43 +1803,43 @@ QueryPushRecordsResponse Client::queryPushRecordsWithOptions(const QueryPushReco
   request.validate();
   json query = {};
   if (!!request.hasAppKey()) {
-    query["AppKey"] = request.appKey();
+    query["AppKey"] = request.getAppKey();
   }
 
   if (!!request.hasEndTime()) {
-    query["EndTime"] = request.endTime();
+    query["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasKeyword()) {
-    query["Keyword"] = request.keyword();
+    query["Keyword"] = request.getKeyword();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasPage()) {
-    query["Page"] = request.page();
+    query["Page"] = request.getPage();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasPushType()) {
-    query["PushType"] = request.pushType();
+    query["PushType"] = request.getPushType();
   }
 
   if (!!request.hasSource()) {
-    query["Source"] = request.source();
+    query["Source"] = request.getSource();
   }
 
   if (!!request.hasStartTime()) {
-    query["StartTime"] = request.startTime();
+    query["StartTime"] = request.getStartTime();
   }
 
   if (!!request.hasTarget()) {
-    query["Target"] = request.target();
+    query["Target"] = request.getTarget();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1875,19 +1879,19 @@ QueryPushStatByAppResponse Client::queryPushStatByAppWithOptions(const QueryPush
   request.validate();
   json query = {};
   if (!!request.hasAppKey()) {
-    query["AppKey"] = request.appKey();
+    query["AppKey"] = request.getAppKey();
   }
 
   if (!!request.hasEndTime()) {
-    query["EndTime"] = request.endTime();
+    query["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasGranularity()) {
-    query["Granularity"] = request.granularity();
+    query["Granularity"] = request.getGranularity();
   }
 
   if (!!request.hasStartTime()) {
-    query["StartTime"] = request.startTime();
+    query["StartTime"] = request.getStartTime();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1929,11 +1933,11 @@ QueryPushStatByMsgResponse Client::queryPushStatByMsgWithOptions(const QueryPush
   request.validate();
   json query = {};
   if (!!request.hasAppKey()) {
-    query["AppKey"] = request.appKey();
+    query["AppKey"] = request.getAppKey();
   }
 
   if (!!request.hasMessageId()) {
-    query["MessageId"] = request.messageId();
+    query["MessageId"] = request.getMessageId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1975,15 +1979,15 @@ QueryTagsResponse Client::queryTagsWithOptions(const QueryTagsRequest &request, 
   request.validate();
   json query = {};
   if (!!request.hasAppKey()) {
-    query["AppKey"] = request.appKey();
+    query["AppKey"] = request.getAppKey();
   }
 
   if (!!request.hasClientKey()) {
-    query["ClientKey"] = request.clientKey();
+    query["ClientKey"] = request.getClientKey();
   }
 
   if (!!request.hasKeyType()) {
-    query["KeyType"] = request.keyType();
+    query["KeyType"] = request.getKeyType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2025,19 +2029,19 @@ QueryUniqueDeviceStatResponse Client::queryUniqueDeviceStatWithOptions(const Que
   request.validate();
   json query = {};
   if (!!request.hasAppKey()) {
-    query["AppKey"] = request.appKey();
+    query["AppKey"] = request.getAppKey();
   }
 
   if (!!request.hasEndTime()) {
-    query["EndTime"] = request.endTime();
+    query["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasGranularity()) {
-    query["Granularity"] = request.granularity();
+    query["Granularity"] = request.getGranularity();
   }
 
   if (!!request.hasStartTime()) {
-    query["StartTime"] = request.startTime();
+    query["StartTime"] = request.getStartTime();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2079,11 +2083,11 @@ RemoveTagResponse Client::removeTagWithOptions(const RemoveTagRequest &request, 
   request.validate();
   json query = {};
   if (!!request.hasAppKey()) {
-    query["AppKey"] = request.appKey();
+    query["AppKey"] = request.getAppKey();
   }
 
   if (!!request.hasTagName()) {
-    query["TagName"] = request.tagName();
+    query["TagName"] = request.getTagName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2125,19 +2129,19 @@ UnbindAliasResponse Client::unbindAliasWithOptions(const UnbindAliasRequest &req
   request.validate();
   json query = {};
   if (!!request.hasAliasName()) {
-    query["AliasName"] = request.aliasName();
+    query["AliasName"] = request.getAliasName();
   }
 
   if (!!request.hasAppKey()) {
-    query["AppKey"] = request.appKey();
+    query["AppKey"] = request.getAppKey();
   }
 
   if (!!request.hasDeviceId()) {
-    query["DeviceId"] = request.deviceId();
+    query["DeviceId"] = request.getDeviceId();
   }
 
   if (!!request.hasUnbindAll()) {
-    query["UnbindAll"] = request.unbindAll();
+    query["UnbindAll"] = request.getUnbindAll();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2179,11 +2183,11 @@ UnbindPhoneResponse Client::unbindPhoneWithOptions(const UnbindPhoneRequest &req
   request.validate();
   json query = {};
   if (!!request.hasAppKey()) {
-    query["AppKey"] = request.appKey();
+    query["AppKey"] = request.getAppKey();
   }
 
   if (!!request.hasDeviceId()) {
-    query["DeviceId"] = request.deviceId();
+    query["DeviceId"] = request.getDeviceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2225,19 +2229,19 @@ UnbindTagResponse Client::unbindTagWithOptions(const UnbindTagRequest &request, 
   request.validate();
   json query = {};
   if (!!request.hasAppKey()) {
-    query["AppKey"] = request.appKey();
+    query["AppKey"] = request.getAppKey();
   }
 
   if (!!request.hasClientKey()) {
-    query["ClientKey"] = request.clientKey();
+    query["ClientKey"] = request.getClientKey();
   }
 
   if (!!request.hasKeyType()) {
-    query["KeyType"] = request.keyType();
+    query["KeyType"] = request.getKeyType();
   }
 
   if (!!request.hasTagName()) {
-    query["TagName"] = request.tagName();
+    query["TagName"] = request.getTagName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

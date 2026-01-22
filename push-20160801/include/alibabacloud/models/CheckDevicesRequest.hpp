@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appKey_ == nullptr
-        && return this->deviceIds_ == nullptr; };
+        && this->deviceIds_ == nullptr; };
     // appKey Field Functions 
     bool hasAppKey() const { return this->appKey_ != nullptr;};
     void deleteAppKey() { this->appKey_ = nullptr;};
-    inline int64_t appKey() const { DARABONBA_PTR_GET_DEFAULT(appKey_, 0L) };
+    inline int64_t getAppKey() const { DARABONBA_PTR_GET_DEFAULT(appKey_, 0L) };
     inline CheckDevicesRequest& setAppKey(int64_t appKey) { DARABONBA_PTR_SET_VALUE(appKey_, appKey) };
 
 
     // deviceIds Field Functions 
     bool hasDeviceIds() const { return this->deviceIds_ != nullptr;};
     void deleteDeviceIds() { this->deviceIds_ = nullptr;};
-    inline string deviceIds() const { DARABONBA_PTR_GET_DEFAULT(deviceIds_, "") };
+    inline string getDeviceIds() const { DARABONBA_PTR_GET_DEFAULT(deviceIds_, "") };
     inline CheckDevicesRequest& setDeviceIds(string deviceIds) { DARABONBA_PTR_SET_VALUE(deviceIds_, deviceIds) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<int64_t> appKey_ = nullptr;
+    shared_ptr<int64_t> appKey_ {};
     // This parameter is required.
-    std::shared_ptr<string> deviceIds_ = nullptr;
+    shared_ptr<string> deviceIds_ {};
   };
 
   } // namespace Models

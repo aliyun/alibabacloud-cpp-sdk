@@ -34,34 +34,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appKey_ == nullptr
-        && return this->idempotentToken_ == nullptr && return this->pushTaskShrink_ == nullptr; };
+        && this->idempotentToken_ == nullptr && this->pushTaskShrink_ == nullptr; };
     // appKey Field Functions 
     bool hasAppKey() const { return this->appKey_ != nullptr;};
     void deleteAppKey() { this->appKey_ = nullptr;};
-    inline int64_t appKey() const { DARABONBA_PTR_GET_DEFAULT(appKey_, 0L) };
+    inline int64_t getAppKey() const { DARABONBA_PTR_GET_DEFAULT(appKey_, 0L) };
     inline PushV2ShrinkRequest& setAppKey(int64_t appKey) { DARABONBA_PTR_SET_VALUE(appKey_, appKey) };
 
 
     // idempotentToken Field Functions 
     bool hasIdempotentToken() const { return this->idempotentToken_ != nullptr;};
     void deleteIdempotentToken() { this->idempotentToken_ = nullptr;};
-    inline string idempotentToken() const { DARABONBA_PTR_GET_DEFAULT(idempotentToken_, "") };
+    inline string getIdempotentToken() const { DARABONBA_PTR_GET_DEFAULT(idempotentToken_, "") };
     inline PushV2ShrinkRequest& setIdempotentToken(string idempotentToken) { DARABONBA_PTR_SET_VALUE(idempotentToken_, idempotentToken) };
 
 
     // pushTaskShrink Field Functions 
     bool hasPushTaskShrink() const { return this->pushTaskShrink_ != nullptr;};
     void deletePushTaskShrink() { this->pushTaskShrink_ = nullptr;};
-    inline string pushTaskShrink() const { DARABONBA_PTR_GET_DEFAULT(pushTaskShrink_, "") };
+    inline string getPushTaskShrink() const { DARABONBA_PTR_GET_DEFAULT(pushTaskShrink_, "") };
     inline PushV2ShrinkRequest& setPushTaskShrink(string pushTaskShrink) { DARABONBA_PTR_SET_VALUE(pushTaskShrink_, pushTaskShrink) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<int64_t> appKey_ = nullptr;
-    std::shared_ptr<string> idempotentToken_ = nullptr;
+    shared_ptr<int64_t> appKey_ {};
+    shared_ptr<string> idempotentToken_ {};
     // This parameter is required.
-    std::shared_ptr<string> pushTaskShrink_ = nullptr;
+    shared_ptr<string> pushTaskShrink_ {};
   };
 
   } // namespace Models

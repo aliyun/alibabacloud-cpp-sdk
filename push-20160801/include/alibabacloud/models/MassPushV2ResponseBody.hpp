@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->messageIds_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // messageIds Field Functions 
     bool hasMessageIds() const { return this->messageIds_ != nullptr;};
     void deleteMessageIds() { this->messageIds_ = nullptr;};
-    inline const vector<string> & messageIds() const { DARABONBA_PTR_GET_CONST(messageIds_, vector<string>) };
-    inline vector<string> messageIds() { DARABONBA_PTR_GET(messageIds_, vector<string>) };
+    inline const vector<string> & getMessageIds() const { DARABONBA_PTR_GET_CONST(messageIds_, vector<string>) };
+    inline vector<string> getMessageIds() { DARABONBA_PTR_GET(messageIds_, vector<string>) };
     inline MassPushV2ResponseBody& setMessageIds(const vector<string> & messageIds) { DARABONBA_PTR_SET_VALUE(messageIds_, messageIds) };
     inline MassPushV2ResponseBody& setMessageIds(vector<string> && messageIds) { DARABONBA_PTR_SET_RVALUE(messageIds_, messageIds) };
 
@@ -46,13 +46,13 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline MassPushV2ResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<vector<string>> messageIds_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<vector<string>> messageIds_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

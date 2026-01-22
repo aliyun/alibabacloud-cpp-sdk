@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appKey_ == nullptr
-        && return this->tagName_ == nullptr; };
+        && this->tagName_ == nullptr; };
     // appKey Field Functions 
     bool hasAppKey() const { return this->appKey_ != nullptr;};
     void deleteAppKey() { this->appKey_ = nullptr;};
-    inline int64_t appKey() const { DARABONBA_PTR_GET_DEFAULT(appKey_, 0L) };
+    inline int64_t getAppKey() const { DARABONBA_PTR_GET_DEFAULT(appKey_, 0L) };
     inline RemoveTagRequest& setAppKey(int64_t appKey) { DARABONBA_PTR_SET_VALUE(appKey_, appKey) };
 
 
     // tagName Field Functions 
     bool hasTagName() const { return this->tagName_ != nullptr;};
     void deleteTagName() { this->tagName_ = nullptr;};
-    inline string tagName() const { DARABONBA_PTR_GET_DEFAULT(tagName_, "") };
+    inline string getTagName() const { DARABONBA_PTR_GET_DEFAULT(tagName_, "") };
     inline RemoveTagRequest& setTagName(string tagName) { DARABONBA_PTR_SET_VALUE(tagName_, tagName) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<int64_t> appKey_ = nullptr;
+    shared_ptr<int64_t> appKey_ {};
     // This parameter is required.
-    std::shared_ptr<string> tagName_ = nullptr;
+    shared_ptr<string> tagName_ {};
   };
 
   } // namespace Models

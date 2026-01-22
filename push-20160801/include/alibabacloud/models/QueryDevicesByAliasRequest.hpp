@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->alias_ == nullptr
-        && return this->appKey_ == nullptr; };
+        && this->appKey_ == nullptr; };
     // alias Field Functions 
     bool hasAlias() const { return this->alias_ != nullptr;};
     void deleteAlias() { this->alias_ = nullptr;};
-    inline string alias() const { DARABONBA_PTR_GET_DEFAULT(alias_, "") };
+    inline string getAlias() const { DARABONBA_PTR_GET_DEFAULT(alias_, "") };
     inline QueryDevicesByAliasRequest& setAlias(string alias) { DARABONBA_PTR_SET_VALUE(alias_, alias) };
 
 
     // appKey Field Functions 
     bool hasAppKey() const { return this->appKey_ != nullptr;};
     void deleteAppKey() { this->appKey_ = nullptr;};
-    inline int64_t appKey() const { DARABONBA_PTR_GET_DEFAULT(appKey_, 0L) };
+    inline int64_t getAppKey() const { DARABONBA_PTR_GET_DEFAULT(appKey_, 0L) };
     inline QueryDevicesByAliasRequest& setAppKey(int64_t appKey) { DARABONBA_PTR_SET_VALUE(appKey_, appKey) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> alias_ = nullptr;
+    shared_ptr<string> alias_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> appKey_ = nullptr;
+    shared_ptr<int64_t> appKey_ {};
   };
 
   } // namespace Models

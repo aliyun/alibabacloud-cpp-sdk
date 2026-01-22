@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appKey_ == nullptr
-        && return this->messageId_ == nullptr && return this->target_ == nullptr && return this->targetValue_ == nullptr; };
+        && this->messageId_ == nullptr && this->target_ == nullptr && this->targetValue_ == nullptr; };
     // appKey Field Functions 
     bool hasAppKey() const { return this->appKey_ != nullptr;};
     void deleteAppKey() { this->appKey_ = nullptr;};
-    inline int64_t appKey() const { DARABONBA_PTR_GET_DEFAULT(appKey_, 0L) };
+    inline int64_t getAppKey() const { DARABONBA_PTR_GET_DEFAULT(appKey_, 0L) };
     inline ContinuouslyPushRequest& setAppKey(int64_t appKey) { DARABONBA_PTR_SET_VALUE(appKey_, appKey) };
 
 
     // messageId Field Functions 
     bool hasMessageId() const { return this->messageId_ != nullptr;};
     void deleteMessageId() { this->messageId_ = nullptr;};
-    inline string messageId() const { DARABONBA_PTR_GET_DEFAULT(messageId_, "") };
+    inline string getMessageId() const { DARABONBA_PTR_GET_DEFAULT(messageId_, "") };
     inline ContinuouslyPushRequest& setMessageId(string messageId) { DARABONBA_PTR_SET_VALUE(messageId_, messageId) };
 
 
     // target Field Functions 
     bool hasTarget() const { return this->target_ != nullptr;};
     void deleteTarget() { this->target_ = nullptr;};
-    inline string target() const { DARABONBA_PTR_GET_DEFAULT(target_, "") };
+    inline string getTarget() const { DARABONBA_PTR_GET_DEFAULT(target_, "") };
     inline ContinuouslyPushRequest& setTarget(string target) { DARABONBA_PTR_SET_VALUE(target_, target) };
 
 
     // targetValue Field Functions 
     bool hasTargetValue() const { return this->targetValue_ != nullptr;};
     void deleteTargetValue() { this->targetValue_ = nullptr;};
-    inline string targetValue() const { DARABONBA_PTR_GET_DEFAULT(targetValue_, "") };
+    inline string getTargetValue() const { DARABONBA_PTR_GET_DEFAULT(targetValue_, "") };
     inline ContinuouslyPushRequest& setTargetValue(string targetValue) { DARABONBA_PTR_SET_VALUE(targetValue_, targetValue) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<int64_t> appKey_ = nullptr;
+    shared_ptr<int64_t> appKey_ {};
     // This parameter is required.
-    std::shared_ptr<string> messageId_ = nullptr;
+    shared_ptr<string> messageId_ {};
     // This parameter is required.
-    std::shared_ptr<string> target_ = nullptr;
+    shared_ptr<string> target_ {};
     // This parameter is required.
-    std::shared_ptr<string> targetValue_ = nullptr;
+    shared_ptr<string> targetValue_ {};
   };
 
   } // namespace Models

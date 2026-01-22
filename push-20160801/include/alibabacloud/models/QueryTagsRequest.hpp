@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appKey_ == nullptr
-        && return this->clientKey_ == nullptr && return this->keyType_ == nullptr; };
+        && this->clientKey_ == nullptr && this->keyType_ == nullptr; };
     // appKey Field Functions 
     bool hasAppKey() const { return this->appKey_ != nullptr;};
     void deleteAppKey() { this->appKey_ = nullptr;};
-    inline int64_t appKey() const { DARABONBA_PTR_GET_DEFAULT(appKey_, 0L) };
+    inline int64_t getAppKey() const { DARABONBA_PTR_GET_DEFAULT(appKey_, 0L) };
     inline QueryTagsRequest& setAppKey(int64_t appKey) { DARABONBA_PTR_SET_VALUE(appKey_, appKey) };
 
 
     // clientKey Field Functions 
     bool hasClientKey() const { return this->clientKey_ != nullptr;};
     void deleteClientKey() { this->clientKey_ = nullptr;};
-    inline string clientKey() const { DARABONBA_PTR_GET_DEFAULT(clientKey_, "") };
+    inline string getClientKey() const { DARABONBA_PTR_GET_DEFAULT(clientKey_, "") };
     inline QueryTagsRequest& setClientKey(string clientKey) { DARABONBA_PTR_SET_VALUE(clientKey_, clientKey) };
 
 
     // keyType Field Functions 
     bool hasKeyType() const { return this->keyType_ != nullptr;};
     void deleteKeyType() { this->keyType_ = nullptr;};
-    inline string keyType() const { DARABONBA_PTR_GET_DEFAULT(keyType_, "") };
+    inline string getKeyType() const { DARABONBA_PTR_GET_DEFAULT(keyType_, "") };
     inline QueryTagsRequest& setKeyType(string keyType) { DARABONBA_PTR_SET_VALUE(keyType_, keyType) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<int64_t> appKey_ = nullptr;
+    shared_ptr<int64_t> appKey_ {};
     // This parameter is required.
-    std::shared_ptr<string> clientKey_ = nullptr;
+    shared_ptr<string> clientKey_ {};
     // This parameter is required.
-    std::shared_ptr<string> keyType_ = nullptr;
+    shared_ptr<string> keyType_ {};
   };
 
   } // namespace Models

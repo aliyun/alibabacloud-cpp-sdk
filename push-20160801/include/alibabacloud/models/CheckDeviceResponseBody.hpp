@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->available_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // available Field Functions 
     bool hasAvailable() const { return this->available_ != nullptr;};
     void deleteAvailable() { this->available_ = nullptr;};
-    inline bool available() const { DARABONBA_PTR_GET_DEFAULT(available_, false) };
+    inline bool getAvailable() const { DARABONBA_PTR_GET_DEFAULT(available_, false) };
     inline CheckDeviceResponseBody& setAvailable(bool available) { DARABONBA_PTR_SET_VALUE(available_, available) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CheckDeviceResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<bool> available_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<bool> available_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models
