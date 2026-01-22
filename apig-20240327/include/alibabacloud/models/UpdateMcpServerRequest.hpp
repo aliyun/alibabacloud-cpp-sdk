@@ -23,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(exposedUriPath, exposedUriPath_);
       DARABONBA_PTR_TO_JSON(grayMcpServerConfigs, grayMcpServerConfigs_);
       DARABONBA_PTR_TO_JSON(match, match_);
+      DARABONBA_PTR_TO_JSON(mcpServerConfig, mcpServerConfig_);
       DARABONBA_PTR_TO_JSON(mcpStatisticsEnable, mcpStatisticsEnable_);
       DARABONBA_PTR_TO_JSON(protocol, protocol_);
       DARABONBA_PTR_TO_JSON(type, type_);
@@ -36,6 +37,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(exposedUriPath, exposedUriPath_);
       DARABONBA_PTR_FROM_JSON(grayMcpServerConfigs, grayMcpServerConfigs_);
       DARABONBA_PTR_FROM_JSON(match, match_);
+      DARABONBA_PTR_FROM_JSON(mcpServerConfig, mcpServerConfig_);
       DARABONBA_PTR_FROM_JSON(mcpStatisticsEnable, mcpStatisticsEnable_);
       DARABONBA_PTR_FROM_JSON(protocol, protocol_);
       DARABONBA_PTR_FROM_JSON(type, type_);
@@ -51,6 +53,48 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class McpServerConfig : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const McpServerConfig& obj) { 
+        DARABONBA_PTR_TO_JSON(mcpServerSpec, mcpServerSpec_);
+        DARABONBA_PTR_TO_JSON(swaggerConfig, swaggerConfig_);
+      };
+      friend void from_json(const Darabonba::Json& j, McpServerConfig& obj) { 
+        DARABONBA_PTR_FROM_JSON(mcpServerSpec, mcpServerSpec_);
+        DARABONBA_PTR_FROM_JSON(swaggerConfig, swaggerConfig_);
+      };
+      McpServerConfig() = default ;
+      McpServerConfig(const McpServerConfig &) = default ;
+      McpServerConfig(McpServerConfig &&) = default ;
+      McpServerConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~McpServerConfig() = default ;
+      McpServerConfig& operator=(const McpServerConfig &) = default ;
+      McpServerConfig& operator=(McpServerConfig &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->mcpServerSpec_ == nullptr
+        && this->swaggerConfig_ == nullptr; };
+      // mcpServerSpec Field Functions 
+      bool hasMcpServerSpec() const { return this->mcpServerSpec_ != nullptr;};
+      void deleteMcpServerSpec() { this->mcpServerSpec_ = nullptr;};
+      inline string getMcpServerSpec() const { DARABONBA_PTR_GET_DEFAULT(mcpServerSpec_, "") };
+      inline McpServerConfig& setMcpServerSpec(string mcpServerSpec) { DARABONBA_PTR_SET_VALUE(mcpServerSpec_, mcpServerSpec) };
+
+
+      // swaggerConfig Field Functions 
+      bool hasSwaggerConfig() const { return this->swaggerConfig_ != nullptr;};
+      void deleteSwaggerConfig() { this->swaggerConfig_ = nullptr;};
+      inline string getSwaggerConfig() const { DARABONBA_PTR_GET_DEFAULT(swaggerConfig_, "") };
+      inline McpServerConfig& setSwaggerConfig(string swaggerConfig) { DARABONBA_PTR_SET_VALUE(swaggerConfig_, swaggerConfig) };
+
+
+    protected:
+      shared_ptr<string> mcpServerSpec_ {};
+      shared_ptr<string> swaggerConfig_ {};
+    };
+
     class GrayMcpServerConfigs : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const GrayMcpServerConfigs& obj) { 
@@ -409,7 +453,8 @@ namespace Models
 
     virtual bool empty() const override { return this->assembledSources_ == nullptr
         && this->backendConfig_ == nullptr && this->createFromType_ == nullptr && this->description_ == nullptr && this->domainIds_ == nullptr && this->exposedUriPath_ == nullptr
-        && this->grayMcpServerConfigs_ == nullptr && this->match_ == nullptr && this->mcpStatisticsEnable_ == nullptr && this->protocol_ == nullptr && this->type_ == nullptr; };
+        && this->grayMcpServerConfigs_ == nullptr && this->match_ == nullptr && this->mcpServerConfig_ == nullptr && this->mcpStatisticsEnable_ == nullptr && this->protocol_ == nullptr
+        && this->type_ == nullptr; };
     // assembledSources Field Functions 
     bool hasAssembledSources() const { return this->assembledSources_ != nullptr;};
     void deleteAssembledSources() { this->assembledSources_ = nullptr;};
@@ -476,6 +521,15 @@ namespace Models
     inline UpdateMcpServerRequest& setMatch(HttpRouteMatch && match) { DARABONBA_PTR_SET_RVALUE(match_, match) };
 
 
+    // mcpServerConfig Field Functions 
+    bool hasMcpServerConfig() const { return this->mcpServerConfig_ != nullptr;};
+    void deleteMcpServerConfig() { this->mcpServerConfig_ = nullptr;};
+    inline const UpdateMcpServerRequest::McpServerConfig & getMcpServerConfig() const { DARABONBA_PTR_GET_CONST(mcpServerConfig_, UpdateMcpServerRequest::McpServerConfig) };
+    inline UpdateMcpServerRequest::McpServerConfig getMcpServerConfig() { DARABONBA_PTR_GET(mcpServerConfig_, UpdateMcpServerRequest::McpServerConfig) };
+    inline UpdateMcpServerRequest& setMcpServerConfig(const UpdateMcpServerRequest::McpServerConfig & mcpServerConfig) { DARABONBA_PTR_SET_VALUE(mcpServerConfig_, mcpServerConfig) };
+    inline UpdateMcpServerRequest& setMcpServerConfig(UpdateMcpServerRequest::McpServerConfig && mcpServerConfig) { DARABONBA_PTR_SET_RVALUE(mcpServerConfig_, mcpServerConfig) };
+
+
     // mcpStatisticsEnable Field Functions 
     bool hasMcpStatisticsEnable() const { return this->mcpStatisticsEnable_ != nullptr;};
     void deleteMcpStatisticsEnable() { this->mcpStatisticsEnable_ = nullptr;};
@@ -513,6 +567,7 @@ namespace Models
     shared_ptr<vector<UpdateMcpServerRequest::GrayMcpServerConfigs>> grayMcpServerConfigs_ {};
     // The route match rule.
     shared_ptr<HttpRouteMatch> match_ {};
+    shared_ptr<UpdateMcpServerRequest::McpServerConfig> mcpServerConfig_ {};
     // Specifies if MCP observability is enabled. Default value: false.
     shared_ptr<bool> mcpStatisticsEnable_ {};
     // The service protocol. Valid values: HTTP, HTTPS, SSE, and StreamableHTTP.

@@ -960,6 +960,10 @@ CreateMcpServerResponse Client::createMcpServerWithOptions(const CreateMcpServer
     body["match"] = request.getMatch();
   }
 
+  if (!!request.hasMcpServerConfig()) {
+    body["mcpServerConfig"] = request.getMcpServerConfig();
+  }
+
   if (!!request.hasMcpStatisticsEnable()) {
     body["mcpStatisticsEnable"] = request.getMcpStatisticsEnable();
   }
@@ -5496,6 +5500,10 @@ UpdateMcpServerResponse Client::updateMcpServerWithOptions(const string &mcpServ
 
   if (!!request.hasMatch()) {
     body["match"] = request.getMatch();
+  }
+
+  if (!!request.hasMcpServerConfig()) {
+    body["mcpServerConfig"] = request.getMcpServerConfig();
   }
 
   if (!!request.hasMcpStatisticsEnable()) {
