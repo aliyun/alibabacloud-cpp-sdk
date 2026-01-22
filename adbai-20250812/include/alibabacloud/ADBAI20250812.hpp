@@ -70,6 +70,40 @@ namespace ADBAI20250812
        * @return DescribeEmbodiedAIPlatformsResponse
        */
       Models::DescribeEmbodiedAIPlatformsResponse describeEmbodiedAIPlatforms(const Models::DescribeEmbodiedAIPlatformsRequest &request);
+
+      /**
+       * @summary 查询具身智能平台资源用量
+       *
+       * @param request GetEmbodiedAIPlatformResourceUsageInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetEmbodiedAIPlatformResourceUsageInfoResponse
+       */
+      Models::GetEmbodiedAIPlatformResourceUsageInfoResponse getEmbodiedAIPlatformResourceUsageInfoWithOptions(const Models::GetEmbodiedAIPlatformResourceUsageInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询具身智能平台资源用量
+       *
+       * @param request GetEmbodiedAIPlatformResourceUsageInfoRequest
+       * @return GetEmbodiedAIPlatformResourceUsageInfoResponse
+       */
+      Models::GetEmbodiedAIPlatformResourceUsageInfoResponse getEmbodiedAIPlatformResourceUsageInfo(const Models::GetEmbodiedAIPlatformResourceUsageInfoRequest &request);
+
+      /**
+       * @summary 重置具身智能平台密码
+       *
+       * @param request ResetEmbodiedAIPlatformPasswordRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ResetEmbodiedAIPlatformPasswordResponse
+       */
+      Models::ResetEmbodiedAIPlatformPasswordResponse resetEmbodiedAIPlatformPasswordWithOptions(const Models::ResetEmbodiedAIPlatformPasswordRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 重置具身智能平台密码
+       *
+       * @param request ResetEmbodiedAIPlatformPasswordRequest
+       * @return ResetEmbodiedAIPlatformPasswordResponse
+       */
+      Models::ResetEmbodiedAIPlatformPasswordResponse resetEmbodiedAIPlatformPassword(const Models::ResetEmbodiedAIPlatformPasswordRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace ADBAI20250812

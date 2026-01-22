@@ -236,5 +236,117 @@ DescribeEmbodiedAIPlatformsResponse Client::describeEmbodiedAIPlatforms(const De
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeEmbodiedAIPlatformsWithOptions(request, runtime);
 }
+
+/**
+ * @summary 查询具身智能平台资源用量
+ *
+ * @param request GetEmbodiedAIPlatformResourceUsageInfoRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetEmbodiedAIPlatformResourceUsageInfoResponse
+ */
+GetEmbodiedAIPlatformResourceUsageInfoResponse Client::getEmbodiedAIPlatformResourceUsageInfoWithOptions(const GetEmbodiedAIPlatformResourceUsageInfoRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasPlatformName()) {
+    query["PlatformName"] = request.getPlatformName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetEmbodiedAIPlatformResourceUsageInfo"},
+    {"version" , "2025-08-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetEmbodiedAIPlatformResourceUsageInfoResponse>();
+}
+
+/**
+ * @summary 查询具身智能平台资源用量
+ *
+ * @param request GetEmbodiedAIPlatformResourceUsageInfoRequest
+ * @return GetEmbodiedAIPlatformResourceUsageInfoResponse
+ */
+GetEmbodiedAIPlatformResourceUsageInfoResponse Client::getEmbodiedAIPlatformResourceUsageInfo(const GetEmbodiedAIPlatformResourceUsageInfoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getEmbodiedAIPlatformResourceUsageInfoWithOptions(request, runtime);
+}
+
+/**
+ * @summary 重置具身智能平台密码
+ *
+ * @param request ResetEmbodiedAIPlatformPasswordRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ResetEmbodiedAIPlatformPasswordResponse
+ */
+ResetEmbodiedAIPlatformPasswordResponse Client::resetEmbodiedAIPlatformPasswordWithOptions(const ResetEmbodiedAIPlatformPasswordRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasPassword()) {
+    query["Password"] = request.getPassword();
+  }
+
+  if (!!request.hasPlatformName()) {
+    query["PlatformName"] = request.getPlatformName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ResetEmbodiedAIPlatformPassword"},
+    {"version" , "2025-08-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ResetEmbodiedAIPlatformPasswordResponse>();
+}
+
+/**
+ * @summary 重置具身智能平台密码
+ *
+ * @param request ResetEmbodiedAIPlatformPasswordRequest
+ * @return ResetEmbodiedAIPlatformPasswordResponse
+ */
+ResetEmbodiedAIPlatformPasswordResponse Client::resetEmbodiedAIPlatformPassword(const ResetEmbodiedAIPlatformPasswordRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return resetEmbodiedAIPlatformPasswordWithOptions(request, runtime);
+}
 } // namespace AlibabaCloud
 } // namespace ADBAI20250812
