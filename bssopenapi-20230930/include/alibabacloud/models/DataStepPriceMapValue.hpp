@@ -45,82 +45,82 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->rightClose_ != nullptr
-        && this->min_ != nullptr && this->max_ != nullptr && this->currency_ != nullptr && this->leftClose_ != nullptr && this->stepPriceValue_ != nullptr
-        && this->priceValueType_ != nullptr && this->priceValue_ != nullptr && this->deductCycleType_ != nullptr; };
+    virtual bool empty() const override { return this->rightClose_ == nullptr
+        && this->min_ == nullptr && this->max_ == nullptr && this->currency_ == nullptr && this->leftClose_ == nullptr && this->stepPriceValue_ == nullptr
+        && this->priceValueType_ == nullptr && this->priceValue_ == nullptr && this->deductCycleType_ == nullptr; };
     // rightClose Field Functions 
     bool hasRightClose() const { return this->rightClose_ != nullptr;};
     void deleteRightClose() { this->rightClose_ = nullptr;};
-    inline bool rightClose() const { DARABONBA_PTR_GET_DEFAULT(rightClose_, false) };
+    inline bool getRightClose() const { DARABONBA_PTR_GET_DEFAULT(rightClose_, false) };
     inline DataStepPriceMapValue& setRightClose(bool rightClose) { DARABONBA_PTR_SET_VALUE(rightClose_, rightClose) };
 
 
     // min Field Functions 
     bool hasMin() const { return this->min_ != nullptr;};
     void deleteMin() { this->min_ = nullptr;};
-    inline string min() const { DARABONBA_PTR_GET_DEFAULT(min_, "") };
+    inline string getMin() const { DARABONBA_PTR_GET_DEFAULT(min_, "") };
     inline DataStepPriceMapValue& setMin(string min) { DARABONBA_PTR_SET_VALUE(min_, min) };
 
 
     // max Field Functions 
     bool hasMax() const { return this->max_ != nullptr;};
     void deleteMax() { this->max_ = nullptr;};
-    inline string max() const { DARABONBA_PTR_GET_DEFAULT(max_, "") };
+    inline string getMax() const { DARABONBA_PTR_GET_DEFAULT(max_, "") };
     inline DataStepPriceMapValue& setMax(string max) { DARABONBA_PTR_SET_VALUE(max_, max) };
 
 
     // currency Field Functions 
     bool hasCurrency() const { return this->currency_ != nullptr;};
     void deleteCurrency() { this->currency_ = nullptr;};
-    inline string currency() const { DARABONBA_PTR_GET_DEFAULT(currency_, "") };
+    inline string getCurrency() const { DARABONBA_PTR_GET_DEFAULT(currency_, "") };
     inline DataStepPriceMapValue& setCurrency(string currency) { DARABONBA_PTR_SET_VALUE(currency_, currency) };
 
 
     // leftClose Field Functions 
     bool hasLeftClose() const { return this->leftClose_ != nullptr;};
     void deleteLeftClose() { this->leftClose_ = nullptr;};
-    inline bool leftClose() const { DARABONBA_PTR_GET_DEFAULT(leftClose_, false) };
+    inline bool getLeftClose() const { DARABONBA_PTR_GET_DEFAULT(leftClose_, false) };
     inline DataStepPriceMapValue& setLeftClose(bool leftClose) { DARABONBA_PTR_SET_VALUE(leftClose_, leftClose) };
 
 
     // stepPriceValue Field Functions 
     bool hasStepPriceValue() const { return this->stepPriceValue_ != nullptr;};
     void deleteStepPriceValue() { this->stepPriceValue_ = nullptr;};
-    inline string stepPriceValue() const { DARABONBA_PTR_GET_DEFAULT(stepPriceValue_, "") };
+    inline string getStepPriceValue() const { DARABONBA_PTR_GET_DEFAULT(stepPriceValue_, "") };
     inline DataStepPriceMapValue& setStepPriceValue(string stepPriceValue) { DARABONBA_PTR_SET_VALUE(stepPriceValue_, stepPriceValue) };
 
 
     // priceValueType Field Functions 
     bool hasPriceValueType() const { return this->priceValueType_ != nullptr;};
     void deletePriceValueType() { this->priceValueType_ = nullptr;};
-    inline string priceValueType() const { DARABONBA_PTR_GET_DEFAULT(priceValueType_, "") };
+    inline string getPriceValueType() const { DARABONBA_PTR_GET_DEFAULT(priceValueType_, "") };
     inline DataStepPriceMapValue& setPriceValueType(string priceValueType) { DARABONBA_PTR_SET_VALUE(priceValueType_, priceValueType) };
 
 
     // priceValue Field Functions 
     bool hasPriceValue() const { return this->priceValue_ != nullptr;};
     void deletePriceValue() { this->priceValue_ = nullptr;};
-    inline string priceValue() const { DARABONBA_PTR_GET_DEFAULT(priceValue_, "") };
+    inline string getPriceValue() const { DARABONBA_PTR_GET_DEFAULT(priceValue_, "") };
     inline DataStepPriceMapValue& setPriceValue(string priceValue) { DARABONBA_PTR_SET_VALUE(priceValue_, priceValue) };
 
 
     // deductCycleType Field Functions 
     bool hasDeductCycleType() const { return this->deductCycleType_ != nullptr;};
     void deleteDeductCycleType() { this->deductCycleType_ = nullptr;};
-    inline string deductCycleType() const { DARABONBA_PTR_GET_DEFAULT(deductCycleType_, "") };
+    inline string getDeductCycleType() const { DARABONBA_PTR_GET_DEFAULT(deductCycleType_, "") };
     inline DataStepPriceMapValue& setDeductCycleType(string deductCycleType) { DARABONBA_PTR_SET_VALUE(deductCycleType_, deductCycleType) };
 
 
   protected:
-    std::shared_ptr<bool> rightClose_ = nullptr;
-    std::shared_ptr<string> min_ = nullptr;
-    std::shared_ptr<string> max_ = nullptr;
-    std::shared_ptr<string> currency_ = nullptr;
-    std::shared_ptr<bool> leftClose_ = nullptr;
-    std::shared_ptr<string> stepPriceValue_ = nullptr;
-    std::shared_ptr<string> priceValueType_ = nullptr;
-    std::shared_ptr<string> priceValue_ = nullptr;
-    std::shared_ptr<string> deductCycleType_ = nullptr;
+    shared_ptr<bool> rightClose_ {};
+    shared_ptr<string> min_ {};
+    shared_ptr<string> max_ {};
+    shared_ptr<string> currency_ {};
+    shared_ptr<bool> leftClose_ {};
+    shared_ptr<string> stepPriceValue_ {};
+    shared_ptr<string> priceValueType_ {};
+    shared_ptr<string> priceValue_ {};
+    shared_ptr<string> deductCycleType_ {};
   };
 
   } // namespace Models

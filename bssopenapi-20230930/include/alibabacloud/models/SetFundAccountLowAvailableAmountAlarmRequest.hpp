@@ -31,25 +31,25 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->fundAccountId_ != nullptr
-        && this->thresholdAmount_ != nullptr; };
+    virtual bool empty() const override { return this->fundAccountId_ == nullptr
+        && this->thresholdAmount_ == nullptr; };
     // fundAccountId Field Functions 
     bool hasFundAccountId() const { return this->fundAccountId_ != nullptr;};
     void deleteFundAccountId() { this->fundAccountId_ = nullptr;};
-    inline int64_t fundAccountId() const { DARABONBA_PTR_GET_DEFAULT(fundAccountId_, 0L) };
+    inline int64_t getFundAccountId() const { DARABONBA_PTR_GET_DEFAULT(fundAccountId_, 0L) };
     inline SetFundAccountLowAvailableAmountAlarmRequest& setFundAccountId(int64_t fundAccountId) { DARABONBA_PTR_SET_VALUE(fundAccountId_, fundAccountId) };
 
 
     // thresholdAmount Field Functions 
     bool hasThresholdAmount() const { return this->thresholdAmount_ != nullptr;};
     void deleteThresholdAmount() { this->thresholdAmount_ = nullptr;};
-    inline string thresholdAmount() const { DARABONBA_PTR_GET_DEFAULT(thresholdAmount_, "") };
+    inline string getThresholdAmount() const { DARABONBA_PTR_GET_DEFAULT(thresholdAmount_, "") };
     inline SetFundAccountLowAvailableAmountAlarmRequest& setThresholdAmount(string thresholdAmount) { DARABONBA_PTR_SET_VALUE(thresholdAmount_, thresholdAmount) };
 
 
   protected:
-    std::shared_ptr<int64_t> fundAccountId_ = nullptr;
-    std::shared_ptr<string> thresholdAmount_ = nullptr;
+    shared_ptr<int64_t> fundAccountId_ {};
+    shared_ptr<string> thresholdAmount_ {};
   };
 
   } // namespace Models

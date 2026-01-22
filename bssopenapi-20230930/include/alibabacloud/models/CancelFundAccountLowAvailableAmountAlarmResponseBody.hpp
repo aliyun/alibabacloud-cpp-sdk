@@ -33,35 +33,35 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->data_ != nullptr
-        && this->metadata_ != nullptr && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->data_ == nullptr
+        && this->metadata_ == nullptr && this->requestId_ == nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline bool data() const { DARABONBA_PTR_GET_DEFAULT(data_, false) };
+    inline bool getData() const { DARABONBA_PTR_GET_DEFAULT(data_, false) };
     inline CancelFundAccountLowAvailableAmountAlarmResponseBody& setData(bool data) { DARABONBA_PTR_SET_VALUE(data_, data) };
 
 
     // metadata Field Functions 
     bool hasMetadata() const { return this->metadata_ != nullptr;};
     void deleteMetadata() { this->metadata_ = nullptr;};
-    inline     const Darabonba::Json & metadata() const { DARABONBA_GET(metadata_) };
-    Darabonba::Json & metadata() { DARABONBA_GET(metadata_) };
+    inline     const Darabonba::Json & getMetadata() const { DARABONBA_GET(metadata_) };
+    Darabonba::Json & getMetadata() { DARABONBA_GET(metadata_) };
     inline CancelFundAccountLowAvailableAmountAlarmResponseBody& setMetadata(const Darabonba::Json & metadata) { DARABONBA_SET_VALUE(metadata_, metadata) };
-    inline CancelFundAccountLowAvailableAmountAlarmResponseBody& setMetadata(Darabonba::Json & metadata) { DARABONBA_SET_RVALUE(metadata_, metadata) };
+    inline CancelFundAccountLowAvailableAmountAlarmResponseBody& setMetadata(Darabonba::Json && metadata) { DARABONBA_SET_RVALUE(metadata_, metadata) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CancelFundAccountLowAvailableAmountAlarmResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<bool> data_ = nullptr;
-    Darabonba::Json metadata_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<bool> data_ {};
+    Darabonba::Json metadata_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

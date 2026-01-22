@@ -31,27 +31,27 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->metadata_ != nullptr
-        && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->metadata_ == nullptr
+        && this->requestId_ == nullptr; };
     // metadata Field Functions 
     bool hasMetadata() const { return this->metadata_ != nullptr;};
     void deleteMetadata() { this->metadata_ = nullptr;};
-    inline     const Darabonba::Json & metadata() const { DARABONBA_GET(metadata_) };
-    Darabonba::Json & metadata() { DARABONBA_GET(metadata_) };
+    inline     const Darabonba::Json & getMetadata() const { DARABONBA_GET(metadata_) };
+    Darabonba::Json & getMetadata() { DARABONBA_GET(metadata_) };
     inline SetFundAccountCreditAmountResponseBody& setMetadata(const Darabonba::Json & metadata) { DARABONBA_SET_VALUE(metadata_, metadata) };
-    inline SetFundAccountCreditAmountResponseBody& setMetadata(Darabonba::Json & metadata) { DARABONBA_SET_RVALUE(metadata_, metadata) };
+    inline SetFundAccountCreditAmountResponseBody& setMetadata(Darabonba::Json && metadata) { DARABONBA_SET_RVALUE(metadata_, metadata) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline SetFundAccountCreditAmountResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    Darabonba::Json metadata_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    Darabonba::Json metadata_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

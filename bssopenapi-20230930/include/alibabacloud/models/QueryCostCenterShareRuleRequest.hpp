@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_QUERYCOSTCENTERSHARERULEREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/QueryCostCenterShareRuleRequestEcIdAccountIds.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -39,51 +38,96 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ecIdAccountIds_ != nullptr
-        && this->maxResults_ != nullptr && this->nbid_ != nullptr && this->nextToken_ != nullptr && this->ownerAccountId_ != nullptr; };
+    class EcIdAccountIds : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const EcIdAccountIds& obj) { 
+        DARABONBA_PTR_TO_JSON(AccountIds, accountIds_);
+        DARABONBA_PTR_TO_JSON(EcId, ecId_);
+      };
+      friend void from_json(const Darabonba::Json& j, EcIdAccountIds& obj) { 
+        DARABONBA_PTR_FROM_JSON(AccountIds, accountIds_);
+        DARABONBA_PTR_FROM_JSON(EcId, ecId_);
+      };
+      EcIdAccountIds() = default ;
+      EcIdAccountIds(const EcIdAccountIds &) = default ;
+      EcIdAccountIds(EcIdAccountIds &&) = default ;
+      EcIdAccountIds(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~EcIdAccountIds() = default ;
+      EcIdAccountIds& operator=(const EcIdAccountIds &) = default ;
+      EcIdAccountIds& operator=(EcIdAccountIds &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->accountIds_ == nullptr
+        && this->ecId_ == nullptr; };
+      // accountIds Field Functions 
+      bool hasAccountIds() const { return this->accountIds_ != nullptr;};
+      void deleteAccountIds() { this->accountIds_ = nullptr;};
+      inline const vector<int64_t> & getAccountIds() const { DARABONBA_PTR_GET_CONST(accountIds_, vector<int64_t>) };
+      inline vector<int64_t> getAccountIds() { DARABONBA_PTR_GET(accountIds_, vector<int64_t>) };
+      inline EcIdAccountIds& setAccountIds(const vector<int64_t> & accountIds) { DARABONBA_PTR_SET_VALUE(accountIds_, accountIds) };
+      inline EcIdAccountIds& setAccountIds(vector<int64_t> && accountIds) { DARABONBA_PTR_SET_RVALUE(accountIds_, accountIds) };
+
+
+      // ecId Field Functions 
+      bool hasEcId() const { return this->ecId_ != nullptr;};
+      void deleteEcId() { this->ecId_ = nullptr;};
+      inline string getEcId() const { DARABONBA_PTR_GET_DEFAULT(ecId_, "") };
+      inline EcIdAccountIds& setEcId(string ecId) { DARABONBA_PTR_SET_VALUE(ecId_, ecId) };
+
+
+    protected:
+      shared_ptr<vector<int64_t>> accountIds_ {};
+      // This parameter is required.
+      shared_ptr<string> ecId_ {};
+    };
+
+    virtual bool empty() const override { return this->ecIdAccountIds_ == nullptr
+        && this->maxResults_ == nullptr && this->nbid_ == nullptr && this->nextToken_ == nullptr && this->ownerAccountId_ == nullptr; };
     // ecIdAccountIds Field Functions 
     bool hasEcIdAccountIds() const { return this->ecIdAccountIds_ != nullptr;};
     void deleteEcIdAccountIds() { this->ecIdAccountIds_ = nullptr;};
-    inline const vector<QueryCostCenterShareRuleRequestEcIdAccountIds> & ecIdAccountIds() const { DARABONBA_PTR_GET_CONST(ecIdAccountIds_, vector<QueryCostCenterShareRuleRequestEcIdAccountIds>) };
-    inline vector<QueryCostCenterShareRuleRequestEcIdAccountIds> ecIdAccountIds() { DARABONBA_PTR_GET(ecIdAccountIds_, vector<QueryCostCenterShareRuleRequestEcIdAccountIds>) };
-    inline QueryCostCenterShareRuleRequest& setEcIdAccountIds(const vector<QueryCostCenterShareRuleRequestEcIdAccountIds> & ecIdAccountIds) { DARABONBA_PTR_SET_VALUE(ecIdAccountIds_, ecIdAccountIds) };
-    inline QueryCostCenterShareRuleRequest& setEcIdAccountIds(vector<QueryCostCenterShareRuleRequestEcIdAccountIds> && ecIdAccountIds) { DARABONBA_PTR_SET_RVALUE(ecIdAccountIds_, ecIdAccountIds) };
+    inline const vector<QueryCostCenterShareRuleRequest::EcIdAccountIds> & getEcIdAccountIds() const { DARABONBA_PTR_GET_CONST(ecIdAccountIds_, vector<QueryCostCenterShareRuleRequest::EcIdAccountIds>) };
+    inline vector<QueryCostCenterShareRuleRequest::EcIdAccountIds> getEcIdAccountIds() { DARABONBA_PTR_GET(ecIdAccountIds_, vector<QueryCostCenterShareRuleRequest::EcIdAccountIds>) };
+    inline QueryCostCenterShareRuleRequest& setEcIdAccountIds(const vector<QueryCostCenterShareRuleRequest::EcIdAccountIds> & ecIdAccountIds) { DARABONBA_PTR_SET_VALUE(ecIdAccountIds_, ecIdAccountIds) };
+    inline QueryCostCenterShareRuleRequest& setEcIdAccountIds(vector<QueryCostCenterShareRuleRequest::EcIdAccountIds> && ecIdAccountIds) { DARABONBA_PTR_SET_RVALUE(ecIdAccountIds_, ecIdAccountIds) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline QueryCostCenterShareRuleRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nbid Field Functions 
     bool hasNbid() const { return this->nbid_ != nullptr;};
     void deleteNbid() { this->nbid_ = nullptr;};
-    inline string nbid() const { DARABONBA_PTR_GET_DEFAULT(nbid_, "") };
+    inline string getNbid() const { DARABONBA_PTR_GET_DEFAULT(nbid_, "") };
     inline QueryCostCenterShareRuleRequest& setNbid(string nbid) { DARABONBA_PTR_SET_VALUE(nbid_, nbid) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline QueryCostCenterShareRuleRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // ownerAccountId Field Functions 
     bool hasOwnerAccountId() const { return this->ownerAccountId_ != nullptr;};
     void deleteOwnerAccountId() { this->ownerAccountId_ = nullptr;};
-    inline int64_t ownerAccountId() const { DARABONBA_PTR_GET_DEFAULT(ownerAccountId_, 0L) };
+    inline int64_t getOwnerAccountId() const { DARABONBA_PTR_GET_DEFAULT(ownerAccountId_, 0L) };
     inline QueryCostCenterShareRuleRequest& setOwnerAccountId(int64_t ownerAccountId) { DARABONBA_PTR_SET_VALUE(ownerAccountId_, ownerAccountId) };
 
 
   protected:
-    std::shared_ptr<vector<QueryCostCenterShareRuleRequestEcIdAccountIds>> ecIdAccountIds_ = nullptr;
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
-    std::shared_ptr<string> nbid_ = nullptr;
-    std::shared_ptr<string> nextToken_ = nullptr;
-    std::shared_ptr<int64_t> ownerAccountId_ = nullptr;
+    shared_ptr<vector<QueryCostCenterShareRuleRequest::EcIdAccountIds>> ecIdAccountIds_ {};
+    shared_ptr<int32_t> maxResults_ {};
+    shared_ptr<string> nbid_ {};
+    shared_ptr<string> nextToken_ {};
+    shared_ptr<int64_t> ownerAccountId_ {};
   };
 
   } // namespace Models

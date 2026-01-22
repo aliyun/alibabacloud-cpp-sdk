@@ -41,73 +41,73 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->amount_ != nullptr
-        && this->currency_ != nullptr && this->financeType_ != nullptr && this->fromFundAccountId_ != nullptr && this->remark_ != nullptr && this->toFundAccountId_ != nullptr
-        && this->transferType_ != nullptr; };
+    virtual bool empty() const override { return this->amount_ == nullptr
+        && this->currency_ == nullptr && this->financeType_ == nullptr && this->fromFundAccountId_ == nullptr && this->remark_ == nullptr && this->toFundAccountId_ == nullptr
+        && this->transferType_ == nullptr; };
     // amount Field Functions 
     bool hasAmount() const { return this->amount_ != nullptr;};
     void deleteAmount() { this->amount_ = nullptr;};
-    inline string amount() const { DARABONBA_PTR_GET_DEFAULT(amount_, "") };
+    inline string getAmount() const { DARABONBA_PTR_GET_DEFAULT(amount_, "") };
     inline CreateFundAccountTransferRequest& setAmount(string amount) { DARABONBA_PTR_SET_VALUE(amount_, amount) };
 
 
     // currency Field Functions 
     bool hasCurrency() const { return this->currency_ != nullptr;};
     void deleteCurrency() { this->currency_ = nullptr;};
-    inline string currency() const { DARABONBA_PTR_GET_DEFAULT(currency_, "") };
+    inline string getCurrency() const { DARABONBA_PTR_GET_DEFAULT(currency_, "") };
     inline CreateFundAccountTransferRequest& setCurrency(string currency) { DARABONBA_PTR_SET_VALUE(currency_, currency) };
 
 
     // financeType Field Functions 
     bool hasFinanceType() const { return this->financeType_ != nullptr;};
     void deleteFinanceType() { this->financeType_ = nullptr;};
-    inline string financeType() const { DARABONBA_PTR_GET_DEFAULT(financeType_, "") };
+    inline string getFinanceType() const { DARABONBA_PTR_GET_DEFAULT(financeType_, "") };
     inline CreateFundAccountTransferRequest& setFinanceType(string financeType) { DARABONBA_PTR_SET_VALUE(financeType_, financeType) };
 
 
     // fromFundAccountId Field Functions 
     bool hasFromFundAccountId() const { return this->fromFundAccountId_ != nullptr;};
     void deleteFromFundAccountId() { this->fromFundAccountId_ = nullptr;};
-    inline int64_t fromFundAccountId() const { DARABONBA_PTR_GET_DEFAULT(fromFundAccountId_, 0L) };
+    inline int64_t getFromFundAccountId() const { DARABONBA_PTR_GET_DEFAULT(fromFundAccountId_, 0L) };
     inline CreateFundAccountTransferRequest& setFromFundAccountId(int64_t fromFundAccountId) { DARABONBA_PTR_SET_VALUE(fromFundAccountId_, fromFundAccountId) };
 
 
     // remark Field Functions 
     bool hasRemark() const { return this->remark_ != nullptr;};
     void deleteRemark() { this->remark_ = nullptr;};
-    inline string remark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
+    inline string getRemark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
     inline CreateFundAccountTransferRequest& setRemark(string remark) { DARABONBA_PTR_SET_VALUE(remark_, remark) };
 
 
     // toFundAccountId Field Functions 
     bool hasToFundAccountId() const { return this->toFundAccountId_ != nullptr;};
     void deleteToFundAccountId() { this->toFundAccountId_ = nullptr;};
-    inline int64_t toFundAccountId() const { DARABONBA_PTR_GET_DEFAULT(toFundAccountId_, 0L) };
+    inline int64_t getToFundAccountId() const { DARABONBA_PTR_GET_DEFAULT(toFundAccountId_, 0L) };
     inline CreateFundAccountTransferRequest& setToFundAccountId(int64_t toFundAccountId) { DARABONBA_PTR_SET_VALUE(toFundAccountId_, toFundAccountId) };
 
 
     // transferType Field Functions 
     bool hasTransferType() const { return this->transferType_ != nullptr;};
     void deleteTransferType() { this->transferType_ = nullptr;};
-    inline string transferType() const { DARABONBA_PTR_GET_DEFAULT(transferType_, "") };
+    inline string getTransferType() const { DARABONBA_PTR_GET_DEFAULT(transferType_, "") };
     inline CreateFundAccountTransferRequest& setTransferType(string transferType) { DARABONBA_PTR_SET_VALUE(transferType_, transferType) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> amount_ = nullptr;
+    shared_ptr<string> amount_ {};
     // This parameter is required.
-    std::shared_ptr<string> currency_ = nullptr;
+    shared_ptr<string> currency_ {};
     // This parameter is required.
-    std::shared_ptr<string> financeType_ = nullptr;
+    shared_ptr<string> financeType_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> fromFundAccountId_ = nullptr;
+    shared_ptr<int64_t> fromFundAccountId_ {};
     // This parameter is required.
-    std::shared_ptr<string> remark_ = nullptr;
+    shared_ptr<string> remark_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> toFundAccountId_ = nullptr;
+    shared_ptr<int64_t> toFundAccountId_ {};
     // This parameter is required.
-    std::shared_ptr<string> transferType_ = nullptr;
+    shared_ptr<string> transferType_ {};
   };
 
   } // namespace Models

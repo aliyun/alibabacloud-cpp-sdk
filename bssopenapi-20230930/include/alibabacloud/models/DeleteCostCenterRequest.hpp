@@ -33,35 +33,35 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->costCenterId_ != nullptr
-        && this->nbid_ != nullptr && this->ownerAccountId_ != nullptr; };
+    virtual bool empty() const override { return this->costCenterId_ == nullptr
+        && this->nbid_ == nullptr && this->ownerAccountId_ == nullptr; };
     // costCenterId Field Functions 
     bool hasCostCenterId() const { return this->costCenterId_ != nullptr;};
     void deleteCostCenterId() { this->costCenterId_ = nullptr;};
-    inline int64_t costCenterId() const { DARABONBA_PTR_GET_DEFAULT(costCenterId_, 0L) };
+    inline int64_t getCostCenterId() const { DARABONBA_PTR_GET_DEFAULT(costCenterId_, 0L) };
     inline DeleteCostCenterRequest& setCostCenterId(int64_t costCenterId) { DARABONBA_PTR_SET_VALUE(costCenterId_, costCenterId) };
 
 
     // nbid Field Functions 
     bool hasNbid() const { return this->nbid_ != nullptr;};
     void deleteNbid() { this->nbid_ = nullptr;};
-    inline string nbid() const { DARABONBA_PTR_GET_DEFAULT(nbid_, "") };
+    inline string getNbid() const { DARABONBA_PTR_GET_DEFAULT(nbid_, "") };
     inline DeleteCostCenterRequest& setNbid(string nbid) { DARABONBA_PTR_SET_VALUE(nbid_, nbid) };
 
 
     // ownerAccountId Field Functions 
     bool hasOwnerAccountId() const { return this->ownerAccountId_ != nullptr;};
     void deleteOwnerAccountId() { this->ownerAccountId_ = nullptr;};
-    inline int64_t ownerAccountId() const { DARABONBA_PTR_GET_DEFAULT(ownerAccountId_, 0L) };
+    inline int64_t getOwnerAccountId() const { DARABONBA_PTR_GET_DEFAULT(ownerAccountId_, 0L) };
     inline DeleteCostCenterRequest& setOwnerAccountId(int64_t ownerAccountId) { DARABONBA_PTR_SET_VALUE(ownerAccountId_, ownerAccountId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<int64_t> costCenterId_ = nullptr;
-    std::shared_ptr<string> nbid_ = nullptr;
+    shared_ptr<int64_t> costCenterId_ {};
+    shared_ptr<string> nbid_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> ownerAccountId_ = nullptr;
+    shared_ptr<int64_t> ownerAccountId_ {};
   };
 
   } // namespace Models

@@ -31,26 +31,26 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->nbid_ != nullptr
-        && this->reportTaskId_ != nullptr; };
+    virtual bool empty() const override { return this->nbid_ == nullptr
+        && this->reportTaskId_ == nullptr; };
     // nbid Field Functions 
     bool hasNbid() const { return this->nbid_ != nullptr;};
     void deleteNbid() { this->nbid_ = nullptr;};
-    inline string nbid() const { DARABONBA_PTR_GET_DEFAULT(nbid_, "") };
+    inline string getNbid() const { DARABONBA_PTR_GET_DEFAULT(nbid_, "") };
     inline DeleteReportDefinitionRequest& setNbid(string nbid) { DARABONBA_PTR_SET_VALUE(nbid_, nbid) };
 
 
     // reportTaskId Field Functions 
     bool hasReportTaskId() const { return this->reportTaskId_ != nullptr;};
     void deleteReportTaskId() { this->reportTaskId_ = nullptr;};
-    inline int64_t reportTaskId() const { DARABONBA_PTR_GET_DEFAULT(reportTaskId_, 0L) };
+    inline int64_t getReportTaskId() const { DARABONBA_PTR_GET_DEFAULT(reportTaskId_, 0L) };
     inline DeleteReportDefinitionRequest& setReportTaskId(int64_t reportTaskId) { DARABONBA_PTR_SET_VALUE(reportTaskId_, reportTaskId) };
 
 
   protected:
-    std::shared_ptr<string> nbid_ = nullptr;
+    shared_ptr<string> nbid_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> reportTaskId_ = nullptr;
+    shared_ptr<int64_t> reportTaskId_ {};
   };
 
   } // namespace Models

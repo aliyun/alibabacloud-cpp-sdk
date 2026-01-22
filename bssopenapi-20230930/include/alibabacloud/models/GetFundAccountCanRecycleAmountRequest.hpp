@@ -31,26 +31,26 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->currency_ != nullptr
-        && this->recycleFromFundAccountId_ != nullptr; };
+    virtual bool empty() const override { return this->currency_ == nullptr
+        && this->recycleFromFundAccountId_ == nullptr; };
     // currency Field Functions 
     bool hasCurrency() const { return this->currency_ != nullptr;};
     void deleteCurrency() { this->currency_ = nullptr;};
-    inline string currency() const { DARABONBA_PTR_GET_DEFAULT(currency_, "") };
+    inline string getCurrency() const { DARABONBA_PTR_GET_DEFAULT(currency_, "") };
     inline GetFundAccountCanRecycleAmountRequest& setCurrency(string currency) { DARABONBA_PTR_SET_VALUE(currency_, currency) };
 
 
     // recycleFromFundAccountId Field Functions 
     bool hasRecycleFromFundAccountId() const { return this->recycleFromFundAccountId_ != nullptr;};
     void deleteRecycleFromFundAccountId() { this->recycleFromFundAccountId_ = nullptr;};
-    inline string recycleFromFundAccountId() const { DARABONBA_PTR_GET_DEFAULT(recycleFromFundAccountId_, "") };
+    inline string getRecycleFromFundAccountId() const { DARABONBA_PTR_GET_DEFAULT(recycleFromFundAccountId_, "") };
     inline GetFundAccountCanRecycleAmountRequest& setRecycleFromFundAccountId(string recycleFromFundAccountId) { DARABONBA_PTR_SET_VALUE(recycleFromFundAccountId_, recycleFromFundAccountId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> currency_ = nullptr;
-    std::shared_ptr<string> recycleFromFundAccountId_ = nullptr;
+    shared_ptr<string> currency_ {};
+    shared_ptr<string> recycleFromFundAccountId_ {};
   };
 
   } // namespace Models

@@ -33,35 +33,35 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->creditAmount_ != nullptr
-        && this->currency_ != nullptr && this->fundAccountId_ != nullptr; };
+    virtual bool empty() const override { return this->creditAmount_ == nullptr
+        && this->currency_ == nullptr && this->fundAccountId_ == nullptr; };
     // creditAmount Field Functions 
     bool hasCreditAmount() const { return this->creditAmount_ != nullptr;};
     void deleteCreditAmount() { this->creditAmount_ = nullptr;};
-    inline string creditAmount() const { DARABONBA_PTR_GET_DEFAULT(creditAmount_, "") };
+    inline string getCreditAmount() const { DARABONBA_PTR_GET_DEFAULT(creditAmount_, "") };
     inline SetFundAccountCreditAmountRequest& setCreditAmount(string creditAmount) { DARABONBA_PTR_SET_VALUE(creditAmount_, creditAmount) };
 
 
     // currency Field Functions 
     bool hasCurrency() const { return this->currency_ != nullptr;};
     void deleteCurrency() { this->currency_ = nullptr;};
-    inline string currency() const { DARABONBA_PTR_GET_DEFAULT(currency_, "") };
+    inline string getCurrency() const { DARABONBA_PTR_GET_DEFAULT(currency_, "") };
     inline SetFundAccountCreditAmountRequest& setCurrency(string currency) { DARABONBA_PTR_SET_VALUE(currency_, currency) };
 
 
     // fundAccountId Field Functions 
     bool hasFundAccountId() const { return this->fundAccountId_ != nullptr;};
     void deleteFundAccountId() { this->fundAccountId_ = nullptr;};
-    inline int64_t fundAccountId() const { DARABONBA_PTR_GET_DEFAULT(fundAccountId_, 0L) };
+    inline int64_t getFundAccountId() const { DARABONBA_PTR_GET_DEFAULT(fundAccountId_, 0L) };
     inline SetFundAccountCreditAmountRequest& setFundAccountId(int64_t fundAccountId) { DARABONBA_PTR_SET_VALUE(fundAccountId_, fundAccountId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> creditAmount_ = nullptr;
+    shared_ptr<string> creditAmount_ {};
     // This parameter is required.
-    std::shared_ptr<string> currency_ = nullptr;
-    std::shared_ptr<int64_t> fundAccountId_ = nullptr;
+    shared_ptr<string> currency_ {};
+    shared_ptr<int64_t> fundAccountId_ {};
   };
 
   } // namespace Models

@@ -35,43 +35,43 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alarmEnabled_ != nullptr
-        && this->metadata_ != nullptr && this->requestId_ != nullptr && this->thresholdAmount_ != nullptr; };
+    virtual bool empty() const override { return this->alarmEnabled_ == nullptr
+        && this->metadata_ == nullptr && this->requestId_ == nullptr && this->thresholdAmount_ == nullptr; };
     // alarmEnabled Field Functions 
     bool hasAlarmEnabled() const { return this->alarmEnabled_ != nullptr;};
     void deleteAlarmEnabled() { this->alarmEnabled_ = nullptr;};
-    inline bool alarmEnabled() const { DARABONBA_PTR_GET_DEFAULT(alarmEnabled_, false) };
+    inline bool getAlarmEnabled() const { DARABONBA_PTR_GET_DEFAULT(alarmEnabled_, false) };
     inline GetFundAccountLowAvailableAmountAlarmResponseBody& setAlarmEnabled(bool alarmEnabled) { DARABONBA_PTR_SET_VALUE(alarmEnabled_, alarmEnabled) };
 
 
     // metadata Field Functions 
     bool hasMetadata() const { return this->metadata_ != nullptr;};
     void deleteMetadata() { this->metadata_ = nullptr;};
-    inline     const Darabonba::Json & metadata() const { DARABONBA_GET(metadata_) };
-    Darabonba::Json & metadata() { DARABONBA_GET(metadata_) };
+    inline     const Darabonba::Json & getMetadata() const { DARABONBA_GET(metadata_) };
+    Darabonba::Json & getMetadata() { DARABONBA_GET(metadata_) };
     inline GetFundAccountLowAvailableAmountAlarmResponseBody& setMetadata(const Darabonba::Json & metadata) { DARABONBA_SET_VALUE(metadata_, metadata) };
-    inline GetFundAccountLowAvailableAmountAlarmResponseBody& setMetadata(Darabonba::Json & metadata) { DARABONBA_SET_RVALUE(metadata_, metadata) };
+    inline GetFundAccountLowAvailableAmountAlarmResponseBody& setMetadata(Darabonba::Json && metadata) { DARABONBA_SET_RVALUE(metadata_, metadata) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetFundAccountLowAvailableAmountAlarmResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // thresholdAmount Field Functions 
     bool hasThresholdAmount() const { return this->thresholdAmount_ != nullptr;};
     void deleteThresholdAmount() { this->thresholdAmount_ = nullptr;};
-    inline string thresholdAmount() const { DARABONBA_PTR_GET_DEFAULT(thresholdAmount_, "") };
+    inline string getThresholdAmount() const { DARABONBA_PTR_GET_DEFAULT(thresholdAmount_, "") };
     inline GetFundAccountLowAvailableAmountAlarmResponseBody& setThresholdAmount(string thresholdAmount) { DARABONBA_PTR_SET_VALUE(thresholdAmount_, thresholdAmount) };
 
 
   protected:
-    std::shared_ptr<bool> alarmEnabled_ = nullptr;
-    Darabonba::Json metadata_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> thresholdAmount_ = nullptr;
+    shared_ptr<bool> alarmEnabled_ {};
+    Darabonba::Json metadata_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<string> thresholdAmount_ {};
   };
 
   } // namespace Models

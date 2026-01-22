@@ -107,28 +107,28 @@ AddCouponDeductTagResponse Client::addCouponDeductTagWithOptions(const AddCoupon
   AddCouponDeductTagShrinkRequest request = AddCouponDeductTagShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasEcIdAccountIds()) {
-    request.setEcIdAccountIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ecIdAccountIds(), "EcIdAccountIds", "json"));
+    request.setEcIdAccountIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEcIdAccountIds(), "EcIdAccountIds", "json"));
   }
 
   if (!!tmpReq.hasTags()) {
-    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tags(), "Tags", "json"));
+    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTags(), "Tags", "json"));
   }
 
   json query = {};
   if (!!request.hasCouponId()) {
-    query["CouponId"] = request.couponId();
+    query["CouponId"] = request.getCouponId();
   }
 
   if (!!request.hasEcIdAccountIdsShrink()) {
-    query["EcIdAccountIds"] = request.ecIdAccountIdsShrink();
+    query["EcIdAccountIds"] = request.getEcIdAccountIdsShrink();
   }
 
   if (!!request.hasNbid()) {
-    query["Nbid"] = request.nbid();
+    query["Nbid"] = request.getNbid();
   }
 
   if (!!request.hasTagsShrink()) {
-    query["Tags"] = request.tagsShrink();
+    query["Tags"] = request.getTagsShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -171,29 +171,29 @@ AllocateCostCenterResourceResponse Client::allocateCostCenterResourceWithOptions
   AllocateCostCenterResourceShrinkRequest request = AllocateCostCenterResourceShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasResourceInstanceList()) {
-    request.setResourceInstanceListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.resourceInstanceList(), "ResourceInstanceList", "json"));
+    request.setResourceInstanceListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getResourceInstanceList(), "ResourceInstanceList", "json"));
   }
 
   json query = {};
   if (!!request.hasNbid()) {
-    query["Nbid"] = request.nbid();
+    query["Nbid"] = request.getNbid();
   }
 
   json body = {};
   if (!!request.hasFromCostCenterId()) {
-    body["FromCostCenterId"] = request.fromCostCenterId();
+    body["FromCostCenterId"] = request.getFromCostCenterId();
   }
 
   if (!!request.hasFromOwnerAccountId()) {
-    body["FromOwnerAccountId"] = request.fromOwnerAccountId();
+    body["FromOwnerAccountId"] = request.getFromOwnerAccountId();
   }
 
   if (!!request.hasResourceInstanceListShrink()) {
-    body["ResourceInstanceList"] = request.resourceInstanceListShrink();
+    body["ResourceInstanceList"] = request.getResourceInstanceListShrink();
   }
 
   if (!!request.hasToCostCenterId()) {
-    body["ToCostCenterId"] = request.toCostCenterId();
+    body["ToCostCenterId"] = request.getToCostCenterId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -236,7 +236,7 @@ CancelFundAccountLowAvailableAmountAlarmResponse Client::cancelFundAccountLowAva
   request.validate();
   json body = {};
   if (!!request.hasFundAccountId()) {
-    body["FundAccountId"] = request.fundAccountId();
+    body["FundAccountId"] = request.getFundAccountId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -278,20 +278,20 @@ CheckAccountExistResponse Client::checkAccountExistWithOptions(const CheckAccoun
   request.validate();
   json query = {};
   if (!!request.hasEcIdAccountIds()) {
-    query["EcIdAccountIds"] = request.ecIdAccountIds();
+    query["EcIdAccountIds"] = request.getEcIdAccountIds();
   }
 
   if (!!request.hasNbid()) {
-    query["Nbid"] = request.nbid();
+    query["Nbid"] = request.getNbid();
   }
 
   json body = {};
   if (!!request.hasToUserType()) {
-    body["ToUserType"] = request.toUserType();
+    body["ToUserType"] = request.getToUserType();
   }
 
   if (!!request.hasTransferAccount()) {
-    body["TransferAccount"] = request.transferAccount();
+    body["TransferAccount"] = request.getTransferAccount();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -335,16 +335,16 @@ CreateCostCenterResponse Client::createCostCenterWithOptions(const CreateCostCen
   CreateCostCenterShrinkRequest request = CreateCostCenterShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasCostCenterEntityList()) {
-    request.setCostCenterEntityListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.costCenterEntityList(), "CostCenterEntityList", "json"));
+    request.setCostCenterEntityListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCostCenterEntityList(), "CostCenterEntityList", "json"));
   }
 
   json query = {};
   if (!!request.hasCostCenterEntityListShrink()) {
-    query["CostCenterEntityList"] = request.costCenterEntityListShrink();
+    query["CostCenterEntityList"] = request.getCostCenterEntityListShrink();
   }
 
   if (!!request.hasNbid()) {
-    query["Nbid"] = request.nbid();
+    query["Nbid"] = request.getNbid();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -387,21 +387,21 @@ CreateCostCenterRuleResponse Client::createCostCenterRuleWithOptions(const Creat
   CreateCostCenterRuleShrinkRequest request = CreateCostCenterRuleShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasFilterExpression()) {
-    request.setFilterExpressionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.filterExpression(), "FilterExpression", "json"));
+    request.setFilterExpressionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFilterExpression(), "FilterExpression", "json"));
   }
 
   json query = {};
   if (!!request.hasFilterExpressionShrink()) {
-    query["FilterExpression"] = request.filterExpressionShrink();
+    query["FilterExpression"] = request.getFilterExpressionShrink();
   }
 
   if (!!request.hasNbid()) {
-    query["Nbid"] = request.nbid();
+    query["Nbid"] = request.getNbid();
   }
 
   json body = {};
   if (!!request.hasCostCenterId()) {
-    body["CostCenterId"] = request.costCenterId();
+    body["CostCenterId"] = request.getCostCenterId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -445,21 +445,21 @@ CreateFundAccountPayRelationResponse Client::createFundAccountPayRelationWithOpt
   CreateFundAccountPayRelationShrinkRequest request = CreateFundAccountPayRelationShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasEcIdAccountIds()) {
-    request.setEcIdAccountIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ecIdAccountIds(), "EcIdAccountIds", "json"));
+    request.setEcIdAccountIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEcIdAccountIds(), "EcIdAccountIds", "json"));
   }
 
   json query = {};
   if (!!request.hasEcIdAccountIdsShrink()) {
-    query["EcIdAccountIds"] = request.ecIdAccountIdsShrink();
+    query["EcIdAccountIds"] = request.getEcIdAccountIdsShrink();
   }
 
   if (!!request.hasNbid()) {
-    query["Nbid"] = request.nbid();
+    query["Nbid"] = request.getNbid();
   }
 
   json body = {};
   if (!!request.hasFundAccountId()) {
-    body["FundAccountId"] = request.fundAccountId();
+    body["FundAccountId"] = request.getFundAccountId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -502,31 +502,31 @@ CreateFundAccountTransferResponse Client::createFundAccountTransferWithOptions(c
   request.validate();
   json body = {};
   if (!!request.hasAmount()) {
-    body["Amount"] = request.amount();
+    body["Amount"] = request.getAmount();
   }
 
   if (!!request.hasCurrency()) {
-    body["Currency"] = request.currency();
+    body["Currency"] = request.getCurrency();
   }
 
   if (!!request.hasFinanceType()) {
-    body["FinanceType"] = request.financeType();
+    body["FinanceType"] = request.getFinanceType();
   }
 
   if (!!request.hasFromFundAccountId()) {
-    body["FromFundAccountId"] = request.fromFundAccountId();
+    body["FromFundAccountId"] = request.getFromFundAccountId();
   }
 
   if (!!request.hasRemark()) {
-    body["Remark"] = request.remark();
+    body["Remark"] = request.getRemark();
   }
 
   if (!!request.hasToFundAccountId()) {
-    body["ToFundAccountId"] = request.toFundAccountId();
+    body["ToFundAccountId"] = request.getToFundAccountId();
   }
 
   if (!!request.hasTransferType()) {
-    body["TransferType"] = request.transferType();
+    body["TransferType"] = request.getTransferType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -569,52 +569,52 @@ CreateInvoiceResponse Client::createInvoiceWithOptions(const CreateInvoiceReques
   CreateInvoiceShrinkRequest request = CreateInvoiceShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasEcIdAccountIds()) {
-    request.setEcIdAccountIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ecIdAccountIds(), "EcIdAccountIds", "json"));
+    request.setEcIdAccountIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEcIdAccountIds(), "EcIdAccountIds", "json"));
   }
 
   if (!!tmpReq.hasInvoiceCandidateIds()) {
-    request.setInvoiceCandidateIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.invoiceCandidateIds(), "InvoiceCandidateIds", "json"));
+    request.setInvoiceCandidateIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getInvoiceCandidateIds(), "InvoiceCandidateIds", "json"));
   }
 
   if (!!tmpReq.hasRecipientEmails()) {
-    request.setRecipientEmailsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.recipientEmails(), "RecipientEmails", "json"));
+    request.setRecipientEmailsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRecipientEmails(), "RecipientEmails", "json"));
   }
 
   json query = {};
   if (!!request.hasAmount()) {
-    query["Amount"] = request.amount();
+    query["Amount"] = request.getAmount();
   }
 
   if (!!request.hasEcIdAccountIdsShrink()) {
-    query["EcIdAccountIds"] = request.ecIdAccountIdsShrink();
+    query["EcIdAccountIds"] = request.getEcIdAccountIdsShrink();
   }
 
   if (!!request.hasInvoiceCandidateIdsShrink()) {
-    query["InvoiceCandidateIds"] = request.invoiceCandidateIdsShrink();
+    query["InvoiceCandidateIds"] = request.getInvoiceCandidateIdsShrink();
   }
 
   if (!!request.hasInvoiceMode()) {
-    query["InvoiceMode"] = request.invoiceMode();
+    query["InvoiceMode"] = request.getInvoiceMode();
   }
 
   if (!!request.hasInvoiceRemark()) {
-    query["InvoiceRemark"] = request.invoiceRemark();
+    query["InvoiceRemark"] = request.getInvoiceRemark();
   }
 
   if (!!request.hasInvoiceTitleId()) {
-    query["InvoiceTitleId"] = request.invoiceTitleId();
+    query["InvoiceTitleId"] = request.getInvoiceTitleId();
   }
 
   if (!!request.hasInvoiceType()) {
-    query["InvoiceType"] = request.invoiceType();
+    query["InvoiceType"] = request.getInvoiceType();
   }
 
   if (!!request.hasNbid()) {
-    query["Nbid"] = request.nbid();
+    query["Nbid"] = request.getNbid();
   }
 
   if (!!request.hasRecipientEmailsShrink()) {
-    query["RecipientEmails"] = request.recipientEmailsShrink();
+    query["RecipientEmails"] = request.getRecipientEmailsShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -656,56 +656,56 @@ CreateReportDefinitionResponse Client::createReportDefinitionWithOptions(const C
   request.validate();
   json query = {};
   if (!!request.hasBeginBillingCycle()) {
-    query["BeginBillingCycle"] = request.beginBillingCycle();
+    query["BeginBillingCycle"] = request.getBeginBillingCycle();
   }
 
   if (!!request.hasIncludeMembers()) {
-    query["IncludeMembers"] = request.includeMembers();
+    query["IncludeMembers"] = request.getIncludeMembers();
   }
 
   if (!!request.hasNbid()) {
-    query["Nbid"] = request.nbid();
+    query["Nbid"] = request.getNbid();
   }
 
   if (!!request.hasNotSendOnNoData()) {
-    query["NotSendOnNoData"] = request.notSendOnNoData();
+    query["NotSendOnNoData"] = request.getNotSendOnNoData();
   }
 
   if (!!request.hasOssBucketName()) {
-    query["OssBucketName"] = request.ossBucketName();
+    query["OssBucketName"] = request.getOssBucketName();
   }
 
   if (!!request.hasOssBucketOwnerAccountId()) {
-    query["OssBucketOwnerAccountId"] = request.ossBucketOwnerAccountId();
+    query["OssBucketOwnerAccountId"] = request.getOssBucketOwnerAccountId();
   }
 
   if (!!request.hasOssBucketPath()) {
-    query["OssBucketPath"] = request.ossBucketPath();
+    query["OssBucketPath"] = request.getOssBucketPath();
   }
 
   if (!!request.hasReportType()) {
-    query["ReportType"] = request.reportType();
+    query["ReportType"] = request.getReportType();
   }
 
   if (!!request.hasSendWithAttach()) {
-    query["SendWithAttach"] = request.sendWithAttach();
+    query["SendWithAttach"] = request.getSendWithAttach();
   }
 
   if (!!request.hasSplitFileOnUserId()) {
-    query["SplitFileOnUserId"] = request.splitFileOnUserId();
+    query["SplitFileOnUserId"] = request.getSplitFileOnUserId();
   }
 
   json body = {};
   if (!!request.hasMcProject()) {
-    body["McProject"] = request.mcProject();
+    body["McProject"] = request.getMcProject();
   }
 
   if (!!request.hasMcTableName()) {
-    body["McTableName"] = request.mcTableName();
+    body["McTableName"] = request.getMcTableName();
   }
 
   if (!!request.hasReportSourceType()) {
-    body["ReportSourceType"] = request.reportSourceType();
+    body["ReportSourceType"] = request.getReportSourceType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -748,15 +748,15 @@ DeleteCostCenterResponse Client::deleteCostCenterWithOptions(const DeleteCostCen
   request.validate();
   json query = {};
   if (!!request.hasCostCenterId()) {
-    query["CostCenterId"] = request.costCenterId();
+    query["CostCenterId"] = request.getCostCenterId();
   }
 
   if (!!request.hasNbid()) {
-    query["Nbid"] = request.nbid();
+    query["Nbid"] = request.getNbid();
   }
 
   if (!!request.hasOwnerAccountId()) {
-    query["OwnerAccountId"] = request.ownerAccountId();
+    query["OwnerAccountId"] = request.getOwnerAccountId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -799,21 +799,21 @@ DeleteCostCenterRuleResponse Client::deleteCostCenterRuleWithOptions(const Delet
   DeleteCostCenterRuleShrinkRequest request = DeleteCostCenterRuleShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasFilterExpression()) {
-    request.setFilterExpressionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.filterExpression(), "FilterExpression", "json"));
+    request.setFilterExpressionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFilterExpression(), "FilterExpression", "json"));
   }
 
   json query = {};
   if (!!request.hasFilterExpressionShrink()) {
-    query["FilterExpression"] = request.filterExpressionShrink();
+    query["FilterExpression"] = request.getFilterExpressionShrink();
   }
 
   if (!!request.hasNbid()) {
-    query["Nbid"] = request.nbid();
+    query["Nbid"] = request.getNbid();
   }
 
   json body = {};
   if (!!request.hasCostCenterId()) {
-    body["CostCenterId"] = request.costCenterId();
+    body["CostCenterId"] = request.getCostCenterId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -857,28 +857,28 @@ DeleteCouponDeductTagResponse Client::deleteCouponDeductTagWithOptions(const Del
   DeleteCouponDeductTagShrinkRequest request = DeleteCouponDeductTagShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasEcIdAccountIds()) {
-    request.setEcIdAccountIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ecIdAccountIds(), "EcIdAccountIds", "json"));
+    request.setEcIdAccountIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEcIdAccountIds(), "EcIdAccountIds", "json"));
   }
 
   if (!!tmpReq.hasTagKeys()) {
-    request.setTagKeysShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tagKeys(), "TagKeys", "json"));
+    request.setTagKeysShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTagKeys(), "TagKeys", "json"));
   }
 
   json query = {};
   if (!!request.hasCouponId()) {
-    query["CouponId"] = request.couponId();
+    query["CouponId"] = request.getCouponId();
   }
 
   if (!!request.hasEcIdAccountIdsShrink()) {
-    query["EcIdAccountIds"] = request.ecIdAccountIdsShrink();
+    query["EcIdAccountIds"] = request.getEcIdAccountIdsShrink();
   }
 
   if (!!request.hasNbid()) {
-    query["Nbid"] = request.nbid();
+    query["Nbid"] = request.getNbid();
   }
 
   if (!!request.hasTagKeysShrink()) {
-    query["TagKeys"] = request.tagKeysShrink();
+    query["TagKeys"] = request.getTagKeysShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -920,11 +920,11 @@ DeleteReportDefinitionResponse Client::deleteReportDefinitionWithOptions(const D
   request.validate();
   json query = {};
   if (!!request.hasNbid()) {
-    query["Nbid"] = request.nbid();
+    query["Nbid"] = request.getNbid();
   }
 
   if (!!request.hasReportTaskId()) {
-    query["ReportTaskId"] = request.reportTaskId();
+    query["ReportTaskId"] = request.getReportTaskId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -967,7 +967,7 @@ DescribeCouponResponse Client::describeCouponWithOptions(const DescribeCouponReq
   DescribeCouponShrinkRequest request = DescribeCouponShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasEcIdAccountIds()) {
-    request.setEcIdAccountIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ecIdAccountIds(), "EcIdAccountIds", "json"));
+    request.setEcIdAccountIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEcIdAccountIds(), "EcIdAccountIds", "json"));
   }
 
   map<string, string> query = Utils::Utils::query(request.toMap());
@@ -1011,7 +1011,7 @@ DescribeCouponItemListResponse Client::describeCouponItemListWithOptions(const D
   DescribeCouponItemListShrinkRequest request = DescribeCouponItemListShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasEcIdAccountIds()) {
-    request.setEcIdAccountIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ecIdAccountIds(), "EcIdAccountIds", "json"));
+    request.setEcIdAccountIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEcIdAccountIds(), "EcIdAccountIds", "json"));
   }
 
   map<string, string> query = Utils::Utils::query(request.toMap());
@@ -1055,16 +1055,16 @@ DescribeUserSpnSummaryInfoResponse Client::describeUserSpnSummaryInfoWithOptions
   DescribeUserSpnSummaryInfoShrinkRequest request = DescribeUserSpnSummaryInfoShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasEcIdAccountIds()) {
-    request.setEcIdAccountIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ecIdAccountIds(), "EcIdAccountIds", "json"));
+    request.setEcIdAccountIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEcIdAccountIds(), "EcIdAccountIds", "json"));
   }
 
   json query = {};
   if (!!request.hasEcIdAccountIdsShrink()) {
-    query["EcIdAccountIds"] = request.ecIdAccountIdsShrink();
+    query["EcIdAccountIds"] = request.getEcIdAccountIdsShrink();
   }
 
   if (!!request.hasNbid()) {
-    query["Nbid"] = request.nbid();
+    query["Nbid"] = request.getNbid();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1106,7 +1106,7 @@ GetFundAccountAvailableAmountResponse Client::getFundAccountAvailableAmountWithO
   request.validate();
   json body = {};
   if (!!request.hasFundAccountId()) {
-    body["FundAccountId"] = request.fundAccountId();
+    body["FundAccountId"] = request.getFundAccountId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1148,7 +1148,7 @@ GetFundAccountCanAllocateCreditAmountResponse Client::getFundAccountCanAllocateC
   request.validate();
   json body = {};
   if (!!request.hasFundAccountId()) {
-    body["FundAccountId"] = request.fundAccountId();
+    body["FundAccountId"] = request.getFundAccountId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1190,11 +1190,11 @@ GetFundAccountCanRecycleAmountResponse Client::getFundAccountCanRecycleAmountWit
   request.validate();
   json body = {};
   if (!!request.hasCurrency()) {
-    body["Currency"] = request.currency();
+    body["Currency"] = request.getCurrency();
   }
 
   if (!!request.hasRecycleFromFundAccountId()) {
-    body["RecycleFromFundAccountId"] = request.recycleFromFundAccountId();
+    body["RecycleFromFundAccountId"] = request.getRecycleFromFundAccountId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1236,11 +1236,11 @@ GetFundAccountCanTransferAmountResponse Client::getFundAccountCanTransferAmountW
   request.validate();
   json body = {};
   if (!!request.hasCurrency()) {
-    body["Currency"] = request.currency();
+    body["Currency"] = request.getCurrency();
   }
 
   if (!!request.hasFundAccountId()) {
-    body["FundAccountId"] = request.fundAccountId();
+    body["FundAccountId"] = request.getFundAccountId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1282,7 +1282,7 @@ GetFundAccountCanWithdrawAmountResponse Client::getFundAccountCanWithdrawAmountW
   request.validate();
   json body = {};
   if (!!request.hasFundAccountId()) {
-    body["FundAccountId"] = request.fundAccountId();
+    body["FundAccountId"] = request.getFundAccountId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1324,7 +1324,7 @@ GetFundAccountLowAvailableAmountAlarmResponse Client::getFundAccountLowAvailable
   request.validate();
   json body = {};
   if (!!request.hasFundAccountId()) {
-    body["FundAccountId"] = request.fundAccountId();
+    body["FundAccountId"] = request.getFundAccountId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1367,61 +1367,61 @@ GetFundAccountTransactionDetailsResponse Client::getFundAccountTransactionDetail
   GetFundAccountTransactionDetailsShrinkRequest request = GetFundAccountTransactionDetailsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasTransactionChannelList()) {
-    request.setTransactionChannelListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.transactionChannelList(), "TransactionChannelList", "json"));
+    request.setTransactionChannelListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTransactionChannelList(), "TransactionChannelList", "json"));
   }
 
   if (!!tmpReq.hasTransactionTypeList()) {
-    request.setTransactionTypeListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.transactionTypeList(), "TransactionTypeList", "json"));
+    request.setTransactionTypeListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTransactionTypeList(), "TransactionTypeList", "json"));
   }
 
   json query = {};
   if (!!request.hasCurrentPage()) {
-    query["CurrentPage"] = request.currentPage();
+    query["CurrentPage"] = request.getCurrentPage();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   json body = {};
   if (!!request.hasBillNumber()) {
-    body["BillNumber"] = request.billNumber();
+    body["BillNumber"] = request.getBillNumber();
   }
 
   if (!!request.hasChannelTransactionNumber()) {
-    body["ChannelTransactionNumber"] = request.channelTransactionNumber();
+    body["ChannelTransactionNumber"] = request.getChannelTransactionNumber();
   }
 
   if (!!request.hasEndTime()) {
-    body["EndTime"] = request.endTime();
+    body["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasFundAccountId()) {
-    body["FundAccountId"] = request.fundAccountId();
+    body["FundAccountId"] = request.getFundAccountId();
   }
 
   if (!!request.hasStartTime()) {
-    body["StartTime"] = request.startTime();
+    body["StartTime"] = request.getStartTime();
   }
 
   if (!!request.hasTransactionChannelListShrink()) {
-    body["TransactionChannelList"] = request.transactionChannelListShrink();
+    body["TransactionChannelList"] = request.getTransactionChannelListShrink();
   }
 
   if (!!request.hasTransactionDirection()) {
-    body["TransactionDirection"] = request.transactionDirection();
+    body["TransactionDirection"] = request.getTransactionDirection();
   }
 
   if (!!request.hasTransactionNumber()) {
-    body["TransactionNumber"] = request.transactionNumber();
+    body["TransactionNumber"] = request.getTransactionNumber();
   }
 
   if (!!request.hasTransactionType()) {
-    body["TransactionType"] = request.transactionType();
+    body["TransactionType"] = request.getTransactionType();
   }
 
   if (!!request.hasTransactionTypeListShrink()) {
-    body["TransactionTypeList"] = request.transactionTypeListShrink();
+    body["TransactionTypeList"] = request.getTransactionTypeListShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1464,15 +1464,15 @@ GetOrderDetailResponse Client::getOrderDetailWithOptions(const GetOrderDetailReq
   request.validate();
   json query = {};
   if (!!request.hasMemberUid()) {
-    query["MemberUid"] = request.memberUid();
+    query["MemberUid"] = request.getMemberUid();
   }
 
   if (!!request.hasOrderId()) {
-    query["OrderId"] = request.orderId();
+    query["OrderId"] = request.getOrderId();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1514,47 +1514,47 @@ GetOrdersResponse Client::getOrdersWithOptions(const GetOrdersRequest &request, 
   request.validate();
   json query = {};
   if (!!request.hasCreateTimeEnd()) {
-    query["CreateTimeEnd"] = request.createTimeEnd();
+    query["CreateTimeEnd"] = request.getCreateTimeEnd();
   }
 
   if (!!request.hasCreateTimeStart()) {
-    query["CreateTimeStart"] = request.createTimeStart();
+    query["CreateTimeStart"] = request.getCreateTimeStart();
   }
 
   if (!!request.hasMemberUid()) {
-    query["MemberUid"] = request.memberUid();
+    query["MemberUid"] = request.getMemberUid();
   }
 
   if (!!request.hasOrderType()) {
-    query["OrderType"] = request.orderType();
+    query["OrderType"] = request.getOrderType();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPageNum()) {
-    query["PageNum"] = request.pageNum();
+    query["PageNum"] = request.getPageNum();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasPaymentStatus()) {
-    query["PaymentStatus"] = request.paymentStatus();
+    query["PaymentStatus"] = request.getPaymentStatus();
   }
 
   if (!!request.hasProductCode()) {
-    query["ProductCode"] = request.productCode();
+    query["ProductCode"] = request.getProductCode();
   }
 
   if (!!request.hasProductType()) {
-    query["ProductType"] = request.productType();
+    query["ProductType"] = request.getProductType();
   }
 
   if (!!request.hasSubscriptionType()) {
-    query["SubscriptionType"] = request.subscriptionType();
+    query["SubscriptionType"] = request.getSubscriptionType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1597,16 +1597,16 @@ GetSavingPlanDeductableCommodityResponse Client::getSavingPlanDeductableCommodit
   GetSavingPlanDeductableCommodityShrinkRequest request = GetSavingPlanDeductableCommodityShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasEcIdAccountIds()) {
-    request.setEcIdAccountIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ecIdAccountIds(), "EcIdAccountIds", "json"));
+    request.setEcIdAccountIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEcIdAccountIds(), "EcIdAccountIds", "json"));
   }
 
   json query = {};
   if (!!request.hasEcIdAccountIdsShrink()) {
-    query["EcIdAccountIds"] = request.ecIdAccountIdsShrink();
+    query["EcIdAccountIds"] = request.getEcIdAccountIdsShrink();
   }
 
   if (!!request.hasNbid()) {
-    query["Nbid"] = request.nbid();
+    query["Nbid"] = request.getNbid();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1649,28 +1649,28 @@ GetSavingPlanShareAccountsResponse Client::getSavingPlanShareAccountsWithOptions
   GetSavingPlanShareAccountsShrinkRequest request = GetSavingPlanShareAccountsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasEcIdAccountIds()) {
-    request.setEcIdAccountIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ecIdAccountIds(), "EcIdAccountIds", "json"));
+    request.setEcIdAccountIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEcIdAccountIds(), "EcIdAccountIds", "json"));
   }
 
   json query = {};
   if (!!request.hasCurrentPage()) {
-    query["CurrentPage"] = request.currentPage();
+    query["CurrentPage"] = request.getCurrentPage();
   }
 
   if (!!request.hasEcIdAccountIdsShrink()) {
-    query["EcIdAccountIds"] = request.ecIdAccountIdsShrink();
+    query["EcIdAccountIds"] = request.getEcIdAccountIdsShrink();
   }
 
   if (!!request.hasNbid()) {
-    query["Nbid"] = request.nbid();
+    query["Nbid"] = request.getNbid();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasSpnInstanceCode()) {
-    query["SpnInstanceCode"] = request.spnInstanceCode();
+    query["SpnInstanceCode"] = request.getSpnInstanceCode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1713,28 +1713,28 @@ GetSavingPlanUserDeductRuleResponse Client::getSavingPlanUserDeductRuleWithOptio
   GetSavingPlanUserDeductRuleShrinkRequest request = GetSavingPlanUserDeductRuleShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasEcIdAccountIds()) {
-    request.setEcIdAccountIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ecIdAccountIds(), "EcIdAccountIds", "json"));
+    request.setEcIdAccountIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEcIdAccountIds(), "EcIdAccountIds", "json"));
   }
 
   json query = {};
   if (!!request.hasCurrentPage()) {
-    query["CurrentPage"] = request.currentPage();
+    query["CurrentPage"] = request.getCurrentPage();
   }
 
   if (!!request.hasEcIdAccountIdsShrink()) {
-    query["EcIdAccountIds"] = request.ecIdAccountIdsShrink();
+    query["EcIdAccountIds"] = request.getEcIdAccountIdsShrink();
   }
 
   if (!!request.hasNbid()) {
-    query["Nbid"] = request.nbid();
+    query["Nbid"] = request.getNbid();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasSpnInstanceCode()) {
-    query["SpnInstanceCode"] = request.spnInstanceCode();
+    query["SpnInstanceCode"] = request.getSpnInstanceCode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1777,20 +1777,20 @@ ListCouponDeductTagResponse Client::listCouponDeductTagWithOptions(const ListCou
   ListCouponDeductTagShrinkRequest request = ListCouponDeductTagShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasEcIdAccountIds()) {
-    request.setEcIdAccountIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ecIdAccountIds(), "EcIdAccountIds", "json"));
+    request.setEcIdAccountIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEcIdAccountIds(), "EcIdAccountIds", "json"));
   }
 
   json query = {};
   if (!!request.hasCouponId()) {
-    query["CouponId"] = request.couponId();
+    query["CouponId"] = request.getCouponId();
   }
 
   if (!!request.hasEcIdAccountIdsShrink()) {
-    query["EcIdAccountIds"] = request.ecIdAccountIdsShrink();
+    query["EcIdAccountIds"] = request.getEcIdAccountIdsShrink();
   }
 
   if (!!request.hasNbid()) {
-    query["Nbid"] = request.nbid();
+    query["Nbid"] = request.getNbid();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1832,16 +1832,16 @@ ListFundAccountResponse Client::listFundAccountWithOptions(const ListFundAccount
   request.validate();
   json query = {};
   if (!!request.hasNbid()) {
-    query["Nbid"] = request.nbid();
+    query["Nbid"] = request.getNbid();
   }
 
   json body = {};
   if (!!request.hasQueryOnlyInUse()) {
-    body["QueryOnlyInUse"] = request.queryOnlyInUse();
+    body["QueryOnlyInUse"] = request.getQueryOnlyInUse();
   }
 
   if (!!request.hasQueryOnlyManage()) {
-    body["QueryOnlyManage"] = request.queryOnlyManage();
+    body["QueryOnlyManage"] = request.getQueryOnlyManage();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1884,24 +1884,24 @@ ListFundAccountPayRelationResponse Client::listFundAccountPayRelationWithOptions
   request.validate();
   json query = {};
   if (!!request.hasCurrentPage()) {
-    query["CurrentPage"] = request.currentPage();
+    query["CurrentPage"] = request.getCurrentPage();
   }
 
   if (!!request.hasNbid()) {
-    query["Nbid"] = request.nbid();
+    query["Nbid"] = request.getNbid();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   json body = {};
   if (!!request.hasFundAccountId()) {
-    body["FundAccountId"] = request.fundAccountId();
+    body["FundAccountId"] = request.getFundAccountId();
   }
 
   if (!!request.hasStatus()) {
-    body["Status"] = request.status();
+    body["Status"] = request.getStatus();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1945,72 +1945,72 @@ ListInvoiceCandidateResponse Client::listInvoiceCandidateWithOptions(const ListI
   ListInvoiceCandidateShrinkRequest request = ListInvoiceCandidateShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasBillingCycles()) {
-    request.setBillingCyclesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.billingCycles(), "BillingCycles", "json"));
+    request.setBillingCyclesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBillingCycles(), "BillingCycles", "json"));
   }
 
   if (!!tmpReq.hasBusinessIds()) {
-    request.setBusinessIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.businessIds(), "BusinessIds", "json"));
+    request.setBusinessIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBusinessIds(), "BusinessIds", "json"));
   }
 
   if (!!tmpReq.hasEcIdAccountIds()) {
-    request.setEcIdAccountIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ecIdAccountIds(), "EcIdAccountIds", "json"));
+    request.setEcIdAccountIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEcIdAccountIds(), "EcIdAccountIds", "json"));
   }
 
   if (!!tmpReq.hasInvoiceIssuers()) {
-    request.setInvoiceIssuersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.invoiceIssuers(), "InvoiceIssuers", "json"));
+    request.setInvoiceIssuersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getInvoiceIssuers(), "InvoiceIssuers", "json"));
   }
 
   if (!!tmpReq.hasStatus()) {
-    request.setStatusShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.status(), "Status", "json"));
+    request.setStatusShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getStatus(), "Status", "json"));
   }
 
   if (!!tmpReq.hasTypes()) {
-    request.setTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.types(), "Types", "json"));
+    request.setTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTypes(), "Types", "json"));
   }
 
   json query = {};
   if (!!request.hasBillingCyclesShrink()) {
-    query["BillingCycles"] = request.billingCyclesShrink();
+    query["BillingCycles"] = request.getBillingCyclesShrink();
   }
 
   if (!!request.hasBusinessIdsShrink()) {
-    query["BusinessIds"] = request.businessIdsShrink();
+    query["BusinessIds"] = request.getBusinessIdsShrink();
   }
 
   if (!!request.hasCurrentPage()) {
-    query["CurrentPage"] = request.currentPage();
+    query["CurrentPage"] = request.getCurrentPage();
   }
 
   if (!!request.hasEcIdAccountIdsShrink()) {
-    query["EcIdAccountIds"] = request.ecIdAccountIdsShrink();
+    query["EcIdAccountIds"] = request.getEcIdAccountIdsShrink();
   }
 
   if (!!request.hasEndTime()) {
-    query["EndTime"] = request.endTime();
+    query["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasInvoiceIssuersShrink()) {
-    query["InvoiceIssuers"] = request.invoiceIssuersShrink();
+    query["InvoiceIssuers"] = request.getInvoiceIssuersShrink();
   }
 
   if (!!request.hasNbid()) {
-    query["Nbid"] = request.nbid();
+    query["Nbid"] = request.getNbid();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasStartTime()) {
-    query["StartTime"] = request.startTime();
+    query["StartTime"] = request.getStartTime();
   }
 
   if (!!request.hasStatusShrink()) {
-    query["Status"] = request.statusShrink();
+    query["Status"] = request.getStatusShrink();
   }
 
   if (!!request.hasTypesShrink()) {
-    query["Types"] = request.typesShrink();
+    query["Types"] = request.getTypesShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2085,7 +2085,7 @@ ListReportDefinitionsResponse Client::listReportDefinitionsWithOptions(const Lis
   request.validate();
   json query = {};
   if (!!request.hasNbid()) {
-    query["Nbid"] = request.nbid();
+    query["Nbid"] = request.getNbid();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2128,16 +2128,16 @@ ModifyCostCenterResponse Client::modifyCostCenterWithOptions(const ModifyCostCen
   ModifyCostCenterShrinkRequest request = ModifyCostCenterShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasCostCenterEntityList()) {
-    request.setCostCenterEntityListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.costCenterEntityList(), "CostCenterEntityList", "json"));
+    request.setCostCenterEntityListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCostCenterEntityList(), "CostCenterEntityList", "json"));
   }
 
   json query = {};
   if (!!request.hasCostCenterEntityListShrink()) {
-    query["CostCenterEntityList"] = request.costCenterEntityListShrink();
+    query["CostCenterEntityList"] = request.getCostCenterEntityListShrink();
   }
 
   if (!!request.hasNbid()) {
-    query["Nbid"] = request.nbid();
+    query["Nbid"] = request.getNbid();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2180,25 +2180,25 @@ ModifyCostCenterRuleResponse Client::modifyCostCenterRuleWithOptions(const Modif
   ModifyCostCenterRuleShrinkRequest request = ModifyCostCenterRuleShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasFilterExpression()) {
-    request.setFilterExpressionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.filterExpression(), "FilterExpression", "json"));
+    request.setFilterExpressionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFilterExpression(), "FilterExpression", "json"));
   }
 
   json query = {};
   if (!!request.hasFilterExpressionShrink()) {
-    query["FilterExpression"] = request.filterExpressionShrink();
+    query["FilterExpression"] = request.getFilterExpressionShrink();
   }
 
   if (!!request.hasNbid()) {
-    query["Nbid"] = request.nbid();
+    query["Nbid"] = request.getNbid();
   }
 
   json body = {};
   if (!!request.hasCostCenterId()) {
-    body["CostCenterId"] = request.costCenterId();
+    body["CostCenterId"] = request.getCostCenterId();
   }
 
   if (!!request.hasOwnerAccountId()) {
-    body["OwnerAccountId"] = request.ownerAccountId();
+    body["OwnerAccountId"] = request.getOwnerAccountId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2241,31 +2241,31 @@ PayOrderResponse Client::payOrderWithOptions(const PayOrderRequest &request, con
   request.validate();
   json query = {};
   if (!!request.hasBuyerId()) {
-    query["BuyerId"] = request.buyerId();
+    query["BuyerId"] = request.getBuyerId();
   }
 
   if (!!request.hasEcIdAccountIds()) {
-    query["EcIdAccountIds"] = request.ecIdAccountIds();
+    query["EcIdAccountIds"] = request.getEcIdAccountIds();
   }
 
   if (!!request.hasNbid()) {
-    query["Nbid"] = request.nbid();
+    query["Nbid"] = request.getNbid();
   }
 
   if (!!request.hasOrderId()) {
-    query["OrderId"] = request.orderId();
+    query["OrderId"] = request.getOrderId();
   }
 
   if (!!request.hasPaySubmitUid()) {
-    query["PaySubmitUid"] = request.paySubmitUid();
+    query["PaySubmitUid"] = request.getPaySubmitUid();
   }
 
   if (!!request.hasPayerId()) {
-    query["PayerId"] = request.payerId();
+    query["PayerId"] = request.getPayerId();
   }
 
   if (!!request.hasToken()) {
-    query["Token"] = request.token();
+    query["Token"] = request.getToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2308,32 +2308,32 @@ QueryCostCenterResponse Client::queryCostCenterWithOptions(const QueryCostCenter
   QueryCostCenterShrinkRequest request = QueryCostCenterShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasEcIdAccountIds()) {
-    request.setEcIdAccountIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ecIdAccountIds(), "EcIdAccountIds", "json"));
+    request.setEcIdAccountIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEcIdAccountIds(), "EcIdAccountIds", "json"));
   }
 
   json query = {};
   if (!!request.hasCurrentPage()) {
-    query["CurrentPage"] = request.currentPage();
+    query["CurrentPage"] = request.getCurrentPage();
   }
 
   if (!!request.hasEcIdAccountIdsShrink()) {
-    query["EcIdAccountIds"] = request.ecIdAccountIdsShrink();
+    query["EcIdAccountIds"] = request.getEcIdAccountIdsShrink();
   }
 
   if (!!request.hasNbid()) {
-    query["Nbid"] = request.nbid();
+    query["Nbid"] = request.getNbid();
   }
 
   if (!!request.hasOwnerAccountId()) {
-    query["OwnerAccountId"] = request.ownerAccountId();
+    query["OwnerAccountId"] = request.getOwnerAccountId();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasParentCostCenterId()) {
-    query["ParentCostCenterId"] = request.parentCostCenterId();
+    query["ParentCostCenterId"] = request.getParentCostCenterId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2375,28 +2375,28 @@ QueryCostCenterResourceResponse Client::queryCostCenterResourceWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasEcIdAccountIds()) {
-    query["EcIdAccountIds"] = request.ecIdAccountIds();
+    query["EcIdAccountIds"] = request.getEcIdAccountIds();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNbid()) {
-    query["Nbid"] = request.nbid();
+    query["Nbid"] = request.getNbid();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   json body = {};
   if (!!request.hasCostCenterId()) {
-    body["CostCenterId"] = request.costCenterId();
+    body["CostCenterId"] = request.getCostCenterId();
   }
 
   if (!!request.hasOwnerAccountId()) {
-    body["OwnerAccountId"] = request.ownerAccountId();
+    body["OwnerAccountId"] = request.getOwnerAccountId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2439,16 +2439,16 @@ QueryCostCenterRuleResponse Client::queryCostCenterRuleWithOptions(const QueryCo
   request.validate();
   json query = {};
   if (!!request.hasEcIdAccountIds()) {
-    query["EcIdAccountIds"] = request.ecIdAccountIds();
+    query["EcIdAccountIds"] = request.getEcIdAccountIds();
   }
 
   if (!!request.hasNbid()) {
-    query["Nbid"] = request.nbid();
+    query["Nbid"] = request.getNbid();
   }
 
   json body = {};
   if (!!request.hasCostCenterId()) {
-    body["CostCenterId"] = request.costCenterId();
+    body["CostCenterId"] = request.getCostCenterId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2491,23 +2491,23 @@ QueryCostCenterShareRuleResponse Client::queryCostCenterShareRuleWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasEcIdAccountIds()) {
-    query["EcIdAccountIds"] = request.ecIdAccountIds();
+    query["EcIdAccountIds"] = request.getEcIdAccountIds();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNbid()) {
-    query["Nbid"] = request.nbid();
+    query["Nbid"] = request.getNbid();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasOwnerAccountId()) {
-    query["OwnerAccountId"] = request.ownerAccountId();
+    query["OwnerAccountId"] = request.getOwnerAccountId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2550,36 +2550,36 @@ SaveCostCenterShareRuleResponse Client::saveCostCenterShareRuleWithOptions(const
   SaveCostCenterShareRuleShrinkRequest request = SaveCostCenterShareRuleShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasCreateShareRuleList()) {
-    request.setCreateShareRuleListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.createShareRuleList(), "CreateShareRuleList", "json"));
+    request.setCreateShareRuleListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCreateShareRuleList(), "CreateShareRuleList", "json"));
   }
 
   if (!!tmpReq.hasModifyShareRuleList()) {
-    request.setModifyShareRuleListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.modifyShareRuleList(), "ModifyShareRuleList", "json"));
+    request.setModifyShareRuleListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getModifyShareRuleList(), "ModifyShareRuleList", "json"));
   }
 
   if (!!tmpReq.hasRemoveShareRuleList()) {
-    request.setRemoveShareRuleListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.removeShareRuleList(), "RemoveShareRuleList", "json"));
+    request.setRemoveShareRuleListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRemoveShareRuleList(), "RemoveShareRuleList", "json"));
   }
 
   json query = {};
   if (!!request.hasCreateShareRuleListShrink()) {
-    query["CreateShareRuleList"] = request.createShareRuleListShrink();
+    query["CreateShareRuleList"] = request.getCreateShareRuleListShrink();
   }
 
   if (!!request.hasModifyShareRuleListShrink()) {
-    query["ModifyShareRuleList"] = request.modifyShareRuleListShrink();
+    query["ModifyShareRuleList"] = request.getModifyShareRuleListShrink();
   }
 
   if (!!request.hasNbid()) {
-    query["Nbid"] = request.nbid();
+    query["Nbid"] = request.getNbid();
   }
 
   if (!!request.hasOwnerAccountId()) {
-    query["OwnerAccountId"] = request.ownerAccountId();
+    query["OwnerAccountId"] = request.getOwnerAccountId();
   }
 
   if (!!request.hasRemoveShareRuleListShrink()) {
-    query["RemoveShareRuleList"] = request.removeShareRuleListShrink();
+    query["RemoveShareRuleList"] = request.getRemoveShareRuleListShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2621,15 +2621,15 @@ SetFundAccountCreditAmountResponse Client::setFundAccountCreditAmountWithOptions
   request.validate();
   json body = {};
   if (!!request.hasCreditAmount()) {
-    body["CreditAmount"] = request.creditAmount();
+    body["CreditAmount"] = request.getCreditAmount();
   }
 
   if (!!request.hasCurrency()) {
-    body["Currency"] = request.currency();
+    body["Currency"] = request.getCurrency();
   }
 
   if (!!request.hasFundAccountId()) {
-    body["FundAccountId"] = request.fundAccountId();
+    body["FundAccountId"] = request.getFundAccountId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2671,11 +2671,11 @@ SetFundAccountLowAvailableAmountAlarmResponse Client::setFundAccountLowAvailable
   request.validate();
   json body = {};
   if (!!request.hasFundAccountId()) {
-    body["FundAccountId"] = request.fundAccountId();
+    body["FundAccountId"] = request.getFundAccountId();
   }
 
   if (!!request.hasThresholdAmount()) {
-    body["ThresholdAmount"] = request.thresholdAmount();
+    body["ThresholdAmount"] = request.getThresholdAmount();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2718,29 +2718,29 @@ SetSavingPlanUserDeductRuleResponse Client::setSavingPlanUserDeductRuleWithOptio
   SetSavingPlanUserDeductRuleShrinkRequest request = SetSavingPlanUserDeductRuleShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasEcIdAccountIds()) {
-    request.setEcIdAccountIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ecIdAccountIds(), "EcIdAccountIds", "json"));
+    request.setEcIdAccountIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEcIdAccountIds(), "EcIdAccountIds", "json"));
   }
 
   if (!!tmpReq.hasUserDeductRules()) {
-    request.setUserDeductRulesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.userDeductRules(), "UserDeductRules", "json"));
+    request.setUserDeductRulesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserDeductRules(), "UserDeductRules", "json"));
   }
 
   json query = {};
   if (!!request.hasEcIdAccountIdsShrink()) {
-    query["EcIdAccountIds"] = request.ecIdAccountIdsShrink();
+    query["EcIdAccountIds"] = request.getEcIdAccountIdsShrink();
   }
 
   if (!!request.hasNbid()) {
-    query["Nbid"] = request.nbid();
+    query["Nbid"] = request.getNbid();
   }
 
   json body = {};
   if (!!request.hasSpnInstanceCode()) {
-    body["SpnInstanceCode"] = request.spnInstanceCode();
+    body["SpnInstanceCode"] = request.getSpnInstanceCode();
   }
 
   if (!!request.hasUserDeductRulesShrink()) {
-    body["UserDeductRules"] = request.userDeductRulesShrink();
+    body["UserDeductRules"] = request.getUserDeductRulesShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

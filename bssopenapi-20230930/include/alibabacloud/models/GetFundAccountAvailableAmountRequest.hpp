@@ -29,16 +29,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->fundAccountId_ != nullptr; };
+    virtual bool empty() const override { return this->fundAccountId_ == nullptr; };
     // fundAccountId Field Functions 
     bool hasFundAccountId() const { return this->fundAccountId_ != nullptr;};
     void deleteFundAccountId() { this->fundAccountId_ = nullptr;};
-    inline string fundAccountId() const { DARABONBA_PTR_GET_DEFAULT(fundAccountId_, "") };
+    inline string getFundAccountId() const { DARABONBA_PTR_GET_DEFAULT(fundAccountId_, "") };
     inline GetFundAccountAvailableAmountRequest& setFundAccountId(string fundAccountId) { DARABONBA_PTR_SET_VALUE(fundAccountId_, fundAccountId) };
 
 
   protected:
-    std::shared_ptr<string> fundAccountId_ = nullptr;
+    shared_ptr<string> fundAccountId_ {};
   };
 
   } // namespace Models

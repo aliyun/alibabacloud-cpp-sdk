@@ -31,26 +31,26 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->currency_ != nullptr
-        && this->fundAccountId_ != nullptr; };
+    virtual bool empty() const override { return this->currency_ == nullptr
+        && this->fundAccountId_ == nullptr; };
     // currency Field Functions 
     bool hasCurrency() const { return this->currency_ != nullptr;};
     void deleteCurrency() { this->currency_ = nullptr;};
-    inline string currency() const { DARABONBA_PTR_GET_DEFAULT(currency_, "") };
+    inline string getCurrency() const { DARABONBA_PTR_GET_DEFAULT(currency_, "") };
     inline GetFundAccountCanTransferAmountRequest& setCurrency(string currency) { DARABONBA_PTR_SET_VALUE(currency_, currency) };
 
 
     // fundAccountId Field Functions 
     bool hasFundAccountId() const { return this->fundAccountId_ != nullptr;};
     void deleteFundAccountId() { this->fundAccountId_ = nullptr;};
-    inline string fundAccountId() const { DARABONBA_PTR_GET_DEFAULT(fundAccountId_, "") };
+    inline string getFundAccountId() const { DARABONBA_PTR_GET_DEFAULT(fundAccountId_, "") };
     inline GetFundAccountCanTransferAmountRequest& setFundAccountId(string fundAccountId) { DARABONBA_PTR_SET_VALUE(fundAccountId_, fundAccountId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> currency_ = nullptr;
-    std::shared_ptr<string> fundAccountId_ = nullptr;
+    shared_ptr<string> currency_ {};
+    shared_ptr<string> fundAccountId_ {};
   };
 
   } // namespace Models
