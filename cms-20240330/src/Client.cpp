@@ -288,6 +288,75 @@ CreateAggTaskGroupResponse Client::createAggTaskGroup(const string &instanceId, 
 }
 
 /**
+ * @summary 创建Webhook
+ *
+ * @param request CreateAlertWebhookRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateAlertWebhookResponse
+ */
+CreateAlertWebhookResponse Client::createAlertWebhookWithOptions(const CreateAlertWebhookRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasContentType()) {
+    body["contentType"] = request.getContentType();
+  }
+
+  if (!!request.hasHeaders()) {
+    body["headers"] = request.getHeaders();
+  }
+
+  if (!!request.hasLang()) {
+    body["lang"] = request.getLang();
+  }
+
+  if (!!request.hasMethod()) {
+    body["method"] = request.getMethod();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  if (!!request.hasUrl()) {
+    body["url"] = request.getUrl();
+  }
+
+  if (!!request.hasWebhookId()) {
+    body["webhookId"] = request.getWebhookId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateAlertWebhook"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/webhook")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateAlertWebhookResponse>();
+}
+
+/**
+ * @summary 创建Webhook
+ *
+ * @param request CreateAlertWebhookRequest
+ * @return CreateAlertWebhookResponse
+ */
+CreateAlertWebhookResponse Client::createAlertWebhook(const CreateAlertWebhookRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createAlertWebhookWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 创建业务链路
  *
  * @param request CreateBizTraceRequest
@@ -1246,6 +1315,57 @@ DeleteAggTaskGroupResponse Client::deleteAggTaskGroup(const string &instanceId, 
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return deleteAggTaskGroupWithOptions(instanceId, groupId, headers, runtime);
+}
+
+/**
+ * @summary 删除Webhook
+ *
+ * @param tmpReq DeleteAlertWebhooksRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteAlertWebhooksResponse
+ */
+DeleteAlertWebhooksResponse Client::deleteAlertWebhooksWithOptions(const DeleteAlertWebhooksRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DeleteAlertWebhooksShrinkRequest request = DeleteAlertWebhooksShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasWebhookIds()) {
+    request.setWebhookIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getWebhookIds(), "webhookIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasWebhookIdsShrink()) {
+    query["webhookIds"] = request.getWebhookIdsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteAlertWebhooks"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/webhooks")},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteAlertWebhooksResponse>();
+}
+
+/**
+ * @summary 删除Webhook
+ *
+ * @param request DeleteAlertWebhooksRequest
+ * @return DeleteAlertWebhooksResponse
+ */
+DeleteAlertWebhooksResponse Client::deleteAlertWebhooks(const DeleteAlertWebhooksRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteAlertWebhooksWithOptions(request, headers, runtime);
 }
 
 /**
@@ -3164,6 +3284,69 @@ ListAlertActionsResponse Client::listAlertActions(const ListAlertActionsRequest 
 }
 
 /**
+ * @summary 查询Webhook
+ *
+ * @param tmpReq ListAlertWebhooksRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAlertWebhooksResponse
+ */
+ListAlertWebhooksResponse Client::listAlertWebhooksWithOptions(const ListAlertWebhooksRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListAlertWebhooksShrinkRequest request = ListAlertWebhooksShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasWebhookIds()) {
+    request.setWebhookIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getWebhookIds(), "webhookIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasName()) {
+    query["name"] = request.getName();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasWebhookIdsShrink()) {
+    query["webhookIds"] = request.getWebhookIdsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAlertWebhooks"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/webhooks")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAlertWebhooksResponse>();
+}
+
+/**
+ * @summary 查询Webhook
+ *
+ * @param request ListAlertWebhooksRequest
+ * @return ListAlertWebhooksResponse
+ */
+ListAlertWebhooksResponse Client::listAlertWebhooks(const ListAlertWebhooksRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listAlertWebhooksWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 业务链路列表
  *
  * @param request ListBizTracesRequest
@@ -4688,6 +4871,71 @@ UpdateAggTaskGroupStatusResponse Client::updateAggTaskGroupStatus(const string &
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateAggTaskGroupStatusWithOptions(instanceId, groupId, request, headers, runtime);
+}
+
+/**
+ * @summary 更新Webhook
+ *
+ * @param request UpdateAlertWebhookRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateAlertWebhookResponse
+ */
+UpdateAlertWebhookResponse Client::updateAlertWebhookWithOptions(const string &webhookId, const UpdateAlertWebhookRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasContentType()) {
+    body["contentType"] = request.getContentType();
+  }
+
+  if (!!request.hasHeaders()) {
+    body["headers"] = request.getHeaders();
+  }
+
+  if (!!request.hasLang()) {
+    body["lang"] = request.getLang();
+  }
+
+  if (!!request.hasMethod()) {
+    body["method"] = request.getMethod();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  if (!!request.hasUrl()) {
+    body["url"] = request.getUrl();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateAlertWebhook"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/webhook/" , Darabonba::Encode::Encoder::percentEncode(webhookId))},
+    {"method" , "PATCH"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateAlertWebhookResponse>();
+}
+
+/**
+ * @summary 更新Webhook
+ *
+ * @param request UpdateAlertWebhookRequest
+ * @return UpdateAlertWebhookResponse
+ */
+UpdateAlertWebhookResponse Client::updateAlertWebhook(const string &webhookId, const UpdateAlertWebhookRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateAlertWebhookWithOptions(webhookId, request, headers, runtime);
 }
 
 /**

@@ -79,6 +79,24 @@ namespace Cms20240330
       Models::CreateAggTaskGroupResponse createAggTaskGroup(const string &instanceId, const Models::CreateAggTaskGroupRequest &request);
 
       /**
+       * @summary 创建Webhook
+       *
+       * @param request CreateAlertWebhookRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateAlertWebhookResponse
+       */
+      Models::CreateAlertWebhookResponse createAlertWebhookWithOptions(const Models::CreateAlertWebhookRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建Webhook
+       *
+       * @param request CreateAlertWebhookRequest
+       * @return CreateAlertWebhookResponse
+       */
+      Models::CreateAlertWebhookResponse createAlertWebhook(const Models::CreateAlertWebhookRequest &request);
+
+      /**
        * @summary 创建业务链路
        *
        * @param request CreateBizTraceRequest
@@ -383,6 +401,24 @@ namespace Cms20240330
        * @return DeleteAggTaskGroupResponse
        */
       Models::DeleteAggTaskGroupResponse deleteAggTaskGroup(const string &instanceId, const string &groupId);
+
+      /**
+       * @summary 删除Webhook
+       *
+       * @param tmpReq DeleteAlertWebhooksRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteAlertWebhooksResponse
+       */
+      Models::DeleteAlertWebhooksResponse deleteAlertWebhooksWithOptions(const Models::DeleteAlertWebhooksRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除Webhook
+       *
+       * @param request DeleteAlertWebhooksRequest
+       * @return DeleteAlertWebhooksResponse
+       */
+      Models::DeleteAlertWebhooksResponse deleteAlertWebhooks(const Models::DeleteAlertWebhooksRequest &request);
 
       /**
        * @summary 删除业务链路
@@ -1149,6 +1185,24 @@ namespace Cms20240330
       Models::ListAlertActionsResponse listAlertActions(const Models::ListAlertActionsRequest &request);
 
       /**
+       * @summary 查询Webhook
+       *
+       * @param tmpReq ListAlertWebhooksRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAlertWebhooksResponse
+       */
+      Models::ListAlertWebhooksResponse listAlertWebhooksWithOptions(const Models::ListAlertWebhooksRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询Webhook
+       *
+       * @param request ListAlertWebhooksRequest
+       * @return ListAlertWebhooksResponse
+       */
+      Models::ListAlertWebhooksResponse listAlertWebhooks(const Models::ListAlertWebhooksRequest &request);
+
+      /**
        * @summary 业务链路列表
        *
        * @param request ListBizTracesRequest
@@ -1613,6 +1667,24 @@ namespace Cms20240330
        * @return UpdateAggTaskGroupStatusResponse
        */
       Models::UpdateAggTaskGroupStatusResponse updateAggTaskGroupStatus(const string &instanceId, const string &groupId, const Models::UpdateAggTaskGroupStatusRequest &request);
+
+      /**
+       * @summary 更新Webhook
+       *
+       * @param request UpdateAlertWebhookRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateAlertWebhookResponse
+       */
+      Models::UpdateAlertWebhookResponse updateAlertWebhookWithOptions(const string &webhookId, const Models::UpdateAlertWebhookRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新Webhook
+       *
+       * @param request UpdateAlertWebhookRequest
+       * @return UpdateAlertWebhookResponse
+       */
+      Models::UpdateAlertWebhookResponse updateAlertWebhook(const string &webhookId, const Models::UpdateAlertWebhookRequest &request);
 
       /**
        * @summary 修改业务链路

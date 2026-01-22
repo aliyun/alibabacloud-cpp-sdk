@@ -80,6 +80,9 @@
 #include <alibabacloud/models/CreateAggTaskGroupRequest.hpp>
 #include <alibabacloud/models/CreateAggTaskGroupResponseBody.hpp>
 #include <alibabacloud/models/CreateAggTaskGroupResponse.hpp>
+#include <alibabacloud/models/CreateAlertWebhookRequest.hpp>
+#include <alibabacloud/models/CreateAlertWebhookResponseBody.hpp>
+#include <alibabacloud/models/CreateAlertWebhookResponse.hpp>
 #include <alibabacloud/models/CreateBizTraceRequest.hpp>
 #include <alibabacloud/models/CreateBizTraceResponseBody.hpp>
 #include <alibabacloud/models/CreateBizTraceResponse.hpp>
@@ -124,6 +127,10 @@
 #include <alibabacloud/models/DeleteAddonReleaseResponse.hpp>
 #include <alibabacloud/models/DeleteAggTaskGroupResponseBody.hpp>
 #include <alibabacloud/models/DeleteAggTaskGroupResponse.hpp>
+#include <alibabacloud/models/DeleteAlertWebhooksRequest.hpp>
+#include <alibabacloud/models/DeleteAlertWebhooksShrinkRequest.hpp>
+#include <alibabacloud/models/DeleteAlertWebhooksResponseBody.hpp>
+#include <alibabacloud/models/DeleteAlertWebhooksResponse.hpp>
 #include <alibabacloud/models/DeleteBizTraceResponseBody.hpp>
 #include <alibabacloud/models/DeleteBizTraceResponse.hpp>
 #include <alibabacloud/models/DeleteCloudResourceResponseBody.hpp>
@@ -233,6 +240,10 @@
 #include <alibabacloud/models/ListAlertActionsShrinkRequest.hpp>
 #include <alibabacloud/models/ListAlertActionsResponseBody.hpp>
 #include <alibabacloud/models/ListAlertActionsResponse.hpp>
+#include <alibabacloud/models/ListAlertWebhooksRequest.hpp>
+#include <alibabacloud/models/ListAlertWebhooksShrinkRequest.hpp>
+#include <alibabacloud/models/ListAlertWebhooksResponseBody.hpp>
+#include <alibabacloud/models/ListAlertWebhooksResponse.hpp>
 #include <alibabacloud/models/ListBizTracesRequest.hpp>
 #include <alibabacloud/models/ListBizTracesResponseBody.hpp>
 #include <alibabacloud/models/ListBizTracesResponse.hpp>
@@ -312,6 +323,9 @@
 #include <alibabacloud/models/UpdateAggTaskGroupStatusRequest.hpp>
 #include <alibabacloud/models/UpdateAggTaskGroupStatusResponseBody.hpp>
 #include <alibabacloud/models/UpdateAggTaskGroupStatusResponse.hpp>
+#include <alibabacloud/models/UpdateAlertWebhookRequest.hpp>
+#include <alibabacloud/models/UpdateAlertWebhookResponseBody.hpp>
+#include <alibabacloud/models/UpdateAlertWebhookResponse.hpp>
 #include <alibabacloud/models/UpdateBizTraceRequest.hpp>
 #include <alibabacloud/models/UpdateBizTraceResponseBody.hpp>
 #include <alibabacloud/models/UpdateBizTraceResponse.hpp>
