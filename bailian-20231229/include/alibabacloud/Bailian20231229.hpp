@@ -1071,6 +1071,24 @@ namespace Bailian20231229
       Models::UpdateFileTagResponse updateFileTag(const string &WorkspaceId, const string &FileId, const Models::UpdateFileTagRequest &request);
 
       /**
+       * @summary 更新索引任务
+       *
+       * @param request UpdateIndexRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateIndexResponse
+       */
+      Models::UpdateIndexResponse updateIndexWithOptions(const string &WorkspaceId, const Models::UpdateIndexRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新索引任务
+       *
+       * @param request UpdateIndexRequest
+       * @return UpdateIndexResponse
+       */
+      Models::UpdateIndexResponse updateIndex(const string &WorkspaceId, const Models::UpdateIndexRequest &request);
+
+      /**
        * @summary 更新memory
        *
        * @param request UpdateMemoryRequest

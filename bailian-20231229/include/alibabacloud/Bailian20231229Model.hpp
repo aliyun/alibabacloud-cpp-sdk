@@ -150,6 +150,9 @@
 #include <alibabacloud/models/UpdateFileTagShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateFileTagResponseBody.hpp>
 #include <alibabacloud/models/UpdateFileTagResponse.hpp>
+#include <alibabacloud/models/UpdateIndexRequest.hpp>
+#include <alibabacloud/models/UpdateIndexResponseBody.hpp>
+#include <alibabacloud/models/UpdateIndexResponse.hpp>
 #include <alibabacloud/models/UpdateMemoryRequest.hpp>
 #include <alibabacloud/models/UpdateMemoryResponseBody.hpp>
 #include <alibabacloud/models/UpdateMemoryResponse.hpp>

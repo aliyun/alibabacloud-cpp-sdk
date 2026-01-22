@@ -2989,6 +2989,79 @@ UpdateFileTagResponse Client::updateFileTag(const string &WorkspaceId, const str
 }
 
 /**
+ * @summary 更新索引任务
+ *
+ * @param request UpdateIndexRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateIndexResponse
+ */
+UpdateIndexResponse Client::updateIndexWithOptions(const string &WorkspaceId, const UpdateIndexRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDenseSimilarityTopK()) {
+    query["DenseSimilarityTopK"] = request.getDenseSimilarityTopK();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasId()) {
+    query["Id"] = request.getId();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasPipelineCommercialCu()) {
+    query["PipelineCommercialCu"] = request.getPipelineCommercialCu();
+  }
+
+  if (!!request.hasPipelineCommercialType()) {
+    query["PipelineCommercialType"] = request.getPipelineCommercialType();
+  }
+
+  if (!!request.hasRerankMinScore()) {
+    query["RerankMinScore"] = request.getRerankMinScore();
+  }
+
+  if (!!request.hasSparseSimilarityTopK()) {
+    query["SparseSimilarityTopK"] = request.getSparseSimilarityTopK();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateIndex"},
+    {"version" , "2023-12-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(WorkspaceId) , "/index/update")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateIndexResponse>();
+}
+
+/**
+ * @summary 更新索引任务
+ *
+ * @param request UpdateIndexRequest
+ * @return UpdateIndexResponse
+ */
+UpdateIndexResponse Client::updateIndex(const string &WorkspaceId, const UpdateIndexRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateIndexWithOptions(WorkspaceId, request, headers, runtime);
+}
+
+/**
  * @summary 更新memory
  *
  * @param request UpdateMemoryRequest
