@@ -658,6 +658,68 @@ DescribeJobMetricLastResponse Client::describeJobMetricLast(const DescribeJobMet
 }
 
 /**
+ * @summary 查询作业输出
+ *
+ * @param request DescribeJobResultsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeJobResultsResponse
+ */
+DescribeJobResultsResponse Client::describeJobResultsWithOptions(const DescribeJobResultsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasArrayIndex()) {
+    query["ArrayIndex"] = request.getArrayIndex();
+  }
+
+  if (!!request.hasContentEncoding()) {
+    query["ContentEncoding"] = request.getContentEncoding();
+  }
+
+  if (!!request.hasJobId()) {
+    query["JobId"] = request.getJobId();
+  }
+
+  if (!!request.hasLimitBytes()) {
+    query["LimitBytes"] = request.getLimitBytes();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasTaskName()) {
+    query["TaskName"] = request.getTaskName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeJobResults"},
+    {"version" , "2023-07-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeJobResultsResponse>();
+}
+
+/**
+ * @summary 查询作业输出
+ *
+ * @param request DescribeJobResultsRequest
+ * @return DescribeJobResultsResponse
+ */
+DescribeJobResultsResponse Client::describeJobResults(const DescribeJobResultsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeJobResultsWithOptions(request, runtime);
+}
+
+/**
  * @summary Querying Execution Plan Details
  *
  * @param request GetActionPlanRequest

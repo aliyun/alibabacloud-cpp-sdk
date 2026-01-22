@@ -40,6 +40,9 @@
 #include <alibabacloud/models/DescribeJobMetricLastShrinkRequest.hpp>
 #include <alibabacloud/models/DescribeJobMetricLastResponseBody.hpp>
 #include <alibabacloud/models/DescribeJobMetricLastResponse.hpp>
+#include <alibabacloud/models/DescribeJobResultsRequest.hpp>
+#include <alibabacloud/models/DescribeJobResultsResponseBody.hpp>
+#include <alibabacloud/models/DescribeJobResultsResponse.hpp>
 #include <alibabacloud/models/GetActionPlanRequest.hpp>
 #include <alibabacloud/models/GetActionPlanResponseBody.hpp>
 #include <alibabacloud/models/GetActionPlanResponse.hpp>
