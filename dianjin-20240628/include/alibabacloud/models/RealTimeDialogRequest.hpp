@@ -60,6 +60,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(customerServiceId, customerServiceId_);
         DARABONBA_PTR_TO_JSON(customerServiceType, customerServiceType_);
         DARABONBA_PTR_TO_JSON(end, end_);
+        DARABONBA_PTR_TO_JSON(intentionCode, intentionCode_);
         DARABONBA_PTR_TO_JSON(role, role_);
         DARABONBA_PTR_TO_JSON(type, type_);
       };
@@ -71,6 +72,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(customerServiceId, customerServiceId_);
         DARABONBA_PTR_FROM_JSON(customerServiceType, customerServiceType_);
         DARABONBA_PTR_FROM_JSON(end, end_);
+        DARABONBA_PTR_FROM_JSON(intentionCode, intentionCode_);
         DARABONBA_PTR_FROM_JSON(role, role_);
         DARABONBA_PTR_FROM_JSON(type, type_);
       };
@@ -87,7 +89,7 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->begin_ == nullptr
         && this->beginTime_ == nullptr && this->content_ == nullptr && this->customerId_ == nullptr && this->customerServiceId_ == nullptr && this->customerServiceType_ == nullptr
-        && this->end_ == nullptr && this->role_ == nullptr && this->type_ == nullptr; };
+        && this->end_ == nullptr && this->intentionCode_ == nullptr && this->role_ == nullptr && this->type_ == nullptr; };
       // begin Field Functions 
       bool hasBegin() const { return this->begin_ != nullptr;};
       void deleteBegin() { this->begin_ = nullptr;};
@@ -137,6 +139,13 @@ namespace Models
       inline ConversationModel& setEnd(int32_t end) { DARABONBA_PTR_SET_VALUE(end_, end) };
 
 
+      // intentionCode Field Functions 
+      bool hasIntentionCode() const { return this->intentionCode_ != nullptr;};
+      void deleteIntentionCode() { this->intentionCode_ = nullptr;};
+      inline string getIntentionCode() const { DARABONBA_PTR_GET_DEFAULT(intentionCode_, "") };
+      inline ConversationModel& setIntentionCode(string intentionCode) { DARABONBA_PTR_SET_VALUE(intentionCode_, intentionCode) };
+
+
       // role Field Functions 
       bool hasRole() const { return this->role_ != nullptr;};
       void deleteRole() { this->role_ = nullptr;};
@@ -160,6 +169,7 @@ namespace Models
       shared_ptr<string> customerServiceId_ {};
       shared_ptr<string> customerServiceType_ {};
       shared_ptr<int32_t> end_ {};
+      shared_ptr<string> intentionCode_ {};
       // This parameter is required.
       shared_ptr<int32_t> role_ {};
       // This parameter is required.
