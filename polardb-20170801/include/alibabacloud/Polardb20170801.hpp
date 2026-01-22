@@ -2963,6 +2963,57 @@ namespace Polardb20170801
       Models::DescribePendingMaintenanceActionsResponse describePendingMaintenanceActions(const Models::DescribePendingMaintenanceActionsRequest &request);
 
       /**
+       * @summary 查询指定会话明细
+       *
+       * @param request DescribePolarAgentChatRecordsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribePolarAgentChatRecordsResponse
+       */
+      Models::DescribePolarAgentChatRecordsResponse describePolarAgentChatRecordsWithOptions(const Models::DescribePolarAgentChatRecordsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询指定会话明细
+       *
+       * @param request DescribePolarAgentChatRecordsRequest
+       * @return DescribePolarAgentChatRecordsResponse
+       */
+      Models::DescribePolarAgentChatRecordsResponse describePolarAgentChatRecords(const Models::DescribePolarAgentChatRecordsRequest &request);
+
+      /**
+       * @summary 查询会话状态
+       *
+       * @param request DescribePolarAgentSessionStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribePolarAgentSessionStatusResponse
+       */
+      Models::DescribePolarAgentSessionStatusResponse describePolarAgentSessionStatusWithOptions(const Models::DescribePolarAgentSessionStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询会话状态
+       *
+       * @param request DescribePolarAgentSessionStatusRequest
+       * @return DescribePolarAgentSessionStatusResponse
+       */
+      Models::DescribePolarAgentSessionStatusResponse describePolarAgentSessionStatus(const Models::DescribePolarAgentSessionStatusRequest &request);
+
+      /**
+       * @summary 查看历史会话记录
+       *
+       * @param request DescribePolarAgentUserSessionsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribePolarAgentUserSessionsResponse
+       */
+      Models::DescribePolarAgentUserSessionsResponse describePolarAgentUserSessionsWithOptions(const Models::DescribePolarAgentUserSessionsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查看历史会话记录
+       *
+       * @param request DescribePolarAgentUserSessionsRequest
+       * @return DescribePolarAgentUserSessionsResponse
+       */
+      Models::DescribePolarAgentUserSessionsResponse describePolarAgentUserSessions(const Models::DescribePolarAgentUserSessionsRequest &request);
+
+      /**
        * @summary 获取PolarFS实例详情
        *
        * @param request DescribePolarFsAttributeRequest
@@ -3465,6 +3516,32 @@ namespace Polardb20170801
        * @return GenerateUpgradeReportForSyncCloneResponse
        */
       Models::GenerateUpgradeReportForSyncCloneResponse generateUpgradeReportForSyncClone(const Models::GenerateUpgradeReportForSyncCloneRequest &request);
+
+      /**
+       * @summary 创建聊天记录
+       *
+       * @param request GetPolarAgentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetPolarAgentResponse
+       */
+      FutureGenerator<Models::GetPolarAgentResponse> getPolarAgentWithSSE(const Models::GetPolarAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建聊天记录
+       *
+       * @param request GetPolarAgentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetPolarAgentResponse
+       */
+      Models::GetPolarAgentResponse getPolarAgentWithOptions(const Models::GetPolarAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建聊天记录
+       *
+       * @param request GetPolarAgentRequest
+       * @return GetPolarAgentResponse
+       */
+      Models::GetPolarAgentResponse getPolarAgent(const Models::GetPolarAgentRequest &request);
 
       /**
        * @summary Grants a standard account the permissions to access one or more databases in a specified PolarDB cluster.

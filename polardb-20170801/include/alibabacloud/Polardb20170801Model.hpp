@@ -496,6 +496,15 @@
 #include <alibabacloud/models/DescribePendingMaintenanceActionsRequest.hpp>
 #include <alibabacloud/models/DescribePendingMaintenanceActionsResponseBody.hpp>
 #include <alibabacloud/models/DescribePendingMaintenanceActionsResponse.hpp>
+#include <alibabacloud/models/DescribePolarAgentChatRecordsRequest.hpp>
+#include <alibabacloud/models/DescribePolarAgentChatRecordsResponseBody.hpp>
+#include <alibabacloud/models/DescribePolarAgentChatRecordsResponse.hpp>
+#include <alibabacloud/models/DescribePolarAgentSessionStatusRequest.hpp>
+#include <alibabacloud/models/DescribePolarAgentSessionStatusResponseBody.hpp>
+#include <alibabacloud/models/DescribePolarAgentSessionStatusResponse.hpp>
+#include <alibabacloud/models/DescribePolarAgentUserSessionsRequest.hpp>
+#include <alibabacloud/models/DescribePolarAgentUserSessionsResponseBody.hpp>
+#include <alibabacloud/models/DescribePolarAgentUserSessionsResponse.hpp>
 #include <alibabacloud/models/DescribePolarFsAttributeRequest.hpp>
 #include <alibabacloud/models/DescribePolarFsAttributeResponseBody.hpp>
 #include <alibabacloud/models/DescribePolarFsAttributeResponse.hpp>
@@ -582,6 +591,9 @@
 #include <alibabacloud/models/GenerateUpgradeReportForSyncCloneRequest.hpp>
 #include <alibabacloud/models/GenerateUpgradeReportForSyncCloneResponseBody.hpp>
 #include <alibabacloud/models/GenerateUpgradeReportForSyncCloneResponse.hpp>
+#include <alibabacloud/models/GetPolarAgentRequest.hpp>
+#include <alibabacloud/models/GetPolarAgentResponseBody.hpp>
+#include <alibabacloud/models/GetPolarAgentResponse.hpp>
 #include <alibabacloud/models/GrantAccountPrivilegeRequest.hpp>
 #include <alibabacloud/models/GrantAccountPrivilegeResponseBody.hpp>
 #include <alibabacloud/models/GrantAccountPrivilegeResponse.hpp>

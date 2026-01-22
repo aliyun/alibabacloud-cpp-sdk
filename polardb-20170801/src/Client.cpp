@@ -8,6 +8,7 @@ using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
 using namespace AlibabaCloud::OpenApi;
+using namespace AlibabaCloud::OpenApi::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
 using namespace AlibabaCloud::Polardb20170801::Models;
@@ -11747,6 +11748,140 @@ DescribePendingMaintenanceActionsResponse Client::describePendingMaintenanceActi
 }
 
 /**
+ * @summary 查询指定会话明细
+ *
+ * @param request DescribePolarAgentChatRecordsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribePolarAgentChatRecordsResponse
+ */
+DescribePolarAgentChatRecordsResponse Client::describePolarAgentChatRecordsWithOptions(const DescribePolarAgentChatRecordsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasSessionId()) {
+    query["SessionId"] = request.getSessionId();
+  }
+
+  if (!!request.hasSource()) {
+    query["Source"] = request.getSource();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribePolarAgentChatRecords"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribePolarAgentChatRecordsResponse>();
+}
+
+/**
+ * @summary 查询指定会话明细
+ *
+ * @param request DescribePolarAgentChatRecordsRequest
+ * @return DescribePolarAgentChatRecordsResponse
+ */
+DescribePolarAgentChatRecordsResponse Client::describePolarAgentChatRecords(const DescribePolarAgentChatRecordsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describePolarAgentChatRecordsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询会话状态
+ *
+ * @param request DescribePolarAgentSessionStatusRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribePolarAgentSessionStatusResponse
+ */
+DescribePolarAgentSessionStatusResponse Client::describePolarAgentSessionStatusWithOptions(const DescribePolarAgentSessionStatusRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasSessionId()) {
+    query["SessionId"] = request.getSessionId();
+  }
+
+  if (!!request.hasSource()) {
+    query["Source"] = request.getSource();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribePolarAgentSessionStatus"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribePolarAgentSessionStatusResponse>();
+}
+
+/**
+ * @summary 查询会话状态
+ *
+ * @param request DescribePolarAgentSessionStatusRequest
+ * @return DescribePolarAgentSessionStatusResponse
+ */
+DescribePolarAgentSessionStatusResponse Client::describePolarAgentSessionStatus(const DescribePolarAgentSessionStatusRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describePolarAgentSessionStatusWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查看历史会话记录
+ *
+ * @param request DescribePolarAgentUserSessionsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribePolarAgentUserSessionsResponse
+ */
+DescribePolarAgentUserSessionsResponse Client::describePolarAgentUserSessionsWithOptions(const DescribePolarAgentUserSessionsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasSource()) {
+    query["Source"] = request.getSource();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribePolarAgentUserSessions"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribePolarAgentUserSessionsResponse>();
+}
+
+/**
+ * @summary 查看历史会话记录
+ *
+ * @param request DescribePolarAgentUserSessionsRequest
+ * @return DescribePolarAgentUserSessionsResponse
+ */
+DescribePolarAgentUserSessionsResponse Client::describePolarAgentUserSessions(const DescribePolarAgentUserSessionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describePolarAgentUserSessionsWithOptions(request, runtime);
+}
+
+/**
  * @summary 获取PolarFS实例详情
  *
  * @param request DescribePolarFsAttributeRequest
@@ -13777,6 +13912,115 @@ GenerateUpgradeReportForSyncCloneResponse Client::generateUpgradeReportForSyncCl
 GenerateUpgradeReportForSyncCloneResponse Client::generateUpgradeReportForSyncClone(const GenerateUpgradeReportForSyncCloneRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return generateUpgradeReportForSyncCloneWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建聊天记录
+ *
+ * @param request GetPolarAgentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetPolarAgentResponse
+ */
+FutureGenerator<GetPolarAgentResponse> Client::getPolarAgentWithSSE(const GetPolarAgentRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasExtraInfo()) {
+    query["ExtraInfo"] = request.getExtraInfo();
+  }
+
+  if (!!request.hasQuery()) {
+    query["Query"] = request.getQuery();
+  }
+
+  if (!!request.hasSessionId()) {
+    query["SessionId"] = request.getSessionId();
+  }
+
+  if (!!request.hasSource()) {
+    query["Source"] = request.getSource();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetPolarAgent"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    json data = json(json::parse(resp.getEvent().getData()));
+json     __retrun = json(json({
+      {"statusCode" , resp.getStatusCode()},
+      {"headers" , resp.getHeaders()},
+      {"body" , Darabonba::Core::merge(data,
+          {"RequestId" , resp.getEvent().getId()},
+          {"Message" , resp.getEvent().getEvent()}
+      )}
+    })).get<GetPolarAgentResponse>();
+return Darabonba::FutureGenerator<json>(__retrun);
+  }
+}
+
+/**
+ * @summary 创建聊天记录
+ *
+ * @param request GetPolarAgentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetPolarAgentResponse
+ */
+GetPolarAgentResponse Client::getPolarAgentWithOptions(const GetPolarAgentRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasExtraInfo()) {
+    query["ExtraInfo"] = request.getExtraInfo();
+  }
+
+  if (!!request.hasQuery()) {
+    query["Query"] = request.getQuery();
+  }
+
+  if (!!request.hasSessionId()) {
+    query["SessionId"] = request.getSessionId();
+  }
+
+  if (!!request.hasSource()) {
+    query["Source"] = request.getSource();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetPolarAgent"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetPolarAgentResponse>();
+}
+
+/**
+ * @summary 创建聊天记录
+ *
+ * @param request GetPolarAgentRequest
+ * @return GetPolarAgentResponse
+ */
+GetPolarAgentResponse Client::getPolarAgent(const GetPolarAgentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getPolarAgentWithOptions(request, runtime);
 }
 
 /**
