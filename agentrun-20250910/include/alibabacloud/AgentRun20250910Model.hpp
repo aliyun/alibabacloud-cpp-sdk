@@ -37,6 +37,8 @@
 #include <alibabacloud/models/BrowserViewPort.hpp>
 #include <alibabacloud/models/CAPConfig.hpp>
 #include <alibabacloud/models/CertConfig.hpp>
+#include <alibabacloud/models/ChangeResourceGroupInput.hpp>
+#include <alibabacloud/models/ChangeResourceGroupOutput.hpp>
 #include <alibabacloud/models/CodeInfo.hpp>
 #include <alibabacloud/models/CodeInterpreter.hpp>
 #include <alibabacloud/models/CodeInterpreterResult.hpp>

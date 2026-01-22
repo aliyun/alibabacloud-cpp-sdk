@@ -40,6 +40,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(networkConfiguration, networkConfiguration_);
       DARABONBA_PTR_TO_JSON(port, port_);
       DARABONBA_PTR_TO_JSON(protocolConfiguration, protocolConfiguration_);
+      DARABONBA_PTR_TO_JSON(resourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(sessionConcurrencyLimitPerInstance, sessionConcurrencyLimitPerInstance_);
       DARABONBA_PTR_TO_JSON(sessionIdleTimeoutSeconds, sessionIdleTimeoutSeconds_);
       DARABONBA_PTR_TO_JSON(status, status_);
@@ -66,6 +67,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(networkConfiguration, networkConfiguration_);
       DARABONBA_PTR_FROM_JSON(port, port_);
       DARABONBA_PTR_FROM_JSON(protocolConfiguration, protocolConfiguration_);
+      DARABONBA_PTR_FROM_JSON(resourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(sessionConcurrencyLimitPerInstance, sessionConcurrencyLimitPerInstance_);
       DARABONBA_PTR_FROM_JSON(sessionIdleTimeoutSeconds, sessionIdleTimeoutSeconds_);
       DARABONBA_PTR_FROM_JSON(status, status_);
@@ -86,8 +88,8 @@ namespace Models
         && this->agentRuntimeId_ == nullptr && this->agentRuntimeName_ == nullptr && this->agentRuntimeVersion_ == nullptr && this->artifactType_ == nullptr && this->codeConfiguration_ == nullptr
         && this->containerConfiguration_ == nullptr && this->cpu_ == nullptr && this->createdAt_ == nullptr && this->credentialName_ == nullptr && this->description_ == nullptr
         && this->environmentVariables_ == nullptr && this->executionRoleArn_ == nullptr && this->healthCheckConfiguration_ == nullptr && this->lastUpdatedAt_ == nullptr && this->logConfiguration_ == nullptr
-        && this->memory_ == nullptr && this->networkConfiguration_ == nullptr && this->port_ == nullptr && this->protocolConfiguration_ == nullptr && this->sessionConcurrencyLimitPerInstance_ == nullptr
-        && this->sessionIdleTimeoutSeconds_ == nullptr && this->status_ == nullptr && this->statusReason_ == nullptr; };
+        && this->memory_ == nullptr && this->networkConfiguration_ == nullptr && this->port_ == nullptr && this->protocolConfiguration_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->sessionConcurrencyLimitPerInstance_ == nullptr && this->sessionIdleTimeoutSeconds_ == nullptr && this->status_ == nullptr && this->statusReason_ == nullptr; };
     // agentRuntimeArn Field Functions 
     bool hasAgentRuntimeArn() const { return this->agentRuntimeArn_ != nullptr;};
     void deleteAgentRuntimeArn() { this->agentRuntimeArn_ = nullptr;};
@@ -242,6 +244,13 @@ namespace Models
     inline AgentRuntime& setProtocolConfiguration(ProtocolConfiguration && protocolConfiguration) { DARABONBA_PTR_SET_RVALUE(protocolConfiguration_, protocolConfiguration) };
 
 
+    // resourceGroupId Field Functions 
+    bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
+    void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline AgentRuntime& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
+
+
     // sessionConcurrencyLimitPerInstance Field Functions 
     bool hasSessionConcurrencyLimitPerInstance() const { return this->sessionConcurrencyLimitPerInstance_ != nullptr;};
     void deleteSessionConcurrencyLimitPerInstance() { this->sessionConcurrencyLimitPerInstance_ = nullptr;};
@@ -311,6 +320,7 @@ namespace Models
     shared_ptr<int32_t> port_ {};
     // 智能体运行时的通信协议配置
     shared_ptr<ProtocolConfiguration> protocolConfiguration_ {};
+    shared_ptr<string> resourceGroupId_ {};
     // 每个运行时实例允许的最大并发会话数
     shared_ptr<int32_t> sessionConcurrencyLimitPerInstance_ {};
     // 会话的空闲超时时间，单位为秒。实例没有会话请求后处于空闲状态，空闲态为闲置计费模式，超过此超时时间后会话自动过期，不可继续使用

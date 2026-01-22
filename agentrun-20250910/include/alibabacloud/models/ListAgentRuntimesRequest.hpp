@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(agentRuntimeName, agentRuntimeName_);
       DARABONBA_PTR_TO_JSON(pageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(resourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(searchMode, searchMode_);
       DARABONBA_PTR_TO_JSON(status, status_);
     };
@@ -23,6 +24,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(agentRuntimeName, agentRuntimeName_);
       DARABONBA_PTR_FROM_JSON(pageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(resourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(searchMode, searchMode_);
       DARABONBA_PTR_FROM_JSON(status, status_);
     };
@@ -38,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentRuntimeName_ == nullptr
-        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->searchMode_ == nullptr && this->status_ == nullptr; };
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->resourceGroupId_ == nullptr && this->searchMode_ == nullptr && this->status_ == nullptr; };
     // agentRuntimeName Field Functions 
     bool hasAgentRuntimeName() const { return this->agentRuntimeName_ != nullptr;};
     void deleteAgentRuntimeName() { this->agentRuntimeName_ = nullptr;};
@@ -58,6 +60,13 @@ namespace Models
     void deletePageSize() { this->pageSize_ = nullptr;};
     inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListAgentRuntimesRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
+
+
+    // resourceGroupId Field Functions 
+    bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
+    void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline ListAgentRuntimesRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // searchMode Field Functions 
@@ -81,6 +90,7 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // 每页返回的记录数量
     shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<string> resourceGroupId_ {};
     // 查询模式，支持精确查询和模糊查询
     shared_ptr<string> searchMode_ {};
     // 根据状态进行过滤，多个状态用逗号分隔，支持精确匹配

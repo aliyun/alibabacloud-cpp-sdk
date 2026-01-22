@@ -1686,6 +1686,10 @@ ListAgentRuntimesResponse Client::listAgentRuntimesWithOptions(const ListAgentRu
     query["pageSize"] = request.getPageSize();
   }
 
+  if (!!request.hasResourceGroupId()) {
+    query["resourceGroupId"] = request.getResourceGroupId();
+  }
+
   if (!!request.hasSearchMode()) {
     query["searchMode"] = request.getSearchMode();
   }
