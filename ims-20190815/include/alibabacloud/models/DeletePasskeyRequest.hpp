@@ -31,27 +31,27 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->passkeyId_ != nullptr
-        && this->userPrincipalName_ != nullptr; };
+    virtual bool empty() const override { return this->passkeyId_ == nullptr
+        && this->userPrincipalName_ == nullptr; };
     // passkeyId Field Functions 
     bool hasPasskeyId() const { return this->passkeyId_ != nullptr;};
     void deletePasskeyId() { this->passkeyId_ = nullptr;};
-    inline string passkeyId() const { DARABONBA_PTR_GET_DEFAULT(passkeyId_, "") };
+    inline string getPasskeyId() const { DARABONBA_PTR_GET_DEFAULT(passkeyId_, "") };
     inline DeletePasskeyRequest& setPasskeyId(string passkeyId) { DARABONBA_PTR_SET_VALUE(passkeyId_, passkeyId) };
 
 
     // userPrincipalName Field Functions 
     bool hasUserPrincipalName() const { return this->userPrincipalName_ != nullptr;};
     void deleteUserPrincipalName() { this->userPrincipalName_ = nullptr;};
-    inline string userPrincipalName() const { DARABONBA_PTR_GET_DEFAULT(userPrincipalName_, "") };
+    inline string getUserPrincipalName() const { DARABONBA_PTR_GET_DEFAULT(userPrincipalName_, "") };
     inline DeletePasskeyRequest& setUserPrincipalName(string userPrincipalName) { DARABONBA_PTR_SET_VALUE(userPrincipalName_, userPrincipalName) };
 
 
   protected:
     // The ID of the passkey.
-    std::shared_ptr<string> passkeyId_ = nullptr;
+    shared_ptr<string> passkeyId_ {};
     // The logon name of the RAM user.
-    std::shared_ptr<string> userPrincipalName_ = nullptr;
+    shared_ptr<string> userPrincipalName_ {};
   };
 
   } // namespace Models

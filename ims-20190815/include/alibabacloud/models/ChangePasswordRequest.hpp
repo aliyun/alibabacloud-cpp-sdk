@@ -31,19 +31,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->newPassword_ != nullptr
-        && this->oldPassword_ != nullptr; };
+    virtual bool empty() const override { return this->newPassword_ == nullptr
+        && this->oldPassword_ == nullptr; };
     // newPassword Field Functions 
     bool hasNewPassword() const { return this->newPassword_ != nullptr;};
     void deleteNewPassword() { this->newPassword_ = nullptr;};
-    inline string newPassword() const { DARABONBA_PTR_GET_DEFAULT(newPassword_, "") };
+    inline string getNewPassword() const { DARABONBA_PTR_GET_DEFAULT(newPassword_, "") };
     inline ChangePasswordRequest& setNewPassword(string newPassword) { DARABONBA_PTR_SET_VALUE(newPassword_, newPassword) };
 
 
     // oldPassword Field Functions 
     bool hasOldPassword() const { return this->oldPassword_ != nullptr;};
     void deleteOldPassword() { this->oldPassword_ = nullptr;};
-    inline string oldPassword() const { DARABONBA_PTR_GET_DEFAULT(oldPassword_, "") };
+    inline string getOldPassword() const { DARABONBA_PTR_GET_DEFAULT(oldPassword_, "") };
     inline ChangePasswordRequest& setOldPassword(string oldPassword) { DARABONBA_PTR_SET_VALUE(oldPassword_, oldPassword) };
 
 
@@ -53,11 +53,11 @@ namespace Models
     // The password must meet the complexity requirements. For more information, see [GetPasswordPolicy](https://help.aliyun.com/document_detail/186691.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> newPassword_ = nullptr;
+    shared_ptr<string> newPassword_ {};
     // The old password that is used to log on to the console.
     // 
     // This parameter is required.
-    std::shared_ptr<string> oldPassword_ = nullptr;
+    shared_ptr<string> oldPassword_ {};
   };
 
   } // namespace Models

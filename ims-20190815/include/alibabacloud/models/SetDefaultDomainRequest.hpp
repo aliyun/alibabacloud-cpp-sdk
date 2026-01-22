@@ -29,11 +29,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->defaultDomainName_ != nullptr; };
+    virtual bool empty() const override { return this->defaultDomainName_ == nullptr; };
     // defaultDomainName Field Functions 
     bool hasDefaultDomainName() const { return this->defaultDomainName_ != nullptr;};
     void deleteDefaultDomainName() { this->defaultDomainName_ = nullptr;};
-    inline string defaultDomainName() const { DARABONBA_PTR_GET_DEFAULT(defaultDomainName_, "") };
+    inline string getDefaultDomainName() const { DARABONBA_PTR_GET_DEFAULT(defaultDomainName_, "") };
     inline SetDefaultDomainRequest& setDefaultDomainName(string defaultDomainName) { DARABONBA_PTR_SET_VALUE(defaultDomainName_, defaultDomainName) };
 
 
@@ -47,7 +47,7 @@ namespace Models
     // >  The default domain name cannot start or end with a hyphen (-) and cannot contain two consecutive hyphens (-).
     // 
     // This parameter is required.
-    std::shared_ptr<string> defaultDomainName_ = nullptr;
+    shared_ptr<string> defaultDomainName_ {};
   };
 
   } // namespace Models

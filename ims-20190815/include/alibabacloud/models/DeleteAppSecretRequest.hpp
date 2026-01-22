@@ -31,19 +31,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appId_ != nullptr
-        && this->appSecretId_ != nullptr; };
+    virtual bool empty() const override { return this->appId_ == nullptr
+        && this->appSecretId_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline DeleteAppSecretRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // appSecretId Field Functions 
     bool hasAppSecretId() const { return this->appSecretId_ != nullptr;};
     void deleteAppSecretId() { this->appSecretId_ = nullptr;};
-    inline string appSecretId() const { DARABONBA_PTR_GET_DEFAULT(appSecretId_, "") };
+    inline string getAppSecretId() const { DARABONBA_PTR_GET_DEFAULT(appSecretId_, "") };
     inline DeleteAppSecretRequest& setAppSecretId(string appSecretId) { DARABONBA_PTR_SET_VALUE(appSecretId_, appSecretId) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The ID of the application.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The ID of the application secret.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appSecretId_ = nullptr;
+    shared_ptr<string> appSecretId_ {};
   };
 
   } // namespace Models

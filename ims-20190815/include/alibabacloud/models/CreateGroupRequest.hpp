@@ -33,26 +33,26 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->comments_ != nullptr
-        && this->displayName_ != nullptr && this->groupName_ != nullptr; };
+    virtual bool empty() const override { return this->comments_ == nullptr
+        && this->displayName_ == nullptr && this->groupName_ == nullptr; };
     // comments Field Functions 
     bool hasComments() const { return this->comments_ != nullptr;};
     void deleteComments() { this->comments_ = nullptr;};
-    inline string comments() const { DARABONBA_PTR_GET_DEFAULT(comments_, "") };
+    inline string getComments() const { DARABONBA_PTR_GET_DEFAULT(comments_, "") };
     inline CreateGroupRequest& setComments(string comments) { DARABONBA_PTR_SET_VALUE(comments_, comments) };
 
 
     // displayName Field Functions 
     bool hasDisplayName() const { return this->displayName_ != nullptr;};
     void deleteDisplayName() { this->displayName_ = nullptr;};
-    inline string displayName() const { DARABONBA_PTR_GET_DEFAULT(displayName_, "") };
+    inline string getDisplayName() const { DARABONBA_PTR_GET_DEFAULT(displayName_, "") };
     inline CreateGroupRequest& setDisplayName(string displayName) { DARABONBA_PTR_SET_VALUE(displayName_, displayName) };
 
 
     // groupName Field Functions 
     bool hasGroupName() const { return this->groupName_ != nullptr;};
     void deleteGroupName() { this->groupName_ = nullptr;};
-    inline string groupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
+    inline string getGroupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
     inline CreateGroupRequest& setGroupName(string groupName) { DARABONBA_PTR_SET_VALUE(groupName_, groupName) };
 
 
@@ -60,15 +60,15 @@ namespace Models
     // The description.
     // 
     // The description can be up to 128 characters in length.
-    std::shared_ptr<string> comments_ = nullptr;
+    shared_ptr<string> comments_ {};
     // The display name of the RAM user group.
     // 
     // The name can be up to 24 characters in length.
-    std::shared_ptr<string> displayName_ = nullptr;
+    shared_ptr<string> displayName_ {};
     // The name of the RAM user group. You must specify this parameter.
     // 
     // The name can be up to 64 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-).
-    std::shared_ptr<string> groupName_ = nullptr;
+    shared_ptr<string> groupName_ {};
   };
 
   } // namespace Models

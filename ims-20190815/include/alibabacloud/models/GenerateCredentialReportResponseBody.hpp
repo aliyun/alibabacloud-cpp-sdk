@@ -31,31 +31,31 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->requestId_ != nullptr
-        && this->state_ != nullptr; };
+    virtual bool empty() const override { return this->requestId_ == nullptr
+        && this->state_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GenerateCredentialReportResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // state Field Functions 
     bool hasState() const { return this->state_ != nullptr;};
     void deleteState() { this->state_ = nullptr;};
-    inline string state() const { DARABONBA_PTR_GET_DEFAULT(state_, "") };
+    inline string getState() const { DARABONBA_PTR_GET_DEFAULT(state_, "") };
     inline GenerateCredentialReportResponseBody& setState(string state) { DARABONBA_PTR_SET_VALUE(state_, state) };
 
 
   protected:
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The generation status of the user credential report. Valid values:
     // 
     // *   STARTED: The system starts to generate the user credential report.
     // *   INPROGRESS: The user credential report is being generated.
     // *   COMPLETED: The user credential report is generated.
-    std::shared_ptr<string> state_ = nullptr;
+    shared_ptr<string> state_ {};
   };
 
   } // namespace Models

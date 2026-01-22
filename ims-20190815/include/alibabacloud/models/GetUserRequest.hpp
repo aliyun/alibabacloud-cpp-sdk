@@ -33,26 +33,26 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->userAccessKeyId_ != nullptr
-        && this->userId_ != nullptr && this->userPrincipalName_ != nullptr; };
+    virtual bool empty() const override { return this->userAccessKeyId_ == nullptr
+        && this->userId_ == nullptr && this->userPrincipalName_ == nullptr; };
     // userAccessKeyId Field Functions 
     bool hasUserAccessKeyId() const { return this->userAccessKeyId_ != nullptr;};
     void deleteUserAccessKeyId() { this->userAccessKeyId_ = nullptr;};
-    inline string userAccessKeyId() const { DARABONBA_PTR_GET_DEFAULT(userAccessKeyId_, "") };
+    inline string getUserAccessKeyId() const { DARABONBA_PTR_GET_DEFAULT(userAccessKeyId_, "") };
     inline GetUserRequest& setUserAccessKeyId(string userAccessKeyId) { DARABONBA_PTR_SET_VALUE(userAccessKeyId_, userAccessKeyId) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline GetUserRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
     // userPrincipalName Field Functions 
     bool hasUserPrincipalName() const { return this->userPrincipalName_ != nullptr;};
     void deleteUserPrincipalName() { this->userPrincipalName_ = nullptr;};
-    inline string userPrincipalName() const { DARABONBA_PTR_GET_DEFAULT(userPrincipalName_, "") };
+    inline string getUserPrincipalName() const { DARABONBA_PTR_GET_DEFAULT(userPrincipalName_, "") };
     inline GetUserRequest& setUserPrincipalName(string userPrincipalName) { DARABONBA_PTR_SET_VALUE(userPrincipalName_, userPrincipalName) };
 
 
@@ -60,11 +60,11 @@ namespace Models
     // The AccessKey ID of the RAM user.
     // 
     // > You must specify only one of the following parameters: `UserPrincipalName`, `UserId`, and `UserAccessKeyId`.
-    std::shared_ptr<string> userAccessKeyId_ = nullptr;
+    shared_ptr<string> userAccessKeyId_ {};
     // The ID of the RAM user.
     // 
     // > You must specify only one of the following parameters: `UserPrincipalName`, `UserId`, and `UserAccessKeyId`.
-    std::shared_ptr<string> userId_ = nullptr;
+    shared_ptr<string> userId_ {};
     // The logon name of the RAM user.
     // 
     // The name is in the format of `<username>@<AccountAlias>.onaliyun.com`. `<username>` indicates the name of the RAM user. `<AccountAlias>.onaliyun.com` indicates the default domain name.
@@ -72,7 +72,7 @@ namespace Models
     // The value of `UserPrincipalName` must be `1 to 128` characters in length and can contain letters, digits, periods (.), hyphens (-), and underscores (_). The value of `<username>` must be `1 to 64` characters in length.
     // 
     // > You must specify only one of the following parameters: `UserPrincipalName`, `UserId`, and `UserAccessKeyId`.
-    std::shared_ptr<string> userPrincipalName_ = nullptr;
+    shared_ptr<string> userPrincipalName_ {};
   };
 
   } // namespace Models

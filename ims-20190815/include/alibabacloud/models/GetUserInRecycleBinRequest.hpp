@@ -31,19 +31,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->userAccessKeyId_ != nullptr
-        && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->userAccessKeyId_ == nullptr
+        && this->userId_ == nullptr; };
     // userAccessKeyId Field Functions 
     bool hasUserAccessKeyId() const { return this->userAccessKeyId_ != nullptr;};
     void deleteUserAccessKeyId() { this->userAccessKeyId_ = nullptr;};
-    inline string userAccessKeyId() const { DARABONBA_PTR_GET_DEFAULT(userAccessKeyId_, "") };
+    inline string getUserAccessKeyId() const { DARABONBA_PTR_GET_DEFAULT(userAccessKeyId_, "") };
     inline GetUserInRecycleBinRequest& setUserAccessKeyId(string userAccessKeyId) { DARABONBA_PTR_SET_VALUE(userAccessKeyId_, userAccessKeyId) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline GetUserInRecycleBinRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The AccessKey ID of the RAM user.
     // 
     // >  You must specify only one of the following parameters: `UserId` and `UserAccessKeyId`.
-    std::shared_ptr<string> userAccessKeyId_ = nullptr;
+    shared_ptr<string> userAccessKeyId_ {};
     // The ID of the RAM user.
     // 
     // >  You must specify only one of the following parameters: `UserId` and `UserAccessKeyId`.
-    std::shared_ptr<string> userId_ = nullptr;
+    shared_ptr<string> userId_ {};
   };
 
   } // namespace Models

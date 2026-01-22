@@ -31,19 +31,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->userId_ != nullptr
-        && this->userPrincipalName_ != nullptr; };
+    virtual bool empty() const override { return this->userId_ == nullptr
+        && this->userPrincipalName_ == nullptr; };
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline DeleteUserRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
     // userPrincipalName Field Functions 
     bool hasUserPrincipalName() const { return this->userPrincipalName_ != nullptr;};
     void deleteUserPrincipalName() { this->userPrincipalName_ = nullptr;};
-    inline string userPrincipalName() const { DARABONBA_PTR_GET_DEFAULT(userPrincipalName_, "") };
+    inline string getUserPrincipalName() const { DARABONBA_PTR_GET_DEFAULT(userPrincipalName_, "") };
     inline DeleteUserRequest& setUserPrincipalName(string userPrincipalName) { DARABONBA_PTR_SET_VALUE(userPrincipalName_, userPrincipalName) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The ID of the RAM user.
     // 
     // >  You must specify only one of the following parameters: `UserPrincipalName` and `UserId`.
-    std::shared_ptr<string> userId_ = nullptr;
+    shared_ptr<string> userId_ {};
     // The logon name of the RAM user.
     // 
     // >  You must specify only one of the following parameters: `UserPrincipalName` and `UserId`.
-    std::shared_ptr<string> userPrincipalName_ = nullptr;
+    shared_ptr<string> userPrincipalName_ {};
   };
 
   } // namespace Models

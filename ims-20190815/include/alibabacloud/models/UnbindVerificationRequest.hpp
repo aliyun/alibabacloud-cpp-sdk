@@ -35,33 +35,33 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->email_ != nullptr
-        && this->mobilePhone_ != nullptr && this->userPrincipalName_ != nullptr && this->verifyType_ != nullptr; };
+    virtual bool empty() const override { return this->email_ == nullptr
+        && this->mobilePhone_ == nullptr && this->userPrincipalName_ == nullptr && this->verifyType_ == nullptr; };
     // email Field Functions 
     bool hasEmail() const { return this->email_ != nullptr;};
     void deleteEmail() { this->email_ = nullptr;};
-    inline string email() const { DARABONBA_PTR_GET_DEFAULT(email_, "") };
+    inline string getEmail() const { DARABONBA_PTR_GET_DEFAULT(email_, "") };
     inline UnbindVerificationRequest& setEmail(string email) { DARABONBA_PTR_SET_VALUE(email_, email) };
 
 
     // mobilePhone Field Functions 
     bool hasMobilePhone() const { return this->mobilePhone_ != nullptr;};
     void deleteMobilePhone() { this->mobilePhone_ = nullptr;};
-    inline string mobilePhone() const { DARABONBA_PTR_GET_DEFAULT(mobilePhone_, "") };
+    inline string getMobilePhone() const { DARABONBA_PTR_GET_DEFAULT(mobilePhone_, "") };
     inline UnbindVerificationRequest& setMobilePhone(string mobilePhone) { DARABONBA_PTR_SET_VALUE(mobilePhone_, mobilePhone) };
 
 
     // userPrincipalName Field Functions 
     bool hasUserPrincipalName() const { return this->userPrincipalName_ != nullptr;};
     void deleteUserPrincipalName() { this->userPrincipalName_ = nullptr;};
-    inline string userPrincipalName() const { DARABONBA_PTR_GET_DEFAULT(userPrincipalName_, "") };
+    inline string getUserPrincipalName() const { DARABONBA_PTR_GET_DEFAULT(userPrincipalName_, "") };
     inline UnbindVerificationRequest& setUserPrincipalName(string userPrincipalName) { DARABONBA_PTR_SET_VALUE(userPrincipalName_, userPrincipalName) };
 
 
     // verifyType Field Functions 
     bool hasVerifyType() const { return this->verifyType_ != nullptr;};
     void deleteVerifyType() { this->verifyType_ = nullptr;};
-    inline string verifyType() const { DARABONBA_PTR_GET_DEFAULT(verifyType_, "") };
+    inline string getVerifyType() const { DARABONBA_PTR_GET_DEFAULT(verifyType_, "") };
     inline UnbindVerificationRequest& setVerifyType(string verifyType) { DARABONBA_PTR_SET_VALUE(verifyType_, verifyType) };
 
 
@@ -69,18 +69,18 @@ namespace Models
     // The email address.
     // 
     // >  If you set `VerifyType` to `email`, you must specify this parameter.
-    std::shared_ptr<string> email_ = nullptr;
+    shared_ptr<string> email_ {};
     // The mobile phone number.
     // 
     // >  If you set `VerifyType` to `sms`, you must specify this parameter.
-    std::shared_ptr<string> mobilePhone_ = nullptr;
+    shared_ptr<string> mobilePhone_ {};
     // The logon name of the RAM user.
-    std::shared_ptr<string> userPrincipalName_ = nullptr;
+    shared_ptr<string> userPrincipalName_ {};
     // The multi-factor authentication (MFA) method. Valid values:
     // 
     // *   sms: mobile phone.
     // *   email: email.
-    std::shared_ptr<string> verifyType_ = nullptr;
+    shared_ptr<string> verifyType_ {};
   };
 
   } // namespace Models

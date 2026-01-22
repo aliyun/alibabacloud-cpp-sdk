@@ -29,11 +29,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->userAccessKeyId_ != nullptr; };
+    virtual bool empty() const override { return this->userAccessKeyId_ == nullptr; };
     // userAccessKeyId Field Functions 
     bool hasUserAccessKeyId() const { return this->userAccessKeyId_ != nullptr;};
     void deleteUserAccessKeyId() { this->userAccessKeyId_ = nullptr;};
-    inline string userAccessKeyId() const { DARABONBA_PTR_GET_DEFAULT(userAccessKeyId_, "") };
+    inline string getUserAccessKeyId() const { DARABONBA_PTR_GET_DEFAULT(userAccessKeyId_, "") };
     inline GetAccessKeyInfoInRecycleBinRequest& setUserAccessKeyId(string userAccessKeyId) { DARABONBA_PTR_SET_VALUE(userAccessKeyId_, userAccessKeyId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The AccessKey ID of the Resource Access Management (RAM) user.
     // 
     // This parameter is required.
-    std::shared_ptr<string> userAccessKeyId_ = nullptr;
+    shared_ptr<string> userAccessKeyId_ {};
   };
 
   } // namespace Models

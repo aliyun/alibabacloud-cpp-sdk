@@ -31,30 +31,30 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->userAccessKeyId_ != nullptr
-        && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->userAccessKeyId_ == nullptr
+        && this->userId_ == nullptr; };
     // userAccessKeyId Field Functions 
     bool hasUserAccessKeyId() const { return this->userAccessKeyId_ != nullptr;};
     void deleteUserAccessKeyId() { this->userAccessKeyId_ = nullptr;};
-    inline string userAccessKeyId() const { DARABONBA_PTR_GET_DEFAULT(userAccessKeyId_, "") };
+    inline string getUserAccessKeyId() const { DARABONBA_PTR_GET_DEFAULT(userAccessKeyId_, "") };
     inline DeleteAccessKeyInRecycleBinRequest& setUserAccessKeyId(string userAccessKeyId) { DARABONBA_PTR_SET_VALUE(userAccessKeyId_, userAccessKeyId) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline DeleteAccessKeyInRecycleBinRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
   protected:
     // The AccessKey ID of the RAM user.
-    std::shared_ptr<string> userAccessKeyId_ = nullptr;
+    shared_ptr<string> userAccessKeyId_ {};
     // The ID of the RAM user.
     // 
     // > - If you use an Alibaba Cloud account to call the operation, you must specify the parameter.
     // > - If you use a RAM user to call the operation, you can leave the parameter empty. In this case, the ID of the RAM user is used by default.
-    std::shared_ptr<string> userId_ = nullptr;
+    shared_ptr<string> userId_ {};
   };
 
   } // namespace Models

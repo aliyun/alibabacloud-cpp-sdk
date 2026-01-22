@@ -31,19 +31,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->userAccessKeyId_ != nullptr
-        && this->userPrincipalName_ != nullptr; };
+    virtual bool empty() const override { return this->userAccessKeyId_ == nullptr
+        && this->userPrincipalName_ == nullptr; };
     // userAccessKeyId Field Functions 
     bool hasUserAccessKeyId() const { return this->userAccessKeyId_ != nullptr;};
     void deleteUserAccessKeyId() { this->userAccessKeyId_ = nullptr;};
-    inline string userAccessKeyId() const { DARABONBA_PTR_GET_DEFAULT(userAccessKeyId_, "") };
+    inline string getUserAccessKeyId() const { DARABONBA_PTR_GET_DEFAULT(userAccessKeyId_, "") };
     inline GetAccessKeyLastUsedRequest& setUserAccessKeyId(string userAccessKeyId) { DARABONBA_PTR_SET_VALUE(userAccessKeyId_, userAccessKeyId) };
 
 
     // userPrincipalName Field Functions 
     bool hasUserPrincipalName() const { return this->userPrincipalName_ != nullptr;};
     void deleteUserPrincipalName() { this->userPrincipalName_ = nullptr;};
-    inline string userPrincipalName() const { DARABONBA_PTR_GET_DEFAULT(userPrincipalName_, "") };
+    inline string getUserPrincipalName() const { DARABONBA_PTR_GET_DEFAULT(userPrincipalName_, "") };
     inline GetAccessKeyLastUsedRequest& setUserPrincipalName(string userPrincipalName) { DARABONBA_PTR_SET_VALUE(userPrincipalName_, userPrincipalName) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The ID of the AccessKey pair that you want to query.
     // 
     // This parameter is required.
-    std::shared_ptr<string> userAccessKeyId_ = nullptr;
+    shared_ptr<string> userAccessKeyId_ {};
     // The logon name of the RAM user.
     // 
     // If you do not specify this parameter, the AccessKey pair of the current user is queried.
-    std::shared_ptr<string> userPrincipalName_ = nullptr;
+    shared_ptr<string> userPrincipalName_ {};
   };
 
   } // namespace Models

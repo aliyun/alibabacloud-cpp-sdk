@@ -33,33 +33,33 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->governanceItemType_ != nullptr
-        && this->marker_ != nullptr && this->maxItems_ != nullptr; };
+    virtual bool empty() const override { return this->governanceItemType_ == nullptr
+        && this->marker_ == nullptr && this->maxItems_ == nullptr; };
     // governanceItemType Field Functions 
     bool hasGovernanceItemType() const { return this->governanceItemType_ != nullptr;};
     void deleteGovernanceItemType() { this->governanceItemType_ = nullptr;};
-    inline string governanceItemType() const { DARABONBA_PTR_GET_DEFAULT(governanceItemType_, "") };
+    inline string getGovernanceItemType() const { DARABONBA_PTR_GET_DEFAULT(governanceItemType_, "") };
     inline GetGovernanceItemReportRequest& setGovernanceItemType(string governanceItemType) { DARABONBA_PTR_SET_VALUE(governanceItemType_, governanceItemType) };
 
 
     // marker Field Functions 
     bool hasMarker() const { return this->marker_ != nullptr;};
     void deleteMarker() { this->marker_ = nullptr;};
-    inline string marker() const { DARABONBA_PTR_GET_DEFAULT(marker_, "") };
+    inline string getMarker() const { DARABONBA_PTR_GET_DEFAULT(marker_, "") };
     inline GetGovernanceItemReportRequest& setMarker(string marker) { DARABONBA_PTR_SET_VALUE(marker_, marker) };
 
 
     // maxItems Field Functions 
     bool hasMaxItems() const { return this->maxItems_ != nullptr;};
     void deleteMaxItems() { this->maxItems_ = nullptr;};
-    inline string maxItems() const { DARABONBA_PTR_GET_DEFAULT(maxItems_, "") };
+    inline string getMaxItems() const { DARABONBA_PTR_GET_DEFAULT(maxItems_, "") };
     inline GetGovernanceItemReportRequest& setMaxItems(string maxItems) { DARABONBA_PTR_SET_VALUE(maxItems_, maxItems) };
 
 
   protected:
-    std::shared_ptr<string> governanceItemType_ = nullptr;
-    std::shared_ptr<string> marker_ = nullptr;
-    std::shared_ptr<string> maxItems_ = nullptr;
+    shared_ptr<string> governanceItemType_ {};
+    shared_ptr<string> marker_ {};
+    shared_ptr<string> maxItems_ {};
   };
 
   } // namespace Models

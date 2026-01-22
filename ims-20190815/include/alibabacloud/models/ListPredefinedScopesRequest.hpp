@@ -29,11 +29,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appType_ != nullptr; };
+    virtual bool empty() const override { return this->appType_ == nullptr; };
     // appType Field Functions 
     bool hasAppType() const { return this->appType_ != nullptr;};
     void deleteAppType() { this->appType_ = nullptr;};
-    inline string appType() const { DARABONBA_PTR_GET_DEFAULT(appType_, "") };
+    inline string getAppType() const { DARABONBA_PTR_GET_DEFAULT(appType_, "") };
     inline ListPredefinedScopesRequest& setAppType(string appType) { DARABONBA_PTR_SET_VALUE(appType_, appType) };
 
 
@@ -45,7 +45,7 @@ namespace Models
     // *   ServerApp
     // 
     // If this parameter is empty, the permissions on all types of applications are queried.
-    std::shared_ptr<string> appType_ = nullptr;
+    shared_ptr<string> appType_ {};
   };
 
   } // namespace Models
