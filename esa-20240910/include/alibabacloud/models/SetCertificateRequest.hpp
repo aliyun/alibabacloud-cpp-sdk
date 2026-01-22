@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CasId, casId_);
       DARABONBA_PTR_TO_JSON(Certificate, certificate_);
       DARABONBA_PTR_TO_JSON(Id, id_);
+      DARABONBA_PTR_TO_JSON(KeyServerId, keyServerId_);
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(PrivateKey, privateKey_);
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CasId, casId_);
       DARABONBA_PTR_FROM_JSON(Certificate, certificate_);
       DARABONBA_PTR_FROM_JSON(Id, id_);
+      DARABONBA_PTR_FROM_JSON(KeyServerId, keyServerId_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(PrivateKey, privateKey_);
@@ -48,8 +50,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->casId_ == nullptr
-        && this->certificate_ == nullptr && this->id_ == nullptr && this->name_ == nullptr && this->ownerId_ == nullptr && this->privateKey_ == nullptr
-        && this->region_ == nullptr && this->securityToken_ == nullptr && this->siteId_ == nullptr && this->type_ == nullptr; };
+        && this->certificate_ == nullptr && this->id_ == nullptr && this->keyServerId_ == nullptr && this->name_ == nullptr && this->ownerId_ == nullptr
+        && this->privateKey_ == nullptr && this->region_ == nullptr && this->securityToken_ == nullptr && this->siteId_ == nullptr && this->type_ == nullptr; };
     // casId Field Functions 
     bool hasCasId() const { return this->casId_ != nullptr;};
     void deleteCasId() { this->casId_ = nullptr;};
@@ -69,6 +71,13 @@ namespace Models
     void deleteId() { this->id_ = nullptr;};
     inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline SetCertificateRequest& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+    // keyServerId Field Functions 
+    bool hasKeyServerId() const { return this->keyServerId_ != nullptr;};
+    void deleteKeyServerId() { this->keyServerId_ = nullptr;};
+    inline string getKeyServerId() const { DARABONBA_PTR_GET_DEFAULT(keyServerId_, "") };
+    inline SetCertificateRequest& setKeyServerId(string keyServerId) { DARABONBA_PTR_SET_VALUE(keyServerId_, keyServerId) };
 
 
     // name Field Functions 
@@ -127,6 +136,7 @@ namespace Models
     shared_ptr<string> certificate_ {};
     // The certificate ID on ESA.
     shared_ptr<string> id_ {};
+    shared_ptr<string> keyServerId_ {};
     // The certificate name.
     shared_ptr<string> name_ {};
     shared_ptr<int64_t> ownerId_ {};

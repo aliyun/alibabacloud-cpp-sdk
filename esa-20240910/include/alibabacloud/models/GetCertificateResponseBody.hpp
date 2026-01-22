@@ -53,6 +53,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Id, id_);
         DARABONBA_PTR_TO_JSON(Issuer, issuer_);
         DARABONBA_PTR_TO_JSON(IssuerCN, issuerCN_);
+        DARABONBA_PTR_TO_JSON(KeyServerId, keyServerId_);
         DARABONBA_PTR_TO_JSON(Name, name_);
         DARABONBA_PTR_TO_JSON(NotAfter, notAfter_);
         DARABONBA_PTR_TO_JSON(NotBefore, notBefore_);
@@ -76,6 +77,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Id, id_);
         DARABONBA_PTR_FROM_JSON(Issuer, issuer_);
         DARABONBA_PTR_FROM_JSON(IssuerCN, issuerCN_);
+        DARABONBA_PTR_FROM_JSON(KeyServerId, keyServerId_);
         DARABONBA_PTR_FROM_JSON(Name, name_);
         DARABONBA_PTR_FROM_JSON(NotAfter, notAfter_);
         DARABONBA_PTR_FROM_JSON(NotBefore, notBefore_);
@@ -178,9 +180,10 @@ namespace Models
 
       virtual bool empty() const override { return this->applyCode_ == nullptr
         && this->applyMessage_ == nullptr && this->casId_ == nullptr && this->commonName_ == nullptr && this->createTime_ == nullptr && this->DCV_ == nullptr
-        && this->fingerprintSha256_ == nullptr && this->id_ == nullptr && this->issuer_ == nullptr && this->issuerCN_ == nullptr && this->name_ == nullptr
-        && this->notAfter_ == nullptr && this->notBefore_ == nullptr && this->pubAlg_ == nullptr && this->region_ == nullptr && this->SAN_ == nullptr
-        && this->serialNumber_ == nullptr && this->sigAlg_ == nullptr && this->status_ == nullptr && this->type_ == nullptr && this->updateTime_ == nullptr; };
+        && this->fingerprintSha256_ == nullptr && this->id_ == nullptr && this->issuer_ == nullptr && this->issuerCN_ == nullptr && this->keyServerId_ == nullptr
+        && this->name_ == nullptr && this->notAfter_ == nullptr && this->notBefore_ == nullptr && this->pubAlg_ == nullptr && this->region_ == nullptr
+        && this->SAN_ == nullptr && this->serialNumber_ == nullptr && this->sigAlg_ == nullptr && this->status_ == nullptr && this->type_ == nullptr
+        && this->updateTime_ == nullptr; };
       // applyCode Field Functions 
       bool hasApplyCode() const { return this->applyCode_ != nullptr;};
       void deleteApplyCode() { this->applyCode_ = nullptr;};
@@ -251,6 +254,13 @@ namespace Models
       void deleteIssuerCN() { this->issuerCN_ = nullptr;};
       inline string getIssuerCN() const { DARABONBA_PTR_GET_DEFAULT(issuerCN_, "") };
       inline Result& setIssuerCN(string issuerCN) { DARABONBA_PTR_SET_VALUE(issuerCN_, issuerCN) };
+
+
+      // keyServerId Field Functions 
+      bool hasKeyServerId() const { return this->keyServerId_ != nullptr;};
+      void deleteKeyServerId() { this->keyServerId_ = nullptr;};
+      inline string getKeyServerId() const { DARABONBA_PTR_GET_DEFAULT(keyServerId_, "") };
+      inline Result& setKeyServerId(string keyServerId) { DARABONBA_PTR_SET_VALUE(keyServerId_, keyServerId) };
 
 
       // name Field Functions 
@@ -351,6 +361,7 @@ namespace Models
       shared_ptr<string> issuer_ {};
       // Certificate issuing authority.
       shared_ptr<string> issuerCN_ {};
+      shared_ptr<string> keyServerId_ {};
       // Certificate name.
       shared_ptr<string> name_ {};
       // End time of the certificate validity period.

@@ -219,7 +219,19 @@ ActivateVersionManagementResponse Client::activateVersionManagement(const Activa
  */
 ApplyCertificateResponse Client::applyCertificateWithOptions(const ApplyCertificateRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  map<string, string> query = Utils::Utils::query(request.toMap());
+  json query = {};
+  if (!!request.hasDomains()) {
+    query["Domains"] = request.getDomains();
+  }
+
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.getSiteId();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.getType();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -228,7 +240,7 @@ ApplyCertificateResponse Client::applyCertificateWithOptions(const ApplyCertific
     {"version" , "2024-09-10"},
     {"protocol" , "HTTPS"},
     {"pathname" , "/"},
-    {"method" , "GET"},
+    {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
@@ -8553,7 +8565,15 @@ GetCacheTagResponse Client::getCacheTag(const GetCacheTagRequest &request) {
  */
 GetCertificateResponse Client::getCertificateWithOptions(const GetCertificateRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  map<string, string> query = Utils::Utils::query(request.toMap());
+  json query = {};
+  if (!!request.hasId()) {
+    query["Id"] = request.getId();
+  }
+
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.getSiteId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -8562,7 +8582,7 @@ GetCertificateResponse Client::getCertificateWithOptions(const GetCertificateReq
     {"version" , "2024-09-10"},
     {"protocol" , "HTTPS"},
     {"pathname" , "/"},
-    {"method" , "GET"},
+    {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
@@ -11801,7 +11821,27 @@ ListCacheRulesResponse Client::listCacheRules(const ListCacheRulesRequest &reque
  */
 ListCertificatesResponse Client::listCertificatesWithOptions(const ListCertificatesRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  map<string, string> query = Utils::Utils::query(request.toMap());
+  json query = {};
+  if (!!request.hasKeyword()) {
+    query["Keyword"] = request.getKeyword();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.getSiteId();
+  }
+
+  if (!!request.hasValidOnly()) {
+    query["ValidOnly"] = request.getValidOnly();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -11810,7 +11850,7 @@ ListCertificatesResponse Client::listCertificatesWithOptions(const ListCertifica
     {"version" , "2024-09-10"},
     {"protocol" , "HTTPS"},
     {"pathname" , "/"},
-    {"method" , "GET"},
+    {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
@@ -11839,7 +11879,23 @@ ListCertificatesResponse Client::listCertificates(const ListCertificatesRequest 
  */
 ListCertificatesByRecordResponse Client::listCertificatesByRecordWithOptions(const ListCertificatesByRecordRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  map<string, string> query = Utils::Utils::query(request.toMap());
+  json query = {};
+  if (!!request.hasDetail()) {
+    query["Detail"] = request.getDetail();
+  }
+
+  if (!!request.hasRecordName()) {
+    query["RecordName"] = request.getRecordName();
+  }
+
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.getSiteId();
+  }
+
+  if (!!request.hasValidOnly()) {
+    query["ValidOnly"] = request.getValidOnly();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -11848,7 +11904,7 @@ ListCertificatesByRecordResponse Client::listCertificatesByRecordWithOptions(con
     {"version" , "2024-09-10"},
     {"protocol" , "HTTPS"},
     {"pathname" , "/"},
-    {"method" , "GET"},
+    {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
@@ -15680,6 +15736,10 @@ RollbackEdgeContainerAppVersionResponse Client::rollbackEdgeContainerAppVersion(
 SetCertificateResponse Client::setCertificateWithOptions(const SetCertificateRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasKeyServerId()) {
+    query["KeyServerId"] = request.getKeyServerId();
+  }
+
   if (!!request.hasOwnerId()) {
     query["OwnerId"] = request.getOwnerId();
   }
