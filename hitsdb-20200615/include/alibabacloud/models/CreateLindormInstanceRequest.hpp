@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_CREATELINDORMINSTANCEREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/CreateLindormInstanceRequestTag.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -121,358 +120,406 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Tag : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Tag& obj) { 
+        DARABONBA_PTR_TO_JSON(Key, key_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, Tag& obj) { 
+        DARABONBA_PTR_FROM_JSON(Key, key_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
+      };
+      Tag() = default ;
+      Tag(const Tag &) = default ;
+      Tag(Tag &&) = default ;
+      Tag(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Tag() = default ;
+      Tag& operator=(const Tag &) = default ;
+      Tag& operator=(Tag &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline Tag& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline Tag& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      // The tag key. Valid values of N: 1 to 20.
+      // 
+      // >  You can specify the keys of multiple tags. For example, you can specify the key of the first tag in the first key-value pair contained in the value of this parameter and specify the key of the second tag in the second key-value pair.
+      shared_ptr<string> key_ {};
+      // The tag value. Valid values of N: 1 to 20.
+      // 
+      // >  You can specify the values of multiple tags. For example, you can specify the value of the first tag in the first key-value pair contained in the value of this parameter and specify the value of the second tag in the second key-value pair.
+      shared_ptr<string> value_ {};
+    };
+
     virtual bool empty() const override { return this->arbiterVSwitchId_ == nullptr
-        && return this->arbiterZoneId_ == nullptr && return this->archVersion_ == nullptr && return this->autoRenewDuration_ == nullptr && return this->autoRenewal_ == nullptr && return this->coldStorage_ == nullptr
-        && return this->coreSingleStorage_ == nullptr && return this->coreSpec_ == nullptr && return this->diskCategory_ == nullptr && return this->duration_ == nullptr && return this->filestoreNum_ == nullptr
-        && return this->filestoreSpec_ == nullptr && return this->instanceAlias_ == nullptr && return this->instanceStorage_ == nullptr && return this->lindormNum_ == nullptr && return this->lindormSpec_ == nullptr
-        && return this->logDiskCategory_ == nullptr && return this->logNum_ == nullptr && return this->logSingleStorage_ == nullptr && return this->logSpec_ == nullptr && return this->ltsNum_ == nullptr
-        && return this->ltsSpec_ == nullptr && return this->multiZoneCombination_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->payType_ == nullptr
-        && return this->pricingCycle_ == nullptr && return this->primaryVSwitchId_ == nullptr && return this->primaryZoneId_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr
-        && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->securityToken_ == nullptr && return this->solrNum_ == nullptr && return this->solrSpec_ == nullptr
-        && return this->standbyVSwitchId_ == nullptr && return this->standbyZoneId_ == nullptr && return this->streamNum_ == nullptr && return this->streamSpec_ == nullptr && return this->tag_ == nullptr
-        && return this->tsdbNum_ == nullptr && return this->tsdbSpec_ == nullptr && return this->VPCId_ == nullptr && return this->vSwitchId_ == nullptr && return this->zoneId_ == nullptr; };
+        && this->arbiterZoneId_ == nullptr && this->archVersion_ == nullptr && this->autoRenewDuration_ == nullptr && this->autoRenewal_ == nullptr && this->coldStorage_ == nullptr
+        && this->coreSingleStorage_ == nullptr && this->coreSpec_ == nullptr && this->diskCategory_ == nullptr && this->duration_ == nullptr && this->filestoreNum_ == nullptr
+        && this->filestoreSpec_ == nullptr && this->instanceAlias_ == nullptr && this->instanceStorage_ == nullptr && this->lindormNum_ == nullptr && this->lindormSpec_ == nullptr
+        && this->logDiskCategory_ == nullptr && this->logNum_ == nullptr && this->logSingleStorage_ == nullptr && this->logSpec_ == nullptr && this->ltsNum_ == nullptr
+        && this->ltsSpec_ == nullptr && this->multiZoneCombination_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->payType_ == nullptr
+        && this->pricingCycle_ == nullptr && this->primaryVSwitchId_ == nullptr && this->primaryZoneId_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->securityToken_ == nullptr && this->solrNum_ == nullptr && this->solrSpec_ == nullptr
+        && this->standbyVSwitchId_ == nullptr && this->standbyZoneId_ == nullptr && this->streamNum_ == nullptr && this->streamSpec_ == nullptr && this->tag_ == nullptr
+        && this->tsdbNum_ == nullptr && this->tsdbSpec_ == nullptr && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr && this->zoneId_ == nullptr; };
     // arbiterVSwitchId Field Functions 
     bool hasArbiterVSwitchId() const { return this->arbiterVSwitchId_ != nullptr;};
     void deleteArbiterVSwitchId() { this->arbiterVSwitchId_ = nullptr;};
-    inline string arbiterVSwitchId() const { DARABONBA_PTR_GET_DEFAULT(arbiterVSwitchId_, "") };
+    inline string getArbiterVSwitchId() const { DARABONBA_PTR_GET_DEFAULT(arbiterVSwitchId_, "") };
     inline CreateLindormInstanceRequest& setArbiterVSwitchId(string arbiterVSwitchId) { DARABONBA_PTR_SET_VALUE(arbiterVSwitchId_, arbiterVSwitchId) };
 
 
     // arbiterZoneId Field Functions 
     bool hasArbiterZoneId() const { return this->arbiterZoneId_ != nullptr;};
     void deleteArbiterZoneId() { this->arbiterZoneId_ = nullptr;};
-    inline string arbiterZoneId() const { DARABONBA_PTR_GET_DEFAULT(arbiterZoneId_, "") };
+    inline string getArbiterZoneId() const { DARABONBA_PTR_GET_DEFAULT(arbiterZoneId_, "") };
     inline CreateLindormInstanceRequest& setArbiterZoneId(string arbiterZoneId) { DARABONBA_PTR_SET_VALUE(arbiterZoneId_, arbiterZoneId) };
 
 
     // archVersion Field Functions 
     bool hasArchVersion() const { return this->archVersion_ != nullptr;};
     void deleteArchVersion() { this->archVersion_ = nullptr;};
-    inline string archVersion() const { DARABONBA_PTR_GET_DEFAULT(archVersion_, "") };
+    inline string getArchVersion() const { DARABONBA_PTR_GET_DEFAULT(archVersion_, "") };
     inline CreateLindormInstanceRequest& setArchVersion(string archVersion) { DARABONBA_PTR_SET_VALUE(archVersion_, archVersion) };
 
 
     // autoRenewDuration Field Functions 
     bool hasAutoRenewDuration() const { return this->autoRenewDuration_ != nullptr;};
     void deleteAutoRenewDuration() { this->autoRenewDuration_ = nullptr;};
-    inline string autoRenewDuration() const { DARABONBA_PTR_GET_DEFAULT(autoRenewDuration_, "") };
+    inline string getAutoRenewDuration() const { DARABONBA_PTR_GET_DEFAULT(autoRenewDuration_, "") };
     inline CreateLindormInstanceRequest& setAutoRenewDuration(string autoRenewDuration) { DARABONBA_PTR_SET_VALUE(autoRenewDuration_, autoRenewDuration) };
 
 
     // autoRenewal Field Functions 
     bool hasAutoRenewal() const { return this->autoRenewal_ != nullptr;};
     void deleteAutoRenewal() { this->autoRenewal_ = nullptr;};
-    inline bool autoRenewal() const { DARABONBA_PTR_GET_DEFAULT(autoRenewal_, false) };
+    inline bool getAutoRenewal() const { DARABONBA_PTR_GET_DEFAULT(autoRenewal_, false) };
     inline CreateLindormInstanceRequest& setAutoRenewal(bool autoRenewal) { DARABONBA_PTR_SET_VALUE(autoRenewal_, autoRenewal) };
 
 
     // coldStorage Field Functions 
     bool hasColdStorage() const { return this->coldStorage_ != nullptr;};
     void deleteColdStorage() { this->coldStorage_ = nullptr;};
-    inline int32_t coldStorage() const { DARABONBA_PTR_GET_DEFAULT(coldStorage_, 0) };
+    inline int32_t getColdStorage() const { DARABONBA_PTR_GET_DEFAULT(coldStorage_, 0) };
     inline CreateLindormInstanceRequest& setColdStorage(int32_t coldStorage) { DARABONBA_PTR_SET_VALUE(coldStorage_, coldStorage) };
 
 
     // coreSingleStorage Field Functions 
     bool hasCoreSingleStorage() const { return this->coreSingleStorage_ != nullptr;};
     void deleteCoreSingleStorage() { this->coreSingleStorage_ = nullptr;};
-    inline int32_t coreSingleStorage() const { DARABONBA_PTR_GET_DEFAULT(coreSingleStorage_, 0) };
+    inline int32_t getCoreSingleStorage() const { DARABONBA_PTR_GET_DEFAULT(coreSingleStorage_, 0) };
     inline CreateLindormInstanceRequest& setCoreSingleStorage(int32_t coreSingleStorage) { DARABONBA_PTR_SET_VALUE(coreSingleStorage_, coreSingleStorage) };
 
 
     // coreSpec Field Functions 
     bool hasCoreSpec() const { return this->coreSpec_ != nullptr;};
     void deleteCoreSpec() { this->coreSpec_ = nullptr;};
-    inline string coreSpec() const { DARABONBA_PTR_GET_DEFAULT(coreSpec_, "") };
+    inline string getCoreSpec() const { DARABONBA_PTR_GET_DEFAULT(coreSpec_, "") };
     inline CreateLindormInstanceRequest& setCoreSpec(string coreSpec) { DARABONBA_PTR_SET_VALUE(coreSpec_, coreSpec) };
 
 
     // diskCategory Field Functions 
     bool hasDiskCategory() const { return this->diskCategory_ != nullptr;};
     void deleteDiskCategory() { this->diskCategory_ = nullptr;};
-    inline string diskCategory() const { DARABONBA_PTR_GET_DEFAULT(diskCategory_, "") };
+    inline string getDiskCategory() const { DARABONBA_PTR_GET_DEFAULT(diskCategory_, "") };
     inline CreateLindormInstanceRequest& setDiskCategory(string diskCategory) { DARABONBA_PTR_SET_VALUE(diskCategory_, diskCategory) };
 
 
     // duration Field Functions 
     bool hasDuration() const { return this->duration_ != nullptr;};
     void deleteDuration() { this->duration_ = nullptr;};
-    inline string duration() const { DARABONBA_PTR_GET_DEFAULT(duration_, "") };
+    inline string getDuration() const { DARABONBA_PTR_GET_DEFAULT(duration_, "") };
     inline CreateLindormInstanceRequest& setDuration(string duration) { DARABONBA_PTR_SET_VALUE(duration_, duration) };
 
 
     // filestoreNum Field Functions 
     bool hasFilestoreNum() const { return this->filestoreNum_ != nullptr;};
     void deleteFilestoreNum() { this->filestoreNum_ = nullptr;};
-    inline int32_t filestoreNum() const { DARABONBA_PTR_GET_DEFAULT(filestoreNum_, 0) };
+    inline int32_t getFilestoreNum() const { DARABONBA_PTR_GET_DEFAULT(filestoreNum_, 0) };
     inline CreateLindormInstanceRequest& setFilestoreNum(int32_t filestoreNum) { DARABONBA_PTR_SET_VALUE(filestoreNum_, filestoreNum) };
 
 
     // filestoreSpec Field Functions 
     bool hasFilestoreSpec() const { return this->filestoreSpec_ != nullptr;};
     void deleteFilestoreSpec() { this->filestoreSpec_ = nullptr;};
-    inline string filestoreSpec() const { DARABONBA_PTR_GET_DEFAULT(filestoreSpec_, "") };
+    inline string getFilestoreSpec() const { DARABONBA_PTR_GET_DEFAULT(filestoreSpec_, "") };
     inline CreateLindormInstanceRequest& setFilestoreSpec(string filestoreSpec) { DARABONBA_PTR_SET_VALUE(filestoreSpec_, filestoreSpec) };
 
 
     // instanceAlias Field Functions 
     bool hasInstanceAlias() const { return this->instanceAlias_ != nullptr;};
     void deleteInstanceAlias() { this->instanceAlias_ = nullptr;};
-    inline string instanceAlias() const { DARABONBA_PTR_GET_DEFAULT(instanceAlias_, "") };
+    inline string getInstanceAlias() const { DARABONBA_PTR_GET_DEFAULT(instanceAlias_, "") };
     inline CreateLindormInstanceRequest& setInstanceAlias(string instanceAlias) { DARABONBA_PTR_SET_VALUE(instanceAlias_, instanceAlias) };
 
 
     // instanceStorage Field Functions 
     bool hasInstanceStorage() const { return this->instanceStorage_ != nullptr;};
     void deleteInstanceStorage() { this->instanceStorage_ = nullptr;};
-    inline string instanceStorage() const { DARABONBA_PTR_GET_DEFAULT(instanceStorage_, "") };
+    inline string getInstanceStorage() const { DARABONBA_PTR_GET_DEFAULT(instanceStorage_, "") };
     inline CreateLindormInstanceRequest& setInstanceStorage(string instanceStorage) { DARABONBA_PTR_SET_VALUE(instanceStorage_, instanceStorage) };
 
 
     // lindormNum Field Functions 
     bool hasLindormNum() const { return this->lindormNum_ != nullptr;};
     void deleteLindormNum() { this->lindormNum_ = nullptr;};
-    inline int32_t lindormNum() const { DARABONBA_PTR_GET_DEFAULT(lindormNum_, 0) };
+    inline int32_t getLindormNum() const { DARABONBA_PTR_GET_DEFAULT(lindormNum_, 0) };
     inline CreateLindormInstanceRequest& setLindormNum(int32_t lindormNum) { DARABONBA_PTR_SET_VALUE(lindormNum_, lindormNum) };
 
 
     // lindormSpec Field Functions 
     bool hasLindormSpec() const { return this->lindormSpec_ != nullptr;};
     void deleteLindormSpec() { this->lindormSpec_ = nullptr;};
-    inline string lindormSpec() const { DARABONBA_PTR_GET_DEFAULT(lindormSpec_, "") };
+    inline string getLindormSpec() const { DARABONBA_PTR_GET_DEFAULT(lindormSpec_, "") };
     inline CreateLindormInstanceRequest& setLindormSpec(string lindormSpec) { DARABONBA_PTR_SET_VALUE(lindormSpec_, lindormSpec) };
 
 
     // logDiskCategory Field Functions 
     bool hasLogDiskCategory() const { return this->logDiskCategory_ != nullptr;};
     void deleteLogDiskCategory() { this->logDiskCategory_ = nullptr;};
-    inline string logDiskCategory() const { DARABONBA_PTR_GET_DEFAULT(logDiskCategory_, "") };
+    inline string getLogDiskCategory() const { DARABONBA_PTR_GET_DEFAULT(logDiskCategory_, "") };
     inline CreateLindormInstanceRequest& setLogDiskCategory(string logDiskCategory) { DARABONBA_PTR_SET_VALUE(logDiskCategory_, logDiskCategory) };
 
 
     // logNum Field Functions 
     bool hasLogNum() const { return this->logNum_ != nullptr;};
     void deleteLogNum() { this->logNum_ = nullptr;};
-    inline int32_t logNum() const { DARABONBA_PTR_GET_DEFAULT(logNum_, 0) };
+    inline int32_t getLogNum() const { DARABONBA_PTR_GET_DEFAULT(logNum_, 0) };
     inline CreateLindormInstanceRequest& setLogNum(int32_t logNum) { DARABONBA_PTR_SET_VALUE(logNum_, logNum) };
 
 
     // logSingleStorage Field Functions 
     bool hasLogSingleStorage() const { return this->logSingleStorage_ != nullptr;};
     void deleteLogSingleStorage() { this->logSingleStorage_ = nullptr;};
-    inline int32_t logSingleStorage() const { DARABONBA_PTR_GET_DEFAULT(logSingleStorage_, 0) };
+    inline int32_t getLogSingleStorage() const { DARABONBA_PTR_GET_DEFAULT(logSingleStorage_, 0) };
     inline CreateLindormInstanceRequest& setLogSingleStorage(int32_t logSingleStorage) { DARABONBA_PTR_SET_VALUE(logSingleStorage_, logSingleStorage) };
 
 
     // logSpec Field Functions 
     bool hasLogSpec() const { return this->logSpec_ != nullptr;};
     void deleteLogSpec() { this->logSpec_ = nullptr;};
-    inline string logSpec() const { DARABONBA_PTR_GET_DEFAULT(logSpec_, "") };
+    inline string getLogSpec() const { DARABONBA_PTR_GET_DEFAULT(logSpec_, "") };
     inline CreateLindormInstanceRequest& setLogSpec(string logSpec) { DARABONBA_PTR_SET_VALUE(logSpec_, logSpec) };
 
 
     // ltsNum Field Functions 
     bool hasLtsNum() const { return this->ltsNum_ != nullptr;};
     void deleteLtsNum() { this->ltsNum_ = nullptr;};
-    inline string ltsNum() const { DARABONBA_PTR_GET_DEFAULT(ltsNum_, "") };
+    inline string getLtsNum() const { DARABONBA_PTR_GET_DEFAULT(ltsNum_, "") };
     inline CreateLindormInstanceRequest& setLtsNum(string ltsNum) { DARABONBA_PTR_SET_VALUE(ltsNum_, ltsNum) };
 
 
     // ltsSpec Field Functions 
     bool hasLtsSpec() const { return this->ltsSpec_ != nullptr;};
     void deleteLtsSpec() { this->ltsSpec_ = nullptr;};
-    inline string ltsSpec() const { DARABONBA_PTR_GET_DEFAULT(ltsSpec_, "") };
+    inline string getLtsSpec() const { DARABONBA_PTR_GET_DEFAULT(ltsSpec_, "") };
     inline CreateLindormInstanceRequest& setLtsSpec(string ltsSpec) { DARABONBA_PTR_SET_VALUE(ltsSpec_, ltsSpec) };
 
 
     // multiZoneCombination Field Functions 
     bool hasMultiZoneCombination() const { return this->multiZoneCombination_ != nullptr;};
     void deleteMultiZoneCombination() { this->multiZoneCombination_ = nullptr;};
-    inline string multiZoneCombination() const { DARABONBA_PTR_GET_DEFAULT(multiZoneCombination_, "") };
+    inline string getMultiZoneCombination() const { DARABONBA_PTR_GET_DEFAULT(multiZoneCombination_, "") };
     inline CreateLindormInstanceRequest& setMultiZoneCombination(string multiZoneCombination) { DARABONBA_PTR_SET_VALUE(multiZoneCombination_, multiZoneCombination) };
 
 
     // ownerAccount Field Functions 
     bool hasOwnerAccount() const { return this->ownerAccount_ != nullptr;};
     void deleteOwnerAccount() { this->ownerAccount_ = nullptr;};
-    inline string ownerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
+    inline string getOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
     inline CreateLindormInstanceRequest& setOwnerAccount(string ownerAccount) { DARABONBA_PTR_SET_VALUE(ownerAccount_, ownerAccount) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline CreateLindormInstanceRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // payType Field Functions 
     bool hasPayType() const { return this->payType_ != nullptr;};
     void deletePayType() { this->payType_ = nullptr;};
-    inline string payType() const { DARABONBA_PTR_GET_DEFAULT(payType_, "") };
+    inline string getPayType() const { DARABONBA_PTR_GET_DEFAULT(payType_, "") };
     inline CreateLindormInstanceRequest& setPayType(string payType) { DARABONBA_PTR_SET_VALUE(payType_, payType) };
 
 
     // pricingCycle Field Functions 
     bool hasPricingCycle() const { return this->pricingCycle_ != nullptr;};
     void deletePricingCycle() { this->pricingCycle_ = nullptr;};
-    inline string pricingCycle() const { DARABONBA_PTR_GET_DEFAULT(pricingCycle_, "") };
+    inline string getPricingCycle() const { DARABONBA_PTR_GET_DEFAULT(pricingCycle_, "") };
     inline CreateLindormInstanceRequest& setPricingCycle(string pricingCycle) { DARABONBA_PTR_SET_VALUE(pricingCycle_, pricingCycle) };
 
 
     // primaryVSwitchId Field Functions 
     bool hasPrimaryVSwitchId() const { return this->primaryVSwitchId_ != nullptr;};
     void deletePrimaryVSwitchId() { this->primaryVSwitchId_ = nullptr;};
-    inline string primaryVSwitchId() const { DARABONBA_PTR_GET_DEFAULT(primaryVSwitchId_, "") };
+    inline string getPrimaryVSwitchId() const { DARABONBA_PTR_GET_DEFAULT(primaryVSwitchId_, "") };
     inline CreateLindormInstanceRequest& setPrimaryVSwitchId(string primaryVSwitchId) { DARABONBA_PTR_SET_VALUE(primaryVSwitchId_, primaryVSwitchId) };
 
 
     // primaryZoneId Field Functions 
     bool hasPrimaryZoneId() const { return this->primaryZoneId_ != nullptr;};
     void deletePrimaryZoneId() { this->primaryZoneId_ = nullptr;};
-    inline string primaryZoneId() const { DARABONBA_PTR_GET_DEFAULT(primaryZoneId_, "") };
+    inline string getPrimaryZoneId() const { DARABONBA_PTR_GET_DEFAULT(primaryZoneId_, "") };
     inline CreateLindormInstanceRequest& setPrimaryZoneId(string primaryZoneId) { DARABONBA_PTR_SET_VALUE(primaryZoneId_, primaryZoneId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreateLindormInstanceRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline CreateLindormInstanceRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline CreateLindormInstanceRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline CreateLindormInstanceRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
-    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
     inline CreateLindormInstanceRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
     // solrNum Field Functions 
     bool hasSolrNum() const { return this->solrNum_ != nullptr;};
     void deleteSolrNum() { this->solrNum_ = nullptr;};
-    inline int32_t solrNum() const { DARABONBA_PTR_GET_DEFAULT(solrNum_, 0) };
+    inline int32_t getSolrNum() const { DARABONBA_PTR_GET_DEFAULT(solrNum_, 0) };
     inline CreateLindormInstanceRequest& setSolrNum(int32_t solrNum) { DARABONBA_PTR_SET_VALUE(solrNum_, solrNum) };
 
 
     // solrSpec Field Functions 
     bool hasSolrSpec() const { return this->solrSpec_ != nullptr;};
     void deleteSolrSpec() { this->solrSpec_ = nullptr;};
-    inline string solrSpec() const { DARABONBA_PTR_GET_DEFAULT(solrSpec_, "") };
+    inline string getSolrSpec() const { DARABONBA_PTR_GET_DEFAULT(solrSpec_, "") };
     inline CreateLindormInstanceRequest& setSolrSpec(string solrSpec) { DARABONBA_PTR_SET_VALUE(solrSpec_, solrSpec) };
 
 
     // standbyVSwitchId Field Functions 
     bool hasStandbyVSwitchId() const { return this->standbyVSwitchId_ != nullptr;};
     void deleteStandbyVSwitchId() { this->standbyVSwitchId_ = nullptr;};
-    inline string standbyVSwitchId() const { DARABONBA_PTR_GET_DEFAULT(standbyVSwitchId_, "") };
+    inline string getStandbyVSwitchId() const { DARABONBA_PTR_GET_DEFAULT(standbyVSwitchId_, "") };
     inline CreateLindormInstanceRequest& setStandbyVSwitchId(string standbyVSwitchId) { DARABONBA_PTR_SET_VALUE(standbyVSwitchId_, standbyVSwitchId) };
 
 
     // standbyZoneId Field Functions 
     bool hasStandbyZoneId() const { return this->standbyZoneId_ != nullptr;};
     void deleteStandbyZoneId() { this->standbyZoneId_ = nullptr;};
-    inline string standbyZoneId() const { DARABONBA_PTR_GET_DEFAULT(standbyZoneId_, "") };
+    inline string getStandbyZoneId() const { DARABONBA_PTR_GET_DEFAULT(standbyZoneId_, "") };
     inline CreateLindormInstanceRequest& setStandbyZoneId(string standbyZoneId) { DARABONBA_PTR_SET_VALUE(standbyZoneId_, standbyZoneId) };
 
 
     // streamNum Field Functions 
     bool hasStreamNum() const { return this->streamNum_ != nullptr;};
     void deleteStreamNum() { this->streamNum_ = nullptr;};
-    inline int32_t streamNum() const { DARABONBA_PTR_GET_DEFAULT(streamNum_, 0) };
+    inline int32_t getStreamNum() const { DARABONBA_PTR_GET_DEFAULT(streamNum_, 0) };
     inline CreateLindormInstanceRequest& setStreamNum(int32_t streamNum) { DARABONBA_PTR_SET_VALUE(streamNum_, streamNum) };
 
 
     // streamSpec Field Functions 
     bool hasStreamSpec() const { return this->streamSpec_ != nullptr;};
     void deleteStreamSpec() { this->streamSpec_ = nullptr;};
-    inline string streamSpec() const { DARABONBA_PTR_GET_DEFAULT(streamSpec_, "") };
+    inline string getStreamSpec() const { DARABONBA_PTR_GET_DEFAULT(streamSpec_, "") };
     inline CreateLindormInstanceRequest& setStreamSpec(string streamSpec) { DARABONBA_PTR_SET_VALUE(streamSpec_, streamSpec) };
 
 
     // tag Field Functions 
     bool hasTag() const { return this->tag_ != nullptr;};
     void deleteTag() { this->tag_ = nullptr;};
-    inline const vector<CreateLindormInstanceRequestTag> & tag() const { DARABONBA_PTR_GET_CONST(tag_, vector<CreateLindormInstanceRequestTag>) };
-    inline vector<CreateLindormInstanceRequestTag> tag() { DARABONBA_PTR_GET(tag_, vector<CreateLindormInstanceRequestTag>) };
-    inline CreateLindormInstanceRequest& setTag(const vector<CreateLindormInstanceRequestTag> & tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
-    inline CreateLindormInstanceRequest& setTag(vector<CreateLindormInstanceRequestTag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
+    inline const vector<CreateLindormInstanceRequest::Tag> & getTag() const { DARABONBA_PTR_GET_CONST(tag_, vector<CreateLindormInstanceRequest::Tag>) };
+    inline vector<CreateLindormInstanceRequest::Tag> getTag() { DARABONBA_PTR_GET(tag_, vector<CreateLindormInstanceRequest::Tag>) };
+    inline CreateLindormInstanceRequest& setTag(const vector<CreateLindormInstanceRequest::Tag> & tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
+    inline CreateLindormInstanceRequest& setTag(vector<CreateLindormInstanceRequest::Tag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
 
 
     // tsdbNum Field Functions 
     bool hasTsdbNum() const { return this->tsdbNum_ != nullptr;};
     void deleteTsdbNum() { this->tsdbNum_ = nullptr;};
-    inline int32_t tsdbNum() const { DARABONBA_PTR_GET_DEFAULT(tsdbNum_, 0) };
+    inline int32_t getTsdbNum() const { DARABONBA_PTR_GET_DEFAULT(tsdbNum_, 0) };
     inline CreateLindormInstanceRequest& setTsdbNum(int32_t tsdbNum) { DARABONBA_PTR_SET_VALUE(tsdbNum_, tsdbNum) };
 
 
     // tsdbSpec Field Functions 
     bool hasTsdbSpec() const { return this->tsdbSpec_ != nullptr;};
     void deleteTsdbSpec() { this->tsdbSpec_ = nullptr;};
-    inline string tsdbSpec() const { DARABONBA_PTR_GET_DEFAULT(tsdbSpec_, "") };
+    inline string getTsdbSpec() const { DARABONBA_PTR_GET_DEFAULT(tsdbSpec_, "") };
     inline CreateLindormInstanceRequest& setTsdbSpec(string tsdbSpec) { DARABONBA_PTR_SET_VALUE(tsdbSpec_, tsdbSpec) };
 
 
     // VPCId Field Functions 
     bool hasVPCId() const { return this->VPCId_ != nullptr;};
     void deleteVPCId() { this->VPCId_ = nullptr;};
-    inline string VPCId() const { DARABONBA_PTR_GET_DEFAULT(VPCId_, "") };
+    inline string getVPCId() const { DARABONBA_PTR_GET_DEFAULT(VPCId_, "") };
     inline CreateLindormInstanceRequest& setVPCId(string VPCId) { DARABONBA_PTR_SET_VALUE(VPCId_, VPCId) };
 
 
     // vSwitchId Field Functions 
     bool hasVSwitchId() const { return this->vSwitchId_ != nullptr;};
     void deleteVSwitchId() { this->vSwitchId_ = nullptr;};
-    inline string vSwitchId() const { DARABONBA_PTR_GET_DEFAULT(vSwitchId_, "") };
+    inline string getVSwitchId() const { DARABONBA_PTR_GET_DEFAULT(vSwitchId_, "") };
     inline CreateLindormInstanceRequest& setVSwitchId(string vSwitchId) { DARABONBA_PTR_SET_VALUE(vSwitchId_, vSwitchId) };
 
 
     // zoneId Field Functions 
     bool hasZoneId() const { return this->zoneId_ != nullptr;};
     void deleteZoneId() { this->zoneId_ = nullptr;};
-    inline string zoneId() const { DARABONBA_PTR_GET_DEFAULT(zoneId_, "") };
+    inline string getZoneId() const { DARABONBA_PTR_GET_DEFAULT(zoneId_, "") };
     inline CreateLindormInstanceRequest& setZoneId(string zoneId) { DARABONBA_PTR_SET_VALUE(zoneId_, zoneId) };
 
 
   protected:
     // The ID of the vSwitch that is specified for the zone for the coordinate node of the instance. The vSwitch must be deployed in the zone specified by the ArbiterZoneId parameter. **This parameter is required if you want to create a multi-zone instance**.
-    std::shared_ptr<string> arbiterVSwitchId_ = nullptr;
+    shared_ptr<string> arbiterVSwitchId_ {};
     // The ID of the zone for the coordinate node of the instance. **This parameter is required if you want to create a multi-zone instance**.
-    std::shared_ptr<string> arbiterZoneId_ = nullptr;
+    shared_ptr<string> arbiterZoneId_ {};
     // The architecture of the instance. Valid values:
     // 
     // *   **1.0**: The instance that you want to create is a single-zone instance.
     // *   **2.0**: The instance that you want to create is a multi-zone instance.
     // 
     // By default, the value of this parameter is 1.0. To create a multi-zone instance, set this parameter to 2.0. **This parameter is required if you want to create a multi-zone instance**.
-    std::shared_ptr<string> archVersion_ = nullptr;
+    shared_ptr<string> archVersion_ {};
     // The auto-renewal duration. Unit: month.
     // 
     // Valid values: **1** to **12**.
     // 
     // >  This parameter is available only when the **AutoRenewal** parameter is set to **true**.
-    std::shared_ptr<string> autoRenewDuration_ = nullptr;
+    shared_ptr<string> autoRenewDuration_ {};
     // Specifies whether to enable auto-renewal for the instance. Valid values:
     // 
     // *   **true**: enables auto-renewal.
@@ -481,11 +528,11 @@ namespace Models
     // Default value: false.
     // 
     // >  This parameter is available only when the **PayType** parameter is set to **PREPAY**.
-    std::shared_ptr<bool> autoRenewal_ = nullptr;
+    shared_ptr<bool> autoRenewal_ {};
     // The cold storage capacity of the instance. By default, if you leave this parameter unspecified, cold storage is not enabled for the instance. Unit: GB. Valid values: **800** to **1000000**.
-    std::shared_ptr<int32_t> coldStorage_ = nullptr;
+    shared_ptr<int32_t> coldStorage_ {};
     // The storage capacity of the disk of a single core node. Valid values: 400 to 64000. Unit: GB. **This parameter is required if you want to create a multi-zone instance**.
-    std::shared_ptr<int32_t> coreSingleStorage_ = nullptr;
+    shared_ptr<int32_t> coreSingleStorage_ {};
     // The specification of the nodes in the instance if you set DiskCategory to local_ssd_pro or local_hdd_pro.
     // 
     // Valid values when DiskCategory is set to local_ssd_pro (i3 instance types support only subscription instances):
@@ -516,7 +563,7 @@ namespace Models
     // *   **lindorm.d1.2xlarge**: Each node has 8 CPU cores and 32 GB of memory.
     // *   **lindorm.d1.4xlarge**: Each node has 16 CPU cores and 64 GB of memory.
     // *   **lindorm.d1.6xlarge**: Each node has 24 CPU cores and 96 GB of memory.
-    std::shared_ptr<string> coreSpec_ = nullptr;
+    shared_ptr<string> coreSpec_ {};
     // The storage type of the instance. Valid values:
     // 
     // *   **cloud_efficiency**: This instance uses the Standard type of storage.
@@ -526,59 +573,59 @@ namespace Models
     // *   **local_hdd_pro**: This instance uses local HDDs.
     // 
     // This parameter is required.
-    std::shared_ptr<string> diskCategory_ = nullptr;
+    shared_ptr<string> diskCategory_ {};
     // The subscription period of the instance. The valid values of this parameter depend on the value of the PricingCycle parameter.
     // 
     // *   If PricingCycle is set to **Month**, set this parameter to an integer that ranges from **1** to **9**.
     // *   If PricingCycle is set to **Year**, set this parameter to an integer that ranges from **1** to **3**.
     // 
     // > This parameter is available and required when the PayType parameter is set to **PREPAY**.
-    std::shared_ptr<string> duration_ = nullptr;
+    shared_ptr<string> duration_ {};
     // The number of LindormDFS nodes in the instance. The valid values of this parameter depend on the value of the PayType parameter.
     // 
     // *   If the PayType parameter is set to **PREPAY**, set this parameter to an integer that ranges from **0** to **60**.
     // *   If the PayType parameter is set to **POSTPAY**, set this parameter to an integer that ranges from **0** to **8**.
-    std::shared_ptr<int32_t> filestoreNum_ = nullptr;
+    shared_ptr<int32_t> filestoreNum_ {};
     // The specification of LindormDFS nodes in the instance. Set the value of this parameter to **lindorm.c.xlarge**, which indicates that each node has 4 dedicated CPU cores and 8 GB of dedicated memory.
-    std::shared_ptr<string> filestoreSpec_ = nullptr;
+    shared_ptr<string> filestoreSpec_ {};
     // The name of the instance that you want to create.
-    std::shared_ptr<string> instanceAlias_ = nullptr;
+    shared_ptr<string> instanceAlias_ {};
     // The storage capacity of the instance you want to create. Unit: GB.
-    std::shared_ptr<string> instanceStorage_ = nullptr;
+    shared_ptr<string> instanceStorage_ {};
     // The number of LindormTable nodes in the instance. The valid values of this parameter depend on the value of the PayType parameter.
     // 
     // *   If the PayType parameter is set to **PREPAY**, set this parameter to an integer that ranges from **0** to **90**.
     // *   If the PayType parameter is set to **POSTPAY**, set this parameter to an integer that ranges from **0** to **400**.
     // 
     // **This parameter is required if you want to create a multi-zone instance**.  The valid values of this parameter range from 4 to 400 if you want to create a multi-zone instance.
-    std::shared_ptr<int32_t> lindormNum_ = nullptr;
+    shared_ptr<int32_t> lindormNum_ {};
     // The specification of LindormTable nodes in the instance. Valid values:
     // 
     // *   **lindorm.c.xlarge**: Each node has 4 dedicated CPU cores and 8 GB of dedicated memory.
     // *   **lindorm.c.2xlarge**: Each node has 8 dedicated CPU cores and 16 GB of dedicated memory.
     // *   **lindorm.c.4xlarge**: Each node has 16 dedicated CPU cores and 32 GB of dedicated memory.
     // *   **lindorm.c.8xlarge**: Each node has 32 dedicated CPU cores and 64 GB of dedicated memory.
-    std::shared_ptr<string> lindormSpec_ = nullptr;
+    shared_ptr<string> lindormSpec_ {};
     // The disk type of the log nodes. Valid values:
     // 
     // *   **cloud_efficiency**: This instance uses the Standard type of storage.
     // *   **cloud_ssd**: This instance uses the Performance type of storage.
     // 
     // **This parameter is required if you want to create a multi-zone instance**.
-    std::shared_ptr<string> logDiskCategory_ = nullptr;
+    shared_ptr<string> logDiskCategory_ {};
     // The number of the log nodes. Valid values: 4 to 400. **This parameter is required if you want to create a multi-zone instance**.
-    std::shared_ptr<int32_t> logNum_ = nullptr;
+    shared_ptr<int32_t> logNum_ {};
     // The storage capacity of the disk of a single log node. Valid values: 400 to 64000. Unit: GB. **This parameter is required if you want to create a multi-zone instance**.
-    std::shared_ptr<int32_t> logSingleStorage_ = nullptr;
+    shared_ptr<int32_t> logSingleStorage_ {};
     // The type of the log nodes. Valid values:
     // 
     // *   **lindorm.sn1.xlarge**: Each node has 4 dedicated CPU cores and 8 GB of dedicated memory.
     // *   **lindorm.sn1.2xlarge**: Each node has 8 dedicated CPU cores and 16 GB of dedicated memory.
     // 
     // **This parameter is required if you want to create a multi-zone instance**.
-    std::shared_ptr<string> logSpec_ = nullptr;
+    shared_ptr<string> logSpec_ {};
     // The number of LTS nodes in the instance. Valid values: **0** to **60**.
-    std::shared_ptr<string> ltsNum_ = nullptr;
+    shared_ptr<string> ltsNum_ {};
     // The specification of LTS nodes in the instance. Valid values:
     // 
     // *   **lindorm.c.xlarge**: Each node has 4 dedicated CPU cores and 8 GB of dedicated memory.
@@ -589,7 +636,7 @@ namespace Models
     // *   **lindorm.g.4xlarge**: Each node has 16 dedicated CPU cores and 64 GB of dedicated memory.
     // *   **lindorm.c.8xlarge**: Each node has 32 dedicated CPU cores and 64 GB of dedicated memory.
     // *   **lindorm.g.8xlarge**: Each node has 32 dedicated CPU cores and 128 GB of dedicated memory.
-    std::shared_ptr<string> ltsSpec_ = nullptr;
+    shared_ptr<string> ltsSpec_ {};
     // The combinations of zones that are available for the multi-zone instance. You can go to the purchase page of Lindorm to view the supported zone combinations.
     // 
     // *   **ap-southeast-5abc-aliyun**: Zone A+B+C in the Indonesia (Jakarta) region.
@@ -605,38 +652,38 @@ namespace Models
     // *   **cn-shenzhen-abc-aliyun**: Zone A+B+C in the China (Shenzhen) region.
     // 
     // **This parameter is required if you want to create a multi-zone instance**.
-    std::shared_ptr<string> multiZoneCombination_ = nullptr;
-    std::shared_ptr<string> ownerAccount_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<string> multiZoneCombination_ {};
+    shared_ptr<string> ownerAccount_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // The billing method of the instance you want to create. Valid values:
     // 
     // *   **PREPAY**: subscription.
     // *   **POSTPAY**: pay-as-you-go.
     // 
     // This parameter is required.
-    std::shared_ptr<string> payType_ = nullptr;
+    shared_ptr<string> payType_ {};
     // The period based on which you are charged for the instance. Valid values:
     // 
     // *   **Month**: You are charged for the instance on a monthly basis.
     // *   **Year**: You are charged for the instance on a yearly basis.
     // 
     // > This parameter is available and required when the PayType parameter is set to **PREPAY**.
-    std::shared_ptr<string> pricingCycle_ = nullptr;
+    shared_ptr<string> pricingCycle_ {};
     // The ID of the vSwitch that is specified for the secondary zone of the instance. The vSwitch must be deployed in the zone specified by the StandbyZoneId parameter. **This parameter is required if you want to create a multi-zone instance**.
-    std::shared_ptr<string> primaryVSwitchId_ = nullptr;
+    shared_ptr<string> primaryVSwitchId_ {};
     // Multi-zone instance, availability zone ID of the primary zone. **This parameter is required if you need to create a multi-zone instance.**
-    std::shared_ptr<string> primaryZoneId_ = nullptr;
+    shared_ptr<string> primaryZoneId_ {};
     // The ID of the region in which you want to create the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/426062.html) operation to query the region in which you can create the instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The ID of the resource group to which the Lindorm instance belongs.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
-    std::shared_ptr<string> securityToken_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
+    shared_ptr<string> securityToken_ {};
     // The number of LindormSearch nodes in the instance. Valid values: integers from **0** to **60**.
-    std::shared_ptr<int32_t> solrNum_ = nullptr;
+    shared_ptr<int32_t> solrNum_ {};
     // The specification of the LindormSearch nodes in the instance. Valid values:
     // 
     // *   **lindorm.g.xlarge**: Each node has 4 dedicated CPU cores and 16 GB of dedicated memory.
@@ -646,46 +693,46 @@ namespace Models
     // *   **lindorm.g.4xlarge**: Each node has 16 dedicated CPU cores and 64 GB of dedicated memory.
     // *   **lindorm.c.8xlarge**: Each node has 32 dedicated CPU cores and 64 GB of dedicated memory.
     // *   **lindorm.g.8xlarge**: Each node has 32 dedicated CPU cores and 128 GB of dedicated memory.
-    std::shared_ptr<string> solrSpec_ = nullptr;
+    shared_ptr<string> solrSpec_ {};
     // The ID of the vSwitch that is specified for the secondary zone of the instance. The vSwitch must be deployed in the zone specified by the StandbyZoneId parameter. **This parameter is required if you want to create a multi-zone instance**.
-    std::shared_ptr<string> standbyVSwitchId_ = nullptr;
+    shared_ptr<string> standbyVSwitchId_ {};
     // The ID of the secondary zone of the instance. **This parameter is required if you want to create a multi-zone instance**.
-    std::shared_ptr<string> standbyZoneId_ = nullptr;
+    shared_ptr<string> standbyZoneId_ {};
     // The number of LindormStream nodes in the instance. Valid values: integers from **0** to **60**.
-    std::shared_ptr<int32_t> streamNum_ = nullptr;
+    shared_ptr<int32_t> streamNum_ {};
     // The specification of the LindormStream nodes in the instance. Valid values:
     // 
     // *   **lindorm.g.xlarge**: Each node has 4 dedicated CPU cores and 16 GB of dedicated memory.
     // *   **lindorm.g.2xlarge**: Each node has 8 dedicated CPU cores and 32 GB of dedicated memory.
     // *   **lindorm.g.4xlarge**: Each node has 16 dedicated CPU cores and 64 GB of dedicated memory.
     // *   **lindorm.g.8xlarge**: Each node has 32 dedicated CPU cores and 128 GB of dedicated memory.
-    std::shared_ptr<string> streamSpec_ = nullptr;
+    shared_ptr<string> streamSpec_ {};
     // The tags that are added to instances.
-    std::shared_ptr<vector<CreateLindormInstanceRequestTag>> tag_ = nullptr;
+    shared_ptr<vector<CreateLindormInstanceRequest::Tag>> tag_ {};
     // The number of the LindormTSDB nodes in the instance. The valid values of this parameter depend on the value of the PayType parameter.
     // 
     // *   If the PayType parameter is set to **PREPAY**, set this parameter to an integer that ranges from **0** to **24**.
     // *   If the PayType parameter is set to **POSTPAY**, set this parameter to an integer that ranges from **0** to **32**.
-    std::shared_ptr<int32_t> tsdbNum_ = nullptr;
+    shared_ptr<int32_t> tsdbNum_ {};
     // The specification of the LindormTSDB nodes in the instance. Valid values:
     // 
     // *   **lindorm.g.xlarge**: Each node has 4 dedicated CPU cores and 16 GB of dedicated memory.
     // *   **lindorm.g.2xlarge**: Each node has 8 dedicated CPU cores and 32 GB of dedicated memory.
     // *   **lindorm.g.4xlarge**: Each node has 16 dedicated CPU cores and 64 GB of dedicated memory.
     // *   **lindorm.g.8xlarge**: Each node has 32 dedicated CPU cores and 128 GB of dedicated memory.
-    std::shared_ptr<string> tsdbSpec_ = nullptr;
+    shared_ptr<string> tsdbSpec_ {};
     // The ID of the VPC in which you want to create the instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> VPCId_ = nullptr;
+    shared_ptr<string> VPCId_ {};
     // The ID of the vSwitch to which you want the instance to connect.
     // 
     // This parameter is required.
-    std::shared_ptr<string> vSwitchId_ = nullptr;
+    shared_ptr<string> vSwitchId_ {};
     // The ID of the zone in which you want to create the instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> zoneId_ = nullptr;
+    shared_ptr<string> zoneId_ {};
   };
 
   } // namespace Models

@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessDeniedDetail_ == nullptr
-        && return this->clientIp_ == nullptr && return this->requestId_ == nullptr; };
+        && this->clientIp_ == nullptr && this->requestId_ == nullptr; };
     // accessDeniedDetail Field Functions 
     bool hasAccessDeniedDetail() const { return this->accessDeniedDetail_ != nullptr;};
     void deleteAccessDeniedDetail() { this->accessDeniedDetail_ = nullptr;};
-    inline string accessDeniedDetail() const { DARABONBA_PTR_GET_DEFAULT(accessDeniedDetail_, "") };
+    inline string getAccessDeniedDetail() const { DARABONBA_PTR_GET_DEFAULT(accessDeniedDetail_, "") };
     inline GetClientSourceIpResponseBody& setAccessDeniedDetail(string accessDeniedDetail) { DARABONBA_PTR_SET_VALUE(accessDeniedDetail_, accessDeniedDetail) };
 
 
     // clientIp Field Functions 
     bool hasClientIp() const { return this->clientIp_ != nullptr;};
     void deleteClientIp() { this->clientIp_ = nullptr;};
-    inline string clientIp() const { DARABONBA_PTR_GET_DEFAULT(clientIp_, "") };
+    inline string getClientIp() const { DARABONBA_PTR_GET_DEFAULT(clientIp_, "") };
     inline GetClientSourceIpResponseBody& setClientIp(string clientIp) { DARABONBA_PTR_SET_VALUE(clientIp_, clientIp) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetClientSourceIpResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<string> accessDeniedDetail_ = nullptr;
-    std::shared_ptr<string> clientIp_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> accessDeniedDetail_ {};
+    shared_ptr<string> clientIp_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

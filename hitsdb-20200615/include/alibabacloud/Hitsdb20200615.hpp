@@ -599,6 +599,8 @@ namespace Hitsdb20200615
       Models::ListAutoScalingRulesResponse listAutoScalingRules(const Models::ListAutoScalingRulesRequest &request);
 
       /**
+       * @summary 获取计算引擎资源组列表
+       *
        * @param request ListLdpsComputeGroupsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListLdpsComputeGroupsResponse
@@ -606,6 +608,8 @@ namespace Hitsdb20200615
       Models::ListLdpsComputeGroupsResponse listLdpsComputeGroupsWithOptions(const Models::ListLdpsComputeGroupsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 获取计算引擎资源组列表
+       *
        * @param request ListLdpsComputeGroupsRequest
        * @return ListLdpsComputeGroupsResponse
        */

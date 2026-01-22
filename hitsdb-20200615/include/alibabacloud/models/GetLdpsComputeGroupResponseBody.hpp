@@ -34,34 +34,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->groupName_ == nullptr
-        && return this->properties_ == nullptr && return this->requestId_ == nullptr; };
+        && this->properties_ == nullptr && this->requestId_ == nullptr; };
     // groupName Field Functions 
     bool hasGroupName() const { return this->groupName_ != nullptr;};
     void deleteGroupName() { this->groupName_ = nullptr;};
-    inline string groupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
+    inline string getGroupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
     inline GetLdpsComputeGroupResponseBody& setGroupName(string groupName) { DARABONBA_PTR_SET_VALUE(groupName_, groupName) };
 
 
     // properties Field Functions 
     bool hasProperties() const { return this->properties_ != nullptr;};
     void deleteProperties() { this->properties_ = nullptr;};
-    inline     const Darabonba::Json & properties() const { DARABONBA_GET(properties_) };
-    Darabonba::Json & properties() { DARABONBA_GET(properties_) };
+    inline     const Darabonba::Json & getProperties() const { DARABONBA_GET(properties_) };
+    Darabonba::Json & getProperties() { DARABONBA_GET(properties_) };
     inline GetLdpsComputeGroupResponseBody& setProperties(const Darabonba::Json & properties) { DARABONBA_SET_VALUE(properties_, properties) };
-    inline GetLdpsComputeGroupResponseBody& setProperties(Darabonba::Json & properties) { DARABONBA_SET_RVALUE(properties_, properties) };
+    inline GetLdpsComputeGroupResponseBody& setProperties(Darabonba::Json && properties) { DARABONBA_SET_RVALUE(properties_, properties) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetLdpsComputeGroupResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<string> groupName_ = nullptr;
-    Darabonba::Json properties_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> groupName_ {};
+    Darabonba::Json properties_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models
