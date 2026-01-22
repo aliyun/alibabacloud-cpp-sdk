@@ -33,6 +33,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(NetworkType, networkType_);
       DARABONBA_PTR_TO_JSON(Port, port_);
       DARABONBA_PTR_TO_JSON(QueryTimeout, queryTimeout_);
+      DARABONBA_PTR_TO_JSON(RoleArn, roleArn_);
       DARABONBA_PTR_TO_JSON(SafeRule, safeRule_);
       DARABONBA_PTR_TO_JSON(Sid, sid_);
       DARABONBA_PTR_TO_JSON(SkipTest, skipTest_);
@@ -64,6 +65,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(NetworkType, networkType_);
       DARABONBA_PTR_FROM_JSON(Port, port_);
       DARABONBA_PTR_FROM_JSON(QueryTimeout, queryTimeout_);
+      DARABONBA_PTR_FROM_JSON(RoleArn, roleArn_);
       DARABONBA_PTR_FROM_JSON(SafeRule, safeRule_);
       DARABONBA_PTR_FROM_JSON(Sid, sid_);
       DARABONBA_PTR_FROM_JSON(SkipTest, skipTest_);
@@ -89,9 +91,9 @@ namespace Models
         && this->databasePassword_ == nullptr && this->databaseUser_ == nullptr && this->dbaId_ == nullptr && this->ddlOnline_ == nullptr && this->ecsInstanceId_ == nullptr
         && this->ecsRegion_ == nullptr && this->enableSellCommon_ == nullptr && this->enableSellSitd_ == nullptr && this->enableSellStable_ == nullptr && this->enableSellTrust_ == nullptr
         && this->envType_ == nullptr && this->exportTimeout_ == nullptr && this->host_ == nullptr && this->instanceAlias_ == nullptr && this->instanceSource_ == nullptr
-        && this->instanceType_ == nullptr && this->networkType_ == nullptr && this->port_ == nullptr && this->queryTimeout_ == nullptr && this->safeRule_ == nullptr
-        && this->sid_ == nullptr && this->skipTest_ == nullptr && this->templateId_ == nullptr && this->templateType_ == nullptr && this->tid_ == nullptr
-        && this->useDsql_ == nullptr && this->useSsl_ == nullptr && this->vpcId_ == nullptr; };
+        && this->instanceType_ == nullptr && this->networkType_ == nullptr && this->port_ == nullptr && this->queryTimeout_ == nullptr && this->roleArn_ == nullptr
+        && this->safeRule_ == nullptr && this->sid_ == nullptr && this->skipTest_ == nullptr && this->templateId_ == nullptr && this->templateType_ == nullptr
+        && this->tid_ == nullptr && this->useDsql_ == nullptr && this->useSsl_ == nullptr && this->vpcId_ == nullptr; };
     // dataLinkName Field Functions 
     bool hasDataLinkName() const { return this->dataLinkName_ != nullptr;};
     void deleteDataLinkName() { this->dataLinkName_ = nullptr;};
@@ -230,6 +232,13 @@ namespace Models
     void deleteQueryTimeout() { this->queryTimeout_ = nullptr;};
     inline int32_t getQueryTimeout() const { DARABONBA_PTR_GET_DEFAULT(queryTimeout_, 0) };
     inline AddInstanceRequest& setQueryTimeout(int32_t queryTimeout) { DARABONBA_PTR_SET_VALUE(queryTimeout_, queryTimeout) };
+
+
+    // roleArn Field Functions 
+    bool hasRoleArn() const { return this->roleArn_ != nullptr;};
+    void deleteRoleArn() { this->roleArn_ = nullptr;};
+    inline string getRoleArn() const { DARABONBA_PTR_GET_DEFAULT(roleArn_, "") };
+    inline AddInstanceRequest& setRoleArn(string roleArn) { DARABONBA_PTR_SET_VALUE(roleArn_, roleArn) };
 
 
     // safeRule Field Functions 
@@ -408,6 +417,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int32_t> queryTimeout_ {};
+    shared_ptr<string> roleArn_ {};
     // The name of the security rule set for the database instance. This parameter is required if Security Collaboration is enabled. You can call the[ListStandardGroups](https://help.aliyun.com/document_detail/465940.html) or [GetInstance](https://help.aliyun.com/document_detail/465826.html) operation to obtain the name of the security rule set from GroupName.
     shared_ptr<string> safeRule_ {};
     // The system ID (SID) of the database instance.

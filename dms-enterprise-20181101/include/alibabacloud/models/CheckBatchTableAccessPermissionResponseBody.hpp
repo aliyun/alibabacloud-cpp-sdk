@@ -83,8 +83,12 @@ namespace Models
 
 
     protected:
+      // The error message that is returned if the request failed.
       shared_ptr<string> errorMessage_ {};
+      // *   **true**: Permission granted
+      // *   **false**: Permissions denied
       shared_ptr<string> success_ {};
+      // The name of the table.
       shared_ptr<string> tableName_ {};
     };
 
@@ -121,10 +125,16 @@ namespace Models
 
 
   protected:
+    // The dataset.
     shared_ptr<vector<CheckBatchTableAccessPermissionResponseBody::Data>> data_ {};
+    // Error code.
     shared_ptr<string> errorCode_ {};
-    // Id of the request
+    // ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // *   **true**: The request was successful.
+    // *   **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

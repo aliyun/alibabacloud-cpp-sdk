@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateDifyInstanceRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AdbpgInstanceMode, adbpgInstanceMode_);
+      DARABONBA_PTR_TO_JSON(AutoRenew, autoRenew_);
       DARABONBA_PTR_TO_JSON(BackupVSwitchId, backupVSwitchId_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(DataRegion, dataRegion_);
@@ -75,6 +76,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, CreateDifyInstanceRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AdbpgInstanceMode, adbpgInstanceMode_);
+      DARABONBA_PTR_FROM_JSON(AutoRenew, autoRenew_);
       DARABONBA_PTR_FROM_JSON(BackupVSwitchId, backupVSwitchId_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(DataRegion, dataRegion_);
@@ -146,23 +148,30 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->adbpgInstanceMode_ == nullptr
-        && this->backupVSwitchId_ == nullptr && this->clientToken_ == nullptr && this->dataRegion_ == nullptr && this->databaseOption_ == nullptr && this->dbEngineType_ == nullptr
-        && this->dbEngineVersion_ == nullptr && this->dbInstanceAccount_ == nullptr && this->dbInstanceCategory_ == nullptr && this->dbInstanceClass_ == nullptr && this->dbInstancePassword_ == nullptr
-        && this->dbResourceId_ == nullptr && this->dbStorageSize_ == nullptr && this->dbStorageType_ == nullptr && this->dryRun_ == nullptr && this->edition_ == nullptr
-        && this->enableExtraEndpoint_ == nullptr && this->gpuNodeSpec_ == nullptr && this->kvStoreAccount_ == nullptr && this->kvStoreEngineVersion_ == nullptr && this->kvStoreInstanceClass_ == nullptr
-        && this->kvStoreNodeType_ == nullptr && this->kvStoreOption_ == nullptr && this->kvStorePassword_ == nullptr && this->kvStoreResourceId_ == nullptr && this->kvStoreType_ == nullptr
-        && this->majorVersion_ == nullptr && this->modelId_ == nullptr && this->modelOption_ == nullptr && this->natGatewayOption_ == nullptr && this->onlyIntranet_ == nullptr
-        && this->ossPath_ == nullptr && this->ossResourceId_ == nullptr && this->payPeriod_ == nullptr && this->payPeriodType_ == nullptr && this->payType_ == nullptr
-        && this->replicas_ == nullptr && this->resourceQuota_ == nullptr && this->securityGroupId_ == nullptr && this->segDiskPerformanceLevel_ == nullptr && this->segNodeNum_ == nullptr
-        && this->storageType_ == nullptr && this->vSwitchId_ == nullptr && this->vectordbAccount_ == nullptr && this->vectordbCategory_ == nullptr && this->vectordbEngineVersion_ == nullptr
-        && this->vectordbInstanceSpec_ == nullptr && this->vectordbOption_ == nullptr && this->vectordbPassword_ == nullptr && this->vectordbResourceId_ == nullptr && this->vectordbStorageSize_ == nullptr
-        && this->vectordbStorageType_ == nullptr && this->vectordbType_ == nullptr && this->vpcId_ == nullptr && this->workspaceDescription_ == nullptr && this->workspaceId_ == nullptr
-        && this->workspaceName_ == nullptr && this->workspaceOption_ == nullptr && this->zoneId_ == nullptr; };
+        && this->autoRenew_ == nullptr && this->backupVSwitchId_ == nullptr && this->clientToken_ == nullptr && this->dataRegion_ == nullptr && this->databaseOption_ == nullptr
+        && this->dbEngineType_ == nullptr && this->dbEngineVersion_ == nullptr && this->dbInstanceAccount_ == nullptr && this->dbInstanceCategory_ == nullptr && this->dbInstanceClass_ == nullptr
+        && this->dbInstancePassword_ == nullptr && this->dbResourceId_ == nullptr && this->dbStorageSize_ == nullptr && this->dbStorageType_ == nullptr && this->dryRun_ == nullptr
+        && this->edition_ == nullptr && this->enableExtraEndpoint_ == nullptr && this->gpuNodeSpec_ == nullptr && this->kvStoreAccount_ == nullptr && this->kvStoreEngineVersion_ == nullptr
+        && this->kvStoreInstanceClass_ == nullptr && this->kvStoreNodeType_ == nullptr && this->kvStoreOption_ == nullptr && this->kvStorePassword_ == nullptr && this->kvStoreResourceId_ == nullptr
+        && this->kvStoreType_ == nullptr && this->majorVersion_ == nullptr && this->modelId_ == nullptr && this->modelOption_ == nullptr && this->natGatewayOption_ == nullptr
+        && this->onlyIntranet_ == nullptr && this->ossPath_ == nullptr && this->ossResourceId_ == nullptr && this->payPeriod_ == nullptr && this->payPeriodType_ == nullptr
+        && this->payType_ == nullptr && this->replicas_ == nullptr && this->resourceQuota_ == nullptr && this->securityGroupId_ == nullptr && this->segDiskPerformanceLevel_ == nullptr
+        && this->segNodeNum_ == nullptr && this->storageType_ == nullptr && this->vSwitchId_ == nullptr && this->vectordbAccount_ == nullptr && this->vectordbCategory_ == nullptr
+        && this->vectordbEngineVersion_ == nullptr && this->vectordbInstanceSpec_ == nullptr && this->vectordbOption_ == nullptr && this->vectordbPassword_ == nullptr && this->vectordbResourceId_ == nullptr
+        && this->vectordbStorageSize_ == nullptr && this->vectordbStorageType_ == nullptr && this->vectordbType_ == nullptr && this->vpcId_ == nullptr && this->workspaceDescription_ == nullptr
+        && this->workspaceId_ == nullptr && this->workspaceName_ == nullptr && this->workspaceOption_ == nullptr && this->zoneId_ == nullptr; };
     // adbpgInstanceMode Field Functions 
     bool hasAdbpgInstanceMode() const { return this->adbpgInstanceMode_ != nullptr;};
     void deleteAdbpgInstanceMode() { this->adbpgInstanceMode_ = nullptr;};
     inline string getAdbpgInstanceMode() const { DARABONBA_PTR_GET_DEFAULT(adbpgInstanceMode_, "") };
     inline CreateDifyInstanceRequest& setAdbpgInstanceMode(string adbpgInstanceMode) { DARABONBA_PTR_SET_VALUE(adbpgInstanceMode_, adbpgInstanceMode) };
+
+
+    // autoRenew Field Functions 
+    bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
+    void deleteAutoRenew() { this->autoRenew_ = nullptr;};
+    inline bool getAutoRenew() const { DARABONBA_PTR_GET_DEFAULT(autoRenew_, false) };
+    inline CreateDifyInstanceRequest& setAutoRenew(bool autoRenew) { DARABONBA_PTR_SET_VALUE(autoRenew_, autoRenew) };
 
 
     // backupVSwitchId Field Functions 
@@ -573,6 +582,7 @@ namespace Models
 
   protected:
     shared_ptr<string> adbpgInstanceMode_ {};
+    shared_ptr<bool> autoRenew_ {};
     shared_ptr<string> backupVSwitchId_ {};
     shared_ptr<string> clientToken_ {};
     // This parameter is required.

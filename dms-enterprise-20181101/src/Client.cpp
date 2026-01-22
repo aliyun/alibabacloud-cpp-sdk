@@ -252,6 +252,10 @@ AddInstanceResponse Client::addInstanceWithOptions(const AddInstanceRequest &req
     query["QueryTimeout"] = request.getQueryTimeout();
   }
 
+  if (!!request.hasRoleArn()) {
+    query["RoleArn"] = request.getRoleArn();
+  }
+
   if (!!request.hasSafeRule()) {
     query["SafeRule"] = request.getSafeRule();
   }
@@ -1323,9 +1327,9 @@ ChangeLhDagOwnerResponse Client::changeLhDagOwner(const ChangeLhDagOwnerRequest 
 }
 
 /**
- * @summary 带有DMS脱敏能力的聊天API接口
+ * @summary Chat API with DMS Data Masking capabilities.
  *
- * @description 带有DMS脱敏能力的聊天API接口
+ * @description Chat API with DMS Data Masking capabilities.
  *
  * @param tmpReq ChatWithDesensitizeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1468,9 +1472,9 @@ ChatWithDesensitizeResponse Client::chatWithDesensitizeWithOptions(const ChatWit
 }
 
 /**
- * @summary 带有DMS脱敏能力的聊天API接口
+ * @summary Chat API with DMS Data Masking capabilities.
  *
- * @description 带有DMS脱敏能力的聊天API接口
+ * @description Chat API with DMS Data Masking capabilities.
  *
  * @param request ChatWithDesensitizeRequest
  * @return ChatWithDesensitizeResponse
@@ -1481,9 +1485,9 @@ ChatWithDesensitizeResponse Client::chatWithDesensitize(const ChatWithDesensitiz
 }
 
 /**
- * @summary 带有DMS脱敏能力的聊天SSE API接口
+ * @summary Chat SSE API with DMS Data Masking capability.
  *
- * @description 带有DMS脱敏能力的聊天SSE API接口
+ * @description Chat SSE API with DMS Data Masking capability.
  *
  * @param tmpReq ChatWithDesensitizeSSERequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1658,9 +1662,9 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 带有DMS脱敏能力的聊天SSE API接口
+ * @summary Chat SSE API with DMS Data Masking capability.
  *
- * @description 带有DMS脱敏能力的聊天SSE API接口
+ * @description Chat SSE API with DMS Data Masking capability.
  *
  * @param tmpReq ChatWithDesensitizeSSERequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1823,9 +1827,9 @@ ChatWithDesensitizeSSEResponse Client::chatWithDesensitizeSSEWithOptions(const C
 }
 
 /**
- * @summary 带有DMS脱敏能力的聊天SSE API接口
+ * @summary Chat SSE API with DMS Data Masking capability.
  *
- * @description 带有DMS脱敏能力的聊天SSE API接口
+ * @description Chat SSE API with DMS Data Masking capability.
  *
  * @param request ChatWithDesensitizeSSERequest
  * @return ChatWithDesensitizeSSEResponse
@@ -1836,7 +1840,9 @@ ChatWithDesensitizeSSEResponse Client::chatWithDesensitizeSSE(const ChatWithDese
 }
 
 /**
- * @summary 批量校验是否有表访问权限
+ * @summary Batch verify table permissions.
+ *
+ * @description Verify the permissions on multiple tables at a time.
  *
  * @param tmpReq CheckBatchTableAccessPermissionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1889,7 +1895,9 @@ CheckBatchTableAccessPermissionResponse Client::checkBatchTableAccessPermissionW
 }
 
 /**
- * @summary 批量校验是否有表访问权限
+ * @summary Batch verify table permissions.
+ *
+ * @description Verify the permissions on multiple tables at a time.
  *
  * @param request CheckBatchTableAccessPermissionRequest
  * @return CheckBatchTableAccessPermissionResponse
@@ -2956,6 +2964,10 @@ CreateDifyInstanceResponse Client::createDifyInstanceWithOptions(const CreateDif
   json query = {};
   if (!!request.hasAdbpgInstanceMode()) {
     query["AdbpgInstanceMode"] = request.getAdbpgInstanceMode();
+  }
+
+  if (!!request.hasAutoRenew()) {
+    query["AutoRenew"] = request.getAutoRenew();
   }
 
   if (!!request.hasBackupVSwitchId()) {

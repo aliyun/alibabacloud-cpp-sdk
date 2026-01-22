@@ -375,9 +375,9 @@ namespace DmsEnterprise20181101
       Models::ChangeLhDagOwnerResponse changeLhDagOwner(const Models::ChangeLhDagOwnerRequest &request);
 
       /**
-       * @summary 带有DMS脱敏能力的聊天API接口
+       * @summary Chat API with DMS Data Masking capabilities.
        *
-       * @description 带有DMS脱敏能力的聊天API接口
+       * @description Chat API with DMS Data Masking capabilities.
        *
        * @param tmpReq ChatWithDesensitizeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -386,9 +386,9 @@ namespace DmsEnterprise20181101
       Models::ChatWithDesensitizeResponse chatWithDesensitizeWithOptions(const Models::ChatWithDesensitizeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 带有DMS脱敏能力的聊天API接口
+       * @summary Chat API with DMS Data Masking capabilities.
        *
-       * @description 带有DMS脱敏能力的聊天API接口
+       * @description Chat API with DMS Data Masking capabilities.
        *
        * @param request ChatWithDesensitizeRequest
        * @return ChatWithDesensitizeResponse
@@ -396,9 +396,9 @@ namespace DmsEnterprise20181101
       Models::ChatWithDesensitizeResponse chatWithDesensitize(const Models::ChatWithDesensitizeRequest &request);
 
       /**
-       * @summary 带有DMS脱敏能力的聊天SSE API接口
+       * @summary Chat SSE API with DMS Data Masking capability.
        *
-       * @description 带有DMS脱敏能力的聊天SSE API接口
+       * @description Chat SSE API with DMS Data Masking capability.
        *
        * @param tmpReq ChatWithDesensitizeSSERequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -407,9 +407,9 @@ namespace DmsEnterprise20181101
       FutureGenerator<Models::ChatWithDesensitizeSSEResponse> chatWithDesensitizeSSEWithSSE(const Models::ChatWithDesensitizeSSERequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 带有DMS脱敏能力的聊天SSE API接口
+       * @summary Chat SSE API with DMS Data Masking capability.
        *
-       * @description 带有DMS脱敏能力的聊天SSE API接口
+       * @description Chat SSE API with DMS Data Masking capability.
        *
        * @param tmpReq ChatWithDesensitizeSSERequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -418,9 +418,9 @@ namespace DmsEnterprise20181101
       Models::ChatWithDesensitizeSSEResponse chatWithDesensitizeSSEWithOptions(const Models::ChatWithDesensitizeSSERequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 带有DMS脱敏能力的聊天SSE API接口
+       * @summary Chat SSE API with DMS Data Masking capability.
        *
-       * @description 带有DMS脱敏能力的聊天SSE API接口
+       * @description Chat SSE API with DMS Data Masking capability.
        *
        * @param request ChatWithDesensitizeSSERequest
        * @return ChatWithDesensitizeSSEResponse
@@ -428,7 +428,9 @@ namespace DmsEnterprise20181101
       Models::ChatWithDesensitizeSSEResponse chatWithDesensitizeSSE(const Models::ChatWithDesensitizeSSERequest &request);
 
       /**
-       * @summary 批量校验是否有表访问权限
+       * @summary Batch verify table permissions.
+       *
+       * @description Verify the permissions on multiple tables at a time.
        *
        * @param tmpReq CheckBatchTableAccessPermissionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -437,7 +439,9 @@ namespace DmsEnterprise20181101
       Models::CheckBatchTableAccessPermissionResponse checkBatchTableAccessPermissionWithOptions(const Models::CheckBatchTableAccessPermissionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量校验是否有表访问权限
+       * @summary Batch verify table permissions.
+       *
+       * @description Verify the permissions on multiple tables at a time.
        *
        * @param request CheckBatchTableAccessPermissionRequest
        * @return CheckBatchTableAccessPermissionResponse

@@ -75,13 +75,36 @@ namespace Models
 
 
   protected:
+    // The database ID. You can call the [ListDatabases](https://help.aliyun.com/document_detail/141873.html) operation to query the ID of a physical database and the [ListLogicDatabases](https://help.aliyun.com/document_detail/141874.html) operation to query the ID of a logical database.
+    // 
+    // >  The value of DatabaseId is that of DbId.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> dbId_ {};
+    // Specifies whether the database is a logical database. Valid values:
+    // 
+    // *   true: Logical database.
+    // *   false: Physical database.
     shared_ptr<bool> logic_ {};
+    // The type of the permission to be verified.
+    // 
+    // Valid values:
+    // 
+    // *   QUERY
+    // *   EXPORT
+    // *   CORRECT
+    // *   LOGIN
+    // *   PERF
+    // 
     // This parameter is required.
     shared_ptr<string> permissionType_ {};
+    // The name of the table.
+    // 
     // This parameter is required.
     shared_ptr<string> tableNameListShrink_ {};
+    // The ID of the tenant.
+    // 
+    // >  View Tenant ID by hovering over your profile icon in the DMS console. For more information, see the [View information about the current tenant](https://help.aliyun.com/document_detail/181330.html) section of the "Manage DMS tenants" topic.
     shared_ptr<int64_t> tid_ {};
   };
 

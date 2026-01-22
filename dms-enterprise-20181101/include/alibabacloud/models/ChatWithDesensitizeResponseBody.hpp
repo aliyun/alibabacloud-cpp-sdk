@@ -139,10 +139,15 @@ namespace Models
 
 
       protected:
+        // The number of output tokens.
         shared_ptr<string> completionTokens_ {};
+        // Fine-grained classification of output tokens when using the Qwen-VL model.
         shared_ptr<map<string, string>> completionTokensDetails_ {};
+        // The number of input tokens.
         shared_ptr<string> promptTokens_ {};
+        // Fine-grained classification of input tokens.
         shared_ptr<map<string, string>> promptTokensDetails_ {};
+        // The total number of tokens consumed.
         shared_ptr<string> totalTokens_ {};
       };
 
@@ -216,8 +221,11 @@ namespace Models
 
 
         protected:
+          // The content of the model\\"s response.
           shared_ptr<string> content_ {};
+          // The internal reasoning content of the model.
           shared_ptr<string> reasoningContent_ {};
+          // Message role.
           shared_ptr<string> role_ {};
         };
 
@@ -249,8 +257,11 @@ namespace Models
 
 
       protected:
+        // Finish reason: ● stop: The model reached a natural stop point or a specified stop sequence. ● length: Generation ended because the maximum number of tokens was reached. ● tool_calls: The model stopped because it needs to call a tool to proceed.
         shared_ptr<string> finishReason_ {};
+        // Token probability information of model output.
         Darabonba::Json logprobs_ {};
+        // The message body output by the model.
         shared_ptr<Choices::Message> message_ {};
       };
 
@@ -311,12 +322,19 @@ namespace Models
 
 
     protected:
+      // The candidate array for model-generated content.
       shared_ptr<vector<Data::Choices>> choices_ {};
+      // The Unix timestamp (in seconds) when the request was created.
       shared_ptr<string> created_ {};
+      // Error message, provided when StatusCode is not 200.
       shared_ptr<string> message_ {};
+      // The model used for this request.
       shared_ptr<string> model_ {};
+      // Error code, 200 for normal calls, others for exceptions.
       shared_ptr<string> statusCode_ {};
+      // Error type.
       shared_ptr<string> type_ {};
+      // The token consumption information of this request.
       shared_ptr<Data::Usage> usage_ {};
     };
 
@@ -360,11 +378,18 @@ namespace Models
 
 
   protected:
+    // The data returned.
     shared_ptr<ChatWithDesensitizeResponseBody::Data> data_ {};
+    // Error code.
     shared_ptr<string> errorCode_ {};
+    // Error message.
     shared_ptr<string> errorMessage_ {};
-    // Id of the request
+    // ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation was successful. Valid values:
+    // 
+    // *   **true**: The request was successful.
+    // *   **false**: The request fails.
     shared_ptr<bool> success_ {};
   };
 
