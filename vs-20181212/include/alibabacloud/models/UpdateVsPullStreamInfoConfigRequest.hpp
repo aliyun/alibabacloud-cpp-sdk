@@ -44,77 +44,77 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->always_ == nullptr
-        && return this->appName_ == nullptr && return this->domainName_ == nullptr && return this->endTime_ == nullptr && return this->ownerId_ == nullptr && return this->sourceUrl_ == nullptr
-        && return this->startTime_ == nullptr && return this->streamName_ == nullptr; };
+        && this->appName_ == nullptr && this->domainName_ == nullptr && this->endTime_ == nullptr && this->ownerId_ == nullptr && this->sourceUrl_ == nullptr
+        && this->startTime_ == nullptr && this->streamName_ == nullptr; };
     // always Field Functions 
     bool hasAlways() const { return this->always_ != nullptr;};
     void deleteAlways() { this->always_ = nullptr;};
-    inline string always() const { DARABONBA_PTR_GET_DEFAULT(always_, "") };
+    inline string getAlways() const { DARABONBA_PTR_GET_DEFAULT(always_, "") };
     inline UpdateVsPullStreamInfoConfigRequest& setAlways(string always) { DARABONBA_PTR_SET_VALUE(always_, always) };
 
 
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
-    inline string appName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
+    inline string getAppName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
     inline UpdateVsPullStreamInfoConfigRequest& setAppName(string appName) { DARABONBA_PTR_SET_VALUE(appName_, appName) };
 
 
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
-    inline string domainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
+    inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline UpdateVsPullStreamInfoConfigRequest& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline UpdateVsPullStreamInfoConfigRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline UpdateVsPullStreamInfoConfigRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // sourceUrl Field Functions 
     bool hasSourceUrl() const { return this->sourceUrl_ != nullptr;};
     void deleteSourceUrl() { this->sourceUrl_ = nullptr;};
-    inline string sourceUrl() const { DARABONBA_PTR_GET_DEFAULT(sourceUrl_, "") };
+    inline string getSourceUrl() const { DARABONBA_PTR_GET_DEFAULT(sourceUrl_, "") };
     inline UpdateVsPullStreamInfoConfigRequest& setSourceUrl(string sourceUrl) { DARABONBA_PTR_SET_VALUE(sourceUrl_, sourceUrl) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline UpdateVsPullStreamInfoConfigRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // streamName Field Functions 
     bool hasStreamName() const { return this->streamName_ != nullptr;};
     void deleteStreamName() { this->streamName_ = nullptr;};
-    inline string streamName() const { DARABONBA_PTR_GET_DEFAULT(streamName_, "") };
+    inline string getStreamName() const { DARABONBA_PTR_GET_DEFAULT(streamName_, "") };
     inline UpdateVsPullStreamInfoConfigRequest& setStreamName(string streamName) { DARABONBA_PTR_SET_VALUE(streamName_, streamName) };
 
 
   protected:
-    std::shared_ptr<string> always_ = nullptr;
+    shared_ptr<string> always_ {};
     // This parameter is required.
-    std::shared_ptr<string> appName_ = nullptr;
+    shared_ptr<string> appName_ {};
     // This parameter is required.
-    std::shared_ptr<string> domainName_ = nullptr;
-    std::shared_ptr<string> endTime_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<string> domainName_ {};
+    shared_ptr<string> endTime_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // This parameter is required.
-    std::shared_ptr<string> sourceUrl_ = nullptr;
-    std::shared_ptr<string> startTime_ = nullptr;
+    shared_ptr<string> sourceUrl_ {};
+    shared_ptr<string> startTime_ {};
     // This parameter is required.
-    std::shared_ptr<string> streamName_ = nullptr;
+    shared_ptr<string> streamName_ {};
   };
 
   } // namespace Models

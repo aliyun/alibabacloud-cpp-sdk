@@ -34,33 +34,33 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->maxEgressBandwidth_ == nullptr
-        && return this->maxIngressBandwidth_ == nullptr && return this->renderingInstanceId_ == nullptr; };
+        && this->maxIngressBandwidth_ == nullptr && this->renderingInstanceId_ == nullptr; };
     // maxEgressBandwidth Field Functions 
     bool hasMaxEgressBandwidth() const { return this->maxEgressBandwidth_ != nullptr;};
     void deleteMaxEgressBandwidth() { this->maxEgressBandwidth_ = nullptr;};
-    inline int32_t maxEgressBandwidth() const { DARABONBA_PTR_GET_DEFAULT(maxEgressBandwidth_, 0) };
+    inline int32_t getMaxEgressBandwidth() const { DARABONBA_PTR_GET_DEFAULT(maxEgressBandwidth_, 0) };
     inline ModifyRenderingInstanceBandwidthRequest& setMaxEgressBandwidth(int32_t maxEgressBandwidth) { DARABONBA_PTR_SET_VALUE(maxEgressBandwidth_, maxEgressBandwidth) };
 
 
     // maxIngressBandwidth Field Functions 
     bool hasMaxIngressBandwidth() const { return this->maxIngressBandwidth_ != nullptr;};
     void deleteMaxIngressBandwidth() { this->maxIngressBandwidth_ = nullptr;};
-    inline int32_t maxIngressBandwidth() const { DARABONBA_PTR_GET_DEFAULT(maxIngressBandwidth_, 0) };
+    inline int32_t getMaxIngressBandwidth() const { DARABONBA_PTR_GET_DEFAULT(maxIngressBandwidth_, 0) };
     inline ModifyRenderingInstanceBandwidthRequest& setMaxIngressBandwidth(int32_t maxIngressBandwidth) { DARABONBA_PTR_SET_VALUE(maxIngressBandwidth_, maxIngressBandwidth) };
 
 
     // renderingInstanceId Field Functions 
     bool hasRenderingInstanceId() const { return this->renderingInstanceId_ != nullptr;};
     void deleteRenderingInstanceId() { this->renderingInstanceId_ = nullptr;};
-    inline string renderingInstanceId() const { DARABONBA_PTR_GET_DEFAULT(renderingInstanceId_, "") };
+    inline string getRenderingInstanceId() const { DARABONBA_PTR_GET_DEFAULT(renderingInstanceId_, "") };
     inline ModifyRenderingInstanceBandwidthRequest& setRenderingInstanceId(string renderingInstanceId) { DARABONBA_PTR_SET_VALUE(renderingInstanceId_, renderingInstanceId) };
 
 
   protected:
-    std::shared_ptr<int32_t> maxEgressBandwidth_ = nullptr;
-    std::shared_ptr<int32_t> maxIngressBandwidth_ = nullptr;
+    shared_ptr<int32_t> maxEgressBandwidth_ {};
+    shared_ptr<int32_t> maxIngressBandwidth_ {};
     // This parameter is required.
-    std::shared_ptr<string> renderingInstanceId_ = nullptr;
+    shared_ptr<string> renderingInstanceId_ {};
   };
 
   } // namespace Models

@@ -36,41 +36,41 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientIp_ == nullptr
-        && return this->expire_ == nullptr && return this->id_ == nullptr && return this->ownerId_ == nullptr; };
+        && this->expire_ == nullptr && this->id_ == nullptr && this->ownerId_ == nullptr; };
     // clientIp Field Functions 
     bool hasClientIp() const { return this->clientIp_ != nullptr;};
     void deleteClientIp() { this->clientIp_ = nullptr;};
-    inline string clientIp() const { DARABONBA_PTR_GET_DEFAULT(clientIp_, "") };
+    inline string getClientIp() const { DARABONBA_PTR_GET_DEFAULT(clientIp_, "") };
     inline DescribeDeviceGatewayRequest& setClientIp(string clientIp) { DARABONBA_PTR_SET_VALUE(clientIp_, clientIp) };
 
 
     // expire Field Functions 
     bool hasExpire() const { return this->expire_ != nullptr;};
     void deleteExpire() { this->expire_ = nullptr;};
-    inline int64_t expire() const { DARABONBA_PTR_GET_DEFAULT(expire_, 0L) };
+    inline int64_t getExpire() const { DARABONBA_PTR_GET_DEFAULT(expire_, 0L) };
     inline DescribeDeviceGatewayRequest& setExpire(int64_t expire) { DARABONBA_PTR_SET_VALUE(expire_, expire) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline string id() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+    inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline DescribeDeviceGatewayRequest& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline DescribeDeviceGatewayRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
   protected:
-    std::shared_ptr<string> clientIp_ = nullptr;
-    std::shared_ptr<int64_t> expire_ = nullptr;
+    shared_ptr<string> clientIp_ {};
+    shared_ptr<int64_t> expire_ {};
     // This parameter is required.
-    std::shared_ptr<string> id_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<string> id_ {};
+    shared_ptr<int64_t> ownerId_ {};
   };
 
   } // namespace Models

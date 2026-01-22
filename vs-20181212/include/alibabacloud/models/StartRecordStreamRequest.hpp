@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->app_ == nullptr
-        && return this->id_ == nullptr && return this->name_ == nullptr && return this->ownerId_ == nullptr && return this->playDomain_ == nullptr; };
+        && this->id_ == nullptr && this->name_ == nullptr && this->ownerId_ == nullptr && this->playDomain_ == nullptr; };
     // app Field Functions 
     bool hasApp() const { return this->app_ != nullptr;};
     void deleteApp() { this->app_ = nullptr;};
-    inline string app() const { DARABONBA_PTR_GET_DEFAULT(app_, "") };
+    inline string getApp() const { DARABONBA_PTR_GET_DEFAULT(app_, "") };
     inline StartRecordStreamRequest& setApp(string app) { DARABONBA_PTR_SET_VALUE(app_, app) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline string id() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+    inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline StartRecordStreamRequest& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline StartRecordStreamRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline StartRecordStreamRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // playDomain Field Functions 
     bool hasPlayDomain() const { return this->playDomain_ != nullptr;};
     void deletePlayDomain() { this->playDomain_ = nullptr;};
-    inline string playDomain() const { DARABONBA_PTR_GET_DEFAULT(playDomain_, "") };
+    inline string getPlayDomain() const { DARABONBA_PTR_GET_DEFAULT(playDomain_, "") };
     inline StartRecordStreamRequest& setPlayDomain(string playDomain) { DARABONBA_PTR_SET_VALUE(playDomain_, playDomain) };
 
 
   protected:
-    std::shared_ptr<string> app_ = nullptr;
-    std::shared_ptr<string> id_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
-    std::shared_ptr<string> playDomain_ = nullptr;
+    shared_ptr<string> app_ {};
+    shared_ptr<string> id_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<int64_t> ownerId_ {};
+    shared_ptr<string> playDomain_ {};
   };
 
   } // namespace Models

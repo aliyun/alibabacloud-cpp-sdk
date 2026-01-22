@@ -33,13 +33,13 @@ namespace Models
     // dataPackageId Field Functions 
     bool hasDataPackageId() const { return this->dataPackageId_ != nullptr;};
     void deleteDataPackageId() { this->dataPackageId_ = nullptr;};
-    inline string dataPackageId() const { DARABONBA_PTR_GET_DEFAULT(dataPackageId_, "") };
+    inline string getDataPackageId() const { DARABONBA_PTR_GET_DEFAULT(dataPackageId_, "") };
     inline ReleaseRenderingDataPackageRequest& setDataPackageId(string dataPackageId) { DARABONBA_PTR_SET_VALUE(dataPackageId_, dataPackageId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> dataPackageId_ = nullptr;
+    shared_ptr<string> dataPackageId_ {};
   };
 
   } // namespace Models

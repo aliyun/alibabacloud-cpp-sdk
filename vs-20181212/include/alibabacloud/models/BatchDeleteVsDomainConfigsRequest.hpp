@@ -34,34 +34,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->domainNames_ == nullptr
-        && return this->functionNames_ == nullptr && return this->ownerId_ == nullptr; };
+        && this->functionNames_ == nullptr && this->ownerId_ == nullptr; };
     // domainNames Field Functions 
     bool hasDomainNames() const { return this->domainNames_ != nullptr;};
     void deleteDomainNames() { this->domainNames_ = nullptr;};
-    inline string domainNames() const { DARABONBA_PTR_GET_DEFAULT(domainNames_, "") };
+    inline string getDomainNames() const { DARABONBA_PTR_GET_DEFAULT(domainNames_, "") };
     inline BatchDeleteVsDomainConfigsRequest& setDomainNames(string domainNames) { DARABONBA_PTR_SET_VALUE(domainNames_, domainNames) };
 
 
     // functionNames Field Functions 
     bool hasFunctionNames() const { return this->functionNames_ != nullptr;};
     void deleteFunctionNames() { this->functionNames_ = nullptr;};
-    inline string functionNames() const { DARABONBA_PTR_GET_DEFAULT(functionNames_, "") };
+    inline string getFunctionNames() const { DARABONBA_PTR_GET_DEFAULT(functionNames_, "") };
     inline BatchDeleteVsDomainConfigsRequest& setFunctionNames(string functionNames) { DARABONBA_PTR_SET_VALUE(functionNames_, functionNames) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline BatchDeleteVsDomainConfigsRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> domainNames_ = nullptr;
+    shared_ptr<string> domainNames_ {};
     // This parameter is required.
-    std::shared_ptr<string> functionNames_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<string> functionNames_ {};
+    shared_ptr<int64_t> ownerId_ {};
   };
 
   } // namespace Models

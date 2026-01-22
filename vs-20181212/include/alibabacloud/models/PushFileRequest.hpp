@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fileId_ == nullptr
-        && return this->renderingInstanceId_ == nullptr; };
+        && this->renderingInstanceId_ == nullptr; };
     // fileId Field Functions 
     bool hasFileId() const { return this->fileId_ != nullptr;};
     void deleteFileId() { this->fileId_ = nullptr;};
-    inline string fileId() const { DARABONBA_PTR_GET_DEFAULT(fileId_, "") };
+    inline string getFileId() const { DARABONBA_PTR_GET_DEFAULT(fileId_, "") };
     inline PushFileRequest& setFileId(string fileId) { DARABONBA_PTR_SET_VALUE(fileId_, fileId) };
 
 
     // renderingInstanceId Field Functions 
     bool hasRenderingInstanceId() const { return this->renderingInstanceId_ != nullptr;};
     void deleteRenderingInstanceId() { this->renderingInstanceId_ = nullptr;};
-    inline string renderingInstanceId() const { DARABONBA_PTR_GET_DEFAULT(renderingInstanceId_, "") };
+    inline string getRenderingInstanceId() const { DARABONBA_PTR_GET_DEFAULT(renderingInstanceId_, "") };
     inline PushFileRequest& setRenderingInstanceId(string renderingInstanceId) { DARABONBA_PTR_SET_VALUE(renderingInstanceId_, renderingInstanceId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> fileId_ = nullptr;
+    shared_ptr<string> fileId_ {};
     // This parameter is required.
-    std::shared_ptr<string> renderingInstanceId_ = nullptr;
+    shared_ptr<string> renderingInstanceId_ {};
   };
 
   } // namespace Models

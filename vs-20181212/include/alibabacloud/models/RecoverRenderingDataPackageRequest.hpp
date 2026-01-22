@@ -34,34 +34,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dataPackageId_ == nullptr
-        && return this->loadMode_ == nullptr && return this->renderingInstanceId_ == nullptr; };
+        && this->loadMode_ == nullptr && this->renderingInstanceId_ == nullptr; };
     // dataPackageId Field Functions 
     bool hasDataPackageId() const { return this->dataPackageId_ != nullptr;};
     void deleteDataPackageId() { this->dataPackageId_ = nullptr;};
-    inline string dataPackageId() const { DARABONBA_PTR_GET_DEFAULT(dataPackageId_, "") };
+    inline string getDataPackageId() const { DARABONBA_PTR_GET_DEFAULT(dataPackageId_, "") };
     inline RecoverRenderingDataPackageRequest& setDataPackageId(string dataPackageId) { DARABONBA_PTR_SET_VALUE(dataPackageId_, dataPackageId) };
 
 
     // loadMode Field Functions 
     bool hasLoadMode() const { return this->loadMode_ != nullptr;};
     void deleteLoadMode() { this->loadMode_ = nullptr;};
-    inline string loadMode() const { DARABONBA_PTR_GET_DEFAULT(loadMode_, "") };
+    inline string getLoadMode() const { DARABONBA_PTR_GET_DEFAULT(loadMode_, "") };
     inline RecoverRenderingDataPackageRequest& setLoadMode(string loadMode) { DARABONBA_PTR_SET_VALUE(loadMode_, loadMode) };
 
 
     // renderingInstanceId Field Functions 
     bool hasRenderingInstanceId() const { return this->renderingInstanceId_ != nullptr;};
     void deleteRenderingInstanceId() { this->renderingInstanceId_ = nullptr;};
-    inline string renderingInstanceId() const { DARABONBA_PTR_GET_DEFAULT(renderingInstanceId_, "") };
+    inline string getRenderingInstanceId() const { DARABONBA_PTR_GET_DEFAULT(renderingInstanceId_, "") };
     inline RecoverRenderingDataPackageRequest& setRenderingInstanceId(string renderingInstanceId) { DARABONBA_PTR_SET_VALUE(renderingInstanceId_, renderingInstanceId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> dataPackageId_ = nullptr;
-    std::shared_ptr<string> loadMode_ = nullptr;
+    shared_ptr<string> dataPackageId_ {};
+    shared_ptr<string> loadMode_ {};
     // This parameter is required.
-    std::shared_ptr<string> renderingInstanceId_ = nullptr;
+    shared_ptr<string> renderingInstanceId_ {};
   };
 
   } // namespace Models

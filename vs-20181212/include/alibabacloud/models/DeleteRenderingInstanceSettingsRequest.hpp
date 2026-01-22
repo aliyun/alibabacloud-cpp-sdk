@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->attributeNames_ == nullptr
-        && return this->renderingInstanceId_ == nullptr; };
+        && this->renderingInstanceId_ == nullptr; };
     // attributeNames Field Functions 
     bool hasAttributeNames() const { return this->attributeNames_ != nullptr;};
     void deleteAttributeNames() { this->attributeNames_ = nullptr;};
-    inline const vector<string> & attributeNames() const { DARABONBA_PTR_GET_CONST(attributeNames_, vector<string>) };
-    inline vector<string> attributeNames() { DARABONBA_PTR_GET(attributeNames_, vector<string>) };
+    inline const vector<string> & getAttributeNames() const { DARABONBA_PTR_GET_CONST(attributeNames_, vector<string>) };
+    inline vector<string> getAttributeNames() { DARABONBA_PTR_GET(attributeNames_, vector<string>) };
     inline DeleteRenderingInstanceSettingsRequest& setAttributeNames(const vector<string> & attributeNames) { DARABONBA_PTR_SET_VALUE(attributeNames_, attributeNames) };
     inline DeleteRenderingInstanceSettingsRequest& setAttributeNames(vector<string> && attributeNames) { DARABONBA_PTR_SET_RVALUE(attributeNames_, attributeNames) };
 
@@ -46,13 +46,13 @@ namespace Models
     // renderingInstanceId Field Functions 
     bool hasRenderingInstanceId() const { return this->renderingInstanceId_ != nullptr;};
     void deleteRenderingInstanceId() { this->renderingInstanceId_ = nullptr;};
-    inline string renderingInstanceId() const { DARABONBA_PTR_GET_DEFAULT(renderingInstanceId_, "") };
+    inline string getRenderingInstanceId() const { DARABONBA_PTR_GET_DEFAULT(renderingInstanceId_, "") };
     inline DeleteRenderingInstanceSettingsRequest& setRenderingInstanceId(string renderingInstanceId) { DARABONBA_PTR_SET_VALUE(renderingInstanceId_, renderingInstanceId) };
 
 
   protected:
-    std::shared_ptr<vector<string>> attributeNames_ = nullptr;
-    std::shared_ptr<string> renderingInstanceId_ = nullptr;
+    shared_ptr<vector<string>> attributeNames_ {};
+    shared_ptr<string> renderingInstanceId_ {};
   };
 
   } // namespace Models

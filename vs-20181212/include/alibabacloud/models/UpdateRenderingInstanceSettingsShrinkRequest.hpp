@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->renderingInstanceId_ == nullptr
-        && return this->settingsShrink_ == nullptr; };
+        && this->settingsShrink_ == nullptr; };
     // renderingInstanceId Field Functions 
     bool hasRenderingInstanceId() const { return this->renderingInstanceId_ != nullptr;};
     void deleteRenderingInstanceId() { this->renderingInstanceId_ = nullptr;};
-    inline string renderingInstanceId() const { DARABONBA_PTR_GET_DEFAULT(renderingInstanceId_, "") };
+    inline string getRenderingInstanceId() const { DARABONBA_PTR_GET_DEFAULT(renderingInstanceId_, "") };
     inline UpdateRenderingInstanceSettingsShrinkRequest& setRenderingInstanceId(string renderingInstanceId) { DARABONBA_PTR_SET_VALUE(renderingInstanceId_, renderingInstanceId) };
 
 
     // settingsShrink Field Functions 
     bool hasSettingsShrink() const { return this->settingsShrink_ != nullptr;};
     void deleteSettingsShrink() { this->settingsShrink_ = nullptr;};
-    inline string settingsShrink() const { DARABONBA_PTR_GET_DEFAULT(settingsShrink_, "") };
+    inline string getSettingsShrink() const { DARABONBA_PTR_GET_DEFAULT(settingsShrink_, "") };
     inline UpdateRenderingInstanceSettingsShrinkRequest& setSettingsShrink(string settingsShrink) { DARABONBA_PTR_SET_VALUE(settingsShrink_, settingsShrink) };
 
 
   protected:
-    std::shared_ptr<string> renderingInstanceId_ = nullptr;
-    std::shared_ptr<string> settingsShrink_ = nullptr;
+    shared_ptr<string> renderingInstanceId_ {};
+    shared_ptr<string> settingsShrink_ {};
   };
 
   } // namespace Models

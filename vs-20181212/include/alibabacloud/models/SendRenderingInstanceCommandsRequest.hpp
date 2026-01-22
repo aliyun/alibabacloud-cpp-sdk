@@ -36,42 +36,42 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->commands_ == nullptr
-        && return this->mode_ == nullptr && return this->renderingInstanceId_ == nullptr && return this->timeout_ == nullptr; };
+        && this->mode_ == nullptr && this->renderingInstanceId_ == nullptr && this->timeout_ == nullptr; };
     // commands Field Functions 
     bool hasCommands() const { return this->commands_ != nullptr;};
     void deleteCommands() { this->commands_ = nullptr;};
-    inline string commands() const { DARABONBA_PTR_GET_DEFAULT(commands_, "") };
+    inline string getCommands() const { DARABONBA_PTR_GET_DEFAULT(commands_, "") };
     inline SendRenderingInstanceCommandsRequest& setCommands(string commands) { DARABONBA_PTR_SET_VALUE(commands_, commands) };
 
 
     // mode Field Functions 
     bool hasMode() const { return this->mode_ != nullptr;};
     void deleteMode() { this->mode_ = nullptr;};
-    inline string mode() const { DARABONBA_PTR_GET_DEFAULT(mode_, "") };
+    inline string getMode() const { DARABONBA_PTR_GET_DEFAULT(mode_, "") };
     inline SendRenderingInstanceCommandsRequest& setMode(string mode) { DARABONBA_PTR_SET_VALUE(mode_, mode) };
 
 
     // renderingInstanceId Field Functions 
     bool hasRenderingInstanceId() const { return this->renderingInstanceId_ != nullptr;};
     void deleteRenderingInstanceId() { this->renderingInstanceId_ = nullptr;};
-    inline string renderingInstanceId() const { DARABONBA_PTR_GET_DEFAULT(renderingInstanceId_, "") };
+    inline string getRenderingInstanceId() const { DARABONBA_PTR_GET_DEFAULT(renderingInstanceId_, "") };
     inline SendRenderingInstanceCommandsRequest& setRenderingInstanceId(string renderingInstanceId) { DARABONBA_PTR_SET_VALUE(renderingInstanceId_, renderingInstanceId) };
 
 
     // timeout Field Functions 
     bool hasTimeout() const { return this->timeout_ != nullptr;};
     void deleteTimeout() { this->timeout_ = nullptr;};
-    inline int32_t timeout() const { DARABONBA_PTR_GET_DEFAULT(timeout_, 0) };
+    inline int32_t getTimeout() const { DARABONBA_PTR_GET_DEFAULT(timeout_, 0) };
     inline SendRenderingInstanceCommandsRequest& setTimeout(int32_t timeout) { DARABONBA_PTR_SET_VALUE(timeout_, timeout) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> commands_ = nullptr;
-    std::shared_ptr<string> mode_ = nullptr;
+    shared_ptr<string> commands_ {};
+    shared_ptr<string> mode_ {};
     // This parameter is required.
-    std::shared_ptr<string> renderingInstanceId_ = nullptr;
-    std::shared_ptr<int32_t> timeout_ = nullptr;
+    shared_ptr<string> renderingInstanceId_ {};
+    shared_ptr<int32_t> timeout_ {};
   };
 
   } // namespace Models

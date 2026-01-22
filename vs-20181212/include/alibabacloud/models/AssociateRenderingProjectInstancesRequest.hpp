@@ -33,28 +33,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->projectId_ == nullptr
-        && return this->renderingInstanceIds_ == nullptr; };
+        && this->renderingInstanceIds_ == nullptr; };
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline string projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, "") };
+    inline string getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, "") };
     inline AssociateRenderingProjectInstancesRequest& setProjectId(string projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
     // renderingInstanceIds Field Functions 
     bool hasRenderingInstanceIds() const { return this->renderingInstanceIds_ != nullptr;};
     void deleteRenderingInstanceIds() { this->renderingInstanceIds_ = nullptr;};
-    inline const vector<string> & renderingInstanceIds() const { DARABONBA_PTR_GET_CONST(renderingInstanceIds_, vector<string>) };
-    inline vector<string> renderingInstanceIds() { DARABONBA_PTR_GET(renderingInstanceIds_, vector<string>) };
+    inline const vector<string> & getRenderingInstanceIds() const { DARABONBA_PTR_GET_CONST(renderingInstanceIds_, vector<string>) };
+    inline vector<string> getRenderingInstanceIds() { DARABONBA_PTR_GET(renderingInstanceIds_, vector<string>) };
     inline AssociateRenderingProjectInstancesRequest& setRenderingInstanceIds(const vector<string> & renderingInstanceIds) { DARABONBA_PTR_SET_VALUE(renderingInstanceIds_, renderingInstanceIds) };
     inline AssociateRenderingProjectInstancesRequest& setRenderingInstanceIds(vector<string> && renderingInstanceIds) { DARABONBA_PTR_SET_RVALUE(renderingInstanceIds_, renderingInstanceIds) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> projectId_ = nullptr;
+    shared_ptr<string> projectId_ {};
     // This parameter is required.
-    std::shared_ptr<vector<string>> renderingInstanceIds_ = nullptr;
+    shared_ptr<vector<string>> renderingInstanceIds_ {};
   };
 
   } // namespace Models

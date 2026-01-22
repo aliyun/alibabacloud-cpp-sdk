@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_DESCRIBETEMPLATERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/DescribeTemplateResponseBodyTransConfigs.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -75,199 +74,302 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class TransConfigs : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const TransConfigs& obj) { 
+        DARABONBA_PTR_TO_JSON(Fps, fps_);
+        DARABONBA_PTR_TO_JSON(Gop, gop_);
+        DARABONBA_PTR_TO_JSON(Height, height_);
+        DARABONBA_PTR_TO_JSON(Id, id_);
+        DARABONBA_PTR_TO_JSON(Name, name_);
+        DARABONBA_PTR_TO_JSON(VideoBitrate, videoBitrate_);
+        DARABONBA_PTR_TO_JSON(VideoCodec, videoCodec_);
+        DARABONBA_PTR_TO_JSON(Width, width_);
+      };
+      friend void from_json(const Darabonba::Json& j, TransConfigs& obj) { 
+        DARABONBA_PTR_FROM_JSON(Fps, fps_);
+        DARABONBA_PTR_FROM_JSON(Gop, gop_);
+        DARABONBA_PTR_FROM_JSON(Height, height_);
+        DARABONBA_PTR_FROM_JSON(Id, id_);
+        DARABONBA_PTR_FROM_JSON(Name, name_);
+        DARABONBA_PTR_FROM_JSON(VideoBitrate, videoBitrate_);
+        DARABONBA_PTR_FROM_JSON(VideoCodec, videoCodec_);
+        DARABONBA_PTR_FROM_JSON(Width, width_);
+      };
+      TransConfigs() = default ;
+      TransConfigs(const TransConfigs &) = default ;
+      TransConfigs(TransConfigs &&) = default ;
+      TransConfigs(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~TransConfigs() = default ;
+      TransConfigs& operator=(const TransConfigs &) = default ;
+      TransConfigs& operator=(TransConfigs &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->fps_ == nullptr
+        && this->gop_ == nullptr && this->height_ == nullptr && this->id_ == nullptr && this->name_ == nullptr && this->videoBitrate_ == nullptr
+        && this->videoCodec_ == nullptr && this->width_ == nullptr; };
+      // fps Field Functions 
+      bool hasFps() const { return this->fps_ != nullptr;};
+      void deleteFps() { this->fps_ = nullptr;};
+      inline int64_t getFps() const { DARABONBA_PTR_GET_DEFAULT(fps_, 0L) };
+      inline TransConfigs& setFps(int64_t fps) { DARABONBA_PTR_SET_VALUE(fps_, fps) };
+
+
+      // gop Field Functions 
+      bool hasGop() const { return this->gop_ != nullptr;};
+      void deleteGop() { this->gop_ = nullptr;};
+      inline int64_t getGop() const { DARABONBA_PTR_GET_DEFAULT(gop_, 0L) };
+      inline TransConfigs& setGop(int64_t gop) { DARABONBA_PTR_SET_VALUE(gop_, gop) };
+
+
+      // height Field Functions 
+      bool hasHeight() const { return this->height_ != nullptr;};
+      void deleteHeight() { this->height_ = nullptr;};
+      inline int64_t getHeight() const { DARABONBA_PTR_GET_DEFAULT(height_, 0L) };
+      inline TransConfigs& setHeight(int64_t height) { DARABONBA_PTR_SET_VALUE(height_, height) };
+
+
+      // id Field Functions 
+      bool hasId() const { return this->id_ != nullptr;};
+      void deleteId() { this->id_ = nullptr;};
+      inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+      inline TransConfigs& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+      // name Field Functions 
+      bool hasName() const { return this->name_ != nullptr;};
+      void deleteName() { this->name_ = nullptr;};
+      inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+      inline TransConfigs& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+      // videoBitrate Field Functions 
+      bool hasVideoBitrate() const { return this->videoBitrate_ != nullptr;};
+      void deleteVideoBitrate() { this->videoBitrate_ = nullptr;};
+      inline int64_t getVideoBitrate() const { DARABONBA_PTR_GET_DEFAULT(videoBitrate_, 0L) };
+      inline TransConfigs& setVideoBitrate(int64_t videoBitrate) { DARABONBA_PTR_SET_VALUE(videoBitrate_, videoBitrate) };
+
+
+      // videoCodec Field Functions 
+      bool hasVideoCodec() const { return this->videoCodec_ != nullptr;};
+      void deleteVideoCodec() { this->videoCodec_ = nullptr;};
+      inline string getVideoCodec() const { DARABONBA_PTR_GET_DEFAULT(videoCodec_, "") };
+      inline TransConfigs& setVideoCodec(string videoCodec) { DARABONBA_PTR_SET_VALUE(videoCodec_, videoCodec) };
+
+
+      // width Field Functions 
+      bool hasWidth() const { return this->width_ != nullptr;};
+      void deleteWidth() { this->width_ = nullptr;};
+      inline int64_t getWidth() const { DARABONBA_PTR_GET_DEFAULT(width_, 0L) };
+      inline TransConfigs& setWidth(int64_t width) { DARABONBA_PTR_SET_VALUE(width_, width) };
+
+
+    protected:
+      shared_ptr<int64_t> fps_ {};
+      shared_ptr<int64_t> gop_ {};
+      shared_ptr<int64_t> height_ {};
+      shared_ptr<string> id_ {};
+      shared_ptr<string> name_ {};
+      shared_ptr<int64_t> videoBitrate_ {};
+      shared_ptr<string> videoCodec_ {};
+      shared_ptr<int64_t> width_ {};
+    };
+
     virtual bool empty() const override { return this->callback_ == nullptr
-        && return this->createdTime_ == nullptr && return this->description_ == nullptr && return this->fileFormat_ == nullptr && return this->flv_ == nullptr && return this->hlsM3u8_ == nullptr
-        && return this->hlsTs_ == nullptr && return this->id_ == nullptr && return this->interval_ == nullptr && return this->jpgOnDemand_ == nullptr && return this->jpgOverwrite_ == nullptr
-        && return this->jpgSequence_ == nullptr && return this->mp4_ == nullptr && return this->name_ == nullptr && return this->ossBucket_ == nullptr && return this->ossEndpoint_ == nullptr
-        && return this->ossFilePrefix_ == nullptr && return this->region_ == nullptr && return this->requestId_ == nullptr && return this->retention_ == nullptr && return this->transConfigs_ == nullptr
-        && return this->trigger_ == nullptr && return this->type_ == nullptr; };
+        && this->createdTime_ == nullptr && this->description_ == nullptr && this->fileFormat_ == nullptr && this->flv_ == nullptr && this->hlsM3u8_ == nullptr
+        && this->hlsTs_ == nullptr && this->id_ == nullptr && this->interval_ == nullptr && this->jpgOnDemand_ == nullptr && this->jpgOverwrite_ == nullptr
+        && this->jpgSequence_ == nullptr && this->mp4_ == nullptr && this->name_ == nullptr && this->ossBucket_ == nullptr && this->ossEndpoint_ == nullptr
+        && this->ossFilePrefix_ == nullptr && this->region_ == nullptr && this->requestId_ == nullptr && this->retention_ == nullptr && this->transConfigs_ == nullptr
+        && this->trigger_ == nullptr && this->type_ == nullptr; };
     // callback Field Functions 
     bool hasCallback() const { return this->callback_ != nullptr;};
     void deleteCallback() { this->callback_ = nullptr;};
-    inline string callback() const { DARABONBA_PTR_GET_DEFAULT(callback_, "") };
+    inline string getCallback() const { DARABONBA_PTR_GET_DEFAULT(callback_, "") };
     inline DescribeTemplateResponseBody& setCallback(string callback) { DARABONBA_PTR_SET_VALUE(callback_, callback) };
 
 
     // createdTime Field Functions 
     bool hasCreatedTime() const { return this->createdTime_ != nullptr;};
     void deleteCreatedTime() { this->createdTime_ = nullptr;};
-    inline string createdTime() const { DARABONBA_PTR_GET_DEFAULT(createdTime_, "") };
+    inline string getCreatedTime() const { DARABONBA_PTR_GET_DEFAULT(createdTime_, "") };
     inline DescribeTemplateResponseBody& setCreatedTime(string createdTime) { DARABONBA_PTR_SET_VALUE(createdTime_, createdTime) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline DescribeTemplateResponseBody& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // fileFormat Field Functions 
     bool hasFileFormat() const { return this->fileFormat_ != nullptr;};
     void deleteFileFormat() { this->fileFormat_ = nullptr;};
-    inline string fileFormat() const { DARABONBA_PTR_GET_DEFAULT(fileFormat_, "") };
+    inline string getFileFormat() const { DARABONBA_PTR_GET_DEFAULT(fileFormat_, "") };
     inline DescribeTemplateResponseBody& setFileFormat(string fileFormat) { DARABONBA_PTR_SET_VALUE(fileFormat_, fileFormat) };
 
 
     // flv Field Functions 
     bool hasFlv() const { return this->flv_ != nullptr;};
     void deleteFlv() { this->flv_ = nullptr;};
-    inline string flv() const { DARABONBA_PTR_GET_DEFAULT(flv_, "") };
+    inline string getFlv() const { DARABONBA_PTR_GET_DEFAULT(flv_, "") };
     inline DescribeTemplateResponseBody& setFlv(string flv) { DARABONBA_PTR_SET_VALUE(flv_, flv) };
 
 
     // hlsM3u8 Field Functions 
     bool hasHlsM3u8() const { return this->hlsM3u8_ != nullptr;};
     void deleteHlsM3u8() { this->hlsM3u8_ = nullptr;};
-    inline string hlsM3u8() const { DARABONBA_PTR_GET_DEFAULT(hlsM3u8_, "") };
+    inline string getHlsM3u8() const { DARABONBA_PTR_GET_DEFAULT(hlsM3u8_, "") };
     inline DescribeTemplateResponseBody& setHlsM3u8(string hlsM3u8) { DARABONBA_PTR_SET_VALUE(hlsM3u8_, hlsM3u8) };
 
 
     // hlsTs Field Functions 
     bool hasHlsTs() const { return this->hlsTs_ != nullptr;};
     void deleteHlsTs() { this->hlsTs_ = nullptr;};
-    inline string hlsTs() const { DARABONBA_PTR_GET_DEFAULT(hlsTs_, "") };
+    inline string getHlsTs() const { DARABONBA_PTR_GET_DEFAULT(hlsTs_, "") };
     inline DescribeTemplateResponseBody& setHlsTs(string hlsTs) { DARABONBA_PTR_SET_VALUE(hlsTs_, hlsTs) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline string id() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+    inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline DescribeTemplateResponseBody& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // interval Field Functions 
     bool hasInterval() const { return this->interval_ != nullptr;};
     void deleteInterval() { this->interval_ = nullptr;};
-    inline int64_t interval() const { DARABONBA_PTR_GET_DEFAULT(interval_, 0L) };
+    inline int64_t getInterval() const { DARABONBA_PTR_GET_DEFAULT(interval_, 0L) };
     inline DescribeTemplateResponseBody& setInterval(int64_t interval) { DARABONBA_PTR_SET_VALUE(interval_, interval) };
 
 
     // jpgOnDemand Field Functions 
     bool hasJpgOnDemand() const { return this->jpgOnDemand_ != nullptr;};
     void deleteJpgOnDemand() { this->jpgOnDemand_ = nullptr;};
-    inline string jpgOnDemand() const { DARABONBA_PTR_GET_DEFAULT(jpgOnDemand_, "") };
+    inline string getJpgOnDemand() const { DARABONBA_PTR_GET_DEFAULT(jpgOnDemand_, "") };
     inline DescribeTemplateResponseBody& setJpgOnDemand(string jpgOnDemand) { DARABONBA_PTR_SET_VALUE(jpgOnDemand_, jpgOnDemand) };
 
 
     // jpgOverwrite Field Functions 
     bool hasJpgOverwrite() const { return this->jpgOverwrite_ != nullptr;};
     void deleteJpgOverwrite() { this->jpgOverwrite_ = nullptr;};
-    inline string jpgOverwrite() const { DARABONBA_PTR_GET_DEFAULT(jpgOverwrite_, "") };
+    inline string getJpgOverwrite() const { DARABONBA_PTR_GET_DEFAULT(jpgOverwrite_, "") };
     inline DescribeTemplateResponseBody& setJpgOverwrite(string jpgOverwrite) { DARABONBA_PTR_SET_VALUE(jpgOverwrite_, jpgOverwrite) };
 
 
     // jpgSequence Field Functions 
     bool hasJpgSequence() const { return this->jpgSequence_ != nullptr;};
     void deleteJpgSequence() { this->jpgSequence_ = nullptr;};
-    inline string jpgSequence() const { DARABONBA_PTR_GET_DEFAULT(jpgSequence_, "") };
+    inline string getJpgSequence() const { DARABONBA_PTR_GET_DEFAULT(jpgSequence_, "") };
     inline DescribeTemplateResponseBody& setJpgSequence(string jpgSequence) { DARABONBA_PTR_SET_VALUE(jpgSequence_, jpgSequence) };
 
 
     // mp4 Field Functions 
     bool hasMp4() const { return this->mp4_ != nullptr;};
     void deleteMp4() { this->mp4_ = nullptr;};
-    inline string mp4() const { DARABONBA_PTR_GET_DEFAULT(mp4_, "") };
+    inline string getMp4() const { DARABONBA_PTR_GET_DEFAULT(mp4_, "") };
     inline DescribeTemplateResponseBody& setMp4(string mp4) { DARABONBA_PTR_SET_VALUE(mp4_, mp4) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline DescribeTemplateResponseBody& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // ossBucket Field Functions 
     bool hasOssBucket() const { return this->ossBucket_ != nullptr;};
     void deleteOssBucket() { this->ossBucket_ = nullptr;};
-    inline string ossBucket() const { DARABONBA_PTR_GET_DEFAULT(ossBucket_, "") };
+    inline string getOssBucket() const { DARABONBA_PTR_GET_DEFAULT(ossBucket_, "") };
     inline DescribeTemplateResponseBody& setOssBucket(string ossBucket) { DARABONBA_PTR_SET_VALUE(ossBucket_, ossBucket) };
 
 
     // ossEndpoint Field Functions 
     bool hasOssEndpoint() const { return this->ossEndpoint_ != nullptr;};
     void deleteOssEndpoint() { this->ossEndpoint_ = nullptr;};
-    inline string ossEndpoint() const { DARABONBA_PTR_GET_DEFAULT(ossEndpoint_, "") };
+    inline string getOssEndpoint() const { DARABONBA_PTR_GET_DEFAULT(ossEndpoint_, "") };
     inline DescribeTemplateResponseBody& setOssEndpoint(string ossEndpoint) { DARABONBA_PTR_SET_VALUE(ossEndpoint_, ossEndpoint) };
 
 
     // ossFilePrefix Field Functions 
     bool hasOssFilePrefix() const { return this->ossFilePrefix_ != nullptr;};
     void deleteOssFilePrefix() { this->ossFilePrefix_ = nullptr;};
-    inline string ossFilePrefix() const { DARABONBA_PTR_GET_DEFAULT(ossFilePrefix_, "") };
+    inline string getOssFilePrefix() const { DARABONBA_PTR_GET_DEFAULT(ossFilePrefix_, "") };
     inline DescribeTemplateResponseBody& setOssFilePrefix(string ossFilePrefix) { DARABONBA_PTR_SET_VALUE(ossFilePrefix_, ossFilePrefix) };
 
 
     // region Field Functions 
     bool hasRegion() const { return this->region_ != nullptr;};
     void deleteRegion() { this->region_ = nullptr;};
-    inline string region() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
+    inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
     inline DescribeTemplateResponseBody& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeTemplateResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // retention Field Functions 
     bool hasRetention() const { return this->retention_ != nullptr;};
     void deleteRetention() { this->retention_ = nullptr;};
-    inline int64_t retention() const { DARABONBA_PTR_GET_DEFAULT(retention_, 0L) };
+    inline int64_t getRetention() const { DARABONBA_PTR_GET_DEFAULT(retention_, 0L) };
     inline DescribeTemplateResponseBody& setRetention(int64_t retention) { DARABONBA_PTR_SET_VALUE(retention_, retention) };
 
 
     // transConfigs Field Functions 
     bool hasTransConfigs() const { return this->transConfigs_ != nullptr;};
     void deleteTransConfigs() { this->transConfigs_ = nullptr;};
-    inline const vector<DescribeTemplateResponseBodyTransConfigs> & transConfigs() const { DARABONBA_PTR_GET_CONST(transConfigs_, vector<DescribeTemplateResponseBodyTransConfigs>) };
-    inline vector<DescribeTemplateResponseBodyTransConfigs> transConfigs() { DARABONBA_PTR_GET(transConfigs_, vector<DescribeTemplateResponseBodyTransConfigs>) };
-    inline DescribeTemplateResponseBody& setTransConfigs(const vector<DescribeTemplateResponseBodyTransConfigs> & transConfigs) { DARABONBA_PTR_SET_VALUE(transConfigs_, transConfigs) };
-    inline DescribeTemplateResponseBody& setTransConfigs(vector<DescribeTemplateResponseBodyTransConfigs> && transConfigs) { DARABONBA_PTR_SET_RVALUE(transConfigs_, transConfigs) };
+    inline const vector<DescribeTemplateResponseBody::TransConfigs> & getTransConfigs() const { DARABONBA_PTR_GET_CONST(transConfigs_, vector<DescribeTemplateResponseBody::TransConfigs>) };
+    inline vector<DescribeTemplateResponseBody::TransConfigs> getTransConfigs() { DARABONBA_PTR_GET(transConfigs_, vector<DescribeTemplateResponseBody::TransConfigs>) };
+    inline DescribeTemplateResponseBody& setTransConfigs(const vector<DescribeTemplateResponseBody::TransConfigs> & transConfigs) { DARABONBA_PTR_SET_VALUE(transConfigs_, transConfigs) };
+    inline DescribeTemplateResponseBody& setTransConfigs(vector<DescribeTemplateResponseBody::TransConfigs> && transConfigs) { DARABONBA_PTR_SET_RVALUE(transConfigs_, transConfigs) };
 
 
     // trigger Field Functions 
     bool hasTrigger() const { return this->trigger_ != nullptr;};
     void deleteTrigger() { this->trigger_ = nullptr;};
-    inline string trigger() const { DARABONBA_PTR_GET_DEFAULT(trigger_, "") };
+    inline string getTrigger() const { DARABONBA_PTR_GET_DEFAULT(trigger_, "") };
     inline DescribeTemplateResponseBody& setTrigger(string trigger) { DARABONBA_PTR_SET_VALUE(trigger_, trigger) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline DescribeTemplateResponseBody& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
-    std::shared_ptr<string> callback_ = nullptr;
-    std::shared_ptr<string> createdTime_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<string> fileFormat_ = nullptr;
-    std::shared_ptr<string> flv_ = nullptr;
-    std::shared_ptr<string> hlsM3u8_ = nullptr;
-    std::shared_ptr<string> hlsTs_ = nullptr;
-    std::shared_ptr<string> id_ = nullptr;
-    std::shared_ptr<int64_t> interval_ = nullptr;
-    std::shared_ptr<string> jpgOnDemand_ = nullptr;
-    std::shared_ptr<string> jpgOverwrite_ = nullptr;
-    std::shared_ptr<string> jpgSequence_ = nullptr;
-    std::shared_ptr<string> mp4_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> ossBucket_ = nullptr;
-    std::shared_ptr<string> ossEndpoint_ = nullptr;
-    std::shared_ptr<string> ossFilePrefix_ = nullptr;
-    std::shared_ptr<string> region_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<int64_t> retention_ = nullptr;
-    std::shared_ptr<vector<DescribeTemplateResponseBodyTransConfigs>> transConfigs_ = nullptr;
-    std::shared_ptr<string> trigger_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> callback_ {};
+    shared_ptr<string> createdTime_ {};
+    shared_ptr<string> description_ {};
+    shared_ptr<string> fileFormat_ {};
+    shared_ptr<string> flv_ {};
+    shared_ptr<string> hlsM3u8_ {};
+    shared_ptr<string> hlsTs_ {};
+    shared_ptr<string> id_ {};
+    shared_ptr<int64_t> interval_ {};
+    shared_ptr<string> jpgOnDemand_ {};
+    shared_ptr<string> jpgOverwrite_ {};
+    shared_ptr<string> jpgSequence_ {};
+    shared_ptr<string> mp4_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<string> ossBucket_ {};
+    shared_ptr<string> ossEndpoint_ {};
+    shared_ptr<string> ossFilePrefix_ {};
+    shared_ptr<string> region_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<int64_t> retention_ {};
+    shared_ptr<vector<DescribeTemplateResponseBody::TransConfigs>> transConfigs_ {};
+    shared_ptr<string> trigger_ {};
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

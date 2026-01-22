@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cmdId_ == nullptr
-        && return this->renderingInstanceId_ == nullptr; };
+        && this->renderingInstanceId_ == nullptr; };
     // cmdId Field Functions 
     bool hasCmdId() const { return this->cmdId_ != nullptr;};
     void deleteCmdId() { this->cmdId_ = nullptr;};
-    inline string cmdId() const { DARABONBA_PTR_GET_DEFAULT(cmdId_, "") };
+    inline string getCmdId() const { DARABONBA_PTR_GET_DEFAULT(cmdId_, "") };
     inline GetRenderingInstanceCommandsStatusRequest& setCmdId(string cmdId) { DARABONBA_PTR_SET_VALUE(cmdId_, cmdId) };
 
 
     // renderingInstanceId Field Functions 
     bool hasRenderingInstanceId() const { return this->renderingInstanceId_ != nullptr;};
     void deleteRenderingInstanceId() { this->renderingInstanceId_ = nullptr;};
-    inline string renderingInstanceId() const { DARABONBA_PTR_GET_DEFAULT(renderingInstanceId_, "") };
+    inline string getRenderingInstanceId() const { DARABONBA_PTR_GET_DEFAULT(renderingInstanceId_, "") };
     inline GetRenderingInstanceCommandsStatusRequest& setRenderingInstanceId(string renderingInstanceId) { DARABONBA_PTR_SET_VALUE(renderingInstanceId_, renderingInstanceId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> cmdId_ = nullptr;
+    shared_ptr<string> cmdId_ {};
     // This parameter is required.
-    std::shared_ptr<string> renderingInstanceId_ = nullptr;
+    shared_ptr<string> renderingInstanceId_ {};
   };
 
   } // namespace Models

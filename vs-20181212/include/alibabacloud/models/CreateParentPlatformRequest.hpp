@@ -50,101 +50,101 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoStart_ == nullptr
-        && return this->clientAuth_ == nullptr && return this->clientPassword_ == nullptr && return this->clientUsername_ == nullptr && return this->description_ == nullptr && return this->gbId_ == nullptr
-        && return this->ip_ == nullptr && return this->name_ == nullptr && return this->ownerId_ == nullptr && return this->port_ == nullptr && return this->protocol_ == nullptr; };
+        && this->clientAuth_ == nullptr && this->clientPassword_ == nullptr && this->clientUsername_ == nullptr && this->description_ == nullptr && this->gbId_ == nullptr
+        && this->ip_ == nullptr && this->name_ == nullptr && this->ownerId_ == nullptr && this->port_ == nullptr && this->protocol_ == nullptr; };
     // autoStart Field Functions 
     bool hasAutoStart() const { return this->autoStart_ != nullptr;};
     void deleteAutoStart() { this->autoStart_ = nullptr;};
-    inline bool autoStart() const { DARABONBA_PTR_GET_DEFAULT(autoStart_, false) };
+    inline bool getAutoStart() const { DARABONBA_PTR_GET_DEFAULT(autoStart_, false) };
     inline CreateParentPlatformRequest& setAutoStart(bool autoStart) { DARABONBA_PTR_SET_VALUE(autoStart_, autoStart) };
 
 
     // clientAuth Field Functions 
     bool hasClientAuth() const { return this->clientAuth_ != nullptr;};
     void deleteClientAuth() { this->clientAuth_ = nullptr;};
-    inline bool clientAuth() const { DARABONBA_PTR_GET_DEFAULT(clientAuth_, false) };
+    inline bool getClientAuth() const { DARABONBA_PTR_GET_DEFAULT(clientAuth_, false) };
     inline CreateParentPlatformRequest& setClientAuth(bool clientAuth) { DARABONBA_PTR_SET_VALUE(clientAuth_, clientAuth) };
 
 
     // clientPassword Field Functions 
     bool hasClientPassword() const { return this->clientPassword_ != nullptr;};
     void deleteClientPassword() { this->clientPassword_ = nullptr;};
-    inline string clientPassword() const { DARABONBA_PTR_GET_DEFAULT(clientPassword_, "") };
+    inline string getClientPassword() const { DARABONBA_PTR_GET_DEFAULT(clientPassword_, "") };
     inline CreateParentPlatformRequest& setClientPassword(string clientPassword) { DARABONBA_PTR_SET_VALUE(clientPassword_, clientPassword) };
 
 
     // clientUsername Field Functions 
     bool hasClientUsername() const { return this->clientUsername_ != nullptr;};
     void deleteClientUsername() { this->clientUsername_ = nullptr;};
-    inline string clientUsername() const { DARABONBA_PTR_GET_DEFAULT(clientUsername_, "") };
+    inline string getClientUsername() const { DARABONBA_PTR_GET_DEFAULT(clientUsername_, "") };
     inline CreateParentPlatformRequest& setClientUsername(string clientUsername) { DARABONBA_PTR_SET_VALUE(clientUsername_, clientUsername) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateParentPlatformRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // gbId Field Functions 
     bool hasGbId() const { return this->gbId_ != nullptr;};
     void deleteGbId() { this->gbId_ = nullptr;};
-    inline string gbId() const { DARABONBA_PTR_GET_DEFAULT(gbId_, "") };
+    inline string getGbId() const { DARABONBA_PTR_GET_DEFAULT(gbId_, "") };
     inline CreateParentPlatformRequest& setGbId(string gbId) { DARABONBA_PTR_SET_VALUE(gbId_, gbId) };
 
 
     // ip Field Functions 
     bool hasIp() const { return this->ip_ != nullptr;};
     void deleteIp() { this->ip_ = nullptr;};
-    inline string ip() const { DARABONBA_PTR_GET_DEFAULT(ip_, "") };
+    inline string getIp() const { DARABONBA_PTR_GET_DEFAULT(ip_, "") };
     inline CreateParentPlatformRequest& setIp(string ip) { DARABONBA_PTR_SET_VALUE(ip_, ip) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateParentPlatformRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline CreateParentPlatformRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // port Field Functions 
     bool hasPort() const { return this->port_ != nullptr;};
     void deletePort() { this->port_ = nullptr;};
-    inline int64_t port() const { DARABONBA_PTR_GET_DEFAULT(port_, 0L) };
+    inline int64_t getPort() const { DARABONBA_PTR_GET_DEFAULT(port_, 0L) };
     inline CreateParentPlatformRequest& setPort(int64_t port) { DARABONBA_PTR_SET_VALUE(port_, port) };
 
 
     // protocol Field Functions 
     bool hasProtocol() const { return this->protocol_ != nullptr;};
     void deleteProtocol() { this->protocol_ = nullptr;};
-    inline string protocol() const { DARABONBA_PTR_GET_DEFAULT(protocol_, "") };
+    inline string getProtocol() const { DARABONBA_PTR_GET_DEFAULT(protocol_, "") };
     inline CreateParentPlatformRequest& setProtocol(string protocol) { DARABONBA_PTR_SET_VALUE(protocol_, protocol) };
 
 
   protected:
-    std::shared_ptr<bool> autoStart_ = nullptr;
-    std::shared_ptr<bool> clientAuth_ = nullptr;
-    std::shared_ptr<string> clientPassword_ = nullptr;
-    std::shared_ptr<string> clientUsername_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<bool> autoStart_ {};
+    shared_ptr<bool> clientAuth_ {};
+    shared_ptr<string> clientPassword_ {};
+    shared_ptr<string> clientUsername_ {};
+    shared_ptr<string> description_ {};
     // This parameter is required.
-    std::shared_ptr<string> gbId_ = nullptr;
+    shared_ptr<string> gbId_ {};
     // This parameter is required.
-    std::shared_ptr<string> ip_ = nullptr;
+    shared_ptr<string> ip_ {};
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<string> name_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> port_ = nullptr;
-    std::shared_ptr<string> protocol_ = nullptr;
+    shared_ptr<int64_t> port_ {};
+    shared_ptr<string> protocol_ {};
   };
 
   } // namespace Models

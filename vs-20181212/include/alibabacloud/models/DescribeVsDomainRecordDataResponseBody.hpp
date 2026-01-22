@@ -2,7 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_DESCRIBEVSDOMAINRECORDDATARESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_DESCRIBEVSDOMAINRECORDDATARESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/DescribeVsDomainRecordDataResponseBodyRecordDataPerInterval.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -32,27 +32,112 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class RecordDataPerInterval : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const RecordDataPerInterval& obj) { 
+        DARABONBA_PTR_TO_JSON(DataModule, dataModule_);
+      };
+      friend void from_json(const Darabonba::Json& j, RecordDataPerInterval& obj) { 
+        DARABONBA_PTR_FROM_JSON(DataModule, dataModule_);
+      };
+      RecordDataPerInterval() = default ;
+      RecordDataPerInterval(const RecordDataPerInterval &) = default ;
+      RecordDataPerInterval(RecordDataPerInterval &&) = default ;
+      RecordDataPerInterval(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~RecordDataPerInterval() = default ;
+      RecordDataPerInterval& operator=(const RecordDataPerInterval &) = default ;
+      RecordDataPerInterval& operator=(RecordDataPerInterval &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class DataModule : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const DataModule& obj) { 
+          DARABONBA_PTR_TO_JSON(RecordValue, recordValue_);
+          DARABONBA_PTR_TO_JSON(StreamCountValue, streamCountValue_);
+          DARABONBA_PTR_TO_JSON(TimeStamp, timeStamp_);
+        };
+        friend void from_json(const Darabonba::Json& j, DataModule& obj) { 
+          DARABONBA_PTR_FROM_JSON(RecordValue, recordValue_);
+          DARABONBA_PTR_FROM_JSON(StreamCountValue, streamCountValue_);
+          DARABONBA_PTR_FROM_JSON(TimeStamp, timeStamp_);
+        };
+        DataModule() = default ;
+        DataModule(const DataModule &) = default ;
+        DataModule(DataModule &&) = default ;
+        DataModule(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~DataModule() = default ;
+        DataModule& operator=(const DataModule &) = default ;
+        DataModule& operator=(DataModule &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->recordValue_ == nullptr
+        && this->streamCountValue_ == nullptr && this->timeStamp_ == nullptr; };
+        // recordValue Field Functions 
+        bool hasRecordValue() const { return this->recordValue_ != nullptr;};
+        void deleteRecordValue() { this->recordValue_ = nullptr;};
+        inline string getRecordValue() const { DARABONBA_PTR_GET_DEFAULT(recordValue_, "") };
+        inline DataModule& setRecordValue(string recordValue) { DARABONBA_PTR_SET_VALUE(recordValue_, recordValue) };
+
+
+        // streamCountValue Field Functions 
+        bool hasStreamCountValue() const { return this->streamCountValue_ != nullptr;};
+        void deleteStreamCountValue() { this->streamCountValue_ = nullptr;};
+        inline string getStreamCountValue() const { DARABONBA_PTR_GET_DEFAULT(streamCountValue_, "") };
+        inline DataModule& setStreamCountValue(string streamCountValue) { DARABONBA_PTR_SET_VALUE(streamCountValue_, streamCountValue) };
+
+
+        // timeStamp Field Functions 
+        bool hasTimeStamp() const { return this->timeStamp_ != nullptr;};
+        void deleteTimeStamp() { this->timeStamp_ = nullptr;};
+        inline string getTimeStamp() const { DARABONBA_PTR_GET_DEFAULT(timeStamp_, "") };
+        inline DataModule& setTimeStamp(string timeStamp) { DARABONBA_PTR_SET_VALUE(timeStamp_, timeStamp) };
+
+
+      protected:
+        shared_ptr<string> recordValue_ {};
+        shared_ptr<string> streamCountValue_ {};
+        shared_ptr<string> timeStamp_ {};
+      };
+
+      virtual bool empty() const override { return this->dataModule_ == nullptr; };
+      // dataModule Field Functions 
+      bool hasDataModule() const { return this->dataModule_ != nullptr;};
+      void deleteDataModule() { this->dataModule_ = nullptr;};
+      inline const vector<RecordDataPerInterval::DataModule> & getDataModule() const { DARABONBA_PTR_GET_CONST(dataModule_, vector<RecordDataPerInterval::DataModule>) };
+      inline vector<RecordDataPerInterval::DataModule> getDataModule() { DARABONBA_PTR_GET(dataModule_, vector<RecordDataPerInterval::DataModule>) };
+      inline RecordDataPerInterval& setDataModule(const vector<RecordDataPerInterval::DataModule> & dataModule) { DARABONBA_PTR_SET_VALUE(dataModule_, dataModule) };
+      inline RecordDataPerInterval& setDataModule(vector<RecordDataPerInterval::DataModule> && dataModule) { DARABONBA_PTR_SET_RVALUE(dataModule_, dataModule) };
+
+
+    protected:
+      shared_ptr<vector<RecordDataPerInterval::DataModule>> dataModule_ {};
+    };
+
     virtual bool empty() const override { return this->recordDataPerInterval_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // recordDataPerInterval Field Functions 
     bool hasRecordDataPerInterval() const { return this->recordDataPerInterval_ != nullptr;};
     void deleteRecordDataPerInterval() { this->recordDataPerInterval_ = nullptr;};
-    inline const DescribeVsDomainRecordDataResponseBodyRecordDataPerInterval & recordDataPerInterval() const { DARABONBA_PTR_GET_CONST(recordDataPerInterval_, DescribeVsDomainRecordDataResponseBodyRecordDataPerInterval) };
-    inline DescribeVsDomainRecordDataResponseBodyRecordDataPerInterval recordDataPerInterval() { DARABONBA_PTR_GET(recordDataPerInterval_, DescribeVsDomainRecordDataResponseBodyRecordDataPerInterval) };
-    inline DescribeVsDomainRecordDataResponseBody& setRecordDataPerInterval(const DescribeVsDomainRecordDataResponseBodyRecordDataPerInterval & recordDataPerInterval) { DARABONBA_PTR_SET_VALUE(recordDataPerInterval_, recordDataPerInterval) };
-    inline DescribeVsDomainRecordDataResponseBody& setRecordDataPerInterval(DescribeVsDomainRecordDataResponseBodyRecordDataPerInterval && recordDataPerInterval) { DARABONBA_PTR_SET_RVALUE(recordDataPerInterval_, recordDataPerInterval) };
+    inline const DescribeVsDomainRecordDataResponseBody::RecordDataPerInterval & getRecordDataPerInterval() const { DARABONBA_PTR_GET_CONST(recordDataPerInterval_, DescribeVsDomainRecordDataResponseBody::RecordDataPerInterval) };
+    inline DescribeVsDomainRecordDataResponseBody::RecordDataPerInterval getRecordDataPerInterval() { DARABONBA_PTR_GET(recordDataPerInterval_, DescribeVsDomainRecordDataResponseBody::RecordDataPerInterval) };
+    inline DescribeVsDomainRecordDataResponseBody& setRecordDataPerInterval(const DescribeVsDomainRecordDataResponseBody::RecordDataPerInterval & recordDataPerInterval) { DARABONBA_PTR_SET_VALUE(recordDataPerInterval_, recordDataPerInterval) };
+    inline DescribeVsDomainRecordDataResponseBody& setRecordDataPerInterval(DescribeVsDomainRecordDataResponseBody::RecordDataPerInterval && recordDataPerInterval) { DARABONBA_PTR_SET_RVALUE(recordDataPerInterval_, recordDataPerInterval) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeVsDomainRecordDataResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<DescribeVsDomainRecordDataResponseBodyRecordDataPerInterval> recordDataPerInterval_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<DescribeVsDomainRecordDataResponseBody::RecordDataPerInterval> recordDataPerInterval_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

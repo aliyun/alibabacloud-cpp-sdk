@@ -45,55 +45,55 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appName_ == nullptr
-        && return this->appVersion_ == nullptr && return this->description_ == nullptr && return this->downloadUrl_ == nullptr && return this->md5_ == nullptr && return this->pkgFormat_ == nullptr
-        && return this->pkgLabels_ == nullptr && return this->pkgType_ == nullptr; };
+        && this->appVersion_ == nullptr && this->description_ == nullptr && this->downloadUrl_ == nullptr && this->md5_ == nullptr && this->pkgFormat_ == nullptr
+        && this->pkgLabels_ == nullptr && this->pkgType_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
-    inline string appName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
+    inline string getAppName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
     inline UploadCloudAppRequest& setAppName(string appName) { DARABONBA_PTR_SET_VALUE(appName_, appName) };
 
 
     // appVersion Field Functions 
     bool hasAppVersion() const { return this->appVersion_ != nullptr;};
     void deleteAppVersion() { this->appVersion_ = nullptr;};
-    inline string appVersion() const { DARABONBA_PTR_GET_DEFAULT(appVersion_, "") };
+    inline string getAppVersion() const { DARABONBA_PTR_GET_DEFAULT(appVersion_, "") };
     inline UploadCloudAppRequest& setAppVersion(string appVersion) { DARABONBA_PTR_SET_VALUE(appVersion_, appVersion) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline UploadCloudAppRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // downloadUrl Field Functions 
     bool hasDownloadUrl() const { return this->downloadUrl_ != nullptr;};
     void deleteDownloadUrl() { this->downloadUrl_ = nullptr;};
-    inline string downloadUrl() const { DARABONBA_PTR_GET_DEFAULT(downloadUrl_, "") };
+    inline string getDownloadUrl() const { DARABONBA_PTR_GET_DEFAULT(downloadUrl_, "") };
     inline UploadCloudAppRequest& setDownloadUrl(string downloadUrl) { DARABONBA_PTR_SET_VALUE(downloadUrl_, downloadUrl) };
 
 
     // md5 Field Functions 
     bool hasMd5() const { return this->md5_ != nullptr;};
     void deleteMd5() { this->md5_ = nullptr;};
-    inline string md5() const { DARABONBA_PTR_GET_DEFAULT(md5_, "") };
+    inline string getMd5() const { DARABONBA_PTR_GET_DEFAULT(md5_, "") };
     inline UploadCloudAppRequest& setMd5(string md5) { DARABONBA_PTR_SET_VALUE(md5_, md5) };
 
 
     // pkgFormat Field Functions 
     bool hasPkgFormat() const { return this->pkgFormat_ != nullptr;};
     void deletePkgFormat() { this->pkgFormat_ = nullptr;};
-    inline string pkgFormat() const { DARABONBA_PTR_GET_DEFAULT(pkgFormat_, "") };
+    inline string getPkgFormat() const { DARABONBA_PTR_GET_DEFAULT(pkgFormat_, "") };
     inline UploadCloudAppRequest& setPkgFormat(string pkgFormat) { DARABONBA_PTR_SET_VALUE(pkgFormat_, pkgFormat) };
 
 
     // pkgLabels Field Functions 
     bool hasPkgLabels() const { return this->pkgLabels_ != nullptr;};
     void deletePkgLabels() { this->pkgLabels_ = nullptr;};
-    inline const vector<string> & pkgLabels() const { DARABONBA_PTR_GET_CONST(pkgLabels_, vector<string>) };
-    inline vector<string> pkgLabels() { DARABONBA_PTR_GET(pkgLabels_, vector<string>) };
+    inline const vector<string> & getPkgLabels() const { DARABONBA_PTR_GET_CONST(pkgLabels_, vector<string>) };
+    inline vector<string> getPkgLabels() { DARABONBA_PTR_GET(pkgLabels_, vector<string>) };
     inline UploadCloudAppRequest& setPkgLabels(const vector<string> & pkgLabels) { DARABONBA_PTR_SET_VALUE(pkgLabels_, pkgLabels) };
     inline UploadCloudAppRequest& setPkgLabels(vector<string> && pkgLabels) { DARABONBA_PTR_SET_RVALUE(pkgLabels_, pkgLabels) };
 
@@ -101,23 +101,23 @@ namespace Models
     // pkgType Field Functions 
     bool hasPkgType() const { return this->pkgType_ != nullptr;};
     void deletePkgType() { this->pkgType_ = nullptr;};
-    inline string pkgType() const { DARABONBA_PTR_GET_DEFAULT(pkgType_, "") };
+    inline string getPkgType() const { DARABONBA_PTR_GET_DEFAULT(pkgType_, "") };
     inline UploadCloudAppRequest& setPkgType(string pkgType) { DARABONBA_PTR_SET_VALUE(pkgType_, pkgType) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> appName_ = nullptr;
+    shared_ptr<string> appName_ {};
     // This parameter is required.
-    std::shared_ptr<string> appVersion_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> appVersion_ {};
+    shared_ptr<string> description_ {};
     // This parameter is required.
-    std::shared_ptr<string> downloadUrl_ = nullptr;
+    shared_ptr<string> downloadUrl_ {};
     // This parameter is required.
-    std::shared_ptr<string> md5_ = nullptr;
-    std::shared_ptr<string> pkgFormat_ = nullptr;
-    std::shared_ptr<vector<string>> pkgLabels_ = nullptr;
-    std::shared_ptr<string> pkgType_ = nullptr;
+    shared_ptr<string> md5_ {};
+    shared_ptr<string> pkgFormat_ {};
+    shared_ptr<vector<string>> pkgLabels_ {};
+    shared_ptr<string> pkgType_ {};
   };
 
   } // namespace Models

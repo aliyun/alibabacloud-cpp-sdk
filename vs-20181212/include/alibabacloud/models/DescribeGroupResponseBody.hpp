@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_DESCRIBEGROUPRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/DescribeGroupResponseBodyStats.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -73,80 +72,142 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Stats : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Stats& obj) { 
+        DARABONBA_PTR_TO_JSON(DeviceNum, deviceNum_);
+        DARABONBA_PTR_TO_JSON(IedNum, iedNum_);
+        DARABONBA_PTR_TO_JSON(IpcNum, ipcNum_);
+        DARABONBA_PTR_TO_JSON(PlatformNum, platformNum_);
+      };
+      friend void from_json(const Darabonba::Json& j, Stats& obj) { 
+        DARABONBA_PTR_FROM_JSON(DeviceNum, deviceNum_);
+        DARABONBA_PTR_FROM_JSON(IedNum, iedNum_);
+        DARABONBA_PTR_FROM_JSON(IpcNum, ipcNum_);
+        DARABONBA_PTR_FROM_JSON(PlatformNum, platformNum_);
+      };
+      Stats() = default ;
+      Stats(const Stats &) = default ;
+      Stats(Stats &&) = default ;
+      Stats(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Stats() = default ;
+      Stats& operator=(const Stats &) = default ;
+      Stats& operator=(Stats &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->deviceNum_ == nullptr
+        && this->iedNum_ == nullptr && this->ipcNum_ == nullptr && this->platformNum_ == nullptr; };
+      // deviceNum Field Functions 
+      bool hasDeviceNum() const { return this->deviceNum_ != nullptr;};
+      void deleteDeviceNum() { this->deviceNum_ = nullptr;};
+      inline int64_t getDeviceNum() const { DARABONBA_PTR_GET_DEFAULT(deviceNum_, 0L) };
+      inline Stats& setDeviceNum(int64_t deviceNum) { DARABONBA_PTR_SET_VALUE(deviceNum_, deviceNum) };
+
+
+      // iedNum Field Functions 
+      bool hasIedNum() const { return this->iedNum_ != nullptr;};
+      void deleteIedNum() { this->iedNum_ = nullptr;};
+      inline int64_t getIedNum() const { DARABONBA_PTR_GET_DEFAULT(iedNum_, 0L) };
+      inline Stats& setIedNum(int64_t iedNum) { DARABONBA_PTR_SET_VALUE(iedNum_, iedNum) };
+
+
+      // ipcNum Field Functions 
+      bool hasIpcNum() const { return this->ipcNum_ != nullptr;};
+      void deleteIpcNum() { this->ipcNum_ = nullptr;};
+      inline int64_t getIpcNum() const { DARABONBA_PTR_GET_DEFAULT(ipcNum_, 0L) };
+      inline Stats& setIpcNum(int64_t ipcNum) { DARABONBA_PTR_SET_VALUE(ipcNum_, ipcNum) };
+
+
+      // platformNum Field Functions 
+      bool hasPlatformNum() const { return this->platformNum_ != nullptr;};
+      void deletePlatformNum() { this->platformNum_ = nullptr;};
+      inline int64_t getPlatformNum() const { DARABONBA_PTR_GET_DEFAULT(platformNum_, 0L) };
+      inline Stats& setPlatformNum(int64_t platformNum) { DARABONBA_PTR_SET_VALUE(platformNum_, platformNum) };
+
+
+    protected:
+      shared_ptr<int64_t> deviceNum_ {};
+      shared_ptr<int64_t> iedNum_ {};
+      shared_ptr<int64_t> ipcNum_ {};
+      shared_ptr<int64_t> platformNum_ {};
+    };
+
     virtual bool empty() const override { return this->aliasId_ == nullptr
-        && return this->app_ == nullptr && return this->callback_ == nullptr && return this->createdTime_ == nullptr && return this->description_ == nullptr && return this->enabled_ == nullptr
-        && return this->gbId_ == nullptr && return this->gbIp_ == nullptr && return this->gbPort_ == nullptr && return this->gbTcpPorts_ == nullptr && return this->gbUdpPorts_ == nullptr
-        && return this->id_ == nullptr && return this->inProtocol_ == nullptr && return this->lazyPull_ == nullptr && return this->name_ == nullptr && return this->outProtocol_ == nullptr
-        && return this->playDomain_ == nullptr && return this->pushDomain_ == nullptr && return this->region_ == nullptr && return this->requestId_ == nullptr && return this->stats_ == nullptr
-        && return this->status_ == nullptr; };
+        && this->app_ == nullptr && this->callback_ == nullptr && this->createdTime_ == nullptr && this->description_ == nullptr && this->enabled_ == nullptr
+        && this->gbId_ == nullptr && this->gbIp_ == nullptr && this->gbPort_ == nullptr && this->gbTcpPorts_ == nullptr && this->gbUdpPorts_ == nullptr
+        && this->id_ == nullptr && this->inProtocol_ == nullptr && this->lazyPull_ == nullptr && this->name_ == nullptr && this->outProtocol_ == nullptr
+        && this->playDomain_ == nullptr && this->pushDomain_ == nullptr && this->region_ == nullptr && this->requestId_ == nullptr && this->stats_ == nullptr
+        && this->status_ == nullptr; };
     // aliasId Field Functions 
     bool hasAliasId() const { return this->aliasId_ != nullptr;};
     void deleteAliasId() { this->aliasId_ = nullptr;};
-    inline string aliasId() const { DARABONBA_PTR_GET_DEFAULT(aliasId_, "") };
+    inline string getAliasId() const { DARABONBA_PTR_GET_DEFAULT(aliasId_, "") };
     inline DescribeGroupResponseBody& setAliasId(string aliasId) { DARABONBA_PTR_SET_VALUE(aliasId_, aliasId) };
 
 
     // app Field Functions 
     bool hasApp() const { return this->app_ != nullptr;};
     void deleteApp() { this->app_ = nullptr;};
-    inline string app() const { DARABONBA_PTR_GET_DEFAULT(app_, "") };
+    inline string getApp() const { DARABONBA_PTR_GET_DEFAULT(app_, "") };
     inline DescribeGroupResponseBody& setApp(string app) { DARABONBA_PTR_SET_VALUE(app_, app) };
 
 
     // callback Field Functions 
     bool hasCallback() const { return this->callback_ != nullptr;};
     void deleteCallback() { this->callback_ = nullptr;};
-    inline string callback() const { DARABONBA_PTR_GET_DEFAULT(callback_, "") };
+    inline string getCallback() const { DARABONBA_PTR_GET_DEFAULT(callback_, "") };
     inline DescribeGroupResponseBody& setCallback(string callback) { DARABONBA_PTR_SET_VALUE(callback_, callback) };
 
 
     // createdTime Field Functions 
     bool hasCreatedTime() const { return this->createdTime_ != nullptr;};
     void deleteCreatedTime() { this->createdTime_ = nullptr;};
-    inline string createdTime() const { DARABONBA_PTR_GET_DEFAULT(createdTime_, "") };
+    inline string getCreatedTime() const { DARABONBA_PTR_GET_DEFAULT(createdTime_, "") };
     inline DescribeGroupResponseBody& setCreatedTime(string createdTime) { DARABONBA_PTR_SET_VALUE(createdTime_, createdTime) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline DescribeGroupResponseBody& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // enabled Field Functions 
     bool hasEnabled() const { return this->enabled_ != nullptr;};
     void deleteEnabled() { this->enabled_ = nullptr;};
-    inline bool enabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
+    inline bool getEnabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
     inline DescribeGroupResponseBody& setEnabled(bool enabled) { DARABONBA_PTR_SET_VALUE(enabled_, enabled) };
 
 
     // gbId Field Functions 
     bool hasGbId() const { return this->gbId_ != nullptr;};
     void deleteGbId() { this->gbId_ = nullptr;};
-    inline string gbId() const { DARABONBA_PTR_GET_DEFAULT(gbId_, "") };
+    inline string getGbId() const { DARABONBA_PTR_GET_DEFAULT(gbId_, "") };
     inline DescribeGroupResponseBody& setGbId(string gbId) { DARABONBA_PTR_SET_VALUE(gbId_, gbId) };
 
 
     // gbIp Field Functions 
     bool hasGbIp() const { return this->gbIp_ != nullptr;};
     void deleteGbIp() { this->gbIp_ = nullptr;};
-    inline string gbIp() const { DARABONBA_PTR_GET_DEFAULT(gbIp_, "") };
+    inline string getGbIp() const { DARABONBA_PTR_GET_DEFAULT(gbIp_, "") };
     inline DescribeGroupResponseBody& setGbIp(string gbIp) { DARABONBA_PTR_SET_VALUE(gbIp_, gbIp) };
 
 
     // gbPort Field Functions 
     bool hasGbPort() const { return this->gbPort_ != nullptr;};
     void deleteGbPort() { this->gbPort_ = nullptr;};
-    inline int64_t gbPort() const { DARABONBA_PTR_GET_DEFAULT(gbPort_, 0L) };
+    inline int64_t getGbPort() const { DARABONBA_PTR_GET_DEFAULT(gbPort_, 0L) };
     inline DescribeGroupResponseBody& setGbPort(int64_t gbPort) { DARABONBA_PTR_SET_VALUE(gbPort_, gbPort) };
 
 
     // gbTcpPorts Field Functions 
     bool hasGbTcpPorts() const { return this->gbTcpPorts_ != nullptr;};
     void deleteGbTcpPorts() { this->gbTcpPorts_ = nullptr;};
-    inline const vector<string> & gbTcpPorts() const { DARABONBA_PTR_GET_CONST(gbTcpPorts_, vector<string>) };
-    inline vector<string> gbTcpPorts() { DARABONBA_PTR_GET(gbTcpPorts_, vector<string>) };
+    inline const vector<string> & getGbTcpPorts() const { DARABONBA_PTR_GET_CONST(gbTcpPorts_, vector<string>) };
+    inline vector<string> getGbTcpPorts() { DARABONBA_PTR_GET(gbTcpPorts_, vector<string>) };
     inline DescribeGroupResponseBody& setGbTcpPorts(const vector<string> & gbTcpPorts) { DARABONBA_PTR_SET_VALUE(gbTcpPorts_, gbTcpPorts) };
     inline DescribeGroupResponseBody& setGbTcpPorts(vector<string> && gbTcpPorts) { DARABONBA_PTR_SET_RVALUE(gbTcpPorts_, gbTcpPorts) };
 
@@ -154,8 +215,8 @@ namespace Models
     // gbUdpPorts Field Functions 
     bool hasGbUdpPorts() const { return this->gbUdpPorts_ != nullptr;};
     void deleteGbUdpPorts() { this->gbUdpPorts_ = nullptr;};
-    inline const vector<string> & gbUdpPorts() const { DARABONBA_PTR_GET_CONST(gbUdpPorts_, vector<string>) };
-    inline vector<string> gbUdpPorts() { DARABONBA_PTR_GET(gbUdpPorts_, vector<string>) };
+    inline const vector<string> & getGbUdpPorts() const { DARABONBA_PTR_GET_CONST(gbUdpPorts_, vector<string>) };
+    inline vector<string> getGbUdpPorts() { DARABONBA_PTR_GET(gbUdpPorts_, vector<string>) };
     inline DescribeGroupResponseBody& setGbUdpPorts(const vector<string> & gbUdpPorts) { DARABONBA_PTR_SET_VALUE(gbUdpPorts_, gbUdpPorts) };
     inline DescribeGroupResponseBody& setGbUdpPorts(vector<string> && gbUdpPorts) { DARABONBA_PTR_SET_RVALUE(gbUdpPorts_, gbUdpPorts) };
 
@@ -163,105 +224,105 @@ namespace Models
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline string id() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+    inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline DescribeGroupResponseBody& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // inProtocol Field Functions 
     bool hasInProtocol() const { return this->inProtocol_ != nullptr;};
     void deleteInProtocol() { this->inProtocol_ = nullptr;};
-    inline string inProtocol() const { DARABONBA_PTR_GET_DEFAULT(inProtocol_, "") };
+    inline string getInProtocol() const { DARABONBA_PTR_GET_DEFAULT(inProtocol_, "") };
     inline DescribeGroupResponseBody& setInProtocol(string inProtocol) { DARABONBA_PTR_SET_VALUE(inProtocol_, inProtocol) };
 
 
     // lazyPull Field Functions 
     bool hasLazyPull() const { return this->lazyPull_ != nullptr;};
     void deleteLazyPull() { this->lazyPull_ = nullptr;};
-    inline bool lazyPull() const { DARABONBA_PTR_GET_DEFAULT(lazyPull_, false) };
+    inline bool getLazyPull() const { DARABONBA_PTR_GET_DEFAULT(lazyPull_, false) };
     inline DescribeGroupResponseBody& setLazyPull(bool lazyPull) { DARABONBA_PTR_SET_VALUE(lazyPull_, lazyPull) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline DescribeGroupResponseBody& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // outProtocol Field Functions 
     bool hasOutProtocol() const { return this->outProtocol_ != nullptr;};
     void deleteOutProtocol() { this->outProtocol_ = nullptr;};
-    inline string outProtocol() const { DARABONBA_PTR_GET_DEFAULT(outProtocol_, "") };
+    inline string getOutProtocol() const { DARABONBA_PTR_GET_DEFAULT(outProtocol_, "") };
     inline DescribeGroupResponseBody& setOutProtocol(string outProtocol) { DARABONBA_PTR_SET_VALUE(outProtocol_, outProtocol) };
 
 
     // playDomain Field Functions 
     bool hasPlayDomain() const { return this->playDomain_ != nullptr;};
     void deletePlayDomain() { this->playDomain_ = nullptr;};
-    inline string playDomain() const { DARABONBA_PTR_GET_DEFAULT(playDomain_, "") };
+    inline string getPlayDomain() const { DARABONBA_PTR_GET_DEFAULT(playDomain_, "") };
     inline DescribeGroupResponseBody& setPlayDomain(string playDomain) { DARABONBA_PTR_SET_VALUE(playDomain_, playDomain) };
 
 
     // pushDomain Field Functions 
     bool hasPushDomain() const { return this->pushDomain_ != nullptr;};
     void deletePushDomain() { this->pushDomain_ = nullptr;};
-    inline string pushDomain() const { DARABONBA_PTR_GET_DEFAULT(pushDomain_, "") };
+    inline string getPushDomain() const { DARABONBA_PTR_GET_DEFAULT(pushDomain_, "") };
     inline DescribeGroupResponseBody& setPushDomain(string pushDomain) { DARABONBA_PTR_SET_VALUE(pushDomain_, pushDomain) };
 
 
     // region Field Functions 
     bool hasRegion() const { return this->region_ != nullptr;};
     void deleteRegion() { this->region_ = nullptr;};
-    inline string region() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
+    inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
     inline DescribeGroupResponseBody& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeGroupResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // stats Field Functions 
     bool hasStats() const { return this->stats_ != nullptr;};
     void deleteStats() { this->stats_ = nullptr;};
-    inline const DescribeGroupResponseBodyStats & stats() const { DARABONBA_PTR_GET_CONST(stats_, DescribeGroupResponseBodyStats) };
-    inline DescribeGroupResponseBodyStats stats() { DARABONBA_PTR_GET(stats_, DescribeGroupResponseBodyStats) };
-    inline DescribeGroupResponseBody& setStats(const DescribeGroupResponseBodyStats & stats) { DARABONBA_PTR_SET_VALUE(stats_, stats) };
-    inline DescribeGroupResponseBody& setStats(DescribeGroupResponseBodyStats && stats) { DARABONBA_PTR_SET_RVALUE(stats_, stats) };
+    inline const DescribeGroupResponseBody::Stats & getStats() const { DARABONBA_PTR_GET_CONST(stats_, DescribeGroupResponseBody::Stats) };
+    inline DescribeGroupResponseBody::Stats getStats() { DARABONBA_PTR_GET(stats_, DescribeGroupResponseBody::Stats) };
+    inline DescribeGroupResponseBody& setStats(const DescribeGroupResponseBody::Stats & stats) { DARABONBA_PTR_SET_VALUE(stats_, stats) };
+    inline DescribeGroupResponseBody& setStats(DescribeGroupResponseBody::Stats && stats) { DARABONBA_PTR_SET_RVALUE(stats_, stats) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline DescribeGroupResponseBody& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
   protected:
-    std::shared_ptr<string> aliasId_ = nullptr;
-    std::shared_ptr<string> app_ = nullptr;
-    std::shared_ptr<string> callback_ = nullptr;
-    std::shared_ptr<string> createdTime_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<bool> enabled_ = nullptr;
-    std::shared_ptr<string> gbId_ = nullptr;
-    std::shared_ptr<string> gbIp_ = nullptr;
-    std::shared_ptr<int64_t> gbPort_ = nullptr;
-    std::shared_ptr<vector<string>> gbTcpPorts_ = nullptr;
-    std::shared_ptr<vector<string>> gbUdpPorts_ = nullptr;
-    std::shared_ptr<string> id_ = nullptr;
-    std::shared_ptr<string> inProtocol_ = nullptr;
-    std::shared_ptr<bool> lazyPull_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> outProtocol_ = nullptr;
-    std::shared_ptr<string> playDomain_ = nullptr;
-    std::shared_ptr<string> pushDomain_ = nullptr;
-    std::shared_ptr<string> region_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<DescribeGroupResponseBodyStats> stats_ = nullptr;
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> aliasId_ {};
+    shared_ptr<string> app_ {};
+    shared_ptr<string> callback_ {};
+    shared_ptr<string> createdTime_ {};
+    shared_ptr<string> description_ {};
+    shared_ptr<bool> enabled_ {};
+    shared_ptr<string> gbId_ {};
+    shared_ptr<string> gbIp_ {};
+    shared_ptr<int64_t> gbPort_ {};
+    shared_ptr<vector<string>> gbTcpPorts_ {};
+    shared_ptr<vector<string>> gbUdpPorts_ {};
+    shared_ptr<string> id_ {};
+    shared_ptr<string> inProtocol_ {};
+    shared_ptr<bool> lazyPull_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<string> outProtocol_ {};
+    shared_ptr<string> playDomain_ {};
+    shared_ptr<string> pushDomain_ {};
+    shared_ptr<string> region_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<DescribeGroupResponseBody::Stats> stats_ {};
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models

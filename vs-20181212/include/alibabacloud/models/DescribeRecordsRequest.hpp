@@ -48,93 +48,93 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->endTime_ == nullptr
-        && return this->ownerId_ == nullptr && return this->pageNum_ == nullptr && return this->pageSize_ == nullptr && return this->privateBucket_ == nullptr && return this->sortBy_ == nullptr
-        && return this->sortDirection_ == nullptr && return this->startTime_ == nullptr && return this->streamId_ == nullptr && return this->type_ == nullptr; };
+        && this->ownerId_ == nullptr && this->pageNum_ == nullptr && this->pageSize_ == nullptr && this->privateBucket_ == nullptr && this->sortBy_ == nullptr
+        && this->sortDirection_ == nullptr && this->startTime_ == nullptr && this->streamId_ == nullptr && this->type_ == nullptr; };
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline DescribeRecordsRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline DescribeRecordsRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // pageNum Field Functions 
     bool hasPageNum() const { return this->pageNum_ != nullptr;};
     void deletePageNum() { this->pageNum_ = nullptr;};
-    inline int64_t pageNum() const { DARABONBA_PTR_GET_DEFAULT(pageNum_, 0L) };
+    inline int64_t getPageNum() const { DARABONBA_PTR_GET_DEFAULT(pageNum_, 0L) };
     inline DescribeRecordsRequest& setPageNum(int64_t pageNum) { DARABONBA_PTR_SET_VALUE(pageNum_, pageNum) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int64_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
+    inline int64_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
     inline DescribeRecordsRequest& setPageSize(int64_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // privateBucket Field Functions 
     bool hasPrivateBucket() const { return this->privateBucket_ != nullptr;};
     void deletePrivateBucket() { this->privateBucket_ = nullptr;};
-    inline bool privateBucket() const { DARABONBA_PTR_GET_DEFAULT(privateBucket_, false) };
+    inline bool getPrivateBucket() const { DARABONBA_PTR_GET_DEFAULT(privateBucket_, false) };
     inline DescribeRecordsRequest& setPrivateBucket(bool privateBucket) { DARABONBA_PTR_SET_VALUE(privateBucket_, privateBucket) };
 
 
     // sortBy Field Functions 
     bool hasSortBy() const { return this->sortBy_ != nullptr;};
     void deleteSortBy() { this->sortBy_ = nullptr;};
-    inline string sortBy() const { DARABONBA_PTR_GET_DEFAULT(sortBy_, "") };
+    inline string getSortBy() const { DARABONBA_PTR_GET_DEFAULT(sortBy_, "") };
     inline DescribeRecordsRequest& setSortBy(string sortBy) { DARABONBA_PTR_SET_VALUE(sortBy_, sortBy) };
 
 
     // sortDirection Field Functions 
     bool hasSortDirection() const { return this->sortDirection_ != nullptr;};
     void deleteSortDirection() { this->sortDirection_ = nullptr;};
-    inline string sortDirection() const { DARABONBA_PTR_GET_DEFAULT(sortDirection_, "") };
+    inline string getSortDirection() const { DARABONBA_PTR_GET_DEFAULT(sortDirection_, "") };
     inline DescribeRecordsRequest& setSortDirection(string sortDirection) { DARABONBA_PTR_SET_VALUE(sortDirection_, sortDirection) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline DescribeRecordsRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // streamId Field Functions 
     bool hasStreamId() const { return this->streamId_ != nullptr;};
     void deleteStreamId() { this->streamId_ = nullptr;};
-    inline string streamId() const { DARABONBA_PTR_GET_DEFAULT(streamId_, "") };
+    inline string getStreamId() const { DARABONBA_PTR_GET_DEFAULT(streamId_, "") };
     inline DescribeRecordsRequest& setStreamId(string streamId) { DARABONBA_PTR_SET_VALUE(streamId_, streamId) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline DescribeRecordsRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> endTime_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
-    std::shared_ptr<int64_t> pageNum_ = nullptr;
-    std::shared_ptr<int64_t> pageSize_ = nullptr;
-    std::shared_ptr<bool> privateBucket_ = nullptr;
-    std::shared_ptr<string> sortBy_ = nullptr;
-    std::shared_ptr<string> sortDirection_ = nullptr;
+    shared_ptr<string> endTime_ {};
+    shared_ptr<int64_t> ownerId_ {};
+    shared_ptr<int64_t> pageNum_ {};
+    shared_ptr<int64_t> pageSize_ {};
+    shared_ptr<bool> privateBucket_ {};
+    shared_ptr<string> sortBy_ {};
+    shared_ptr<string> sortDirection_ {};
     // This parameter is required.
-    std::shared_ptr<string> startTime_ = nullptr;
+    shared_ptr<string> startTime_ {};
     // This parameter is required.
-    std::shared_ptr<string> streamId_ = nullptr;
+    shared_ptr<string> streamId_ {};
     // This parameter is required.
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

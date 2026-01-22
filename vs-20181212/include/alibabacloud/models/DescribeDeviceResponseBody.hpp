@@ -2,8 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_DESCRIBEDEVICERESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_DESCRIBEDEVICERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/DescribeDeviceResponseBodyDirectory.hpp>
-#include <alibabacloud/models/DescribeDeviceResponseBodyStats.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -93,275 +91,429 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Stats : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Stats& obj) { 
+        DARABONBA_PTR_TO_JSON(ChannelNum, channelNum_);
+        DARABONBA_PTR_TO_JSON(FailedNum, failedNum_);
+        DARABONBA_PTR_TO_JSON(OfflineNum, offlineNum_);
+        DARABONBA_PTR_TO_JSON(OnlineNum, onlineNum_);
+        DARABONBA_PTR_TO_JSON(StreamNum, streamNum_);
+      };
+      friend void from_json(const Darabonba::Json& j, Stats& obj) { 
+        DARABONBA_PTR_FROM_JSON(ChannelNum, channelNum_);
+        DARABONBA_PTR_FROM_JSON(FailedNum, failedNum_);
+        DARABONBA_PTR_FROM_JSON(OfflineNum, offlineNum_);
+        DARABONBA_PTR_FROM_JSON(OnlineNum, onlineNum_);
+        DARABONBA_PTR_FROM_JSON(StreamNum, streamNum_);
+      };
+      Stats() = default ;
+      Stats(const Stats &) = default ;
+      Stats(Stats &&) = default ;
+      Stats(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Stats() = default ;
+      Stats& operator=(const Stats &) = default ;
+      Stats& operator=(Stats &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->channelNum_ == nullptr
+        && this->failedNum_ == nullptr && this->offlineNum_ == nullptr && this->onlineNum_ == nullptr && this->streamNum_ == nullptr; };
+      // channelNum Field Functions 
+      bool hasChannelNum() const { return this->channelNum_ != nullptr;};
+      void deleteChannelNum() { this->channelNum_ = nullptr;};
+      inline int64_t getChannelNum() const { DARABONBA_PTR_GET_DEFAULT(channelNum_, 0L) };
+      inline Stats& setChannelNum(int64_t channelNum) { DARABONBA_PTR_SET_VALUE(channelNum_, channelNum) };
+
+
+      // failedNum Field Functions 
+      bool hasFailedNum() const { return this->failedNum_ != nullptr;};
+      void deleteFailedNum() { this->failedNum_ = nullptr;};
+      inline int64_t getFailedNum() const { DARABONBA_PTR_GET_DEFAULT(failedNum_, 0L) };
+      inline Stats& setFailedNum(int64_t failedNum) { DARABONBA_PTR_SET_VALUE(failedNum_, failedNum) };
+
+
+      // offlineNum Field Functions 
+      bool hasOfflineNum() const { return this->offlineNum_ != nullptr;};
+      void deleteOfflineNum() { this->offlineNum_ = nullptr;};
+      inline int64_t getOfflineNum() const { DARABONBA_PTR_GET_DEFAULT(offlineNum_, 0L) };
+      inline Stats& setOfflineNum(int64_t offlineNum) { DARABONBA_PTR_SET_VALUE(offlineNum_, offlineNum) };
+
+
+      // onlineNum Field Functions 
+      bool hasOnlineNum() const { return this->onlineNum_ != nullptr;};
+      void deleteOnlineNum() { this->onlineNum_ = nullptr;};
+      inline int64_t getOnlineNum() const { DARABONBA_PTR_GET_DEFAULT(onlineNum_, 0L) };
+      inline Stats& setOnlineNum(int64_t onlineNum) { DARABONBA_PTR_SET_VALUE(onlineNum_, onlineNum) };
+
+
+      // streamNum Field Functions 
+      bool hasStreamNum() const { return this->streamNum_ != nullptr;};
+      void deleteStreamNum() { this->streamNum_ = nullptr;};
+      inline int64_t getStreamNum() const { DARABONBA_PTR_GET_DEFAULT(streamNum_, 0L) };
+      inline Stats& setStreamNum(int64_t streamNum) { DARABONBA_PTR_SET_VALUE(streamNum_, streamNum) };
+
+
+    protected:
+      shared_ptr<int64_t> channelNum_ {};
+      shared_ptr<int64_t> failedNum_ {};
+      shared_ptr<int64_t> offlineNum_ {};
+      shared_ptr<int64_t> onlineNum_ {};
+      shared_ptr<int64_t> streamNum_ {};
+    };
+
+    class Directory : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Directory& obj) { 
+        DARABONBA_PTR_TO_JSON(CreatedTime, createdTime_);
+        DARABONBA_PTR_TO_JSON(Description, description_);
+        DARABONBA_PTR_TO_JSON(GroupId, groupId_);
+        DARABONBA_PTR_TO_JSON(Id, id_);
+        DARABONBA_PTR_TO_JSON(Name, name_);
+        DARABONBA_PTR_TO_JSON(ParentId, parentId_);
+      };
+      friend void from_json(const Darabonba::Json& j, Directory& obj) { 
+        DARABONBA_PTR_FROM_JSON(CreatedTime, createdTime_);
+        DARABONBA_PTR_FROM_JSON(Description, description_);
+        DARABONBA_PTR_FROM_JSON(GroupId, groupId_);
+        DARABONBA_PTR_FROM_JSON(Id, id_);
+        DARABONBA_PTR_FROM_JSON(Name, name_);
+        DARABONBA_PTR_FROM_JSON(ParentId, parentId_);
+      };
+      Directory() = default ;
+      Directory(const Directory &) = default ;
+      Directory(Directory &&) = default ;
+      Directory(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Directory() = default ;
+      Directory& operator=(const Directory &) = default ;
+      Directory& operator=(Directory &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->createdTime_ == nullptr
+        && this->description_ == nullptr && this->groupId_ == nullptr && this->id_ == nullptr && this->name_ == nullptr && this->parentId_ == nullptr; };
+      // createdTime Field Functions 
+      bool hasCreatedTime() const { return this->createdTime_ != nullptr;};
+      void deleteCreatedTime() { this->createdTime_ = nullptr;};
+      inline string getCreatedTime() const { DARABONBA_PTR_GET_DEFAULT(createdTime_, "") };
+      inline Directory& setCreatedTime(string createdTime) { DARABONBA_PTR_SET_VALUE(createdTime_, createdTime) };
+
+
+      // description Field Functions 
+      bool hasDescription() const { return this->description_ != nullptr;};
+      void deleteDescription() { this->description_ = nullptr;};
+      inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+      inline Directory& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+      // groupId Field Functions 
+      bool hasGroupId() const { return this->groupId_ != nullptr;};
+      void deleteGroupId() { this->groupId_ = nullptr;};
+      inline string getGroupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
+      inline Directory& setGroupId(string groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
+
+
+      // id Field Functions 
+      bool hasId() const { return this->id_ != nullptr;};
+      void deleteId() { this->id_ = nullptr;};
+      inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+      inline Directory& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+      // name Field Functions 
+      bool hasName() const { return this->name_ != nullptr;};
+      void deleteName() { this->name_ = nullptr;};
+      inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+      inline Directory& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+      // parentId Field Functions 
+      bool hasParentId() const { return this->parentId_ != nullptr;};
+      void deleteParentId() { this->parentId_ = nullptr;};
+      inline string getParentId() const { DARABONBA_PTR_GET_DEFAULT(parentId_, "") };
+      inline Directory& setParentId(string parentId) { DARABONBA_PTR_SET_VALUE(parentId_, parentId) };
+
+
+    protected:
+      shared_ptr<string> createdTime_ {};
+      shared_ptr<string> description_ {};
+      shared_ptr<string> groupId_ {};
+      shared_ptr<string> id_ {};
+      shared_ptr<string> name_ {};
+      shared_ptr<string> parentId_ {};
+    };
+
     virtual bool empty() const override { return this->alarmMethod_ == nullptr
-        && return this->autoDirectory_ == nullptr && return this->autoPos_ == nullptr && return this->autoStart_ == nullptr && return this->channelSyncTime_ == nullptr && return this->createdTime_ == nullptr
-        && return this->description_ == nullptr && return this->directory_ == nullptr && return this->directoryId_ == nullptr && return this->dsn_ == nullptr && return this->enabled_ == nullptr
-        && return this->gbId_ == nullptr && return this->groupId_ == nullptr && return this->id_ == nullptr && return this->ip_ == nullptr && return this->latitude_ == nullptr
-        && return this->longitude_ == nullptr && return this->name_ == nullptr && return this->params_ == nullptr && return this->parentId_ == nullptr && return this->password_ == nullptr
-        && return this->port_ == nullptr && return this->posInterval_ == nullptr && return this->protocol_ == nullptr && return this->registeredTime_ == nullptr && return this->requestId_ == nullptr
-        && return this->stats_ == nullptr && return this->status_ == nullptr && return this->type_ == nullptr && return this->url_ == nullptr && return this->username_ == nullptr
-        && return this->vendor_ == nullptr; };
+        && this->autoDirectory_ == nullptr && this->autoPos_ == nullptr && this->autoStart_ == nullptr && this->channelSyncTime_ == nullptr && this->createdTime_ == nullptr
+        && this->description_ == nullptr && this->directory_ == nullptr && this->directoryId_ == nullptr && this->dsn_ == nullptr && this->enabled_ == nullptr
+        && this->gbId_ == nullptr && this->groupId_ == nullptr && this->id_ == nullptr && this->ip_ == nullptr && this->latitude_ == nullptr
+        && this->longitude_ == nullptr && this->name_ == nullptr && this->params_ == nullptr && this->parentId_ == nullptr && this->password_ == nullptr
+        && this->port_ == nullptr && this->posInterval_ == nullptr && this->protocol_ == nullptr && this->registeredTime_ == nullptr && this->requestId_ == nullptr
+        && this->stats_ == nullptr && this->status_ == nullptr && this->type_ == nullptr && this->url_ == nullptr && this->username_ == nullptr
+        && this->vendor_ == nullptr; };
     // alarmMethod Field Functions 
     bool hasAlarmMethod() const { return this->alarmMethod_ != nullptr;};
     void deleteAlarmMethod() { this->alarmMethod_ = nullptr;};
-    inline string alarmMethod() const { DARABONBA_PTR_GET_DEFAULT(alarmMethod_, "") };
+    inline string getAlarmMethod() const { DARABONBA_PTR_GET_DEFAULT(alarmMethod_, "") };
     inline DescribeDeviceResponseBody& setAlarmMethod(string alarmMethod) { DARABONBA_PTR_SET_VALUE(alarmMethod_, alarmMethod) };
 
 
     // autoDirectory Field Functions 
     bool hasAutoDirectory() const { return this->autoDirectory_ != nullptr;};
     void deleteAutoDirectory() { this->autoDirectory_ = nullptr;};
-    inline bool autoDirectory() const { DARABONBA_PTR_GET_DEFAULT(autoDirectory_, false) };
+    inline bool getAutoDirectory() const { DARABONBA_PTR_GET_DEFAULT(autoDirectory_, false) };
     inline DescribeDeviceResponseBody& setAutoDirectory(bool autoDirectory) { DARABONBA_PTR_SET_VALUE(autoDirectory_, autoDirectory) };
 
 
     // autoPos Field Functions 
     bool hasAutoPos() const { return this->autoPos_ != nullptr;};
     void deleteAutoPos() { this->autoPos_ = nullptr;};
-    inline bool autoPos() const { DARABONBA_PTR_GET_DEFAULT(autoPos_, false) };
+    inline bool getAutoPos() const { DARABONBA_PTR_GET_DEFAULT(autoPos_, false) };
     inline DescribeDeviceResponseBody& setAutoPos(bool autoPos) { DARABONBA_PTR_SET_VALUE(autoPos_, autoPos) };
 
 
     // autoStart Field Functions 
     bool hasAutoStart() const { return this->autoStart_ != nullptr;};
     void deleteAutoStart() { this->autoStart_ = nullptr;};
-    inline bool autoStart() const { DARABONBA_PTR_GET_DEFAULT(autoStart_, false) };
+    inline bool getAutoStart() const { DARABONBA_PTR_GET_DEFAULT(autoStart_, false) };
     inline DescribeDeviceResponseBody& setAutoStart(bool autoStart) { DARABONBA_PTR_SET_VALUE(autoStart_, autoStart) };
 
 
     // channelSyncTime Field Functions 
     bool hasChannelSyncTime() const { return this->channelSyncTime_ != nullptr;};
     void deleteChannelSyncTime() { this->channelSyncTime_ = nullptr;};
-    inline string channelSyncTime() const { DARABONBA_PTR_GET_DEFAULT(channelSyncTime_, "") };
+    inline string getChannelSyncTime() const { DARABONBA_PTR_GET_DEFAULT(channelSyncTime_, "") };
     inline DescribeDeviceResponseBody& setChannelSyncTime(string channelSyncTime) { DARABONBA_PTR_SET_VALUE(channelSyncTime_, channelSyncTime) };
 
 
     // createdTime Field Functions 
     bool hasCreatedTime() const { return this->createdTime_ != nullptr;};
     void deleteCreatedTime() { this->createdTime_ = nullptr;};
-    inline string createdTime() const { DARABONBA_PTR_GET_DEFAULT(createdTime_, "") };
+    inline string getCreatedTime() const { DARABONBA_PTR_GET_DEFAULT(createdTime_, "") };
     inline DescribeDeviceResponseBody& setCreatedTime(string createdTime) { DARABONBA_PTR_SET_VALUE(createdTime_, createdTime) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline DescribeDeviceResponseBody& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // directory Field Functions 
     bool hasDirectory() const { return this->directory_ != nullptr;};
     void deleteDirectory() { this->directory_ = nullptr;};
-    inline const DescribeDeviceResponseBodyDirectory & directory() const { DARABONBA_PTR_GET_CONST(directory_, DescribeDeviceResponseBodyDirectory) };
-    inline DescribeDeviceResponseBodyDirectory directory() { DARABONBA_PTR_GET(directory_, DescribeDeviceResponseBodyDirectory) };
-    inline DescribeDeviceResponseBody& setDirectory(const DescribeDeviceResponseBodyDirectory & directory) { DARABONBA_PTR_SET_VALUE(directory_, directory) };
-    inline DescribeDeviceResponseBody& setDirectory(DescribeDeviceResponseBodyDirectory && directory) { DARABONBA_PTR_SET_RVALUE(directory_, directory) };
+    inline const DescribeDeviceResponseBody::Directory & getDirectory() const { DARABONBA_PTR_GET_CONST(directory_, DescribeDeviceResponseBody::Directory) };
+    inline DescribeDeviceResponseBody::Directory getDirectory() { DARABONBA_PTR_GET(directory_, DescribeDeviceResponseBody::Directory) };
+    inline DescribeDeviceResponseBody& setDirectory(const DescribeDeviceResponseBody::Directory & directory) { DARABONBA_PTR_SET_VALUE(directory_, directory) };
+    inline DescribeDeviceResponseBody& setDirectory(DescribeDeviceResponseBody::Directory && directory) { DARABONBA_PTR_SET_RVALUE(directory_, directory) };
 
 
     // directoryId Field Functions 
     bool hasDirectoryId() const { return this->directoryId_ != nullptr;};
     void deleteDirectoryId() { this->directoryId_ = nullptr;};
-    inline string directoryId() const { DARABONBA_PTR_GET_DEFAULT(directoryId_, "") };
+    inline string getDirectoryId() const { DARABONBA_PTR_GET_DEFAULT(directoryId_, "") };
     inline DescribeDeviceResponseBody& setDirectoryId(string directoryId) { DARABONBA_PTR_SET_VALUE(directoryId_, directoryId) };
 
 
     // dsn Field Functions 
     bool hasDsn() const { return this->dsn_ != nullptr;};
     void deleteDsn() { this->dsn_ = nullptr;};
-    inline string dsn() const { DARABONBA_PTR_GET_DEFAULT(dsn_, "") };
+    inline string getDsn() const { DARABONBA_PTR_GET_DEFAULT(dsn_, "") };
     inline DescribeDeviceResponseBody& setDsn(string dsn) { DARABONBA_PTR_SET_VALUE(dsn_, dsn) };
 
 
     // enabled Field Functions 
     bool hasEnabled() const { return this->enabled_ != nullptr;};
     void deleteEnabled() { this->enabled_ = nullptr;};
-    inline bool enabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
+    inline bool getEnabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
     inline DescribeDeviceResponseBody& setEnabled(bool enabled) { DARABONBA_PTR_SET_VALUE(enabled_, enabled) };
 
 
     // gbId Field Functions 
     bool hasGbId() const { return this->gbId_ != nullptr;};
     void deleteGbId() { this->gbId_ = nullptr;};
-    inline string gbId() const { DARABONBA_PTR_GET_DEFAULT(gbId_, "") };
+    inline string getGbId() const { DARABONBA_PTR_GET_DEFAULT(gbId_, "") };
     inline DescribeDeviceResponseBody& setGbId(string gbId) { DARABONBA_PTR_SET_VALUE(gbId_, gbId) };
 
 
     // groupId Field Functions 
     bool hasGroupId() const { return this->groupId_ != nullptr;};
     void deleteGroupId() { this->groupId_ = nullptr;};
-    inline string groupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
+    inline string getGroupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
     inline DescribeDeviceResponseBody& setGroupId(string groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline string id() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+    inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline DescribeDeviceResponseBody& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // ip Field Functions 
     bool hasIp() const { return this->ip_ != nullptr;};
     void deleteIp() { this->ip_ = nullptr;};
-    inline string ip() const { DARABONBA_PTR_GET_DEFAULT(ip_, "") };
+    inline string getIp() const { DARABONBA_PTR_GET_DEFAULT(ip_, "") };
     inline DescribeDeviceResponseBody& setIp(string ip) { DARABONBA_PTR_SET_VALUE(ip_, ip) };
 
 
     // latitude Field Functions 
     bool hasLatitude() const { return this->latitude_ != nullptr;};
     void deleteLatitude() { this->latitude_ = nullptr;};
-    inline string latitude() const { DARABONBA_PTR_GET_DEFAULT(latitude_, "") };
+    inline string getLatitude() const { DARABONBA_PTR_GET_DEFAULT(latitude_, "") };
     inline DescribeDeviceResponseBody& setLatitude(string latitude) { DARABONBA_PTR_SET_VALUE(latitude_, latitude) };
 
 
     // longitude Field Functions 
     bool hasLongitude() const { return this->longitude_ != nullptr;};
     void deleteLongitude() { this->longitude_ = nullptr;};
-    inline string longitude() const { DARABONBA_PTR_GET_DEFAULT(longitude_, "") };
+    inline string getLongitude() const { DARABONBA_PTR_GET_DEFAULT(longitude_, "") };
     inline DescribeDeviceResponseBody& setLongitude(string longitude) { DARABONBA_PTR_SET_VALUE(longitude_, longitude) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline DescribeDeviceResponseBody& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // params Field Functions 
     bool hasParams() const { return this->params_ != nullptr;};
     void deleteParams() { this->params_ = nullptr;};
-    inline string params() const { DARABONBA_PTR_GET_DEFAULT(params_, "") };
+    inline string getParams() const { DARABONBA_PTR_GET_DEFAULT(params_, "") };
     inline DescribeDeviceResponseBody& setParams(string params) { DARABONBA_PTR_SET_VALUE(params_, params) };
 
 
     // parentId Field Functions 
     bool hasParentId() const { return this->parentId_ != nullptr;};
     void deleteParentId() { this->parentId_ = nullptr;};
-    inline string parentId() const { DARABONBA_PTR_GET_DEFAULT(parentId_, "") };
+    inline string getParentId() const { DARABONBA_PTR_GET_DEFAULT(parentId_, "") };
     inline DescribeDeviceResponseBody& setParentId(string parentId) { DARABONBA_PTR_SET_VALUE(parentId_, parentId) };
 
 
     // password Field Functions 
     bool hasPassword() const { return this->password_ != nullptr;};
     void deletePassword() { this->password_ = nullptr;};
-    inline string password() const { DARABONBA_PTR_GET_DEFAULT(password_, "") };
+    inline string getPassword() const { DARABONBA_PTR_GET_DEFAULT(password_, "") };
     inline DescribeDeviceResponseBody& setPassword(string password) { DARABONBA_PTR_SET_VALUE(password_, password) };
 
 
     // port Field Functions 
     bool hasPort() const { return this->port_ != nullptr;};
     void deletePort() { this->port_ = nullptr;};
-    inline int64_t port() const { DARABONBA_PTR_GET_DEFAULT(port_, 0L) };
+    inline int64_t getPort() const { DARABONBA_PTR_GET_DEFAULT(port_, 0L) };
     inline DescribeDeviceResponseBody& setPort(int64_t port) { DARABONBA_PTR_SET_VALUE(port_, port) };
 
 
     // posInterval Field Functions 
     bool hasPosInterval() const { return this->posInterval_ != nullptr;};
     void deletePosInterval() { this->posInterval_ = nullptr;};
-    inline int64_t posInterval() const { DARABONBA_PTR_GET_DEFAULT(posInterval_, 0L) };
+    inline int64_t getPosInterval() const { DARABONBA_PTR_GET_DEFAULT(posInterval_, 0L) };
     inline DescribeDeviceResponseBody& setPosInterval(int64_t posInterval) { DARABONBA_PTR_SET_VALUE(posInterval_, posInterval) };
 
 
     // protocol Field Functions 
     bool hasProtocol() const { return this->protocol_ != nullptr;};
     void deleteProtocol() { this->protocol_ = nullptr;};
-    inline string protocol() const { DARABONBA_PTR_GET_DEFAULT(protocol_, "") };
+    inline string getProtocol() const { DARABONBA_PTR_GET_DEFAULT(protocol_, "") };
     inline DescribeDeviceResponseBody& setProtocol(string protocol) { DARABONBA_PTR_SET_VALUE(protocol_, protocol) };
 
 
     // registeredTime Field Functions 
     bool hasRegisteredTime() const { return this->registeredTime_ != nullptr;};
     void deleteRegisteredTime() { this->registeredTime_ = nullptr;};
-    inline string registeredTime() const { DARABONBA_PTR_GET_DEFAULT(registeredTime_, "") };
+    inline string getRegisteredTime() const { DARABONBA_PTR_GET_DEFAULT(registeredTime_, "") };
     inline DescribeDeviceResponseBody& setRegisteredTime(string registeredTime) { DARABONBA_PTR_SET_VALUE(registeredTime_, registeredTime) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeDeviceResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // stats Field Functions 
     bool hasStats() const { return this->stats_ != nullptr;};
     void deleteStats() { this->stats_ = nullptr;};
-    inline const DescribeDeviceResponseBodyStats & stats() const { DARABONBA_PTR_GET_CONST(stats_, DescribeDeviceResponseBodyStats) };
-    inline DescribeDeviceResponseBodyStats stats() { DARABONBA_PTR_GET(stats_, DescribeDeviceResponseBodyStats) };
-    inline DescribeDeviceResponseBody& setStats(const DescribeDeviceResponseBodyStats & stats) { DARABONBA_PTR_SET_VALUE(stats_, stats) };
-    inline DescribeDeviceResponseBody& setStats(DescribeDeviceResponseBodyStats && stats) { DARABONBA_PTR_SET_RVALUE(stats_, stats) };
+    inline const DescribeDeviceResponseBody::Stats & getStats() const { DARABONBA_PTR_GET_CONST(stats_, DescribeDeviceResponseBody::Stats) };
+    inline DescribeDeviceResponseBody::Stats getStats() { DARABONBA_PTR_GET(stats_, DescribeDeviceResponseBody::Stats) };
+    inline DescribeDeviceResponseBody& setStats(const DescribeDeviceResponseBody::Stats & stats) { DARABONBA_PTR_SET_VALUE(stats_, stats) };
+    inline DescribeDeviceResponseBody& setStats(DescribeDeviceResponseBody::Stats && stats) { DARABONBA_PTR_SET_RVALUE(stats_, stats) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline DescribeDeviceResponseBody& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline DescribeDeviceResponseBody& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
     // url Field Functions 
     bool hasUrl() const { return this->url_ != nullptr;};
     void deleteUrl() { this->url_ = nullptr;};
-    inline string url() const { DARABONBA_PTR_GET_DEFAULT(url_, "") };
+    inline string getUrl() const { DARABONBA_PTR_GET_DEFAULT(url_, "") };
     inline DescribeDeviceResponseBody& setUrl(string url) { DARABONBA_PTR_SET_VALUE(url_, url) };
 
 
     // username Field Functions 
     bool hasUsername() const { return this->username_ != nullptr;};
     void deleteUsername() { this->username_ = nullptr;};
-    inline string username() const { DARABONBA_PTR_GET_DEFAULT(username_, "") };
+    inline string getUsername() const { DARABONBA_PTR_GET_DEFAULT(username_, "") };
     inline DescribeDeviceResponseBody& setUsername(string username) { DARABONBA_PTR_SET_VALUE(username_, username) };
 
 
     // vendor Field Functions 
     bool hasVendor() const { return this->vendor_ != nullptr;};
     void deleteVendor() { this->vendor_ = nullptr;};
-    inline string vendor() const { DARABONBA_PTR_GET_DEFAULT(vendor_, "") };
+    inline string getVendor() const { DARABONBA_PTR_GET_DEFAULT(vendor_, "") };
     inline DescribeDeviceResponseBody& setVendor(string vendor) { DARABONBA_PTR_SET_VALUE(vendor_, vendor) };
 
 
   protected:
-    std::shared_ptr<string> alarmMethod_ = nullptr;
-    std::shared_ptr<bool> autoDirectory_ = nullptr;
-    std::shared_ptr<bool> autoPos_ = nullptr;
-    std::shared_ptr<bool> autoStart_ = nullptr;
-    std::shared_ptr<string> channelSyncTime_ = nullptr;
-    std::shared_ptr<string> createdTime_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<DescribeDeviceResponseBodyDirectory> directory_ = nullptr;
-    std::shared_ptr<string> directoryId_ = nullptr;
-    std::shared_ptr<string> dsn_ = nullptr;
-    std::shared_ptr<bool> enabled_ = nullptr;
-    std::shared_ptr<string> gbId_ = nullptr;
-    std::shared_ptr<string> groupId_ = nullptr;
-    std::shared_ptr<string> id_ = nullptr;
-    std::shared_ptr<string> ip_ = nullptr;
-    std::shared_ptr<string> latitude_ = nullptr;
-    std::shared_ptr<string> longitude_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> params_ = nullptr;
-    std::shared_ptr<string> parentId_ = nullptr;
-    std::shared_ptr<string> password_ = nullptr;
-    std::shared_ptr<int64_t> port_ = nullptr;
-    std::shared_ptr<int64_t> posInterval_ = nullptr;
-    std::shared_ptr<string> protocol_ = nullptr;
-    std::shared_ptr<string> registeredTime_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<DescribeDeviceResponseBodyStats> stats_ = nullptr;
-    std::shared_ptr<string> status_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
-    std::shared_ptr<string> url_ = nullptr;
-    std::shared_ptr<string> username_ = nullptr;
-    std::shared_ptr<string> vendor_ = nullptr;
+    shared_ptr<string> alarmMethod_ {};
+    shared_ptr<bool> autoDirectory_ {};
+    shared_ptr<bool> autoPos_ {};
+    shared_ptr<bool> autoStart_ {};
+    shared_ptr<string> channelSyncTime_ {};
+    shared_ptr<string> createdTime_ {};
+    shared_ptr<string> description_ {};
+    shared_ptr<DescribeDeviceResponseBody::Directory> directory_ {};
+    shared_ptr<string> directoryId_ {};
+    shared_ptr<string> dsn_ {};
+    shared_ptr<bool> enabled_ {};
+    shared_ptr<string> gbId_ {};
+    shared_ptr<string> groupId_ {};
+    shared_ptr<string> id_ {};
+    shared_ptr<string> ip_ {};
+    shared_ptr<string> latitude_ {};
+    shared_ptr<string> longitude_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<string> params_ {};
+    shared_ptr<string> parentId_ {};
+    shared_ptr<string> password_ {};
+    shared_ptr<int64_t> port_ {};
+    shared_ptr<int64_t> posInterval_ {};
+    shared_ptr<string> protocol_ {};
+    shared_ptr<string> registeredTime_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<DescribeDeviceResponseBody::Stats> stats_ {};
+    shared_ptr<string> status_ {};
+    shared_ptr<string> type_ {};
+    shared_ptr<string> url_ {};
+    shared_ptr<string> username_ {};
+    shared_ptr<string> vendor_ {};
   };
 
   } // namespace Models

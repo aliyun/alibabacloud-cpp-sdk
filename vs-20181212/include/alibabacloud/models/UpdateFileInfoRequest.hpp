@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->fileId_ == nullptr; };
+        && this->fileId_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline UpdateFileInfoRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // fileId Field Functions 
     bool hasFileId() const { return this->fileId_ != nullptr;};
     void deleteFileId() { this->fileId_ = nullptr;};
-    inline string fileId() const { DARABONBA_PTR_GET_DEFAULT(fileId_, "") };
+    inline string getFileId() const { DARABONBA_PTR_GET_DEFAULT(fileId_, "") };
     inline UpdateFileInfoRequest& setFileId(string fileId) { DARABONBA_PTR_SET_VALUE(fileId_, fileId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // This parameter is required.
-    std::shared_ptr<string> fileId_ = nullptr;
+    shared_ptr<string> fileId_ {};
   };
 
   } // namespace Models

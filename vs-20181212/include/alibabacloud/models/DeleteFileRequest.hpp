@@ -33,13 +33,13 @@ namespace Models
     // fileId Field Functions 
     bool hasFileId() const { return this->fileId_ != nullptr;};
     void deleteFileId() { this->fileId_ = nullptr;};
-    inline string fileId() const { DARABONBA_PTR_GET_DEFAULT(fileId_, "") };
+    inline string getFileId() const { DARABONBA_PTR_GET_DEFAULT(fileId_, "") };
     inline DeleteFileRequest& setFileId(string fileId) { DARABONBA_PTR_SET_VALUE(fileId_, fileId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> fileId_ = nullptr;
+    shared_ptr<string> fileId_ {};
   };
 
   } // namespace Models

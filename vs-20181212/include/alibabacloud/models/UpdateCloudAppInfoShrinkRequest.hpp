@@ -38,49 +38,49 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->description_ == nullptr && return this->patchShrink_ == nullptr && return this->pkgLabelsShrink_ == nullptr && return this->stablePatchId_ == nullptr; };
+        && this->description_ == nullptr && this->patchShrink_ == nullptr && this->pkgLabelsShrink_ == nullptr && this->stablePatchId_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline UpdateCloudAppInfoShrinkRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline UpdateCloudAppInfoShrinkRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // patchShrink Field Functions 
     bool hasPatchShrink() const { return this->patchShrink_ != nullptr;};
     void deletePatchShrink() { this->patchShrink_ = nullptr;};
-    inline string patchShrink() const { DARABONBA_PTR_GET_DEFAULT(patchShrink_, "") };
+    inline string getPatchShrink() const { DARABONBA_PTR_GET_DEFAULT(patchShrink_, "") };
     inline UpdateCloudAppInfoShrinkRequest& setPatchShrink(string patchShrink) { DARABONBA_PTR_SET_VALUE(patchShrink_, patchShrink) };
 
 
     // pkgLabelsShrink Field Functions 
     bool hasPkgLabelsShrink() const { return this->pkgLabelsShrink_ != nullptr;};
     void deletePkgLabelsShrink() { this->pkgLabelsShrink_ = nullptr;};
-    inline string pkgLabelsShrink() const { DARABONBA_PTR_GET_DEFAULT(pkgLabelsShrink_, "") };
+    inline string getPkgLabelsShrink() const { DARABONBA_PTR_GET_DEFAULT(pkgLabelsShrink_, "") };
     inline UpdateCloudAppInfoShrinkRequest& setPkgLabelsShrink(string pkgLabelsShrink) { DARABONBA_PTR_SET_VALUE(pkgLabelsShrink_, pkgLabelsShrink) };
 
 
     // stablePatchId Field Functions 
     bool hasStablePatchId() const { return this->stablePatchId_ != nullptr;};
     void deleteStablePatchId() { this->stablePatchId_ = nullptr;};
-    inline string stablePatchId() const { DARABONBA_PTR_GET_DEFAULT(stablePatchId_, "") };
+    inline string getStablePatchId() const { DARABONBA_PTR_GET_DEFAULT(stablePatchId_, "") };
     inline UpdateCloudAppInfoShrinkRequest& setStablePatchId(string stablePatchId) { DARABONBA_PTR_SET_VALUE(stablePatchId_, stablePatchId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<string> patchShrink_ = nullptr;
-    std::shared_ptr<string> pkgLabelsShrink_ = nullptr;
-    std::shared_ptr<string> stablePatchId_ = nullptr;
+    shared_ptr<string> appId_ {};
+    shared_ptr<string> description_ {};
+    shared_ptr<string> patchShrink_ {};
+    shared_ptr<string> pkgLabelsShrink_ {};
+    shared_ptr<string> stablePatchId_ {};
   };
 
   } // namespace Models

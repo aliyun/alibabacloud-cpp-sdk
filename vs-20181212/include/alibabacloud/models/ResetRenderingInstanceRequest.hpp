@@ -34,33 +34,33 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->actionName_ == nullptr
-        && return this->dataPackageId_ == nullptr && return this->renderingInstanceId_ == nullptr; };
+        && this->dataPackageId_ == nullptr && this->renderingInstanceId_ == nullptr; };
     // actionName Field Functions 
     bool hasActionName() const { return this->actionName_ != nullptr;};
     void deleteActionName() { this->actionName_ = nullptr;};
-    inline string actionName() const { DARABONBA_PTR_GET_DEFAULT(actionName_, "") };
+    inline string getActionName() const { DARABONBA_PTR_GET_DEFAULT(actionName_, "") };
     inline ResetRenderingInstanceRequest& setActionName(string actionName) { DARABONBA_PTR_SET_VALUE(actionName_, actionName) };
 
 
     // dataPackageId Field Functions 
     bool hasDataPackageId() const { return this->dataPackageId_ != nullptr;};
     void deleteDataPackageId() { this->dataPackageId_ = nullptr;};
-    inline string dataPackageId() const { DARABONBA_PTR_GET_DEFAULT(dataPackageId_, "") };
+    inline string getDataPackageId() const { DARABONBA_PTR_GET_DEFAULT(dataPackageId_, "") };
     inline ResetRenderingInstanceRequest& setDataPackageId(string dataPackageId) { DARABONBA_PTR_SET_VALUE(dataPackageId_, dataPackageId) };
 
 
     // renderingInstanceId Field Functions 
     bool hasRenderingInstanceId() const { return this->renderingInstanceId_ != nullptr;};
     void deleteRenderingInstanceId() { this->renderingInstanceId_ = nullptr;};
-    inline string renderingInstanceId() const { DARABONBA_PTR_GET_DEFAULT(renderingInstanceId_, "") };
+    inline string getRenderingInstanceId() const { DARABONBA_PTR_GET_DEFAULT(renderingInstanceId_, "") };
     inline ResetRenderingInstanceRequest& setRenderingInstanceId(string renderingInstanceId) { DARABONBA_PTR_SET_VALUE(renderingInstanceId_, renderingInstanceId) };
 
 
   protected:
-    std::shared_ptr<string> actionName_ = nullptr;
-    std::shared_ptr<string> dataPackageId_ = nullptr;
+    shared_ptr<string> actionName_ {};
+    shared_ptr<string> dataPackageId_ {};
     // This parameter is required.
-    std::shared_ptr<string> renderingInstanceId_ = nullptr;
+    shared_ptr<string> renderingInstanceId_ {};
   };
 
   } // namespace Models

@@ -34,15 +34,15 @@ namespace Models
     // renderingInstanceIds Field Functions 
     bool hasRenderingInstanceIds() const { return this->renderingInstanceIds_ != nullptr;};
     void deleteRenderingInstanceIds() { this->renderingInstanceIds_ = nullptr;};
-    inline const vector<string> & renderingInstanceIds() const { DARABONBA_PTR_GET_CONST(renderingInstanceIds_, vector<string>) };
-    inline vector<string> renderingInstanceIds() { DARABONBA_PTR_GET(renderingInstanceIds_, vector<string>) };
+    inline const vector<string> & getRenderingInstanceIds() const { DARABONBA_PTR_GET_CONST(renderingInstanceIds_, vector<string>) };
+    inline vector<string> getRenderingInstanceIds() { DARABONBA_PTR_GET(renderingInstanceIds_, vector<string>) };
     inline RebootRenderingServerRequest& setRenderingInstanceIds(const vector<string> & renderingInstanceIds) { DARABONBA_PTR_SET_VALUE(renderingInstanceIds_, renderingInstanceIds) };
     inline RebootRenderingServerRequest& setRenderingInstanceIds(vector<string> && renderingInstanceIds) { DARABONBA_PTR_SET_RVALUE(renderingInstanceIds_, renderingInstanceIds) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<vector<string>> renderingInstanceIds_ = nullptr;
+    shared_ptr<vector<string>> renderingInstanceIds_ {};
   };
 
   } // namespace Models

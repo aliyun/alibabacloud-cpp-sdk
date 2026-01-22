@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_DESCRIBEVSDOMAINCONFIGSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/DescribeVsDomainConfigsResponseBodyDomainConfigs.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -33,27 +32,133 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class DomainConfigs : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const DomainConfigs& obj) { 
+        DARABONBA_PTR_TO_JSON(ConfigId, configId_);
+        DARABONBA_PTR_TO_JSON(FunctionArgs, functionArgs_);
+        DARABONBA_PTR_TO_JSON(FunctionName, functionName_);
+        DARABONBA_PTR_TO_JSON(Status, status_);
+      };
+      friend void from_json(const Darabonba::Json& j, DomainConfigs& obj) { 
+        DARABONBA_PTR_FROM_JSON(ConfigId, configId_);
+        DARABONBA_PTR_FROM_JSON(FunctionArgs, functionArgs_);
+        DARABONBA_PTR_FROM_JSON(FunctionName, functionName_);
+        DARABONBA_PTR_FROM_JSON(Status, status_);
+      };
+      DomainConfigs() = default ;
+      DomainConfigs(const DomainConfigs &) = default ;
+      DomainConfigs(DomainConfigs &&) = default ;
+      DomainConfigs(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~DomainConfigs() = default ;
+      DomainConfigs& operator=(const DomainConfigs &) = default ;
+      DomainConfigs& operator=(DomainConfigs &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class FunctionArgs : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const FunctionArgs& obj) { 
+          DARABONBA_PTR_TO_JSON(ArgName, argName_);
+          DARABONBA_PTR_TO_JSON(ArgValue, argValue_);
+        };
+        friend void from_json(const Darabonba::Json& j, FunctionArgs& obj) { 
+          DARABONBA_PTR_FROM_JSON(ArgName, argName_);
+          DARABONBA_PTR_FROM_JSON(ArgValue, argValue_);
+        };
+        FunctionArgs() = default ;
+        FunctionArgs(const FunctionArgs &) = default ;
+        FunctionArgs(FunctionArgs &&) = default ;
+        FunctionArgs(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~FunctionArgs() = default ;
+        FunctionArgs& operator=(const FunctionArgs &) = default ;
+        FunctionArgs& operator=(FunctionArgs &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->argName_ == nullptr
+        && this->argValue_ == nullptr; };
+        // argName Field Functions 
+        bool hasArgName() const { return this->argName_ != nullptr;};
+        void deleteArgName() { this->argName_ = nullptr;};
+        inline string getArgName() const { DARABONBA_PTR_GET_DEFAULT(argName_, "") };
+        inline FunctionArgs& setArgName(string argName) { DARABONBA_PTR_SET_VALUE(argName_, argName) };
+
+
+        // argValue Field Functions 
+        bool hasArgValue() const { return this->argValue_ != nullptr;};
+        void deleteArgValue() { this->argValue_ = nullptr;};
+        inline string getArgValue() const { DARABONBA_PTR_GET_DEFAULT(argValue_, "") };
+        inline FunctionArgs& setArgValue(string argValue) { DARABONBA_PTR_SET_VALUE(argValue_, argValue) };
+
+
+      protected:
+        shared_ptr<string> argName_ {};
+        shared_ptr<string> argValue_ {};
+      };
+
+      virtual bool empty() const override { return this->configId_ == nullptr
+        && this->functionArgs_ == nullptr && this->functionName_ == nullptr && this->status_ == nullptr; };
+      // configId Field Functions 
+      bool hasConfigId() const { return this->configId_ != nullptr;};
+      void deleteConfigId() { this->configId_ = nullptr;};
+      inline string getConfigId() const { DARABONBA_PTR_GET_DEFAULT(configId_, "") };
+      inline DomainConfigs& setConfigId(string configId) { DARABONBA_PTR_SET_VALUE(configId_, configId) };
+
+
+      // functionArgs Field Functions 
+      bool hasFunctionArgs() const { return this->functionArgs_ != nullptr;};
+      void deleteFunctionArgs() { this->functionArgs_ = nullptr;};
+      inline const vector<DomainConfigs::FunctionArgs> & getFunctionArgs() const { DARABONBA_PTR_GET_CONST(functionArgs_, vector<DomainConfigs::FunctionArgs>) };
+      inline vector<DomainConfigs::FunctionArgs> getFunctionArgs() { DARABONBA_PTR_GET(functionArgs_, vector<DomainConfigs::FunctionArgs>) };
+      inline DomainConfigs& setFunctionArgs(const vector<DomainConfigs::FunctionArgs> & functionArgs) { DARABONBA_PTR_SET_VALUE(functionArgs_, functionArgs) };
+      inline DomainConfigs& setFunctionArgs(vector<DomainConfigs::FunctionArgs> && functionArgs) { DARABONBA_PTR_SET_RVALUE(functionArgs_, functionArgs) };
+
+
+      // functionName Field Functions 
+      bool hasFunctionName() const { return this->functionName_ != nullptr;};
+      void deleteFunctionName() { this->functionName_ = nullptr;};
+      inline string getFunctionName() const { DARABONBA_PTR_GET_DEFAULT(functionName_, "") };
+      inline DomainConfigs& setFunctionName(string functionName) { DARABONBA_PTR_SET_VALUE(functionName_, functionName) };
+
+
+      // status Field Functions 
+      bool hasStatus() const { return this->status_ != nullptr;};
+      void deleteStatus() { this->status_ = nullptr;};
+      inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+      inline DomainConfigs& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+    protected:
+      shared_ptr<string> configId_ {};
+      shared_ptr<vector<DomainConfigs::FunctionArgs>> functionArgs_ {};
+      shared_ptr<string> functionName_ {};
+      shared_ptr<string> status_ {};
+    };
+
     virtual bool empty() const override { return this->domainConfigs_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // domainConfigs Field Functions 
     bool hasDomainConfigs() const { return this->domainConfigs_ != nullptr;};
     void deleteDomainConfigs() { this->domainConfigs_ = nullptr;};
-    inline const vector<DescribeVsDomainConfigsResponseBodyDomainConfigs> & domainConfigs() const { DARABONBA_PTR_GET_CONST(domainConfigs_, vector<DescribeVsDomainConfigsResponseBodyDomainConfigs>) };
-    inline vector<DescribeVsDomainConfigsResponseBodyDomainConfigs> domainConfigs() { DARABONBA_PTR_GET(domainConfigs_, vector<DescribeVsDomainConfigsResponseBodyDomainConfigs>) };
-    inline DescribeVsDomainConfigsResponseBody& setDomainConfigs(const vector<DescribeVsDomainConfigsResponseBodyDomainConfigs> & domainConfigs) { DARABONBA_PTR_SET_VALUE(domainConfigs_, domainConfigs) };
-    inline DescribeVsDomainConfigsResponseBody& setDomainConfigs(vector<DescribeVsDomainConfigsResponseBodyDomainConfigs> && domainConfigs) { DARABONBA_PTR_SET_RVALUE(domainConfigs_, domainConfigs) };
+    inline const vector<DescribeVsDomainConfigsResponseBody::DomainConfigs> & getDomainConfigs() const { DARABONBA_PTR_GET_CONST(domainConfigs_, vector<DescribeVsDomainConfigsResponseBody::DomainConfigs>) };
+    inline vector<DescribeVsDomainConfigsResponseBody::DomainConfigs> getDomainConfigs() { DARABONBA_PTR_GET(domainConfigs_, vector<DescribeVsDomainConfigsResponseBody::DomainConfigs>) };
+    inline DescribeVsDomainConfigsResponseBody& setDomainConfigs(const vector<DescribeVsDomainConfigsResponseBody::DomainConfigs> & domainConfigs) { DARABONBA_PTR_SET_VALUE(domainConfigs_, domainConfigs) };
+    inline DescribeVsDomainConfigsResponseBody& setDomainConfigs(vector<DescribeVsDomainConfigsResponseBody::DomainConfigs> && domainConfigs) { DARABONBA_PTR_SET_RVALUE(domainConfigs_, domainConfigs) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeVsDomainConfigsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<vector<DescribeVsDomainConfigsResponseBodyDomainConfigs>> domainConfigs_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<vector<DescribeVsDomainConfigsResponseBody::DomainConfigs>> domainConfigs_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

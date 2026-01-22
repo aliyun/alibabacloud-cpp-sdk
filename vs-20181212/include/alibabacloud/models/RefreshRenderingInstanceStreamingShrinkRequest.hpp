@@ -32,25 +32,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientInfoShrink_ == nullptr
-        && return this->renderingInstanceId_ == nullptr; };
+        && this->renderingInstanceId_ == nullptr; };
     // clientInfoShrink Field Functions 
     bool hasClientInfoShrink() const { return this->clientInfoShrink_ != nullptr;};
     void deleteClientInfoShrink() { this->clientInfoShrink_ = nullptr;};
-    inline string clientInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(clientInfoShrink_, "") };
+    inline string getClientInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(clientInfoShrink_, "") };
     inline RefreshRenderingInstanceStreamingShrinkRequest& setClientInfoShrink(string clientInfoShrink) { DARABONBA_PTR_SET_VALUE(clientInfoShrink_, clientInfoShrink) };
 
 
     // renderingInstanceId Field Functions 
     bool hasRenderingInstanceId() const { return this->renderingInstanceId_ != nullptr;};
     void deleteRenderingInstanceId() { this->renderingInstanceId_ = nullptr;};
-    inline string renderingInstanceId() const { DARABONBA_PTR_GET_DEFAULT(renderingInstanceId_, "") };
+    inline string getRenderingInstanceId() const { DARABONBA_PTR_GET_DEFAULT(renderingInstanceId_, "") };
     inline RefreshRenderingInstanceStreamingShrinkRequest& setRenderingInstanceId(string renderingInstanceId) { DARABONBA_PTR_SET_VALUE(renderingInstanceId_, renderingInstanceId) };
 
 
   protected:
-    std::shared_ptr<string> clientInfoShrink_ = nullptr;
+    shared_ptr<string> clientInfoShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> renderingInstanceId_ = nullptr;
+    shared_ptr<string> renderingInstanceId_ {};
   };
 
   } // namespace Models

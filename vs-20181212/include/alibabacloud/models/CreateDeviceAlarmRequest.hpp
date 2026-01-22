@@ -46,88 +46,88 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->alarm_ == nullptr
-        && return this->channelId_ == nullptr && return this->endTime_ == nullptr && return this->expire_ == nullptr && return this->id_ == nullptr && return this->objectType_ == nullptr
-        && return this->ownerId_ == nullptr && return this->startTime_ == nullptr && return this->subAlarm_ == nullptr; };
+        && this->channelId_ == nullptr && this->endTime_ == nullptr && this->expire_ == nullptr && this->id_ == nullptr && this->objectType_ == nullptr
+        && this->ownerId_ == nullptr && this->startTime_ == nullptr && this->subAlarm_ == nullptr; };
     // alarm Field Functions 
     bool hasAlarm() const { return this->alarm_ != nullptr;};
     void deleteAlarm() { this->alarm_ = nullptr;};
-    inline int32_t alarm() const { DARABONBA_PTR_GET_DEFAULT(alarm_, 0) };
+    inline int32_t getAlarm() const { DARABONBA_PTR_GET_DEFAULT(alarm_, 0) };
     inline CreateDeviceAlarmRequest& setAlarm(int32_t alarm) { DARABONBA_PTR_SET_VALUE(alarm_, alarm) };
 
 
     // channelId Field Functions 
     bool hasChannelId() const { return this->channelId_ != nullptr;};
     void deleteChannelId() { this->channelId_ = nullptr;};
-    inline int32_t channelId() const { DARABONBA_PTR_GET_DEFAULT(channelId_, 0) };
+    inline int32_t getChannelId() const { DARABONBA_PTR_GET_DEFAULT(channelId_, 0) };
     inline CreateDeviceAlarmRequest& setChannelId(int32_t channelId) { DARABONBA_PTR_SET_VALUE(channelId_, channelId) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline int64_t endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
+    inline int64_t getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
     inline CreateDeviceAlarmRequest& setEndTime(int64_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // expire Field Functions 
     bool hasExpire() const { return this->expire_ != nullptr;};
     void deleteExpire() { this->expire_ = nullptr;};
-    inline int64_t expire() const { DARABONBA_PTR_GET_DEFAULT(expire_, 0L) };
+    inline int64_t getExpire() const { DARABONBA_PTR_GET_DEFAULT(expire_, 0L) };
     inline CreateDeviceAlarmRequest& setExpire(int64_t expire) { DARABONBA_PTR_SET_VALUE(expire_, expire) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline string id() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+    inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline CreateDeviceAlarmRequest& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // objectType Field Functions 
     bool hasObjectType() const { return this->objectType_ != nullptr;};
     void deleteObjectType() { this->objectType_ = nullptr;};
-    inline int32_t objectType() const { DARABONBA_PTR_GET_DEFAULT(objectType_, 0) };
+    inline int32_t getObjectType() const { DARABONBA_PTR_GET_DEFAULT(objectType_, 0) };
     inline CreateDeviceAlarmRequest& setObjectType(int32_t objectType) { DARABONBA_PTR_SET_VALUE(objectType_, objectType) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline CreateDeviceAlarmRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline int64_t startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
+    inline int64_t getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
     inline CreateDeviceAlarmRequest& setStartTime(int64_t startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // subAlarm Field Functions 
     bool hasSubAlarm() const { return this->subAlarm_ != nullptr;};
     void deleteSubAlarm() { this->subAlarm_ = nullptr;};
-    inline int32_t subAlarm() const { DARABONBA_PTR_GET_DEFAULT(subAlarm_, 0) };
+    inline int32_t getSubAlarm() const { DARABONBA_PTR_GET_DEFAULT(subAlarm_, 0) };
     inline CreateDeviceAlarmRequest& setSubAlarm(int32_t subAlarm) { DARABONBA_PTR_SET_VALUE(subAlarm_, subAlarm) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<int32_t> alarm_ = nullptr;
+    shared_ptr<int32_t> alarm_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> channelId_ = nullptr;
+    shared_ptr<int32_t> channelId_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> endTime_ = nullptr;
-    std::shared_ptr<int64_t> expire_ = nullptr;
+    shared_ptr<int64_t> endTime_ {};
+    shared_ptr<int64_t> expire_ {};
     // This parameter is required.
-    std::shared_ptr<string> id_ = nullptr;
+    shared_ptr<string> id_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> objectType_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<int32_t> objectType_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> startTime_ = nullptr;
+    shared_ptr<int64_t> startTime_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> subAlarm_ = nullptr;
+    shared_ptr<int32_t> subAlarm_ {};
   };
 
   } // namespace Models

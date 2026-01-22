@@ -38,49 +38,49 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->id_ == nullptr
-        && return this->ownerId_ == nullptr && return this->pan_ == nullptr && return this->tilt_ == nullptr && return this->zoom_ == nullptr; };
+        && this->ownerId_ == nullptr && this->pan_ == nullptr && this->tilt_ == nullptr && this->zoom_ == nullptr; };
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline string id() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+    inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline ContinuousMoveRequest& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline ContinuousMoveRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // pan Field Functions 
     bool hasPan() const { return this->pan_ != nullptr;};
     void deletePan() { this->pan_ = nullptr;};
-    inline string pan() const { DARABONBA_PTR_GET_DEFAULT(pan_, "") };
+    inline string getPan() const { DARABONBA_PTR_GET_DEFAULT(pan_, "") };
     inline ContinuousMoveRequest& setPan(string pan) { DARABONBA_PTR_SET_VALUE(pan_, pan) };
 
 
     // tilt Field Functions 
     bool hasTilt() const { return this->tilt_ != nullptr;};
     void deleteTilt() { this->tilt_ = nullptr;};
-    inline string tilt() const { DARABONBA_PTR_GET_DEFAULT(tilt_, "") };
+    inline string getTilt() const { DARABONBA_PTR_GET_DEFAULT(tilt_, "") };
     inline ContinuousMoveRequest& setTilt(string tilt) { DARABONBA_PTR_SET_VALUE(tilt_, tilt) };
 
 
     // zoom Field Functions 
     bool hasZoom() const { return this->zoom_ != nullptr;};
     void deleteZoom() { this->zoom_ = nullptr;};
-    inline string zoom() const { DARABONBA_PTR_GET_DEFAULT(zoom_, "") };
+    inline string getZoom() const { DARABONBA_PTR_GET_DEFAULT(zoom_, "") };
     inline ContinuousMoveRequest& setZoom(string zoom) { DARABONBA_PTR_SET_VALUE(zoom_, zoom) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> id_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
-    std::shared_ptr<string> pan_ = nullptr;
-    std::shared_ptr<string> tilt_ = nullptr;
-    std::shared_ptr<string> zoom_ = nullptr;
+    shared_ptr<string> id_ {};
+    shared_ptr<int64_t> ownerId_ {};
+    shared_ptr<string> pan_ {};
+    shared_ptr<string> tilt_ {};
+    shared_ptr<string> zoom_ {};
   };
 
   } // namespace Models

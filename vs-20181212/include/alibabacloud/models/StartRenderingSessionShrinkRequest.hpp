@@ -38,50 +38,50 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->clientId_ == nullptr && return this->clientParamsShrink_ == nullptr && return this->patchId_ == nullptr && return this->projectId_ == nullptr; };
+        && this->clientId_ == nullptr && this->clientParamsShrink_ == nullptr && this->patchId_ == nullptr && this->projectId_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline StartRenderingSessionShrinkRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // clientId Field Functions 
     bool hasClientId() const { return this->clientId_ != nullptr;};
     void deleteClientId() { this->clientId_ = nullptr;};
-    inline string clientId() const { DARABONBA_PTR_GET_DEFAULT(clientId_, "") };
+    inline string getClientId() const { DARABONBA_PTR_GET_DEFAULT(clientId_, "") };
     inline StartRenderingSessionShrinkRequest& setClientId(string clientId) { DARABONBA_PTR_SET_VALUE(clientId_, clientId) };
 
 
     // clientParamsShrink Field Functions 
     bool hasClientParamsShrink() const { return this->clientParamsShrink_ != nullptr;};
     void deleteClientParamsShrink() { this->clientParamsShrink_ = nullptr;};
-    inline string clientParamsShrink() const { DARABONBA_PTR_GET_DEFAULT(clientParamsShrink_, "") };
+    inline string getClientParamsShrink() const { DARABONBA_PTR_GET_DEFAULT(clientParamsShrink_, "") };
     inline StartRenderingSessionShrinkRequest& setClientParamsShrink(string clientParamsShrink) { DARABONBA_PTR_SET_VALUE(clientParamsShrink_, clientParamsShrink) };
 
 
     // patchId Field Functions 
     bool hasPatchId() const { return this->patchId_ != nullptr;};
     void deletePatchId() { this->patchId_ = nullptr;};
-    inline string patchId() const { DARABONBA_PTR_GET_DEFAULT(patchId_, "") };
+    inline string getPatchId() const { DARABONBA_PTR_GET_DEFAULT(patchId_, "") };
     inline StartRenderingSessionShrinkRequest& setPatchId(string patchId) { DARABONBA_PTR_SET_VALUE(patchId_, patchId) };
 
 
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline string projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, "") };
+    inline string getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, "") };
     inline StartRenderingSessionShrinkRequest& setProjectId(string projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
   protected:
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // This parameter is required.
-    std::shared_ptr<string> clientId_ = nullptr;
-    std::shared_ptr<string> clientParamsShrink_ = nullptr;
-    std::shared_ptr<string> patchId_ = nullptr;
+    shared_ptr<string> clientId_ {};
+    shared_ptr<string> clientParamsShrink_ {};
+    shared_ptr<string> patchId_ {};
     // This parameter is required.
-    std::shared_ptr<string> projectId_ = nullptr;
+    shared_ptr<string> projectId_ {};
   };
 
   } // namespace Models

@@ -44,77 +44,77 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appName_ == nullptr
-        && return this->appVersion_ == nullptr && return this->description_ == nullptr && return this->downloadUrl_ == nullptr && return this->md5_ == nullptr && return this->pkgFormat_ == nullptr
-        && return this->pkgLabelsShrink_ == nullptr && return this->pkgType_ == nullptr; };
+        && this->appVersion_ == nullptr && this->description_ == nullptr && this->downloadUrl_ == nullptr && this->md5_ == nullptr && this->pkgFormat_ == nullptr
+        && this->pkgLabelsShrink_ == nullptr && this->pkgType_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
-    inline string appName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
+    inline string getAppName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
     inline UploadCloudAppShrinkRequest& setAppName(string appName) { DARABONBA_PTR_SET_VALUE(appName_, appName) };
 
 
     // appVersion Field Functions 
     bool hasAppVersion() const { return this->appVersion_ != nullptr;};
     void deleteAppVersion() { this->appVersion_ = nullptr;};
-    inline string appVersion() const { DARABONBA_PTR_GET_DEFAULT(appVersion_, "") };
+    inline string getAppVersion() const { DARABONBA_PTR_GET_DEFAULT(appVersion_, "") };
     inline UploadCloudAppShrinkRequest& setAppVersion(string appVersion) { DARABONBA_PTR_SET_VALUE(appVersion_, appVersion) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline UploadCloudAppShrinkRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // downloadUrl Field Functions 
     bool hasDownloadUrl() const { return this->downloadUrl_ != nullptr;};
     void deleteDownloadUrl() { this->downloadUrl_ = nullptr;};
-    inline string downloadUrl() const { DARABONBA_PTR_GET_DEFAULT(downloadUrl_, "") };
+    inline string getDownloadUrl() const { DARABONBA_PTR_GET_DEFAULT(downloadUrl_, "") };
     inline UploadCloudAppShrinkRequest& setDownloadUrl(string downloadUrl) { DARABONBA_PTR_SET_VALUE(downloadUrl_, downloadUrl) };
 
 
     // md5 Field Functions 
     bool hasMd5() const { return this->md5_ != nullptr;};
     void deleteMd5() { this->md5_ = nullptr;};
-    inline string md5() const { DARABONBA_PTR_GET_DEFAULT(md5_, "") };
+    inline string getMd5() const { DARABONBA_PTR_GET_DEFAULT(md5_, "") };
     inline UploadCloudAppShrinkRequest& setMd5(string md5) { DARABONBA_PTR_SET_VALUE(md5_, md5) };
 
 
     // pkgFormat Field Functions 
     bool hasPkgFormat() const { return this->pkgFormat_ != nullptr;};
     void deletePkgFormat() { this->pkgFormat_ = nullptr;};
-    inline string pkgFormat() const { DARABONBA_PTR_GET_DEFAULT(pkgFormat_, "") };
+    inline string getPkgFormat() const { DARABONBA_PTR_GET_DEFAULT(pkgFormat_, "") };
     inline UploadCloudAppShrinkRequest& setPkgFormat(string pkgFormat) { DARABONBA_PTR_SET_VALUE(pkgFormat_, pkgFormat) };
 
 
     // pkgLabelsShrink Field Functions 
     bool hasPkgLabelsShrink() const { return this->pkgLabelsShrink_ != nullptr;};
     void deletePkgLabelsShrink() { this->pkgLabelsShrink_ = nullptr;};
-    inline string pkgLabelsShrink() const { DARABONBA_PTR_GET_DEFAULT(pkgLabelsShrink_, "") };
+    inline string getPkgLabelsShrink() const { DARABONBA_PTR_GET_DEFAULT(pkgLabelsShrink_, "") };
     inline UploadCloudAppShrinkRequest& setPkgLabelsShrink(string pkgLabelsShrink) { DARABONBA_PTR_SET_VALUE(pkgLabelsShrink_, pkgLabelsShrink) };
 
 
     // pkgType Field Functions 
     bool hasPkgType() const { return this->pkgType_ != nullptr;};
     void deletePkgType() { this->pkgType_ = nullptr;};
-    inline string pkgType() const { DARABONBA_PTR_GET_DEFAULT(pkgType_, "") };
+    inline string getPkgType() const { DARABONBA_PTR_GET_DEFAULT(pkgType_, "") };
     inline UploadCloudAppShrinkRequest& setPkgType(string pkgType) { DARABONBA_PTR_SET_VALUE(pkgType_, pkgType) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> appName_ = nullptr;
+    shared_ptr<string> appName_ {};
     // This parameter is required.
-    std::shared_ptr<string> appVersion_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> appVersion_ {};
+    shared_ptr<string> description_ {};
     // This parameter is required.
-    std::shared_ptr<string> downloadUrl_ = nullptr;
+    shared_ptr<string> downloadUrl_ {};
     // This parameter is required.
-    std::shared_ptr<string> md5_ = nullptr;
-    std::shared_ptr<string> pkgFormat_ = nullptr;
-    std::shared_ptr<string> pkgLabelsShrink_ = nullptr;
-    std::shared_ptr<string> pkgType_ = nullptr;
+    shared_ptr<string> md5_ {};
+    shared_ptr<string> pkgFormat_ {};
+    shared_ptr<string> pkgLabelsShrink_ {};
+    shared_ptr<string> pkgType_ {};
   };
 
   } // namespace Models

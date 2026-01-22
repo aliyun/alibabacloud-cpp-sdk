@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->gbId_ == nullptr
-        && return this->gbIp_ == nullptr && return this->gbPort_ == nullptr && return this->id_ == nullptr && return this->requestId_ == nullptr; };
+        && this->gbIp_ == nullptr && this->gbPort_ == nullptr && this->id_ == nullptr && this->requestId_ == nullptr; };
     // gbId Field Functions 
     bool hasGbId() const { return this->gbId_ != nullptr;};
     void deleteGbId() { this->gbId_ = nullptr;};
-    inline string gbId() const { DARABONBA_PTR_GET_DEFAULT(gbId_, "") };
+    inline string getGbId() const { DARABONBA_PTR_GET_DEFAULT(gbId_, "") };
     inline CreateGroupResponseBody& setGbId(string gbId) { DARABONBA_PTR_SET_VALUE(gbId_, gbId) };
 
 
     // gbIp Field Functions 
     bool hasGbIp() const { return this->gbIp_ != nullptr;};
     void deleteGbIp() { this->gbIp_ = nullptr;};
-    inline string gbIp() const { DARABONBA_PTR_GET_DEFAULT(gbIp_, "") };
+    inline string getGbIp() const { DARABONBA_PTR_GET_DEFAULT(gbIp_, "") };
     inline CreateGroupResponseBody& setGbIp(string gbIp) { DARABONBA_PTR_SET_VALUE(gbIp_, gbIp) };
 
 
     // gbPort Field Functions 
     bool hasGbPort() const { return this->gbPort_ != nullptr;};
     void deleteGbPort() { this->gbPort_ = nullptr;};
-    inline int64_t gbPort() const { DARABONBA_PTR_GET_DEFAULT(gbPort_, 0L) };
+    inline int64_t getGbPort() const { DARABONBA_PTR_GET_DEFAULT(gbPort_, 0L) };
     inline CreateGroupResponseBody& setGbPort(int64_t gbPort) { DARABONBA_PTR_SET_VALUE(gbPort_, gbPort) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline string id() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+    inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline CreateGroupResponseBody& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateGroupResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<string> gbId_ = nullptr;
-    std::shared_ptr<string> gbIp_ = nullptr;
-    std::shared_ptr<int64_t> gbPort_ = nullptr;
-    std::shared_ptr<string> id_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> gbId_ {};
+    shared_ptr<string> gbIp_ {};
+    shared_ptr<int64_t> gbPort_ {};
+    shared_ptr<string> id_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

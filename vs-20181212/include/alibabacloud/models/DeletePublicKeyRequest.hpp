@@ -33,13 +33,13 @@ namespace Models
     // keyName Field Functions 
     bool hasKeyName() const { return this->keyName_ != nullptr;};
     void deleteKeyName() { this->keyName_ = nullptr;};
-    inline string keyName() const { DARABONBA_PTR_GET_DEFAULT(keyName_, "") };
+    inline string getKeyName() const { DARABONBA_PTR_GET_DEFAULT(keyName_, "") };
     inline DeletePublicKeyRequest& setKeyName(string keyName) { DARABONBA_PTR_SET_VALUE(keyName_, keyName) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> keyName_ = nullptr;
+    shared_ptr<string> keyName_ {};
   };
 
   } // namespace Models

@@ -33,13 +33,13 @@ namespace Models
     // renderingInstanceIdsShrink Field Functions 
     bool hasRenderingInstanceIdsShrink() const { return this->renderingInstanceIdsShrink_ != nullptr;};
     void deleteRenderingInstanceIdsShrink() { this->renderingInstanceIdsShrink_ = nullptr;};
-    inline string renderingInstanceIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(renderingInstanceIdsShrink_, "") };
+    inline string getRenderingInstanceIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(renderingInstanceIdsShrink_, "") };
     inline RebootRenderingServerShrinkRequest& setRenderingInstanceIdsShrink(string renderingInstanceIdsShrink) { DARABONBA_PTR_SET_VALUE(renderingInstanceIdsShrink_, renderingInstanceIdsShrink) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> renderingInstanceIdsShrink_ = nullptr;
+    shared_ptr<string> renderingInstanceIdsShrink_ {};
   };
 
   } // namespace Models

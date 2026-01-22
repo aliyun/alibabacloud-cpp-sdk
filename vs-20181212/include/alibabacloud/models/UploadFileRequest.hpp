@@ -38,52 +38,52 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->fileName_ == nullptr && return this->md5_ == nullptr && return this->originUrl_ == nullptr && return this->targetPath_ == nullptr; };
+        && this->fileName_ == nullptr && this->md5_ == nullptr && this->originUrl_ == nullptr && this->targetPath_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline UploadFileRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // fileName Field Functions 
     bool hasFileName() const { return this->fileName_ != nullptr;};
     void deleteFileName() { this->fileName_ = nullptr;};
-    inline string fileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
+    inline string getFileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
     inline UploadFileRequest& setFileName(string fileName) { DARABONBA_PTR_SET_VALUE(fileName_, fileName) };
 
 
     // md5 Field Functions 
     bool hasMd5() const { return this->md5_ != nullptr;};
     void deleteMd5() { this->md5_ = nullptr;};
-    inline string md5() const { DARABONBA_PTR_GET_DEFAULT(md5_, "") };
+    inline string getMd5() const { DARABONBA_PTR_GET_DEFAULT(md5_, "") };
     inline UploadFileRequest& setMd5(string md5) { DARABONBA_PTR_SET_VALUE(md5_, md5) };
 
 
     // originUrl Field Functions 
     bool hasOriginUrl() const { return this->originUrl_ != nullptr;};
     void deleteOriginUrl() { this->originUrl_ = nullptr;};
-    inline string originUrl() const { DARABONBA_PTR_GET_DEFAULT(originUrl_, "") };
+    inline string getOriginUrl() const { DARABONBA_PTR_GET_DEFAULT(originUrl_, "") };
     inline UploadFileRequest& setOriginUrl(string originUrl) { DARABONBA_PTR_SET_VALUE(originUrl_, originUrl) };
 
 
     // targetPath Field Functions 
     bool hasTargetPath() const { return this->targetPath_ != nullptr;};
     void deleteTargetPath() { this->targetPath_ = nullptr;};
-    inline string targetPath() const { DARABONBA_PTR_GET_DEFAULT(targetPath_, "") };
+    inline string getTargetPath() const { DARABONBA_PTR_GET_DEFAULT(targetPath_, "") };
     inline UploadFileRequest& setTargetPath(string targetPath) { DARABONBA_PTR_SET_VALUE(targetPath_, targetPath) };
 
 
   protected:
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // This parameter is required.
-    std::shared_ptr<string> fileName_ = nullptr;
+    shared_ptr<string> fileName_ {};
     // This parameter is required.
-    std::shared_ptr<string> md5_ = nullptr;
+    shared_ptr<string> md5_ {};
     // This parameter is required.
-    std::shared_ptr<string> originUrl_ = nullptr;
+    shared_ptr<string> originUrl_ {};
     // This parameter is required.
-    std::shared_ptr<string> targetPath_ = nullptr;
+    shared_ptr<string> targetPath_ {};
   };
 
   } // namespace Models

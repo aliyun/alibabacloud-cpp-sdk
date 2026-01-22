@@ -48,90 +48,90 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->attributesShrink_ == nullptr
-        && return this->autoRenew_ == nullptr && return this->clientInfoShrink_ == nullptr && return this->instanceBillingCycle_ == nullptr && return this->instanceChargeType_ == nullptr && return this->internetChargeType_ == nullptr
-        && return this->internetMaxBandwidth_ == nullptr && return this->period_ == nullptr && return this->renderingSpec_ == nullptr && return this->storageSize_ == nullptr; };
+        && this->autoRenew_ == nullptr && this->clientInfoShrink_ == nullptr && this->instanceBillingCycle_ == nullptr && this->instanceChargeType_ == nullptr && this->internetChargeType_ == nullptr
+        && this->internetMaxBandwidth_ == nullptr && this->period_ == nullptr && this->renderingSpec_ == nullptr && this->storageSize_ == nullptr; };
     // attributesShrink Field Functions 
     bool hasAttributesShrink() const { return this->attributesShrink_ != nullptr;};
     void deleteAttributesShrink() { this->attributesShrink_ = nullptr;};
-    inline string attributesShrink() const { DARABONBA_PTR_GET_DEFAULT(attributesShrink_, "") };
+    inline string getAttributesShrink() const { DARABONBA_PTR_GET_DEFAULT(attributesShrink_, "") };
     inline CreateRenderingInstanceShrinkRequest& setAttributesShrink(string attributesShrink) { DARABONBA_PTR_SET_VALUE(attributesShrink_, attributesShrink) };
 
 
     // autoRenew Field Functions 
     bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
     void deleteAutoRenew() { this->autoRenew_ = nullptr;};
-    inline bool autoRenew() const { DARABONBA_PTR_GET_DEFAULT(autoRenew_, false) };
+    inline bool getAutoRenew() const { DARABONBA_PTR_GET_DEFAULT(autoRenew_, false) };
     inline CreateRenderingInstanceShrinkRequest& setAutoRenew(bool autoRenew) { DARABONBA_PTR_SET_VALUE(autoRenew_, autoRenew) };
 
 
     // clientInfoShrink Field Functions 
     bool hasClientInfoShrink() const { return this->clientInfoShrink_ != nullptr;};
     void deleteClientInfoShrink() { this->clientInfoShrink_ = nullptr;};
-    inline string clientInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(clientInfoShrink_, "") };
+    inline string getClientInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(clientInfoShrink_, "") };
     inline CreateRenderingInstanceShrinkRequest& setClientInfoShrink(string clientInfoShrink) { DARABONBA_PTR_SET_VALUE(clientInfoShrink_, clientInfoShrink) };
 
 
     // instanceBillingCycle Field Functions 
     bool hasInstanceBillingCycle() const { return this->instanceBillingCycle_ != nullptr;};
     void deleteInstanceBillingCycle() { this->instanceBillingCycle_ = nullptr;};
-    inline string instanceBillingCycle() const { DARABONBA_PTR_GET_DEFAULT(instanceBillingCycle_, "") };
+    inline string getInstanceBillingCycle() const { DARABONBA_PTR_GET_DEFAULT(instanceBillingCycle_, "") };
     inline CreateRenderingInstanceShrinkRequest& setInstanceBillingCycle(string instanceBillingCycle) { DARABONBA_PTR_SET_VALUE(instanceBillingCycle_, instanceBillingCycle) };
 
 
     // instanceChargeType Field Functions 
     bool hasInstanceChargeType() const { return this->instanceChargeType_ != nullptr;};
     void deleteInstanceChargeType() { this->instanceChargeType_ = nullptr;};
-    inline string instanceChargeType() const { DARABONBA_PTR_GET_DEFAULT(instanceChargeType_, "") };
+    inline string getInstanceChargeType() const { DARABONBA_PTR_GET_DEFAULT(instanceChargeType_, "") };
     inline CreateRenderingInstanceShrinkRequest& setInstanceChargeType(string instanceChargeType) { DARABONBA_PTR_SET_VALUE(instanceChargeType_, instanceChargeType) };
 
 
     // internetChargeType Field Functions 
     bool hasInternetChargeType() const { return this->internetChargeType_ != nullptr;};
     void deleteInternetChargeType() { this->internetChargeType_ = nullptr;};
-    inline string internetChargeType() const { DARABONBA_PTR_GET_DEFAULT(internetChargeType_, "") };
+    inline string getInternetChargeType() const { DARABONBA_PTR_GET_DEFAULT(internetChargeType_, "") };
     inline CreateRenderingInstanceShrinkRequest& setInternetChargeType(string internetChargeType) { DARABONBA_PTR_SET_VALUE(internetChargeType_, internetChargeType) };
 
 
     // internetMaxBandwidth Field Functions 
     bool hasInternetMaxBandwidth() const { return this->internetMaxBandwidth_ != nullptr;};
     void deleteInternetMaxBandwidth() { this->internetMaxBandwidth_ = nullptr;};
-    inline int64_t internetMaxBandwidth() const { DARABONBA_PTR_GET_DEFAULT(internetMaxBandwidth_, 0L) };
+    inline int64_t getInternetMaxBandwidth() const { DARABONBA_PTR_GET_DEFAULT(internetMaxBandwidth_, 0L) };
     inline CreateRenderingInstanceShrinkRequest& setInternetMaxBandwidth(int64_t internetMaxBandwidth) { DARABONBA_PTR_SET_VALUE(internetMaxBandwidth_, internetMaxBandwidth) };
 
 
     // period Field Functions 
     bool hasPeriod() const { return this->period_ != nullptr;};
     void deletePeriod() { this->period_ = nullptr;};
-    inline string period() const { DARABONBA_PTR_GET_DEFAULT(period_, "") };
+    inline string getPeriod() const { DARABONBA_PTR_GET_DEFAULT(period_, "") };
     inline CreateRenderingInstanceShrinkRequest& setPeriod(string period) { DARABONBA_PTR_SET_VALUE(period_, period) };
 
 
     // renderingSpec Field Functions 
     bool hasRenderingSpec() const { return this->renderingSpec_ != nullptr;};
     void deleteRenderingSpec() { this->renderingSpec_ = nullptr;};
-    inline string renderingSpec() const { DARABONBA_PTR_GET_DEFAULT(renderingSpec_, "") };
+    inline string getRenderingSpec() const { DARABONBA_PTR_GET_DEFAULT(renderingSpec_, "") };
     inline CreateRenderingInstanceShrinkRequest& setRenderingSpec(string renderingSpec) { DARABONBA_PTR_SET_VALUE(renderingSpec_, renderingSpec) };
 
 
     // storageSize Field Functions 
     bool hasStorageSize() const { return this->storageSize_ != nullptr;};
     void deleteStorageSize() { this->storageSize_ = nullptr;};
-    inline string storageSize() const { DARABONBA_PTR_GET_DEFAULT(storageSize_, "") };
+    inline string getStorageSize() const { DARABONBA_PTR_GET_DEFAULT(storageSize_, "") };
     inline CreateRenderingInstanceShrinkRequest& setStorageSize(string storageSize) { DARABONBA_PTR_SET_VALUE(storageSize_, storageSize) };
 
 
   protected:
-    std::shared_ptr<string> attributesShrink_ = nullptr;
-    std::shared_ptr<bool> autoRenew_ = nullptr;
-    std::shared_ptr<string> clientInfoShrink_ = nullptr;
-    std::shared_ptr<string> instanceBillingCycle_ = nullptr;
-    std::shared_ptr<string> instanceChargeType_ = nullptr;
-    std::shared_ptr<string> internetChargeType_ = nullptr;
-    std::shared_ptr<int64_t> internetMaxBandwidth_ = nullptr;
-    std::shared_ptr<string> period_ = nullptr;
+    shared_ptr<string> attributesShrink_ {};
+    shared_ptr<bool> autoRenew_ {};
+    shared_ptr<string> clientInfoShrink_ {};
+    shared_ptr<string> instanceBillingCycle_ {};
+    shared_ptr<string> instanceChargeType_ {};
+    shared_ptr<string> internetChargeType_ {};
+    shared_ptr<int64_t> internetMaxBandwidth_ {};
+    shared_ptr<string> period_ {};
     // This parameter is required.
-    std::shared_ptr<string> renderingSpec_ = nullptr;
-    std::shared_ptr<string> storageSize_ = nullptr;
+    shared_ptr<string> renderingSpec_ {};
+    shared_ptr<string> storageSize_ {};
   };
 
   } // namespace Models

@@ -34,33 +34,33 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->renderingInstanceId_ == nullptr
-        && return this->renderingSpec_ == nullptr && return this->storageSize_ == nullptr; };
+        && this->renderingSpec_ == nullptr && this->storageSize_ == nullptr; };
     // renderingInstanceId Field Functions 
     bool hasRenderingInstanceId() const { return this->renderingInstanceId_ != nullptr;};
     void deleteRenderingInstanceId() { this->renderingInstanceId_ = nullptr;};
-    inline string renderingInstanceId() const { DARABONBA_PTR_GET_DEFAULT(renderingInstanceId_, "") };
+    inline string getRenderingInstanceId() const { DARABONBA_PTR_GET_DEFAULT(renderingInstanceId_, "") };
     inline ModifyRenderingInstanceRequest& setRenderingInstanceId(string renderingInstanceId) { DARABONBA_PTR_SET_VALUE(renderingInstanceId_, renderingInstanceId) };
 
 
     // renderingSpec Field Functions 
     bool hasRenderingSpec() const { return this->renderingSpec_ != nullptr;};
     void deleteRenderingSpec() { this->renderingSpec_ = nullptr;};
-    inline string renderingSpec() const { DARABONBA_PTR_GET_DEFAULT(renderingSpec_, "") };
+    inline string getRenderingSpec() const { DARABONBA_PTR_GET_DEFAULT(renderingSpec_, "") };
     inline ModifyRenderingInstanceRequest& setRenderingSpec(string renderingSpec) { DARABONBA_PTR_SET_VALUE(renderingSpec_, renderingSpec) };
 
 
     // storageSize Field Functions 
     bool hasStorageSize() const { return this->storageSize_ != nullptr;};
     void deleteStorageSize() { this->storageSize_ = nullptr;};
-    inline string storageSize() const { DARABONBA_PTR_GET_DEFAULT(storageSize_, "") };
+    inline string getStorageSize() const { DARABONBA_PTR_GET_DEFAULT(storageSize_, "") };
     inline ModifyRenderingInstanceRequest& setStorageSize(string storageSize) { DARABONBA_PTR_SET_VALUE(storageSize_, storageSize) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> renderingInstanceId_ = nullptr;
-    std::shared_ptr<string> renderingSpec_ = nullptr;
-    std::shared_ptr<string> storageSize_ = nullptr;
+    shared_ptr<string> renderingInstanceId_ {};
+    shared_ptr<string> renderingSpec_ {};
+    shared_ptr<string> storageSize_ {};
   };
 
   } // namespace Models

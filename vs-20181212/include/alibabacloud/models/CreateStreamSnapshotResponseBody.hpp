@@ -48,89 +48,89 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->format_ == nullptr
-        && return this->height_ == nullptr && return this->id_ == nullptr && return this->ossBucket_ == nullptr && return this->ossEndpoint_ == nullptr && return this->ossObject_ == nullptr
-        && return this->requestId_ == nullptr && return this->timestamp_ == nullptr && return this->url_ == nullptr && return this->width_ == nullptr; };
+        && this->height_ == nullptr && this->id_ == nullptr && this->ossBucket_ == nullptr && this->ossEndpoint_ == nullptr && this->ossObject_ == nullptr
+        && this->requestId_ == nullptr && this->timestamp_ == nullptr && this->url_ == nullptr && this->width_ == nullptr; };
     // format Field Functions 
     bool hasFormat() const { return this->format_ != nullptr;};
     void deleteFormat() { this->format_ = nullptr;};
-    inline string format() const { DARABONBA_PTR_GET_DEFAULT(format_, "") };
+    inline string getFormat() const { DARABONBA_PTR_GET_DEFAULT(format_, "") };
     inline CreateStreamSnapshotResponseBody& setFormat(string format) { DARABONBA_PTR_SET_VALUE(format_, format) };
 
 
     // height Field Functions 
     bool hasHeight() const { return this->height_ != nullptr;};
     void deleteHeight() { this->height_ = nullptr;};
-    inline int64_t height() const { DARABONBA_PTR_GET_DEFAULT(height_, 0L) };
+    inline int64_t getHeight() const { DARABONBA_PTR_GET_DEFAULT(height_, 0L) };
     inline CreateStreamSnapshotResponseBody& setHeight(int64_t height) { DARABONBA_PTR_SET_VALUE(height_, height) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline string id() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+    inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline CreateStreamSnapshotResponseBody& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // ossBucket Field Functions 
     bool hasOssBucket() const { return this->ossBucket_ != nullptr;};
     void deleteOssBucket() { this->ossBucket_ = nullptr;};
-    inline string ossBucket() const { DARABONBA_PTR_GET_DEFAULT(ossBucket_, "") };
+    inline string getOssBucket() const { DARABONBA_PTR_GET_DEFAULT(ossBucket_, "") };
     inline CreateStreamSnapshotResponseBody& setOssBucket(string ossBucket) { DARABONBA_PTR_SET_VALUE(ossBucket_, ossBucket) };
 
 
     // ossEndpoint Field Functions 
     bool hasOssEndpoint() const { return this->ossEndpoint_ != nullptr;};
     void deleteOssEndpoint() { this->ossEndpoint_ = nullptr;};
-    inline string ossEndpoint() const { DARABONBA_PTR_GET_DEFAULT(ossEndpoint_, "") };
+    inline string getOssEndpoint() const { DARABONBA_PTR_GET_DEFAULT(ossEndpoint_, "") };
     inline CreateStreamSnapshotResponseBody& setOssEndpoint(string ossEndpoint) { DARABONBA_PTR_SET_VALUE(ossEndpoint_, ossEndpoint) };
 
 
     // ossObject Field Functions 
     bool hasOssObject() const { return this->ossObject_ != nullptr;};
     void deleteOssObject() { this->ossObject_ = nullptr;};
-    inline string ossObject() const { DARABONBA_PTR_GET_DEFAULT(ossObject_, "") };
+    inline string getOssObject() const { DARABONBA_PTR_GET_DEFAULT(ossObject_, "") };
     inline CreateStreamSnapshotResponseBody& setOssObject(string ossObject) { DARABONBA_PTR_SET_VALUE(ossObject_, ossObject) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateStreamSnapshotResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // timestamp Field Functions 
     bool hasTimestamp() const { return this->timestamp_ != nullptr;};
     void deleteTimestamp() { this->timestamp_ = nullptr;};
-    inline int64_t timestamp() const { DARABONBA_PTR_GET_DEFAULT(timestamp_, 0L) };
+    inline int64_t getTimestamp() const { DARABONBA_PTR_GET_DEFAULT(timestamp_, 0L) };
     inline CreateStreamSnapshotResponseBody& setTimestamp(int64_t timestamp) { DARABONBA_PTR_SET_VALUE(timestamp_, timestamp) };
 
 
     // url Field Functions 
     bool hasUrl() const { return this->url_ != nullptr;};
     void deleteUrl() { this->url_ = nullptr;};
-    inline string url() const { DARABONBA_PTR_GET_DEFAULT(url_, "") };
+    inline string getUrl() const { DARABONBA_PTR_GET_DEFAULT(url_, "") };
     inline CreateStreamSnapshotResponseBody& setUrl(string url) { DARABONBA_PTR_SET_VALUE(url_, url) };
 
 
     // width Field Functions 
     bool hasWidth() const { return this->width_ != nullptr;};
     void deleteWidth() { this->width_ = nullptr;};
-    inline int64_t width() const { DARABONBA_PTR_GET_DEFAULT(width_, 0L) };
+    inline int64_t getWidth() const { DARABONBA_PTR_GET_DEFAULT(width_, 0L) };
     inline CreateStreamSnapshotResponseBody& setWidth(int64_t width) { DARABONBA_PTR_SET_VALUE(width_, width) };
 
 
   protected:
-    std::shared_ptr<string> format_ = nullptr;
-    std::shared_ptr<int64_t> height_ = nullptr;
-    std::shared_ptr<string> id_ = nullptr;
-    std::shared_ptr<string> ossBucket_ = nullptr;
-    std::shared_ptr<string> ossEndpoint_ = nullptr;
-    std::shared_ptr<string> ossObject_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<int64_t> timestamp_ = nullptr;
-    std::shared_ptr<string> url_ = nullptr;
-    std::shared_ptr<int64_t> width_ = nullptr;
+    shared_ptr<string> format_ {};
+    shared_ptr<int64_t> height_ {};
+    shared_ptr<string> id_ {};
+    shared_ptr<string> ossBucket_ {};
+    shared_ptr<string> ossEndpoint_ {};
+    shared_ptr<string> ossObject_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<int64_t> timestamp_ {};
+    shared_ptr<string> url_ {};
+    shared_ptr<int64_t> width_ {};
   };
 
   } // namespace Models
