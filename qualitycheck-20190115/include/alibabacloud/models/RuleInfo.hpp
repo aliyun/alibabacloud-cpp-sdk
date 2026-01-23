@@ -390,10 +390,10 @@ namespace Models
     // preqRule Field Functions 
     bool hasPreqRule() const { return this->preqRule_ != nullptr;};
     void deletePreqRule() { this->preqRule_ = nullptr;};
-    inline const vector<RuleInfo::PreqRule> & getPreqRule() const { DARABONBA_PTR_GET_CONST(preqRule_, vector<RuleInfo::PreqRule>) };
-    inline vector<RuleInfo::PreqRule> getPreqRule() { DARABONBA_PTR_GET(preqRule_, vector<RuleInfo::PreqRule>) };
-    inline RuleInfo& setPreqRule(const vector<RuleInfo::PreqRule> & preqRule) { DARABONBA_PTR_SET_VALUE(preqRule_, preqRule) };
-    inline RuleInfo& setPreqRule(vector<RuleInfo::PreqRule> && preqRule) { DARABONBA_PTR_SET_RVALUE(preqRule_, preqRule) };
+    inline const RuleInfo::PreqRule & getPreqRule() const { DARABONBA_PTR_GET_CONST(preqRule_, RuleInfo::PreqRule) };
+    inline RuleInfo::PreqRule getPreqRule() { DARABONBA_PTR_GET(preqRule_, RuleInfo::PreqRule) };
+    inline RuleInfo& setPreqRule(const RuleInfo::PreqRule & preqRule) { DARABONBA_PTR_SET_VALUE(preqRule_, preqRule) };
+    inline RuleInfo& setPreqRule(RuleInfo::PreqRule && preqRule) { DARABONBA_PTR_SET_RVALUE(preqRule_, preqRule) };
 
 
     // qualityCheckType Field Functions 
@@ -618,7 +618,7 @@ namespace Models
     shared_ptr<int32_t> modifyType_ {};
     shared_ptr<string> name_ {};
     shared_ptr<int32_t> operationMode_ {};
-    shared_ptr<vector<RuleInfo::PreqRule>> preqRule_ {};
+    shared_ptr<RuleInfo::PreqRule> preqRule_ {};
     shared_ptr<int32_t> qualityCheckType_ {};
     shared_ptr<string> rid_ {};
     shared_ptr<string> ruleCategoryName_ {};
