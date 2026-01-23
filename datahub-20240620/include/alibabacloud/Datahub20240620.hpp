@@ -72,6 +72,23 @@ namespace Datahub20240620
       Models::GetProjectResponse getProject(const Models::GetProjectRequest &request);
 
       /**
+       * @summary 读取Topic数据
+       *
+       * @param request GetRecordsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetRecordsResponse
+       */
+      Models::GetRecordsResponse getRecordsWithOptions(const Models::GetRecordsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 读取Topic数据
+       *
+       * @param request GetRecordsRequest
+       * @return GetRecordsResponse
+       */
+      Models::GetRecordsResponse getRecords(const Models::GetRecordsRequest &request);
+
+      /**
        * @summary 查询Schema信息
        *
        * @param request GetSchemaRequest
@@ -223,6 +240,23 @@ namespace Datahub20240620
        * @return ListTopicsResponse
        */
       Models::ListTopicsResponse listTopics(const Models::ListTopicsRequest &request);
+
+      /**
+       * @summary 写入数据
+       *
+       * @param tmpReq PutRecordsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return PutRecordsResponse
+       */
+      Models::PutRecordsResponse putRecordsWithOptions(const Models::PutRecordsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 写入数据
+       *
+       * @param request PutRecordsRequest
+       * @return PutRecordsResponse
+       */
+      Models::PutRecordsResponse putRecords(const Models::PutRecordsRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace Datahub20240620

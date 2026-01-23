@@ -174,6 +174,60 @@ GetProjectResponse Client::getProject(const GetProjectRequest &request) {
 }
 
 /**
+ * @summary 读取Topic数据
+ *
+ * @param request GetRecordsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetRecordsResponse
+ */
+GetRecordsResponse Client::getRecordsWithOptions(const GetRecordsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasProjectName()) {
+    query["ProjectName"] = request.getProjectName();
+  }
+
+  if (!!request.hasShardId()) {
+    query["ShardId"] = request.getShardId();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasTopicName()) {
+    query["TopicName"] = request.getTopicName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetRecords"},
+    {"version" , "2024-06-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetRecordsResponse>();
+}
+
+/**
+ * @summary 读取Topic数据
+ *
+ * @param request GetRecordsRequest
+ * @return GetRecordsResponse
+ */
+GetRecordsResponse Client::getRecords(const GetRecordsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getRecordsWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询Schema信息
  *
  * @param request GetSchemaRequest
@@ -685,6 +739,66 @@ ListTopicsResponse Client::listTopicsWithOptions(const ListTopicsRequest &reques
 ListTopicsResponse Client::listTopics(const ListTopicsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listTopicsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 写入数据
+ *
+ * @param tmpReq PutRecordsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return PutRecordsResponse
+ */
+PutRecordsResponse Client::putRecordsWithOptions(const PutRecordsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  PutRecordsShrinkRequest request = PutRecordsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasRecords()) {
+    request.setRecordsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRecords(), "Records", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasProjectName()) {
+    query["ProjectName"] = request.getProjectName();
+  }
+
+  if (!!request.hasRecordsShrink()) {
+    query["Records"] = request.getRecordsShrink();
+  }
+
+  if (!!request.hasShardId()) {
+    query["ShardId"] = request.getShardId();
+  }
+
+  if (!!request.hasTopicName()) {
+    query["TopicName"] = request.getTopicName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "PutRecords"},
+    {"version" , "2024-06-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<PutRecordsResponse>();
+}
+
+/**
+ * @summary 写入数据
+ *
+ * @param request PutRecordsRequest
+ * @return PutRecordsResponse
+ */
+PutRecordsResponse Client::putRecords(const PutRecordsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return putRecordsWithOptions(request, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace Datahub20240620

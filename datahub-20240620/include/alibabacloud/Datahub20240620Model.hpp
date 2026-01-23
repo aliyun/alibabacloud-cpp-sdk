@@ -11,6 +11,9 @@
 #include <alibabacloud/models/GetProjectRequest.hpp>
 #include <alibabacloud/models/GetProjectResponseBody.hpp>
 #include <alibabacloud/models/GetProjectResponse.hpp>
+#include <alibabacloud/models/GetRecordsRequest.hpp>
+#include <alibabacloud/models/GetRecordsResponseBody.hpp>
+#include <alibabacloud/models/GetRecordsResponse.hpp>
 #include <alibabacloud/models/GetSchemaRequest.hpp>
 #include <alibabacloud/models/GetSchemaResponseBody.hpp>
 #include <alibabacloud/models/GetSchemaResponse.hpp>
@@ -38,5 +41,9 @@
 #include <alibabacloud/models/ListTopicsRequest.hpp>
 #include <alibabacloud/models/ListTopicsResponseBody.hpp>
 #include <alibabacloud/models/ListTopicsResponse.hpp>
+#include <alibabacloud/models/PutRecordsRequest.hpp>
+#include <alibabacloud/models/PutRecordsShrinkRequest.hpp>
+#include <alibabacloud/models/PutRecordsResponseBody.hpp>
+#include <alibabacloud/models/PutRecordsResponse.hpp>
 
 #endif
