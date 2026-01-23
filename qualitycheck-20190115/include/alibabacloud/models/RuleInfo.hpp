@@ -44,6 +44,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ModifyType, modifyType_);
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(OperationMode, operationMode_);
+      DARABONBA_PTR_TO_JSON(PreqRule, preqRule_);
       DARABONBA_PTR_TO_JSON(QualityCheckType, qualityCheckType_);
       DARABONBA_PTR_TO_JSON(Rid, rid_);
       DARABONBA_PTR_TO_JSON(RuleCategoryName, ruleCategoryName_);
@@ -101,6 +102,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ModifyType, modifyType_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(OperationMode, operationMode_);
+      DARABONBA_PTR_FROM_JSON(PreqRule, preqRule_);
       DARABONBA_PTR_FROM_JSON(QualityCheckType, qualityCheckType_);
       DARABONBA_PTR_FROM_JSON(Rid, rid_);
       DARABONBA_PTR_FROM_JSON(RuleCategoryName, ruleCategoryName_);
@@ -140,18 +142,49 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class PreqRule : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const PreqRule& obj) { 
+        DARABONBA_PTR_TO_JSON(Rid, rid_);
+      };
+      friend void from_json(const Darabonba::Json& j, PreqRule& obj) { 
+        DARABONBA_PTR_FROM_JSON(Rid, rid_);
+      };
+      PreqRule() = default ;
+      PreqRule(const PreqRule &) = default ;
+      PreqRule(PreqRule &&) = default ;
+      PreqRule(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~PreqRule() = default ;
+      PreqRule& operator=(const PreqRule &) = default ;
+      PreqRule& operator=(PreqRule &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->rid_ == nullptr; };
+      // rid Field Functions 
+      bool hasRid() const { return this->rid_ != nullptr;};
+      void deleteRid() { this->rid_ = nullptr;};
+      inline string getRid() const { DARABONBA_PTR_GET_DEFAULT(rid_, "") };
+      inline PreqRule& setRid(string rid) { DARABONBA_PTR_SET_VALUE(rid_, rid) };
+
+
+    protected:
+      shared_ptr<string> rid_ {};
+    };
+
     virtual bool empty() const override { return this->autoReview_ == nullptr
         && this->businessCategoryNameList_ == nullptr && this->checkType_ == nullptr && this->comments_ == nullptr && this->configType_ == nullptr && this->createEmpName_ == nullptr
         && this->createEmpid_ == nullptr && this->createTime_ == nullptr && this->deny_ == nullptr && this->dialogues_ == nullptr && this->effective_ == nullptr
         && this->effectiveEndTime_ == nullptr && this->effectiveStartTime_ == nullptr && this->endTime_ == nullptr && this->externalProperty_ == nullptr && this->fullCycle_ == nullptr
         && this->graphFlow_ == nullptr && this->isDelete_ == nullptr && this->isOnline_ == nullptr && this->lambda_ == nullptr && this->lastUpdateEmpName_ == nullptr
         && this->lastUpdateEmpid_ == nullptr && this->lastUpdateTime_ == nullptr && this->level_ == nullptr && this->meet_ == nullptr && this->modifyType_ == nullptr
-        && this->name_ == nullptr && this->operationMode_ == nullptr && this->qualityCheckType_ == nullptr && this->rid_ == nullptr && this->ruleCategoryName_ == nullptr
-        && this->ruleScoreType_ == nullptr && this->ruleType_ == nullptr && this->schemeCheckType_ == nullptr && this->schemeId_ == nullptr && this->schemeName_ == nullptr
-        && this->schemeRuleMappingId_ == nullptr && this->scoreDeleted_ == nullptr && this->scoreId_ == nullptr && this->scoreName_ == nullptr && this->scoreNum_ == nullptr
-        && this->scoreNumType_ == nullptr && this->scoreRuleHitType_ == nullptr && this->scoreSubId_ == nullptr && this->scoreSubName_ == nullptr && this->scoreType_ == nullptr
-        && this->sortIndex_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr && this->targetType_ == nullptr && this->taskFlowId_ == nullptr
-        && this->taskFlowType_ == nullptr && this->triggers_ == nullptr && this->type_ == nullptr && this->weight_ == nullptr; };
+        && this->name_ == nullptr && this->operationMode_ == nullptr && this->preqRule_ == nullptr && this->qualityCheckType_ == nullptr && this->rid_ == nullptr
+        && this->ruleCategoryName_ == nullptr && this->ruleScoreType_ == nullptr && this->ruleType_ == nullptr && this->schemeCheckType_ == nullptr && this->schemeId_ == nullptr
+        && this->schemeName_ == nullptr && this->schemeRuleMappingId_ == nullptr && this->scoreDeleted_ == nullptr && this->scoreId_ == nullptr && this->scoreName_ == nullptr
+        && this->scoreNum_ == nullptr && this->scoreNumType_ == nullptr && this->scoreRuleHitType_ == nullptr && this->scoreSubId_ == nullptr && this->scoreSubName_ == nullptr
+        && this->scoreType_ == nullptr && this->sortIndex_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr && this->targetType_ == nullptr
+        && this->taskFlowId_ == nullptr && this->taskFlowType_ == nullptr && this->triggers_ == nullptr && this->type_ == nullptr && this->weight_ == nullptr; };
     // autoReview Field Functions 
     bool hasAutoReview() const { return this->autoReview_ != nullptr;};
     void deleteAutoReview() { this->autoReview_ = nullptr;};
@@ -352,6 +385,15 @@ namespace Models
     void deleteOperationMode() { this->operationMode_ = nullptr;};
     inline int32_t getOperationMode() const { DARABONBA_PTR_GET_DEFAULT(operationMode_, 0) };
     inline RuleInfo& setOperationMode(int32_t operationMode) { DARABONBA_PTR_SET_VALUE(operationMode_, operationMode) };
+
+
+    // preqRule Field Functions 
+    bool hasPreqRule() const { return this->preqRule_ != nullptr;};
+    void deletePreqRule() { this->preqRule_ = nullptr;};
+    inline const vector<RuleInfo::PreqRule> & getPreqRule() const { DARABONBA_PTR_GET_CONST(preqRule_, vector<RuleInfo::PreqRule>) };
+    inline vector<RuleInfo::PreqRule> getPreqRule() { DARABONBA_PTR_GET(preqRule_, vector<RuleInfo::PreqRule>) };
+    inline RuleInfo& setPreqRule(const vector<RuleInfo::PreqRule> & preqRule) { DARABONBA_PTR_SET_VALUE(preqRule_, preqRule) };
+    inline RuleInfo& setPreqRule(vector<RuleInfo::PreqRule> && preqRule) { DARABONBA_PTR_SET_RVALUE(preqRule_, preqRule) };
 
 
     // qualityCheckType Field Functions 
@@ -576,6 +618,7 @@ namespace Models
     shared_ptr<int32_t> modifyType_ {};
     shared_ptr<string> name_ {};
     shared_ptr<int32_t> operationMode_ {};
+    shared_ptr<vector<RuleInfo::PreqRule>> preqRule_ {};
     shared_ptr<int32_t> qualityCheckType_ {};
     shared_ptr<string> rid_ {};
     shared_ptr<string> ruleCategoryName_ {};
