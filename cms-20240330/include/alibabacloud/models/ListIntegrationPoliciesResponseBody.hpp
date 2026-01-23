@@ -52,7 +52,6 @@ namespace Models
         DARABONBA_PTR_TO_JSON(regionId, regionId_);
         DARABONBA_PTR_TO_JSON(resourceGroupId, resourceGroupId_);
         DARABONBA_PTR_TO_JSON(subAddonRelease, subAddonRelease_);
-        DARABONBA_PTR_TO_JSON(tags, tags_);
         DARABONBA_PTR_TO_JSON(userId, userId_);
         DARABONBA_PTR_TO_JSON(workspace, workspace_);
       };
@@ -68,7 +67,6 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(regionId, regionId_);
         DARABONBA_PTR_FROM_JSON(resourceGroupId, resourceGroupId_);
         DARABONBA_PTR_FROM_JSON(subAddonRelease, subAddonRelease_);
-        DARABONBA_PTR_FROM_JSON(tags, tags_);
         DARABONBA_PTR_FROM_JSON(userId, userId_);
         DARABONBA_PTR_FROM_JSON(workspace, workspace_);
       };
@@ -83,50 +81,6 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      class Tags : public Darabonba::Model {
-      public:
-        friend void to_json(Darabonba::Json& j, const Tags& obj) { 
-          DARABONBA_PTR_TO_JSON(key, key_);
-          DARABONBA_PTR_TO_JSON(value, value_);
-        };
-        friend void from_json(const Darabonba::Json& j, Tags& obj) { 
-          DARABONBA_PTR_FROM_JSON(key, key_);
-          DARABONBA_PTR_FROM_JSON(value, value_);
-        };
-        Tags() = default ;
-        Tags(const Tags &) = default ;
-        Tags(Tags &&) = default ;
-        Tags(const Darabonba::Json & obj) { from_json(obj, *this); };
-        virtual ~Tags() = default ;
-        Tags& operator=(const Tags &) = default ;
-        Tags& operator=(Tags &&) = default ;
-        virtual void validate() const override {
-        };
-        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
-        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->key_ == nullptr
-        && this->value_ == nullptr; };
-        // key Field Functions 
-        bool hasKey() const { return this->key_ != nullptr;};
-        void deleteKey() { this->key_ = nullptr;};
-        inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
-        inline Tags& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
-
-
-        // value Field Functions 
-        bool hasValue() const { return this->value_ != nullptr;};
-        void deleteValue() { this->value_ = nullptr;};
-        inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
-        inline Tags& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
-
-
-      protected:
-        // Tag key
-        shared_ptr<string> key_ {};
-        // Match value.
-        shared_ptr<string> value_ {};
-      };
-
       class SubAddonRelease : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const SubAddonRelease& obj) { 
@@ -818,7 +772,7 @@ namespace Models
       virtual bool empty() const override { return this->bindResource_ == nullptr
         && this->csUmodelStatus_ == nullptr && this->entityGroup_ == nullptr && this->feePackage_ == nullptr && this->managedInfo_ == nullptr && this->policyId_ == nullptr
         && this->policyName_ == nullptr && this->policyType_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->subAddonRelease_ == nullptr
-        && this->tags_ == nullptr && this->userId_ == nullptr && this->workspace_ == nullptr; };
+        && this->userId_ == nullptr && this->workspace_ == nullptr; };
       // bindResource Field Functions 
       bool hasBindResource() const { return this->bindResource_ != nullptr;};
       void deleteBindResource() { this->bindResource_ = nullptr;};
@@ -904,15 +858,6 @@ namespace Models
       inline Policies& setSubAddonRelease(Policies::SubAddonRelease && subAddonRelease) { DARABONBA_PTR_SET_RVALUE(subAddonRelease_, subAddonRelease) };
 
 
-      // tags Field Functions 
-      bool hasTags() const { return this->tags_ != nullptr;};
-      void deleteTags() { this->tags_ = nullptr;};
-      inline const vector<Policies::Tags> & getTags() const { DARABONBA_PTR_GET_CONST(tags_, vector<Policies::Tags>) };
-      inline vector<Policies::Tags> getTags() { DARABONBA_PTR_GET(tags_, vector<Policies::Tags>) };
-      inline Policies& setTags(const vector<Policies::Tags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
-      inline Policies& setTags(vector<Policies::Tags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
-
-
       // userId Field Functions 
       bool hasUserId() const { return this->userId_ != nullptr;};
       void deleteUserId() { this->userId_ = nullptr;};
@@ -950,8 +895,6 @@ namespace Models
       shared_ptr<string> resourceGroupId_ {};
       // Number of sub-releases
       shared_ptr<Policies::SubAddonRelease> subAddonRelease_ {};
-      // Resource tag key values.
-      shared_ptr<vector<Policies::Tags>> tags_ {};
       // User ID
       shared_ptr<string> userId_ {};
       // Workspace.

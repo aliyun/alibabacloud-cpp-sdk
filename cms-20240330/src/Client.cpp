@@ -4045,6 +4045,10 @@ ListPrometheusInstancesResponse Client::listPrometheusInstancesWithOptions(const
     query["version"] = request.getVersion();
   }
 
+  if (!!request.hasWorkspace()) {
+    query["workspace"] = request.getWorkspace();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}

@@ -23,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(resourceType, resourceType_);
       DARABONBA_PTR_TO_JSON(tag, tag_);
       DARABONBA_PTR_TO_JSON(version, version_);
+      DARABONBA_PTR_TO_JSON(workspace, workspace_);
     };
     friend void from_json(const Darabonba::Json& j, ListPrometheusInstancesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(filterRegionIds, filterRegionIds_);
@@ -34,6 +35,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(resourceType, resourceType_);
       DARABONBA_PTR_FROM_JSON(tag, tag_);
       DARABONBA_PTR_FROM_JSON(version, version_);
+      DARABONBA_PTR_FROM_JSON(workspace, workspace_);
     };
     ListPrometheusInstancesRequest() = default ;
     ListPrometheusInstancesRequest(const ListPrometheusInstancesRequest &) = default ;
@@ -92,7 +94,7 @@ namespace Models
 
     virtual bool empty() const override { return this->filterRegionIds_ == nullptr
         && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->prometheusInstanceIds_ == nullptr && this->prometheusInstanceName_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->resourceType_ == nullptr && this->tag_ == nullptr && this->version_ == nullptr; };
+        && this->resourceType_ == nullptr && this->tag_ == nullptr && this->version_ == nullptr && this->workspace_ == nullptr; };
     // filterRegionIds Field Functions 
     bool hasFilterRegionIds() const { return this->filterRegionIds_ != nullptr;};
     void deleteFilterRegionIds() { this->filterRegionIds_ = nullptr;};
@@ -158,6 +160,13 @@ namespace Models
     inline ListPrometheusInstancesRequest& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
 
 
+    // workspace Field Functions 
+    bool hasWorkspace() const { return this->workspace_ != nullptr;};
+    void deleteWorkspace() { this->workspace_ = nullptr;};
+    inline string getWorkspace() const { DARABONBA_PTR_GET_DEFAULT(workspace_, "") };
+    inline ListPrometheusInstancesRequest& setWorkspace(string workspace) { DARABONBA_PTR_SET_VALUE(workspace_, workspace) };
+
+
   protected:
     // Specified list of regionIds to filter (comma-separated).
     shared_ptr<string> filterRegionIds_ {};
@@ -177,6 +186,7 @@ namespace Models
     shared_ptr<vector<ListPrometheusInstancesRequest::Tag>> tag_ {};
     // Instance version: V1 or V2
     shared_ptr<string> version_ {};
+    shared_ptr<string> workspace_ {};
   };
 
   } // namespace Models

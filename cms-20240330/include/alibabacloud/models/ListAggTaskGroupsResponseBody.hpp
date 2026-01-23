@@ -56,7 +56,6 @@ namespace Models
         DARABONBA_PTR_TO_JSON(scheduleTimeExpr, scheduleTimeExpr_);
         DARABONBA_PTR_TO_JSON(sourcePrometheusId, sourcePrometheusId_);
         DARABONBA_PTR_TO_JSON(status, status_);
-        DARABONBA_PTR_TO_JSON(tags, tags_);
         DARABONBA_PTR_TO_JSON(targetPrometheusId, targetPrometheusId_);
         DARABONBA_PTR_TO_JSON(toTime, toTime_);
         DARABONBA_PTR_TO_JSON(updateTime, updateTime_);
@@ -77,7 +76,6 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(scheduleTimeExpr, scheduleTimeExpr_);
         DARABONBA_PTR_FROM_JSON(sourcePrometheusId, sourcePrometheusId_);
         DARABONBA_PTR_FROM_JSON(status, status_);
-        DARABONBA_PTR_FROM_JSON(tags, tags_);
         DARABONBA_PTR_FROM_JSON(targetPrometheusId, targetPrometheusId_);
         DARABONBA_PTR_FROM_JSON(toTime, toTime_);
         DARABONBA_PTR_FROM_JSON(updateTime, updateTime_);
@@ -93,55 +91,11 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      class Tags : public Darabonba::Model {
-      public:
-        friend void to_json(Darabonba::Json& j, const Tags& obj) { 
-          DARABONBA_PTR_TO_JSON(key, key_);
-          DARABONBA_PTR_TO_JSON(value, value_);
-        };
-        friend void from_json(const Darabonba::Json& j, Tags& obj) { 
-          DARABONBA_PTR_FROM_JSON(key, key_);
-          DARABONBA_PTR_FROM_JSON(value, value_);
-        };
-        Tags() = default ;
-        Tags(const Tags &) = default ;
-        Tags(Tags &&) = default ;
-        Tags(const Darabonba::Json & obj) { from_json(obj, *this); };
-        virtual ~Tags() = default ;
-        Tags& operator=(const Tags &) = default ;
-        Tags& operator=(Tags &&) = default ;
-        virtual void validate() const override {
-        };
-        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
-        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->key_ == nullptr
-        && this->value_ == nullptr; };
-        // key Field Functions 
-        bool hasKey() const { return this->key_ != nullptr;};
-        void deleteKey() { this->key_ = nullptr;};
-        inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
-        inline Tags& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
-
-
-        // value Field Functions 
-        bool hasValue() const { return this->value_ != nullptr;};
-        void deleteValue() { this->value_ = nullptr;};
-        inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
-        inline Tags& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
-
-
-      protected:
-        // Key of the resource group tag.
-        shared_ptr<string> key_ {};
-        // Value of the resource group tag.
-        shared_ptr<string> value_ {};
-      };
-
       virtual bool empty() const override { return this->aggTaskGroupConfigHash_ == nullptr
         && this->aggTaskGroupId_ == nullptr && this->aggTaskGroupName_ == nullptr && this->cronExpr_ == nullptr && this->delay_ == nullptr && this->description_ == nullptr
         && this->fromTime_ == nullptr && this->interval_ == nullptr && this->maxRetries_ == nullptr && this->maxRunTimeInSeconds_ == nullptr && this->regionId_ == nullptr
-        && this->scheduleMode_ == nullptr && this->scheduleTimeExpr_ == nullptr && this->sourcePrometheusId_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr
-        && this->targetPrometheusId_ == nullptr && this->toTime_ == nullptr && this->updateTime_ == nullptr; };
+        && this->scheduleMode_ == nullptr && this->scheduleTimeExpr_ == nullptr && this->sourcePrometheusId_ == nullptr && this->status_ == nullptr && this->targetPrometheusId_ == nullptr
+        && this->toTime_ == nullptr && this->updateTime_ == nullptr; };
       // aggTaskGroupConfigHash Field Functions 
       bool hasAggTaskGroupConfigHash() const { return this->aggTaskGroupConfigHash_ != nullptr;};
       void deleteAggTaskGroupConfigHash() { this->aggTaskGroupConfigHash_ = nullptr;};
@@ -247,15 +201,6 @@ namespace Models
       inline AggTaskGroups& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
-      // tags Field Functions 
-      bool hasTags() const { return this->tags_ != nullptr;};
-      void deleteTags() { this->tags_ = nullptr;};
-      inline const vector<AggTaskGroups::Tags> & getTags() const { DARABONBA_PTR_GET_CONST(tags_, vector<AggTaskGroups::Tags>) };
-      inline vector<AggTaskGroups::Tags> getTags() { DARABONBA_PTR_GET(tags_, vector<AggTaskGroups::Tags>) };
-      inline AggTaskGroups& setTags(const vector<AggTaskGroups::Tags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
-      inline AggTaskGroups& setTags(vector<AggTaskGroups::Tags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
-
-
       // targetPrometheusId Field Functions 
       bool hasTargetPrometheusId() const { return this->targetPrometheusId_ != nullptr;};
       void deleteTargetPrometheusId() { this->targetPrometheusId_ = nullptr;};
@@ -308,8 +253,6 @@ namespace Models
       shared_ptr<string> sourcePrometheusId_ {};
       // Status of the aggregation task group.
       shared_ptr<string> status_ {};
-      // Resource group tags
-      shared_ptr<vector<AggTaskGroups::Tags>> tags_ {};
       // The target Prometheus instance ID of the aggregation task group.
       shared_ptr<string> targetPrometheusId_ {};
       // The second-level timestamp corresponding to the end time of scheduling.

@@ -49,10 +49,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(prometheusViewId, prometheusViewId_);
         DARABONBA_PTR_TO_JSON(prometheusViewName, prometheusViewName_);
         DARABONBA_PTR_TO_JSON(regionId, regionId_);
-        DARABONBA_PTR_TO_JSON(resourceGroupId, resourceGroupId_);
         DARABONBA_PTR_TO_JSON(resourceType, resourceType_);
         DARABONBA_PTR_TO_JSON(status, status_);
-        DARABONBA_PTR_TO_JSON(tags, tags_);
         DARABONBA_PTR_TO_JSON(userId, userId_);
         DARABONBA_PTR_TO_JSON(version, version_);
         DARABONBA_PTR_TO_JSON(workspace, workspace_);
@@ -66,10 +64,8 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(prometheusViewId, prometheusViewId_);
         DARABONBA_PTR_FROM_JSON(prometheusViewName, prometheusViewName_);
         DARABONBA_PTR_FROM_JSON(regionId, regionId_);
-        DARABONBA_PTR_FROM_JSON(resourceGroupId, resourceGroupId_);
         DARABONBA_PTR_FROM_JSON(resourceType, resourceType_);
         DARABONBA_PTR_FROM_JSON(status, status_);
-        DARABONBA_PTR_FROM_JSON(tags, tags_);
         DARABONBA_PTR_FROM_JSON(userId, userId_);
         DARABONBA_PTR_FROM_JSON(version, version_);
         DARABONBA_PTR_FROM_JSON(workspace, workspace_);
@@ -85,54 +81,10 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      class Tags : public Darabonba::Model {
-      public:
-        friend void to_json(Darabonba::Json& j, const Tags& obj) { 
-          DARABONBA_PTR_TO_JSON(key, key_);
-          DARABONBA_PTR_TO_JSON(value, value_);
-        };
-        friend void from_json(const Darabonba::Json& j, Tags& obj) { 
-          DARABONBA_PTR_FROM_JSON(key, key_);
-          DARABONBA_PTR_FROM_JSON(value, value_);
-        };
-        Tags() = default ;
-        Tags(const Tags &) = default ;
-        Tags(Tags &&) = default ;
-        Tags(const Darabonba::Json & obj) { from_json(obj, *this); };
-        virtual ~Tags() = default ;
-        Tags& operator=(const Tags &) = default ;
-        Tags& operator=(Tags &&) = default ;
-        virtual void validate() const override {
-        };
-        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
-        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->key_ == nullptr
-        && this->value_ == nullptr; };
-        // key Field Functions 
-        bool hasKey() const { return this->key_ != nullptr;};
-        void deleteKey() { this->key_ = nullptr;};
-        inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
-        inline Tags& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
-
-
-        // value Field Functions 
-        bool hasValue() const { return this->value_ != nullptr;};
-        void deleteValue() { this->value_ = nullptr;};
-        inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
-        inline Tags& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
-
-
-      protected:
-        // Tag key
-        shared_ptr<string> key_ {};
-        // Match value.
-        shared_ptr<string> value_ {};
-      };
-
       virtual bool empty() const override { return this->createTime_ == nullptr
         && this->instanceType_ == nullptr && this->paymentType_ == nullptr && this->product_ == nullptr && this->prometheusInstanceCount_ == nullptr && this->prometheusViewId_ == nullptr
-        && this->prometheusViewName_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceType_ == nullptr && this->status_ == nullptr
-        && this->tags_ == nullptr && this->userId_ == nullptr && this->version_ == nullptr && this->workspace_ == nullptr; };
+        && this->prometheusViewName_ == nullptr && this->regionId_ == nullptr && this->resourceType_ == nullptr && this->status_ == nullptr && this->userId_ == nullptr
+        && this->version_ == nullptr && this->workspace_ == nullptr; };
       // createTime Field Functions 
       bool hasCreateTime() const { return this->createTime_ != nullptr;};
       void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -189,13 +141,6 @@ namespace Models
       inline PrometheusViews& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
-      // resourceGroupId Field Functions 
-      bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
-      void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-      inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
-      inline PrometheusViews& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
-
-
       // resourceType Field Functions 
       bool hasResourceType() const { return this->resourceType_ != nullptr;};
       void deleteResourceType() { this->resourceType_ = nullptr;};
@@ -208,15 +153,6 @@ namespace Models
       void deleteStatus() { this->status_ = nullptr;};
       inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
       inline PrometheusViews& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
-
-
-      // tags Field Functions 
-      bool hasTags() const { return this->tags_ != nullptr;};
-      void deleteTags() { this->tags_ = nullptr;};
-      inline const vector<PrometheusViews::Tags> & getTags() const { DARABONBA_PTR_GET_CONST(tags_, vector<PrometheusViews::Tags>) };
-      inline vector<PrometheusViews::Tags> getTags() { DARABONBA_PTR_GET(tags_, vector<PrometheusViews::Tags>) };
-      inline PrometheusViews& setTags(const vector<PrometheusViews::Tags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
-      inline PrometheusViews& setTags(vector<PrometheusViews::Tags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
 
 
       // userId Field Functions 
@@ -259,14 +195,10 @@ namespace Models
       shared_ptr<string> prometheusViewName_ {};
       // Region ID.
       shared_ptr<string> regionId_ {};
-      // Resource group ID.
-      shared_ptr<string> resourceGroupId_ {};
       // Fixed value: PrometheusView.
       shared_ptr<string> resourceType_ {};
       // Backend data storage status.
       shared_ptr<string> status_ {};
-      // Tag values.
-      shared_ptr<vector<PrometheusViews::Tags>> tags_ {};
       // User ID.
       shared_ptr<string> userId_ {};
       // Version.
