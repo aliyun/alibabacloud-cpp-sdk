@@ -484,6 +484,60 @@ ApplyDataServiceAppResponse Client::applyDataServiceApp(const ApplyDataServiceAp
 }
 
 /**
+ * @summary 指定质量规则和调度设置进行绑定。
+ *
+ * @param tmpReq AssignQualityRuleOfAllRuleScopeSchedulesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AssignQualityRuleOfAllRuleScopeSchedulesResponse
+ */
+AssignQualityRuleOfAllRuleScopeSchedulesResponse Client::assignQualityRuleOfAllRuleScopeSchedulesWithOptions(const AssignQualityRuleOfAllRuleScopeSchedulesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  AssignQualityRuleOfAllRuleScopeSchedulesShrinkRequest request = AssignQualityRuleOfAllRuleScopeSchedulesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAssignCommand()) {
+    request.setAssignCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAssignCommand(), "AssignCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasAssignCommandShrink()) {
+    body["AssignCommand"] = request.getAssignCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "AssignQualityRuleOfAllRuleScopeSchedules"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AssignQualityRuleOfAllRuleScopeSchedulesResponse>();
+}
+
+/**
+ * @summary 指定质量规则和调度设置进行绑定。
+ *
+ * @param request AssignQualityRuleOfAllRuleScopeSchedulesRequest
+ * @return AssignQualityRuleOfAllRuleScopeSchedulesResponse
+ */
+AssignQualityRuleOfAllRuleScopeSchedulesResponse Client::assignQualityRuleOfAllRuleScopeSchedules(const AssignQualityRuleOfAllRuleScopeSchedulesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return assignQualityRuleOfAllRuleScopeSchedulesWithOptions(request, runtime);
+}
+
+/**
  * @summary 项目计算源连通性检查。
  *
  * @param tmpReq CheckComputeSourceConnectivityRequest
@@ -1668,6 +1722,600 @@ CreateRowPermissionResponse Client::createRowPermission(const CreateRowPermissio
 }
 
 /**
+ * @summary 新建数据分类。
+ *
+ * @param tmpReq CreateSecurityClassifyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateSecurityClassifyResponse
+ */
+CreateSecurityClassifyResponse Client::createSecurityClassifyWithOptions(const CreateSecurityClassifyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateSecurityClassifyShrinkRequest request = CreateSecurityClassifyShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCreateCommand()) {
+    request.setCreateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCreateCommand(), "CreateCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasCreateCommandShrink()) {
+    body["CreateCommand"] = request.getCreateCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateSecurityClassify"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateSecurityClassifyResponse>();
+}
+
+/**
+ * @summary 新建数据分类。
+ *
+ * @param request CreateSecurityClassifyRequest
+ * @return CreateSecurityClassifyResponse
+ */
+CreateSecurityClassifyResponse Client::createSecurityClassify(const CreateSecurityClassifyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createSecurityClassifyWithOptions(request, runtime);
+}
+
+/**
+ * @summary 新建数据分类目录。
+ *
+ * @param tmpReq CreateSecurityClassifyCatalogRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateSecurityClassifyCatalogResponse
+ */
+CreateSecurityClassifyCatalogResponse Client::createSecurityClassifyCatalogWithOptions(const CreateSecurityClassifyCatalogRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateSecurityClassifyCatalogShrinkRequest request = CreateSecurityClassifyCatalogShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCreateCommand()) {
+    request.setCreateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCreateCommand(), "CreateCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasCreateCommandShrink()) {
+    body["CreateCommand"] = request.getCreateCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateSecurityClassifyCatalog"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateSecurityClassifyCatalogResponse>();
+}
+
+/**
+ * @summary 新建数据分类目录。
+ *
+ * @param request CreateSecurityClassifyCatalogRequest
+ * @return CreateSecurityClassifyCatalogResponse
+ */
+CreateSecurityClassifyCatalogResponse Client::createSecurityClassifyCatalog(const CreateSecurityClassifyCatalogRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createSecurityClassifyCatalogWithOptions(request, runtime);
+}
+
+/**
+ * @summary 新建安全识别结果。
+ *
+ * @param tmpReq CreateSecurityIdentifyResultRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateSecurityIdentifyResultResponse
+ */
+CreateSecurityIdentifyResultResponse Client::createSecurityIdentifyResultWithOptions(const CreateSecurityIdentifyResultRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateSecurityIdentifyResultShrinkRequest request = CreateSecurityIdentifyResultShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCreateCommand()) {
+    request.setCreateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCreateCommand(), "CreateCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasCreateCommandShrink()) {
+    body["CreateCommand"] = request.getCreateCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateSecurityIdentifyResult"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateSecurityIdentifyResultResponse>();
+}
+
+/**
+ * @summary 新建安全识别结果。
+ *
+ * @param request CreateSecurityIdentifyResultRequest
+ * @return CreateSecurityIdentifyResultResponse
+ */
+CreateSecurityIdentifyResultResponse Client::createSecurityIdentifyResult(const CreateSecurityIdentifyResultRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createSecurityIdentifyResultWithOptions(request, runtime);
+}
+
+/**
+ * @summary 新建数据分级。
+ *
+ * @param tmpReq CreateSecurityLevelRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateSecurityLevelResponse
+ */
+CreateSecurityLevelResponse Client::createSecurityLevelWithOptions(const CreateSecurityLevelRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateSecurityLevelShrinkRequest request = CreateSecurityLevelShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCreateCommand()) {
+    request.setCreateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCreateCommand(), "CreateCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasCreateCommandShrink()) {
+    body["CreateCommand"] = request.getCreateCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateSecurityLevel"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateSecurityLevelResponse>();
+}
+
+/**
+ * @summary 新建数据分级。
+ *
+ * @param request CreateSecurityLevelRequest
+ * @return CreateSecurityLevelResponse
+ */
+CreateSecurityLevelResponse Client::createSecurityLevel(const CreateSecurityLevelRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createSecurityLevelWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建标准。
+ *
+ * @param tmpReq CreateStandardRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateStandardResponse
+ */
+CreateStandardResponse Client::createStandardWithOptions(const CreateStandardRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateStandardShrinkRequest request = CreateStandardShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCreateCommand()) {
+    request.setCreateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCreateCommand(), "CreateCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasCreateCommandShrink()) {
+    body["CreateCommand"] = request.getCreateCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateStandard"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateStandardResponse>();
+}
+
+/**
+ * @summary 创建标准。
+ *
+ * @param request CreateStandardRequest
+ * @return CreateStandardResponse
+ */
+CreateStandardResponse Client::createStandard(const CreateStandardRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createStandardWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建数据标准码表。
+ *
+ * @param tmpReq CreateStandardLookupTableRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateStandardLookupTableResponse
+ */
+CreateStandardLookupTableResponse Client::createStandardLookupTableWithOptions(const CreateStandardLookupTableRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateStandardLookupTableShrinkRequest request = CreateStandardLookupTableShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCreateCommand()) {
+    request.setCreateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCreateCommand(), "CreateCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasCreateCommandShrink()) {
+    body["CreateCommand"] = request.getCreateCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateStandardLookupTable"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateStandardLookupTableResponse>();
+}
+
+/**
+ * @summary 创建数据标准码表。
+ *
+ * @param request CreateStandardLookupTableRequest
+ * @return CreateStandardLookupTableResponse
+ */
+CreateStandardLookupTableResponse Client::createStandardLookupTable(const CreateStandardLookupTableRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createStandardLookupTableWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建标准映射关系, 包括有效映射和无效映射。
+ *
+ * @param tmpReq CreateStandardMappingRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateStandardMappingResponse
+ */
+CreateStandardMappingResponse Client::createStandardMappingWithOptions(const CreateStandardMappingRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateStandardMappingShrinkRequest request = CreateStandardMappingShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCreateCommand()) {
+    request.setCreateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCreateCommand(), "CreateCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasCreateCommandShrink()) {
+    body["CreateCommand"] = request.getCreateCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateStandardMapping"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateStandardMappingResponse>();
+}
+
+/**
+ * @summary 创建标准映射关系, 包括有效映射和无效映射。
+ *
+ * @param request CreateStandardMappingRequest
+ * @return CreateStandardMappingResponse
+ */
+CreateStandardMappingResponse Client::createStandardMapping(const CreateStandardMappingRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createStandardMappingWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建标准关联关系。
+ *
+ * @param tmpReq CreateStandardRelationsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateStandardRelationsResponse
+ */
+CreateStandardRelationsResponse Client::createStandardRelationsWithOptions(const CreateStandardRelationsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateStandardRelationsShrinkRequest request = CreateStandardRelationsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCreateCommand()) {
+    request.setCreateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCreateCommand(), "CreateCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasCreateCommandShrink()) {
+    body["CreateCommand"] = request.getCreateCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateStandardRelations"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateStandardRelationsResponse>();
+}
+
+/**
+ * @summary 创建标准关联关系。
+ *
+ * @param request CreateStandardRelationsRequest
+ * @return CreateStandardRelationsResponse
+ */
+CreateStandardRelationsResponse Client::createStandardRelations(const CreateStandardRelationsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createStandardRelationsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建标准集。
+ *
+ * @param tmpReq CreateStandardSetRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateStandardSetResponse
+ */
+CreateStandardSetResponse Client::createStandardSetWithOptions(const CreateStandardSetRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateStandardSetShrinkRequest request = CreateStandardSetShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCreateCommand()) {
+    request.setCreateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCreateCommand(), "CreateCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasCreateCommandShrink()) {
+    body["CreateCommand"] = request.getCreateCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateStandardSet"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateStandardSetResponse>();
+}
+
+/**
+ * @summary 创建标准集。
+ *
+ * @param request CreateStandardSetRequest
+ * @return CreateStandardSetResponse
+ */
+CreateStandardSetResponse Client::createStandardSet(const CreateStandardSetRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createStandardSetWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建数据标准模板。
+ *
+ * @param tmpReq CreateStandardTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateStandardTemplateResponse
+ */
+CreateStandardTemplateResponse Client::createStandardTemplateWithOptions(const CreateStandardTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateStandardTemplateShrinkRequest request = CreateStandardTemplateShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCreateCommand()) {
+    request.setCreateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCreateCommand(), "CreateCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasCreateCommandShrink()) {
+    body["CreateCommand"] = request.getCreateCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateStandardTemplate"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateStandardTemplateResponse>();
+}
+
+/**
+ * @summary 创建数据标准模板。
+ *
+ * @param request CreateStandardTemplateRequest
+ * @return CreateStandardTemplateResponse
+ */
+CreateStandardTemplateResponse Client::createStandardTemplate(const CreateStandardTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createStandardTemplateWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建数据标准词根。
+ *
+ * @param tmpReq CreateStandardWordRootRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateStandardWordRootResponse
+ */
+CreateStandardWordRootResponse Client::createStandardWordRootWithOptions(const CreateStandardWordRootRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateStandardWordRootShrinkRequest request = CreateStandardWordRootShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCreateCommand()) {
+    request.setCreateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCreateCommand(), "CreateCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasCreateCommandShrink()) {
+    body["CreateCommand"] = request.getCreateCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateStandardWordRoot"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateStandardWordRootResponse>();
+}
+
+/**
+ * @summary 创建数据标准词根。
+ *
+ * @param request CreateStandardWordRootRequest
+ * @return CreateStandardWordRootResponse
+ */
+CreateStandardWordRootResponse Client::createStandardWordRoot(const CreateStandardWordRootRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createStandardWordRootWithOptions(request, runtime);
+}
+
+/**
  * @summary 创建流批一体任务
  *
  * @param tmpReq CreateStreamBatchJobMappingRequest
@@ -2288,6 +2936,222 @@ DeleteDirectoryResponse Client::deleteDirectory(const DeleteDirectoryRequest &re
 }
 
 /**
+ * @summary 批量删除质量规则对象。
+ *
+ * @param tmpReq DeleteQualityRulesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteQualityRulesResponse
+ */
+DeleteQualityRulesResponse Client::deleteQualityRulesWithOptions(const DeleteQualityRulesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DeleteQualityRulesShrinkRequest request = DeleteQualityRulesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasDeleteCommand()) {
+    request.setDeleteCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeleteCommand(), "DeleteCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasDeleteCommandShrink()) {
+    body["DeleteCommand"] = request.getDeleteCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "DeleteQualityRules"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteQualityRulesResponse>();
+}
+
+/**
+ * @summary 批量删除质量规则对象。
+ *
+ * @param request DeleteQualityRulesRequest
+ * @return DeleteQualityRulesResponse
+ */
+DeleteQualityRulesResponse Client::deleteQualityRules(const DeleteQualityRulesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteQualityRulesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 批量删除质量调度对象。
+ *
+ * @param tmpReq DeleteQualitySchedulesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteQualitySchedulesResponse
+ */
+DeleteQualitySchedulesResponse Client::deleteQualitySchedulesWithOptions(const DeleteQualitySchedulesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DeleteQualitySchedulesShrinkRequest request = DeleteQualitySchedulesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasDeleteCommand()) {
+    request.setDeleteCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeleteCommand(), "DeleteCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasDeleteCommandShrink()) {
+    body["DeleteCommand"] = request.getDeleteCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "DeleteQualitySchedules"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteQualitySchedulesResponse>();
+}
+
+/**
+ * @summary 批量删除质量调度对象。
+ *
+ * @param request DeleteQualitySchedulesRequest
+ * @return DeleteQualitySchedulesResponse
+ */
+DeleteQualitySchedulesResponse Client::deleteQualitySchedules(const DeleteQualitySchedulesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteQualitySchedulesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 批量删除质量模板对象。
+ *
+ * @param tmpReq DeleteQualityTemplatesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteQualityTemplatesResponse
+ */
+DeleteQualityTemplatesResponse Client::deleteQualityTemplatesWithOptions(const DeleteQualityTemplatesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DeleteQualityTemplatesShrinkRequest request = DeleteQualityTemplatesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasDeleteCommand()) {
+    request.setDeleteCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeleteCommand(), "DeleteCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasDeleteCommandShrink()) {
+    body["DeleteCommand"] = request.getDeleteCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "DeleteQualityTemplates"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteQualityTemplatesResponse>();
+}
+
+/**
+ * @summary 批量删除质量模板对象。
+ *
+ * @param request DeleteQualityTemplatesRequest
+ * @return DeleteQualityTemplatesResponse
+ */
+DeleteQualityTemplatesResponse Client::deleteQualityTemplates(const DeleteQualityTemplatesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteQualityTemplatesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 批量删除质量监控对象。
+ *
+ * @param tmpReq DeleteQualityWatchesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteQualityWatchesResponse
+ */
+DeleteQualityWatchesResponse Client::deleteQualityWatchesWithOptions(const DeleteQualityWatchesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DeleteQualityWatchesShrinkRequest request = DeleteQualityWatchesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasDeleteCommand()) {
+    request.setDeleteCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeleteCommand(), "DeleteCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasDeleteCommandShrink()) {
+    body["DeleteCommand"] = request.getDeleteCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "DeleteQualityWatches"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteQualityWatchesResponse>();
+}
+
+/**
+ * @summary 批量删除质量监控对象。
+ *
+ * @param request DeleteQualityWatchesRequest
+ * @return DeleteQualityWatchesResponse
+ */
+DeleteQualityWatchesResponse Client::deleteQualityWatches(const DeleteQualityWatchesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteQualityWatchesWithOptions(request, runtime);
+}
+
+/**
  * @summary 删除注册血缘。
  *
  * @param tmpReq DeleteRegisterLineageRequest
@@ -2447,6 +3311,576 @@ DeleteRowPermissionResponse Client::deleteRowPermissionWithOptions(const DeleteR
 DeleteRowPermissionResponse Client::deleteRowPermission(const DeleteRowPermissionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteRowPermissionWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除数据分类。
+ *
+ * @param tmpReq DeleteSecurityClassifyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteSecurityClassifyResponse
+ */
+DeleteSecurityClassifyResponse Client::deleteSecurityClassifyWithOptions(const DeleteSecurityClassifyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DeleteSecurityClassifyShrinkRequest request = DeleteSecurityClassifyShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasDeleteCommand()) {
+    request.setDeleteCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeleteCommand(), "DeleteCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasDeleteCommandShrink()) {
+    body["DeleteCommand"] = request.getDeleteCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "DeleteSecurityClassify"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteSecurityClassifyResponse>();
+}
+
+/**
+ * @summary 删除数据分类。
+ *
+ * @param request DeleteSecurityClassifyRequest
+ * @return DeleteSecurityClassifyResponse
+ */
+DeleteSecurityClassifyResponse Client::deleteSecurityClassify(const DeleteSecurityClassifyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteSecurityClassifyWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除数据分类目录。
+ *
+ * @param tmpReq DeleteSecurityClassifyCatalogRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteSecurityClassifyCatalogResponse
+ */
+DeleteSecurityClassifyCatalogResponse Client::deleteSecurityClassifyCatalogWithOptions(const DeleteSecurityClassifyCatalogRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DeleteSecurityClassifyCatalogShrinkRequest request = DeleteSecurityClassifyCatalogShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasDeleteCommand()) {
+    request.setDeleteCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeleteCommand(), "DeleteCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasDeleteCommandShrink()) {
+    body["DeleteCommand"] = request.getDeleteCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "DeleteSecurityClassifyCatalog"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteSecurityClassifyCatalogResponse>();
+}
+
+/**
+ * @summary 删除数据分类目录。
+ *
+ * @param request DeleteSecurityClassifyCatalogRequest
+ * @return DeleteSecurityClassifyCatalogResponse
+ */
+DeleteSecurityClassifyCatalogResponse Client::deleteSecurityClassifyCatalog(const DeleteSecurityClassifyCatalogRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteSecurityClassifyCatalogWithOptions(request, runtime);
+}
+
+/**
+ * @summary 批量删除安全识别结果。
+ *
+ * @param tmpReq DeleteSecurityIdentifyResultsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteSecurityIdentifyResultsResponse
+ */
+DeleteSecurityIdentifyResultsResponse Client::deleteSecurityIdentifyResultsWithOptions(const DeleteSecurityIdentifyResultsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DeleteSecurityIdentifyResultsShrinkRequest request = DeleteSecurityIdentifyResultsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasDeleteCommand()) {
+    request.setDeleteCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeleteCommand(), "DeleteCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasDeleteCommandShrink()) {
+    body["DeleteCommand"] = request.getDeleteCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "DeleteSecurityIdentifyResults"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteSecurityIdentifyResultsResponse>();
+}
+
+/**
+ * @summary 批量删除安全识别结果。
+ *
+ * @param request DeleteSecurityIdentifyResultsRequest
+ * @return DeleteSecurityIdentifyResultsResponse
+ */
+DeleteSecurityIdentifyResultsResponse Client::deleteSecurityIdentifyResults(const DeleteSecurityIdentifyResultsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteSecurityIdentifyResultsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除数据分级。
+ *
+ * @param tmpReq DeleteSecurityLevelRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteSecurityLevelResponse
+ */
+DeleteSecurityLevelResponse Client::deleteSecurityLevelWithOptions(const DeleteSecurityLevelRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DeleteSecurityLevelShrinkRequest request = DeleteSecurityLevelShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasDeleteCommand()) {
+    request.setDeleteCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeleteCommand(), "DeleteCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasDeleteCommandShrink()) {
+    body["DeleteCommand"] = request.getDeleteCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "DeleteSecurityLevel"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteSecurityLevelResponse>();
+}
+
+/**
+ * @summary 删除数据分级。
+ *
+ * @param request DeleteSecurityLevelRequest
+ * @return DeleteSecurityLevelResponse
+ */
+DeleteSecurityLevelResponse Client::deleteSecurityLevel(const DeleteSecurityLevelRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteSecurityLevelWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除标准。
+ *
+ * @param tmpReq DeleteStandardRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteStandardResponse
+ */
+DeleteStandardResponse Client::deleteStandardWithOptions(const DeleteStandardRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DeleteStandardShrinkRequest request = DeleteStandardShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasDeleteCommand()) {
+    request.setDeleteCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeleteCommand(), "DeleteCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasDeleteCommandShrink()) {
+    body["DeleteCommand"] = request.getDeleteCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "DeleteStandard"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteStandardResponse>();
+}
+
+/**
+ * @summary 删除标准。
+ *
+ * @param request DeleteStandardRequest
+ * @return DeleteStandardResponse
+ */
+DeleteStandardResponse Client::deleteStandard(const DeleteStandardRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteStandardWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除无效映射关系。
+ *
+ * @param tmpReq DeleteStandardInValidMappingRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteStandardInValidMappingResponse
+ */
+DeleteStandardInValidMappingResponse Client::deleteStandardInValidMappingWithOptions(const DeleteStandardInValidMappingRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DeleteStandardInValidMappingShrinkRequest request = DeleteStandardInValidMappingShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasDeleteCommand()) {
+    request.setDeleteCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeleteCommand(), "DeleteCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasDeleteCommandShrink()) {
+    body["DeleteCommand"] = request.getDeleteCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "DeleteStandardInValidMapping"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteStandardInValidMappingResponse>();
+}
+
+/**
+ * @summary 删除无效映射关系。
+ *
+ * @param request DeleteStandardInValidMappingRequest
+ * @return DeleteStandardInValidMappingResponse
+ */
+DeleteStandardInValidMappingResponse Client::deleteStandardInValidMapping(const DeleteStandardInValidMappingRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteStandardInValidMappingWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除数据标准码表。
+ *
+ * @param request DeleteStandardLookupTableRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteStandardLookupTableResponse
+ */
+DeleteStandardLookupTableResponse Client::deleteStandardLookupTableWithOptions(const DeleteStandardLookupTableRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasId()) {
+    query["Id"] = request.getId();
+  }
+
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteStandardLookupTable"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteStandardLookupTableResponse>();
+}
+
+/**
+ * @summary 删除数据标准码表。
+ *
+ * @param request DeleteStandardLookupTableRequest
+ * @return DeleteStandardLookupTableResponse
+ */
+DeleteStandardLookupTableResponse Client::deleteStandardLookupTable(const DeleteStandardLookupTableRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteStandardLookupTableWithOptions(request, runtime);
+}
+
+/**
+ * @summary 批量删除标准关联关系。
+ *
+ * @param tmpReq DeleteStandardRelationsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteStandardRelationsResponse
+ */
+DeleteStandardRelationsResponse Client::deleteStandardRelationsWithOptions(const DeleteStandardRelationsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DeleteStandardRelationsShrinkRequest request = DeleteStandardRelationsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasDeleteCommand()) {
+    request.setDeleteCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeleteCommand(), "DeleteCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasDeleteCommandShrink()) {
+    body["DeleteCommand"] = request.getDeleteCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "DeleteStandardRelations"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteStandardRelationsResponse>();
+}
+
+/**
+ * @summary 批量删除标准关联关系。
+ *
+ * @param request DeleteStandardRelationsRequest
+ * @return DeleteStandardRelationsResponse
+ */
+DeleteStandardRelationsResponse Client::deleteStandardRelations(const DeleteStandardRelationsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteStandardRelationsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除标准集。
+ *
+ * @param request DeleteStandardSetRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteStandardSetResponse
+ */
+DeleteStandardSetResponse Client::deleteStandardSetWithOptions(const DeleteStandardSetRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasId()) {
+    query["Id"] = request.getId();
+  }
+
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteStandardSet"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteStandardSetResponse>();
+}
+
+/**
+ * @summary 删除标准集。
+ *
+ * @param request DeleteStandardSetRequest
+ * @return DeleteStandardSetResponse
+ */
+DeleteStandardSetResponse Client::deleteStandardSet(const DeleteStandardSetRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteStandardSetWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除有效映射关系。
+ *
+ * @param tmpReq DeleteStandardValidMappingRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteStandardValidMappingResponse
+ */
+DeleteStandardValidMappingResponse Client::deleteStandardValidMappingWithOptions(const DeleteStandardValidMappingRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DeleteStandardValidMappingShrinkRequest request = DeleteStandardValidMappingShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasDeleteCommand()) {
+    request.setDeleteCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeleteCommand(), "DeleteCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasDeleteCommandShrink()) {
+    body["DeleteCommand"] = request.getDeleteCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "DeleteStandardValidMapping"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteStandardValidMappingResponse>();
+}
+
+/**
+ * @summary 删除有效映射关系。
+ *
+ * @param request DeleteStandardValidMappingRequest
+ * @return DeleteStandardValidMappingResponse
+ */
+DeleteStandardValidMappingResponse Client::deleteStandardValidMapping(const DeleteStandardValidMappingRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteStandardValidMappingWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除数据标准词根。
+ *
+ * @param request DeleteStandardWordRootRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteStandardWordRootResponse
+ */
+DeleteStandardWordRootResponse Client::deleteStandardWordRootWithOptions(const DeleteStandardWordRootRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteStandardWordRoot"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteStandardWordRootResponse>();
+}
+
+/**
+ * @summary 删除数据标准词根。
+ *
+ * @param request DeleteStandardWordRootRequest
+ * @return DeleteStandardWordRootResponse
+ */
+DeleteStandardWordRootResponse Client::deleteStandardWordRoot(const DeleteStandardWordRootRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteStandardWordRootWithOptions(request, runtime);
 }
 
 /**
@@ -2659,6 +4093,68 @@ ExecuteManualNodeResponse Client::executeManualNodeWithOptions(const ExecuteManu
 ExecuteManualNodeResponse Client::executeManualNode(const ExecuteManualNodeRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return executeManualNodeWithOptions(request, runtime);
+}
+
+/**
+ * @summary 运行触发式节点。
+ *
+ * @param request ExecuteTriggerNodeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ExecuteTriggerNodeResponse
+ */
+ExecuteTriggerNodeResponse Client::executeTriggerNodeWithOptions(const ExecuteTriggerNodeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizDate()) {
+    query["BizDate"] = request.getBizDate();
+  }
+
+  if (!!request.hasEnv()) {
+    query["Env"] = request.getEnv();
+  }
+
+  if (!!request.hasIndex()) {
+    query["Index"] = request.getIndex();
+  }
+
+  if (!!request.hasNodeId()) {
+    query["NodeId"] = request.getNodeId();
+  }
+
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ExecuteTriggerNode"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ExecuteTriggerNodeResponse>();
+}
+
+/**
+ * @summary 运行触发式节点。
+ *
+ * @param request ExecuteTriggerNodeRequest
+ * @return ExecuteTriggerNodeResponse
+ */
+ExecuteTriggerNodeResponse Client::executeTriggerNode(const ExecuteTriggerNodeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return executeTriggerNodeWithOptions(request, runtime);
 }
 
 /**
@@ -2982,6 +4478,60 @@ GetAlertEventResponse Client::getAlertEvent(const GetAlertEventRequest &request)
 }
 
 /**
+ * @summary 根据资产对象GUID查询映射关系。
+ *
+ * @param tmpReq GetAssetMappingRelationsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAssetMappingRelationsResponse
+ */
+GetAssetMappingRelationsResponse Client::getAssetMappingRelationsWithOptions(const GetAssetMappingRelationsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GetAssetMappingRelationsShrinkRequest request = GetAssetMappingRelationsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAssetMappingQuery()) {
+    request.setAssetMappingQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAssetMappingQuery(), "AssetMappingQuery", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasAssetMappingQueryShrink()) {
+    body["AssetMappingQuery"] = request.getAssetMappingQueryShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetAssetMappingRelations"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAssetMappingRelationsResponse>();
+}
+
+/**
+ * @summary 根据资产对象GUID查询映射关系。
+ *
+ * @param request GetAssetMappingRelationsRequest
+ * @return GetAssetMappingRelationsResponse
+ */
+GetAssetMappingRelationsResponse Client::getAssetMappingRelations(const GetAssetMappingRelationsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAssetMappingRelationsWithOptions(request, runtime);
+}
+
+/**
  * @summary 获取离线计算任务详情。
  *
  * @param request GetBatchTaskInfoRequest
@@ -3191,6 +4741,60 @@ GetBatchTaskVersionsResponse Client::getBatchTaskVersionsWithOptions(const GetBa
 GetBatchTaskVersionsResponse Client::getBatchTaskVersions(const GetBatchTaskVersionsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getBatchTaskVersionsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 根据归属资产GUID查询映射关系。
+ *
+ * @param tmpReq GetBelongAssetMappingRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetBelongAssetMappingResponse
+ */
+GetBelongAssetMappingResponse Client::getBelongAssetMappingWithOptions(const GetBelongAssetMappingRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GetBelongAssetMappingShrinkRequest request = GetBelongAssetMappingShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAssetMappingQuery()) {
+    request.setAssetMappingQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAssetMappingQuery(), "AssetMappingQuery", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasAssetMappingQueryShrink()) {
+    body["AssetMappingQuery"] = request.getAssetMappingQueryShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetBelongAssetMapping"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetBelongAssetMappingResponse>();
+}
+
+/**
+ * @summary 根据归属资产GUID查询映射关系。
+ *
+ * @param request GetBelongAssetMappingRequest
+ * @return GetBelongAssetMappingResponse
+ */
+GetBelongAssetMappingResponse Client::getBelongAssetMapping(const GetBelongAssetMappingRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getBelongAssetMappingWithOptions(request, runtime);
 }
 
 /**
@@ -5404,6 +7008,516 @@ GetProjectWhiteListsResponse Client::getProjectWhiteLists(const GetProjectWhiteL
 }
 
 /**
+ * @summary 通过监控对象ID获取告警设置。
+ *
+ * @param request GetQualityAlertOfAllRuleScopeByWatchIdRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetQualityAlertOfAllRuleScopeByWatchIdResponse
+ */
+GetQualityAlertOfAllRuleScopeByWatchIdResponse Client::getQualityAlertOfAllRuleScopeByWatchIdWithOptions(const GetQualityAlertOfAllRuleScopeByWatchIdRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasWatchId()) {
+    query["WatchId"] = request.getWatchId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetQualityAlertOfAllRuleScopeByWatchId"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetQualityAlertOfAllRuleScopeByWatchIdResponse>();
+}
+
+/**
+ * @summary 通过监控对象ID获取告警设置。
+ *
+ * @param request GetQualityAlertOfAllRuleScopeByWatchIdRequest
+ * @return GetQualityAlertOfAllRuleScopeByWatchIdResponse
+ */
+GetQualityAlertOfAllRuleScopeByWatchIdResponse Client::getQualityAlertOfAllRuleScopeByWatchId(const GetQualityAlertOfAllRuleScopeByWatchIdRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getQualityAlertOfAllRuleScopeByWatchIdWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取质量规则对象。
+ *
+ * @param request GetQualityRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetQualityRuleResponse
+ */
+GetQualityRuleResponse Client::getQualityRuleWithOptions(const GetQualityRuleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasId()) {
+    query["Id"] = request.getId();
+  }
+
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetQualityRule"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetQualityRuleResponse>();
+}
+
+/**
+ * @summary 获取质量规则对象。
+ *
+ * @param request GetQualityRuleRequest
+ * @return GetQualityRuleResponse
+ */
+GetQualityRuleResponse Client::getQualityRule(const GetQualityRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getQualityRuleWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取质量任务对象详情。
+ *
+ * @param request GetQualityRuleTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetQualityRuleTaskResponse
+ */
+GetQualityRuleTaskResponse Client::getQualityRuleTaskWithOptions(const GetQualityRuleTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasRuleTaskId()) {
+    query["RuleTaskId"] = request.getRuleTaskId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetQualityRuleTask"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetQualityRuleTaskResponse>();
+}
+
+/**
+ * @summary 获取质量任务对象详情。
+ *
+ * @param request GetQualityRuleTaskRequest
+ * @return GetQualityRuleTaskResponse
+ */
+GetQualityRuleTaskResponse Client::getQualityRuleTask(const GetQualityRuleTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getQualityRuleTaskWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取质量任务对象日志内容。
+ *
+ * @param request GetQualityRuleTaskLogRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetQualityRuleTaskLogResponse
+ */
+GetQualityRuleTaskLogResponse Client::getQualityRuleTaskLogWithOptions(const GetQualityRuleTaskLogRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasRuleTaskId()) {
+    query["RuleTaskId"] = request.getRuleTaskId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetQualityRuleTaskLog"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetQualityRuleTaskLogResponse>();
+}
+
+/**
+ * @summary 获取质量任务对象日志内容。
+ *
+ * @param request GetQualityRuleTaskLogRequest
+ * @return GetQualityRuleTaskLogResponse
+ */
+GetQualityRuleTaskLogResponse Client::getQualityRuleTaskLog(const GetQualityRuleTaskLogRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getQualityRuleTaskLogWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取质量调度对象。
+ *
+ * @param request GetQualityScheduleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetQualityScheduleResponse
+ */
+GetQualityScheduleResponse Client::getQualityScheduleWithOptions(const GetQualityScheduleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasId()) {
+    query["Id"] = request.getId();
+  }
+
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetQualitySchedule"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetQualityScheduleResponse>();
+}
+
+/**
+ * @summary 获取质量调度对象。
+ *
+ * @param request GetQualityScheduleRequest
+ * @return GetQualityScheduleResponse
+ */
+GetQualityScheduleResponse Client::getQualitySchedule(const GetQualityScheduleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getQualityScheduleWithOptions(request, runtime);
+}
+
+/**
+ * @summary 通过监控对象ID获取调度设置列表。
+ *
+ * @param request GetQualitySchedulesByWatchIdRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetQualitySchedulesByWatchIdResponse
+ */
+GetQualitySchedulesByWatchIdResponse Client::getQualitySchedulesByWatchIdWithOptions(const GetQualitySchedulesByWatchIdRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasWatchId()) {
+    query["WatchId"] = request.getWatchId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetQualitySchedulesByWatchId"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetQualitySchedulesByWatchIdResponse>();
+}
+
+/**
+ * @summary 通过监控对象ID获取调度设置列表。
+ *
+ * @param request GetQualitySchedulesByWatchIdRequest
+ * @return GetQualitySchedulesByWatchIdResponse
+ */
+GetQualitySchedulesByWatchIdResponse Client::getQualitySchedulesByWatchId(const GetQualitySchedulesByWatchIdRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getQualitySchedulesByWatchIdWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取质量模板对象。
+ *
+ * @param request GetQualityTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetQualityTemplateResponse
+ */
+GetQualityTemplateResponse Client::getQualityTemplateWithOptions(const GetQualityTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasId()) {
+    query["Id"] = request.getId();
+  }
+
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetQualityTemplate"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetQualityTemplateResponse>();
+}
+
+/**
+ * @summary 获取质量模板对象。
+ *
+ * @param request GetQualityTemplateRequest
+ * @return GetQualityTemplateResponse
+ */
+GetQualityTemplateResponse Client::getQualityTemplate(const GetQualityTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getQualityTemplateWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取质量监控对象。
+ *
+ * @param request GetQualityWatchRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetQualityWatchResponse
+ */
+GetQualityWatchResponse Client::getQualityWatchWithOptions(const GetQualityWatchRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasId()) {
+    query["Id"] = request.getId();
+  }
+
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetQualityWatch"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetQualityWatchResponse>();
+}
+
+/**
+ * @summary 获取质量监控对象。
+ *
+ * @param request GetQualityWatchRequest
+ * @return GetQualityWatchResponse
+ */
+GetQualityWatchResponse Client::getQualityWatch(const GetQualityWatchRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getQualityWatchWithOptions(request, runtime);
+}
+
+/**
+ * @summary 通过监控对象原始ID获取监控对象记录，例如：数据源、表、指标等的ID。
+ *
+ * @param request GetQualityWatchByObjectIdRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetQualityWatchByObjectIdResponse
+ */
+GetQualityWatchByObjectIdResponse Client::getQualityWatchByObjectIdWithOptions(const GetQualityWatchByObjectIdRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasWatchObjectId()) {
+    query["WatchObjectId"] = request.getWatchObjectId();
+  }
+
+  if (!!request.hasWatchType()) {
+    query["WatchType"] = request.getWatchType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetQualityWatchByObjectId"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetQualityWatchByObjectIdResponse>();
+}
+
+/**
+ * @summary 通过监控对象原始ID获取监控对象记录，例如：数据源、表、指标等的ID。
+ *
+ * @param request GetQualityWatchByObjectIdRequest
+ * @return GetQualityWatchByObjectIdResponse
+ */
+GetQualityWatchByObjectIdResponse Client::getQualityWatchByObjectId(const GetQualityWatchByObjectIdRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getQualityWatchByObjectIdWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取监控任务对象。
+ *
+ * @param request GetQualityWatchTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetQualityWatchTaskResponse
+ */
+GetQualityWatchTaskResponse Client::getQualityWatchTaskWithOptions(const GetQualityWatchTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasWatchTaskId()) {
+    query["WatchTaskId"] = request.getWatchTaskId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetQualityWatchTask"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetQualityWatchTaskResponse>();
+}
+
+/**
+ * @summary 获取监控任务对象。
+ *
+ * @param request GetQualityWatchTaskRequest
+ * @return GetQualityWatchTaskResponse
+ */
+GetQualityWatchTaskResponse Client::getQualityWatchTask(const GetQualityWatchTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getQualityWatchTaskWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取监控任务对象的日志内容。
+ *
+ * @param request GetQualityWatchTaskLogRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetQualityWatchTaskLogResponse
+ */
+GetQualityWatchTaskLogResponse Client::getQualityWatchTaskLogWithOptions(const GetQualityWatchTaskLogRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasWatchTaskId()) {
+    query["WatchTaskId"] = request.getWatchTaskId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetQualityWatchTaskLog"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetQualityWatchTaskLogResponse>();
+}
+
+/**
+ * @summary 获取监控任务对象的日志内容。
+ *
+ * @param request GetQualityWatchTaskLogRequest
+ * @return GetQualityWatchTaskLogResponse
+ */
+GetQualityWatchTaskLogResponse Client::getQualityWatchTaskLog(const GetQualityWatchTaskLogRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getQualityWatchTaskLogWithOptions(request, runtime);
+}
+
+/**
  * @summary 根据集群ID获取集群版本
  *
  * @param request GetQueueEngineVersionByEnvRequest
@@ -5570,6 +7684,190 @@ GetResourceByVersionResponse Client::getResourceByVersion(const GetResourceByVer
 }
 
 /**
+ * @summary 获取数据分类详情。
+ *
+ * @param request GetSecurityClassifyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetSecurityClassifyResponse
+ */
+GetSecurityClassifyResponse Client::getSecurityClassifyWithOptions(const GetSecurityClassifyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasId()) {
+    query["Id"] = request.getId();
+  }
+
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetSecurityClassify"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetSecurityClassifyResponse>();
+}
+
+/**
+ * @summary 获取数据分类详情。
+ *
+ * @param request GetSecurityClassifyRequest
+ * @return GetSecurityClassifyResponse
+ */
+GetSecurityClassifyResponse Client::getSecurityClassify(const GetSecurityClassifyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getSecurityClassifyWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取识别结果详情。
+ *
+ * @param request GetSecurityIdentifyResultRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetSecurityIdentifyResultResponse
+ */
+GetSecurityIdentifyResultResponse Client::getSecurityIdentifyResultWithOptions(const GetSecurityIdentifyResultRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasId()) {
+    query["Id"] = request.getId();
+  }
+
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetSecurityIdentifyResult"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetSecurityIdentifyResultResponse>();
+}
+
+/**
+ * @summary 获取识别结果详情。
+ *
+ * @param request GetSecurityIdentifyResultRequest
+ * @return GetSecurityIdentifyResultResponse
+ */
+GetSecurityIdentifyResultResponse Client::getSecurityIdentifyResult(const GetSecurityIdentifyResultRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getSecurityIdentifyResultWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取数据分级详情。
+ *
+ * @param request GetSecurityLevelRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetSecurityLevelResponse
+ */
+GetSecurityLevelResponse Client::getSecurityLevelWithOptions(const GetSecurityLevelRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasIndex()) {
+    query["Index"] = request.getIndex();
+  }
+
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetSecurityLevel"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetSecurityLevelResponse>();
+}
+
+/**
+ * @summary 获取数据分级详情。
+ *
+ * @param request GetSecurityLevelRequest
+ * @return GetSecurityLevelResponse
+ */
+GetSecurityLevelResponse Client::getSecurityLevel(const GetSecurityLevelRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getSecurityLevelWithOptions(request, runtime);
+}
+
+/**
+ * @summary 通过密钥名称获取密钥值。
+ *
+ * @param request GetSecuritySecretKeyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetSecuritySecretKeyResponse
+ */
+GetSecuritySecretKeyResponse Client::getSecuritySecretKeyWithOptions(const GetSecuritySecretKeyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetSecuritySecretKey"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetSecuritySecretKeyResponse>();
+}
+
+/**
+ * @summary 通过密钥名称获取密钥值。
+ *
+ * @param request GetSecuritySecretKeyRequest
+ * @return GetSecuritySecretKeyResponse
+ */
+GetSecuritySecretKeyResponse Client::getSecuritySecretKey(const GetSecuritySecretKeyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getSecuritySecretKeyWithOptions(request, runtime);
+}
+
+/**
  * @summary 获取计算源对应集群的spark客户信息
  *
  * @param request GetSparkLocalClientInfoRequest
@@ -5617,6 +7915,326 @@ GetSparkLocalClientInfoResponse Client::getSparkLocalClientInfoWithOptions(const
 GetSparkLocalClientInfoResponse Client::getSparkLocalClientInfo(const GetSparkLocalClientInfoRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getSparkLocalClientInfoWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取标准详情。
+ *
+ * @param tmpReq GetStandardRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetStandardResponse
+ */
+GetStandardResponse Client::getStandardWithOptions(const GetStandardRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GetStandardShrinkRequest request = GetStandardShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasStandardGetQuery()) {
+    request.setStandardGetQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getStandardGetQuery(), "StandardGetQuery", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasStandardGetQueryShrink()) {
+    body["StandardGetQuery"] = request.getStandardGetQueryShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetStandard"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetStandardResponse>();
+}
+
+/**
+ * @summary 获取标准详情。
+ *
+ * @param request GetStandardRequest
+ * @return GetStandardResponse
+ */
+GetStandardResponse Client::getStandard(const GetStandardRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getStandardWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取数据标准码表详情。
+ *
+ * @param request GetStandardLookupTableRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetStandardLookupTableResponse
+ */
+GetStandardLookupTableResponse Client::getStandardLookupTableWithOptions(const GetStandardLookupTableRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasId()) {
+    query["Id"] = request.getId();
+  }
+
+  if (!!request.hasNullable()) {
+    query["Nullable"] = request.getNullable();
+  }
+
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetStandardLookupTable"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetStandardLookupTableResponse>();
+}
+
+/**
+ * @summary 获取数据标准码表详情。
+ *
+ * @param request GetStandardLookupTableRequest
+ * @return GetStandardLookupTableResponse
+ */
+GetStandardLookupTableResponse Client::getStandardLookupTable(const GetStandardLookupTableRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getStandardLookupTableWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取标准集详情。
+ *
+ * @param request GetStandardSetRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetStandardSetResponse
+ */
+GetStandardSetResponse Client::getStandardSetWithOptions(const GetStandardSetRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasId()) {
+    query["Id"] = request.getId();
+  }
+
+  if (!!request.hasNullable()) {
+    query["Nullable"] = request.getNullable();
+  }
+
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetStandardSet"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetStandardSetResponse>();
+}
+
+/**
+ * @summary 获取标准集详情。
+ *
+ * @param request GetStandardSetRequest
+ * @return GetStandardSetResponse
+ */
+GetStandardSetResponse Client::getStandardSet(const GetStandardSetRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getStandardSetWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询目录下按照标准类型统计标准数目。
+ *
+ * @param tmpReq GetStandardStatisticsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetStandardStatisticsResponse
+ */
+GetStandardStatisticsResponse Client::getStandardStatisticsWithOptions(const GetStandardStatisticsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GetStandardStatisticsShrinkRequest request = GetStandardStatisticsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasStatisticsQuery()) {
+    request.setStatisticsQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getStatisticsQuery(), "StatisticsQuery", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasStatisticsQueryShrink()) {
+    body["StatisticsQuery"] = request.getStatisticsQueryShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetStandardStatistics"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetStandardStatisticsResponse>();
+}
+
+/**
+ * @summary 查询目录下按照标准类型统计标准数目。
+ *
+ * @param request GetStandardStatisticsRequest
+ * @return GetStandardStatisticsResponse
+ */
+GetStandardStatisticsResponse Client::getStandardStatistics(const GetStandardStatisticsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getStandardStatisticsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取数据标准模板详情。
+ *
+ * @param tmpReq GetStandardTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetStandardTemplateResponse
+ */
+GetStandardTemplateResponse Client::getStandardTemplateWithOptions(const GetStandardTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GetStandardTemplateShrinkRequest request = GetStandardTemplateShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasFilterQuery()) {
+    request.setFilterQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFilterQuery(), "FilterQuery", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasId()) {
+    query["Id"] = request.getId();
+  }
+
+  if (!!request.hasNullable()) {
+    query["Nullable"] = request.getNullable();
+  }
+
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasFilterQueryShrink()) {
+    body["FilterQuery"] = request.getFilterQueryShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetStandardTemplate"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetStandardTemplateResponse>();
+}
+
+/**
+ * @summary 获取数据标准模板详情。
+ *
+ * @param request GetStandardTemplateRequest
+ * @return GetStandardTemplateResponse
+ */
+GetStandardTemplateResponse Client::getStandardTemplate(const GetStandardTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getStandardTemplateWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取数据标准词根详情。
+ *
+ * @param request GetStandardWordRootRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetStandardWordRootResponse
+ */
+GetStandardWordRootResponse Client::getStandardWordRootWithOptions(const GetStandardWordRootRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasNullable()) {
+    query["Nullable"] = request.getNullable();
+  }
+
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetStandardWordRoot"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetStandardWordRootResponse>();
+}
+
+/**
+ * @summary 获取数据标准词根详情。
+ *
+ * @param request GetStandardWordRootRequest
+ * @return GetStandardWordRootResponse
+ */
+GetStandardWordRootResponse Client::getStandardWordRoot(const GetStandardWordRootRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getStandardWordRootWithOptions(request, runtime);
 }
 
 /**
@@ -5824,6 +8442,114 @@ GetTableColumnLineageByTaskIdResponse Client::getTableColumnLineageByTaskId(cons
 }
 
 /**
+ * @summary 查询资产表字段血缘信息。
+ *
+ * @param tmpReq GetTableColumnLineagesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetTableColumnLineagesResponse
+ */
+GetTableColumnLineagesResponse Client::getTableColumnLineagesWithOptions(const GetTableColumnLineagesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GetTableColumnLineagesShrinkRequest request = GetTableColumnLineagesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasFilterQuery()) {
+    request.setFilterQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFilterQuery(), "FilterQuery", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasTableGuid()) {
+    query["TableGuid"] = request.getTableGuid();
+  }
+
+  json body = {};
+  if (!!request.hasFilterQueryShrink()) {
+    body["FilterQuery"] = request.getFilterQueryShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetTableColumnLineages"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetTableColumnLineagesResponse>();
+}
+
+/**
+ * @summary 查询资产表字段血缘信息。
+ *
+ * @param request GetTableColumnLineagesRequest
+ * @return GetTableColumnLineagesResponse
+ */
+GetTableColumnLineagesResponse Client::getTableColumnLineages(const GetTableColumnLineagesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getTableColumnLineagesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询资产清单中Dataphin表的字段。
+ *
+ * @param request GetTableColumnsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetTableColumnsResponse
+ */
+GetTableColumnsResponse Client::getTableColumnsWithOptions(const GetTableColumnsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCatalog()) {
+    query["Catalog"] = request.getCatalog();
+  }
+
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasTableName()) {
+    query["TableName"] = request.getTableName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetTableColumns"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetTableColumnsResponse>();
+}
+
+/**
+ * @summary 查询资产清单中Dataphin表的字段。
+ *
+ * @param request GetTableColumnsRequest
+ * @return GetTableColumnsResponse
+ */
+GetTableColumnsResponse Client::getTableColumns(const GetTableColumnsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getTableColumnsWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询表血缘信息
  *
  * @param tmpReq GetTableLineageByTaskIdRequest
@@ -5875,6 +8601,64 @@ GetTableLineageByTaskIdResponse Client::getTableLineageByTaskIdWithOptions(const
 GetTableLineageByTaskIdResponse Client::getTableLineageByTaskId(const GetTableLineageByTaskIdRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getTableLineageByTaskIdWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询资产表血缘信息。
+ *
+ * @param tmpReq GetTableLineagesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetTableLineagesResponse
+ */
+GetTableLineagesResponse Client::getTableLineagesWithOptions(const GetTableLineagesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GetTableLineagesShrinkRequest request = GetTableLineagesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasFilterQuery()) {
+    request.setFilterQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFilterQuery(), "FilterQuery", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasTableGuid()) {
+    query["TableGuid"] = request.getTableGuid();
+  }
+
+  json body = {};
+  if (!!request.hasFilterQueryShrink()) {
+    body["FilterQuery"] = request.getFilterQueryShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetTableLineages"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetTableLineagesResponse>();
+}
+
+/**
+ * @summary 查询资产表血缘信息。
+ *
+ * @param request GetTableLineagesRequest
+ * @return GetTableLineagesResponse
+ */
+GetTableLineagesResponse Client::getTableLineages(const GetTableLineagesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getTableLineagesWithOptions(request, runtime);
 }
 
 /**
@@ -7656,6 +10440,276 @@ ListPublishRecordsResponse Client::listPublishRecords(const ListPublishRecordsRe
 }
 
 /**
+ * @summary 分页查询质量规则任务。
+ *
+ * @param tmpReq ListQualityRuleTasksRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListQualityRuleTasksResponse
+ */
+ListQualityRuleTasksResponse Client::listQualityRuleTasksWithOptions(const ListQualityRuleTasksRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListQualityRuleTasksShrinkRequest request = ListQualityRuleTasksShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasListQuery()) {
+    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getListQuery(), "ListQuery", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasListQueryShrink()) {
+    body["ListQuery"] = request.getListQueryShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListQualityRuleTasks"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListQualityRuleTasksResponse>();
+}
+
+/**
+ * @summary 分页查询质量规则任务。
+ *
+ * @param request ListQualityRuleTasksRequest
+ * @return ListQualityRuleTasksResponse
+ */
+ListQualityRuleTasksResponse Client::listQualityRuleTasks(const ListQualityRuleTasksRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listQualityRuleTasksWithOptions(request, runtime);
+}
+
+/**
+ * @summary 分页查询质量规则。
+ *
+ * @param tmpReq ListQualityRulesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListQualityRulesResponse
+ */
+ListQualityRulesResponse Client::listQualityRulesWithOptions(const ListQualityRulesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListQualityRulesShrinkRequest request = ListQualityRulesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasListQuery()) {
+    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getListQuery(), "ListQuery", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasListQueryShrink()) {
+    body["ListQuery"] = request.getListQueryShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListQualityRules"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListQualityRulesResponse>();
+}
+
+/**
+ * @summary 分页查询质量规则。
+ *
+ * @param request ListQualityRulesRequest
+ * @return ListQualityRulesResponse
+ */
+ListQualityRulesResponse Client::listQualityRules(const ListQualityRulesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listQualityRulesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 分页查询质量模板。
+ *
+ * @param tmpReq ListQualityTemplatesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListQualityTemplatesResponse
+ */
+ListQualityTemplatesResponse Client::listQualityTemplatesWithOptions(const ListQualityTemplatesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListQualityTemplatesShrinkRequest request = ListQualityTemplatesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasListQuery()) {
+    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getListQuery(), "ListQuery", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasListQueryShrink()) {
+    body["ListQuery"] = request.getListQueryShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListQualityTemplates"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListQualityTemplatesResponse>();
+}
+
+/**
+ * @summary 分页查询质量模板。
+ *
+ * @param request ListQualityTemplatesRequest
+ * @return ListQualityTemplatesResponse
+ */
+ListQualityTemplatesResponse Client::listQualityTemplates(const ListQualityTemplatesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listQualityTemplatesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 分页查询质量监控任务。
+ *
+ * @param tmpReq ListQualityWatchTasksRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListQualityWatchTasksResponse
+ */
+ListQualityWatchTasksResponse Client::listQualityWatchTasksWithOptions(const ListQualityWatchTasksRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListQualityWatchTasksShrinkRequest request = ListQualityWatchTasksShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasListQuery()) {
+    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getListQuery(), "ListQuery", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasListQueryShrink()) {
+    body["ListQuery"] = request.getListQueryShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListQualityWatchTasks"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListQualityWatchTasksResponse>();
+}
+
+/**
+ * @summary 分页查询质量监控任务。
+ *
+ * @param request ListQualityWatchTasksRequest
+ * @return ListQualityWatchTasksResponse
+ */
+ListQualityWatchTasksResponse Client::listQualityWatchTasks(const ListQualityWatchTasksRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listQualityWatchTasksWithOptions(request, runtime);
+}
+
+/**
+ * @summary 分页查询质量监控对象。
+ *
+ * @param tmpReq ListQualityWatchesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListQualityWatchesResponse
+ */
+ListQualityWatchesResponse Client::listQualityWatchesWithOptions(const ListQualityWatchesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListQualityWatchesShrinkRequest request = ListQualityWatchesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasListQuery()) {
+    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getListQuery(), "ListQuery", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasListQueryShrink()) {
+    body["ListQuery"] = request.getListQueryShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListQualityWatches"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListQualityWatchesResponse>();
+}
+
+/**
+ * @summary 分页查询质量监控对象。
+ *
+ * @param request ListQualityWatchesRequest
+ * @return ListQualityWatchesResponse
+ */
+ListQualityWatchesResponse Client::listQualityWatches(const ListQualityWatchesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listQualityWatchesWithOptions(request, runtime);
+}
+
+/**
  * @summary 分页获取权限操作列表
  *
  * @param tmpReq ListResourcePermissionOperationLogRequest
@@ -7872,6 +10926,168 @@ ListRowPermissionByUserIdResponse Client::listRowPermissionByUserId(const ListRo
 }
 
 /**
+ * @summary 分页查询安全识别结果的识别记录。
+ *
+ * @param tmpReq ListSecurityIdentifyRecordsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListSecurityIdentifyRecordsResponse
+ */
+ListSecurityIdentifyRecordsResponse Client::listSecurityIdentifyRecordsWithOptions(const ListSecurityIdentifyRecordsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListSecurityIdentifyRecordsShrinkRequest request = ListSecurityIdentifyRecordsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasListQuery()) {
+    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getListQuery(), "ListQuery", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasListQueryShrink()) {
+    body["ListQuery"] = request.getListQueryShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListSecurityIdentifyRecords"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListSecurityIdentifyRecordsResponse>();
+}
+
+/**
+ * @summary 分页查询安全识别结果的识别记录。
+ *
+ * @param request ListSecurityIdentifyRecordsRequest
+ * @return ListSecurityIdentifyRecordsResponse
+ */
+ListSecurityIdentifyRecordsResponse Client::listSecurityIdentifyRecords(const ListSecurityIdentifyRecordsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listSecurityIdentifyRecordsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 分页查询安全识别结果。
+ *
+ * @param tmpReq ListSecurityIdentifyResultsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListSecurityIdentifyResultsResponse
+ */
+ListSecurityIdentifyResultsResponse Client::listSecurityIdentifyResultsWithOptions(const ListSecurityIdentifyResultsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListSecurityIdentifyResultsShrinkRequest request = ListSecurityIdentifyResultsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasListQuery()) {
+    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getListQuery(), "ListQuery", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasListQueryShrink()) {
+    body["ListQuery"] = request.getListQueryShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListSecurityIdentifyResults"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListSecurityIdentifyResultsResponse>();
+}
+
+/**
+ * @summary 分页查询安全识别结果。
+ *
+ * @param request ListSecurityIdentifyResultsRequest
+ * @return ListSecurityIdentifyResultsResponse
+ */
+ListSecurityIdentifyResultsResponse Client::listSecurityIdentifyResults(const ListSecurityIdentifyResultsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listSecurityIdentifyResultsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 分页查询标准列表。
+ *
+ * @param tmpReq ListStandardsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListStandardsResponse
+ */
+ListStandardsResponse Client::listStandardsWithOptions(const ListStandardsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListStandardsShrinkRequest request = ListStandardsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasListQuery()) {
+    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getListQuery(), "ListQuery", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasListQueryShrink()) {
+    body["ListQuery"] = request.getListQueryShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListStandards"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListStandardsResponse>();
+}
+
+/**
+ * @summary 分页查询标准列表。
+ *
+ * @param request ListStandardsRequest
+ * @return ListStandardsResponse
+ */
+ListStandardsResponse Client::listStandards(const ListStandardsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listStandardsWithOptions(request, runtime);
+}
+
+/**
  * @summary 分页获取待发布记录列表
  *
  * @param tmpReq ListSubmitRecordsRequest
@@ -7923,6 +11139,60 @@ ListSubmitRecordsResponse Client::listSubmitRecordsWithOptions(const ListSubmitR
 ListSubmitRecordsResponse Client::listSubmitRecords(const ListSubmitRecordsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listSubmitRecordsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 分页查询查询资产表元数据。
+ *
+ * @param tmpReq ListTablesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListTablesResponse
+ */
+ListTablesResponse Client::listTablesWithOptions(const ListTablesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListTablesShrinkRequest request = ListTablesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasListQuery()) {
+    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getListQuery(), "ListQuery", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasListQueryShrink()) {
+    body["ListQuery"] = request.getListQueryShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListTables"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListTablesResponse>();
+}
+
+/**
+ * @summary 分页查询查询资产表元数据。
+ *
+ * @param request ListTablesRequest
+ * @return ListTablesResponse
+ */
+ListTablesResponse Client::listTables(const ListTablesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listTablesWithOptions(request, runtime);
 }
 
 /**
@@ -8320,6 +11590,60 @@ OfflinePipelineByAsyncResponse Client::offlinePipelineByAsync(const OfflinePipel
 }
 
 /**
+ * @summary 下线标准。
+ *
+ * @param tmpReq OfflineStandardRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return OfflineStandardResponse
+ */
+OfflineStandardResponse Client::offlineStandardWithOptions(const OfflineStandardRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  OfflineStandardShrinkRequest request = OfflineStandardShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasOfflineCommand()) {
+    request.setOfflineCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOfflineCommand(), "OfflineCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasOfflineCommandShrink()) {
+    body["OfflineCommand"] = request.getOfflineCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "OfflineStandard"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<OfflineStandardResponse>();
+}
+
+/**
+ * @summary 下线标准。
+ *
+ * @param request OfflineStandardRequest
+ * @return OfflineStandardResponse
+ */
+OfflineStandardResponse Client::offlineStandard(const OfflineStandardRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return offlineStandardWithOptions(request, runtime);
+}
+
+/**
  * @summary 上线业务实体。
  *
  * @param tmpReq OnlineBizEntityRequest
@@ -8652,6 +11976,60 @@ PublishObjectListResponse Client::publishObjectList(const PublishObjectListReque
 }
 
 /**
+ * @summary 发布标准。
+ *
+ * @param tmpReq PublishStandardRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return PublishStandardResponse
+ */
+PublishStandardResponse Client::publishStandardWithOptions(const PublishStandardRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  PublishStandardShrinkRequest request = PublishStandardShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasPublishCommand()) {
+    request.setPublishCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPublishCommand(), "PublishCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasPublishCommandShrink()) {
+    body["PublishCommand"] = request.getPublishCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "PublishStandard"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<PublishStandardResponse>();
+}
+
+/**
+ * @summary 发布标准。
+ *
+ * @param request PublishStandardRequest
+ * @return PublishStandardResponse
+ */
+PublishStandardResponse Client::publishStandard(const PublishStandardRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return publishStandardWithOptions(request, runtime);
+}
+
+/**
  * @summary 删除项目成员。
  *
  * @param tmpReq RemoveProjectMemberRequest
@@ -8707,6 +12085,60 @@ RemoveProjectMemberResponse Client::removeProjectMemberWithOptions(const RemoveP
 RemoveProjectMemberResponse Client::removeProjectMember(const RemoveProjectMemberRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return removeProjectMemberWithOptions(request, runtime);
+}
+
+/**
+ * @summary 批量删除质量规则和调度的绑定关系。
+ *
+ * @param tmpReq RemoveQualityRuleSchedulesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RemoveQualityRuleSchedulesResponse
+ */
+RemoveQualityRuleSchedulesResponse Client::removeQualityRuleSchedulesWithOptions(const RemoveQualityRuleSchedulesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  RemoveQualityRuleSchedulesShrinkRequest request = RemoveQualityRuleSchedulesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasRemoveCommand()) {
+    request.setRemoveCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRemoveCommand(), "RemoveCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasRemoveCommandShrink()) {
+    body["RemoveCommand"] = request.getRemoveCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "RemoveQualityRuleSchedules"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RemoveQualityRuleSchedulesResponse>();
+}
+
+/**
+ * @summary 批量删除质量规则和调度的绑定关系。
+ *
+ * @param request RemoveQualityRuleSchedulesRequest
+ * @return RemoveQualityRuleSchedulesResponse
+ */
+RemoveQualityRuleSchedulesResponse Client::removeQualityRuleSchedules(const RemoveQualityRuleSchedulesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return removeQualityRuleSchedulesWithOptions(request, runtime);
 }
 
 /**
@@ -9201,6 +12633,114 @@ SubmitBatchTaskResponse Client::submitBatchTaskWithOptions(const SubmitBatchTask
 SubmitBatchTaskResponse Client::submitBatchTask(const SubmitBatchTaskRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return submitBatchTaskWithOptions(request, runtime);
+}
+
+/**
+ * @summary 批量提交规则任务,支持试跑。
+ *
+ * @param tmpReq SubmitQualityRuleTasksRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SubmitQualityRuleTasksResponse
+ */
+SubmitQualityRuleTasksResponse Client::submitQualityRuleTasksWithOptions(const SubmitQualityRuleTasksRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  SubmitQualityRuleTasksShrinkRequest request = SubmitQualityRuleTasksShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasSubmitCommand()) {
+    request.setSubmitCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSubmitCommand(), "SubmitCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasSubmitCommandShrink()) {
+    body["SubmitCommand"] = request.getSubmitCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "SubmitQualityRuleTasks"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SubmitQualityRuleTasksResponse>();
+}
+
+/**
+ * @summary 批量提交规则任务,支持试跑。
+ *
+ * @param request SubmitQualityRuleTasksRequest
+ * @return SubmitQualityRuleTasksResponse
+ */
+SubmitQualityRuleTasksResponse Client::submitQualityRuleTasks(const SubmitQualityRuleTasksRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return submitQualityRuleTasksWithOptions(request, runtime);
+}
+
+/**
+ * @summary 批量提交监控对象校验任务。
+ *
+ * @param tmpReq SubmitQualityWatchTasksRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SubmitQualityWatchTasksResponse
+ */
+SubmitQualityWatchTasksResponse Client::submitQualityWatchTasksWithOptions(const SubmitQualityWatchTasksRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  SubmitQualityWatchTasksShrinkRequest request = SubmitQualityWatchTasksShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasSubmitCommand()) {
+    request.setSubmitCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSubmitCommand(), "SubmitCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasSubmitCommandShrink()) {
+    body["SubmitCommand"] = request.getSubmitCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "SubmitQualityWatchTasks"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SubmitQualityWatchTasksResponse>();
+}
+
+/**
+ * @summary 批量提交监控对象校验任务。
+ *
+ * @param request SubmitQualityWatchTasksRequest
+ * @return SubmitQualityWatchTasksResponse
+ */
+SubmitQualityWatchTasksResponse Client::submitQualityWatchTasks(const SubmitQualityWatchTasksRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return submitQualityWatchTasksWithOptions(request, runtime);
 }
 
 /**
@@ -10196,6 +13736,114 @@ UpdateProjectMemberResponse Client::updateProjectMember(const UpdateProjectMembe
 }
 
 /**
+ * @summary 批量开启或关闭质量规则。
+ *
+ * @param tmpReq UpdateQualityRuleSwitchRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateQualityRuleSwitchResponse
+ */
+UpdateQualityRuleSwitchResponse Client::updateQualityRuleSwitchWithOptions(const UpdateQualityRuleSwitchRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateQualityRuleSwitchShrinkRequest request = UpdateQualityRuleSwitchShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasUpdateCommand()) {
+    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUpdateCommand(), "UpdateCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasUpdateCommandShrink()) {
+    body["UpdateCommand"] = request.getUpdateCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateQualityRuleSwitch"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateQualityRuleSwitchResponse>();
+}
+
+/**
+ * @summary 批量开启或关闭质量规则。
+ *
+ * @param request UpdateQualityRuleSwitchRequest
+ * @return UpdateQualityRuleSwitchResponse
+ */
+UpdateQualityRuleSwitchResponse Client::updateQualityRuleSwitch(const UpdateQualityRuleSwitchRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateQualityRuleSwitchWithOptions(request, runtime);
+}
+
+/**
+ * @summary 批量开启或关闭质量监控对象。
+ *
+ * @param tmpReq UpdateQualityWatchSwitchRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateQualityWatchSwitchResponse
+ */
+UpdateQualityWatchSwitchResponse Client::updateQualityWatchSwitchWithOptions(const UpdateQualityWatchSwitchRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateQualityWatchSwitchShrinkRequest request = UpdateQualityWatchSwitchShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasUpdateCommand()) {
+    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUpdateCommand(), "UpdateCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasUpdateCommandShrink()) {
+    body["UpdateCommand"] = request.getUpdateCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateQualityWatchSwitch"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateQualityWatchSwitchResponse>();
+}
+
+/**
+ * @summary 批量开启或关闭质量监控对象。
+ *
+ * @param request UpdateQualityWatchSwitchRequest
+ * @return UpdateQualityWatchSwitchResponse
+ */
+UpdateQualityWatchSwitchResponse Client::updateQualityWatchSwitch(const UpdateQualityWatchSwitchRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateQualityWatchSwitchWithOptions(request, runtime);
+}
+
+/**
  * @summary 编辑资源文件。
  *
  * @param tmpReq UpdateResourceRequest
@@ -10301,6 +13949,546 @@ UpdateRowPermissionResponse Client::updateRowPermissionWithOptions(const UpdateR
 UpdateRowPermissionResponse Client::updateRowPermission(const UpdateRowPermissionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateRowPermissionWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新数据分类。
+ *
+ * @param tmpReq UpdateSecurityClassifyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateSecurityClassifyResponse
+ */
+UpdateSecurityClassifyResponse Client::updateSecurityClassifyWithOptions(const UpdateSecurityClassifyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateSecurityClassifyShrinkRequest request = UpdateSecurityClassifyShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasUpdateCommand()) {
+    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUpdateCommand(), "UpdateCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasUpdateCommandShrink()) {
+    body["UpdateCommand"] = request.getUpdateCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateSecurityClassify"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateSecurityClassifyResponse>();
+}
+
+/**
+ * @summary 更新数据分类。
+ *
+ * @param request UpdateSecurityClassifyRequest
+ * @return UpdateSecurityClassifyResponse
+ */
+UpdateSecurityClassifyResponse Client::updateSecurityClassify(const UpdateSecurityClassifyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateSecurityClassifyWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新数据分类目录。
+ *
+ * @param tmpReq UpdateSecurityClassifyCatalogRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateSecurityClassifyCatalogResponse
+ */
+UpdateSecurityClassifyCatalogResponse Client::updateSecurityClassifyCatalogWithOptions(const UpdateSecurityClassifyCatalogRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateSecurityClassifyCatalogShrinkRequest request = UpdateSecurityClassifyCatalogShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasUpdateCommand()) {
+    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUpdateCommand(), "UpdateCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasUpdateCommandShrink()) {
+    body["UpdateCommand"] = request.getUpdateCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateSecurityClassifyCatalog"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateSecurityClassifyCatalogResponse>();
+}
+
+/**
+ * @summary 更新数据分类目录。
+ *
+ * @param request UpdateSecurityClassifyCatalogRequest
+ * @return UpdateSecurityClassifyCatalogResponse
+ */
+UpdateSecurityClassifyCatalogResponse Client::updateSecurityClassifyCatalog(const UpdateSecurityClassifyCatalogRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateSecurityClassifyCatalogWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新安全识别结果的生效状态。
+ *
+ * @param tmpReq UpdateSecurityIdentifyResultStatusRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateSecurityIdentifyResultStatusResponse
+ */
+UpdateSecurityIdentifyResultStatusResponse Client::updateSecurityIdentifyResultStatusWithOptions(const UpdateSecurityIdentifyResultStatusRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateSecurityIdentifyResultStatusShrinkRequest request = UpdateSecurityIdentifyResultStatusShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasUpdateCommand()) {
+    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUpdateCommand(), "UpdateCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasUpdateCommandShrink()) {
+    body["UpdateCommand"] = request.getUpdateCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateSecurityIdentifyResultStatus"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateSecurityIdentifyResultStatusResponse>();
+}
+
+/**
+ * @summary 更新安全识别结果的生效状态。
+ *
+ * @param request UpdateSecurityIdentifyResultStatusRequest
+ * @return UpdateSecurityIdentifyResultStatusResponse
+ */
+UpdateSecurityIdentifyResultStatusResponse Client::updateSecurityIdentifyResultStatus(const UpdateSecurityIdentifyResultStatusRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateSecurityIdentifyResultStatusWithOptions(request, runtime);
+}
+
+/**
+ * @summary 通过分级顺序更新数据分级。
+ *
+ * @param tmpReq UpdateSecurityLevelRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateSecurityLevelResponse
+ */
+UpdateSecurityLevelResponse Client::updateSecurityLevelWithOptions(const UpdateSecurityLevelRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateSecurityLevelShrinkRequest request = UpdateSecurityLevelShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasUpdateCommand()) {
+    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUpdateCommand(), "UpdateCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasUpdateCommandShrink()) {
+    body["UpdateCommand"] = request.getUpdateCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateSecurityLevel"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateSecurityLevelResponse>();
+}
+
+/**
+ * @summary 通过分级顺序更新数据分级。
+ *
+ * @param request UpdateSecurityLevelRequest
+ * @return UpdateSecurityLevelResponse
+ */
+UpdateSecurityLevelResponse Client::updateSecurityLevel(const UpdateSecurityLevelRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateSecurityLevelWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新标准。
+ *
+ * @param tmpReq UpdateStandardRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateStandardResponse
+ */
+UpdateStandardResponse Client::updateStandardWithOptions(const UpdateStandardRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateStandardShrinkRequest request = UpdateStandardShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasUpdateCommand()) {
+    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUpdateCommand(), "UpdateCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasUpdateCommandShrink()) {
+    body["UpdateCommand"] = request.getUpdateCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateStandard"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateStandardResponse>();
+}
+
+/**
+ * @summary 更新标准。
+ *
+ * @param request UpdateStandardRequest
+ * @return UpdateStandardResponse
+ */
+UpdateStandardResponse Client::updateStandard(const UpdateStandardRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateStandardWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新数据标准码表。
+ *
+ * @param tmpReq UpdateStandardLookupTableRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateStandardLookupTableResponse
+ */
+UpdateStandardLookupTableResponse Client::updateStandardLookupTableWithOptions(const UpdateStandardLookupTableRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateStandardLookupTableShrinkRequest request = UpdateStandardLookupTableShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasUpdateCommand()) {
+    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUpdateCommand(), "UpdateCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasUpdateCommandShrink()) {
+    body["UpdateCommand"] = request.getUpdateCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateStandardLookupTable"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateStandardLookupTableResponse>();
+}
+
+/**
+ * @summary 更新数据标准码表。
+ *
+ * @param request UpdateStandardLookupTableRequest
+ * @return UpdateStandardLookupTableResponse
+ */
+UpdateStandardLookupTableResponse Client::updateStandardLookupTable(const UpdateStandardLookupTableRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateStandardLookupTableWithOptions(request, runtime);
+}
+
+/**
+ * @summary 将标准映射关系置为无效映射。
+ *
+ * @param tmpReq UpdateStandardMappingToInvalidRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateStandardMappingToInvalidResponse
+ */
+UpdateStandardMappingToInvalidResponse Client::updateStandardMappingToInvalidWithOptions(const UpdateStandardMappingToInvalidRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateStandardMappingToInvalidShrinkRequest request = UpdateStandardMappingToInvalidShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasUpdateCommand()) {
+    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUpdateCommand(), "UpdateCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasUpdateCommandShrink()) {
+    body["UpdateCommand"] = request.getUpdateCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateStandardMappingToInvalid"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateStandardMappingToInvalidResponse>();
+}
+
+/**
+ * @summary 将标准映射关系置为无效映射。
+ *
+ * @param request UpdateStandardMappingToInvalidRequest
+ * @return UpdateStandardMappingToInvalidResponse
+ */
+UpdateStandardMappingToInvalidResponse Client::updateStandardMappingToInvalid(const UpdateStandardMappingToInvalidRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateStandardMappingToInvalidWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新标准集。
+ *
+ * @param tmpReq UpdateStandardSetRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateStandardSetResponse
+ */
+UpdateStandardSetResponse Client::updateStandardSetWithOptions(const UpdateStandardSetRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateStandardSetShrinkRequest request = UpdateStandardSetShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasUpdateCommand()) {
+    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUpdateCommand(), "UpdateCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasUpdateCommandShrink()) {
+    body["UpdateCommand"] = request.getUpdateCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateStandardSet"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateStandardSetResponse>();
+}
+
+/**
+ * @summary 更新标准集。
+ *
+ * @param request UpdateStandardSetRequest
+ * @return UpdateStandardSetResponse
+ */
+UpdateStandardSetResponse Client::updateStandardSet(const UpdateStandardSetRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateStandardSetWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新数据标准模板。
+ *
+ * @param tmpReq UpdateStandardTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateStandardTemplateResponse
+ */
+UpdateStandardTemplateResponse Client::updateStandardTemplateWithOptions(const UpdateStandardTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateStandardTemplateShrinkRequest request = UpdateStandardTemplateShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasUpdateCommand()) {
+    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUpdateCommand(), "UpdateCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasUpdateCommandShrink()) {
+    body["UpdateCommand"] = request.getUpdateCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateStandardTemplate"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateStandardTemplateResponse>();
+}
+
+/**
+ * @summary 更新数据标准模板。
+ *
+ * @param request UpdateStandardTemplateRequest
+ * @return UpdateStandardTemplateResponse
+ */
+UpdateStandardTemplateResponse Client::updateStandardTemplate(const UpdateStandardTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateStandardTemplateWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新数据标准词根。
+ *
+ * @param tmpReq UpdateStandardWordRootRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateStandardWordRootResponse
+ */
+UpdateStandardWordRootResponse Client::updateStandardWordRootWithOptions(const UpdateStandardWordRootRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateStandardWordRootShrinkRequest request = UpdateStandardWordRootShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasUpdateCommand()) {
+    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUpdateCommand(), "UpdateCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasUpdateCommandShrink()) {
+    body["UpdateCommand"] = request.getUpdateCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateStandardWordRoot"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateStandardWordRootResponse>();
+}
+
+/**
+ * @summary 更新数据标准词根。
+ *
+ * @param request UpdateStandardWordRootRequest
+ * @return UpdateStandardWordRootResponse
+ */
+UpdateStandardWordRootResponse Client::updateStandardWordRoot(const UpdateStandardWordRootRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateStandardWordRootWithOptions(request, runtime);
 }
 
 /**
@@ -10567,6 +14755,276 @@ UpdateUserGroupSwitchResponse Client::updateUserGroupSwitchWithOptions(const Upd
 UpdateUserGroupSwitchResponse Client::updateUserGroupSwitch(const UpdateUserGroupSwitchRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateUserGroupSwitchWithOptions(request, runtime);
+}
+
+/**
+ * @summary 新建或者修改质量规则。
+ *
+ * @param tmpReq UpsertQualityRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpsertQualityRuleResponse
+ */
+UpsertQualityRuleResponse Client::upsertQualityRuleWithOptions(const UpsertQualityRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpsertQualityRuleShrinkRequest request = UpsertQualityRuleShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasUpsertCommand()) {
+    request.setUpsertCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUpsertCommand(), "UpsertCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasUpsertCommandShrink()) {
+    body["UpsertCommand"] = request.getUpsertCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpsertQualityRule"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpsertQualityRuleResponse>();
+}
+
+/**
+ * @summary 新建或者修改质量规则。
+ *
+ * @param request UpsertQualityRuleRequest
+ * @return UpsertQualityRuleResponse
+ */
+UpsertQualityRuleResponse Client::upsertQualityRule(const UpsertQualityRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return upsertQualityRuleWithOptions(request, runtime);
+}
+
+/**
+ * @summary 新建或者修改调度设置。
+ *
+ * @param tmpReq UpsertQualityScheduleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpsertQualityScheduleResponse
+ */
+UpsertQualityScheduleResponse Client::upsertQualityScheduleWithOptions(const UpsertQualityScheduleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpsertQualityScheduleShrinkRequest request = UpsertQualityScheduleShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasUpsertCommand()) {
+    request.setUpsertCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUpsertCommand(), "UpsertCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasUpsertCommandShrink()) {
+    body["UpsertCommand"] = request.getUpsertCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpsertQualitySchedule"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpsertQualityScheduleResponse>();
+}
+
+/**
+ * @summary 新建或者修改调度设置。
+ *
+ * @param request UpsertQualityScheduleRequest
+ * @return UpsertQualityScheduleResponse
+ */
+UpsertQualityScheduleResponse Client::upsertQualitySchedule(const UpsertQualityScheduleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return upsertQualityScheduleWithOptions(request, runtime);
+}
+
+/**
+ * @summary 新建或者修改质量模板。
+ *
+ * @param tmpReq UpsertQualityTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpsertQualityTemplateResponse
+ */
+UpsertQualityTemplateResponse Client::upsertQualityTemplateWithOptions(const UpsertQualityTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpsertQualityTemplateShrinkRequest request = UpsertQualityTemplateShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasUpsertCommand()) {
+    request.setUpsertCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUpsertCommand(), "UpsertCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasUpsertCommandShrink()) {
+    body["UpsertCommand"] = request.getUpsertCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpsertQualityTemplate"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpsertQualityTemplateResponse>();
+}
+
+/**
+ * @summary 新建或者修改质量模板。
+ *
+ * @param request UpsertQualityTemplateRequest
+ * @return UpsertQualityTemplateResponse
+ */
+UpsertQualityTemplateResponse Client::upsertQualityTemplate(const UpsertQualityTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return upsertQualityTemplateWithOptions(request, runtime);
+}
+
+/**
+ * @summary 新建或更改质量监控对象, 支持添加多种类型的质量监控对象，包括：Dataphin表，全域表，数据源，指标，实时元表。
+ *
+ * @param tmpReq UpsertQualityWatchRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpsertQualityWatchResponse
+ */
+UpsertQualityWatchResponse Client::upsertQualityWatchWithOptions(const UpsertQualityWatchRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpsertQualityWatchShrinkRequest request = UpsertQualityWatchShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasUpsertCommand()) {
+    request.setUpsertCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUpsertCommand(), "UpsertCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasUpsertCommandShrink()) {
+    body["UpsertCommand"] = request.getUpsertCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpsertQualityWatch"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpsertQualityWatchResponse>();
+}
+
+/**
+ * @summary 新建或更改质量监控对象, 支持添加多种类型的质量监控对象，包括：Dataphin表，全域表，数据源，指标，实时元表。
+ *
+ * @param request UpsertQualityWatchRequest
+ * @return UpsertQualityWatchResponse
+ */
+UpsertQualityWatchResponse Client::upsertQualityWatch(const UpsertQualityWatchRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return upsertQualityWatchWithOptions(request, runtime);
+}
+
+/**
+ * @summary 新建或者修改监控对象告警设置。
+ *
+ * @param tmpReq UpsertQualityWatchAlertRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpsertQualityWatchAlertResponse
+ */
+UpsertQualityWatchAlertResponse Client::upsertQualityWatchAlertWithOptions(const UpsertQualityWatchAlertRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpsertQualityWatchAlertShrinkRequest request = UpsertQualityWatchAlertShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasUpsertCommand()) {
+    request.setUpsertCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUpsertCommand(), "UpsertCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasUpsertCommandShrink()) {
+    body["UpsertCommand"] = request.getUpsertCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpsertQualityWatchAlert"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpsertQualityWatchAlertResponse>();
+}
+
+/**
+ * @summary 新建或者修改监控对象告警设置。
+ *
+ * @param request UpsertQualityWatchAlertRequest
+ * @return UpsertQualityWatchAlertResponse
+ */
+UpsertQualityWatchAlertResponse Client::upsertQualityWatchAlert(const UpsertQualityWatchAlertRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return upsertQualityWatchAlertWithOptions(request, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace DataphinPublic20230630

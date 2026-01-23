@@ -157,6 +157,23 @@ namespace DataphinPublic20230630
       Models::ApplyDataServiceAppResponse applyDataServiceApp(const Models::ApplyDataServiceAppRequest &request);
 
       /**
+       * @summary 指定质量规则和调度设置进行绑定。
+       *
+       * @param tmpReq AssignQualityRuleOfAllRuleScopeSchedulesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AssignQualityRuleOfAllRuleScopeSchedulesResponse
+       */
+      Models::AssignQualityRuleOfAllRuleScopeSchedulesResponse assignQualityRuleOfAllRuleScopeSchedulesWithOptions(const Models::AssignQualityRuleOfAllRuleScopeSchedulesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 指定质量规则和调度设置进行绑定。
+       *
+       * @param request AssignQualityRuleOfAllRuleScopeSchedulesRequest
+       * @return AssignQualityRuleOfAllRuleScopeSchedulesResponse
+       */
+      Models::AssignQualityRuleOfAllRuleScopeSchedulesResponse assignQualityRuleOfAllRuleScopeSchedules(const Models::AssignQualityRuleOfAllRuleScopeSchedulesRequest &request);
+
+      /**
        * @summary 项目计算源连通性检查。
        *
        * @param tmpReq CheckComputeSourceConnectivityRequest
@@ -531,6 +548,193 @@ namespace DataphinPublic20230630
       Models::CreateRowPermissionResponse createRowPermission(const Models::CreateRowPermissionRequest &request);
 
       /**
+       * @summary 新建数据分类。
+       *
+       * @param tmpReq CreateSecurityClassifyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateSecurityClassifyResponse
+       */
+      Models::CreateSecurityClassifyResponse createSecurityClassifyWithOptions(const Models::CreateSecurityClassifyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 新建数据分类。
+       *
+       * @param request CreateSecurityClassifyRequest
+       * @return CreateSecurityClassifyResponse
+       */
+      Models::CreateSecurityClassifyResponse createSecurityClassify(const Models::CreateSecurityClassifyRequest &request);
+
+      /**
+       * @summary 新建数据分类目录。
+       *
+       * @param tmpReq CreateSecurityClassifyCatalogRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateSecurityClassifyCatalogResponse
+       */
+      Models::CreateSecurityClassifyCatalogResponse createSecurityClassifyCatalogWithOptions(const Models::CreateSecurityClassifyCatalogRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 新建数据分类目录。
+       *
+       * @param request CreateSecurityClassifyCatalogRequest
+       * @return CreateSecurityClassifyCatalogResponse
+       */
+      Models::CreateSecurityClassifyCatalogResponse createSecurityClassifyCatalog(const Models::CreateSecurityClassifyCatalogRequest &request);
+
+      /**
+       * @summary 新建安全识别结果。
+       *
+       * @param tmpReq CreateSecurityIdentifyResultRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateSecurityIdentifyResultResponse
+       */
+      Models::CreateSecurityIdentifyResultResponse createSecurityIdentifyResultWithOptions(const Models::CreateSecurityIdentifyResultRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 新建安全识别结果。
+       *
+       * @param request CreateSecurityIdentifyResultRequest
+       * @return CreateSecurityIdentifyResultResponse
+       */
+      Models::CreateSecurityIdentifyResultResponse createSecurityIdentifyResult(const Models::CreateSecurityIdentifyResultRequest &request);
+
+      /**
+       * @summary 新建数据分级。
+       *
+       * @param tmpReq CreateSecurityLevelRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateSecurityLevelResponse
+       */
+      Models::CreateSecurityLevelResponse createSecurityLevelWithOptions(const Models::CreateSecurityLevelRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 新建数据分级。
+       *
+       * @param request CreateSecurityLevelRequest
+       * @return CreateSecurityLevelResponse
+       */
+      Models::CreateSecurityLevelResponse createSecurityLevel(const Models::CreateSecurityLevelRequest &request);
+
+      /**
+       * @summary 创建标准。
+       *
+       * @param tmpReq CreateStandardRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateStandardResponse
+       */
+      Models::CreateStandardResponse createStandardWithOptions(const Models::CreateStandardRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建标准。
+       *
+       * @param request CreateStandardRequest
+       * @return CreateStandardResponse
+       */
+      Models::CreateStandardResponse createStandard(const Models::CreateStandardRequest &request);
+
+      /**
+       * @summary 创建数据标准码表。
+       *
+       * @param tmpReq CreateStandardLookupTableRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateStandardLookupTableResponse
+       */
+      Models::CreateStandardLookupTableResponse createStandardLookupTableWithOptions(const Models::CreateStandardLookupTableRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建数据标准码表。
+       *
+       * @param request CreateStandardLookupTableRequest
+       * @return CreateStandardLookupTableResponse
+       */
+      Models::CreateStandardLookupTableResponse createStandardLookupTable(const Models::CreateStandardLookupTableRequest &request);
+
+      /**
+       * @summary 创建标准映射关系, 包括有效映射和无效映射。
+       *
+       * @param tmpReq CreateStandardMappingRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateStandardMappingResponse
+       */
+      Models::CreateStandardMappingResponse createStandardMappingWithOptions(const Models::CreateStandardMappingRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建标准映射关系, 包括有效映射和无效映射。
+       *
+       * @param request CreateStandardMappingRequest
+       * @return CreateStandardMappingResponse
+       */
+      Models::CreateStandardMappingResponse createStandardMapping(const Models::CreateStandardMappingRequest &request);
+
+      /**
+       * @summary 创建标准关联关系。
+       *
+       * @param tmpReq CreateStandardRelationsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateStandardRelationsResponse
+       */
+      Models::CreateStandardRelationsResponse createStandardRelationsWithOptions(const Models::CreateStandardRelationsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建标准关联关系。
+       *
+       * @param request CreateStandardRelationsRequest
+       * @return CreateStandardRelationsResponse
+       */
+      Models::CreateStandardRelationsResponse createStandardRelations(const Models::CreateStandardRelationsRequest &request);
+
+      /**
+       * @summary 创建标准集。
+       *
+       * @param tmpReq CreateStandardSetRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateStandardSetResponse
+       */
+      Models::CreateStandardSetResponse createStandardSetWithOptions(const Models::CreateStandardSetRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建标准集。
+       *
+       * @param request CreateStandardSetRequest
+       * @return CreateStandardSetResponse
+       */
+      Models::CreateStandardSetResponse createStandardSet(const Models::CreateStandardSetRequest &request);
+
+      /**
+       * @summary 创建数据标准模板。
+       *
+       * @param tmpReq CreateStandardTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateStandardTemplateResponse
+       */
+      Models::CreateStandardTemplateResponse createStandardTemplateWithOptions(const Models::CreateStandardTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建数据标准模板。
+       *
+       * @param request CreateStandardTemplateRequest
+       * @return CreateStandardTemplateResponse
+       */
+      Models::CreateStandardTemplateResponse createStandardTemplate(const Models::CreateStandardTemplateRequest &request);
+
+      /**
+       * @summary 创建数据标准词根。
+       *
+       * @param tmpReq CreateStandardWordRootRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateStandardWordRootResponse
+       */
+      Models::CreateStandardWordRootResponse createStandardWordRootWithOptions(const Models::CreateStandardWordRootRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建数据标准词根。
+       *
+       * @param request CreateStandardWordRootRequest
+       * @return CreateStandardWordRootResponse
+       */
+      Models::CreateStandardWordRootResponse createStandardWordRoot(const Models::CreateStandardWordRootRequest &request);
+
+      /**
        * @summary 创建流批一体任务
        *
        * @param tmpReq CreateStreamBatchJobMappingRequest
@@ -735,6 +939,74 @@ namespace DataphinPublic20230630
       Models::DeleteDirectoryResponse deleteDirectory(const Models::DeleteDirectoryRequest &request);
 
       /**
+       * @summary 批量删除质量规则对象。
+       *
+       * @param tmpReq DeleteQualityRulesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteQualityRulesResponse
+       */
+      Models::DeleteQualityRulesResponse deleteQualityRulesWithOptions(const Models::DeleteQualityRulesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量删除质量规则对象。
+       *
+       * @param request DeleteQualityRulesRequest
+       * @return DeleteQualityRulesResponse
+       */
+      Models::DeleteQualityRulesResponse deleteQualityRules(const Models::DeleteQualityRulesRequest &request);
+
+      /**
+       * @summary 批量删除质量调度对象。
+       *
+       * @param tmpReq DeleteQualitySchedulesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteQualitySchedulesResponse
+       */
+      Models::DeleteQualitySchedulesResponse deleteQualitySchedulesWithOptions(const Models::DeleteQualitySchedulesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量删除质量调度对象。
+       *
+       * @param request DeleteQualitySchedulesRequest
+       * @return DeleteQualitySchedulesResponse
+       */
+      Models::DeleteQualitySchedulesResponse deleteQualitySchedules(const Models::DeleteQualitySchedulesRequest &request);
+
+      /**
+       * @summary 批量删除质量模板对象。
+       *
+       * @param tmpReq DeleteQualityTemplatesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteQualityTemplatesResponse
+       */
+      Models::DeleteQualityTemplatesResponse deleteQualityTemplatesWithOptions(const Models::DeleteQualityTemplatesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量删除质量模板对象。
+       *
+       * @param request DeleteQualityTemplatesRequest
+       * @return DeleteQualityTemplatesResponse
+       */
+      Models::DeleteQualityTemplatesResponse deleteQualityTemplates(const Models::DeleteQualityTemplatesRequest &request);
+
+      /**
+       * @summary 批量删除质量监控对象。
+       *
+       * @param tmpReq DeleteQualityWatchesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteQualityWatchesResponse
+       */
+      Models::DeleteQualityWatchesResponse deleteQualityWatchesWithOptions(const Models::DeleteQualityWatchesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量删除质量监控对象。
+       *
+       * @param request DeleteQualityWatchesRequest
+       * @return DeleteQualityWatchesResponse
+       */
+      Models::DeleteQualityWatchesResponse deleteQualityWatches(const Models::DeleteQualityWatchesRequest &request);
+
+      /**
        * @summary 删除注册血缘。
        *
        * @param tmpReq DeleteRegisterLineageRequest
@@ -784,6 +1056,193 @@ namespace DataphinPublic20230630
        * @return DeleteRowPermissionResponse
        */
       Models::DeleteRowPermissionResponse deleteRowPermission(const Models::DeleteRowPermissionRequest &request);
+
+      /**
+       * @summary 删除数据分类。
+       *
+       * @param tmpReq DeleteSecurityClassifyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteSecurityClassifyResponse
+       */
+      Models::DeleteSecurityClassifyResponse deleteSecurityClassifyWithOptions(const Models::DeleteSecurityClassifyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除数据分类。
+       *
+       * @param request DeleteSecurityClassifyRequest
+       * @return DeleteSecurityClassifyResponse
+       */
+      Models::DeleteSecurityClassifyResponse deleteSecurityClassify(const Models::DeleteSecurityClassifyRequest &request);
+
+      /**
+       * @summary 删除数据分类目录。
+       *
+       * @param tmpReq DeleteSecurityClassifyCatalogRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteSecurityClassifyCatalogResponse
+       */
+      Models::DeleteSecurityClassifyCatalogResponse deleteSecurityClassifyCatalogWithOptions(const Models::DeleteSecurityClassifyCatalogRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除数据分类目录。
+       *
+       * @param request DeleteSecurityClassifyCatalogRequest
+       * @return DeleteSecurityClassifyCatalogResponse
+       */
+      Models::DeleteSecurityClassifyCatalogResponse deleteSecurityClassifyCatalog(const Models::DeleteSecurityClassifyCatalogRequest &request);
+
+      /**
+       * @summary 批量删除安全识别结果。
+       *
+       * @param tmpReq DeleteSecurityIdentifyResultsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteSecurityIdentifyResultsResponse
+       */
+      Models::DeleteSecurityIdentifyResultsResponse deleteSecurityIdentifyResultsWithOptions(const Models::DeleteSecurityIdentifyResultsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量删除安全识别结果。
+       *
+       * @param request DeleteSecurityIdentifyResultsRequest
+       * @return DeleteSecurityIdentifyResultsResponse
+       */
+      Models::DeleteSecurityIdentifyResultsResponse deleteSecurityIdentifyResults(const Models::DeleteSecurityIdentifyResultsRequest &request);
+
+      /**
+       * @summary 删除数据分级。
+       *
+       * @param tmpReq DeleteSecurityLevelRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteSecurityLevelResponse
+       */
+      Models::DeleteSecurityLevelResponse deleteSecurityLevelWithOptions(const Models::DeleteSecurityLevelRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除数据分级。
+       *
+       * @param request DeleteSecurityLevelRequest
+       * @return DeleteSecurityLevelResponse
+       */
+      Models::DeleteSecurityLevelResponse deleteSecurityLevel(const Models::DeleteSecurityLevelRequest &request);
+
+      /**
+       * @summary 删除标准。
+       *
+       * @param tmpReq DeleteStandardRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteStandardResponse
+       */
+      Models::DeleteStandardResponse deleteStandardWithOptions(const Models::DeleteStandardRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除标准。
+       *
+       * @param request DeleteStandardRequest
+       * @return DeleteStandardResponse
+       */
+      Models::DeleteStandardResponse deleteStandard(const Models::DeleteStandardRequest &request);
+
+      /**
+       * @summary 删除无效映射关系。
+       *
+       * @param tmpReq DeleteStandardInValidMappingRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteStandardInValidMappingResponse
+       */
+      Models::DeleteStandardInValidMappingResponse deleteStandardInValidMappingWithOptions(const Models::DeleteStandardInValidMappingRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除无效映射关系。
+       *
+       * @param request DeleteStandardInValidMappingRequest
+       * @return DeleteStandardInValidMappingResponse
+       */
+      Models::DeleteStandardInValidMappingResponse deleteStandardInValidMapping(const Models::DeleteStandardInValidMappingRequest &request);
+
+      /**
+       * @summary 删除数据标准码表。
+       *
+       * @param request DeleteStandardLookupTableRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteStandardLookupTableResponse
+       */
+      Models::DeleteStandardLookupTableResponse deleteStandardLookupTableWithOptions(const Models::DeleteStandardLookupTableRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除数据标准码表。
+       *
+       * @param request DeleteStandardLookupTableRequest
+       * @return DeleteStandardLookupTableResponse
+       */
+      Models::DeleteStandardLookupTableResponse deleteStandardLookupTable(const Models::DeleteStandardLookupTableRequest &request);
+
+      /**
+       * @summary 批量删除标准关联关系。
+       *
+       * @param tmpReq DeleteStandardRelationsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteStandardRelationsResponse
+       */
+      Models::DeleteStandardRelationsResponse deleteStandardRelationsWithOptions(const Models::DeleteStandardRelationsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量删除标准关联关系。
+       *
+       * @param request DeleteStandardRelationsRequest
+       * @return DeleteStandardRelationsResponse
+       */
+      Models::DeleteStandardRelationsResponse deleteStandardRelations(const Models::DeleteStandardRelationsRequest &request);
+
+      /**
+       * @summary 删除标准集。
+       *
+       * @param request DeleteStandardSetRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteStandardSetResponse
+       */
+      Models::DeleteStandardSetResponse deleteStandardSetWithOptions(const Models::DeleteStandardSetRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除标准集。
+       *
+       * @param request DeleteStandardSetRequest
+       * @return DeleteStandardSetResponse
+       */
+      Models::DeleteStandardSetResponse deleteStandardSet(const Models::DeleteStandardSetRequest &request);
+
+      /**
+       * @summary 删除有效映射关系。
+       *
+       * @param tmpReq DeleteStandardValidMappingRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteStandardValidMappingResponse
+       */
+      Models::DeleteStandardValidMappingResponse deleteStandardValidMappingWithOptions(const Models::DeleteStandardValidMappingRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除有效映射关系。
+       *
+       * @param request DeleteStandardValidMappingRequest
+       * @return DeleteStandardValidMappingResponse
+       */
+      Models::DeleteStandardValidMappingResponse deleteStandardValidMapping(const Models::DeleteStandardValidMappingRequest &request);
+
+      /**
+       * @summary 删除数据标准词根。
+       *
+       * @param request DeleteStandardWordRootRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteStandardWordRootResponse
+       */
+      Models::DeleteStandardWordRootResponse deleteStandardWordRootWithOptions(const Models::DeleteStandardWordRootRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除数据标准词根。
+       *
+       * @param request DeleteStandardWordRootRequest
+       * @return DeleteStandardWordRootResponse
+       */
+      Models::DeleteStandardWordRootResponse deleteStandardWordRoot(const Models::DeleteStandardWordRootRequest &request);
 
       /**
        * @summary 删除自定义函数。
@@ -852,6 +1311,23 @@ namespace DataphinPublic20230630
        * @return ExecuteManualNodeResponse
        */
       Models::ExecuteManualNodeResponse executeManualNode(const Models::ExecuteManualNodeRequest &request);
+
+      /**
+       * @summary 运行触发式节点。
+       *
+       * @param request ExecuteTriggerNodeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ExecuteTriggerNodeResponse
+       */
+      Models::ExecuteTriggerNodeResponse executeTriggerNodeWithOptions(const Models::ExecuteTriggerNodeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 运行触发式节点。
+       *
+       * @param request ExecuteTriggerNodeRequest
+       * @return ExecuteTriggerNodeResponse
+       */
+      Models::ExecuteTriggerNodeResponse executeTriggerNode(const Models::ExecuteTriggerNodeRequest &request);
 
       /**
        * @summary 重跑下游(修复链路数据), 支持强制重跑下游。影响范围: 1. 会产生计算成本；2. 会影响数据产出
@@ -956,6 +1432,23 @@ namespace DataphinPublic20230630
       Models::GetAlertEventResponse getAlertEvent(const Models::GetAlertEventRequest &request);
 
       /**
+       * @summary 根据资产对象GUID查询映射关系。
+       *
+       * @param tmpReq GetAssetMappingRelationsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAssetMappingRelationsResponse
+       */
+      Models::GetAssetMappingRelationsResponse getAssetMappingRelationsWithOptions(const Models::GetAssetMappingRelationsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 根据资产对象GUID查询映射关系。
+       *
+       * @param request GetAssetMappingRelationsRequest
+       * @return GetAssetMappingRelationsResponse
+       */
+      Models::GetAssetMappingRelationsResponse getAssetMappingRelations(const Models::GetAssetMappingRelationsRequest &request);
+
+      /**
        * @summary 获取离线计算任务详情。
        *
        * @param request GetBatchTaskInfoRequest
@@ -1022,6 +1515,23 @@ namespace DataphinPublic20230630
        * @return GetBatchTaskVersionsResponse
        */
       Models::GetBatchTaskVersionsResponse getBatchTaskVersions(const Models::GetBatchTaskVersionsRequest &request);
+
+      /**
+       * @summary 根据归属资产GUID查询映射关系。
+       *
+       * @param tmpReq GetBelongAssetMappingRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetBelongAssetMappingResponse
+       */
+      Models::GetBelongAssetMappingResponse getBelongAssetMappingWithOptions(const Models::GetBelongAssetMappingRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 根据归属资产GUID查询映射关系。
+       *
+       * @param request GetBelongAssetMappingRequest
+       * @return GetBelongAssetMappingResponse
+       */
+      Models::GetBelongAssetMappingResponse getBelongAssetMapping(const Models::GetBelongAssetMappingRequest &request);
 
       /**
        * @summary 获取业务实体详情。
@@ -1755,6 +2265,193 @@ namespace DataphinPublic20230630
       Models::GetProjectWhiteListsResponse getProjectWhiteLists(const Models::GetProjectWhiteListsRequest &request);
 
       /**
+       * @summary 通过监控对象ID获取告警设置。
+       *
+       * @param request GetQualityAlertOfAllRuleScopeByWatchIdRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetQualityAlertOfAllRuleScopeByWatchIdResponse
+       */
+      Models::GetQualityAlertOfAllRuleScopeByWatchIdResponse getQualityAlertOfAllRuleScopeByWatchIdWithOptions(const Models::GetQualityAlertOfAllRuleScopeByWatchIdRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 通过监控对象ID获取告警设置。
+       *
+       * @param request GetQualityAlertOfAllRuleScopeByWatchIdRequest
+       * @return GetQualityAlertOfAllRuleScopeByWatchIdResponse
+       */
+      Models::GetQualityAlertOfAllRuleScopeByWatchIdResponse getQualityAlertOfAllRuleScopeByWatchId(const Models::GetQualityAlertOfAllRuleScopeByWatchIdRequest &request);
+
+      /**
+       * @summary 获取质量规则对象。
+       *
+       * @param request GetQualityRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetQualityRuleResponse
+       */
+      Models::GetQualityRuleResponse getQualityRuleWithOptions(const Models::GetQualityRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取质量规则对象。
+       *
+       * @param request GetQualityRuleRequest
+       * @return GetQualityRuleResponse
+       */
+      Models::GetQualityRuleResponse getQualityRule(const Models::GetQualityRuleRequest &request);
+
+      /**
+       * @summary 获取质量任务对象详情。
+       *
+       * @param request GetQualityRuleTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetQualityRuleTaskResponse
+       */
+      Models::GetQualityRuleTaskResponse getQualityRuleTaskWithOptions(const Models::GetQualityRuleTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取质量任务对象详情。
+       *
+       * @param request GetQualityRuleTaskRequest
+       * @return GetQualityRuleTaskResponse
+       */
+      Models::GetQualityRuleTaskResponse getQualityRuleTask(const Models::GetQualityRuleTaskRequest &request);
+
+      /**
+       * @summary 获取质量任务对象日志内容。
+       *
+       * @param request GetQualityRuleTaskLogRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetQualityRuleTaskLogResponse
+       */
+      Models::GetQualityRuleTaskLogResponse getQualityRuleTaskLogWithOptions(const Models::GetQualityRuleTaskLogRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取质量任务对象日志内容。
+       *
+       * @param request GetQualityRuleTaskLogRequest
+       * @return GetQualityRuleTaskLogResponse
+       */
+      Models::GetQualityRuleTaskLogResponse getQualityRuleTaskLog(const Models::GetQualityRuleTaskLogRequest &request);
+
+      /**
+       * @summary 获取质量调度对象。
+       *
+       * @param request GetQualityScheduleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetQualityScheduleResponse
+       */
+      Models::GetQualityScheduleResponse getQualityScheduleWithOptions(const Models::GetQualityScheduleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取质量调度对象。
+       *
+       * @param request GetQualityScheduleRequest
+       * @return GetQualityScheduleResponse
+       */
+      Models::GetQualityScheduleResponse getQualitySchedule(const Models::GetQualityScheduleRequest &request);
+
+      /**
+       * @summary 通过监控对象ID获取调度设置列表。
+       *
+       * @param request GetQualitySchedulesByWatchIdRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetQualitySchedulesByWatchIdResponse
+       */
+      Models::GetQualitySchedulesByWatchIdResponse getQualitySchedulesByWatchIdWithOptions(const Models::GetQualitySchedulesByWatchIdRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 通过监控对象ID获取调度设置列表。
+       *
+       * @param request GetQualitySchedulesByWatchIdRequest
+       * @return GetQualitySchedulesByWatchIdResponse
+       */
+      Models::GetQualitySchedulesByWatchIdResponse getQualitySchedulesByWatchId(const Models::GetQualitySchedulesByWatchIdRequest &request);
+
+      /**
+       * @summary 获取质量模板对象。
+       *
+       * @param request GetQualityTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetQualityTemplateResponse
+       */
+      Models::GetQualityTemplateResponse getQualityTemplateWithOptions(const Models::GetQualityTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取质量模板对象。
+       *
+       * @param request GetQualityTemplateRequest
+       * @return GetQualityTemplateResponse
+       */
+      Models::GetQualityTemplateResponse getQualityTemplate(const Models::GetQualityTemplateRequest &request);
+
+      /**
+       * @summary 获取质量监控对象。
+       *
+       * @param request GetQualityWatchRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetQualityWatchResponse
+       */
+      Models::GetQualityWatchResponse getQualityWatchWithOptions(const Models::GetQualityWatchRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取质量监控对象。
+       *
+       * @param request GetQualityWatchRequest
+       * @return GetQualityWatchResponse
+       */
+      Models::GetQualityWatchResponse getQualityWatch(const Models::GetQualityWatchRequest &request);
+
+      /**
+       * @summary 通过监控对象原始ID获取监控对象记录，例如：数据源、表、指标等的ID。
+       *
+       * @param request GetQualityWatchByObjectIdRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetQualityWatchByObjectIdResponse
+       */
+      Models::GetQualityWatchByObjectIdResponse getQualityWatchByObjectIdWithOptions(const Models::GetQualityWatchByObjectIdRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 通过监控对象原始ID获取监控对象记录，例如：数据源、表、指标等的ID。
+       *
+       * @param request GetQualityWatchByObjectIdRequest
+       * @return GetQualityWatchByObjectIdResponse
+       */
+      Models::GetQualityWatchByObjectIdResponse getQualityWatchByObjectId(const Models::GetQualityWatchByObjectIdRequest &request);
+
+      /**
+       * @summary 获取监控任务对象。
+       *
+       * @param request GetQualityWatchTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetQualityWatchTaskResponse
+       */
+      Models::GetQualityWatchTaskResponse getQualityWatchTaskWithOptions(const Models::GetQualityWatchTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取监控任务对象。
+       *
+       * @param request GetQualityWatchTaskRequest
+       * @return GetQualityWatchTaskResponse
+       */
+      Models::GetQualityWatchTaskResponse getQualityWatchTask(const Models::GetQualityWatchTaskRequest &request);
+
+      /**
+       * @summary 获取监控任务对象的日志内容。
+       *
+       * @param request GetQualityWatchTaskLogRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetQualityWatchTaskLogResponse
+       */
+      Models::GetQualityWatchTaskLogResponse getQualityWatchTaskLogWithOptions(const Models::GetQualityWatchTaskLogRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取监控任务对象的日志内容。
+       *
+       * @param request GetQualityWatchTaskLogRequest
+       * @return GetQualityWatchTaskLogResponse
+       */
+      Models::GetQualityWatchTaskLogResponse getQualityWatchTaskLog(const Models::GetQualityWatchTaskLogRequest &request);
+
+      /**
        * @summary 根据集群ID获取集群版本
        *
        * @param request GetQueueEngineVersionByEnvRequest
@@ -1806,6 +2503,74 @@ namespace DataphinPublic20230630
       Models::GetResourceByVersionResponse getResourceByVersion(const Models::GetResourceByVersionRequest &request);
 
       /**
+       * @summary 获取数据分类详情。
+       *
+       * @param request GetSecurityClassifyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetSecurityClassifyResponse
+       */
+      Models::GetSecurityClassifyResponse getSecurityClassifyWithOptions(const Models::GetSecurityClassifyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取数据分类详情。
+       *
+       * @param request GetSecurityClassifyRequest
+       * @return GetSecurityClassifyResponse
+       */
+      Models::GetSecurityClassifyResponse getSecurityClassify(const Models::GetSecurityClassifyRequest &request);
+
+      /**
+       * @summary 获取识别结果详情。
+       *
+       * @param request GetSecurityIdentifyResultRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetSecurityIdentifyResultResponse
+       */
+      Models::GetSecurityIdentifyResultResponse getSecurityIdentifyResultWithOptions(const Models::GetSecurityIdentifyResultRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取识别结果详情。
+       *
+       * @param request GetSecurityIdentifyResultRequest
+       * @return GetSecurityIdentifyResultResponse
+       */
+      Models::GetSecurityIdentifyResultResponse getSecurityIdentifyResult(const Models::GetSecurityIdentifyResultRequest &request);
+
+      /**
+       * @summary 获取数据分级详情。
+       *
+       * @param request GetSecurityLevelRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetSecurityLevelResponse
+       */
+      Models::GetSecurityLevelResponse getSecurityLevelWithOptions(const Models::GetSecurityLevelRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取数据分级详情。
+       *
+       * @param request GetSecurityLevelRequest
+       * @return GetSecurityLevelResponse
+       */
+      Models::GetSecurityLevelResponse getSecurityLevel(const Models::GetSecurityLevelRequest &request);
+
+      /**
+       * @summary 通过密钥名称获取密钥值。
+       *
+       * @param request GetSecuritySecretKeyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetSecuritySecretKeyResponse
+       */
+      Models::GetSecuritySecretKeyResponse getSecuritySecretKeyWithOptions(const Models::GetSecuritySecretKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 通过密钥名称获取密钥值。
+       *
+       * @param request GetSecuritySecretKeyRequest
+       * @return GetSecuritySecretKeyResponse
+       */
+      Models::GetSecuritySecretKeyResponse getSecuritySecretKey(const Models::GetSecuritySecretKeyRequest &request);
+
+      /**
        * @summary 获取计算源对应集群的spark客户信息
        *
        * @param request GetSparkLocalClientInfoRequest
@@ -1821,6 +2586,108 @@ namespace DataphinPublic20230630
        * @return GetSparkLocalClientInfoResponse
        */
       Models::GetSparkLocalClientInfoResponse getSparkLocalClientInfo(const Models::GetSparkLocalClientInfoRequest &request);
+
+      /**
+       * @summary 获取标准详情。
+       *
+       * @param tmpReq GetStandardRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetStandardResponse
+       */
+      Models::GetStandardResponse getStandardWithOptions(const Models::GetStandardRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取标准详情。
+       *
+       * @param request GetStandardRequest
+       * @return GetStandardResponse
+       */
+      Models::GetStandardResponse getStandard(const Models::GetStandardRequest &request);
+
+      /**
+       * @summary 获取数据标准码表详情。
+       *
+       * @param request GetStandardLookupTableRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetStandardLookupTableResponse
+       */
+      Models::GetStandardLookupTableResponse getStandardLookupTableWithOptions(const Models::GetStandardLookupTableRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取数据标准码表详情。
+       *
+       * @param request GetStandardLookupTableRequest
+       * @return GetStandardLookupTableResponse
+       */
+      Models::GetStandardLookupTableResponse getStandardLookupTable(const Models::GetStandardLookupTableRequest &request);
+
+      /**
+       * @summary 获取标准集详情。
+       *
+       * @param request GetStandardSetRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetStandardSetResponse
+       */
+      Models::GetStandardSetResponse getStandardSetWithOptions(const Models::GetStandardSetRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取标准集详情。
+       *
+       * @param request GetStandardSetRequest
+       * @return GetStandardSetResponse
+       */
+      Models::GetStandardSetResponse getStandardSet(const Models::GetStandardSetRequest &request);
+
+      /**
+       * @summary 查询目录下按照标准类型统计标准数目。
+       *
+       * @param tmpReq GetStandardStatisticsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetStandardStatisticsResponse
+       */
+      Models::GetStandardStatisticsResponse getStandardStatisticsWithOptions(const Models::GetStandardStatisticsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询目录下按照标准类型统计标准数目。
+       *
+       * @param request GetStandardStatisticsRequest
+       * @return GetStandardStatisticsResponse
+       */
+      Models::GetStandardStatisticsResponse getStandardStatistics(const Models::GetStandardStatisticsRequest &request);
+
+      /**
+       * @summary 获取数据标准模板详情。
+       *
+       * @param tmpReq GetStandardTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetStandardTemplateResponse
+       */
+      Models::GetStandardTemplateResponse getStandardTemplateWithOptions(const Models::GetStandardTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取数据标准模板详情。
+       *
+       * @param request GetStandardTemplateRequest
+       * @return GetStandardTemplateResponse
+       */
+      Models::GetStandardTemplateResponse getStandardTemplate(const Models::GetStandardTemplateRequest &request);
+
+      /**
+       * @summary 获取数据标准词根详情。
+       *
+       * @param request GetStandardWordRootRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetStandardWordRootResponse
+       */
+      Models::GetStandardWordRootResponse getStandardWordRootWithOptions(const Models::GetStandardWordRootRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取数据标准词根详情。
+       *
+       * @param request GetStandardWordRootRequest
+       * @return GetStandardWordRootResponse
+       */
+      Models::GetStandardWordRootResponse getStandardWordRoot(const Models::GetStandardWordRootRequest &request);
 
       /**
        * @summary 获取dataphin实时研发任务集合
@@ -1891,6 +2758,40 @@ namespace DataphinPublic20230630
       Models::GetTableColumnLineageByTaskIdResponse getTableColumnLineageByTaskId(const Models::GetTableColumnLineageByTaskIdRequest &request);
 
       /**
+       * @summary 查询资产表字段血缘信息。
+       *
+       * @param tmpReq GetTableColumnLineagesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetTableColumnLineagesResponse
+       */
+      Models::GetTableColumnLineagesResponse getTableColumnLineagesWithOptions(const Models::GetTableColumnLineagesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询资产表字段血缘信息。
+       *
+       * @param request GetTableColumnLineagesRequest
+       * @return GetTableColumnLineagesResponse
+       */
+      Models::GetTableColumnLineagesResponse getTableColumnLineages(const Models::GetTableColumnLineagesRequest &request);
+
+      /**
+       * @summary 查询资产清单中Dataphin表的字段。
+       *
+       * @param request GetTableColumnsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetTableColumnsResponse
+       */
+      Models::GetTableColumnsResponse getTableColumnsWithOptions(const Models::GetTableColumnsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询资产清单中Dataphin表的字段。
+       *
+       * @param request GetTableColumnsRequest
+       * @return GetTableColumnsResponse
+       */
+      Models::GetTableColumnsResponse getTableColumns(const Models::GetTableColumnsRequest &request);
+
+      /**
        * @summary 查询表血缘信息
        *
        * @param tmpReq GetTableLineageByTaskIdRequest
@@ -1906,6 +2807,23 @@ namespace DataphinPublic20230630
        * @return GetTableLineageByTaskIdResponse
        */
       Models::GetTableLineageByTaskIdResponse getTableLineageByTaskId(const Models::GetTableLineageByTaskIdRequest &request);
+
+      /**
+       * @summary 查询资产表血缘信息。
+       *
+       * @param tmpReq GetTableLineagesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetTableLineagesResponse
+       */
+      Models::GetTableLineagesResponse getTableLineagesWithOptions(const Models::GetTableLineagesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询资产表血缘信息。
+       *
+       * @param request GetTableLineagesRequest
+       * @return GetTableLineagesResponse
+       */
+      Models::GetTableLineagesResponse getTableLineages(const Models::GetTableLineagesRequest &request);
 
       /**
        * @summary 根据转交任务ID查询转交任务的进度
@@ -2469,6 +3387,91 @@ namespace DataphinPublic20230630
       Models::ListPublishRecordsResponse listPublishRecords(const Models::ListPublishRecordsRequest &request);
 
       /**
+       * @summary 分页查询质量规则任务。
+       *
+       * @param tmpReq ListQualityRuleTasksRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListQualityRuleTasksResponse
+       */
+      Models::ListQualityRuleTasksResponse listQualityRuleTasksWithOptions(const Models::ListQualityRuleTasksRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 分页查询质量规则任务。
+       *
+       * @param request ListQualityRuleTasksRequest
+       * @return ListQualityRuleTasksResponse
+       */
+      Models::ListQualityRuleTasksResponse listQualityRuleTasks(const Models::ListQualityRuleTasksRequest &request);
+
+      /**
+       * @summary 分页查询质量规则。
+       *
+       * @param tmpReq ListQualityRulesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListQualityRulesResponse
+       */
+      Models::ListQualityRulesResponse listQualityRulesWithOptions(const Models::ListQualityRulesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 分页查询质量规则。
+       *
+       * @param request ListQualityRulesRequest
+       * @return ListQualityRulesResponse
+       */
+      Models::ListQualityRulesResponse listQualityRules(const Models::ListQualityRulesRequest &request);
+
+      /**
+       * @summary 分页查询质量模板。
+       *
+       * @param tmpReq ListQualityTemplatesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListQualityTemplatesResponse
+       */
+      Models::ListQualityTemplatesResponse listQualityTemplatesWithOptions(const Models::ListQualityTemplatesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 分页查询质量模板。
+       *
+       * @param request ListQualityTemplatesRequest
+       * @return ListQualityTemplatesResponse
+       */
+      Models::ListQualityTemplatesResponse listQualityTemplates(const Models::ListQualityTemplatesRequest &request);
+
+      /**
+       * @summary 分页查询质量监控任务。
+       *
+       * @param tmpReq ListQualityWatchTasksRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListQualityWatchTasksResponse
+       */
+      Models::ListQualityWatchTasksResponse listQualityWatchTasksWithOptions(const Models::ListQualityWatchTasksRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 分页查询质量监控任务。
+       *
+       * @param request ListQualityWatchTasksRequest
+       * @return ListQualityWatchTasksResponse
+       */
+      Models::ListQualityWatchTasksResponse listQualityWatchTasks(const Models::ListQualityWatchTasksRequest &request);
+
+      /**
+       * @summary 分页查询质量监控对象。
+       *
+       * @param tmpReq ListQualityWatchesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListQualityWatchesResponse
+       */
+      Models::ListQualityWatchesResponse listQualityWatchesWithOptions(const Models::ListQualityWatchesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 分页查询质量监控对象。
+       *
+       * @param request ListQualityWatchesRequest
+       * @return ListQualityWatchesResponse
+       */
+      Models::ListQualityWatchesResponse listQualityWatches(const Models::ListQualityWatchesRequest &request);
+
+      /**
        * @summary 分页获取权限操作列表
        *
        * @param tmpReq ListResourcePermissionOperationLogRequest
@@ -2537,6 +3540,57 @@ namespace DataphinPublic20230630
       Models::ListRowPermissionByUserIdResponse listRowPermissionByUserId(const Models::ListRowPermissionByUserIdRequest &request);
 
       /**
+       * @summary 分页查询安全识别结果的识别记录。
+       *
+       * @param tmpReq ListSecurityIdentifyRecordsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListSecurityIdentifyRecordsResponse
+       */
+      Models::ListSecurityIdentifyRecordsResponse listSecurityIdentifyRecordsWithOptions(const Models::ListSecurityIdentifyRecordsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 分页查询安全识别结果的识别记录。
+       *
+       * @param request ListSecurityIdentifyRecordsRequest
+       * @return ListSecurityIdentifyRecordsResponse
+       */
+      Models::ListSecurityIdentifyRecordsResponse listSecurityIdentifyRecords(const Models::ListSecurityIdentifyRecordsRequest &request);
+
+      /**
+       * @summary 分页查询安全识别结果。
+       *
+       * @param tmpReq ListSecurityIdentifyResultsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListSecurityIdentifyResultsResponse
+       */
+      Models::ListSecurityIdentifyResultsResponse listSecurityIdentifyResultsWithOptions(const Models::ListSecurityIdentifyResultsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 分页查询安全识别结果。
+       *
+       * @param request ListSecurityIdentifyResultsRequest
+       * @return ListSecurityIdentifyResultsResponse
+       */
+      Models::ListSecurityIdentifyResultsResponse listSecurityIdentifyResults(const Models::ListSecurityIdentifyResultsRequest &request);
+
+      /**
+       * @summary 分页查询标准列表。
+       *
+       * @param tmpReq ListStandardsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListStandardsResponse
+       */
+      Models::ListStandardsResponse listStandardsWithOptions(const Models::ListStandardsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 分页查询标准列表。
+       *
+       * @param request ListStandardsRequest
+       * @return ListStandardsResponse
+       */
+      Models::ListStandardsResponse listStandards(const Models::ListStandardsRequest &request);
+
+      /**
        * @summary 分页获取待发布记录列表
        *
        * @param tmpReq ListSubmitRecordsRequest
@@ -2552,6 +3606,23 @@ namespace DataphinPublic20230630
        * @return ListSubmitRecordsResponse
        */
       Models::ListSubmitRecordsResponse listSubmitRecords(const Models::ListSubmitRecordsRequest &request);
+
+      /**
+       * @summary 分页查询查询资产表元数据。
+       *
+       * @param tmpReq ListTablesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListTablesResponse
+       */
+      Models::ListTablesResponse listTablesWithOptions(const Models::ListTablesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 分页查询查询资产表元数据。
+       *
+       * @param request ListTablesRequest
+       * @return ListTablesResponse
+       */
+      Models::ListTablesResponse listTables(const Models::ListTablesRequest &request);
 
       /**
        * @summary 查询租户成员列表
@@ -2673,6 +3744,23 @@ namespace DataphinPublic20230630
       Models::OfflinePipelineByAsyncResponse offlinePipelineByAsync(const Models::OfflinePipelineByAsyncRequest &request);
 
       /**
+       * @summary 下线标准。
+       *
+       * @param tmpReq OfflineStandardRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return OfflineStandardResponse
+       */
+      Models::OfflineStandardResponse offlineStandardWithOptions(const Models::OfflineStandardRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 下线标准。
+       *
+       * @param request OfflineStandardRequest
+       * @return OfflineStandardResponse
+       */
+      Models::OfflineStandardResponse offlineStandard(const Models::OfflineStandardRequest &request);
+
+      /**
        * @summary 上线业务实体。
        *
        * @param tmpReq OnlineBizEntityRequest
@@ -2775,6 +3863,23 @@ namespace DataphinPublic20230630
       Models::PublishObjectListResponse publishObjectList(const Models::PublishObjectListRequest &request);
 
       /**
+       * @summary 发布标准。
+       *
+       * @param tmpReq PublishStandardRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return PublishStandardResponse
+       */
+      Models::PublishStandardResponse publishStandardWithOptions(const Models::PublishStandardRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 发布标准。
+       *
+       * @param request PublishStandardRequest
+       * @return PublishStandardResponse
+       */
+      Models::PublishStandardResponse publishStandard(const Models::PublishStandardRequest &request);
+
+      /**
        * @summary 删除项目成员。
        *
        * @param tmpReq RemoveProjectMemberRequest
@@ -2790,6 +3895,23 @@ namespace DataphinPublic20230630
        * @return RemoveProjectMemberResponse
        */
       Models::RemoveProjectMemberResponse removeProjectMember(const Models::RemoveProjectMemberRequest &request);
+
+      /**
+       * @summary 批量删除质量规则和调度的绑定关系。
+       *
+       * @param tmpReq RemoveQualityRuleSchedulesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RemoveQualityRuleSchedulesResponse
+       */
+      Models::RemoveQualityRuleSchedulesResponse removeQualityRuleSchedulesWithOptions(const Models::RemoveQualityRuleSchedulesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量删除质量规则和调度的绑定关系。
+       *
+       * @param request RemoveQualityRuleSchedulesRequest
+       * @return RemoveQualityRuleSchedulesResponse
+       */
+      Models::RemoveQualityRuleSchedulesResponse removeQualityRuleSchedules(const Models::RemoveQualityRuleSchedulesRequest &request);
 
       /**
        * @summary 删除租户成员
@@ -2943,6 +4065,40 @@ namespace DataphinPublic20230630
        * @return SubmitBatchTaskResponse
        */
       Models::SubmitBatchTaskResponse submitBatchTask(const Models::SubmitBatchTaskRequest &request);
+
+      /**
+       * @summary 批量提交规则任务,支持试跑。
+       *
+       * @param tmpReq SubmitQualityRuleTasksRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SubmitQualityRuleTasksResponse
+       */
+      Models::SubmitQualityRuleTasksResponse submitQualityRuleTasksWithOptions(const Models::SubmitQualityRuleTasksRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量提交规则任务,支持试跑。
+       *
+       * @param request SubmitQualityRuleTasksRequest
+       * @return SubmitQualityRuleTasksResponse
+       */
+      Models::SubmitQualityRuleTasksResponse submitQualityRuleTasks(const Models::SubmitQualityRuleTasksRequest &request);
+
+      /**
+       * @summary 批量提交监控对象校验任务。
+       *
+       * @param tmpReq SubmitQualityWatchTasksRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SubmitQualityWatchTasksResponse
+       */
+      Models::SubmitQualityWatchTasksResponse submitQualityWatchTasksWithOptions(const Models::SubmitQualityWatchTasksRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量提交监控对象校验任务。
+       *
+       * @param request SubmitQualityWatchTasksRequest
+       * @return SubmitQualityWatchTasksResponse
+       */
+      Models::SubmitQualityWatchTasksResponse submitQualityWatchTasks(const Models::SubmitQualityWatchTasksRequest &request);
 
       /**
        * @summary 同步部门信息。
@@ -3251,6 +4407,40 @@ namespace DataphinPublic20230630
       Models::UpdateProjectMemberResponse updateProjectMember(const Models::UpdateProjectMemberRequest &request);
 
       /**
+       * @summary 批量开启或关闭质量规则。
+       *
+       * @param tmpReq UpdateQualityRuleSwitchRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateQualityRuleSwitchResponse
+       */
+      Models::UpdateQualityRuleSwitchResponse updateQualityRuleSwitchWithOptions(const Models::UpdateQualityRuleSwitchRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量开启或关闭质量规则。
+       *
+       * @param request UpdateQualityRuleSwitchRequest
+       * @return UpdateQualityRuleSwitchResponse
+       */
+      Models::UpdateQualityRuleSwitchResponse updateQualityRuleSwitch(const Models::UpdateQualityRuleSwitchRequest &request);
+
+      /**
+       * @summary 批量开启或关闭质量监控对象。
+       *
+       * @param tmpReq UpdateQualityWatchSwitchRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateQualityWatchSwitchResponse
+       */
+      Models::UpdateQualityWatchSwitchResponse updateQualityWatchSwitchWithOptions(const Models::UpdateQualityWatchSwitchRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量开启或关闭质量监控对象。
+       *
+       * @param request UpdateQualityWatchSwitchRequest
+       * @return UpdateQualityWatchSwitchResponse
+       */
+      Models::UpdateQualityWatchSwitchResponse updateQualityWatchSwitch(const Models::UpdateQualityWatchSwitchRequest &request);
+
+      /**
        * @summary 编辑资源文件。
        *
        * @param tmpReq UpdateResourceRequest
@@ -3283,6 +4473,176 @@ namespace DataphinPublic20230630
        * @return UpdateRowPermissionResponse
        */
       Models::UpdateRowPermissionResponse updateRowPermission(const Models::UpdateRowPermissionRequest &request);
+
+      /**
+       * @summary 更新数据分类。
+       *
+       * @param tmpReq UpdateSecurityClassifyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateSecurityClassifyResponse
+       */
+      Models::UpdateSecurityClassifyResponse updateSecurityClassifyWithOptions(const Models::UpdateSecurityClassifyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新数据分类。
+       *
+       * @param request UpdateSecurityClassifyRequest
+       * @return UpdateSecurityClassifyResponse
+       */
+      Models::UpdateSecurityClassifyResponse updateSecurityClassify(const Models::UpdateSecurityClassifyRequest &request);
+
+      /**
+       * @summary 更新数据分类目录。
+       *
+       * @param tmpReq UpdateSecurityClassifyCatalogRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateSecurityClassifyCatalogResponse
+       */
+      Models::UpdateSecurityClassifyCatalogResponse updateSecurityClassifyCatalogWithOptions(const Models::UpdateSecurityClassifyCatalogRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新数据分类目录。
+       *
+       * @param request UpdateSecurityClassifyCatalogRequest
+       * @return UpdateSecurityClassifyCatalogResponse
+       */
+      Models::UpdateSecurityClassifyCatalogResponse updateSecurityClassifyCatalog(const Models::UpdateSecurityClassifyCatalogRequest &request);
+
+      /**
+       * @summary 更新安全识别结果的生效状态。
+       *
+       * @param tmpReq UpdateSecurityIdentifyResultStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateSecurityIdentifyResultStatusResponse
+       */
+      Models::UpdateSecurityIdentifyResultStatusResponse updateSecurityIdentifyResultStatusWithOptions(const Models::UpdateSecurityIdentifyResultStatusRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新安全识别结果的生效状态。
+       *
+       * @param request UpdateSecurityIdentifyResultStatusRequest
+       * @return UpdateSecurityIdentifyResultStatusResponse
+       */
+      Models::UpdateSecurityIdentifyResultStatusResponse updateSecurityIdentifyResultStatus(const Models::UpdateSecurityIdentifyResultStatusRequest &request);
+
+      /**
+       * @summary 通过分级顺序更新数据分级。
+       *
+       * @param tmpReq UpdateSecurityLevelRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateSecurityLevelResponse
+       */
+      Models::UpdateSecurityLevelResponse updateSecurityLevelWithOptions(const Models::UpdateSecurityLevelRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 通过分级顺序更新数据分级。
+       *
+       * @param request UpdateSecurityLevelRequest
+       * @return UpdateSecurityLevelResponse
+       */
+      Models::UpdateSecurityLevelResponse updateSecurityLevel(const Models::UpdateSecurityLevelRequest &request);
+
+      /**
+       * @summary 更新标准。
+       *
+       * @param tmpReq UpdateStandardRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateStandardResponse
+       */
+      Models::UpdateStandardResponse updateStandardWithOptions(const Models::UpdateStandardRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新标准。
+       *
+       * @param request UpdateStandardRequest
+       * @return UpdateStandardResponse
+       */
+      Models::UpdateStandardResponse updateStandard(const Models::UpdateStandardRequest &request);
+
+      /**
+       * @summary 更新数据标准码表。
+       *
+       * @param tmpReq UpdateStandardLookupTableRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateStandardLookupTableResponse
+       */
+      Models::UpdateStandardLookupTableResponse updateStandardLookupTableWithOptions(const Models::UpdateStandardLookupTableRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新数据标准码表。
+       *
+       * @param request UpdateStandardLookupTableRequest
+       * @return UpdateStandardLookupTableResponse
+       */
+      Models::UpdateStandardLookupTableResponse updateStandardLookupTable(const Models::UpdateStandardLookupTableRequest &request);
+
+      /**
+       * @summary 将标准映射关系置为无效映射。
+       *
+       * @param tmpReq UpdateStandardMappingToInvalidRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateStandardMappingToInvalidResponse
+       */
+      Models::UpdateStandardMappingToInvalidResponse updateStandardMappingToInvalidWithOptions(const Models::UpdateStandardMappingToInvalidRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 将标准映射关系置为无效映射。
+       *
+       * @param request UpdateStandardMappingToInvalidRequest
+       * @return UpdateStandardMappingToInvalidResponse
+       */
+      Models::UpdateStandardMappingToInvalidResponse updateStandardMappingToInvalid(const Models::UpdateStandardMappingToInvalidRequest &request);
+
+      /**
+       * @summary 更新标准集。
+       *
+       * @param tmpReq UpdateStandardSetRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateStandardSetResponse
+       */
+      Models::UpdateStandardSetResponse updateStandardSetWithOptions(const Models::UpdateStandardSetRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新标准集。
+       *
+       * @param request UpdateStandardSetRequest
+       * @return UpdateStandardSetResponse
+       */
+      Models::UpdateStandardSetResponse updateStandardSet(const Models::UpdateStandardSetRequest &request);
+
+      /**
+       * @summary 更新数据标准模板。
+       *
+       * @param tmpReq UpdateStandardTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateStandardTemplateResponse
+       */
+      Models::UpdateStandardTemplateResponse updateStandardTemplateWithOptions(const Models::UpdateStandardTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新数据标准模板。
+       *
+       * @param request UpdateStandardTemplateRequest
+       * @return UpdateStandardTemplateResponse
+       */
+      Models::UpdateStandardTemplateResponse updateStandardTemplate(const Models::UpdateStandardTemplateRequest &request);
+
+      /**
+       * @summary 更新数据标准词根。
+       *
+       * @param tmpReq UpdateStandardWordRootRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateStandardWordRootResponse
+       */
+      Models::UpdateStandardWordRootResponse updateStandardWordRootWithOptions(const Models::UpdateStandardWordRootRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新数据标准词根。
+       *
+       * @param request UpdateStandardWordRootRequest
+       * @return UpdateStandardWordRootResponse
+       */
+      Models::UpdateStandardWordRootResponse updateStandardWordRoot(const Models::UpdateStandardWordRootRequest &request);
 
       /**
        * @summary 修改租户计算设置。
@@ -3368,6 +4728,91 @@ namespace DataphinPublic20230630
        * @return UpdateUserGroupSwitchResponse
        */
       Models::UpdateUserGroupSwitchResponse updateUserGroupSwitch(const Models::UpdateUserGroupSwitchRequest &request);
+
+      /**
+       * @summary 新建或者修改质量规则。
+       *
+       * @param tmpReq UpsertQualityRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpsertQualityRuleResponse
+       */
+      Models::UpsertQualityRuleResponse upsertQualityRuleWithOptions(const Models::UpsertQualityRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 新建或者修改质量规则。
+       *
+       * @param request UpsertQualityRuleRequest
+       * @return UpsertQualityRuleResponse
+       */
+      Models::UpsertQualityRuleResponse upsertQualityRule(const Models::UpsertQualityRuleRequest &request);
+
+      /**
+       * @summary 新建或者修改调度设置。
+       *
+       * @param tmpReq UpsertQualityScheduleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpsertQualityScheduleResponse
+       */
+      Models::UpsertQualityScheduleResponse upsertQualityScheduleWithOptions(const Models::UpsertQualityScheduleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 新建或者修改调度设置。
+       *
+       * @param request UpsertQualityScheduleRequest
+       * @return UpsertQualityScheduleResponse
+       */
+      Models::UpsertQualityScheduleResponse upsertQualitySchedule(const Models::UpsertQualityScheduleRequest &request);
+
+      /**
+       * @summary 新建或者修改质量模板。
+       *
+       * @param tmpReq UpsertQualityTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpsertQualityTemplateResponse
+       */
+      Models::UpsertQualityTemplateResponse upsertQualityTemplateWithOptions(const Models::UpsertQualityTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 新建或者修改质量模板。
+       *
+       * @param request UpsertQualityTemplateRequest
+       * @return UpsertQualityTemplateResponse
+       */
+      Models::UpsertQualityTemplateResponse upsertQualityTemplate(const Models::UpsertQualityTemplateRequest &request);
+
+      /**
+       * @summary 新建或更改质量监控对象, 支持添加多种类型的质量监控对象，包括：Dataphin表，全域表，数据源，指标，实时元表。
+       *
+       * @param tmpReq UpsertQualityWatchRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpsertQualityWatchResponse
+       */
+      Models::UpsertQualityWatchResponse upsertQualityWatchWithOptions(const Models::UpsertQualityWatchRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 新建或更改质量监控对象, 支持添加多种类型的质量监控对象，包括：Dataphin表，全域表，数据源，指标，实时元表。
+       *
+       * @param request UpsertQualityWatchRequest
+       * @return UpsertQualityWatchResponse
+       */
+      Models::UpsertQualityWatchResponse upsertQualityWatch(const Models::UpsertQualityWatchRequest &request);
+
+      /**
+       * @summary 新建或者修改监控对象告警设置。
+       *
+       * @param tmpReq UpsertQualityWatchAlertRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpsertQualityWatchAlertResponse
+       */
+      Models::UpsertQualityWatchAlertResponse upsertQualityWatchAlertWithOptions(const Models::UpsertQualityWatchAlertRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 新建或者修改监控对象告警设置。
+       *
+       * @param request UpsertQualityWatchAlertRequest
+       * @return UpsertQualityWatchAlertResponse
+       */
+      Models::UpsertQualityWatchAlertResponse upsertQualityWatchAlert(const Models::UpsertQualityWatchAlertRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace DataphinPublic20230630
