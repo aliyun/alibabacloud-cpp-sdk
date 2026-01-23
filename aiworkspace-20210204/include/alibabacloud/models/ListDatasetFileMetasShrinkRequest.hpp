@@ -13,6 +13,7 @@ namespace Models
   class ListDatasetFileMetasShrinkRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListDatasetFileMetasShrinkRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(DatasetFileMetaIds, datasetFileMetaIdsShrink_);
       DARABONBA_PTR_TO_JSON(DatasetVersion, datasetVersion_);
       DARABONBA_PTR_TO_JSON(EndFileUpdateTime, endFileUpdateTime_);
       DARABONBA_PTR_TO_JSON(EndTagUpdateTime, endTagUpdateTime_);
@@ -42,6 +43,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, ListDatasetFileMetasShrinkRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(DatasetFileMetaIds, datasetFileMetaIdsShrink_);
       DARABONBA_PTR_FROM_JSON(DatasetVersion, datasetVersion_);
       DARABONBA_PTR_FROM_JSON(EndFileUpdateTime, endFileUpdateTime_);
       DARABONBA_PTR_FROM_JSON(EndTagUpdateTime, endTagUpdateTime_);
@@ -81,13 +83,20 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->datasetVersion_ == nullptr
-        && this->endFileUpdateTime_ == nullptr && this->endTagUpdateTime_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->order_ == nullptr
-        && this->pageSize_ == nullptr && this->queryContentTypeIncludeAnyShrink_ == nullptr && this->queryExpression_ == nullptr && this->queryFileDir_ == nullptr && this->queryFileName_ == nullptr
-        && this->queryFileTypeIncludeAnyShrink_ == nullptr && this->queryImage_ == nullptr && this->queryTagsExcludeShrink_ == nullptr && this->queryTagsIncludeAllShrink_ == nullptr && this->queryTagsIncludeAnyShrink_ == nullptr
-        && this->queryText_ == nullptr && this->queryType_ == nullptr && this->queryVideo_ == nullptr && this->scoreThreshold_ == nullptr && this->sortBy_ == nullptr
-        && this->startFileUpdateTime_ == nullptr && this->startTagUpdateTime_ == nullptr && this->status_ == nullptr && this->thumbnailMode_ == nullptr && this->topK_ == nullptr
-        && this->workspaceId_ == nullptr; };
+    virtual bool empty() const override { return this->datasetFileMetaIdsShrink_ == nullptr
+        && this->datasetVersion_ == nullptr && this->endFileUpdateTime_ == nullptr && this->endTagUpdateTime_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr
+        && this->order_ == nullptr && this->pageSize_ == nullptr && this->queryContentTypeIncludeAnyShrink_ == nullptr && this->queryExpression_ == nullptr && this->queryFileDir_ == nullptr
+        && this->queryFileName_ == nullptr && this->queryFileTypeIncludeAnyShrink_ == nullptr && this->queryImage_ == nullptr && this->queryTagsExcludeShrink_ == nullptr && this->queryTagsIncludeAllShrink_ == nullptr
+        && this->queryTagsIncludeAnyShrink_ == nullptr && this->queryText_ == nullptr && this->queryType_ == nullptr && this->queryVideo_ == nullptr && this->scoreThreshold_ == nullptr
+        && this->sortBy_ == nullptr && this->startFileUpdateTime_ == nullptr && this->startTagUpdateTime_ == nullptr && this->status_ == nullptr && this->thumbnailMode_ == nullptr
+        && this->topK_ == nullptr && this->workspaceId_ == nullptr; };
+    // datasetFileMetaIdsShrink Field Functions 
+    bool hasDatasetFileMetaIdsShrink() const { return this->datasetFileMetaIdsShrink_ != nullptr;};
+    void deleteDatasetFileMetaIdsShrink() { this->datasetFileMetaIdsShrink_ = nullptr;};
+    inline string getDatasetFileMetaIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(datasetFileMetaIdsShrink_, "") };
+    inline ListDatasetFileMetasShrinkRequest& setDatasetFileMetaIdsShrink(string datasetFileMetaIdsShrink) { DARABONBA_PTR_SET_VALUE(datasetFileMetaIdsShrink_, datasetFileMetaIdsShrink) };
+
+
     // datasetVersion Field Functions 
     bool hasDatasetVersion() const { return this->datasetVersion_ != nullptr;};
     void deleteDatasetVersion() { this->datasetVersion_ = nullptr;};
@@ -278,6 +287,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> datasetFileMetaIdsShrink_ {};
     // The dataset version.
     // 
     // This parameter is required.

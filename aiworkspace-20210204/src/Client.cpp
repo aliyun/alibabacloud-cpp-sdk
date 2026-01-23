@@ -3690,6 +3690,10 @@ ListDatasetFileMetasResponse Client::listDatasetFileMetasWithOptions(const strin
   tmpReq.validate();
   ListDatasetFileMetasShrinkRequest request = ListDatasetFileMetasShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasDatasetFileMetaIds()) {
+    request.setDatasetFileMetaIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDatasetFileMetaIds(), "DatasetFileMetaIds", "simple"));
+  }
+
   if (!!tmpReq.hasQueryContentTypeIncludeAny()) {
     request.setQueryContentTypeIncludeAnyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getQueryContentTypeIncludeAny(), "QueryContentTypeIncludeAny", "simple"));
   }
@@ -3711,6 +3715,10 @@ ListDatasetFileMetasResponse Client::listDatasetFileMetasWithOptions(const strin
   }
 
   json query = {};
+  if (!!request.hasDatasetFileMetaIdsShrink()) {
+    query["DatasetFileMetaIds"] = request.getDatasetFileMetaIdsShrink();
+  }
+
   if (!!request.hasDatasetVersion()) {
     query["DatasetVersion"] = request.getDatasetVersion();
   }

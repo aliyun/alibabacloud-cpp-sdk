@@ -14,6 +14,7 @@ namespace Models
   class ListDatasetFileMetasRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListDatasetFileMetasRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(DatasetFileMetaIds, datasetFileMetaIds_);
       DARABONBA_PTR_TO_JSON(DatasetVersion, datasetVersion_);
       DARABONBA_PTR_TO_JSON(EndFileUpdateTime, endFileUpdateTime_);
       DARABONBA_PTR_TO_JSON(EndTagUpdateTime, endTagUpdateTime_);
@@ -43,6 +44,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, ListDatasetFileMetasRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(DatasetFileMetaIds, datasetFileMetaIds_);
       DARABONBA_PTR_FROM_JSON(DatasetVersion, datasetVersion_);
       DARABONBA_PTR_FROM_JSON(EndFileUpdateTime, endFileUpdateTime_);
       DARABONBA_PTR_FROM_JSON(EndTagUpdateTime, endTagUpdateTime_);
@@ -82,13 +84,22 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->datasetVersion_ == nullptr
-        && this->endFileUpdateTime_ == nullptr && this->endTagUpdateTime_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->order_ == nullptr
-        && this->pageSize_ == nullptr && this->queryContentTypeIncludeAny_ == nullptr && this->queryExpression_ == nullptr && this->queryFileDir_ == nullptr && this->queryFileName_ == nullptr
-        && this->queryFileTypeIncludeAny_ == nullptr && this->queryImage_ == nullptr && this->queryTagsExclude_ == nullptr && this->queryTagsIncludeAll_ == nullptr && this->queryTagsIncludeAny_ == nullptr
-        && this->queryText_ == nullptr && this->queryType_ == nullptr && this->queryVideo_ == nullptr && this->scoreThreshold_ == nullptr && this->sortBy_ == nullptr
-        && this->startFileUpdateTime_ == nullptr && this->startTagUpdateTime_ == nullptr && this->status_ == nullptr && this->thumbnailMode_ == nullptr && this->topK_ == nullptr
-        && this->workspaceId_ == nullptr; };
+    virtual bool empty() const override { return this->datasetFileMetaIds_ == nullptr
+        && this->datasetVersion_ == nullptr && this->endFileUpdateTime_ == nullptr && this->endTagUpdateTime_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr
+        && this->order_ == nullptr && this->pageSize_ == nullptr && this->queryContentTypeIncludeAny_ == nullptr && this->queryExpression_ == nullptr && this->queryFileDir_ == nullptr
+        && this->queryFileName_ == nullptr && this->queryFileTypeIncludeAny_ == nullptr && this->queryImage_ == nullptr && this->queryTagsExclude_ == nullptr && this->queryTagsIncludeAll_ == nullptr
+        && this->queryTagsIncludeAny_ == nullptr && this->queryText_ == nullptr && this->queryType_ == nullptr && this->queryVideo_ == nullptr && this->scoreThreshold_ == nullptr
+        && this->sortBy_ == nullptr && this->startFileUpdateTime_ == nullptr && this->startTagUpdateTime_ == nullptr && this->status_ == nullptr && this->thumbnailMode_ == nullptr
+        && this->topK_ == nullptr && this->workspaceId_ == nullptr; };
+    // datasetFileMetaIds Field Functions 
+    bool hasDatasetFileMetaIds() const { return this->datasetFileMetaIds_ != nullptr;};
+    void deleteDatasetFileMetaIds() { this->datasetFileMetaIds_ = nullptr;};
+    inline const vector<string> & getDatasetFileMetaIds() const { DARABONBA_PTR_GET_CONST(datasetFileMetaIds_, vector<string>) };
+    inline vector<string> getDatasetFileMetaIds() { DARABONBA_PTR_GET(datasetFileMetaIds_, vector<string>) };
+    inline ListDatasetFileMetasRequest& setDatasetFileMetaIds(const vector<string> & datasetFileMetaIds) { DARABONBA_PTR_SET_VALUE(datasetFileMetaIds_, datasetFileMetaIds) };
+    inline ListDatasetFileMetasRequest& setDatasetFileMetaIds(vector<string> && datasetFileMetaIds) { DARABONBA_PTR_SET_RVALUE(datasetFileMetaIds_, datasetFileMetaIds) };
+
+
     // datasetVersion Field Functions 
     bool hasDatasetVersion() const { return this->datasetVersion_ != nullptr;};
     void deleteDatasetVersion() { this->datasetVersion_ = nullptr;};
@@ -289,6 +300,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<vector<string>> datasetFileMetaIds_ {};
     // The dataset version.
     // 
     // This parameter is required.
