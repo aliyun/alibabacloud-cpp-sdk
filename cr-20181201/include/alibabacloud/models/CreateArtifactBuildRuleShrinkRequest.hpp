@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->artifactType_ == nullptr
-        && return this->instanceId_ == nullptr && return this->parametersShrink_ == nullptr && return this->scopeId_ == nullptr && return this->scopeType_ == nullptr; };
+        && this->instanceId_ == nullptr && this->parametersShrink_ == nullptr && this->scopeId_ == nullptr && this->scopeType_ == nullptr; };
     // artifactType Field Functions 
     bool hasArtifactType() const { return this->artifactType_ != nullptr;};
     void deleteArtifactType() { this->artifactType_ = nullptr;};
-    inline string artifactType() const { DARABONBA_PTR_GET_DEFAULT(artifactType_, "") };
+    inline string getArtifactType() const { DARABONBA_PTR_GET_DEFAULT(artifactType_, "") };
     inline CreateArtifactBuildRuleShrinkRequest& setArtifactType(string artifactType) { DARABONBA_PTR_SET_VALUE(artifactType_, artifactType) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline CreateArtifactBuildRuleShrinkRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // parametersShrink Field Functions 
     bool hasParametersShrink() const { return this->parametersShrink_ != nullptr;};
     void deleteParametersShrink() { this->parametersShrink_ = nullptr;};
-    inline string parametersShrink() const { DARABONBA_PTR_GET_DEFAULT(parametersShrink_, "") };
+    inline string getParametersShrink() const { DARABONBA_PTR_GET_DEFAULT(parametersShrink_, "") };
     inline CreateArtifactBuildRuleShrinkRequest& setParametersShrink(string parametersShrink) { DARABONBA_PTR_SET_VALUE(parametersShrink_, parametersShrink) };
 
 
     // scopeId Field Functions 
     bool hasScopeId() const { return this->scopeId_ != nullptr;};
     void deleteScopeId() { this->scopeId_ = nullptr;};
-    inline string scopeId() const { DARABONBA_PTR_GET_DEFAULT(scopeId_, "") };
+    inline string getScopeId() const { DARABONBA_PTR_GET_DEFAULT(scopeId_, "") };
     inline CreateArtifactBuildRuleShrinkRequest& setScopeId(string scopeId) { DARABONBA_PTR_SET_VALUE(scopeId_, scopeId) };
 
 
     // scopeType Field Functions 
     bool hasScopeType() const { return this->scopeType_ != nullptr;};
     void deleteScopeType() { this->scopeType_ = nullptr;};
-    inline string scopeType() const { DARABONBA_PTR_GET_DEFAULT(scopeType_, "") };
+    inline string getScopeType() const { DARABONBA_PTR_GET_DEFAULT(scopeType_, "") };
     inline CreateArtifactBuildRuleShrinkRequest& setScopeType(string scopeType) { DARABONBA_PTR_SET_VALUE(scopeType_, scopeType) };
 
 
@@ -80,25 +80,25 @@ namespace Models
     // *   `ACCELERATED_IMAGE`: accelerated images.
     // 
     // This parameter is required.
-    std::shared_ptr<string> artifactType_ = nullptr;
+    shared_ptr<string> artifactType_ {};
     // The instance ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // Additional parameters.
-    std::shared_ptr<string> parametersShrink_ = nullptr;
+    shared_ptr<string> parametersShrink_ {};
     // The ID of the effective range of the rule.
     // 
     // *   Set the value to the ID of the image repository.
     // 
     // This parameter is required.
-    std::shared_ptr<string> scopeId_ = nullptr;
+    shared_ptr<string> scopeId_ {};
     // The effective range of the rule. Valid values:
     // 
     // *   `REPOSITORY`
     // 
     // This parameter is required.
-    std::shared_ptr<string> scopeType_ = nullptr;
+    shared_ptr<string> scopeType_ {};
   };
 
   } // namespace Models

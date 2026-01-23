@@ -36,19 +36,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->routes_ == nullptr && return this->ruleId_ == nullptr; };
+        && this->routes_ == nullptr && this->ruleId_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline UpdateStorageDomainRoutingRuleRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // routes Field Functions 
     bool hasRoutes() const { return this->routes_ != nullptr;};
     void deleteRoutes() { this->routes_ = nullptr;};
-    inline const vector<RouteItem> & routes() const { DARABONBA_PTR_GET_CONST(routes_, vector<RouteItem>) };
-    inline vector<RouteItem> routes() { DARABONBA_PTR_GET(routes_, vector<RouteItem>) };
+    inline const vector<RouteItem> & getRoutes() const { DARABONBA_PTR_GET_CONST(routes_, vector<RouteItem>) };
+    inline vector<RouteItem> getRoutes() { DARABONBA_PTR_GET(routes_, vector<RouteItem>) };
     inline UpdateStorageDomainRoutingRuleRequest& setRoutes(const vector<RouteItem> & routes) { DARABONBA_PTR_SET_VALUE(routes_, routes) };
     inline UpdateStorageDomainRoutingRuleRequest& setRoutes(vector<RouteItem> && routes) { DARABONBA_PTR_SET_RVALUE(routes_, routes) };
 
@@ -56,17 +56,23 @@ namespace Models
     // ruleId Field Functions 
     bool hasRuleId() const { return this->ruleId_ != nullptr;};
     void deleteRuleId() { this->ruleId_ = nullptr;};
-    inline string ruleId() const { DARABONBA_PTR_GET_DEFAULT(ruleId_, "") };
+    inline string getRuleId() const { DARABONBA_PTR_GET_DEFAULT(ruleId_, "") };
     inline UpdateStorageDomainRoutingRuleRequest& setRuleId(string ruleId) { DARABONBA_PTR_SET_VALUE(ruleId_, ruleId) };
 
 
   protected:
+    // The instance ID
+    // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    // The route list
+    // 
     // This parameter is required.
-    std::shared_ptr<vector<RouteItem>> routes_ = nullptr;
+    shared_ptr<vector<RouteItem>> routes_ {};
+    // The rule ID.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> ruleId_ = nullptr;
+    shared_ptr<string> ruleId_ {};
   };
 
   } // namespace Models

@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->syncRuleId_ == nullptr; };
+        && this->syncRuleId_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DeleteRepoSyncRuleRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // syncRuleId Field Functions 
     bool hasSyncRuleId() const { return this->syncRuleId_ != nullptr;};
     void deleteSyncRuleId() { this->syncRuleId_ = nullptr;};
-    inline string syncRuleId() const { DARABONBA_PTR_GET_DEFAULT(syncRuleId_, "") };
+    inline string getSyncRuleId() const { DARABONBA_PTR_GET_DEFAULT(syncRuleId_, "") };
     inline DeleteRepoSyncRuleRequest& setSyncRuleId(string syncRuleId) { DARABONBA_PTR_SET_VALUE(syncRuleId_, syncRuleId) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The ID of the instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The ID of the synchronization rule.
     // 
     // This parameter is required.
-    std::shared_ptr<string> syncRuleId_ = nullptr;
+    shared_ptr<string> syncRuleId_ {};
   };
 
   } // namespace Models

@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->syncTaskId_ == nullptr; };
+        && this->syncTaskId_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline CancelRepoSyncTaskRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // syncTaskId Field Functions 
     bool hasSyncTaskId() const { return this->syncTaskId_ != nullptr;};
     void deleteSyncTaskId() { this->syncTaskId_ = nullptr;};
-    inline string syncTaskId() const { DARABONBA_PTR_GET_DEFAULT(syncTaskId_, "") };
+    inline string getSyncTaskId() const { DARABONBA_PTR_GET_DEFAULT(syncTaskId_, "") };
     inline CancelRepoSyncTaskRequest& setSyncTaskId(string syncTaskId) { DARABONBA_PTR_SET_VALUE(syncTaskId_, syncTaskId) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The instance ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The ID of the replication task.
     // 
     // This parameter is required.
-    std::shared_ptr<string> syncTaskId_ = nullptr;
+    shared_ptr<string> syncTaskId_ {};
   };
 
   } // namespace Models

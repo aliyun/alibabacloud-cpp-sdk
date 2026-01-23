@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoCreateRepo_ == nullptr
-        && return this->defaultRepoType_ == nullptr && return this->instanceId_ == nullptr && return this->namespaceName_ == nullptr; };
+        && this->defaultRepoType_ == nullptr && this->instanceId_ == nullptr && this->namespaceName_ == nullptr; };
     // autoCreateRepo Field Functions 
     bool hasAutoCreateRepo() const { return this->autoCreateRepo_ != nullptr;};
     void deleteAutoCreateRepo() { this->autoCreateRepo_ = nullptr;};
-    inline bool autoCreateRepo() const { DARABONBA_PTR_GET_DEFAULT(autoCreateRepo_, false) };
+    inline bool getAutoCreateRepo() const { DARABONBA_PTR_GET_DEFAULT(autoCreateRepo_, false) };
     inline CreateChartNamespaceRequest& setAutoCreateRepo(bool autoCreateRepo) { DARABONBA_PTR_SET_VALUE(autoCreateRepo_, autoCreateRepo) };
 
 
     // defaultRepoType Field Functions 
     bool hasDefaultRepoType() const { return this->defaultRepoType_ != nullptr;};
     void deleteDefaultRepoType() { this->defaultRepoType_ = nullptr;};
-    inline string defaultRepoType() const { DARABONBA_PTR_GET_DEFAULT(defaultRepoType_, "") };
+    inline string getDefaultRepoType() const { DARABONBA_PTR_GET_DEFAULT(defaultRepoType_, "") };
     inline CreateChartNamespaceRequest& setDefaultRepoType(string defaultRepoType) { DARABONBA_PTR_SET_VALUE(defaultRepoType_, defaultRepoType) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline CreateChartNamespaceRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // namespaceName Field Functions 
     bool hasNamespaceName() const { return this->namespaceName_ != nullptr;};
     void deleteNamespaceName() { this->namespaceName_ = nullptr;};
-    inline string namespaceName() const { DARABONBA_PTR_GET_DEFAULT(namespaceName_, "") };
+    inline string getNamespaceName() const { DARABONBA_PTR_GET_DEFAULT(namespaceName_, "") };
     inline CreateChartNamespaceRequest& setNamespaceName(string namespaceName) { DARABONBA_PTR_SET_VALUE(namespaceName_, namespaceName) };
 
 
@@ -71,20 +71,20 @@ namespace Models
     // \\-`  true `: automatically creates repositories in the namespace.
     // 
     // \\-`  false `: does not automatically create repositories in the namespace.
-    std::shared_ptr<bool> autoCreateRepo_ = nullptr;
+    shared_ptr<bool> autoCreateRepo_ {};
     // The default repository type. Valid values:
     // 
     // *   `PUBLIC`: a public repository
     // *   `PRIVATE`: a private repository
-    std::shared_ptr<string> defaultRepoType_ = nullptr;
+    shared_ptr<string> defaultRepoType_ {};
     // The ID of the instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The name of the namespace.
     // 
     // This parameter is required.
-    std::shared_ptr<string> namespaceName_ = nullptr;
+    shared_ptr<string> namespaceName_ {};
   };
 
   } // namespace Models

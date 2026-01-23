@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->repoName_ == nullptr && return this->repoNamespaceName_ == nullptr && return this->repoType_ == nullptr && return this->summary_ == nullptr; };
+        && this->repoName_ == nullptr && this->repoNamespaceName_ == nullptr && this->repoType_ == nullptr && this->summary_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline UpdateChartRepositoryRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // repoName Field Functions 
     bool hasRepoName() const { return this->repoName_ != nullptr;};
     void deleteRepoName() { this->repoName_ = nullptr;};
-    inline string repoName() const { DARABONBA_PTR_GET_DEFAULT(repoName_, "") };
+    inline string getRepoName() const { DARABONBA_PTR_GET_DEFAULT(repoName_, "") };
     inline UpdateChartRepositoryRequest& setRepoName(string repoName) { DARABONBA_PTR_SET_VALUE(repoName_, repoName) };
 
 
     // repoNamespaceName Field Functions 
     bool hasRepoNamespaceName() const { return this->repoNamespaceName_ != nullptr;};
     void deleteRepoNamespaceName() { this->repoNamespaceName_ = nullptr;};
-    inline string repoNamespaceName() const { DARABONBA_PTR_GET_DEFAULT(repoNamespaceName_, "") };
+    inline string getRepoNamespaceName() const { DARABONBA_PTR_GET_DEFAULT(repoNamespaceName_, "") };
     inline UpdateChartRepositoryRequest& setRepoNamespaceName(string repoNamespaceName) { DARABONBA_PTR_SET_VALUE(repoNamespaceName_, repoNamespaceName) };
 
 
     // repoType Field Functions 
     bool hasRepoType() const { return this->repoType_ != nullptr;};
     void deleteRepoType() { this->repoType_ = nullptr;};
-    inline string repoType() const { DARABONBA_PTR_GET_DEFAULT(repoType_, "") };
+    inline string getRepoType() const { DARABONBA_PTR_GET_DEFAULT(repoType_, "") };
     inline UpdateChartRepositoryRequest& setRepoType(string repoType) { DARABONBA_PTR_SET_VALUE(repoType_, repoType) };
 
 
     // summary Field Functions 
     bool hasSummary() const { return this->summary_ != nullptr;};
     void deleteSummary() { this->summary_ = nullptr;};
-    inline string summary() const { DARABONBA_PTR_GET_DEFAULT(summary_, "") };
+    inline string getSummary() const { DARABONBA_PTR_GET_DEFAULT(summary_, "") };
     inline UpdateChartRepositoryRequest& setSummary(string summary) { DARABONBA_PTR_SET_VALUE(summary_, summary) };
 
 
@@ -78,22 +78,22 @@ namespace Models
     // The ID of the instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The name of the repository.
     // 
     // This parameter is required.
-    std::shared_ptr<string> repoName_ = nullptr;
+    shared_ptr<string> repoName_ {};
     // The name of the namespace to which the repository belongs.
     // 
     // This parameter is required.
-    std::shared_ptr<string> repoNamespaceName_ = nullptr;
+    shared_ptr<string> repoNamespaceName_ {};
     // The type of the repository. Valid values:
     // 
     // *   `PUBLIC`: a public repository.
     // *   `PRIVATE`: a private repository.
-    std::shared_ptr<string> repoType_ = nullptr;
+    shared_ptr<string> repoType_ {};
     // The summary of the repository.
-    std::shared_ptr<string> summary_ = nullptr;
+    shared_ptr<string> summary_ {};
   };
 
   } // namespace Models

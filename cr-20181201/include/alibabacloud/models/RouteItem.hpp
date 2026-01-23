@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->endpointType_ == nullptr
-        && return this->instanceDomain_ == nullptr && return this->storageDomain_ == nullptr; };
+        && this->instanceDomain_ == nullptr && this->storageDomain_ == nullptr; };
     // endpointType Field Functions 
     bool hasEndpointType() const { return this->endpointType_ != nullptr;};
     void deleteEndpointType() { this->endpointType_ = nullptr;};
-    inline string endpointType() const { DARABONBA_PTR_GET_DEFAULT(endpointType_, "") };
+    inline string getEndpointType() const { DARABONBA_PTR_GET_DEFAULT(endpointType_, "") };
     inline RouteItem& setEndpointType(string endpointType) { DARABONBA_PTR_SET_VALUE(endpointType_, endpointType) };
 
 
     // instanceDomain Field Functions 
     bool hasInstanceDomain() const { return this->instanceDomain_ != nullptr;};
     void deleteInstanceDomain() { this->instanceDomain_ = nullptr;};
-    inline string instanceDomain() const { DARABONBA_PTR_GET_DEFAULT(instanceDomain_, "") };
+    inline string getInstanceDomain() const { DARABONBA_PTR_GET_DEFAULT(instanceDomain_, "") };
     inline RouteItem& setInstanceDomain(string instanceDomain) { DARABONBA_PTR_SET_VALUE(instanceDomain_, instanceDomain) };
 
 
     // storageDomain Field Functions 
     bool hasStorageDomain() const { return this->storageDomain_ != nullptr;};
     void deleteStorageDomain() { this->storageDomain_ = nullptr;};
-    inline string storageDomain() const { DARABONBA_PTR_GET_DEFAULT(storageDomain_, "") };
+    inline string getStorageDomain() const { DARABONBA_PTR_GET_DEFAULT(storageDomain_, "") };
     inline RouteItem& setStorageDomain(string storageDomain) { DARABONBA_PTR_SET_VALUE(storageDomain_, storageDomain) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> endpointType_ = nullptr;
+    shared_ptr<string> endpointType_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceDomain_ = nullptr;
+    shared_ptr<string> instanceDomain_ {};
     // This parameter is required.
-    std::shared_ptr<string> storageDomain_ = nullptr;
+    shared_ptr<string> storageDomain_ {};
   };
 
   } // namespace Models

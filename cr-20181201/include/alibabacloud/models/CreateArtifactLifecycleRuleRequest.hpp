@@ -46,92 +46,92 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->auto_ == nullptr
-        && return this->enableDeleteTag_ == nullptr && return this->instanceId_ == nullptr && return this->namespaceName_ == nullptr && return this->repoName_ == nullptr && return this->retentionTagCount_ == nullptr
-        && return this->scheduleTime_ == nullptr && return this->scope_ == nullptr && return this->tagRegexp_ == nullptr; };
+        && this->enableDeleteTag_ == nullptr && this->instanceId_ == nullptr && this->namespaceName_ == nullptr && this->repoName_ == nullptr && this->retentionTagCount_ == nullptr
+        && this->scheduleTime_ == nullptr && this->scope_ == nullptr && this->tagRegexp_ == nullptr; };
     // auto Field Functions 
     bool hasAuto() const { return this->auto_ != nullptr;};
     void deleteAuto() { this->auto_ = nullptr;};
-    inline bool _auto() const { DARABONBA_PTR_GET_DEFAULT(auto_, false) };
+    inline bool getAuto() const { DARABONBA_PTR_GET_DEFAULT(auto_, false) };
     inline CreateArtifactLifecycleRuleRequest& setAuto(bool _auto) { DARABONBA_PTR_SET_VALUE(auto_, _auto) };
 
 
     // enableDeleteTag Field Functions 
     bool hasEnableDeleteTag() const { return this->enableDeleteTag_ != nullptr;};
     void deleteEnableDeleteTag() { this->enableDeleteTag_ = nullptr;};
-    inline bool enableDeleteTag() const { DARABONBA_PTR_GET_DEFAULT(enableDeleteTag_, false) };
+    inline bool getEnableDeleteTag() const { DARABONBA_PTR_GET_DEFAULT(enableDeleteTag_, false) };
     inline CreateArtifactLifecycleRuleRequest& setEnableDeleteTag(bool enableDeleteTag) { DARABONBA_PTR_SET_VALUE(enableDeleteTag_, enableDeleteTag) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline CreateArtifactLifecycleRuleRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // namespaceName Field Functions 
     bool hasNamespaceName() const { return this->namespaceName_ != nullptr;};
     void deleteNamespaceName() { this->namespaceName_ = nullptr;};
-    inline string namespaceName() const { DARABONBA_PTR_GET_DEFAULT(namespaceName_, "") };
+    inline string getNamespaceName() const { DARABONBA_PTR_GET_DEFAULT(namespaceName_, "") };
     inline CreateArtifactLifecycleRuleRequest& setNamespaceName(string namespaceName) { DARABONBA_PTR_SET_VALUE(namespaceName_, namespaceName) };
 
 
     // repoName Field Functions 
     bool hasRepoName() const { return this->repoName_ != nullptr;};
     void deleteRepoName() { this->repoName_ = nullptr;};
-    inline string repoName() const { DARABONBA_PTR_GET_DEFAULT(repoName_, "") };
+    inline string getRepoName() const { DARABONBA_PTR_GET_DEFAULT(repoName_, "") };
     inline CreateArtifactLifecycleRuleRequest& setRepoName(string repoName) { DARABONBA_PTR_SET_VALUE(repoName_, repoName) };
 
 
     // retentionTagCount Field Functions 
     bool hasRetentionTagCount() const { return this->retentionTagCount_ != nullptr;};
     void deleteRetentionTagCount() { this->retentionTagCount_ = nullptr;};
-    inline int64_t retentionTagCount() const { DARABONBA_PTR_GET_DEFAULT(retentionTagCount_, 0L) };
+    inline int64_t getRetentionTagCount() const { DARABONBA_PTR_GET_DEFAULT(retentionTagCount_, 0L) };
     inline CreateArtifactLifecycleRuleRequest& setRetentionTagCount(int64_t retentionTagCount) { DARABONBA_PTR_SET_VALUE(retentionTagCount_, retentionTagCount) };
 
 
     // scheduleTime Field Functions 
     bool hasScheduleTime() const { return this->scheduleTime_ != nullptr;};
     void deleteScheduleTime() { this->scheduleTime_ = nullptr;};
-    inline string scheduleTime() const { DARABONBA_PTR_GET_DEFAULT(scheduleTime_, "") };
+    inline string getScheduleTime() const { DARABONBA_PTR_GET_DEFAULT(scheduleTime_, "") };
     inline CreateArtifactLifecycleRuleRequest& setScheduleTime(string scheduleTime) { DARABONBA_PTR_SET_VALUE(scheduleTime_, scheduleTime) };
 
 
     // scope Field Functions 
     bool hasScope() const { return this->scope_ != nullptr;};
     void deleteScope() { this->scope_ = nullptr;};
-    inline string scope() const { DARABONBA_PTR_GET_DEFAULT(scope_, "") };
+    inline string getScope() const { DARABONBA_PTR_GET_DEFAULT(scope_, "") };
     inline CreateArtifactLifecycleRuleRequest& setScope(string scope) { DARABONBA_PTR_SET_VALUE(scope_, scope) };
 
 
     // tagRegexp Field Functions 
     bool hasTagRegexp() const { return this->tagRegexp_ != nullptr;};
     void deleteTagRegexp() { this->tagRegexp_ = nullptr;};
-    inline string tagRegexp() const { DARABONBA_PTR_GET_DEFAULT(tagRegexp_, "") };
+    inline string getTagRegexp() const { DARABONBA_PTR_GET_DEFAULT(tagRegexp_, "") };
     inline CreateArtifactLifecycleRuleRequest& setTagRegexp(string tagRegexp) { DARABONBA_PTR_SET_VALUE(tagRegexp_, tagRegexp) };
 
 
   protected:
     // Specify whether to automatically execute the lifecycle management rule.
-    std::shared_ptr<bool> auto_ = nullptr;
+    shared_ptr<bool> auto_ {};
     // Specify whether to enable lifecycle management for the artifact.
-    std::shared_ptr<bool> enableDeleteTag_ = nullptr;
+    shared_ptr<bool> enableDeleteTag_ {};
     // The instance ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The name of the namespace.
-    std::shared_ptr<string> namespaceName_ = nullptr;
+    shared_ptr<string> namespaceName_ {};
     // The name of the image repository.
-    std::shared_ptr<string> repoName_ = nullptr;
+    shared_ptr<string> repoName_ {};
     // The number of images that you want to retain.
-    std::shared_ptr<int64_t> retentionTagCount_ = nullptr;
+    shared_ptr<int64_t> retentionTagCount_ {};
     // The execution cycle of the lifecycle management rule.
-    std::shared_ptr<string> scheduleTime_ = nullptr;
+    shared_ptr<string> scheduleTime_ {};
     // The deletion scope.
-    std::shared_ptr<string> scope_ = nullptr;
+    shared_ptr<string> scope_ {};
     // The regular expression that is used to indicate which image tags are retained.
-    std::shared_ptr<string> tagRegexp_ = nullptr;
+    shared_ptr<string> tagRegexp_ {};
   };
 
   } // namespace Models

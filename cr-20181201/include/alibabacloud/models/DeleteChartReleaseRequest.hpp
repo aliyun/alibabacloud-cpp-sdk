@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->chart_ == nullptr
-        && return this->instanceId_ == nullptr && return this->release_ == nullptr && return this->repoName_ == nullptr && return this->repoNamespaceName_ == nullptr; };
+        && this->instanceId_ == nullptr && this->release_ == nullptr && this->repoName_ == nullptr && this->repoNamespaceName_ == nullptr; };
     // chart Field Functions 
     bool hasChart() const { return this->chart_ != nullptr;};
     void deleteChart() { this->chart_ = nullptr;};
-    inline string chart() const { DARABONBA_PTR_GET_DEFAULT(chart_, "") };
+    inline string getChart() const { DARABONBA_PTR_GET_DEFAULT(chart_, "") };
     inline DeleteChartReleaseRequest& setChart(string chart) { DARABONBA_PTR_SET_VALUE(chart_, chart) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DeleteChartReleaseRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // release Field Functions 
     bool hasRelease() const { return this->release_ != nullptr;};
     void deleteRelease() { this->release_ = nullptr;};
-    inline string release() const { DARABONBA_PTR_GET_DEFAULT(release_, "") };
+    inline string getRelease() const { DARABONBA_PTR_GET_DEFAULT(release_, "") };
     inline DeleteChartReleaseRequest& setRelease(string release) { DARABONBA_PTR_SET_VALUE(release_, release) };
 
 
     // repoName Field Functions 
     bool hasRepoName() const { return this->repoName_ != nullptr;};
     void deleteRepoName() { this->repoName_ = nullptr;};
-    inline string repoName() const { DARABONBA_PTR_GET_DEFAULT(repoName_, "") };
+    inline string getRepoName() const { DARABONBA_PTR_GET_DEFAULT(repoName_, "") };
     inline DeleteChartReleaseRequest& setRepoName(string repoName) { DARABONBA_PTR_SET_VALUE(repoName_, repoName) };
 
 
     // repoNamespaceName Field Functions 
     bool hasRepoNamespaceName() const { return this->repoNamespaceName_ != nullptr;};
     void deleteRepoNamespaceName() { this->repoNamespaceName_ = nullptr;};
-    inline string repoNamespaceName() const { DARABONBA_PTR_GET_DEFAULT(repoNamespaceName_, "") };
+    inline string getRepoNamespaceName() const { DARABONBA_PTR_GET_DEFAULT(repoNamespaceName_, "") };
     inline DeleteChartReleaseRequest& setRepoNamespaceName(string repoNamespaceName) { DARABONBA_PTR_SET_VALUE(repoNamespaceName_, repoNamespaceName) };
 
 
@@ -78,23 +78,23 @@ namespace Models
     // The name of the chart.
     // 
     // This parameter is required.
-    std::shared_ptr<string> chart_ = nullptr;
+    shared_ptr<string> chart_ {};
     // The ID of the instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The version of the chart that you want to delete.
     // 
     // This parameter is required.
-    std::shared_ptr<string> release_ = nullptr;
+    shared_ptr<string> release_ {};
     // The name of the repository.
     // 
     // This parameter is required.
-    std::shared_ptr<string> repoName_ = nullptr;
+    shared_ptr<string> repoName_ {};
     // The name of the namespace.
     // 
     // This parameter is required.
-    std::shared_ptr<string> repoNamespaceName_ = nullptr;
+    shared_ptr<string> repoNamespaceName_ {};
   };
 
   } // namespace Models

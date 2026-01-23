@@ -49,48 +49,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->eventChannel_ == nullptr
-        && return this->eventConfig_ == nullptr && return this->eventScope_ == nullptr && return this->eventType_ == nullptr && return this->instanceId_ == nullptr && return this->namespaces_ == nullptr
-        && return this->repoNames_ == nullptr && return this->repoTagFilterPattern_ == nullptr && return this->ruleId_ == nullptr && return this->ruleName_ == nullptr; };
+        && this->eventConfig_ == nullptr && this->eventScope_ == nullptr && this->eventType_ == nullptr && this->instanceId_ == nullptr && this->namespaces_ == nullptr
+        && this->repoNames_ == nullptr && this->repoTagFilterPattern_ == nullptr && this->ruleId_ == nullptr && this->ruleName_ == nullptr; };
     // eventChannel Field Functions 
     bool hasEventChannel() const { return this->eventChannel_ != nullptr;};
     void deleteEventChannel() { this->eventChannel_ = nullptr;};
-    inline string eventChannel() const { DARABONBA_PTR_GET_DEFAULT(eventChannel_, "") };
+    inline string getEventChannel() const { DARABONBA_PTR_GET_DEFAULT(eventChannel_, "") };
     inline UpdateEventCenterRuleRequest& setEventChannel(string eventChannel) { DARABONBA_PTR_SET_VALUE(eventChannel_, eventChannel) };
 
 
     // eventConfig Field Functions 
     bool hasEventConfig() const { return this->eventConfig_ != nullptr;};
     void deleteEventConfig() { this->eventConfig_ = nullptr;};
-    inline string eventConfig() const { DARABONBA_PTR_GET_DEFAULT(eventConfig_, "") };
+    inline string getEventConfig() const { DARABONBA_PTR_GET_DEFAULT(eventConfig_, "") };
     inline UpdateEventCenterRuleRequest& setEventConfig(string eventConfig) { DARABONBA_PTR_SET_VALUE(eventConfig_, eventConfig) };
 
 
     // eventScope Field Functions 
     bool hasEventScope() const { return this->eventScope_ != nullptr;};
     void deleteEventScope() { this->eventScope_ = nullptr;};
-    inline string eventScope() const { DARABONBA_PTR_GET_DEFAULT(eventScope_, "") };
+    inline string getEventScope() const { DARABONBA_PTR_GET_DEFAULT(eventScope_, "") };
     inline UpdateEventCenterRuleRequest& setEventScope(string eventScope) { DARABONBA_PTR_SET_VALUE(eventScope_, eventScope) };
 
 
     // eventType Field Functions 
     bool hasEventType() const { return this->eventType_ != nullptr;};
     void deleteEventType() { this->eventType_ = nullptr;};
-    inline string eventType() const { DARABONBA_PTR_GET_DEFAULT(eventType_, "") };
+    inline string getEventType() const { DARABONBA_PTR_GET_DEFAULT(eventType_, "") };
     inline UpdateEventCenterRuleRequest& setEventType(string eventType) { DARABONBA_PTR_SET_VALUE(eventType_, eventType) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline UpdateEventCenterRuleRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // namespaces Field Functions 
     bool hasNamespaces() const { return this->namespaces_ != nullptr;};
     void deleteNamespaces() { this->namespaces_ = nullptr;};
-    inline const vector<string> & namespaces() const { DARABONBA_PTR_GET_CONST(namespaces_, vector<string>) };
-    inline vector<string> namespaces() { DARABONBA_PTR_GET(namespaces_, vector<string>) };
+    inline const vector<string> & getNamespaces() const { DARABONBA_PTR_GET_CONST(namespaces_, vector<string>) };
+    inline vector<string> getNamespaces() { DARABONBA_PTR_GET(namespaces_, vector<string>) };
     inline UpdateEventCenterRuleRequest& setNamespaces(const vector<string> & namespaces) { DARABONBA_PTR_SET_VALUE(namespaces_, namespaces) };
     inline UpdateEventCenterRuleRequest& setNamespaces(vector<string> && namespaces) { DARABONBA_PTR_SET_RVALUE(namespaces_, namespaces) };
 
@@ -98,8 +98,8 @@ namespace Models
     // repoNames Field Functions 
     bool hasRepoNames() const { return this->repoNames_ != nullptr;};
     void deleteRepoNames() { this->repoNames_ = nullptr;};
-    inline const vector<string> & repoNames() const { DARABONBA_PTR_GET_CONST(repoNames_, vector<string>) };
-    inline vector<string> repoNames() { DARABONBA_PTR_GET(repoNames_, vector<string>) };
+    inline const vector<string> & getRepoNames() const { DARABONBA_PTR_GET_CONST(repoNames_, vector<string>) };
+    inline vector<string> getRepoNames() { DARABONBA_PTR_GET(repoNames_, vector<string>) };
     inline UpdateEventCenterRuleRequest& setRepoNames(const vector<string> & repoNames) { DARABONBA_PTR_SET_VALUE(repoNames_, repoNames) };
     inline UpdateEventCenterRuleRequest& setRepoNames(vector<string> && repoNames) { DARABONBA_PTR_SET_RVALUE(repoNames_, repoNames) };
 
@@ -107,29 +107,29 @@ namespace Models
     // repoTagFilterPattern Field Functions 
     bool hasRepoTagFilterPattern() const { return this->repoTagFilterPattern_ != nullptr;};
     void deleteRepoTagFilterPattern() { this->repoTagFilterPattern_ = nullptr;};
-    inline string repoTagFilterPattern() const { DARABONBA_PTR_GET_DEFAULT(repoTagFilterPattern_, "") };
+    inline string getRepoTagFilterPattern() const { DARABONBA_PTR_GET_DEFAULT(repoTagFilterPattern_, "") };
     inline UpdateEventCenterRuleRequest& setRepoTagFilterPattern(string repoTagFilterPattern) { DARABONBA_PTR_SET_VALUE(repoTagFilterPattern_, repoTagFilterPattern) };
 
 
     // ruleId Field Functions 
     bool hasRuleId() const { return this->ruleId_ != nullptr;};
     void deleteRuleId() { this->ruleId_ = nullptr;};
-    inline string ruleId() const { DARABONBA_PTR_GET_DEFAULT(ruleId_, "") };
+    inline string getRuleId() const { DARABONBA_PTR_GET_DEFAULT(ruleId_, "") };
     inline UpdateEventCenterRuleRequest& setRuleId(string ruleId) { DARABONBA_PTR_SET_VALUE(ruleId_, ruleId) };
 
 
     // ruleName Field Functions 
     bool hasRuleName() const { return this->ruleName_ != nullptr;};
     void deleteRuleName() { this->ruleName_ = nullptr;};
-    inline string ruleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
+    inline string getRuleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
     inline UpdateEventCenterRuleRequest& setRuleName(string ruleName) { DARABONBA_PTR_SET_VALUE(ruleName_, ruleName) };
 
 
   protected:
     // The event notification channel.
-    std::shared_ptr<string> eventChannel_ = nullptr;
+    shared_ptr<string> eventChannel_ {};
     // The event configuration.
-    std::shared_ptr<string> eventConfig_ = nullptr;
+    shared_ptr<string> eventConfig_ {};
     // The event scope. Valid values:
     // 
     // *   `INSTANCE`
@@ -137,7 +137,7 @@ namespace Models
     // *   `REPO`
     // 
     // Default value: `INSTANCE`
-    std::shared_ptr<string> eventScope_ = nullptr;
+    shared_ptr<string> eventScope_ {};
     // The type of the event. Valid values:
     // 
     // *   `cr:Artifact:DeliveryChainCompleted`: The delivery chain is processed.
@@ -145,23 +145,23 @@ namespace Models
     // *   `cr:Artifact:BuildCompleted`: The image is built.
     // *   `cr:Artifact:ScanCompleted`: The image is scanned.
     // *   `cr:Artifact:SigningCompleted`: The image is signed.
-    std::shared_ptr<string> eventType_ = nullptr;
+    shared_ptr<string> eventType_ {};
     // The ID of the instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The namespaces to which the event notification rule applies.
-    std::shared_ptr<vector<string>> namespaces_ = nullptr;
+    shared_ptr<vector<string>> namespaces_ {};
     // The names of the repositories to which the event notification rule applies.
-    std::shared_ptr<vector<string>> repoNames_ = nullptr;
+    shared_ptr<vector<string>> repoNames_ {};
     // The regular expression for image tags.
-    std::shared_ptr<string> repoTagFilterPattern_ = nullptr;
+    shared_ptr<string> repoTagFilterPattern_ {};
     // The ID of the event notification rule.
     // 
     // This parameter is required.
-    std::shared_ptr<string> ruleId_ = nullptr;
+    shared_ptr<string> ruleId_ {};
     // The name of the event notification rule.
-    std::shared_ptr<string> ruleName_ = nullptr;
+    shared_ptr<string> ruleName_ {};
   };
 
   } // namespace Models

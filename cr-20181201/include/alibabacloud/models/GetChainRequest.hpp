@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->chainId_ == nullptr
-        && return this->instanceId_ == nullptr; };
+        && this->instanceId_ == nullptr; };
     // chainId Field Functions 
     bool hasChainId() const { return this->chainId_ != nullptr;};
     void deleteChainId() { this->chainId_ = nullptr;};
-    inline string chainId() const { DARABONBA_PTR_GET_DEFAULT(chainId_, "") };
+    inline string getChainId() const { DARABONBA_PTR_GET_DEFAULT(chainId_, "") };
     inline GetChainRequest& setChainId(string chainId) { DARABONBA_PTR_SET_VALUE(chainId_, chainId) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline GetChainRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> chainId_ = nullptr;
+    shared_ptr<string> chainId_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
   };
 
   } // namespace Models

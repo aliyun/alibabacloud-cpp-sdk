@@ -38,41 +38,41 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->artifactType_ == nullptr
-        && return this->instanceId_ == nullptr && return this->parameters_ == nullptr && return this->scopeId_ == nullptr && return this->scopeType_ == nullptr; };
+        && this->instanceId_ == nullptr && this->parameters_ == nullptr && this->scopeId_ == nullptr && this->scopeType_ == nullptr; };
     // artifactType Field Functions 
     bool hasArtifactType() const { return this->artifactType_ != nullptr;};
     void deleteArtifactType() { this->artifactType_ = nullptr;};
-    inline string artifactType() const { DARABONBA_PTR_GET_DEFAULT(artifactType_, "") };
+    inline string getArtifactType() const { DARABONBA_PTR_GET_DEFAULT(artifactType_, "") };
     inline CreateArtifactBuildRuleRequest& setArtifactType(string artifactType) { DARABONBA_PTR_SET_VALUE(artifactType_, artifactType) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline CreateArtifactBuildRuleRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // parameters Field Functions 
     bool hasParameters() const { return this->parameters_ != nullptr;};
     void deleteParameters() { this->parameters_ = nullptr;};
-    inline     const Darabonba::Json & parameters() const { DARABONBA_GET(parameters_) };
-    Darabonba::Json & parameters() { DARABONBA_GET(parameters_) };
+    inline     const Darabonba::Json & getParameters() const { DARABONBA_GET(parameters_) };
+    Darabonba::Json & getParameters() { DARABONBA_GET(parameters_) };
     inline CreateArtifactBuildRuleRequest& setParameters(const Darabonba::Json & parameters) { DARABONBA_SET_VALUE(parameters_, parameters) };
-    inline CreateArtifactBuildRuleRequest& setParameters(Darabonba::Json & parameters) { DARABONBA_SET_RVALUE(parameters_, parameters) };
+    inline CreateArtifactBuildRuleRequest& setParameters(Darabonba::Json && parameters) { DARABONBA_SET_RVALUE(parameters_, parameters) };
 
 
     // scopeId Field Functions 
     bool hasScopeId() const { return this->scopeId_ != nullptr;};
     void deleteScopeId() { this->scopeId_ = nullptr;};
-    inline string scopeId() const { DARABONBA_PTR_GET_DEFAULT(scopeId_, "") };
+    inline string getScopeId() const { DARABONBA_PTR_GET_DEFAULT(scopeId_, "") };
     inline CreateArtifactBuildRuleRequest& setScopeId(string scopeId) { DARABONBA_PTR_SET_VALUE(scopeId_, scopeId) };
 
 
     // scopeType Field Functions 
     bool hasScopeType() const { return this->scopeType_ != nullptr;};
     void deleteScopeType() { this->scopeType_ = nullptr;};
-    inline string scopeType() const { DARABONBA_PTR_GET_DEFAULT(scopeType_, "") };
+    inline string getScopeType() const { DARABONBA_PTR_GET_DEFAULT(scopeType_, "") };
     inline CreateArtifactBuildRuleRequest& setScopeType(string scopeType) { DARABONBA_PTR_SET_VALUE(scopeType_, scopeType) };
 
 
@@ -82,25 +82,25 @@ namespace Models
     // *   `ACCELERATED_IMAGE`: accelerated images.
     // 
     // This parameter is required.
-    std::shared_ptr<string> artifactType_ = nullptr;
+    shared_ptr<string> artifactType_ {};
     // The instance ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // Additional parameters.
-    Darabonba::Json parameters_ = nullptr;
+    Darabonba::Json parameters_ {};
     // The ID of the effective range of the rule.
     // 
     // *   Set the value to the ID of the image repository.
     // 
     // This parameter is required.
-    std::shared_ptr<string> scopeId_ = nullptr;
+    shared_ptr<string> scopeId_ {};
     // The effective range of the rule. Valid values:
     // 
     // *   `REPOSITORY`
     // 
     // This parameter is required.
-    std::shared_ptr<string> scopeType_ = nullptr;
+    shared_ptr<string> scopeType_ {};
   };
 
   } // namespace Models

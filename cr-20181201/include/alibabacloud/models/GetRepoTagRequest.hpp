@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->repoId_ == nullptr && return this->tag_ == nullptr; };
+        && this->repoId_ == nullptr && this->tag_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline GetRepoTagRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // repoId Field Functions 
     bool hasRepoId() const { return this->repoId_ != nullptr;};
     void deleteRepoId() { this->repoId_ = nullptr;};
-    inline string repoId() const { DARABONBA_PTR_GET_DEFAULT(repoId_, "") };
+    inline string getRepoId() const { DARABONBA_PTR_GET_DEFAULT(repoId_, "") };
     inline GetRepoTagRequest& setRepoId(string repoId) { DARABONBA_PTR_SET_VALUE(repoId_, repoId) };
 
 
     // tag Field Functions 
     bool hasTag() const { return this->tag_ != nullptr;};
     void deleteTag() { this->tag_ = nullptr;};
-    inline string tag() const { DARABONBA_PTR_GET_DEFAULT(tag_, "") };
+    inline string getTag() const { DARABONBA_PTR_GET_DEFAULT(tag_, "") };
     inline GetRepoTagRequest& setTag(string tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
 
 
@@ -60,15 +60,15 @@ namespace Models
     // The return value of status code.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The operation that you want to perform. Set the value to **GetRepoTag**.
     // 
     // This parameter is required.
-    std::shared_ptr<string> repoId_ = nullptr;
+    shared_ptr<string> repoId_ {};
     // The number of milliseconds that have elapsed since the image was created.
     // 
     // This parameter is required.
-    std::shared_ptr<string> tag_ = nullptr;
+    shared_ptr<string> tag_ {};
   };
 
   } // namespace Models

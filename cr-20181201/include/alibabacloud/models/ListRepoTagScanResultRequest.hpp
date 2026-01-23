@@ -50,118 +50,118 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->digest_ == nullptr
-        && return this->filterValue_ == nullptr && return this->instanceId_ == nullptr && return this->pageNo_ == nullptr && return this->pageSize_ == nullptr && return this->repoId_ == nullptr
-        && return this->scanTaskId_ == nullptr && return this->scanType_ == nullptr && return this->severity_ == nullptr && return this->tag_ == nullptr && return this->vulQueryKey_ == nullptr; };
+        && this->filterValue_ == nullptr && this->instanceId_ == nullptr && this->pageNo_ == nullptr && this->pageSize_ == nullptr && this->repoId_ == nullptr
+        && this->scanTaskId_ == nullptr && this->scanType_ == nullptr && this->severity_ == nullptr && this->tag_ == nullptr && this->vulQueryKey_ == nullptr; };
     // digest Field Functions 
     bool hasDigest() const { return this->digest_ != nullptr;};
     void deleteDigest() { this->digest_ = nullptr;};
-    inline string digest() const { DARABONBA_PTR_GET_DEFAULT(digest_, "") };
+    inline string getDigest() const { DARABONBA_PTR_GET_DEFAULT(digest_, "") };
     inline ListRepoTagScanResultRequest& setDigest(string digest) { DARABONBA_PTR_SET_VALUE(digest_, digest) };
 
 
     // filterValue Field Functions 
     bool hasFilterValue() const { return this->filterValue_ != nullptr;};
     void deleteFilterValue() { this->filterValue_ = nullptr;};
-    inline string filterValue() const { DARABONBA_PTR_GET_DEFAULT(filterValue_, "") };
+    inline string getFilterValue() const { DARABONBA_PTR_GET_DEFAULT(filterValue_, "") };
     inline ListRepoTagScanResultRequest& setFilterValue(string filterValue) { DARABONBA_PTR_SET_VALUE(filterValue_, filterValue) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ListRepoTagScanResultRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // pageNo Field Functions 
     bool hasPageNo() const { return this->pageNo_ != nullptr;};
     void deletePageNo() { this->pageNo_ = nullptr;};
-    inline int32_t pageNo() const { DARABONBA_PTR_GET_DEFAULT(pageNo_, 0) };
+    inline int32_t getPageNo() const { DARABONBA_PTR_GET_DEFAULT(pageNo_, 0) };
     inline ListRepoTagScanResultRequest& setPageNo(int32_t pageNo) { DARABONBA_PTR_SET_VALUE(pageNo_, pageNo) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListRepoTagScanResultRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // repoId Field Functions 
     bool hasRepoId() const { return this->repoId_ != nullptr;};
     void deleteRepoId() { this->repoId_ = nullptr;};
-    inline string repoId() const { DARABONBA_PTR_GET_DEFAULT(repoId_, "") };
+    inline string getRepoId() const { DARABONBA_PTR_GET_DEFAULT(repoId_, "") };
     inline ListRepoTagScanResultRequest& setRepoId(string repoId) { DARABONBA_PTR_SET_VALUE(repoId_, repoId) };
 
 
     // scanTaskId Field Functions 
     bool hasScanTaskId() const { return this->scanTaskId_ != nullptr;};
     void deleteScanTaskId() { this->scanTaskId_ = nullptr;};
-    inline string scanTaskId() const { DARABONBA_PTR_GET_DEFAULT(scanTaskId_, "") };
+    inline string getScanTaskId() const { DARABONBA_PTR_GET_DEFAULT(scanTaskId_, "") };
     inline ListRepoTagScanResultRequest& setScanTaskId(string scanTaskId) { DARABONBA_PTR_SET_VALUE(scanTaskId_, scanTaskId) };
 
 
     // scanType Field Functions 
     bool hasScanType() const { return this->scanType_ != nullptr;};
     void deleteScanType() { this->scanType_ = nullptr;};
-    inline string scanType() const { DARABONBA_PTR_GET_DEFAULT(scanType_, "") };
+    inline string getScanType() const { DARABONBA_PTR_GET_DEFAULT(scanType_, "") };
     inline ListRepoTagScanResultRequest& setScanType(string scanType) { DARABONBA_PTR_SET_VALUE(scanType_, scanType) };
 
 
     // severity Field Functions 
     bool hasSeverity() const { return this->severity_ != nullptr;};
     void deleteSeverity() { this->severity_ = nullptr;};
-    inline string severity() const { DARABONBA_PTR_GET_DEFAULT(severity_, "") };
+    inline string getSeverity() const { DARABONBA_PTR_GET_DEFAULT(severity_, "") };
     inline ListRepoTagScanResultRequest& setSeverity(string severity) { DARABONBA_PTR_SET_VALUE(severity_, severity) };
 
 
     // tag Field Functions 
     bool hasTag() const { return this->tag_ != nullptr;};
     void deleteTag() { this->tag_ = nullptr;};
-    inline string tag() const { DARABONBA_PTR_GET_DEFAULT(tag_, "") };
+    inline string getTag() const { DARABONBA_PTR_GET_DEFAULT(tag_, "") };
     inline ListRepoTagScanResultRequest& setTag(string tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
 
 
     // vulQueryKey Field Functions 
     bool hasVulQueryKey() const { return this->vulQueryKey_ != nullptr;};
     void deleteVulQueryKey() { this->vulQueryKey_ = nullptr;};
-    inline string vulQueryKey() const { DARABONBA_PTR_GET_DEFAULT(vulQueryKey_, "") };
+    inline string getVulQueryKey() const { DARABONBA_PTR_GET_DEFAULT(vulQueryKey_, "") };
     inline ListRepoTagScanResultRequest& setVulQueryKey(string vulQueryKey) { DARABONBA_PTR_SET_VALUE(vulQueryKey_, vulQueryKey) };
 
 
   protected:
     // The digest of the image.
-    std::shared_ptr<string> digest_ = nullptr;
+    shared_ptr<string> digest_ {};
     // The parameter whose value that you want to query. Fox example, if the value is `FixCmd`, only the `FixCmd` parameter is returned.
-    std::shared_ptr<string> filterValue_ = nullptr;
+    shared_ptr<string> filterValue_ {};
     // The ID of the instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The number of the page to return.
-    std::shared_ptr<int32_t> pageNo_ = nullptr;
+    shared_ptr<int32_t> pageNo_ {};
     // The number of entries to return on each page.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The ID of the image repository.
-    std::shared_ptr<string> repoId_ = nullptr;
+    shared_ptr<string> repoId_ {};
     // The ID of the security scan task.
-    std::shared_ptr<string> scanTaskId_ = nullptr;
+    shared_ptr<string> scanTaskId_ {};
     // The type of the vulnerability. Valid values:
     // 
     // *   `cve`: image system vulnerability
     // *   `sca`: image application vulnerability
-    std::shared_ptr<string> scanType_ = nullptr;
+    shared_ptr<string> scanType_ {};
     // The severity of the vulnerability. Valid values:
     // 
     // *   `High`
     // *   `Medium`
     // *   `Low`
     // *   `Unknown`
-    std::shared_ptr<string> severity_ = nullptr;
+    shared_ptr<string> severity_ {};
     // The name of the image tag.
-    std::shared_ptr<string> tag_ = nullptr;
+    shared_ptr<string> tag_ {};
     // The keyword for fuzzy search used in scanning. The value can be a CVE name.
-    std::shared_ptr<string> vulQueryKey_ = nullptr;
+    shared_ptr<string> vulQueryKey_ {};
   };
 
   } // namespace Models

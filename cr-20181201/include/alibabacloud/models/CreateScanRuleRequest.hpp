@@ -45,20 +45,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->namespaces_ == nullptr && return this->repoNames_ == nullptr && return this->repoTagFilterPattern_ == nullptr && return this->ruleName_ == nullptr && return this->scanScope_ == nullptr
-        && return this->scanType_ == nullptr && return this->triggerType_ == nullptr; };
+        && this->namespaces_ == nullptr && this->repoNames_ == nullptr && this->repoTagFilterPattern_ == nullptr && this->ruleName_ == nullptr && this->scanScope_ == nullptr
+        && this->scanType_ == nullptr && this->triggerType_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline CreateScanRuleRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // namespaces Field Functions 
     bool hasNamespaces() const { return this->namespaces_ != nullptr;};
     void deleteNamespaces() { this->namespaces_ = nullptr;};
-    inline const vector<string> & namespaces() const { DARABONBA_PTR_GET_CONST(namespaces_, vector<string>) };
-    inline vector<string> namespaces() { DARABONBA_PTR_GET(namespaces_, vector<string>) };
+    inline const vector<string> & getNamespaces() const { DARABONBA_PTR_GET_CONST(namespaces_, vector<string>) };
+    inline vector<string> getNamespaces() { DARABONBA_PTR_GET(namespaces_, vector<string>) };
     inline CreateScanRuleRequest& setNamespaces(const vector<string> & namespaces) { DARABONBA_PTR_SET_VALUE(namespaces_, namespaces) };
     inline CreateScanRuleRequest& setNamespaces(vector<string> && namespaces) { DARABONBA_PTR_SET_RVALUE(namespaces_, namespaces) };
 
@@ -66,8 +66,8 @@ namespace Models
     // repoNames Field Functions 
     bool hasRepoNames() const { return this->repoNames_ != nullptr;};
     void deleteRepoNames() { this->repoNames_ = nullptr;};
-    inline const vector<string> & repoNames() const { DARABONBA_PTR_GET_CONST(repoNames_, vector<string>) };
-    inline vector<string> repoNames() { DARABONBA_PTR_GET(repoNames_, vector<string>) };
+    inline const vector<string> & getRepoNames() const { DARABONBA_PTR_GET_CONST(repoNames_, vector<string>) };
+    inline vector<string> getRepoNames() { DARABONBA_PTR_GET(repoNames_, vector<string>) };
     inline CreateScanRuleRequest& setRepoNames(const vector<string> & repoNames) { DARABONBA_PTR_SET_VALUE(repoNames_, repoNames) };
     inline CreateScanRuleRequest& setRepoNames(vector<string> && repoNames) { DARABONBA_PTR_SET_RVALUE(repoNames_, repoNames) };
 
@@ -75,52 +75,86 @@ namespace Models
     // repoTagFilterPattern Field Functions 
     bool hasRepoTagFilterPattern() const { return this->repoTagFilterPattern_ != nullptr;};
     void deleteRepoTagFilterPattern() { this->repoTagFilterPattern_ = nullptr;};
-    inline string repoTagFilterPattern() const { DARABONBA_PTR_GET_DEFAULT(repoTagFilterPattern_, "") };
+    inline string getRepoTagFilterPattern() const { DARABONBA_PTR_GET_DEFAULT(repoTagFilterPattern_, "") };
     inline CreateScanRuleRequest& setRepoTagFilterPattern(string repoTagFilterPattern) { DARABONBA_PTR_SET_VALUE(repoTagFilterPattern_, repoTagFilterPattern) };
 
 
     // ruleName Field Functions 
     bool hasRuleName() const { return this->ruleName_ != nullptr;};
     void deleteRuleName() { this->ruleName_ = nullptr;};
-    inline string ruleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
+    inline string getRuleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
     inline CreateScanRuleRequest& setRuleName(string ruleName) { DARABONBA_PTR_SET_VALUE(ruleName_, ruleName) };
 
 
     // scanScope Field Functions 
     bool hasScanScope() const { return this->scanScope_ != nullptr;};
     void deleteScanScope() { this->scanScope_ = nullptr;};
-    inline string scanScope() const { DARABONBA_PTR_GET_DEFAULT(scanScope_, "") };
+    inline string getScanScope() const { DARABONBA_PTR_GET_DEFAULT(scanScope_, "") };
     inline CreateScanRuleRequest& setScanScope(string scanScope) { DARABONBA_PTR_SET_VALUE(scanScope_, scanScope) };
 
 
     // scanType Field Functions 
     bool hasScanType() const { return this->scanType_ != nullptr;};
     void deleteScanType() { this->scanType_ = nullptr;};
-    inline string scanType() const { DARABONBA_PTR_GET_DEFAULT(scanType_, "") };
+    inline string getScanType() const { DARABONBA_PTR_GET_DEFAULT(scanType_, "") };
     inline CreateScanRuleRequest& setScanType(string scanType) { DARABONBA_PTR_SET_VALUE(scanType_, scanType) };
 
 
     // triggerType Field Functions 
     bool hasTriggerType() const { return this->triggerType_ != nullptr;};
     void deleteTriggerType() { this->triggerType_ = nullptr;};
-    inline string triggerType() const { DARABONBA_PTR_GET_DEFAULT(triggerType_, "") };
+    inline string getTriggerType() const { DARABONBA_PTR_GET_DEFAULT(triggerType_, "") };
     inline CreateScanRuleRequest& setTriggerType(string triggerType) { DARABONBA_PTR_SET_VALUE(triggerType_, triggerType) };
 
 
   protected:
+    // The instance ID
+    // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<vector<string>> namespaces_ = nullptr;
-    std::shared_ptr<vector<string>> repoNames_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    // The list of namespaces.
+    // 
+    // *   When the scan scope is NAMESPACE, this parameter cannot be empty.
+    // *   If the scan scope is REPO, you must specify a unique Namespace for this parameter.
+    shared_ptr<vector<string>> namespaces_ {};
+    // The list of repositories.
+    // 
+    // *   When the scan scope is NAMESPACE, this parameter must be empty.
+    // *   When the scan scope is REPO, this parameter cannot be empty.
+    shared_ptr<vector<string>> repoNames_ {};
+    // The tag that triggers the scan matches the regular expression
+    // 
     // This parameter is required.
-    std::shared_ptr<string> repoTagFilterPattern_ = nullptr;
+    shared_ptr<string> repoTagFilterPattern_ {};
+    // The rule name
+    // 
     // This parameter is required.
-    std::shared_ptr<string> ruleName_ = nullptr;
+    shared_ptr<string> ruleName_ {};
+    // The scan scope
+    // 
+    // Valid values:
+    // 
+    // *   NAMESPACE: namespace.
+    // *   REPO: repository.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> scanScope_ = nullptr;
-    std::shared_ptr<string> scanType_ = nullptr;
+    shared_ptr<string> scanScope_ {};
+    // The scan type. Valid values:
+    // 
+    // *   `VUL`: Products Cloud Security Scanner
+    // *   `SBOM`: Product Content Analysis
+    // 
+    // Default value: `VUL`
+    shared_ptr<string> scanType_ {};
+    // Trigger type
+    // 
+    // Valid values:
+    // 
+    // *   AUTO: automatically trigger.
+    // *   MANUAL: manually trigger.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> triggerType_ = nullptr;
+    shared_ptr<string> triggerType_ {};
   };
 
   } // namespace Models

@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_GETINSTANCERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/GetInstanceResponseBodyTags.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -53,108 +52,152 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Tags : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Tags& obj) { 
+        DARABONBA_PTR_TO_JSON(TagKey, tagKey_);
+        DARABONBA_PTR_TO_JSON(TagValue, tagValue_);
+      };
+      friend void from_json(const Darabonba::Json& j, Tags& obj) { 
+        DARABONBA_PTR_FROM_JSON(TagKey, tagKey_);
+        DARABONBA_PTR_FROM_JSON(TagValue, tagValue_);
+      };
+      Tags() = default ;
+      Tags(const Tags &) = default ;
+      Tags(Tags &&) = default ;
+      Tags(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Tags() = default ;
+      Tags& operator=(const Tags &) = default ;
+      Tags& operator=(Tags &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->tagKey_ == nullptr
+        && this->tagValue_ == nullptr; };
+      // tagKey Field Functions 
+      bool hasTagKey() const { return this->tagKey_ != nullptr;};
+      void deleteTagKey() { this->tagKey_ = nullptr;};
+      inline string getTagKey() const { DARABONBA_PTR_GET_DEFAULT(tagKey_, "") };
+      inline Tags& setTagKey(string tagKey) { DARABONBA_PTR_SET_VALUE(tagKey_, tagKey) };
+
+
+      // tagValue Field Functions 
+      bool hasTagValue() const { return this->tagValue_ != nullptr;};
+      void deleteTagValue() { this->tagValue_ = nullptr;};
+      inline string getTagValue() const { DARABONBA_PTR_GET_DEFAULT(tagValue_, "") };
+      inline Tags& setTagValue(string tagValue) { DARABONBA_PTR_SET_VALUE(tagValue_, tagValue) };
+
+
+    protected:
+      // The tag key.
+      shared_ptr<string> tagKey_ {};
+      // The tag value.
+      shared_ptr<string> tagValue_ {};
+    };
+
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->createTime_ == nullptr && return this->instanceId_ == nullptr && return this->instanceIssue_ == nullptr && return this->instanceName_ == nullptr && return this->instanceSpecification_ == nullptr
-        && return this->instanceStatus_ == nullptr && return this->isSuccess_ == nullptr && return this->modifiedTime_ == nullptr && return this->requestId_ == nullptr && return this->resourceGroupId_ == nullptr
-        && return this->tags_ == nullptr; };
+        && this->createTime_ == nullptr && this->instanceId_ == nullptr && this->instanceIssue_ == nullptr && this->instanceName_ == nullptr && this->instanceSpecification_ == nullptr
+        && this->instanceStatus_ == nullptr && this->isSuccess_ == nullptr && this->modifiedTime_ == nullptr && this->requestId_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->tags_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline GetInstanceResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
-    inline int64_t createTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, 0L) };
+    inline int64_t getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, 0L) };
     inline GetInstanceResponseBody& setCreateTime(int64_t createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline GetInstanceResponseBody& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // instanceIssue Field Functions 
     bool hasInstanceIssue() const { return this->instanceIssue_ != nullptr;};
     void deleteInstanceIssue() { this->instanceIssue_ = nullptr;};
-    inline string instanceIssue() const { DARABONBA_PTR_GET_DEFAULT(instanceIssue_, "") };
+    inline string getInstanceIssue() const { DARABONBA_PTR_GET_DEFAULT(instanceIssue_, "") };
     inline GetInstanceResponseBody& setInstanceIssue(string instanceIssue) { DARABONBA_PTR_SET_VALUE(instanceIssue_, instanceIssue) };
 
 
     // instanceName Field Functions 
     bool hasInstanceName() const { return this->instanceName_ != nullptr;};
     void deleteInstanceName() { this->instanceName_ = nullptr;};
-    inline string instanceName() const { DARABONBA_PTR_GET_DEFAULT(instanceName_, "") };
+    inline string getInstanceName() const { DARABONBA_PTR_GET_DEFAULT(instanceName_, "") };
     inline GetInstanceResponseBody& setInstanceName(string instanceName) { DARABONBA_PTR_SET_VALUE(instanceName_, instanceName) };
 
 
     // instanceSpecification Field Functions 
     bool hasInstanceSpecification() const { return this->instanceSpecification_ != nullptr;};
     void deleteInstanceSpecification() { this->instanceSpecification_ = nullptr;};
-    inline string instanceSpecification() const { DARABONBA_PTR_GET_DEFAULT(instanceSpecification_, "") };
+    inline string getInstanceSpecification() const { DARABONBA_PTR_GET_DEFAULT(instanceSpecification_, "") };
     inline GetInstanceResponseBody& setInstanceSpecification(string instanceSpecification) { DARABONBA_PTR_SET_VALUE(instanceSpecification_, instanceSpecification) };
 
 
     // instanceStatus Field Functions 
     bool hasInstanceStatus() const { return this->instanceStatus_ != nullptr;};
     void deleteInstanceStatus() { this->instanceStatus_ = nullptr;};
-    inline string instanceStatus() const { DARABONBA_PTR_GET_DEFAULT(instanceStatus_, "") };
+    inline string getInstanceStatus() const { DARABONBA_PTR_GET_DEFAULT(instanceStatus_, "") };
     inline GetInstanceResponseBody& setInstanceStatus(string instanceStatus) { DARABONBA_PTR_SET_VALUE(instanceStatus_, instanceStatus) };
 
 
     // isSuccess Field Functions 
     bool hasIsSuccess() const { return this->isSuccess_ != nullptr;};
     void deleteIsSuccess() { this->isSuccess_ = nullptr;};
-    inline bool isSuccess() const { DARABONBA_PTR_GET_DEFAULT(isSuccess_, false) };
+    inline bool getIsSuccess() const { DARABONBA_PTR_GET_DEFAULT(isSuccess_, false) };
     inline GetInstanceResponseBody& setIsSuccess(bool isSuccess) { DARABONBA_PTR_SET_VALUE(isSuccess_, isSuccess) };
 
 
     // modifiedTime Field Functions 
     bool hasModifiedTime() const { return this->modifiedTime_ != nullptr;};
     void deleteModifiedTime() { this->modifiedTime_ = nullptr;};
-    inline int64_t modifiedTime() const { DARABONBA_PTR_GET_DEFAULT(modifiedTime_, 0L) };
+    inline int64_t getModifiedTime() const { DARABONBA_PTR_GET_DEFAULT(modifiedTime_, 0L) };
     inline GetInstanceResponseBody& setModifiedTime(int64_t modifiedTime) { DARABONBA_PTR_SET_VALUE(modifiedTime_, modifiedTime) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetInstanceResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline GetInstanceResponseBody& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // tags Field Functions 
     bool hasTags() const { return this->tags_ != nullptr;};
     void deleteTags() { this->tags_ = nullptr;};
-    inline const vector<GetInstanceResponseBodyTags> & tags() const { DARABONBA_PTR_GET_CONST(tags_, vector<GetInstanceResponseBodyTags>) };
-    inline vector<GetInstanceResponseBodyTags> tags() { DARABONBA_PTR_GET(tags_, vector<GetInstanceResponseBodyTags>) };
-    inline GetInstanceResponseBody& setTags(const vector<GetInstanceResponseBodyTags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
-    inline GetInstanceResponseBody& setTags(vector<GetInstanceResponseBodyTags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
+    inline const vector<GetInstanceResponseBody::Tags> & getTags() const { DARABONBA_PTR_GET_CONST(tags_, vector<GetInstanceResponseBody::Tags>) };
+    inline vector<GetInstanceResponseBody::Tags> getTags() { DARABONBA_PTR_GET(tags_, vector<GetInstanceResponseBody::Tags>) };
+    inline GetInstanceResponseBody& setTags(const vector<GetInstanceResponseBody::Tags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+    inline GetInstanceResponseBody& setTags(vector<GetInstanceResponseBody::Tags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
 
 
   protected:
-    std::shared_ptr<string> code_ = nullptr;
+    shared_ptr<string> code_ {};
     // The time when the instance was created.
-    std::shared_ptr<int64_t> createTime_ = nullptr;
+    shared_ptr<int64_t> createTime_ {};
     // The ID of the Container Registry instance.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The issue occurs on the instance.
-    std::shared_ptr<string> instanceIssue_ = nullptr;
+    shared_ptr<string> instanceIssue_ {};
     // The name of the instance.
-    std::shared_ptr<string> instanceName_ = nullptr;
+    shared_ptr<string> instanceName_ {};
     // The edition of the instance. Valid values: Enterprise_Basic: Basic Edition instances Enterprise_Standard: Standard Edition instances Enterprise_Advanced: Advanced Edition instances
-    std::shared_ptr<string> instanceSpecification_ = nullptr;
+    shared_ptr<string> instanceSpecification_ {};
     // The status of the instance. Valid values:
     // 
     // *   `PENDING`: The instance is being initialized.
@@ -165,20 +208,20 @@ namespace Models
     // *   `STOPPED`: The instance is stopped.
     // *   `DELETING`: The instance is being deleted.
     // *   `DELETED`: The instance is deleted.
-    std::shared_ptr<string> instanceStatus_ = nullptr;
+    shared_ptr<string> instanceStatus_ {};
     // Indicates whether the request is successful. Valid values:
     // 
     // *   `true`: The request is successful.
     // *   `false`: The request fails.
-    std::shared_ptr<bool> isSuccess_ = nullptr;
+    shared_ptr<bool> isSuccess_ {};
     // The time when the instance was last modified.
-    std::shared_ptr<int64_t> modifiedTime_ = nullptr;
+    shared_ptr<int64_t> modifiedTime_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The ID of the resource group to which the instance belongs.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // The tags of the instance.
-    std::shared_ptr<vector<GetInstanceResponseBodyTags>> tags_ = nullptr;
+    shared_ptr<vector<GetInstanceResponseBody::Tags>> tags_ {};
   };
 
   } // namespace Models

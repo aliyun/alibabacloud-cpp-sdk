@@ -452,7 +452,9 @@ namespace Cr20181201
       Models::CreateRepositoryResponse createRepository(const Models::CreateRepositoryRequest &request);
 
       /**
-       * @summary 创建扫描规则
+       * @summary Creates a scan or content analysis rule.
+       *
+       * @description Creates a scan or content analysis rule.
        *
        * @param tmpReq CreateScanRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -461,7 +463,9 @@ namespace Cr20181201
       Models::CreateScanRuleResponse createScanRuleWithOptions(const Models::CreateScanRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建扫描规则
+       * @summary Creates a scan or content analysis rule.
+       *
+       * @description Creates a scan or content analysis rule.
        *
        * @param request CreateScanRuleRequest
        * @return CreateScanRuleResponse
@@ -469,7 +473,9 @@ namespace Cr20181201
       Models::CreateScanRuleResponse createScanRule(const Models::CreateScanRuleRequest &request);
 
       /**
-       * @summary 创建实例域名路由规则
+       * @summary Creates an instance store domain name routing rule.
+       *
+       * @description The whitelist of this API operation is available. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket).
        *
        * @param tmpReq CreateStorageDomainRoutingRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -478,7 +484,9 @@ namespace Cr20181201
       Models::CreateStorageDomainRoutingRuleResponse createStorageDomainRoutingRuleWithOptions(const Models::CreateStorageDomainRoutingRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建实例域名路由规则
+       * @summary Creates an instance store domain name routing rule.
+       *
+       * @description The whitelist of this API operation is available. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket).
        *
        * @param request CreateStorageDomainRoutingRuleRequest
        * @return CreateStorageDomainRoutingRuleResponse
@@ -753,7 +761,9 @@ namespace Cr20181201
       Models::DeleteRepositoryResponse deleteRepository(const Models::DeleteRepositoryRequest &request);
 
       /**
-       * @summary 删除扫描规则
+       * @summary Deletes a scan rule.
+       *
+       * @description Deletes a scan rule.
        *
        * @param request DeleteScanRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -762,7 +772,9 @@ namespace Cr20181201
       Models::DeleteScanRuleResponse deleteScanRuleWithOptions(const Models::DeleteScanRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除扫描规则
+       * @summary Deletes a scan rule.
+       *
+       * @description Deletes a scan rule.
        *
        * @param request DeleteScanRuleRequest
        * @return DeleteScanRuleResponse
@@ -770,7 +782,9 @@ namespace Cr20181201
       Models::DeleteScanRuleResponse deleteScanRule(const Models::DeleteScanRuleRequest &request);
 
       /**
-       * @summary 删除实例存储域名映射规则
+       * @summary Deletes an instance store domain name routing rule.
+       *
+       * @description The whitelist of this API operation is available. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket).
        *
        * @param request DeleteStorageDomainRoutingRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -779,7 +793,9 @@ namespace Cr20181201
       Models::DeleteStorageDomainRoutingRuleResponse deleteStorageDomainRoutingRuleWithOptions(const Models::DeleteStorageDomainRoutingRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除实例存储域名映射规则
+       * @summary Deletes an instance store domain name routing rule.
+       *
+       * @description The whitelist of this API operation is available. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket).
        *
        * @param request DeleteStorageDomainRoutingRuleRequest
        * @return DeleteStorageDomainRoutingRuleResponse
@@ -885,9 +901,12 @@ namespace Cr20181201
       Models::GetArtifactSubscriptionTaskResultResponse getArtifactSubscriptionTaskResult(const Models::GetArtifactSubscriptionTaskResultRequest &request);
 
       /**
-       * @summary Queries a temporary username and a token that you can use to log on to a Container Registry instance.
+       * @summary Queries a pair of temporary username and password that you use to log on to a Container Registry instance.
        *
-       * @description The ID of the Container Registry instance.
+       * @description The validity period of the temporary password is 1 hour. If you use STS to request a token, the validity period of the temporary password is the same as the validity period of the STS token.
+       * *   If you log on to an instance by using the temporary password obtained through an Alibaba Cloud account, you have the same permissions on resources as the user of the Alibaba Cloud account.
+       * *   If you log on to an instance by using the temporary password obtained through a RAM user, you have the same permissions as the RAM user.
+       * *   If you log on to an instance by using the temporary password obtained through STS, you have the same permissions as the STS token.
        *
        * @param request GetAuthorizationTokenRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -896,9 +915,12 @@ namespace Cr20181201
       Models::GetAuthorizationTokenResponse getAuthorizationTokenWithOptions(const Models::GetAuthorizationTokenRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a temporary username and a token that you can use to log on to a Container Registry instance.
+       * @summary Queries a pair of temporary username and password that you use to log on to a Container Registry instance.
        *
-       * @description The ID of the Container Registry instance.
+       * @description The validity period of the temporary password is 1 hour. If you use STS to request a token, the validity period of the temporary password is the same as the validity period of the STS token.
+       * *   If you log on to an instance by using the temporary password obtained through an Alibaba Cloud account, you have the same permissions on resources as the user of the Alibaba Cloud account.
+       * *   If you log on to an instance by using the temporary password obtained through a RAM user, you have the same permissions as the RAM user.
+       * *   If you log on to an instance by using the temporary password obtained through STS, you have the same permissions as the STS token.
        *
        * @param request GetAuthorizationTokenRequest
        * @return GetAuthorizationTokenResponse
@@ -1194,7 +1216,9 @@ namespace Cr20181201
       Models::GetRepositoryResponse getRepository(const Models::GetRepositoryRequest &request);
 
       /**
-       * @summary 查询扫描规则
+       * @summary Obtains a scan rule.
+       *
+       * @description Get scan rule.
        *
        * @param request GetScanRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1203,7 +1227,9 @@ namespace Cr20181201
       Models::GetScanRuleResponse getScanRuleWithOptions(const Models::GetScanRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询扫描规则
+       * @summary Obtains a scan rule.
+       *
+       * @description Get scan rule.
        *
        * @param request GetScanRuleRequest
        * @return GetScanRuleResponse
@@ -1211,7 +1237,9 @@ namespace Cr20181201
       Models::GetScanRuleResponse getScanRule(const Models::GetScanRuleRequest &request);
 
       /**
-       * @summary 查询实例存储域名路由规则
+       * @summary Queries instance storage domain routing rules
+       *
+       * @description This API is open to a whitelist. Please [submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket) for support.
        *
        * @param request GetStorageDomainRoutingRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1220,7 +1248,9 @@ namespace Cr20181201
       Models::GetStorageDomainRoutingRuleResponse getStorageDomainRoutingRuleWithOptions(const Models::GetStorageDomainRoutingRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询实例存储域名路由规则
+       * @summary Queries instance storage domain routing rules
+       *
+       * @description This API is open to a whitelist. Please [submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket) for support.
        *
        * @param request GetStorageDomainRoutingRuleRequest
        * @return GetStorageDomainRoutingRuleResponse
@@ -1678,7 +1708,9 @@ namespace Cr20181201
       Models::ListScanMaliciousFileByTaskResponse listScanMaliciousFileByTask(const Models::ListScanMaliciousFileByTaskRequest &request);
 
       /**
-       * @summary 查询扫描规则
+       * @summary Lists the scan rules.
+       *
+       * @description Lists the scan rules.
        *
        * @param request ListScanRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1687,7 +1719,9 @@ namespace Cr20181201
       Models::ListScanRuleResponse listScanRuleWithOptions(const Models::ListScanRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询扫描规则
+       * @summary Lists the scan rules.
+       *
+       * @description Lists the scan rules.
        *
        * @param request ListScanRuleRequest
        * @return ListScanRuleResponse
@@ -1967,7 +2001,9 @@ namespace Cr20181201
       Models::UpdateRepositoryResponse updateRepository(const Models::UpdateRepositoryRequest &request);
 
       /**
-       * @summary 更新扫描规则
+       * @summary Updates a scan rule.
+       *
+       * @description The whitelist of this API operation is available. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket).
        *
        * @param tmpReq UpdateScanRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1976,7 +2012,9 @@ namespace Cr20181201
       Models::UpdateScanRuleResponse updateScanRuleWithOptions(const Models::UpdateScanRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新扫描规则
+       * @summary Updates a scan rule.
+       *
+       * @description The whitelist of this API operation is available. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket).
        *
        * @param request UpdateScanRuleRequest
        * @return UpdateScanRuleResponse
@@ -1984,7 +2022,9 @@ namespace Cr20181201
       Models::UpdateScanRuleResponse updateScanRule(const Models::UpdateScanRuleRequest &request);
 
       /**
-       * @summary 更新实例域名路由规则
+       * @summary Updates a routing rule for an instance store domain name.
+       *
+       * @description The whitelist of this API operation is available. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket).
        *
        * @param tmpReq UpdateStorageDomainRoutingRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1993,7 +2033,9 @@ namespace Cr20181201
       Models::UpdateStorageDomainRoutingRuleResponse updateStorageDomainRoutingRuleWithOptions(const Models::UpdateStorageDomainRoutingRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新实例域名路由规则
+       * @summary Updates a routing rule for an instance store domain name.
+       *
+       * @description The whitelist of this API operation is available. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket).
        *
        * @param request UpdateStorageDomainRoutingRuleRequest
        * @return UpdateStorageDomainRoutingRuleResponse

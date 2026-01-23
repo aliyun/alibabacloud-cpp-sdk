@@ -51,27 +51,27 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoCreateRepo_ == nullptr
-        && return this->code_ == nullptr && return this->defaultRepoConfiguration_ == nullptr && return this->defaultRepoType_ == nullptr && return this->instanceId_ == nullptr && return this->isSuccess_ == nullptr
-        && return this->namespaceId_ == nullptr && return this->namespaceName_ == nullptr && return this->namespaceStatus_ == nullptr && return this->requestId_ == nullptr && return this->resourceGroupId_ == nullptr; };
+        && this->code_ == nullptr && this->defaultRepoConfiguration_ == nullptr && this->defaultRepoType_ == nullptr && this->instanceId_ == nullptr && this->isSuccess_ == nullptr
+        && this->namespaceId_ == nullptr && this->namespaceName_ == nullptr && this->namespaceStatus_ == nullptr && this->requestId_ == nullptr && this->resourceGroupId_ == nullptr; };
     // autoCreateRepo Field Functions 
     bool hasAutoCreateRepo() const { return this->autoCreateRepo_ != nullptr;};
     void deleteAutoCreateRepo() { this->autoCreateRepo_ = nullptr;};
-    inline bool autoCreateRepo() const { DARABONBA_PTR_GET_DEFAULT(autoCreateRepo_, false) };
+    inline bool getAutoCreateRepo() const { DARABONBA_PTR_GET_DEFAULT(autoCreateRepo_, false) };
     inline GetNamespaceResponseBody& setAutoCreateRepo(bool autoCreateRepo) { DARABONBA_PTR_SET_VALUE(autoCreateRepo_, autoCreateRepo) };
 
 
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline GetNamespaceResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // defaultRepoConfiguration Field Functions 
     bool hasDefaultRepoConfiguration() const { return this->defaultRepoConfiguration_ != nullptr;};
     void deleteDefaultRepoConfiguration() { this->defaultRepoConfiguration_ = nullptr;};
-    inline const RepoConfiguration & defaultRepoConfiguration() const { DARABONBA_PTR_GET_CONST(defaultRepoConfiguration_, RepoConfiguration) };
-    inline RepoConfiguration defaultRepoConfiguration() { DARABONBA_PTR_GET(defaultRepoConfiguration_, RepoConfiguration) };
+    inline const RepoConfiguration & getDefaultRepoConfiguration() const { DARABONBA_PTR_GET_CONST(defaultRepoConfiguration_, RepoConfiguration) };
+    inline RepoConfiguration getDefaultRepoConfiguration() { DARABONBA_PTR_GET(defaultRepoConfiguration_, RepoConfiguration) };
     inline GetNamespaceResponseBody& setDefaultRepoConfiguration(const RepoConfiguration & defaultRepoConfiguration) { DARABONBA_PTR_SET_VALUE(defaultRepoConfiguration_, defaultRepoConfiguration) };
     inline GetNamespaceResponseBody& setDefaultRepoConfiguration(RepoConfiguration && defaultRepoConfiguration) { DARABONBA_PTR_SET_RVALUE(defaultRepoConfiguration_, defaultRepoConfiguration) };
 
@@ -79,87 +79,87 @@ namespace Models
     // defaultRepoType Field Functions 
     bool hasDefaultRepoType() const { return this->defaultRepoType_ != nullptr;};
     void deleteDefaultRepoType() { this->defaultRepoType_ = nullptr;};
-    inline string defaultRepoType() const { DARABONBA_PTR_GET_DEFAULT(defaultRepoType_, "") };
+    inline string getDefaultRepoType() const { DARABONBA_PTR_GET_DEFAULT(defaultRepoType_, "") };
     inline GetNamespaceResponseBody& setDefaultRepoType(string defaultRepoType) { DARABONBA_PTR_SET_VALUE(defaultRepoType_, defaultRepoType) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline GetNamespaceResponseBody& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // isSuccess Field Functions 
     bool hasIsSuccess() const { return this->isSuccess_ != nullptr;};
     void deleteIsSuccess() { this->isSuccess_ = nullptr;};
-    inline bool isSuccess() const { DARABONBA_PTR_GET_DEFAULT(isSuccess_, false) };
+    inline bool getIsSuccess() const { DARABONBA_PTR_GET_DEFAULT(isSuccess_, false) };
     inline GetNamespaceResponseBody& setIsSuccess(bool isSuccess) { DARABONBA_PTR_SET_VALUE(isSuccess_, isSuccess) };
 
 
     // namespaceId Field Functions 
     bool hasNamespaceId() const { return this->namespaceId_ != nullptr;};
     void deleteNamespaceId() { this->namespaceId_ = nullptr;};
-    inline string namespaceId() const { DARABONBA_PTR_GET_DEFAULT(namespaceId_, "") };
+    inline string getNamespaceId() const { DARABONBA_PTR_GET_DEFAULT(namespaceId_, "") };
     inline GetNamespaceResponseBody& setNamespaceId(string namespaceId) { DARABONBA_PTR_SET_VALUE(namespaceId_, namespaceId) };
 
 
     // namespaceName Field Functions 
     bool hasNamespaceName() const { return this->namespaceName_ != nullptr;};
     void deleteNamespaceName() { this->namespaceName_ = nullptr;};
-    inline string namespaceName() const { DARABONBA_PTR_GET_DEFAULT(namespaceName_, "") };
+    inline string getNamespaceName() const { DARABONBA_PTR_GET_DEFAULT(namespaceName_, "") };
     inline GetNamespaceResponseBody& setNamespaceName(string namespaceName) { DARABONBA_PTR_SET_VALUE(namespaceName_, namespaceName) };
 
 
     // namespaceStatus Field Functions 
     bool hasNamespaceStatus() const { return this->namespaceStatus_ != nullptr;};
     void deleteNamespaceStatus() { this->namespaceStatus_ = nullptr;};
-    inline string namespaceStatus() const { DARABONBA_PTR_GET_DEFAULT(namespaceStatus_, "") };
+    inline string getNamespaceStatus() const { DARABONBA_PTR_GET_DEFAULT(namespaceStatus_, "") };
     inline GetNamespaceResponseBody& setNamespaceStatus(string namespaceStatus) { DARABONBA_PTR_SET_VALUE(namespaceStatus_, namespaceStatus) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetNamespaceResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline GetNamespaceResponseBody& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
   protected:
     // Indicates whether a repository is automatically created when an image is pushed to the namespace.
-    std::shared_ptr<bool> autoCreateRepo_ = nullptr;
+    shared_ptr<bool> autoCreateRepo_ {};
     // The return value.
-    std::shared_ptr<string> code_ = nullptr;
-    std::shared_ptr<RepoConfiguration> defaultRepoConfiguration_ = nullptr;
+    shared_ptr<string> code_ {};
+    shared_ptr<RepoConfiguration> defaultRepoConfiguration_ {};
     // The default type of repositories in the namespace. Valid values:
     // 
     // *   PUBLIC: public repositories.
     // *   PRIVATE: private repositories.
-    std::shared_ptr<string> defaultRepoType_ = nullptr;
+    shared_ptr<string> defaultRepoType_ {};
     // The ID of the Container Registry instance.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // Indicates whether the request was successful.
-    std::shared_ptr<bool> isSuccess_ = nullptr;
+    shared_ptr<bool> isSuccess_ {};
     // The ID of the namespace.
-    std::shared_ptr<string> namespaceId_ = nullptr;
+    shared_ptr<string> namespaceId_ {};
     // The name of the namespace.
-    std::shared_ptr<string> namespaceName_ = nullptr;
+    shared_ptr<string> namespaceName_ {};
     // The status of the namespace.
     // 
     // *   NORMAL
     // *   DELETING
-    std::shared_ptr<string> namespaceStatus_ = nullptr;
+    shared_ptr<string> namespaceStatus_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The ID of the resource group to which the namespace belongs.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
   };
 
   } // namespace Models

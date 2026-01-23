@@ -38,64 +38,64 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->isSuccess_ == nullptr && return this->requestId_ == nullptr && return this->scanService_ == nullptr && return this->status_ == nullptr; };
+        && this->isSuccess_ == nullptr && this->requestId_ == nullptr && this->scanService_ == nullptr && this->status_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline GetRepoTagScanStatusResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // isSuccess Field Functions 
     bool hasIsSuccess() const { return this->isSuccess_ != nullptr;};
     void deleteIsSuccess() { this->isSuccess_ = nullptr;};
-    inline bool isSuccess() const { DARABONBA_PTR_GET_DEFAULT(isSuccess_, false) };
+    inline bool getIsSuccess() const { DARABONBA_PTR_GET_DEFAULT(isSuccess_, false) };
     inline GetRepoTagScanStatusResponseBody& setIsSuccess(bool isSuccess) { DARABONBA_PTR_SET_VALUE(isSuccess_, isSuccess) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetRepoTagScanStatusResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // scanService Field Functions 
     bool hasScanService() const { return this->scanService_ != nullptr;};
     void deleteScanService() { this->scanService_ = nullptr;};
-    inline string scanService() const { DARABONBA_PTR_GET_DEFAULT(scanService_, "") };
+    inline string getScanService() const { DARABONBA_PTR_GET_DEFAULT(scanService_, "") };
     inline GetRepoTagScanStatusResponseBody& setScanService(string scanService) { DARABONBA_PTR_SET_VALUE(scanService_, scanService) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline GetRepoTagScanStatusResponseBody& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
   protected:
     // The HTTP status code.
-    std::shared_ptr<string> code_ = nullptr;
+    shared_ptr<string> code_ {};
     // Indicates whether the request is successful. Valid values:
     // 
     // *   `true`: The request is successful.
     // *   `false`: The request fails.
-    std::shared_ptr<bool> isSuccess_ = nullptr;
+    shared_ptr<bool> isSuccess_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The type of the scanning engine.
     // 
     // *   `ACR_SCAN_SERVICE`: Trivy scan engine provided by Container Registry
     // *   `SAS_SCAN_SERVICE`: Security Center scan engine
-    std::shared_ptr<string> scanService_ = nullptr;
+    shared_ptr<string> scanService_ {};
     // The scanning status of the image tag. Valid values:
     // 
     // *   `SCANNING`: The image tag is being scanned.
     // *   `COMPLETE`: The scanning of the image tag is complete.
     // *   `FAILED`: The image tag failed to be scanned.
     // *   `RETRYING`: The system is retrying to scan the image tag.
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models

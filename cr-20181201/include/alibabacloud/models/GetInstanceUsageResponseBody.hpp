@@ -54,130 +54,130 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->chartNamespaceQuota_ == nullptr
-        && return this->chartNamespaceUsage_ == nullptr && return this->chartRepoQuota_ == nullptr && return this->chartRepoUsage_ == nullptr && return this->code_ == nullptr && return this->isSuccess_ == nullptr
-        && return this->namespaceQuota_ == nullptr && return this->namespaceUsage_ == nullptr && return this->repoQuota_ == nullptr && return this->repoUsage_ == nullptr && return this->requestId_ == nullptr
-        && return this->vpcQuota_ == nullptr && return this->vpcUsage_ == nullptr; };
+        && this->chartNamespaceUsage_ == nullptr && this->chartRepoQuota_ == nullptr && this->chartRepoUsage_ == nullptr && this->code_ == nullptr && this->isSuccess_ == nullptr
+        && this->namespaceQuota_ == nullptr && this->namespaceUsage_ == nullptr && this->repoQuota_ == nullptr && this->repoUsage_ == nullptr && this->requestId_ == nullptr
+        && this->vpcQuota_ == nullptr && this->vpcUsage_ == nullptr; };
     // chartNamespaceQuota Field Functions 
     bool hasChartNamespaceQuota() const { return this->chartNamespaceQuota_ != nullptr;};
     void deleteChartNamespaceQuota() { this->chartNamespaceQuota_ = nullptr;};
-    inline string chartNamespaceQuota() const { DARABONBA_PTR_GET_DEFAULT(chartNamespaceQuota_, "") };
+    inline string getChartNamespaceQuota() const { DARABONBA_PTR_GET_DEFAULT(chartNamespaceQuota_, "") };
     inline GetInstanceUsageResponseBody& setChartNamespaceQuota(string chartNamespaceQuota) { DARABONBA_PTR_SET_VALUE(chartNamespaceQuota_, chartNamespaceQuota) };
 
 
     // chartNamespaceUsage Field Functions 
     bool hasChartNamespaceUsage() const { return this->chartNamespaceUsage_ != nullptr;};
     void deleteChartNamespaceUsage() { this->chartNamespaceUsage_ = nullptr;};
-    inline string chartNamespaceUsage() const { DARABONBA_PTR_GET_DEFAULT(chartNamespaceUsage_, "") };
+    inline string getChartNamespaceUsage() const { DARABONBA_PTR_GET_DEFAULT(chartNamespaceUsage_, "") };
     inline GetInstanceUsageResponseBody& setChartNamespaceUsage(string chartNamespaceUsage) { DARABONBA_PTR_SET_VALUE(chartNamespaceUsage_, chartNamespaceUsage) };
 
 
     // chartRepoQuota Field Functions 
     bool hasChartRepoQuota() const { return this->chartRepoQuota_ != nullptr;};
     void deleteChartRepoQuota() { this->chartRepoQuota_ = nullptr;};
-    inline string chartRepoQuota() const { DARABONBA_PTR_GET_DEFAULT(chartRepoQuota_, "") };
+    inline string getChartRepoQuota() const { DARABONBA_PTR_GET_DEFAULT(chartRepoQuota_, "") };
     inline GetInstanceUsageResponseBody& setChartRepoQuota(string chartRepoQuota) { DARABONBA_PTR_SET_VALUE(chartRepoQuota_, chartRepoQuota) };
 
 
     // chartRepoUsage Field Functions 
     bool hasChartRepoUsage() const { return this->chartRepoUsage_ != nullptr;};
     void deleteChartRepoUsage() { this->chartRepoUsage_ = nullptr;};
-    inline string chartRepoUsage() const { DARABONBA_PTR_GET_DEFAULT(chartRepoUsage_, "") };
+    inline string getChartRepoUsage() const { DARABONBA_PTR_GET_DEFAULT(chartRepoUsage_, "") };
     inline GetInstanceUsageResponseBody& setChartRepoUsage(string chartRepoUsage) { DARABONBA_PTR_SET_VALUE(chartRepoUsage_, chartRepoUsage) };
 
 
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline GetInstanceUsageResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // isSuccess Field Functions 
     bool hasIsSuccess() const { return this->isSuccess_ != nullptr;};
     void deleteIsSuccess() { this->isSuccess_ = nullptr;};
-    inline bool isSuccess() const { DARABONBA_PTR_GET_DEFAULT(isSuccess_, false) };
+    inline bool getIsSuccess() const { DARABONBA_PTR_GET_DEFAULT(isSuccess_, false) };
     inline GetInstanceUsageResponseBody& setIsSuccess(bool isSuccess) { DARABONBA_PTR_SET_VALUE(isSuccess_, isSuccess) };
 
 
     // namespaceQuota Field Functions 
     bool hasNamespaceQuota() const { return this->namespaceQuota_ != nullptr;};
     void deleteNamespaceQuota() { this->namespaceQuota_ = nullptr;};
-    inline string namespaceQuota() const { DARABONBA_PTR_GET_DEFAULT(namespaceQuota_, "") };
+    inline string getNamespaceQuota() const { DARABONBA_PTR_GET_DEFAULT(namespaceQuota_, "") };
     inline GetInstanceUsageResponseBody& setNamespaceQuota(string namespaceQuota) { DARABONBA_PTR_SET_VALUE(namespaceQuota_, namespaceQuota) };
 
 
     // namespaceUsage Field Functions 
     bool hasNamespaceUsage() const { return this->namespaceUsage_ != nullptr;};
     void deleteNamespaceUsage() { this->namespaceUsage_ = nullptr;};
-    inline string namespaceUsage() const { DARABONBA_PTR_GET_DEFAULT(namespaceUsage_, "") };
+    inline string getNamespaceUsage() const { DARABONBA_PTR_GET_DEFAULT(namespaceUsage_, "") };
     inline GetInstanceUsageResponseBody& setNamespaceUsage(string namespaceUsage) { DARABONBA_PTR_SET_VALUE(namespaceUsage_, namespaceUsage) };
 
 
     // repoQuota Field Functions 
     bool hasRepoQuota() const { return this->repoQuota_ != nullptr;};
     void deleteRepoQuota() { this->repoQuota_ = nullptr;};
-    inline string repoQuota() const { DARABONBA_PTR_GET_DEFAULT(repoQuota_, "") };
+    inline string getRepoQuota() const { DARABONBA_PTR_GET_DEFAULT(repoQuota_, "") };
     inline GetInstanceUsageResponseBody& setRepoQuota(string repoQuota) { DARABONBA_PTR_SET_VALUE(repoQuota_, repoQuota) };
 
 
     // repoUsage Field Functions 
     bool hasRepoUsage() const { return this->repoUsage_ != nullptr;};
     void deleteRepoUsage() { this->repoUsage_ = nullptr;};
-    inline string repoUsage() const { DARABONBA_PTR_GET_DEFAULT(repoUsage_, "") };
+    inline string getRepoUsage() const { DARABONBA_PTR_GET_DEFAULT(repoUsage_, "") };
     inline GetInstanceUsageResponseBody& setRepoUsage(string repoUsage) { DARABONBA_PTR_SET_VALUE(repoUsage_, repoUsage) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetInstanceUsageResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // vpcQuota Field Functions 
     bool hasVpcQuota() const { return this->vpcQuota_ != nullptr;};
     void deleteVpcQuota() { this->vpcQuota_ = nullptr;};
-    inline string vpcQuota() const { DARABONBA_PTR_GET_DEFAULT(vpcQuota_, "") };
+    inline string getVpcQuota() const { DARABONBA_PTR_GET_DEFAULT(vpcQuota_, "") };
     inline GetInstanceUsageResponseBody& setVpcQuota(string vpcQuota) { DARABONBA_PTR_SET_VALUE(vpcQuota_, vpcQuota) };
 
 
     // vpcUsage Field Functions 
     bool hasVpcUsage() const { return this->vpcUsage_ != nullptr;};
     void deleteVpcUsage() { this->vpcUsage_ = nullptr;};
-    inline string vpcUsage() const { DARABONBA_PTR_GET_DEFAULT(vpcUsage_, "") };
+    inline string getVpcUsage() const { DARABONBA_PTR_GET_DEFAULT(vpcUsage_, "") };
     inline GetInstanceUsageResponseBody& setVpcUsage(string vpcUsage) { DARABONBA_PTR_SET_VALUE(vpcUsage_, vpcUsage) };
 
 
   protected:
     // The quota of chart namespaces.
-    std::shared_ptr<string> chartNamespaceQuota_ = nullptr;
+    shared_ptr<string> chartNamespaceQuota_ {};
     // The number of chart namespaces that are created in the instance.
-    std::shared_ptr<string> chartNamespaceUsage_ = nullptr;
+    shared_ptr<string> chartNamespaceUsage_ {};
     // The quota of chart repositories for the instance.
-    std::shared_ptr<string> chartRepoQuota_ = nullptr;
+    shared_ptr<string> chartRepoQuota_ {};
     // The number of chart repositories that are created.
-    std::shared_ptr<string> chartRepoUsage_ = nullptr;
+    shared_ptr<string> chartRepoUsage_ {};
     // The return value.
-    std::shared_ptr<string> code_ = nullptr;
+    shared_ptr<string> code_ {};
     // Indicates whether the request is successful. Valid values:
     // 
     // *   `true`: The request is successful.
     // *   `false`: The request fails.
-    std::shared_ptr<bool> isSuccess_ = nullptr;
+    shared_ptr<bool> isSuccess_ {};
     // The quota of image namespaces for the instance.
-    std::shared_ptr<string> namespaceQuota_ = nullptr;
+    shared_ptr<string> namespaceQuota_ {};
     // The number of image namespaces that are created in the instance.
-    std::shared_ptr<string> namespaceUsage_ = nullptr;
+    shared_ptr<string> namespaceUsage_ {};
     // The quota of image repositories for the instance.
-    std::shared_ptr<string> repoQuota_ = nullptr;
+    shared_ptr<string> repoQuota_ {};
     // The number of image repositories that are created in the instance.
-    std::shared_ptr<string> repoUsage_ = nullptr;
+    shared_ptr<string> repoUsage_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // VPC quota
-    std::shared_ptr<string> vpcQuota_ = nullptr;
+    shared_ptr<string> vpcQuota_ {};
     // Number of bound VPCs
-    std::shared_ptr<string> vpcUsage_ = nullptr;
+    shared_ptr<string> vpcUsage_ {};
   };
 
   } // namespace Models

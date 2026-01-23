@@ -32,26 +32,30 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->routesShrink_ == nullptr; };
+        && this->routesShrink_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline CreateStorageDomainRoutingRuleShrinkRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // routesShrink Field Functions 
     bool hasRoutesShrink() const { return this->routesShrink_ != nullptr;};
     void deleteRoutesShrink() { this->routesShrink_ = nullptr;};
-    inline string routesShrink() const { DARABONBA_PTR_GET_DEFAULT(routesShrink_, "") };
+    inline string getRoutesShrink() const { DARABONBA_PTR_GET_DEFAULT(routesShrink_, "") };
     inline CreateStorageDomainRoutingRuleShrinkRequest& setRoutesShrink(string routesShrink) { DARABONBA_PTR_SET_VALUE(routesShrink_, routesShrink) };
 
 
   protected:
+    // The instance ID
+    // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    // The route list
+    // 
     // This parameter is required.
-    std::shared_ptr<string> routesShrink_ = nullptr;
+    shared_ptr<string> routesShrink_ {};
   };
 
   } // namespace Models

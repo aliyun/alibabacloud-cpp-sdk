@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_LISTREPOBUILDRECORDLOGRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/ListRepoBuildRecordLogResponseBodyBuildRecordLogs.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -43,75 +42,130 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class BuildRecordLogs : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const BuildRecordLogs& obj) { 
+        DARABONBA_PTR_TO_JSON(BuildStage, buildStage_);
+        DARABONBA_PTR_TO_JSON(LineNumber, lineNumber_);
+        DARABONBA_PTR_TO_JSON(Message, message_);
+      };
+      friend void from_json(const Darabonba::Json& j, BuildRecordLogs& obj) { 
+        DARABONBA_PTR_FROM_JSON(BuildStage, buildStage_);
+        DARABONBA_PTR_FROM_JSON(LineNumber, lineNumber_);
+        DARABONBA_PTR_FROM_JSON(Message, message_);
+      };
+      BuildRecordLogs() = default ;
+      BuildRecordLogs(const BuildRecordLogs &) = default ;
+      BuildRecordLogs(BuildRecordLogs &&) = default ;
+      BuildRecordLogs(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~BuildRecordLogs() = default ;
+      BuildRecordLogs& operator=(const BuildRecordLogs &) = default ;
+      BuildRecordLogs& operator=(BuildRecordLogs &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->buildStage_ == nullptr
+        && this->lineNumber_ == nullptr && this->message_ == nullptr; };
+      // buildStage Field Functions 
+      bool hasBuildStage() const { return this->buildStage_ != nullptr;};
+      void deleteBuildStage() { this->buildStage_ = nullptr;};
+      inline string getBuildStage() const { DARABONBA_PTR_GET_DEFAULT(buildStage_, "") };
+      inline BuildRecordLogs& setBuildStage(string buildStage) { DARABONBA_PTR_SET_VALUE(buildStage_, buildStage) };
+
+
+      // lineNumber Field Functions 
+      bool hasLineNumber() const { return this->lineNumber_ != nullptr;};
+      void deleteLineNumber() { this->lineNumber_ = nullptr;};
+      inline int32_t getLineNumber() const { DARABONBA_PTR_GET_DEFAULT(lineNumber_, 0) };
+      inline BuildRecordLogs& setLineNumber(int32_t lineNumber) { DARABONBA_PTR_SET_VALUE(lineNumber_, lineNumber) };
+
+
+      // message Field Functions 
+      bool hasMessage() const { return this->message_ != nullptr;};
+      void deleteMessage() { this->message_ = nullptr;};
+      inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+      inline BuildRecordLogs& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+
+
+    protected:
+      // The stage of the building that is recorded in the log entry.
+      shared_ptr<string> buildStage_ {};
+      // The line number of the log entry.
+      shared_ptr<int32_t> lineNumber_ {};
+      // The content of the log.
+      shared_ptr<string> message_ {};
+    };
+
     virtual bool empty() const override { return this->buildRecordLogs_ == nullptr
-        && return this->code_ == nullptr && return this->isSuccess_ == nullptr && return this->pageNo_ == nullptr && return this->pageSize_ == nullptr && return this->requestId_ == nullptr
-        && return this->totalCount_ == nullptr; };
+        && this->code_ == nullptr && this->isSuccess_ == nullptr && this->pageNo_ == nullptr && this->pageSize_ == nullptr && this->requestId_ == nullptr
+        && this->totalCount_ == nullptr; };
     // buildRecordLogs Field Functions 
     bool hasBuildRecordLogs() const { return this->buildRecordLogs_ != nullptr;};
     void deleteBuildRecordLogs() { this->buildRecordLogs_ = nullptr;};
-    inline const vector<ListRepoBuildRecordLogResponseBodyBuildRecordLogs> & buildRecordLogs() const { DARABONBA_PTR_GET_CONST(buildRecordLogs_, vector<ListRepoBuildRecordLogResponseBodyBuildRecordLogs>) };
-    inline vector<ListRepoBuildRecordLogResponseBodyBuildRecordLogs> buildRecordLogs() { DARABONBA_PTR_GET(buildRecordLogs_, vector<ListRepoBuildRecordLogResponseBodyBuildRecordLogs>) };
-    inline ListRepoBuildRecordLogResponseBody& setBuildRecordLogs(const vector<ListRepoBuildRecordLogResponseBodyBuildRecordLogs> & buildRecordLogs) { DARABONBA_PTR_SET_VALUE(buildRecordLogs_, buildRecordLogs) };
-    inline ListRepoBuildRecordLogResponseBody& setBuildRecordLogs(vector<ListRepoBuildRecordLogResponseBodyBuildRecordLogs> && buildRecordLogs) { DARABONBA_PTR_SET_RVALUE(buildRecordLogs_, buildRecordLogs) };
+    inline const vector<ListRepoBuildRecordLogResponseBody::BuildRecordLogs> & getBuildRecordLogs() const { DARABONBA_PTR_GET_CONST(buildRecordLogs_, vector<ListRepoBuildRecordLogResponseBody::BuildRecordLogs>) };
+    inline vector<ListRepoBuildRecordLogResponseBody::BuildRecordLogs> getBuildRecordLogs() { DARABONBA_PTR_GET(buildRecordLogs_, vector<ListRepoBuildRecordLogResponseBody::BuildRecordLogs>) };
+    inline ListRepoBuildRecordLogResponseBody& setBuildRecordLogs(const vector<ListRepoBuildRecordLogResponseBody::BuildRecordLogs> & buildRecordLogs) { DARABONBA_PTR_SET_VALUE(buildRecordLogs_, buildRecordLogs) };
+    inline ListRepoBuildRecordLogResponseBody& setBuildRecordLogs(vector<ListRepoBuildRecordLogResponseBody::BuildRecordLogs> && buildRecordLogs) { DARABONBA_PTR_SET_RVALUE(buildRecordLogs_, buildRecordLogs) };
 
 
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline ListRepoBuildRecordLogResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // isSuccess Field Functions 
     bool hasIsSuccess() const { return this->isSuccess_ != nullptr;};
     void deleteIsSuccess() { this->isSuccess_ = nullptr;};
-    inline bool isSuccess() const { DARABONBA_PTR_GET_DEFAULT(isSuccess_, false) };
+    inline bool getIsSuccess() const { DARABONBA_PTR_GET_DEFAULT(isSuccess_, false) };
     inline ListRepoBuildRecordLogResponseBody& setIsSuccess(bool isSuccess) { DARABONBA_PTR_SET_VALUE(isSuccess_, isSuccess) };
 
 
     // pageNo Field Functions 
     bool hasPageNo() const { return this->pageNo_ != nullptr;};
     void deletePageNo() { this->pageNo_ = nullptr;};
-    inline int32_t pageNo() const { DARABONBA_PTR_GET_DEFAULT(pageNo_, 0) };
+    inline int32_t getPageNo() const { DARABONBA_PTR_GET_DEFAULT(pageNo_, 0) };
     inline ListRepoBuildRecordLogResponseBody& setPageNo(int32_t pageNo) { DARABONBA_PTR_SET_VALUE(pageNo_, pageNo) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListRepoBuildRecordLogResponseBody& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListRepoBuildRecordLogResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // totalCount Field Functions 
     bool hasTotalCount() const { return this->totalCount_ != nullptr;};
     void deleteTotalCount() { this->totalCount_ = nullptr;};
-    inline string totalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, "") };
+    inline string getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, "") };
     inline ListRepoBuildRecordLogResponseBody& setTotalCount(string totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
 
 
   protected:
     // The log content of the image building record.
-    std::shared_ptr<vector<ListRepoBuildRecordLogResponseBodyBuildRecordLogs>> buildRecordLogs_ = nullptr;
+    shared_ptr<vector<ListRepoBuildRecordLogResponseBody::BuildRecordLogs>> buildRecordLogs_ {};
     // The return value.
-    std::shared_ptr<string> code_ = nullptr;
+    shared_ptr<string> code_ {};
     // Indicates whether the request is successful.
-    std::shared_ptr<bool> isSuccess_ = nullptr;
+    shared_ptr<bool> isSuccess_ {};
     // The page number of the returned page.
-    std::shared_ptr<int32_t> pageNo_ = nullptr;
+    shared_ptr<int32_t> pageNo_ {};
     // The number of entries returned per page.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The total number of returned entries.
-    std::shared_ptr<string> totalCount_ = nullptr;
+    shared_ptr<string> totalCount_ {};
   };
 
   } // namespace Models

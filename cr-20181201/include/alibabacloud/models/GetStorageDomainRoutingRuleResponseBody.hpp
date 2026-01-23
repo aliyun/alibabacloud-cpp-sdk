@@ -44,41 +44,41 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->createTime_ == nullptr && return this->modifyTime_ == nullptr && return this->requestId_ == nullptr && return this->routes_ == nullptr && return this->ruleId_ == nullptr
-        && return this->success_ == nullptr; };
+        && this->createTime_ == nullptr && this->modifyTime_ == nullptr && this->requestId_ == nullptr && this->routes_ == nullptr && this->ruleId_ == nullptr
+        && this->success_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline GetStorageDomainRoutingRuleResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
-    inline int64_t createTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, 0L) };
+    inline int64_t getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, 0L) };
     inline GetStorageDomainRoutingRuleResponseBody& setCreateTime(int64_t createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
 
 
     // modifyTime Field Functions 
     bool hasModifyTime() const { return this->modifyTime_ != nullptr;};
     void deleteModifyTime() { this->modifyTime_ = nullptr;};
-    inline int64_t modifyTime() const { DARABONBA_PTR_GET_DEFAULT(modifyTime_, 0L) };
+    inline int64_t getModifyTime() const { DARABONBA_PTR_GET_DEFAULT(modifyTime_, 0L) };
     inline GetStorageDomainRoutingRuleResponseBody& setModifyTime(int64_t modifyTime) { DARABONBA_PTR_SET_VALUE(modifyTime_, modifyTime) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetStorageDomainRoutingRuleResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // routes Field Functions 
     bool hasRoutes() const { return this->routes_ != nullptr;};
     void deleteRoutes() { this->routes_ = nullptr;};
-    inline const vector<RouteItem> & routes() const { DARABONBA_PTR_GET_CONST(routes_, vector<RouteItem>) };
-    inline vector<RouteItem> routes() { DARABONBA_PTR_GET(routes_, vector<RouteItem>) };
+    inline const vector<RouteItem> & getRoutes() const { DARABONBA_PTR_GET_CONST(routes_, vector<RouteItem>) };
+    inline vector<RouteItem> getRoutes() { DARABONBA_PTR_GET(routes_, vector<RouteItem>) };
     inline GetStorageDomainRoutingRuleResponseBody& setRoutes(const vector<RouteItem> & routes) { DARABONBA_PTR_SET_VALUE(routes_, routes) };
     inline GetStorageDomainRoutingRuleResponseBody& setRoutes(vector<RouteItem> && routes) { DARABONBA_PTR_SET_RVALUE(routes_, routes) };
 
@@ -86,25 +86,32 @@ namespace Models
     // ruleId Field Functions 
     bool hasRuleId() const { return this->ruleId_ != nullptr;};
     void deleteRuleId() { this->ruleId_ = nullptr;};
-    inline string ruleId() const { DARABONBA_PTR_GET_DEFAULT(ruleId_, "") };
+    inline string getRuleId() const { DARABONBA_PTR_GET_DEFAULT(ruleId_, "") };
     inline GetStorageDomainRoutingRuleResponseBody& setRuleId(string ruleId) { DARABONBA_PTR_SET_VALUE(ruleId_, ruleId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline GetStorageDomainRoutingRuleResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
-    std::shared_ptr<string> code_ = nullptr;
-    std::shared_ptr<int64_t> createTime_ = nullptr;
-    std::shared_ptr<int64_t> modifyTime_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<vector<RouteItem>> routes_ = nullptr;
-    std::shared_ptr<string> ruleId_ = nullptr;
-    std::shared_ptr<bool> success_ = nullptr;
+    // The return value.
+    shared_ptr<string> code_ {};
+    // The creation time.
+    shared_ptr<int64_t> createTime_ {};
+    // The modification time.
+    shared_ptr<int64_t> modifyTime_ {};
+    // The request ID.
+    shared_ptr<string> requestId_ {};
+    // The routing list.
+    shared_ptr<vector<RouteItem>> routes_ {};
+    // The rule ID.
+    shared_ptr<string> ruleId_ {};
+    // Indicates whether the request is successful.
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->repoId_ == nullptr && return this->syncRuleId_ == nullptr && return this->tag_ == nullptr; };
+        && this->repoId_ == nullptr && this->syncRuleId_ == nullptr && this->tag_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline CreateRepoSyncTaskByRuleRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // repoId Field Functions 
     bool hasRepoId() const { return this->repoId_ != nullptr;};
     void deleteRepoId() { this->repoId_ = nullptr;};
-    inline string repoId() const { DARABONBA_PTR_GET_DEFAULT(repoId_, "") };
+    inline string getRepoId() const { DARABONBA_PTR_GET_DEFAULT(repoId_, "") };
     inline CreateRepoSyncTaskByRuleRequest& setRepoId(string repoId) { DARABONBA_PTR_SET_VALUE(repoId_, repoId) };
 
 
     // syncRuleId Field Functions 
     bool hasSyncRuleId() const { return this->syncRuleId_ != nullptr;};
     void deleteSyncRuleId() { this->syncRuleId_ = nullptr;};
-    inline string syncRuleId() const { DARABONBA_PTR_GET_DEFAULT(syncRuleId_, "") };
+    inline string getSyncRuleId() const { DARABONBA_PTR_GET_DEFAULT(syncRuleId_, "") };
     inline CreateRepoSyncTaskByRuleRequest& setSyncRuleId(string syncRuleId) { DARABONBA_PTR_SET_VALUE(syncRuleId_, syncRuleId) };
 
 
     // tag Field Functions 
     bool hasTag() const { return this->tag_ != nullptr;};
     void deleteTag() { this->tag_ = nullptr;};
-    inline string tag() const { DARABONBA_PTR_GET_DEFAULT(tag_, "") };
+    inline string getTag() const { DARABONBA_PTR_GET_DEFAULT(tag_, "") };
     inline CreateRepoSyncTaskByRuleRequest& setTag(string tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
 
 
@@ -69,19 +69,19 @@ namespace Models
     // The ID of the instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The ID of the image repository.
     // 
     // This parameter is required.
-    std::shared_ptr<string> repoId_ = nullptr;
+    shared_ptr<string> repoId_ {};
     // The ID of the synchronization rule.
     // 
     // This parameter is required.
-    std::shared_ptr<string> syncRuleId_ = nullptr;
+    shared_ptr<string> syncRuleId_ {};
     // The version of the image to be synchronized.
     // 
     // This parameter is required.
-    std::shared_ptr<string> tag_ = nullptr;
+    shared_ptr<string> tag_ {};
   };
 
   } // namespace Models

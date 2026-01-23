@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_LISTINSTANCEREGIONRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/ListInstanceRegionResponseBodyRegions.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -37,50 +36,94 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Regions : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Regions& obj) { 
+        DARABONBA_PTR_TO_JSON(LocalName, localName_);
+        DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+      };
+      friend void from_json(const Darabonba::Json& j, Regions& obj) { 
+        DARABONBA_PTR_FROM_JSON(LocalName, localName_);
+        DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+      };
+      Regions() = default ;
+      Regions(const Regions &) = default ;
+      Regions(Regions &&) = default ;
+      Regions(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Regions() = default ;
+      Regions& operator=(const Regions &) = default ;
+      Regions& operator=(Regions &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->localName_ == nullptr
+        && this->regionId_ == nullptr; };
+      // localName Field Functions 
+      bool hasLocalName() const { return this->localName_ != nullptr;};
+      void deleteLocalName() { this->localName_ = nullptr;};
+      inline string getLocalName() const { DARABONBA_PTR_GET_DEFAULT(localName_, "") };
+      inline Regions& setLocalName(string localName) { DARABONBA_PTR_SET_VALUE(localName_, localName) };
+
+
+      // regionId Field Functions 
+      bool hasRegionId() const { return this->regionId_ != nullptr;};
+      void deleteRegionId() { this->regionId_ = nullptr;};
+      inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+      inline Regions& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
+
+
+    protected:
+      // The name of the region.
+      shared_ptr<string> localName_ {};
+      // The ID of the region.
+      shared_ptr<string> regionId_ {};
+    };
+
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->isSuccess_ == nullptr && return this->regions_ == nullptr && return this->requestId_ == nullptr; };
+        && this->isSuccess_ == nullptr && this->regions_ == nullptr && this->requestId_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline ListInstanceRegionResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // isSuccess Field Functions 
     bool hasIsSuccess() const { return this->isSuccess_ != nullptr;};
     void deleteIsSuccess() { this->isSuccess_ = nullptr;};
-    inline bool isSuccess() const { DARABONBA_PTR_GET_DEFAULT(isSuccess_, false) };
+    inline bool getIsSuccess() const { DARABONBA_PTR_GET_DEFAULT(isSuccess_, false) };
     inline ListInstanceRegionResponseBody& setIsSuccess(bool isSuccess) { DARABONBA_PTR_SET_VALUE(isSuccess_, isSuccess) };
 
 
     // regions Field Functions 
     bool hasRegions() const { return this->regions_ != nullptr;};
     void deleteRegions() { this->regions_ = nullptr;};
-    inline const vector<ListInstanceRegionResponseBodyRegions> & regions() const { DARABONBA_PTR_GET_CONST(regions_, vector<ListInstanceRegionResponseBodyRegions>) };
-    inline vector<ListInstanceRegionResponseBodyRegions> regions() { DARABONBA_PTR_GET(regions_, vector<ListInstanceRegionResponseBodyRegions>) };
-    inline ListInstanceRegionResponseBody& setRegions(const vector<ListInstanceRegionResponseBodyRegions> & regions) { DARABONBA_PTR_SET_VALUE(regions_, regions) };
-    inline ListInstanceRegionResponseBody& setRegions(vector<ListInstanceRegionResponseBodyRegions> && regions) { DARABONBA_PTR_SET_RVALUE(regions_, regions) };
+    inline const vector<ListInstanceRegionResponseBody::Regions> & getRegions() const { DARABONBA_PTR_GET_CONST(regions_, vector<ListInstanceRegionResponseBody::Regions>) };
+    inline vector<ListInstanceRegionResponseBody::Regions> getRegions() { DARABONBA_PTR_GET(regions_, vector<ListInstanceRegionResponseBody::Regions>) };
+    inline ListInstanceRegionResponseBody& setRegions(const vector<ListInstanceRegionResponseBody::Regions> & regions) { DARABONBA_PTR_SET_VALUE(regions_, regions) };
+    inline ListInstanceRegionResponseBody& setRegions(vector<ListInstanceRegionResponseBody::Regions> && regions) { DARABONBA_PTR_SET_RVALUE(regions_, regions) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListInstanceRegionResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The return value.
-    std::shared_ptr<string> code_ = nullptr;
+    shared_ptr<string> code_ {};
     // Indicates whether the request is successful. Valid values:
     // 
     // *   `true`: The request is successful.
     // *   `false`: The request fails.
-    std::shared_ptr<bool> isSuccess_ = nullptr;
+    shared_ptr<bool> isSuccess_ {};
     // The list of regions.
-    std::shared_ptr<vector<ListInstanceRegionResponseBodyRegions>> regions_ = nullptr;
+    shared_ptr<vector<ListInstanceRegionResponseBody::Regions>> regions_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

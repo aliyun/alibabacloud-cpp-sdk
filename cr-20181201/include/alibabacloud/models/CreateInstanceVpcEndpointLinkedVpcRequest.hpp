@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->enableCreateDNSRecordInPvzt_ == nullptr
-        && return this->instanceId_ == nullptr && return this->moduleName_ == nullptr && return this->vpcId_ == nullptr && return this->vswitchId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->moduleName_ == nullptr && this->vpcId_ == nullptr && this->vswitchId_ == nullptr; };
     // enableCreateDNSRecordInPvzt Field Functions 
     bool hasEnableCreateDNSRecordInPvzt() const { return this->enableCreateDNSRecordInPvzt_ != nullptr;};
     void deleteEnableCreateDNSRecordInPvzt() { this->enableCreateDNSRecordInPvzt_ = nullptr;};
-    inline bool enableCreateDNSRecordInPvzt() const { DARABONBA_PTR_GET_DEFAULT(enableCreateDNSRecordInPvzt_, false) };
+    inline bool getEnableCreateDNSRecordInPvzt() const { DARABONBA_PTR_GET_DEFAULT(enableCreateDNSRecordInPvzt_, false) };
     inline CreateInstanceVpcEndpointLinkedVpcRequest& setEnableCreateDNSRecordInPvzt(bool enableCreateDNSRecordInPvzt) { DARABONBA_PTR_SET_VALUE(enableCreateDNSRecordInPvzt_, enableCreateDNSRecordInPvzt) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline CreateInstanceVpcEndpointLinkedVpcRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // moduleName Field Functions 
     bool hasModuleName() const { return this->moduleName_ != nullptr;};
     void deleteModuleName() { this->moduleName_ = nullptr;};
-    inline string moduleName() const { DARABONBA_PTR_GET_DEFAULT(moduleName_, "") };
+    inline string getModuleName() const { DARABONBA_PTR_GET_DEFAULT(moduleName_, "") };
     inline CreateInstanceVpcEndpointLinkedVpcRequest& setModuleName(string moduleName) { DARABONBA_PTR_SET_VALUE(moduleName_, moduleName) };
 
 
     // vpcId Field Functions 
     bool hasVpcId() const { return this->vpcId_ != nullptr;};
     void deleteVpcId() { this->vpcId_ = nullptr;};
-    inline string vpcId() const { DARABONBA_PTR_GET_DEFAULT(vpcId_, "") };
+    inline string getVpcId() const { DARABONBA_PTR_GET_DEFAULT(vpcId_, "") };
     inline CreateInstanceVpcEndpointLinkedVpcRequest& setVpcId(string vpcId) { DARABONBA_PTR_SET_VALUE(vpcId_, vpcId) };
 
 
     // vswitchId Field Functions 
     bool hasVswitchId() const { return this->vswitchId_ != nullptr;};
     void deleteVswitchId() { this->vswitchId_ = nullptr;};
-    inline string vswitchId() const { DARABONBA_PTR_GET_DEFAULT(vswitchId_, "") };
+    inline string getVswitchId() const { DARABONBA_PTR_GET_DEFAULT(vswitchId_, "") };
     inline CreateInstanceVpcEndpointLinkedVpcRequest& setVswitchId(string vswitchId) { DARABONBA_PTR_SET_VALUE(vswitchId_, vswitchId) };
 
 
@@ -81,24 +81,24 @@ namespace Models
     // 
     // *   `true`
     // *   `false`
-    std::shared_ptr<bool> enableCreateDNSRecordInPvzt_ = nullptr;
+    shared_ptr<bool> enableCreateDNSRecordInPvzt_ {};
     // The instance ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The name of the module that you want to access. Valid values:
     // 
     // *   `Registry`: image repositories.
     // *   `Chart`: Helm charts.
-    std::shared_ptr<string> moduleName_ = nullptr;
+    shared_ptr<string> moduleName_ {};
     // The VPC ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> vpcId_ = nullptr;
+    shared_ptr<string> vpcId_ {};
     // The ID of the vSwitch that is associated with the specified VPC.
     // 
     // This parameter is required.
-    std::shared_ptr<string> vswitchId_ = nullptr;
+    shared_ptr<string> vswitchId_ {};
   };
 
   } // namespace Models

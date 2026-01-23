@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->repoId_ == nullptr && return this->triggerName_ == nullptr && return this->triggerTag_ == nullptr && return this->triggerType_ == nullptr && return this->triggerUrl_ == nullptr; };
+        && this->repoId_ == nullptr && this->triggerName_ == nullptr && this->triggerTag_ == nullptr && this->triggerType_ == nullptr && this->triggerUrl_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline CreateRepoTriggerRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // repoId Field Functions 
     bool hasRepoId() const { return this->repoId_ != nullptr;};
     void deleteRepoId() { this->repoId_ = nullptr;};
-    inline string repoId() const { DARABONBA_PTR_GET_DEFAULT(repoId_, "") };
+    inline string getRepoId() const { DARABONBA_PTR_GET_DEFAULT(repoId_, "") };
     inline CreateRepoTriggerRequest& setRepoId(string repoId) { DARABONBA_PTR_SET_VALUE(repoId_, repoId) };
 
 
     // triggerName Field Functions 
     bool hasTriggerName() const { return this->triggerName_ != nullptr;};
     void deleteTriggerName() { this->triggerName_ = nullptr;};
-    inline string triggerName() const { DARABONBA_PTR_GET_DEFAULT(triggerName_, "") };
+    inline string getTriggerName() const { DARABONBA_PTR_GET_DEFAULT(triggerName_, "") };
     inline CreateRepoTriggerRequest& setTriggerName(string triggerName) { DARABONBA_PTR_SET_VALUE(triggerName_, triggerName) };
 
 
     // triggerTag Field Functions 
     bool hasTriggerTag() const { return this->triggerTag_ != nullptr;};
     void deleteTriggerTag() { this->triggerTag_ = nullptr;};
-    inline string triggerTag() const { DARABONBA_PTR_GET_DEFAULT(triggerTag_, "") };
+    inline string getTriggerTag() const { DARABONBA_PTR_GET_DEFAULT(triggerTag_, "") };
     inline CreateRepoTriggerRequest& setTriggerTag(string triggerTag) { DARABONBA_PTR_SET_VALUE(triggerTag_, triggerTag) };
 
 
     // triggerType Field Functions 
     bool hasTriggerType() const { return this->triggerType_ != nullptr;};
     void deleteTriggerType() { this->triggerType_ = nullptr;};
-    inline string triggerType() const { DARABONBA_PTR_GET_DEFAULT(triggerType_, "") };
+    inline string getTriggerType() const { DARABONBA_PTR_GET_DEFAULT(triggerType_, "") };
     inline CreateRepoTriggerRequest& setTriggerType(string triggerType) { DARABONBA_PTR_SET_VALUE(triggerType_, triggerType) };
 
 
     // triggerUrl Field Functions 
     bool hasTriggerUrl() const { return this->triggerUrl_ != nullptr;};
     void deleteTriggerUrl() { this->triggerUrl_ = nullptr;};
-    inline string triggerUrl() const { DARABONBA_PTR_GET_DEFAULT(triggerUrl_, "") };
+    inline string getTriggerUrl() const { DARABONBA_PTR_GET_DEFAULT(triggerUrl_, "") };
     inline CreateRepoTriggerRequest& setTriggerUrl(string triggerUrl) { DARABONBA_PTR_SET_VALUE(triggerUrl_, triggerUrl) };
 
 
@@ -87,15 +87,15 @@ namespace Models
     // The ID of the instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The ID of the image repository.
     // 
     // This parameter is required.
-    std::shared_ptr<string> repoId_ = nullptr;
+    shared_ptr<string> repoId_ {};
     // The name of the trigger.
     // 
     // This parameter is required.
-    std::shared_ptr<string> triggerName_ = nullptr;
+    shared_ptr<string> triggerName_ {};
     // The image tag based on which the trigger is set.
     // 
     // > 
@@ -104,7 +104,7 @@ namespace Models
     // 
     // *   If `TriggerType` is set to `TAG_LIST`, `TriggerTag` must be set to an array, for example, `[1]`.
     // *   If `TriggerType` is set to `TAG_REG_EXP`, `TriggerTag` must be set to a string, for example, `*`.
-    std::shared_ptr<string> triggerTag_ = nullptr;
+    shared_ptr<string> triggerTag_ {};
     // The type of the trigger. Valid values:
     // 
     // *   `ALL`: a trigger that supports both tags and regular expressions.
@@ -112,11 +112,11 @@ namespace Models
     // *   `TAG_REG_EXP`: a regular expression-based trigger.
     // 
     // This parameter is required.
-    std::shared_ptr<string> triggerType_ = nullptr;
+    shared_ptr<string> triggerType_ {};
     // The URL of the trigger.
     // 
     // This parameter is required.
-    std::shared_ptr<string> triggerUrl_ = nullptr;
+    shared_ptr<string> triggerUrl_ {};
   };
 
   } // namespace Models

@@ -40,63 +40,63 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->digest_ == nullptr
-        && return this->instanceId_ == nullptr && return this->repoId_ == nullptr && return this->scanTaskId_ == nullptr && return this->scanType_ == nullptr && return this->tag_ == nullptr; };
+        && this->instanceId_ == nullptr && this->repoId_ == nullptr && this->scanTaskId_ == nullptr && this->scanType_ == nullptr && this->tag_ == nullptr; };
     // digest Field Functions 
     bool hasDigest() const { return this->digest_ != nullptr;};
     void deleteDigest() { this->digest_ = nullptr;};
-    inline string digest() const { DARABONBA_PTR_GET_DEFAULT(digest_, "") };
+    inline string getDigest() const { DARABONBA_PTR_GET_DEFAULT(digest_, "") };
     inline GetRepoTagScanStatusRequest& setDigest(string digest) { DARABONBA_PTR_SET_VALUE(digest_, digest) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline GetRepoTagScanStatusRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // repoId Field Functions 
     bool hasRepoId() const { return this->repoId_ != nullptr;};
     void deleteRepoId() { this->repoId_ = nullptr;};
-    inline string repoId() const { DARABONBA_PTR_GET_DEFAULT(repoId_, "") };
+    inline string getRepoId() const { DARABONBA_PTR_GET_DEFAULT(repoId_, "") };
     inline GetRepoTagScanStatusRequest& setRepoId(string repoId) { DARABONBA_PTR_SET_VALUE(repoId_, repoId) };
 
 
     // scanTaskId Field Functions 
     bool hasScanTaskId() const { return this->scanTaskId_ != nullptr;};
     void deleteScanTaskId() { this->scanTaskId_ = nullptr;};
-    inline string scanTaskId() const { DARABONBA_PTR_GET_DEFAULT(scanTaskId_, "") };
+    inline string getScanTaskId() const { DARABONBA_PTR_GET_DEFAULT(scanTaskId_, "") };
     inline GetRepoTagScanStatusRequest& setScanTaskId(string scanTaskId) { DARABONBA_PTR_SET_VALUE(scanTaskId_, scanTaskId) };
 
 
     // scanType Field Functions 
     bool hasScanType() const { return this->scanType_ != nullptr;};
     void deleteScanType() { this->scanType_ = nullptr;};
-    inline string scanType() const { DARABONBA_PTR_GET_DEFAULT(scanType_, "") };
+    inline string getScanType() const { DARABONBA_PTR_GET_DEFAULT(scanType_, "") };
     inline GetRepoTagScanStatusRequest& setScanType(string scanType) { DARABONBA_PTR_SET_VALUE(scanType_, scanType) };
 
 
     // tag Field Functions 
     bool hasTag() const { return this->tag_ != nullptr;};
     void deleteTag() { this->tag_ = nullptr;};
-    inline string tag() const { DARABONBA_PTR_GET_DEFAULT(tag_, "") };
+    inline string getTag() const { DARABONBA_PTR_GET_DEFAULT(tag_, "") };
     inline GetRepoTagScanStatusRequest& setTag(string tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
 
 
   protected:
     // The image digest.
-    std::shared_ptr<string> digest_ = nullptr;
+    shared_ptr<string> digest_ {};
     // The instance ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The ID of the image repository.
-    std::shared_ptr<string> repoId_ = nullptr;
+    shared_ptr<string> repoId_ {};
     // The ID of the image scan task.
-    std::shared_ptr<string> scanTaskId_ = nullptr;
-    std::shared_ptr<string> scanType_ = nullptr;
+    shared_ptr<string> scanTaskId_ {};
+    shared_ptr<string> scanType_ {};
     // The image tag.
-    std::shared_ptr<string> tag_ = nullptr;
+    shared_ptr<string> tag_ {};
   };
 
   } // namespace Models

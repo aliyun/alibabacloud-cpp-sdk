@@ -48,97 +48,97 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->override_ == nullptr && return this->repoId_ == nullptr && return this->tag_ == nullptr && return this->targetInstanceId_ == nullptr && return this->targetNamespace_ == nullptr
-        && return this->targetRegionId_ == nullptr && return this->targetRepoName_ == nullptr && return this->targetTag_ == nullptr && return this->targetUserId_ == nullptr; };
+        && this->override_ == nullptr && this->repoId_ == nullptr && this->tag_ == nullptr && this->targetInstanceId_ == nullptr && this->targetNamespace_ == nullptr
+        && this->targetRegionId_ == nullptr && this->targetRepoName_ == nullptr && this->targetTag_ == nullptr && this->targetUserId_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline CreateRepoSyncTaskRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // override Field Functions 
     bool hasOverride() const { return this->override_ != nullptr;};
     void deleteOverride() { this->override_ = nullptr;};
-    inline bool override() const { DARABONBA_PTR_GET_DEFAULT(override_, false) };
+    inline bool getOverride() const { DARABONBA_PTR_GET_DEFAULT(override_, false) };
     inline CreateRepoSyncTaskRequest& setOverride(bool override) { DARABONBA_PTR_SET_VALUE(override_, override) };
 
 
     // repoId Field Functions 
     bool hasRepoId() const { return this->repoId_ != nullptr;};
     void deleteRepoId() { this->repoId_ = nullptr;};
-    inline string repoId() const { DARABONBA_PTR_GET_DEFAULT(repoId_, "") };
+    inline string getRepoId() const { DARABONBA_PTR_GET_DEFAULT(repoId_, "") };
     inline CreateRepoSyncTaskRequest& setRepoId(string repoId) { DARABONBA_PTR_SET_VALUE(repoId_, repoId) };
 
 
     // tag Field Functions 
     bool hasTag() const { return this->tag_ != nullptr;};
     void deleteTag() { this->tag_ = nullptr;};
-    inline string tag() const { DARABONBA_PTR_GET_DEFAULT(tag_, "") };
+    inline string getTag() const { DARABONBA_PTR_GET_DEFAULT(tag_, "") };
     inline CreateRepoSyncTaskRequest& setTag(string tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
 
 
     // targetInstanceId Field Functions 
     bool hasTargetInstanceId() const { return this->targetInstanceId_ != nullptr;};
     void deleteTargetInstanceId() { this->targetInstanceId_ = nullptr;};
-    inline string targetInstanceId() const { DARABONBA_PTR_GET_DEFAULT(targetInstanceId_, "") };
+    inline string getTargetInstanceId() const { DARABONBA_PTR_GET_DEFAULT(targetInstanceId_, "") };
     inline CreateRepoSyncTaskRequest& setTargetInstanceId(string targetInstanceId) { DARABONBA_PTR_SET_VALUE(targetInstanceId_, targetInstanceId) };
 
 
     // targetNamespace Field Functions 
     bool hasTargetNamespace() const { return this->targetNamespace_ != nullptr;};
     void deleteTargetNamespace() { this->targetNamespace_ = nullptr;};
-    inline string targetNamespace() const { DARABONBA_PTR_GET_DEFAULT(targetNamespace_, "") };
+    inline string getTargetNamespace() const { DARABONBA_PTR_GET_DEFAULT(targetNamespace_, "") };
     inline CreateRepoSyncTaskRequest& setTargetNamespace(string targetNamespace) { DARABONBA_PTR_SET_VALUE(targetNamespace_, targetNamespace) };
 
 
     // targetRegionId Field Functions 
     bool hasTargetRegionId() const { return this->targetRegionId_ != nullptr;};
     void deleteTargetRegionId() { this->targetRegionId_ = nullptr;};
-    inline string targetRegionId() const { DARABONBA_PTR_GET_DEFAULT(targetRegionId_, "") };
+    inline string getTargetRegionId() const { DARABONBA_PTR_GET_DEFAULT(targetRegionId_, "") };
     inline CreateRepoSyncTaskRequest& setTargetRegionId(string targetRegionId) { DARABONBA_PTR_SET_VALUE(targetRegionId_, targetRegionId) };
 
 
     // targetRepoName Field Functions 
     bool hasTargetRepoName() const { return this->targetRepoName_ != nullptr;};
     void deleteTargetRepoName() { this->targetRepoName_ = nullptr;};
-    inline string targetRepoName() const { DARABONBA_PTR_GET_DEFAULT(targetRepoName_, "") };
+    inline string getTargetRepoName() const { DARABONBA_PTR_GET_DEFAULT(targetRepoName_, "") };
     inline CreateRepoSyncTaskRequest& setTargetRepoName(string targetRepoName) { DARABONBA_PTR_SET_VALUE(targetRepoName_, targetRepoName) };
 
 
     // targetTag Field Functions 
     bool hasTargetTag() const { return this->targetTag_ != nullptr;};
     void deleteTargetTag() { this->targetTag_ = nullptr;};
-    inline string targetTag() const { DARABONBA_PTR_GET_DEFAULT(targetTag_, "") };
+    inline string getTargetTag() const { DARABONBA_PTR_GET_DEFAULT(targetTag_, "") };
     inline CreateRepoSyncTaskRequest& setTargetTag(string targetTag) { DARABONBA_PTR_SET_VALUE(targetTag_, targetTag) };
 
 
     // targetUserId Field Functions 
     bool hasTargetUserId() const { return this->targetUserId_ != nullptr;};
     void deleteTargetUserId() { this->targetUserId_ = nullptr;};
-    inline string targetUserId() const { DARABONBA_PTR_GET_DEFAULT(targetUserId_, "") };
+    inline string getTargetUserId() const { DARABONBA_PTR_GET_DEFAULT(targetUserId_, "") };
     inline CreateRepoSyncTaskRequest& setTargetUserId(string targetUserId) { DARABONBA_PTR_SET_VALUE(targetUserId_, targetUserId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<bool> override_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<bool> override_ {};
     // This parameter is required.
-    std::shared_ptr<string> repoId_ = nullptr;
+    shared_ptr<string> repoId_ {};
     // This parameter is required.
-    std::shared_ptr<string> tag_ = nullptr;
+    shared_ptr<string> tag_ {};
     // This parameter is required.
-    std::shared_ptr<string> targetInstanceId_ = nullptr;
+    shared_ptr<string> targetInstanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> targetNamespace_ = nullptr;
+    shared_ptr<string> targetNamespace_ {};
     // This parameter is required.
-    std::shared_ptr<string> targetRegionId_ = nullptr;
+    shared_ptr<string> targetRegionId_ {};
     // This parameter is required.
-    std::shared_ptr<string> targetRepoName_ = nullptr;
+    shared_ptr<string> targetRepoName_ {};
     // This parameter is required.
-    std::shared_ptr<string> targetTag_ = nullptr;
-    std::shared_ptr<string> targetUserId_ = nullptr;
+    shared_ptr<string> targetTag_ {};
+    shared_ptr<string> targetUserId_ {};
   };
 
   } // namespace Models

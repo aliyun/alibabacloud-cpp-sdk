@@ -44,61 +44,61 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoBuild_ == nullptr
-        && return this->codeRepoName_ == nullptr && return this->codeRepoNamespaceName_ == nullptr && return this->codeRepoType_ == nullptr && return this->disableCacheBuild_ == nullptr && return this->instanceId_ == nullptr
-        && return this->overseaBuild_ == nullptr && return this->repoId_ == nullptr; };
+        && this->codeRepoName_ == nullptr && this->codeRepoNamespaceName_ == nullptr && this->codeRepoType_ == nullptr && this->disableCacheBuild_ == nullptr && this->instanceId_ == nullptr
+        && this->overseaBuild_ == nullptr && this->repoId_ == nullptr; };
     // autoBuild Field Functions 
     bool hasAutoBuild() const { return this->autoBuild_ != nullptr;};
     void deleteAutoBuild() { this->autoBuild_ = nullptr;};
-    inline bool autoBuild() const { DARABONBA_PTR_GET_DEFAULT(autoBuild_, false) };
+    inline bool getAutoBuild() const { DARABONBA_PTR_GET_DEFAULT(autoBuild_, false) };
     inline CreateRepoSourceCodeRepoRequest& setAutoBuild(bool autoBuild) { DARABONBA_PTR_SET_VALUE(autoBuild_, autoBuild) };
 
 
     // codeRepoName Field Functions 
     bool hasCodeRepoName() const { return this->codeRepoName_ != nullptr;};
     void deleteCodeRepoName() { this->codeRepoName_ = nullptr;};
-    inline string codeRepoName() const { DARABONBA_PTR_GET_DEFAULT(codeRepoName_, "") };
+    inline string getCodeRepoName() const { DARABONBA_PTR_GET_DEFAULT(codeRepoName_, "") };
     inline CreateRepoSourceCodeRepoRequest& setCodeRepoName(string codeRepoName) { DARABONBA_PTR_SET_VALUE(codeRepoName_, codeRepoName) };
 
 
     // codeRepoNamespaceName Field Functions 
     bool hasCodeRepoNamespaceName() const { return this->codeRepoNamespaceName_ != nullptr;};
     void deleteCodeRepoNamespaceName() { this->codeRepoNamespaceName_ = nullptr;};
-    inline string codeRepoNamespaceName() const { DARABONBA_PTR_GET_DEFAULT(codeRepoNamespaceName_, "") };
+    inline string getCodeRepoNamespaceName() const { DARABONBA_PTR_GET_DEFAULT(codeRepoNamespaceName_, "") };
     inline CreateRepoSourceCodeRepoRequest& setCodeRepoNamespaceName(string codeRepoNamespaceName) { DARABONBA_PTR_SET_VALUE(codeRepoNamespaceName_, codeRepoNamespaceName) };
 
 
     // codeRepoType Field Functions 
     bool hasCodeRepoType() const { return this->codeRepoType_ != nullptr;};
     void deleteCodeRepoType() { this->codeRepoType_ = nullptr;};
-    inline string codeRepoType() const { DARABONBA_PTR_GET_DEFAULT(codeRepoType_, "") };
+    inline string getCodeRepoType() const { DARABONBA_PTR_GET_DEFAULT(codeRepoType_, "") };
     inline CreateRepoSourceCodeRepoRequest& setCodeRepoType(string codeRepoType) { DARABONBA_PTR_SET_VALUE(codeRepoType_, codeRepoType) };
 
 
     // disableCacheBuild Field Functions 
     bool hasDisableCacheBuild() const { return this->disableCacheBuild_ != nullptr;};
     void deleteDisableCacheBuild() { this->disableCacheBuild_ = nullptr;};
-    inline bool disableCacheBuild() const { DARABONBA_PTR_GET_DEFAULT(disableCacheBuild_, false) };
+    inline bool getDisableCacheBuild() const { DARABONBA_PTR_GET_DEFAULT(disableCacheBuild_, false) };
     inline CreateRepoSourceCodeRepoRequest& setDisableCacheBuild(bool disableCacheBuild) { DARABONBA_PTR_SET_VALUE(disableCacheBuild_, disableCacheBuild) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline CreateRepoSourceCodeRepoRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // overseaBuild Field Functions 
     bool hasOverseaBuild() const { return this->overseaBuild_ != nullptr;};
     void deleteOverseaBuild() { this->overseaBuild_ = nullptr;};
-    inline bool overseaBuild() const { DARABONBA_PTR_GET_DEFAULT(overseaBuild_, false) };
+    inline bool getOverseaBuild() const { DARABONBA_PTR_GET_DEFAULT(overseaBuild_, false) };
     inline CreateRepoSourceCodeRepoRequest& setOverseaBuild(bool overseaBuild) { DARABONBA_PTR_SET_VALUE(overseaBuild_, overseaBuild) };
 
 
     // repoId Field Functions 
     bool hasRepoId() const { return this->repoId_ != nullptr;};
     void deleteRepoId() { this->repoId_ = nullptr;};
-    inline string repoId() const { DARABONBA_PTR_GET_DEFAULT(repoId_, "") };
+    inline string getRepoId() const { DARABONBA_PTR_GET_DEFAULT(repoId_, "") };
     inline CreateRepoSourceCodeRepoRequest& setRepoId(string repoId) { DARABONBA_PTR_SET_VALUE(repoId_, repoId) };
 
 
@@ -107,37 +107,37 @@ namespace Models
     // 
     // *   `true`: triggers image building when source code is committed.
     // *   `false`: does not trigger image building when source code is committed.
-    std::shared_ptr<bool> autoBuild_ = nullptr;
+    shared_ptr<bool> autoBuild_ {};
     // The name of the source code repository.
     // 
     // This parameter is required.
-    std::shared_ptr<string> codeRepoName_ = nullptr;
+    shared_ptr<string> codeRepoName_ {};
     // The namespace to which the source code repository belongs.
     // 
     // This parameter is required.
-    std::shared_ptr<string> codeRepoNamespaceName_ = nullptr;
+    shared_ptr<string> codeRepoNamespaceName_ {};
     // The type of the source code hosting platform. Valid values: `GITHUB`, `GITLAB`, `GITEE`, `CODE`, and `CODEUP`.
     // 
     // This parameter is required.
-    std::shared_ptr<string> codeRepoType_ = nullptr;
+    shared_ptr<string> codeRepoType_ {};
     // Specifies whether to disable building caches. Valid values:
     // 
     // *   `true`: disables building caches.
     // *   `false`: enables building caches.
-    std::shared_ptr<bool> disableCacheBuild_ = nullptr;
+    shared_ptr<bool> disableCacheBuild_ {};
     // The ID of the instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // Specifies whether to enable Build With Servers Deployed Outside Chinese Mainland. Valid values:
     // 
     // *   `true`: enables Build With Servers Deployed Outside Chinese Mainland.
     // *   `false`: does not enable Build With Servers Deployed Outside Chinese Mainland.
-    std::shared_ptr<bool> overseaBuild_ = nullptr;
+    shared_ptr<bool> overseaBuild_ {};
     // The ID of the image repository.
     // 
     // This parameter is required.
-    std::shared_ptr<string> repoId_ = nullptr;
+    shared_ptr<string> repoId_ {};
   };
 
   } // namespace Models

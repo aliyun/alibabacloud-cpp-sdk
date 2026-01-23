@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->enable_ == nullptr
-        && return this->endpointType_ == nullptr && return this->instanceId_ == nullptr && return this->moduleName_ == nullptr; };
+        && this->endpointType_ == nullptr && this->instanceId_ == nullptr && this->moduleName_ == nullptr; };
     // enable Field Functions 
     bool hasEnable() const { return this->enable_ != nullptr;};
     void deleteEnable() { this->enable_ = nullptr;};
-    inline bool enable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
+    inline bool getEnable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
     inline UpdateInstanceEndpointStatusRequest& setEnable(bool enable) { DARABONBA_PTR_SET_VALUE(enable_, enable) };
 
 
     // endpointType Field Functions 
     bool hasEndpointType() const { return this->endpointType_ != nullptr;};
     void deleteEndpointType() { this->endpointType_ = nullptr;};
-    inline string endpointType() const { DARABONBA_PTR_GET_DEFAULT(endpointType_, "") };
+    inline string getEndpointType() const { DARABONBA_PTR_GET_DEFAULT(endpointType_, "") };
     inline UpdateInstanceEndpointStatusRequest& setEndpointType(string endpointType) { DARABONBA_PTR_SET_VALUE(endpointType_, endpointType) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline UpdateInstanceEndpointStatusRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // moduleName Field Functions 
     bool hasModuleName() const { return this->moduleName_ != nullptr;};
     void deleteModuleName() { this->moduleName_ = nullptr;};
-    inline string moduleName() const { DARABONBA_PTR_GET_DEFAULT(moduleName_, "") };
+    inline string getModuleName() const { DARABONBA_PTR_GET_DEFAULT(moduleName_, "") };
     inline UpdateInstanceEndpointStatusRequest& setModuleName(string moduleName) { DARABONBA_PTR_SET_VALUE(moduleName_, moduleName) };
 
 
@@ -72,20 +72,20 @@ namespace Models
     // *   `false`: disables the instance endpoint
     // 
     // This parameter is required.
-    std::shared_ptr<bool> enable_ = nullptr;
+    shared_ptr<bool> enable_ {};
     // The type of the endpoint. Set the value to Internet.
     // 
     // This parameter is required.
-    std::shared_ptr<string> endpointType_ = nullptr;
+    shared_ptr<string> endpointType_ {};
     // The ID of the instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The name of the module that you want to access. Valid values:
     // 
     // *   `Registry`: the image repository.
     // *   `Chart`: a Helm chart.
-    std::shared_ptr<string> moduleName_ = nullptr;
+    shared_ptr<string> moduleName_ {};
   };
 
   } // namespace Models

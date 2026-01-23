@@ -46,11 +46,11 @@ CancelArtifactBuildTaskResponse Client::cancelArtifactBuildTaskWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasBuildTaskId()) {
-    query["BuildTaskId"] = request.buildTaskId();
+    query["BuildTaskId"] = request.getBuildTaskId();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -92,15 +92,15 @@ CancelRepoBuildRecordResponse Client::cancelRepoBuildRecordWithOptions(const Can
   request.validate();
   json query = {};
   if (!!request.hasBuildRecordId()) {
-    query["BuildRecordId"] = request.buildRecordId();
+    query["BuildRecordId"] = request.getBuildRecordId();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasRepoId()) {
-    query["RepoId"] = request.repoId();
+    query["RepoId"] = request.getRepoId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -142,11 +142,11 @@ CancelRepoSyncTaskResponse Client::cancelRepoSyncTaskWithOptions(const CancelRep
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasSyncTaskId()) {
-    query["SyncTaskId"] = request.syncTaskId();
+    query["SyncTaskId"] = request.getSyncTaskId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -188,15 +188,15 @@ ChangeResourceGroupResponse Client::changeResourceGroupWithOptions(const ChangeR
   request.validate();
   json query = {};
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasResourceId()) {
-    query["ResourceId"] = request.resourceId();
+    query["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceRegionId()) {
-    query["ResourceRegionId"] = request.resourceRegionId();
+    query["ResourceRegionId"] = request.getResourceRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -242,28 +242,28 @@ CreateArtifactBuildRuleResponse Client::createArtifactBuildRuleWithOptions(const
   CreateArtifactBuildRuleShrinkRequest request = CreateArtifactBuildRuleShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasParameters()) {
-    request.setParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.parameters(), "Parameters", "json"));
+    request.setParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getParameters(), "Parameters", "json"));
   }
 
   json query = {};
   if (!!request.hasArtifactType()) {
-    query["ArtifactType"] = request.artifactType();
+    query["ArtifactType"] = request.getArtifactType();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasParametersShrink()) {
-    query["Parameters"] = request.parametersShrink();
+    query["Parameters"] = request.getParametersShrink();
   }
 
   if (!!request.hasScopeId()) {
-    query["ScopeId"] = request.scopeId();
+    query["ScopeId"] = request.getScopeId();
   }
 
   if (!!request.hasScopeType()) {
-    query["ScopeType"] = request.scopeType();
+    query["ScopeType"] = request.getScopeType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -308,39 +308,39 @@ CreateArtifactLifecycleRuleResponse Client::createArtifactLifecycleRuleWithOptio
   request.validate();
   json query = {};
   if (!!request.hasAuto()) {
-    query["Auto"] = request._auto();
+    query["Auto"] = request.getAuto();
   }
 
   if (!!request.hasEnableDeleteTag()) {
-    query["EnableDeleteTag"] = request.enableDeleteTag();
+    query["EnableDeleteTag"] = request.getEnableDeleteTag();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasNamespaceName()) {
-    query["NamespaceName"] = request.namespaceName();
+    query["NamespaceName"] = request.getNamespaceName();
   }
 
   if (!!request.hasRepoName()) {
-    query["RepoName"] = request.repoName();
+    query["RepoName"] = request.getRepoName();
   }
 
   if (!!request.hasRetentionTagCount()) {
-    query["RetentionTagCount"] = request.retentionTagCount();
+    query["RetentionTagCount"] = request.getRetentionTagCount();
   }
 
   if (!!request.hasScheduleTime()) {
-    query["ScheduleTime"] = request.scheduleTime();
+    query["ScheduleTime"] = request.getScheduleTime();
   }
 
   if (!!request.hasScope()) {
-    query["Scope"] = request.scope();
+    query["Scope"] = request.getScope();
   }
 
   if (!!request.hasTagRegexp()) {
-    query["TagRegexp"] = request.tagRegexp();
+    query["TagRegexp"] = request.getTagRegexp();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -382,47 +382,47 @@ CreateArtifactSubscriptionRuleResponse Client::createArtifactSubscriptionRuleWit
   request.validate();
   json query = {};
   if (!!request.hasAccelerate()) {
-    query["Accelerate"] = request.accelerate();
+    query["Accelerate"] = request.getAccelerate();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasNamespaceName()) {
-    query["NamespaceName"] = request.namespaceName();
+    query["NamespaceName"] = request.getNamespaceName();
   }
 
   if (!!request.hasOverride()) {
-    query["Override"] = request.override();
+    query["Override"] = request.getOverride();
   }
 
   if (!!request.hasPlatform()) {
-    query["Platform"] = request.platform();
+    query["Platform"] = request.getPlatform();
   }
 
   if (!!request.hasRepoName()) {
-    query["RepoName"] = request.repoName();
+    query["RepoName"] = request.getRepoName();
   }
 
   if (!!request.hasSourceNamespaceName()) {
-    query["SourceNamespaceName"] = request.sourceNamespaceName();
+    query["SourceNamespaceName"] = request.getSourceNamespaceName();
   }
 
   if (!!request.hasSourceProvider()) {
-    query["SourceProvider"] = request.sourceProvider();
+    query["SourceProvider"] = request.getSourceProvider();
   }
 
   if (!!request.hasSourceRepoName()) {
-    query["SourceRepoName"] = request.sourceRepoName();
+    query["SourceRepoName"] = request.getSourceRepoName();
   }
 
   if (!!request.hasTagCount()) {
-    query["TagCount"] = request.tagCount();
+    query["TagCount"] = request.getTagCount();
   }
 
   if (!!request.hasTagRegexp()) {
-    query["TagRegexp"] = request.tagRegexp();
+    query["TagRegexp"] = request.getTagRegexp();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -464,11 +464,11 @@ CreateArtifactSubscriptionTaskResponse Client::createArtifactSubscriptionTaskWit
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasRuleId()) {
-    query["RuleId"] = request.ruleId();
+    query["RuleId"] = request.getRuleId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -510,15 +510,15 @@ CreateBuildRecordByRecordResponse Client::createBuildRecordByRecordWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasBuildRecordId()) {
-    query["BuildRecordId"] = request.buildRecordId();
+    query["BuildRecordId"] = request.getBuildRecordId();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasRepoId()) {
-    query["RepoId"] = request.repoId();
+    query["RepoId"] = request.getRepoId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -560,15 +560,15 @@ CreateBuildRecordByRuleResponse Client::createBuildRecordByRuleWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasBuildRuleId()) {
-    query["BuildRuleId"] = request.buildRuleId();
+    query["BuildRuleId"] = request.getBuildRuleId();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasRepoId()) {
-    query["RepoId"] = request.repoId();
+    query["RepoId"] = request.getRepoId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -610,31 +610,31 @@ CreateChainResponse Client::createChainWithOptions(const CreateChainRequest &req
   request.validate();
   json query = {};
   if (!!request.hasChainConfig()) {
-    query["ChainConfig"] = request.chainConfig();
+    query["ChainConfig"] = request.getChainConfig();
   }
 
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasRepoName()) {
-    query["RepoName"] = request.repoName();
+    query["RepoName"] = request.getRepoName();
   }
 
   if (!!request.hasRepoNamespaceName()) {
-    query["RepoNamespaceName"] = request.repoNamespaceName();
+    query["RepoNamespaceName"] = request.getRepoNamespaceName();
   }
 
   if (!!request.hasScopeExclude()) {
-    query["ScopeExclude"] = request.scopeExclude();
+    query["ScopeExclude"] = request.getScopeExclude();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -676,19 +676,19 @@ CreateChartNamespaceResponse Client::createChartNamespaceWithOptions(const Creat
   request.validate();
   json query = {};
   if (!!request.hasAutoCreateRepo()) {
-    query["AutoCreateRepo"] = request.autoCreateRepo();
+    query["AutoCreateRepo"] = request.getAutoCreateRepo();
   }
 
   if (!!request.hasDefaultRepoType()) {
-    query["DefaultRepoType"] = request.defaultRepoType();
+    query["DefaultRepoType"] = request.getDefaultRepoType();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasNamespaceName()) {
-    query["NamespaceName"] = request.namespaceName();
+    query["NamespaceName"] = request.getNamespaceName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -730,23 +730,23 @@ CreateChartRepositoryResponse Client::createChartRepositoryWithOptions(const Cre
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasRepoName()) {
-    query["RepoName"] = request.repoName();
+    query["RepoName"] = request.getRepoName();
   }
 
   if (!!request.hasRepoNamespaceName()) {
-    query["RepoNamespaceName"] = request.repoNamespaceName();
+    query["RepoNamespaceName"] = request.getRepoNamespaceName();
   }
 
   if (!!request.hasRepoType()) {
-    query["RepoType"] = request.repoType();
+    query["RepoType"] = request.getRepoType();
   }
 
   if (!!request.hasSummary()) {
-    query["Summary"] = request.summary();
+    query["Summary"] = request.getSummary();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -788,23 +788,23 @@ CreateInstanceEndpointAclPolicyResponse Client::createInstanceEndpointAclPolicyW
   request.validate();
   json query = {};
   if (!!request.hasComment()) {
-    query["Comment"] = request.comment();
+    query["Comment"] = request.getComment();
   }
 
   if (!!request.hasEndpointType()) {
-    query["EndpointType"] = request.endpointType();
+    query["EndpointType"] = request.getEndpointType();
   }
 
   if (!!request.hasEntry()) {
-    query["Entry"] = request.entry();
+    query["Entry"] = request.getEntry();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasModuleName()) {
-    query["ModuleName"] = request.moduleName();
+    query["ModuleName"] = request.getModuleName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -848,23 +848,23 @@ CreateInstanceVpcEndpointLinkedVpcResponse Client::createInstanceVpcEndpointLink
   request.validate();
   json query = {};
   if (!!request.hasEnableCreateDNSRecordInPvzt()) {
-    query["EnableCreateDNSRecordInPvzt"] = request.enableCreateDNSRecordInPvzt();
+    query["EnableCreateDNSRecordInPvzt"] = request.getEnableCreateDNSRecordInPvzt();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasModuleName()) {
-    query["ModuleName"] = request.moduleName();
+    query["ModuleName"] = request.getModuleName();
   }
 
   if (!!request.hasVpcId()) {
-    query["VpcId"] = request.vpcId();
+    query["VpcId"] = request.getVpcId();
   }
 
   if (!!request.hasVswitchId()) {
-    query["VswitchId"] = request.vswitchId();
+    query["VswitchId"] = request.getVswitchId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -909,28 +909,28 @@ CreateNamespaceResponse Client::createNamespaceWithOptions(const CreateNamespace
   CreateNamespaceShrinkRequest request = CreateNamespaceShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDefaultRepoConfiguration()) {
-    request.setDefaultRepoConfigurationShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.defaultRepoConfiguration(), "DefaultRepoConfiguration", "json"));
+    request.setDefaultRepoConfigurationShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDefaultRepoConfiguration(), "DefaultRepoConfiguration", "json"));
   }
 
   json query = {};
   if (!!request.hasAutoCreateRepo()) {
-    query["AutoCreateRepo"] = request.autoCreateRepo();
+    query["AutoCreateRepo"] = request.getAutoCreateRepo();
   }
 
   if (!!request.hasDefaultRepoConfigurationShrink()) {
-    query["DefaultRepoConfiguration"] = request.defaultRepoConfigurationShrink();
+    query["DefaultRepoConfiguration"] = request.getDefaultRepoConfigurationShrink();
   }
 
   if (!!request.hasDefaultRepoType()) {
-    query["DefaultRepoType"] = request.defaultRepoType();
+    query["DefaultRepoType"] = request.getDefaultRepoType();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasNamespaceName()) {
-    query["NamespaceName"] = request.namespaceName();
+    query["NamespaceName"] = request.getNamespaceName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -972,39 +972,39 @@ CreateRepoBuildRuleResponse Client::createRepoBuildRuleWithOptions(const CreateR
   request.validate();
   json query = {};
   if (!!request.hasBuildArgs()) {
-    query["BuildArgs"] = request.buildArgs();
+    query["BuildArgs"] = request.getBuildArgs();
   }
 
   if (!!request.hasDockerfileLocation()) {
-    query["DockerfileLocation"] = request.dockerfileLocation();
+    query["DockerfileLocation"] = request.getDockerfileLocation();
   }
 
   if (!!request.hasDockerfileName()) {
-    query["DockerfileName"] = request.dockerfileName();
+    query["DockerfileName"] = request.getDockerfileName();
   }
 
   if (!!request.hasImageTag()) {
-    query["ImageTag"] = request.imageTag();
+    query["ImageTag"] = request.getImageTag();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasPlatforms()) {
-    query["Platforms"] = request.platforms();
+    query["Platforms"] = request.getPlatforms();
   }
 
   if (!!request.hasPushName()) {
-    query["PushName"] = request.pushName();
+    query["PushName"] = request.getPushName();
   }
 
   if (!!request.hasPushType()) {
-    query["PushType"] = request.pushType();
+    query["PushType"] = request.getPushType();
   }
 
   if (!!request.hasRepoId()) {
-    query["RepoId"] = request.repoId();
+    query["RepoId"] = request.getRepoId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1046,35 +1046,35 @@ CreateRepoSourceCodeRepoResponse Client::createRepoSourceCodeRepoWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasAutoBuild()) {
-    query["AutoBuild"] = request.autoBuild();
+    query["AutoBuild"] = request.getAutoBuild();
   }
 
   if (!!request.hasCodeRepoName()) {
-    query["CodeRepoName"] = request.codeRepoName();
+    query["CodeRepoName"] = request.getCodeRepoName();
   }
 
   if (!!request.hasCodeRepoNamespaceName()) {
-    query["CodeRepoNamespaceName"] = request.codeRepoNamespaceName();
+    query["CodeRepoNamespaceName"] = request.getCodeRepoNamespaceName();
   }
 
   if (!!request.hasCodeRepoType()) {
-    query["CodeRepoType"] = request.codeRepoType();
+    query["CodeRepoType"] = request.getCodeRepoType();
   }
 
   if (!!request.hasDisableCacheBuild()) {
-    query["DisableCacheBuild"] = request.disableCacheBuild();
+    query["DisableCacheBuild"] = request.getDisableCacheBuild();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasOverseaBuild()) {
-    query["OverseaBuild"] = request.overseaBuild();
+    query["OverseaBuild"] = request.getOverseaBuild();
   }
 
   if (!!request.hasRepoId()) {
-    query["RepoId"] = request.repoId();
+    query["RepoId"] = request.getRepoId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1116,55 +1116,55 @@ CreateRepoSyncRuleResponse Client::createRepoSyncRuleWithOptions(const CreateRep
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasNamespaceName()) {
-    query["NamespaceName"] = request.namespaceName();
+    query["NamespaceName"] = request.getNamespaceName();
   }
 
   if (!!request.hasRepoName()) {
-    query["RepoName"] = request.repoName();
+    query["RepoName"] = request.getRepoName();
   }
 
   if (!!request.hasRepoNameFilter()) {
-    query["RepoNameFilter"] = request.repoNameFilter();
+    query["RepoNameFilter"] = request.getRepoNameFilter();
   }
 
   if (!!request.hasSyncRuleName()) {
-    query["SyncRuleName"] = request.syncRuleName();
+    query["SyncRuleName"] = request.getSyncRuleName();
   }
 
   if (!!request.hasSyncScope()) {
-    query["SyncScope"] = request.syncScope();
+    query["SyncScope"] = request.getSyncScope();
   }
 
   if (!!request.hasSyncTrigger()) {
-    query["SyncTrigger"] = request.syncTrigger();
+    query["SyncTrigger"] = request.getSyncTrigger();
   }
 
   if (!!request.hasTagFilter()) {
-    query["TagFilter"] = request.tagFilter();
+    query["TagFilter"] = request.getTagFilter();
   }
 
   if (!!request.hasTargetInstanceId()) {
-    query["TargetInstanceId"] = request.targetInstanceId();
+    query["TargetInstanceId"] = request.getTargetInstanceId();
   }
 
   if (!!request.hasTargetNamespaceName()) {
-    query["TargetNamespaceName"] = request.targetNamespaceName();
+    query["TargetNamespaceName"] = request.getTargetNamespaceName();
   }
 
   if (!!request.hasTargetRegionId()) {
-    query["TargetRegionId"] = request.targetRegionId();
+    query["TargetRegionId"] = request.getTargetRegionId();
   }
 
   if (!!request.hasTargetRepoName()) {
-    query["TargetRepoName"] = request.targetRepoName();
+    query["TargetRepoName"] = request.getTargetRepoName();
   }
 
   if (!!request.hasTargetUserId()) {
-    query["TargetUserId"] = request.targetUserId();
+    query["TargetUserId"] = request.getTargetUserId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1204,43 +1204,43 @@ CreateRepoSyncTaskResponse Client::createRepoSyncTaskWithOptions(const CreateRep
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasOverride()) {
-    query["Override"] = request.override();
+    query["Override"] = request.getOverride();
   }
 
   if (!!request.hasRepoId()) {
-    query["RepoId"] = request.repoId();
+    query["RepoId"] = request.getRepoId();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   if (!!request.hasTargetInstanceId()) {
-    query["TargetInstanceId"] = request.targetInstanceId();
+    query["TargetInstanceId"] = request.getTargetInstanceId();
   }
 
   if (!!request.hasTargetNamespace()) {
-    query["TargetNamespace"] = request.targetNamespace();
+    query["TargetNamespace"] = request.getTargetNamespace();
   }
 
   if (!!request.hasTargetRegionId()) {
-    query["TargetRegionId"] = request.targetRegionId();
+    query["TargetRegionId"] = request.getTargetRegionId();
   }
 
   if (!!request.hasTargetRepoName()) {
-    query["TargetRepoName"] = request.targetRepoName();
+    query["TargetRepoName"] = request.getTargetRepoName();
   }
 
   if (!!request.hasTargetTag()) {
-    query["TargetTag"] = request.targetTag();
+    query["TargetTag"] = request.getTargetTag();
   }
 
   if (!!request.hasTargetUserId()) {
-    query["TargetUserId"] = request.targetUserId();
+    query["TargetUserId"] = request.getTargetUserId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1280,19 +1280,19 @@ CreateRepoSyncTaskByRuleResponse Client::createRepoSyncTaskByRuleWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasRepoId()) {
-    query["RepoId"] = request.repoId();
+    query["RepoId"] = request.getRepoId();
   }
 
   if (!!request.hasSyncRuleId()) {
-    query["SyncRuleId"] = request.syncRuleId();
+    query["SyncRuleId"] = request.getSyncRuleId();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1334,23 +1334,23 @@ CreateRepoTagResponse Client::createRepoTagWithOptions(const CreateRepoTagReques
   request.validate();
   json query = {};
   if (!!request.hasFromTag()) {
-    query["FromTag"] = request.fromTag();
+    query["FromTag"] = request.getFromTag();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasNamespaceName()) {
-    query["NamespaceName"] = request.namespaceName();
+    query["NamespaceName"] = request.getNamespaceName();
   }
 
   if (!!request.hasRepoName()) {
-    query["RepoName"] = request.repoName();
+    query["RepoName"] = request.getRepoName();
   }
 
   if (!!request.hasToTag()) {
-    query["ToTag"] = request.toTag();
+    query["ToTag"] = request.getToTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1392,27 +1392,27 @@ CreateRepoTagScanTaskResponse Client::createRepoTagScanTaskWithOptions(const Cre
   request.validate();
   json query = {};
   if (!!request.hasDigest()) {
-    query["Digest"] = request.digest();
+    query["Digest"] = request.getDigest();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasRepoId()) {
-    query["RepoId"] = request.repoId();
+    query["RepoId"] = request.getRepoId();
   }
 
   if (!!request.hasScanService()) {
-    query["ScanService"] = request.scanService();
+    query["ScanService"] = request.getScanService();
   }
 
   if (!!request.hasScanType()) {
-    query["ScanType"] = request.scanType();
+    query["ScanType"] = request.getScanType();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1454,27 +1454,27 @@ CreateRepoTriggerResponse Client::createRepoTriggerWithOptions(const CreateRepoT
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasRepoId()) {
-    query["RepoId"] = request.repoId();
+    query["RepoId"] = request.getRepoId();
   }
 
   if (!!request.hasTriggerName()) {
-    query["TriggerName"] = request.triggerName();
+    query["TriggerName"] = request.getTriggerName();
   }
 
   if (!!request.hasTriggerTag()) {
-    query["TriggerTag"] = request.triggerTag();
+    query["TriggerTag"] = request.getTriggerTag();
   }
 
   if (!!request.hasTriggerType()) {
-    query["TriggerType"] = request.triggerType();
+    query["TriggerType"] = request.getTriggerType();
   }
 
   if (!!request.hasTriggerUrl()) {
-    query["TriggerUrl"] = request.triggerUrl();
+    query["TriggerUrl"] = request.getTriggerUrl();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1516,31 +1516,31 @@ CreateRepositoryResponse Client::createRepositoryWithOptions(const CreateReposit
   request.validate();
   json query = {};
   if (!!request.hasDetail()) {
-    query["Detail"] = request.detail();
+    query["Detail"] = request.getDetail();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasRepoName()) {
-    query["RepoName"] = request.repoName();
+    query["RepoName"] = request.getRepoName();
   }
 
   if (!!request.hasRepoNamespaceName()) {
-    query["RepoNamespaceName"] = request.repoNamespaceName();
+    query["RepoNamespaceName"] = request.getRepoNamespaceName();
   }
 
   if (!!request.hasRepoType()) {
-    query["RepoType"] = request.repoType();
+    query["RepoType"] = request.getRepoType();
   }
 
   if (!!request.hasSummary()) {
-    query["Summary"] = request.summary();
+    query["Summary"] = request.getSummary();
   }
 
   if (!!request.hasTagImmutability()) {
-    query["TagImmutability"] = request.tagImmutability();
+    query["TagImmutability"] = request.getTagImmutability();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1572,7 +1572,9 @@ CreateRepositoryResponse Client::createRepository(const CreateRepositoryRequest 
 }
 
 /**
- * @summary 创建扫描规则
+ * @summary Creates a scan or content analysis rule.
+ *
+ * @description Creates a scan or content analysis rule.
  *
  * @param tmpReq CreateScanRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1583,44 +1585,44 @@ CreateScanRuleResponse Client::createScanRuleWithOptions(const CreateScanRuleReq
   CreateScanRuleShrinkRequest request = CreateScanRuleShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasNamespaces()) {
-    request.setNamespacesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.namespaces(), "Namespaces", "json"));
+    request.setNamespacesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNamespaces(), "Namespaces", "json"));
   }
 
   if (!!tmpReq.hasRepoNames()) {
-    request.setRepoNamesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.repoNames(), "RepoNames", "json"));
+    request.setRepoNamesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRepoNames(), "RepoNames", "json"));
   }
 
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasNamespacesShrink()) {
-    query["Namespaces"] = request.namespacesShrink();
+    query["Namespaces"] = request.getNamespacesShrink();
   }
 
   if (!!request.hasRepoNamesShrink()) {
-    query["RepoNames"] = request.repoNamesShrink();
+    query["RepoNames"] = request.getRepoNamesShrink();
   }
 
   if (!!request.hasRepoTagFilterPattern()) {
-    query["RepoTagFilterPattern"] = request.repoTagFilterPattern();
+    query["RepoTagFilterPattern"] = request.getRepoTagFilterPattern();
   }
 
   if (!!request.hasRuleName()) {
-    query["RuleName"] = request.ruleName();
+    query["RuleName"] = request.getRuleName();
   }
 
   if (!!request.hasScanScope()) {
-    query["ScanScope"] = request.scanScope();
+    query["ScanScope"] = request.getScanScope();
   }
 
   if (!!request.hasScanType()) {
-    query["ScanType"] = request.scanType();
+    query["ScanType"] = request.getScanType();
   }
 
   if (!!request.hasTriggerType()) {
-    query["TriggerType"] = request.triggerType();
+    query["TriggerType"] = request.getTriggerType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1641,7 +1643,9 @@ CreateScanRuleResponse Client::createScanRuleWithOptions(const CreateScanRuleReq
 }
 
 /**
- * @summary 创建扫描规则
+ * @summary Creates a scan or content analysis rule.
+ *
+ * @description Creates a scan or content analysis rule.
  *
  * @param request CreateScanRuleRequest
  * @return CreateScanRuleResponse
@@ -1652,7 +1656,9 @@ CreateScanRuleResponse Client::createScanRule(const CreateScanRuleRequest &reque
 }
 
 /**
- * @summary 创建实例域名路由规则
+ * @summary Creates an instance store domain name routing rule.
+ *
+ * @description The whitelist of this API operation is available. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket).
  *
  * @param tmpReq CreateStorageDomainRoutingRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1663,16 +1669,16 @@ CreateStorageDomainRoutingRuleResponse Client::createStorageDomainRoutingRuleWit
   CreateStorageDomainRoutingRuleShrinkRequest request = CreateStorageDomainRoutingRuleShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasRoutes()) {
-    request.setRoutesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.routes(), "Routes", "json"));
+    request.setRoutesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRoutes(), "Routes", "json"));
   }
 
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasRoutesShrink()) {
-    query["Routes"] = request.routesShrink();
+    query["Routes"] = request.getRoutesShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1693,7 +1699,9 @@ CreateStorageDomainRoutingRuleResponse Client::createStorageDomainRoutingRuleWit
 }
 
 /**
- * @summary 创建实例域名路由规则
+ * @summary Creates an instance store domain name routing rule.
+ *
+ * @description The whitelist of this API operation is available. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket).
  *
  * @param request CreateStorageDomainRoutingRuleRequest
  * @return CreateStorageDomainRoutingRuleResponse
@@ -1714,11 +1722,11 @@ DeleteArtifactLifecycleRuleResponse Client::deleteArtifactLifecycleRuleWithOptio
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasRuleId()) {
-    query["RuleId"] = request.ruleId();
+    query["RuleId"] = request.getRuleId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1760,11 +1768,11 @@ DeleteArtifactSubscriptionRuleResponse Client::deleteArtifactSubscriptionRuleWit
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasRuleId()) {
-    query["RuleId"] = request.ruleId();
+    query["RuleId"] = request.getRuleId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1806,11 +1814,11 @@ DeleteChainResponse Client::deleteChainWithOptions(const DeleteChainRequest &req
   request.validate();
   json query = {};
   if (!!request.hasChainId()) {
-    query["ChainId"] = request.chainId();
+    query["ChainId"] = request.getChainId();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1854,11 +1862,11 @@ DeleteChartNamespaceResponse Client::deleteChartNamespaceWithOptions(const Delet
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasNamespaceName()) {
-    query["NamespaceName"] = request.namespaceName();
+    query["NamespaceName"] = request.getNamespaceName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1902,23 +1910,23 @@ DeleteChartReleaseResponse Client::deleteChartReleaseWithOptions(const DeleteCha
   request.validate();
   json query = {};
   if (!!request.hasChart()) {
-    query["Chart"] = request.chart();
+    query["Chart"] = request.getChart();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasRelease()) {
-    query["Release"] = request.release();
+    query["Release"] = request.getRelease();
   }
 
   if (!!request.hasRepoName()) {
-    query["RepoName"] = request.repoName();
+    query["RepoName"] = request.getRepoName();
   }
 
   if (!!request.hasRepoNamespaceName()) {
-    query["RepoNamespaceName"] = request.repoNamespaceName();
+    query["RepoNamespaceName"] = request.getRepoNamespaceName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1960,15 +1968,15 @@ DeleteChartRepositoryResponse Client::deleteChartRepositoryWithOptions(const Del
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasRepoName()) {
-    query["RepoName"] = request.repoName();
+    query["RepoName"] = request.getRepoName();
   }
 
   if (!!request.hasRepoNamespaceName()) {
-    query["RepoNamespaceName"] = request.repoNamespaceName();
+    query["RepoNamespaceName"] = request.getRepoNamespaceName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2010,11 +2018,11 @@ DeleteEventCenterRuleResponse Client::deleteEventCenterRuleWithOptions(const Del
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasRuleId()) {
-    query["RuleId"] = request.ruleId();
+    query["RuleId"] = request.getRuleId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2056,19 +2064,19 @@ DeleteInstanceEndpointAclPolicyResponse Client::deleteInstanceEndpointAclPolicyW
   request.validate();
   json query = {};
   if (!!request.hasEndpointType()) {
-    query["EndpointType"] = request.endpointType();
+    query["EndpointType"] = request.getEndpointType();
   }
 
   if (!!request.hasEntry()) {
-    query["Entry"] = request.entry();
+    query["Entry"] = request.getEntry();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasModuleName()) {
-    query["ModuleName"] = request.moduleName();
+    query["ModuleName"] = request.getModuleName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2110,19 +2118,19 @@ DeleteInstanceVpcEndpointLinkedVpcResponse Client::deleteInstanceVpcEndpointLink
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasModuleName()) {
-    query["ModuleName"] = request.moduleName();
+    query["ModuleName"] = request.getModuleName();
   }
 
   if (!!request.hasVpcId()) {
-    query["VpcId"] = request.vpcId();
+    query["VpcId"] = request.getVpcId();
   }
 
   if (!!request.hasVswitchId()) {
-    query["VswitchId"] = request.vswitchId();
+    query["VswitchId"] = request.getVswitchId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2166,11 +2174,11 @@ DeleteNamespaceResponse Client::deleteNamespaceWithOptions(const DeleteNamespace
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasNamespaceName()) {
-    query["NamespaceName"] = request.namespaceName();
+    query["NamespaceName"] = request.getNamespaceName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2214,15 +2222,15 @@ DeleteRepoBuildRuleResponse Client::deleteRepoBuildRuleWithOptions(const DeleteR
   request.validate();
   json query = {};
   if (!!request.hasBuildRuleId()) {
-    query["BuildRuleId"] = request.buildRuleId();
+    query["BuildRuleId"] = request.getBuildRuleId();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasRepoId()) {
-    query["RepoId"] = request.repoId();
+    query["RepoId"] = request.getRepoId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2264,11 +2272,11 @@ DeleteRepoSyncRuleResponse Client::deleteRepoSyncRuleWithOptions(const DeleteRep
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasSyncRuleId()) {
-    query["SyncRuleId"] = request.syncRuleId();
+    query["SyncRuleId"] = request.getSyncRuleId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2310,15 +2318,15 @@ DeleteRepoTagResponse Client::deleteRepoTagWithOptions(const DeleteRepoTagReques
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasRepoId()) {
-    query["RepoId"] = request.repoId();
+    query["RepoId"] = request.getRepoId();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2360,15 +2368,15 @@ DeleteRepoTriggerResponse Client::deleteRepoTriggerWithOptions(const DeleteRepoT
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasRepoId()) {
-    query["RepoId"] = request.repoId();
+    query["RepoId"] = request.getRepoId();
   }
 
   if (!!request.hasTriggerId()) {
-    query["TriggerId"] = request.triggerId();
+    query["TriggerId"] = request.getTriggerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2412,19 +2420,19 @@ DeleteRepositoryResponse Client::deleteRepositoryWithOptions(const DeleteReposit
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasRepoId()) {
-    query["RepoId"] = request.repoId();
+    query["RepoId"] = request.getRepoId();
   }
 
   if (!!request.hasRepoName()) {
-    query["RepoName"] = request.repoName();
+    query["RepoName"] = request.getRepoName();
   }
 
   if (!!request.hasRepoNamespaceName()) {
-    query["RepoNamespaceName"] = request.repoNamespaceName();
+    query["RepoNamespaceName"] = request.getRepoNamespaceName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2458,7 +2466,9 @@ DeleteRepositoryResponse Client::deleteRepository(const DeleteRepositoryRequest 
 }
 
 /**
- * @summary 删除扫描规则
+ * @summary Deletes a scan rule.
+ *
+ * @description Deletes a scan rule.
  *
  * @param request DeleteScanRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2468,11 +2478,11 @@ DeleteScanRuleResponse Client::deleteScanRuleWithOptions(const DeleteScanRuleReq
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasScanRuleId()) {
-    query["ScanRuleId"] = request.scanRuleId();
+    query["ScanRuleId"] = request.getScanRuleId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2493,7 +2503,9 @@ DeleteScanRuleResponse Client::deleteScanRuleWithOptions(const DeleteScanRuleReq
 }
 
 /**
- * @summary 删除扫描规则
+ * @summary Deletes a scan rule.
+ *
+ * @description Deletes a scan rule.
  *
  * @param request DeleteScanRuleRequest
  * @return DeleteScanRuleResponse
@@ -2504,7 +2516,9 @@ DeleteScanRuleResponse Client::deleteScanRule(const DeleteScanRuleRequest &reque
 }
 
 /**
- * @summary 删除实例存储域名映射规则
+ * @summary Deletes an instance store domain name routing rule.
+ *
+ * @description The whitelist of this API operation is available. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket).
  *
  * @param request DeleteStorageDomainRoutingRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2514,11 +2528,11 @@ DeleteStorageDomainRoutingRuleResponse Client::deleteStorageDomainRoutingRuleWit
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasRuleId()) {
-    query["RuleId"] = request.ruleId();
+    query["RuleId"] = request.getRuleId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2539,7 +2553,9 @@ DeleteStorageDomainRoutingRuleResponse Client::deleteStorageDomainRoutingRuleWit
 }
 
 /**
- * @summary 删除实例存储域名映射规则
+ * @summary Deletes an instance store domain name routing rule.
+ *
+ * @description The whitelist of this API operation is available. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket).
  *
  * @param request DeleteStorageDomainRoutingRuleRequest
  * @return DeleteStorageDomainRoutingRuleResponse
@@ -2774,9 +2790,12 @@ GetArtifactSubscriptionTaskResultResponse Client::getArtifactSubscriptionTaskRes
 }
 
 /**
- * @summary Queries a temporary username and a token that you can use to log on to a Container Registry instance.
+ * @summary Queries a pair of temporary username and password that you use to log on to a Container Registry instance.
  *
- * @description The ID of the Container Registry instance.
+ * @description The validity period of the temporary password is 1 hour. If you use STS to request a token, the validity period of the temporary password is the same as the validity period of the STS token.
+ * *   If you log on to an instance by using the temporary password obtained through an Alibaba Cloud account, you have the same permissions on resources as the user of the Alibaba Cloud account.
+ * *   If you log on to an instance by using the temporary password obtained through a RAM user, you have the same permissions as the RAM user.
+ * *   If you log on to an instance by using the temporary password obtained through STS, you have the same permissions as the STS token.
  *
  * @param request GetAuthorizationTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2786,7 +2805,7 @@ GetAuthorizationTokenResponse Client::getAuthorizationTokenWithOptions(const Get
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2807,9 +2826,12 @@ GetAuthorizationTokenResponse Client::getAuthorizationTokenWithOptions(const Get
 }
 
 /**
- * @summary Queries a temporary username and a token that you can use to log on to a Container Registry instance.
+ * @summary Queries a pair of temporary username and password that you use to log on to a Container Registry instance.
  *
- * @description The ID of the Container Registry instance.
+ * @description The validity period of the temporary password is 1 hour. If you use STS to request a token, the validity period of the temporary password is the same as the validity period of the STS token.
+ * *   If you log on to an instance by using the temporary password obtained through an Alibaba Cloud account, you have the same permissions on resources as the user of the Alibaba Cloud account.
+ * *   If you log on to an instance by using the temporary password obtained through a RAM user, you have the same permissions as the RAM user.
+ * *   If you log on to an instance by using the temporary password obtained through STS, you have the same permissions as the STS token.
  *
  * @param request GetAuthorizationTokenRequest
  * @return GetAuthorizationTokenResponse
@@ -2830,11 +2852,11 @@ GetChainResponse Client::getChainWithOptions(const GetChainRequest &request, con
   request.validate();
   json query = {};
   if (!!request.hasChainId()) {
-    query["ChainId"] = request.chainId();
+    query["ChainId"] = request.getChainId();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2876,11 +2898,11 @@ GetChartNamespaceResponse Client::getChartNamespaceWithOptions(const GetChartNam
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasNamespaceName()) {
-    query["NamespaceName"] = request.namespaceName();
+    query["NamespaceName"] = request.getNamespaceName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2922,15 +2944,15 @@ GetChartRepositoryResponse Client::getChartRepositoryWithOptions(const GetChartR
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasRepoName()) {
-    query["RepoName"] = request.repoName();
+    query["RepoName"] = request.getRepoName();
   }
 
   if (!!request.hasRepoNamespaceName()) {
-    query["RepoNamespaceName"] = request.repoNamespaceName();
+    query["RepoNamespaceName"] = request.getRepoNamespaceName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2972,7 +2994,7 @@ GetInstanceResponse Client::getInstanceWithOptions(const GetInstanceRequest &req
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3047,15 +3069,15 @@ GetInstanceEndpointResponse Client::getInstanceEndpointWithOptions(const GetInst
   request.validate();
   json query = {};
   if (!!request.hasEndpointType()) {
-    query["EndpointType"] = request.endpointType();
+    query["EndpointType"] = request.getEndpointType();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasModuleName()) {
-    query["ModuleName"] = request.moduleName();
+    query["ModuleName"] = request.getModuleName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3097,7 +3119,7 @@ GetInstanceUsageResponse Client::getInstanceUsageWithOptions(const GetInstanceUs
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3139,11 +3161,11 @@ GetInstanceVpcEndpointResponse Client::getInstanceVpcEndpointWithOptions(const G
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasModuleName()) {
-    query["ModuleName"] = request.moduleName();
+    query["ModuleName"] = request.getModuleName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3185,15 +3207,15 @@ GetNamespaceResponse Client::getNamespaceWithOptions(const GetNamespaceRequest &
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasNamespaceId()) {
-    query["NamespaceId"] = request.namespaceId();
+    query["NamespaceId"] = request.getNamespaceId();
   }
 
   if (!!request.hasNamespaceName()) {
-    query["NamespaceName"] = request.namespaceName();
+    query["NamespaceName"] = request.getNamespaceName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3237,11 +3259,11 @@ GetRepoBuildRecordResponse Client::getRepoBuildRecordWithOptions(const GetRepoBu
   request.validate();
   json query = {};
   if (!!request.hasBuildRecordId()) {
-    query["BuildRecordId"] = request.buildRecordId();
+    query["BuildRecordId"] = request.getBuildRecordId();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3285,15 +3307,15 @@ GetRepoBuildRecordStatusResponse Client::getRepoBuildRecordStatusWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasBuildRecordId()) {
-    query["BuildRecordId"] = request.buildRecordId();
+    query["BuildRecordId"] = request.getBuildRecordId();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasRepoId()) {
-    query["RepoId"] = request.repoId();
+    query["RepoId"] = request.getRepoId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3335,11 +3357,11 @@ GetRepoSourceCodeRepoResponse Client::getRepoSourceCodeRepoWithOptions(const Get
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasRepoId()) {
-    query["RepoId"] = request.repoId();
+    query["RepoId"] = request.getRepoId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3381,11 +3403,11 @@ GetRepoSyncTaskResponse Client::getRepoSyncTaskWithOptions(const GetRepoSyncTask
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasSyncTaskId()) {
-    query["SyncTaskId"] = request.syncTaskId();
+    query["SyncTaskId"] = request.getSyncTaskId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3465,27 +3487,27 @@ GetRepoTagScanStatusResponse Client::getRepoTagScanStatusWithOptions(const GetRe
   request.validate();
   json query = {};
   if (!!request.hasDigest()) {
-    query["Digest"] = request.digest();
+    query["Digest"] = request.getDigest();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasRepoId()) {
-    query["RepoId"] = request.repoId();
+    query["RepoId"] = request.getRepoId();
   }
 
   if (!!request.hasScanTaskId()) {
-    query["ScanTaskId"] = request.scanTaskId();
+    query["ScanTaskId"] = request.getScanTaskId();
   }
 
   if (!!request.hasScanType()) {
-    query["ScanType"] = request.scanType();
+    query["ScanType"] = request.getScanType();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3525,23 +3547,23 @@ GetRepoTagScanSummaryResponse Client::getRepoTagScanSummaryWithOptions(const Get
   request.validate();
   json query = {};
   if (!!request.hasDigest()) {
-    query["Digest"] = request.digest();
+    query["Digest"] = request.getDigest();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasRepoId()) {
-    query["RepoId"] = request.repoId();
+    query["RepoId"] = request.getRepoId();
   }
 
   if (!!request.hasScanTaskId()) {
-    query["ScanTaskId"] = request.scanTaskId();
+    query["ScanTaskId"] = request.getScanTaskId();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3581,19 +3603,19 @@ GetRepositoryResponse Client::getRepositoryWithOptions(const GetRepositoryReques
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasRepoId()) {
-    query["RepoId"] = request.repoId();
+    query["RepoId"] = request.getRepoId();
   }
 
   if (!!request.hasRepoName()) {
-    query["RepoName"] = request.repoName();
+    query["RepoName"] = request.getRepoName();
   }
 
   if (!!request.hasRepoNamespaceName()) {
-    query["RepoNamespaceName"] = request.repoNamespaceName();
+    query["RepoNamespaceName"] = request.getRepoNamespaceName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3625,7 +3647,9 @@ GetRepositoryResponse Client::getRepository(const GetRepositoryRequest &request)
 }
 
 /**
- * @summary 查询扫描规则
+ * @summary Obtains a scan rule.
+ *
+ * @description Get scan rule.
  *
  * @param request GetScanRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3635,11 +3659,11 @@ GetScanRuleResponse Client::getScanRuleWithOptions(const GetScanRuleRequest &req
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasScanRuleId()) {
-    query["ScanRuleId"] = request.scanRuleId();
+    query["ScanRuleId"] = request.getScanRuleId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3660,7 +3684,9 @@ GetScanRuleResponse Client::getScanRuleWithOptions(const GetScanRuleRequest &req
 }
 
 /**
- * @summary 查询扫描规则
+ * @summary Obtains a scan rule.
+ *
+ * @description Get scan rule.
  *
  * @param request GetScanRuleRequest
  * @return GetScanRuleResponse
@@ -3671,7 +3697,9 @@ GetScanRuleResponse Client::getScanRule(const GetScanRuleRequest &request) {
 }
 
 /**
- * @summary 查询实例存储域名路由规则
+ * @summary Queries instance storage domain routing rules
+ *
+ * @description This API is open to a whitelist. Please [submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket) for support.
  *
  * @param request GetStorageDomainRoutingRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3681,11 +3709,11 @@ GetStorageDomainRoutingRuleResponse Client::getStorageDomainRoutingRuleWithOptio
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasRuleId()) {
-    query["RuleId"] = request.ruleId();
+    query["RuleId"] = request.getRuleId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3706,7 +3734,9 @@ GetStorageDomainRoutingRuleResponse Client::getStorageDomainRoutingRuleWithOptio
 }
 
 /**
- * @summary 查询实例存储域名路由规则
+ * @summary Queries instance storage domain routing rules
+ *
+ * @description This API is open to a whitelist. Please [submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket) for support.
  *
  * @param request GetStorageDomainRoutingRuleRequest
  * @return GetStorageDomainRoutingRuleResponse
@@ -3879,23 +3909,23 @@ ListChainResponse Client::listChainWithOptions(const ListChainRequest &request, 
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasPageNo()) {
-    query["PageNo"] = request.pageNo();
+    query["PageNo"] = request.getPageNo();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRepoName()) {
-    query["RepoName"] = request.repoName();
+    query["RepoName"] = request.getRepoName();
   }
 
   if (!!request.hasRepoNamespaceName()) {
-    query["RepoNamespaceName"] = request.repoNamespaceName();
+    query["RepoNamespaceName"] = request.getRepoNamespaceName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3937,23 +3967,23 @@ ListChainInstanceResponse Client::listChainInstanceWithOptions(const ListChainIn
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasPageNo()) {
-    query["PageNo"] = request.pageNo();
+    query["PageNo"] = request.getPageNo();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRepoName()) {
-    query["RepoName"] = request.repoName();
+    query["RepoName"] = request.getRepoName();
   }
 
   if (!!request.hasRepoNamespaceName()) {
-    query["RepoNamespaceName"] = request.repoNamespaceName();
+    query["RepoNamespaceName"] = request.getRepoNamespaceName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3995,23 +4025,23 @@ ListChartNamespaceResponse Client::listChartNamespaceWithOptions(const ListChart
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasNamespaceName()) {
-    query["NamespaceName"] = request.namespaceName();
+    query["NamespaceName"] = request.getNamespaceName();
   }
 
   if (!!request.hasNamespaceStatus()) {
-    query["NamespaceStatus"] = request.namespaceStatus();
+    query["NamespaceStatus"] = request.getNamespaceStatus();
   }
 
   if (!!request.hasPageNo()) {
-    query["PageNo"] = request.pageNo();
+    query["PageNo"] = request.getPageNo();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4053,27 +4083,27 @@ ListChartReleaseResponse Client::listChartReleaseWithOptions(const ListChartRele
   request.validate();
   json query = {};
   if (!!request.hasChart()) {
-    query["Chart"] = request.chart();
+    query["Chart"] = request.getChart();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasPageNo()) {
-    query["PageNo"] = request.pageNo();
+    query["PageNo"] = request.getPageNo();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRepoName()) {
-    query["RepoName"] = request.repoName();
+    query["RepoName"] = request.getRepoName();
   }
 
   if (!!request.hasRepoNamespaceName()) {
-    query["RepoNamespaceName"] = request.repoNamespaceName();
+    query["RepoNamespaceName"] = request.getRepoNamespaceName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4115,27 +4145,27 @@ ListChartRepositoryResponse Client::listChartRepositoryWithOptions(const ListCha
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasPageNo()) {
-    query["PageNo"] = request.pageNo();
+    query["PageNo"] = request.getPageNo();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRepoName()) {
-    query["RepoName"] = request.repoName();
+    query["RepoName"] = request.getRepoName();
   }
 
   if (!!request.hasRepoNamespaceName()) {
-    query["RepoNamespaceName"] = request.repoNamespaceName();
+    query["RepoNamespaceName"] = request.getRepoNamespaceName();
   }
 
   if (!!request.hasRepoStatus()) {
-    query["RepoStatus"] = request.repoStatus();
+    query["RepoStatus"] = request.getRepoStatus();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4253,23 +4283,23 @@ ListInstanceResponse Client::listInstanceWithOptions(const ListInstanceRequest &
   request.validate();
   json query = {};
   if (!!request.hasInstanceName()) {
-    query["InstanceName"] = request.instanceName();
+    query["InstanceName"] = request.getInstanceName();
   }
 
   if (!!request.hasInstanceStatus()) {
-    query["InstanceStatus"] = request.instanceStatus();
+    query["InstanceStatus"] = request.getInstanceStatus();
   }
 
   if (!!request.hasPageNo()) {
-    query["PageNo"] = request.pageNo();
+    query["PageNo"] = request.getPageNo();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4311,15 +4341,15 @@ ListInstanceEndpointResponse Client::listInstanceEndpointWithOptions(const ListI
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasModuleName()) {
-    query["ModuleName"] = request.moduleName();
+    query["ModuleName"] = request.getModuleName();
   }
 
   if (!!request.hasSummary()) {
-    query["Summary"] = request.summary();
+    query["Summary"] = request.getSummary();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4361,7 +4391,7 @@ ListInstanceRegionResponse Client::listInstanceRegionWithOptions(const ListInsta
   request.validate();
   json query = {};
   if (!!request.hasLang()) {
-    query["Lang"] = request.lang();
+    query["Lang"] = request.getLang();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4403,23 +4433,23 @@ ListNamespaceResponse Client::listNamespaceWithOptions(const ListNamespaceReques
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasNamespaceName()) {
-    query["NamespaceName"] = request.namespaceName();
+    query["NamespaceName"] = request.getNamespaceName();
   }
 
   if (!!request.hasNamespaceStatus()) {
-    query["NamespaceStatus"] = request.namespaceStatus();
+    query["NamespaceStatus"] = request.getNamespaceStatus();
   }
 
   if (!!request.hasPageNo()) {
-    query["PageNo"] = request.pageNo();
+    query["PageNo"] = request.getPageNo();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4461,19 +4491,19 @@ ListRepoBuildRecordResponse Client::listRepoBuildRecordWithOptions(const ListRep
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasPageNo()) {
-    query["PageNo"] = request.pageNo();
+    query["PageNo"] = request.getPageNo();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRepoId()) {
-    query["RepoId"] = request.repoId();
+    query["RepoId"] = request.getRepoId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4515,19 +4545,19 @@ ListRepoBuildRecordLogResponse Client::listRepoBuildRecordLogWithOptions(const L
   request.validate();
   json query = {};
   if (!!request.hasBuildRecordId()) {
-    query["BuildRecordId"] = request.buildRecordId();
+    query["BuildRecordId"] = request.getBuildRecordId();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasOffset()) {
-    query["Offset"] = request.offset();
+    query["Offset"] = request.getOffset();
   }
 
   if (!!request.hasRepoId()) {
-    query["RepoId"] = request.repoId();
+    query["RepoId"] = request.getRepoId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4569,19 +4599,19 @@ ListRepoBuildRuleResponse Client::listRepoBuildRuleWithOptions(const ListRepoBui
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasPageNo()) {
-    query["PageNo"] = request.pageNo();
+    query["PageNo"] = request.getPageNo();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRepoId()) {
-    query["RepoId"] = request.repoId();
+    query["RepoId"] = request.getRepoId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4623,31 +4653,31 @@ ListRepoSyncRuleResponse Client::listRepoSyncRuleWithOptions(const ListRepoSyncR
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasNamespaceName()) {
-    query["NamespaceName"] = request.namespaceName();
+    query["NamespaceName"] = request.getNamespaceName();
   }
 
   if (!!request.hasPageNo()) {
-    query["PageNo"] = request.pageNo();
+    query["PageNo"] = request.getPageNo();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRepoName()) {
-    query["RepoName"] = request.repoName();
+    query["RepoName"] = request.getRepoName();
   }
 
   if (!!request.hasTargetInstanceId()) {
-    query["TargetInstanceId"] = request.targetInstanceId();
+    query["TargetInstanceId"] = request.getTargetInstanceId();
   }
 
   if (!!request.hasTargetRegionId()) {
-    query["TargetRegionId"] = request.targetRegionId();
+    query["TargetRegionId"] = request.getTargetRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4689,31 +4719,31 @@ ListRepoSyncTaskResponse Client::listRepoSyncTaskWithOptions(const ListRepoSyncT
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasPageNo()) {
-    query["PageNo"] = request.pageNo();
+    query["PageNo"] = request.getPageNo();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRepoName()) {
-    query["RepoName"] = request.repoName();
+    query["RepoName"] = request.getRepoName();
   }
 
   if (!!request.hasRepoNamespaceName()) {
-    query["RepoNamespaceName"] = request.repoNamespaceName();
+    query["RepoNamespaceName"] = request.getRepoNamespaceName();
   }
 
   if (!!request.hasSyncRecordId()) {
-    query["SyncRecordId"] = request.syncRecordId();
+    query["SyncRecordId"] = request.getSyncRecordId();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4755,19 +4785,19 @@ ListRepoTagResponse Client::listRepoTagWithOptions(const ListRepoTagRequest &req
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasPageNo()) {
-    query["PageNo"] = request.pageNo();
+    query["PageNo"] = request.getPageNo();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRepoId()) {
-    query["RepoId"] = request.repoId();
+    query["RepoId"] = request.getRepoId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4809,47 +4839,47 @@ ListRepoTagScanResultResponse Client::listRepoTagScanResultWithOptions(const Lis
   request.validate();
   json query = {};
   if (!!request.hasDigest()) {
-    query["Digest"] = request.digest();
+    query["Digest"] = request.getDigest();
   }
 
   if (!!request.hasFilterValue()) {
-    query["FilterValue"] = request.filterValue();
+    query["FilterValue"] = request.getFilterValue();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasPageNo()) {
-    query["PageNo"] = request.pageNo();
+    query["PageNo"] = request.getPageNo();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRepoId()) {
-    query["RepoId"] = request.repoId();
+    query["RepoId"] = request.getRepoId();
   }
 
   if (!!request.hasScanTaskId()) {
-    query["ScanTaskId"] = request.scanTaskId();
+    query["ScanTaskId"] = request.getScanTaskId();
   }
 
   if (!!request.hasScanType()) {
-    query["ScanType"] = request.scanType();
+    query["ScanType"] = request.getScanType();
   }
 
   if (!!request.hasSeverity()) {
-    query["Severity"] = request.severity();
+    query["Severity"] = request.getSeverity();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   if (!!request.hasVulQueryKey()) {
-    query["VulQueryKey"] = request.vulQueryKey();
+    query["VulQueryKey"] = request.getVulQueryKey();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4891,11 +4921,11 @@ ListRepoTriggerResponse Client::listRepoTriggerWithOptions(const ListRepoTrigger
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasRepoId()) {
-    query["RepoId"] = request.repoId();
+    query["RepoId"] = request.getRepoId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4937,27 +4967,27 @@ ListRepositoryResponse Client::listRepositoryWithOptions(const ListRepositoryReq
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasPageNo()) {
-    query["PageNo"] = request.pageNo();
+    query["PageNo"] = request.getPageNo();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRepoName()) {
-    query["RepoName"] = request.repoName();
+    query["RepoName"] = request.getRepoName();
   }
 
   if (!!request.hasRepoNamespaceName()) {
-    query["RepoNamespaceName"] = request.repoNamespaceName();
+    query["RepoNamespaceName"] = request.getRepoNamespaceName();
   }
 
   if (!!request.hasRepoStatus()) {
-    query["RepoStatus"] = request.repoStatus();
+    query["RepoStatus"] = request.getRepoStatus();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5073,7 +5103,9 @@ ListScanMaliciousFileByTaskResponse Client::listScanMaliciousFileByTask(const Li
 }
 
 /**
- * @summary 查询扫描规则
+ * @summary Lists the scan rules.
+ *
+ * @description Lists the scan rules.
  *
  * @param request ListScanRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5100,7 +5132,9 @@ ListScanRuleResponse Client::listScanRuleWithOptions(const ListScanRuleRequest &
 }
 
 /**
- * @summary 查询扫描规则
+ * @summary Lists the scan rules.
+ *
+ * @description Lists the scan rules.
  *
  * @param request ListScanRuleRequest
  * @return ListScanRuleResponse
@@ -5121,23 +5155,23 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
   request.validate();
   json query = {};
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceId()) {
-    query["ResourceId"] = request.resourceId();
+    query["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5179,11 +5213,11 @@ ResetLoginPasswordResponse Client::resetLoginPasswordWithOptions(const ResetLogi
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasPassword()) {
-    query["Password"] = request.password();
+    query["Password"] = request.getPassword();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5225,19 +5259,19 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
   request.validate();
   json query = {};
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceId()) {
-    query["ResourceId"] = request.resourceId();
+    query["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5279,23 +5313,23 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
   request.validate();
   json query = {};
   if (!!request.hasAll()) {
-    query["All"] = request.all();
+    query["All"] = request.getAll();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceId()) {
-    query["ResourceId"] = request.resourceId();
+    query["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTagKey()) {
-    query["TagKey"] = request.tagKey();
+    query["TagKey"] = request.getTagKey();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5337,43 +5371,43 @@ UpdateArtifactLifecycleRuleResponse Client::updateArtifactLifecycleRuleWithOptio
   request.validate();
   json query = {};
   if (!!request.hasAuto()) {
-    query["Auto"] = request._auto();
+    query["Auto"] = request.getAuto();
   }
 
   if (!!request.hasEnableDeleteTag()) {
-    query["EnableDeleteTag"] = request.enableDeleteTag();
+    query["EnableDeleteTag"] = request.getEnableDeleteTag();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasNamespaceName()) {
-    query["NamespaceName"] = request.namespaceName();
+    query["NamespaceName"] = request.getNamespaceName();
   }
 
   if (!!request.hasRepoName()) {
-    query["RepoName"] = request.repoName();
+    query["RepoName"] = request.getRepoName();
   }
 
   if (!!request.hasRetentionTagCount()) {
-    query["RetentionTagCount"] = request.retentionTagCount();
+    query["RetentionTagCount"] = request.getRetentionTagCount();
   }
 
   if (!!request.hasRuleId()) {
-    query["RuleId"] = request.ruleId();
+    query["RuleId"] = request.getRuleId();
   }
 
   if (!!request.hasScheduleTime()) {
-    query["ScheduleTime"] = request.scheduleTime();
+    query["ScheduleTime"] = request.getScheduleTime();
   }
 
   if (!!request.hasScope()) {
-    query["Scope"] = request.scope();
+    query["Scope"] = request.getScope();
   }
 
   if (!!request.hasTagRegexp()) {
-    query["TagRegexp"] = request.tagRegexp();
+    query["TagRegexp"] = request.getTagRegexp();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5415,51 +5449,51 @@ UpdateArtifactSubscriptionRuleResponse Client::updateArtifactSubscriptionRuleWit
   request.validate();
   json query = {};
   if (!!request.hasAccelerate()) {
-    query["Accelerate"] = request.accelerate();
+    query["Accelerate"] = request.getAccelerate();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasNamespaceName()) {
-    query["NamespaceName"] = request.namespaceName();
+    query["NamespaceName"] = request.getNamespaceName();
   }
 
   if (!!request.hasOverride()) {
-    query["Override"] = request.override();
+    query["Override"] = request.getOverride();
   }
 
   if (!!request.hasPlatform()) {
-    query["Platform"] = request.platform();
+    query["Platform"] = request.getPlatform();
   }
 
   if (!!request.hasRepoName()) {
-    query["RepoName"] = request.repoName();
+    query["RepoName"] = request.getRepoName();
   }
 
   if (!!request.hasRuleId()) {
-    query["RuleId"] = request.ruleId();
+    query["RuleId"] = request.getRuleId();
   }
 
   if (!!request.hasSourceNamespaceName()) {
-    query["SourceNamespaceName"] = request.sourceNamespaceName();
+    query["SourceNamespaceName"] = request.getSourceNamespaceName();
   }
 
   if (!!request.hasSourceProvider()) {
-    query["SourceProvider"] = request.sourceProvider();
+    query["SourceProvider"] = request.getSourceProvider();
   }
 
   if (!!request.hasSourceRepoName()) {
-    query["SourceRepoName"] = request.sourceRepoName();
+    query["SourceRepoName"] = request.getSourceRepoName();
   }
 
   if (!!request.hasTagCount()) {
-    query["TagCount"] = request.tagCount();
+    query["TagCount"] = request.getTagCount();
   }
 
   if (!!request.hasTagRegexp()) {
-    query["TagRegexp"] = request.tagRegexp();
+    query["TagRegexp"] = request.getTagRegexp();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5501,27 +5535,27 @@ UpdateChainResponse Client::updateChainWithOptions(const UpdateChainRequest &req
   request.validate();
   json query = {};
   if (!!request.hasChainConfig()) {
-    query["ChainConfig"] = request.chainConfig();
+    query["ChainConfig"] = request.getChainConfig();
   }
 
   if (!!request.hasChainId()) {
-    query["ChainId"] = request.chainId();
+    query["ChainId"] = request.getChainId();
   }
 
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasScopeExclude()) {
-    query["ScopeExclude"] = request.scopeExclude();
+    query["ScopeExclude"] = request.getScopeExclude();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5563,19 +5597,19 @@ UpdateChartNamespaceResponse Client::updateChartNamespaceWithOptions(const Updat
   request.validate();
   json query = {};
   if (!!request.hasAutoCreateRepo()) {
-    query["AutoCreateRepo"] = request.autoCreateRepo();
+    query["AutoCreateRepo"] = request.getAutoCreateRepo();
   }
 
   if (!!request.hasDefaultRepoType()) {
-    query["DefaultRepoType"] = request.defaultRepoType();
+    query["DefaultRepoType"] = request.getDefaultRepoType();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasNamespaceName()) {
-    query["NamespaceName"] = request.namespaceName();
+    query["NamespaceName"] = request.getNamespaceName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5617,23 +5651,23 @@ UpdateChartRepositoryResponse Client::updateChartRepositoryWithOptions(const Upd
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasRepoName()) {
-    query["RepoName"] = request.repoName();
+    query["RepoName"] = request.getRepoName();
   }
 
   if (!!request.hasRepoNamespaceName()) {
-    query["RepoNamespaceName"] = request.repoNamespaceName();
+    query["RepoNamespaceName"] = request.getRepoNamespaceName();
   }
 
   if (!!request.hasRepoType()) {
-    query["RepoType"] = request.repoType();
+    query["RepoType"] = request.getRepoType();
   }
 
   if (!!request.hasSummary()) {
-    query["Summary"] = request.summary();
+    query["Summary"] = request.getSummary();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5676,52 +5710,52 @@ UpdateEventCenterRuleResponse Client::updateEventCenterRuleWithOptions(const Upd
   UpdateEventCenterRuleShrinkRequest request = UpdateEventCenterRuleShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasNamespaces()) {
-    request.setNamespacesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.namespaces(), "Namespaces", "json"));
+    request.setNamespacesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNamespaces(), "Namespaces", "json"));
   }
 
   if (!!tmpReq.hasRepoNames()) {
-    request.setRepoNamesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.repoNames(), "RepoNames", "json"));
+    request.setRepoNamesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRepoNames(), "RepoNames", "json"));
   }
 
   json query = {};
   if (!!request.hasEventChannel()) {
-    query["EventChannel"] = request.eventChannel();
+    query["EventChannel"] = request.getEventChannel();
   }
 
   if (!!request.hasEventConfig()) {
-    query["EventConfig"] = request.eventConfig();
+    query["EventConfig"] = request.getEventConfig();
   }
 
   if (!!request.hasEventScope()) {
-    query["EventScope"] = request.eventScope();
+    query["EventScope"] = request.getEventScope();
   }
 
   if (!!request.hasEventType()) {
-    query["EventType"] = request.eventType();
+    query["EventType"] = request.getEventType();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasNamespacesShrink()) {
-    query["Namespaces"] = request.namespacesShrink();
+    query["Namespaces"] = request.getNamespacesShrink();
   }
 
   if (!!request.hasRepoNamesShrink()) {
-    query["RepoNames"] = request.repoNamesShrink();
+    query["RepoNames"] = request.getRepoNamesShrink();
   }
 
   if (!!request.hasRepoTagFilterPattern()) {
-    query["RepoTagFilterPattern"] = request.repoTagFilterPattern();
+    query["RepoTagFilterPattern"] = request.getRepoTagFilterPattern();
   }
 
   if (!!request.hasRuleId()) {
-    query["RuleId"] = request.ruleId();
+    query["RuleId"] = request.getRuleId();
   }
 
   if (!!request.hasRuleName()) {
-    query["RuleName"] = request.ruleName();
+    query["RuleName"] = request.getRuleName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5763,19 +5797,19 @@ UpdateInstanceEndpointStatusResponse Client::updateInstanceEndpointStatusWithOpt
   request.validate();
   json query = {};
   if (!!request.hasEnable()) {
-    query["Enable"] = request.enable();
+    query["Enable"] = request.getEnable();
   }
 
   if (!!request.hasEndpointType()) {
-    query["EndpointType"] = request.endpointType();
+    query["EndpointType"] = request.getEndpointType();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasModuleName()) {
-    query["ModuleName"] = request.moduleName();
+    query["ModuleName"] = request.getModuleName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5818,28 +5852,28 @@ UpdateNamespaceResponse Client::updateNamespaceWithOptions(const UpdateNamespace
   UpdateNamespaceShrinkRequest request = UpdateNamespaceShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDefaultRepoConfiguration()) {
-    request.setDefaultRepoConfigurationShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.defaultRepoConfiguration(), "DefaultRepoConfiguration", "json"));
+    request.setDefaultRepoConfigurationShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDefaultRepoConfiguration(), "DefaultRepoConfiguration", "json"));
   }
 
   json query = {};
   if (!!request.hasAutoCreateRepo()) {
-    query["AutoCreateRepo"] = request.autoCreateRepo();
+    query["AutoCreateRepo"] = request.getAutoCreateRepo();
   }
 
   if (!!request.hasDefaultRepoConfigurationShrink()) {
-    query["DefaultRepoConfiguration"] = request.defaultRepoConfigurationShrink();
+    query["DefaultRepoConfiguration"] = request.getDefaultRepoConfigurationShrink();
   }
 
   if (!!request.hasDefaultRepoType()) {
-    query["DefaultRepoType"] = request.defaultRepoType();
+    query["DefaultRepoType"] = request.getDefaultRepoType();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasNamespaceName()) {
-    query["NamespaceName"] = request.namespaceName();
+    query["NamespaceName"] = request.getNamespaceName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5881,43 +5915,43 @@ UpdateRepoBuildRuleResponse Client::updateRepoBuildRuleWithOptions(const UpdateR
   request.validate();
   json query = {};
   if (!!request.hasBuildArgs()) {
-    query["BuildArgs"] = request.buildArgs();
+    query["BuildArgs"] = request.getBuildArgs();
   }
 
   if (!!request.hasBuildRuleId()) {
-    query["BuildRuleId"] = request.buildRuleId();
+    query["BuildRuleId"] = request.getBuildRuleId();
   }
 
   if (!!request.hasDockerfileLocation()) {
-    query["DockerfileLocation"] = request.dockerfileLocation();
+    query["DockerfileLocation"] = request.getDockerfileLocation();
   }
 
   if (!!request.hasDockerfileName()) {
-    query["DockerfileName"] = request.dockerfileName();
+    query["DockerfileName"] = request.getDockerfileName();
   }
 
   if (!!request.hasImageTag()) {
-    query["ImageTag"] = request.imageTag();
+    query["ImageTag"] = request.getImageTag();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasPlatforms()) {
-    query["Platforms"] = request.platforms();
+    query["Platforms"] = request.getPlatforms();
   }
 
   if (!!request.hasPushName()) {
-    query["PushName"] = request.pushName();
+    query["PushName"] = request.getPushName();
   }
 
   if (!!request.hasPushType()) {
-    query["PushType"] = request.pushType();
+    query["PushType"] = request.getPushType();
   }
 
   if (!!request.hasRepoId()) {
-    query["RepoId"] = request.repoId();
+    query["RepoId"] = request.getRepoId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5959,39 +5993,39 @@ UpdateRepoSourceCodeRepoResponse Client::updateRepoSourceCodeRepoWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasAutoBuild()) {
-    query["AutoBuild"] = request.autoBuild();
+    query["AutoBuild"] = request.getAutoBuild();
   }
 
   if (!!request.hasCodeRepoId()) {
-    query["CodeRepoId"] = request.codeRepoId();
+    query["CodeRepoId"] = request.getCodeRepoId();
   }
 
   if (!!request.hasCodeRepoName()) {
-    query["CodeRepoName"] = request.codeRepoName();
+    query["CodeRepoName"] = request.getCodeRepoName();
   }
 
   if (!!request.hasCodeRepoNamespaceName()) {
-    query["CodeRepoNamespaceName"] = request.codeRepoNamespaceName();
+    query["CodeRepoNamespaceName"] = request.getCodeRepoNamespaceName();
   }
 
   if (!!request.hasCodeRepoType()) {
-    query["CodeRepoType"] = request.codeRepoType();
+    query["CodeRepoType"] = request.getCodeRepoType();
   }
 
   if (!!request.hasDisableCacheBuild()) {
-    query["DisableCacheBuild"] = request.disableCacheBuild();
+    query["DisableCacheBuild"] = request.getDisableCacheBuild();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasOverseaBuild()) {
-    query["OverseaBuild"] = request.overseaBuild();
+    query["OverseaBuild"] = request.getOverseaBuild();
   }
 
   if (!!request.hasRepoId()) {
-    query["RepoId"] = request.repoId();
+    query["RepoId"] = request.getRepoId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6033,31 +6067,31 @@ UpdateRepoTriggerResponse Client::updateRepoTriggerWithOptions(const UpdateRepoT
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasRepoId()) {
-    query["RepoId"] = request.repoId();
+    query["RepoId"] = request.getRepoId();
   }
 
   if (!!request.hasTriggerId()) {
-    query["TriggerId"] = request.triggerId();
+    query["TriggerId"] = request.getTriggerId();
   }
 
   if (!!request.hasTriggerName()) {
-    query["TriggerName"] = request.triggerName();
+    query["TriggerName"] = request.getTriggerName();
   }
 
   if (!!request.hasTriggerTag()) {
-    query["TriggerTag"] = request.triggerTag();
+    query["TriggerTag"] = request.getTriggerTag();
   }
 
   if (!!request.hasTriggerType()) {
-    query["TriggerType"] = request.triggerType();
+    query["TriggerType"] = request.getTriggerType();
   }
 
   if (!!request.hasTriggerUrl()) {
-    query["TriggerUrl"] = request.triggerUrl();
+    query["TriggerUrl"] = request.getTriggerUrl();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6099,35 +6133,35 @@ UpdateRepositoryResponse Client::updateRepositoryWithOptions(const UpdateReposit
   request.validate();
   json query = {};
   if (!!request.hasDetail()) {
-    query["Detail"] = request.detail();
+    query["Detail"] = request.getDetail();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasRepoId()) {
-    query["RepoId"] = request.repoId();
+    query["RepoId"] = request.getRepoId();
   }
 
   if (!!request.hasRepoName()) {
-    query["RepoName"] = request.repoName();
+    query["RepoName"] = request.getRepoName();
   }
 
   if (!!request.hasRepoNamespaceName()) {
-    query["RepoNamespaceName"] = request.repoNamespaceName();
+    query["RepoNamespaceName"] = request.getRepoNamespaceName();
   }
 
   if (!!request.hasRepoType()) {
-    query["RepoType"] = request.repoType();
+    query["RepoType"] = request.getRepoType();
   }
 
   if (!!request.hasSummary()) {
-    query["Summary"] = request.summary();
+    query["Summary"] = request.getSummary();
   }
 
   if (!!request.hasTagImmutability()) {
-    query["TagImmutability"] = request.tagImmutability();
+    query["TagImmutability"] = request.getTagImmutability();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6159,7 +6193,9 @@ UpdateRepositoryResponse Client::updateRepository(const UpdateRepositoryRequest 
 }
 
 /**
- * @summary 更新扫描规则
+ * @summary Updates a scan rule.
+ *
+ * @description The whitelist of this API operation is available. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket).
  *
  * @param tmpReq UpdateScanRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6170,44 +6206,44 @@ UpdateScanRuleResponse Client::updateScanRuleWithOptions(const UpdateScanRuleReq
   UpdateScanRuleShrinkRequest request = UpdateScanRuleShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasNamespaces()) {
-    request.setNamespacesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.namespaces(), "Namespaces", "json"));
+    request.setNamespacesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNamespaces(), "Namespaces", "json"));
   }
 
   if (!!tmpReq.hasRepoNames()) {
-    request.setRepoNamesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.repoNames(), "RepoNames", "json"));
+    request.setRepoNamesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRepoNames(), "RepoNames", "json"));
   }
 
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasNamespacesShrink()) {
-    query["Namespaces"] = request.namespacesShrink();
+    query["Namespaces"] = request.getNamespacesShrink();
   }
 
   if (!!request.hasRepoNamesShrink()) {
-    query["RepoNames"] = request.repoNamesShrink();
+    query["RepoNames"] = request.getRepoNamesShrink();
   }
 
   if (!!request.hasRepoTagFilterPattern()) {
-    query["RepoTagFilterPattern"] = request.repoTagFilterPattern();
+    query["RepoTagFilterPattern"] = request.getRepoTagFilterPattern();
   }
 
   if (!!request.hasRuleName()) {
-    query["RuleName"] = request.ruleName();
+    query["RuleName"] = request.getRuleName();
   }
 
   if (!!request.hasScanRuleId()) {
-    query["ScanRuleId"] = request.scanRuleId();
+    query["ScanRuleId"] = request.getScanRuleId();
   }
 
   if (!!request.hasScanScope()) {
-    query["ScanScope"] = request.scanScope();
+    query["ScanScope"] = request.getScanScope();
   }
 
   if (!!request.hasTriggerType()) {
-    query["TriggerType"] = request.triggerType();
+    query["TriggerType"] = request.getTriggerType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6228,7 +6264,9 @@ UpdateScanRuleResponse Client::updateScanRuleWithOptions(const UpdateScanRuleReq
 }
 
 /**
- * @summary 更新扫描规则
+ * @summary Updates a scan rule.
+ *
+ * @description The whitelist of this API operation is available. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket).
  *
  * @param request UpdateScanRuleRequest
  * @return UpdateScanRuleResponse
@@ -6239,7 +6277,9 @@ UpdateScanRuleResponse Client::updateScanRule(const UpdateScanRuleRequest &reque
 }
 
 /**
- * @summary 更新实例域名路由规则
+ * @summary Updates a routing rule for an instance store domain name.
+ *
+ * @description The whitelist of this API operation is available. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket).
  *
  * @param tmpReq UpdateStorageDomainRoutingRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6250,20 +6290,20 @@ UpdateStorageDomainRoutingRuleResponse Client::updateStorageDomainRoutingRuleWit
   UpdateStorageDomainRoutingRuleShrinkRequest request = UpdateStorageDomainRoutingRuleShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasRoutes()) {
-    request.setRoutesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.routes(), "Routes", "json"));
+    request.setRoutesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRoutes(), "Routes", "json"));
   }
 
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasRoutesShrink()) {
-    query["Routes"] = request.routesShrink();
+    query["Routes"] = request.getRoutesShrink();
   }
 
   if (!!request.hasRuleId()) {
-    query["RuleId"] = request.ruleId();
+    query["RuleId"] = request.getRuleId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6284,7 +6324,9 @@ UpdateStorageDomainRoutingRuleResponse Client::updateStorageDomainRoutingRuleWit
 }
 
 /**
- * @summary 更新实例域名路由规则
+ * @summary Updates a routing rule for an instance store domain name.
+ *
+ * @description The whitelist of this API operation is available. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket).
  *
  * @param request UpdateStorageDomainRoutingRuleRequest
  * @return UpdateStorageDomainRoutingRuleResponse

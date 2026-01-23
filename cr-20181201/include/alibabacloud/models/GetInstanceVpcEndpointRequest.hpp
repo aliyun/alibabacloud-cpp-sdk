@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->moduleName_ == nullptr; };
+        && this->moduleName_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline GetInstanceVpcEndpointRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // moduleName Field Functions 
     bool hasModuleName() const { return this->moduleName_ != nullptr;};
     void deleteModuleName() { this->moduleName_ = nullptr;};
-    inline string moduleName() const { DARABONBA_PTR_GET_DEFAULT(moduleName_, "") };
+    inline string getModuleName() const { DARABONBA_PTR_GET_DEFAULT(moduleName_, "") };
     inline GetInstanceVpcEndpointRequest& setModuleName(string moduleName) { DARABONBA_PTR_SET_VALUE(moduleName_, moduleName) };
 
 
@@ -51,12 +51,12 @@ namespace Models
     // The ID of the instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The name of the module that you want to access. Valid values:
     // 
     // *   `Registry`: the image repository.
     // *   `Chart`: a Helm chart.
-    std::shared_ptr<string> moduleName_ = nullptr;
+    shared_ptr<string> moduleName_ {};
   };
 
   } // namespace Models
