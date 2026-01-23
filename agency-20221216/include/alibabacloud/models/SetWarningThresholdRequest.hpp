@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->uid_ == nullptr
-        && return this->warningValue_ == nullptr; };
+        && this->warningValue_ == nullptr; };
     // uid Field Functions 
     bool hasUid() const { return this->uid_ != nullptr;};
     void deleteUid() { this->uid_ = nullptr;};
-    inline int64_t uid() const { DARABONBA_PTR_GET_DEFAULT(uid_, 0L) };
+    inline int64_t getUid() const { DARABONBA_PTR_GET_DEFAULT(uid_, 0L) };
     inline SetWarningThresholdRequest& setUid(int64_t uid) { DARABONBA_PTR_SET_VALUE(uid_, uid) };
 
 
     // warningValue Field Functions 
     bool hasWarningValue() const { return this->warningValue_ != nullptr;};
     void deleteWarningValue() { this->warningValue_ = nullptr;};
-    inline string warningValue() const { DARABONBA_PTR_GET_DEFAULT(warningValue_, "") };
+    inline string getWarningValue() const { DARABONBA_PTR_GET_DEFAULT(warningValue_, "") };
     inline SetWarningThresholdRequest& setWarningValue(string warningValue) { DARABONBA_PTR_SET_VALUE(warningValue_, warningValue) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The UID of the partner‘s customer.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> uid_ = nullptr;
+    shared_ptr<int64_t> uid_ {};
     // Percentage, 1 to 100. When the available credit limit is lower than the credit limit percentage, an email is sent to the main account.
     // 
     // This parameter is required.
-    std::shared_ptr<string> warningValue_ = nullptr;
+    shared_ptr<string> warningValue_ {};
   };
 
   } // namespace Models

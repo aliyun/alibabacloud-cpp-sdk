@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_GETINVITESTATUSREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/GetInviteStatusRequestInviteStatusList.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -31,14 +30,46 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class InviteStatusList : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const InviteStatusList& obj) { 
+        DARABONBA_PTR_TO_JSON(InviteId, inviteId_);
+      };
+      friend void from_json(const Darabonba::Json& j, InviteStatusList& obj) { 
+        DARABONBA_PTR_FROM_JSON(InviteId, inviteId_);
+      };
+      InviteStatusList() = default ;
+      InviteStatusList(const InviteStatusList &) = default ;
+      InviteStatusList(InviteStatusList &&) = default ;
+      InviteStatusList(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~InviteStatusList() = default ;
+      InviteStatusList& operator=(const InviteStatusList &) = default ;
+      InviteStatusList& operator=(InviteStatusList &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->inviteId_ == nullptr; };
+      // inviteId Field Functions 
+      bool hasInviteId() const { return this->inviteId_ != nullptr;};
+      void deleteInviteId() { this->inviteId_ = nullptr;};
+      inline int64_t getInviteId() const { DARABONBA_PTR_GET_DEFAULT(inviteId_, 0L) };
+      inline InviteStatusList& setInviteId(int64_t inviteId) { DARABONBA_PTR_SET_VALUE(inviteId_, inviteId) };
+
+
+    protected:
+      // Invitation ID, From interface InviteSubAccount
+      shared_ptr<int64_t> inviteId_ {};
+    };
+
     virtual bool empty() const override { return this->inviteStatusList_ == nullptr; };
     // inviteStatusList Field Functions 
     bool hasInviteStatusList() const { return this->inviteStatusList_ != nullptr;};
     void deleteInviteStatusList() { this->inviteStatusList_ = nullptr;};
-    inline const vector<GetInviteStatusRequestInviteStatusList> & inviteStatusList() const { DARABONBA_PTR_GET_CONST(inviteStatusList_, vector<GetInviteStatusRequestInviteStatusList>) };
-    inline vector<GetInviteStatusRequestInviteStatusList> inviteStatusList() { DARABONBA_PTR_GET(inviteStatusList_, vector<GetInviteStatusRequestInviteStatusList>) };
-    inline GetInviteStatusRequest& setInviteStatusList(const vector<GetInviteStatusRequestInviteStatusList> & inviteStatusList) { DARABONBA_PTR_SET_VALUE(inviteStatusList_, inviteStatusList) };
-    inline GetInviteStatusRequest& setInviteStatusList(vector<GetInviteStatusRequestInviteStatusList> && inviteStatusList) { DARABONBA_PTR_SET_RVALUE(inviteStatusList_, inviteStatusList) };
+    inline const vector<GetInviteStatusRequest::InviteStatusList> & getInviteStatusList() const { DARABONBA_PTR_GET_CONST(inviteStatusList_, vector<GetInviteStatusRequest::InviteStatusList>) };
+    inline vector<GetInviteStatusRequest::InviteStatusList> getInviteStatusList() { DARABONBA_PTR_GET(inviteStatusList_, vector<GetInviteStatusRequest::InviteStatusList>) };
+    inline GetInviteStatusRequest& setInviteStatusList(const vector<GetInviteStatusRequest::InviteStatusList> & inviteStatusList) { DARABONBA_PTR_SET_VALUE(inviteStatusList_, inviteStatusList) };
+    inline GetInviteStatusRequest& setInviteStatusList(vector<GetInviteStatusRequest::InviteStatusList> && inviteStatusList) { DARABONBA_PTR_SET_RVALUE(inviteStatusList_, inviteStatusList) };
 
 
   protected:
@@ -46,7 +77,7 @@ namespace Models
     // `Sub-levels <= 5`
     // 
     // This parameter is required.
-    std::shared_ptr<vector<GetInviteStatusRequestInviteStatusList>> inviteStatusList_ = nullptr;
+    shared_ptr<vector<GetInviteStatusRequest::InviteStatusList>> inviteStatusList_ {};
   };
 
   } // namespace Models

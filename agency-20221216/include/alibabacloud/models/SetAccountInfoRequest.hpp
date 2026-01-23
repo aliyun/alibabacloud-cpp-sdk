@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountNickname_ == nullptr
-        && return this->customerBd_ == nullptr && return this->remark_ == nullptr && return this->uid_ == nullptr; };
+        && this->customerBd_ == nullptr && this->remark_ == nullptr && this->uid_ == nullptr; };
     // accountNickname Field Functions 
     bool hasAccountNickname() const { return this->accountNickname_ != nullptr;};
     void deleteAccountNickname() { this->accountNickname_ = nullptr;};
-    inline string accountNickname() const { DARABONBA_PTR_GET_DEFAULT(accountNickname_, "") };
+    inline string getAccountNickname() const { DARABONBA_PTR_GET_DEFAULT(accountNickname_, "") };
     inline SetAccountInfoRequest& setAccountNickname(string accountNickname) { DARABONBA_PTR_SET_VALUE(accountNickname_, accountNickname) };
 
 
     // customerBd Field Functions 
     bool hasCustomerBd() const { return this->customerBd_ != nullptr;};
     void deleteCustomerBd() { this->customerBd_ = nullptr;};
-    inline string customerBd() const { DARABONBA_PTR_GET_DEFAULT(customerBd_, "") };
+    inline string getCustomerBd() const { DARABONBA_PTR_GET_DEFAULT(customerBd_, "") };
     inline SetAccountInfoRequest& setCustomerBd(string customerBd) { DARABONBA_PTR_SET_VALUE(customerBd_, customerBd) };
 
 
     // remark Field Functions 
     bool hasRemark() const { return this->remark_ != nullptr;};
     void deleteRemark() { this->remark_ = nullptr;};
-    inline string remark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
+    inline string getRemark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
     inline SetAccountInfoRequest& setRemark(string remark) { DARABONBA_PTR_SET_VALUE(remark_, remark) };
 
 
     // uid Field Functions 
     bool hasUid() const { return this->uid_ != nullptr;};
     void deleteUid() { this->uid_ = nullptr;};
-    inline int64_t uid() const { DARABONBA_PTR_GET_DEFAULT(uid_, 0L) };
+    inline int64_t getUid() const { DARABONBA_PTR_GET_DEFAULT(uid_, 0L) };
     inline SetAccountInfoRequest& setUid(int64_t uid) { DARABONBA_PTR_SET_VALUE(uid_, uid) };
 
 
@@ -71,15 +71,15 @@ namespace Models
     // *   1109 System error
     // *   3030 Sub Account Nickname exceeds maximum length,  maximum length 150 bytes.
     // *   3031 Remark exceeds maximum length,  maximum length 3000 bytes.
-    std::shared_ptr<string> accountNickname_ = nullptr;
+    shared_ptr<string> accountNickname_ {};
     // Customer manager（limited 50 character）
-    std::shared_ptr<string> customerBd_ = nullptr;
+    shared_ptr<string> customerBd_ {};
     // success
-    std::shared_ptr<string> remark_ = nullptr;
+    shared_ptr<string> remark_ {};
     // Request ID, Alibaba Cloud will track errors with this.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> uid_ = nullptr;
+    shared_ptr<int64_t> uid_ {};
   };
 
   } // namespace Models

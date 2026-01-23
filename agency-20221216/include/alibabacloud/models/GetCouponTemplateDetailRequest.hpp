@@ -33,13 +33,13 @@ namespace Models
     // templateId Field Functions 
     bool hasTemplateId() const { return this->templateId_ != nullptr;};
     void deleteTemplateId() { this->templateId_ = nullptr;};
-    inline int64_t templateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, 0L) };
+    inline int64_t getTemplateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, 0L) };
     inline GetCouponTemplateDetailRequest& setTemplateId(int64_t templateId) { DARABONBA_PTR_SET_VALUE(templateId_, templateId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<int64_t> templateId_ = nullptr;
+    shared_ptr<int64_t> templateId_ {};
   };
 
   } // namespace Models

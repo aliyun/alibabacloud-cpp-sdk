@@ -33,13 +33,13 @@ namespace Models
     // couponId Field Functions 
     bool hasCouponId() const { return this->couponId_ != nullptr;};
     void deleteCouponId() { this->couponId_ = nullptr;};
-    inline int64_t couponId() const { DARABONBA_PTR_GET_DEFAULT(couponId_, 0L) };
+    inline int64_t getCouponId() const { DARABONBA_PTR_GET_DEFAULT(couponId_, 0L) };
     inline CancelCouponRequest& setCouponId(int64_t couponId) { DARABONBA_PTR_SET_VALUE(couponId_, couponId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<int64_t> couponId_ = nullptr;
+    shared_ptr<int64_t> couponId_ {};
   };
 
   } // namespace Models

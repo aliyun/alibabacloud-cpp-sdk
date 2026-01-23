@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_EXPORTCUSTOMERQUOTARECORDRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_EXPORTCUSTOMERQUOTARECORDRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/ExportCustomerQuotaRecordResponseBodyData.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -36,47 +35,91 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(Cost, cost_);
+        DARABONBA_PTR_TO_JSON(Id, id_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(Cost, cost_);
+        DARABONBA_PTR_FROM_JSON(Id, id_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->cost_ == nullptr
+        && this->id_ == nullptr; };
+      // cost Field Functions 
+      bool hasCost() const { return this->cost_ != nullptr;};
+      void deleteCost() { this->cost_ = nullptr;};
+      inline int32_t getCost() const { DARABONBA_PTR_GET_DEFAULT(cost_, 0) };
+      inline Data& setCost(int32_t cost) { DARABONBA_PTR_SET_VALUE(cost_, cost) };
+
+
+      // id Field Functions 
+      bool hasId() const { return this->id_ != nullptr;};
+      void deleteId() { this->id_ = nullptr;};
+      inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+      inline Data& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+    protected:
+      // Estimated duration, in minutes.
+      shared_ptr<int32_t> cost_ {};
+      // ID of Export task
+      shared_ptr<int64_t> id_ {};
+    };
+
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->data_ == nullptr && return this->msg_ == nullptr && return this->requestId_ == nullptr; };
+        && this->data_ == nullptr && this->msg_ == nullptr && this->requestId_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline ExportCustomerQuotaRecordResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const ExportCustomerQuotaRecordResponseBodyData & data() const { DARABONBA_PTR_GET_CONST(data_, ExportCustomerQuotaRecordResponseBodyData) };
-    inline ExportCustomerQuotaRecordResponseBodyData data() { DARABONBA_PTR_GET(data_, ExportCustomerQuotaRecordResponseBodyData) };
-    inline ExportCustomerQuotaRecordResponseBody& setData(const ExportCustomerQuotaRecordResponseBodyData & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline ExportCustomerQuotaRecordResponseBody& setData(ExportCustomerQuotaRecordResponseBodyData && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const ExportCustomerQuotaRecordResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, ExportCustomerQuotaRecordResponseBody::Data) };
+    inline ExportCustomerQuotaRecordResponseBody::Data getData() { DARABONBA_PTR_GET(data_, ExportCustomerQuotaRecordResponseBody::Data) };
+    inline ExportCustomerQuotaRecordResponseBody& setData(const ExportCustomerQuotaRecordResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline ExportCustomerQuotaRecordResponseBody& setData(ExportCustomerQuotaRecordResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // msg Field Functions 
     bool hasMsg() const { return this->msg_ != nullptr;};
     void deleteMsg() { this->msg_ = nullptr;};
-    inline string msg() const { DARABONBA_PTR_GET_DEFAULT(msg_, "") };
+    inline string getMsg() const { DARABONBA_PTR_GET_DEFAULT(msg_, "") };
     inline ExportCustomerQuotaRecordResponseBody& setMsg(string msg) { DARABONBA_PTR_SET_VALUE(msg_, msg) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ExportCustomerQuotaRecordResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // Code
-    std::shared_ptr<string> code_ = nullptr;
+    shared_ptr<string> code_ {};
     // Data
-    std::shared_ptr<ExportCustomerQuotaRecordResponseBodyData> data_ = nullptr;
+    shared_ptr<ExportCustomerQuotaRecordResponseBody::Data> data_ {};
     // Description
-    std::shared_ptr<string> msg_ = nullptr;
+    shared_ptr<string> msg_ {};
     // ID of the Request
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

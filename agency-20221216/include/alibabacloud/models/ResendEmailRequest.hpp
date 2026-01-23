@@ -33,7 +33,7 @@ namespace Models
     // inviteId Field Functions 
     bool hasInviteId() const { return this->inviteId_ != nullptr;};
     void deleteInviteId() { this->inviteId_ = nullptr;};
-    inline int64_t inviteId() const { DARABONBA_PTR_GET_DEFAULT(inviteId_, 0L) };
+    inline int64_t getInviteId() const { DARABONBA_PTR_GET_DEFAULT(inviteId_, 0L) };
     inline ResendEmailRequest& setInviteId(int64_t inviteId) { DARABONBA_PTR_SET_VALUE(inviteId_, inviteId) };
 
 
@@ -42,7 +42,7 @@ namespace Models
     // Note: This field type is Long, which may result in precision loss in serialization/deserialization process. Please ensure the value does not exceed 9007199254740991.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> inviteId_ = nullptr;
+    shared_ptr<int64_t> inviteId_ {};
   };
 
   } // namespace Models

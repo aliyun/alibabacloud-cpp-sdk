@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->customerName_ == nullptr
-        && return this->customerSource_ == nullptr && return this->customerSubTrade_ == nullptr && return this->customerTrade_ == nullptr && return this->nation_ == nullptr; };
+        && this->customerSource_ == nullptr && this->customerSubTrade_ == nullptr && this->customerTrade_ == nullptr && this->nation_ == nullptr; };
     // customerName Field Functions 
     bool hasCustomerName() const { return this->customerName_ != nullptr;};
     void deleteCustomerName() { this->customerName_ = nullptr;};
-    inline string customerName() const { DARABONBA_PTR_GET_DEFAULT(customerName_, "") };
+    inline string getCustomerName() const { DARABONBA_PTR_GET_DEFAULT(customerName_, "") };
     inline CreateCustomerRequest& setCustomerName(string customerName) { DARABONBA_PTR_SET_VALUE(customerName_, customerName) };
 
 
     // customerSource Field Functions 
     bool hasCustomerSource() const { return this->customerSource_ != nullptr;};
     void deleteCustomerSource() { this->customerSource_ = nullptr;};
-    inline string customerSource() const { DARABONBA_PTR_GET_DEFAULT(customerSource_, "") };
+    inline string getCustomerSource() const { DARABONBA_PTR_GET_DEFAULT(customerSource_, "") };
     inline CreateCustomerRequest& setCustomerSource(string customerSource) { DARABONBA_PTR_SET_VALUE(customerSource_, customerSource) };
 
 
     // customerSubTrade Field Functions 
     bool hasCustomerSubTrade() const { return this->customerSubTrade_ != nullptr;};
     void deleteCustomerSubTrade() { this->customerSubTrade_ = nullptr;};
-    inline string customerSubTrade() const { DARABONBA_PTR_GET_DEFAULT(customerSubTrade_, "") };
+    inline string getCustomerSubTrade() const { DARABONBA_PTR_GET_DEFAULT(customerSubTrade_, "") };
     inline CreateCustomerRequest& setCustomerSubTrade(string customerSubTrade) { DARABONBA_PTR_SET_VALUE(customerSubTrade_, customerSubTrade) };
 
 
     // customerTrade Field Functions 
     bool hasCustomerTrade() const { return this->customerTrade_ != nullptr;};
     void deleteCustomerTrade() { this->customerTrade_ = nullptr;};
-    inline string customerTrade() const { DARABONBA_PTR_GET_DEFAULT(customerTrade_, "") };
+    inline string getCustomerTrade() const { DARABONBA_PTR_GET_DEFAULT(customerTrade_, "") };
     inline CreateCustomerRequest& setCustomerTrade(string customerTrade) { DARABONBA_PTR_SET_VALUE(customerTrade_, customerTrade) };
 
 
     // nation Field Functions 
     bool hasNation() const { return this->nation_ != nullptr;};
     void deleteNation() { this->nation_ = nullptr;};
-    inline string nation() const { DARABONBA_PTR_GET_DEFAULT(nation_, "") };
+    inline string getNation() const { DARABONBA_PTR_GET_DEFAULT(nation_, "") };
     inline CreateCustomerRequest& setNation(string nation) { DARABONBA_PTR_SET_VALUE(nation_, nation) };
 
 
@@ -78,21 +78,21 @@ namespace Models
     // Customer\\"s name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> customerName_ = nullptr;
+    shared_ptr<string> customerName_ {};
     // The source/channel that allow client to connected with us. Please enumerate with Customer Source.
     // 
     // This parameter is required.
-    std::shared_ptr<string> customerSource_ = nullptr;
+    shared_ptr<string> customerSource_ {};
     // The sub-industry that Customer\\"s business belongs to. Please enumerate with Customer Trade.
-    std::shared_ptr<string> customerSubTrade_ = nullptr;
+    shared_ptr<string> customerSubTrade_ {};
     // The industry that Customer\\"s business belongs to. Please enumerate with Customer Trade.
     // 
     // This parameter is required.
-    std::shared_ptr<string> customerTrade_ = nullptr;
+    shared_ptr<string> customerTrade_ {};
     // The region that Customer choose to launch the Cloud Service. Please use ListCountries to confirm the valid region list for current UID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> nation_ = nullptr;
+    shared_ptr<string> nation_ {};
   };
 
   } // namespace Models

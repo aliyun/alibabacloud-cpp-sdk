@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->deductAmount_ == nullptr
-        && return this->uid_ == nullptr; };
+        && this->uid_ == nullptr; };
     // deductAmount Field Functions 
     bool hasDeductAmount() const { return this->deductAmount_ != nullptr;};
     void deleteDeductAmount() { this->deductAmount_ = nullptr;};
-    inline string deductAmount() const { DARABONBA_PTR_GET_DEFAULT(deductAmount_, "") };
+    inline string getDeductAmount() const { DARABONBA_PTR_GET_DEFAULT(deductAmount_, "") };
     inline DeductOutstandingBalanceRequest& setDeductAmount(string deductAmount) { DARABONBA_PTR_SET_VALUE(deductAmount_, deductAmount) };
 
 
     // uid Field Functions 
     bool hasUid() const { return this->uid_ != nullptr;};
     void deleteUid() { this->uid_ = nullptr;};
-    inline int64_t uid() const { DARABONBA_PTR_GET_DEFAULT(uid_, 0L) };
+    inline int64_t getUid() const { DARABONBA_PTR_GET_DEFAULT(uid_, 0L) };
     inline DeductOutstandingBalanceRequest& setUid(int64_t uid) { DARABONBA_PTR_SET_VALUE(uid_, uid) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The Deducted Credit to be offset.
     // 
     // This parameter is required.
-    std::shared_ptr<string> deductAmount_ = nullptr;
+    shared_ptr<string> deductAmount_ {};
     // Account UID of Distribution Customer.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> uid_ = nullptr;
+    shared_ptr<int64_t> uid_ {};
   };
 
   } // namespace Models

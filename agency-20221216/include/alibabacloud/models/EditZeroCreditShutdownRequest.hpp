@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->shutdownPolicy_ == nullptr
-        && return this->uid_ == nullptr; };
+        && this->uid_ == nullptr; };
     // shutdownPolicy Field Functions 
     bool hasShutdownPolicy() const { return this->shutdownPolicy_ != nullptr;};
     void deleteShutdownPolicy() { this->shutdownPolicy_ = nullptr;};
-    inline string shutdownPolicy() const { DARABONBA_PTR_GET_DEFAULT(shutdownPolicy_, "") };
+    inline string getShutdownPolicy() const { DARABONBA_PTR_GET_DEFAULT(shutdownPolicy_, "") };
     inline EditZeroCreditShutdownRequest& setShutdownPolicy(string shutdownPolicy) { DARABONBA_PTR_SET_VALUE(shutdownPolicy_, shutdownPolicy) };
 
 
     // uid Field Functions 
     bool hasUid() const { return this->uid_ != nullptr;};
     void deleteUid() { this->uid_ = nullptr;};
-    inline int64_t uid() const { DARABONBA_PTR_GET_DEFAULT(uid_, 0L) };
+    inline int64_t getUid() const { DARABONBA_PTR_GET_DEFAULT(uid_, 0L) };
     inline EditZeroCreditShutdownRequest& setUid(int64_t uid) { DARABONBA_PTR_SET_VALUE(uid_, uid) };
 
 
   protected:
     // UID
-    std::shared_ptr<string> shutdownPolicy_ = nullptr;
+    shared_ptr<string> shutdownPolicy_ {};
     // No Change History
-    std::shared_ptr<int64_t> uid_ = nullptr;
+    shared_ptr<int64_t> uid_ {};
   };
 
   } // namespace Models

@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->currentPage_ == nullptr
-        && return this->language_ == nullptr && return this->pageSize_ == nullptr; };
+        && this->language_ == nullptr && this->pageSize_ == nullptr; };
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline QuotaListExportPagedRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // language Field Functions 
     bool hasLanguage() const { return this->language_ != nullptr;};
     void deleteLanguage() { this->language_ = nullptr;};
-    inline string language() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
+    inline string getLanguage() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
     inline QuotaListExportPagedRequest& setLanguage(string language) { DARABONBA_PTR_SET_VALUE(language_, language) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline QuotaListExportPagedRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
@@ -60,16 +60,16 @@ namespace Models
     // Pagination, current page number, starting from 1.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
+    shared_ptr<int32_t> currentPage_ {};
     // Multilingual Parameters, the default language is English.</br>
     // en: English</br>
     // zh: Chinese</br>
     // ja: Japanese </br>
-    std::shared_ptr<string> language_ = nullptr;
+    shared_ptr<string> language_ {};
     // Pagination, record number on each page, maximum 100.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
   };
 
   } // namespace Models

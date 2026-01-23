@@ -45,27 +45,27 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->commodityCodeList_ == nullptr
-        && return this->fiscalYear_ == nullptr && return this->listShowStatusList_ == nullptr && return this->pageNo_ == nullptr && return this->pageSize_ == nullptr && return this->pipCodeList_ == nullptr
-        && return this->realEndMonth_ == nullptr && return this->realStartMonth_ == nullptr; };
+        && this->fiscalYear_ == nullptr && this->listShowStatusList_ == nullptr && this->pageNo_ == nullptr && this->pageSize_ == nullptr && this->pipCodeList_ == nullptr
+        && this->realEndMonth_ == nullptr && this->realStartMonth_ == nullptr; };
     // commodityCodeList Field Functions 
     bool hasCommodityCodeList() const { return this->commodityCodeList_ != nullptr;};
     void deleteCommodityCodeList() { this->commodityCodeList_ = nullptr;};
-    inline string commodityCodeList() const { DARABONBA_PTR_GET_DEFAULT(commodityCodeList_, "") };
+    inline string getCommodityCodeList() const { DARABONBA_PTR_GET_DEFAULT(commodityCodeList_, "") };
     inline GetCommissionableProductsRequest& setCommodityCodeList(string commodityCodeList) { DARABONBA_PTR_SET_VALUE(commodityCodeList_, commodityCodeList) };
 
 
     // fiscalYear Field Functions 
     bool hasFiscalYear() const { return this->fiscalYear_ != nullptr;};
     void deleteFiscalYear() { this->fiscalYear_ = nullptr;};
-    inline string fiscalYear() const { DARABONBA_PTR_GET_DEFAULT(fiscalYear_, "") };
+    inline string getFiscalYear() const { DARABONBA_PTR_GET_DEFAULT(fiscalYear_, "") };
     inline GetCommissionableProductsRequest& setFiscalYear(string fiscalYear) { DARABONBA_PTR_SET_VALUE(fiscalYear_, fiscalYear) };
 
 
     // listShowStatusList Field Functions 
     bool hasListShowStatusList() const { return this->listShowStatusList_ != nullptr;};
     void deleteListShowStatusList() { this->listShowStatusList_ = nullptr;};
-    inline const vector<string> & listShowStatusList() const { DARABONBA_PTR_GET_CONST(listShowStatusList_, vector<string>) };
-    inline vector<string> listShowStatusList() { DARABONBA_PTR_GET(listShowStatusList_, vector<string>) };
+    inline const vector<string> & getListShowStatusList() const { DARABONBA_PTR_GET_CONST(listShowStatusList_, vector<string>) };
+    inline vector<string> getListShowStatusList() { DARABONBA_PTR_GET(listShowStatusList_, vector<string>) };
     inline GetCommissionableProductsRequest& setListShowStatusList(const vector<string> & listShowStatusList) { DARABONBA_PTR_SET_VALUE(listShowStatusList_, listShowStatusList) };
     inline GetCommissionableProductsRequest& setListShowStatusList(vector<string> && listShowStatusList) { DARABONBA_PTR_SET_RVALUE(listShowStatusList_, listShowStatusList) };
 
@@ -73,47 +73,47 @@ namespace Models
     // pageNo Field Functions 
     bool hasPageNo() const { return this->pageNo_ != nullptr;};
     void deletePageNo() { this->pageNo_ = nullptr;};
-    inline int32_t pageNo() const { DARABONBA_PTR_GET_DEFAULT(pageNo_, 0) };
+    inline int32_t getPageNo() const { DARABONBA_PTR_GET_DEFAULT(pageNo_, 0) };
     inline GetCommissionableProductsRequest& setPageNo(int32_t pageNo) { DARABONBA_PTR_SET_VALUE(pageNo_, pageNo) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline GetCommissionableProductsRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // pipCodeList Field Functions 
     bool hasPipCodeList() const { return this->pipCodeList_ != nullptr;};
     void deletePipCodeList() { this->pipCodeList_ = nullptr;};
-    inline string pipCodeList() const { DARABONBA_PTR_GET_DEFAULT(pipCodeList_, "") };
+    inline string getPipCodeList() const { DARABONBA_PTR_GET_DEFAULT(pipCodeList_, "") };
     inline GetCommissionableProductsRequest& setPipCodeList(string pipCodeList) { DARABONBA_PTR_SET_VALUE(pipCodeList_, pipCodeList) };
 
 
     // realEndMonth Field Functions 
     bool hasRealEndMonth() const { return this->realEndMonth_ != nullptr;};
     void deleteRealEndMonth() { this->realEndMonth_ = nullptr;};
-    inline string realEndMonth() const { DARABONBA_PTR_GET_DEFAULT(realEndMonth_, "") };
+    inline string getRealEndMonth() const { DARABONBA_PTR_GET_DEFAULT(realEndMonth_, "") };
     inline GetCommissionableProductsRequest& setRealEndMonth(string realEndMonth) { DARABONBA_PTR_SET_VALUE(realEndMonth_, realEndMonth) };
 
 
     // realStartMonth Field Functions 
     bool hasRealStartMonth() const { return this->realStartMonth_ != nullptr;};
     void deleteRealStartMonth() { this->realStartMonth_ = nullptr;};
-    inline string realStartMonth() const { DARABONBA_PTR_GET_DEFAULT(realStartMonth_, "") };
+    inline string getRealStartMonth() const { DARABONBA_PTR_GET_DEFAULT(realStartMonth_, "") };
     inline GetCommissionableProductsRequest& setRealStartMonth(string realStartMonth) { DARABONBA_PTR_SET_VALUE(realStartMonth_, realStartMonth) };
 
 
   protected:
-    std::shared_ptr<string> commodityCodeList_ = nullptr;
-    std::shared_ptr<string> fiscalYear_ = nullptr;
-    std::shared_ptr<vector<string>> listShowStatusList_ = nullptr;
-    std::shared_ptr<int32_t> pageNo_ = nullptr;
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    std::shared_ptr<string> pipCodeList_ = nullptr;
-    std::shared_ptr<string> realEndMonth_ = nullptr;
-    std::shared_ptr<string> realStartMonth_ = nullptr;
+    shared_ptr<string> commodityCodeList_ {};
+    shared_ptr<string> fiscalYear_ {};
+    shared_ptr<vector<string>> listShowStatusList_ {};
+    shared_ptr<int32_t> pageNo_ {};
+    shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<string> pipCodeList_ {};
+    shared_ptr<string> realEndMonth_ {};
+    shared_ptr<string> realStartMonth_ {};
   };
 
   } // namespace Models

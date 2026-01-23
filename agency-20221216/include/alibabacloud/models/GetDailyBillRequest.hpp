@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->billOwner_ == nullptr
-        && return this->billType_ == nullptr && return this->date_ == nullptr; };
+        && this->billType_ == nullptr && this->date_ == nullptr; };
     // billOwner Field Functions 
     bool hasBillOwner() const { return this->billOwner_ != nullptr;};
     void deleteBillOwner() { this->billOwner_ = nullptr;};
-    inline string billOwner() const { DARABONBA_PTR_GET_DEFAULT(billOwner_, "") };
+    inline string getBillOwner() const { DARABONBA_PTR_GET_DEFAULT(billOwner_, "") };
     inline GetDailyBillRequest& setBillOwner(string billOwner) { DARABONBA_PTR_SET_VALUE(billOwner_, billOwner) };
 
 
     // billType Field Functions 
     bool hasBillType() const { return this->billType_ != nullptr;};
     void deleteBillType() { this->billType_ = nullptr;};
-    inline string billType() const { DARABONBA_PTR_GET_DEFAULT(billType_, "") };
+    inline string getBillType() const { DARABONBA_PTR_GET_DEFAULT(billType_, "") };
     inline GetDailyBillRequest& setBillType(string billType) { DARABONBA_PTR_SET_VALUE(billType_, billType) };
 
 
     // date Field Functions 
     bool hasDate() const { return this->date_ != nullptr;};
     void deleteDate() { this->date_ = nullptr;};
-    inline string date() const { DARABONBA_PTR_GET_DEFAULT(date_, "") };
+    inline string getDate() const { DARABONBA_PTR_GET_DEFAULT(date_, "") };
     inline GetDailyBillRequest& setDate(string date) { DARABONBA_PTR_SET_VALUE(date_, date) };
 
 
@@ -62,7 +62,7 @@ namespace Models
     // 2: Sub account</br>
     // 
     // This parameter is required.
-    std::shared_ptr<string> billOwner_ = nullptr;
+    shared_ptr<string> billOwner_ {};
     // BillType. Value Range:</br>
     // 
     // - DailyOrder(Deprecated)
@@ -71,11 +71,11 @@ namespace Models
     // - DailyInstanceBillV2
     // 
     // This parameter is required.
-    std::shared_ptr<string> billType_ = nullptr;
+    shared_ptr<string> billType_ {};
     // Billing date. Format YYYY-MM-DD
     // 
     // This parameter is required.
-    std::shared_ptr<string> date_ = nullptr;
+    shared_ptr<string> date_ {};
   };
 
   } // namespace Models

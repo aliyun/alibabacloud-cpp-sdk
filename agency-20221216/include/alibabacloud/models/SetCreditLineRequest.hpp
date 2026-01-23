@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->creditLine_ == nullptr
-        && return this->uid_ == nullptr; };
+        && this->uid_ == nullptr; };
     // creditLine Field Functions 
     bool hasCreditLine() const { return this->creditLine_ != nullptr;};
     void deleteCreditLine() { this->creditLine_ = nullptr;};
-    inline string creditLine() const { DARABONBA_PTR_GET_DEFAULT(creditLine_, "") };
+    inline string getCreditLine() const { DARABONBA_PTR_GET_DEFAULT(creditLine_, "") };
     inline SetCreditLineRequest& setCreditLine(string creditLine) { DARABONBA_PTR_SET_VALUE(creditLine_, creditLine) };
 
 
     // uid Field Functions 
     bool hasUid() const { return this->uid_ != nullptr;};
     void deleteUid() { this->uid_ = nullptr;};
-    inline int64_t uid() const { DARABONBA_PTR_GET_DEFAULT(uid_, 0L) };
+    inline int64_t getUid() const { DARABONBA_PTR_GET_DEFAULT(uid_, 0L) };
     inline SetCreditLineRequest& setUid(int64_t uid) { DARABONBA_PTR_SET_VALUE(uid_, uid) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // New Credit Line
     // 
     // This parameter is required.
-    std::shared_ptr<string> creditLine_ = nullptr;
+    shared_ptr<string> creditLine_ {};
     // The UID of Sub Account.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> uid_ = nullptr;
+    shared_ptr<int64_t> uid_ {};
   };
 
   } // namespace Models

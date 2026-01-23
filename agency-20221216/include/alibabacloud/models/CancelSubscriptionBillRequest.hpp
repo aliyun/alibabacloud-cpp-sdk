@@ -33,7 +33,7 @@ namespace Models
     // subscribeType Field Functions 
     bool hasSubscribeType() const { return this->subscribeType_ != nullptr;};
     void deleteSubscribeType() { this->subscribeType_ = nullptr;};
-    inline string subscribeType() const { DARABONBA_PTR_GET_DEFAULT(subscribeType_, "") };
+    inline string getSubscribeType() const { DARABONBA_PTR_GET_DEFAULT(subscribeType_, "") };
     inline CancelSubscriptionBillRequest& setSubscribeType(string subscribeType) { DARABONBA_PTR_SET_VALUE(subscribeType_, subscribeType) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The type of the bill to which you want to cancel the subscription. Valid values: PartnerBillingItemDetailForBillingPeriod, PartnerBillingItemDetailMonthly, PartnerInstanceDetailForBillingPeriod, and PartnerInstanceDetailMonthly.
     // 
     // This parameter is required.
-    std::shared_ptr<string> subscribeType_ = nullptr;
+    shared_ptr<string> subscribeType_ {};
   };
 
   } // namespace Models

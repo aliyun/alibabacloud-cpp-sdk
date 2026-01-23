@@ -104,7 +104,7 @@ CancelCouponResponse Client::cancelCouponWithOptions(const CancelCouponRequest &
   request.validate();
   json query = {};
   if (!!request.hasCouponId()) {
-    query["CouponId"] = request.couponId();
+    query["CouponId"] = request.getCouponId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -151,7 +151,7 @@ CancelSubscriptionBillResponse Client::cancelSubscriptionBillWithOptions(const C
   request.validate();
   json query = {};
   if (!!request.hasSubscribeType()) {
-    query["SubscribeType"] = request.subscribeType();
+    query["SubscribeType"] = request.getSubscribeType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -198,23 +198,23 @@ CouponApprovalStatusListResponse Client::couponApprovalStatusListWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasPageNo()) {
-    query["PageNo"] = request.pageNo();
+    query["PageNo"] = request.getPageNo();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasTemplateId()) {
-    query["TemplateId"] = request.templateId();
+    query["TemplateId"] = request.getTemplateId();
   }
 
   if (!!request.hasTemplateName()) {
-    query["TemplateName"] = request.templateName();
+    query["TemplateName"] = request.getTemplateName();
   }
 
   if (!!request.hasTemplateStatus()) {
-    query["TemplateStatus"] = request.templateStatus();
+    query["TemplateStatus"] = request.getTemplateStatus();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -257,64 +257,64 @@ CreateCouponTemplateResponse Client::createCouponTemplateWithOptions(const Creat
   CreateCouponTemplateShrinkRequest request = CreateCouponTemplateShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasProductType()) {
-    request.setProductTypeShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.productType(), "ProductType", "json"));
+    request.setProductTypeShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getProductType(), "ProductType", "json"));
   }
 
   json query = {};
   if (!!request.hasAcceptLanguage()) {
-    query["AcceptLanguage"] = request.acceptLanguage();
+    query["AcceptLanguage"] = request.getAcceptLanguage();
   }
 
   if (!!request.hasApplicableProducts()) {
-    query["ApplicableProducts"] = request.applicableProducts();
+    query["ApplicableProducts"] = request.getApplicableProducts();
   }
 
   if (!!request.hasCostBearer()) {
-    query["CostBearer"] = request.costBearer();
+    query["CostBearer"] = request.getCostBearer();
   }
 
   if (!!request.hasCouponDescription()) {
-    query["CouponDescription"] = request.couponDescription();
+    query["CouponDescription"] = request.getCouponDescription();
   }
 
   if (!!request.hasExpireddate()) {
-    query["Expireddate"] = request.expireddate();
+    query["Expireddate"] = request.getExpireddate();
   }
 
   if (!!request.hasLimitPerPerson()) {
-    query["LimitPerPerson"] = request.limitPerPerson();
+    query["LimitPerPerson"] = request.getLimitPerPerson();
   }
 
   if (!!request.hasProductTypeShrink()) {
-    query["ProductType"] = request.productTypeShrink();
+    query["ProductType"] = request.getProductTypeShrink();
   }
 
   if (!!request.hasPurchaseType()) {
-    query["PurchaseType"] = request.purchaseType();
+    query["PurchaseType"] = request.getPurchaseType();
   }
 
   if (!!request.hasReasonForApplication()) {
-    query["ReasonForApplication"] = request.reasonForApplication();
+    query["ReasonForApplication"] = request.getReasonForApplication();
   }
 
   if (!!request.hasTemplateName()) {
-    query["TemplateName"] = request.templateName();
+    query["TemplateName"] = request.getTemplateName();
   }
 
   if (!!request.hasVailddate()) {
-    query["Vailddate"] = request.vailddate();
+    query["Vailddate"] = request.getVailddate();
   }
 
   if (!!request.hasVaildperioddays()) {
-    query["Vaildperioddays"] = request.vaildperioddays();
+    query["Vaildperioddays"] = request.getVaildperioddays();
   }
 
   if (!!request.hasValidUntil()) {
-    query["ValidUntil"] = request.validUntil();
+    query["ValidUntil"] = request.getValidUntil();
   }
 
   if (!!request.hasValue()) {
-    query["Value"] = request.value();
+    query["Value"] = request.getValue();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -356,23 +356,23 @@ CreateCustomerResponse Client::createCustomerWithOptions(const CreateCustomerReq
   request.validate();
   json query = {};
   if (!!request.hasCustomerName()) {
-    query["CustomerName"] = request.customerName();
+    query["CustomerName"] = request.getCustomerName();
   }
 
   if (!!request.hasCustomerSource()) {
-    query["CustomerSource"] = request.customerSource();
+    query["CustomerSource"] = request.getCustomerSource();
   }
 
   if (!!request.hasCustomerSubTrade()) {
-    query["CustomerSubTrade"] = request.customerSubTrade();
+    query["CustomerSubTrade"] = request.getCustomerSubTrade();
   }
 
   if (!!request.hasCustomerTrade()) {
-    query["CustomerTrade"] = request.customerTrade();
+    query["CustomerTrade"] = request.getCustomerTrade();
   }
 
   if (!!request.hasNation()) {
-    query["Nation"] = request.nation();
+    query["Nation"] = request.getNation();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -455,11 +455,11 @@ DeductOutstandingBalanceResponse Client::deductOutstandingBalanceWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasDeductAmount()) {
-    query["DeductAmount"] = request.deductAmount();
+    query["DeductAmount"] = request.getDeductAmount();
   }
 
   if (!!request.hasUid()) {
-    query["Uid"] = request.uid();
+    query["Uid"] = request.getUid();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -504,7 +504,7 @@ DeleteCouponTemplateResponse Client::deleteCouponTemplateWithOptions(const Delet
   request.validate();
   json query = {};
   if (!!request.hasTemplateId()) {
-    query["TemplateId"] = request.templateId();
+    query["TemplateId"] = request.getTemplateId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -593,11 +593,11 @@ EditNewBuyStatusResponse Client::editNewBuyStatusWithOptions(const EditNewBuySta
   request.validate();
   json query = {};
   if (!!request.hasNewBuyStatus()) {
-    query["NewBuyStatus"] = request.newBuyStatus();
+    query["NewBuyStatus"] = request.getNewBuyStatus();
   }
 
   if (!!request.hasUid()) {
-    query["Uid"] = request.uid();
+    query["Uid"] = request.getUid();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -645,11 +645,11 @@ EditZeroCreditShutdownResponse Client::editZeroCreditShutdownWithOptions(const E
   request.validate();
   json query = {};
   if (!!request.hasShutdownPolicy()) {
-    query["ShutdownPolicy"] = request.shutdownPolicy();
+    query["ShutdownPolicy"] = request.getShutdownPolicy();
   }
 
   if (!!request.hasUid()) {
-    query["Uid"] = request.uid();
+    query["Uid"] = request.getUid();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -696,23 +696,23 @@ ExportCustomerQuotaRecordResponse Client::exportCustomerQuotaRecordWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasEndDate()) {
-    query["EndDate"] = request.endDate();
+    query["EndDate"] = request.getEndDate();
   }
 
   if (!!request.hasEndUserPk()) {
-    query["EndUserPk"] = request.endUserPk();
+    query["EndUserPk"] = request.getEndUserPk();
   }
 
   if (!!request.hasLanguage()) {
-    query["Language"] = request.language();
+    query["Language"] = request.getLanguage();
   }
 
   if (!!request.hasOperationType()) {
-    query["OperationType"] = request.operationType();
+    query["OperationType"] = request.getOperationType();
   }
 
   if (!!request.hasStartDate()) {
-    query["StartDate"] = request.startDate();
+    query["StartDate"] = request.getStartDate();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -756,19 +756,19 @@ ExportReversedDeductionHistoryResponse Client::exportReversedDeductionHistoryWit
   request.validate();
   json query = {};
   if (!!request.hasEndDate()) {
-    query["EndDate"] = request.endDate();
+    query["EndDate"] = request.getEndDate();
   }
 
   if (!!request.hasExportUid()) {
-    query["ExportUid"] = request.exportUid();
+    query["ExportUid"] = request.getExportUid();
   }
 
   if (!!request.hasLanguage()) {
-    query["Language"] = request.language();
+    query["Language"] = request.getLanguage();
   }
 
   if (!!request.hasStartDate()) {
-    query["StartDate"] = request.startDate();
+    query["StartDate"] = request.getStartDate();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -849,40 +849,40 @@ GetCommissionableProductsResponse Client::getCommissionableProductsWithOptions(c
   GetCommissionableProductsShrinkRequest request = GetCommissionableProductsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasListShowStatusList()) {
-    request.setListShowStatusListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.listShowStatusList(), "ListShowStatusList", "simple"));
+    request.setListShowStatusListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getListShowStatusList(), "ListShowStatusList", "simple"));
   }
 
   json query = {};
   if (!!request.hasCommodityCodeList()) {
-    query["CommodityCodeList"] = request.commodityCodeList();
+    query["CommodityCodeList"] = request.getCommodityCodeList();
   }
 
   if (!!request.hasFiscalYear()) {
-    query["FiscalYear"] = request.fiscalYear();
+    query["FiscalYear"] = request.getFiscalYear();
   }
 
   if (!!request.hasListShowStatusListShrink()) {
-    query["ListShowStatusList"] = request.listShowStatusListShrink();
+    query["ListShowStatusList"] = request.getListShowStatusListShrink();
   }
 
   if (!!request.hasPageNo()) {
-    query["PageNo"] = request.pageNo();
+    query["PageNo"] = request.getPageNo();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasPipCodeList()) {
-    query["PipCodeList"] = request.pipCodeList();
+    query["PipCodeList"] = request.getPipCodeList();
   }
 
   if (!!request.hasRealEndMonth()) {
-    query["RealEndMonth"] = request.realEndMonth();
+    query["RealEndMonth"] = request.getRealEndMonth();
   }
 
   if (!!request.hasRealStartMonth()) {
-    query["RealStartMonth"] = request.realStartMonth();
+    query["RealStartMonth"] = request.getRealStartMonth();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -924,7 +924,7 @@ GetCouponTemplateDetailResponse Client::getCouponTemplateDetailWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasTemplateId()) {
-    query["TemplateId"] = request.templateId();
+    query["TemplateId"] = request.getTemplateId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1080,15 +1080,15 @@ GetDailyBillResponse Client::getDailyBillWithOptions(const GetDailyBillRequest &
   request.validate();
   json query = {};
   if (!!request.hasBillOwner()) {
-    query["BillOwner"] = request.billOwner();
+    query["BillOwner"] = request.getBillOwner();
   }
 
   if (!!request.hasBillType()) {
-    query["BillType"] = request.billType();
+    query["BillType"] = request.getBillType();
   }
 
   if (!!request.hasDate()) {
-    query["Date"] = request.date();
+    query["Date"] = request.getDate();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1130,7 +1130,7 @@ GetInviteStatusResponse Client::getInviteStatusWithOptions(const GetInviteStatus
   request.validate();
   json query = {};
   if (!!request.hasInviteStatusList()) {
-    query["InviteStatusList"] = request.inviteStatusList();
+    query["InviteStatusList"] = request.getInviteStatusList();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1172,15 +1172,15 @@ GetMonthlyBillResponse Client::getMonthlyBillWithOptions(const GetMonthlyBillReq
   request.validate();
   json query = {};
   if (!!request.hasBillOwner()) {
-    query["BillOwner"] = request.billOwner();
+    query["BillOwner"] = request.getBillOwner();
   }
 
   if (!!request.hasBillType()) {
-    query["BillType"] = request.billType();
+    query["BillType"] = request.getBillType();
   }
 
   if (!!request.hasMonth()) {
-    query["Month"] = request.month();
+    query["Month"] = request.getMonth();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1222,19 +1222,19 @@ GetPurchaseControlRecordResponse Client::getPurchaseControlRecordWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasCustomerUID()) {
-    query["CustomerUID"] = request.customerUID();
+    query["CustomerUID"] = request.getCustomerUID();
   }
 
   if (!!request.hasOperationTime()) {
-    query["OperationTime"] = request.operationTime();
+    query["OperationTime"] = request.getOperationTime();
   }
 
   if (!!request.hasPageNo()) {
-    query["PageNo"] = request.pageNo();
+    query["PageNo"] = request.getPageNo();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1276,19 +1276,19 @@ GetShutdownPolicyRecordResponse Client::getShutdownPolicyRecordWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasCustomerUID()) {
-    query["CustomerUID"] = request.customerUID();
+    query["CustomerUID"] = request.getCustomerUID();
   }
 
   if (!!request.hasOperationTime()) {
-    query["OperationTime"] = request.operationTime();
+    query["OperationTime"] = request.getOperationTime();
   }
 
   if (!!request.hasPageNo()) {
-    query["PageNo"] = request.pageNo();
+    query["PageNo"] = request.getPageNo();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1370,7 +1370,7 @@ InviteSubAccountResponse Client::inviteSubAccountWithOptions(const InviteSubAcco
   request.validate();
   json query = {};
   if (!!request.hasAccountInfoList()) {
-    query["AccountInfoList"] = request.accountInfoList();
+    query["AccountInfoList"] = request.getAccountInfoList();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1414,19 +1414,23 @@ IssueCouponForCustomerResponse Client::issueCouponForCustomerWithOptions(const I
   request.validate();
   json query = {};
   if (!!request.hasAcceptLanguage()) {
-    query["AcceptLanguage"] = request.acceptLanguage();
+    query["AcceptLanguage"] = request.getAcceptLanguage();
+  }
+
+  if (!!request.hasApplicationReason()) {
+    query["ApplicationReason"] = request.getApplicationReason();
   }
 
   if (!!request.hasCouponTemplateId()) {
-    query["CouponTemplateId"] = request.couponTemplateId();
+    query["CouponTemplateId"] = request.getCouponTemplateId();
   }
 
   if (!!request.hasIsUseBenefit()) {
-    query["IsUseBenefit"] = request.isUseBenefit();
+    query["IsUseBenefit"] = request.getIsUseBenefit();
   }
 
   if (!!request.hasUidlist()) {
-    query["Uidlist"] = request.uidlist();
+    query["Uidlist"] = request.getUidlist();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1505,27 +1509,31 @@ ListCouponUsageResponse Client::listCouponUsageWithOptions(const ListCouponUsage
   request.validate();
   json query = {};
   if (!!request.hasAccount()) {
-    query["Account"] = request.account();
+    query["Account"] = request.getAccount();
   }
 
   if (!!request.hasCouponTemplateId()) {
-    query["CouponTemplateId"] = request.couponTemplateId();
+    query["CouponTemplateId"] = request.getCouponTemplateId();
   }
 
   if (!!request.hasPage()) {
-    query["Page"] = request.page();
+    query["Page"] = request.getPage();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasStatus()) {
-    query["Status"] = request.status();
+    query["Status"] = request.getStatus();
+  }
+
+  if (!!request.hasT2PartnerUid()) {
+    query["T2PartnerUid"] = request.getT2PartnerUid();
   }
 
   if (!!request.hasUid()) {
-    query["Uid"] = request.uid();
+    query["Uid"] = request.getUid();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1567,23 +1575,23 @@ ListExportTasksResponse Client::listExportTasksWithOptions(const ListExportTasks
   request.validate();
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   if (!!request.hasLanguage()) {
-    query["Language"] = request.language();
+    query["Language"] = request.getLanguage();
   }
 
   if (!!request.hasPageNo()) {
-    query["PageNo"] = request.pageNo();
+    query["PageNo"] = request.getPageNo();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasSceneCode()) {
-    query["SceneCode"] = request.sceneCode();
+    query["SceneCode"] = request.getSceneCode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1625,27 +1633,27 @@ QueryReversedDeductionHistoryResponse Client::queryReversedDeductionHistoryWithO
   request.validate();
   json query = {};
   if (!!request.hasEndDate()) {
-    query["EndDate"] = request.endDate();
+    query["EndDate"] = request.getEndDate();
   }
 
   if (!!request.hasLanguage()) {
-    query["Language"] = request.language();
+    query["Language"] = request.getLanguage();
   }
 
   if (!!request.hasPageNo()) {
-    query["PageNo"] = request.pageNo();
+    query["PageNo"] = request.getPageNo();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasStartDate()) {
-    query["StartDate"] = request.startDate();
+    query["StartDate"] = request.getStartDate();
   }
 
   if (!!request.hasUid()) {
-    query["Uid"] = request.uid();
+    query["Uid"] = request.getUid();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1729,7 +1737,7 @@ ResendEmailResponse Client::resendEmailWithOptions(const ResendEmailRequest &req
   request.validate();
   json query = {};
   if (!!request.hasInviteId()) {
-    query["InviteId"] = request.inviteId();
+    query["InviteId"] = request.getInviteId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1771,19 +1779,19 @@ SetAccountInfoResponse Client::setAccountInfoWithOptions(const SetAccountInfoReq
   request.validate();
   json query = {};
   if (!!request.hasAccountNickname()) {
-    query["AccountNickname"] = request.accountNickname();
+    query["AccountNickname"] = request.getAccountNickname();
   }
 
   if (!!request.hasCustomerBd()) {
-    query["CustomerBd"] = request.customerBd();
+    query["CustomerBd"] = request.getCustomerBd();
   }
 
   if (!!request.hasRemark()) {
-    query["Remark"] = request.remark();
+    query["Remark"] = request.getRemark();
   }
 
   if (!!request.hasUid()) {
-    query["Uid"] = request.uid();
+    query["Uid"] = request.getUid();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1825,11 +1833,11 @@ SetCreditLineResponse Client::setCreditLineWithOptions(const SetCreditLineReques
   request.validate();
   json query = {};
   if (!!request.hasCreditLine()) {
-    query["CreditLine"] = request.creditLine();
+    query["CreditLine"] = request.getCreditLine();
   }
 
   if (!!request.hasUid()) {
-    query["Uid"] = request.uid();
+    query["Uid"] = request.getUid();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1871,11 +1879,11 @@ SetWarningThresholdResponse Client::setWarningThresholdWithOptions(const SetWarn
   request.validate();
   json query = {};
   if (!!request.hasUid()) {
-    query["Uid"] = request.uid();
+    query["Uid"] = request.getUid();
   }
 
   if (!!request.hasWarningValue()) {
-    query["WarningValue"] = request.warningValue();
+    query["WarningValue"] = request.getWarningValue();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1944,27 +1952,27 @@ SubscriptionBillResponse Client::subscriptionBillWithOptions(const SubscriptionB
   request.validate();
   json query = {};
   if (!!request.hasBeginBillingCycle()) {
-    query["BeginBillingCycle"] = request.beginBillingCycle();
+    query["BeginBillingCycle"] = request.getBeginBillingCycle();
   }
 
   if (!!request.hasBillFormat()) {
-    query["BillFormat"] = request.billFormat();
+    query["BillFormat"] = request.getBillFormat();
   }
 
   if (!!request.hasBucketOwnerId()) {
-    query["BucketOwnerId"] = request.bucketOwnerId();
+    query["BucketOwnerId"] = request.getBucketOwnerId();
   }
 
   if (!!request.hasSubscribeBucket()) {
-    query["SubscribeBucket"] = request.subscribeBucket();
+    query["SubscribeBucket"] = request.getSubscribeBucket();
   }
 
   if (!!request.hasSubscribeSegmentSize()) {
-    query["SubscribeSegmentSize"] = request.subscribeSegmentSize();
+    query["SubscribeSegmentSize"] = request.getSubscribeSegmentSize();
   }
 
   if (!!request.hasSubscribeType()) {
-    query["SubscribeType"] = request.subscribeType();
+    query["SubscribeType"] = request.getSubscribeType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

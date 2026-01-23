@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->creditStatus_ == nullptr
-        && return this->uid_ == nullptr; };
+        && this->uid_ == nullptr; };
     // creditStatus Field Functions 
     bool hasCreditStatus() const { return this->creditStatus_ != nullptr;};
     void deleteCreditStatus() { this->creditStatus_ = nullptr;};
-    inline string creditStatus() const { DARABONBA_PTR_GET_DEFAULT(creditStatus_, "") };
+    inline string getCreditStatus() const { DARABONBA_PTR_GET_DEFAULT(creditStatus_, "") };
     inline EditEndUserStatusRequest& setCreditStatus(string creditStatus) { DARABONBA_PTR_SET_VALUE(creditStatus_, creditStatus) };
 
 
     // uid Field Functions 
     bool hasUid() const { return this->uid_ != nullptr;};
     void deleteUid() { this->uid_ = nullptr;};
-    inline int64_t uid() const { DARABONBA_PTR_GET_DEFAULT(uid_, 0L) };
+    inline int64_t getUid() const { DARABONBA_PTR_GET_DEFAULT(uid_, 0L) };
     inline EditEndUserStatusRequest& setUid(int64_t uid) { DARABONBA_PTR_SET_VALUE(uid_, uid) };
 
 
@@ -53,9 +53,9 @@ namespace Models
     // - postPayFreeze, the account have been blocked</br>
     // 
     // - postPayThaw, the account have been unlocked</br>
-    std::shared_ptr<string> creditStatus_ = nullptr;
+    shared_ptr<string> creditStatus_ {};
     // UID
-    std::shared_ptr<int64_t> uid_ = nullptr;
+    shared_ptr<int64_t> uid_ {};
   };
 
   } // namespace Models
