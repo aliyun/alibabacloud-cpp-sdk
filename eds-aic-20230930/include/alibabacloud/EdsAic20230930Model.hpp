@@ -162,6 +162,9 @@
 #include <alibabacloud/models/GetInstancePropertiesRequest.hpp>
 #include <alibabacloud/models/GetInstancePropertiesResponseBody.hpp>
 #include <alibabacloud/models/GetInstancePropertiesResponse.hpp>
+#include <alibabacloud/models/GetNetworkBlacklistRequest.hpp>
+#include <alibabacloud/models/GetNetworkBlacklistResponseBody.hpp>
+#include <alibabacloud/models/GetNetworkBlacklistResponse.hpp>
 #include <alibabacloud/models/ImportImageRequest.hpp>
 #include <alibabacloud/models/ImportImageResponseBody.hpp>
 #include <alibabacloud/models/ImportImageResponse.hpp>
@@ -252,6 +255,9 @@
 #include <alibabacloud/models/SetAdbSecureRequest.hpp>
 #include <alibabacloud/models/SetAdbSecureResponseBody.hpp>
 #include <alibabacloud/models/SetAdbSecureResponse.hpp>
+#include <alibabacloud/models/SetNetworkBlacklistRequest.hpp>
+#include <alibabacloud/models/SetNetworkBlacklistResponseBody.hpp>
+#include <alibabacloud/models/SetNetworkBlacklistResponse.hpp>
 #include <alibabacloud/models/StartAndroidInstanceRequest.hpp>
 #include <alibabacloud/models/StartAndroidInstanceResponseBody.hpp>
 #include <alibabacloud/models/StartAndroidInstanceResponse.hpp>

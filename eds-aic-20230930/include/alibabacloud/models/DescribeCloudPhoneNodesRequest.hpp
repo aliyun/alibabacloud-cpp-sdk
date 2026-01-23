@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(NodeIds, nodeIds_);
       DARABONBA_PTR_TO_JSON(NodeName, nodeName_);
+      DARABONBA_PTR_TO_JSON(NodeNameList, nodeNameList_);
       DARABONBA_PTR_TO_JSON(ServerType, serverType_);
       DARABONBA_PTR_TO_JSON(Status, status_);
     };
@@ -32,6 +33,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(NodeIds, nodeIds_);
       DARABONBA_PTR_FROM_JSON(NodeName, nodeName_);
+      DARABONBA_PTR_FROM_JSON(NodeNameList, nodeNameList_);
       DARABONBA_PTR_FROM_JSON(ServerType, serverType_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
     };
@@ -48,7 +50,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bandwidthPackageId_ == nullptr
         && this->bizRegionId_ == nullptr && this->chargeType_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->nodeIds_ == nullptr
-        && this->nodeName_ == nullptr && this->serverType_ == nullptr && this->status_ == nullptr; };
+        && this->nodeName_ == nullptr && this->nodeNameList_ == nullptr && this->serverType_ == nullptr && this->status_ == nullptr; };
     // bandwidthPackageId Field Functions 
     bool hasBandwidthPackageId() const { return this->bandwidthPackageId_ != nullptr;};
     void deleteBandwidthPackageId() { this->bandwidthPackageId_ = nullptr;};
@@ -100,6 +102,15 @@ namespace Models
     inline DescribeCloudPhoneNodesRequest& setNodeName(string nodeName) { DARABONBA_PTR_SET_VALUE(nodeName_, nodeName) };
 
 
+    // nodeNameList Field Functions 
+    bool hasNodeNameList() const { return this->nodeNameList_ != nullptr;};
+    void deleteNodeNameList() { this->nodeNameList_ = nullptr;};
+    inline const vector<string> & getNodeNameList() const { DARABONBA_PTR_GET_CONST(nodeNameList_, vector<string>) };
+    inline vector<string> getNodeNameList() { DARABONBA_PTR_GET(nodeNameList_, vector<string>) };
+    inline DescribeCloudPhoneNodesRequest& setNodeNameList(const vector<string> & nodeNameList) { DARABONBA_PTR_SET_VALUE(nodeNameList_, nodeNameList) };
+    inline DescribeCloudPhoneNodesRequest& setNodeNameList(vector<string> && nodeNameList) { DARABONBA_PTR_SET_RVALUE(nodeNameList_, nodeNameList) };
+
+
     // serverType Field Functions 
     bool hasServerType() const { return this->serverType_ != nullptr;};
     void deleteServerType() { this->serverType_ = nullptr;};
@@ -128,6 +139,7 @@ namespace Models
     shared_ptr<vector<string>> nodeIds_ {};
     // The matrix name.
     shared_ptr<string> nodeName_ {};
+    shared_ptr<vector<string>> nodeNameList_ {};
     // The matrix specification.
     // 
     // Valid values:

@@ -2107,6 +2107,10 @@ DescribeCloudPhoneNodesResponse Client::describeCloudPhoneNodesWithOptions(const
     query["NodeName"] = request.getNodeName();
   }
 
+  if (!!request.hasNodeNameList()) {
+    query["NodeNameList"] = request.getNodeNameList();
+  }
+
   if (!!request.hasServerType()) {
     query["ServerType"] = request.getServerType();
   }
@@ -3379,6 +3383,48 @@ GetInstancePropertiesResponse Client::getInstancePropertiesWithOptions(const Get
 GetInstancePropertiesResponse Client::getInstanceProperties(const GetInstancePropertiesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getInstancePropertiesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 网络黑名单列表查询
+ *
+ * @param request GetNetworkBlacklistRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetNetworkBlacklistResponse
+ */
+GetNetworkBlacklistResponse Client::getNetworkBlacklistWithOptions(const GetNetworkBlacklistRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasType()) {
+    query["Type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetNetworkBlacklist"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetNetworkBlacklistResponse>();
+}
+
+/**
+ * @summary 网络黑名单列表查询
+ *
+ * @param request GetNetworkBlacklistRequest
+ * @return GetNetworkBlacklistResponse
+ */
+GetNetworkBlacklistResponse Client::getNetworkBlacklist(const GetNetworkBlacklistRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getNetworkBlacklistWithOptions(request, runtime);
 }
 
 /**
@@ -5055,6 +5101,52 @@ SetAdbSecureResponse Client::setAdbSecureWithOptions(const SetAdbSecureRequest &
 SetAdbSecureResponse Client::setAdbSecure(const SetAdbSecureRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return setAdbSecureWithOptions(request, runtime);
+}
+
+/**
+ * @summary 设置网络黑名单
+ *
+ * @param request SetNetworkBlacklistRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SetNetworkBlacklistResponse
+ */
+SetNetworkBlacklistResponse Client::setNetworkBlacklistWithOptions(const SetNetworkBlacklistRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDomainBlacklist()) {
+    query["DomainBlacklist"] = request.getDomainBlacklist();
+  }
+
+  if (!!request.hasIpBlacklist()) {
+    query["IpBlacklist"] = request.getIpBlacklist();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SetNetworkBlacklist"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SetNetworkBlacklistResponse>();
+}
+
+/**
+ * @summary 设置网络黑名单
+ *
+ * @param request SetNetworkBlacklistRequest
+ * @return SetNetworkBlacklistResponse
+ */
+SetNetworkBlacklistResponse Client::setNetworkBlacklist(const SetNetworkBlacklistRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return setNetworkBlacklistWithOptions(request, runtime);
 }
 
 /**

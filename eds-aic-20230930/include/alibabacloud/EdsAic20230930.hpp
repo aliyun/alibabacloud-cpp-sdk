@@ -1002,6 +1002,23 @@ namespace EdsAic20230930
       Models::GetInstancePropertiesResponse getInstanceProperties(const Models::GetInstancePropertiesRequest &request);
 
       /**
+       * @summary 网络黑名单列表查询
+       *
+       * @param request GetNetworkBlacklistRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetNetworkBlacklistResponse
+       */
+      Models::GetNetworkBlacklistResponse getNetworkBlacklistWithOptions(const Models::GetNetworkBlacklistRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 网络黑名单列表查询
+       *
+       * @param request GetNetworkBlacklistRequest
+       * @return GetNetworkBlacklistResponse
+       */
+      Models::GetNetworkBlacklistResponse getNetworkBlacklist(const Models::GetNetworkBlacklistRequest &request);
+
+      /**
        * @summary 导入自定义镜像
        *
        * @param request ImportImageRequest
@@ -1525,6 +1542,23 @@ namespace EdsAic20230930
        * @return SetAdbSecureResponse
        */
       Models::SetAdbSecureResponse setAdbSecure(const Models::SetAdbSecureRequest &request);
+
+      /**
+       * @summary 设置网络黑名单
+       *
+       * @param request SetNetworkBlacklistRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SetNetworkBlacklistResponse
+       */
+      Models::SetNetworkBlacklistResponse setNetworkBlacklistWithOptions(const Models::SetNetworkBlacklistRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 设置网络黑名单
+       *
+       * @param request SetNetworkBlacklistRequest
+       * @return SetNetworkBlacklistResponse
+       */
+      Models::SetNetworkBlacklistResponse setNetworkBlacklist(const Models::SetNetworkBlacklistRequest &request);
 
       /**
        * @summary Start instances.
