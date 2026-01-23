@@ -15763,6 +15763,10 @@ ModifyDBClusterAccessWhitelistResponse Client::modifyDBClusterAccessWhitelist(co
 ModifyDBClusterAndNodesParametersResponse Client::modifyDBClusterAndNodesParametersWithOptions(const ModifyDBClusterAndNodesParametersRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasClearBinlog()) {
+    query["ClearBinlog"] = request.getClearBinlog();
+  }
+
   if (!!request.hasDBClusterId()) {
     query["DBClusterId"] = request.getDBClusterId();
   }
@@ -16659,6 +16663,10 @@ ModifyDBClusterMonitorResponse Client::modifyDBClusterMonitor(const ModifyDBClus
 ModifyDBClusterParametersResponse Client::modifyDBClusterParametersWithOptions(const ModifyDBClusterParametersRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasClearBinlog()) {
+    query["ClearBinlog"] = request.getClearBinlog();
+  }
+
   if (!!request.hasDBClusterId()) {
     query["DBClusterId"] = request.getDBClusterId();
   }

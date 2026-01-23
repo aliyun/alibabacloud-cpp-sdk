@@ -13,6 +13,7 @@ namespace Models
   class ModifyDBClusterAndNodesParametersRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ModifyDBClusterAndNodesParametersRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ClearBinlog, clearBinlog_);
       DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_TO_JSON(DBNodeIds, DBNodeIds_);
       DARABONBA_PTR_TO_JSON(FromTimeService, fromTimeService_);
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(StandbyClusterIdListNeedToSync, standbyClusterIdListNeedToSync_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyDBClusterAndNodesParametersRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ClearBinlog, clearBinlog_);
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_FROM_JSON(DBNodeIds, DBNodeIds_);
       DARABONBA_PTR_FROM_JSON(FromTimeService, fromTimeService_);
@@ -51,10 +53,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->DBClusterId_ == nullptr
-        && this->DBNodeIds_ == nullptr && this->fromTimeService_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->parameterGroupId_ == nullptr
-        && this->parameters_ == nullptr && this->plannedEndTime_ == nullptr && this->plannedStartTime_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr
-        && this->standbyClusterIdListNeedToSync_ == nullptr; };
+    virtual bool empty() const override { return this->clearBinlog_ == nullptr
+        && this->DBClusterId_ == nullptr && this->DBNodeIds_ == nullptr && this->fromTimeService_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr
+        && this->parameterGroupId_ == nullptr && this->parameters_ == nullptr && this->plannedEndTime_ == nullptr && this->plannedStartTime_ == nullptr && this->resourceOwnerAccount_ == nullptr
+        && this->resourceOwnerId_ == nullptr && this->standbyClusterIdListNeedToSync_ == nullptr; };
+    // clearBinlog Field Functions 
+    bool hasClearBinlog() const { return this->clearBinlog_ != nullptr;};
+    void deleteClearBinlog() { this->clearBinlog_ = nullptr;};
+    inline bool getClearBinlog() const { DARABONBA_PTR_GET_DEFAULT(clearBinlog_, false) };
+    inline ModifyDBClusterAndNodesParametersRequest& setClearBinlog(bool clearBinlog) { DARABONBA_PTR_SET_VALUE(clearBinlog_, clearBinlog) };
+
+
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
@@ -140,6 +149,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<bool> clearBinlog_ {};
     // The ID of the cluster.
     // 
     // This parameter is required.
