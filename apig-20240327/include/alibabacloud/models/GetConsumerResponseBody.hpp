@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_GETCONSUMERRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_GETCONSUMERRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 #include <alibabacloud/models/AkSkIdentityConfig.hpp>
 #include <alibabacloud/models/ApiKeyIdentityConfig.hpp>
 #include <alibabacloud/models/JwtIdentityConfig.hpp>
@@ -81,10 +82,10 @@ namespace Models
       // akSkIdentityConfigs Field Functions 
       bool hasAkSkIdentityConfigs() const { return this->akSkIdentityConfigs_ != nullptr;};
       void deleteAkSkIdentityConfigs() { this->akSkIdentityConfigs_ = nullptr;};
-      inline const AkSkIdentityConfig & getAkSkIdentityConfigs() const { DARABONBA_PTR_GET_CONST(akSkIdentityConfigs_, AkSkIdentityConfig) };
-      inline AkSkIdentityConfig getAkSkIdentityConfigs() { DARABONBA_PTR_GET(akSkIdentityConfigs_, AkSkIdentityConfig) };
-      inline Data& setAkSkIdentityConfigs(const AkSkIdentityConfig & akSkIdentityConfigs) { DARABONBA_PTR_SET_VALUE(akSkIdentityConfigs_, akSkIdentityConfigs) };
-      inline Data& setAkSkIdentityConfigs(AkSkIdentityConfig && akSkIdentityConfigs) { DARABONBA_PTR_SET_RVALUE(akSkIdentityConfigs_, akSkIdentityConfigs) };
+      inline const vector<AkSkIdentityConfig> & getAkSkIdentityConfigs() const { DARABONBA_PTR_GET_CONST(akSkIdentityConfigs_, vector<AkSkIdentityConfig>) };
+      inline vector<AkSkIdentityConfig> getAkSkIdentityConfigs() { DARABONBA_PTR_GET(akSkIdentityConfigs_, vector<AkSkIdentityConfig>) };
+      inline Data& setAkSkIdentityConfigs(const vector<AkSkIdentityConfig> & akSkIdentityConfigs) { DARABONBA_PTR_SET_VALUE(akSkIdentityConfigs_, akSkIdentityConfigs) };
+      inline Data& setAkSkIdentityConfigs(vector<AkSkIdentityConfig> && akSkIdentityConfigs) { DARABONBA_PTR_SET_RVALUE(akSkIdentityConfigs_, akSkIdentityConfigs) };
 
 
       // apiKeyIdentityConfig Field Functions 
@@ -156,7 +157,7 @@ namespace Models
 
     protected:
       // The AK/SK authentication configurations.
-      shared_ptr<AkSkIdentityConfig> akSkIdentityConfigs_ {};
+      shared_ptr<vector<AkSkIdentityConfig>> akSkIdentityConfigs_ {};
       // The API key authentication configurations.
       shared_ptr<ApiKeyIdentityConfig> apiKeyIdentityConfig_ {};
       // The consumer ID.
