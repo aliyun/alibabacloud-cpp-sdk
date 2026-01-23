@@ -2581,6 +2581,10 @@ CreateCenterPolicyResponse Client::createCenterPolicyWithOptions(const CreateCen
     query["GpuAcceleration"] = request.getGpuAcceleration();
   }
 
+  if (!!request.hasHoverConfigMsg()) {
+    query["HoverConfigMsg"] = request.getHoverConfigMsg();
+  }
+
   if (!!request.hasHtml5FileTransfer()) {
     query["Html5FileTransfer"] = request.getHtml5FileTransfer();
   }
@@ -2651,6 +2655,10 @@ CreateCenterPolicyResponse Client::createCenterPolicyWithOptions(const CreateCen
 
   if (!!request.hasModelLibrary()) {
     query["ModelLibrary"] = request.getModelLibrary();
+  }
+
+  if (!!request.hasMultiScreen()) {
+    query["MultiScreen"] = request.getMultiScreen();
   }
 
   if (!!request.hasName()) {
@@ -2755,6 +2763,10 @@ CreateCenterPolicyResponse Client::createCenterPolicyWithOptions(const CreateCen
 
   if (!!request.hasResetDesktop()) {
     query["ResetDesktop"] = request.getResetDesktop();
+  }
+
+  if (!!request.hasResolutionDpi()) {
+    query["ResolutionDpi"] = request.getResolutionDpi();
   }
 
   if (!!request.hasResolutionHeight()) {
@@ -14585,6 +14597,10 @@ ModifyCenterPolicyResponse Client::modifyCenterPolicyWithOptions(const ModifyCen
     query["GpuAcceleration"] = request.getGpuAcceleration();
   }
 
+  if (!!request.hasHoverConfigMsg()) {
+    query["HoverConfigMsg"] = request.getHoverConfigMsg();
+  }
+
   if (!!request.hasHtml5FileTransfer()) {
     query["Html5FileTransfer"] = request.getHtml5FileTransfer();
   }
@@ -14655,6 +14671,10 @@ ModifyCenterPolicyResponse Client::modifyCenterPolicyWithOptions(const ModifyCen
 
   if (!!request.hasModelLibrary()) {
     query["ModelLibrary"] = request.getModelLibrary();
+  }
+
+  if (!!request.hasMultiScreen()) {
+    query["MultiScreen"] = request.getMultiScreen();
   }
 
   if (!!request.hasName()) {
@@ -14763,6 +14783,10 @@ ModifyCenterPolicyResponse Client::modifyCenterPolicyWithOptions(const ModifyCen
 
   if (!!request.hasResetDesktop()) {
     query["ResetDesktop"] = request.getResetDesktop();
+  }
+
+  if (!!request.hasResolutionDpi()) {
+    query["ResolutionDpi"] = request.getResolutionDpi();
   }
 
   if (!!request.hasResolutionHeight()) {

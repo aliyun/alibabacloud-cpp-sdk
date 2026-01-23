@@ -83,6 +83,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(FileTransferSpeed, fileTransferSpeed_);
         DARABONBA_PTR_TO_JSON(FileTransferSpeedLocation, fileTransferSpeedLocation_);
         DARABONBA_PTR_TO_JSON(GpuAcceleration, gpuAcceleration_);
+        DARABONBA_PTR_TO_JSON(HoverConfigMsg, hoverConfigMsg_);
         DARABONBA_PTR_TO_JSON(Html5Access, html5Access_);
         DARABONBA_PTR_TO_JSON(Html5FileTransfer, html5FileTransfer_);
         DARABONBA_PTR_TO_JSON(InternetCommunicationProtocol, internetCommunicationProtocol_);
@@ -102,6 +103,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(MobileWuyingKeeper, mobileWuyingKeeper_);
         DARABONBA_PTR_TO_JSON(MobileWyAssistant, mobileWyAssistant_);
         DARABONBA_PTR_TO_JSON(ModelLibrary, modelLibrary_);
+        DARABONBA_PTR_TO_JSON(MultiScreen, multiScreen_);
         DARABONBA_PTR_TO_JSON(Name, name_);
         DARABONBA_PTR_TO_JSON(NetRedirect, netRedirect_);
         DARABONBA_PTR_TO_JSON(NetRedirectRule, netRedirectRule_);
@@ -131,6 +133,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(RecordingUserNotifyMessage, recordingUserNotifyMessage_);
         DARABONBA_PTR_TO_JSON(RemoteCoordinate, remoteCoordinate_);
         DARABONBA_PTR_TO_JSON(ResetDesktop, resetDesktop_);
+        DARABONBA_PTR_TO_JSON(ResolutionDpi, resolutionDpi_);
         DARABONBA_PTR_TO_JSON(ResolutionHeight, resolutionHeight_);
         DARABONBA_PTR_TO_JSON(ResolutionModel, resolutionModel_);
         DARABONBA_PTR_TO_JSON(ResolutionWidth, resolutionWidth_);
@@ -212,6 +215,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(FileTransferSpeed, fileTransferSpeed_);
         DARABONBA_PTR_FROM_JSON(FileTransferSpeedLocation, fileTransferSpeedLocation_);
         DARABONBA_PTR_FROM_JSON(GpuAcceleration, gpuAcceleration_);
+        DARABONBA_PTR_FROM_JSON(HoverConfigMsg, hoverConfigMsg_);
         DARABONBA_PTR_FROM_JSON(Html5Access, html5Access_);
         DARABONBA_PTR_FROM_JSON(Html5FileTransfer, html5FileTransfer_);
         DARABONBA_PTR_FROM_JSON(InternetCommunicationProtocol, internetCommunicationProtocol_);
@@ -231,6 +235,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(MobileWuyingKeeper, mobileWuyingKeeper_);
         DARABONBA_PTR_FROM_JSON(MobileWyAssistant, mobileWyAssistant_);
         DARABONBA_PTR_FROM_JSON(ModelLibrary, modelLibrary_);
+        DARABONBA_PTR_FROM_JSON(MultiScreen, multiScreen_);
         DARABONBA_PTR_FROM_JSON(Name, name_);
         DARABONBA_PTR_FROM_JSON(NetRedirect, netRedirect_);
         DARABONBA_PTR_FROM_JSON(NetRedirectRule, netRedirectRule_);
@@ -260,6 +265,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(RecordingUserNotifyMessage, recordingUserNotifyMessage_);
         DARABONBA_PTR_FROM_JSON(RemoteCoordinate, remoteCoordinate_);
         DARABONBA_PTR_FROM_JSON(ResetDesktop, resetDesktop_);
+        DARABONBA_PTR_FROM_JSON(ResolutionDpi, resolutionDpi_);
         DARABONBA_PTR_FROM_JSON(ResolutionHeight, resolutionHeight_);
         DARABONBA_PTR_FROM_JSON(ResolutionModel, resolutionModel_);
         DARABONBA_PTR_FROM_JSON(ResolutionWidth, resolutionWidth_);
@@ -990,25 +996,25 @@ namespace Models
         && this->desktopGroupCount_ == nullptr && this->deviceConnectHint_ == nullptr && this->deviceRedirects_ == nullptr && this->deviceRules_ == nullptr && this->diskOverload_ == nullptr
         && this->displayMode_ == nullptr && this->domainList_ == nullptr && this->domainResolveRule_ == nullptr && this->domainResolveRuleType_ == nullptr && this->edsCount_ == nullptr
         && this->endUserApplyAdminCoordinate_ == nullptr && this->endUserGroupCoordinate_ == nullptr && this->externalDrive_ == nullptr && this->fileMigrate_ == nullptr && this->fileTransfer_ == nullptr
-        && this->fileTransferAddress_ == nullptr && this->fileTransferSpeed_ == nullptr && this->fileTransferSpeedLocation_ == nullptr && this->gpuAcceleration_ == nullptr && this->html5Access_ == nullptr
-        && this->html5FileTransfer_ == nullptr && this->internetCommunicationProtocol_ == nullptr && this->internetPrinter_ == nullptr && this->localDrive_ == nullptr && this->maxReconnectTime_ == nullptr
-        && this->memoryDownGradeDuration_ == nullptr && this->memoryOverload_ == nullptr && this->memoryProcessors_ == nullptr && this->memoryProtectedMode_ == nullptr && this->memoryRateLimit_ == nullptr
-        && this->memorySampleDuration_ == nullptr && this->memorySingleRateLimit_ == nullptr && this->mobileRestart_ == nullptr && this->mobileSafeMenu_ == nullptr && this->mobileShutdown_ == nullptr
-        && this->mobileWuyingKeeper_ == nullptr && this->mobileWyAssistant_ == nullptr && this->modelLibrary_ == nullptr && this->name_ == nullptr && this->netRedirect_ == nullptr
-        && this->netRedirectRule_ == nullptr && this->policyGroupId_ == nullptr && this->policyGroupType_ == nullptr && this->policyStatus_ == nullptr && this->portProxy_ == nullptr
-        && this->preemptLogin_ == nullptr && this->preemptLoginUsers_ == nullptr && this->printerRedirection_ == nullptr && this->qualityEnhancement_ == nullptr && this->recordContent_ == nullptr
-        && this->recordContentExpires_ == nullptr && this->recordEventDuration_ == nullptr && this->recordEventFileExts_ == nullptr && this->recordEventFilePaths_ == nullptr && this->recordEventLevels_ == nullptr
-        && this->recordEventRegisters_ == nullptr && this->recording_ == nullptr && this->recordingAudio_ == nullptr && this->recordingDuration_ == nullptr && this->recordingEndTime_ == nullptr
-        && this->recordingExpires_ == nullptr && this->recordingFps_ == nullptr && this->recordingStartTime_ == nullptr && this->recordingUserNotify_ == nullptr && this->recordingUserNotifyMessage_ == nullptr
-        && this->remoteCoordinate_ == nullptr && this->resetDesktop_ == nullptr && this->resolutionHeight_ == nullptr && this->resolutionModel_ == nullptr && this->resolutionWidth_ == nullptr
-        && this->resourceGroupCount_ == nullptr && this->resourceRegionId_ == nullptr && this->safeMenu_ == nullptr && this->scope_ == nullptr && this->scopeValue_ == nullptr
-        && this->screenDisplayMode_ == nullptr && this->smoothEnhancement_ == nullptr && this->statusMonitor_ == nullptr && this->streamingMode_ == nullptr && this->targetFps_ == nullptr
-        && this->usbRedirect_ == nullptr && this->usbSupplyRedirectRule_ == nullptr && this->useTime_ == nullptr && this->videoEncAvgKbps_ == nullptr && this->videoEncMaxQP_ == nullptr
-        && this->videoEncMinQP_ == nullptr && this->videoEncPeakKbps_ == nullptr && this->videoEncPolicy_ == nullptr && this->videoRedirect_ == nullptr && this->visualQuality_ == nullptr
-        && this->watermark_ == nullptr && this->watermarkAntiCam_ == nullptr && this->watermarkColor_ == nullptr && this->watermarkCustomText_ == nullptr && this->watermarkDegree_ == nullptr
-        && this->watermarkFontSize_ == nullptr && this->watermarkFontStyle_ == nullptr && this->watermarkPower_ == nullptr && this->watermarkRowAmount_ == nullptr && this->watermarkSecurity_ == nullptr
-        && this->watermarkShadow_ == nullptr && this->watermarkTransparency_ == nullptr && this->watermarkTransparencyValue_ == nullptr && this->watermarkType_ == nullptr && this->wuyingKeeper_ == nullptr
-        && this->wyAssistant_ == nullptr; };
+        && this->fileTransferAddress_ == nullptr && this->fileTransferSpeed_ == nullptr && this->fileTransferSpeedLocation_ == nullptr && this->gpuAcceleration_ == nullptr && this->hoverConfigMsg_ == nullptr
+        && this->html5Access_ == nullptr && this->html5FileTransfer_ == nullptr && this->internetCommunicationProtocol_ == nullptr && this->internetPrinter_ == nullptr && this->localDrive_ == nullptr
+        && this->maxReconnectTime_ == nullptr && this->memoryDownGradeDuration_ == nullptr && this->memoryOverload_ == nullptr && this->memoryProcessors_ == nullptr && this->memoryProtectedMode_ == nullptr
+        && this->memoryRateLimit_ == nullptr && this->memorySampleDuration_ == nullptr && this->memorySingleRateLimit_ == nullptr && this->mobileRestart_ == nullptr && this->mobileSafeMenu_ == nullptr
+        && this->mobileShutdown_ == nullptr && this->mobileWuyingKeeper_ == nullptr && this->mobileWyAssistant_ == nullptr && this->modelLibrary_ == nullptr && this->multiScreen_ == nullptr
+        && this->name_ == nullptr && this->netRedirect_ == nullptr && this->netRedirectRule_ == nullptr && this->policyGroupId_ == nullptr && this->policyGroupType_ == nullptr
+        && this->policyStatus_ == nullptr && this->portProxy_ == nullptr && this->preemptLogin_ == nullptr && this->preemptLoginUsers_ == nullptr && this->printerRedirection_ == nullptr
+        && this->qualityEnhancement_ == nullptr && this->recordContent_ == nullptr && this->recordContentExpires_ == nullptr && this->recordEventDuration_ == nullptr && this->recordEventFileExts_ == nullptr
+        && this->recordEventFilePaths_ == nullptr && this->recordEventLevels_ == nullptr && this->recordEventRegisters_ == nullptr && this->recording_ == nullptr && this->recordingAudio_ == nullptr
+        && this->recordingDuration_ == nullptr && this->recordingEndTime_ == nullptr && this->recordingExpires_ == nullptr && this->recordingFps_ == nullptr && this->recordingStartTime_ == nullptr
+        && this->recordingUserNotify_ == nullptr && this->recordingUserNotifyMessage_ == nullptr && this->remoteCoordinate_ == nullptr && this->resetDesktop_ == nullptr && this->resolutionDpi_ == nullptr
+        && this->resolutionHeight_ == nullptr && this->resolutionModel_ == nullptr && this->resolutionWidth_ == nullptr && this->resourceGroupCount_ == nullptr && this->resourceRegionId_ == nullptr
+        && this->safeMenu_ == nullptr && this->scope_ == nullptr && this->scopeValue_ == nullptr && this->screenDisplayMode_ == nullptr && this->smoothEnhancement_ == nullptr
+        && this->statusMonitor_ == nullptr && this->streamingMode_ == nullptr && this->targetFps_ == nullptr && this->usbRedirect_ == nullptr && this->usbSupplyRedirectRule_ == nullptr
+        && this->useTime_ == nullptr && this->videoEncAvgKbps_ == nullptr && this->videoEncMaxQP_ == nullptr && this->videoEncMinQP_ == nullptr && this->videoEncPeakKbps_ == nullptr
+        && this->videoEncPolicy_ == nullptr && this->videoRedirect_ == nullptr && this->visualQuality_ == nullptr && this->watermark_ == nullptr && this->watermarkAntiCam_ == nullptr
+        && this->watermarkColor_ == nullptr && this->watermarkCustomText_ == nullptr && this->watermarkDegree_ == nullptr && this->watermarkFontSize_ == nullptr && this->watermarkFontStyle_ == nullptr
+        && this->watermarkPower_ == nullptr && this->watermarkRowAmount_ == nullptr && this->watermarkSecurity_ == nullptr && this->watermarkShadow_ == nullptr && this->watermarkTransparency_ == nullptr
+        && this->watermarkTransparencyValue_ == nullptr && this->watermarkType_ == nullptr && this->wuyingKeeper_ == nullptr && this->wyAssistant_ == nullptr; };
       // academicProxy Field Functions 
       bool hasAcademicProxy() const { return this->academicProxy_ != nullptr;};
       void deleteAcademicProxy() { this->academicProxy_ = nullptr;};
@@ -1303,6 +1309,13 @@ namespace Models
       inline DescribePolicyGroups& setGpuAcceleration(string gpuAcceleration) { DARABONBA_PTR_SET_VALUE(gpuAcceleration_, gpuAcceleration) };
 
 
+      // hoverConfigMsg Field Functions 
+      bool hasHoverConfigMsg() const { return this->hoverConfigMsg_ != nullptr;};
+      void deleteHoverConfigMsg() { this->hoverConfigMsg_ = nullptr;};
+      inline string getHoverConfigMsg() const { DARABONBA_PTR_GET_DEFAULT(hoverConfigMsg_, "") };
+      inline DescribePolicyGroups& setHoverConfigMsg(string hoverConfigMsg) { DARABONBA_PTR_SET_VALUE(hoverConfigMsg_, hoverConfigMsg) };
+
+
       // html5Access Field Functions 
       bool hasHtml5Access() const { return this->html5Access_ != nullptr;};
       void deleteHtml5Access() { this->html5Access_ = nullptr;};
@@ -1436,6 +1449,13 @@ namespace Models
       void deleteModelLibrary() { this->modelLibrary_ = nullptr;};
       inline string getModelLibrary() const { DARABONBA_PTR_GET_DEFAULT(modelLibrary_, "") };
       inline DescribePolicyGroups& setModelLibrary(string modelLibrary) { DARABONBA_PTR_SET_VALUE(modelLibrary_, modelLibrary) };
+
+
+      // multiScreen Field Functions 
+      bool hasMultiScreen() const { return this->multiScreen_ != nullptr;};
+      void deleteMultiScreen() { this->multiScreen_ = nullptr;};
+      inline string getMultiScreen() const { DARABONBA_PTR_GET_DEFAULT(multiScreen_, "") };
+      inline DescribePolicyGroups& setMultiScreen(string multiScreen) { DARABONBA_PTR_SET_VALUE(multiScreen_, multiScreen) };
 
 
       // name Field Functions 
@@ -1651,6 +1671,13 @@ namespace Models
       void deleteResetDesktop() { this->resetDesktop_ = nullptr;};
       inline string getResetDesktop() const { DARABONBA_PTR_GET_DEFAULT(resetDesktop_, "") };
       inline DescribePolicyGroups& setResetDesktop(string resetDesktop) { DARABONBA_PTR_SET_VALUE(resetDesktop_, resetDesktop) };
+
+
+      // resolutionDpi Field Functions 
+      bool hasResolutionDpi() const { return this->resolutionDpi_ != nullptr;};
+      void deleteResolutionDpi() { this->resolutionDpi_ = nullptr;};
+      inline int32_t getResolutionDpi() const { DARABONBA_PTR_GET_DEFAULT(resolutionDpi_, 0) };
+      inline DescribePolicyGroups& setResolutionDpi(int32_t resolutionDpi) { DARABONBA_PTR_SET_VALUE(resolutionDpi_, resolutionDpi) };
 
 
       // resolutionHeight Field Functions 
@@ -2060,6 +2087,7 @@ namespace Models
       // *   off
       // *   on
       shared_ptr<string> gpuAcceleration_ {};
+      shared_ptr<string> hoverConfigMsg_ {};
       // Specifies whether to allow web client access.
       // 
       // Valid values:
@@ -2137,6 +2165,7 @@ namespace Models
       // Indicates whether the Xiaoying AI Assistant is enabled for mobile clients.
       shared_ptr<string> mobileWyAssistant_ {};
       shared_ptr<string> modelLibrary_ {};
+      shared_ptr<string> multiScreen_ {};
       // The name of the cloud computer policy.
       shared_ptr<string> name_ {};
       // Indicates whether the network redirection feature is enabled.
@@ -2273,6 +2302,7 @@ namespace Models
       shared_ptr<string> remoteCoordinate_ {};
       // Resets the cloud computer.
       shared_ptr<string> resetDesktop_ {};
+      shared_ptr<int32_t> resolutionDpi_ {};
       shared_ptr<int32_t> resolutionHeight_ {};
       shared_ptr<string> resolutionModel_ {};
       shared_ptr<int32_t> resolutionWidth_ {};
