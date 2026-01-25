@@ -611,6 +611,23 @@ namespace RdsAi20250507
       Models::ModifyInstanceStorageConfigResponse modifyInstanceStorageConfig(const Models::ModifyInstanceStorageConfigRequest &request);
 
       /**
+       * @summary 批量修改实例的SSL配置
+       *
+       * @param tmpReq ModifyInstancesSSLRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyInstancesSSLResponse
+       */
+      Models::ModifyInstancesSSLResponse modifyInstancesSSLWithOptions(const Models::ModifyInstancesSSLRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量修改实例的SSL配置
+       *
+       * @param request ModifyInstancesSSLRequest
+       * @return ModifyInstancesSSLResponse
+       */
+      Models::ModifyInstancesSSLResponse modifyInstancesSSL(const Models::ModifyInstancesSSLRequest &request);
+
+      /**
        * @summary Modifies the returned messages.
        *
        * @param request ModifyMessagesFeedbacksRequest

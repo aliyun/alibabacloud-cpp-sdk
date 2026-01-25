@@ -85,6 +85,10 @@
 #include <alibabacloud/models/ModifyInstanceStorageConfigShrinkRequest.hpp>
 #include <alibabacloud/models/ModifyInstanceStorageConfigResponseBody.hpp>
 #include <alibabacloud/models/ModifyInstanceStorageConfigResponse.hpp>
+#include <alibabacloud/models/ModifyInstancesSSLRequest.hpp>
+#include <alibabacloud/models/ModifyInstancesSSLShrinkRequest.hpp>
+#include <alibabacloud/models/ModifyInstancesSSLResponseBody.hpp>
+#include <alibabacloud/models/ModifyInstancesSSLResponse.hpp>
 #include <alibabacloud/models/ModifyMessagesFeedbacksRequest.hpp>
 #include <alibabacloud/models/ModifyMessagesFeedbacksResponseBody.hpp>
 #include <alibabacloud/models/ModifyMessagesFeedbacksResponse.hpp>

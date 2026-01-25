@@ -56,6 +56,10 @@ FutureGenerator<ChatMessagesResponse> Client::chatMessagesWithSSE(const ChatMess
     query["ConversationId"] = request.getConversationId();
   }
 
+  if (!!request.hasEventMode()) {
+    query["EventMode"] = request.getEventMode();
+  }
+
   if (!!request.hasInputsShrink()) {
     query["Inputs"] = request.getInputsShrink();
   }
@@ -115,6 +119,10 @@ ChatMessagesResponse Client::chatMessagesWithOptions(const ChatMessagesRequest &
   json query = {};
   if (!!request.hasConversationId()) {
     query["ConversationId"] = request.getConversationId();
+  }
+
+  if (!!request.hasEventMode()) {
+    query["EventMode"] = request.getEventMode();
   }
 
   if (!!request.hasInputsShrink()) {
@@ -1109,6 +1117,10 @@ GetMessagesResponse Client::getMessagesWithOptions(const GetMessagesRequest &req
     query["ConversationId"] = request.getConversationId();
   }
 
+  if (!!request.hasEventMode()) {
+    query["EventMode"] = request.getEventMode();
+  }
+
   if (!!request.hasFirstId()) {
     query["FirstId"] = request.getFirstId();
   }
@@ -1626,6 +1638,74 @@ ModifyInstanceStorageConfigResponse Client::modifyInstanceStorageConfigWithOptio
 ModifyInstanceStorageConfigResponse Client::modifyInstanceStorageConfig(const ModifyInstanceStorageConfigRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifyInstanceStorageConfigWithOptions(request, runtime);
+}
+
+/**
+ * @summary 批量修改实例的SSL配置
+ *
+ * @param tmpReq ModifyInstancesSSLRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyInstancesSSLResponse
+ */
+ModifyInstancesSSLResponse Client::modifyInstancesSSLWithOptions(const ModifyInstancesSSLRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ModifyInstancesSSLShrinkRequest request = ModifyInstancesSSLShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasInstanceNames()) {
+    request.setInstanceNamesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getInstanceNames(), "InstanceNames", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasCAType()) {
+    query["CAType"] = request.getCAType();
+  }
+
+  if (!!request.hasInstanceNamesShrink()) {
+    query["InstanceNames"] = request.getInstanceNamesShrink();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSSLEnabled()) {
+    query["SSLEnabled"] = request.getSSLEnabled();
+  }
+
+  if (!!request.hasServerCert()) {
+    query["ServerCert"] = request.getServerCert();
+  }
+
+  if (!!request.hasServerKey()) {
+    query["ServerKey"] = request.getServerKey();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyInstancesSSL"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyInstancesSSLResponse>();
+}
+
+/**
+ * @summary 批量修改实例的SSL配置
+ *
+ * @param request ModifyInstancesSSLRequest
+ * @return ModifyInstancesSSLResponse
+ */
+ModifyInstancesSSLResponse Client::modifyInstancesSSL(const ModifyInstancesSSLRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyInstancesSSLWithOptions(request, runtime);
 }
 
 /**

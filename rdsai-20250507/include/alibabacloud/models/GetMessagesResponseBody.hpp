@@ -42,6 +42,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Answer, answer_);
         DARABONBA_PTR_TO_JSON(ConversationId, conversationId_);
         DARABONBA_PTR_TO_JSON(CreatedAt, createdAt_);
+        DARABONBA_PTR_TO_JSON(Events, events_);
         DARABONBA_PTR_TO_JSON(Feedback, feedback_);
         DARABONBA_PTR_TO_JSON(Id, id_);
         DARABONBA_PTR_TO_JSON(Query, query_);
@@ -51,6 +52,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Answer, answer_);
         DARABONBA_PTR_FROM_JSON(ConversationId, conversationId_);
         DARABONBA_PTR_FROM_JSON(CreatedAt, createdAt_);
+        DARABONBA_PTR_FROM_JSON(Events, events_);
         DARABONBA_PTR_FROM_JSON(Feedback, feedback_);
         DARABONBA_PTR_FROM_JSON(Id, id_);
         DARABONBA_PTR_FROM_JSON(Query, query_);
@@ -67,9 +69,51 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Events : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Events& obj) { 
+          DARABONBA_PTR_TO_JSON(answer, answer_);
+          DARABONBA_PTR_TO_JSON(event, event_);
+        };
+        friend void from_json(const Darabonba::Json& j, Events& obj) { 
+          DARABONBA_PTR_FROM_JSON(answer, answer_);
+          DARABONBA_PTR_FROM_JSON(event, event_);
+        };
+        Events() = default ;
+        Events(const Events &) = default ;
+        Events(Events &&) = default ;
+        Events(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Events() = default ;
+        Events& operator=(const Events &) = default ;
+        Events& operator=(Events &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->answer_ == nullptr
+        && this->event_ == nullptr; };
+        // answer Field Functions 
+        bool hasAnswer() const { return this->answer_ != nullptr;};
+        void deleteAnswer() { this->answer_ = nullptr;};
+        inline string getAnswer() const { DARABONBA_PTR_GET_DEFAULT(answer_, "") };
+        inline Events& setAnswer(string answer) { DARABONBA_PTR_SET_VALUE(answer_, answer) };
+
+
+        // event Field Functions 
+        bool hasEvent() const { return this->event_ != nullptr;};
+        void deleteEvent() { this->event_ = nullptr;};
+        inline string getEvent() const { DARABONBA_PTR_GET_DEFAULT(event_, "") };
+        inline Events& setEvent(string event) { DARABONBA_PTR_SET_VALUE(event_, event) };
+
+
+      protected:
+        shared_ptr<string> answer_ {};
+        shared_ptr<string> event_ {};
+      };
+
       virtual bool empty() const override { return this->answer_ == nullptr
-        && this->conversationId_ == nullptr && this->createdAt_ == nullptr && this->feedback_ == nullptr && this->id_ == nullptr && this->query_ == nullptr
-        && this->retrieverResources_ == nullptr; };
+        && this->conversationId_ == nullptr && this->createdAt_ == nullptr && this->events_ == nullptr && this->feedback_ == nullptr && this->id_ == nullptr
+        && this->query_ == nullptr && this->retrieverResources_ == nullptr; };
       // answer Field Functions 
       bool hasAnswer() const { return this->answer_ != nullptr;};
       void deleteAnswer() { this->answer_ = nullptr;};
@@ -89,6 +133,15 @@ namespace Models
       void deleteCreatedAt() { this->createdAt_ = nullptr;};
       inline string getCreatedAt() const { DARABONBA_PTR_GET_DEFAULT(createdAt_, "") };
       inline Data& setCreatedAt(string createdAt) { DARABONBA_PTR_SET_VALUE(createdAt_, createdAt) };
+
+
+      // events Field Functions 
+      bool hasEvents() const { return this->events_ != nullptr;};
+      void deleteEvents() { this->events_ = nullptr;};
+      inline const vector<Data::Events> & getEvents() const { DARABONBA_PTR_GET_CONST(events_, vector<Data::Events>) };
+      inline vector<Data::Events> getEvents() { DARABONBA_PTR_GET(events_, vector<Data::Events>) };
+      inline Data& setEvents(const vector<Data::Events> & events) { DARABONBA_PTR_SET_VALUE(events_, events) };
+      inline Data& setEvents(vector<Data::Events> && events) { DARABONBA_PTR_SET_RVALUE(events_, events) };
 
 
       // feedback Field Functions 
@@ -128,6 +181,7 @@ namespace Models
       shared_ptr<string> conversationId_ {};
       // The creation time of the conversation.
       shared_ptr<string> createdAt_ {};
+      shared_ptr<vector<Data::Events>> events_ {};
       // The feedback.
       shared_ptr<string> feedback_ {};
       // The message ID.
