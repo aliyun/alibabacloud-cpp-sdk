@@ -367,8 +367,10 @@ namespace Models
           // contentList Field Functions 
           bool hasContentList() const { return this->contentList_ != nullptr;};
           void deleteContentList() { this->contentList_ = nullptr;};
-          inline string getContentList() const { DARABONBA_PTR_GET_DEFAULT(contentList_, "") };
-          inline Condition& setContentList(string contentList) { DARABONBA_PTR_SET_VALUE(contentList_, contentList) };
+          inline const vector<string> & getContentList() const { DARABONBA_PTR_GET_CONST(contentList_, vector<string>) };
+          inline vector<string> getContentList() { DARABONBA_PTR_GET(contentList_, vector<string>) };
+          inline Condition& setContentList(const vector<string> & contentList) { DARABONBA_PTR_SET_VALUE(contentList_, contentList) };
+          inline Condition& setContentList(vector<string> && contentList) { DARABONBA_PTR_SET_RVALUE(contentList_, contentList) };
 
 
           // field Field Functions 
@@ -396,7 +398,7 @@ namespace Models
           // The match content.
           shared_ptr<string> content_ {};
           // The match content when the match method is Equals to One of Multiple Values.
-          shared_ptr<string> contentList_ {};
+          shared_ptr<vector<string>> contentList_ {};
           // The match field.
           shared_ptr<string> field_ {};
           // The custom HTTP request header.
