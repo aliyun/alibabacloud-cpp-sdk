@@ -43,6 +43,8 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const RecallConfig& obj) { 
         DARABONBA_PTR_TO_JSON(Description, description_);
         DARABONBA_PTR_TO_JSON(ExtendedConfig, extendedConfig_);
+        DARABONBA_PTR_TO_JSON(ItemConditionArray, itemConditionArray_);
+        DARABONBA_PTR_TO_JSON(ItemConditionExpression, itemConditionExpression_);
         DARABONBA_PTR_TO_JSON(ItemVectorField, itemVectorField_);
         DARABONBA_PTR_TO_JSON(ItemVectorRecallManagementTableId, itemVectorRecallManagementTableId_);
         DARABONBA_PTR_TO_JSON(Name, name_);
@@ -56,6 +58,8 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, RecallConfig& obj) { 
         DARABONBA_PTR_FROM_JSON(Description, description_);
         DARABONBA_PTR_FROM_JSON(ExtendedConfig, extendedConfig_);
+        DARABONBA_PTR_FROM_JSON(ItemConditionArray, itemConditionArray_);
+        DARABONBA_PTR_FROM_JSON(ItemConditionExpression, itemConditionExpression_);
         DARABONBA_PTR_FROM_JSON(ItemVectorField, itemVectorField_);
         DARABONBA_PTR_FROM_JSON(ItemVectorRecallManagementTableId, itemVectorRecallManagementTableId_);
         DARABONBA_PTR_FROM_JSON(Name, name_);
@@ -355,8 +359,9 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->description_ == nullptr
-        && this->extendedConfig_ == nullptr && this->itemVectorField_ == nullptr && this->itemVectorRecallManagementTableId_ == nullptr && this->name_ == nullptr && this->operators_ == nullptr
-        && this->priority_ == nullptr && this->recallManagementTableId_ == nullptr && this->recallType_ == nullptr && this->userVectorField_ == nullptr && this->userVectorRecallManagementTableId_ == nullptr; };
+        && this->extendedConfig_ == nullptr && this->itemConditionArray_ == nullptr && this->itemConditionExpression_ == nullptr && this->itemVectorField_ == nullptr && this->itemVectorRecallManagementTableId_ == nullptr
+        && this->name_ == nullptr && this->operators_ == nullptr && this->priority_ == nullptr && this->recallManagementTableId_ == nullptr && this->recallType_ == nullptr
+        && this->userVectorField_ == nullptr && this->userVectorRecallManagementTableId_ == nullptr; };
       // description Field Functions 
       bool hasDescription() const { return this->description_ != nullptr;};
       void deleteDescription() { this->description_ = nullptr;};
@@ -369,6 +374,20 @@ namespace Models
       void deleteExtendedConfig() { this->extendedConfig_ = nullptr;};
       inline string getExtendedConfig() const { DARABONBA_PTR_GET_DEFAULT(extendedConfig_, "") };
       inline RecallConfig& setExtendedConfig(string extendedConfig) { DARABONBA_PTR_SET_VALUE(extendedConfig_, extendedConfig) };
+
+
+      // itemConditionArray Field Functions 
+      bool hasItemConditionArray() const { return this->itemConditionArray_ != nullptr;};
+      void deleteItemConditionArray() { this->itemConditionArray_ = nullptr;};
+      inline string getItemConditionArray() const { DARABONBA_PTR_GET_DEFAULT(itemConditionArray_, "") };
+      inline RecallConfig& setItemConditionArray(string itemConditionArray) { DARABONBA_PTR_SET_VALUE(itemConditionArray_, itemConditionArray) };
+
+
+      // itemConditionExpression Field Functions 
+      bool hasItemConditionExpression() const { return this->itemConditionExpression_ != nullptr;};
+      void deleteItemConditionExpression() { this->itemConditionExpression_ = nullptr;};
+      inline string getItemConditionExpression() const { DARABONBA_PTR_GET_DEFAULT(itemConditionExpression_, "") };
+      inline RecallConfig& setItemConditionExpression(string itemConditionExpression) { DARABONBA_PTR_SET_VALUE(itemConditionExpression_, itemConditionExpression) };
 
 
       // itemVectorField Field Functions 
@@ -439,6 +458,8 @@ namespace Models
     protected:
       shared_ptr<string> description_ {};
       shared_ptr<string> extendedConfig_ {};
+      shared_ptr<string> itemConditionArray_ {};
+      shared_ptr<string> itemConditionExpression_ {};
       shared_ptr<string> itemVectorField_ {};
       shared_ptr<string> itemVectorRecallManagementTableId_ {};
       shared_ptr<string> name_ {};

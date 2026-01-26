@@ -7364,6 +7364,10 @@ PublishRecallManagementTableResponse Client::publishRecallManagementTableWithOpt
     body["Partition"] = request.getPartition();
   }
 
+  if (!!request.hasPartitions()) {
+    body["Partitions"] = request.getPartitions();
+  }
+
   if (!!request.hasSkipThresholdCheck()) {
     body["SkipThresholdCheck"] = request.getSkipThresholdCheck();
   }
