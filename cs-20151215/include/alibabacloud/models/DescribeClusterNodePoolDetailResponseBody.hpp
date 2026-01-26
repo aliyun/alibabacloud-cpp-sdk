@@ -1609,10 +1609,12 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const AutoRepairPolicy& obj) { 
           DARABONBA_PTR_TO_JSON(approval_required, approvalRequired_);
+          DARABONBA_PTR_TO_JSON(auto_repair_policy_id, autoRepairPolicyId_);
           DARABONBA_PTR_TO_JSON(restart_node, restartNode_);
         };
         friend void from_json(const Darabonba::Json& j, AutoRepairPolicy& obj) { 
           DARABONBA_PTR_FROM_JSON(approval_required, approvalRequired_);
+          DARABONBA_PTR_FROM_JSON(auto_repair_policy_id, autoRepairPolicyId_);
           DARABONBA_PTR_FROM_JSON(restart_node, restartNode_);
         };
         AutoRepairPolicy() = default ;
@@ -1627,12 +1629,19 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->approvalRequired_ == nullptr
-        && this->restartNode_ == nullptr; };
+        && this->autoRepairPolicyId_ == nullptr && this->restartNode_ == nullptr; };
         // approvalRequired Field Functions 
         bool hasApprovalRequired() const { return this->approvalRequired_ != nullptr;};
         void deleteApprovalRequired() { this->approvalRequired_ = nullptr;};
         inline bool getApprovalRequired() const { DARABONBA_PTR_GET_DEFAULT(approvalRequired_, false) };
         inline AutoRepairPolicy& setApprovalRequired(bool approvalRequired) { DARABONBA_PTR_SET_VALUE(approvalRequired_, approvalRequired) };
+
+
+        // autoRepairPolicyId Field Functions 
+        bool hasAutoRepairPolicyId() const { return this->autoRepairPolicyId_ != nullptr;};
+        void deleteAutoRepairPolicyId() { this->autoRepairPolicyId_ = nullptr;};
+        inline string getAutoRepairPolicyId() const { DARABONBA_PTR_GET_DEFAULT(autoRepairPolicyId_, "") };
+        inline AutoRepairPolicy& setAutoRepairPolicyId(string autoRepairPolicyId) { DARABONBA_PTR_SET_VALUE(autoRepairPolicyId_, autoRepairPolicyId) };
 
 
         // restartNode Field Functions 
@@ -1644,6 +1653,7 @@ namespace Models
 
       protected:
         shared_ptr<bool> approvalRequired_ {};
+        shared_ptr<string> autoRepairPolicyId_ {};
         // Whether to allow restarting nodes.
         shared_ptr<bool> restartNode_ {};
       };

@@ -3680,6 +3680,59 @@ DescribePolicyInstancesStatusResponse Client::describePolicyInstancesStatus(cons
 }
 
 /**
+ * @summary 查询地域列表
+ *
+ * @param request DescribeRegionsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeRegionsResponse
+ */
+DescribeRegionsResponse Client::describeRegionsWithOptions(const DescribeRegionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAcceptLanguage()) {
+    query["acceptLanguage"] = request.getAcceptLanguage();
+  }
+
+  if (!!request.hasClusterType()) {
+    query["clusterType"] = request.getClusterType();
+  }
+
+  if (!!request.hasProfile()) {
+    query["profile"] = request.getProfile();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeRegions"},
+    {"version" , "2015-12-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/regions")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeRegionsResponse>();
+}
+
+/**
+ * @summary 查询地域列表
+ *
+ * @param request DescribeRegionsRequest
+ * @return DescribeRegionsResponse
+ */
+DescribeRegionsResponse Client::describeRegions(const DescribeRegionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return describeRegionsWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Queries whether the deletion protection feature is enabled for the specified resources in the cluster. The resources that you can query include namespaces and Services.
  *
  * @param request DescribeResourcesDeleteProtectionRequest

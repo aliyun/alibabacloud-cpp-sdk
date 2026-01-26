@@ -165,6 +165,9 @@
 #include <alibabacloud/models/DescribePolicyInstancesResponse.hpp>
 #include <alibabacloud/models/DescribePolicyInstancesStatusResponseBody.hpp>
 #include <alibabacloud/models/DescribePolicyInstancesStatusResponse.hpp>
+#include <alibabacloud/models/DescribeRegionsRequest.hpp>
+#include <alibabacloud/models/DescribeRegionsResponseBody.hpp>
+#include <alibabacloud/models/DescribeRegionsResponse.hpp>
 #include <alibabacloud/models/DescribeResourcesDeleteProtectionRequest.hpp>
 #include <alibabacloud/models/DescribeResourcesDeleteProtectionResponse.hpp>
 #include <alibabacloud/models/DescribeSubaccountK8sClusterUserConfigRequest.hpp>

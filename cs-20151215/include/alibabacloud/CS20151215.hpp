@@ -1203,6 +1203,24 @@ namespace CS20151215
       Models::DescribePolicyInstancesStatusResponse describePolicyInstancesStatus(const string &clusterId);
 
       /**
+       * @summary 查询地域列表
+       *
+       * @param request DescribeRegionsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeRegionsResponse
+       */
+      Models::DescribeRegionsResponse describeRegionsWithOptions(const Models::DescribeRegionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询地域列表
+       *
+       * @param request DescribeRegionsRequest
+       * @return DescribeRegionsResponse
+       */
+      Models::DescribeRegionsResponse describeRegions(const Models::DescribeRegionsRequest &request);
+
+      /**
        * @summary Queries whether the deletion protection feature is enabled for the specified resources in the cluster. The resources that you can query include namespaces and Services.
        *
        * @param request DescribeResourcesDeleteProtectionRequest
