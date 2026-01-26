@@ -33,26 +33,26 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clusterId_ != nullptr
-        && this->regionId_ != nullptr && this->targetClusters_ != nullptr; };
+    virtual bool empty() const override { return this->clusterId_ == nullptr
+        && this->regionId_ == nullptr && this->targetClusters_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline SyncRecordingRulesRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline SyncRecordingRulesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // targetClusters Field Functions 
     bool hasTargetClusters() const { return this->targetClusters_ != nullptr;};
     void deleteTargetClusters() { this->targetClusters_ = nullptr;};
-    inline string targetClusters() const { DARABONBA_PTR_GET_DEFAULT(targetClusters_, "") };
+    inline string getTargetClusters() const { DARABONBA_PTR_GET_DEFAULT(targetClusters_, "") };
     inline SyncRecordingRulesRequest& setTargetClusters(string targetClusters) { DARABONBA_PTR_SET_VALUE(targetClusters_, targetClusters) };
 
 
@@ -60,15 +60,15 @@ namespace Models
     // The ID of the cluster whose aggregation rule you want to synchronize.
     // 
     // This parameter is required.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // The ID of the region. The destination region can be the same as the source region.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The IDs of clusters to which you want to synchronize the aggregation rule.
     // 
     // This parameter is required.
-    std::shared_ptr<string> targetClusters_ = nullptr;
+    shared_ptr<string> targetClusters_ {};
   };
 
   } // namespace Models

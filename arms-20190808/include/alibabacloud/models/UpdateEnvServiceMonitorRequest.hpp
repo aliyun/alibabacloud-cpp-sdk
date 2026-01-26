@@ -41,83 +41,83 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aliyunLang_ != nullptr
-        && this->configYaml_ != nullptr && this->dryRun_ != nullptr && this->environmentId_ != nullptr && this->namespace_ != nullptr && this->regionId_ != nullptr
-        && this->serviceMonitorName_ != nullptr; };
+    virtual bool empty() const override { return this->aliyunLang_ == nullptr
+        && this->configYaml_ == nullptr && this->dryRun_ == nullptr && this->environmentId_ == nullptr && this->namespace_ == nullptr && this->regionId_ == nullptr
+        && this->serviceMonitorName_ == nullptr; };
     // aliyunLang Field Functions 
     bool hasAliyunLang() const { return this->aliyunLang_ != nullptr;};
     void deleteAliyunLang() { this->aliyunLang_ = nullptr;};
-    inline string aliyunLang() const { DARABONBA_PTR_GET_DEFAULT(aliyunLang_, "") };
+    inline string getAliyunLang() const { DARABONBA_PTR_GET_DEFAULT(aliyunLang_, "") };
     inline UpdateEnvServiceMonitorRequest& setAliyunLang(string aliyunLang) { DARABONBA_PTR_SET_VALUE(aliyunLang_, aliyunLang) };
 
 
     // configYaml Field Functions 
     bool hasConfigYaml() const { return this->configYaml_ != nullptr;};
     void deleteConfigYaml() { this->configYaml_ = nullptr;};
-    inline string configYaml() const { DARABONBA_PTR_GET_DEFAULT(configYaml_, "") };
+    inline string getConfigYaml() const { DARABONBA_PTR_GET_DEFAULT(configYaml_, "") };
     inline UpdateEnvServiceMonitorRequest& setConfigYaml(string configYaml) { DARABONBA_PTR_SET_VALUE(configYaml_, configYaml) };
 
 
     // dryRun Field Functions 
     bool hasDryRun() const { return this->dryRun_ != nullptr;};
     void deleteDryRun() { this->dryRun_ = nullptr;};
-    inline bool dryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
     inline UpdateEnvServiceMonitorRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // environmentId Field Functions 
     bool hasEnvironmentId() const { return this->environmentId_ != nullptr;};
     void deleteEnvironmentId() { this->environmentId_ = nullptr;};
-    inline string environmentId() const { DARABONBA_PTR_GET_DEFAULT(environmentId_, "") };
+    inline string getEnvironmentId() const { DARABONBA_PTR_GET_DEFAULT(environmentId_, "") };
     inline UpdateEnvServiceMonitorRequest& setEnvironmentId(string environmentId) { DARABONBA_PTR_SET_VALUE(environmentId_, environmentId) };
 
 
     // namespace Field Functions 
     bool hasNamespace() const { return this->namespace_ != nullptr;};
     void deleteNamespace() { this->namespace_ = nullptr;};
-    inline string _namespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
+    inline string getNamespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
     inline UpdateEnvServiceMonitorRequest& setNamespace(string _namespace) { DARABONBA_PTR_SET_VALUE(namespace_, _namespace) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline UpdateEnvServiceMonitorRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // serviceMonitorName Field Functions 
     bool hasServiceMonitorName() const { return this->serviceMonitorName_ != nullptr;};
     void deleteServiceMonitorName() { this->serviceMonitorName_ = nullptr;};
-    inline string serviceMonitorName() const { DARABONBA_PTR_GET_DEFAULT(serviceMonitorName_, "") };
+    inline string getServiceMonitorName() const { DARABONBA_PTR_GET_DEFAULT(serviceMonitorName_, "") };
     inline UpdateEnvServiceMonitorRequest& setServiceMonitorName(string serviceMonitorName) { DARABONBA_PTR_SET_VALUE(serviceMonitorName_, serviceMonitorName) };
 
 
   protected:
     // The language. Valid values: zh and en. Default value: zh.
-    std::shared_ptr<string> aliyunLang_ = nullptr;
+    shared_ptr<string> aliyunLang_ {};
     // The YAML configuration string.
     // 
     // This parameter is required.
-    std::shared_ptr<string> configYaml_ = nullptr;
+    shared_ptr<string> configYaml_ {};
     // Specifies whether to perform only a dry run, without performing the actual request.
-    std::shared_ptr<bool> dryRun_ = nullptr;
+    shared_ptr<bool> dryRun_ {};
     // The environment ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> environmentId_ = nullptr;
+    shared_ptr<string> environmentId_ {};
     // The namespace where the ServiceMonitor is located.
     // 
     // This parameter is required.
-    std::shared_ptr<string> namespace_ = nullptr;
+    shared_ptr<string> namespace_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The name of the ServiceMonitor.
     // 
     // This parameter is required.
-    std::shared_ptr<string> serviceMonitorName_ = nullptr;
+    shared_ptr<string> serviceMonitorName_ {};
   };
 
   } // namespace Models

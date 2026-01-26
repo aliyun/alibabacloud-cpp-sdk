@@ -31,19 +31,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dispatchRule_ != nullptr
-        && this->regionId_ != nullptr; };
+    virtual bool empty() const override { return this->dispatchRule_ == nullptr
+        && this->regionId_ == nullptr; };
     // dispatchRule Field Functions 
     bool hasDispatchRule() const { return this->dispatchRule_ != nullptr;};
     void deleteDispatchRule() { this->dispatchRule_ = nullptr;};
-    inline string dispatchRule() const { DARABONBA_PTR_GET_DEFAULT(dispatchRule_, "") };
+    inline string getDispatchRule() const { DARABONBA_PTR_GET_DEFAULT(dispatchRule_, "") };
     inline UpdateDispatchRuleRequest& setDispatchRule(string dispatchRule) { DARABONBA_PTR_SET_VALUE(dispatchRule_, dispatchRule) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline UpdateDispatchRuleRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The dispatch rule configuration. The value is a JSON string. For more information about this parameter, see the following **additional information about the DispatchRule parameter**.
     // 
     // This parameter is required.
-    std::shared_ptr<string> dispatchRule_ = nullptr;
+    shared_ptr<string> dispatchRule_ {};
     // The ID of the region.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

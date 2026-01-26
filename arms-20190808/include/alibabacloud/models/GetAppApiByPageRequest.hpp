@@ -41,77 +41,77 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->currentPage_ != nullptr
-        && this->endTime_ != nullptr && this->intervalMills_ != nullptr && this->PId_ != nullptr && this->pageSize_ != nullptr && this->regionId_ != nullptr
-        && this->startTime_ != nullptr; };
+    virtual bool empty() const override { return this->currentPage_ == nullptr
+        && this->endTime_ == nullptr && this->intervalMills_ == nullptr && this->PId_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr
+        && this->startTime_ == nullptr; };
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline GetAppApiByPageRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline int64_t endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
+    inline int64_t getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
     inline GetAppApiByPageRequest& setEndTime(int64_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // intervalMills Field Functions 
     bool hasIntervalMills() const { return this->intervalMills_ != nullptr;};
     void deleteIntervalMills() { this->intervalMills_ = nullptr;};
-    inline int32_t intervalMills() const { DARABONBA_PTR_GET_DEFAULT(intervalMills_, 0) };
+    inline int32_t getIntervalMills() const { DARABONBA_PTR_GET_DEFAULT(intervalMills_, 0) };
     inline GetAppApiByPageRequest& setIntervalMills(int32_t intervalMills) { DARABONBA_PTR_SET_VALUE(intervalMills_, intervalMills) };
 
 
     // PId Field Functions 
     bool hasPId() const { return this->PId_ != nullptr;};
     void deletePId() { this->PId_ = nullptr;};
-    inline string PId() const { DARABONBA_PTR_GET_DEFAULT(PId_, "") };
+    inline string getPId() const { DARABONBA_PTR_GET_DEFAULT(PId_, "") };
     inline GetAppApiByPageRequest& setPId(string PId) { DARABONBA_PTR_SET_VALUE(PId_, PId) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline GetAppApiByPageRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline GetAppApiByPageRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline int64_t startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
+    inline int64_t getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
     inline GetAppApiByPageRequest& setStartTime(int64_t startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
   protected:
     // The page number of the returned page.
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
+    shared_ptr<int32_t> currentPage_ {};
     // The end of the time range to query. Unit: milliseconds.
-    std::shared_ptr<int64_t> endTime_ = nullptr;
+    shared_ptr<int64_t> endTime_ {};
     // The time interval between the data shards to be queried. Unit: milliseconds. Minimum value: 60000. Maximum value: 2147483647.
-    std::shared_ptr<int32_t> intervalMills_ = nullptr;
+    shared_ptr<int32_t> intervalMills_ {};
     // The process identifier (PID) of the application. For information about how to obtain a PID, see [Obtain the PID of an application](https://www.alibabacloud.com/help/zh/doc-detail/186100.htm?spm=a2cdw.13409063.0.0.7a72281f0bkTfx#title-imy-7gj-qhr).
     // 
     // This parameter is required.
-    std::shared_ptr<string> PId_ = nullptr;
+    shared_ptr<string> PId_ {};
     // The number of entries to return on each page. This parameter is no longer supported. The number of entries to return on each page. Default value: 10.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The ID of the region.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The beginning of the time range to query. Unit: milliseconds.
-    std::shared_ptr<int64_t> startTime_ = nullptr;
+    shared_ptr<int64_t> startTime_ {};
   };
 
   } // namespace Models

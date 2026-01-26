@@ -32,13 +32,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->pids_ != nullptr
-        && this->regionId_ != nullptr; };
+    virtual bool empty() const override { return this->pids_ == nullptr
+        && this->regionId_ == nullptr; };
     // pids Field Functions 
     bool hasPids() const { return this->pids_ != nullptr;};
     void deletePids() { this->pids_ = nullptr;};
-    inline const vector<string> & pids() const { DARABONBA_PTR_GET_CONST(pids_, vector<string>) };
-    inline vector<string> pids() { DARABONBA_PTR_GET(pids_, vector<string>) };
+    inline const vector<string> & getPids() const { DARABONBA_PTR_GET_CONST(pids_, vector<string>) };
+    inline vector<string> getPids() { DARABONBA_PTR_GET(pids_, vector<string>) };
     inline DeleteAppListRequest& setPids(const vector<string> & pids) { DARABONBA_PTR_SET_VALUE(pids_, pids) };
     inline DeleteAppListRequest& setPids(vector<string> && pids) { DARABONBA_PTR_SET_RVALUE(pids_, pids) };
 
@@ -46,15 +46,15 @@ namespace Models
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteAppListRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
     // The list of PIDs for the applications monitored by Application Monitoring.
-    std::shared_ptr<vector<string>> pids_ = nullptr;
+    shared_ptr<vector<string>> pids_ {};
     // The region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

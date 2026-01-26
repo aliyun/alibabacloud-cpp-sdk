@@ -29,11 +29,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->integrationId_ != nullptr; };
+    virtual bool empty() const override { return this->integrationId_ == nullptr; };
     // integrationId Field Functions 
     bool hasIntegrationId() const { return this->integrationId_ != nullptr;};
     void deleteIntegrationId() { this->integrationId_ = nullptr;};
-    inline int64_t integrationId() const { DARABONBA_PTR_GET_DEFAULT(integrationId_, 0L) };
+    inline int64_t getIntegrationId() const { DARABONBA_PTR_GET_DEFAULT(integrationId_, 0L) };
     inline DeleteIntegrationsRequest& setIntegrationId(int64_t integrationId) { DARABONBA_PTR_SET_VALUE(integrationId_, integrationId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the alert integration.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> integrationId_ = nullptr;
+    shared_ptr<int64_t> integrationId_ {};
   };
 
   } // namespace Models

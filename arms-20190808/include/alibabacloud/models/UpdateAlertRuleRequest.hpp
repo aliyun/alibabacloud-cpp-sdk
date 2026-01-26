@@ -37,40 +37,40 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alertId_ != nullptr
-        && this->contactGroupIds_ != nullptr && this->isAutoStart_ != nullptr && this->regionId_ != nullptr && this->templageAlertConfig_ != nullptr; };
+    virtual bool empty() const override { return this->alertId_ == nullptr
+        && this->contactGroupIds_ == nullptr && this->isAutoStart_ == nullptr && this->regionId_ == nullptr && this->templageAlertConfig_ == nullptr; };
     // alertId Field Functions 
     bool hasAlertId() const { return this->alertId_ != nullptr;};
     void deleteAlertId() { this->alertId_ = nullptr;};
-    inline int64_t alertId() const { DARABONBA_PTR_GET_DEFAULT(alertId_, 0L) };
+    inline int64_t getAlertId() const { DARABONBA_PTR_GET_DEFAULT(alertId_, 0L) };
     inline UpdateAlertRuleRequest& setAlertId(int64_t alertId) { DARABONBA_PTR_SET_VALUE(alertId_, alertId) };
 
 
     // contactGroupIds Field Functions 
     bool hasContactGroupIds() const { return this->contactGroupIds_ != nullptr;};
     void deleteContactGroupIds() { this->contactGroupIds_ = nullptr;};
-    inline string contactGroupIds() const { DARABONBA_PTR_GET_DEFAULT(contactGroupIds_, "") };
+    inline string getContactGroupIds() const { DARABONBA_PTR_GET_DEFAULT(contactGroupIds_, "") };
     inline UpdateAlertRuleRequest& setContactGroupIds(string contactGroupIds) { DARABONBA_PTR_SET_VALUE(contactGroupIds_, contactGroupIds) };
 
 
     // isAutoStart Field Functions 
     bool hasIsAutoStart() const { return this->isAutoStart_ != nullptr;};
     void deleteIsAutoStart() { this->isAutoStart_ = nullptr;};
-    inline bool isAutoStart() const { DARABONBA_PTR_GET_DEFAULT(isAutoStart_, false) };
+    inline bool getIsAutoStart() const { DARABONBA_PTR_GET_DEFAULT(isAutoStart_, false) };
     inline UpdateAlertRuleRequest& setIsAutoStart(bool isAutoStart) { DARABONBA_PTR_SET_VALUE(isAutoStart_, isAutoStart) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline UpdateAlertRuleRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // templageAlertConfig Field Functions 
     bool hasTemplageAlertConfig() const { return this->templageAlertConfig_ != nullptr;};
     void deleteTemplageAlertConfig() { this->templageAlertConfig_ = nullptr;};
-    inline string templageAlertConfig() const { DARABONBA_PTR_GET_DEFAULT(templageAlertConfig_, "") };
+    inline string getTemplageAlertConfig() const { DARABONBA_PTR_GET_DEFAULT(templageAlertConfig_, "") };
     inline UpdateAlertRuleRequest& setTemplageAlertConfig(string templageAlertConfig) { DARABONBA_PTR_SET_VALUE(templageAlertConfig_, templageAlertConfig) };
 
 
@@ -78,22 +78,22 @@ namespace Models
     // The ID of the alert rule.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> alertId_ = nullptr;
+    shared_ptr<int64_t> alertId_ {};
     // The IDs of the alert contact groups. The value must be a JSON array.
-    std::shared_ptr<string> contactGroupIds_ = nullptr;
+    shared_ptr<string> contactGroupIds_ {};
     // Specifies whether to enable the alert rule after it is created. Default value: `false`.
     // 
     // *   `true`: enables the alert rule.
     // *   `false`: disables the alert rule.
-    std::shared_ptr<bool> isAutoStart_ = nullptr;
+    shared_ptr<bool> isAutoStart_ {};
     // The ID of the region.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The configurations of the alert template based on which you want to create an alert rule. The value must be a JSON string. You must set at least one of the **TemplateAlertId** and **TemplageAlertConfig** parameters. If you set both parameters, the **TemplateAlertId** parameter prevails. For more information about the TemplageAlertConfig parameter, see the following **additional information about the TemplageAlertConfig parameter**.
     // 
     // This parameter is required.
-    std::shared_ptr<string> templageAlertConfig_ = nullptr;
+    shared_ptr<string> templageAlertConfig_ {};
   };
 
   } // namespace Models

@@ -31,25 +31,25 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->armsAlertsEnable_ != nullptr
-        && this->armsAlertsWebhookUrl_ != nullptr; };
+    virtual bool empty() const override { return this->armsAlertsEnable_ == nullptr
+        && this->armsAlertsWebhookUrl_ == nullptr; };
     // armsAlertsEnable Field Functions 
     bool hasArmsAlertsEnable() const { return this->armsAlertsEnable_ != nullptr;};
     void deleteArmsAlertsEnable() { this->armsAlertsEnable_ = nullptr;};
-    inline string armsAlertsEnable() const { DARABONBA_PTR_GET_DEFAULT(armsAlertsEnable_, "") };
+    inline string getArmsAlertsEnable() const { DARABONBA_PTR_GET_DEFAULT(armsAlertsEnable_, "") };
     inline GrafanaWorkspaceArmsAlertConfig& setArmsAlertsEnable(string armsAlertsEnable) { DARABONBA_PTR_SET_VALUE(armsAlertsEnable_, armsAlertsEnable) };
 
 
     // armsAlertsWebhookUrl Field Functions 
     bool hasArmsAlertsWebhookUrl() const { return this->armsAlertsWebhookUrl_ != nullptr;};
     void deleteArmsAlertsWebhookUrl() { this->armsAlertsWebhookUrl_ = nullptr;};
-    inline string armsAlertsWebhookUrl() const { DARABONBA_PTR_GET_DEFAULT(armsAlertsWebhookUrl_, "") };
+    inline string getArmsAlertsWebhookUrl() const { DARABONBA_PTR_GET_DEFAULT(armsAlertsWebhookUrl_, "") };
     inline GrafanaWorkspaceArmsAlertConfig& setArmsAlertsWebhookUrl(string armsAlertsWebhookUrl) { DARABONBA_PTR_SET_VALUE(armsAlertsWebhookUrl_, armsAlertsWebhookUrl) };
 
 
   protected:
-    std::shared_ptr<string> armsAlertsEnable_ = nullptr;
-    std::shared_ptr<string> armsAlertsWebhookUrl_ = nullptr;
+    shared_ptr<string> armsAlertsEnable_ {};
+    shared_ptr<string> armsAlertsWebhookUrl_ {};
   };
 
   } // namespace Models

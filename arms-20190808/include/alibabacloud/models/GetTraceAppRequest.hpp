@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_GETTRACEAPPREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/GetTraceAppRequestTags.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -35,42 +34,86 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->pid_ != nullptr
-        && this->regionId_ != nullptr && this->tags_ != nullptr; };
+    class Tags : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Tags& obj) { 
+        DARABONBA_PTR_TO_JSON(Key, key_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, Tags& obj) { 
+        DARABONBA_PTR_FROM_JSON(Key, key_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
+      };
+      Tags() = default ;
+      Tags(const Tags &) = default ;
+      Tags(Tags &&) = default ;
+      Tags(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Tags() = default ;
+      Tags& operator=(const Tags &) = default ;
+      Tags& operator=(Tags &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline Tags& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline Tags& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      // The tag key.
+      shared_ptr<string> key_ {};
+      // The tag value.
+      shared_ptr<string> value_ {};
+    };
+
+    virtual bool empty() const override { return this->pid_ == nullptr
+        && this->regionId_ == nullptr && this->tags_ == nullptr; };
     // pid Field Functions 
     bool hasPid() const { return this->pid_ != nullptr;};
     void deletePid() { this->pid_ = nullptr;};
-    inline string pid() const { DARABONBA_PTR_GET_DEFAULT(pid_, "") };
+    inline string getPid() const { DARABONBA_PTR_GET_DEFAULT(pid_, "") };
     inline GetTraceAppRequest& setPid(string pid) { DARABONBA_PTR_SET_VALUE(pid_, pid) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline GetTraceAppRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // tags Field Functions 
     bool hasTags() const { return this->tags_ != nullptr;};
     void deleteTags() { this->tags_ = nullptr;};
-    inline const vector<GetTraceAppRequestTags> & tags() const { DARABONBA_PTR_GET_CONST(tags_, vector<GetTraceAppRequestTags>) };
-    inline vector<GetTraceAppRequestTags> tags() { DARABONBA_PTR_GET(tags_, vector<GetTraceAppRequestTags>) };
-    inline GetTraceAppRequest& setTags(const vector<GetTraceAppRequestTags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
-    inline GetTraceAppRequest& setTags(vector<GetTraceAppRequestTags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
+    inline const vector<GetTraceAppRequest::Tags> & getTags() const { DARABONBA_PTR_GET_CONST(tags_, vector<GetTraceAppRequest::Tags>) };
+    inline vector<GetTraceAppRequest::Tags> getTags() { DARABONBA_PTR_GET(tags_, vector<GetTraceAppRequest::Tags>) };
+    inline GetTraceAppRequest& setTags(const vector<GetTraceAppRequest::Tags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+    inline GetTraceAppRequest& setTags(vector<GetTraceAppRequest::Tags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
 
 
   protected:
     // The process identifier (PID) of the application. For more information about how to obtain the PID, see [Obtain the PID of an application](https://www.alibabacloud.com/help/zh/doc-detail/186100.htm?spm=a2cdw.13409063.0.0.7a72281f0bkTfx#title-imy-7gj-qhr).
     // 
     // This parameter is required.
-    std::shared_ptr<string> pid_ = nullptr;
+    shared_ptr<string> pid_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The list of tags.
-    std::shared_ptr<vector<GetTraceAppRequestTags>> tags_ = nullptr;
+    shared_ptr<vector<GetTraceAppRequest::Tags>> tags_ {};
   };
 
   } // namespace Models

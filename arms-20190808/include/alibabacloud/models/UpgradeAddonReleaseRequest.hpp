@@ -39,47 +39,47 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->addonVersion_ != nullptr
-        && this->dryRun_ != nullptr && this->environmentId_ != nullptr && this->regionId_ != nullptr && this->releaseName_ != nullptr && this->values_ != nullptr; };
+    virtual bool empty() const override { return this->addonVersion_ == nullptr
+        && this->dryRun_ == nullptr && this->environmentId_ == nullptr && this->regionId_ == nullptr && this->releaseName_ == nullptr && this->values_ == nullptr; };
     // addonVersion Field Functions 
     bool hasAddonVersion() const { return this->addonVersion_ != nullptr;};
     void deleteAddonVersion() { this->addonVersion_ = nullptr;};
-    inline string addonVersion() const { DARABONBA_PTR_GET_DEFAULT(addonVersion_, "") };
+    inline string getAddonVersion() const { DARABONBA_PTR_GET_DEFAULT(addonVersion_, "") };
     inline UpgradeAddonReleaseRequest& setAddonVersion(string addonVersion) { DARABONBA_PTR_SET_VALUE(addonVersion_, addonVersion) };
 
 
     // dryRun Field Functions 
     bool hasDryRun() const { return this->dryRun_ != nullptr;};
     void deleteDryRun() { this->dryRun_ = nullptr;};
-    inline bool dryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
     inline UpgradeAddonReleaseRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // environmentId Field Functions 
     bool hasEnvironmentId() const { return this->environmentId_ != nullptr;};
     void deleteEnvironmentId() { this->environmentId_ = nullptr;};
-    inline string environmentId() const { DARABONBA_PTR_GET_DEFAULT(environmentId_, "") };
+    inline string getEnvironmentId() const { DARABONBA_PTR_GET_DEFAULT(environmentId_, "") };
     inline UpgradeAddonReleaseRequest& setEnvironmentId(string environmentId) { DARABONBA_PTR_SET_VALUE(environmentId_, environmentId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline UpgradeAddonReleaseRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // releaseName Field Functions 
     bool hasReleaseName() const { return this->releaseName_ != nullptr;};
     void deleteReleaseName() { this->releaseName_ = nullptr;};
-    inline string releaseName() const { DARABONBA_PTR_GET_DEFAULT(releaseName_, "") };
+    inline string getReleaseName() const { DARABONBA_PTR_GET_DEFAULT(releaseName_, "") };
     inline UpgradeAddonReleaseRequest& setReleaseName(string releaseName) { DARABONBA_PTR_SET_VALUE(releaseName_, releaseName) };
 
 
     // values Field Functions 
     bool hasValues() const { return this->values_ != nullptr;};
     void deleteValues() { this->values_ = nullptr;};
-    inline string values() const { DARABONBA_PTR_GET_DEFAULT(values_, "") };
+    inline string getValues() const { DARABONBA_PTR_GET_DEFAULT(values_, "") };
     inline UpgradeAddonReleaseRequest& setValues(string values) { DARABONBA_PTR_SET_VALUE(values_, values) };
 
 
@@ -87,23 +87,23 @@ namespace Models
     // The version of the add-on.
     // 
     // This parameter is required.
-    std::shared_ptr<string> addonVersion_ = nullptr;
+    shared_ptr<string> addonVersion_ {};
     // Specifies whether to perform only a dry run, without performing the actual request.
-    std::shared_ptr<bool> dryRun_ = nullptr;
+    shared_ptr<bool> dryRun_ {};
     // The environment ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> environmentId_ = nullptr;
+    shared_ptr<string> environmentId_ {};
     // The region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The name of the release.
     // 
     // This parameter is required.
-    std::shared_ptr<string> releaseName_ = nullptr;
+    shared_ptr<string> releaseName_ {};
     // The metadata information.
     // 
     // This parameter is required.
-    std::shared_ptr<string> values_ = nullptr;
+    shared_ptr<string> values_ {};
   };
 
   } // namespace Models

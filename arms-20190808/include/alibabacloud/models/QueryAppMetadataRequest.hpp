@@ -39,74 +39,74 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->endTimeMs_ != nullptr
-        && this->metaIds_ != nullptr && this->metaType_ != nullptr && this->pid_ != nullptr && this->regionId_ != nullptr && this->startTimeMs_ != nullptr; };
+    virtual bool empty() const override { return this->endTimeMs_ == nullptr
+        && this->metaIds_ == nullptr && this->metaType_ == nullptr && this->pid_ == nullptr && this->regionId_ == nullptr && this->startTimeMs_ == nullptr; };
     // endTimeMs Field Functions 
     bool hasEndTimeMs() const { return this->endTimeMs_ != nullptr;};
     void deleteEndTimeMs() { this->endTimeMs_ = nullptr;};
-    inline int64_t endTimeMs() const { DARABONBA_PTR_GET_DEFAULT(endTimeMs_, 0L) };
+    inline int64_t getEndTimeMs() const { DARABONBA_PTR_GET_DEFAULT(endTimeMs_, 0L) };
     inline QueryAppMetadataRequest& setEndTimeMs(int64_t endTimeMs) { DARABONBA_PTR_SET_VALUE(endTimeMs_, endTimeMs) };
 
 
     // metaIds Field Functions 
     bool hasMetaIds() const { return this->metaIds_ != nullptr;};
     void deleteMetaIds() { this->metaIds_ = nullptr;};
-    inline string metaIds() const { DARABONBA_PTR_GET_DEFAULT(metaIds_, "") };
+    inline string getMetaIds() const { DARABONBA_PTR_GET_DEFAULT(metaIds_, "") };
     inline QueryAppMetadataRequest& setMetaIds(string metaIds) { DARABONBA_PTR_SET_VALUE(metaIds_, metaIds) };
 
 
     // metaType Field Functions 
     bool hasMetaType() const { return this->metaType_ != nullptr;};
     void deleteMetaType() { this->metaType_ = nullptr;};
-    inline string metaType() const { DARABONBA_PTR_GET_DEFAULT(metaType_, "") };
+    inline string getMetaType() const { DARABONBA_PTR_GET_DEFAULT(metaType_, "") };
     inline QueryAppMetadataRequest& setMetaType(string metaType) { DARABONBA_PTR_SET_VALUE(metaType_, metaType) };
 
 
     // pid Field Functions 
     bool hasPid() const { return this->pid_ != nullptr;};
     void deletePid() { this->pid_ = nullptr;};
-    inline string pid() const { DARABONBA_PTR_GET_DEFAULT(pid_, "") };
+    inline string getPid() const { DARABONBA_PTR_GET_DEFAULT(pid_, "") };
     inline QueryAppMetadataRequest& setPid(string pid) { DARABONBA_PTR_SET_VALUE(pid_, pid) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline QueryAppMetadataRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // startTimeMs Field Functions 
     bool hasStartTimeMs() const { return this->startTimeMs_ != nullptr;};
     void deleteStartTimeMs() { this->startTimeMs_ = nullptr;};
-    inline int64_t startTimeMs() const { DARABONBA_PTR_GET_DEFAULT(startTimeMs_, 0L) };
+    inline int64_t getStartTimeMs() const { DARABONBA_PTR_GET_DEFAULT(startTimeMs_, 0L) };
     inline QueryAppMetadataRequest& setStartTimeMs(int64_t startTimeMs) { DARABONBA_PTR_SET_VALUE(startTimeMs_, startTimeMs) };
 
 
   protected:
-    std::shared_ptr<int64_t> endTimeMs_ = nullptr;
+    shared_ptr<int64_t> endTimeMs_ {};
     // The metadata IDs. Separate multiple IDs with commas (,).
     // 
     // You can obtain the exception ID on the **Exception Analysis** page of your application in the ARMS console.
     // 
     // This parameter is required.
-    std::shared_ptr<string> metaIds_ = nullptr;
+    shared_ptr<string> metaIds_ {};
     // The metadata type. Valid values:
     // 
     // *   sql: obtains an SQL statement based on sqlId.
     // *   exception: obtains the exception stack based on exceptionId.
     // 
     // This parameter is required.
-    std::shared_ptr<string> metaType_ = nullptr;
+    shared_ptr<string> metaType_ {};
     // The process identifier (PID) of the application. You can obtain the PID of an application by calling the **ListTraceApps** operation.
     // 
     // This parameter is required.
-    std::shared_ptr<string> pid_ = nullptr;
+    shared_ptr<string> pid_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<int64_t> startTimeMs_ = nullptr;
+    shared_ptr<string> regionId_ {};
+    shared_ptr<int64_t> startTimeMs_ {};
   };
 
   } // namespace Models

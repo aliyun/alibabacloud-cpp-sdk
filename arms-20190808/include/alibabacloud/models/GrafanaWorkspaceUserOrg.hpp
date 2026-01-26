@@ -33,33 +33,33 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->orgId_ != nullptr
-        && this->orgName_ != nullptr && this->role_ != nullptr; };
+    virtual bool empty() const override { return this->orgId_ == nullptr
+        && this->orgName_ == nullptr && this->role_ == nullptr; };
     // orgId Field Functions 
     bool hasOrgId() const { return this->orgId_ != nullptr;};
     void deleteOrgId() { this->orgId_ = nullptr;};
-    inline int64_t orgId() const { DARABONBA_PTR_GET_DEFAULT(orgId_, 0L) };
+    inline int64_t getOrgId() const { DARABONBA_PTR_GET_DEFAULT(orgId_, 0L) };
     inline GrafanaWorkspaceUserOrg& setOrgId(int64_t orgId) { DARABONBA_PTR_SET_VALUE(orgId_, orgId) };
 
 
     // orgName Field Functions 
     bool hasOrgName() const { return this->orgName_ != nullptr;};
     void deleteOrgName() { this->orgName_ = nullptr;};
-    inline string orgName() const { DARABONBA_PTR_GET_DEFAULT(orgName_, "") };
+    inline string getOrgName() const { DARABONBA_PTR_GET_DEFAULT(orgName_, "") };
     inline GrafanaWorkspaceUserOrg& setOrgName(string orgName) { DARABONBA_PTR_SET_VALUE(orgName_, orgName) };
 
 
     // role Field Functions 
     bool hasRole() const { return this->role_ != nullptr;};
     void deleteRole() { this->role_ = nullptr;};
-    inline string role() const { DARABONBA_PTR_GET_DEFAULT(role_, "") };
+    inline string getRole() const { DARABONBA_PTR_GET_DEFAULT(role_, "") };
     inline GrafanaWorkspaceUserOrg& setRole(string role) { DARABONBA_PTR_SET_VALUE(role_, role) };
 
 
   protected:
-    std::shared_ptr<int64_t> orgId_ = nullptr;
-    std::shared_ptr<string> orgName_ = nullptr;
-    std::shared_ptr<string> role_ = nullptr;
+    shared_ptr<int64_t> orgId_ {};
+    shared_ptr<string> orgName_ {};
+    shared_ptr<string> role_ {};
   };
 
   } // namespace Models

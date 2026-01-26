@@ -37,40 +37,40 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->environmentId_ != nullptr
-        && this->kind_ != nullptr && this->labelSelectorsShrink_ != nullptr && this->namespace_ != nullptr && this->regionId_ != nullptr; };
+    virtual bool empty() const override { return this->environmentId_ == nullptr
+        && this->kind_ == nullptr && this->labelSelectorsShrink_ == nullptr && this->namespace_ == nullptr && this->regionId_ == nullptr; };
     // environmentId Field Functions 
     bool hasEnvironmentId() const { return this->environmentId_ != nullptr;};
     void deleteEnvironmentId() { this->environmentId_ = nullptr;};
-    inline string environmentId() const { DARABONBA_PTR_GET_DEFAULT(environmentId_, "") };
+    inline string getEnvironmentId() const { DARABONBA_PTR_GET_DEFAULT(environmentId_, "") };
     inline ListEnvironmentKubeResourcesShrinkRequest& setEnvironmentId(string environmentId) { DARABONBA_PTR_SET_VALUE(environmentId_, environmentId) };
 
 
     // kind Field Functions 
     bool hasKind() const { return this->kind_ != nullptr;};
     void deleteKind() { this->kind_ = nullptr;};
-    inline string kind() const { DARABONBA_PTR_GET_DEFAULT(kind_, "") };
+    inline string getKind() const { DARABONBA_PTR_GET_DEFAULT(kind_, "") };
     inline ListEnvironmentKubeResourcesShrinkRequest& setKind(string kind) { DARABONBA_PTR_SET_VALUE(kind_, kind) };
 
 
     // labelSelectorsShrink Field Functions 
     bool hasLabelSelectorsShrink() const { return this->labelSelectorsShrink_ != nullptr;};
     void deleteLabelSelectorsShrink() { this->labelSelectorsShrink_ = nullptr;};
-    inline string labelSelectorsShrink() const { DARABONBA_PTR_GET_DEFAULT(labelSelectorsShrink_, "") };
+    inline string getLabelSelectorsShrink() const { DARABONBA_PTR_GET_DEFAULT(labelSelectorsShrink_, "") };
     inline ListEnvironmentKubeResourcesShrinkRequest& setLabelSelectorsShrink(string labelSelectorsShrink) { DARABONBA_PTR_SET_VALUE(labelSelectorsShrink_, labelSelectorsShrink) };
 
 
     // namespace Field Functions 
     bool hasNamespace() const { return this->namespace_ != nullptr;};
     void deleteNamespace() { this->namespace_ = nullptr;};
-    inline string _namespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
+    inline string getNamespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
     inline ListEnvironmentKubeResourcesShrinkRequest& setNamespace(string _namespace) { DARABONBA_PTR_SET_VALUE(namespace_, _namespace) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ListEnvironmentKubeResourcesShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -78,17 +78,17 @@ namespace Models
     // The environment ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> environmentId_ = nullptr;
+    shared_ptr<string> environmentId_ {};
     // The resource type. Valid values: Pod, Deployment, and Service.
     // 
     // This parameter is required.
-    std::shared_ptr<string> kind_ = nullptr;
+    shared_ptr<string> kind_ {};
     // The tags.
-    std::shared_ptr<string> labelSelectorsShrink_ = nullptr;
+    shared_ptr<string> labelSelectorsShrink_ {};
     // The namespace.
-    std::shared_ptr<string> namespace_ = nullptr;
+    shared_ptr<string> namespace_ {};
     // The region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

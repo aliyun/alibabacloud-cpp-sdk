@@ -41,80 +41,80 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->directedMode_ != nullptr
-        && this->ids_ != nullptr && this->isDetail_ != nullptr && this->name_ != nullptr && this->page_ != nullptr && this->regionId_ != nullptr
-        && this->size_ != nullptr; };
+    virtual bool empty() const override { return this->directedMode_ == nullptr
+        && this->ids_ == nullptr && this->isDetail_ == nullptr && this->name_ == nullptr && this->page_ == nullptr && this->regionId_ == nullptr
+        && this->size_ == nullptr; };
     // directedMode Field Functions 
     bool hasDirectedMode() const { return this->directedMode_ != nullptr;};
     void deleteDirectedMode() { this->directedMode_ = nullptr;};
-    inline bool directedMode() const { DARABONBA_PTR_GET_DEFAULT(directedMode_, false) };
+    inline bool getDirectedMode() const { DARABONBA_PTR_GET_DEFAULT(directedMode_, false) };
     inline ListNotificationPoliciesRequest& setDirectedMode(bool directedMode) { DARABONBA_PTR_SET_VALUE(directedMode_, directedMode) };
 
 
     // ids Field Functions 
     bool hasIds() const { return this->ids_ != nullptr;};
     void deleteIds() { this->ids_ = nullptr;};
-    inline string ids() const { DARABONBA_PTR_GET_DEFAULT(ids_, "") };
+    inline string getIds() const { DARABONBA_PTR_GET_DEFAULT(ids_, "") };
     inline ListNotificationPoliciesRequest& setIds(string ids) { DARABONBA_PTR_SET_VALUE(ids_, ids) };
 
 
     // isDetail Field Functions 
     bool hasIsDetail() const { return this->isDetail_ != nullptr;};
     void deleteIsDetail() { this->isDetail_ = nullptr;};
-    inline bool isDetail() const { DARABONBA_PTR_GET_DEFAULT(isDetail_, false) };
+    inline bool getIsDetail() const { DARABONBA_PTR_GET_DEFAULT(isDetail_, false) };
     inline ListNotificationPoliciesRequest& setIsDetail(bool isDetail) { DARABONBA_PTR_SET_VALUE(isDetail_, isDetail) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline ListNotificationPoliciesRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // page Field Functions 
     bool hasPage() const { return this->page_ != nullptr;};
     void deletePage() { this->page_ = nullptr;};
-    inline int64_t page() const { DARABONBA_PTR_GET_DEFAULT(page_, 0L) };
+    inline int64_t getPage() const { DARABONBA_PTR_GET_DEFAULT(page_, 0L) };
     inline ListNotificationPoliciesRequest& setPage(int64_t page) { DARABONBA_PTR_SET_VALUE(page_, page) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ListNotificationPoliciesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // size Field Functions 
     bool hasSize() const { return this->size_ != nullptr;};
     void deleteSize() { this->size_ = nullptr;};
-    inline int64_t size() const { DARABONBA_PTR_GET_DEFAULT(size_, 0L) };
+    inline int64_t getSize() const { DARABONBA_PTR_GET_DEFAULT(size_, 0L) };
     inline ListNotificationPoliciesRequest& setSize(int64_t size) { DARABONBA_PTR_SET_VALUE(size_, size) };
 
 
   protected:
     // Specifies whether to enable simple mode.
-    std::shared_ptr<bool> directedMode_ = nullptr;
+    shared_ptr<bool> directedMode_ {};
     // The ID of the notification policy.
-    std::shared_ptr<string> ids_ = nullptr;
+    shared_ptr<string> ids_ {};
     // Specifies whether to query the details about notification policies. Valid values:
     // 
     // *   `true`: Details about notification policies are queried.
     // *   `false`: Details about notification policies are not queried.
-    std::shared_ptr<bool> isDetail_ = nullptr;
+    shared_ptr<bool> isDetail_ {};
     // The name of the notification policy.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The number of the page to return.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> page_ = nullptr;
+    shared_ptr<int64_t> page_ {};
     // The ID of the region. Default value: **cn-hangzhou**.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The number of entries to return on each page.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> size_ = nullptr;
+    shared_ptr<int64_t> size_ {};
   };
 
   } // namespace Models

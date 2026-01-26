@@ -35,44 +35,54 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aliyunLang_ != nullptr
-        && this->dropMetrics_ != nullptr && this->environmentId_ != nullptr && this->regionId_ != nullptr; };
+    virtual bool empty() const override { return this->aliyunLang_ == nullptr
+        && this->dropMetrics_ == nullptr && this->environmentId_ == nullptr && this->regionId_ == nullptr; };
     // aliyunLang Field Functions 
     bool hasAliyunLang() const { return this->aliyunLang_ != nullptr;};
     void deleteAliyunLang() { this->aliyunLang_ = nullptr;};
-    inline string aliyunLang() const { DARABONBA_PTR_GET_DEFAULT(aliyunLang_, "") };
+    inline string getAliyunLang() const { DARABONBA_PTR_GET_DEFAULT(aliyunLang_, "") };
     inline UpdateEnvDropMetricsRuleRequest& setAliyunLang(string aliyunLang) { DARABONBA_PTR_SET_VALUE(aliyunLang_, aliyunLang) };
 
 
     // dropMetrics Field Functions 
     bool hasDropMetrics() const { return this->dropMetrics_ != nullptr;};
     void deleteDropMetrics() { this->dropMetrics_ = nullptr;};
-    inline string dropMetrics() const { DARABONBA_PTR_GET_DEFAULT(dropMetrics_, "") };
+    inline string getDropMetrics() const { DARABONBA_PTR_GET_DEFAULT(dropMetrics_, "") };
     inline UpdateEnvDropMetricsRuleRequest& setDropMetrics(string dropMetrics) { DARABONBA_PTR_SET_VALUE(dropMetrics_, dropMetrics) };
 
 
     // environmentId Field Functions 
     bool hasEnvironmentId() const { return this->environmentId_ != nullptr;};
     void deleteEnvironmentId() { this->environmentId_ = nullptr;};
-    inline string environmentId() const { DARABONBA_PTR_GET_DEFAULT(environmentId_, "") };
+    inline string getEnvironmentId() const { DARABONBA_PTR_GET_DEFAULT(environmentId_, "") };
     inline UpdateEnvDropMetricsRuleRequest& setEnvironmentId(string environmentId) { DARABONBA_PTR_SET_VALUE(environmentId_, environmentId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline UpdateEnvDropMetricsRuleRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
-    std::shared_ptr<string> aliyunLang_ = nullptr;
+    // The language. Valid values:
+    // 
+    // *   zh (default)
+    // *   en
+    shared_ptr<string> aliyunLang_ {};
+    // The metric to be discarded. Separate multiple metrics with line feeds.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> dropMetrics_ = nullptr;
+    shared_ptr<string> dropMetrics_ {};
+    // The environment ID.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> environmentId_ = nullptr;
+    shared_ptr<string> environmentId_ {};
+    // The region ID.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

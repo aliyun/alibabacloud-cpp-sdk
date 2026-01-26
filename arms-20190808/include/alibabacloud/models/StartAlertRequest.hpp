@@ -31,19 +31,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alertId_ != nullptr
-        && this->regionId_ != nullptr; };
+    virtual bool empty() const override { return this->alertId_ == nullptr
+        && this->regionId_ == nullptr; };
     // alertId Field Functions 
     bool hasAlertId() const { return this->alertId_ != nullptr;};
     void deleteAlertId() { this->alertId_ = nullptr;};
-    inline string alertId() const { DARABONBA_PTR_GET_DEFAULT(alertId_, "") };
+    inline string getAlertId() const { DARABONBA_PTR_GET_DEFAULT(alertId_, "") };
     inline StartAlertRequest& setAlertId(string alertId) { DARABONBA_PTR_SET_VALUE(alertId_, alertId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline StartAlertRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The ID of the alert rule. You can call the SearchAlertRules operation and view the `Id` parameter in the response. For more information, see [SearchAlertRules](https://help.aliyun.com/document_detail/175825.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> alertId_ = nullptr;
+    shared_ptr<string> alertId_ {};
     // The ID of the region. Set the value to `cn-hangzhou`.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

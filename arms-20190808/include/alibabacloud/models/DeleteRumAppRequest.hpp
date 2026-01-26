@@ -35,49 +35,49 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appGroup_ != nullptr
-        && this->appId_ != nullptr && this->realRegionId_ != nullptr && this->regionId_ != nullptr; };
+    virtual bool empty() const override { return this->appGroup_ == nullptr
+        && this->appId_ == nullptr && this->realRegionId_ == nullptr && this->regionId_ == nullptr; };
     // appGroup Field Functions 
     bool hasAppGroup() const { return this->appGroup_ != nullptr;};
     void deleteAppGroup() { this->appGroup_ = nullptr;};
-    inline string appGroup() const { DARABONBA_PTR_GET_DEFAULT(appGroup_, "") };
+    inline string getAppGroup() const { DARABONBA_PTR_GET_DEFAULT(appGroup_, "") };
     inline DeleteRumAppRequest& setAppGroup(string appGroup) { DARABONBA_PTR_SET_VALUE(appGroup_, appGroup) };
 
 
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline DeleteRumAppRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // realRegionId Field Functions 
     bool hasRealRegionId() const { return this->realRegionId_ != nullptr;};
     void deleteRealRegionId() { this->realRegionId_ = nullptr;};
-    inline string realRegionId() const { DARABONBA_PTR_GET_DEFAULT(realRegionId_, "") };
+    inline string getRealRegionId() const { DARABONBA_PTR_GET_DEFAULT(realRegionId_, "") };
     inline DeleteRumAppRequest& setRealRegionId(string realRegionId) { DARABONBA_PTR_SET_VALUE(realRegionId_, realRegionId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteRumAppRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
     // The group where the application resides.
-    std::shared_ptr<string> appGroup_ = nullptr;
+    shared_ptr<string> appGroup_ {};
     // The ID of the application.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The region where the application resides. You can leave this parameter empty or set it to China East 2 Finance.
-    std::shared_ptr<string> realRegionId_ = nullptr;
+    shared_ptr<string> realRegionId_ {};
     // The ID of the region.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

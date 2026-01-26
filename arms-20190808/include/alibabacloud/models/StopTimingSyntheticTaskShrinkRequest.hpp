@@ -31,29 +31,29 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->regionId_ != nullptr
-        && this->taskIdsShrink_ != nullptr; };
+    virtual bool empty() const override { return this->regionId_ == nullptr
+        && this->taskIdsShrink_ == nullptr; };
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline StopTimingSyntheticTaskShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // taskIdsShrink Field Functions 
     bool hasTaskIdsShrink() const { return this->taskIdsShrink_ != nullptr;};
     void deleteTaskIdsShrink() { this->taskIdsShrink_ = nullptr;};
-    inline string taskIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(taskIdsShrink_, "") };
+    inline string getTaskIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(taskIdsShrink_, "") };
     inline StopTimingSyntheticTaskShrinkRequest& setTaskIdsShrink(string taskIdsShrink) { DARABONBA_PTR_SET_VALUE(taskIdsShrink_, taskIdsShrink) };
 
 
   protected:
     // The region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The task IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<string> taskIdsShrink_ = nullptr;
+    shared_ptr<string> taskIdsShrink_ {};
   };
 
   } // namespace Models

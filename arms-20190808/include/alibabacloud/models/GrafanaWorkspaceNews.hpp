@@ -37,49 +37,49 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->date_ != nullptr
-        && this->description_ != nullptr && this->image_ != nullptr && this->link_ != nullptr && this->title_ != nullptr; };
+    virtual bool empty() const override { return this->date_ == nullptr
+        && this->description_ == nullptr && this->image_ == nullptr && this->link_ == nullptr && this->title_ == nullptr; };
     // date Field Functions 
     bool hasDate() const { return this->date_ != nullptr;};
     void deleteDate() { this->date_ = nullptr;};
-    inline int64_t date() const { DARABONBA_PTR_GET_DEFAULT(date_, 0L) };
+    inline int64_t getDate() const { DARABONBA_PTR_GET_DEFAULT(date_, 0L) };
     inline GrafanaWorkspaceNews& setDate(int64_t date) { DARABONBA_PTR_SET_VALUE(date_, date) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline GrafanaWorkspaceNews& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // image Field Functions 
     bool hasImage() const { return this->image_ != nullptr;};
     void deleteImage() { this->image_ = nullptr;};
-    inline string image() const { DARABONBA_PTR_GET_DEFAULT(image_, "") };
+    inline string getImage() const { DARABONBA_PTR_GET_DEFAULT(image_, "") };
     inline GrafanaWorkspaceNews& setImage(string image) { DARABONBA_PTR_SET_VALUE(image_, image) };
 
 
     // link Field Functions 
     bool hasLink() const { return this->link_ != nullptr;};
     void deleteLink() { this->link_ = nullptr;};
-    inline string link() const { DARABONBA_PTR_GET_DEFAULT(link_, "") };
+    inline string getLink() const { DARABONBA_PTR_GET_DEFAULT(link_, "") };
     inline GrafanaWorkspaceNews& setLink(string link) { DARABONBA_PTR_SET_VALUE(link_, link) };
 
 
     // title Field Functions 
     bool hasTitle() const { return this->title_ != nullptr;};
     void deleteTitle() { this->title_ = nullptr;};
-    inline string title() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
+    inline string getTitle() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
     inline GrafanaWorkspaceNews& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
 
 
   protected:
-    std::shared_ptr<int64_t> date_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<string> image_ = nullptr;
-    std::shared_ptr<string> link_ = nullptr;
-    std::shared_ptr<string> title_ = nullptr;
+    shared_ptr<int64_t> date_ {};
+    shared_ptr<string> description_ {};
+    shared_ptr<string> image_ {};
+    shared_ptr<string> link_ {};
+    shared_ptr<string> title_ {};
   };
 
   } // namespace Models

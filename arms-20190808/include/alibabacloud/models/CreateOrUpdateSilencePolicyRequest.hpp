@@ -43,73 +43,73 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->effectiveTimeType_ != nullptr
-        && this->id_ != nullptr && this->matchingRules_ != nullptr && this->name_ != nullptr && this->regionId_ != nullptr && this->state_ != nullptr
-        && this->timePeriod_ != nullptr && this->timeSlots_ != nullptr; };
+    virtual bool empty() const override { return this->effectiveTimeType_ == nullptr
+        && this->id_ == nullptr && this->matchingRules_ == nullptr && this->name_ == nullptr && this->regionId_ == nullptr && this->state_ == nullptr
+        && this->timePeriod_ == nullptr && this->timeSlots_ == nullptr; };
     // effectiveTimeType Field Functions 
     bool hasEffectiveTimeType() const { return this->effectiveTimeType_ != nullptr;};
     void deleteEffectiveTimeType() { this->effectiveTimeType_ = nullptr;};
-    inline string effectiveTimeType() const { DARABONBA_PTR_GET_DEFAULT(effectiveTimeType_, "") };
+    inline string getEffectiveTimeType() const { DARABONBA_PTR_GET_DEFAULT(effectiveTimeType_, "") };
     inline CreateOrUpdateSilencePolicyRequest& setEffectiveTimeType(string effectiveTimeType) { DARABONBA_PTR_SET_VALUE(effectiveTimeType_, effectiveTimeType) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline int64_t id() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+    inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
     inline CreateOrUpdateSilencePolicyRequest& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // matchingRules Field Functions 
     bool hasMatchingRules() const { return this->matchingRules_ != nullptr;};
     void deleteMatchingRules() { this->matchingRules_ = nullptr;};
-    inline string matchingRules() const { DARABONBA_PTR_GET_DEFAULT(matchingRules_, "") };
+    inline string getMatchingRules() const { DARABONBA_PTR_GET_DEFAULT(matchingRules_, "") };
     inline CreateOrUpdateSilencePolicyRequest& setMatchingRules(string matchingRules) { DARABONBA_PTR_SET_VALUE(matchingRules_, matchingRules) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateOrUpdateSilencePolicyRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreateOrUpdateSilencePolicyRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // state Field Functions 
     bool hasState() const { return this->state_ != nullptr;};
     void deleteState() { this->state_ = nullptr;};
-    inline string state() const { DARABONBA_PTR_GET_DEFAULT(state_, "") };
+    inline string getState() const { DARABONBA_PTR_GET_DEFAULT(state_, "") };
     inline CreateOrUpdateSilencePolicyRequest& setState(string state) { DARABONBA_PTR_SET_VALUE(state_, state) };
 
 
     // timePeriod Field Functions 
     bool hasTimePeriod() const { return this->timePeriod_ != nullptr;};
     void deleteTimePeriod() { this->timePeriod_ = nullptr;};
-    inline string timePeriod() const { DARABONBA_PTR_GET_DEFAULT(timePeriod_, "") };
+    inline string getTimePeriod() const { DARABONBA_PTR_GET_DEFAULT(timePeriod_, "") };
     inline CreateOrUpdateSilencePolicyRequest& setTimePeriod(string timePeriod) { DARABONBA_PTR_SET_VALUE(timePeriod_, timePeriod) };
 
 
     // timeSlots Field Functions 
     bool hasTimeSlots() const { return this->timeSlots_ != nullptr;};
     void deleteTimeSlots() { this->timeSlots_ = nullptr;};
-    inline string timeSlots() const { DARABONBA_PTR_GET_DEFAULT(timeSlots_, "") };
+    inline string getTimeSlots() const { DARABONBA_PTR_GET_DEFAULT(timeSlots_, "") };
     inline CreateOrUpdateSilencePolicyRequest& setTimeSlots(string timeSlots) { DARABONBA_PTR_SET_VALUE(timeSlots_, timeSlots) };
 
 
   protected:
     // The effective duration of the silence policy. Valid values: PERMANENT, CUSTOM_TIME, and CYCLE_EFFECT.
-    std::shared_ptr<string> effectiveTimeType_ = nullptr;
+    shared_ptr<string> effectiveTimeType_ {};
     // The ID of the silence policy.
     // 
     // *   If you do not configure this parameter, a new silence policy is created.
     // *   If you configure this parameter, the specified silence policy is modified.
-    std::shared_ptr<int64_t> id_ = nullptr;
+    shared_ptr<int64_t> id_ {};
     // The matching rules. The following code shows the format of matching rules:
     // 
     //     [
@@ -123,19 +123,19 @@ namespace Models
     //     	 ]
     //          }
     //     	 ]
-    std::shared_ptr<string> matchingRules_ = nullptr;
+    shared_ptr<string> matchingRules_ {};
     // The name of the silence policy.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The ID of the region.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // Specifies whether to enable the silence policy. Valid values: enable and disable.
-    std::shared_ptr<string> state_ = nullptr;
+    shared_ptr<string> state_ {};
     // The recurring period. This parameter is required when EffectiveTimeType is set to CYCLE_EFFECT. DAY: The silence policy is effective by day. WEEK: The silence policy is effective by week.
-    std::shared_ptr<string> timePeriod_ = nullptr;
+    shared_ptr<string> timePeriod_ {};
     // The time period during which the silence policy is effective. If you set EffectiveTimeType to CUSTOM_TIME, specify a custom time period in the following format: [{"startTime":"2024-08-04 22:13","endTime":"2024-08-04 22:21"}] If you set EffectiveTimeType to CYCLE_EFFECT and TimePeriod to DAY, specify a custom time period in the following format: [{"startTime":"22:13","endTime":"22:21"}]. The start time cannot be later than the end time. If you set EffectiveTimeType to CYCLE_EFFECT and TimePeriod to WEEK, specify a custom time period in the following format: [{"startWeek":"1", "endWeek":"2" "startTime":"22:13","endTime":"22:21"}]. Valid values of startWeek and endWeek: 1 to 7. The start time cannot be later than the end time.
-    std::shared_ptr<string> timeSlots_ = nullptr;
+    shared_ptr<string> timeSlots_ {};
   };
 
   } // namespace Models

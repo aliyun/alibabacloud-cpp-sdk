@@ -31,19 +31,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->globalViewClusterId_ != nullptr
-        && this->regionId_ != nullptr; };
+    virtual bool empty() const override { return this->globalViewClusterId_ == nullptr
+        && this->regionId_ == nullptr; };
     // globalViewClusterId Field Functions 
     bool hasGlobalViewClusterId() const { return this->globalViewClusterId_ != nullptr;};
     void deleteGlobalViewClusterId() { this->globalViewClusterId_ = nullptr;};
-    inline string globalViewClusterId() const { DARABONBA_PTR_GET_DEFAULT(globalViewClusterId_, "") };
+    inline string getGlobalViewClusterId() const { DARABONBA_PTR_GET_DEFAULT(globalViewClusterId_, "") };
     inline DeletePrometheusGlobalViewRequest& setGlobalViewClusterId(string globalViewClusterId) { DARABONBA_PTR_SET_VALUE(globalViewClusterId_, globalViewClusterId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeletePrometheusGlobalViewRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The ID of the global aggregation instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> globalViewClusterId_ = nullptr;
+    shared_ptr<string> globalViewClusterId_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

@@ -31,25 +31,25 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->regionId_ != nullptr
-        && this->regionName_ != nullptr; };
+    virtual bool empty() const override { return this->regionId_ == nullptr
+        && this->regionName_ == nullptr; };
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline GrafanaWorkspaceVpcRegion& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // regionName Field Functions 
     bool hasRegionName() const { return this->regionName_ != nullptr;};
     void deleteRegionName() { this->regionName_ = nullptr;};
-    inline string regionName() const { DARABONBA_PTR_GET_DEFAULT(regionName_, "") };
+    inline string getRegionName() const { DARABONBA_PTR_GET_DEFAULT(regionName_, "") };
     inline GrafanaWorkspaceVpcRegion& setRegionName(string regionName) { DARABONBA_PTR_SET_VALUE(regionName_, regionName) };
 
 
   protected:
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> regionName_ = nullptr;
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> regionName_ {};
   };
 
   } // namespace Models

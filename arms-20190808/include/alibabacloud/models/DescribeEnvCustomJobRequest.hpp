@@ -35,33 +35,33 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->customJobName_ != nullptr
-        && this->encryptYaml_ != nullptr && this->environmentId_ != nullptr && this->regionId_ != nullptr; };
+    virtual bool empty() const override { return this->customJobName_ == nullptr
+        && this->encryptYaml_ == nullptr && this->environmentId_ == nullptr && this->regionId_ == nullptr; };
     // customJobName Field Functions 
     bool hasCustomJobName() const { return this->customJobName_ != nullptr;};
     void deleteCustomJobName() { this->customJobName_ = nullptr;};
-    inline string customJobName() const { DARABONBA_PTR_GET_DEFAULT(customJobName_, "") };
+    inline string getCustomJobName() const { DARABONBA_PTR_GET_DEFAULT(customJobName_, "") };
     inline DescribeEnvCustomJobRequest& setCustomJobName(string customJobName) { DARABONBA_PTR_SET_VALUE(customJobName_, customJobName) };
 
 
     // encryptYaml Field Functions 
     bool hasEncryptYaml() const { return this->encryptYaml_ != nullptr;};
     void deleteEncryptYaml() { this->encryptYaml_ = nullptr;};
-    inline bool encryptYaml() const { DARABONBA_PTR_GET_DEFAULT(encryptYaml_, false) };
+    inline bool getEncryptYaml() const { DARABONBA_PTR_GET_DEFAULT(encryptYaml_, false) };
     inline DescribeEnvCustomJobRequest& setEncryptYaml(bool encryptYaml) { DARABONBA_PTR_SET_VALUE(encryptYaml_, encryptYaml) };
 
 
     // environmentId Field Functions 
     bool hasEnvironmentId() const { return this->environmentId_ != nullptr;};
     void deleteEnvironmentId() { this->environmentId_ = nullptr;};
-    inline string environmentId() const { DARABONBA_PTR_GET_DEFAULT(environmentId_, "") };
+    inline string getEnvironmentId() const { DARABONBA_PTR_GET_DEFAULT(environmentId_, "") };
     inline DescribeEnvCustomJobRequest& setEnvironmentId(string environmentId) { DARABONBA_PTR_SET_VALUE(environmentId_, environmentId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeEnvCustomJobRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -69,17 +69,17 @@ namespace Models
     // The name of the custom job.
     // 
     // This parameter is required.
-    std::shared_ptr<string> customJobName_ = nullptr;
+    shared_ptr<string> customJobName_ {};
     // Specifies whether to return an encrypted YAML string.
-    std::shared_ptr<bool> encryptYaml_ = nullptr;
+    shared_ptr<bool> encryptYaml_ {};
     // The ID of the environment instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> environmentId_ = nullptr;
+    shared_ptr<string> environmentId_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

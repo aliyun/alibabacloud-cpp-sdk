@@ -33,13 +33,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->propertys_ != nullptr
-        && this->section_ != nullptr; };
+    virtual bool empty() const override { return this->propertys_ == nullptr
+        && this->section_ == nullptr; };
     // propertys Field Functions 
     bool hasPropertys() const { return this->propertys_ != nullptr;};
     void deletePropertys() { this->propertys_ = nullptr;};
-    inline const vector<GrafanaWorkspaceIniProperty> & propertys() const { DARABONBA_PTR_GET_CONST(propertys_, vector<GrafanaWorkspaceIniProperty>) };
-    inline vector<GrafanaWorkspaceIniProperty> propertys() { DARABONBA_PTR_GET(propertys_, vector<GrafanaWorkspaceIniProperty>) };
+    inline const vector<GrafanaWorkspaceIniProperty> & getPropertys() const { DARABONBA_PTR_GET_CONST(propertys_, vector<GrafanaWorkspaceIniProperty>) };
+    inline vector<GrafanaWorkspaceIniProperty> getPropertys() { DARABONBA_PTR_GET(propertys_, vector<GrafanaWorkspaceIniProperty>) };
     inline GrafanaWorkspaceIniSection& setPropertys(const vector<GrafanaWorkspaceIniProperty> & propertys) { DARABONBA_PTR_SET_VALUE(propertys_, propertys) };
     inline GrafanaWorkspaceIniSection& setPropertys(vector<GrafanaWorkspaceIniProperty> && propertys) { DARABONBA_PTR_SET_RVALUE(propertys_, propertys) };
 
@@ -47,13 +47,13 @@ namespace Models
     // section Field Functions 
     bool hasSection() const { return this->section_ != nullptr;};
     void deleteSection() { this->section_ = nullptr;};
-    inline string section() const { DARABONBA_PTR_GET_DEFAULT(section_, "") };
+    inline string getSection() const { DARABONBA_PTR_GET_DEFAULT(section_, "") };
     inline GrafanaWorkspaceIniSection& setSection(string section) { DARABONBA_PTR_SET_VALUE(section_, section) };
 
 
   protected:
-    std::shared_ptr<vector<GrafanaWorkspaceIniProperty>> propertys_ = nullptr;
-    std::shared_ptr<string> section_ = nullptr;
+    shared_ptr<vector<GrafanaWorkspaceIniProperty>> propertys_ {};
+    shared_ptr<string> section_ {};
   };
 
   } // namespace Models

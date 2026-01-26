@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_CREATEPROMETHEUSALERTRULEREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/CreatePrometheusAlertRuleRequestTags.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -53,93 +52,137 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alertName_ != nullptr
-        && this->annotations_ != nullptr && this->clusterId_ != nullptr && this->dispatchRuleId_ != nullptr && this->duration_ != nullptr && this->expression_ != nullptr
-        && this->labels_ != nullptr && this->message_ != nullptr && this->notifyType_ != nullptr && this->regionId_ != nullptr && this->tags_ != nullptr
-        && this->type_ != nullptr; };
+    class Tags : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Tags& obj) { 
+        DARABONBA_PTR_TO_JSON(Key, key_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, Tags& obj) { 
+        DARABONBA_PTR_FROM_JSON(Key, key_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
+      };
+      Tags() = default ;
+      Tags(const Tags &) = default ;
+      Tags(Tags &&) = default ;
+      Tags(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Tags() = default ;
+      Tags& operator=(const Tags &) = default ;
+      Tags& operator=(Tags &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline Tags& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline Tags& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      // The tag key.
+      shared_ptr<string> key_ {};
+      // The tag value.
+      shared_ptr<string> value_ {};
+    };
+
+    virtual bool empty() const override { return this->alertName_ == nullptr
+        && this->annotations_ == nullptr && this->clusterId_ == nullptr && this->dispatchRuleId_ == nullptr && this->duration_ == nullptr && this->expression_ == nullptr
+        && this->labels_ == nullptr && this->message_ == nullptr && this->notifyType_ == nullptr && this->regionId_ == nullptr && this->tags_ == nullptr
+        && this->type_ == nullptr; };
     // alertName Field Functions 
     bool hasAlertName() const { return this->alertName_ != nullptr;};
     void deleteAlertName() { this->alertName_ = nullptr;};
-    inline string alertName() const { DARABONBA_PTR_GET_DEFAULT(alertName_, "") };
+    inline string getAlertName() const { DARABONBA_PTR_GET_DEFAULT(alertName_, "") };
     inline CreatePrometheusAlertRuleRequest& setAlertName(string alertName) { DARABONBA_PTR_SET_VALUE(alertName_, alertName) };
 
 
     // annotations Field Functions 
     bool hasAnnotations() const { return this->annotations_ != nullptr;};
     void deleteAnnotations() { this->annotations_ = nullptr;};
-    inline string annotations() const { DARABONBA_PTR_GET_DEFAULT(annotations_, "") };
+    inline string getAnnotations() const { DARABONBA_PTR_GET_DEFAULT(annotations_, "") };
     inline CreatePrometheusAlertRuleRequest& setAnnotations(string annotations) { DARABONBA_PTR_SET_VALUE(annotations_, annotations) };
 
 
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline CreatePrometheusAlertRuleRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // dispatchRuleId Field Functions 
     bool hasDispatchRuleId() const { return this->dispatchRuleId_ != nullptr;};
     void deleteDispatchRuleId() { this->dispatchRuleId_ = nullptr;};
-    inline int64_t dispatchRuleId() const { DARABONBA_PTR_GET_DEFAULT(dispatchRuleId_, 0L) };
+    inline int64_t getDispatchRuleId() const { DARABONBA_PTR_GET_DEFAULT(dispatchRuleId_, 0L) };
     inline CreatePrometheusAlertRuleRequest& setDispatchRuleId(int64_t dispatchRuleId) { DARABONBA_PTR_SET_VALUE(dispatchRuleId_, dispatchRuleId) };
 
 
     // duration Field Functions 
     bool hasDuration() const { return this->duration_ != nullptr;};
     void deleteDuration() { this->duration_ = nullptr;};
-    inline string duration() const { DARABONBA_PTR_GET_DEFAULT(duration_, "") };
+    inline string getDuration() const { DARABONBA_PTR_GET_DEFAULT(duration_, "") };
     inline CreatePrometheusAlertRuleRequest& setDuration(string duration) { DARABONBA_PTR_SET_VALUE(duration_, duration) };
 
 
     // expression Field Functions 
     bool hasExpression() const { return this->expression_ != nullptr;};
     void deleteExpression() { this->expression_ = nullptr;};
-    inline string expression() const { DARABONBA_PTR_GET_DEFAULT(expression_, "") };
+    inline string getExpression() const { DARABONBA_PTR_GET_DEFAULT(expression_, "") };
     inline CreatePrometheusAlertRuleRequest& setExpression(string expression) { DARABONBA_PTR_SET_VALUE(expression_, expression) };
 
 
     // labels Field Functions 
     bool hasLabels() const { return this->labels_ != nullptr;};
     void deleteLabels() { this->labels_ = nullptr;};
-    inline string labels() const { DARABONBA_PTR_GET_DEFAULT(labels_, "") };
+    inline string getLabels() const { DARABONBA_PTR_GET_DEFAULT(labels_, "") };
     inline CreatePrometheusAlertRuleRequest& setLabels(string labels) { DARABONBA_PTR_SET_VALUE(labels_, labels) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline CreatePrometheusAlertRuleRequest& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // notifyType Field Functions 
     bool hasNotifyType() const { return this->notifyType_ != nullptr;};
     void deleteNotifyType() { this->notifyType_ = nullptr;};
-    inline string notifyType() const { DARABONBA_PTR_GET_DEFAULT(notifyType_, "") };
+    inline string getNotifyType() const { DARABONBA_PTR_GET_DEFAULT(notifyType_, "") };
     inline CreatePrometheusAlertRuleRequest& setNotifyType(string notifyType) { DARABONBA_PTR_SET_VALUE(notifyType_, notifyType) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreatePrometheusAlertRuleRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // tags Field Functions 
     bool hasTags() const { return this->tags_ != nullptr;};
     void deleteTags() { this->tags_ = nullptr;};
-    inline const vector<CreatePrometheusAlertRuleRequestTags> & tags() const { DARABONBA_PTR_GET_CONST(tags_, vector<CreatePrometheusAlertRuleRequestTags>) };
-    inline vector<CreatePrometheusAlertRuleRequestTags> tags() { DARABONBA_PTR_GET(tags_, vector<CreatePrometheusAlertRuleRequestTags>) };
-    inline CreatePrometheusAlertRuleRequest& setTags(const vector<CreatePrometheusAlertRuleRequestTags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
-    inline CreatePrometheusAlertRuleRequest& setTags(vector<CreatePrometheusAlertRuleRequestTags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
+    inline const vector<CreatePrometheusAlertRuleRequest::Tags> & getTags() const { DARABONBA_PTR_GET_CONST(tags_, vector<CreatePrometheusAlertRuleRequest::Tags>) };
+    inline vector<CreatePrometheusAlertRuleRequest::Tags> getTags() { DARABONBA_PTR_GET(tags_, vector<CreatePrometheusAlertRuleRequest::Tags>) };
+    inline CreatePrometheusAlertRuleRequest& setTags(const vector<CreatePrometheusAlertRuleRequest::Tags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+    inline CreatePrometheusAlertRuleRequest& setTags(vector<CreatePrometheusAlertRuleRequest::Tags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline CreatePrometheusAlertRuleRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
@@ -147,45 +190,45 @@ namespace Models
     // The name of the alert rule.
     // 
     // This parameter is required.
-    std::shared_ptr<string> alertName_ = nullptr;
+    shared_ptr<string> alertName_ {};
     // The annotations that are described in a JSON string. You must specify the name and value of each annotation.
-    std::shared_ptr<string> annotations_ = nullptr;
+    shared_ptr<string> annotations_ {};
     // The ID of the cluster.
     // 
     // This parameter is required.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // The ID of the notification policy. This parameter is required if the NotifyType parameter is set to `DISPATCH_RULE`.
-    std::shared_ptr<int64_t> dispatchRuleId_ = nullptr;
+    shared_ptr<int64_t> dispatchRuleId_ {};
     // The duration. The value ranges from 1 to 1440 minutes.
     // 
     // This parameter is required.
-    std::shared_ptr<string> duration_ = nullptr;
+    shared_ptr<string> duration_ {};
     // The expression of the alert rule. The expression must follow the PromQL syntax.
     // 
     // This parameter is required.
-    std::shared_ptr<string> expression_ = nullptr;
+    shared_ptr<string> expression_ {};
     // The tags that are described in a JSON string. You must specify the name and value of each tag.
-    std::shared_ptr<string> labels_ = nullptr;
+    shared_ptr<string> labels_ {};
     // The content of the alert notification. Tags can be referenced in the {{$labels.xxx}} format.
     // 
     // This parameter is required.
-    std::shared_ptr<string> message_ = nullptr;
+    shared_ptr<string> message_ {};
     // The method that is used to send alert notifications. Valid values:
     // 
     // - `ALERT_MANAGER`: Alert notifications are sent by Operation Center. This is the default value.
     // - `DISPATCH_RULE`: Alert notifications are sent based on the specified notification policy.
-    std::shared_ptr<string> notifyType_ = nullptr;
+    shared_ptr<string> notifyType_ {};
     // The ID of the region.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The tags.
-    std::shared_ptr<vector<CreatePrometheusAlertRuleRequestTags>> tags_ = nullptr;
+    shared_ptr<vector<CreatePrometheusAlertRuleRequest::Tags>> tags_ {};
     // The type of the alert rule. Valid values:
     // 
     // - 99: custom alert
     // - 101: Prometheus Service alert
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

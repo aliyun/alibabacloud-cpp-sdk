@@ -33,26 +33,26 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clusterId_ != nullptr
-        && this->regionId_ != nullptr && this->ruleYaml_ != nullptr; };
+    virtual bool empty() const override { return this->clusterId_ == nullptr
+        && this->regionId_ == nullptr && this->ruleYaml_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline AddRecordingRuleRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline AddRecordingRuleRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // ruleYaml Field Functions 
     bool hasRuleYaml() const { return this->ruleYaml_ != nullptr;};
     void deleteRuleYaml() { this->ruleYaml_ = nullptr;};
-    inline string ruleYaml() const { DARABONBA_PTR_GET_DEFAULT(ruleYaml_, "") };
+    inline string getRuleYaml() const { DARABONBA_PTR_GET_DEFAULT(ruleYaml_, "") };
     inline AddRecordingRuleRequest& setRuleYaml(string ruleYaml) { DARABONBA_PTR_SET_VALUE(ruleYaml_, ruleYaml) };
 
 
@@ -60,15 +60,15 @@ namespace Models
     // The cluster ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The custom recording rule. The value is in the YAML format.
     // 
     // This parameter is required.
-    std::shared_ptr<string> ruleYaml_ = nullptr;
+    shared_ptr<string> ruleYaml_ {};
   };
 
   } // namespace Models

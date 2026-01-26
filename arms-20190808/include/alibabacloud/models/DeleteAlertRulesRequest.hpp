@@ -31,19 +31,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alertIds_ != nullptr
-        && this->regionId_ != nullptr; };
+    virtual bool empty() const override { return this->alertIds_ == nullptr
+        && this->regionId_ == nullptr; };
     // alertIds Field Functions 
     bool hasAlertIds() const { return this->alertIds_ != nullptr;};
     void deleteAlertIds() { this->alertIds_ = nullptr;};
-    inline string alertIds() const { DARABONBA_PTR_GET_DEFAULT(alertIds_, "") };
+    inline string getAlertIds() const { DARABONBA_PTR_GET_DEFAULT(alertIds_, "") };
     inline DeleteAlertRulesRequest& setAlertIds(string alertIds) { DARABONBA_PTR_SET_VALUE(alertIds_, alertIds) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteAlertRulesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The IDs of the alert rules that you want to delete. The value is a JSON array, for example, `[123, 234]`. You can call the SearchAlertRules operation and view the `Id` parameter in the response to obtain the alert rule ID. For more information, see [SearchAlertRules](https://help.aliyun.com/document_detail/175825.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> alertIds_ = nullptr;
+    shared_ptr<string> alertIds_ {};
     // The region ID. Default value: `cn-hangzhou`.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

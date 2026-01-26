@@ -29,11 +29,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alertId_ != nullptr; };
+    virtual bool empty() const override { return this->alertId_ == nullptr; };
     // alertId Field Functions 
     bool hasAlertId() const { return this->alertId_ != nullptr;};
     void deleteAlertId() { this->alertId_ = nullptr;};
-    inline int64_t alertId() const { DARABONBA_PTR_GET_DEFAULT(alertId_, 0L) };
+    inline int64_t getAlertId() const { DARABONBA_PTR_GET_DEFAULT(alertId_, 0L) };
     inline DeleteAlertRuleRequest& setAlertId(int64_t alertId) { DARABONBA_PTR_SET_VALUE(alertId_, alertId) };
 
 
@@ -43,7 +43,7 @@ namespace Models
     // For more information about how to obtain the ID of an alert rule, see [GetAlertRules](https://help.aliyun.com/document_detail/2612348.html).
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> alertId_ = nullptr;
+    shared_ptr<int64_t> alertId_ {};
   };
 
   } // namespace Models

@@ -35,33 +35,33 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alarmId_ != nullptr
-        && this->handlerId_ != nullptr && this->regionId_ != nullptr && this->timeout_ != nullptr; };
+    virtual bool empty() const override { return this->alarmId_ == nullptr
+        && this->handlerId_ == nullptr && this->regionId_ == nullptr && this->timeout_ == nullptr; };
     // alarmId Field Functions 
     bool hasAlarmId() const { return this->alarmId_ != nullptr;};
     void deleteAlarmId() { this->alarmId_ = nullptr;};
-    inline int64_t alarmId() const { DARABONBA_PTR_GET_DEFAULT(alarmId_, 0L) };
+    inline int64_t getAlarmId() const { DARABONBA_PTR_GET_DEFAULT(alarmId_, 0L) };
     inline BlockAlarmNotificationRequest& setAlarmId(int64_t alarmId) { DARABONBA_PTR_SET_VALUE(alarmId_, alarmId) };
 
 
     // handlerId Field Functions 
     bool hasHandlerId() const { return this->handlerId_ != nullptr;};
     void deleteHandlerId() { this->handlerId_ = nullptr;};
-    inline int64_t handlerId() const { DARABONBA_PTR_GET_DEFAULT(handlerId_, 0L) };
+    inline int64_t getHandlerId() const { DARABONBA_PTR_GET_DEFAULT(handlerId_, 0L) };
     inline BlockAlarmNotificationRequest& setHandlerId(int64_t handlerId) { DARABONBA_PTR_SET_VALUE(handlerId_, handlerId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline BlockAlarmNotificationRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // timeout Field Functions 
     bool hasTimeout() const { return this->timeout_ != nullptr;};
     void deleteTimeout() { this->timeout_ = nullptr;};
-    inline int64_t timeout() const { DARABONBA_PTR_GET_DEFAULT(timeout_, 0L) };
+    inline int64_t getTimeout() const { DARABONBA_PTR_GET_DEFAULT(timeout_, 0L) };
     inline BlockAlarmNotificationRequest& setTimeout(int64_t timeout) { DARABONBA_PTR_SET_VALUE(timeout_, timeout) };
 
 
@@ -71,17 +71,17 @@ namespace Models
     // For more information about how to obtain the ID of an alert, see [ListAlertEvents](https://help.aliyun.com/document_detail/2612346.html).
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> alarmId_ = nullptr;
+    shared_ptr<int64_t> alarmId_ {};
     // The ID of the alert handler.
-    std::shared_ptr<int64_t> handlerId_ = nullptr;
+    shared_ptr<int64_t> handlerId_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The number of seconds that elapse before alert notifications are blocked. Unit: seconds.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> timeout_ = nullptr;
+    shared_ptr<int64_t> timeout_ {};
   };
 
   } // namespace Models

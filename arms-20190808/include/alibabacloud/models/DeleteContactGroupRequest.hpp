@@ -29,11 +29,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->contactGroupId_ != nullptr; };
+    virtual bool empty() const override { return this->contactGroupId_ == nullptr; };
     // contactGroupId Field Functions 
     bool hasContactGroupId() const { return this->contactGroupId_ != nullptr;};
     void deleteContactGroupId() { this->contactGroupId_ = nullptr;};
-    inline int64_t contactGroupId() const { DARABONBA_PTR_GET_DEFAULT(contactGroupId_, 0L) };
+    inline int64_t getContactGroupId() const { DARABONBA_PTR_GET_DEFAULT(contactGroupId_, 0L) };
     inline DeleteContactGroupRequest& setContactGroupId(int64_t contactGroupId) { DARABONBA_PTR_SET_VALUE(contactGroupId_, contactGroupId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the alert contact group.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> contactGroupId_ = nullptr;
+    shared_ptr<int64_t> contactGroupId_ {};
   };
 
   } // namespace Models

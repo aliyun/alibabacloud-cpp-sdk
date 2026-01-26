@@ -35,33 +35,33 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clusterId_ != nullptr
-        && this->instanceId_ != nullptr && this->integrationType_ != nullptr && this->regionId_ != nullptr; };
+    virtual bool empty() const override { return this->clusterId_ == nullptr
+        && this->instanceId_ == nullptr && this->integrationType_ == nullptr && this->regionId_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline GetPrometheusIntegrationRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline int64_t instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, 0L) };
+    inline int64_t getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, 0L) };
     inline GetPrometheusIntegrationRequest& setInstanceId(int64_t instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // integrationType Field Functions 
     bool hasIntegrationType() const { return this->integrationType_ != nullptr;};
     void deleteIntegrationType() { this->integrationType_ = nullptr;};
-    inline string integrationType() const { DARABONBA_PTR_GET_DEFAULT(integrationType_, "") };
+    inline string getIntegrationType() const { DARABONBA_PTR_GET_DEFAULT(integrationType_, "") };
     inline GetPrometheusIntegrationRequest& setIntegrationType(string integrationType) { DARABONBA_PTR_SET_VALUE(integrationType_, integrationType) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline GetPrometheusIntegrationRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -69,19 +69,19 @@ namespace Models
     // The ID of the Prometheus instance. Valid values: aliyun-cs and ecs.
     // 
     // This parameter is required.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // The ID of the exporter.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> instanceId_ = nullptr;
+    shared_ptr<int64_t> instanceId_ {};
     // The integration type. Valid values: kafka, mysql, redis, snmp, emr, nubela, and tidb.
     // 
     // This parameter is required.
-    std::shared_ptr<string> integrationType_ = nullptr;
+    shared_ptr<string> integrationType_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

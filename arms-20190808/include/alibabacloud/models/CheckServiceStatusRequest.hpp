@@ -31,29 +31,29 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->regionId_ != nullptr
-        && this->svcCode_ != nullptr; };
+    virtual bool empty() const override { return this->regionId_ == nullptr
+        && this->svcCode_ == nullptr; };
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CheckServiceStatusRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // svcCode Field Functions 
     bool hasSvcCode() const { return this->svcCode_ != nullptr;};
     void deleteSvcCode() { this->svcCode_ = nullptr;};
-    inline string svcCode() const { DARABONBA_PTR_GET_DEFAULT(svcCode_, "") };
+    inline string getSvcCode() const { DARABONBA_PTR_GET_DEFAULT(svcCode_, "") };
     inline CheckServiceStatusRequest& setSvcCode(string svcCode) { DARABONBA_PTR_SET_VALUE(svcCode_, svcCode) };
 
 
   protected:
     // The region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The service code of an Alibaba Cloud service. The service code of Managed Service for Prometheus is prometheus.
     // 
     // This parameter is required.
-    std::shared_ptr<string> svcCode_ = nullptr;
+    shared_ptr<string> svcCode_ {};
   };
 
   } // namespace Models

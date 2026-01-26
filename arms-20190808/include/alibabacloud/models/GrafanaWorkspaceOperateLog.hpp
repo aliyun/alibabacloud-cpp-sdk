@@ -37,49 +37,49 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->date_ != nullptr
-        && this->detail_ != nullptr && this->grafanaWorkspaceId_ != nullptr && this->id_ != nullptr && this->operatorId_ != nullptr; };
+    virtual bool empty() const override { return this->date_ == nullptr
+        && this->detail_ == nullptr && this->grafanaWorkspaceId_ == nullptr && this->id_ == nullptr && this->operatorId_ == nullptr; };
     // date Field Functions 
     bool hasDate() const { return this->date_ != nullptr;};
     void deleteDate() { this->date_ = nullptr;};
-    inline float date() const { DARABONBA_PTR_GET_DEFAULT(date_, 0.0) };
+    inline float getDate() const { DARABONBA_PTR_GET_DEFAULT(date_, 0.0) };
     inline GrafanaWorkspaceOperateLog& setDate(float date) { DARABONBA_PTR_SET_VALUE(date_, date) };
 
 
     // detail Field Functions 
     bool hasDetail() const { return this->detail_ != nullptr;};
     void deleteDetail() { this->detail_ = nullptr;};
-    inline string detail() const { DARABONBA_PTR_GET_DEFAULT(detail_, "") };
+    inline string getDetail() const { DARABONBA_PTR_GET_DEFAULT(detail_, "") };
     inline GrafanaWorkspaceOperateLog& setDetail(string detail) { DARABONBA_PTR_SET_VALUE(detail_, detail) };
 
 
     // grafanaWorkspaceId Field Functions 
     bool hasGrafanaWorkspaceId() const { return this->grafanaWorkspaceId_ != nullptr;};
     void deleteGrafanaWorkspaceId() { this->grafanaWorkspaceId_ = nullptr;};
-    inline string grafanaWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(grafanaWorkspaceId_, "") };
+    inline string getGrafanaWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(grafanaWorkspaceId_, "") };
     inline GrafanaWorkspaceOperateLog& setGrafanaWorkspaceId(string grafanaWorkspaceId) { DARABONBA_PTR_SET_VALUE(grafanaWorkspaceId_, grafanaWorkspaceId) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline int64_t id() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+    inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
     inline GrafanaWorkspaceOperateLog& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // operatorId Field Functions 
     bool hasOperatorId() const { return this->operatorId_ != nullptr;};
     void deleteOperatorId() { this->operatorId_ = nullptr;};
-    inline string operatorId() const { DARABONBA_PTR_GET_DEFAULT(operatorId_, "") };
+    inline string getOperatorId() const { DARABONBA_PTR_GET_DEFAULT(operatorId_, "") };
     inline GrafanaWorkspaceOperateLog& setOperatorId(string operatorId) { DARABONBA_PTR_SET_VALUE(operatorId_, operatorId) };
 
 
   protected:
-    std::shared_ptr<float> date_ = nullptr;
-    std::shared_ptr<string> detail_ = nullptr;
-    std::shared_ptr<string> grafanaWorkspaceId_ = nullptr;
-    std::shared_ptr<int64_t> id_ = nullptr;
-    std::shared_ptr<string> operatorId_ = nullptr;
+    shared_ptr<float> date_ {};
+    shared_ptr<string> detail_ {};
+    shared_ptr<string> grafanaWorkspaceId_ {};
+    shared_ptr<int64_t> id_ {};
+    shared_ptr<string> operatorId_ {};
   };
 
   } // namespace Models

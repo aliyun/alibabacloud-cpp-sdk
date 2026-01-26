@@ -35,33 +35,33 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clusterIds_ != nullptr
-        && this->globalViewClusterId_ != nullptr && this->groupName_ != nullptr && this->regionId_ != nullptr; };
+    virtual bool empty() const override { return this->clusterIds_ == nullptr
+        && this->globalViewClusterId_ == nullptr && this->groupName_ == nullptr && this->regionId_ == nullptr; };
     // clusterIds Field Functions 
     bool hasClusterIds() const { return this->clusterIds_ != nullptr;};
     void deleteClusterIds() { this->clusterIds_ = nullptr;};
-    inline string clusterIds() const { DARABONBA_PTR_GET_DEFAULT(clusterIds_, "") };
+    inline string getClusterIds() const { DARABONBA_PTR_GET_DEFAULT(clusterIds_, "") };
     inline AddAliClusterIdsToPrometheusGlobalViewRequest& setClusterIds(string clusterIds) { DARABONBA_PTR_SET_VALUE(clusterIds_, clusterIds) };
 
 
     // globalViewClusterId Field Functions 
     bool hasGlobalViewClusterId() const { return this->globalViewClusterId_ != nullptr;};
     void deleteGlobalViewClusterId() { this->globalViewClusterId_ = nullptr;};
-    inline string globalViewClusterId() const { DARABONBA_PTR_GET_DEFAULT(globalViewClusterId_, "") };
+    inline string getGlobalViewClusterId() const { DARABONBA_PTR_GET_DEFAULT(globalViewClusterId_, "") };
     inline AddAliClusterIdsToPrometheusGlobalViewRequest& setGlobalViewClusterId(string globalViewClusterId) { DARABONBA_PTR_SET_VALUE(globalViewClusterId_, globalViewClusterId) };
 
 
     // groupName Field Functions 
     bool hasGroupName() const { return this->groupName_ != nullptr;};
     void deleteGroupName() { this->groupName_ = nullptr;};
-    inline string groupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
+    inline string getGroupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
     inline AddAliClusterIdsToPrometheusGlobalViewRequest& setGroupName(string groupName) { DARABONBA_PTR_SET_VALUE(groupName_, groupName) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline AddAliClusterIdsToPrometheusGlobalViewRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -69,19 +69,19 @@ namespace Models
     // The IDs of clusters. Separate multiple IDs with commas (,).
     // 
     // This parameter is required.
-    std::shared_ptr<string> clusterIds_ = nullptr;
+    shared_ptr<string> clusterIds_ {};
     // The ID of the global aggregation instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> globalViewClusterId_ = nullptr;
+    shared_ptr<string> globalViewClusterId_ {};
     // The name of the global aggregation instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> groupName_ = nullptr;
+    shared_ptr<string> groupName_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

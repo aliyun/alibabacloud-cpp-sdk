@@ -31,27 +31,27 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->armsAgentDownloadUrl_ != nullptr
-        && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->armsAgentDownloadUrl_ == nullptr
+        && this->requestId_ == nullptr; };
     // armsAgentDownloadUrl Field Functions 
     bool hasArmsAgentDownloadUrl() const { return this->armsAgentDownloadUrl_ != nullptr;};
     void deleteArmsAgentDownloadUrl() { this->armsAgentDownloadUrl_ = nullptr;};
-    inline string armsAgentDownloadUrl() const { DARABONBA_PTR_GET_DEFAULT(armsAgentDownloadUrl_, "") };
+    inline string getArmsAgentDownloadUrl() const { DARABONBA_PTR_GET_DEFAULT(armsAgentDownloadUrl_, "") };
     inline GetAgentDownloadUrlResponseBody& setArmsAgentDownloadUrl(string armsAgentDownloadUrl) { DARABONBA_PTR_SET_VALUE(armsAgentDownloadUrl_, armsAgentDownloadUrl) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetAgentDownloadUrlResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The download URL of the ARMS agent.
-    std::shared_ptr<string> armsAgentDownloadUrl_ = nullptr;
+    shared_ptr<string> armsAgentDownloadUrl_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

@@ -29,16 +29,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->results_ != nullptr; };
+    virtual bool empty() const override { return this->results_ == nullptr; };
     // results Field Functions 
     bool hasResults() const { return this->results_ != nullptr;};
     void deleteResults() { this->results_ = nullptr;};
-    inline string results() const { DARABONBA_PTR_GET_DEFAULT(results_, "") };
+    inline string getResults() const { DARABONBA_PTR_GET_DEFAULT(results_, "") };
     inline QueryDataResponse& setResults(string results) { DARABONBA_PTR_SET_VALUE(results_, results) };
 
 
   protected:
-    std::shared_ptr<string> results_ = nullptr;
+    shared_ptr<string> results_ {};
   };
 
   } // namespace Models

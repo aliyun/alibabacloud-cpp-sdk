@@ -31,27 +31,27 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->contactGroupId_ != nullptr
-        && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->contactGroupId_ == nullptr
+        && this->requestId_ == nullptr; };
     // contactGroupId Field Functions 
     bool hasContactGroupId() const { return this->contactGroupId_ != nullptr;};
     void deleteContactGroupId() { this->contactGroupId_ = nullptr;};
-    inline string contactGroupId() const { DARABONBA_PTR_GET_DEFAULT(contactGroupId_, "") };
+    inline string getContactGroupId() const { DARABONBA_PTR_GET_DEFAULT(contactGroupId_, "") };
     inline CreateAlertContactGroupResponseBody& setContactGroupId(string contactGroupId) { DARABONBA_PTR_SET_VALUE(contactGroupId_, contactGroupId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateAlertContactGroupResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The ID of the alert contact group.
-    std::shared_ptr<string> contactGroupId_ = nullptr;
+    shared_ptr<string> contactGroupId_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

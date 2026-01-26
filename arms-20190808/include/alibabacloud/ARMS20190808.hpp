@@ -1648,7 +1648,7 @@ namespace ARMS20190808
       Models::DescribeEnvCustomJobResponse describeEnvCustomJob(const Models::DescribeEnvCustomJobRequest &request);
 
       /**
-       * @summary 查询指定环境实例的废弃指标列表
+       * @summary Queries the list of discarded metrics of a specified environment instance.
        *
        * @param request DescribeEnvDropMetricsRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1657,7 +1657,7 @@ namespace ARMS20190808
       Models::DescribeEnvDropMetricsRuleResponse describeEnvDropMetricsRuleWithOptions(const Models::DescribeEnvDropMetricsRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询指定环境实例的废弃指标列表
+       * @summary Queries the list of discarded metrics of a specified environment instance.
        *
        * @param request DescribeEnvDropMetricsRuleRequest
        * @return DescribeEnvDropMetricsRuleResponse
@@ -3932,6 +3932,8 @@ namespace ARMS20190808
       Models::SetRetcodeShareStatusResponse setRetcodeShareStatus(const Models::SetRetcodeShareStatusRequest &request);
 
       /**
+       * @summary 启动报警
+       *
        * @param request StartAlertRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return StartAlertResponse
@@ -3939,6 +3941,8 @@ namespace ARMS20190808
       Models::StartAlertResponse startAlertWithOptions(const Models::StartAlertRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 启动报警
+       *
        * @param request StartAlertRequest
        * @return StartAlertResponse
        */
@@ -4195,7 +4199,7 @@ namespace ARMS20190808
       Models::UpdateEnvCustomJobResponse updateEnvCustomJob(const Models::UpdateEnvCustomJobRequest &request);
 
       /**
-       * @summary 更新环境实例的废弃指标列表
+       * @summary Updates a discarded metric rule in the environment.
        *
        * @param request UpdateEnvDropMetricsRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4204,7 +4208,7 @@ namespace ARMS20190808
       Models::UpdateEnvDropMetricsRuleResponse updateEnvDropMetricsRuleWithOptions(const Models::UpdateEnvDropMetricsRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新环境实例的废弃指标列表
+       * @summary Updates a discarded metric rule in the environment.
        *
        * @param request UpdateEnvDropMetricsRuleRequest
        * @return UpdateEnvDropMetricsRuleResponse
@@ -4339,7 +4343,7 @@ namespace ARMS20190808
       Models::UpdateMetricDropResponse updateMetricDrop(const Models::UpdateMetricDropRequest &request);
 
       /**
-       * @summary 更新Prometheus告警规则
+       * @summary Updates a Prometheus alert rule.
        *
        * @param request UpdatePrometheusAlertRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4348,7 +4352,7 @@ namespace ARMS20190808
       Models::UpdatePrometheusAlertRuleResponse updatePrometheusAlertRuleWithOptions(const Models::UpdatePrometheusAlertRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新Prometheus告警规则
+       * @summary Updates a Prometheus alert rule.
        *
        * @param request UpdatePrometheusAlertRuleRequest
        * @return UpdatePrometheusAlertRuleResponse

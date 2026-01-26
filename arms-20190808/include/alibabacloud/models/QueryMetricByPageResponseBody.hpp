@@ -2,7 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_QUERYMETRICBYPAGERESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_QUERYMETRICBYPAGERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/QueryMetricByPageResponseBodyData.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -38,42 +38,124 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->code_ != nullptr
-        && this->data_ != nullptr && this->message_ != nullptr && this->requestId_ != nullptr && this->success_ != nullptr; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(Completed, completed_);
+        DARABONBA_PTR_TO_JSON(Items, items_);
+        DARABONBA_PTR_TO_JSON(Page, page_);
+        DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+        DARABONBA_PTR_TO_JSON(Total, total_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(Completed, completed_);
+        DARABONBA_PTR_FROM_JSON(Items, items_);
+        DARABONBA_PTR_FROM_JSON(Page, page_);
+        DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+        DARABONBA_PTR_FROM_JSON(Total, total_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->completed_ == nullptr
+        && this->items_ == nullptr && this->page_ == nullptr && this->pageSize_ == nullptr && this->total_ == nullptr; };
+      // completed Field Functions 
+      bool hasCompleted() const { return this->completed_ != nullptr;};
+      void deleteCompleted() { this->completed_ = nullptr;};
+      inline bool getCompleted() const { DARABONBA_PTR_GET_DEFAULT(completed_, false) };
+      inline Data& setCompleted(bool completed) { DARABONBA_PTR_SET_VALUE(completed_, completed) };
+
+
+      // items Field Functions 
+      bool hasItems() const { return this->items_ != nullptr;};
+      void deleteItems() { this->items_ = nullptr;};
+      inline const vector<Darabonba::Json> & getItems() const { DARABONBA_PTR_GET_CONST(items_, vector<Darabonba::Json>) };
+      inline vector<Darabonba::Json> getItems() { DARABONBA_PTR_GET(items_, vector<Darabonba::Json>) };
+      inline Data& setItems(const vector<Darabonba::Json> & items) { DARABONBA_PTR_SET_VALUE(items_, items) };
+      inline Data& setItems(vector<Darabonba::Json> && items) { DARABONBA_PTR_SET_RVALUE(items_, items) };
+
+
+      // page Field Functions 
+      bool hasPage() const { return this->page_ != nullptr;};
+      void deletePage() { this->page_ = nullptr;};
+      inline int32_t getPage() const { DARABONBA_PTR_GET_DEFAULT(page_, 0) };
+      inline Data& setPage(int32_t page) { DARABONBA_PTR_SET_VALUE(page_, page) };
+
+
+      // pageSize Field Functions 
+      bool hasPageSize() const { return this->pageSize_ != nullptr;};
+      void deletePageSize() { this->pageSize_ = nullptr;};
+      inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+      inline Data& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
+
+
+      // total Field Functions 
+      bool hasTotal() const { return this->total_ != nullptr;};
+      void deleteTotal() { this->total_ = nullptr;};
+      inline int32_t getTotal() const { DARABONBA_PTR_GET_DEFAULT(total_, 0) };
+      inline Data& setTotal(int32_t total) { DARABONBA_PTR_SET_VALUE(total_, total) };
+
+
+    protected:
+      // Whether the paging query ends.
+      // 
+      // true: end.
+      // false: Need to continue pagination (continue to query after CurrentPage+1).
+      shared_ptr<bool> completed_ {};
+      // The data entries returned.
+      shared_ptr<vector<Darabonba::Json>> items_ {};
+      // The page number of the returned page.
+      shared_ptr<int32_t> page_ {};
+      // The number of entries returned per page.
+      shared_ptr<int32_t> pageSize_ {};
+      // The total number of entries returned.
+      shared_ptr<int32_t> total_ {};
+    };
+
+    virtual bool empty() const override { return this->code_ == nullptr
+        && this->data_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline QueryMetricByPageResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const QueryMetricByPageResponseBodyData & data() const { DARABONBA_PTR_GET_CONST(data_, QueryMetricByPageResponseBodyData) };
-    inline QueryMetricByPageResponseBodyData data() { DARABONBA_PTR_GET(data_, QueryMetricByPageResponseBodyData) };
-    inline QueryMetricByPageResponseBody& setData(const QueryMetricByPageResponseBodyData & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline QueryMetricByPageResponseBody& setData(QueryMetricByPageResponseBodyData && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const QueryMetricByPageResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, QueryMetricByPageResponseBody::Data) };
+    inline QueryMetricByPageResponseBody::Data getData() { DARABONBA_PTR_GET(data_, QueryMetricByPageResponseBody::Data) };
+    inline QueryMetricByPageResponseBody& setData(const QueryMetricByPageResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline QueryMetricByPageResponseBody& setData(QueryMetricByPageResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline QueryMetricByPageResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline QueryMetricByPageResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline QueryMetricByPageResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
@@ -84,18 +166,18 @@ namespace Models
     // *   3XX: A redirection message was returned.
     // *   4XX: The request was invalid.
     // *   5XX: A server error occurred.
-    std::shared_ptr<string> code_ = nullptr;
+    shared_ptr<string> code_ {};
     // The information about the array object.
-    std::shared_ptr<QueryMetricByPageResponseBodyData> data_ = nullptr;
+    shared_ptr<QueryMetricByPageResponseBody::Data> data_ {};
     // The error message returned if the call fails.
-    std::shared_ptr<string> message_ = nullptr;
+    shared_ptr<string> message_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Indicates whether the call was successful. Valid values:
     // 
     // *   `true`: The call was successful.
     // *   `false`: The call failed.
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

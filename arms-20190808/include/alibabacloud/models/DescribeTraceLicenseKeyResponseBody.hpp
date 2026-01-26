@@ -31,27 +31,27 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->licenseKey_ != nullptr
-        && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->licenseKey_ == nullptr
+        && this->requestId_ == nullptr; };
     // licenseKey Field Functions 
     bool hasLicenseKey() const { return this->licenseKey_ != nullptr;};
     void deleteLicenseKey() { this->licenseKey_ = nullptr;};
-    inline string licenseKey() const { DARABONBA_PTR_GET_DEFAULT(licenseKey_, "") };
+    inline string getLicenseKey() const { DARABONBA_PTR_GET_DEFAULT(licenseKey_, "") };
     inline DescribeTraceLicenseKeyResponseBody& setLicenseKey(string licenseKey) { DARABONBA_PTR_SET_VALUE(licenseKey_, licenseKey) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeTraceLicenseKeyResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The license key for the application.
-    std::shared_ptr<string> licenseKey_ = nullptr;
+    shared_ptr<string> licenseKey_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

@@ -33,39 +33,39 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clusterId_ != nullptr
-        && this->regionId_ != nullptr && this->typeFilter_ != nullptr; };
+    virtual bool empty() const override { return this->clusterId_ == nullptr
+        && this->regionId_ == nullptr && this->typeFilter_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline ListCmsInstancesRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ListCmsInstancesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // typeFilter Field Functions 
     bool hasTypeFilter() const { return this->typeFilter_ != nullptr;};
     void deleteTypeFilter() { this->typeFilter_ = nullptr;};
-    inline string typeFilter() const { DARABONBA_PTR_GET_DEFAULT(typeFilter_, "") };
+    inline string getTypeFilter() const { DARABONBA_PTR_GET_DEFAULT(typeFilter_, "") };
     inline ListCmsInstancesRequest& setTypeFilter(string typeFilter) { DARABONBA_PTR_SET_VALUE(typeFilter_, typeFilter) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The type of the cloud service integration. Valid values:
     // 
     // *   direct: self-monitoring
     // *   cms: Hybrid Cloud Monitoring
-    std::shared_ptr<string> typeFilter_ = nullptr;
+    shared_ptr<string> typeFilter_ {};
   };
 
   } // namespace Models

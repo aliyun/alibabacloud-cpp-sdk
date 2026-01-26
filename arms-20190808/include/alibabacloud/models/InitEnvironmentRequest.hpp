@@ -37,62 +37,62 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aliyunLang_ != nullptr
-        && this->createAuthToken_ != nullptr && this->environmentId_ != nullptr && this->managedType_ != nullptr && this->regionId_ != nullptr; };
+    virtual bool empty() const override { return this->aliyunLang_ == nullptr
+        && this->createAuthToken_ == nullptr && this->environmentId_ == nullptr && this->managedType_ == nullptr && this->regionId_ == nullptr; };
     // aliyunLang Field Functions 
     bool hasAliyunLang() const { return this->aliyunLang_ != nullptr;};
     void deleteAliyunLang() { this->aliyunLang_ = nullptr;};
-    inline string aliyunLang() const { DARABONBA_PTR_GET_DEFAULT(aliyunLang_, "") };
+    inline string getAliyunLang() const { DARABONBA_PTR_GET_DEFAULT(aliyunLang_, "") };
     inline InitEnvironmentRequest& setAliyunLang(string aliyunLang) { DARABONBA_PTR_SET_VALUE(aliyunLang_, aliyunLang) };
 
 
     // createAuthToken Field Functions 
     bool hasCreateAuthToken() const { return this->createAuthToken_ != nullptr;};
     void deleteCreateAuthToken() { this->createAuthToken_ = nullptr;};
-    inline bool createAuthToken() const { DARABONBA_PTR_GET_DEFAULT(createAuthToken_, false) };
+    inline bool getCreateAuthToken() const { DARABONBA_PTR_GET_DEFAULT(createAuthToken_, false) };
     inline InitEnvironmentRequest& setCreateAuthToken(bool createAuthToken) { DARABONBA_PTR_SET_VALUE(createAuthToken_, createAuthToken) };
 
 
     // environmentId Field Functions 
     bool hasEnvironmentId() const { return this->environmentId_ != nullptr;};
     void deleteEnvironmentId() { this->environmentId_ = nullptr;};
-    inline string environmentId() const { DARABONBA_PTR_GET_DEFAULT(environmentId_, "") };
+    inline string getEnvironmentId() const { DARABONBA_PTR_GET_DEFAULT(environmentId_, "") };
     inline InitEnvironmentRequest& setEnvironmentId(string environmentId) { DARABONBA_PTR_SET_VALUE(environmentId_, environmentId) };
 
 
     // managedType Field Functions 
     bool hasManagedType() const { return this->managedType_ != nullptr;};
     void deleteManagedType() { this->managedType_ = nullptr;};
-    inline string managedType() const { DARABONBA_PTR_GET_DEFAULT(managedType_, "") };
+    inline string getManagedType() const { DARABONBA_PTR_GET_DEFAULT(managedType_, "") };
     inline InitEnvironmentRequest& setManagedType(string managedType) { DARABONBA_PTR_SET_VALUE(managedType_, managedType) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline InitEnvironmentRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
     // The language. Valid values: zh and en. Default value: zh.
-    std::shared_ptr<string> aliyunLang_ = nullptr;
+    shared_ptr<string> aliyunLang_ {};
     // Specifies whether to create a token to improve data security.
-    std::shared_ptr<bool> createAuthToken_ = nullptr;
+    shared_ptr<bool> createAuthToken_ {};
     // The ID of the environment instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> environmentId_ = nullptr;
+    shared_ptr<string> environmentId_ {};
     // Whether agents or exporters are managed. Valid values:
     // 
     // *   none: No. By default, no managed agents or exporters are provided for ACK clusters.
     // *   agent: Agents are managed. By default, managed agents are provided for ASK clusters, ACS clusters, and ACK One clusters.
     // *   agent-exproter: Agents and exporters are managed. By default, managed agents and exporters are provided for cloud services.
-    std::shared_ptr<string> managedType_ = nullptr;
+    shared_ptr<string> managedType_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

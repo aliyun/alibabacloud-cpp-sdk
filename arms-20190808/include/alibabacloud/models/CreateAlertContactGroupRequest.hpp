@@ -33,26 +33,26 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->contactGroupName_ != nullptr
-        && this->contactIds_ != nullptr && this->regionId_ != nullptr; };
+    virtual bool empty() const override { return this->contactGroupName_ == nullptr
+        && this->contactIds_ == nullptr && this->regionId_ == nullptr; };
     // contactGroupName Field Functions 
     bool hasContactGroupName() const { return this->contactGroupName_ != nullptr;};
     void deleteContactGroupName() { this->contactGroupName_ = nullptr;};
-    inline string contactGroupName() const { DARABONBA_PTR_GET_DEFAULT(contactGroupName_, "") };
+    inline string getContactGroupName() const { DARABONBA_PTR_GET_DEFAULT(contactGroupName_, "") };
     inline CreateAlertContactGroupRequest& setContactGroupName(string contactGroupName) { DARABONBA_PTR_SET_VALUE(contactGroupName_, contactGroupName) };
 
 
     // contactIds Field Functions 
     bool hasContactIds() const { return this->contactIds_ != nullptr;};
     void deleteContactIds() { this->contactIds_ = nullptr;};
-    inline string contactIds() const { DARABONBA_PTR_GET_DEFAULT(contactIds_, "") };
+    inline string getContactIds() const { DARABONBA_PTR_GET_DEFAULT(contactIds_, "") };
     inline CreateAlertContactGroupRequest& setContactIds(string contactIds) { DARABONBA_PTR_SET_VALUE(contactIds_, contactIds) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreateAlertContactGroupRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -60,13 +60,13 @@ namespace Models
     // The name of the alert contact group.
     // 
     // This parameter is required.
-    std::shared_ptr<string> contactGroupName_ = nullptr;
+    shared_ptr<string> contactGroupName_ {};
     // The IDs of contacts in the contact group. Separate multiple contact IDs with spaces. You can call the SearchAlertContact operation to query the contact IDs. For more information, see [SearchAlertContact](https://help.aliyun.com/document_detail/130703.html).
-    std::shared_ptr<string> contactIds_ = nullptr;
+    shared_ptr<string> contactIds_ {};
     // The region ID. Default value: `cn-hangzhou`.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

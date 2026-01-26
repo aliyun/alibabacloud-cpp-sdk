@@ -35,49 +35,49 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->contactIds_ != nullptr
-        && this->page_ != nullptr && this->size_ != nullptr && this->webhookName_ != nullptr; };
+    virtual bool empty() const override { return this->contactIds_ == nullptr
+        && this->page_ == nullptr && this->size_ == nullptr && this->webhookName_ == nullptr; };
     // contactIds Field Functions 
     bool hasContactIds() const { return this->contactIds_ != nullptr;};
     void deleteContactIds() { this->contactIds_ = nullptr;};
-    inline string contactIds() const { DARABONBA_PTR_GET_DEFAULT(contactIds_, "") };
+    inline string getContactIds() const { DARABONBA_PTR_GET_DEFAULT(contactIds_, "") };
     inline DescribeWebhookContactsRequest& setContactIds(string contactIds) { DARABONBA_PTR_SET_VALUE(contactIds_, contactIds) };
 
 
     // page Field Functions 
     bool hasPage() const { return this->page_ != nullptr;};
     void deletePage() { this->page_ = nullptr;};
-    inline int64_t page() const { DARABONBA_PTR_GET_DEFAULT(page_, 0L) };
+    inline int64_t getPage() const { DARABONBA_PTR_GET_DEFAULT(page_, 0L) };
     inline DescribeWebhookContactsRequest& setPage(int64_t page) { DARABONBA_PTR_SET_VALUE(page_, page) };
 
 
     // size Field Functions 
     bool hasSize() const { return this->size_ != nullptr;};
     void deleteSize() { this->size_ = nullptr;};
-    inline int64_t size() const { DARABONBA_PTR_GET_DEFAULT(size_, 0L) };
+    inline int64_t getSize() const { DARABONBA_PTR_GET_DEFAULT(size_, 0L) };
     inline DescribeWebhookContactsRequest& setSize(int64_t size) { DARABONBA_PTR_SET_VALUE(size_, size) };
 
 
     // webhookName Field Functions 
     bool hasWebhookName() const { return this->webhookName_ != nullptr;};
     void deleteWebhookName() { this->webhookName_ = nullptr;};
-    inline string webhookName() const { DARABONBA_PTR_GET_DEFAULT(webhookName_, "") };
+    inline string getWebhookName() const { DARABONBA_PTR_GET_DEFAULT(webhookName_, "") };
     inline DescribeWebhookContactsRequest& setWebhookName(string webhookName) { DARABONBA_PTR_SET_VALUE(webhookName_, webhookName) };
 
 
   protected:
     // The ID of the alert contact.
-    std::shared_ptr<string> contactIds_ = nullptr;
+    shared_ptr<string> contactIds_ {};
     // The number of the page to return.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> page_ = nullptr;
+    shared_ptr<int64_t> page_ {};
     // The number of alert contacts displayed on each page.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> size_ = nullptr;
+    shared_ptr<int64_t> size_ {};
     // The name of the webhook alert contact.
-    std::shared_ptr<string> webhookName_ = nullptr;
+    shared_ptr<string> webhookName_ {};
   };
 
   } // namespace Models

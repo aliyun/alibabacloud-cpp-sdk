@@ -43,74 +43,74 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->id_ != nullptr
-        && this->isArms_ != nullptr && this->isDefault_ != nullptr && this->name_ != nullptr && this->sendReminder_ != nullptr && this->settings_ != nullptr
-        && this->type_ != nullptr && this->uid_ != nullptr; };
+    virtual bool empty() const override { return this->id_ == nullptr
+        && this->isArms_ == nullptr && this->isDefault_ == nullptr && this->name_ == nullptr && this->sendReminder_ == nullptr && this->settings_ == nullptr
+        && this->type_ == nullptr && this->uid_ == nullptr; };
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline int64_t id() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+    inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
     inline GrafanaWorkspaceAlertNotification& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // isArms Field Functions 
     bool hasIsArms() const { return this->isArms_ != nullptr;};
     void deleteIsArms() { this->isArms_ = nullptr;};
-    inline bool isArms() const { DARABONBA_PTR_GET_DEFAULT(isArms_, false) };
+    inline bool getIsArms() const { DARABONBA_PTR_GET_DEFAULT(isArms_, false) };
     inline GrafanaWorkspaceAlertNotification& setIsArms(bool isArms) { DARABONBA_PTR_SET_VALUE(isArms_, isArms) };
 
 
     // isDefault Field Functions 
     bool hasIsDefault() const { return this->isDefault_ != nullptr;};
     void deleteIsDefault() { this->isDefault_ = nullptr;};
-    inline bool isDefault() const { DARABONBA_PTR_GET_DEFAULT(isDefault_, false) };
+    inline bool getIsDefault() const { DARABONBA_PTR_GET_DEFAULT(isDefault_, false) };
     inline GrafanaWorkspaceAlertNotification& setIsDefault(bool isDefault) { DARABONBA_PTR_SET_VALUE(isDefault_, isDefault) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline GrafanaWorkspaceAlertNotification& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // sendReminder Field Functions 
     bool hasSendReminder() const { return this->sendReminder_ != nullptr;};
     void deleteSendReminder() { this->sendReminder_ = nullptr;};
-    inline bool sendReminder() const { DARABONBA_PTR_GET_DEFAULT(sendReminder_, false) };
+    inline bool getSendReminder() const { DARABONBA_PTR_GET_DEFAULT(sendReminder_, false) };
     inline GrafanaWorkspaceAlertNotification& setSendReminder(bool sendReminder) { DARABONBA_PTR_SET_VALUE(sendReminder_, sendReminder) };
 
 
     // settings Field Functions 
     bool hasSettings() const { return this->settings_ != nullptr;};
     void deleteSettings() { this->settings_ = nullptr;};
-    inline string settings() const { DARABONBA_PTR_GET_DEFAULT(settings_, "") };
+    inline string getSettings() const { DARABONBA_PTR_GET_DEFAULT(settings_, "") };
     inline GrafanaWorkspaceAlertNotification& setSettings(string settings) { DARABONBA_PTR_SET_VALUE(settings_, settings) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline GrafanaWorkspaceAlertNotification& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
     // uid Field Functions 
     bool hasUid() const { return this->uid_ != nullptr;};
     void deleteUid() { this->uid_ = nullptr;};
-    inline string uid() const { DARABONBA_PTR_GET_DEFAULT(uid_, "") };
+    inline string getUid() const { DARABONBA_PTR_GET_DEFAULT(uid_, "") };
     inline GrafanaWorkspaceAlertNotification& setUid(string uid) { DARABONBA_PTR_SET_VALUE(uid_, uid) };
 
 
   protected:
-    std::shared_ptr<int64_t> id_ = nullptr;
-    std::shared_ptr<bool> isArms_ = nullptr;
-    std::shared_ptr<bool> isDefault_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<bool> sendReminder_ = nullptr;
-    std::shared_ptr<string> settings_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
-    std::shared_ptr<string> uid_ = nullptr;
+    shared_ptr<int64_t> id_ {};
+    shared_ptr<bool> isArms_ {};
+    shared_ptr<bool> isDefault_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<bool> sendReminder_ {};
+    shared_ptr<string> settings_ {};
+    shared_ptr<string> type_ {};
+    shared_ptr<string> uid_ {};
   };
 
   } // namespace Models

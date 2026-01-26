@@ -57,122 +57,122 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->commonParamShrink_ != nullptr
-        && this->downloadShrink_ != nullptr && this->extendIntervalShrink_ != nullptr && this->intervalTime_ != nullptr && this->intervalType_ != nullptr && this->ipType_ != nullptr
-        && this->monitorListShrink_ != nullptr && this->navigationShrink_ != nullptr && this->netShrink_ != nullptr && this->protocolShrink_ != nullptr && this->regionId_ != nullptr
-        && this->taskName_ != nullptr && this->taskType_ != nullptr && this->updateTask_ != nullptr && this->url_ != nullptr; };
+    virtual bool empty() const override { return this->commonParamShrink_ == nullptr
+        && this->downloadShrink_ == nullptr && this->extendIntervalShrink_ == nullptr && this->intervalTime_ == nullptr && this->intervalType_ == nullptr && this->ipType_ == nullptr
+        && this->monitorListShrink_ == nullptr && this->navigationShrink_ == nullptr && this->netShrink_ == nullptr && this->protocolShrink_ == nullptr && this->regionId_ == nullptr
+        && this->taskName_ == nullptr && this->taskType_ == nullptr && this->updateTask_ == nullptr && this->url_ == nullptr; };
     // commonParamShrink Field Functions 
     bool hasCommonParamShrink() const { return this->commonParamShrink_ != nullptr;};
     void deleteCommonParamShrink() { this->commonParamShrink_ = nullptr;};
-    inline string commonParamShrink() const { DARABONBA_PTR_GET_DEFAULT(commonParamShrink_, "") };
+    inline string getCommonParamShrink() const { DARABONBA_PTR_GET_DEFAULT(commonParamShrink_, "") };
     inline CreateSyntheticTaskShrinkRequest& setCommonParamShrink(string commonParamShrink) { DARABONBA_PTR_SET_VALUE(commonParamShrink_, commonParamShrink) };
 
 
     // downloadShrink Field Functions 
     bool hasDownloadShrink() const { return this->downloadShrink_ != nullptr;};
     void deleteDownloadShrink() { this->downloadShrink_ = nullptr;};
-    inline string downloadShrink() const { DARABONBA_PTR_GET_DEFAULT(downloadShrink_, "") };
+    inline string getDownloadShrink() const { DARABONBA_PTR_GET_DEFAULT(downloadShrink_, "") };
     inline CreateSyntheticTaskShrinkRequest& setDownloadShrink(string downloadShrink) { DARABONBA_PTR_SET_VALUE(downloadShrink_, downloadShrink) };
 
 
     // extendIntervalShrink Field Functions 
     bool hasExtendIntervalShrink() const { return this->extendIntervalShrink_ != nullptr;};
     void deleteExtendIntervalShrink() { this->extendIntervalShrink_ = nullptr;};
-    inline string extendIntervalShrink() const { DARABONBA_PTR_GET_DEFAULT(extendIntervalShrink_, "") };
+    inline string getExtendIntervalShrink() const { DARABONBA_PTR_GET_DEFAULT(extendIntervalShrink_, "") };
     inline CreateSyntheticTaskShrinkRequest& setExtendIntervalShrink(string extendIntervalShrink) { DARABONBA_PTR_SET_VALUE(extendIntervalShrink_, extendIntervalShrink) };
 
 
     // intervalTime Field Functions 
     bool hasIntervalTime() const { return this->intervalTime_ != nullptr;};
     void deleteIntervalTime() { this->intervalTime_ = nullptr;};
-    inline string intervalTime() const { DARABONBA_PTR_GET_DEFAULT(intervalTime_, "") };
+    inline string getIntervalTime() const { DARABONBA_PTR_GET_DEFAULT(intervalTime_, "") };
     inline CreateSyntheticTaskShrinkRequest& setIntervalTime(string intervalTime) { DARABONBA_PTR_SET_VALUE(intervalTime_, intervalTime) };
 
 
     // intervalType Field Functions 
     bool hasIntervalType() const { return this->intervalType_ != nullptr;};
     void deleteIntervalType() { this->intervalType_ = nullptr;};
-    inline string intervalType() const { DARABONBA_PTR_GET_DEFAULT(intervalType_, "") };
+    inline string getIntervalType() const { DARABONBA_PTR_GET_DEFAULT(intervalType_, "") };
     inline CreateSyntheticTaskShrinkRequest& setIntervalType(string intervalType) { DARABONBA_PTR_SET_VALUE(intervalType_, intervalType) };
 
 
     // ipType Field Functions 
     bool hasIpType() const { return this->ipType_ != nullptr;};
     void deleteIpType() { this->ipType_ = nullptr;};
-    inline int64_t ipType() const { DARABONBA_PTR_GET_DEFAULT(ipType_, 0L) };
+    inline int64_t getIpType() const { DARABONBA_PTR_GET_DEFAULT(ipType_, 0L) };
     inline CreateSyntheticTaskShrinkRequest& setIpType(int64_t ipType) { DARABONBA_PTR_SET_VALUE(ipType_, ipType) };
 
 
     // monitorListShrink Field Functions 
     bool hasMonitorListShrink() const { return this->monitorListShrink_ != nullptr;};
     void deleteMonitorListShrink() { this->monitorListShrink_ = nullptr;};
-    inline string monitorListShrink() const { DARABONBA_PTR_GET_DEFAULT(monitorListShrink_, "") };
+    inline string getMonitorListShrink() const { DARABONBA_PTR_GET_DEFAULT(monitorListShrink_, "") };
     inline CreateSyntheticTaskShrinkRequest& setMonitorListShrink(string monitorListShrink) { DARABONBA_PTR_SET_VALUE(monitorListShrink_, monitorListShrink) };
 
 
     // navigationShrink Field Functions 
     bool hasNavigationShrink() const { return this->navigationShrink_ != nullptr;};
     void deleteNavigationShrink() { this->navigationShrink_ = nullptr;};
-    inline string navigationShrink() const { DARABONBA_PTR_GET_DEFAULT(navigationShrink_, "") };
+    inline string getNavigationShrink() const { DARABONBA_PTR_GET_DEFAULT(navigationShrink_, "") };
     inline CreateSyntheticTaskShrinkRequest& setNavigationShrink(string navigationShrink) { DARABONBA_PTR_SET_VALUE(navigationShrink_, navigationShrink) };
 
 
     // netShrink Field Functions 
     bool hasNetShrink() const { return this->netShrink_ != nullptr;};
     void deleteNetShrink() { this->netShrink_ = nullptr;};
-    inline string netShrink() const { DARABONBA_PTR_GET_DEFAULT(netShrink_, "") };
+    inline string getNetShrink() const { DARABONBA_PTR_GET_DEFAULT(netShrink_, "") };
     inline CreateSyntheticTaskShrinkRequest& setNetShrink(string netShrink) { DARABONBA_PTR_SET_VALUE(netShrink_, netShrink) };
 
 
     // protocolShrink Field Functions 
     bool hasProtocolShrink() const { return this->protocolShrink_ != nullptr;};
     void deleteProtocolShrink() { this->protocolShrink_ = nullptr;};
-    inline string protocolShrink() const { DARABONBA_PTR_GET_DEFAULT(protocolShrink_, "") };
+    inline string getProtocolShrink() const { DARABONBA_PTR_GET_DEFAULT(protocolShrink_, "") };
     inline CreateSyntheticTaskShrinkRequest& setProtocolShrink(string protocolShrink) { DARABONBA_PTR_SET_VALUE(protocolShrink_, protocolShrink) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreateSyntheticTaskShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // taskName Field Functions 
     bool hasTaskName() const { return this->taskName_ != nullptr;};
     void deleteTaskName() { this->taskName_ = nullptr;};
-    inline string taskName() const { DARABONBA_PTR_GET_DEFAULT(taskName_, "") };
+    inline string getTaskName() const { DARABONBA_PTR_GET_DEFAULT(taskName_, "") };
     inline CreateSyntheticTaskShrinkRequest& setTaskName(string taskName) { DARABONBA_PTR_SET_VALUE(taskName_, taskName) };
 
 
     // taskType Field Functions 
     bool hasTaskType() const { return this->taskType_ != nullptr;};
     void deleteTaskType() { this->taskType_ = nullptr;};
-    inline int64_t taskType() const { DARABONBA_PTR_GET_DEFAULT(taskType_, 0L) };
+    inline int64_t getTaskType() const { DARABONBA_PTR_GET_DEFAULT(taskType_, 0L) };
     inline CreateSyntheticTaskShrinkRequest& setTaskType(int64_t taskType) { DARABONBA_PTR_SET_VALUE(taskType_, taskType) };
 
 
     // updateTask Field Functions 
     bool hasUpdateTask() const { return this->updateTask_ != nullptr;};
     void deleteUpdateTask() { this->updateTask_ = nullptr;};
-    inline bool updateTask() const { DARABONBA_PTR_GET_DEFAULT(updateTask_, false) };
+    inline bool getUpdateTask() const { DARABONBA_PTR_GET_DEFAULT(updateTask_, false) };
     inline CreateSyntheticTaskShrinkRequest& setUpdateTask(bool updateTask) { DARABONBA_PTR_SET_VALUE(updateTask_, updateTask) };
 
 
     // url Field Functions 
     bool hasUrl() const { return this->url_ != nullptr;};
     void deleteUrl() { this->url_ = nullptr;};
-    inline string url() const { DARABONBA_PTR_GET_DEFAULT(url_, "") };
+    inline string getUrl() const { DARABONBA_PTR_GET_DEFAULT(url_, "") };
     inline CreateSyntheticTaskShrinkRequest& setUrl(string url) { DARABONBA_PTR_SET_VALUE(url_, url) };
 
 
   protected:
     // The common parameters.
-    std::shared_ptr<string> commonParamShrink_ = nullptr;
+    shared_ptr<string> commonParamShrink_ {};
     // The file download task.
-    std::shared_ptr<string> downloadShrink_ = nullptr;
+    shared_ptr<string> downloadShrink_ {};
     // The frequency.
-    std::shared_ptr<string> extendIntervalShrink_ = nullptr;
+    shared_ptr<string> extendIntervalShrink_ {};
     // The interval at which synthetic monitoring is performed. Unit: minutes. Valid values:
     // 
     // *   1
@@ -191,14 +191,14 @@ namespace Models
     // *   1440
     // 
     // This parameter is required.
-    std::shared_ptr<string> intervalTime_ = nullptr;
+    shared_ptr<string> intervalTime_ {};
     // The interval type.
     // 
     // *   0: daily
     // *   1: custom frequency
     // 
     // This parameter is required.
-    std::shared_ptr<string> intervalType_ = nullptr;
+    shared_ptr<string> intervalType_ {};
     // The IP address type:
     // 
     // *   0: an automatic IP address
@@ -206,25 +206,25 @@ namespace Models
     // *   2: IPv6
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> ipType_ = nullptr;
+    shared_ptr<int64_t> ipType_ {};
     // The list of monitoring points.
     // 
     // This parameter is required.
-    std::shared_ptr<string> monitorListShrink_ = nullptr;
+    shared_ptr<string> monitorListShrink_ {};
     // The monitoring items that are associated with the browse tasks.
-    std::shared_ptr<string> navigationShrink_ = nullptr;
+    shared_ptr<string> navigationShrink_ {};
     // The network synthetic monitoring task.
-    std::shared_ptr<string> netShrink_ = nullptr;
+    shared_ptr<string> netShrink_ {};
     // The API performance synthetic monitoring task.
-    std::shared_ptr<string> protocolShrink_ = nullptr;
+    shared_ptr<string> protocolShrink_ {};
     // The ID of the region in which the application is located.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The name of the task. To update a synthetic monitoring task, enter the task name and set the **UpdateTask** parameter to **true**.
     // 
     // This parameter is required.
-    std::shared_ptr<string> taskName_ = nullptr;
+    shared_ptr<string> taskName_ {};
     // The type of the monitoring task. Valid values:
     // 
     // 1.  3: web page performance - IE
@@ -234,16 +234,16 @@ namespace Models
     // 5.  7:API performance
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> taskType_ = nullptr;
+    shared_ptr<int64_t> taskType_ {};
     // Specifies whether to update existing synthetic monitoring tasks.
     // 
     // *   true: updates existing synthetic monitoring tasks.
     // *   false: creates new synthetic monitoring tasks.
-    std::shared_ptr<bool> updateTask_ = nullptr;
+    shared_ptr<bool> updateTask_ {};
     // The URL for synthetic monitoring.
     // 
     // This parameter is required.
-    std::shared_ptr<string> url_ = nullptr;
+    shared_ptr<string> url_ {};
   };
 
   } // namespace Models

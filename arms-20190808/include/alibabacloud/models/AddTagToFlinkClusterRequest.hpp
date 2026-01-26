@@ -39,47 +39,47 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clusterId_ != nullptr
-        && this->flinkWorkSpaceId_ != nullptr && this->flinkWorkSpaceName_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->targetUserId_ != nullptr; };
+    virtual bool empty() const override { return this->clusterId_ == nullptr
+        && this->flinkWorkSpaceId_ == nullptr && this->flinkWorkSpaceName_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->targetUserId_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline AddTagToFlinkClusterRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // flinkWorkSpaceId Field Functions 
     bool hasFlinkWorkSpaceId() const { return this->flinkWorkSpaceId_ != nullptr;};
     void deleteFlinkWorkSpaceId() { this->flinkWorkSpaceId_ = nullptr;};
-    inline string flinkWorkSpaceId() const { DARABONBA_PTR_GET_DEFAULT(flinkWorkSpaceId_, "") };
+    inline string getFlinkWorkSpaceId() const { DARABONBA_PTR_GET_DEFAULT(flinkWorkSpaceId_, "") };
     inline AddTagToFlinkClusterRequest& setFlinkWorkSpaceId(string flinkWorkSpaceId) { DARABONBA_PTR_SET_VALUE(flinkWorkSpaceId_, flinkWorkSpaceId) };
 
 
     // flinkWorkSpaceName Field Functions 
     bool hasFlinkWorkSpaceName() const { return this->flinkWorkSpaceName_ != nullptr;};
     void deleteFlinkWorkSpaceName() { this->flinkWorkSpaceName_ = nullptr;};
-    inline string flinkWorkSpaceName() const { DARABONBA_PTR_GET_DEFAULT(flinkWorkSpaceName_, "") };
+    inline string getFlinkWorkSpaceName() const { DARABONBA_PTR_GET_DEFAULT(flinkWorkSpaceName_, "") };
     inline AddTagToFlinkClusterRequest& setFlinkWorkSpaceName(string flinkWorkSpaceName) { DARABONBA_PTR_SET_VALUE(flinkWorkSpaceName_, flinkWorkSpaceName) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline AddTagToFlinkClusterRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline AddTagToFlinkClusterRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // targetUserId Field Functions 
     bool hasTargetUserId() const { return this->targetUserId_ != nullptr;};
     void deleteTargetUserId() { this->targetUserId_ = nullptr;};
-    inline string targetUserId() const { DARABONBA_PTR_GET_DEFAULT(targetUserId_, "") };
+    inline string getTargetUserId() const { DARABONBA_PTR_GET_DEFAULT(targetUserId_, "") };
     inline AddTagToFlinkClusterRequest& setTargetUserId(string targetUserId) { DARABONBA_PTR_SET_VALUE(targetUserId_, targetUserId) };
 
 
@@ -87,25 +87,25 @@ namespace Models
     // The ID of the Prometheus instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // The ID of the Flink workspace.
     // 
     // This parameter is required.
-    std::shared_ptr<string> flinkWorkSpaceId_ = nullptr;
+    shared_ptr<string> flinkWorkSpaceId_ {};
     // The name of the Flink workspace.
     // 
     // This parameter is required.
-    std::shared_ptr<string> flinkWorkSpaceName_ = nullptr;
+    shared_ptr<string> flinkWorkSpaceName_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The ID of the resource group.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // The ID of the Alibaba Cloud account to which the Flink workspace belongs.
     // 
     // This parameter is required.
-    std::shared_ptr<string> targetUserId_ = nullptr;
+    shared_ptr<string> targetUserId_ {};
   };
 
   } // namespace Models

@@ -43,94 +43,94 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bizHeaders_ != nullptr
-        && this->bizParams_ != nullptr && this->body_ != nullptr && this->method_ != nullptr && this->recoverBody_ != nullptr && this->url_ != nullptr
-        && this->webhookId_ != nullptr && this->webhookName_ != nullptr; };
+    virtual bool empty() const override { return this->bizHeaders_ == nullptr
+        && this->bizParams_ == nullptr && this->body_ == nullptr && this->method_ == nullptr && this->recoverBody_ == nullptr && this->url_ == nullptr
+        && this->webhookId_ == nullptr && this->webhookName_ == nullptr; };
     // bizHeaders Field Functions 
     bool hasBizHeaders() const { return this->bizHeaders_ != nullptr;};
     void deleteBizHeaders() { this->bizHeaders_ = nullptr;};
-    inline string bizHeaders() const { DARABONBA_PTR_GET_DEFAULT(bizHeaders_, "") };
+    inline string getBizHeaders() const { DARABONBA_PTR_GET_DEFAULT(bizHeaders_, "") };
     inline CreateOrUpdateWebhookContactRequest& setBizHeaders(string bizHeaders) { DARABONBA_PTR_SET_VALUE(bizHeaders_, bizHeaders) };
 
 
     // bizParams Field Functions 
     bool hasBizParams() const { return this->bizParams_ != nullptr;};
     void deleteBizParams() { this->bizParams_ = nullptr;};
-    inline string bizParams() const { DARABONBA_PTR_GET_DEFAULT(bizParams_, "") };
+    inline string getBizParams() const { DARABONBA_PTR_GET_DEFAULT(bizParams_, "") };
     inline CreateOrUpdateWebhookContactRequest& setBizParams(string bizParams) { DARABONBA_PTR_SET_VALUE(bizParams_, bizParams) };
 
 
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline string body() const { DARABONBA_PTR_GET_DEFAULT(body_, "") };
+    inline string getBody() const { DARABONBA_PTR_GET_DEFAULT(body_, "") };
     inline CreateOrUpdateWebhookContactRequest& setBody(string body) { DARABONBA_PTR_SET_VALUE(body_, body) };
 
 
     // method Field Functions 
     bool hasMethod() const { return this->method_ != nullptr;};
     void deleteMethod() { this->method_ = nullptr;};
-    inline string method() const { DARABONBA_PTR_GET_DEFAULT(method_, "") };
+    inline string getMethod() const { DARABONBA_PTR_GET_DEFAULT(method_, "") };
     inline CreateOrUpdateWebhookContactRequest& setMethod(string method) { DARABONBA_PTR_SET_VALUE(method_, method) };
 
 
     // recoverBody Field Functions 
     bool hasRecoverBody() const { return this->recoverBody_ != nullptr;};
     void deleteRecoverBody() { this->recoverBody_ = nullptr;};
-    inline string recoverBody() const { DARABONBA_PTR_GET_DEFAULT(recoverBody_, "") };
+    inline string getRecoverBody() const { DARABONBA_PTR_GET_DEFAULT(recoverBody_, "") };
     inline CreateOrUpdateWebhookContactRequest& setRecoverBody(string recoverBody) { DARABONBA_PTR_SET_VALUE(recoverBody_, recoverBody) };
 
 
     // url Field Functions 
     bool hasUrl() const { return this->url_ != nullptr;};
     void deleteUrl() { this->url_ = nullptr;};
-    inline string url() const { DARABONBA_PTR_GET_DEFAULT(url_, "") };
+    inline string getUrl() const { DARABONBA_PTR_GET_DEFAULT(url_, "") };
     inline CreateOrUpdateWebhookContactRequest& setUrl(string url) { DARABONBA_PTR_SET_VALUE(url_, url) };
 
 
     // webhookId Field Functions 
     bool hasWebhookId() const { return this->webhookId_ != nullptr;};
     void deleteWebhookId() { this->webhookId_ = nullptr;};
-    inline int64_t webhookId() const { DARABONBA_PTR_GET_DEFAULT(webhookId_, 0L) };
+    inline int64_t getWebhookId() const { DARABONBA_PTR_GET_DEFAULT(webhookId_, 0L) };
     inline CreateOrUpdateWebhookContactRequest& setWebhookId(int64_t webhookId) { DARABONBA_PTR_SET_VALUE(webhookId_, webhookId) };
 
 
     // webhookName Field Functions 
     bool hasWebhookName() const { return this->webhookName_ != nullptr;};
     void deleteWebhookName() { this->webhookName_ = nullptr;};
-    inline string webhookName() const { DARABONBA_PTR_GET_DEFAULT(webhookName_, "") };
+    inline string getWebhookName() const { DARABONBA_PTR_GET_DEFAULT(webhookName_, "") };
     inline CreateOrUpdateWebhookContactRequest& setWebhookName(string webhookName) { DARABONBA_PTR_SET_VALUE(webhookName_, webhookName) };
 
 
   protected:
     // The HTTP request headers.
-    std::shared_ptr<string> bizHeaders_ = nullptr;
+    shared_ptr<string> bizHeaders_ {};
     // The parameters in the HTTP request.
-    std::shared_ptr<string> bizParams_ = nullptr;
+    shared_ptr<string> bizParams_ {};
     // The notification template that is sent when an alert is triggered. This parameter is required if the **Method** parameter is set to **Post**. You can use the `$content` placeholder to specify the notification content. The content cannot exceed 500 characters in length. For more information, see [Variable description of a notification template](https://help.aliyun.com/document_detail/251834.html).\\\\
-    std::shared_ptr<string> body_ = nullptr;
+    shared_ptr<string> body_ {};
     // The HTTP request method.
     // 
     // *   Post
     // *   Get
     // 
     // This parameter is required.
-    std::shared_ptr<string> method_ = nullptr;
+    shared_ptr<string> method_ {};
     // The notification template that is sent when an alert is resolved. This parameter is required if the **Method** parameter is set to **Post**. You can use the `$content` placeholder to specify the notification content. The content cannot exceed 500 characters in length. For more information, see [Variable description of a notification template](https://help.aliyun.com/document_detail/251834.html).
-    std::shared_ptr<string> recoverBody_ = nullptr;
+    shared_ptr<string> recoverBody_ {};
     // The URL of the HTTP request **method**.
     // 
     // This parameter is required.
-    std::shared_ptr<string> url_ = nullptr;
+    shared_ptr<string> url_ {};
     // The ID of the webhook alert contact.
     // 
     // *   If you do not specify this parameter, a new webhook alert contact is created.
     // * If you specify this parameter, the specified webhook alert contact is modified.
-    std::shared_ptr<int64_t> webhookId_ = nullptr;
+    shared_ptr<int64_t> webhookId_ {};
     // The name of the webhook alert contact.
     // 
     // This parameter is required.
-    std::shared_ptr<string> webhookName_ = nullptr;
+    shared_ptr<string> webhookName_ {};
   };
 
   } // namespace Models

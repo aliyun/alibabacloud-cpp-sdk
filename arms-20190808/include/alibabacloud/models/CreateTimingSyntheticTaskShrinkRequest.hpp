@@ -51,138 +51,138 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->availableAssertionsShrink_ != nullptr
-        && this->commonSettingShrink_ != nullptr && this->customPeriodShrink_ != nullptr && this->frequency_ != nullptr && this->monitorCategory_ != nullptr && this->monitorConfShrink_ != nullptr
-        && this->monitorsShrink_ != nullptr && this->name_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->tagsShrink_ != nullptr
-        && this->taskType_ != nullptr; };
+    virtual bool empty() const override { return this->availableAssertionsShrink_ == nullptr
+        && this->commonSettingShrink_ == nullptr && this->customPeriodShrink_ == nullptr && this->frequency_ == nullptr && this->monitorCategory_ == nullptr && this->monitorConfShrink_ == nullptr
+        && this->monitorsShrink_ == nullptr && this->name_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->tagsShrink_ == nullptr
+        && this->taskType_ == nullptr; };
     // availableAssertionsShrink Field Functions 
     bool hasAvailableAssertionsShrink() const { return this->availableAssertionsShrink_ != nullptr;};
     void deleteAvailableAssertionsShrink() { this->availableAssertionsShrink_ = nullptr;};
-    inline string availableAssertionsShrink() const { DARABONBA_PTR_GET_DEFAULT(availableAssertionsShrink_, "") };
+    inline string getAvailableAssertionsShrink() const { DARABONBA_PTR_GET_DEFAULT(availableAssertionsShrink_, "") };
     inline CreateTimingSyntheticTaskShrinkRequest& setAvailableAssertionsShrink(string availableAssertionsShrink) { DARABONBA_PTR_SET_VALUE(availableAssertionsShrink_, availableAssertionsShrink) };
 
 
     // commonSettingShrink Field Functions 
     bool hasCommonSettingShrink() const { return this->commonSettingShrink_ != nullptr;};
     void deleteCommonSettingShrink() { this->commonSettingShrink_ = nullptr;};
-    inline string commonSettingShrink() const { DARABONBA_PTR_GET_DEFAULT(commonSettingShrink_, "") };
+    inline string getCommonSettingShrink() const { DARABONBA_PTR_GET_DEFAULT(commonSettingShrink_, "") };
     inline CreateTimingSyntheticTaskShrinkRequest& setCommonSettingShrink(string commonSettingShrink) { DARABONBA_PTR_SET_VALUE(commonSettingShrink_, commonSettingShrink) };
 
 
     // customPeriodShrink Field Functions 
     bool hasCustomPeriodShrink() const { return this->customPeriodShrink_ != nullptr;};
     void deleteCustomPeriodShrink() { this->customPeriodShrink_ = nullptr;};
-    inline string customPeriodShrink() const { DARABONBA_PTR_GET_DEFAULT(customPeriodShrink_, "") };
+    inline string getCustomPeriodShrink() const { DARABONBA_PTR_GET_DEFAULT(customPeriodShrink_, "") };
     inline CreateTimingSyntheticTaskShrinkRequest& setCustomPeriodShrink(string customPeriodShrink) { DARABONBA_PTR_SET_VALUE(customPeriodShrink_, customPeriodShrink) };
 
 
     // frequency Field Functions 
     bool hasFrequency() const { return this->frequency_ != nullptr;};
     void deleteFrequency() { this->frequency_ = nullptr;};
-    inline string frequency() const { DARABONBA_PTR_GET_DEFAULT(frequency_, "") };
+    inline string getFrequency() const { DARABONBA_PTR_GET_DEFAULT(frequency_, "") };
     inline CreateTimingSyntheticTaskShrinkRequest& setFrequency(string frequency) { DARABONBA_PTR_SET_VALUE(frequency_, frequency) };
 
 
     // monitorCategory Field Functions 
     bool hasMonitorCategory() const { return this->monitorCategory_ != nullptr;};
     void deleteMonitorCategory() { this->monitorCategory_ = nullptr;};
-    inline int32_t monitorCategory() const { DARABONBA_PTR_GET_DEFAULT(monitorCategory_, 0) };
+    inline int32_t getMonitorCategory() const { DARABONBA_PTR_GET_DEFAULT(monitorCategory_, 0) };
     inline CreateTimingSyntheticTaskShrinkRequest& setMonitorCategory(int32_t monitorCategory) { DARABONBA_PTR_SET_VALUE(monitorCategory_, monitorCategory) };
 
 
     // monitorConfShrink Field Functions 
     bool hasMonitorConfShrink() const { return this->monitorConfShrink_ != nullptr;};
     void deleteMonitorConfShrink() { this->monitorConfShrink_ = nullptr;};
-    inline string monitorConfShrink() const { DARABONBA_PTR_GET_DEFAULT(monitorConfShrink_, "") };
+    inline string getMonitorConfShrink() const { DARABONBA_PTR_GET_DEFAULT(monitorConfShrink_, "") };
     inline CreateTimingSyntheticTaskShrinkRequest& setMonitorConfShrink(string monitorConfShrink) { DARABONBA_PTR_SET_VALUE(monitorConfShrink_, monitorConfShrink) };
 
 
     // monitorsShrink Field Functions 
     bool hasMonitorsShrink() const { return this->monitorsShrink_ != nullptr;};
     void deleteMonitorsShrink() { this->monitorsShrink_ = nullptr;};
-    inline string monitorsShrink() const { DARABONBA_PTR_GET_DEFAULT(monitorsShrink_, "") };
+    inline string getMonitorsShrink() const { DARABONBA_PTR_GET_DEFAULT(monitorsShrink_, "") };
     inline CreateTimingSyntheticTaskShrinkRequest& setMonitorsShrink(string monitorsShrink) { DARABONBA_PTR_SET_VALUE(monitorsShrink_, monitorsShrink) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateTimingSyntheticTaskShrinkRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreateTimingSyntheticTaskShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline CreateTimingSyntheticTaskShrinkRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // tagsShrink Field Functions 
     bool hasTagsShrink() const { return this->tagsShrink_ != nullptr;};
     void deleteTagsShrink() { this->tagsShrink_ = nullptr;};
-    inline string tagsShrink() const { DARABONBA_PTR_GET_DEFAULT(tagsShrink_, "") };
+    inline string getTagsShrink() const { DARABONBA_PTR_GET_DEFAULT(tagsShrink_, "") };
     inline CreateTimingSyntheticTaskShrinkRequest& setTagsShrink(string tagsShrink) { DARABONBA_PTR_SET_VALUE(tagsShrink_, tagsShrink) };
 
 
     // taskType Field Functions 
     bool hasTaskType() const { return this->taskType_ != nullptr;};
     void deleteTaskType() { this->taskType_ = nullptr;};
-    inline int32_t taskType() const { DARABONBA_PTR_GET_DEFAULT(taskType_, 0) };
+    inline int32_t getTaskType() const { DARABONBA_PTR_GET_DEFAULT(taskType_, 0) };
     inline CreateTimingSyntheticTaskShrinkRequest& setTaskType(int32_t taskType) { DARABONBA_PTR_SET_VALUE(taskType_, taskType) };
 
 
   protected:
     // The list of assertions.
-    std::shared_ptr<string> availableAssertionsShrink_ = nullptr;
+    shared_ptr<string> availableAssertionsShrink_ {};
     // The general settings.
-    std::shared_ptr<string> commonSettingShrink_ = nullptr;
+    shared_ptr<string> commonSettingShrink_ {};
     // The general settings.
-    std::shared_ptr<string> customPeriodShrink_ = nullptr;
+    shared_ptr<string> customPeriodShrink_ {};
     // The detection frequency. Valid values: 1m, 5m, 10m, 15m, 20m, 30m, 1h, 2h, 3h, 4h, 6h, 8h, 12h, and 24h.
     // 
     // This parameter is required.
-    std::shared_ptr<string> frequency_ = nullptr;
+    shared_ptr<string> frequency_ {};
     // The detection point type. Valid values:
     // 
     // - 1: PC
     // - 2: mobile device
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> monitorCategory_ = nullptr;
+    shared_ptr<int32_t> monitorCategory_ {};
     // The monitoring configurations.
     // 
     // This parameter is required.
-    std::shared_ptr<string> monitorConfShrink_ = nullptr;
+    shared_ptr<string> monitorConfShrink_ {};
     // The list of detection points.
     // 
     // This parameter is required.
-    std::shared_ptr<string> monitorsShrink_ = nullptr;
+    shared_ptr<string> monitorsShrink_ {};
     // The name of the task.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The parameter is optional.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // The tag list.
-    std::shared_ptr<string> tagsShrink_ = nullptr;
+    shared_ptr<string> tagsShrink_ {};
     // The type of the task. Valid values:
     // 
     // 1: ICMP. 2: TCP. 3: DNS. 4: HTTP. 5: website speed measurement. 6: file download.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> taskType_ = nullptr;
+    shared_ptr<int32_t> taskType_ {};
   };
 
   } // namespace Models

@@ -37,40 +37,40 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clusterId_ != nullptr
-        && this->cmsArgs_ != nullptr && this->directArgs_ != nullptr && this->enableTag_ != nullptr && this->regionId_ != nullptr; };
+    virtual bool empty() const override { return this->clusterId_ == nullptr
+        && this->cmsArgs_ == nullptr && this->directArgs_ == nullptr && this->enableTag_ == nullptr && this->regionId_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline InstallCmsExporterRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // cmsArgs Field Functions 
     bool hasCmsArgs() const { return this->cmsArgs_ != nullptr;};
     void deleteCmsArgs() { this->cmsArgs_ = nullptr;};
-    inline string cmsArgs() const { DARABONBA_PTR_GET_DEFAULT(cmsArgs_, "") };
+    inline string getCmsArgs() const { DARABONBA_PTR_GET_DEFAULT(cmsArgs_, "") };
     inline InstallCmsExporterRequest& setCmsArgs(string cmsArgs) { DARABONBA_PTR_SET_VALUE(cmsArgs_, cmsArgs) };
 
 
     // directArgs Field Functions 
     bool hasDirectArgs() const { return this->directArgs_ != nullptr;};
     void deleteDirectArgs() { this->directArgs_ = nullptr;};
-    inline string directArgs() const { DARABONBA_PTR_GET_DEFAULT(directArgs_, "") };
+    inline string getDirectArgs() const { DARABONBA_PTR_GET_DEFAULT(directArgs_, "") };
     inline InstallCmsExporterRequest& setDirectArgs(string directArgs) { DARABONBA_PTR_SET_VALUE(directArgs_, directArgs) };
 
 
     // enableTag Field Functions 
     bool hasEnableTag() const { return this->enableTag_ != nullptr;};
     void deleteEnableTag() { this->enableTag_ = nullptr;};
-    inline bool enableTag() const { DARABONBA_PTR_GET_DEFAULT(enableTag_, false) };
+    inline bool getEnableTag() const { DARABONBA_PTR_GET_DEFAULT(enableTag_, false) };
     inline InstallCmsExporterRequest& setEnableTag(bool enableTag) { DARABONBA_PTR_SET_VALUE(enableTag_, enableTag) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline InstallCmsExporterRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -78,17 +78,17 @@ namespace Models
     // The ID of the cluster.
     // 
     // This parameter is required.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // The cloud services that you want to monitor. The CmsArgs parameter is the startup parameter of the cms-exporter collector. Separate multiple cloud services with number signs (`#`).
-    std::shared_ptr<string> cmsArgs_ = nullptr;
+    shared_ptr<string> cmsArgs_ {};
     // The recently monitored cloud services. Separate multiple cloud services with number signs (`#`).
-    std::shared_ptr<string> directArgs_ = nullptr;
+    shared_ptr<string> directArgs_ {};
     // Specifies whether to collect the aliyun tags attached to each cloud service. Default value: false.
-    std::shared_ptr<bool> enableTag_ = nullptr;
+    shared_ptr<bool> enableTag_ {};
     // The ID of the region.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

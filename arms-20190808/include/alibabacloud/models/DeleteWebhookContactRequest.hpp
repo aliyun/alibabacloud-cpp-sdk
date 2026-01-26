@@ -29,11 +29,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->webhookId_ != nullptr; };
+    virtual bool empty() const override { return this->webhookId_ == nullptr; };
     // webhookId Field Functions 
     bool hasWebhookId() const { return this->webhookId_ != nullptr;};
     void deleteWebhookId() { this->webhookId_ = nullptr;};
-    inline int64_t webhookId() const { DARABONBA_PTR_GET_DEFAULT(webhookId_, 0L) };
+    inline int64_t getWebhookId() const { DARABONBA_PTR_GET_DEFAULT(webhookId_, 0L) };
     inline DeleteWebhookContactRequest& setWebhookId(int64_t webhookId) { DARABONBA_PTR_SET_VALUE(webhookId_, webhookId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the webhook alert contact.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> webhookId_ = nullptr;
+    shared_ptr<int64_t> webhookId_ {};
   };
 
   } // namespace Models

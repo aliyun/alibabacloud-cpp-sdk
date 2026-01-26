@@ -41,80 +41,80 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->contactName_ != nullptr
-        && this->dingRobotWebhookUrl_ != nullptr && this->email_ != nullptr && this->phoneNum_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->systemNoc_ != nullptr; };
+    virtual bool empty() const override { return this->contactName_ == nullptr
+        && this->dingRobotWebhookUrl_ == nullptr && this->email_ == nullptr && this->phoneNum_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->systemNoc_ == nullptr; };
     // contactName Field Functions 
     bool hasContactName() const { return this->contactName_ != nullptr;};
     void deleteContactName() { this->contactName_ = nullptr;};
-    inline string contactName() const { DARABONBA_PTR_GET_DEFAULT(contactName_, "") };
+    inline string getContactName() const { DARABONBA_PTR_GET_DEFAULT(contactName_, "") };
     inline CreateAlertContactRequest& setContactName(string contactName) { DARABONBA_PTR_SET_VALUE(contactName_, contactName) };
 
 
     // dingRobotWebhookUrl Field Functions 
     bool hasDingRobotWebhookUrl() const { return this->dingRobotWebhookUrl_ != nullptr;};
     void deleteDingRobotWebhookUrl() { this->dingRobotWebhookUrl_ = nullptr;};
-    inline string dingRobotWebhookUrl() const { DARABONBA_PTR_GET_DEFAULT(dingRobotWebhookUrl_, "") };
+    inline string getDingRobotWebhookUrl() const { DARABONBA_PTR_GET_DEFAULT(dingRobotWebhookUrl_, "") };
     inline CreateAlertContactRequest& setDingRobotWebhookUrl(string dingRobotWebhookUrl) { DARABONBA_PTR_SET_VALUE(dingRobotWebhookUrl_, dingRobotWebhookUrl) };
 
 
     // email Field Functions 
     bool hasEmail() const { return this->email_ != nullptr;};
     void deleteEmail() { this->email_ = nullptr;};
-    inline string email() const { DARABONBA_PTR_GET_DEFAULT(email_, "") };
+    inline string getEmail() const { DARABONBA_PTR_GET_DEFAULT(email_, "") };
     inline CreateAlertContactRequest& setEmail(string email) { DARABONBA_PTR_SET_VALUE(email_, email) };
 
 
     // phoneNum Field Functions 
     bool hasPhoneNum() const { return this->phoneNum_ != nullptr;};
     void deletePhoneNum() { this->phoneNum_ = nullptr;};
-    inline string phoneNum() const { DARABONBA_PTR_GET_DEFAULT(phoneNum_, "") };
+    inline string getPhoneNum() const { DARABONBA_PTR_GET_DEFAULT(phoneNum_, "") };
     inline CreateAlertContactRequest& setPhoneNum(string phoneNum) { DARABONBA_PTR_SET_VALUE(phoneNum_, phoneNum) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreateAlertContactRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline CreateAlertContactRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // systemNoc Field Functions 
     bool hasSystemNoc() const { return this->systemNoc_ != nullptr;};
     void deleteSystemNoc() { this->systemNoc_ = nullptr;};
-    inline bool systemNoc() const { DARABONBA_PTR_GET_DEFAULT(systemNoc_, false) };
+    inline bool getSystemNoc() const { DARABONBA_PTR_GET_DEFAULT(systemNoc_, false) };
     inline CreateAlertContactRequest& setSystemNoc(bool systemNoc) { DARABONBA_PTR_SET_VALUE(systemNoc_, systemNoc) };
 
 
   protected:
     // The name of the alert contact.
-    std::shared_ptr<string> contactName_ = nullptr;
+    shared_ptr<string> contactName_ {};
     // The webhook URL of the DingTalk chatbot. For more information about how to obtain the URL, see [Configure a DingTalk chatbot to send alert notifications](https://www.alibabacloud.com/help/zh/doc-detail/106247.htm). You must specify at least one of the following parameters: PhoneNum, Email, and DingRobotWebhookUrl.
     // 
     // >  Enter `alert` in the custom keyword field of DingTalk chatbot security settings.
-    std::shared_ptr<string> dingRobotWebhookUrl_ = nullptr;
+    shared_ptr<string> dingRobotWebhookUrl_ {};
     // The email address of the alert contact. You must specify at least one of the following parameters: PhoneNum, Email, and DingRobotWebhookUrl.
-    std::shared_ptr<string> email_ = nullptr;
+    shared_ptr<string> email_ {};
     // The mobile number of the alert contact. You must specify at least one of the following parameters: PhoneNum, Email, and DingRobotWebhookUrl.
-    std::shared_ptr<string> phoneNum_ = nullptr;
+    shared_ptr<string> phoneNum_ {};
     // The ID of the region. Set the value to `cn-hangzhou`.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The ID of the resource group. You can obtain the resource group ID in the **Resource Management** console.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // Specifies whether the alert contact receives system notifications. Valid values:
     // 
     // *   `true`: The alert contact receives system notifications.
     // *   `false`: The alert contact does not receive system notifications.
-    std::shared_ptr<bool> systemNoc_ = nullptr;
+    shared_ptr<bool> systemNoc_ {};
   };
 
   } // namespace Models

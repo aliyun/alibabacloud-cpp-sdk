@@ -49,70 +49,70 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->apiUrl_ != nullptr
-        && this->authType_ != nullptr && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr && this->grafanaWorkspaceId_ != nullptr && this->id_ != nullptr
-        && this->msg_ != nullptr && this->processStatus_ != nullptr && this->transDetails_ != nullptr && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->apiUrl_ == nullptr
+        && this->authType_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->grafanaWorkspaceId_ == nullptr && this->id_ == nullptr
+        && this->msg_ == nullptr && this->processStatus_ == nullptr && this->transDetails_ == nullptr && this->userId_ == nullptr; };
     // apiUrl Field Functions 
     bool hasApiUrl() const { return this->apiUrl_ != nullptr;};
     void deleteApiUrl() { this->apiUrl_ = nullptr;};
-    inline string apiUrl() const { DARABONBA_PTR_GET_DEFAULT(apiUrl_, "") };
+    inline string getApiUrl() const { DARABONBA_PTR_GET_DEFAULT(apiUrl_, "") };
     inline GrafanaWorkspaceTrans& setApiUrl(string apiUrl) { DARABONBA_PTR_SET_VALUE(apiUrl_, apiUrl) };
 
 
     // authType Field Functions 
     bool hasAuthType() const { return this->authType_ != nullptr;};
     void deleteAuthType() { this->authType_ = nullptr;};
-    inline string authType() const { DARABONBA_PTR_GET_DEFAULT(authType_, "") };
+    inline string getAuthType() const { DARABONBA_PTR_GET_DEFAULT(authType_, "") };
     inline GrafanaWorkspaceTrans& setAuthType(string authType) { DARABONBA_PTR_SET_VALUE(authType_, authType) };
 
 
     // gmtCreate Field Functions 
     bool hasGmtCreate() const { return this->gmtCreate_ != nullptr;};
     void deleteGmtCreate() { this->gmtCreate_ = nullptr;};
-    inline float gmtCreate() const { DARABONBA_PTR_GET_DEFAULT(gmtCreate_, 0.0) };
+    inline float getGmtCreate() const { DARABONBA_PTR_GET_DEFAULT(gmtCreate_, 0.0) };
     inline GrafanaWorkspaceTrans& setGmtCreate(float gmtCreate) { DARABONBA_PTR_SET_VALUE(gmtCreate_, gmtCreate) };
 
 
     // gmtModified Field Functions 
     bool hasGmtModified() const { return this->gmtModified_ != nullptr;};
     void deleteGmtModified() { this->gmtModified_ = nullptr;};
-    inline float gmtModified() const { DARABONBA_PTR_GET_DEFAULT(gmtModified_, 0.0) };
+    inline float getGmtModified() const { DARABONBA_PTR_GET_DEFAULT(gmtModified_, 0.0) };
     inline GrafanaWorkspaceTrans& setGmtModified(float gmtModified) { DARABONBA_PTR_SET_VALUE(gmtModified_, gmtModified) };
 
 
     // grafanaWorkspaceId Field Functions 
     bool hasGrafanaWorkspaceId() const { return this->grafanaWorkspaceId_ != nullptr;};
     void deleteGrafanaWorkspaceId() { this->grafanaWorkspaceId_ = nullptr;};
-    inline string grafanaWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(grafanaWorkspaceId_, "") };
+    inline string getGrafanaWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(grafanaWorkspaceId_, "") };
     inline GrafanaWorkspaceTrans& setGrafanaWorkspaceId(string grafanaWorkspaceId) { DARABONBA_PTR_SET_VALUE(grafanaWorkspaceId_, grafanaWorkspaceId) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline int64_t id() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+    inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
     inline GrafanaWorkspaceTrans& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // msg Field Functions 
     bool hasMsg() const { return this->msg_ != nullptr;};
     void deleteMsg() { this->msg_ = nullptr;};
-    inline string msg() const { DARABONBA_PTR_GET_DEFAULT(msg_, "") };
+    inline string getMsg() const { DARABONBA_PTR_GET_DEFAULT(msg_, "") };
     inline GrafanaWorkspaceTrans& setMsg(string msg) { DARABONBA_PTR_SET_VALUE(msg_, msg) };
 
 
     // processStatus Field Functions 
     bool hasProcessStatus() const { return this->processStatus_ != nullptr;};
     void deleteProcessStatus() { this->processStatus_ = nullptr;};
-    inline string processStatus() const { DARABONBA_PTR_GET_DEFAULT(processStatus_, "") };
+    inline string getProcessStatus() const { DARABONBA_PTR_GET_DEFAULT(processStatus_, "") };
     inline GrafanaWorkspaceTrans& setProcessStatus(string processStatus) { DARABONBA_PTR_SET_VALUE(processStatus_, processStatus) };
 
 
     // transDetails Field Functions 
     bool hasTransDetails() const { return this->transDetails_ != nullptr;};
     void deleteTransDetails() { this->transDetails_ = nullptr;};
-    inline const vector<GrafanaWorkspaceTransDetail> & transDetails() const { DARABONBA_PTR_GET_CONST(transDetails_, vector<GrafanaWorkspaceTransDetail>) };
-    inline vector<GrafanaWorkspaceTransDetail> transDetails() { DARABONBA_PTR_GET(transDetails_, vector<GrafanaWorkspaceTransDetail>) };
+    inline const vector<GrafanaWorkspaceTransDetail> & getTransDetails() const { DARABONBA_PTR_GET_CONST(transDetails_, vector<GrafanaWorkspaceTransDetail>) };
+    inline vector<GrafanaWorkspaceTransDetail> getTransDetails() { DARABONBA_PTR_GET(transDetails_, vector<GrafanaWorkspaceTransDetail>) };
     inline GrafanaWorkspaceTrans& setTransDetails(const vector<GrafanaWorkspaceTransDetail> & transDetails) { DARABONBA_PTR_SET_VALUE(transDetails_, transDetails) };
     inline GrafanaWorkspaceTrans& setTransDetails(vector<GrafanaWorkspaceTransDetail> && transDetails) { DARABONBA_PTR_SET_RVALUE(transDetails_, transDetails) };
 
@@ -120,21 +120,21 @@ namespace Models
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline GrafanaWorkspaceTrans& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
   protected:
-    std::shared_ptr<string> apiUrl_ = nullptr;
-    std::shared_ptr<string> authType_ = nullptr;
-    std::shared_ptr<float> gmtCreate_ = nullptr;
-    std::shared_ptr<float> gmtModified_ = nullptr;
-    std::shared_ptr<string> grafanaWorkspaceId_ = nullptr;
-    std::shared_ptr<int64_t> id_ = nullptr;
-    std::shared_ptr<string> msg_ = nullptr;
-    std::shared_ptr<string> processStatus_ = nullptr;
-    std::shared_ptr<vector<GrafanaWorkspaceTransDetail>> transDetails_ = nullptr;
-    std::shared_ptr<string> userId_ = nullptr;
+    shared_ptr<string> apiUrl_ {};
+    shared_ptr<string> authType_ {};
+    shared_ptr<float> gmtCreate_ {};
+    shared_ptr<float> gmtModified_ {};
+    shared_ptr<string> grafanaWorkspaceId_ {};
+    shared_ptr<int64_t> id_ {};
+    shared_ptr<string> msg_ {};
+    shared_ptr<string> processStatus_ {};
+    shared_ptr<vector<GrafanaWorkspaceTransDetail>> transDetails_ {};
+    shared_ptr<string> userId_ {};
   };
 
   } // namespace Models

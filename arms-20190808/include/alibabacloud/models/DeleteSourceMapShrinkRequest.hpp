@@ -33,26 +33,26 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->fidListShrink_ != nullptr
-        && this->pid_ != nullptr && this->regionId_ != nullptr; };
+    virtual bool empty() const override { return this->fidListShrink_ == nullptr
+        && this->pid_ == nullptr && this->regionId_ == nullptr; };
     // fidListShrink Field Functions 
     bool hasFidListShrink() const { return this->fidListShrink_ != nullptr;};
     void deleteFidListShrink() { this->fidListShrink_ = nullptr;};
-    inline string fidListShrink() const { DARABONBA_PTR_GET_DEFAULT(fidListShrink_, "") };
+    inline string getFidListShrink() const { DARABONBA_PTR_GET_DEFAULT(fidListShrink_, "") };
     inline DeleteSourceMapShrinkRequest& setFidListShrink(string fidListShrink) { DARABONBA_PTR_SET_VALUE(fidListShrink_, fidListShrink) };
 
 
     // pid Field Functions 
     bool hasPid() const { return this->pid_ != nullptr;};
     void deletePid() { this->pid_ = nullptr;};
-    inline string pid() const { DARABONBA_PTR_GET_DEFAULT(pid_, "") };
+    inline string getPid() const { DARABONBA_PTR_GET_DEFAULT(pid_, "") };
     inline DeleteSourceMapShrinkRequest& setPid(string pid) { DARABONBA_PTR_SET_VALUE(pid_, pid) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteSourceMapShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -60,15 +60,15 @@ namespace Models
     // The IDs of the SourceMap files.
     // 
     // This parameter is required.
-    std::shared_ptr<string> fidListShrink_ = nullptr;
+    shared_ptr<string> fidListShrink_ {};
     // The process identifier (PID) of the application.
     // 
     // This parameter is required.
-    std::shared_ptr<string> pid_ = nullptr;
+    shared_ptr<string> pid_ {};
     // The ID of the region.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

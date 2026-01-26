@@ -35,13 +35,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dataSources_ != nullptr
-        && this->integrationId_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->dataSources_ == nullptr
+        && this->integrationId_ == nullptr && this->status_ == nullptr; };
     // dataSources Field Functions 
     bool hasDataSources() const { return this->dataSources_ != nullptr;};
     void deleteDataSources() { this->dataSources_ = nullptr;};
-    inline const vector<GrafanaWorkspaceIntegrationDataSource> & dataSources() const { DARABONBA_PTR_GET_CONST(dataSources_, vector<GrafanaWorkspaceIntegrationDataSource>) };
-    inline vector<GrafanaWorkspaceIntegrationDataSource> dataSources() { DARABONBA_PTR_GET(dataSources_, vector<GrafanaWorkspaceIntegrationDataSource>) };
+    inline const vector<GrafanaWorkspaceIntegrationDataSource> & getDataSources() const { DARABONBA_PTR_GET_CONST(dataSources_, vector<GrafanaWorkspaceIntegrationDataSource>) };
+    inline vector<GrafanaWorkspaceIntegrationDataSource> getDataSources() { DARABONBA_PTR_GET(dataSources_, vector<GrafanaWorkspaceIntegrationDataSource>) };
     inline GrafanaWorkspaceIntegrationDetail& setDataSources(const vector<GrafanaWorkspaceIntegrationDataSource> & dataSources) { DARABONBA_PTR_SET_VALUE(dataSources_, dataSources) };
     inline GrafanaWorkspaceIntegrationDetail& setDataSources(vector<GrafanaWorkspaceIntegrationDataSource> && dataSources) { DARABONBA_PTR_SET_RVALUE(dataSources_, dataSources) };
 
@@ -49,21 +49,21 @@ namespace Models
     // integrationId Field Functions 
     bool hasIntegrationId() const { return this->integrationId_ != nullptr;};
     void deleteIntegrationId() { this->integrationId_ = nullptr;};
-    inline string integrationId() const { DARABONBA_PTR_GET_DEFAULT(integrationId_, "") };
+    inline string getIntegrationId() const { DARABONBA_PTR_GET_DEFAULT(integrationId_, "") };
     inline GrafanaWorkspaceIntegrationDetail& setIntegrationId(string integrationId) { DARABONBA_PTR_SET_VALUE(integrationId_, integrationId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline GrafanaWorkspaceIntegrationDetail& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
   protected:
-    std::shared_ptr<vector<GrafanaWorkspaceIntegrationDataSource>> dataSources_ = nullptr;
-    std::shared_ptr<string> integrationId_ = nullptr;
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<vector<GrafanaWorkspaceIntegrationDataSource>> dataSources_ {};
+    shared_ptr<string> integrationId_ {};
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models
