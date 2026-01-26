@@ -108,7 +108,17 @@ namespace Models
 
 
       protected:
+        // The file quantity quota. Valid values:
+        // 
+        // *   Minimum value: 10,000.
+        // *   Maximum value: 10,000,000,000.
         shared_ptr<int64_t> fileCountLimit_ {};
+        // The total quota capacity limit. Unit: bytes.
+        // 
+        // Valid values:
+        // 
+        // *   Minimum value: 10,737,418,240 (10 GiB).
+        // *   Step size: 1,073,741,824 (1 GiB).
         shared_ptr<int64_t> sizeLimit_ {};
       };
 
@@ -195,16 +205,52 @@ namespace Models
 
 
     protected:
+      // The time when the fileset was created.
+      // 
+      // Return format: `yyyy-MM-dd HH:mm:ss`
       shared_ptr<string> createTime_ {};
+      // Specifies whether the fileset is protected from being released through the console or the [DeleteFileset](https://help.aliyun.com/document_detail/2402263.html) operation.
+      // 
+      // *   true: Enables release protection. The fileset cannot be released.
+      // *   false (default): Disables release protection. The fileset can be released.
+      // 
+      // >  This parameter can protect filesets only against manual releases, but not against automatic releases.
       shared_ptr<bool> deletionProtection_ {};
+      // The description of the fileset.
       shared_ptr<string> description_ {};
+      // The usage of the file quantity.
+      // 
+      // >  Only CPFS for LINGJUN V2.7.0 and later support this parameter.
       shared_ptr<int64_t> fileCountUsage_ {};
+      // The ID of the file system.
+      // 
+      // *   The IDs of CPFS file systems must start with `cpfs-`. Example: cpfs-125487\\*\\*\\*\\*.
+      // *   The IDs of CPFS for Lingjun file systems must start with `bmcpfs-`. Example: bmcpfs-0015\\*\\*\\*\\*.
       shared_ptr<string> fileSystemId_ {};
+      // The directory of the fileset in the CPFS file system.
       shared_ptr<string> fileSystemPath_ {};
+      // The fileset ID.
+      // 
+      // >  This parameter is required for CPFS file systems.
       shared_ptr<string> fsetId_ {};
+      // The quota information.
+      // 
+      // >  Only CPFS for Lingjun V2.7.0 and later support this parameter.
       shared_ptr<Data::Quota> quota_ {};
+      // The capacity usage. Unit: bytes.
+      // 
+      // >  Only CPFS for Lingjun V2.7.0 and later support this parameter.
       shared_ptr<int64_t> spaceUsage_ {};
+      // The fileset status. Valid values:
+      // 
+      // *   CREATING: The fileset is being created.
+      // *   CREATED: The fileset has been created and is running properly.
+      // *   RELEASING: The fileset is being released.
+      // *   RELEASED: The fileset has been deleted.
       shared_ptr<string> status_ {};
+      // The time when the fileset was last updated.
+      // 
+      // Return format: `yyyy-MM-dd HH:mm:ss`
       shared_ptr<string> updateTime_ {};
     };
 
@@ -227,7 +273,9 @@ namespace Models
 
 
   protected:
+    // The response parameters.
     shared_ptr<GetFilesetResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

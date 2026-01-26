@@ -117,7 +117,9 @@ namespace Models
 
 
       protected:
+        // Attribute of the rule.
         shared_ptr<string> attribute_ {};
+        // Threshold for the rule.
         shared_ptr<string> threshold_ {};
       };
 
@@ -159,7 +161,9 @@ namespace Models
 
 
       protected:
+        // Attribute of the rule.
         shared_ptr<string> attribute_ {};
+        // Threshold for the rule.
         shared_ptr<string> threshold_ {};
       };
 
@@ -262,31 +266,37 @@ namespace Models
       // 
       // The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format.
       shared_ptr<string> createTime_ {};
+      // Description
       shared_ptr<string> description_ {};
       // The ID of the file system.
       shared_ptr<string> fileSystemId_ {};
+      // The ID of the lifecycle policy.
       shared_ptr<string> lifecyclePolicyId_ {};
       // The name of the lifecycle policy.
       shared_ptr<string> lifecyclePolicyName_ {};
+      // The type of the lifecycle policy.
       shared_ptr<string> lifecyclePolicyType_ {};
       // The management rule that is associated with the lifecycle policy.
       // 
       // Valid values:
       // 
-      // *   DEFAULT_ATIME_14: Files that are not accessed in the last 14 days are dumped to the IA storage medium.
-      // *   DEFAULT_ATIME_30: Files that are not accessed in the last 30 days are dumped to the IA storage medium.
-      // *   DEFAULT_ATIME_60: Files that are not accessed in the last 60 days are dumped to the IA storage medium.
-      // *   DEFAULT_ATIME_90: Files that are not accessed in the last 90 days are dumped to the IA storage medium.
+      // *   DEFAULT_ATIME_14: Files that are not accessed in the last 14 days.
+      // *   DEFAULT_ATIME_30: Files that are not accessed in the last 30 days.
+      // *   DEFAULT_ATIME_60: Files that are not accessed in the last 60 days.
+      // *   DEFAULT_ATIME_90: Files that are not accessed in the last 90 days.
       shared_ptr<string> lifecycleRuleName_ {};
       // The absolute path of a directory with which the lifecycle policy is associated.
       shared_ptr<string> path_ {};
-      // The absolute paths to multiple directories associated with the lifecycle policy.
+      // The absolute paths of directories with which the lifecycle policy is associated.
       shared_ptr<vector<string>> paths_ {};
+      // File data retrieval rules.
       shared_ptr<vector<LifecyclePolicies::RetrieveRules>> retrieveRules_ {};
-      // The storage type of the data that is dumped to the IA storage medium.
+      // The storage class.
       // 
-      // Default value: InfrequentAccess (IA).
+      // *   InfrequentAccess: the IA storage class.
+      // *   Archive: the Archive storage class.
       shared_ptr<string> storageType_ {};
+      // Data transition rules.
       shared_ptr<vector<LifecyclePolicies::TransitRules>> transitRules_ {};
     };
 

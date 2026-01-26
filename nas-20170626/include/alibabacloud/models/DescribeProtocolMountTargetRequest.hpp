@@ -80,13 +80,12 @@ namespace Models
     protected:
       // The filter name.
       // 
-      // *   ProtocolServiceIds: filters export directories by protocol service ID.
-      // *   ExportIds: filters export directories by export directory ID.
-      // *   VpcIds: filters export directories by virtual private cloud (VPC) ID.
-      // *   VSwitchIds: filters export directories by vSwitch ID.
-      // *   FsetIds: filters export directories by fileset ID.
-      // *   Paths: filters export directories based on the path of the file system corresponding to the mount target.
-      // *   AccessGroupNames: filters export directories by permission group name.
+      // *   ProtocolServiceIds: Filters export directories by protocol service ID.
+      // *   ExportIds: Filters export directories by export directory ID.
+      // *   VpcIds: Filters export directories by VPC ID.
+      // *   FsetIds: Filters export directories by fileset ID.
+      // *   Paths: Filters export directories based on the path of the file system corresponding to the mount target.
+      // *   AccessGroupNames: Filters export directories by permission group name.
       shared_ptr<string> key_ {};
       // The filter value. This parameter does not support wildcards.
       // 
@@ -165,6 +164,7 @@ namespace Models
     shared_ptr<int64_t> maxResults_ {};
     // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
     shared_ptr<string> nextToken_ {};
+    // Protocol service ID list
     shared_ptr<string> protocolServiceIds_ {};
   };
 

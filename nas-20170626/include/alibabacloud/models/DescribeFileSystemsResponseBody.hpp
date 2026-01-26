@@ -1162,11 +1162,12 @@ namespace Models
         shared_ptr<string> fileSystemId_ {};
         // The file system type.
         // 
-        // The following information is displayed:
+        // Valid values:
         // 
-        // *   standard: General-purpose NAS file system.
-        // *   extreme: Extreme NAS file system.
-        // *   cpfs: CPFS file system.
+        // *   standard: General-purpose NAS
+        // *   extreme: Extreme NAS
+        // *   cpfs: CPFS (locally redundant storage)
+        // *   cpfsse: CPFS SE (zone-redundant storage)
         shared_ptr<string> fileSystemType_ {};
         // The ID of the key that is managed by Key Management Service (KMS).
         shared_ptr<string> KMSKeyId_ {};
@@ -1194,7 +1195,7 @@ namespace Models
         shared_ptr<FileSystem::Packages> packages_ {};
         // The protocol type of the file system.
         // 
-        // The following information is displayed:
+        // Valid values:
         // 
         // *   NFS: Network File System.
         // *   SMB: Server Message Block.
@@ -1202,7 +1203,9 @@ namespace Models
         shared_ptr<string> protocolType_ {};
         // The vSwitch ID.
         shared_ptr<string> quorumVswId_ {};
+        // Storage redundancy type. Returned only for CPFS SE.
         shared_ptr<string> redundancyType_ {};
+        // A list of IDs for the zone-redundant vSwitches.
         shared_ptr<FileSystem::RedundancyVSwitchIds> redundancyVSwitchIds_ {};
         // The region ID.
         shared_ptr<string> regionId_ {};
@@ -1216,13 +1219,14 @@ namespace Models
         // - Stopping: The file system is being stopped.
         // - Deleting: The file system is being deleted.
         shared_ptr<string> status_ {};
-        // The type of the storage.
+        // The storage type.
         // 
-        // The following information is displayed:
+        // Valid values:
         // 
-        // *   Valid values for General-purpose NAS file systems: Capacity, Performance, and Premium
-        // *   Valid values for Extreme NAS file systems: standard and advance
-        // *   Valid values for Cloud Parallel File Storage (CPFS) file systems: advance_100 (100 MB/s/TiB baseline) and advance_200 (200 MB/s/TiB baseline)
+        // *   General-purpose NAS: Capacity, Performance, Premium
+        // *   Extreme NAS: standard, advance
+        // *   CPFS: advance_100 (100 MB/s/TiB Baseline), advance_200 (200 MB/s/TiB Baseline), economic
+        // *   CPFS SE: advance_100 (100 MB/s/TiB Baseline)
         shared_ptr<string> storageType_ {};
         // The features that are supported by the file system.
         shared_ptr<FileSystem::SupportedFeatures> supportedFeatures_ {};

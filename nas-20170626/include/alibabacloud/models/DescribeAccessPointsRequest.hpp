@@ -76,7 +76,23 @@ namespace Models
 
 
     protected:
+      // The key of the tag.
+      // 
+      // Limits:
+      // 
+      // *   Valid values of N: 1 to 20.
+      // *   Maximum length is 128 characters.
+      // *   Cannot start with aliyun or acs:.
+      // *   Cannot contain http:// or https://.
       shared_ptr<string> key_ {};
+      // The value of the tag.
+      // 
+      // Limits:
+      // 
+      // *   Valid values of N: 1 to 20.
+      // *   Maximum length is 128 characters.
+      // *   Cannot start with aliyun or acs:.
+      // *   Cannot contain http:// or https://.
       shared_ptr<string> value_ {};
     };
 
@@ -122,7 +138,7 @@ namespace Models
   protected:
     // The name of the permission group.
     // 
-    // This parameter is required for a General-purpose File Storage NAS (NAS) file system.
+    // This parameter is required for a General-purpose NAS file system.
     // 
     // The default permission group for virtual private clouds (VPCs) is named DEFAULT_VPC_GROUP_NAME.
     shared_ptr<string> accessGroup_ {};
@@ -132,8 +148,9 @@ namespace Models
     // 
     // Valid values: 10 to 100. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+    // The token used to retrieve the next page of results. Do not specify this parameter for the first request. For subsequent requests, set this value to the NextToken returned in the previous response.
     shared_ptr<string> nextToken_ {};
+    // The tags of the access point.
     shared_ptr<vector<DescribeAccessPointsRequest::Tag>> tag_ {};
   };
 

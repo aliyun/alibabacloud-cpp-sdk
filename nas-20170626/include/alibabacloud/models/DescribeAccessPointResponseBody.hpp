@@ -123,7 +123,9 @@ namespace Models
 
 
       protected:
+        // The key of a tag.
         shared_ptr<string> key_ {};
+        // The value of a tag.
         shared_ptr<string> value_ {};
       };
 
@@ -420,6 +422,7 @@ namespace Models
       // *   Pending: The access point is being created.
       // *   Deleting: The access point is being deleted.
       shared_ptr<string> status_ {};
+      // The tags of the access point.
       shared_ptr<vector<AccessPoint::Tags>> tags_ {};
       // The vSwitch ID.
       shared_ptr<string> vSwitchId_ {};

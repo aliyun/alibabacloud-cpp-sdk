@@ -701,7 +701,7 @@ namespace NAS20170626
       /**
        * @summary Creates a file system.
        *
-       * @description *   Before you call this operation, you must understand the billing and pricing of Apsara File Storage NAS. For more information, see [Billing](https://help.aliyun.com/document_detail/178365.html) and [Pricing](https://www.aliyun.com/price/product?#/nas/detail).
+       * @description *   Before you call this operation, you must understand the billing and pricing of File Storage NAS. For more information, see [Billing](https://help.aliyun.com/document_detail/178365.html) and [Pricing](https://www.aliyun.com/price/product?#/nas/detail).
        * *   Before you create a file system, you must complete real-name verification. For more information, see [Real-name verification](https://help.aliyun.com/document_detail/48263.html).
        * *   When you call this operation, a service-linked role of NAS is automatically created. For more information, see [Manage the service-linked roles of NAS](https://help.aliyun.com/document_detail/208530.html).
        *
@@ -714,7 +714,7 @@ namespace NAS20170626
       /**
        * @summary Creates a file system.
        *
-       * @description *   Before you call this operation, you must understand the billing and pricing of Apsara File Storage NAS. For more information, see [Billing](https://help.aliyun.com/document_detail/178365.html) and [Pricing](https://www.aliyun.com/price/product?#/nas/detail).
+       * @description *   Before you call this operation, you must understand the billing and pricing of File Storage NAS. For more information, see [Billing](https://help.aliyun.com/document_detail/178365.html) and [Pricing](https://www.aliyun.com/price/product?#/nas/detail).
        * *   Before you create a file system, you must complete real-name verification. For more information, see [Real-name verification](https://help.aliyun.com/document_detail/48263.html).
        * *   When you call this operation, a service-linked role of NAS is automatically created. For more information, see [Manage the service-linked roles of NAS](https://help.aliyun.com/document_detail/208530.html).
        *
@@ -802,8 +802,9 @@ namespace NAS20170626
       /**
        * @summary Creates a lifecycle policy.
        *
-       * @description *   You can create lifecycle policies only for General-purpose NAS file systems.
-       * *   You can create up to 20 lifecycle policies in each region within an Alibaba Cloud account.
+       * @description *   Only General-purpose NAS and CPFS for Lingjun file systems support this operation.
+       * *   Up to 10 Auto and 100 OnDemand lifecycle policies can be created for each CPFS for Lingjun file system.
+       * *   For general-purpose NAS file systems, up to 20 lifecycle policies can be created in each region.
        *
        * @param request CreateLifecyclePolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -814,8 +815,9 @@ namespace NAS20170626
       /**
        * @summary Creates a lifecycle policy.
        *
-       * @description *   You can create lifecycle policies only for General-purpose NAS file systems.
-       * *   You can create up to 20 lifecycle policies in each region within an Alibaba Cloud account.
+       * @description *   Only General-purpose NAS and CPFS for Lingjun file systems support this operation.
+       * *   Up to 10 Auto and 100 OnDemand lifecycle policies can be created for each CPFS for Lingjun file system.
+       * *   For general-purpose NAS file systems, up to 20 lifecycle policies can be created in each region.
        *
        * @param request CreateLifecyclePolicyRequest
        * @return CreateLifecyclePolicyResponse
@@ -1243,7 +1245,7 @@ namespace NAS20170626
       /**
        * @summary Deletes a lifecycle policy.
        *
-       * @description Only General-purpose NAS file systems support this operation.
+       * @description Only General-purpose NAS and CPFS for Lingjun file systems support this operation.
        *
        * @param request DeleteLifecyclePolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1254,7 +1256,7 @@ namespace NAS20170626
       /**
        * @summary Deletes a lifecycle policy.
        *
-       * @description Only General-purpose NAS file systems support this operation.
+       * @description Only General-purpose NAS and CPFS for Lingjun file systems support this operation.
        *
        * @param request DeleteLifecyclePolicyRequest
        * @return DeleteLifecyclePolicyResponse
@@ -1405,9 +1407,9 @@ namespace NAS20170626
       Models::DescribeAccessPointResponse describeAccessPoint(const Models::DescribeAccessPointRequest &request);
 
       /**
-       * @summary Queries the information about an access point.
+       * @summary Queries a list of access points.
        *
-       * @description Only General-purpose Network File System (NFS) file systems support this operation.
+       * @description Only General-purpose NAS file systems that use the NFS protocol support this operation.
        *
        * @param request DescribeAccessPointsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1416,9 +1418,9 @@ namespace NAS20170626
       Models::DescribeAccessPointsResponse describeAccessPointsWithOptions(const Models::DescribeAccessPointsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about an access point.
+       * @summary Queries a list of access points.
        *
-       * @description Only General-purpose Network File System (NFS) file systems support this operation.
+       * @description Only General-purpose NAS file systems that use the NFS protocol support this operation.
        *
        * @param request DescribeAccessPointsRequest
        * @return DescribeAccessPointsResponse
@@ -1665,6 +1667,23 @@ namespace NAS20170626
       Models::DescribeFilesetsResponse describeFilesets(const Models::DescribeFilesetsRequest &request);
 
       /**
+       * @summary 查询文件系统关联的 HpnZone 列表
+       *
+       * @param tmpReq DescribeFilesystemsAssociatedHpnZonesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeFilesystemsAssociatedHpnZonesResponse
+       */
+      Models::DescribeFilesystemsAssociatedHpnZonesResponse describeFilesystemsAssociatedHpnZonesWithOptions(const Models::DescribeFilesystemsAssociatedHpnZonesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询文件系统关联的 HpnZone 列表
+       *
+       * @param request DescribeFilesystemsAssociatedHpnZonesRequest
+       * @return DescribeFilesystemsAssociatedHpnZonesResponse
+       */
+      Models::DescribeFilesystemsAssociatedHpnZonesResponse describeFilesystemsAssociatedHpnZones(const Models::DescribeFilesystemsAssociatedHpnZonesRequest &request);
+
+      /**
        * @summary Queries information about virtual storage channels associated with a file system.
        *
        * @description *   Only CPFS for Lingjun supports this operation.
@@ -1690,7 +1709,7 @@ namespace NAS20170626
       /**
        * @summary Queries lifecycle policies.
        *
-       * @description Only General-purpose NAS file systems support this operation.
+       * @description Only General-purpose NAS and CPFS for Lingjun file systems support this operation.
        *
        * @param request DescribeLifecyclePoliciesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1701,7 +1720,7 @@ namespace NAS20170626
       /**
        * @summary Queries lifecycle policies.
        *
-       * @description Only General-purpose NAS file systems support this operation.
+       * @description Only General-purpose NAS and CPFS for Lingjun file systems support this operation.
        *
        * @param request DescribeLifecyclePoliciesRequest
        * @return DescribeLifecyclePoliciesResponse
@@ -2074,7 +2093,9 @@ namespace NAS20170626
       Models::GetDirectoryOrFilePropertiesResponse getDirectoryOrFileProperties(const Models::GetDirectoryOrFilePropertiesRequest &request);
 
       /**
-       * @summary 查询特定智能目录
+       * @summary Queries the information about the created fileset.
+       *
+       * @description Only CPFS V2.2.0 and CPFS for Lingjun V2.7.0 and later support this operation. You can view the version information on the file system details page in the console.
        *
        * @param request GetFilesetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2083,7 +2104,9 @@ namespace NAS20170626
       Models::GetFilesetResponse getFilesetWithOptions(const Models::GetFilesetRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询特定智能目录
+       * @summary Queries the information about the created fileset.
+       *
+       * @description Only CPFS V2.2.0 and CPFS for Lingjun V2.7.0 and later support this operation. You can view the version information on the file system details page in the console.
        *
        * @param request GetFilesetRequest
        * @return GetFilesetResponse

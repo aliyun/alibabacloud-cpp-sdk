@@ -240,7 +240,9 @@ namespace Models
       // *   Stopping: The protocol service is being stopped.
       // *   Stopped: The protocol service is stopped.
       shared_ptr<string> status_ {};
+      // The VSW ID associated with the protocol service.
       shared_ptr<string> vSwitchId_ {};
+      // The VPC ID associated with the protocol service.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -272,7 +274,7 @@ namespace Models
   protected:
     // A pagination token. It can be used in the next request to retrieve a new page of results.
     shared_ptr<string> nextToken_ {};
-    // The information about protocol services.
+    // The information about protocol service list.
     shared_ptr<vector<DescribeProtocolServiceResponseBody::ProtocolServices>> protocolServices_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

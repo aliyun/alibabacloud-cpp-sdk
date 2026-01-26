@@ -188,10 +188,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> protocolServiceId_ {};
-    // The vSwitch ID of the export directory for the protocol service.
+    // The vSwitch ID of the export directory.
+    // 
+    // If the storage redundancy type of the file system is not zone-redundant (ZRS) and the VpcId is set, this field is required.
     shared_ptr<string> vSwitchId_ {};
+    // The list of vSwitch IDs of the export directory.
     shared_ptr<vector<string>> vSwitchIds_ {};
-    // The VPC ID of the export directory for the protocol service.
+    // The VPC ID of the export directory.
     shared_ptr<string> vpcId_ {};
   };
 

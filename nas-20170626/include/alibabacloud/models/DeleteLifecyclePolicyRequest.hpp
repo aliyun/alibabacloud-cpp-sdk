@@ -61,8 +61,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};
+    // The ID of the lifecycle policy. Required for the CPFS for Lingjun file systems.
     shared_ptr<string> lifecyclePolicyId_ {};
-    // The name of the lifecycle policy.
+    // The name of the lifecycle policy. The name must be 3 to 64 characters in length and can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter.
+    // 
+    // >  Optional for General-purpose NAS file systems. If this parameter is provided, it takes precedence over LifecyclePolicyId. If left empty, LifecyclePolicyId is used.
     shared_ptr<string> lifecyclePolicyName_ {};
   };
 

@@ -197,6 +197,7 @@ namespace Models
       shared_ptr<string> status_ {};
       // The vSwitch ID of the export directory for the protocol service.
       shared_ptr<string> vSwitchId_ {};
+      // A list of IDs for the zone-redundant vSwitches.
       shared_ptr<vector<string>> vSwitchIds_ {};
       // The VPC ID of the export directory for the protocol service.
       shared_ptr<string> vpcId_ {};

@@ -125,7 +125,9 @@ namespace Models
 
 
       protected:
+        // The key of the tag that is added to the resource.
         shared_ptr<string> key_ {};
+        // Tag value
         shared_ptr<string> value_ {};
       };
 
@@ -415,8 +417,9 @@ namespace Models
       // 
       // >  You can mount a file system only if the access point is in the Active state.
       shared_ptr<string> status_ {};
+      // The tags of the access point.
       shared_ptr<vector<AccessPoints::Tags>> tags_ {};
-      // The vSwitch ID.
+      // Switch ID.
       shared_ptr<string> vSwitchId_ {};
       // The VPC ID.
       shared_ptr<string> vpcId_ {};
@@ -457,9 +460,9 @@ namespace Models
   protected:
     // The information about the access point.
     shared_ptr<vector<DescribeAccessPointsResponseBody::AccessPoints>> accessPoints_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+    // A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
     shared_ptr<string> nextToken_ {};
-    // The request ID.
+    // Request ID.
     // 
     // This parameter is required.
     shared_ptr<string> requestId_ {};

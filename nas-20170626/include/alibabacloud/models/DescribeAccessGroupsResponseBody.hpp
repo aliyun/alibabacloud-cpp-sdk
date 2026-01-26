@@ -162,13 +162,13 @@ namespace Models
         // 
         // Valid values:
         // 
-        // *   standard: General-purpose Apsara File Storage NAS (NAS) file system
-        // *   extreme: Extreme NAS file system.
-        // *   cpfs: CPFS file system.
+        // *   standard: General-purpose NAS
+        // *   extreme: Extreme NAS
+        // *   cpfs: CPFS
         shared_ptr<string> fileSystemType_ {};
         // The number of mount targets to which the permission group is attached.
         shared_ptr<int32_t> mountTargetCount_ {};
-        // The region ID.
+        // Region ID.
         shared_ptr<string> regionId_ {};
         // The total number of rules in the permission group.
         shared_ptr<int32_t> ruleCount_ {};

@@ -112,14 +112,28 @@ namespace Models
 
 
   protected:
+    // The description of the policy.
+    // 
+    // >  Only CPFS for Lingjun supports this parameter.
     shared_ptr<string> description_ {};
     // The ID of the file system.
     shared_ptr<string> fileSystemId_ {};
+    // The ID of the lifecycle policy.
     shared_ptr<string> lifecyclePolicyId_ {};
-    // The name of the lifecycle policy. The name must meet the following conventions:
+    // The name of the lifecycle policy. The naming rules are as follows:
     // 
     // The name must be 3 to 64 characters in length and must start with a letter. It can contain letters, digits, underscores (_), and hyphens (-).
+    // 
+    // >  Optional for General-purpose NAS file systems. If this parameter is provided, it takes precedence over LifecyclePolicyId. If left empty, LifecyclePolicyId is used.
     shared_ptr<string> lifecyclePolicyName_ {};
+    // The type of the lifecycle policy.
+    // 
+    // Valid values:
+    // 
+    // *   Auto: The job is automatically triggered.
+    // *   OnDemand: On-demand execution.
+    // 
+    // >  Only CPFS for Lingjun supports this parameter.
     shared_ptr<string> lifecyclePolicyType_ {};
     // The page number.
     // 
@@ -131,13 +145,16 @@ namespace Models
     // 
     // Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
+    // Filter by path.
+    // 
+    // >  Only CPFS for Lingjun supports this parameter.
     shared_ptr<string> path_ {};
     // The storage class.
     // 
     // *   InfrequentAccess: the Infrequent Access (IA) storage class.
     // *   Archive: the Archive storage class.
     // 
-    // >  If the StorageType parameter is not specified, data retrieval tasks of all types are returned.
+    // >  If StorageType is not specified, all lifecycle policies are returned.
     shared_ptr<string> storageType_ {};
   };
 

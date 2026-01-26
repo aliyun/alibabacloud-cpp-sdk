@@ -166,18 +166,49 @@ namespace Models
 
 
     protected:
+      // The name of the permission group.
+      // 
+      // Default permission group: DEFAULT\\\_VPC\\\_GROUP\\\_NAME
       shared_ptr<string> accessGroupName_ {};
+      // The time when the export directory was created. Return format: yyyy-MM-dd HH:mm:ss
       shared_ptr<string> createTime_ {};
+      // The description of the export directory.
       shared_ptr<string> description_ {};
+      // The ID of the export directory.
       shared_ptr<string> exportId_ {};
-      // Fileset ID。
+      // The fileset ID.
       shared_ptr<string> fsetId_ {};
+      // The path of the CPFS directory that was queried.
+      // 
+      // Format:
+      // 
+      // *   Must be 1 to 1,024 characters in length.
+      // *   Must be encoded in UTF-8.
+      // *   Must start and end with a forward slash (/). The root directory is `/`.
       shared_ptr<string> path_ {};
+      // The domain name of the export directory for the protocol service.
       shared_ptr<string> protocolMountTargetDomain_ {};
+      // The protocol type of the file system.
+      // 
+      // Valid values:
+      // 
+      // *   NFS: Network File System (NFS)
+      // *   SMB: Server Message Block (SMB)
+      // *   cpfs: The protocol type supported by the CPFS file system.
       shared_ptr<string> protocolType_ {};
+      // The status of the export directory. Valid values:
+      // 
+      // *   CREATING: The export directory is being created.
+      // *   AVAILABLE : The export directory is available.
+      // *   MODIFYING: The export directory is being modified.
+      // *   DELETING: The export directory is being deleted.
+      // *   STOPPING: The export directory is being stopped.
       shared_ptr<string> status_ {};
+      // The vSwitch ID of the export directory.
       shared_ptr<string> vSwitchId_ {};
+      // The vSwitch ID list of the export directory.
       shared_ptr<vector<string>> vSwitchIds_ {};
+      // The VPC ID of the export directory.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -207,8 +238,11 @@ namespace Models
 
 
   protected:
+    // A pagination token. It can be used in the next request to retrieve a new page of results.
     shared_ptr<string> nextToken_ {};
+    // Information of the export directory for the protocol service
     shared_ptr<GetProtocolMountTargetResponseBody::ProtocolMountTarget> protocolMountTarget_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

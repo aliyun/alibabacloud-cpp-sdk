@@ -57,10 +57,11 @@ namespace Models
 
 
   protected:
+    // The ID of the lifecycle policy.
     shared_ptr<string> lifecyclePolicyId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     // 
     // Valid values:
     // 

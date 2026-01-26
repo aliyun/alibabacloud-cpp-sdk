@@ -94,7 +94,18 @@ namespace Models
 
 
     protected:
+      // The key of a tag. Limits:
+      // 
+      // *   Cannot be null or an empty string.
+      // *   Can be up to 128 characters in length.
+      // *   Cannot start with aliyun or acs:.
+      // *   Cannot contain http:// or https://.
       shared_ptr<string> key_ {};
+      // The value of a tag. Limits:
+      // 
+      // *   Cannot be null or an empty string.
+      // *   Can be up to 128 characters in length.
+      // *   Cannot contain http:// or https://.
       shared_ptr<string> value_ {};
     };
 
@@ -244,6 +255,7 @@ namespace Models
     shared_ptr<int32_t> posixUserId_ {};
     // The root directory of the access point. The default value is /. If the directory does not exist, you must also specify the OwnerUserId and OwnerGroupId parameters.
     shared_ptr<string> rootDirectory_ {};
+    // The tags of the access point.
     shared_ptr<vector<CreateAccessPointRequest::Tag>> tag_ {};
     // The VPC ID.
     // 
