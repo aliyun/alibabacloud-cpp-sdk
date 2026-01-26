@@ -261,6 +261,48 @@ ApplyCertificateResponse Client::applyCertificate(const ApplyCertificateRequest 
 }
 
 /**
+ * @summary 为自定义主机名申请一个免费证书，适用于申请失败、证书即将过期、证书已过期场景
+ *
+ * @param request ApplyCustomHostnameCertificateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ApplyCustomHostnameCertificateResponse
+ */
+ApplyCustomHostnameCertificateResponse Client::applyCustomHostnameCertificateWithOptions(const ApplyCustomHostnameCertificateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasHostnameId()) {
+    query["HostnameId"] = request.getHostnameId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ApplyCustomHostnameCertificate"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ApplyCustomHostnameCertificateResponse>();
+}
+
+/**
+ * @summary 为自定义主机名申请一个免费证书，适用于申请失败、证书即将过期、证书已过期场景
+ *
+ * @param request ApplyCustomHostnameCertificateRequest
+ * @return ApplyCustomHostnameCertificateResponse
+ */
+ApplyCustomHostnameCertificateResponse Client::applyCustomHostnameCertificate(const ApplyCustomHostnameCertificateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return applyCustomHostnameCertificateWithOptions(request, runtime);
+}
+
+/**
  * @summary Adds DNS records of different record types at a time..
  *
  * @description This operation allows you to create or update multiple DNS records at a time. It is suitable for managing a large number of DNS configurations. Supported record types include but are not limited to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI. The operation allows you to configure the priority, flag, tag, and weight for DNS records. In addition, for specific types of records, such as CERT, SSHFP, SMIMEA, and TLSA, advanced settings such as certificate information and encryption algorithms are also supported.
@@ -1611,6 +1653,80 @@ CreateCompressionRuleResponse Client::createCompressionRuleWithOptions(const Cre
 CreateCompressionRuleResponse Client::createCompressionRule(const CreateCompressionRuleRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createCompressionRuleWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建自定义主机名
+ *
+ * @param request CreateCustomHostnameRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateCustomHostnameResponse
+ */
+CreateCustomHostnameResponse Client::createCustomHostnameWithOptions(const CreateCustomHostnameRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCasId()) {
+    query["CasId"] = request.getCasId();
+  }
+
+  if (!!request.hasCasRegion()) {
+    query["CasRegion"] = request.getCasRegion();
+  }
+
+  if (!!request.hasCertType()) {
+    query["CertType"] = request.getCertType();
+  }
+
+  if (!!request.hasCertificate()) {
+    query["Certificate"] = request.getCertificate();
+  }
+
+  if (!!request.hasHostname()) {
+    query["Hostname"] = request.getHostname();
+  }
+
+  if (!!request.hasPrivateKey()) {
+    query["PrivateKey"] = request.getPrivateKey();
+  }
+
+  if (!!request.hasRecordId()) {
+    query["RecordId"] = request.getRecordId();
+  }
+
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.getSiteId();
+  }
+
+  if (!!request.hasSslFlag()) {
+    query["SslFlag"] = request.getSslFlag();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateCustomHostname"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateCustomHostnameResponse>();
+}
+
+/**
+ * @summary 创建自定义主机名
+ *
+ * @param request CreateCustomHostnameRequest
+ * @return CreateCustomHostnameResponse
+ */
+CreateCustomHostnameResponse Client::createCustomHostname(const CreateCustomHostnameRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createCustomHostnameWithOptions(request, runtime);
 }
 
 /**
@@ -5150,6 +5266,48 @@ DeleteCompressionRuleResponse Client::deleteCompressionRuleWithOptions(const Del
 DeleteCompressionRuleResponse Client::deleteCompressionRule(const DeleteCompressionRuleRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteCompressionRuleWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除自定义主机名
+ *
+ * @param request DeleteCustomHostnameRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteCustomHostnameResponse
+ */
+DeleteCustomHostnameResponse Client::deleteCustomHostnameWithOptions(const DeleteCustomHostnameRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasHostnameId()) {
+    query["HostnameId"] = request.getHostnameId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteCustomHostname"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteCustomHostnameResponse>();
+}
+
+/**
+ * @summary 删除自定义主机名
+ *
+ * @param request DeleteCustomHostnameRequest
+ * @return DeleteCustomHostnameResponse
+ */
+DeleteCustomHostnameResponse Client::deleteCustomHostname(const DeleteCustomHostnameRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteCustomHostnameWithOptions(request, runtime);
 }
 
 /**
@@ -8869,6 +9027,48 @@ GetCrossBorderOptimizationResponse Client::getCrossBorderOptimization(const GetC
 }
 
 /**
+ * @summary 查询单个自定义主机名的信息
+ *
+ * @param request GetCustomHostnameRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetCustomHostnameResponse
+ */
+GetCustomHostnameResponse Client::getCustomHostnameWithOptions(const GetCustomHostnameRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasHostnameId()) {
+    query["HostnameId"] = request.getHostnameId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetCustomHostname"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetCustomHostnameResponse>();
+}
+
+/**
+ * @summary 查询单个自定义主机名的信息
+ *
+ * @param request GetCustomHostnameRequest
+ * @return GetCustomHostnameResponse
+ */
+GetCustomHostnameResponse Client::getCustomHostname(const GetCustomHostnameRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getCustomHostnameWithOptions(request, runtime);
+}
+
+/**
  * @summary Query Site Developer Mode Configuration
  *
  * @param request GetDevelopmentModeRequest
@@ -12074,6 +12274,72 @@ ListCompressionRulesResponse Client::listCompressionRulesWithOptions(const ListC
 ListCompressionRulesResponse Client::listCompressionRules(const ListCompressionRulesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listCompressionRulesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询站点下的自定义主机名列表
+ *
+ * @param request ListCustomHostnamesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListCustomHostnamesResponse
+ */
+ListCustomHostnamesResponse Client::listCustomHostnamesWithOptions(const ListCustomHostnamesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasHostname()) {
+    query["Hostname"] = request.getHostname();
+  }
+
+  if (!!request.hasNameMatchType()) {
+    query["NameMatchType"] = request.getNameMatchType();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRecordId()) {
+    query["RecordId"] = request.getRecordId();
+  }
+
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.getSiteId();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListCustomHostnames"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListCustomHostnamesResponse>();
+}
+
+/**
+ * @summary 查询站点下的自定义主机名列表
+ *
+ * @param request ListCustomHostnamesRequest
+ * @return ListCustomHostnamesResponse
+ */
+ListCustomHostnamesResponse Client::listCustomHostnames(const ListCustomHostnamesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listCustomHostnamesWithOptions(request, runtime);
 }
 
 /**
@@ -16807,6 +17073,76 @@ UpdateCrossBorderOptimizationResponse Client::updateCrossBorderOptimization(cons
 }
 
 /**
+ * @summary 更新自定义主机名
+ *
+ * @param request UpdateCustomHostnameRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateCustomHostnameResponse
+ */
+UpdateCustomHostnameResponse Client::updateCustomHostnameWithOptions(const UpdateCustomHostnameRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCasId()) {
+    query["CasId"] = request.getCasId();
+  }
+
+  if (!!request.hasCasRegion()) {
+    query["CasRegion"] = request.getCasRegion();
+  }
+
+  if (!!request.hasCertType()) {
+    query["CertType"] = request.getCertType();
+  }
+
+  if (!!request.hasCertificate()) {
+    query["Certificate"] = request.getCertificate();
+  }
+
+  if (!!request.hasHostnameId()) {
+    query["HostnameId"] = request.getHostnameId();
+  }
+
+  if (!!request.hasPrivateKey()) {
+    query["PrivateKey"] = request.getPrivateKey();
+  }
+
+  if (!!request.hasRecordId()) {
+    query["RecordId"] = request.getRecordId();
+  }
+
+  if (!!request.hasSslFlag()) {
+    query["SslFlag"] = request.getSslFlag();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateCustomHostname"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateCustomHostnameResponse>();
+}
+
+/**
+ * @summary 更新自定义主机名
+ *
+ * @param request UpdateCustomHostnameRequest
+ * @return UpdateCustomHostnameResponse
+ */
+UpdateCustomHostnameResponse Client::updateCustomHostname(const UpdateCustomHostnameRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateCustomHostnameWithOptions(request, runtime);
+}
+
+/**
  * @summary Modifies the configurations of a custom scenario-specific policy.
  *
  * @param request UpdateCustomScenePolicyRequest
@@ -20512,6 +20848,48 @@ UploadSiteOriginClientCertificateResponse Client::uploadSiteOriginClientCertific
 UploadSiteOriginClientCertificateResponse Client::uploadSiteOriginClientCertificate(const UploadSiteOriginClientCertificateRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return uploadSiteOriginClientCertificateWithOptions(request, runtime);
+}
+
+/**
+ * @summary 验证自定义主机名
+ *
+ * @param request VerifyCustomHostnameRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return VerifyCustomHostnameResponse
+ */
+VerifyCustomHostnameResponse Client::verifyCustomHostnameWithOptions(const VerifyCustomHostnameRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasHostnameId()) {
+    query["HostnameId"] = request.getHostnameId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "VerifyCustomHostname"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<VerifyCustomHostnameResponse>();
+}
+
+/**
+ * @summary 验证自定义主机名
+ *
+ * @param request VerifyCustomHostnameRequest
+ * @return VerifyCustomHostnameResponse
+ */
+VerifyCustomHostnameResponse Client::verifyCustomHostname(const VerifyCustomHostnameRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return verifyCustomHostnameWithOptions(request, runtime);
 }
 
 /**

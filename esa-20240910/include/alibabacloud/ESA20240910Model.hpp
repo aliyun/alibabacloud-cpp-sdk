@@ -25,6 +25,9 @@
 #include <alibabacloud/models/ApplyCertificateRequest.hpp>
 #include <alibabacloud/models/ApplyCertificateResponseBody.hpp>
 #include <alibabacloud/models/ApplyCertificateResponse.hpp>
+#include <alibabacloud/models/ApplyCustomHostnameCertificateRequest.hpp>
+#include <alibabacloud/models/ApplyCustomHostnameCertificateResponseBody.hpp>
+#include <alibabacloud/models/ApplyCustomHostnameCertificateResponse.hpp>
 #include <alibabacloud/models/BatchCreateRecordsRequest.hpp>
 #include <alibabacloud/models/BatchCreateRecordsShrinkRequest.hpp>
 #include <alibabacloud/models/BatchCreateRecordsResponseBody.hpp>
@@ -84,6 +87,9 @@
 #include <alibabacloud/models/CreateCompressionRuleRequest.hpp>
 #include <alibabacloud/models/CreateCompressionRuleResponseBody.hpp>
 #include <alibabacloud/models/CreateCompressionRuleResponse.hpp>
+#include <alibabacloud/models/CreateCustomHostnameRequest.hpp>
+#include <alibabacloud/models/CreateCustomHostnameResponseBody.hpp>
+#include <alibabacloud/models/CreateCustomHostnameResponse.hpp>
 #include <alibabacloud/models/CreateCustomScenePolicyRequest.hpp>
 #include <alibabacloud/models/CreateCustomScenePolicyResponseBody.hpp>
 #include <alibabacloud/models/CreateCustomScenePolicyResponse.hpp>
@@ -252,6 +258,9 @@
 #include <alibabacloud/models/DeleteCompressionRuleRequest.hpp>
 #include <alibabacloud/models/DeleteCompressionRuleResponseBody.hpp>
 #include <alibabacloud/models/DeleteCompressionRuleResponse.hpp>
+#include <alibabacloud/models/DeleteCustomHostnameRequest.hpp>
+#include <alibabacloud/models/DeleteCustomHostnameResponseBody.hpp>
+#include <alibabacloud/models/DeleteCustomHostnameResponse.hpp>
 #include <alibabacloud/models/DeleteCustomScenePolicyRequest.hpp>
 #include <alibabacloud/models/DeleteCustomScenePolicyResponseBody.hpp>
 #include <alibabacloud/models/DeleteCustomScenePolicyResponse.hpp>
@@ -496,6 +505,9 @@
 #include <alibabacloud/models/GetCrossBorderOptimizationRequest.hpp>
 #include <alibabacloud/models/GetCrossBorderOptimizationResponseBody.hpp>
 #include <alibabacloud/models/GetCrossBorderOptimizationResponse.hpp>
+#include <alibabacloud/models/GetCustomHostnameRequest.hpp>
+#include <alibabacloud/models/GetCustomHostnameResponseBody.hpp>
+#include <alibabacloud/models/GetCustomHostnameResponse.hpp>
 #include <alibabacloud/models/GetDevelopmentModeRequest.hpp>
 #include <alibabacloud/models/GetDevelopmentModeResponseBody.hpp>
 #include <alibabacloud/models/GetDevelopmentModeResponse.hpp>
@@ -729,6 +741,9 @@
 #include <alibabacloud/models/ListCompressionRulesRequest.hpp>
 #include <alibabacloud/models/ListCompressionRulesResponseBody.hpp>
 #include <alibabacloud/models/ListCompressionRulesResponse.hpp>
+#include <alibabacloud/models/ListCustomHostnamesRequest.hpp>
+#include <alibabacloud/models/ListCustomHostnamesResponseBody.hpp>
+#include <alibabacloud/models/ListCustomHostnamesResponse.hpp>
 #include <alibabacloud/models/ListESAIPInfoRequest.hpp>
 #include <alibabacloud/models/ListESAIPInfoResponseBody.hpp>
 #include <alibabacloud/models/ListESAIPInfoResponse.hpp>
@@ -1014,6 +1029,9 @@
 #include <alibabacloud/models/UpdateCrossBorderOptimizationRequest.hpp>
 #include <alibabacloud/models/UpdateCrossBorderOptimizationResponseBody.hpp>
 #include <alibabacloud/models/UpdateCrossBorderOptimizationResponse.hpp>
+#include <alibabacloud/models/UpdateCustomHostnameRequest.hpp>
+#include <alibabacloud/models/UpdateCustomHostnameResponseBody.hpp>
+#include <alibabacloud/models/UpdateCustomHostnameResponse.hpp>
 #include <alibabacloud/models/UpdateCustomScenePolicyRequest.hpp>
 #include <alibabacloud/models/UpdateCustomScenePolicyResponseBody.hpp>
 #include <alibabacloud/models/UpdateCustomScenePolicyResponse.hpp>
@@ -1191,6 +1209,9 @@
 #include <alibabacloud/models/UploadSiteOriginClientCertificateRequest.hpp>
 #include <alibabacloud/models/UploadSiteOriginClientCertificateResponseBody.hpp>
 #include <alibabacloud/models/UploadSiteOriginClientCertificateResponse.hpp>
+#include <alibabacloud/models/VerifyCustomHostnameRequest.hpp>
+#include <alibabacloud/models/VerifyCustomHostnameResponseBody.hpp>
+#include <alibabacloud/models/VerifyCustomHostnameResponse.hpp>
 #include <alibabacloud/models/VerifySiteRequest.hpp>
 #include <alibabacloud/models/VerifySiteResponseBody.hpp>
 #include <alibabacloud/models/VerifySiteResponse.hpp>

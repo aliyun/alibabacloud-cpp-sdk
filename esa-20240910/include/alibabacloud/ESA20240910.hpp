@@ -74,6 +74,23 @@ namespace ESA20240910
       Models::ApplyCertificateResponse applyCertificate(const Models::ApplyCertificateRequest &request);
 
       /**
+       * @summary 为自定义主机名申请一个免费证书，适用于申请失败、证书即将过期、证书已过期场景
+       *
+       * @param request ApplyCustomHostnameCertificateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ApplyCustomHostnameCertificateResponse
+       */
+      Models::ApplyCustomHostnameCertificateResponse applyCustomHostnameCertificateWithOptions(const Models::ApplyCustomHostnameCertificateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 为自定义主机名申请一个免费证书，适用于申请失败、证书即将过期、证书已过期场景
+       *
+       * @param request ApplyCustomHostnameCertificateRequest
+       * @return ApplyCustomHostnameCertificateResponse
+       */
+      Models::ApplyCustomHostnameCertificateResponse applyCustomHostnameCertificate(const Models::ApplyCustomHostnameCertificateRequest &request);
+
+      /**
        * @summary Adds DNS records of different record types at a time..
        *
        * @description This operation allows you to create or update multiple DNS records at a time. It is suitable for managing a large number of DNS configurations. Supported record types include but are not limited to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI. The operation allows you to configure the priority, flag, tag, and weight for DNS records. In addition, for specific types of records, such as CERT, SSHFP, SMIMEA, and TLSA, advanced settings such as certificate information and encryption algorithms are also supported.
@@ -530,6 +547,23 @@ namespace ESA20240910
        * @return CreateCompressionRuleResponse
        */
       Models::CreateCompressionRuleResponse createCompressionRule(const Models::CreateCompressionRuleRequest &request);
+
+      /**
+       * @summary 创建自定义主机名
+       *
+       * @param request CreateCustomHostnameRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateCustomHostnameResponse
+       */
+      Models::CreateCustomHostnameResponse createCustomHostnameWithOptions(const Models::CreateCustomHostnameRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建自定义主机名
+       *
+       * @param request CreateCustomHostnameRequest
+       * @return CreateCustomHostnameResponse
+       */
+      Models::CreateCustomHostnameResponse createCustomHostname(const Models::CreateCustomHostnameRequest &request);
 
       /**
        * @summary Creates an account-level custom scenario policy. You can execute a policy after you associate the policy with a website.
@@ -1453,6 +1487,23 @@ namespace ESA20240910
        * @return DeleteCompressionRuleResponse
        */
       Models::DeleteCompressionRuleResponse deleteCompressionRule(const Models::DeleteCompressionRuleRequest &request);
+
+      /**
+       * @summary 删除自定义主机名
+       *
+       * @param request DeleteCustomHostnameRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteCustomHostnameResponse
+       */
+      Models::DeleteCustomHostnameResponse deleteCustomHostnameWithOptions(const Models::DeleteCustomHostnameRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除自定义主机名
+       *
+       * @param request DeleteCustomHostnameRequest
+       * @return DeleteCustomHostnameResponse
+       */
+      Models::DeleteCustomHostnameResponse deleteCustomHostname(const Models::DeleteCustomHostnameRequest &request);
 
       /**
        * @summary Deletes a scenario-specific custom policy.
@@ -2890,6 +2941,23 @@ namespace ESA20240910
       Models::GetCrossBorderOptimizationResponse getCrossBorderOptimization(const Models::GetCrossBorderOptimizationRequest &request);
 
       /**
+       * @summary 查询单个自定义主机名的信息
+       *
+       * @param request GetCustomHostnameRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetCustomHostnameResponse
+       */
+      Models::GetCustomHostnameResponse getCustomHostnameWithOptions(const Models::GetCustomHostnameRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询单个自定义主机名的信息
+       *
+       * @param request GetCustomHostnameRequest
+       * @return GetCustomHostnameResponse
+       */
+      Models::GetCustomHostnameResponse getCustomHostname(const Models::GetCustomHostnameRequest &request);
+
+      /**
        * @summary Query Site Developer Mode Configuration
        *
        * @param request GetDevelopmentModeRequest
@@ -4273,6 +4341,23 @@ namespace ESA20240910
        * @return ListCompressionRulesResponse
        */
       Models::ListCompressionRulesResponse listCompressionRules(const Models::ListCompressionRulesRequest &request);
+
+      /**
+       * @summary 查询站点下的自定义主机名列表
+       *
+       * @param request ListCustomHostnamesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListCustomHostnamesResponse
+       */
+      Models::ListCustomHostnamesResponse listCustomHostnamesWithOptions(const Models::ListCustomHostnamesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询站点下的自定义主机名列表
+       *
+       * @param request ListCustomHostnamesRequest
+       * @return ListCustomHostnamesResponse
+       */
+      Models::ListCustomHostnamesResponse listCustomHostnames(const Models::ListCustomHostnamesRequest &request);
 
       /**
        * @summary Batch query whether the IP address is included in the ESA resolution result.
@@ -5958,6 +6043,23 @@ namespace ESA20240910
       Models::UpdateCrossBorderOptimizationResponse updateCrossBorderOptimization(const Models::UpdateCrossBorderOptimizationRequest &request);
 
       /**
+       * @summary 更新自定义主机名
+       *
+       * @param request UpdateCustomHostnameRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateCustomHostnameResponse
+       */
+      Models::UpdateCustomHostnameResponse updateCustomHostnameWithOptions(const Models::UpdateCustomHostnameRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新自定义主机名
+       *
+       * @param request UpdateCustomHostnameRequest
+       * @return UpdateCustomHostnameResponse
+       */
+      Models::UpdateCustomHostnameResponse updateCustomHostname(const Models::UpdateCustomHostnameRequest &request);
+
+      /**
        * @summary Modifies the configurations of a custom scenario-specific policy.
        *
        * @param request UpdateCustomScenePolicyRequest
@@ -6940,6 +7042,23 @@ namespace ESA20240910
        * @return UploadSiteOriginClientCertificateResponse
        */
       Models::UploadSiteOriginClientCertificateResponse uploadSiteOriginClientCertificate(const Models::UploadSiteOriginClientCertificateRequest &request);
+
+      /**
+       * @summary 验证自定义主机名
+       *
+       * @param request VerifyCustomHostnameRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return VerifyCustomHostnameResponse
+       */
+      Models::VerifyCustomHostnameResponse verifyCustomHostnameWithOptions(const Models::VerifyCustomHostnameRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 验证自定义主机名
+       *
+       * @param request VerifyCustomHostnameRequest
+       * @return VerifyCustomHostnameResponse
+       */
+      Models::VerifyCustomHostnameResponse verifyCustomHostname(const Models::VerifyCustomHostnameRequest &request);
 
       /**
        * @summary Verifies the ownership of a website domain. Websites that pass the verification are automatically activated.
