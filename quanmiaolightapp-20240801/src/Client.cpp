@@ -2730,6 +2730,10 @@ FutureGenerator<RunVideoAnalysisResponse> Client::runVideoAnalysisWithSSE(const 
     request.setVideoRolesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getVideoRoles(), "videoRoles", "json"));
   }
 
+  if (!!tmpReq.hasVideoUrls()) {
+    request.setVideoUrlsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getVideoUrls(), "videoUrls", "json"));
+  }
+
   json body = {};
   if (!!request.hasAddDocumentParamShrink()) {
     body["addDocumentParam"] = request.getAddDocumentParamShrink();
@@ -2821,6 +2825,10 @@ FutureGenerator<RunVideoAnalysisResponse> Client::runVideoAnalysisWithSSE(const 
 
   if (!!request.hasVideoUrl()) {
     body["videoUrl"] = request.getVideoUrl();
+  }
+
+  if (!!request.hasVideoUrlsShrink()) {
+    body["videoUrls"] = request.getVideoUrlsShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2893,6 +2901,10 @@ RunVideoAnalysisResponse Client::runVideoAnalysisWithOptions(const string &works
     request.setVideoRolesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getVideoRoles(), "videoRoles", "json"));
   }
 
+  if (!!tmpReq.hasVideoUrls()) {
+    request.setVideoUrlsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getVideoUrls(), "videoUrls", "json"));
+  }
+
   json body = {};
   if (!!request.hasAddDocumentParamShrink()) {
     body["addDocumentParam"] = request.getAddDocumentParamShrink();
@@ -2984,6 +2996,10 @@ RunVideoAnalysisResponse Client::runVideoAnalysisWithOptions(const string &works
 
   if (!!request.hasVideoUrl()) {
     body["videoUrl"] = request.getVideoUrl();
+  }
+
+  if (!!request.hasVideoUrlsShrink()) {
+    body["videoUrls"] = request.getVideoUrlsShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3531,6 +3547,10 @@ SubmitVideoAnalysisTaskResponse Client::submitVideoAnalysisTaskWithOptions(const
     request.setVideoRolesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getVideoRoles(), "videoRoles", "json"));
   }
 
+  if (!!tmpReq.hasVideoUrls()) {
+    request.setVideoUrlsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getVideoUrls(), "videoUrls", "json"));
+  }
+
   json body = {};
   if (!!request.hasAddDocumentParamShrink()) {
     body["addDocumentParam"] = request.getAddDocumentParamShrink();
@@ -3618,6 +3638,10 @@ SubmitVideoAnalysisTaskResponse Client::submitVideoAnalysisTaskWithOptions(const
 
   if (!!request.hasVideoUrl()) {
     body["videoUrl"] = request.getVideoUrl();
+  }
+
+  if (!!request.hasVideoUrlsShrink()) {
+    body["videoUrls"] = request.getVideoUrlsShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

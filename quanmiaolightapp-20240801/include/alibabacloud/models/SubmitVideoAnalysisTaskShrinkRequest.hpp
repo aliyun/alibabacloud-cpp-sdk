@@ -35,6 +35,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(videoRoles, videoRolesShrink_);
       DARABONBA_PTR_TO_JSON(videoShotFaceIdentityCount, videoShotFaceIdentityCount_);
       DARABONBA_PTR_TO_JSON(videoUrl, videoUrl_);
+      DARABONBA_PTR_TO_JSON(videoUrls, videoUrlsShrink_);
     };
     friend void from_json(const Darabonba::Json& j, SubmitVideoAnalysisTaskShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(addDocumentParam, addDocumentParamShrink_);
@@ -59,6 +60,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(videoRoles, videoRolesShrink_);
       DARABONBA_PTR_FROM_JSON(videoShotFaceIdentityCount, videoShotFaceIdentityCount_);
       DARABONBA_PTR_FROM_JSON(videoUrl, videoUrl_);
+      DARABONBA_PTR_FROM_JSON(videoUrls, videoUrlsShrink_);
     };
     SubmitVideoAnalysisTaskShrinkRequest() = default ;
     SubmitVideoAnalysisTaskShrinkRequest(const SubmitVideoAnalysisTaskShrinkRequest &) = default ;
@@ -76,7 +78,7 @@ namespace Models
         && this->generateOptionsShrink_ == nullptr && this->language_ == nullptr && this->modelCustomPromptTemplate_ == nullptr && this->modelCustomPromptTemplateId_ == nullptr && this->modelId_ == nullptr
         && this->snapshotInterval_ == nullptr && this->splitInterval_ == nullptr && this->splitType_ == nullptr && this->textProcessTasksShrink_ == nullptr && this->videoCaptionInfoShrink_ == nullptr
         && this->videoExtraInfo_ == nullptr && this->videoModelCustomPromptTemplate_ == nullptr && this->videoModelId_ == nullptr && this->videoRolesShrink_ == nullptr && this->videoShotFaceIdentityCount_ == nullptr
-        && this->videoUrl_ == nullptr; };
+        && this->videoUrl_ == nullptr && this->videoUrlsShrink_ == nullptr; };
     // addDocumentParamShrink Field Functions 
     bool hasAddDocumentParamShrink() const { return this->addDocumentParamShrink_ != nullptr;};
     void deleteAddDocumentParamShrink() { this->addDocumentParamShrink_ = nullptr;};
@@ -231,6 +233,13 @@ namespace Models
     inline SubmitVideoAnalysisTaskShrinkRequest& setVideoUrl(string videoUrl) { DARABONBA_PTR_SET_VALUE(videoUrl_, videoUrl) };
 
 
+    // videoUrlsShrink Field Functions 
+    bool hasVideoUrlsShrink() const { return this->videoUrlsShrink_ != nullptr;};
+    void deleteVideoUrlsShrink() { this->videoUrlsShrink_ = nullptr;};
+    inline string getVideoUrlsShrink() const { DARABONBA_PTR_GET_DEFAULT(videoUrlsShrink_, "") };
+    inline SubmitVideoAnalysisTaskShrinkRequest& setVideoUrlsShrink(string videoUrlsShrink) { DARABONBA_PTR_SET_VALUE(videoUrlsShrink_, videoUrlsShrink) };
+
+
   protected:
     shared_ptr<string> addDocumentParamShrink_ {};
     shared_ptr<string> autoRoleRecognitionVideoUrl_ {};
@@ -253,8 +262,8 @@ namespace Models
     shared_ptr<string> videoModelId_ {};
     shared_ptr<string> videoRolesShrink_ {};
     shared_ptr<int32_t> videoShotFaceIdentityCount_ {};
-    // This parameter is required.
     shared_ptr<string> videoUrl_ {};
+    shared_ptr<string> videoUrlsShrink_ {};
   };
 
   } // namespace Models

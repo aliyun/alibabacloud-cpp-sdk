@@ -37,6 +37,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(videoRoles, videoRoles_);
       DARABONBA_PTR_TO_JSON(videoShotFaceIdentityCount, videoShotFaceIdentityCount_);
       DARABONBA_PTR_TO_JSON(videoUrl, videoUrl_);
+      DARABONBA_PTR_TO_JSON(videoUrls, videoUrls_);
     };
     friend void from_json(const Darabonba::Json& j, RunVideoAnalysisRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(addDocumentParam, addDocumentParam_);
@@ -62,6 +63,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(videoRoles, videoRoles_);
       DARABONBA_PTR_FROM_JSON(videoShotFaceIdentityCount, videoShotFaceIdentityCount_);
       DARABONBA_PTR_FROM_JSON(videoUrl, videoUrl_);
+      DARABONBA_PTR_FROM_JSON(videoUrls, videoUrls_);
     };
     RunVideoAnalysisRequest() = default ;
     RunVideoAnalysisRequest(const RunVideoAnalysisRequest &) = default ;
@@ -503,7 +505,7 @@ namespace Models
         && this->language_ == nullptr && this->modelCustomPromptTemplate_ == nullptr && this->modelCustomPromptTemplateId_ == nullptr && this->modelId_ == nullptr && this->originalSessionId_ == nullptr
         && this->snapshotInterval_ == nullptr && this->splitInterval_ == nullptr && this->splitType_ == nullptr && this->taskId_ == nullptr && this->textProcessTasks_ == nullptr
         && this->videoCaptionInfo_ == nullptr && this->videoExtraInfo_ == nullptr && this->videoModelCustomPromptTemplate_ == nullptr && this->videoModelId_ == nullptr && this->videoRoles_ == nullptr
-        && this->videoShotFaceIdentityCount_ == nullptr && this->videoUrl_ == nullptr; };
+        && this->videoShotFaceIdentityCount_ == nullptr && this->videoUrl_ == nullptr && this->videoUrls_ == nullptr; };
     // addDocumentParam Field Functions 
     bool hasAddDocumentParam() const { return this->addDocumentParam_ != nullptr;};
     void deleteAddDocumentParam() { this->addDocumentParam_ = nullptr;};
@@ -679,6 +681,15 @@ namespace Models
     inline RunVideoAnalysisRequest& setVideoUrl(string videoUrl) { DARABONBA_PTR_SET_VALUE(videoUrl_, videoUrl) };
 
 
+    // videoUrls Field Functions 
+    bool hasVideoUrls() const { return this->videoUrls_ != nullptr;};
+    void deleteVideoUrls() { this->videoUrls_ = nullptr;};
+    inline const vector<string> & getVideoUrls() const { DARABONBA_PTR_GET_CONST(videoUrls_, vector<string>) };
+    inline vector<string> getVideoUrls() { DARABONBA_PTR_GET(videoUrls_, vector<string>) };
+    inline RunVideoAnalysisRequest& setVideoUrls(const vector<string> & videoUrls) { DARABONBA_PTR_SET_VALUE(videoUrls_, videoUrls) };
+    inline RunVideoAnalysisRequest& setVideoUrls(vector<string> && videoUrls) { DARABONBA_PTR_SET_RVALUE(videoUrls_, videoUrls) };
+
+
   protected:
     shared_ptr<RunVideoAnalysisRequest::AddDocumentParam> addDocumentParam_ {};
     shared_ptr<string> autoRoleRecognitionVideoUrl_ {};
@@ -703,6 +714,7 @@ namespace Models
     shared_ptr<vector<RunVideoAnalysisRequest::VideoRoles>> videoRoles_ {};
     shared_ptr<int32_t> videoShotFaceIdentityCount_ {};
     shared_ptr<string> videoUrl_ {};
+    shared_ptr<vector<string>> videoUrls_ {};
   };
 
   } // namespace Models
