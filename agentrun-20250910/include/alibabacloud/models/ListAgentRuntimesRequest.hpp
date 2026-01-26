@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListAgentRuntimesRequest& obj) { 
       DARABONBA_PTR_TO_JSON(agentRuntimeName, agentRuntimeName_);
+      DARABONBA_PTR_TO_JSON(discoveryResourceGroupId, discoveryResourceGroupId_);
       DARABONBA_PTR_TO_JSON(pageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(resourceGroupId, resourceGroupId_);
@@ -22,6 +23,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ListAgentRuntimesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(agentRuntimeName, agentRuntimeName_);
+      DARABONBA_PTR_FROM_JSON(discoveryResourceGroupId, discoveryResourceGroupId_);
       DARABONBA_PTR_FROM_JSON(pageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(resourceGroupId, resourceGroupId_);
@@ -40,12 +42,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentRuntimeName_ == nullptr
-        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->resourceGroupId_ == nullptr && this->searchMode_ == nullptr && this->status_ == nullptr; };
+        && this->discoveryResourceGroupId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->resourceGroupId_ == nullptr && this->searchMode_ == nullptr
+        && this->status_ == nullptr; };
     // agentRuntimeName Field Functions 
     bool hasAgentRuntimeName() const { return this->agentRuntimeName_ != nullptr;};
     void deleteAgentRuntimeName() { this->agentRuntimeName_ = nullptr;};
     inline string getAgentRuntimeName() const { DARABONBA_PTR_GET_DEFAULT(agentRuntimeName_, "") };
     inline ListAgentRuntimesRequest& setAgentRuntimeName(string agentRuntimeName) { DARABONBA_PTR_SET_VALUE(agentRuntimeName_, agentRuntimeName) };
+
+
+    // discoveryResourceGroupId Field Functions 
+    bool hasDiscoveryResourceGroupId() const { return this->discoveryResourceGroupId_ != nullptr;};
+    void deleteDiscoveryResourceGroupId() { this->discoveryResourceGroupId_ = nullptr;};
+    inline string getDiscoveryResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(discoveryResourceGroupId_, "") };
+    inline ListAgentRuntimesRequest& setDiscoveryResourceGroupId(string discoveryResourceGroupId) { DARABONBA_PTR_SET_VALUE(discoveryResourceGroupId_, discoveryResourceGroupId) };
 
 
     // pageNumber Field Functions 
@@ -86,6 +96,8 @@ namespace Models
   protected:
     // 根据智能体运行时名称进行模糊匹配过滤
     shared_ptr<string> agentRuntimeName_ {};
+    // 用于服务发现的资源组标识符
+    shared_ptr<string> discoveryResourceGroupId_ {};
     // 当前页码，从1开始计数
     shared_ptr<int32_t> pageNumber_ {};
     // 每页返回的记录数量

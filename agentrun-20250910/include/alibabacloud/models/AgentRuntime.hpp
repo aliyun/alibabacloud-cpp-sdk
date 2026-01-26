@@ -7,7 +7,9 @@
 #include <map>
 #include <alibabacloud/models/HealthCheckConfiguration.hpp>
 #include <alibabacloud/models/LogConfiguration.hpp>
+#include <alibabacloud/models/NASConfig.hpp>
 #include <alibabacloud/models/NetworkConfiguration.hpp>
+#include <alibabacloud/models/OSSMountConfig.hpp>
 #include <alibabacloud/models/ProtocolConfiguration.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -33,11 +35,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(description, description_);
       DARABONBA_PTR_TO_JSON(environmentVariables, environmentVariables_);
       DARABONBA_PTR_TO_JSON(executionRoleArn, executionRoleArn_);
+      DARABONBA_PTR_TO_JSON(externalAgentEndpointUrl, externalAgentEndpointUrl_);
       DARABONBA_PTR_TO_JSON(healthCheckConfiguration, healthCheckConfiguration_);
       DARABONBA_PTR_TO_JSON(lastUpdatedAt, lastUpdatedAt_);
       DARABONBA_PTR_TO_JSON(logConfiguration, logConfiguration_);
       DARABONBA_PTR_TO_JSON(memory, memory_);
+      DARABONBA_PTR_TO_JSON(nasConfig, nasConfig_);
       DARABONBA_PTR_TO_JSON(networkConfiguration, networkConfiguration_);
+      DARABONBA_PTR_TO_JSON(ossMountConfig, ossMountConfig_);
       DARABONBA_PTR_TO_JSON(port, port_);
       DARABONBA_PTR_TO_JSON(protocolConfiguration, protocolConfiguration_);
       DARABONBA_PTR_TO_JSON(resourceGroupId, resourceGroupId_);
@@ -60,11 +65,14 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(description, description_);
       DARABONBA_PTR_FROM_JSON(environmentVariables, environmentVariables_);
       DARABONBA_PTR_FROM_JSON(executionRoleArn, executionRoleArn_);
+      DARABONBA_PTR_FROM_JSON(externalAgentEndpointUrl, externalAgentEndpointUrl_);
       DARABONBA_PTR_FROM_JSON(healthCheckConfiguration, healthCheckConfiguration_);
       DARABONBA_PTR_FROM_JSON(lastUpdatedAt, lastUpdatedAt_);
       DARABONBA_PTR_FROM_JSON(logConfiguration, logConfiguration_);
       DARABONBA_PTR_FROM_JSON(memory, memory_);
+      DARABONBA_PTR_FROM_JSON(nasConfig, nasConfig_);
       DARABONBA_PTR_FROM_JSON(networkConfiguration, networkConfiguration_);
+      DARABONBA_PTR_FROM_JSON(ossMountConfig, ossMountConfig_);
       DARABONBA_PTR_FROM_JSON(port, port_);
       DARABONBA_PTR_FROM_JSON(protocolConfiguration, protocolConfiguration_);
       DARABONBA_PTR_FROM_JSON(resourceGroupId, resourceGroupId_);
@@ -87,9 +95,10 @@ namespace Models
     virtual bool empty() const override { return this->agentRuntimeArn_ == nullptr
         && this->agentRuntimeId_ == nullptr && this->agentRuntimeName_ == nullptr && this->agentRuntimeVersion_ == nullptr && this->artifactType_ == nullptr && this->codeConfiguration_ == nullptr
         && this->containerConfiguration_ == nullptr && this->cpu_ == nullptr && this->createdAt_ == nullptr && this->credentialName_ == nullptr && this->description_ == nullptr
-        && this->environmentVariables_ == nullptr && this->executionRoleArn_ == nullptr && this->healthCheckConfiguration_ == nullptr && this->lastUpdatedAt_ == nullptr && this->logConfiguration_ == nullptr
-        && this->memory_ == nullptr && this->networkConfiguration_ == nullptr && this->port_ == nullptr && this->protocolConfiguration_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->sessionConcurrencyLimitPerInstance_ == nullptr && this->sessionIdleTimeoutSeconds_ == nullptr && this->status_ == nullptr && this->statusReason_ == nullptr; };
+        && this->environmentVariables_ == nullptr && this->executionRoleArn_ == nullptr && this->externalAgentEndpointUrl_ == nullptr && this->healthCheckConfiguration_ == nullptr && this->lastUpdatedAt_ == nullptr
+        && this->logConfiguration_ == nullptr && this->memory_ == nullptr && this->nasConfig_ == nullptr && this->networkConfiguration_ == nullptr && this->ossMountConfig_ == nullptr
+        && this->port_ == nullptr && this->protocolConfiguration_ == nullptr && this->resourceGroupId_ == nullptr && this->sessionConcurrencyLimitPerInstance_ == nullptr && this->sessionIdleTimeoutSeconds_ == nullptr
+        && this->status_ == nullptr && this->statusReason_ == nullptr; };
     // agentRuntimeArn Field Functions 
     bool hasAgentRuntimeArn() const { return this->agentRuntimeArn_ != nullptr;};
     void deleteAgentRuntimeArn() { this->agentRuntimeArn_ = nullptr;};
@@ -187,6 +196,13 @@ namespace Models
     inline AgentRuntime& setExecutionRoleArn(string executionRoleArn) { DARABONBA_PTR_SET_VALUE(executionRoleArn_, executionRoleArn) };
 
 
+    // externalAgentEndpointUrl Field Functions 
+    bool hasExternalAgentEndpointUrl() const { return this->externalAgentEndpointUrl_ != nullptr;};
+    void deleteExternalAgentEndpointUrl() { this->externalAgentEndpointUrl_ = nullptr;};
+    inline string getExternalAgentEndpointUrl() const { DARABONBA_PTR_GET_DEFAULT(externalAgentEndpointUrl_, "") };
+    inline AgentRuntime& setExternalAgentEndpointUrl(string externalAgentEndpointUrl) { DARABONBA_PTR_SET_VALUE(externalAgentEndpointUrl_, externalAgentEndpointUrl) };
+
+
     // healthCheckConfiguration Field Functions 
     bool hasHealthCheckConfiguration() const { return this->healthCheckConfiguration_ != nullptr;};
     void deleteHealthCheckConfiguration() { this->healthCheckConfiguration_ = nullptr;};
@@ -219,6 +235,15 @@ namespace Models
     inline AgentRuntime& setMemory(int32_t memory) { DARABONBA_PTR_SET_VALUE(memory_, memory) };
 
 
+    // nasConfig Field Functions 
+    bool hasNasConfig() const { return this->nasConfig_ != nullptr;};
+    void deleteNasConfig() { this->nasConfig_ = nullptr;};
+    inline const NASConfig & getNasConfig() const { DARABONBA_PTR_GET_CONST(nasConfig_, NASConfig) };
+    inline NASConfig getNasConfig() { DARABONBA_PTR_GET(nasConfig_, NASConfig) };
+    inline AgentRuntime& setNasConfig(const NASConfig & nasConfig) { DARABONBA_PTR_SET_VALUE(nasConfig_, nasConfig) };
+    inline AgentRuntime& setNasConfig(NASConfig && nasConfig) { DARABONBA_PTR_SET_RVALUE(nasConfig_, nasConfig) };
+
+
     // networkConfiguration Field Functions 
     bool hasNetworkConfiguration() const { return this->networkConfiguration_ != nullptr;};
     void deleteNetworkConfiguration() { this->networkConfiguration_ = nullptr;};
@@ -226,6 +251,15 @@ namespace Models
     inline NetworkConfiguration getNetworkConfiguration() { DARABONBA_PTR_GET(networkConfiguration_, NetworkConfiguration) };
     inline AgentRuntime& setNetworkConfiguration(const NetworkConfiguration & networkConfiguration) { DARABONBA_PTR_SET_VALUE(networkConfiguration_, networkConfiguration) };
     inline AgentRuntime& setNetworkConfiguration(NetworkConfiguration && networkConfiguration) { DARABONBA_PTR_SET_RVALUE(networkConfiguration_, networkConfiguration) };
+
+
+    // ossMountConfig Field Functions 
+    bool hasOssMountConfig() const { return this->ossMountConfig_ != nullptr;};
+    void deleteOssMountConfig() { this->ossMountConfig_ = nullptr;};
+    inline const OSSMountConfig & getOssMountConfig() const { DARABONBA_PTR_GET_CONST(ossMountConfig_, OSSMountConfig) };
+    inline OSSMountConfig getOssMountConfig() { DARABONBA_PTR_GET(ossMountConfig_, OSSMountConfig) };
+    inline AgentRuntime& setOssMountConfig(const OSSMountConfig & ossMountConfig) { DARABONBA_PTR_SET_VALUE(ossMountConfig_, ossMountConfig) };
+    inline AgentRuntime& setOssMountConfig(OSSMountConfig && ossMountConfig) { DARABONBA_PTR_SET_RVALUE(ossMountConfig_, ossMountConfig) };
 
 
     // port Field Functions 
@@ -306,6 +340,8 @@ namespace Models
     shared_ptr<map<string, string>> environmentVariables_ {};
     // 为智能体运行时提供访问云服务权限的执行角色ARN
     shared_ptr<string> executionRoleArn_ {};
+    // 外部注册类型的智能体访问端点地址，用于连接已部署在外部的智能体服务
+    shared_ptr<string> externalAgentEndpointUrl_ {};
     // 智能体运行时的健康检查配置，用于监控运行时实例的健康状态
     shared_ptr<HealthCheckConfiguration> healthCheckConfiguration_ {};
     // 智能体运行时最后一次更新的时间，采用ISO 8601格式
@@ -314,8 +350,12 @@ namespace Models
     shared_ptr<LogConfiguration> logConfiguration_ {};
     // 智能体运行时分配的内存资源，单位为MB
     shared_ptr<int32_t> memory_ {};
+    // 文件存储NAS的配置信息，用于挂载NAS文件系统到智能体运行时
+    shared_ptr<NASConfig> nasConfig_ {};
     // 智能体运行时的网络配置信息
     shared_ptr<NetworkConfiguration> networkConfiguration_ {};
+    // 对象存储OSS的挂载配置信息，用于挂载OSS存储桶到智能体运行时
+    shared_ptr<OSSMountConfig> ossMountConfig_ {};
     // 智能体运行时监听的端口号
     shared_ptr<int32_t> port_ {};
     // 智能体运行时的通信协议配置

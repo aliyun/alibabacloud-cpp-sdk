@@ -6,7 +6,11 @@
 #include <alibabacloud/models/ContainerConfiguration.hpp>
 #include <alibabacloud/models/HealthCheckConfiguration.hpp>
 #include <alibabacloud/models/LogConfiguration.hpp>
+#include <alibabacloud/models/NASMountConfig.hpp>
+#include <alibabacloud/models/NASConfig.hpp>
 #include <alibabacloud/models/NetworkConfiguration.hpp>
+#include <alibabacloud/models/OSSMountPoint.hpp>
+#include <alibabacloud/models/OSSMountConfig.hpp>
 #include <alibabacloud/models/ProtocolSettings.hpp>
 #include <alibabacloud/models/ProtocolConfiguration.hpp>
 #include <alibabacloud/models/AgentRuntime.hpp>
@@ -84,10 +88,6 @@
 #include <alibabacloud/models/ModelInfoConfig.hpp>
 #include <alibabacloud/models/ProviderSettings.hpp>
 #include <alibabacloud/models/CreateModelServiceInput.hpp>
-#include <alibabacloud/models/NASMountConfig.hpp>
-#include <alibabacloud/models/NASConfig.hpp>
-#include <alibabacloud/models/OSSMountPoint.hpp>
-#include <alibabacloud/models/OSSMountConfig.hpp>
 #include <alibabacloud/models/CreateSandboxInput.hpp>
 #include <alibabacloud/models/CredentialConfiguration.hpp>
 #include <alibabacloud/models/OssConfiguration.hpp>

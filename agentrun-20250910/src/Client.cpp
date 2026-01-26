@@ -1678,6 +1678,10 @@ ListAgentRuntimesResponse Client::listAgentRuntimesWithOptions(const ListAgentRu
     query["agentRuntimeName"] = request.getAgentRuntimeName();
   }
 
+  if (!!request.hasDiscoveryResourceGroupId()) {
+    query["discoveryResourceGroupId"] = request.getDiscoveryResourceGroupId();
+  }
+
   if (!!request.hasPageNumber()) {
     query["pageNumber"] = request.getPageNumber();
   }
