@@ -5,6 +5,7 @@
 #include <alibabacloud/models/Hugepage.hpp>
 #include <alibabacloud/models/ContainerdConfig.hpp>
 #include <alibabacloud/models/KubeletConfig.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -18,12 +19,14 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ModifyNodePoolNodeConfigRequest& obj) { 
       DARABONBA_PTR_TO_JSON(containerd_config, containerdConfig_);
       DARABONBA_PTR_TO_JSON(kubelet_config, kubeletConfig_);
+      DARABONBA_PTR_TO_JSON(node_names, nodeNames_);
       DARABONBA_PTR_TO_JSON(os_config, osConfig_);
       DARABONBA_PTR_TO_JSON(rolling_policy, rollingPolicy_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyNodePoolNodeConfigRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(containerd_config, containerdConfig_);
       DARABONBA_PTR_FROM_JSON(kubelet_config, kubeletConfig_);
+      DARABONBA_PTR_FROM_JSON(node_names, nodeNames_);
       DARABONBA_PTR_FROM_JSON(os_config, osConfig_);
       DARABONBA_PTR_FROM_JSON(rolling_policy, rollingPolicy_);
     };
@@ -118,7 +121,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->containerdConfig_ == nullptr
-        && this->kubeletConfig_ == nullptr && this->osConfig_ == nullptr && this->rollingPolicy_ == nullptr; };
+        && this->kubeletConfig_ == nullptr && this->nodeNames_ == nullptr && this->osConfig_ == nullptr && this->rollingPolicy_ == nullptr; };
     // containerdConfig Field Functions 
     bool hasContainerdConfig() const { return this->containerdConfig_ != nullptr;};
     void deleteContainerdConfig() { this->containerdConfig_ = nullptr;};
@@ -135,6 +138,15 @@ namespace Models
     inline KubeletConfig getKubeletConfig() { DARABONBA_PTR_GET(kubeletConfig_, KubeletConfig) };
     inline ModifyNodePoolNodeConfigRequest& setKubeletConfig(const KubeletConfig & kubeletConfig) { DARABONBA_PTR_SET_VALUE(kubeletConfig_, kubeletConfig) };
     inline ModifyNodePoolNodeConfigRequest& setKubeletConfig(KubeletConfig && kubeletConfig) { DARABONBA_PTR_SET_RVALUE(kubeletConfig_, kubeletConfig) };
+
+
+    // nodeNames Field Functions 
+    bool hasNodeNames() const { return this->nodeNames_ != nullptr;};
+    void deleteNodeNames() { this->nodeNames_ = nullptr;};
+    inline const vector<string> & getNodeNames() const { DARABONBA_PTR_GET_CONST(nodeNames_, vector<string>) };
+    inline vector<string> getNodeNames() { DARABONBA_PTR_GET(nodeNames_, vector<string>) };
+    inline ModifyNodePoolNodeConfigRequest& setNodeNames(const vector<string> & nodeNames) { DARABONBA_PTR_SET_VALUE(nodeNames_, nodeNames) };
+    inline ModifyNodePoolNodeConfigRequest& setNodeNames(vector<string> && nodeNames) { DARABONBA_PTR_SET_RVALUE(nodeNames_, nodeNames) };
 
 
     // osConfig Field Functions 
@@ -160,6 +172,7 @@ namespace Models
     shared_ptr<ContainerdConfig> containerdConfig_ {};
     // The kubelet configurations.
     shared_ptr<KubeletConfig> kubeletConfig_ {};
+    shared_ptr<vector<string>> nodeNames_ {};
     // The OS configuration.
     shared_ptr<ModifyNodePoolNodeConfigRequest::OsConfig> osConfig_ {};
     // The rolling policy configuration.

@@ -5838,6 +5838,10 @@ ModifyNodePoolNodeConfigResponse Client::modifyNodePoolNodeConfigWithOptions(con
     body["kubelet_config"] = request.getKubeletConfig();
   }
 
+  if (!!request.hasNodeNames()) {
+    body["node_names"] = request.getNodeNames();
+  }
+
   if (!!request.hasOsConfig()) {
     body["os_config"] = request.getOsConfig();
   }
