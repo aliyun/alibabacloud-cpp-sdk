@@ -164,6 +164,23 @@ namespace Ebs20210730
       Models::ClearReplicaGroupDrillResponse clearReplicaGroupDrill(const Models::ClearReplicaGroupDrillRequest &request);
 
       /**
+       * @summary 中心化角色：创建App
+       *
+       * @param request CreateAppRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateAppResponse
+       */
+      Models::CreateAppResponse createAppWithOptions(const Models::CreateAppRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 中心化角色：创建App
+       *
+       * @param request CreateAppRequest
+       * @return CreateAppResponse
+       */
+      Models::CreateAppResponse createApp(const Models::CreateAppRequest &request);
+
+      /**
        * @summary Creates a dedicated block storage cluster. When you call this operation, you can specify parameters, such as Azone, Capacity, Type, and PeriodUnit, in the request.
        *
        * @description ## [](#)Usage notes
@@ -274,6 +291,23 @@ namespace Ebs20210730
        * @return CreateEnterpriseSnapshotPolicyResponse
        */
       Models::CreateEnterpriseSnapshotPolicyResponse createEnterpriseSnapshotPolicy(const Models::CreateEnterpriseSnapshotPolicyRequest &request);
+
+      /**
+       * @summary 中心化角色：删除App
+       *
+       * @param request DeleteAppRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteAppResponse
+       */
+      Models::DeleteAppResponse deleteAppWithOptions(const Models::DeleteAppRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 中心化角色：删除App
+       *
+       * @param request DeleteAppRequest
+       * @return DeleteAppResponse
+       */
+      Models::DeleteAppResponse deleteApp(const Models::DeleteAppRequest &request);
 
       /**
        * @summary Deletes a replication pair-consistent group.

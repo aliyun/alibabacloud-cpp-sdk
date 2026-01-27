@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->regionId_ == nullptr
-        && return this->replicaPairId_ == nullptr; };
+        && this->replicaPairId_ == nullptr; };
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeDiskReplicaPairProgressRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // replicaPairId Field Functions 
     bool hasReplicaPairId() const { return this->replicaPairId_ != nullptr;};
     void deleteReplicaPairId() { this->replicaPairId_ = nullptr;};
-    inline string replicaPairId() const { DARABONBA_PTR_GET_DEFAULT(replicaPairId_, "") };
+    inline string getReplicaPairId() const { DARABONBA_PTR_GET_DEFAULT(replicaPairId_, "") };
     inline DescribeDiskReplicaPairProgressRequest& setReplicaPairId(string replicaPairId) { DARABONBA_PTR_SET_VALUE(replicaPairId_, replicaPairId) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The region ID of the replication pair.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The ID of the replication pair. You can call the [DescribeDiskReplicaPairs](https://help.aliyun.com/document_detail/354206.html)operation to query the IDs of existing replication pairs.
     // 
     // This parameter is required.
-    std::shared_ptr<string> replicaPairId_ = nullptr;
+    shared_ptr<string> replicaPairId_ {};
   };
 
   } // namespace Models

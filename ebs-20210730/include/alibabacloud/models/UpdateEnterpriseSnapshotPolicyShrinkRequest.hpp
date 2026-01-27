@@ -50,115 +50,115 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && return this->crossRegionCopyInfoShrink_ == nullptr && return this->desc_ == nullptr && return this->name_ == nullptr && return this->policyId_ == nullptr && return this->regionId_ == nullptr
-        && return this->retainRuleShrink_ == nullptr && return this->scheduleShrink_ == nullptr && return this->specialRetainRulesShrink_ == nullptr && return this->state_ == nullptr && return this->storageRuleShrink_ == nullptr; };
+        && this->crossRegionCopyInfoShrink_ == nullptr && this->desc_ == nullptr && this->name_ == nullptr && this->policyId_ == nullptr && this->regionId_ == nullptr
+        && this->retainRuleShrink_ == nullptr && this->scheduleShrink_ == nullptr && this->specialRetainRulesShrink_ == nullptr && this->state_ == nullptr && this->storageRuleShrink_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline UpdateEnterpriseSnapshotPolicyShrinkRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // crossRegionCopyInfoShrink Field Functions 
     bool hasCrossRegionCopyInfoShrink() const { return this->crossRegionCopyInfoShrink_ != nullptr;};
     void deleteCrossRegionCopyInfoShrink() { this->crossRegionCopyInfoShrink_ = nullptr;};
-    inline string crossRegionCopyInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(crossRegionCopyInfoShrink_, "") };
+    inline string getCrossRegionCopyInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(crossRegionCopyInfoShrink_, "") };
     inline UpdateEnterpriseSnapshotPolicyShrinkRequest& setCrossRegionCopyInfoShrink(string crossRegionCopyInfoShrink) { DARABONBA_PTR_SET_VALUE(crossRegionCopyInfoShrink_, crossRegionCopyInfoShrink) };
 
 
     // desc Field Functions 
     bool hasDesc() const { return this->desc_ != nullptr;};
     void deleteDesc() { this->desc_ = nullptr;};
-    inline string desc() const { DARABONBA_PTR_GET_DEFAULT(desc_, "") };
+    inline string getDesc() const { DARABONBA_PTR_GET_DEFAULT(desc_, "") };
     inline UpdateEnterpriseSnapshotPolicyShrinkRequest& setDesc(string desc) { DARABONBA_PTR_SET_VALUE(desc_, desc) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline UpdateEnterpriseSnapshotPolicyShrinkRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // policyId Field Functions 
     bool hasPolicyId() const { return this->policyId_ != nullptr;};
     void deletePolicyId() { this->policyId_ = nullptr;};
-    inline string policyId() const { DARABONBA_PTR_GET_DEFAULT(policyId_, "") };
+    inline string getPolicyId() const { DARABONBA_PTR_GET_DEFAULT(policyId_, "") };
     inline UpdateEnterpriseSnapshotPolicyShrinkRequest& setPolicyId(string policyId) { DARABONBA_PTR_SET_VALUE(policyId_, policyId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline UpdateEnterpriseSnapshotPolicyShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // retainRuleShrink Field Functions 
     bool hasRetainRuleShrink() const { return this->retainRuleShrink_ != nullptr;};
     void deleteRetainRuleShrink() { this->retainRuleShrink_ = nullptr;};
-    inline string retainRuleShrink() const { DARABONBA_PTR_GET_DEFAULT(retainRuleShrink_, "") };
+    inline string getRetainRuleShrink() const { DARABONBA_PTR_GET_DEFAULT(retainRuleShrink_, "") };
     inline UpdateEnterpriseSnapshotPolicyShrinkRequest& setRetainRuleShrink(string retainRuleShrink) { DARABONBA_PTR_SET_VALUE(retainRuleShrink_, retainRuleShrink) };
 
 
     // scheduleShrink Field Functions 
     bool hasScheduleShrink() const { return this->scheduleShrink_ != nullptr;};
     void deleteScheduleShrink() { this->scheduleShrink_ = nullptr;};
-    inline string scheduleShrink() const { DARABONBA_PTR_GET_DEFAULT(scheduleShrink_, "") };
+    inline string getScheduleShrink() const { DARABONBA_PTR_GET_DEFAULT(scheduleShrink_, "") };
     inline UpdateEnterpriseSnapshotPolicyShrinkRequest& setScheduleShrink(string scheduleShrink) { DARABONBA_PTR_SET_VALUE(scheduleShrink_, scheduleShrink) };
 
 
     // specialRetainRulesShrink Field Functions 
     bool hasSpecialRetainRulesShrink() const { return this->specialRetainRulesShrink_ != nullptr;};
     void deleteSpecialRetainRulesShrink() { this->specialRetainRulesShrink_ = nullptr;};
-    inline string specialRetainRulesShrink() const { DARABONBA_PTR_GET_DEFAULT(specialRetainRulesShrink_, "") };
+    inline string getSpecialRetainRulesShrink() const { DARABONBA_PTR_GET_DEFAULT(specialRetainRulesShrink_, "") };
     inline UpdateEnterpriseSnapshotPolicyShrinkRequest& setSpecialRetainRulesShrink(string specialRetainRulesShrink) { DARABONBA_PTR_SET_VALUE(specialRetainRulesShrink_, specialRetainRulesShrink) };
 
 
     // state Field Functions 
     bool hasState() const { return this->state_ != nullptr;};
     void deleteState() { this->state_ = nullptr;};
-    inline string state() const { DARABONBA_PTR_GET_DEFAULT(state_, "") };
+    inline string getState() const { DARABONBA_PTR_GET_DEFAULT(state_, "") };
     inline UpdateEnterpriseSnapshotPolicyShrinkRequest& setState(string state) { DARABONBA_PTR_SET_VALUE(state_, state) };
 
 
     // storageRuleShrink Field Functions 
     bool hasStorageRuleShrink() const { return this->storageRuleShrink_ != nullptr;};
     void deleteStorageRuleShrink() { this->storageRuleShrink_ = nullptr;};
-    inline string storageRuleShrink() const { DARABONBA_PTR_GET_DEFAULT(storageRuleShrink_, "") };
+    inline string getStorageRuleShrink() const { DARABONBA_PTR_GET_DEFAULT(storageRuleShrink_, "") };
     inline UpdateEnterpriseSnapshotPolicyShrinkRequest& setStorageRuleShrink(string storageRuleShrink) { DARABONBA_PTR_SET_VALUE(storageRuleShrink_, storageRuleShrink) };
 
 
   protected:
     // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // Snapshot replication destination information.
-    std::shared_ptr<string> crossRegionCopyInfoShrink_ = nullptr;
+    shared_ptr<string> crossRegionCopyInfoShrink_ {};
     // The description of the policy.
-    std::shared_ptr<string> desc_ = nullptr;
+    shared_ptr<string> desc_ {};
     // The name of the policy.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The id of the policy.
     // 
     // This parameter is required.
-    std::shared_ptr<string> policyId_ = nullptr;
+    shared_ptr<string> policyId_ {};
     // The region ID . You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the most recent list of regions in which snapshot policy is supported.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // Snapshot retention rule.
-    std::shared_ptr<string> retainRuleShrink_ = nullptr;
+    shared_ptr<string> retainRuleShrink_ {};
     // The rule for scheduling.
-    std::shared_ptr<string> scheduleShrink_ = nullptr;
+    shared_ptr<string> scheduleShrink_ {};
     // The special snapshot retention rules.
-    std::shared_ptr<string> specialRetainRulesShrink_ = nullptr;
+    shared_ptr<string> specialRetainRulesShrink_ {};
     // The status of the policy. Valid values:
     // 
     // *   **ENABLED**: Enable snapshot policy execution.
     // *   **DISABLED**: Disable snapshot policy execution.
-    std::shared_ptr<string> state_ = nullptr;
+    shared_ptr<string> state_ {};
     // Advanced snapshot features.
-    std::shared_ptr<string> storageRuleShrink_ = nullptr;
+    shared_ptr<string> storageRuleShrink_ {};
   };
 
   } // namespace Models

@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->progress_ == nullptr
-        && return this->recoverPoint_ == nullptr && return this->requestId_ == nullptr; };
+        && this->recoverPoint_ == nullptr && this->requestId_ == nullptr; };
     // progress Field Functions 
     bool hasProgress() const { return this->progress_ != nullptr;};
     void deleteProgress() { this->progress_ = nullptr;};
-    inline int32_t progress() const { DARABONBA_PTR_GET_DEFAULT(progress_, 0) };
+    inline int32_t getProgress() const { DARABONBA_PTR_GET_DEFAULT(progress_, 0) };
     inline DescribeDiskReplicaPairProgressResponseBody& setProgress(int32_t progress) { DARABONBA_PTR_SET_VALUE(progress_, progress) };
 
 
     // recoverPoint Field Functions 
     bool hasRecoverPoint() const { return this->recoverPoint_ != nullptr;};
     void deleteRecoverPoint() { this->recoverPoint_ = nullptr;};
-    inline int64_t recoverPoint() const { DARABONBA_PTR_GET_DEFAULT(recoverPoint_, 0L) };
+    inline int64_t getRecoverPoint() const { DARABONBA_PTR_GET_DEFAULT(recoverPoint_, 0L) };
     inline DescribeDiskReplicaPairProgressResponseBody& setRecoverPoint(int64_t recoverPoint) { DARABONBA_PTR_SET_VALUE(recoverPoint_, recoverPoint) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeDiskReplicaPairProgressResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The replication progress of the replication pair.
-    std::shared_ptr<int32_t> progress_ = nullptr;
+    shared_ptr<int32_t> progress_ {};
     // The timestamp that indicates the last recovery point in time. The value is returned only after the replication pair works for replicating data.
-    std::shared_ptr<int64_t> recoverPoint_ = nullptr;
+    shared_ptr<int64_t> recoverPoint_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

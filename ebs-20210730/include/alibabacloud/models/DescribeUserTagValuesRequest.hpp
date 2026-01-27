@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->maxResults_ == nullptr
-        && return this->nextToken_ == nullptr && return this->regionId_ == nullptr && return this->tagFilterValue_ == nullptr && return this->tagKey_ == nullptr; };
+        && this->nextToken_ == nullptr && this->regionId_ == nullptr && this->tagFilterValue_ == nullptr && this->tagKey_ == nullptr; };
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline DescribeUserTagValuesRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline DescribeUserTagValuesRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeUserTagValuesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // tagFilterValue Field Functions 
     bool hasTagFilterValue() const { return this->tagFilterValue_ != nullptr;};
     void deleteTagFilterValue() { this->tagFilterValue_ = nullptr;};
-    inline string tagFilterValue() const { DARABONBA_PTR_GET_DEFAULT(tagFilterValue_, "") };
+    inline string getTagFilterValue() const { DARABONBA_PTR_GET_DEFAULT(tagFilterValue_, "") };
     inline DescribeUserTagValuesRequest& setTagFilterValue(string tagFilterValue) { DARABONBA_PTR_SET_VALUE(tagFilterValue_, tagFilterValue) };
 
 
     // tagKey Field Functions 
     bool hasTagKey() const { return this->tagKey_ != nullptr;};
     void deleteTagKey() { this->tagKey_ = nullptr;};
-    inline string tagKey() const { DARABONBA_PTR_GET_DEFAULT(tagKey_, "") };
+    inline string getTagKey() const { DARABONBA_PTR_GET_DEFAULT(tagKey_, "") };
     inline DescribeUserTagValuesRequest& setTagKey(string tagKey) { DARABONBA_PTR_SET_VALUE(tagKey_, tagKey) };
 
 
@@ -82,15 +82,15 @@ namespace Models
     // - If no value is set or the set value is less than 10, the default value is 10.
     // 
     // - If the set value is greater than 100, the default value is 100.
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
     // Query token (Token). The value should be the NextToken parameter value from the previous call to this interface. This parameter is not required for the initial call. If NextToken is set, the PageSize and PageNumber request parameters become invalid, and the TotalCount in the response data is also invalid.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The region ID of the consistency replication group.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // Tag content filter
-    std::shared_ptr<string> tagFilterValue_ = nullptr;
+    shared_ptr<string> tagFilterValue_ {};
     // Tag key.
-    std::shared_ptr<string> tagKey_ = nullptr;
+    shared_ptr<string> tagKey_ {};
   };
 
   } // namespace Models

@@ -37,19 +37,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && return this->diskTargets_ == nullptr && return this->policyId_ == nullptr && return this->regionId_ == nullptr; };
+        && this->diskTargets_ == nullptr && this->policyId_ == nullptr && this->regionId_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline BindEnterpriseSnapshotPolicyRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // diskTargets Field Functions 
     bool hasDiskTargets() const { return this->diskTargets_ != nullptr;};
     void deleteDiskTargets() { this->diskTargets_ = nullptr;};
-    inline const vector<string> & diskTargets() const { DARABONBA_PTR_GET_CONST(diskTargets_, vector<string>) };
-    inline vector<string> diskTargets() { DARABONBA_PTR_GET(diskTargets_, vector<string>) };
+    inline const vector<string> & getDiskTargets() const { DARABONBA_PTR_GET_CONST(diskTargets_, vector<string>) };
+    inline vector<string> getDiskTargets() { DARABONBA_PTR_GET(diskTargets_, vector<string>) };
     inline BindEnterpriseSnapshotPolicyRequest& setDiskTargets(const vector<string> & diskTargets) { DARABONBA_PTR_SET_VALUE(diskTargets_, diskTargets) };
     inline BindEnterpriseSnapshotPolicyRequest& setDiskTargets(vector<string> && diskTargets) { DARABONBA_PTR_SET_RVALUE(diskTargets_, diskTargets) };
 
@@ -57,30 +57,30 @@ namespace Models
     // policyId Field Functions 
     bool hasPolicyId() const { return this->policyId_ != nullptr;};
     void deletePolicyId() { this->policyId_ = nullptr;};
-    inline string policyId() const { DARABONBA_PTR_GET_DEFAULT(policyId_, "") };
+    inline string getPolicyId() const { DARABONBA_PTR_GET_DEFAULT(policyId_, "") };
     inline BindEnterpriseSnapshotPolicyRequest& setPolicyId(string policyId) { DARABONBA_PTR_SET_VALUE(policyId_, policyId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline BindEnterpriseSnapshotPolicyRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
     // The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // The list of disks.
-    std::shared_ptr<vector<string>> diskTargets_ = nullptr;
+    shared_ptr<vector<string>> diskTargets_ {};
     // The id of the policy.
     // 
     // This parameter is required.
-    std::shared_ptr<string> policyId_ = nullptr;
+    shared_ptr<string> policyId_ {};
     // The region ID . You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the most recent list of regions in which snapshot policy is supported.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

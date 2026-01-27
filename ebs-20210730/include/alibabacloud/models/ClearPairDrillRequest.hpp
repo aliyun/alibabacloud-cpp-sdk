@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->drillId_ == nullptr
-        && return this->pairId_ == nullptr && return this->regionId_ == nullptr; };
+        && this->pairId_ == nullptr && this->regionId_ == nullptr; };
     // drillId Field Functions 
     bool hasDrillId() const { return this->drillId_ != nullptr;};
     void deleteDrillId() { this->drillId_ = nullptr;};
-    inline string drillId() const { DARABONBA_PTR_GET_DEFAULT(drillId_, "") };
+    inline string getDrillId() const { DARABONBA_PTR_GET_DEFAULT(drillId_, "") };
     inline ClearPairDrillRequest& setDrillId(string drillId) { DARABONBA_PTR_SET_VALUE(drillId_, drillId) };
 
 
     // pairId Field Functions 
     bool hasPairId() const { return this->pairId_ != nullptr;};
     void deletePairId() { this->pairId_ = nullptr;};
-    inline string pairId() const { DARABONBA_PTR_GET_DEFAULT(pairId_, "") };
+    inline string getPairId() const { DARABONBA_PTR_GET_DEFAULT(pairId_, "") };
     inline ClearPairDrillRequest& setPairId(string pairId) { DARABONBA_PTR_SET_VALUE(pairId_, pairId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ClearPairDrillRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -60,15 +60,15 @@ namespace Models
     // The ID of the drill. You can call the [DescribePairDrills](https://help.aliyun.com/document_detail/2584480.html) operation to query the disaster recovery drills that were performed on replication pairs in a specific region.
     // 
     // This parameter is required.
-    std::shared_ptr<string> drillId_ = nullptr;
+    shared_ptr<string> drillId_ {};
     // The ID of the replication pair. You can call the [DescribeDiskReplicaPairs](https://help.aliyun.com/document_detail/354206.html) operation to query the most recent list of replication pairs, including replication pair IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<string> pairId_ = nullptr;
+    shared_ptr<string> pairId_ {};
     // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the most recent list of regions in which async replication is supported.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models
