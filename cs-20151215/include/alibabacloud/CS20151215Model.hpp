@@ -38,6 +38,9 @@
 #include <alibabacloud/models/CleanUserPermissionsShrinkRequest.hpp>
 #include <alibabacloud/models/CleanUserPermissionsResponseBody.hpp>
 #include <alibabacloud/models/CleanUserPermissionsResponse.hpp>
+#include <alibabacloud/models/CreateAutoRepairPolicyRequest.hpp>
+#include <alibabacloud/models/CreateAutoRepairPolicyResponseBody.hpp>
+#include <alibabacloud/models/CreateAutoRepairPolicyResponse.hpp>
 #include <alibabacloud/models/CreateAutoscalingConfigRequest.hpp>
 #include <alibabacloud/models/CreateAutoscalingConfigResponseBody.hpp>
 #include <alibabacloud/models/CreateAutoscalingConfigResponse.hpp>
@@ -68,6 +71,8 @@
 #include <alibabacloud/models/DeleteAlertContactGroupRequest.hpp>
 #include <alibabacloud/models/DeleteAlertContactGroupShrinkRequest.hpp>
 #include <alibabacloud/models/DeleteAlertContactGroupResponse.hpp>
+#include <alibabacloud/models/DeleteAutoRepairPolicyResponseBody.hpp>
+#include <alibabacloud/models/DeleteAutoRepairPolicyResponse.hpp>
 #include <alibabacloud/models/DeleteClusterRequest.hpp>
 #include <alibabacloud/models/DeleteClusterShrinkRequest.hpp>
 #include <alibabacloud/models/DeleteClusterResponseBody.hpp>
@@ -95,6 +100,8 @@
 #include <alibabacloud/models/DescribeAddonsRequest.hpp>
 #include <alibabacloud/models/DescribeAddonsResponseBody.hpp>
 #include <alibabacloud/models/DescribeAddonsResponse.hpp>
+#include <alibabacloud/models/DescribeAutoRepairPolicyResponseBody.hpp>
+#include <alibabacloud/models/DescribeAutoRepairPolicyResponse.hpp>
 #include <alibabacloud/models/DescribeClusterAddonInstanceResponseBody.hpp>
 #include <alibabacloud/models/DescribeClusterAddonInstanceResponse.hpp>
 #include <alibabacloud/models/DescribeClusterAddonMetadataRequest.hpp>
@@ -221,6 +228,8 @@
 #include <alibabacloud/models/ListAddonsRequest.hpp>
 #include <alibabacloud/models/ListAddonsResponseBody.hpp>
 #include <alibabacloud/models/ListAddonsResponse.hpp>
+#include <alibabacloud/models/ListAutoRepairPoliciesResponseBody.hpp>
+#include <alibabacloud/models/ListAutoRepairPoliciesResponse.hpp>
 #include <alibabacloud/models/ListClusterAddonInstanceResourcesResponseBody.hpp>
 #include <alibabacloud/models/ListClusterAddonInstanceResourcesResponse.hpp>
 #include <alibabacloud/models/ListClusterAddonInstancesResponseBody.hpp>
@@ -250,6 +259,9 @@
 #include <alibabacloud/models/MigrateClusterRequest.hpp>
 #include <alibabacloud/models/MigrateClusterResponseBody.hpp>
 #include <alibabacloud/models/MigrateClusterResponse.hpp>
+#include <alibabacloud/models/ModifyAutoRepairPolicyRequest.hpp>
+#include <alibabacloud/models/ModifyAutoRepairPolicyResponseBody.hpp>
+#include <alibabacloud/models/ModifyAutoRepairPolicyResponse.hpp>
 #include <alibabacloud/models/ModifyClusterRequest.hpp>
 #include <alibabacloud/models/ModifyClusterResponseBody.hpp>
 #include <alibabacloud/models/ModifyClusterResponse.hpp>

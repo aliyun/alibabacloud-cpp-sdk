@@ -217,6 +217,24 @@ namespace CS20151215
       Models::CleanUserPermissionsResponse cleanUserPermissions(const string &Uid, const Models::CleanUserPermissionsRequest &request);
 
       /**
+       * @summary 查询自愈规则
+       *
+       * @param request CreateAutoRepairPolicyRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateAutoRepairPolicyResponse
+       */
+      Models::CreateAutoRepairPolicyResponse createAutoRepairPolicyWithOptions(const string &clusterId, const Models::CreateAutoRepairPolicyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询自愈规则
+       *
+       * @param request CreateAutoRepairPolicyRequest
+       * @return CreateAutoRepairPolicyResponse
+       */
+      Models::CreateAutoRepairPolicyResponse createAutoRepairPolicy(const string &clusterId, const Models::CreateAutoRepairPolicyRequest &request);
+
+      /**
        * @summary Creates a scaling configuration to allow the system to scale resources based on the given scaling rules. When you create a scaling configuration, you can specify the scaling metrics, thresholds, scaling order, and scaling interval.
        *
        * @param request CreateAutoscalingConfigRequest
@@ -415,6 +433,22 @@ namespace CS20151215
        * @return DeleteAlertContactGroupResponse
        */
       Models::DeleteAlertContactGroupResponse deleteAlertContactGroup(const Models::DeleteAlertContactGroupRequest &request);
+
+      /**
+       * @summary 查询自愈规则
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteAutoRepairPolicyResponse
+       */
+      Models::DeleteAutoRepairPolicyResponse deleteAutoRepairPolicyWithOptions(const string &clusterId, const string &policyId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询自愈规则
+       *
+       * @return DeleteAutoRepairPolicyResponse
+       */
+      Models::DeleteAutoRepairPolicyResponse deleteAutoRepairPolicy(const string &clusterId, const string &policyId);
 
       /**
        * @summary You can call the DeleteCluster operation to delete a cluster and specify whether to delete or retain the relevant cluster resources. Before you delete a cluster, you must manually delete workloads in the cluster, such as Deployments, StatefulSets, Jobs, and CronJobs. Otherwise, you may fail to delete the cluster.
@@ -641,6 +675,22 @@ namespace CS20151215
        * @return DescribeAddonsResponse
        */
       Models::DescribeAddonsResponse describeAddons(const Models::DescribeAddonsRequest &request);
+
+      /**
+       * @summary 查询自愈规则
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAutoRepairPolicyResponse
+       */
+      Models::DescribeAutoRepairPolicyResponse describeAutoRepairPolicyWithOptions(const string &clusterId, const string &policyId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询自愈规则
+       *
+       * @return DescribeAutoRepairPolicyResponse
+       */
+      Models::DescribeAutoRepairPolicyResponse describeAutoRepairPolicy(const string &clusterId, const string &policyId);
 
       /**
        * @deprecated OpenAPI DescribeClusterAddonInstance is deprecated
@@ -1651,6 +1701,22 @@ namespace CS20151215
       Models::ListAddonsResponse listAddons(const Models::ListAddonsRequest &request);
 
       /**
+       * @summary 查询自愈规则
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAutoRepairPoliciesResponse
+       */
+      Models::ListAutoRepairPoliciesResponse listAutoRepairPoliciesWithOptions(const string &clusterId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询自愈规则
+       *
+       * @return ListAutoRepairPoliciesResponse
+       */
+      Models::ListAutoRepairPoliciesResponse listAutoRepairPolicies(const string &clusterId);
+
+      /**
        * @summary 获取集群组件实例的资源列表
        *
        * @param headers map
@@ -1835,6 +1901,24 @@ namespace CS20151215
        * @return MigrateClusterResponse
        */
       Models::MigrateClusterResponse migrateCluster(const string &clusterId, const Models::MigrateClusterRequest &request);
+
+      /**
+       * @summary 查询自愈规则
+       *
+       * @param request ModifyAutoRepairPolicyRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyAutoRepairPolicyResponse
+       */
+      Models::ModifyAutoRepairPolicyResponse modifyAutoRepairPolicyWithOptions(const string &clusterId, const string &policyId, const Models::ModifyAutoRepairPolicyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询自愈规则
+       *
+       * @param request ModifyAutoRepairPolicyRequest
+       * @return ModifyAutoRepairPolicyResponse
+       */
+      Models::ModifyAutoRepairPolicyResponse modifyAutoRepairPolicy(const string &clusterId, const string &policyId, const Models::ModifyAutoRepairPolicyRequest &request);
 
       /**
        * @summary You can call the ModifyCluster operation to modify the cluster configurations by cluster ID.

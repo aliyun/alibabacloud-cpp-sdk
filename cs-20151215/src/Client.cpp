@@ -570,6 +570,63 @@ CleanUserPermissionsResponse Client::cleanUserPermissions(const string &Uid, con
 }
 
 /**
+ * @summary 查询自愈规则
+ *
+ * @param request CreateAutoRepairPolicyRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateAutoRepairPolicyResponse
+ */
+CreateAutoRepairPolicyResponse Client::createAutoRepairPolicyWithOptions(const string &clusterId, const CreateAutoRepairPolicyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  if (!!request.hasResourceSubType()) {
+    body["resource_sub_type"] = request.getResourceSubType();
+  }
+
+  if (!!request.hasResourceType()) {
+    body["resource_type"] = request.getResourceType();
+  }
+
+  if (!!request.hasRules()) {
+    body["rules"] = request.getRules();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateAutoRepairPolicy"},
+    {"version" , "2015-12-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/clusters/" , Darabonba::Encode::Encoder::percentEncode(clusterId) , "/auto_repair_policies")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateAutoRepairPolicyResponse>();
+}
+
+/**
+ * @summary 查询自愈规则
+ *
+ * @param request CreateAutoRepairPolicyRequest
+ * @return CreateAutoRepairPolicyResponse
+ */
+CreateAutoRepairPolicyResponse Client::createAutoRepairPolicy(const string &clusterId, const CreateAutoRepairPolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createAutoRepairPolicyWithOptions(clusterId, request, headers, runtime);
+}
+
+/**
  * @summary Creates a scaling configuration to allow the system to scale resources based on the given scaling rules. When you create a scaling configuration, you can specify the scaling metrics, thresholds, scaling order, and scaling interval.
  *
  * @param request CreateAutoscalingConfigRequest
@@ -1632,6 +1689,42 @@ DeleteAlertContactGroupResponse Client::deleteAlertContactGroup(const DeleteAler
 }
 
 /**
+ * @summary 查询自愈规则
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteAutoRepairPolicyResponse
+ */
+DeleteAutoRepairPolicyResponse Client::deleteAutoRepairPolicyWithOptions(const string &clusterId, const string &policyId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteAutoRepairPolicy"},
+    {"version" , "2015-12-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/clusters/" , Darabonba::Encode::Encoder::percentEncode(clusterId) , "/auto_repair_policies/" , Darabonba::Encode::Encoder::percentEncode(policyId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteAutoRepairPolicyResponse>();
+}
+
+/**
+ * @summary 查询自愈规则
+ *
+ * @return DeleteAutoRepairPolicyResponse
+ */
+DeleteAutoRepairPolicyResponse Client::deleteAutoRepairPolicy(const string &clusterId, const string &policyId) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteAutoRepairPolicyWithOptions(clusterId, policyId, headers, runtime);
+}
+
+/**
  * @summary You can call the DeleteCluster operation to delete a cluster and specify whether to delete or retain the relevant cluster resources. Before you delete a cluster, you must manually delete workloads in the cluster, such as Deployments, StatefulSets, Jobs, and CronJobs. Otherwise, you may fail to delete the cluster.
  *
  * @description Warning:
@@ -2202,6 +2295,42 @@ DescribeAddonsResponse Client::describeAddons(const DescribeAddonsRequest &reque
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return describeAddonsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 查询自愈规则
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeAutoRepairPolicyResponse
+ */
+DescribeAutoRepairPolicyResponse Client::describeAutoRepairPolicyWithOptions(const string &clusterId, const string &policyId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeAutoRepairPolicy"},
+    {"version" , "2015-12-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/clusters/" , Darabonba::Encode::Encoder::percentEncode(clusterId) , "/auto_repair_policies/" , Darabonba::Encode::Encoder::percentEncode(policyId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeAutoRepairPolicyResponse>();
+}
+
+/**
+ * @summary 查询自愈规则
+ *
+ * @return DescribeAutoRepairPolicyResponse
+ */
+DescribeAutoRepairPolicyResponse Client::describeAutoRepairPolicy(const string &clusterId, const string &policyId) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return describeAutoRepairPolicyWithOptions(clusterId, policyId, headers, runtime);
 }
 
 /**
@@ -4815,6 +4944,42 @@ ListAddonsResponse Client::listAddons(const ListAddonsRequest &request) {
 }
 
 /**
+ * @summary 查询自愈规则
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAutoRepairPoliciesResponse
+ */
+ListAutoRepairPoliciesResponse Client::listAutoRepairPoliciesWithOptions(const string &clusterId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAutoRepairPolicies"},
+    {"version" , "2015-12-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/clusters/" , Darabonba::Encode::Encoder::percentEncode(clusterId) , "/auto_repair_policies")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAutoRepairPoliciesResponse>();
+}
+
+/**
+ * @summary 查询自愈规则
+ *
+ * @return ListAutoRepairPoliciesResponse
+ */
+ListAutoRepairPoliciesResponse Client::listAutoRepairPolicies(const string &clusterId) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listAutoRepairPoliciesWithOptions(clusterId, headers, runtime);
+}
+
+/**
  * @summary 获取集群组件实例的资源列表
  *
  * @param headers map
@@ -5316,6 +5481,55 @@ MigrateClusterResponse Client::migrateCluster(const string &clusterId, const Mig
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return migrateClusterWithOptions(clusterId, request, headers, runtime);
+}
+
+/**
+ * @summary 查询自愈规则
+ *
+ * @param request ModifyAutoRepairPolicyRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyAutoRepairPolicyResponse
+ */
+ModifyAutoRepairPolicyResponse Client::modifyAutoRepairPolicyWithOptions(const string &clusterId, const string &policyId, const ModifyAutoRepairPolicyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  if (!!request.hasRules()) {
+    body["rules"] = request.getRules();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ModifyAutoRepairPolicy"},
+    {"version" , "2015-12-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/clusters/" , Darabonba::Encode::Encoder::percentEncode(clusterId) , "/auto_repair_policies/" , Darabonba::Encode::Encoder::percentEncode(policyId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyAutoRepairPolicyResponse>();
+}
+
+/**
+ * @summary 查询自愈规则
+ *
+ * @param request ModifyAutoRepairPolicyRequest
+ * @return ModifyAutoRepairPolicyResponse
+ */
+ModifyAutoRepairPolicyResponse Client::modifyAutoRepairPolicy(const string &clusterId, const string &policyId, const ModifyAutoRepairPolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modifyAutoRepairPolicyWithOptions(clusterId, policyId, request, headers, runtime);
 }
 
 /**
