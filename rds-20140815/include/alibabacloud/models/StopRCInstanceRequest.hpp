@@ -16,13 +16,11 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ForceStop, forceStop_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
-      DARABONBA_PTR_TO_JSON(StoppedMode, stoppedMode_);
     };
     friend void from_json(const Darabonba::Json& j, StopRCInstanceRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ForceStop, forceStop_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
-      DARABONBA_PTR_FROM_JSON(StoppedMode, stoppedMode_);
     };
     StopRCInstanceRequest() = default ;
     StopRCInstanceRequest(const StopRCInstanceRequest &) = default ;
@@ -36,7 +34,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->forceStop_ == nullptr
-        && this->instanceId_ == nullptr && this->regionId_ == nullptr && this->stoppedMode_ == nullptr; };
+        && this->instanceId_ == nullptr && this->regionId_ == nullptr; };
     // forceStop Field Functions 
     bool hasForceStop() const { return this->forceStop_ != nullptr;};
     void deleteForceStop() { this->forceStop_ = nullptr;};
@@ -58,13 +56,6 @@ namespace Models
     inline StopRCInstanceRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
-    // stoppedMode Field Functions 
-    bool hasStoppedMode() const { return this->stoppedMode_ != nullptr;};
-    void deleteStoppedMode() { this->stoppedMode_ = nullptr;};
-    inline string getStoppedMode() const { DARABONBA_PTR_GET_DEFAULT(stoppedMode_, "") };
-    inline StopRCInstanceRequest& setStoppedMode(string stoppedMode) { DARABONBA_PTR_SET_VALUE(stoppedMode_, stoppedMode) };
-
-
   protected:
     // Specifies whether to forcefully stop the instance. Valid values:
     // 
@@ -77,7 +68,6 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    shared_ptr<string> stoppedMode_ {};
   };
 
   } // namespace Models

@@ -15,7 +15,6 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DescribeRCSnapshotsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(DiskId, diskId_);
-      DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
@@ -24,7 +23,6 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, DescribeRCSnapshotsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DiskId, diskId_);
-      DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -85,20 +83,12 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->diskId_ == nullptr
-        && this->instanceId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->snapshotIds_ == nullptr
-        && this->tag_ == nullptr; };
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->snapshotIds_ == nullptr && this->tag_ == nullptr; };
     // diskId Field Functions 
     bool hasDiskId() const { return this->diskId_ != nullptr;};
     void deleteDiskId() { this->diskId_ = nullptr;};
     inline string getDiskId() const { DARABONBA_PTR_GET_DEFAULT(diskId_, "") };
     inline DescribeRCSnapshotsRequest& setDiskId(string diskId) { DARABONBA_PTR_SET_VALUE(diskId_, diskId) };
-
-
-    // instanceId Field Functions 
-    bool hasInstanceId() const { return this->instanceId_ != nullptr;};
-    void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
-    inline DescribeRCSnapshotsRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // pageNumber Field Functions 
@@ -141,12 +131,13 @@ namespace Models
   protected:
     // The cloud disk ID.
     shared_ptr<string> diskId_ {};
-    shared_ptr<string> instanceId_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page. Valid values: **30** to **100**. Default value: **30**.
     shared_ptr<int64_t> pageSize_ {};
     // The region ID. You can call the DescribeRegions operation to query the most recent region list.
+    // 
+    // This parameter is required.
     shared_ptr<string> regionId_ {};
     // The snapshot IDs.
     // 

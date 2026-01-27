@@ -47,7 +47,6 @@ namespace Models
         DARABONBA_PTR_TO_JSON(DbType, dbType_);
         DARABONBA_PTR_TO_JSON(DeploymentSetId, deploymentSetId_);
         DARABONBA_PTR_TO_JSON(Description, description_);
-        DARABONBA_PTR_TO_JSON(EcsHostName, ecsHostName_);
         DARABONBA_PTR_TO_JSON(ExpiredTime, expiredTime_);
         DARABONBA_PTR_TO_JSON(GmtCreated, gmtCreated_);
         DARABONBA_PTR_TO_JSON(HostIp, hostIp_);
@@ -60,15 +59,11 @@ namespace Models
         DARABONBA_PTR_TO_JSON(InstanceTypeFamily, instanceTypeFamily_);
         DARABONBA_PTR_TO_JSON(Memory, memory_);
         DARABONBA_PTR_TO_JSON(NodeType, nodeType_);
-        DARABONBA_PTR_TO_JSON(OSName, OSName_);
-        DARABONBA_PTR_TO_JSON(OSType, OSType_);
         DARABONBA_PTR_TO_JSON(PublicIp, publicIp_);
         DARABONBA_PTR_TO_JSON(RegionId, regionId_);
         DARABONBA_PTR_TO_JSON(SecurityGroupId, securityGroupId_);
         DARABONBA_PTR_TO_JSON(SpotStrategy, spotStrategy_);
-        DARABONBA_PTR_TO_JSON(StartTime, startTime_);
         DARABONBA_PTR_TO_JSON(Status, status_);
-        DARABONBA_PTR_TO_JSON(StoppedMode, stoppedMode_);
         DARABONBA_PTR_TO_JSON(TagResources, tagResources_);
         DARABONBA_PTR_TO_JSON(Tags, tags_);
         DARABONBA_PTR_TO_JSON(VpcAttributes, vpcAttributes_);
@@ -82,7 +77,6 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(DbType, dbType_);
         DARABONBA_PTR_FROM_JSON(DeploymentSetId, deploymentSetId_);
         DARABONBA_PTR_FROM_JSON(Description, description_);
-        DARABONBA_PTR_FROM_JSON(EcsHostName, ecsHostName_);
         DARABONBA_PTR_FROM_JSON(ExpiredTime, expiredTime_);
         DARABONBA_PTR_FROM_JSON(GmtCreated, gmtCreated_);
         DARABONBA_PTR_FROM_JSON(HostIp, hostIp_);
@@ -95,15 +89,11 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(InstanceTypeFamily, instanceTypeFamily_);
         DARABONBA_PTR_FROM_JSON(Memory, memory_);
         DARABONBA_PTR_FROM_JSON(NodeType, nodeType_);
-        DARABONBA_PTR_FROM_JSON(OSName, OSName_);
-        DARABONBA_PTR_FROM_JSON(OSType, OSType_);
         DARABONBA_PTR_FROM_JSON(PublicIp, publicIp_);
         DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
         DARABONBA_PTR_FROM_JSON(SecurityGroupId, securityGroupId_);
         DARABONBA_PTR_FROM_JSON(SpotStrategy, spotStrategy_);
-        DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
-        DARABONBA_PTR_FROM_JSON(StoppedMode, stoppedMode_);
         DARABONBA_PTR_FROM_JSON(TagResources, tagResources_);
         DARABONBA_PTR_FROM_JSON(Tags, tags_);
         DARABONBA_PTR_FROM_JSON(VpcAttributes, vpcAttributes_);
@@ -311,11 +301,10 @@ namespace Models
 
       virtual bool empty() const override { return this->clusterName_ == nullptr
         && this->cpu_ == nullptr && this->createMode_ == nullptr && this->dbType_ == nullptr && this->deploymentSetId_ == nullptr && this->description_ == nullptr
-        && this->ecsHostName_ == nullptr && this->expiredTime_ == nullptr && this->gmtCreated_ == nullptr && this->hostIp_ == nullptr && this->hostName_ == nullptr
-        && this->imageId_ == nullptr && this->instanceChargeType_ == nullptr && this->instanceId_ == nullptr && this->instanceName_ == nullptr && this->instanceType_ == nullptr
-        && this->instanceTypeFamily_ == nullptr && this->memory_ == nullptr && this->nodeType_ == nullptr && this->OSName_ == nullptr && this->OSType_ == nullptr
-        && this->publicIp_ == nullptr && this->regionId_ == nullptr && this->securityGroupId_ == nullptr && this->spotStrategy_ == nullptr && this->startTime_ == nullptr
-        && this->status_ == nullptr && this->stoppedMode_ == nullptr && this->tagResources_ == nullptr && this->tags_ == nullptr && this->vpcAttributes_ == nullptr
+        && this->expiredTime_ == nullptr && this->gmtCreated_ == nullptr && this->hostIp_ == nullptr && this->hostName_ == nullptr && this->imageId_ == nullptr
+        && this->instanceChargeType_ == nullptr && this->instanceId_ == nullptr && this->instanceName_ == nullptr && this->instanceType_ == nullptr && this->instanceTypeFamily_ == nullptr
+        && this->memory_ == nullptr && this->nodeType_ == nullptr && this->publicIp_ == nullptr && this->regionId_ == nullptr && this->securityGroupId_ == nullptr
+        && this->spotStrategy_ == nullptr && this->status_ == nullptr && this->tagResources_ == nullptr && this->tags_ == nullptr && this->vpcAttributes_ == nullptr
         && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
       // clusterName Field Functions 
       bool hasClusterName() const { return this->clusterName_ != nullptr;};
@@ -357,13 +346,6 @@ namespace Models
       void deleteDescription() { this->description_ = nullptr;};
       inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
       inline RCInstances& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
-
-
-      // ecsHostName Field Functions 
-      bool hasEcsHostName() const { return this->ecsHostName_ != nullptr;};
-      void deleteEcsHostName() { this->ecsHostName_ = nullptr;};
-      inline string getEcsHostName() const { DARABONBA_PTR_GET_DEFAULT(ecsHostName_, "") };
-      inline RCInstances& setEcsHostName(string ecsHostName) { DARABONBA_PTR_SET_VALUE(ecsHostName_, ecsHostName) };
 
 
       // expiredTime Field Functions 
@@ -450,20 +432,6 @@ namespace Models
       inline RCInstances& setNodeType(string nodeType) { DARABONBA_PTR_SET_VALUE(nodeType_, nodeType) };
 
 
-      // OSName Field Functions 
-      bool hasOSName() const { return this->OSName_ != nullptr;};
-      void deleteOSName() { this->OSName_ = nullptr;};
-      inline string getOSName() const { DARABONBA_PTR_GET_DEFAULT(OSName_, "") };
-      inline RCInstances& setOSName(string OSName) { DARABONBA_PTR_SET_VALUE(OSName_, OSName) };
-
-
-      // OSType Field Functions 
-      bool hasOSType() const { return this->OSType_ != nullptr;};
-      void deleteOSType() { this->OSType_ = nullptr;};
-      inline string getOSType() const { DARABONBA_PTR_GET_DEFAULT(OSType_, "") };
-      inline RCInstances& setOSType(string OSType) { DARABONBA_PTR_SET_VALUE(OSType_, OSType) };
-
-
       // publicIp Field Functions 
       bool hasPublicIp() const { return this->publicIp_ != nullptr;};
       void deletePublicIp() { this->publicIp_ = nullptr;};
@@ -492,25 +460,11 @@ namespace Models
       inline RCInstances& setSpotStrategy(string spotStrategy) { DARABONBA_PTR_SET_VALUE(spotStrategy_, spotStrategy) };
 
 
-      // startTime Field Functions 
-      bool hasStartTime() const { return this->startTime_ != nullptr;};
-      void deleteStartTime() { this->startTime_ = nullptr;};
-      inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
-      inline RCInstances& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
-
-
       // status Field Functions 
       bool hasStatus() const { return this->status_ != nullptr;};
       void deleteStatus() { this->status_ = nullptr;};
       inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
       inline RCInstances& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
-
-
-      // stoppedMode Field Functions 
-      bool hasStoppedMode() const { return this->stoppedMode_ != nullptr;};
-      void deleteStoppedMode() { this->stoppedMode_ = nullptr;};
-      inline string getStoppedMode() const { DARABONBA_PTR_GET_DEFAULT(stoppedMode_, "") };
-      inline RCInstances& setStoppedMode(string stoppedMode) { DARABONBA_PTR_SET_VALUE(stoppedMode_, stoppedMode) };
 
 
       // tagResources Field Functions 
@@ -564,7 +518,6 @@ namespace Models
       shared_ptr<string> deploymentSetId_ {};
       // The instance description.
       shared_ptr<string> description_ {};
-      shared_ptr<string> ecsHostName_ {};
       shared_ptr<string> expiredTime_ {};
       // The time when the task was created. The time is displayed in GMT.
       shared_ptr<string> gmtCreated_ {};
@@ -581,14 +534,11 @@ namespace Models
       shared_ptr<string> instanceTypeFamily_ {};
       shared_ptr<int32_t> memory_ {};
       shared_ptr<string> nodeType_ {};
-      shared_ptr<string> OSName_ {};
-      shared_ptr<string> OSType_ {};
       shared_ptr<string> publicIp_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
       shared_ptr<string> securityGroupId_ {};
       shared_ptr<string> spotStrategy_ {};
-      shared_ptr<string> startTime_ {};
       // The instance status. Valid values:
       // 
       // *   **Pending**
@@ -599,7 +549,6 @@ namespace Models
       // 
       // >  If the value returned for the DescribeRCInstances operation is different from the value that is returned for the **DescribeRCInstanceAttribute** operation, the value returned for the **DescribeRCInstanceAttribute** operation shall prevail.
       shared_ptr<string> status_ {};
-      shared_ptr<string> stoppedMode_ {};
       shared_ptr<vector<RCInstances::TagResources>> tagResources_ {};
       shared_ptr<vector<RCInstances::Tags>> tags_ {};
       shared_ptr<RCInstances::VpcAttributes> vpcAttributes_ {};

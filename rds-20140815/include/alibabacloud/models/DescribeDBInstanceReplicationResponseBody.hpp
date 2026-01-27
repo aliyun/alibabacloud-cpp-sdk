@@ -15,7 +15,6 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DescribeDBInstanceReplicationResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(ExternalReplication, externalReplication_);
       DARABONBA_PTR_TO_JSON(GtidExecuted, gtidExecuted_);
-      DARABONBA_PTR_TO_JSON(ImportStatus, importStatus_);
       DARABONBA_PTR_TO_JSON(ReplicationDelay, replicationDelay_);
       DARABONBA_PTR_TO_JSON(ReplicationErrorMessage, replicationErrorMessage_);
       DARABONBA_PTR_TO_JSON(ReplicationIp, replicationIp_);
@@ -27,7 +26,6 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, DescribeDBInstanceReplicationResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(ExternalReplication, externalReplication_);
       DARABONBA_PTR_FROM_JSON(GtidExecuted, gtidExecuted_);
-      DARABONBA_PTR_FROM_JSON(ImportStatus, importStatus_);
       DARABONBA_PTR_FROM_JSON(ReplicationDelay, replicationDelay_);
       DARABONBA_PTR_FROM_JSON(ReplicationErrorMessage, replicationErrorMessage_);
       DARABONBA_PTR_FROM_JSON(ReplicationIp, replicationIp_);
@@ -48,8 +46,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->externalReplication_ == nullptr
-        && this->gtidExecuted_ == nullptr && this->importStatus_ == nullptr && this->replicationDelay_ == nullptr && this->replicationErrorMessage_ == nullptr && this->replicationIp_ == nullptr
-        && this->replicationPort_ == nullptr && this->replicationSource_ == nullptr && this->replicationState_ == nullptr && this->requestId_ == nullptr; };
+        && this->gtidExecuted_ == nullptr && this->replicationDelay_ == nullptr && this->replicationErrorMessage_ == nullptr && this->replicationIp_ == nullptr && this->replicationPort_ == nullptr
+        && this->replicationSource_ == nullptr && this->replicationState_ == nullptr && this->requestId_ == nullptr; };
     // externalReplication Field Functions 
     bool hasExternalReplication() const { return this->externalReplication_ != nullptr;};
     void deleteExternalReplication() { this->externalReplication_ = nullptr;};
@@ -62,13 +60,6 @@ namespace Models
     void deleteGtidExecuted() { this->gtidExecuted_ = nullptr;};
     inline string getGtidExecuted() const { DARABONBA_PTR_GET_DEFAULT(gtidExecuted_, "") };
     inline DescribeDBInstanceReplicationResponseBody& setGtidExecuted(string gtidExecuted) { DARABONBA_PTR_SET_VALUE(gtidExecuted_, gtidExecuted) };
-
-
-    // importStatus Field Functions 
-    bool hasImportStatus() const { return this->importStatus_ != nullptr;};
-    void deleteImportStatus() { this->importStatus_ = nullptr;};
-    inline string getImportStatus() const { DARABONBA_PTR_GET_DEFAULT(importStatus_, "") };
-    inline DescribeDBInstanceReplicationResponseBody& setImportStatus(string importStatus) { DARABONBA_PTR_SET_VALUE(importStatus_, importStatus) };
 
 
     // replicationDelay Field Functions 
@@ -127,7 +118,6 @@ namespace Models
     // *   **OFF**
     shared_ptr<string> externalReplication_ {};
     shared_ptr<string> gtidExecuted_ {};
-    shared_ptr<string> importStatus_ {};
     // The replication latency. Unit: seconds.
     shared_ptr<string> replicationDelay_ {};
     // The replication error message.

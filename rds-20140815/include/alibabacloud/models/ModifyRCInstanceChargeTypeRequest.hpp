@@ -199,6 +199,8 @@ namespace Models
     // The new billing method of the instance. Valid values:
     // * **Prepaid**: subscription.
     // * **Postpaid**: pay-as-you-go.
+    // 
+    // This parameter is required.
     shared_ptr<string> payType_ {};
     // The renewal cycle of the instance. Valid values:
     // * **Year**

@@ -42,7 +42,6 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Disks& obj) { 
         DARABONBA_PTR_TO_JSON(AttachedTime, attachedTime_);
-        DARABONBA_PTR_TO_JSON(BurstingEnabled, burstingEnabled_);
         DARABONBA_PTR_TO_JSON(Category, category_);
         DARABONBA_PTR_TO_JSON(CreationTime, creationTime_);
         DARABONBA_PTR_TO_JSON(DeleteAutoSnapshot, deleteAutoSnapshot_);
@@ -58,7 +57,6 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ImageId, imageId_);
         DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_TO_JSON(PerformanceLevel, performanceLevel_);
-        DARABONBA_PTR_TO_JSON(Portable, portable_);
         DARABONBA_PTR_TO_JSON(RegionId, regionId_);
         DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
         DARABONBA_PTR_TO_JSON(SerialNumber, serialNumber_);
@@ -73,7 +71,6 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, Disks& obj) { 
         DARABONBA_PTR_FROM_JSON(AttachedTime, attachedTime_);
-        DARABONBA_PTR_FROM_JSON(BurstingEnabled, burstingEnabled_);
         DARABONBA_PTR_FROM_JSON(Category, category_);
         DARABONBA_PTR_FROM_JSON(CreationTime, creationTime_);
         DARABONBA_PTR_FROM_JSON(DeleteAutoSnapshot, deleteAutoSnapshot_);
@@ -89,7 +86,6 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ImageId, imageId_);
         DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_FROM_JSON(PerformanceLevel, performanceLevel_);
-        DARABONBA_PTR_FROM_JSON(Portable, portable_);
         DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
         DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
         DARABONBA_PTR_FROM_JSON(SerialNumber, serialNumber_);
@@ -158,24 +154,17 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->attachedTime_ == nullptr
-        && this->burstingEnabled_ == nullptr && this->category_ == nullptr && this->creationTime_ == nullptr && this->deleteAutoSnapshot_ == nullptr && this->deleteWithInstance_ == nullptr
-        && this->description_ == nullptr && this->device_ == nullptr && this->diskChargeType_ == nullptr && this->diskId_ == nullptr && this->diskName_ == nullptr
-        && this->encrypted_ == nullptr && this->expiredTime_ == nullptr && this->IOPS_ == nullptr && this->imageId_ == nullptr && this->instanceId_ == nullptr
-        && this->performanceLevel_ == nullptr && this->portable_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->serialNumber_ == nullptr
-        && this->size_ == nullptr && this->sourceSnapshotId_ == nullptr && this->status_ == nullptr && this->storageClusterId_ == nullptr && this->storageSetId_ == nullptr
-        && this->tag_ == nullptr && this->type_ == nullptr && this->zoneId_ == nullptr; };
+        && this->category_ == nullptr && this->creationTime_ == nullptr && this->deleteAutoSnapshot_ == nullptr && this->deleteWithInstance_ == nullptr && this->description_ == nullptr
+        && this->device_ == nullptr && this->diskChargeType_ == nullptr && this->diskId_ == nullptr && this->diskName_ == nullptr && this->encrypted_ == nullptr
+        && this->expiredTime_ == nullptr && this->IOPS_ == nullptr && this->imageId_ == nullptr && this->instanceId_ == nullptr && this->performanceLevel_ == nullptr
+        && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->serialNumber_ == nullptr && this->size_ == nullptr && this->sourceSnapshotId_ == nullptr
+        && this->status_ == nullptr && this->storageClusterId_ == nullptr && this->storageSetId_ == nullptr && this->tag_ == nullptr && this->type_ == nullptr
+        && this->zoneId_ == nullptr; };
       // attachedTime Field Functions 
       bool hasAttachedTime() const { return this->attachedTime_ != nullptr;};
       void deleteAttachedTime() { this->attachedTime_ = nullptr;};
       inline string getAttachedTime() const { DARABONBA_PTR_GET_DEFAULT(attachedTime_, "") };
       inline Disks& setAttachedTime(string attachedTime) { DARABONBA_PTR_SET_VALUE(attachedTime_, attachedTime) };
-
-
-      // burstingEnabled Field Functions 
-      bool hasBurstingEnabled() const { return this->burstingEnabled_ != nullptr;};
-      void deleteBurstingEnabled() { this->burstingEnabled_ = nullptr;};
-      inline bool getBurstingEnabled() const { DARABONBA_PTR_GET_DEFAULT(burstingEnabled_, false) };
-      inline Disks& setBurstingEnabled(bool burstingEnabled) { DARABONBA_PTR_SET_VALUE(burstingEnabled_, burstingEnabled) };
 
 
       // category Field Functions 
@@ -283,13 +272,6 @@ namespace Models
       inline Disks& setPerformanceLevel(string performanceLevel) { DARABONBA_PTR_SET_VALUE(performanceLevel_, performanceLevel) };
 
 
-      // portable Field Functions 
-      bool hasPortable() const { return this->portable_ != nullptr;};
-      void deletePortable() { this->portable_ = nullptr;};
-      inline bool getPortable() const { DARABONBA_PTR_GET_DEFAULT(portable_, false) };
-      inline Disks& setPortable(bool portable) { DARABONBA_PTR_SET_VALUE(portable_, portable) };
-
-
       // regionId Field Functions 
       bool hasRegionId() const { return this->regionId_ != nullptr;};
       void deleteRegionId() { this->regionId_ = nullptr;};
@@ -371,7 +353,6 @@ namespace Models
 
     protected:
       shared_ptr<string> attachedTime_ {};
-      shared_ptr<bool> burstingEnabled_ {};
       // The category of the disk. Valid values:
       // 
       // *   **cloud_efficiency**: ultra disk.
@@ -425,7 +406,6 @@ namespace Models
       // *   PL2: A single ESSD can deliver up to 100,000 random read/write IOPS.
       // *   PL3: A single ESSD can deliver up to 1,000,000 random read/write IOPS.
       shared_ptr<string> performanceLevel_ {};
-      shared_ptr<bool> portable_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
       // The ID of the resource group to which the disk belongs.
