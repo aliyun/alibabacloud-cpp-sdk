@@ -23,12 +23,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(Endpoints, endpointsShrink_);
+      DARABONBA_PTR_TO_JSON(MemApplicationSpec, memApplicationSpecShrink_);
       DARABONBA_PTR_TO_JSON(PayType, payType_);
       DARABONBA_PTR_TO_JSON(Period, period_);
       DARABONBA_PTR_TO_JSON(PolarFSInstanceId, polarFSInstanceId_);
       DARABONBA_PTR_TO_JSON(PromotionCode, promotionCode_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
+      DARABONBA_PTR_TO_JSON(SecurityGroupId, securityGroupId_);
       DARABONBA_PTR_TO_JSON(UsedTime, usedTime_);
       DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
       DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
@@ -45,12 +47,14 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(Endpoints, endpointsShrink_);
+      DARABONBA_PTR_FROM_JSON(MemApplicationSpec, memApplicationSpecShrink_);
       DARABONBA_PTR_FROM_JSON(PayType, payType_);
       DARABONBA_PTR_FROM_JSON(Period, period_);
       DARABONBA_PTR_FROM_JSON(PolarFSInstanceId, polarFSInstanceId_);
       DARABONBA_PTR_FROM_JSON(PromotionCode, promotionCode_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
+      DARABONBA_PTR_FROM_JSON(SecurityGroupId, securityGroupId_);
       DARABONBA_PTR_FROM_JSON(UsedTime, usedTime_);
       DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
       DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
@@ -69,9 +73,10 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->applicationType_ == nullptr
         && this->architecture_ == nullptr && this->autoCreatePolarFs_ == nullptr && this->autoRenew_ == nullptr && this->autoUseCoupon_ == nullptr && this->componentsShrink_ == nullptr
-        && this->DBClusterId_ == nullptr && this->description_ == nullptr && this->dryRun_ == nullptr && this->endpointsShrink_ == nullptr && this->payType_ == nullptr
-        && this->period_ == nullptr && this->polarFSInstanceId_ == nullptr && this->promotionCode_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->usedTime_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->DBClusterId_ == nullptr && this->description_ == nullptr && this->dryRun_ == nullptr && this->endpointsShrink_ == nullptr && this->memApplicationSpecShrink_ == nullptr
+        && this->payType_ == nullptr && this->period_ == nullptr && this->polarFSInstanceId_ == nullptr && this->promotionCode_ == nullptr && this->regionId_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->securityGroupId_ == nullptr && this->usedTime_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr
+        && this->zoneId_ == nullptr; };
     // applicationType Field Functions 
     bool hasApplicationType() const { return this->applicationType_ != nullptr;};
     void deleteApplicationType() { this->applicationType_ = nullptr;};
@@ -142,6 +147,13 @@ namespace Models
     inline CreateApplicationShrinkRequest& setEndpointsShrink(string endpointsShrink) { DARABONBA_PTR_SET_VALUE(endpointsShrink_, endpointsShrink) };
 
 
+    // memApplicationSpecShrink Field Functions 
+    bool hasMemApplicationSpecShrink() const { return this->memApplicationSpecShrink_ != nullptr;};
+    void deleteMemApplicationSpecShrink() { this->memApplicationSpecShrink_ = nullptr;};
+    inline string getMemApplicationSpecShrink() const { DARABONBA_PTR_GET_DEFAULT(memApplicationSpecShrink_, "") };
+    inline CreateApplicationShrinkRequest& setMemApplicationSpecShrink(string memApplicationSpecShrink) { DARABONBA_PTR_SET_VALUE(memApplicationSpecShrink_, memApplicationSpecShrink) };
+
+
     // payType Field Functions 
     bool hasPayType() const { return this->payType_ != nullptr;};
     void deletePayType() { this->payType_ = nullptr;};
@@ -182,6 +194,13 @@ namespace Models
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
     inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline CreateApplicationShrinkRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
+
+
+    // securityGroupId Field Functions 
+    bool hasSecurityGroupId() const { return this->securityGroupId_ != nullptr;};
+    void deleteSecurityGroupId() { this->securityGroupId_ = nullptr;};
+    inline string getSecurityGroupId() const { DARABONBA_PTR_GET_DEFAULT(securityGroupId_, "") };
+    inline CreateApplicationShrinkRequest& setSecurityGroupId(string securityGroupId) { DARABONBA_PTR_SET_VALUE(securityGroupId_, securityGroupId) };
 
 
     // usedTime Field Functions 
@@ -225,12 +244,14 @@ namespace Models
     shared_ptr<string> description_ {};
     shared_ptr<bool> dryRun_ {};
     shared_ptr<string> endpointsShrink_ {};
+    shared_ptr<string> memApplicationSpecShrink_ {};
     shared_ptr<string> payType_ {};
     shared_ptr<string> period_ {};
     shared_ptr<string> polarFSInstanceId_ {};
     shared_ptr<string> promotionCode_ {};
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceGroupId_ {};
+    shared_ptr<string> securityGroupId_ {};
     shared_ptr<string> usedTime_ {};
     shared_ptr<string> vSwitchId_ {};
     shared_ptr<string> vpcId_ {};

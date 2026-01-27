@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DescribeApplicationsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ApplicationIds, applicationIds_);
+      DARABONBA_PTR_TO_JSON(ApplicationTypes, applicationTypes_);
       DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
@@ -21,6 +22,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, DescribeApplicationsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ApplicationIds, applicationIds_);
+      DARABONBA_PTR_FROM_JSON(ApplicationTypes, applicationTypes_);
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
@@ -38,12 +40,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->applicationIds_ == nullptr
-        && this->DBClusterId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr; };
+        && this->applicationTypes_ == nullptr && this->DBClusterId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr; };
     // applicationIds Field Functions 
     bool hasApplicationIds() const { return this->applicationIds_ != nullptr;};
     void deleteApplicationIds() { this->applicationIds_ = nullptr;};
     inline string getApplicationIds() const { DARABONBA_PTR_GET_DEFAULT(applicationIds_, "") };
     inline DescribeApplicationsRequest& setApplicationIds(string applicationIds) { DARABONBA_PTR_SET_VALUE(applicationIds_, applicationIds) };
+
+
+    // applicationTypes Field Functions 
+    bool hasApplicationTypes() const { return this->applicationTypes_ != nullptr;};
+    void deleteApplicationTypes() { this->applicationTypes_ = nullptr;};
+    inline string getApplicationTypes() const { DARABONBA_PTR_GET_DEFAULT(applicationTypes_, "") };
+    inline DescribeApplicationsRequest& setApplicationTypes(string applicationTypes) { DARABONBA_PTR_SET_VALUE(applicationTypes_, applicationTypes) };
 
 
     // DBClusterId Field Functions 
@@ -76,6 +85,7 @@ namespace Models
 
   protected:
     shared_ptr<string> applicationIds_ {};
+    shared_ptr<string> applicationTypes_ {};
     shared_ptr<string> DBClusterId_ {};
     shared_ptr<int32_t> pageNumber_ {};
     shared_ptr<int32_t> pageSize_ {};

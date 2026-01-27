@@ -24,12 +24,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(Endpoints, endpoints_);
+      DARABONBA_PTR_TO_JSON(MemApplicationSpec, memApplicationSpec_);
       DARABONBA_PTR_TO_JSON(PayType, payType_);
       DARABONBA_PTR_TO_JSON(Period, period_);
       DARABONBA_PTR_TO_JSON(PolarFSInstanceId, polarFSInstanceId_);
       DARABONBA_PTR_TO_JSON(PromotionCode, promotionCode_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
+      DARABONBA_PTR_TO_JSON(SecurityGroupId, securityGroupId_);
       DARABONBA_PTR_TO_JSON(UsedTime, usedTime_);
       DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
       DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
@@ -46,12 +48,14 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(Endpoints, endpoints_);
+      DARABONBA_PTR_FROM_JSON(MemApplicationSpec, memApplicationSpec_);
       DARABONBA_PTR_FROM_JSON(PayType, payType_);
       DARABONBA_PTR_FROM_JSON(Period, period_);
       DARABONBA_PTR_FROM_JSON(PolarFSInstanceId, polarFSInstanceId_);
       DARABONBA_PTR_FROM_JSON(PromotionCode, promotionCode_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
+      DARABONBA_PTR_FROM_JSON(SecurityGroupId, securityGroupId_);
       DARABONBA_PTR_FROM_JSON(UsedTime, usedTime_);
       DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
       DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
@@ -68,6 +72,99 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class MemApplicationSpec : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const MemApplicationSpec& obj) { 
+        DARABONBA_PTR_TO_JSON(DbName, dbName_);
+        DARABONBA_PTR_TO_JSON(DbPassword, dbPassword_);
+        DARABONBA_PTR_TO_JSON(DbUser, dbUser_);
+        DARABONBA_PTR_TO_JSON(EmbedderModel, embedderModel_);
+        DARABONBA_PTR_TO_JSON(LlmModel, llmModel_);
+        DARABONBA_PTR_TO_JSON(ProjectName, projectName_);
+        DARABONBA_PTR_TO_JSON(RerankerModel, rerankerModel_);
+      };
+      friend void from_json(const Darabonba::Json& j, MemApplicationSpec& obj) { 
+        DARABONBA_PTR_FROM_JSON(DbName, dbName_);
+        DARABONBA_PTR_FROM_JSON(DbPassword, dbPassword_);
+        DARABONBA_PTR_FROM_JSON(DbUser, dbUser_);
+        DARABONBA_PTR_FROM_JSON(EmbedderModel, embedderModel_);
+        DARABONBA_PTR_FROM_JSON(LlmModel, llmModel_);
+        DARABONBA_PTR_FROM_JSON(ProjectName, projectName_);
+        DARABONBA_PTR_FROM_JSON(RerankerModel, rerankerModel_);
+      };
+      MemApplicationSpec() = default ;
+      MemApplicationSpec(const MemApplicationSpec &) = default ;
+      MemApplicationSpec(MemApplicationSpec &&) = default ;
+      MemApplicationSpec(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~MemApplicationSpec() = default ;
+      MemApplicationSpec& operator=(const MemApplicationSpec &) = default ;
+      MemApplicationSpec& operator=(MemApplicationSpec &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->dbName_ == nullptr
+        && this->dbPassword_ == nullptr && this->dbUser_ == nullptr && this->embedderModel_ == nullptr && this->llmModel_ == nullptr && this->projectName_ == nullptr
+        && this->rerankerModel_ == nullptr; };
+      // dbName Field Functions 
+      bool hasDbName() const { return this->dbName_ != nullptr;};
+      void deleteDbName() { this->dbName_ = nullptr;};
+      inline string getDbName() const { DARABONBA_PTR_GET_DEFAULT(dbName_, "") };
+      inline MemApplicationSpec& setDbName(string dbName) { DARABONBA_PTR_SET_VALUE(dbName_, dbName) };
+
+
+      // dbPassword Field Functions 
+      bool hasDbPassword() const { return this->dbPassword_ != nullptr;};
+      void deleteDbPassword() { this->dbPassword_ = nullptr;};
+      inline string getDbPassword() const { DARABONBA_PTR_GET_DEFAULT(dbPassword_, "") };
+      inline MemApplicationSpec& setDbPassword(string dbPassword) { DARABONBA_PTR_SET_VALUE(dbPassword_, dbPassword) };
+
+
+      // dbUser Field Functions 
+      bool hasDbUser() const { return this->dbUser_ != nullptr;};
+      void deleteDbUser() { this->dbUser_ = nullptr;};
+      inline string getDbUser() const { DARABONBA_PTR_GET_DEFAULT(dbUser_, "") };
+      inline MemApplicationSpec& setDbUser(string dbUser) { DARABONBA_PTR_SET_VALUE(dbUser_, dbUser) };
+
+
+      // embedderModel Field Functions 
+      bool hasEmbedderModel() const { return this->embedderModel_ != nullptr;};
+      void deleteEmbedderModel() { this->embedderModel_ = nullptr;};
+      inline string getEmbedderModel() const { DARABONBA_PTR_GET_DEFAULT(embedderModel_, "") };
+      inline MemApplicationSpec& setEmbedderModel(string embedderModel) { DARABONBA_PTR_SET_VALUE(embedderModel_, embedderModel) };
+
+
+      // llmModel Field Functions 
+      bool hasLlmModel() const { return this->llmModel_ != nullptr;};
+      void deleteLlmModel() { this->llmModel_ = nullptr;};
+      inline string getLlmModel() const { DARABONBA_PTR_GET_DEFAULT(llmModel_, "") };
+      inline MemApplicationSpec& setLlmModel(string llmModel) { DARABONBA_PTR_SET_VALUE(llmModel_, llmModel) };
+
+
+      // projectName Field Functions 
+      bool hasProjectName() const { return this->projectName_ != nullptr;};
+      void deleteProjectName() { this->projectName_ = nullptr;};
+      inline string getProjectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
+      inline MemApplicationSpec& setProjectName(string projectName) { DARABONBA_PTR_SET_VALUE(projectName_, projectName) };
+
+
+      // rerankerModel Field Functions 
+      bool hasRerankerModel() const { return this->rerankerModel_ != nullptr;};
+      void deleteRerankerModel() { this->rerankerModel_ = nullptr;};
+      inline string getRerankerModel() const { DARABONBA_PTR_GET_DEFAULT(rerankerModel_, "") };
+      inline MemApplicationSpec& setRerankerModel(string rerankerModel) { DARABONBA_PTR_SET_VALUE(rerankerModel_, rerankerModel) };
+
+
+    protected:
+      shared_ptr<string> dbName_ {};
+      shared_ptr<string> dbPassword_ {};
+      shared_ptr<string> dbUser_ {};
+      shared_ptr<string> embedderModel_ {};
+      shared_ptr<string> llmModel_ {};
+      shared_ptr<string> projectName_ {};
+      shared_ptr<string> rerankerModel_ {};
+    };
+
     class Endpoints : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Endpoints& obj) { 
@@ -235,9 +332,10 @@ namespace Models
 
     virtual bool empty() const override { return this->applicationType_ == nullptr
         && this->architecture_ == nullptr && this->autoCreatePolarFs_ == nullptr && this->autoRenew_ == nullptr && this->autoUseCoupon_ == nullptr && this->components_ == nullptr
-        && this->DBClusterId_ == nullptr && this->description_ == nullptr && this->dryRun_ == nullptr && this->endpoints_ == nullptr && this->payType_ == nullptr
-        && this->period_ == nullptr && this->polarFSInstanceId_ == nullptr && this->promotionCode_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->usedTime_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->DBClusterId_ == nullptr && this->description_ == nullptr && this->dryRun_ == nullptr && this->endpoints_ == nullptr && this->memApplicationSpec_ == nullptr
+        && this->payType_ == nullptr && this->period_ == nullptr && this->polarFSInstanceId_ == nullptr && this->promotionCode_ == nullptr && this->regionId_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->securityGroupId_ == nullptr && this->usedTime_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr
+        && this->zoneId_ == nullptr; };
     // applicationType Field Functions 
     bool hasApplicationType() const { return this->applicationType_ != nullptr;};
     void deleteApplicationType() { this->applicationType_ = nullptr;};
@@ -312,6 +410,15 @@ namespace Models
     inline CreateApplicationRequest& setEndpoints(vector<CreateApplicationRequest::Endpoints> && endpoints) { DARABONBA_PTR_SET_RVALUE(endpoints_, endpoints) };
 
 
+    // memApplicationSpec Field Functions 
+    bool hasMemApplicationSpec() const { return this->memApplicationSpec_ != nullptr;};
+    void deleteMemApplicationSpec() { this->memApplicationSpec_ = nullptr;};
+    inline const CreateApplicationRequest::MemApplicationSpec & getMemApplicationSpec() const { DARABONBA_PTR_GET_CONST(memApplicationSpec_, CreateApplicationRequest::MemApplicationSpec) };
+    inline CreateApplicationRequest::MemApplicationSpec getMemApplicationSpec() { DARABONBA_PTR_GET(memApplicationSpec_, CreateApplicationRequest::MemApplicationSpec) };
+    inline CreateApplicationRequest& setMemApplicationSpec(const CreateApplicationRequest::MemApplicationSpec & memApplicationSpec) { DARABONBA_PTR_SET_VALUE(memApplicationSpec_, memApplicationSpec) };
+    inline CreateApplicationRequest& setMemApplicationSpec(CreateApplicationRequest::MemApplicationSpec && memApplicationSpec) { DARABONBA_PTR_SET_RVALUE(memApplicationSpec_, memApplicationSpec) };
+
+
     // payType Field Functions 
     bool hasPayType() const { return this->payType_ != nullptr;};
     void deletePayType() { this->payType_ = nullptr;};
@@ -352,6 +459,13 @@ namespace Models
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
     inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline CreateApplicationRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
+
+
+    // securityGroupId Field Functions 
+    bool hasSecurityGroupId() const { return this->securityGroupId_ != nullptr;};
+    void deleteSecurityGroupId() { this->securityGroupId_ = nullptr;};
+    inline string getSecurityGroupId() const { DARABONBA_PTR_GET_DEFAULT(securityGroupId_, "") };
+    inline CreateApplicationRequest& setSecurityGroupId(string securityGroupId) { DARABONBA_PTR_SET_VALUE(securityGroupId_, securityGroupId) };
 
 
     // usedTime Field Functions 
@@ -395,12 +509,14 @@ namespace Models
     shared_ptr<string> description_ {};
     shared_ptr<bool> dryRun_ {};
     shared_ptr<vector<CreateApplicationRequest::Endpoints>> endpoints_ {};
+    shared_ptr<CreateApplicationRequest::MemApplicationSpec> memApplicationSpec_ {};
     shared_ptr<string> payType_ {};
     shared_ptr<string> period_ {};
     shared_ptr<string> polarFSInstanceId_ {};
     shared_ptr<string> promotionCode_ {};
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceGroupId_ {};
+    shared_ptr<string> securityGroupId_ {};
     shared_ptr<string> usedTime_ {};
     shared_ptr<string> vSwitchId_ {};
     shared_ptr<string> vpcId_ {};

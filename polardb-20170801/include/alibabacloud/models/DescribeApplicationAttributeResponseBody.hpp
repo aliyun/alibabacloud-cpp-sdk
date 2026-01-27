@@ -27,6 +27,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(LockMode, lockMode_);
       DARABONBA_PTR_TO_JSON(MaintainEndTime, maintainEndTime_);
       DARABONBA_PTR_TO_JSON(MaintainStartTime, maintainStartTime_);
+      DARABONBA_PTR_TO_JSON(MemApplicationAttribute, memApplicationAttribute_);
       DARABONBA_PTR_TO_JSON(PayType, payType_);
       DARABONBA_PTR_TO_JSON(PolarFSInstanceId, polarFSInstanceId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
@@ -55,6 +56,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(LockMode, lockMode_);
       DARABONBA_PTR_FROM_JSON(MaintainEndTime, maintainEndTime_);
       DARABONBA_PTR_FROM_JSON(MaintainStartTime, maintainStartTime_);
+      DARABONBA_PTR_FROM_JSON(MemApplicationAttribute, memApplicationAttribute_);
       DARABONBA_PTR_FROM_JSON(PayType, payType_);
       DARABONBA_PTR_FROM_JSON(PolarFSInstanceId, polarFSInstanceId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -212,6 +214,88 @@ namespace Models
       shared_ptr<string> regionId_ {};
       shared_ptr<string> securityGroupId_ {};
       shared_ptr<string> securityGroupName_ {};
+    };
+
+    class MemApplicationAttribute : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const MemApplicationAttribute& obj) { 
+        DARABONBA_PTR_TO_JSON(DbName, dbName_);
+        DARABONBA_PTR_TO_JSON(EmbedderModelName, embedderModelName_);
+        DARABONBA_PTR_TO_JSON(LlmModelName, llmModelName_);
+        DARABONBA_PTR_TO_JSON(ProjectName, projectName_);
+        DARABONBA_PTR_TO_JSON(RerankerModelName, rerankerModelName_);
+        DARABONBA_PTR_TO_JSON(UserName, userName_);
+      };
+      friend void from_json(const Darabonba::Json& j, MemApplicationAttribute& obj) { 
+        DARABONBA_PTR_FROM_JSON(DbName, dbName_);
+        DARABONBA_PTR_FROM_JSON(EmbedderModelName, embedderModelName_);
+        DARABONBA_PTR_FROM_JSON(LlmModelName, llmModelName_);
+        DARABONBA_PTR_FROM_JSON(ProjectName, projectName_);
+        DARABONBA_PTR_FROM_JSON(RerankerModelName, rerankerModelName_);
+        DARABONBA_PTR_FROM_JSON(UserName, userName_);
+      };
+      MemApplicationAttribute() = default ;
+      MemApplicationAttribute(const MemApplicationAttribute &) = default ;
+      MemApplicationAttribute(MemApplicationAttribute &&) = default ;
+      MemApplicationAttribute(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~MemApplicationAttribute() = default ;
+      MemApplicationAttribute& operator=(const MemApplicationAttribute &) = default ;
+      MemApplicationAttribute& operator=(MemApplicationAttribute &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->dbName_ == nullptr
+        && this->embedderModelName_ == nullptr && this->llmModelName_ == nullptr && this->projectName_ == nullptr && this->rerankerModelName_ == nullptr && this->userName_ == nullptr; };
+      // dbName Field Functions 
+      bool hasDbName() const { return this->dbName_ != nullptr;};
+      void deleteDbName() { this->dbName_ = nullptr;};
+      inline string getDbName() const { DARABONBA_PTR_GET_DEFAULT(dbName_, "") };
+      inline MemApplicationAttribute& setDbName(string dbName) { DARABONBA_PTR_SET_VALUE(dbName_, dbName) };
+
+
+      // embedderModelName Field Functions 
+      bool hasEmbedderModelName() const { return this->embedderModelName_ != nullptr;};
+      void deleteEmbedderModelName() { this->embedderModelName_ = nullptr;};
+      inline string getEmbedderModelName() const { DARABONBA_PTR_GET_DEFAULT(embedderModelName_, "") };
+      inline MemApplicationAttribute& setEmbedderModelName(string embedderModelName) { DARABONBA_PTR_SET_VALUE(embedderModelName_, embedderModelName) };
+
+
+      // llmModelName Field Functions 
+      bool hasLlmModelName() const { return this->llmModelName_ != nullptr;};
+      void deleteLlmModelName() { this->llmModelName_ = nullptr;};
+      inline string getLlmModelName() const { DARABONBA_PTR_GET_DEFAULT(llmModelName_, "") };
+      inline MemApplicationAttribute& setLlmModelName(string llmModelName) { DARABONBA_PTR_SET_VALUE(llmModelName_, llmModelName) };
+
+
+      // projectName Field Functions 
+      bool hasProjectName() const { return this->projectName_ != nullptr;};
+      void deleteProjectName() { this->projectName_ = nullptr;};
+      inline string getProjectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
+      inline MemApplicationAttribute& setProjectName(string projectName) { DARABONBA_PTR_SET_VALUE(projectName_, projectName) };
+
+
+      // rerankerModelName Field Functions 
+      bool hasRerankerModelName() const { return this->rerankerModelName_ != nullptr;};
+      void deleteRerankerModelName() { this->rerankerModelName_ = nullptr;};
+      inline string getRerankerModelName() const { DARABONBA_PTR_GET_DEFAULT(rerankerModelName_, "") };
+      inline MemApplicationAttribute& setRerankerModelName(string rerankerModelName) { DARABONBA_PTR_SET_VALUE(rerankerModelName_, rerankerModelName) };
+
+
+      // userName Field Functions 
+      bool hasUserName() const { return this->userName_ != nullptr;};
+      void deleteUserName() { this->userName_ = nullptr;};
+      inline string getUserName() const { DARABONBA_PTR_GET_DEFAULT(userName_, "") };
+      inline MemApplicationAttribute& setUserName(string userName) { DARABONBA_PTR_SET_VALUE(userName_, userName) };
+
+
+    protected:
+      shared_ptr<string> dbName_ {};
+      shared_ptr<string> embedderModelName_ {};
+      shared_ptr<string> llmModelName_ {};
+      shared_ptr<string> projectName_ {};
+      shared_ptr<string> rerankerModelName_ {};
+      shared_ptr<string> userName_ {};
     };
 
     class Endpoints : public Darabonba::Model {
@@ -628,9 +712,10 @@ namespace Models
     virtual bool empty() const override { return this->applicationId_ == nullptr
         && this->applicationType_ == nullptr && this->architecture_ == nullptr && this->components_ == nullptr && this->creationTime_ == nullptr && this->DBClusterId_ == nullptr
         && this->description_ == nullptr && this->endpoints_ == nullptr && this->expireTime_ == nullptr && this->expired_ == nullptr && this->lockMode_ == nullptr
-        && this->maintainEndTime_ == nullptr && this->maintainStartTime_ == nullptr && this->payType_ == nullptr && this->polarFSInstanceId_ == nullptr && this->regionId_ == nullptr
-        && this->requestId_ == nullptr && this->securityGroups_ == nullptr && this->securityIPArrays_ == nullptr && this->serverlessType_ == nullptr && this->status_ == nullptr
-        && this->upgradeAvailable_ == nullptr && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr && this->version_ == nullptr && this->zoneId_ == nullptr; };
+        && this->maintainEndTime_ == nullptr && this->maintainStartTime_ == nullptr && this->memApplicationAttribute_ == nullptr && this->payType_ == nullptr && this->polarFSInstanceId_ == nullptr
+        && this->regionId_ == nullptr && this->requestId_ == nullptr && this->securityGroups_ == nullptr && this->securityIPArrays_ == nullptr && this->serverlessType_ == nullptr
+        && this->status_ == nullptr && this->upgradeAvailable_ == nullptr && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr && this->version_ == nullptr
+        && this->zoneId_ == nullptr; };
     // applicationId Field Functions 
     bool hasApplicationId() const { return this->applicationId_ != nullptr;};
     void deleteApplicationId() { this->applicationId_ = nullptr;};
@@ -724,6 +809,15 @@ namespace Models
     void deleteMaintainStartTime() { this->maintainStartTime_ = nullptr;};
     inline string getMaintainStartTime() const { DARABONBA_PTR_GET_DEFAULT(maintainStartTime_, "") };
     inline DescribeApplicationAttributeResponseBody& setMaintainStartTime(string maintainStartTime) { DARABONBA_PTR_SET_VALUE(maintainStartTime_, maintainStartTime) };
+
+
+    // memApplicationAttribute Field Functions 
+    bool hasMemApplicationAttribute() const { return this->memApplicationAttribute_ != nullptr;};
+    void deleteMemApplicationAttribute() { this->memApplicationAttribute_ = nullptr;};
+    inline const DescribeApplicationAttributeResponseBody::MemApplicationAttribute & getMemApplicationAttribute() const { DARABONBA_PTR_GET_CONST(memApplicationAttribute_, DescribeApplicationAttributeResponseBody::MemApplicationAttribute) };
+    inline DescribeApplicationAttributeResponseBody::MemApplicationAttribute getMemApplicationAttribute() { DARABONBA_PTR_GET(memApplicationAttribute_, DescribeApplicationAttributeResponseBody::MemApplicationAttribute) };
+    inline DescribeApplicationAttributeResponseBody& setMemApplicationAttribute(const DescribeApplicationAttributeResponseBody::MemApplicationAttribute & memApplicationAttribute) { DARABONBA_PTR_SET_VALUE(memApplicationAttribute_, memApplicationAttribute) };
+    inline DescribeApplicationAttributeResponseBody& setMemApplicationAttribute(DescribeApplicationAttributeResponseBody::MemApplicationAttribute && memApplicationAttribute) { DARABONBA_PTR_SET_RVALUE(memApplicationAttribute_, memApplicationAttribute) };
 
 
     // payType Field Functions 
@@ -835,6 +929,7 @@ namespace Models
     shared_ptr<string> lockMode_ {};
     shared_ptr<string> maintainEndTime_ {};
     shared_ptr<string> maintainStartTime_ {};
+    shared_ptr<DescribeApplicationAttributeResponseBody::MemApplicationAttribute> memApplicationAttribute_ {};
     shared_ptr<string> payType_ {};
     shared_ptr<string> polarFSInstanceId_ {};
     shared_ptr<string> regionId_ {};

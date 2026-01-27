@@ -1706,6 +1706,10 @@ CreateApplicationResponse Client::createApplicationWithOptions(const CreateAppli
     request.setEndpointsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEndpoints(), "Endpoints", "json"));
   }
 
+  if (!!tmpReq.hasMemApplicationSpec()) {
+    request.setMemApplicationSpecShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getMemApplicationSpec(), "MemApplicationSpec", "json"));
+  }
+
   json query = {};
   if (!!request.hasApplicationType()) {
     query["ApplicationType"] = request.getApplicationType();
@@ -1747,6 +1751,10 @@ CreateApplicationResponse Client::createApplicationWithOptions(const CreateAppli
     query["Endpoints"] = request.getEndpointsShrink();
   }
 
+  if (!!request.hasMemApplicationSpecShrink()) {
+    query["MemApplicationSpec"] = request.getMemApplicationSpecShrink();
+  }
+
   if (!!request.hasPayType()) {
     query["PayType"] = request.getPayType();
   }
@@ -1769,6 +1777,10 @@ CreateApplicationResponse Client::createApplicationWithOptions(const CreateAppli
 
   if (!!request.hasResourceGroupId()) {
     query["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasSecurityGroupId()) {
+    query["SecurityGroupId"] = request.getSecurityGroupId();
   }
 
   if (!!request.hasUsedTime()) {
@@ -6413,6 +6425,10 @@ DescribeApplicationsResponse Client::describeApplicationsWithOptions(const Descr
   json query = {};
   if (!!request.hasApplicationIds()) {
     query["ApplicationIds"] = request.getApplicationIds();
+  }
+
+  if (!!request.hasApplicationTypes()) {
+    query["ApplicationTypes"] = request.getApplicationTypes();
   }
 
   if (!!request.hasDBClusterId()) {
