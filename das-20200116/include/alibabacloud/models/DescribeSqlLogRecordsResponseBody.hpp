@@ -90,7 +90,11 @@ namespace Models
         public:
           friend void to_json(Darabonba::Json& j, const SQLLogRecord& obj) { 
             DARABONBA_PTR_TO_JSON(AccountName, accountName_);
+            DARABONBA_PTR_TO_JSON(AffectColumns, affectColumns_);
+            DARABONBA_PTR_TO_JSON(ClientIp, clientIp_);
+            DARABONBA_PTR_TO_JSON(ClientPort, clientPort_);
             DARABONBA_PTR_TO_JSON(Collection, collection_);
+            DARABONBA_PTR_TO_JSON(ConnectionId, connectionId_);
             DARABONBA_PTR_TO_JSON(Consume, consume_);
             DARABONBA_PTR_TO_JSON(CpuTime, cpuTime_);
             DARABONBA_PTR_TO_JSON(DBName, DBName_);
@@ -104,10 +108,13 @@ namespace Models
             DARABONBA_PTR_TO_JSON(OriginTime, originTime_);
             DARABONBA_PTR_TO_JSON(ParallelDegree, parallelDegree_);
             DARABONBA_PTR_TO_JSON(ParallelQueueTime, parallelQueueTime_);
+            DARABONBA_PTR_TO_JSON(Params, params_);
             DARABONBA_PTR_TO_JSON(PhysicAsyncRead, physicAsyncRead_);
             DARABONBA_PTR_TO_JSON(PhysicRead, physicRead_);
             DARABONBA_PTR_TO_JSON(PhysicSyncRead, physicSyncRead_);
+            DARABONBA_PTR_TO_JSON(Protocol, protocol_);
             DARABONBA_PTR_TO_JSON(ReturnRows, returnRows_);
+            DARABONBA_PTR_TO_JSON(RowKey, rowKey_);
             DARABONBA_PTR_TO_JSON(Rows, rows_);
             DARABONBA_PTR_TO_JSON(ScanRows, scanRows_);
             DARABONBA_PTR_TO_JSON(Scnt, scnt_);
@@ -126,7 +133,11 @@ namespace Models
           };
           friend void from_json(const Darabonba::Json& j, SQLLogRecord& obj) { 
             DARABONBA_PTR_FROM_JSON(AccountName, accountName_);
+            DARABONBA_PTR_FROM_JSON(AffectColumns, affectColumns_);
+            DARABONBA_PTR_FROM_JSON(ClientIp, clientIp_);
+            DARABONBA_PTR_FROM_JSON(ClientPort, clientPort_);
             DARABONBA_PTR_FROM_JSON(Collection, collection_);
+            DARABONBA_PTR_FROM_JSON(ConnectionId, connectionId_);
             DARABONBA_PTR_FROM_JSON(Consume, consume_);
             DARABONBA_PTR_FROM_JSON(CpuTime, cpuTime_);
             DARABONBA_PTR_FROM_JSON(DBName, DBName_);
@@ -140,10 +151,13 @@ namespace Models
             DARABONBA_PTR_FROM_JSON(OriginTime, originTime_);
             DARABONBA_PTR_FROM_JSON(ParallelDegree, parallelDegree_);
             DARABONBA_PTR_FROM_JSON(ParallelQueueTime, parallelQueueTime_);
+            DARABONBA_PTR_FROM_JSON(Params, params_);
             DARABONBA_PTR_FROM_JSON(PhysicAsyncRead, physicAsyncRead_);
             DARABONBA_PTR_FROM_JSON(PhysicRead, physicRead_);
             DARABONBA_PTR_FROM_JSON(PhysicSyncRead, physicSyncRead_);
+            DARABONBA_PTR_FROM_JSON(Protocol, protocol_);
             DARABONBA_PTR_FROM_JSON(ReturnRows, returnRows_);
+            DARABONBA_PTR_FROM_JSON(RowKey, rowKey_);
             DARABONBA_PTR_FROM_JSON(Rows, rows_);
             DARABONBA_PTR_FROM_JSON(ScanRows, scanRows_);
             DARABONBA_PTR_FROM_JSON(Scnt, scnt_);
@@ -172,13 +186,14 @@ namespace Models
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
           virtual bool empty() const override { return this->accountName_ == nullptr
-        && this->collection_ == nullptr && this->consume_ == nullptr && this->cpuTime_ == nullptr && this->DBName_ == nullptr && this->executeTime_ == nullptr
-        && this->ext_ == nullptr && this->frows_ == nullptr && this->hostAddress_ == nullptr && this->lockTime_ == nullptr && this->logicRead_ == nullptr
-        && this->nodeId_ == nullptr && this->originTime_ == nullptr && this->parallelDegree_ == nullptr && this->parallelQueueTime_ == nullptr && this->physicAsyncRead_ == nullptr
-        && this->physicRead_ == nullptr && this->physicSyncRead_ == nullptr && this->returnRows_ == nullptr && this->rows_ == nullptr && this->scanRows_ == nullptr
-        && this->scnt_ == nullptr && this->sqlId_ == nullptr && this->sqlText_ == nullptr && this->sqlType_ == nullptr && this->state_ == nullptr
-        && this->tableName_ == nullptr && this->threadId_ == nullptr && this->traceId_ == nullptr && this->trxId_ == nullptr && this->updateRows_ == nullptr
-        && this->useImciEngine_ == nullptr && this->vip_ == nullptr && this->writes_ == nullptr; };
+        && this->affectColumns_ == nullptr && this->clientIp_ == nullptr && this->clientPort_ == nullptr && this->collection_ == nullptr && this->connectionId_ == nullptr
+        && this->consume_ == nullptr && this->cpuTime_ == nullptr && this->DBName_ == nullptr && this->executeTime_ == nullptr && this->ext_ == nullptr
+        && this->frows_ == nullptr && this->hostAddress_ == nullptr && this->lockTime_ == nullptr && this->logicRead_ == nullptr && this->nodeId_ == nullptr
+        && this->originTime_ == nullptr && this->parallelDegree_ == nullptr && this->parallelQueueTime_ == nullptr && this->params_ == nullptr && this->physicAsyncRead_ == nullptr
+        && this->physicRead_ == nullptr && this->physicSyncRead_ == nullptr && this->protocol_ == nullptr && this->returnRows_ == nullptr && this->rowKey_ == nullptr
+        && this->rows_ == nullptr && this->scanRows_ == nullptr && this->scnt_ == nullptr && this->sqlId_ == nullptr && this->sqlText_ == nullptr
+        && this->sqlType_ == nullptr && this->state_ == nullptr && this->tableName_ == nullptr && this->threadId_ == nullptr && this->traceId_ == nullptr
+        && this->trxId_ == nullptr && this->updateRows_ == nullptr && this->useImciEngine_ == nullptr && this->vip_ == nullptr && this->writes_ == nullptr; };
           // accountName Field Functions 
           bool hasAccountName() const { return this->accountName_ != nullptr;};
           void deleteAccountName() { this->accountName_ = nullptr;};
@@ -186,11 +201,39 @@ namespace Models
           inline SQLLogRecord& setAccountName(string accountName) { DARABONBA_PTR_SET_VALUE(accountName_, accountName) };
 
 
+          // affectColumns Field Functions 
+          bool hasAffectColumns() const { return this->affectColumns_ != nullptr;};
+          void deleteAffectColumns() { this->affectColumns_ = nullptr;};
+          inline string getAffectColumns() const { DARABONBA_PTR_GET_DEFAULT(affectColumns_, "") };
+          inline SQLLogRecord& setAffectColumns(string affectColumns) { DARABONBA_PTR_SET_VALUE(affectColumns_, affectColumns) };
+
+
+          // clientIp Field Functions 
+          bool hasClientIp() const { return this->clientIp_ != nullptr;};
+          void deleteClientIp() { this->clientIp_ = nullptr;};
+          inline string getClientIp() const { DARABONBA_PTR_GET_DEFAULT(clientIp_, "") };
+          inline SQLLogRecord& setClientIp(string clientIp) { DARABONBA_PTR_SET_VALUE(clientIp_, clientIp) };
+
+
+          // clientPort Field Functions 
+          bool hasClientPort() const { return this->clientPort_ != nullptr;};
+          void deleteClientPort() { this->clientPort_ = nullptr;};
+          inline int64_t getClientPort() const { DARABONBA_PTR_GET_DEFAULT(clientPort_, 0L) };
+          inline SQLLogRecord& setClientPort(int64_t clientPort) { DARABONBA_PTR_SET_VALUE(clientPort_, clientPort) };
+
+
           // collection Field Functions 
           bool hasCollection() const { return this->collection_ != nullptr;};
           void deleteCollection() { this->collection_ = nullptr;};
           inline string getCollection() const { DARABONBA_PTR_GET_DEFAULT(collection_, "") };
           inline SQLLogRecord& setCollection(string collection) { DARABONBA_PTR_SET_VALUE(collection_, collection) };
+
+
+          // connectionId Field Functions 
+          bool hasConnectionId() const { return this->connectionId_ != nullptr;};
+          void deleteConnectionId() { this->connectionId_ = nullptr;};
+          inline string getConnectionId() const { DARABONBA_PTR_GET_DEFAULT(connectionId_, "") };
+          inline SQLLogRecord& setConnectionId(string connectionId) { DARABONBA_PTR_SET_VALUE(connectionId_, connectionId) };
 
 
           // consume Field Functions 
@@ -284,6 +327,13 @@ namespace Models
           inline SQLLogRecord& setParallelQueueTime(string parallelQueueTime) { DARABONBA_PTR_SET_VALUE(parallelQueueTime_, parallelQueueTime) };
 
 
+          // params Field Functions 
+          bool hasParams() const { return this->params_ != nullptr;};
+          void deleteParams() { this->params_ = nullptr;};
+          inline string getParams() const { DARABONBA_PTR_GET_DEFAULT(params_, "") };
+          inline SQLLogRecord& setParams(string params) { DARABONBA_PTR_SET_VALUE(params_, params) };
+
+
           // physicAsyncRead Field Functions 
           bool hasPhysicAsyncRead() const { return this->physicAsyncRead_ != nullptr;};
           void deletePhysicAsyncRead() { this->physicAsyncRead_ = nullptr;};
@@ -305,11 +355,25 @@ namespace Models
           inline SQLLogRecord& setPhysicSyncRead(int64_t physicSyncRead) { DARABONBA_PTR_SET_VALUE(physicSyncRead_, physicSyncRead) };
 
 
+          // protocol Field Functions 
+          bool hasProtocol() const { return this->protocol_ != nullptr;};
+          void deleteProtocol() { this->protocol_ = nullptr;};
+          inline string getProtocol() const { DARABONBA_PTR_GET_DEFAULT(protocol_, "") };
+          inline SQLLogRecord& setProtocol(string protocol) { DARABONBA_PTR_SET_VALUE(protocol_, protocol) };
+
+
           // returnRows Field Functions 
           bool hasReturnRows() const { return this->returnRows_ != nullptr;};
           void deleteReturnRows() { this->returnRows_ = nullptr;};
           inline int64_t getReturnRows() const { DARABONBA_PTR_GET_DEFAULT(returnRows_, 0L) };
           inline SQLLogRecord& setReturnRows(int64_t returnRows) { DARABONBA_PTR_SET_VALUE(returnRows_, returnRows) };
+
+
+          // rowKey Field Functions 
+          bool hasRowKey() const { return this->rowKey_ != nullptr;};
+          void deleteRowKey() { this->rowKey_ = nullptr;};
+          inline string getRowKey() const { DARABONBA_PTR_GET_DEFAULT(rowKey_, "") };
+          inline SQLLogRecord& setRowKey(string rowKey) { DARABONBA_PTR_SET_VALUE(rowKey_, rowKey) };
 
 
           // rows Field Functions 
@@ -420,8 +484,12 @@ namespace Models
         protected:
           // The account of the database.
           shared_ptr<string> accountName_ {};
+          shared_ptr<string> affectColumns_ {};
+          shared_ptr<string> clientIp_ {};
+          shared_ptr<int64_t> clientPort_ {};
           // A reserved parameter.
           shared_ptr<string> collection_ {};
+          shared_ptr<string> connectionId_ {};
           // The amount of time that is consumed to execute the SQL statement. Unit: millisecond.
           shared_ptr<int64_t> consume_ {};
           // The CPU execution duration. Unit: microsecond.
@@ -448,14 +516,17 @@ namespace Models
           shared_ptr<string> parallelDegree_ {};
           // The parallelism of the PolarDB for MySQL cluster.
           shared_ptr<string> parallelQueueTime_ {};
+          shared_ptr<string> params_ {};
           // The number of physical asynchronous reads.
           shared_ptr<int64_t> physicAsyncRead_ {};
           // The total number of physical reads.
           shared_ptr<int64_t> physicRead_ {};
           // The number of physical synchronous reads.
           shared_ptr<int64_t> physicSyncRead_ {};
+          shared_ptr<string> protocol_ {};
           // The number of rows returned by the SQL statement.
           shared_ptr<int64_t> returnRows_ {};
+          shared_ptr<string> rowKey_ {};
           // The total number of rows that are updated or returned by the compute nodes of the PolarDB-X 2.0 instance.
           shared_ptr<int64_t> rows_ {};
           // The number of scanned rows.
