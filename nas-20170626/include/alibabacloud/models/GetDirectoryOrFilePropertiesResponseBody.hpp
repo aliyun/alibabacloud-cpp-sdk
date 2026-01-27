@@ -41,6 +41,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Inode, inode_);
         DARABONBA_PTR_TO_JSON(MTime, MTime_);
         DARABONBA_PTR_TO_JSON(Name, name_);
+        DARABONBA_PTR_TO_JSON(OfflineDuration, offlineDuration_);
+        DARABONBA_PTR_TO_JSON(OfflineUnchangedDuration, offlineUnchangedDuration_);
         DARABONBA_PTR_TO_JSON(RetrieveTime, retrieveTime_);
         DARABONBA_PTR_TO_JSON(Size, size_);
         DARABONBA_PTR_TO_JSON(StorageType, storageType_);
@@ -54,6 +56,8 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Inode, inode_);
         DARABONBA_PTR_FROM_JSON(MTime, MTime_);
         DARABONBA_PTR_FROM_JSON(Name, name_);
+        DARABONBA_PTR_FROM_JSON(OfflineDuration, offlineDuration_);
+        DARABONBA_PTR_FROM_JSON(OfflineUnchangedDuration, offlineUnchangedDuration_);
         DARABONBA_PTR_FROM_JSON(RetrieveTime, retrieveTime_);
         DARABONBA_PTR_FROM_JSON(Size, size_);
         DARABONBA_PTR_FROM_JSON(StorageType, storageType_);
@@ -72,7 +76,8 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->ATime_ == nullptr
         && this->CTime_ == nullptr && this->hasArchiveFile_ == nullptr && this->hasInfrequentAccessFile_ == nullptr && this->inode_ == nullptr && this->MTime_ == nullptr
-        && this->name_ == nullptr && this->retrieveTime_ == nullptr && this->size_ == nullptr && this->storageType_ == nullptr && this->type_ == nullptr; };
+        && this->name_ == nullptr && this->offlineDuration_ == nullptr && this->offlineUnchangedDuration_ == nullptr && this->retrieveTime_ == nullptr && this->size_ == nullptr
+        && this->storageType_ == nullptr && this->type_ == nullptr; };
       // ATime Field Functions 
       bool hasATime() const { return this->ATime_ != nullptr;};
       void deleteATime() { this->ATime_ = nullptr;};
@@ -120,6 +125,20 @@ namespace Models
       void deleteName() { this->name_ = nullptr;};
       inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
       inline Entry& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+      // offlineDuration Field Functions 
+      bool hasOfflineDuration() const { return this->offlineDuration_ != nullptr;};
+      void deleteOfflineDuration() { this->offlineDuration_ = nullptr;};
+      inline int64_t getOfflineDuration() const { DARABONBA_PTR_GET_DEFAULT(offlineDuration_, 0L) };
+      inline Entry& setOfflineDuration(int64_t offlineDuration) { DARABONBA_PTR_SET_VALUE(offlineDuration_, offlineDuration) };
+
+
+      // offlineUnchangedDuration Field Functions 
+      bool hasOfflineUnchangedDuration() const { return this->offlineUnchangedDuration_ != nullptr;};
+      void deleteOfflineUnchangedDuration() { this->offlineUnchangedDuration_ = nullptr;};
+      inline int64_t getOfflineUnchangedDuration() const { DARABONBA_PTR_GET_DEFAULT(offlineUnchangedDuration_, 0L) };
+      inline Entry& setOfflineUnchangedDuration(int64_t offlineUnchangedDuration) { DARABONBA_PTR_SET_VALUE(offlineUnchangedDuration_, offlineUnchangedDuration) };
 
 
       // retrieveTime Field Functions 
@@ -191,6 +210,8 @@ namespace Models
       shared_ptr<string> MTime_ {};
       // The name of the file or directory.
       shared_ptr<string> name_ {};
+      shared_ptr<int64_t> offlineDuration_ {};
+      shared_ptr<int64_t> offlineUnchangedDuration_ {};
       // The time when the last data retrieval task was run.
       // 
       // The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.

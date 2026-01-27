@@ -436,9 +436,11 @@ namespace Models
         class Options : public Darabonba::Model {
         public:
           friend void to_json(Darabonba::Json& j, const Options& obj) { 
+            DARABONBA_PTR_TO_JSON(EnableABE, enableABE_);
             DARABONBA_PTR_TO_JSON(EnableOplock, enableOplock_);
           };
           friend void from_json(const Darabonba::Json& j, Options& obj) { 
+            DARABONBA_PTR_FROM_JSON(EnableABE, enableABE_);
             DARABONBA_PTR_FROM_JSON(EnableOplock, enableOplock_);
           };
           Options() = default ;
@@ -452,7 +454,15 @@ namespace Models
           };
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-          virtual bool empty() const override { return this->enableOplock_ == nullptr; };
+          virtual bool empty() const override { return this->enableABE_ == nullptr
+        && this->enableOplock_ == nullptr; };
+          // enableABE Field Functions 
+          bool hasEnableABE() const { return this->enableABE_ != nullptr;};
+          void deleteEnableABE() { this->enableABE_ = nullptr;};
+          inline bool getEnableABE() const { DARABONBA_PTR_GET_DEFAULT(enableABE_, false) };
+          inline Options& setEnableABE(bool enableABE) { DARABONBA_PTR_SET_VALUE(enableABE_, enableABE) };
+
+
           // enableOplock Field Functions 
           bool hasEnableOplock() const { return this->enableOplock_ != nullptr;};
           void deleteEnableOplock() { this->enableOplock_ = nullptr;};
@@ -461,6 +471,7 @@ namespace Models
 
 
         protected:
+          shared_ptr<bool> enableABE_ {};
           // Specifies whether to enable the oplock feature. Valid values:
           // 
           // *   true: enables the feature.
