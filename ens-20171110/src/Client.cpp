@@ -1348,10 +1348,6 @@ CreateClusterResponse Client::createClusterWithOptions(const CreateClusterReques
     query["ClusterType"] = request.getClusterType();
   }
 
-  if (!!request.hasClusterVersion()) {
-    query["ClusterVersion"] = request.getClusterVersion();
-  }
-
   if (!!request.hasContainerCidr()) {
     query["ContainerCidr"] = request.getContainerCidr();
   }

@@ -14,7 +14,6 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateClusterShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ClusterType, clusterType_);
-      DARABONBA_PTR_TO_JSON(ClusterVersion, clusterVersion_);
       DARABONBA_PTR_TO_JSON(ContainerCidr, containerCidr_);
       DARABONBA_PTR_TO_JSON(ControlPlaneConfig, controlPlaneConfigShrink_);
       DARABONBA_PTR_TO_JSON(EnsRegionId, ensRegionId_);
@@ -30,7 +29,6 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, CreateClusterShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ClusterType, clusterType_);
-      DARABONBA_PTR_FROM_JSON(ClusterVersion, clusterVersion_);
       DARABONBA_PTR_FROM_JSON(ContainerCidr, containerCidr_);
       DARABONBA_PTR_FROM_JSON(ControlPlaneConfig, controlPlaneConfigShrink_);
       DARABONBA_PTR_FROM_JSON(EnsRegionId, ensRegionId_);
@@ -56,21 +54,14 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterType_ == nullptr
-        && this->clusterVersion_ == nullptr && this->containerCidr_ == nullptr && this->controlPlaneConfigShrink_ == nullptr && this->ensRegionId_ == nullptr && this->kubernetesVersion_ == nullptr
-        && this->loadBalancerId_ == nullptr && this->name_ == nullptr && this->podVswitchIdsShrink_ == nullptr && this->profile_ == nullptr && this->publicAccess_ == nullptr
-        && this->serviceCidr_ == nullptr && this->vpcId_ == nullptr && this->vswitchIdsShrink_ == nullptr; };
+        && this->containerCidr_ == nullptr && this->controlPlaneConfigShrink_ == nullptr && this->ensRegionId_ == nullptr && this->kubernetesVersion_ == nullptr && this->loadBalancerId_ == nullptr
+        && this->name_ == nullptr && this->podVswitchIdsShrink_ == nullptr && this->profile_ == nullptr && this->publicAccess_ == nullptr && this->serviceCidr_ == nullptr
+        && this->vpcId_ == nullptr && this->vswitchIdsShrink_ == nullptr; };
     // clusterType Field Functions 
     bool hasClusterType() const { return this->clusterType_ != nullptr;};
     void deleteClusterType() { this->clusterType_ = nullptr;};
     inline string getClusterType() const { DARABONBA_PTR_GET_DEFAULT(clusterType_, "") };
     inline CreateClusterShrinkRequest& setClusterType(string clusterType) { DARABONBA_PTR_SET_VALUE(clusterType_, clusterType) };
-
-
-    // clusterVersion Field Functions 
-    bool hasClusterVersion() const { return this->clusterVersion_ != nullptr;};
-    void deleteClusterVersion() { this->clusterVersion_ = nullptr;};
-    inline string getClusterVersion() const { DARABONBA_PTR_GET_DEFAULT(clusterVersion_, "") };
-    inline CreateClusterShrinkRequest& setClusterVersion(string clusterVersion) { DARABONBA_PTR_SET_VALUE(clusterVersion_, clusterVersion) };
 
 
     // containerCidr Field Functions 
@@ -160,8 +151,6 @@ namespace Models
   protected:
     // This parameter is required.
     shared_ptr<string> clusterType_ {};
-    // The version of the cluster.
-    shared_ptr<string> clusterVersion_ {};
     shared_ptr<string> containerCidr_ {};
     shared_ptr<string> controlPlaneConfigShrink_ {};
     shared_ptr<string> ensRegionId_ {};
