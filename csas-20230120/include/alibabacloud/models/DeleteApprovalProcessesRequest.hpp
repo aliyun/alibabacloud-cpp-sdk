@@ -34,15 +34,15 @@ namespace Models
     // processIds Field Functions 
     bool hasProcessIds() const { return this->processIds_ != nullptr;};
     void deleteProcessIds() { this->processIds_ = nullptr;};
-    inline const vector<string> & processIds() const { DARABONBA_PTR_GET_CONST(processIds_, vector<string>) };
-    inline vector<string> processIds() { DARABONBA_PTR_GET(processIds_, vector<string>) };
+    inline const vector<string> & getProcessIds() const { DARABONBA_PTR_GET_CONST(processIds_, vector<string>) };
+    inline vector<string> getProcessIds() { DARABONBA_PTR_GET(processIds_, vector<string>) };
     inline DeleteApprovalProcessesRequest& setProcessIds(const vector<string> & processIds) { DARABONBA_PTR_SET_VALUE(processIds_, processIds) };
     inline DeleteApprovalProcessesRequest& setProcessIds(vector<string> && processIds) { DARABONBA_PTR_SET_RVALUE(processIds_, processIds) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<vector<string>> processIds_ = nullptr;
+    shared_ptr<vector<string>> processIds_ {};
   };
 
   } // namespace Models

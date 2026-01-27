@@ -32,28 +32,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->applicationIdsShrink_ == nullptr
-        && return this->connectorId_ == nullptr; };
+        && this->connectorId_ == nullptr; };
     // applicationIdsShrink Field Functions 
     bool hasApplicationIdsShrink() const { return this->applicationIdsShrink_ != nullptr;};
     void deleteApplicationIdsShrink() { this->applicationIdsShrink_ = nullptr;};
-    inline string applicationIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(applicationIdsShrink_, "") };
+    inline string getApplicationIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(applicationIdsShrink_, "") };
     inline DetachApplication2ConnectorShrinkRequest& setApplicationIdsShrink(string applicationIdsShrink) { DARABONBA_PTR_SET_VALUE(applicationIdsShrink_, applicationIdsShrink) };
 
 
     // connectorId Field Functions 
     bool hasConnectorId() const { return this->connectorId_ != nullptr;};
     void deleteConnectorId() { this->connectorId_ = nullptr;};
-    inline string connectorId() const { DARABONBA_PTR_GET_DEFAULT(connectorId_, "") };
+    inline string getConnectorId() const { DARABONBA_PTR_GET_DEFAULT(connectorId_, "") };
     inline DetachApplication2ConnectorShrinkRequest& setConnectorId(string connectorId) { DARABONBA_PTR_SET_VALUE(connectorId_, connectorId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> applicationIdsShrink_ = nullptr;
+    shared_ptr<string> applicationIdsShrink_ {};
     // ConnectorID。
     // 
     // This parameter is required.
-    std::shared_ptr<string> connectorId_ = nullptr;
+    shared_ptr<string> connectorId_ {};
   };
 
   } // namespace Models

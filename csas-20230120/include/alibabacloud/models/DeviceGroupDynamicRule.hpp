@@ -34,34 +34,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->args_ == nullptr
-        && return this->key_ == nullptr && return this->operator_ == nullptr; };
+        && this->key_ == nullptr && this->operator_ == nullptr; };
     // args Field Functions 
     bool hasArgs() const { return this->args_ != nullptr;};
     void deleteArgs() { this->args_ = nullptr;};
-    inline     const Darabonba::Json & args() const { DARABONBA_GET(args_) };
-    Darabonba::Json & args() { DARABONBA_GET(args_) };
+    inline     const Darabonba::Json & getArgs() const { DARABONBA_GET(args_) };
+    Darabonba::Json & getArgs() { DARABONBA_GET(args_) };
     inline DeviceGroupDynamicRule& setArgs(const Darabonba::Json & args) { DARABONBA_SET_VALUE(args_, args) };
-    inline DeviceGroupDynamicRule& setArgs(Darabonba::Json & args) { DARABONBA_SET_RVALUE(args_, args) };
+    inline DeviceGroupDynamicRule& setArgs(Darabonba::Json && args) { DARABONBA_SET_RVALUE(args_, args) };
 
 
     // key Field Functions 
     bool hasKey() const { return this->key_ != nullptr;};
     void deleteKey() { this->key_ = nullptr;};
-    inline string key() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+    inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
     inline DeviceGroupDynamicRule& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
 
 
     // operator Field Functions 
     bool hasOperator() const { return this->operator_ != nullptr;};
     void deleteOperator() { this->operator_ = nullptr;};
-    inline string _operator() const { DARABONBA_PTR_GET_DEFAULT(operator_, "") };
+    inline string getOperator() const { DARABONBA_PTR_GET_DEFAULT(operator_, "") };
     inline DeviceGroupDynamicRule& setOperator(string _operator) { DARABONBA_PTR_SET_VALUE(operator_, _operator) };
 
 
   protected:
-    Darabonba::Json args_ = nullptr;
-    std::shared_ptr<string> key_ = nullptr;
-    std::shared_ptr<string> operator_ = nullptr;
+    Darabonba::Json args_ {};
+    shared_ptr<string> key_ {};
+    shared_ptr<string> operator_ {};
   };
 
   } // namespace Models

@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->eapId_ == nullptr
-        && return this->fileUrl_ == nullptr; };
+        && this->fileUrl_ == nullptr; };
     // eapId Field Functions 
     bool hasEapId() const { return this->eapId_ != nullptr;};
     void deleteEapId() { this->eapId_ = nullptr;};
-    inline string eapId() const { DARABONBA_PTR_GET_DEFAULT(eapId_, "") };
+    inline string getEapId() const { DARABONBA_PTR_GET_DEFAULT(eapId_, "") };
     inline ImportEnterpriseAccelerateTargetsRequest& setEapId(string eapId) { DARABONBA_PTR_SET_VALUE(eapId_, eapId) };
 
 
     // fileUrl Field Functions 
     bool hasFileUrl() const { return this->fileUrl_ != nullptr;};
     void deleteFileUrl() { this->fileUrl_ = nullptr;};
-    inline string fileUrl() const { DARABONBA_PTR_GET_DEFAULT(fileUrl_, "") };
+    inline string getFileUrl() const { DARABONBA_PTR_GET_DEFAULT(fileUrl_, "") };
     inline ImportEnterpriseAccelerateTargetsRequest& setFileUrl(string fileUrl) { DARABONBA_PTR_SET_VALUE(fileUrl_, fileUrl) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> eapId_ = nullptr;
+    shared_ptr<string> eapId_ {};
     // This parameter is required.
-    std::shared_ptr<string> fileUrl_ = nullptr;
+    shared_ptr<string> fileUrl_ {};
   };
 
   } // namespace Models

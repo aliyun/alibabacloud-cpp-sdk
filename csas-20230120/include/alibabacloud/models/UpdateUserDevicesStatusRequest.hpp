@@ -33,28 +33,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->deviceAction_ == nullptr
-        && return this->deviceTags_ == nullptr; };
+        && this->deviceTags_ == nullptr; };
     // deviceAction Field Functions 
     bool hasDeviceAction() const { return this->deviceAction_ != nullptr;};
     void deleteDeviceAction() { this->deviceAction_ = nullptr;};
-    inline string deviceAction() const { DARABONBA_PTR_GET_DEFAULT(deviceAction_, "") };
+    inline string getDeviceAction() const { DARABONBA_PTR_GET_DEFAULT(deviceAction_, "") };
     inline UpdateUserDevicesStatusRequest& setDeviceAction(string deviceAction) { DARABONBA_PTR_SET_VALUE(deviceAction_, deviceAction) };
 
 
     // deviceTags Field Functions 
     bool hasDeviceTags() const { return this->deviceTags_ != nullptr;};
     void deleteDeviceTags() { this->deviceTags_ = nullptr;};
-    inline const vector<string> & deviceTags() const { DARABONBA_PTR_GET_CONST(deviceTags_, vector<string>) };
-    inline vector<string> deviceTags() { DARABONBA_PTR_GET(deviceTags_, vector<string>) };
+    inline const vector<string> & getDeviceTags() const { DARABONBA_PTR_GET_CONST(deviceTags_, vector<string>) };
+    inline vector<string> getDeviceTags() { DARABONBA_PTR_GET(deviceTags_, vector<string>) };
     inline UpdateUserDevicesStatusRequest& setDeviceTags(const vector<string> & deviceTags) { DARABONBA_PTR_SET_VALUE(deviceTags_, deviceTags) };
     inline UpdateUserDevicesStatusRequest& setDeviceTags(vector<string> && deviceTags) { DARABONBA_PTR_SET_RVALUE(deviceTags_, deviceTags) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> deviceAction_ = nullptr;
+    shared_ptr<string> deviceAction_ {};
     // This parameter is required.
-    std::shared_ptr<vector<string>> deviceTags_ = nullptr;
+    shared_ptr<vector<string>> deviceTags_ {};
   };
 
   } // namespace Models

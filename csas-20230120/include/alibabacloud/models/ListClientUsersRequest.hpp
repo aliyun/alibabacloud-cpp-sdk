@@ -44,74 +44,74 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->currentPage_ == nullptr
-        && return this->departmentId_ == nullptr && return this->email_ == nullptr && return this->idpConfigId_ == nullptr && return this->mobileNumber_ == nullptr && return this->pageSize_ == nullptr
-        && return this->status_ == nullptr && return this->username_ == nullptr; };
+        && this->departmentId_ == nullptr && this->email_ == nullptr && this->idpConfigId_ == nullptr && this->mobileNumber_ == nullptr && this->pageSize_ == nullptr
+        && this->status_ == nullptr && this->username_ == nullptr; };
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int64_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0L) };
+    inline int64_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0L) };
     inline ListClientUsersRequest& setCurrentPage(int64_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // departmentId Field Functions 
     bool hasDepartmentId() const { return this->departmentId_ != nullptr;};
     void deleteDepartmentId() { this->departmentId_ = nullptr;};
-    inline string departmentId() const { DARABONBA_PTR_GET_DEFAULT(departmentId_, "") };
+    inline string getDepartmentId() const { DARABONBA_PTR_GET_DEFAULT(departmentId_, "") };
     inline ListClientUsersRequest& setDepartmentId(string departmentId) { DARABONBA_PTR_SET_VALUE(departmentId_, departmentId) };
 
 
     // email Field Functions 
     bool hasEmail() const { return this->email_ != nullptr;};
     void deleteEmail() { this->email_ = nullptr;};
-    inline string email() const { DARABONBA_PTR_GET_DEFAULT(email_, "") };
+    inline string getEmail() const { DARABONBA_PTR_GET_DEFAULT(email_, "") };
     inline ListClientUsersRequest& setEmail(string email) { DARABONBA_PTR_SET_VALUE(email_, email) };
 
 
     // idpConfigId Field Functions 
     bool hasIdpConfigId() const { return this->idpConfigId_ != nullptr;};
     void deleteIdpConfigId() { this->idpConfigId_ = nullptr;};
-    inline string idpConfigId() const { DARABONBA_PTR_GET_DEFAULT(idpConfigId_, "") };
+    inline string getIdpConfigId() const { DARABONBA_PTR_GET_DEFAULT(idpConfigId_, "") };
     inline ListClientUsersRequest& setIdpConfigId(string idpConfigId) { DARABONBA_PTR_SET_VALUE(idpConfigId_, idpConfigId) };
 
 
     // mobileNumber Field Functions 
     bool hasMobileNumber() const { return this->mobileNumber_ != nullptr;};
     void deleteMobileNumber() { this->mobileNumber_ = nullptr;};
-    inline string mobileNumber() const { DARABONBA_PTR_GET_DEFAULT(mobileNumber_, "") };
+    inline string getMobileNumber() const { DARABONBA_PTR_GET_DEFAULT(mobileNumber_, "") };
     inline ListClientUsersRequest& setMobileNumber(string mobileNumber) { DARABONBA_PTR_SET_VALUE(mobileNumber_, mobileNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int64_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
+    inline int64_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
     inline ListClientUsersRequest& setPageSize(int64_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline ListClientUsersRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // username Field Functions 
     bool hasUsername() const { return this->username_ != nullptr;};
     void deleteUsername() { this->username_ = nullptr;};
-    inline string username() const { DARABONBA_PTR_GET_DEFAULT(username_, "") };
+    inline string getUsername() const { DARABONBA_PTR_GET_DEFAULT(username_, "") };
     inline ListClientUsersRequest& setUsername(string username) { DARABONBA_PTR_SET_VALUE(username_, username) };
 
 
   protected:
-    std::shared_ptr<int64_t> currentPage_ = nullptr;
-    std::shared_ptr<string> departmentId_ = nullptr;
-    std::shared_ptr<string> email_ = nullptr;
+    shared_ptr<int64_t> currentPage_ {};
+    shared_ptr<string> departmentId_ {};
+    shared_ptr<string> email_ {};
     // This parameter is required.
-    std::shared_ptr<string> idpConfigId_ = nullptr;
-    std::shared_ptr<string> mobileNumber_ = nullptr;
-    std::shared_ptr<int64_t> pageSize_ = nullptr;
-    std::shared_ptr<string> status_ = nullptr;
-    std::shared_ptr<string> username_ = nullptr;
+    shared_ptr<string> idpConfigId_ {};
+    shared_ptr<string> mobileNumber_ {};
+    shared_ptr<int64_t> pageSize_ {};
+    shared_ptr<string> status_ {};
+    shared_ptr<string> username_ {};
   };
 
   } // namespace Models

@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->detectChannel_ == nullptr
-        && return this->officeChannel_ == nullptr; };
+        && this->officeChannel_ == nullptr; };
     // detectChannel Field Functions 
     bool hasDetectChannel() const { return this->detectChannel_ != nullptr;};
     void deleteDetectChannel() { this->detectChannel_ = nullptr;};
-    inline const vector<string> & detectChannel() const { DARABONBA_PTR_GET_CONST(detectChannel_, vector<string>) };
-    inline vector<string> detectChannel() { DARABONBA_PTR_GET(detectChannel_, vector<string>) };
+    inline const vector<string> & getDetectChannel() const { DARABONBA_PTR_GET_CONST(detectChannel_, vector<string>) };
+    inline vector<string> getDetectChannel() { DARABONBA_PTR_GET(detectChannel_, vector<string>) };
     inline RiskSceneConfig& setDetectChannel(const vector<string> & detectChannel) { DARABONBA_PTR_SET_VALUE(detectChannel_, detectChannel) };
     inline RiskSceneConfig& setDetectChannel(vector<string> && detectChannel) { DARABONBA_PTR_SET_RVALUE(detectChannel_, detectChannel) };
 
@@ -46,15 +46,15 @@ namespace Models
     // officeChannel Field Functions 
     bool hasOfficeChannel() const { return this->officeChannel_ != nullptr;};
     void deleteOfficeChannel() { this->officeChannel_ = nullptr;};
-    inline const vector<string> & officeChannel() const { DARABONBA_PTR_GET_CONST(officeChannel_, vector<string>) };
-    inline vector<string> officeChannel() { DARABONBA_PTR_GET(officeChannel_, vector<string>) };
+    inline const vector<string> & getOfficeChannel() const { DARABONBA_PTR_GET_CONST(officeChannel_, vector<string>) };
+    inline vector<string> getOfficeChannel() { DARABONBA_PTR_GET(officeChannel_, vector<string>) };
     inline RiskSceneConfig& setOfficeChannel(const vector<string> & officeChannel) { DARABONBA_PTR_SET_VALUE(officeChannel_, officeChannel) };
     inline RiskSceneConfig& setOfficeChannel(vector<string> && officeChannel) { DARABONBA_PTR_SET_RVALUE(officeChannel_, officeChannel) };
 
 
   protected:
-    std::shared_ptr<vector<string>> detectChannel_ = nullptr;
-    std::shared_ptr<vector<string>> officeChannel_ = nullptr;
+    shared_ptr<vector<string>> detectChannel_ {};
+    shared_ptr<vector<string>> officeChannel_ {};
   };
 
   } // namespace Models

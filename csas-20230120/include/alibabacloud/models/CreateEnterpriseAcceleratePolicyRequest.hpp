@@ -46,85 +46,85 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accelerationType_ == nullptr
-        && return this->description_ == nullptr && return this->name_ == nullptr && return this->priority_ == nullptr && return this->showInClient_ == nullptr && return this->upstreamHost_ == nullptr
-        && return this->upstreamPort_ == nullptr && return this->upstreamType_ == nullptr && return this->userAttributeGroup_ == nullptr; };
+        && this->description_ == nullptr && this->name_ == nullptr && this->priority_ == nullptr && this->showInClient_ == nullptr && this->upstreamHost_ == nullptr
+        && this->upstreamPort_ == nullptr && this->upstreamType_ == nullptr && this->userAttributeGroup_ == nullptr; };
     // accelerationType Field Functions 
     bool hasAccelerationType() const { return this->accelerationType_ != nullptr;};
     void deleteAccelerationType() { this->accelerationType_ = nullptr;};
-    inline string accelerationType() const { DARABONBA_PTR_GET_DEFAULT(accelerationType_, "") };
+    inline string getAccelerationType() const { DARABONBA_PTR_GET_DEFAULT(accelerationType_, "") };
     inline CreateEnterpriseAcceleratePolicyRequest& setAccelerationType(string accelerationType) { DARABONBA_PTR_SET_VALUE(accelerationType_, accelerationType) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateEnterpriseAcceleratePolicyRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateEnterpriseAcceleratePolicyRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // priority Field Functions 
     bool hasPriority() const { return this->priority_ != nullptr;};
     void deletePriority() { this->priority_ = nullptr;};
-    inline string priority() const { DARABONBA_PTR_GET_DEFAULT(priority_, "") };
+    inline string getPriority() const { DARABONBA_PTR_GET_DEFAULT(priority_, "") };
     inline CreateEnterpriseAcceleratePolicyRequest& setPriority(string priority) { DARABONBA_PTR_SET_VALUE(priority_, priority) };
 
 
     // showInClient Field Functions 
     bool hasShowInClient() const { return this->showInClient_ != nullptr;};
     void deleteShowInClient() { this->showInClient_ = nullptr;};
-    inline int32_t showInClient() const { DARABONBA_PTR_GET_DEFAULT(showInClient_, 0) };
+    inline int32_t getShowInClient() const { DARABONBA_PTR_GET_DEFAULT(showInClient_, 0) };
     inline CreateEnterpriseAcceleratePolicyRequest& setShowInClient(int32_t showInClient) { DARABONBA_PTR_SET_VALUE(showInClient_, showInClient) };
 
 
     // upstreamHost Field Functions 
     bool hasUpstreamHost() const { return this->upstreamHost_ != nullptr;};
     void deleteUpstreamHost() { this->upstreamHost_ = nullptr;};
-    inline string upstreamHost() const { DARABONBA_PTR_GET_DEFAULT(upstreamHost_, "") };
+    inline string getUpstreamHost() const { DARABONBA_PTR_GET_DEFAULT(upstreamHost_, "") };
     inline CreateEnterpriseAcceleratePolicyRequest& setUpstreamHost(string upstreamHost) { DARABONBA_PTR_SET_VALUE(upstreamHost_, upstreamHost) };
 
 
     // upstreamPort Field Functions 
     bool hasUpstreamPort() const { return this->upstreamPort_ != nullptr;};
     void deleteUpstreamPort() { this->upstreamPort_ = nullptr;};
-    inline int32_t upstreamPort() const { DARABONBA_PTR_GET_DEFAULT(upstreamPort_, 0) };
+    inline int32_t getUpstreamPort() const { DARABONBA_PTR_GET_DEFAULT(upstreamPort_, 0) };
     inline CreateEnterpriseAcceleratePolicyRequest& setUpstreamPort(int32_t upstreamPort) { DARABONBA_PTR_SET_VALUE(upstreamPort_, upstreamPort) };
 
 
     // upstreamType Field Functions 
     bool hasUpstreamType() const { return this->upstreamType_ != nullptr;};
     void deleteUpstreamType() { this->upstreamType_ = nullptr;};
-    inline string upstreamType() const { DARABONBA_PTR_GET_DEFAULT(upstreamType_, "") };
+    inline string getUpstreamType() const { DARABONBA_PTR_GET_DEFAULT(upstreamType_, "") };
     inline CreateEnterpriseAcceleratePolicyRequest& setUpstreamType(string upstreamType) { DARABONBA_PTR_SET_VALUE(upstreamType_, upstreamType) };
 
 
     // userAttributeGroup Field Functions 
     bool hasUserAttributeGroup() const { return this->userAttributeGroup_ != nullptr;};
     void deleteUserAttributeGroup() { this->userAttributeGroup_ = nullptr;};
-    inline string userAttributeGroup() const { DARABONBA_PTR_GET_DEFAULT(userAttributeGroup_, "") };
+    inline string getUserAttributeGroup() const { DARABONBA_PTR_GET_DEFAULT(userAttributeGroup_, "") };
     inline CreateEnterpriseAcceleratePolicyRequest& setUserAttributeGroup(string userAttributeGroup) { DARABONBA_PTR_SET_VALUE(userAttributeGroup_, userAttributeGroup) };
 
 
   protected:
-    std::shared_ptr<string> accelerationType_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> priority_ = nullptr;
-    std::shared_ptr<int32_t> showInClient_ = nullptr;
+    shared_ptr<string> accelerationType_ {};
+    shared_ptr<string> description_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<string> priority_ {};
+    shared_ptr<int32_t> showInClient_ {};
     // This parameter is required.
-    std::shared_ptr<string> upstreamHost_ = nullptr;
+    shared_ptr<string> upstreamHost_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> upstreamPort_ = nullptr;
+    shared_ptr<int32_t> upstreamPort_ {};
     // This parameter is required.
-    std::shared_ptr<string> upstreamType_ = nullptr;
+    shared_ptr<string> upstreamType_ {};
     // This parameter is required.
-    std::shared_ptr<string> userAttributeGroup_ = nullptr;
+    shared_ptr<string> userAttributeGroup_ {};
   };
 
   } // namespace Models

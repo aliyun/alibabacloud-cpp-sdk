@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->timeUnit_ == nullptr
-        && return this->value_ == nullptr; };
+        && this->value_ == nullptr; };
     // timeUnit Field Functions 
     bool hasTimeUnit() const { return this->timeUnit_ != nullptr;};
     void deleteTimeUnit() { this->timeUnit_ = nullptr;};
-    inline string timeUnit() const { DARABONBA_PTR_GET_DEFAULT(timeUnit_, "") };
+    inline string getTimeUnit() const { DARABONBA_PTR_GET_DEFAULT(timeUnit_, "") };
     inline AuthReportInterval& setTimeUnit(string timeUnit) { DARABONBA_PTR_SET_VALUE(timeUnit_, timeUnit) };
 
 
     // value Field Functions 
     bool hasValue() const { return this->value_ != nullptr;};
     void deleteValue() { this->value_ = nullptr;};
-    inline int64_t value() const { DARABONBA_PTR_GET_DEFAULT(value_, 0L) };
+    inline int64_t getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, 0L) };
     inline AuthReportInterval& setValue(int64_t value) { DARABONBA_PTR_SET_VALUE(value_, value) };
 
 
   protected:
-    std::shared_ptr<string> timeUnit_ = nullptr;
-    std::shared_ptr<int64_t> value_ = nullptr;
+    shared_ptr<string> timeUnit_ {};
+    shared_ptr<int64_t> value_ {};
   };
 
   } // namespace Models

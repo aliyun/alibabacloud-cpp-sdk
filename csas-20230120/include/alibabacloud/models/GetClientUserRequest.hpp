@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->idpConfigId_ == nullptr
-        && return this->username_ == nullptr; };
+        && this->username_ == nullptr; };
     // idpConfigId Field Functions 
     bool hasIdpConfigId() const { return this->idpConfigId_ != nullptr;};
     void deleteIdpConfigId() { this->idpConfigId_ = nullptr;};
-    inline string idpConfigId() const { DARABONBA_PTR_GET_DEFAULT(idpConfigId_, "") };
+    inline string getIdpConfigId() const { DARABONBA_PTR_GET_DEFAULT(idpConfigId_, "") };
     inline GetClientUserRequest& setIdpConfigId(string idpConfigId) { DARABONBA_PTR_SET_VALUE(idpConfigId_, idpConfigId) };
 
 
     // username Field Functions 
     bool hasUsername() const { return this->username_ != nullptr;};
     void deleteUsername() { this->username_ = nullptr;};
-    inline string username() const { DARABONBA_PTR_GET_DEFAULT(username_, "") };
+    inline string getUsername() const { DARABONBA_PTR_GET_DEFAULT(username_, "") };
     inline GetClientUserRequest& setUsername(string username) { DARABONBA_PTR_SET_VALUE(username_, username) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> idpConfigId_ = nullptr;
+    shared_ptr<string> idpConfigId_ {};
     // This parameter is required.
-    std::shared_ptr<string> username_ = nullptr;
+    shared_ptr<string> username_ {};
   };
 
   } // namespace Models

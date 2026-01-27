@@ -35,14 +35,14 @@ namespace Models
     // mapItems Field Functions 
     bool hasMapItems() const { return this->mapItems_ != nullptr;};
     void deleteMapItems() { this->mapItems_ = nullptr;};
-    inline const vector<IdpAttrMapConfigItem> & mapItems() const { DARABONBA_PTR_GET_CONST(mapItems_, vector<IdpAttrMapConfigItem>) };
-    inline vector<IdpAttrMapConfigItem> mapItems() { DARABONBA_PTR_GET(mapItems_, vector<IdpAttrMapConfigItem>) };
+    inline const vector<IdpAttrMapConfigItem> & getMapItems() const { DARABONBA_PTR_GET_CONST(mapItems_, vector<IdpAttrMapConfigItem>) };
+    inline vector<IdpAttrMapConfigItem> getMapItems() { DARABONBA_PTR_GET(mapItems_, vector<IdpAttrMapConfigItem>) };
     inline IdpAttrMapConfig& setMapItems(const vector<IdpAttrMapConfigItem> & mapItems) { DARABONBA_PTR_SET_VALUE(mapItems_, mapItems) };
     inline IdpAttrMapConfig& setMapItems(vector<IdpAttrMapConfigItem> && mapItems) { DARABONBA_PTR_SET_RVALUE(mapItems_, mapItems) };
 
 
   protected:
-    std::shared_ptr<vector<IdpAttrMapConfigItem>> mapItems_ = nullptr;
+    shared_ptr<vector<IdpAttrMapConfigItem>> mapItems_ {};
   };
 
   } // namespace Models

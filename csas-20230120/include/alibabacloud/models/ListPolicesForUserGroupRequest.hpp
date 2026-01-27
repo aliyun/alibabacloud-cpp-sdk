@@ -34,15 +34,15 @@ namespace Models
     // userGroupIds Field Functions 
     bool hasUserGroupIds() const { return this->userGroupIds_ != nullptr;};
     void deleteUserGroupIds() { this->userGroupIds_ = nullptr;};
-    inline const vector<string> & userGroupIds() const { DARABONBA_PTR_GET_CONST(userGroupIds_, vector<string>) };
-    inline vector<string> userGroupIds() { DARABONBA_PTR_GET(userGroupIds_, vector<string>) };
+    inline const vector<string> & getUserGroupIds() const { DARABONBA_PTR_GET_CONST(userGroupIds_, vector<string>) };
+    inline vector<string> getUserGroupIds() { DARABONBA_PTR_GET(userGroupIds_, vector<string>) };
     inline ListPolicesForUserGroupRequest& setUserGroupIds(const vector<string> & userGroupIds) { DARABONBA_PTR_SET_VALUE(userGroupIds_, userGroupIds) };
     inline ListPolicesForUserGroupRequest& setUserGroupIds(vector<string> && userGroupIds) { DARABONBA_PTR_SET_RVALUE(userGroupIds_, userGroupIds) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<vector<string>> userGroupIds_ = nullptr;
+    shared_ptr<vector<string>> userGroupIds_ {};
   };
 
   } // namespace Models

@@ -48,75 +48,75 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->currentPage_ == nullptr
-        && return this->devTag_ == nullptr && return this->disposalAction_ == nullptr && return this->disposalProcessId_ == nullptr && return this->endTime_ == nullptr && return this->pageSize_ == nullptr
-        && return this->recoveryType_ == nullptr && return this->startTime_ == nullptr && return this->status_ == nullptr && return this->userName_ == nullptr; };
+        && this->devTag_ == nullptr && this->disposalAction_ == nullptr && this->disposalProcessId_ == nullptr && this->endTime_ == nullptr && this->pageSize_ == nullptr
+        && this->recoveryType_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr && this->userName_ == nullptr; };
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int64_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0L) };
+    inline int64_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0L) };
     inline ListDynamicDisposalProcessesRequest& setCurrentPage(int64_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // devTag Field Functions 
     bool hasDevTag() const { return this->devTag_ != nullptr;};
     void deleteDevTag() { this->devTag_ = nullptr;};
-    inline string devTag() const { DARABONBA_PTR_GET_DEFAULT(devTag_, "") };
+    inline string getDevTag() const { DARABONBA_PTR_GET_DEFAULT(devTag_, "") };
     inline ListDynamicDisposalProcessesRequest& setDevTag(string devTag) { DARABONBA_PTR_SET_VALUE(devTag_, devTag) };
 
 
     // disposalAction Field Functions 
     bool hasDisposalAction() const { return this->disposalAction_ != nullptr;};
     void deleteDisposalAction() { this->disposalAction_ = nullptr;};
-    inline string disposalAction() const { DARABONBA_PTR_GET_DEFAULT(disposalAction_, "") };
+    inline string getDisposalAction() const { DARABONBA_PTR_GET_DEFAULT(disposalAction_, "") };
     inline ListDynamicDisposalProcessesRequest& setDisposalAction(string disposalAction) { DARABONBA_PTR_SET_VALUE(disposalAction_, disposalAction) };
 
 
     // disposalProcessId Field Functions 
     bool hasDisposalProcessId() const { return this->disposalProcessId_ != nullptr;};
     void deleteDisposalProcessId() { this->disposalProcessId_ = nullptr;};
-    inline string disposalProcessId() const { DARABONBA_PTR_GET_DEFAULT(disposalProcessId_, "") };
+    inline string getDisposalProcessId() const { DARABONBA_PTR_GET_DEFAULT(disposalProcessId_, "") };
     inline ListDynamicDisposalProcessesRequest& setDisposalProcessId(string disposalProcessId) { DARABONBA_PTR_SET_VALUE(disposalProcessId_, disposalProcessId) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline int64_t endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
+    inline int64_t getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
     inline ListDynamicDisposalProcessesRequest& setEndTime(int64_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int64_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
+    inline int64_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
     inline ListDynamicDisposalProcessesRequest& setPageSize(int64_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // recoveryType Field Functions 
     bool hasRecoveryType() const { return this->recoveryType_ != nullptr;};
     void deleteRecoveryType() { this->recoveryType_ = nullptr;};
-    inline string recoveryType() const { DARABONBA_PTR_GET_DEFAULT(recoveryType_, "") };
+    inline string getRecoveryType() const { DARABONBA_PTR_GET_DEFAULT(recoveryType_, "") };
     inline ListDynamicDisposalProcessesRequest& setRecoveryType(string recoveryType) { DARABONBA_PTR_SET_VALUE(recoveryType_, recoveryType) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline int64_t startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
+    inline int64_t getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
     inline ListDynamicDisposalProcessesRequest& setStartTime(int64_t startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline ListDynamicDisposalProcessesRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // userName Field Functions 
     bool hasUserName() const { return this->userName_ != nullptr;};
     void deleteUserName() { this->userName_ = nullptr;};
-    inline string userName() const { DARABONBA_PTR_GET_DEFAULT(userName_, "") };
+    inline string getUserName() const { DARABONBA_PTR_GET_DEFAULT(userName_, "") };
     inline ListDynamicDisposalProcessesRequest& setUserName(string userName) { DARABONBA_PTR_SET_VALUE(userName_, userName) };
 
 
@@ -124,36 +124,36 @@ namespace Models
     // The page number to display in the paginated query. Range: 1~10000.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> currentPage_ = nullptr;
+    shared_ptr<int64_t> currentPage_ {};
     // Terminal device ID.
-    std::shared_ptr<string> devTag_ = nullptr;
+    shared_ptr<string> devTag_ {};
     // Disposal action.
     // - **ztna_connect**: Prohibit connection to the zero-trust intranet.
     // - **nac_connect**: Prohibit connection to the office network access.
     // - **none**: No disposal action.
-    std::shared_ptr<string> disposalAction_ = nullptr;
+    shared_ptr<string> disposalAction_ {};
     // Disposal process ID.
-    std::shared_ptr<string> disposalProcessId_ = nullptr;
+    shared_ptr<string> disposalProcessId_ {};
     // The end time for querying dynamic disposal processes. Format: Unix timestamp (in seconds).
-    std::shared_ptr<int64_t> endTime_ = nullptr;
+    shared_ptr<int64_t> endTime_ {};
     // The number of items per page in the paginated query. Range: 1~1000.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> pageSize_ = nullptr;
+    shared_ptr<int64_t> pageSize_ {};
     // Recovery type.
     // - **auto**: Automatic recovery.
     // - **console**: Console recovery.
     // - **auth**: Recovery by authentication and reporting.
-    std::shared_ptr<string> recoveryType_ = nullptr;
+    shared_ptr<string> recoveryType_ {};
     // The start time for querying dynamic disposal processes. Format: Unix timestamp (in seconds).
-    std::shared_ptr<int64_t> startTime_ = nullptr;
+    shared_ptr<int64_t> startTime_ {};
     // Disposal status. Values:
     // - **disposal**: In the disposal state.
     // - **finished**: Already automatically recovered.
     // - **recovery**: Recovered by authentication and reporting or console recovery.
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
     // Username.
-    std::shared_ptr<string> userName_ = nullptr;
+    shared_ptr<string> userName_ {};
   };
 
   } // namespace Models

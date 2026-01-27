@@ -33,7 +33,7 @@ namespace Models
     // policyId Field Functions 
     bool hasPolicyId() const { return this->policyId_ != nullptr;};
     void deletePolicyId() { this->policyId_ = nullptr;};
-    inline string policyId() const { DARABONBA_PTR_GET_DEFAULT(policyId_, "") };
+    inline string getPolicyId() const { DARABONBA_PTR_GET_DEFAULT(policyId_, "") };
     inline GetPrivateAccessPolicyRequest& setPolicyId(string policyId) { DARABONBA_PTR_SET_VALUE(policyId_, policyId) };
 
 
@@ -43,7 +43,7 @@ namespace Models
     // - [CreatePrivateAccessPolicy](~~CreatePrivateAccessPolicy~~): Create an intranet access policy.
     // 
     // This parameter is required.
-    std::shared_ptr<string> policyId_ = nullptr;
+    shared_ptr<string> policyId_ {};
   };
 
   } // namespace Models

@@ -37,26 +37,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->eapId_ == nullptr
-        && return this->requestId_ == nullptr && return this->targets_ == nullptr && return this->total_ == nullptr; };
+        && this->requestId_ == nullptr && this->targets_ == nullptr && this->total_ == nullptr; };
     // eapId Field Functions 
     bool hasEapId() const { return this->eapId_ != nullptr;};
     void deleteEapId() { this->eapId_ = nullptr;};
-    inline string eapId() const { DARABONBA_PTR_GET_DEFAULT(eapId_, "") };
+    inline string getEapId() const { DARABONBA_PTR_GET_DEFAULT(eapId_, "") };
     inline ListEnterpriseAccelerateTargetsResponseBody& setEapId(string eapId) { DARABONBA_PTR_SET_VALUE(eapId_, eapId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListEnterpriseAccelerateTargetsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // targets Field Functions 
     bool hasTargets() const { return this->targets_ != nullptr;};
     void deleteTargets() { this->targets_ = nullptr;};
-    inline const vector<string> & targets() const { DARABONBA_PTR_GET_CONST(targets_, vector<string>) };
-    inline vector<string> targets() { DARABONBA_PTR_GET(targets_, vector<string>) };
+    inline const vector<string> & getTargets() const { DARABONBA_PTR_GET_CONST(targets_, vector<string>) };
+    inline vector<string> getTargets() { DARABONBA_PTR_GET(targets_, vector<string>) };
     inline ListEnterpriseAccelerateTargetsResponseBody& setTargets(const vector<string> & targets) { DARABONBA_PTR_SET_VALUE(targets_, targets) };
     inline ListEnterpriseAccelerateTargetsResponseBody& setTargets(vector<string> && targets) { DARABONBA_PTR_SET_RVALUE(targets_, targets) };
 
@@ -64,15 +64,15 @@ namespace Models
     // total Field Functions 
     bool hasTotal() const { return this->total_ != nullptr;};
     void deleteTotal() { this->total_ = nullptr;};
-    inline int32_t total() const { DARABONBA_PTR_GET_DEFAULT(total_, 0) };
+    inline int32_t getTotal() const { DARABONBA_PTR_GET_DEFAULT(total_, 0) };
     inline ListEnterpriseAccelerateTargetsResponseBody& setTotal(int32_t total) { DARABONBA_PTR_SET_VALUE(total_, total) };
 
 
   protected:
-    std::shared_ptr<string> eapId_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<vector<string>> targets_ = nullptr;
-    std::shared_ptr<int32_t> total_ = nullptr;
+    shared_ptr<string> eapId_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<vector<string>> targets_ {};
+    shared_ptr<int32_t> total_ {};
   };
 
   } // namespace Models

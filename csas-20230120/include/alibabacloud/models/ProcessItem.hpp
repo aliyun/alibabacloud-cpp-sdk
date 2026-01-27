@@ -36,40 +36,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bundleId_ == nullptr
-        && return this->devType_ == nullptr && return this->directory_ == nullptr && return this->process_ == nullptr; };
+        && this->devType_ == nullptr && this->directory_ == nullptr && this->process_ == nullptr; };
     // bundleId Field Functions 
     bool hasBundleId() const { return this->bundleId_ != nullptr;};
     void deleteBundleId() { this->bundleId_ = nullptr;};
-    inline string bundleId() const { DARABONBA_PTR_GET_DEFAULT(bundleId_, "") };
+    inline string getBundleId() const { DARABONBA_PTR_GET_DEFAULT(bundleId_, "") };
     inline ProcessItem& setBundleId(string bundleId) { DARABONBA_PTR_SET_VALUE(bundleId_, bundleId) };
 
 
     // devType Field Functions 
     bool hasDevType() const { return this->devType_ != nullptr;};
     void deleteDevType() { this->devType_ = nullptr;};
-    inline string devType() const { DARABONBA_PTR_GET_DEFAULT(devType_, "") };
+    inline string getDevType() const { DARABONBA_PTR_GET_DEFAULT(devType_, "") };
     inline ProcessItem& setDevType(string devType) { DARABONBA_PTR_SET_VALUE(devType_, devType) };
 
 
     // directory Field Functions 
     bool hasDirectory() const { return this->directory_ != nullptr;};
     void deleteDirectory() { this->directory_ = nullptr;};
-    inline string directory() const { DARABONBA_PTR_GET_DEFAULT(directory_, "") };
+    inline string getDirectory() const { DARABONBA_PTR_GET_DEFAULT(directory_, "") };
     inline ProcessItem& setDirectory(string directory) { DARABONBA_PTR_SET_VALUE(directory_, directory) };
 
 
     // process Field Functions 
     bool hasProcess() const { return this->process_ != nullptr;};
     void deleteProcess() { this->process_ = nullptr;};
-    inline string process() const { DARABONBA_PTR_GET_DEFAULT(process_, "") };
+    inline string getProcess() const { DARABONBA_PTR_GET_DEFAULT(process_, "") };
     inline ProcessItem& setProcess(string process) { DARABONBA_PTR_SET_VALUE(process_, process) };
 
 
   protected:
-    std::shared_ptr<string> bundleId_ = nullptr;
-    std::shared_ptr<string> devType_ = nullptr;
-    std::shared_ptr<string> directory_ = nullptr;
-    std::shared_ptr<string> process_ = nullptr;
+    shared_ptr<string> bundleId_ {};
+    shared_ptr<string> devType_ {};
+    shared_ptr<string> directory_ {};
+    shared_ptr<string> process_ {};
   };
 
   } // namespace Models

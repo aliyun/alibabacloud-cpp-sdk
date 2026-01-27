@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->departmentId_ == nullptr
-        && return this->idpConfigId_ == nullptr; };
+        && this->idpConfigId_ == nullptr; };
     // departmentId Field Functions 
     bool hasDepartmentId() const { return this->departmentId_ != nullptr;};
     void deleteDepartmentId() { this->departmentId_ = nullptr;};
-    inline string departmentId() const { DARABONBA_PTR_GET_DEFAULT(departmentId_, "") };
+    inline string getDepartmentId() const { DARABONBA_PTR_GET_DEFAULT(departmentId_, "") };
     inline DeleteIdpDepartmentRequest& setDepartmentId(string departmentId) { DARABONBA_PTR_SET_VALUE(departmentId_, departmentId) };
 
 
     // idpConfigId Field Functions 
     bool hasIdpConfigId() const { return this->idpConfigId_ != nullptr;};
     void deleteIdpConfigId() { this->idpConfigId_ = nullptr;};
-    inline string idpConfigId() const { DARABONBA_PTR_GET_DEFAULT(idpConfigId_, "") };
+    inline string getIdpConfigId() const { DARABONBA_PTR_GET_DEFAULT(idpConfigId_, "") };
     inline DeleteIdpDepartmentRequest& setIdpConfigId(string idpConfigId) { DARABONBA_PTR_SET_VALUE(idpConfigId_, idpConfigId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> departmentId_ = nullptr;
+    shared_ptr<string> departmentId_ {};
     // This parameter is required.
-    std::shared_ptr<string> idpConfigId_ = nullptr;
+    shared_ptr<string> idpConfigId_ {};
   };
 
   } // namespace Models

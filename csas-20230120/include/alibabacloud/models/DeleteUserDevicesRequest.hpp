@@ -34,14 +34,14 @@ namespace Models
     // deviceTags Field Functions 
     bool hasDeviceTags() const { return this->deviceTags_ != nullptr;};
     void deleteDeviceTags() { this->deviceTags_ = nullptr;};
-    inline const vector<string> & deviceTags() const { DARABONBA_PTR_GET_CONST(deviceTags_, vector<string>) };
-    inline vector<string> deviceTags() { DARABONBA_PTR_GET(deviceTags_, vector<string>) };
+    inline const vector<string> & getDeviceTags() const { DARABONBA_PTR_GET_CONST(deviceTags_, vector<string>) };
+    inline vector<string> getDeviceTags() { DARABONBA_PTR_GET(deviceTags_, vector<string>) };
     inline DeleteUserDevicesRequest& setDeviceTags(const vector<string> & deviceTags) { DARABONBA_PTR_SET_VALUE(deviceTags_, deviceTags) };
     inline DeleteUserDevicesRequest& setDeviceTags(vector<string> && deviceTags) { DARABONBA_PTR_SET_RVALUE(deviceTags_, deviceTags) };
 
 
   protected:
-    std::shared_ptr<vector<string>> deviceTags_ = nullptr;
+    shared_ptr<vector<string>> deviceTags_ {};
   };
 
   } // namespace Models

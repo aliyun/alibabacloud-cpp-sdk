@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->externalIds_ == nullptr
-        && return this->idpId_ == nullptr; };
+        && this->idpId_ == nullptr; };
     // externalIds Field Functions 
     bool hasExternalIds() const { return this->externalIds_ != nullptr;};
     void deleteExternalIds() { this->externalIds_ = nullptr;};
-    inline string externalIds() const { DARABONBA_PTR_GET_DEFAULT(externalIds_, "") };
+    inline string getExternalIds() const { DARABONBA_PTR_GET_DEFAULT(externalIds_, "") };
     inline RevokeUserSessionRequest& setExternalIds(string externalIds) { DARABONBA_PTR_SET_VALUE(externalIds_, externalIds) };
 
 
     // idpId Field Functions 
     bool hasIdpId() const { return this->idpId_ != nullptr;};
     void deleteIdpId() { this->idpId_ = nullptr;};
-    inline string idpId() const { DARABONBA_PTR_GET_DEFAULT(idpId_, "") };
+    inline string getIdpId() const { DARABONBA_PTR_GET_DEFAULT(idpId_, "") };
     inline RevokeUserSessionRequest& setIdpId(string idpId) { DARABONBA_PTR_SET_VALUE(idpId_, idpId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> externalIds_ = nullptr;
+    shared_ptr<string> externalIds_ {};
     // This parameter is required.
-    std::shared_ptr<string> idpId_ = nullptr;
+    shared_ptr<string> idpId_ {};
   };
 
   } // namespace Models

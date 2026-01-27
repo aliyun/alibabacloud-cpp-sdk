@@ -34,34 +34,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->wmInfoBytesB64_ == nullptr
-        && return this->wmInfoSize_ == nullptr && return this->wmType_ == nullptr; };
+        && this->wmInfoSize_ == nullptr && this->wmType_ == nullptr; };
     // wmInfoBytesB64 Field Functions 
     bool hasWmInfoBytesB64() const { return this->wmInfoBytesB64_ != nullptr;};
     void deleteWmInfoBytesB64() { this->wmInfoBytesB64_ = nullptr;};
-    inline string wmInfoBytesB64() const { DARABONBA_PTR_GET_DEFAULT(wmInfoBytesB64_, "") };
+    inline string getWmInfoBytesB64() const { DARABONBA_PTR_GET_DEFAULT(wmInfoBytesB64_, "") };
     inline CreateWmInfoMappingRequest& setWmInfoBytesB64(string wmInfoBytesB64) { DARABONBA_PTR_SET_VALUE(wmInfoBytesB64_, wmInfoBytesB64) };
 
 
     // wmInfoSize Field Functions 
     bool hasWmInfoSize() const { return this->wmInfoSize_ != nullptr;};
     void deleteWmInfoSize() { this->wmInfoSize_ = nullptr;};
-    inline int64_t wmInfoSize() const { DARABONBA_PTR_GET_DEFAULT(wmInfoSize_, 0L) };
+    inline int64_t getWmInfoSize() const { DARABONBA_PTR_GET_DEFAULT(wmInfoSize_, 0L) };
     inline CreateWmInfoMappingRequest& setWmInfoSize(int64_t wmInfoSize) { DARABONBA_PTR_SET_VALUE(wmInfoSize_, wmInfoSize) };
 
 
     // wmType Field Functions 
     bool hasWmType() const { return this->wmType_ != nullptr;};
     void deleteWmType() { this->wmType_ = nullptr;};
-    inline string wmType() const { DARABONBA_PTR_GET_DEFAULT(wmType_, "") };
+    inline string getWmType() const { DARABONBA_PTR_GET_DEFAULT(wmType_, "") };
     inline CreateWmInfoMappingRequest& setWmType(string wmType) { DARABONBA_PTR_SET_VALUE(wmType_, wmType) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> wmInfoBytesB64_ = nullptr;
-    std::shared_ptr<int64_t> wmInfoSize_ = nullptr;
+    shared_ptr<string> wmInfoBytesB64_ {};
+    shared_ptr<int64_t> wmInfoSize_ {};
     // This parameter is required.
-    std::shared_ptr<string> wmType_ = nullptr;
+    shared_ptr<string> wmType_ {};
   };
 
   } // namespace Models

@@ -43,55 +43,55 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->applicationId_ == nullptr
-        && return this->currentPage_ == nullptr && return this->name_ == nullptr && return this->pageSize_ == nullptr && return this->policyId_ == nullptr && return this->simpleMode_ == nullptr
-        && return this->tagIds_ == nullptr; };
+        && this->currentPage_ == nullptr && this->name_ == nullptr && this->pageSize_ == nullptr && this->policyId_ == nullptr && this->simpleMode_ == nullptr
+        && this->tagIds_ == nullptr; };
     // applicationId Field Functions 
     bool hasApplicationId() const { return this->applicationId_ != nullptr;};
     void deleteApplicationId() { this->applicationId_ = nullptr;};
-    inline string applicationId() const { DARABONBA_PTR_GET_DEFAULT(applicationId_, "") };
+    inline string getApplicationId() const { DARABONBA_PTR_GET_DEFAULT(applicationId_, "") };
     inline ListPrivateAccessTagsRequest& setApplicationId(string applicationId) { DARABONBA_PTR_SET_VALUE(applicationId_, applicationId) };
 
 
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline ListPrivateAccessTagsRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline ListPrivateAccessTagsRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListPrivateAccessTagsRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // policyId Field Functions 
     bool hasPolicyId() const { return this->policyId_ != nullptr;};
     void deletePolicyId() { this->policyId_ = nullptr;};
-    inline string policyId() const { DARABONBA_PTR_GET_DEFAULT(policyId_, "") };
+    inline string getPolicyId() const { DARABONBA_PTR_GET_DEFAULT(policyId_, "") };
     inline ListPrivateAccessTagsRequest& setPolicyId(string policyId) { DARABONBA_PTR_SET_VALUE(policyId_, policyId) };
 
 
     // simpleMode Field Functions 
     bool hasSimpleMode() const { return this->simpleMode_ != nullptr;};
     void deleteSimpleMode() { this->simpleMode_ = nullptr;};
-    inline bool simpleMode() const { DARABONBA_PTR_GET_DEFAULT(simpleMode_, false) };
+    inline bool getSimpleMode() const { DARABONBA_PTR_GET_DEFAULT(simpleMode_, false) };
     inline ListPrivateAccessTagsRequest& setSimpleMode(bool simpleMode) { DARABONBA_PTR_SET_VALUE(simpleMode_, simpleMode) };
 
 
     // tagIds Field Functions 
     bool hasTagIds() const { return this->tagIds_ != nullptr;};
     void deleteTagIds() { this->tagIds_ = nullptr;};
-    inline const vector<string> & tagIds() const { DARABONBA_PTR_GET_CONST(tagIds_, vector<string>) };
-    inline vector<string> tagIds() { DARABONBA_PTR_GET(tagIds_, vector<string>) };
+    inline const vector<string> & getTagIds() const { DARABONBA_PTR_GET_CONST(tagIds_, vector<string>) };
+    inline vector<string> getTagIds() { DARABONBA_PTR_GET(tagIds_, vector<string>) };
     inline ListPrivateAccessTagsRequest& setTagIds(const vector<string> & tagIds) { DARABONBA_PTR_SET_VALUE(tagIds_, tagIds) };
     inline ListPrivateAccessTagsRequest& setTagIds(vector<string> && tagIds) { DARABONBA_PTR_SET_RVALUE(tagIds_, tagIds) };
 
@@ -101,26 +101,26 @@ namespace Models
     // 
     // *   [ListPrivateAccessApplications](~~ListPrivateAccessApplications~~): queries all internal access applications.
     // *   [CreatePrivateAccessApplication](~~CreatePrivateAccessApplication~~): creates an internal access application.
-    std::shared_ptr<string> applicationId_ = nullptr;
+    shared_ptr<string> applicationId_ {};
     // The page number. Valid values: 1 to 10000.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
+    shared_ptr<int32_t> currentPage_ {};
     // The name of the internal access tag. The name must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-).
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The number of entries per page. Valid values: 1 to 1000.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The ID of the internal access policy. You can obtain the policy ID by calling the following operations:
     // 
     // *   [ListPrivateAccessPolices](~~ListPrivateAccessPolices~~): queries all internal access policies.
     // *   [CreatePrivateAccessPolicy](~~CreatePrivateAccessPolicy~~): creates an internal access policy.
-    std::shared_ptr<string> policyId_ = nullptr;
+    shared_ptr<string> policyId_ {};
     // Specifies whether to enable the simple query mode. A value of true specifies that policy IDs are not queried.
-    std::shared_ptr<bool> simpleMode_ = nullptr;
+    shared_ptr<bool> simpleMode_ {};
     // The IDs of internal access tags. You can specify up to 100 tag IDs.
-    std::shared_ptr<vector<string>> tagIds_ = nullptr;
+    shared_ptr<vector<string>> tagIds_ {};
   };
 
   } // namespace Models

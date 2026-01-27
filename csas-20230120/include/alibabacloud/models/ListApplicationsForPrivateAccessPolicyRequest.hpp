@@ -34,15 +34,15 @@ namespace Models
     // policyIds Field Functions 
     bool hasPolicyIds() const { return this->policyIds_ != nullptr;};
     void deletePolicyIds() { this->policyIds_ = nullptr;};
-    inline const vector<string> & policyIds() const { DARABONBA_PTR_GET_CONST(policyIds_, vector<string>) };
-    inline vector<string> policyIds() { DARABONBA_PTR_GET(policyIds_, vector<string>) };
+    inline const vector<string> & getPolicyIds() const { DARABONBA_PTR_GET_CONST(policyIds_, vector<string>) };
+    inline vector<string> getPolicyIds() { DARABONBA_PTR_GET(policyIds_, vector<string>) };
     inline ListApplicationsForPrivateAccessPolicyRequest& setPolicyIds(const vector<string> & policyIds) { DARABONBA_PTR_SET_VALUE(policyIds_, policyIds) };
     inline ListApplicationsForPrivateAccessPolicyRequest& setPolicyIds(vector<string> && policyIds) { DARABONBA_PTR_SET_RVALUE(policyIds_, policyIds) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<vector<string>> policyIds_ = nullptr;
+    shared_ptr<vector<string>> policyIds_ {};
   };
 
   } // namespace Models

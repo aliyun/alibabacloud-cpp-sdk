@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->signedUrl_ == nullptr; };
+        && this->signedUrl_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ExportUserDevicesResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // signedUrl Field Functions 
     bool hasSignedUrl() const { return this->signedUrl_ != nullptr;};
     void deleteSignedUrl() { this->signedUrl_ = nullptr;};
-    inline string signedUrl() const { DARABONBA_PTR_GET_DEFAULT(signedUrl_, "") };
+    inline string getSignedUrl() const { DARABONBA_PTR_GET_DEFAULT(signedUrl_, "") };
     inline ExportUserDevicesResponseBody& setSignedUrl(string signedUrl) { DARABONBA_PTR_SET_VALUE(signedUrl_, signedUrl) };
 
 
   protected:
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> signedUrl_ = nullptr;
+    shared_ptr<string> requestId_ {};
+    shared_ptr<string> signedUrl_ {};
   };
 
   } // namespace Models

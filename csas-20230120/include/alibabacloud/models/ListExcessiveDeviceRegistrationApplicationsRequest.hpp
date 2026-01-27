@@ -49,13 +49,13 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->applicationIds_ == nullptr
-        && return this->currentPage_ == nullptr && return this->department_ == nullptr && return this->deviceTag_ == nullptr && return this->hostname_ == nullptr && return this->mac_ == nullptr
-        && return this->pageSize_ == nullptr && return this->saseUserId_ == nullptr && return this->statuses_ == nullptr && return this->username_ == nullptr; };
+        && this->currentPage_ == nullptr && this->department_ == nullptr && this->deviceTag_ == nullptr && this->hostname_ == nullptr && this->mac_ == nullptr
+        && this->pageSize_ == nullptr && this->saseUserId_ == nullptr && this->statuses_ == nullptr && this->username_ == nullptr; };
     // applicationIds Field Functions 
     bool hasApplicationIds() const { return this->applicationIds_ != nullptr;};
     void deleteApplicationIds() { this->applicationIds_ = nullptr;};
-    inline const vector<string> & applicationIds() const { DARABONBA_PTR_GET_CONST(applicationIds_, vector<string>) };
-    inline vector<string> applicationIds() { DARABONBA_PTR_GET(applicationIds_, vector<string>) };
+    inline const vector<string> & getApplicationIds() const { DARABONBA_PTR_GET_CONST(applicationIds_, vector<string>) };
+    inline vector<string> getApplicationIds() { DARABONBA_PTR_GET(applicationIds_, vector<string>) };
     inline ListExcessiveDeviceRegistrationApplicationsRequest& setApplicationIds(const vector<string> & applicationIds) { DARABONBA_PTR_SET_VALUE(applicationIds_, applicationIds) };
     inline ListExcessiveDeviceRegistrationApplicationsRequest& setApplicationIds(vector<string> && applicationIds) { DARABONBA_PTR_SET_RVALUE(applicationIds_, applicationIds) };
 
@@ -63,57 +63,57 @@ namespace Models
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int64_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0L) };
+    inline int64_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0L) };
     inline ListExcessiveDeviceRegistrationApplicationsRequest& setCurrentPage(int64_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // department Field Functions 
     bool hasDepartment() const { return this->department_ != nullptr;};
     void deleteDepartment() { this->department_ = nullptr;};
-    inline string department() const { DARABONBA_PTR_GET_DEFAULT(department_, "") };
+    inline string getDepartment() const { DARABONBA_PTR_GET_DEFAULT(department_, "") };
     inline ListExcessiveDeviceRegistrationApplicationsRequest& setDepartment(string department) { DARABONBA_PTR_SET_VALUE(department_, department) };
 
 
     // deviceTag Field Functions 
     bool hasDeviceTag() const { return this->deviceTag_ != nullptr;};
     void deleteDeviceTag() { this->deviceTag_ = nullptr;};
-    inline string deviceTag() const { DARABONBA_PTR_GET_DEFAULT(deviceTag_, "") };
+    inline string getDeviceTag() const { DARABONBA_PTR_GET_DEFAULT(deviceTag_, "") };
     inline ListExcessiveDeviceRegistrationApplicationsRequest& setDeviceTag(string deviceTag) { DARABONBA_PTR_SET_VALUE(deviceTag_, deviceTag) };
 
 
     // hostname Field Functions 
     bool hasHostname() const { return this->hostname_ != nullptr;};
     void deleteHostname() { this->hostname_ = nullptr;};
-    inline string hostname() const { DARABONBA_PTR_GET_DEFAULT(hostname_, "") };
+    inline string getHostname() const { DARABONBA_PTR_GET_DEFAULT(hostname_, "") };
     inline ListExcessiveDeviceRegistrationApplicationsRequest& setHostname(string hostname) { DARABONBA_PTR_SET_VALUE(hostname_, hostname) };
 
 
     // mac Field Functions 
     bool hasMac() const { return this->mac_ != nullptr;};
     void deleteMac() { this->mac_ = nullptr;};
-    inline string mac() const { DARABONBA_PTR_GET_DEFAULT(mac_, "") };
+    inline string getMac() const { DARABONBA_PTR_GET_DEFAULT(mac_, "") };
     inline ListExcessiveDeviceRegistrationApplicationsRequest& setMac(string mac) { DARABONBA_PTR_SET_VALUE(mac_, mac) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int64_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
+    inline int64_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
     inline ListExcessiveDeviceRegistrationApplicationsRequest& setPageSize(int64_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // saseUserId Field Functions 
     bool hasSaseUserId() const { return this->saseUserId_ != nullptr;};
     void deleteSaseUserId() { this->saseUserId_ = nullptr;};
-    inline string saseUserId() const { DARABONBA_PTR_GET_DEFAULT(saseUserId_, "") };
+    inline string getSaseUserId() const { DARABONBA_PTR_GET_DEFAULT(saseUserId_, "") };
     inline ListExcessiveDeviceRegistrationApplicationsRequest& setSaseUserId(string saseUserId) { DARABONBA_PTR_SET_VALUE(saseUserId_, saseUserId) };
 
 
     // statuses Field Functions 
     bool hasStatuses() const { return this->statuses_ != nullptr;};
     void deleteStatuses() { this->statuses_ = nullptr;};
-    inline const vector<string> & statuses() const { DARABONBA_PTR_GET_CONST(statuses_, vector<string>) };
-    inline vector<string> statuses() { DARABONBA_PTR_GET(statuses_, vector<string>) };
+    inline const vector<string> & getStatuses() const { DARABONBA_PTR_GET_CONST(statuses_, vector<string>) };
+    inline vector<string> getStatuses() { DARABONBA_PTR_GET(statuses_, vector<string>) };
     inline ListExcessiveDeviceRegistrationApplicationsRequest& setStatuses(const vector<string> & statuses) { DARABONBA_PTR_SET_VALUE(statuses_, statuses) };
     inline ListExcessiveDeviceRegistrationApplicationsRequest& setStatuses(vector<string> && statuses) { DARABONBA_PTR_SET_RVALUE(statuses_, statuses) };
 
@@ -121,23 +121,23 @@ namespace Models
     // username Field Functions 
     bool hasUsername() const { return this->username_ != nullptr;};
     void deleteUsername() { this->username_ = nullptr;};
-    inline string username() const { DARABONBA_PTR_GET_DEFAULT(username_, "") };
+    inline string getUsername() const { DARABONBA_PTR_GET_DEFAULT(username_, "") };
     inline ListExcessiveDeviceRegistrationApplicationsRequest& setUsername(string username) { DARABONBA_PTR_SET_VALUE(username_, username) };
 
 
   protected:
-    std::shared_ptr<vector<string>> applicationIds_ = nullptr;
+    shared_ptr<vector<string>> applicationIds_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> currentPage_ = nullptr;
-    std::shared_ptr<string> department_ = nullptr;
-    std::shared_ptr<string> deviceTag_ = nullptr;
-    std::shared_ptr<string> hostname_ = nullptr;
-    std::shared_ptr<string> mac_ = nullptr;
+    shared_ptr<int64_t> currentPage_ {};
+    shared_ptr<string> department_ {};
+    shared_ptr<string> deviceTag_ {};
+    shared_ptr<string> hostname_ {};
+    shared_ptr<string> mac_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> pageSize_ = nullptr;
-    std::shared_ptr<string> saseUserId_ = nullptr;
-    std::shared_ptr<vector<string>> statuses_ = nullptr;
-    std::shared_ptr<string> username_ = nullptr;
+    shared_ptr<int64_t> pageSize_ {};
+    shared_ptr<string> saseUserId_ {};
+    shared_ptr<vector<string>> statuses_ {};
+    shared_ptr<string> username_ {};
   };
 
   } // namespace Models

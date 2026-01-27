@@ -33,13 +33,13 @@ namespace Models
     // eapId Field Functions 
     bool hasEapId() const { return this->eapId_ != nullptr;};
     void deleteEapId() { this->eapId_ = nullptr;};
-    inline string eapId() const { DARABONBA_PTR_GET_DEFAULT(eapId_, "") };
+    inline string getEapId() const { DARABONBA_PTR_GET_DEFAULT(eapId_, "") };
     inline DeleteEnterpriseAcceleratePolicyRequest& setEapId(string eapId) { DARABONBA_PTR_SET_VALUE(eapId_, eapId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> eapId_ = nullptr;
+    shared_ptr<string> eapId_ {};
   };
 
   } // namespace Models

@@ -34,15 +34,15 @@ namespace Models
     // dynamicRouteIds Field Functions 
     bool hasDynamicRouteIds() const { return this->dynamicRouteIds_ != nullptr;};
     void deleteDynamicRouteIds() { this->dynamicRouteIds_ = nullptr;};
-    inline const vector<string> & dynamicRouteIds() const { DARABONBA_PTR_GET_CONST(dynamicRouteIds_, vector<string>) };
-    inline vector<string> dynamicRouteIds() { DARABONBA_PTR_GET(dynamicRouteIds_, vector<string>) };
+    inline const vector<string> & getDynamicRouteIds() const { DARABONBA_PTR_GET_CONST(dynamicRouteIds_, vector<string>) };
+    inline vector<string> getDynamicRouteIds() { DARABONBA_PTR_GET(dynamicRouteIds_, vector<string>) };
     inline ListPrivateAccessApplicationsForDynamicRouteRequest& setDynamicRouteIds(const vector<string> & dynamicRouteIds) { DARABONBA_PTR_SET_VALUE(dynamicRouteIds_, dynamicRouteIds) };
     inline ListPrivateAccessApplicationsForDynamicRouteRequest& setDynamicRouteIds(vector<string> && dynamicRouteIds) { DARABONBA_PTR_SET_RVALUE(dynamicRouteIds_, dynamicRouteIds) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<vector<string>> dynamicRouteIds_ = nullptr;
+    shared_ptr<vector<string>> dynamicRouteIds_ {};
   };
 
   } // namespace Models

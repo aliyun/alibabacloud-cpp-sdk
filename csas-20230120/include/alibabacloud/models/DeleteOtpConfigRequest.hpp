@@ -33,12 +33,12 @@ namespace Models
     // username Field Functions 
     bool hasUsername() const { return this->username_ != nullptr;};
     void deleteUsername() { this->username_ = nullptr;};
-    inline string username() const { DARABONBA_PTR_GET_DEFAULT(username_, "") };
+    inline string getUsername() const { DARABONBA_PTR_GET_DEFAULT(username_, "") };
     inline DeleteOtpConfigRequest& setUsername(string username) { DARABONBA_PTR_SET_VALUE(username_, username) };
 
 
   protected:
-    std::shared_ptr<string> username_ = nullptr;
+    shared_ptr<string> username_ {};
   };
 
   } // namespace Models

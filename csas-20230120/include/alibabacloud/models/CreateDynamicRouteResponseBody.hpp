@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dynamicRouteId_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // dynamicRouteId Field Functions 
     bool hasDynamicRouteId() const { return this->dynamicRouteId_ != nullptr;};
     void deleteDynamicRouteId() { this->dynamicRouteId_ = nullptr;};
-    inline string dynamicRouteId() const { DARABONBA_PTR_GET_DEFAULT(dynamicRouteId_, "") };
+    inline string getDynamicRouteId() const { DARABONBA_PTR_GET_DEFAULT(dynamicRouteId_, "") };
     inline CreateDynamicRouteResponseBody& setDynamicRouteId(string dynamicRouteId) { DARABONBA_PTR_SET_VALUE(dynamicRouteId_, dynamicRouteId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateDynamicRouteResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<string> dynamicRouteId_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> dynamicRouteId_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

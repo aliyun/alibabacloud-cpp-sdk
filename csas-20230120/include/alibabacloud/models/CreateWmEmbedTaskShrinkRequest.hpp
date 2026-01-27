@@ -60,141 +60,141 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->audioControlShrink_ == nullptr
-        && return this->csvControlShrink_ == nullptr && return this->documentControlShrink_ == nullptr && return this->fileUrl_ == nullptr && return this->filename_ == nullptr && return this->imageControlShrink_ == nullptr
-        && return this->imageEmbedJpegQuality_ == nullptr && return this->imageEmbedLevel_ == nullptr && return this->invisibleEnable_ == nullptr && return this->videoBitrate_ == nullptr && return this->videoControlShrink_ == nullptr
-        && return this->videoIsLong_ == nullptr && return this->wmInfoBytesB64_ == nullptr && return this->wmInfoSize_ == nullptr && return this->wmInfoUint_ == nullptr && return this->wmType_ == nullptr; };
+        && this->csvControlShrink_ == nullptr && this->documentControlShrink_ == nullptr && this->fileUrl_ == nullptr && this->filename_ == nullptr && this->imageControlShrink_ == nullptr
+        && this->imageEmbedJpegQuality_ == nullptr && this->imageEmbedLevel_ == nullptr && this->invisibleEnable_ == nullptr && this->videoBitrate_ == nullptr && this->videoControlShrink_ == nullptr
+        && this->videoIsLong_ == nullptr && this->wmInfoBytesB64_ == nullptr && this->wmInfoSize_ == nullptr && this->wmInfoUint_ == nullptr && this->wmType_ == nullptr; };
     // audioControlShrink Field Functions 
     bool hasAudioControlShrink() const { return this->audioControlShrink_ != nullptr;};
     void deleteAudioControlShrink() { this->audioControlShrink_ = nullptr;};
-    inline string audioControlShrink() const { DARABONBA_PTR_GET_DEFAULT(audioControlShrink_, "") };
+    inline string getAudioControlShrink() const { DARABONBA_PTR_GET_DEFAULT(audioControlShrink_, "") };
     inline CreateWmEmbedTaskShrinkRequest& setAudioControlShrink(string audioControlShrink) { DARABONBA_PTR_SET_VALUE(audioControlShrink_, audioControlShrink) };
 
 
     // csvControlShrink Field Functions 
     bool hasCsvControlShrink() const { return this->csvControlShrink_ != nullptr;};
     void deleteCsvControlShrink() { this->csvControlShrink_ = nullptr;};
-    inline string csvControlShrink() const { DARABONBA_PTR_GET_DEFAULT(csvControlShrink_, "") };
+    inline string getCsvControlShrink() const { DARABONBA_PTR_GET_DEFAULT(csvControlShrink_, "") };
     inline CreateWmEmbedTaskShrinkRequest& setCsvControlShrink(string csvControlShrink) { DARABONBA_PTR_SET_VALUE(csvControlShrink_, csvControlShrink) };
 
 
     // documentControlShrink Field Functions 
     bool hasDocumentControlShrink() const { return this->documentControlShrink_ != nullptr;};
     void deleteDocumentControlShrink() { this->documentControlShrink_ = nullptr;};
-    inline string documentControlShrink() const { DARABONBA_PTR_GET_DEFAULT(documentControlShrink_, "") };
+    inline string getDocumentControlShrink() const { DARABONBA_PTR_GET_DEFAULT(documentControlShrink_, "") };
     inline CreateWmEmbedTaskShrinkRequest& setDocumentControlShrink(string documentControlShrink) { DARABONBA_PTR_SET_VALUE(documentControlShrink_, documentControlShrink) };
 
 
     // fileUrl Field Functions 
     bool hasFileUrl() const { return this->fileUrl_ != nullptr;};
     void deleteFileUrl() { this->fileUrl_ = nullptr;};
-    inline string fileUrl() const { DARABONBA_PTR_GET_DEFAULT(fileUrl_, "") };
+    inline string getFileUrl() const { DARABONBA_PTR_GET_DEFAULT(fileUrl_, "") };
     inline CreateWmEmbedTaskShrinkRequest& setFileUrl(string fileUrl) { DARABONBA_PTR_SET_VALUE(fileUrl_, fileUrl) };
 
 
     // filename Field Functions 
     bool hasFilename() const { return this->filename_ != nullptr;};
     void deleteFilename() { this->filename_ = nullptr;};
-    inline string filename() const { DARABONBA_PTR_GET_DEFAULT(filename_, "") };
+    inline string getFilename() const { DARABONBA_PTR_GET_DEFAULT(filename_, "") };
     inline CreateWmEmbedTaskShrinkRequest& setFilename(string filename) { DARABONBA_PTR_SET_VALUE(filename_, filename) };
 
 
     // imageControlShrink Field Functions 
     bool hasImageControlShrink() const { return this->imageControlShrink_ != nullptr;};
     void deleteImageControlShrink() { this->imageControlShrink_ = nullptr;};
-    inline string imageControlShrink() const { DARABONBA_PTR_GET_DEFAULT(imageControlShrink_, "") };
+    inline string getImageControlShrink() const { DARABONBA_PTR_GET_DEFAULT(imageControlShrink_, "") };
     inline CreateWmEmbedTaskShrinkRequest& setImageControlShrink(string imageControlShrink) { DARABONBA_PTR_SET_VALUE(imageControlShrink_, imageControlShrink) };
 
 
     // imageEmbedJpegQuality Field Functions 
     bool hasImageEmbedJpegQuality() const { return this->imageEmbedJpegQuality_ != nullptr;};
     void deleteImageEmbedJpegQuality() { this->imageEmbedJpegQuality_ = nullptr;};
-    inline int64_t imageEmbedJpegQuality() const { DARABONBA_PTR_GET_DEFAULT(imageEmbedJpegQuality_, 0L) };
+    inline int64_t getImageEmbedJpegQuality() const { DARABONBA_PTR_GET_DEFAULT(imageEmbedJpegQuality_, 0L) };
     inline CreateWmEmbedTaskShrinkRequest& setImageEmbedJpegQuality(int64_t imageEmbedJpegQuality) { DARABONBA_PTR_SET_VALUE(imageEmbedJpegQuality_, imageEmbedJpegQuality) };
 
 
     // imageEmbedLevel Field Functions 
     bool hasImageEmbedLevel() const { return this->imageEmbedLevel_ != nullptr;};
     void deleteImageEmbedLevel() { this->imageEmbedLevel_ = nullptr;};
-    inline int64_t imageEmbedLevel() const { DARABONBA_PTR_GET_DEFAULT(imageEmbedLevel_, 0L) };
+    inline int64_t getImageEmbedLevel() const { DARABONBA_PTR_GET_DEFAULT(imageEmbedLevel_, 0L) };
     inline CreateWmEmbedTaskShrinkRequest& setImageEmbedLevel(int64_t imageEmbedLevel) { DARABONBA_PTR_SET_VALUE(imageEmbedLevel_, imageEmbedLevel) };
 
 
     // invisibleEnable Field Functions 
     bool hasInvisibleEnable() const { return this->invisibleEnable_ != nullptr;};
     void deleteInvisibleEnable() { this->invisibleEnable_ = nullptr;};
-    inline bool invisibleEnable() const { DARABONBA_PTR_GET_DEFAULT(invisibleEnable_, false) };
+    inline bool getInvisibleEnable() const { DARABONBA_PTR_GET_DEFAULT(invisibleEnable_, false) };
     inline CreateWmEmbedTaskShrinkRequest& setInvisibleEnable(bool invisibleEnable) { DARABONBA_PTR_SET_VALUE(invisibleEnable_, invisibleEnable) };
 
 
     // videoBitrate Field Functions 
     bool hasVideoBitrate() const { return this->videoBitrate_ != nullptr;};
     void deleteVideoBitrate() { this->videoBitrate_ = nullptr;};
-    inline string videoBitrate() const { DARABONBA_PTR_GET_DEFAULT(videoBitrate_, "") };
+    inline string getVideoBitrate() const { DARABONBA_PTR_GET_DEFAULT(videoBitrate_, "") };
     inline CreateWmEmbedTaskShrinkRequest& setVideoBitrate(string videoBitrate) { DARABONBA_PTR_SET_VALUE(videoBitrate_, videoBitrate) };
 
 
     // videoControlShrink Field Functions 
     bool hasVideoControlShrink() const { return this->videoControlShrink_ != nullptr;};
     void deleteVideoControlShrink() { this->videoControlShrink_ = nullptr;};
-    inline string videoControlShrink() const { DARABONBA_PTR_GET_DEFAULT(videoControlShrink_, "") };
+    inline string getVideoControlShrink() const { DARABONBA_PTR_GET_DEFAULT(videoControlShrink_, "") };
     inline CreateWmEmbedTaskShrinkRequest& setVideoControlShrink(string videoControlShrink) { DARABONBA_PTR_SET_VALUE(videoControlShrink_, videoControlShrink) };
 
 
     // videoIsLong Field Functions 
     bool hasVideoIsLong() const { return this->videoIsLong_ != nullptr;};
     void deleteVideoIsLong() { this->videoIsLong_ = nullptr;};
-    inline bool videoIsLong() const { DARABONBA_PTR_GET_DEFAULT(videoIsLong_, false) };
+    inline bool getVideoIsLong() const { DARABONBA_PTR_GET_DEFAULT(videoIsLong_, false) };
     inline CreateWmEmbedTaskShrinkRequest& setVideoIsLong(bool videoIsLong) { DARABONBA_PTR_SET_VALUE(videoIsLong_, videoIsLong) };
 
 
     // wmInfoBytesB64 Field Functions 
     bool hasWmInfoBytesB64() const { return this->wmInfoBytesB64_ != nullptr;};
     void deleteWmInfoBytesB64() { this->wmInfoBytesB64_ = nullptr;};
-    inline string wmInfoBytesB64() const { DARABONBA_PTR_GET_DEFAULT(wmInfoBytesB64_, "") };
+    inline string getWmInfoBytesB64() const { DARABONBA_PTR_GET_DEFAULT(wmInfoBytesB64_, "") };
     inline CreateWmEmbedTaskShrinkRequest& setWmInfoBytesB64(string wmInfoBytesB64) { DARABONBA_PTR_SET_VALUE(wmInfoBytesB64_, wmInfoBytesB64) };
 
 
     // wmInfoSize Field Functions 
     bool hasWmInfoSize() const { return this->wmInfoSize_ != nullptr;};
     void deleteWmInfoSize() { this->wmInfoSize_ = nullptr;};
-    inline int64_t wmInfoSize() const { DARABONBA_PTR_GET_DEFAULT(wmInfoSize_, 0L) };
+    inline int64_t getWmInfoSize() const { DARABONBA_PTR_GET_DEFAULT(wmInfoSize_, 0L) };
     inline CreateWmEmbedTaskShrinkRequest& setWmInfoSize(int64_t wmInfoSize) { DARABONBA_PTR_SET_VALUE(wmInfoSize_, wmInfoSize) };
 
 
     // wmInfoUint Field Functions 
     bool hasWmInfoUint() const { return this->wmInfoUint_ != nullptr;};
     void deleteWmInfoUint() { this->wmInfoUint_ = nullptr;};
-    inline string wmInfoUint() const { DARABONBA_PTR_GET_DEFAULT(wmInfoUint_, "") };
+    inline string getWmInfoUint() const { DARABONBA_PTR_GET_DEFAULT(wmInfoUint_, "") };
     inline CreateWmEmbedTaskShrinkRequest& setWmInfoUint(string wmInfoUint) { DARABONBA_PTR_SET_VALUE(wmInfoUint_, wmInfoUint) };
 
 
     // wmType Field Functions 
     bool hasWmType() const { return this->wmType_ != nullptr;};
     void deleteWmType() { this->wmType_ = nullptr;};
-    inline string wmType() const { DARABONBA_PTR_GET_DEFAULT(wmType_, "") };
+    inline string getWmType() const { DARABONBA_PTR_GET_DEFAULT(wmType_, "") };
     inline CreateWmEmbedTaskShrinkRequest& setWmType(string wmType) { DARABONBA_PTR_SET_VALUE(wmType_, wmType) };
 
 
   protected:
-    std::shared_ptr<string> audioControlShrink_ = nullptr;
-    std::shared_ptr<string> csvControlShrink_ = nullptr;
-    std::shared_ptr<string> documentControlShrink_ = nullptr;
+    shared_ptr<string> audioControlShrink_ {};
+    shared_ptr<string> csvControlShrink_ {};
+    shared_ptr<string> documentControlShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> fileUrl_ = nullptr;
+    shared_ptr<string> fileUrl_ {};
     // This parameter is required.
-    std::shared_ptr<string> filename_ = nullptr;
-    std::shared_ptr<string> imageControlShrink_ = nullptr;
-    std::shared_ptr<int64_t> imageEmbedJpegQuality_ = nullptr;
-    std::shared_ptr<int64_t> imageEmbedLevel_ = nullptr;
-    std::shared_ptr<bool> invisibleEnable_ = nullptr;
-    std::shared_ptr<string> videoBitrate_ = nullptr;
-    std::shared_ptr<string> videoControlShrink_ = nullptr;
-    std::shared_ptr<bool> videoIsLong_ = nullptr;
-    std::shared_ptr<string> wmInfoBytesB64_ = nullptr;
-    std::shared_ptr<int64_t> wmInfoSize_ = nullptr;
-    std::shared_ptr<string> wmInfoUint_ = nullptr;
+    shared_ptr<string> filename_ {};
+    shared_ptr<string> imageControlShrink_ {};
+    shared_ptr<int64_t> imageEmbedJpegQuality_ {};
+    shared_ptr<int64_t> imageEmbedLevel_ {};
+    shared_ptr<bool> invisibleEnable_ {};
+    shared_ptr<string> videoBitrate_ {};
+    shared_ptr<string> videoControlShrink_ {};
+    shared_ptr<bool> videoIsLong_ {};
+    shared_ptr<string> wmInfoBytesB64_ {};
+    shared_ptr<int64_t> wmInfoSize_ {};
+    shared_ptr<string> wmInfoUint_ {};
     // This parameter is required.
-    std::shared_ptr<string> wmType_ = nullptr;
+    shared_ptr<string> wmType_ {};
   };
 
   } // namespace Models

@@ -41,61 +41,61 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->attributeValue_ == nullptr
-        && return this->currentPage_ == nullptr && return this->name_ == nullptr && return this->PAPolicyId_ == nullptr && return this->pageSize_ == nullptr && return this->userGroupIds_ == nullptr; };
+        && this->currentPage_ == nullptr && this->name_ == nullptr && this->PAPolicyId_ == nullptr && this->pageSize_ == nullptr && this->userGroupIds_ == nullptr; };
     // attributeValue Field Functions 
     bool hasAttributeValue() const { return this->attributeValue_ != nullptr;};
     void deleteAttributeValue() { this->attributeValue_ = nullptr;};
-    inline string attributeValue() const { DARABONBA_PTR_GET_DEFAULT(attributeValue_, "") };
+    inline string getAttributeValue() const { DARABONBA_PTR_GET_DEFAULT(attributeValue_, "") };
     inline ListUserGroupsRequest& setAttributeValue(string attributeValue) { DARABONBA_PTR_SET_VALUE(attributeValue_, attributeValue) };
 
 
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline ListUserGroupsRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline ListUserGroupsRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // PAPolicyId Field Functions 
     bool hasPAPolicyId() const { return this->PAPolicyId_ != nullptr;};
     void deletePAPolicyId() { this->PAPolicyId_ = nullptr;};
-    inline string PAPolicyId() const { DARABONBA_PTR_GET_DEFAULT(PAPolicyId_, "") };
+    inline string getPAPolicyId() const { DARABONBA_PTR_GET_DEFAULT(PAPolicyId_, "") };
     inline ListUserGroupsRequest& setPAPolicyId(string PAPolicyId) { DARABONBA_PTR_SET_VALUE(PAPolicyId_, PAPolicyId) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListUserGroupsRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // userGroupIds Field Functions 
     bool hasUserGroupIds() const { return this->userGroupIds_ != nullptr;};
     void deleteUserGroupIds() { this->userGroupIds_ = nullptr;};
-    inline const vector<string> & userGroupIds() const { DARABONBA_PTR_GET_CONST(userGroupIds_, vector<string>) };
-    inline vector<string> userGroupIds() { DARABONBA_PTR_GET(userGroupIds_, vector<string>) };
+    inline const vector<string> & getUserGroupIds() const { DARABONBA_PTR_GET_CONST(userGroupIds_, vector<string>) };
+    inline vector<string> getUserGroupIds() { DARABONBA_PTR_GET(userGroupIds_, vector<string>) };
     inline ListUserGroupsRequest& setUserGroupIds(const vector<string> & userGroupIds) { DARABONBA_PTR_SET_VALUE(userGroupIds_, userGroupIds) };
     inline ListUserGroupsRequest& setUserGroupIds(vector<string> && userGroupIds) { DARABONBA_PTR_SET_RVALUE(userGroupIds_, userGroupIds) };
 
 
   protected:
-    std::shared_ptr<string> attributeValue_ = nullptr;
+    shared_ptr<string> attributeValue_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
+    shared_ptr<int32_t> currentPage_ {};
     // 用户组名称。长度为1~128个字符，支持中文和大小写英文字母，可包含数字、半角句号（.）、下划线（_）和短划线（-）。
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> PAPolicyId_ = nullptr;
+    shared_ptr<string> name_ {};
+    shared_ptr<string> PAPolicyId_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    std::shared_ptr<vector<string>> userGroupIds_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<vector<string>> userGroupIds_ {};
   };
 
   } // namespace Models

@@ -33,13 +33,13 @@ namespace Models
     // dynamicRouteId Field Functions 
     bool hasDynamicRouteId() const { return this->dynamicRouteId_ != nullptr;};
     void deleteDynamicRouteId() { this->dynamicRouteId_ = nullptr;};
-    inline string dynamicRouteId() const { DARABONBA_PTR_GET_DEFAULT(dynamicRouteId_, "") };
+    inline string getDynamicRouteId() const { DARABONBA_PTR_GET_DEFAULT(dynamicRouteId_, "") };
     inline GetDynamicRouteRequest& setDynamicRouteId(string dynamicRouteId) { DARABONBA_PTR_SET_VALUE(dynamicRouteId_, dynamicRouteId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> dynamicRouteId_ = nullptr;
+    shared_ptr<string> dynamicRouteId_ {};
   };
 
   } // namespace Models

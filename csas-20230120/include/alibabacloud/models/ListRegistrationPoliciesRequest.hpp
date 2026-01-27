@@ -47,55 +47,55 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->companyLimitType_ == nullptr
-        && return this->currentPage_ == nullptr && return this->matchMode_ == nullptr && return this->name_ == nullptr && return this->pageSize_ == nullptr && return this->personalLimitType_ == nullptr
-        && return this->policyIds_ == nullptr && return this->status_ == nullptr && return this->userGroupId_ == nullptr; };
+        && this->currentPage_ == nullptr && this->matchMode_ == nullptr && this->name_ == nullptr && this->pageSize_ == nullptr && this->personalLimitType_ == nullptr
+        && this->policyIds_ == nullptr && this->status_ == nullptr && this->userGroupId_ == nullptr; };
     // companyLimitType Field Functions 
     bool hasCompanyLimitType() const { return this->companyLimitType_ != nullptr;};
     void deleteCompanyLimitType() { this->companyLimitType_ = nullptr;};
-    inline string companyLimitType() const { DARABONBA_PTR_GET_DEFAULT(companyLimitType_, "") };
+    inline string getCompanyLimitType() const { DARABONBA_PTR_GET_DEFAULT(companyLimitType_, "") };
     inline ListRegistrationPoliciesRequest& setCompanyLimitType(string companyLimitType) { DARABONBA_PTR_SET_VALUE(companyLimitType_, companyLimitType) };
 
 
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int64_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0L) };
+    inline int64_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0L) };
     inline ListRegistrationPoliciesRequest& setCurrentPage(int64_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // matchMode Field Functions 
     bool hasMatchMode() const { return this->matchMode_ != nullptr;};
     void deleteMatchMode() { this->matchMode_ = nullptr;};
-    inline string matchMode() const { DARABONBA_PTR_GET_DEFAULT(matchMode_, "") };
+    inline string getMatchMode() const { DARABONBA_PTR_GET_DEFAULT(matchMode_, "") };
     inline ListRegistrationPoliciesRequest& setMatchMode(string matchMode) { DARABONBA_PTR_SET_VALUE(matchMode_, matchMode) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline ListRegistrationPoliciesRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int64_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
+    inline int64_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
     inline ListRegistrationPoliciesRequest& setPageSize(int64_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // personalLimitType Field Functions 
     bool hasPersonalLimitType() const { return this->personalLimitType_ != nullptr;};
     void deletePersonalLimitType() { this->personalLimitType_ = nullptr;};
-    inline string personalLimitType() const { DARABONBA_PTR_GET_DEFAULT(personalLimitType_, "") };
+    inline string getPersonalLimitType() const { DARABONBA_PTR_GET_DEFAULT(personalLimitType_, "") };
     inline ListRegistrationPoliciesRequest& setPersonalLimitType(string personalLimitType) { DARABONBA_PTR_SET_VALUE(personalLimitType_, personalLimitType) };
 
 
     // policyIds Field Functions 
     bool hasPolicyIds() const { return this->policyIds_ != nullptr;};
     void deletePolicyIds() { this->policyIds_ = nullptr;};
-    inline const vector<string> & policyIds() const { DARABONBA_PTR_GET_CONST(policyIds_, vector<string>) };
-    inline vector<string> policyIds() { DARABONBA_PTR_GET(policyIds_, vector<string>) };
+    inline const vector<string> & getPolicyIds() const { DARABONBA_PTR_GET_CONST(policyIds_, vector<string>) };
+    inline vector<string> getPolicyIds() { DARABONBA_PTR_GET(policyIds_, vector<string>) };
     inline ListRegistrationPoliciesRequest& setPolicyIds(const vector<string> & policyIds) { DARABONBA_PTR_SET_VALUE(policyIds_, policyIds) };
     inline ListRegistrationPoliciesRequest& setPolicyIds(vector<string> && policyIds) { DARABONBA_PTR_SET_RVALUE(policyIds_, policyIds) };
 
@@ -103,29 +103,29 @@ namespace Models
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline ListRegistrationPoliciesRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // userGroupId Field Functions 
     bool hasUserGroupId() const { return this->userGroupId_ != nullptr;};
     void deleteUserGroupId() { this->userGroupId_ = nullptr;};
-    inline string userGroupId() const { DARABONBA_PTR_GET_DEFAULT(userGroupId_, "") };
+    inline string getUserGroupId() const { DARABONBA_PTR_GET_DEFAULT(userGroupId_, "") };
     inline ListRegistrationPoliciesRequest& setUserGroupId(string userGroupId) { DARABONBA_PTR_SET_VALUE(userGroupId_, userGroupId) };
 
 
   protected:
-    std::shared_ptr<string> companyLimitType_ = nullptr;
+    shared_ptr<string> companyLimitType_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> currentPage_ = nullptr;
-    std::shared_ptr<string> matchMode_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<int64_t> currentPage_ {};
+    shared_ptr<string> matchMode_ {};
+    shared_ptr<string> name_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> pageSize_ = nullptr;
-    std::shared_ptr<string> personalLimitType_ = nullptr;
-    std::shared_ptr<vector<string>> policyIds_ = nullptr;
-    std::shared_ptr<string> status_ = nullptr;
-    std::shared_ptr<string> userGroupId_ = nullptr;
+    shared_ptr<int64_t> pageSize_ {};
+    shared_ptr<string> personalLimitType_ {};
+    shared_ptr<vector<string>> policyIds_ {};
+    shared_ptr<string> status_ {};
+    shared_ptr<string> userGroupId_ {};
   };
 
   } // namespace Models

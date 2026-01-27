@@ -34,15 +34,15 @@ namespace Models
     // tagIds Field Functions 
     bool hasTagIds() const { return this->tagIds_ != nullptr;};
     void deleteTagIds() { this->tagIds_ = nullptr;};
-    inline const vector<string> & tagIds() const { DARABONBA_PTR_GET_CONST(tagIds_, vector<string>) };
-    inline vector<string> tagIds() { DARABONBA_PTR_GET(tagIds_, vector<string>) };
+    inline const vector<string> & getTagIds() const { DARABONBA_PTR_GET_CONST(tagIds_, vector<string>) };
+    inline vector<string> getTagIds() { DARABONBA_PTR_GET(tagIds_, vector<string>) };
     inline ListApplicationsForPrivateAccessTagRequest& setTagIds(const vector<string> & tagIds) { DARABONBA_PTR_SET_VALUE(tagIds_, tagIds) };
     inline ListApplicationsForPrivateAccessTagRequest& setTagIds(vector<string> && tagIds) { DARABONBA_PTR_SET_RVALUE(tagIds_, tagIds) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<vector<string>> tagIds_ = nullptr;
+    shared_ptr<vector<string>> tagIds_ {};
   };
 
   } // namespace Models

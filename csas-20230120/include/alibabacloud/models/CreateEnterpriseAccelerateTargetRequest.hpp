@@ -33,28 +33,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->eapId_ == nullptr
-        && return this->target_ == nullptr; };
+        && this->target_ == nullptr; };
     // eapId Field Functions 
     bool hasEapId() const { return this->eapId_ != nullptr;};
     void deleteEapId() { this->eapId_ = nullptr;};
-    inline string eapId() const { DARABONBA_PTR_GET_DEFAULT(eapId_, "") };
+    inline string getEapId() const { DARABONBA_PTR_GET_DEFAULT(eapId_, "") };
     inline CreateEnterpriseAccelerateTargetRequest& setEapId(string eapId) { DARABONBA_PTR_SET_VALUE(eapId_, eapId) };
 
 
     // target Field Functions 
     bool hasTarget() const { return this->target_ != nullptr;};
     void deleteTarget() { this->target_ = nullptr;};
-    inline const vector<string> & target() const { DARABONBA_PTR_GET_CONST(target_, vector<string>) };
-    inline vector<string> target() { DARABONBA_PTR_GET(target_, vector<string>) };
+    inline const vector<string> & getTarget() const { DARABONBA_PTR_GET_CONST(target_, vector<string>) };
+    inline vector<string> getTarget() { DARABONBA_PTR_GET(target_, vector<string>) };
     inline CreateEnterpriseAccelerateTargetRequest& setTarget(const vector<string> & target) { DARABONBA_PTR_SET_VALUE(target_, target) };
     inline CreateEnterpriseAccelerateTargetRequest& setTarget(vector<string> && target) { DARABONBA_PTR_SET_RVALUE(target_, target) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> eapId_ = nullptr;
+    shared_ptr<string> eapId_ {};
     // This parameter is required.
-    std::shared_ptr<vector<string>> target_ = nullptr;
+    shared_ptr<vector<string>> target_ {};
   };
 
   } // namespace Models

@@ -33,13 +33,13 @@ namespace Models
     // deviceTag Field Functions 
     bool hasDeviceTag() const { return this->deviceTag_ != nullptr;};
     void deleteDeviceTag() { this->deviceTag_ = nullptr;};
-    inline string deviceTag() const { DARABONBA_PTR_GET_DEFAULT(deviceTag_, "") };
+    inline string getDeviceTag() const { DARABONBA_PTR_GET_DEFAULT(deviceTag_, "") };
     inline GetUserDeviceRequest& setDeviceTag(string deviceTag) { DARABONBA_PTR_SET_VALUE(deviceTag_, deviceTag) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> deviceTag_ = nullptr;
+    shared_ptr<string> deviceTag_ {};
   };
 
   } // namespace Models

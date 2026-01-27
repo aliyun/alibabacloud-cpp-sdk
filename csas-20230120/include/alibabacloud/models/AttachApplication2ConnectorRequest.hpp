@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->applicationIds_ == nullptr
-        && return this->connectorId_ == nullptr; };
+        && this->connectorId_ == nullptr; };
     // applicationIds Field Functions 
     bool hasApplicationIds() const { return this->applicationIds_ != nullptr;};
     void deleteApplicationIds() { this->applicationIds_ = nullptr;};
-    inline const vector<string> & applicationIds() const { DARABONBA_PTR_GET_CONST(applicationIds_, vector<string>) };
-    inline vector<string> applicationIds() { DARABONBA_PTR_GET(applicationIds_, vector<string>) };
+    inline const vector<string> & getApplicationIds() const { DARABONBA_PTR_GET_CONST(applicationIds_, vector<string>) };
+    inline vector<string> getApplicationIds() { DARABONBA_PTR_GET(applicationIds_, vector<string>) };
     inline AttachApplication2ConnectorRequest& setApplicationIds(const vector<string> & applicationIds) { DARABONBA_PTR_SET_VALUE(applicationIds_, applicationIds) };
     inline AttachApplication2ConnectorRequest& setApplicationIds(vector<string> && applicationIds) { DARABONBA_PTR_SET_RVALUE(applicationIds_, applicationIds) };
 
@@ -46,17 +46,17 @@ namespace Models
     // connectorId Field Functions 
     bool hasConnectorId() const { return this->connectorId_ != nullptr;};
     void deleteConnectorId() { this->connectorId_ = nullptr;};
-    inline string connectorId() const { DARABONBA_PTR_GET_DEFAULT(connectorId_, "") };
+    inline string getConnectorId() const { DARABONBA_PTR_GET_DEFAULT(connectorId_, "") };
     inline AttachApplication2ConnectorRequest& setConnectorId(string connectorId) { DARABONBA_PTR_SET_VALUE(connectorId_, connectorId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<vector<string>> applicationIds_ = nullptr;
+    shared_ptr<vector<string>> applicationIds_ {};
     // ConnectorID。
     // 
     // This parameter is required.
-    std::shared_ptr<string> connectorId_ = nullptr;
+    shared_ptr<string> connectorId_ {};
   };
 
   } // namespace Models

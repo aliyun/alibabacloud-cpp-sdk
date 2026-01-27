@@ -47,84 +47,84 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->approvalType_ == nullptr
-        && return this->description_ == nullptr && return this->eventLabel_ == nullptr && return this->externalConfig_ == nullptr && return this->matchSchemaConfigsShrink_ == nullptr && return this->matchSchemasShrink_ == nullptr
-        && return this->processId_ == nullptr && return this->processName_ == nullptr && return this->processNodes_ == nullptr; };
+        && this->description_ == nullptr && this->eventLabel_ == nullptr && this->externalConfig_ == nullptr && this->matchSchemaConfigsShrink_ == nullptr && this->matchSchemasShrink_ == nullptr
+        && this->processId_ == nullptr && this->processName_ == nullptr && this->processNodes_ == nullptr; };
     // approvalType Field Functions 
     bool hasApprovalType() const { return this->approvalType_ != nullptr;};
     void deleteApprovalType() { this->approvalType_ = nullptr;};
-    inline int32_t approvalType() const { DARABONBA_PTR_GET_DEFAULT(approvalType_, 0) };
+    inline int32_t getApprovalType() const { DARABONBA_PTR_GET_DEFAULT(approvalType_, 0) };
     inline UpdateApprovalProcessShrinkRequest& setApprovalType(int32_t approvalType) { DARABONBA_PTR_SET_VALUE(approvalType_, approvalType) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline UpdateApprovalProcessShrinkRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // eventLabel Field Functions 
     bool hasEventLabel() const { return this->eventLabel_ != nullptr;};
     void deleteEventLabel() { this->eventLabel_ = nullptr;};
-    inline string eventLabel() const { DARABONBA_PTR_GET_DEFAULT(eventLabel_, "") };
+    inline string getEventLabel() const { DARABONBA_PTR_GET_DEFAULT(eventLabel_, "") };
     inline UpdateApprovalProcessShrinkRequest& setEventLabel(string eventLabel) { DARABONBA_PTR_SET_VALUE(eventLabel_, eventLabel) };
 
 
     // externalConfig Field Functions 
     bool hasExternalConfig() const { return this->externalConfig_ != nullptr;};
     void deleteExternalConfig() { this->externalConfig_ = nullptr;};
-    inline string externalConfig() const { DARABONBA_PTR_GET_DEFAULT(externalConfig_, "") };
+    inline string getExternalConfig() const { DARABONBA_PTR_GET_DEFAULT(externalConfig_, "") };
     inline UpdateApprovalProcessShrinkRequest& setExternalConfig(string externalConfig) { DARABONBA_PTR_SET_VALUE(externalConfig_, externalConfig) };
 
 
     // matchSchemaConfigsShrink Field Functions 
     bool hasMatchSchemaConfigsShrink() const { return this->matchSchemaConfigsShrink_ != nullptr;};
     void deleteMatchSchemaConfigsShrink() { this->matchSchemaConfigsShrink_ = nullptr;};
-    inline string matchSchemaConfigsShrink() const { DARABONBA_PTR_GET_DEFAULT(matchSchemaConfigsShrink_, "") };
+    inline string getMatchSchemaConfigsShrink() const { DARABONBA_PTR_GET_DEFAULT(matchSchemaConfigsShrink_, "") };
     inline UpdateApprovalProcessShrinkRequest& setMatchSchemaConfigsShrink(string matchSchemaConfigsShrink) { DARABONBA_PTR_SET_VALUE(matchSchemaConfigsShrink_, matchSchemaConfigsShrink) };
 
 
     // matchSchemasShrink Field Functions 
     bool hasMatchSchemasShrink() const { return this->matchSchemasShrink_ != nullptr;};
     void deleteMatchSchemasShrink() { this->matchSchemasShrink_ = nullptr;};
-    inline string matchSchemasShrink() const { DARABONBA_PTR_GET_DEFAULT(matchSchemasShrink_, "") };
+    inline string getMatchSchemasShrink() const { DARABONBA_PTR_GET_DEFAULT(matchSchemasShrink_, "") };
     inline UpdateApprovalProcessShrinkRequest& setMatchSchemasShrink(string matchSchemasShrink) { DARABONBA_PTR_SET_VALUE(matchSchemasShrink_, matchSchemasShrink) };
 
 
     // processId Field Functions 
     bool hasProcessId() const { return this->processId_ != nullptr;};
     void deleteProcessId() { this->processId_ = nullptr;};
-    inline string processId() const { DARABONBA_PTR_GET_DEFAULT(processId_, "") };
+    inline string getProcessId() const { DARABONBA_PTR_GET_DEFAULT(processId_, "") };
     inline UpdateApprovalProcessShrinkRequest& setProcessId(string processId) { DARABONBA_PTR_SET_VALUE(processId_, processId) };
 
 
     // processName Field Functions 
     bool hasProcessName() const { return this->processName_ != nullptr;};
     void deleteProcessName() { this->processName_ = nullptr;};
-    inline string processName() const { DARABONBA_PTR_GET_DEFAULT(processName_, "") };
+    inline string getProcessName() const { DARABONBA_PTR_GET_DEFAULT(processName_, "") };
     inline UpdateApprovalProcessShrinkRequest& setProcessName(string processName) { DARABONBA_PTR_SET_VALUE(processName_, processName) };
 
 
     // processNodes Field Functions 
     bool hasProcessNodes() const { return this->processNodes_ != nullptr;};
     void deleteProcessNodes() { this->processNodes_ = nullptr;};
-    inline const vector<vector<string>> & processNodes() const { DARABONBA_PTR_GET_CONST(processNodes_, vector<vector<string>>) };
-    inline vector<vector<string>> processNodes() { DARABONBA_PTR_GET(processNodes_, vector<vector<string>>) };
+    inline const vector<vector<string>> & getProcessNodes() const { DARABONBA_PTR_GET_CONST(processNodes_, vector<vector<string>>) };
+    inline vector<vector<string>> getProcessNodes() { DARABONBA_PTR_GET(processNodes_, vector<vector<string>>) };
     inline UpdateApprovalProcessShrinkRequest& setProcessNodes(const vector<vector<string>> & processNodes) { DARABONBA_PTR_SET_VALUE(processNodes_, processNodes) };
     inline UpdateApprovalProcessShrinkRequest& setProcessNodes(vector<vector<string>> && processNodes) { DARABONBA_PTR_SET_RVALUE(processNodes_, processNodes) };
 
 
   protected:
-    std::shared_ptr<int32_t> approvalType_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<string> eventLabel_ = nullptr;
-    std::shared_ptr<string> externalConfig_ = nullptr;
-    std::shared_ptr<string> matchSchemaConfigsShrink_ = nullptr;
-    std::shared_ptr<string> matchSchemasShrink_ = nullptr;
+    shared_ptr<int32_t> approvalType_ {};
+    shared_ptr<string> description_ {};
+    shared_ptr<string> eventLabel_ {};
+    shared_ptr<string> externalConfig_ {};
+    shared_ptr<string> matchSchemaConfigsShrink_ {};
+    shared_ptr<string> matchSchemasShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> processId_ = nullptr;
-    std::shared_ptr<string> processName_ = nullptr;
-    std::shared_ptr<vector<vector<string>>> processNodes_ = nullptr;
+    shared_ptr<string> processId_ {};
+    shared_ptr<string> processName_ {};
+    shared_ptr<vector<vector<string>>> processNodes_ {};
   };
 
   } // namespace Models

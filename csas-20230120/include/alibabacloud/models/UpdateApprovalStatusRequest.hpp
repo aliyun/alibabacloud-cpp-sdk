@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->approvalId_ == nullptr
-        && return this->status_ == nullptr; };
+        && this->status_ == nullptr; };
     // approvalId Field Functions 
     bool hasApprovalId() const { return this->approvalId_ != nullptr;};
     void deleteApprovalId() { this->approvalId_ = nullptr;};
-    inline string approvalId() const { DARABONBA_PTR_GET_DEFAULT(approvalId_, "") };
+    inline string getApprovalId() const { DARABONBA_PTR_GET_DEFAULT(approvalId_, "") };
     inline UpdateApprovalStatusRequest& setApprovalId(string approvalId) { DARABONBA_PTR_SET_VALUE(approvalId_, approvalId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline UpdateApprovalStatusRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> approvalId_ = nullptr;
+    shared_ptr<string> approvalId_ {};
     // This parameter is required.
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models

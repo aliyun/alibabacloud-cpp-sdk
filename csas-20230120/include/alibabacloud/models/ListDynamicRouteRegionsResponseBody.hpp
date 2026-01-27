@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->regions_ == nullptr
-        && return this->requestId_ == nullptr && return this->totalNum_ == nullptr; };
+        && this->requestId_ == nullptr && this->totalNum_ == nullptr; };
     // regions Field Functions 
     bool hasRegions() const { return this->regions_ != nullptr;};
     void deleteRegions() { this->regions_ = nullptr;};
-    inline const vector<string> & regions() const { DARABONBA_PTR_GET_CONST(regions_, vector<string>) };
-    inline vector<string> regions() { DARABONBA_PTR_GET(regions_, vector<string>) };
+    inline const vector<string> & getRegions() const { DARABONBA_PTR_GET_CONST(regions_, vector<string>) };
+    inline vector<string> getRegions() { DARABONBA_PTR_GET(regions_, vector<string>) };
     inline ListDynamicRouteRegionsResponseBody& setRegions(const vector<string> & regions) { DARABONBA_PTR_SET_VALUE(regions_, regions) };
     inline ListDynamicRouteRegionsResponseBody& setRegions(vector<string> && regions) { DARABONBA_PTR_SET_RVALUE(regions_, regions) };
 
@@ -48,21 +48,21 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListDynamicRouteRegionsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // totalNum Field Functions 
     bool hasTotalNum() const { return this->totalNum_ != nullptr;};
     void deleteTotalNum() { this->totalNum_ = nullptr;};
-    inline int32_t totalNum() const { DARABONBA_PTR_GET_DEFAULT(totalNum_, 0) };
+    inline int32_t getTotalNum() const { DARABONBA_PTR_GET_DEFAULT(totalNum_, 0) };
     inline ListDynamicRouteRegionsResponseBody& setTotalNum(int32_t totalNum) { DARABONBA_PTR_SET_VALUE(totalNum_, totalNum) };
 
 
   protected:
-    std::shared_ptr<vector<string>> regions_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<int32_t> totalNum_ = nullptr;
+    shared_ptr<vector<string>> regions_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<int32_t> totalNum_ {};
   };
 
   } // namespace Models

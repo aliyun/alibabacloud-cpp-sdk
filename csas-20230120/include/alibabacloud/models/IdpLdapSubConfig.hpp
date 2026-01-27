@@ -54,114 +54,114 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->baseDn_ == nullptr
-        && return this->groupBaseDn_ == nullptr && return this->groupFilter_ == nullptr && return this->groupMembershipAttr_ == nullptr && return this->groupNameAttr_ == nullptr && return this->loginNameAttr_ == nullptr
-        && return this->serverAddr_ == nullptr && return this->serverPort_ == nullptr && return this->serverType_ == nullptr && return this->useSsl_ == nullptr && return this->userDn_ == nullptr
-        && return this->userFilter_ == nullptr && return this->userPassword_ == nullptr; };
+        && this->groupBaseDn_ == nullptr && this->groupFilter_ == nullptr && this->groupMembershipAttr_ == nullptr && this->groupNameAttr_ == nullptr && this->loginNameAttr_ == nullptr
+        && this->serverAddr_ == nullptr && this->serverPort_ == nullptr && this->serverType_ == nullptr && this->useSsl_ == nullptr && this->userDn_ == nullptr
+        && this->userFilter_ == nullptr && this->userPassword_ == nullptr; };
     // baseDn Field Functions 
     bool hasBaseDn() const { return this->baseDn_ != nullptr;};
     void deleteBaseDn() { this->baseDn_ = nullptr;};
-    inline string baseDn() const { DARABONBA_PTR_GET_DEFAULT(baseDn_, "") };
+    inline string getBaseDn() const { DARABONBA_PTR_GET_DEFAULT(baseDn_, "") };
     inline IdpLdapSubConfig& setBaseDn(string baseDn) { DARABONBA_PTR_SET_VALUE(baseDn_, baseDn) };
 
 
     // groupBaseDn Field Functions 
     bool hasGroupBaseDn() const { return this->groupBaseDn_ != nullptr;};
     void deleteGroupBaseDn() { this->groupBaseDn_ = nullptr;};
-    inline string groupBaseDn() const { DARABONBA_PTR_GET_DEFAULT(groupBaseDn_, "") };
+    inline string getGroupBaseDn() const { DARABONBA_PTR_GET_DEFAULT(groupBaseDn_, "") };
     inline IdpLdapSubConfig& setGroupBaseDn(string groupBaseDn) { DARABONBA_PTR_SET_VALUE(groupBaseDn_, groupBaseDn) };
 
 
     // groupFilter Field Functions 
     bool hasGroupFilter() const { return this->groupFilter_ != nullptr;};
     void deleteGroupFilter() { this->groupFilter_ = nullptr;};
-    inline string groupFilter() const { DARABONBA_PTR_GET_DEFAULT(groupFilter_, "") };
+    inline string getGroupFilter() const { DARABONBA_PTR_GET_DEFAULT(groupFilter_, "") };
     inline IdpLdapSubConfig& setGroupFilter(string groupFilter) { DARABONBA_PTR_SET_VALUE(groupFilter_, groupFilter) };
 
 
     // groupMembershipAttr Field Functions 
     bool hasGroupMembershipAttr() const { return this->groupMembershipAttr_ != nullptr;};
     void deleteGroupMembershipAttr() { this->groupMembershipAttr_ = nullptr;};
-    inline string groupMembershipAttr() const { DARABONBA_PTR_GET_DEFAULT(groupMembershipAttr_, "") };
+    inline string getGroupMembershipAttr() const { DARABONBA_PTR_GET_DEFAULT(groupMembershipAttr_, "") };
     inline IdpLdapSubConfig& setGroupMembershipAttr(string groupMembershipAttr) { DARABONBA_PTR_SET_VALUE(groupMembershipAttr_, groupMembershipAttr) };
 
 
     // groupNameAttr Field Functions 
     bool hasGroupNameAttr() const { return this->groupNameAttr_ != nullptr;};
     void deleteGroupNameAttr() { this->groupNameAttr_ = nullptr;};
-    inline string groupNameAttr() const { DARABONBA_PTR_GET_DEFAULT(groupNameAttr_, "") };
+    inline string getGroupNameAttr() const { DARABONBA_PTR_GET_DEFAULT(groupNameAttr_, "") };
     inline IdpLdapSubConfig& setGroupNameAttr(string groupNameAttr) { DARABONBA_PTR_SET_VALUE(groupNameAttr_, groupNameAttr) };
 
 
     // loginNameAttr Field Functions 
     bool hasLoginNameAttr() const { return this->loginNameAttr_ != nullptr;};
     void deleteLoginNameAttr() { this->loginNameAttr_ = nullptr;};
-    inline string loginNameAttr() const { DARABONBA_PTR_GET_DEFAULT(loginNameAttr_, "") };
+    inline string getLoginNameAttr() const { DARABONBA_PTR_GET_DEFAULT(loginNameAttr_, "") };
     inline IdpLdapSubConfig& setLoginNameAttr(string loginNameAttr) { DARABONBA_PTR_SET_VALUE(loginNameAttr_, loginNameAttr) };
 
 
     // serverAddr Field Functions 
     bool hasServerAddr() const { return this->serverAddr_ != nullptr;};
     void deleteServerAddr() { this->serverAddr_ = nullptr;};
-    inline string serverAddr() const { DARABONBA_PTR_GET_DEFAULT(serverAddr_, "") };
+    inline string getServerAddr() const { DARABONBA_PTR_GET_DEFAULT(serverAddr_, "") };
     inline IdpLdapSubConfig& setServerAddr(string serverAddr) { DARABONBA_PTR_SET_VALUE(serverAddr_, serverAddr) };
 
 
     // serverPort Field Functions 
     bool hasServerPort() const { return this->serverPort_ != nullptr;};
     void deleteServerPort() { this->serverPort_ = nullptr;};
-    inline string serverPort() const { DARABONBA_PTR_GET_DEFAULT(serverPort_, "") };
+    inline string getServerPort() const { DARABONBA_PTR_GET_DEFAULT(serverPort_, "") };
     inline IdpLdapSubConfig& setServerPort(string serverPort) { DARABONBA_PTR_SET_VALUE(serverPort_, serverPort) };
 
 
     // serverType Field Functions 
     bool hasServerType() const { return this->serverType_ != nullptr;};
     void deleteServerType() { this->serverType_ = nullptr;};
-    inline string serverType() const { DARABONBA_PTR_GET_DEFAULT(serverType_, "") };
+    inline string getServerType() const { DARABONBA_PTR_GET_DEFAULT(serverType_, "") };
     inline IdpLdapSubConfig& setServerType(string serverType) { DARABONBA_PTR_SET_VALUE(serverType_, serverType) };
 
 
     // useSsl Field Functions 
     bool hasUseSsl() const { return this->useSsl_ != nullptr;};
     void deleteUseSsl() { this->useSsl_ = nullptr;};
-    inline bool useSsl() const { DARABONBA_PTR_GET_DEFAULT(useSsl_, false) };
+    inline bool getUseSsl() const { DARABONBA_PTR_GET_DEFAULT(useSsl_, false) };
     inline IdpLdapSubConfig& setUseSsl(bool useSsl) { DARABONBA_PTR_SET_VALUE(useSsl_, useSsl) };
 
 
     // userDn Field Functions 
     bool hasUserDn() const { return this->userDn_ != nullptr;};
     void deleteUserDn() { this->userDn_ = nullptr;};
-    inline string userDn() const { DARABONBA_PTR_GET_DEFAULT(userDn_, "") };
+    inline string getUserDn() const { DARABONBA_PTR_GET_DEFAULT(userDn_, "") };
     inline IdpLdapSubConfig& setUserDn(string userDn) { DARABONBA_PTR_SET_VALUE(userDn_, userDn) };
 
 
     // userFilter Field Functions 
     bool hasUserFilter() const { return this->userFilter_ != nullptr;};
     void deleteUserFilter() { this->userFilter_ = nullptr;};
-    inline string userFilter() const { DARABONBA_PTR_GET_DEFAULT(userFilter_, "") };
+    inline string getUserFilter() const { DARABONBA_PTR_GET_DEFAULT(userFilter_, "") };
     inline IdpLdapSubConfig& setUserFilter(string userFilter) { DARABONBA_PTR_SET_VALUE(userFilter_, userFilter) };
 
 
     // userPassword Field Functions 
     bool hasUserPassword() const { return this->userPassword_ != nullptr;};
     void deleteUserPassword() { this->userPassword_ = nullptr;};
-    inline string userPassword() const { DARABONBA_PTR_GET_DEFAULT(userPassword_, "") };
+    inline string getUserPassword() const { DARABONBA_PTR_GET_DEFAULT(userPassword_, "") };
     inline IdpLdapSubConfig& setUserPassword(string userPassword) { DARABONBA_PTR_SET_VALUE(userPassword_, userPassword) };
 
 
   protected:
-    std::shared_ptr<string> baseDn_ = nullptr;
-    std::shared_ptr<string> groupBaseDn_ = nullptr;
-    std::shared_ptr<string> groupFilter_ = nullptr;
-    std::shared_ptr<string> groupMembershipAttr_ = nullptr;
-    std::shared_ptr<string> groupNameAttr_ = nullptr;
-    std::shared_ptr<string> loginNameAttr_ = nullptr;
-    std::shared_ptr<string> serverAddr_ = nullptr;
-    std::shared_ptr<string> serverPort_ = nullptr;
-    std::shared_ptr<string> serverType_ = nullptr;
-    std::shared_ptr<bool> useSsl_ = nullptr;
-    std::shared_ptr<string> userDn_ = nullptr;
-    std::shared_ptr<string> userFilter_ = nullptr;
-    std::shared_ptr<string> userPassword_ = nullptr;
+    shared_ptr<string> baseDn_ {};
+    shared_ptr<string> groupBaseDn_ {};
+    shared_ptr<string> groupFilter_ {};
+    shared_ptr<string> groupMembershipAttr_ {};
+    shared_ptr<string> groupNameAttr_ {};
+    shared_ptr<string> loginNameAttr_ {};
+    shared_ptr<string> serverAddr_ {};
+    shared_ptr<string> serverPort_ {};
+    shared_ptr<string> serverType_ {};
+    shared_ptr<bool> useSsl_ {};
+    shared_ptr<string> userDn_ {};
+    shared_ptr<string> userFilter_ {};
+    shared_ptr<string> userPassword_ {};
   };
 
   } // namespace Models

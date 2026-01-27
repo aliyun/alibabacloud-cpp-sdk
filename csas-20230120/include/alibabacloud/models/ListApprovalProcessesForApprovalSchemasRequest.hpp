@@ -34,15 +34,15 @@ namespace Models
     // schemaIds Field Functions 
     bool hasSchemaIds() const { return this->schemaIds_ != nullptr;};
     void deleteSchemaIds() { this->schemaIds_ = nullptr;};
-    inline const vector<string> & schemaIds() const { DARABONBA_PTR_GET_CONST(schemaIds_, vector<string>) };
-    inline vector<string> schemaIds() { DARABONBA_PTR_GET(schemaIds_, vector<string>) };
+    inline const vector<string> & getSchemaIds() const { DARABONBA_PTR_GET_CONST(schemaIds_, vector<string>) };
+    inline vector<string> getSchemaIds() { DARABONBA_PTR_GET(schemaIds_, vector<string>) };
     inline ListApprovalProcessesForApprovalSchemasRequest& setSchemaIds(const vector<string> & schemaIds) { DARABONBA_PTR_SET_VALUE(schemaIds_, schemaIds) };
     inline ListApprovalProcessesForApprovalSchemasRequest& setSchemaIds(vector<string> && schemaIds) { DARABONBA_PTR_SET_RVALUE(schemaIds_, schemaIds) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<vector<string>> schemaIds_ = nullptr;
+    shared_ptr<vector<string>> schemaIds_ {};
   };
 
   } // namespace Models

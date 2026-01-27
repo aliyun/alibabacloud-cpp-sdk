@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->deviceTags_ == nullptr
-        && return this->sharingStatus_ == nullptr; };
+        && this->sharingStatus_ == nullptr; };
     // deviceTags Field Functions 
     bool hasDeviceTags() const { return this->deviceTags_ != nullptr;};
     void deleteDeviceTags() { this->deviceTags_ = nullptr;};
-    inline const vector<string> & deviceTags() const { DARABONBA_PTR_GET_CONST(deviceTags_, vector<string>) };
-    inline vector<string> deviceTags() { DARABONBA_PTR_GET(deviceTags_, vector<string>) };
+    inline const vector<string> & getDeviceTags() const { DARABONBA_PTR_GET_CONST(deviceTags_, vector<string>) };
+    inline vector<string> getDeviceTags() { DARABONBA_PTR_GET(deviceTags_, vector<string>) };
     inline UpdateUserDevicesSharingStatusRequest& setDeviceTags(const vector<string> & deviceTags) { DARABONBA_PTR_SET_VALUE(deviceTags_, deviceTags) };
     inline UpdateUserDevicesSharingStatusRequest& setDeviceTags(vector<string> && deviceTags) { DARABONBA_PTR_SET_RVALUE(deviceTags_, deviceTags) };
 
@@ -46,15 +46,15 @@ namespace Models
     // sharingStatus Field Functions 
     bool hasSharingStatus() const { return this->sharingStatus_ != nullptr;};
     void deleteSharingStatus() { this->sharingStatus_ = nullptr;};
-    inline bool sharingStatus() const { DARABONBA_PTR_GET_DEFAULT(sharingStatus_, false) };
+    inline bool getSharingStatus() const { DARABONBA_PTR_GET_DEFAULT(sharingStatus_, false) };
     inline UpdateUserDevicesSharingStatusRequest& setSharingStatus(bool sharingStatus) { DARABONBA_PTR_SET_VALUE(sharingStatus_, sharingStatus) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<vector<string>> deviceTags_ = nullptr;
+    shared_ptr<vector<string>> deviceTags_ {};
     // This parameter is required.
-    std::shared_ptr<bool> sharingStatus_ = nullptr;
+    shared_ptr<bool> sharingStatus_ {};
   };
 
   } // namespace Models

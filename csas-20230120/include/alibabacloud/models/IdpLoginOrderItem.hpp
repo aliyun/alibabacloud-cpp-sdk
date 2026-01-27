@@ -40,56 +40,56 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->class_ == nullptr
-        && return this->configId_ == nullptr && return this->desc_ == nullptr && return this->enabled_ == nullptr && return this->name_ == nullptr && return this->type_ == nullptr; };
+        && this->configId_ == nullptr && this->desc_ == nullptr && this->enabled_ == nullptr && this->name_ == nullptr && this->type_ == nullptr; };
     // class Field Functions 
     bool hasClass() const { return this->class_ != nullptr;};
     void deleteClass() { this->class_ = nullptr;};
-    inline string _class() const { DARABONBA_PTR_GET_DEFAULT(class_, "") };
+    inline string getClass() const { DARABONBA_PTR_GET_DEFAULT(class_, "") };
     inline IdpLoginOrderItem& setClass(string _class) { DARABONBA_PTR_SET_VALUE(class_, _class) };
 
 
     // configId Field Functions 
     bool hasConfigId() const { return this->configId_ != nullptr;};
     void deleteConfigId() { this->configId_ = nullptr;};
-    inline string configId() const { DARABONBA_PTR_GET_DEFAULT(configId_, "") };
+    inline string getConfigId() const { DARABONBA_PTR_GET_DEFAULT(configId_, "") };
     inline IdpLoginOrderItem& setConfigId(string configId) { DARABONBA_PTR_SET_VALUE(configId_, configId) };
 
 
     // desc Field Functions 
     bool hasDesc() const { return this->desc_ != nullptr;};
     void deleteDesc() { this->desc_ = nullptr;};
-    inline string desc() const { DARABONBA_PTR_GET_DEFAULT(desc_, "") };
+    inline string getDesc() const { DARABONBA_PTR_GET_DEFAULT(desc_, "") };
     inline IdpLoginOrderItem& setDesc(string desc) { DARABONBA_PTR_SET_VALUE(desc_, desc) };
 
 
     // enabled Field Functions 
     bool hasEnabled() const { return this->enabled_ != nullptr;};
     void deleteEnabled() { this->enabled_ = nullptr;};
-    inline bool enabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
+    inline bool getEnabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
     inline IdpLoginOrderItem& setEnabled(bool enabled) { DARABONBA_PTR_SET_VALUE(enabled_, enabled) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline IdpLoginOrderItem& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline IdpLoginOrderItem& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
-    std::shared_ptr<string> class_ = nullptr;
-    std::shared_ptr<string> configId_ = nullptr;
-    std::shared_ptr<string> desc_ = nullptr;
-    std::shared_ptr<bool> enabled_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> class_ {};
+    shared_ptr<string> configId_ {};
+    shared_ptr<string> desc_ {};
+    shared_ptr<bool> enabled_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

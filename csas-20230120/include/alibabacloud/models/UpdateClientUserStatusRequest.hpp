@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->id_ == nullptr
-        && return this->status_ == nullptr; };
+        && this->status_ == nullptr; };
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline string id() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+    inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline UpdateClientUserStatusRequest& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline UpdateClientUserStatusRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> id_ = nullptr;
+    shared_ptr<string> id_ {};
     // This parameter is required.
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models

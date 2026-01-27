@@ -33,13 +33,13 @@ namespace Models
     // tagId Field Functions 
     bool hasTagId() const { return this->tagId_ != nullptr;};
     void deleteTagId() { this->tagId_ = nullptr;};
-    inline string tagId() const { DARABONBA_PTR_GET_DEFAULT(tagId_, "") };
+    inline string getTagId() const { DARABONBA_PTR_GET_DEFAULT(tagId_, "") };
     inline DeletePrivateAccessTagRequest& setTagId(string tagId) { DARABONBA_PTR_SET_VALUE(tagId_, tagId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> tagId_ = nullptr;
+    shared_ptr<string> tagId_ {};
   };
 
   } // namespace Models

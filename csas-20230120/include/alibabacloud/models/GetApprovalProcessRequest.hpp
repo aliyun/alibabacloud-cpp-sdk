@@ -33,13 +33,13 @@ namespace Models
     // processId Field Functions 
     bool hasProcessId() const { return this->processId_ != nullptr;};
     void deleteProcessId() { this->processId_ = nullptr;};
-    inline string processId() const { DARABONBA_PTR_GET_DEFAULT(processId_, "") };
+    inline string getProcessId() const { DARABONBA_PTR_GET_DEFAULT(processId_, "") };
     inline GetApprovalProcessRequest& setProcessId(string processId) { DARABONBA_PTR_SET_VALUE(processId_, processId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> processId_ = nullptr;
+    shared_ptr<string> processId_ {};
   };
 
   } // namespace Models

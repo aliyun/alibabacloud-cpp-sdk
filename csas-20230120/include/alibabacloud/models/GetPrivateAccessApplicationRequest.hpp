@@ -33,7 +33,7 @@ namespace Models
     // applicationId Field Functions 
     bool hasApplicationId() const { return this->applicationId_ != nullptr;};
     void deleteApplicationId() { this->applicationId_ = nullptr;};
-    inline string applicationId() const { DARABONBA_PTR_GET_DEFAULT(applicationId_, "") };
+    inline string getApplicationId() const { DARABONBA_PTR_GET_DEFAULT(applicationId_, "") };
     inline GetPrivateAccessApplicationRequest& setApplicationId(string applicationId) { DARABONBA_PTR_SET_VALUE(applicationId_, applicationId) };
 
 
@@ -44,7 +44,7 @@ namespace Models
     // *   [CreatePrivateAccessApplication](~~CreatePrivateAccessApplication~~): creates an office application.
     // 
     // This parameter is required.
-    std::shared_ptr<string> applicationId_ = nullptr;
+    shared_ptr<string> applicationId_ {};
   };
 
   } // namespace Models

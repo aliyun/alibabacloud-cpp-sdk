@@ -33,13 +33,13 @@ namespace Models
     // approvalId Field Functions 
     bool hasApprovalId() const { return this->approvalId_ != nullptr;};
     void deleteApprovalId() { this->approvalId_ = nullptr;};
-    inline string approvalId() const { DARABONBA_PTR_GET_DEFAULT(approvalId_, "") };
+    inline string getApprovalId() const { DARABONBA_PTR_GET_DEFAULT(approvalId_, "") };
     inline GetApprovalRequest& setApprovalId(string approvalId) { DARABONBA_PTR_SET_VALUE(approvalId_, approvalId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> approvalId_ = nullptr;
+    shared_ptr<string> approvalId_ {};
   };
 
   } // namespace Models

@@ -36,40 +36,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->departmentId_ == nullptr
-        && return this->fullDn_ == nullptr && return this->name_ == nullptr && return this->parentDepartmentId_ == nullptr; };
+        && this->fullDn_ == nullptr && this->name_ == nullptr && this->parentDepartmentId_ == nullptr; };
     // departmentId Field Functions 
     bool hasDepartmentId() const { return this->departmentId_ != nullptr;};
     void deleteDepartmentId() { this->departmentId_ = nullptr;};
-    inline string departmentId() const { DARABONBA_PTR_GET_DEFAULT(departmentId_, "") };
+    inline string getDepartmentId() const { DARABONBA_PTR_GET_DEFAULT(departmentId_, "") };
     inline OpenStructSaseDepartment& setDepartmentId(string departmentId) { DARABONBA_PTR_SET_VALUE(departmentId_, departmentId) };
 
 
     // fullDn Field Functions 
     bool hasFullDn() const { return this->fullDn_ != nullptr;};
     void deleteFullDn() { this->fullDn_ = nullptr;};
-    inline string fullDn() const { DARABONBA_PTR_GET_DEFAULT(fullDn_, "") };
+    inline string getFullDn() const { DARABONBA_PTR_GET_DEFAULT(fullDn_, "") };
     inline OpenStructSaseDepartment& setFullDn(string fullDn) { DARABONBA_PTR_SET_VALUE(fullDn_, fullDn) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline OpenStructSaseDepartment& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // parentDepartmentId Field Functions 
     bool hasParentDepartmentId() const { return this->parentDepartmentId_ != nullptr;};
     void deleteParentDepartmentId() { this->parentDepartmentId_ = nullptr;};
-    inline string parentDepartmentId() const { DARABONBA_PTR_GET_DEFAULT(parentDepartmentId_, "") };
+    inline string getParentDepartmentId() const { DARABONBA_PTR_GET_DEFAULT(parentDepartmentId_, "") };
     inline OpenStructSaseDepartment& setParentDepartmentId(string parentDepartmentId) { DARABONBA_PTR_SET_VALUE(parentDepartmentId_, parentDepartmentId) };
 
 
   protected:
-    std::shared_ptr<string> departmentId_ = nullptr;
-    std::shared_ptr<string> fullDn_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> parentDepartmentId_ = nullptr;
+    shared_ptr<string> departmentId_ {};
+    shared_ptr<string> fullDn_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<string> parentDepartmentId_ {};
   };
 
   } // namespace Models

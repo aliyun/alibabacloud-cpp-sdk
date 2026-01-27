@@ -49,13 +49,13 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->applicationIds_ == nullptr
-        && return this->applicationType_ == nullptr && return this->description_ == nullptr && return this->dynamicRouteType_ == nullptr && return this->name_ == nullptr && return this->nextHop_ == nullptr
-        && return this->priority_ == nullptr && return this->regionIds_ == nullptr && return this->status_ == nullptr && return this->tagIds_ == nullptr; };
+        && this->applicationType_ == nullptr && this->description_ == nullptr && this->dynamicRouteType_ == nullptr && this->name_ == nullptr && this->nextHop_ == nullptr
+        && this->priority_ == nullptr && this->regionIds_ == nullptr && this->status_ == nullptr && this->tagIds_ == nullptr; };
     // applicationIds Field Functions 
     bool hasApplicationIds() const { return this->applicationIds_ != nullptr;};
     void deleteApplicationIds() { this->applicationIds_ = nullptr;};
-    inline const vector<string> & applicationIds() const { DARABONBA_PTR_GET_CONST(applicationIds_, vector<string>) };
-    inline vector<string> applicationIds() { DARABONBA_PTR_GET(applicationIds_, vector<string>) };
+    inline const vector<string> & getApplicationIds() const { DARABONBA_PTR_GET_CONST(applicationIds_, vector<string>) };
+    inline vector<string> getApplicationIds() { DARABONBA_PTR_GET(applicationIds_, vector<string>) };
     inline CreateDynamicRouteRequest& setApplicationIds(const vector<string> & applicationIds) { DARABONBA_PTR_SET_VALUE(applicationIds_, applicationIds) };
     inline CreateDynamicRouteRequest& setApplicationIds(vector<string> && applicationIds) { DARABONBA_PTR_SET_RVALUE(applicationIds_, applicationIds) };
 
@@ -63,50 +63,50 @@ namespace Models
     // applicationType Field Functions 
     bool hasApplicationType() const { return this->applicationType_ != nullptr;};
     void deleteApplicationType() { this->applicationType_ = nullptr;};
-    inline string applicationType() const { DARABONBA_PTR_GET_DEFAULT(applicationType_, "") };
+    inline string getApplicationType() const { DARABONBA_PTR_GET_DEFAULT(applicationType_, "") };
     inline CreateDynamicRouteRequest& setApplicationType(string applicationType) { DARABONBA_PTR_SET_VALUE(applicationType_, applicationType) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateDynamicRouteRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // dynamicRouteType Field Functions 
     bool hasDynamicRouteType() const { return this->dynamicRouteType_ != nullptr;};
     void deleteDynamicRouteType() { this->dynamicRouteType_ = nullptr;};
-    inline string dynamicRouteType() const { DARABONBA_PTR_GET_DEFAULT(dynamicRouteType_, "") };
+    inline string getDynamicRouteType() const { DARABONBA_PTR_GET_DEFAULT(dynamicRouteType_, "") };
     inline CreateDynamicRouteRequest& setDynamicRouteType(string dynamicRouteType) { DARABONBA_PTR_SET_VALUE(dynamicRouteType_, dynamicRouteType) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateDynamicRouteRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // nextHop Field Functions 
     bool hasNextHop() const { return this->nextHop_ != nullptr;};
     void deleteNextHop() { this->nextHop_ = nullptr;};
-    inline string nextHop() const { DARABONBA_PTR_GET_DEFAULT(nextHop_, "") };
+    inline string getNextHop() const { DARABONBA_PTR_GET_DEFAULT(nextHop_, "") };
     inline CreateDynamicRouteRequest& setNextHop(string nextHop) { DARABONBA_PTR_SET_VALUE(nextHop_, nextHop) };
 
 
     // priority Field Functions 
     bool hasPriority() const { return this->priority_ != nullptr;};
     void deletePriority() { this->priority_ = nullptr;};
-    inline int32_t priority() const { DARABONBA_PTR_GET_DEFAULT(priority_, 0) };
+    inline int32_t getPriority() const { DARABONBA_PTR_GET_DEFAULT(priority_, 0) };
     inline CreateDynamicRouteRequest& setPriority(int32_t priority) { DARABONBA_PTR_SET_VALUE(priority_, priority) };
 
 
     // regionIds Field Functions 
     bool hasRegionIds() const { return this->regionIds_ != nullptr;};
     void deleteRegionIds() { this->regionIds_ = nullptr;};
-    inline const vector<string> & regionIds() const { DARABONBA_PTR_GET_CONST(regionIds_, vector<string>) };
-    inline vector<string> regionIds() { DARABONBA_PTR_GET(regionIds_, vector<string>) };
+    inline const vector<string> & getRegionIds() const { DARABONBA_PTR_GET_CONST(regionIds_, vector<string>) };
+    inline vector<string> getRegionIds() { DARABONBA_PTR_GET(regionIds_, vector<string>) };
     inline CreateDynamicRouteRequest& setRegionIds(const vector<string> & regionIds) { DARABONBA_PTR_SET_VALUE(regionIds_, regionIds) };
     inline CreateDynamicRouteRequest& setRegionIds(vector<string> && regionIds) { DARABONBA_PTR_SET_RVALUE(regionIds_, regionIds) };
 
@@ -114,37 +114,37 @@ namespace Models
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline CreateDynamicRouteRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // tagIds Field Functions 
     bool hasTagIds() const { return this->tagIds_ != nullptr;};
     void deleteTagIds() { this->tagIds_ = nullptr;};
-    inline const vector<string> & tagIds() const { DARABONBA_PTR_GET_CONST(tagIds_, vector<string>) };
-    inline vector<string> tagIds() { DARABONBA_PTR_GET(tagIds_, vector<string>) };
+    inline const vector<string> & getTagIds() const { DARABONBA_PTR_GET_CONST(tagIds_, vector<string>) };
+    inline vector<string> getTagIds() { DARABONBA_PTR_GET(tagIds_, vector<string>) };
     inline CreateDynamicRouteRequest& setTagIds(const vector<string> & tagIds) { DARABONBA_PTR_SET_VALUE(tagIds_, tagIds) };
     inline CreateDynamicRouteRequest& setTagIds(vector<string> && tagIds) { DARABONBA_PTR_SET_RVALUE(tagIds_, tagIds) };
 
 
   protected:
-    std::shared_ptr<vector<string>> applicationIds_ = nullptr;
+    shared_ptr<vector<string>> applicationIds_ {};
     // This parameter is required.
-    std::shared_ptr<string> applicationType_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> applicationType_ {};
+    shared_ptr<string> description_ {};
     // This parameter is required.
-    std::shared_ptr<string> dynamicRouteType_ = nullptr;
+    shared_ptr<string> dynamicRouteType_ {};
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // This parameter is required.
-    std::shared_ptr<string> nextHop_ = nullptr;
+    shared_ptr<string> nextHop_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> priority_ = nullptr;
+    shared_ptr<int32_t> priority_ {};
     // This parameter is required.
-    std::shared_ptr<vector<string>> regionIds_ = nullptr;
+    shared_ptr<vector<string>> regionIds_ {};
     // This parameter is required.
-    std::shared_ptr<string> status_ = nullptr;
-    std::shared_ptr<vector<string>> tagIds_ = nullptr;
+    shared_ptr<string> status_ {};
+    shared_ptr<vector<string>> tagIds_ {};
   };
 
   } // namespace Models

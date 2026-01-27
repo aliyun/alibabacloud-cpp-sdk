@@ -34,14 +34,14 @@ namespace Models
     // aliuids Field Functions 
     bool hasAliuids() const { return this->aliuids_ != nullptr;};
     void deleteAliuids() { this->aliuids_ = nullptr;};
-    inline const vector<string> & aliuids() const { DARABONBA_PTR_GET_CONST(aliuids_, vector<string>) };
-    inline vector<string> aliuids() { DARABONBA_PTR_GET(aliuids_, vector<string>) };
+    inline const vector<string> & getAliuids() const { DARABONBA_PTR_GET_CONST(aliuids_, vector<string>) };
+    inline vector<string> getAliuids() { DARABONBA_PTR_GET(aliuids_, vector<string>) };
     inline OpenStructIdpWuyingSubConfig& setAliuids(const vector<string> & aliuids) { DARABONBA_PTR_SET_VALUE(aliuids_, aliuids) };
     inline OpenStructIdpWuyingSubConfig& setAliuids(vector<string> && aliuids) { DARABONBA_PTR_SET_RVALUE(aliuids_, aliuids) };
 
 
   protected:
-    std::shared_ptr<vector<string>> aliuids_ = nullptr;
+    shared_ptr<vector<string>> aliuids_ {};
   };
 
   } // namespace Models

@@ -51,48 +51,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->alertContent_ == nullptr
-        && return this->alertContentEn_ == nullptr && return this->alertIntervalSeconds_ == nullptr && return this->alertTitle_ == nullptr && return this->alertTitleEn_ == nullptr && return this->nacDemotionPolicyIds_ == nullptr
-        && return this->noticeContent_ == nullptr && return this->noticeContentEn_ == nullptr && return this->notifyActions_ == nullptr && return this->prohibitActions_ == nullptr && return this->prohibitSoftwareIds_ == nullptr; };
+        && this->alertContentEn_ == nullptr && this->alertIntervalSeconds_ == nullptr && this->alertTitle_ == nullptr && this->alertTitleEn_ == nullptr && this->nacDemotionPolicyIds_ == nullptr
+        && this->noticeContent_ == nullptr && this->noticeContentEn_ == nullptr && this->notifyActions_ == nullptr && this->prohibitActions_ == nullptr && this->prohibitSoftwareIds_ == nullptr; };
     // alertContent Field Functions 
     bool hasAlertContent() const { return this->alertContent_ != nullptr;};
     void deleteAlertContent() { this->alertContent_ = nullptr;};
-    inline string alertContent() const { DARABONBA_PTR_GET_DEFAULT(alertContent_, "") };
+    inline string getAlertContent() const { DARABONBA_PTR_GET_DEFAULT(alertContent_, "") };
     inline DisposalContent& setAlertContent(string alertContent) { DARABONBA_PTR_SET_VALUE(alertContent_, alertContent) };
 
 
     // alertContentEn Field Functions 
     bool hasAlertContentEn() const { return this->alertContentEn_ != nullptr;};
     void deleteAlertContentEn() { this->alertContentEn_ = nullptr;};
-    inline string alertContentEn() const { DARABONBA_PTR_GET_DEFAULT(alertContentEn_, "") };
+    inline string getAlertContentEn() const { DARABONBA_PTR_GET_DEFAULT(alertContentEn_, "") };
     inline DisposalContent& setAlertContentEn(string alertContentEn) { DARABONBA_PTR_SET_VALUE(alertContentEn_, alertContentEn) };
 
 
     // alertIntervalSeconds Field Functions 
     bool hasAlertIntervalSeconds() const { return this->alertIntervalSeconds_ != nullptr;};
     void deleteAlertIntervalSeconds() { this->alertIntervalSeconds_ = nullptr;};
-    inline int64_t alertIntervalSeconds() const { DARABONBA_PTR_GET_DEFAULT(alertIntervalSeconds_, 0L) };
+    inline int64_t getAlertIntervalSeconds() const { DARABONBA_PTR_GET_DEFAULT(alertIntervalSeconds_, 0L) };
     inline DisposalContent& setAlertIntervalSeconds(int64_t alertIntervalSeconds) { DARABONBA_PTR_SET_VALUE(alertIntervalSeconds_, alertIntervalSeconds) };
 
 
     // alertTitle Field Functions 
     bool hasAlertTitle() const { return this->alertTitle_ != nullptr;};
     void deleteAlertTitle() { this->alertTitle_ = nullptr;};
-    inline string alertTitle() const { DARABONBA_PTR_GET_DEFAULT(alertTitle_, "") };
+    inline string getAlertTitle() const { DARABONBA_PTR_GET_DEFAULT(alertTitle_, "") };
     inline DisposalContent& setAlertTitle(string alertTitle) { DARABONBA_PTR_SET_VALUE(alertTitle_, alertTitle) };
 
 
     // alertTitleEn Field Functions 
     bool hasAlertTitleEn() const { return this->alertTitleEn_ != nullptr;};
     void deleteAlertTitleEn() { this->alertTitleEn_ = nullptr;};
-    inline string alertTitleEn() const { DARABONBA_PTR_GET_DEFAULT(alertTitleEn_, "") };
+    inline string getAlertTitleEn() const { DARABONBA_PTR_GET_DEFAULT(alertTitleEn_, "") };
     inline DisposalContent& setAlertTitleEn(string alertTitleEn) { DARABONBA_PTR_SET_VALUE(alertTitleEn_, alertTitleEn) };
 
 
     // nacDemotionPolicyIds Field Functions 
     bool hasNacDemotionPolicyIds() const { return this->nacDemotionPolicyIds_ != nullptr;};
     void deleteNacDemotionPolicyIds() { this->nacDemotionPolicyIds_ = nullptr;};
-    inline const vector<string> & nacDemotionPolicyIds() const { DARABONBA_PTR_GET_CONST(nacDemotionPolicyIds_, vector<string>) };
-    inline vector<string> nacDemotionPolicyIds() { DARABONBA_PTR_GET(nacDemotionPolicyIds_, vector<string>) };
+    inline const vector<string> & getNacDemotionPolicyIds() const { DARABONBA_PTR_GET_CONST(nacDemotionPolicyIds_, vector<string>) };
+    inline vector<string> getNacDemotionPolicyIds() { DARABONBA_PTR_GET(nacDemotionPolicyIds_, vector<string>) };
     inline DisposalContent& setNacDemotionPolicyIds(const vector<string> & nacDemotionPolicyIds) { DARABONBA_PTR_SET_VALUE(nacDemotionPolicyIds_, nacDemotionPolicyIds) };
     inline DisposalContent& setNacDemotionPolicyIds(vector<string> && nacDemotionPolicyIds) { DARABONBA_PTR_SET_RVALUE(nacDemotionPolicyIds_, nacDemotionPolicyIds) };
 
@@ -100,22 +100,22 @@ namespace Models
     // noticeContent Field Functions 
     bool hasNoticeContent() const { return this->noticeContent_ != nullptr;};
     void deleteNoticeContent() { this->noticeContent_ = nullptr;};
-    inline string noticeContent() const { DARABONBA_PTR_GET_DEFAULT(noticeContent_, "") };
+    inline string getNoticeContent() const { DARABONBA_PTR_GET_DEFAULT(noticeContent_, "") };
     inline DisposalContent& setNoticeContent(string noticeContent) { DARABONBA_PTR_SET_VALUE(noticeContent_, noticeContent) };
 
 
     // noticeContentEn Field Functions 
     bool hasNoticeContentEn() const { return this->noticeContentEn_ != nullptr;};
     void deleteNoticeContentEn() { this->noticeContentEn_ = nullptr;};
-    inline string noticeContentEn() const { DARABONBA_PTR_GET_DEFAULT(noticeContentEn_, "") };
+    inline string getNoticeContentEn() const { DARABONBA_PTR_GET_DEFAULT(noticeContentEn_, "") };
     inline DisposalContent& setNoticeContentEn(string noticeContentEn) { DARABONBA_PTR_SET_VALUE(noticeContentEn_, noticeContentEn) };
 
 
     // notifyActions Field Functions 
     bool hasNotifyActions() const { return this->notifyActions_ != nullptr;};
     void deleteNotifyActions() { this->notifyActions_ = nullptr;};
-    inline const vector<string> & notifyActions() const { DARABONBA_PTR_GET_CONST(notifyActions_, vector<string>) };
-    inline vector<string> notifyActions() { DARABONBA_PTR_GET(notifyActions_, vector<string>) };
+    inline const vector<string> & getNotifyActions() const { DARABONBA_PTR_GET_CONST(notifyActions_, vector<string>) };
+    inline vector<string> getNotifyActions() { DARABONBA_PTR_GET(notifyActions_, vector<string>) };
     inline DisposalContent& setNotifyActions(const vector<string> & notifyActions) { DARABONBA_PTR_SET_VALUE(notifyActions_, notifyActions) };
     inline DisposalContent& setNotifyActions(vector<string> && notifyActions) { DARABONBA_PTR_SET_RVALUE(notifyActions_, notifyActions) };
 
@@ -123,8 +123,8 @@ namespace Models
     // prohibitActions Field Functions 
     bool hasProhibitActions() const { return this->prohibitActions_ != nullptr;};
     void deleteProhibitActions() { this->prohibitActions_ = nullptr;};
-    inline const vector<string> & prohibitActions() const { DARABONBA_PTR_GET_CONST(prohibitActions_, vector<string>) };
-    inline vector<string> prohibitActions() { DARABONBA_PTR_GET(prohibitActions_, vector<string>) };
+    inline const vector<string> & getProhibitActions() const { DARABONBA_PTR_GET_CONST(prohibitActions_, vector<string>) };
+    inline vector<string> getProhibitActions() { DARABONBA_PTR_GET(prohibitActions_, vector<string>) };
     inline DisposalContent& setProhibitActions(const vector<string> & prohibitActions) { DARABONBA_PTR_SET_VALUE(prohibitActions_, prohibitActions) };
     inline DisposalContent& setProhibitActions(vector<string> && prohibitActions) { DARABONBA_PTR_SET_RVALUE(prohibitActions_, prohibitActions) };
 
@@ -132,25 +132,25 @@ namespace Models
     // prohibitSoftwareIds Field Functions 
     bool hasProhibitSoftwareIds() const { return this->prohibitSoftwareIds_ != nullptr;};
     void deleteProhibitSoftwareIds() { this->prohibitSoftwareIds_ = nullptr;};
-    inline const vector<string> & prohibitSoftwareIds() const { DARABONBA_PTR_GET_CONST(prohibitSoftwareIds_, vector<string>) };
-    inline vector<string> prohibitSoftwareIds() { DARABONBA_PTR_GET(prohibitSoftwareIds_, vector<string>) };
+    inline const vector<string> & getProhibitSoftwareIds() const { DARABONBA_PTR_GET_CONST(prohibitSoftwareIds_, vector<string>) };
+    inline vector<string> getProhibitSoftwareIds() { DARABONBA_PTR_GET(prohibitSoftwareIds_, vector<string>) };
     inline DisposalContent& setProhibitSoftwareIds(const vector<string> & prohibitSoftwareIds) { DARABONBA_PTR_SET_VALUE(prohibitSoftwareIds_, prohibitSoftwareIds) };
     inline DisposalContent& setProhibitSoftwareIds(vector<string> && prohibitSoftwareIds) { DARABONBA_PTR_SET_RVALUE(prohibitSoftwareIds_, prohibitSoftwareIds) };
 
 
   protected:
-    std::shared_ptr<string> alertContent_ = nullptr;
-    std::shared_ptr<string> alertContentEn_ = nullptr;
-    std::shared_ptr<int64_t> alertIntervalSeconds_ = nullptr;
-    std::shared_ptr<string> alertTitle_ = nullptr;
-    std::shared_ptr<string> alertTitleEn_ = nullptr;
-    std::shared_ptr<vector<string>> nacDemotionPolicyIds_ = nullptr;
-    std::shared_ptr<string> noticeContent_ = nullptr;
-    std::shared_ptr<string> noticeContentEn_ = nullptr;
+    shared_ptr<string> alertContent_ {};
+    shared_ptr<string> alertContentEn_ {};
+    shared_ptr<int64_t> alertIntervalSeconds_ {};
+    shared_ptr<string> alertTitle_ {};
+    shared_ptr<string> alertTitleEn_ {};
+    shared_ptr<vector<string>> nacDemotionPolicyIds_ {};
+    shared_ptr<string> noticeContent_ {};
+    shared_ptr<string> noticeContentEn_ {};
     // This parameter is required.
-    std::shared_ptr<vector<string>> notifyActions_ = nullptr;
-    std::shared_ptr<vector<string>> prohibitActions_ = nullptr;
-    std::shared_ptr<vector<string>> prohibitSoftwareIds_ = nullptr;
+    shared_ptr<vector<string>> notifyActions_ {};
+    shared_ptr<vector<string>> prohibitActions_ {};
+    shared_ptr<vector<string>> prohibitSoftwareIds_ {};
   };
 
   } // namespace Models

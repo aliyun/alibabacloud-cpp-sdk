@@ -39,33 +39,33 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->currentPage_ == nullptr
-        && return this->pageSize_ == nullptr && return this->policyType_ == nullptr && return this->schemaIds_ == nullptr && return this->schemaName_ == nullptr; };
+        && this->pageSize_ == nullptr && this->policyType_ == nullptr && this->schemaIds_ == nullptr && this->schemaName_ == nullptr; };
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int64_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0L) };
+    inline int64_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0L) };
     inline ListApprovalSchemasRequest& setCurrentPage(int64_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int64_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
+    inline int64_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
     inline ListApprovalSchemasRequest& setPageSize(int64_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // policyType Field Functions 
     bool hasPolicyType() const { return this->policyType_ != nullptr;};
     void deletePolicyType() { this->policyType_ = nullptr;};
-    inline string policyType() const { DARABONBA_PTR_GET_DEFAULT(policyType_, "") };
+    inline string getPolicyType() const { DARABONBA_PTR_GET_DEFAULT(policyType_, "") };
     inline ListApprovalSchemasRequest& setPolicyType(string policyType) { DARABONBA_PTR_SET_VALUE(policyType_, policyType) };
 
 
     // schemaIds Field Functions 
     bool hasSchemaIds() const { return this->schemaIds_ != nullptr;};
     void deleteSchemaIds() { this->schemaIds_ = nullptr;};
-    inline const vector<string> & schemaIds() const { DARABONBA_PTR_GET_CONST(schemaIds_, vector<string>) };
-    inline vector<string> schemaIds() { DARABONBA_PTR_GET(schemaIds_, vector<string>) };
+    inline const vector<string> & getSchemaIds() const { DARABONBA_PTR_GET_CONST(schemaIds_, vector<string>) };
+    inline vector<string> getSchemaIds() { DARABONBA_PTR_GET(schemaIds_, vector<string>) };
     inline ListApprovalSchemasRequest& setSchemaIds(const vector<string> & schemaIds) { DARABONBA_PTR_SET_VALUE(schemaIds_, schemaIds) };
     inline ListApprovalSchemasRequest& setSchemaIds(vector<string> && schemaIds) { DARABONBA_PTR_SET_RVALUE(schemaIds_, schemaIds) };
 
@@ -73,18 +73,18 @@ namespace Models
     // schemaName Field Functions 
     bool hasSchemaName() const { return this->schemaName_ != nullptr;};
     void deleteSchemaName() { this->schemaName_ = nullptr;};
-    inline string schemaName() const { DARABONBA_PTR_GET_DEFAULT(schemaName_, "") };
+    inline string getSchemaName() const { DARABONBA_PTR_GET_DEFAULT(schemaName_, "") };
     inline ListApprovalSchemasRequest& setSchemaName(string schemaName) { DARABONBA_PTR_SET_VALUE(schemaName_, schemaName) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<int64_t> currentPage_ = nullptr;
+    shared_ptr<int64_t> currentPage_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> pageSize_ = nullptr;
-    std::shared_ptr<string> policyType_ = nullptr;
-    std::shared_ptr<vector<string>> schemaIds_ = nullptr;
-    std::shared_ptr<string> schemaName_ = nullptr;
+    shared_ptr<int64_t> pageSize_ {};
+    shared_ptr<string> policyType_ {};
+    shared_ptr<vector<string>> schemaIds_ {};
+    shared_ptr<string> schemaName_ {};
   };
 
   } // namespace Models

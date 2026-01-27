@@ -59,14 +59,14 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appStatuses_ == nullptr
-        && return this->department_ == nullptr && return this->deviceBelong_ == nullptr && return this->deviceStatuses_ == nullptr && return this->deviceTags_ == nullptr && return this->deviceTypes_ == nullptr
-        && return this->dlpStatuses_ == nullptr && return this->hostname_ == nullptr && return this->iaStatuses_ == nullptr && return this->mac_ == nullptr && return this->nacStatuses_ == nullptr
-        && return this->paStatuses_ == nullptr && return this->saseUserId_ == nullptr && return this->sharingStatus_ == nullptr && return this->username_ == nullptr; };
+        && this->department_ == nullptr && this->deviceBelong_ == nullptr && this->deviceStatuses_ == nullptr && this->deviceTags_ == nullptr && this->deviceTypes_ == nullptr
+        && this->dlpStatuses_ == nullptr && this->hostname_ == nullptr && this->iaStatuses_ == nullptr && this->mac_ == nullptr && this->nacStatuses_ == nullptr
+        && this->paStatuses_ == nullptr && this->saseUserId_ == nullptr && this->sharingStatus_ == nullptr && this->username_ == nullptr; };
     // appStatuses Field Functions 
     bool hasAppStatuses() const { return this->appStatuses_ != nullptr;};
     void deleteAppStatuses() { this->appStatuses_ = nullptr;};
-    inline const vector<string> & appStatuses() const { DARABONBA_PTR_GET_CONST(appStatuses_, vector<string>) };
-    inline vector<string> appStatuses() { DARABONBA_PTR_GET(appStatuses_, vector<string>) };
+    inline const vector<string> & getAppStatuses() const { DARABONBA_PTR_GET_CONST(appStatuses_, vector<string>) };
+    inline vector<string> getAppStatuses() { DARABONBA_PTR_GET(appStatuses_, vector<string>) };
     inline ExportUserDevicesRequest& setAppStatuses(const vector<string> & appStatuses) { DARABONBA_PTR_SET_VALUE(appStatuses_, appStatuses) };
     inline ExportUserDevicesRequest& setAppStatuses(vector<string> && appStatuses) { DARABONBA_PTR_SET_RVALUE(appStatuses_, appStatuses) };
 
@@ -74,22 +74,22 @@ namespace Models
     // department Field Functions 
     bool hasDepartment() const { return this->department_ != nullptr;};
     void deleteDepartment() { this->department_ = nullptr;};
-    inline string department() const { DARABONBA_PTR_GET_DEFAULT(department_, "") };
+    inline string getDepartment() const { DARABONBA_PTR_GET_DEFAULT(department_, "") };
     inline ExportUserDevicesRequest& setDepartment(string department) { DARABONBA_PTR_SET_VALUE(department_, department) };
 
 
     // deviceBelong Field Functions 
     bool hasDeviceBelong() const { return this->deviceBelong_ != nullptr;};
     void deleteDeviceBelong() { this->deviceBelong_ = nullptr;};
-    inline string deviceBelong() const { DARABONBA_PTR_GET_DEFAULT(deviceBelong_, "") };
+    inline string getDeviceBelong() const { DARABONBA_PTR_GET_DEFAULT(deviceBelong_, "") };
     inline ExportUserDevicesRequest& setDeviceBelong(string deviceBelong) { DARABONBA_PTR_SET_VALUE(deviceBelong_, deviceBelong) };
 
 
     // deviceStatuses Field Functions 
     bool hasDeviceStatuses() const { return this->deviceStatuses_ != nullptr;};
     void deleteDeviceStatuses() { this->deviceStatuses_ = nullptr;};
-    inline const vector<string> & deviceStatuses() const { DARABONBA_PTR_GET_CONST(deviceStatuses_, vector<string>) };
-    inline vector<string> deviceStatuses() { DARABONBA_PTR_GET(deviceStatuses_, vector<string>) };
+    inline const vector<string> & getDeviceStatuses() const { DARABONBA_PTR_GET_CONST(deviceStatuses_, vector<string>) };
+    inline vector<string> getDeviceStatuses() { DARABONBA_PTR_GET(deviceStatuses_, vector<string>) };
     inline ExportUserDevicesRequest& setDeviceStatuses(const vector<string> & deviceStatuses) { DARABONBA_PTR_SET_VALUE(deviceStatuses_, deviceStatuses) };
     inline ExportUserDevicesRequest& setDeviceStatuses(vector<string> && deviceStatuses) { DARABONBA_PTR_SET_RVALUE(deviceStatuses_, deviceStatuses) };
 
@@ -97,8 +97,8 @@ namespace Models
     // deviceTags Field Functions 
     bool hasDeviceTags() const { return this->deviceTags_ != nullptr;};
     void deleteDeviceTags() { this->deviceTags_ = nullptr;};
-    inline const vector<string> & deviceTags() const { DARABONBA_PTR_GET_CONST(deviceTags_, vector<string>) };
-    inline vector<string> deviceTags() { DARABONBA_PTR_GET(deviceTags_, vector<string>) };
+    inline const vector<string> & getDeviceTags() const { DARABONBA_PTR_GET_CONST(deviceTags_, vector<string>) };
+    inline vector<string> getDeviceTags() { DARABONBA_PTR_GET(deviceTags_, vector<string>) };
     inline ExportUserDevicesRequest& setDeviceTags(const vector<string> & deviceTags) { DARABONBA_PTR_SET_VALUE(deviceTags_, deviceTags) };
     inline ExportUserDevicesRequest& setDeviceTags(vector<string> && deviceTags) { DARABONBA_PTR_SET_RVALUE(deviceTags_, deviceTags) };
 
@@ -106,8 +106,8 @@ namespace Models
     // deviceTypes Field Functions 
     bool hasDeviceTypes() const { return this->deviceTypes_ != nullptr;};
     void deleteDeviceTypes() { this->deviceTypes_ = nullptr;};
-    inline const vector<string> & deviceTypes() const { DARABONBA_PTR_GET_CONST(deviceTypes_, vector<string>) };
-    inline vector<string> deviceTypes() { DARABONBA_PTR_GET(deviceTypes_, vector<string>) };
+    inline const vector<string> & getDeviceTypes() const { DARABONBA_PTR_GET_CONST(deviceTypes_, vector<string>) };
+    inline vector<string> getDeviceTypes() { DARABONBA_PTR_GET(deviceTypes_, vector<string>) };
     inline ExportUserDevicesRequest& setDeviceTypes(const vector<string> & deviceTypes) { DARABONBA_PTR_SET_VALUE(deviceTypes_, deviceTypes) };
     inline ExportUserDevicesRequest& setDeviceTypes(vector<string> && deviceTypes) { DARABONBA_PTR_SET_RVALUE(deviceTypes_, deviceTypes) };
 
@@ -115,8 +115,8 @@ namespace Models
     // dlpStatuses Field Functions 
     bool hasDlpStatuses() const { return this->dlpStatuses_ != nullptr;};
     void deleteDlpStatuses() { this->dlpStatuses_ = nullptr;};
-    inline const vector<string> & dlpStatuses() const { DARABONBA_PTR_GET_CONST(dlpStatuses_, vector<string>) };
-    inline vector<string> dlpStatuses() { DARABONBA_PTR_GET(dlpStatuses_, vector<string>) };
+    inline const vector<string> & getDlpStatuses() const { DARABONBA_PTR_GET_CONST(dlpStatuses_, vector<string>) };
+    inline vector<string> getDlpStatuses() { DARABONBA_PTR_GET(dlpStatuses_, vector<string>) };
     inline ExportUserDevicesRequest& setDlpStatuses(const vector<string> & dlpStatuses) { DARABONBA_PTR_SET_VALUE(dlpStatuses_, dlpStatuses) };
     inline ExportUserDevicesRequest& setDlpStatuses(vector<string> && dlpStatuses) { DARABONBA_PTR_SET_RVALUE(dlpStatuses_, dlpStatuses) };
 
@@ -124,15 +124,15 @@ namespace Models
     // hostname Field Functions 
     bool hasHostname() const { return this->hostname_ != nullptr;};
     void deleteHostname() { this->hostname_ = nullptr;};
-    inline string hostname() const { DARABONBA_PTR_GET_DEFAULT(hostname_, "") };
+    inline string getHostname() const { DARABONBA_PTR_GET_DEFAULT(hostname_, "") };
     inline ExportUserDevicesRequest& setHostname(string hostname) { DARABONBA_PTR_SET_VALUE(hostname_, hostname) };
 
 
     // iaStatuses Field Functions 
     bool hasIaStatuses() const { return this->iaStatuses_ != nullptr;};
     void deleteIaStatuses() { this->iaStatuses_ = nullptr;};
-    inline const vector<string> & iaStatuses() const { DARABONBA_PTR_GET_CONST(iaStatuses_, vector<string>) };
-    inline vector<string> iaStatuses() { DARABONBA_PTR_GET(iaStatuses_, vector<string>) };
+    inline const vector<string> & getIaStatuses() const { DARABONBA_PTR_GET_CONST(iaStatuses_, vector<string>) };
+    inline vector<string> getIaStatuses() { DARABONBA_PTR_GET(iaStatuses_, vector<string>) };
     inline ExportUserDevicesRequest& setIaStatuses(const vector<string> & iaStatuses) { DARABONBA_PTR_SET_VALUE(iaStatuses_, iaStatuses) };
     inline ExportUserDevicesRequest& setIaStatuses(vector<string> && iaStatuses) { DARABONBA_PTR_SET_RVALUE(iaStatuses_, iaStatuses) };
 
@@ -140,15 +140,15 @@ namespace Models
     // mac Field Functions 
     bool hasMac() const { return this->mac_ != nullptr;};
     void deleteMac() { this->mac_ = nullptr;};
-    inline string mac() const { DARABONBA_PTR_GET_DEFAULT(mac_, "") };
+    inline string getMac() const { DARABONBA_PTR_GET_DEFAULT(mac_, "") };
     inline ExportUserDevicesRequest& setMac(string mac) { DARABONBA_PTR_SET_VALUE(mac_, mac) };
 
 
     // nacStatuses Field Functions 
     bool hasNacStatuses() const { return this->nacStatuses_ != nullptr;};
     void deleteNacStatuses() { this->nacStatuses_ = nullptr;};
-    inline const vector<string> & nacStatuses() const { DARABONBA_PTR_GET_CONST(nacStatuses_, vector<string>) };
-    inline vector<string> nacStatuses() { DARABONBA_PTR_GET(nacStatuses_, vector<string>) };
+    inline const vector<string> & getNacStatuses() const { DARABONBA_PTR_GET_CONST(nacStatuses_, vector<string>) };
+    inline vector<string> getNacStatuses() { DARABONBA_PTR_GET(nacStatuses_, vector<string>) };
     inline ExportUserDevicesRequest& setNacStatuses(const vector<string> & nacStatuses) { DARABONBA_PTR_SET_VALUE(nacStatuses_, nacStatuses) };
     inline ExportUserDevicesRequest& setNacStatuses(vector<string> && nacStatuses) { DARABONBA_PTR_SET_RVALUE(nacStatuses_, nacStatuses) };
 
@@ -156,8 +156,8 @@ namespace Models
     // paStatuses Field Functions 
     bool hasPaStatuses() const { return this->paStatuses_ != nullptr;};
     void deletePaStatuses() { this->paStatuses_ = nullptr;};
-    inline const vector<string> & paStatuses() const { DARABONBA_PTR_GET_CONST(paStatuses_, vector<string>) };
-    inline vector<string> paStatuses() { DARABONBA_PTR_GET(paStatuses_, vector<string>) };
+    inline const vector<string> & getPaStatuses() const { DARABONBA_PTR_GET_CONST(paStatuses_, vector<string>) };
+    inline vector<string> getPaStatuses() { DARABONBA_PTR_GET(paStatuses_, vector<string>) };
     inline ExportUserDevicesRequest& setPaStatuses(const vector<string> & paStatuses) { DARABONBA_PTR_SET_VALUE(paStatuses_, paStatuses) };
     inline ExportUserDevicesRequest& setPaStatuses(vector<string> && paStatuses) { DARABONBA_PTR_SET_RVALUE(paStatuses_, paStatuses) };
 
@@ -165,40 +165,40 @@ namespace Models
     // saseUserId Field Functions 
     bool hasSaseUserId() const { return this->saseUserId_ != nullptr;};
     void deleteSaseUserId() { this->saseUserId_ = nullptr;};
-    inline string saseUserId() const { DARABONBA_PTR_GET_DEFAULT(saseUserId_, "") };
+    inline string getSaseUserId() const { DARABONBA_PTR_GET_DEFAULT(saseUserId_, "") };
     inline ExportUserDevicesRequest& setSaseUserId(string saseUserId) { DARABONBA_PTR_SET_VALUE(saseUserId_, saseUserId) };
 
 
     // sharingStatus Field Functions 
     bool hasSharingStatus() const { return this->sharingStatus_ != nullptr;};
     void deleteSharingStatus() { this->sharingStatus_ = nullptr;};
-    inline bool sharingStatus() const { DARABONBA_PTR_GET_DEFAULT(sharingStatus_, false) };
+    inline bool getSharingStatus() const { DARABONBA_PTR_GET_DEFAULT(sharingStatus_, false) };
     inline ExportUserDevicesRequest& setSharingStatus(bool sharingStatus) { DARABONBA_PTR_SET_VALUE(sharingStatus_, sharingStatus) };
 
 
     // username Field Functions 
     bool hasUsername() const { return this->username_ != nullptr;};
     void deleteUsername() { this->username_ = nullptr;};
-    inline string username() const { DARABONBA_PTR_GET_DEFAULT(username_, "") };
+    inline string getUsername() const { DARABONBA_PTR_GET_DEFAULT(username_, "") };
     inline ExportUserDevicesRequest& setUsername(string username) { DARABONBA_PTR_SET_VALUE(username_, username) };
 
 
   protected:
-    std::shared_ptr<vector<string>> appStatuses_ = nullptr;
-    std::shared_ptr<string> department_ = nullptr;
-    std::shared_ptr<string> deviceBelong_ = nullptr;
-    std::shared_ptr<vector<string>> deviceStatuses_ = nullptr;
-    std::shared_ptr<vector<string>> deviceTags_ = nullptr;
-    std::shared_ptr<vector<string>> deviceTypes_ = nullptr;
-    std::shared_ptr<vector<string>> dlpStatuses_ = nullptr;
-    std::shared_ptr<string> hostname_ = nullptr;
-    std::shared_ptr<vector<string>> iaStatuses_ = nullptr;
-    std::shared_ptr<string> mac_ = nullptr;
-    std::shared_ptr<vector<string>> nacStatuses_ = nullptr;
-    std::shared_ptr<vector<string>> paStatuses_ = nullptr;
-    std::shared_ptr<string> saseUserId_ = nullptr;
-    std::shared_ptr<bool> sharingStatus_ = nullptr;
-    std::shared_ptr<string> username_ = nullptr;
+    shared_ptr<vector<string>> appStatuses_ {};
+    shared_ptr<string> department_ {};
+    shared_ptr<string> deviceBelong_ {};
+    shared_ptr<vector<string>> deviceStatuses_ {};
+    shared_ptr<vector<string>> deviceTags_ {};
+    shared_ptr<vector<string>> deviceTypes_ {};
+    shared_ptr<vector<string>> dlpStatuses_ {};
+    shared_ptr<string> hostname_ {};
+    shared_ptr<vector<string>> iaStatuses_ {};
+    shared_ptr<string> mac_ {};
+    shared_ptr<vector<string>> nacStatuses_ {};
+    shared_ptr<vector<string>> paStatuses_ {};
+    shared_ptr<string> saseUserId_ {};
+    shared_ptr<bool> sharingStatus_ {};
+    shared_ptr<string> username_ {};
   };
 
   } // namespace Models

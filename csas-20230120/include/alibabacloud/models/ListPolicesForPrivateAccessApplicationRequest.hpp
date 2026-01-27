@@ -34,15 +34,15 @@ namespace Models
     // applicationIds Field Functions 
     bool hasApplicationIds() const { return this->applicationIds_ != nullptr;};
     void deleteApplicationIds() { this->applicationIds_ = nullptr;};
-    inline const vector<string> & applicationIds() const { DARABONBA_PTR_GET_CONST(applicationIds_, vector<string>) };
-    inline vector<string> applicationIds() { DARABONBA_PTR_GET(applicationIds_, vector<string>) };
+    inline const vector<string> & getApplicationIds() const { DARABONBA_PTR_GET_CONST(applicationIds_, vector<string>) };
+    inline vector<string> getApplicationIds() { DARABONBA_PTR_GET(applicationIds_, vector<string>) };
     inline ListPolicesForPrivateAccessApplicationRequest& setApplicationIds(const vector<string> & applicationIds) { DARABONBA_PTR_SET_VALUE(applicationIds_, applicationIds) };
     inline ListPolicesForPrivateAccessApplicationRequest& setApplicationIds(vector<string> && applicationIds) { DARABONBA_PTR_SET_RVALUE(applicationIds_, applicationIds) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<vector<string>> applicationIds_ = nullptr;
+    shared_ptr<vector<string>> applicationIds_ {};
   };
 
   } // namespace Models

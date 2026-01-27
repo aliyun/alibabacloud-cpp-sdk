@@ -33,13 +33,13 @@ namespace Models
     // schemaId Field Functions 
     bool hasSchemaId() const { return this->schemaId_ != nullptr;};
     void deleteSchemaId() { this->schemaId_ = nullptr;};
-    inline string schemaId() const { DARABONBA_PTR_GET_DEFAULT(schemaId_, "") };
+    inline string getSchemaId() const { DARABONBA_PTR_GET_DEFAULT(schemaId_, "") };
     inline GetApprovalSchemaRequest& setSchemaId(string schemaId) { DARABONBA_PTR_SET_VALUE(schemaId_, schemaId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> schemaId_ = nullptr;
+    shared_ptr<string> schemaId_ {};
   };
 
   } // namespace Models

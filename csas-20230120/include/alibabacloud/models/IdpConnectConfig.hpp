@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->connectorId_ == nullptr
-        && return this->useConnector_ == nullptr; };
+        && this->useConnector_ == nullptr; };
     // connectorId Field Functions 
     bool hasConnectorId() const { return this->connectorId_ != nullptr;};
     void deleteConnectorId() { this->connectorId_ = nullptr;};
-    inline string connectorId() const { DARABONBA_PTR_GET_DEFAULT(connectorId_, "") };
+    inline string getConnectorId() const { DARABONBA_PTR_GET_DEFAULT(connectorId_, "") };
     inline IdpConnectConfig& setConnectorId(string connectorId) { DARABONBA_PTR_SET_VALUE(connectorId_, connectorId) };
 
 
     // useConnector Field Functions 
     bool hasUseConnector() const { return this->useConnector_ != nullptr;};
     void deleteUseConnector() { this->useConnector_ = nullptr;};
-    inline bool useConnector() const { DARABONBA_PTR_GET_DEFAULT(useConnector_, false) };
+    inline bool getUseConnector() const { DARABONBA_PTR_GET_DEFAULT(useConnector_, false) };
     inline IdpConnectConfig& setUseConnector(bool useConnector) { DARABONBA_PTR_SET_VALUE(useConnector_, useConnector) };
 
 
   protected:
-    std::shared_ptr<string> connectorId_ = nullptr;
-    std::shared_ptr<bool> useConnector_ = nullptr;
+    shared_ptr<string> connectorId_ {};
+    shared_ptr<bool> useConnector_ {};
   };
 
   } // namespace Models
