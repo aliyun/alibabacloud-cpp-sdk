@@ -126,6 +126,9 @@
 #include <alibabacloud/models/CreateGadInstanceMemberRequest.hpp>
 #include <alibabacloud/models/CreateGadInstanceMemberResponseBody.hpp>
 #include <alibabacloud/models/CreateGadInstanceMemberResponse.hpp>
+#include <alibabacloud/models/CreateImportTaskRequest.hpp>
+#include <alibabacloud/models/CreateImportTaskResponseBody.hpp>
+#include <alibabacloud/models/CreateImportTaskResponse.hpp>
 #include <alibabacloud/models/CreateMaskingRulesRequest.hpp>
 #include <alibabacloud/models/CreateMaskingRulesShrinkRequest.hpp>
 #include <alibabacloud/models/CreateMaskingRulesResponseBody.hpp>
@@ -152,6 +155,9 @@
 #include <alibabacloud/models/CreateRCDiskRequest.hpp>
 #include <alibabacloud/models/CreateRCDiskResponseBody.hpp>
 #include <alibabacloud/models/CreateRCDiskResponse.hpp>
+#include <alibabacloud/models/CreateRCImageRequest.hpp>
+#include <alibabacloud/models/CreateRCImageResponseBody.hpp>
+#include <alibabacloud/models/CreateRCImageResponse.hpp>
 #include <alibabacloud/models/CreateRCNodePoolRequest.hpp>
 #include <alibabacloud/models/CreateRCNodePoolShrinkRequest.hpp>
 #include <alibabacloud/models/CreateRCNodePoolResponseBody.hpp>
@@ -486,6 +492,12 @@
 #include <alibabacloud/models/DescribeHostWebShellRequest.hpp>
 #include <alibabacloud/models/DescribeHostWebShellResponseBody.hpp>
 #include <alibabacloud/models/DescribeHostWebShellResponse.hpp>
+#include <alibabacloud/models/DescribeImportTaskRequest.hpp>
+#include <alibabacloud/models/DescribeImportTaskResponseBody.hpp>
+#include <alibabacloud/models/DescribeImportTaskResponse.hpp>
+#include <alibabacloud/models/DescribeImportTaskValidationRequest.hpp>
+#include <alibabacloud/models/DescribeImportTaskValidationResponseBody.hpp>
+#include <alibabacloud/models/DescribeImportTaskValidationResponse.hpp>
 #include <alibabacloud/models/DescribeInstanceAutoRenewalAttributeRequest.hpp>
 #include <alibabacloud/models/DescribeInstanceAutoRenewalAttributeResponseBody.hpp>
 #include <alibabacloud/models/DescribeInstanceAutoRenewalAttributeResponse.hpp>
@@ -753,6 +765,9 @@
 #include <alibabacloud/models/ListClassesRequest.hpp>
 #include <alibabacloud/models/ListClassesResponseBody.hpp>
 #include <alibabacloud/models/ListClassesResponse.hpp>
+#include <alibabacloud/models/ListImportTasksRequest.hpp>
+#include <alibabacloud/models/ListImportTasksResponseBody.hpp>
+#include <alibabacloud/models/ListImportTasksResponse.hpp>
 #include <alibabacloud/models/ListRCVClustersRequest.hpp>
 #include <alibabacloud/models/ListRCVClustersResponseBody.hpp>
 #include <alibabacloud/models/ListRCVClustersResponse.hpp>
@@ -882,6 +897,9 @@
 #include <alibabacloud/models/ModifyDBInstanceTDERequest.hpp>
 #include <alibabacloud/models/ModifyDBInstanceTDEResponseBody.hpp>
 #include <alibabacloud/models/ModifyDBInstanceTDEResponse.hpp>
+#include <alibabacloud/models/ModifyDBInstanceVectorSupportStatusRequest.hpp>
+#include <alibabacloud/models/ModifyDBInstanceVectorSupportStatusResponseBody.hpp>
+#include <alibabacloud/models/ModifyDBInstanceVectorSupportStatusResponse.hpp>
 #include <alibabacloud/models/ModifyDBNodeRequest.hpp>
 #include <alibabacloud/models/ModifyDBNodeShrinkRequest.hpp>
 #include <alibabacloud/models/ModifyDBNodeResponseBody.hpp>
@@ -921,6 +939,9 @@
 #include <alibabacloud/models/ModifyHASwitchConfigRequest.hpp>
 #include <alibabacloud/models/ModifyHASwitchConfigResponseBody.hpp>
 #include <alibabacloud/models/ModifyHASwitchConfigResponse.hpp>
+#include <alibabacloud/models/ModifyImportTaskRequest.hpp>
+#include <alibabacloud/models/ModifyImportTaskResponseBody.hpp>
+#include <alibabacloud/models/ModifyImportTaskResponse.hpp>
 #include <alibabacloud/models/ModifyInstanceAutoRenewalAttributeRequest.hpp>
 #include <alibabacloud/models/ModifyInstanceAutoRenewalAttributeResponseBody.hpp>
 #include <alibabacloud/models/ModifyInstanceAutoRenewalAttributeResponse.hpp>
@@ -940,6 +961,9 @@
 #include <alibabacloud/models/ModifyParameterGroupRequest.hpp>
 #include <alibabacloud/models/ModifyParameterGroupResponseBody.hpp>
 #include <alibabacloud/models/ModifyParameterGroupResponse.hpp>
+#include <alibabacloud/models/ModifyRCDiskAttributeRequest.hpp>
+#include <alibabacloud/models/ModifyRCDiskAttributeResponseBody.hpp>
+#include <alibabacloud/models/ModifyRCDiskAttributeResponse.hpp>
 #include <alibabacloud/models/ModifyRCDiskChargeTypeRequest.hpp>
 #include <alibabacloud/models/ModifyRCDiskChargeTypeResponseBody.hpp>
 #include <alibabacloud/models/ModifyRCDiskChargeTypeResponse.hpp>
@@ -1183,5 +1207,8 @@
 #include <alibabacloud/models/UpgradeDBProxyInstanceKernelVersionRequest.hpp>
 #include <alibabacloud/models/UpgradeDBProxyInstanceKernelVersionResponseBody.hpp>
 #include <alibabacloud/models/UpgradeDBProxyInstanceKernelVersionResponse.hpp>
+#include <alibabacloud/models/ValidateImportTaskRequest.hpp>
+#include <alibabacloud/models/ValidateImportTaskResponseBody.hpp>
+#include <alibabacloud/models/ValidateImportTaskResponse.hpp>
 
 #endif

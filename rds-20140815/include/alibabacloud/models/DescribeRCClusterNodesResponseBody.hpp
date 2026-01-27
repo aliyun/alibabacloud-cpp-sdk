@@ -102,6 +102,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(NodeName, nodeName_);
         DARABONBA_PTR_TO_JSON(NodePoolId, nodePoolId_);
         DARABONBA_PTR_TO_JSON(NodeStatus, nodeStatus_);
+        DARABONBA_PTR_TO_JSON(PodCount, podCount_);
         DARABONBA_PTR_TO_JSON(RuntimeVersion, runtimeVersion_);
         DARABONBA_PTR_TO_JSON(State, state_);
       };
@@ -116,6 +117,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(NodeName, nodeName_);
         DARABONBA_PTR_FROM_JSON(NodePoolId, nodePoolId_);
         DARABONBA_PTR_FROM_JSON(NodeStatus, nodeStatus_);
+        DARABONBA_PTR_FROM_JSON(PodCount, podCount_);
         DARABONBA_PTR_FROM_JSON(RuntimeVersion, runtimeVersion_);
         DARABONBA_PTR_FROM_JSON(State, state_);
       };
@@ -132,8 +134,8 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->creationTime_ == nullptr
         && this->dockerVersion_ == nullptr && this->imageId_ == nullptr && this->instanceId_ == nullptr && this->instanceRole_ == nullptr && this->ipAddresses_ == nullptr
-        && this->isAliyunNode_ == nullptr && this->nodeName_ == nullptr && this->nodePoolId_ == nullptr && this->nodeStatus_ == nullptr && this->runtimeVersion_ == nullptr
-        && this->state_ == nullptr; };
+        && this->isAliyunNode_ == nullptr && this->nodeName_ == nullptr && this->nodePoolId_ == nullptr && this->nodeStatus_ == nullptr && this->podCount_ == nullptr
+        && this->runtimeVersion_ == nullptr && this->state_ == nullptr; };
       // creationTime Field Functions 
       bool hasCreationTime() const { return this->creationTime_ != nullptr;};
       void deleteCreationTime() { this->creationTime_ = nullptr;};
@@ -206,6 +208,13 @@ namespace Models
       inline Nodes& setNodeStatus(string nodeStatus) { DARABONBA_PTR_SET_VALUE(nodeStatus_, nodeStatus) };
 
 
+      // podCount Field Functions 
+      bool hasPodCount() const { return this->podCount_ != nullptr;};
+      void deletePodCount() { this->podCount_ = nullptr;};
+      inline int64_t getPodCount() const { DARABONBA_PTR_GET_DEFAULT(podCount_, 0L) };
+      inline Nodes& setPodCount(int64_t podCount) { DARABONBA_PTR_SET_VALUE(podCount_, podCount) };
+
+
       // runtimeVersion Field Functions 
       bool hasRuntimeVersion() const { return this->runtimeVersion_ != nullptr;};
       void deleteRuntimeVersion() { this->runtimeVersion_ = nullptr;};
@@ -252,6 +261,7 @@ namespace Models
       // *   **Unknown**: The status of the node is unknown.
       // *   **Offline**: The node is offline.
       shared_ptr<string> nodeStatus_ {};
+      shared_ptr<int64_t> podCount_ {};
       // The runtime of the ACK cluster.
       shared_ptr<string> runtimeVersion_ {};
       // The node status. Valid values:

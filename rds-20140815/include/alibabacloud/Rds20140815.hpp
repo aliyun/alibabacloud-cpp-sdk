@@ -1262,6 +1262,23 @@ namespace Rds20140815
       Models::CreateGadInstanceMemberResponse createGadInstanceMember(const Models::CreateGadInstanceMemberRequest &request);
 
       /**
+       * @summary 创建数据导入任务
+       *
+       * @param request CreateImportTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateImportTaskResponse
+       */
+      Models::CreateImportTaskResponse createImportTaskWithOptions(const Models::CreateImportTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建数据导入任务
+       *
+       * @param request CreateImportTaskRequest
+       * @return CreateImportTaskResponse
+       */
+      Models::CreateImportTaskResponse createImportTask(const Models::CreateImportTaskRequest &request);
+
+      /**
        * @summary 创建全密态规则
        *
        * @param tmpReq CreateMaskingRulesRequest
@@ -1490,6 +1507,43 @@ namespace Rds20140815
        * @return CreateRCDiskResponse
        */
       Models::CreateRCDiskResponse createRCDisk(const Models::CreateRCDiskRequest &request);
+
+      /**
+       * @summary Creates a custom image for an RDS Custom instance.
+       *
+       * @description ### [](#)Supported database engines
+       * *   RDS MySQL
+       * *   RDS SQL Server
+       * ### [](#)References
+       * *   [Introduction to RDS Custom for MySQL](https://help.aliyun.com/document_detail/2844223.html)
+       * *   [Introduction to RDS Custom for SQL Server](https://help.aliyun.com/document_detail/2864363.html)
+       * ### [](#)Usage
+       * *   Method 1: Create a custom image by using a snapshot generated from the **system disk**. In this case, specify the SnapshotId and ImageName parameters at the same time in the request.
+       * *   Method 2: Create a custom image by using an RDS Custom instance. In this case, specify the InstanceId and ImageName parameters at the same time in the request.
+       *
+       * @param request CreateRCImageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateRCImageResponse
+       */
+      Models::CreateRCImageResponse createRCImageWithOptions(const Models::CreateRCImageRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a custom image for an RDS Custom instance.
+       *
+       * @description ### [](#)Supported database engines
+       * *   RDS MySQL
+       * *   RDS SQL Server
+       * ### [](#)References
+       * *   [Introduction to RDS Custom for MySQL](https://help.aliyun.com/document_detail/2844223.html)
+       * *   [Introduction to RDS Custom for SQL Server](https://help.aliyun.com/document_detail/2864363.html)
+       * ### [](#)Usage
+       * *   Method 1: Create a custom image by using a snapshot generated from the **system disk**. In this case, specify the SnapshotId and ImageName parameters at the same time in the request.
+       * *   Method 2: Create a custom image by using an RDS Custom instance. In this case, specify the InstanceId and ImageName parameters at the same time in the request.
+       *
+       * @param request CreateRCImageRequest
+       * @return CreateRCImageResponse
+       */
+      Models::CreateRCImageResponse createRCImage(const Models::CreateRCImageRequest &request);
 
       /**
        * @summary Creates an edge node pool in the Container Service for Kubernetes (ACK) Edge cluster to which the RDS Custom instance belongs.
@@ -4508,6 +4562,40 @@ namespace Rds20140815
       Models::DescribeHostWebShellResponse describeHostWebShell(const Models::DescribeHostWebShellRequest &request);
 
       /**
+       * @summary 查询原生复制上云任务详情
+       *
+       * @param request DescribeImportTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeImportTaskResponse
+       */
+      Models::DescribeImportTaskResponse describeImportTaskWithOptions(const Models::DescribeImportTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询原生复制上云任务详情
+       *
+       * @param request DescribeImportTaskRequest
+       * @return DescribeImportTaskResponse
+       */
+      Models::DescribeImportTaskResponse describeImportTask(const Models::DescribeImportTaskRequest &request);
+
+      /**
+       * @summary 查看数据导入预检查状态
+       *
+       * @param request DescribeImportTaskValidationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeImportTaskValidationResponse
+       */
+      Models::DescribeImportTaskValidationResponse describeImportTaskValidationWithOptions(const Models::DescribeImportTaskValidationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查看数据导入预检查状态
+       *
+       * @param request DescribeImportTaskValidationRequest
+       * @return DescribeImportTaskValidationResponse
+       */
+      Models::DescribeImportTaskValidationResponse describeImportTaskValidation(const Models::DescribeImportTaskValidationRequest &request);
+
+      /**
        * @summary Queries the automatic renewal status of an instance.
        *
        * @description ### [](#)Supported database engines
@@ -6659,6 +6747,23 @@ namespace Rds20140815
       Models::ListClassesResponse listClasses(const Models::ListClassesRequest &request);
 
       /**
+       * @summary 查询上云任务列表
+       *
+       * @param request ListImportTasksRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListImportTasksResponse
+       */
+      Models::ListImportTasksResponse listImportTasksWithOptions(const Models::ListImportTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询上云任务列表
+       *
+       * @param request ListImportTasksRequest
+       * @return ListImportTasksResponse
+       */
+      Models::ListImportTasksResponse listImportTasks(const Models::ListImportTasksRequest &request);
+
+      /**
        * @summary RCVCluster列表接口
        *
        * @param request ListRCVClustersRequest
@@ -7939,6 +8044,23 @@ namespace Rds20140815
       Models::ModifyDBInstanceTDEResponse modifyDBInstanceTDE(const Models::ModifyDBInstanceTDERequest &request);
 
       /**
+       * @summary 修改实例向量支持状态
+       *
+       * @param request ModifyDBInstanceVectorSupportStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyDBInstanceVectorSupportStatusResponse
+       */
+      Models::ModifyDBInstanceVectorSupportStatusResponse modifyDBInstanceVectorSupportStatusWithOptions(const Models::ModifyDBInstanceVectorSupportStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改实例向量支持状态
+       *
+       * @param request ModifyDBInstanceVectorSupportStatusRequest
+       * @return ModifyDBInstanceVectorSupportStatusResponse
+       */
+      Models::ModifyDBInstanceVectorSupportStatusResponse modifyDBInstanceVectorSupportStatus(const Models::ModifyDBInstanceVectorSupportStatusRequest &request);
+
+      /**
        * @summary Changes the specifications, storage type, and storage capacity of an ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition.
        *
        * @description ### [](#)Supported database engine
@@ -8309,6 +8431,23 @@ namespace Rds20140815
       Models::ModifyHASwitchConfigResponse modifyHASwitchConfig(const Models::ModifyHASwitchConfigRequest &request);
 
       /**
+       * @summary 修改上云任务
+       *
+       * @param request ModifyImportTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyImportTaskResponse
+       */
+      Models::ModifyImportTaskResponse modifyImportTaskWithOptions(const Models::ModifyImportTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改上云任务
+       *
+       * @param request ModifyImportTaskRequest
+       * @return ModifyImportTaskResponse
+       */
+      Models::ModifyImportTaskResponse modifyImportTask(const Models::ModifyImportTaskRequest &request);
+
+      /**
        * @summary Modifies the auto-renewal settings of an instance.
        *
        * @description ### Supported database engines
@@ -8507,6 +8646,23 @@ namespace Rds20140815
        * @return ModifyParameterGroupResponse
        */
       Models::ModifyParameterGroupResponse modifyParameterGroup(const Models::ModifyParameterGroupRequest &request);
+
+      /**
+       * @summary 修改块存储属性
+       *
+       * @param request ModifyRCDiskAttributeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyRCDiskAttributeResponse
+       */
+      Models::ModifyRCDiskAttributeResponse modifyRCDiskAttributeWithOptions(const Models::ModifyRCDiskAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改块存储属性
+       *
+       * @param request ModifyRCDiskAttributeRequest
+       * @return ModifyRCDiskAttributeResponse
+       */
+      Models::ModifyRCDiskAttributeResponse modifyRCDiskAttribute(const Models::ModifyRCDiskAttributeRequest &request);
 
       /**
        * @summary 修改RDS用户磁盘付费类型
@@ -10715,6 +10871,23 @@ namespace Rds20140815
        * @return UpgradeDBProxyInstanceKernelVersionResponse
        */
       Models::UpgradeDBProxyInstanceKernelVersionResponse upgradeDBProxyInstanceKernelVersion(const Models::UpgradeDBProxyInstanceKernelVersionRequest &request);
+
+      /**
+       * @summary 预检验数据导入任务参数
+       *
+       * @param request ValidateImportTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ValidateImportTaskResponse
+       */
+      Models::ValidateImportTaskResponse validateImportTaskWithOptions(const Models::ValidateImportTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 预检验数据导入任务参数
+       *
+       * @param request ValidateImportTaskRequest
+       * @return ValidateImportTaskResponse
+       */
+      Models::ValidateImportTaskResponse validateImportTask(const Models::ValidateImportTaskRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace Rds20140815

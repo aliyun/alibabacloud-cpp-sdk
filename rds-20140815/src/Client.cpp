@@ -3777,6 +3777,92 @@ CreateGadInstanceMemberResponse Client::createGadInstanceMember(const CreateGadI
 }
 
 /**
+ * @summary 创建数据导入任务
+ *
+ * @param request CreateImportTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateImportTaskResponse
+ */
+CreateImportTaskResponse Client::createImportTaskWithOptions(const CreateImportTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDbInstanceId()) {
+    query["DbInstanceId"] = request.getDbInstanceId();
+  }
+
+  if (!!request.hasEstimatedSize()) {
+    query["EstimatedSize"] = request.getEstimatedSize();
+  }
+
+  if (!!request.hasHost()) {
+    query["Host"] = request.getHost();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasPassword()) {
+    query["Password"] = request.getPassword();
+  }
+
+  if (!!request.hasPort()) {
+    query["Port"] = request.getPort();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSourceInstanceId()) {
+    query["SourceInstanceId"] = request.getSourceInstanceId();
+  }
+
+  if (!!request.hasSourcePlatform()) {
+    query["SourcePlatform"] = request.getSourcePlatform();
+  }
+
+  if (!!request.hasStreamPort()) {
+    query["StreamPort"] = request.getStreamPort();
+  }
+
+  if (!!request.hasUser()) {
+    query["User"] = request.getUser();
+  }
+
+  if (!!request.hasXtrabackupPath()) {
+    query["XtrabackupPath"] = request.getXtrabackupPath();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateImportTask"},
+    {"version" , "2014-08-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateImportTaskResponse>();
+}
+
+/**
+ * @summary 创建数据导入任务
+ *
+ * @param request CreateImportTaskRequest
+ * @return CreateImportTaskResponse
+ */
+CreateImportTaskResponse Client::createImportTask(const CreateImportTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createImportTaskWithOptions(request, runtime);
+}
+
+/**
  * @summary 创建全密态规则
  *
  * @param tmpReq CreateMaskingRulesRequest
@@ -4552,6 +4638,80 @@ CreateRCDiskResponse Client::createRCDiskWithOptions(const CreateRCDiskRequest &
 CreateRCDiskResponse Client::createRCDisk(const CreateRCDiskRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createRCDiskWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates a custom image for an RDS Custom instance.
+ *
+ * @description ### [](#)Supported database engines
+ * *   RDS MySQL
+ * *   RDS SQL Server
+ * ### [](#)References
+ * *   [Introduction to RDS Custom for MySQL](https://help.aliyun.com/document_detail/2844223.html)
+ * *   [Introduction to RDS Custom for SQL Server](https://help.aliyun.com/document_detail/2864363.html)
+ * ### [](#)Usage
+ * *   Method 1: Create a custom image by using a snapshot generated from the **system disk**. In this case, specify the SnapshotId and ImageName parameters at the same time in the request.
+ * *   Method 2: Create a custom image by using an RDS Custom instance. In this case, specify the InstanceId and ImageName parameters at the same time in the request.
+ *
+ * @param request CreateRCImageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateRCImageResponse
+ */
+CreateRCImageResponse Client::createRCImageWithOptions(const CreateRCImageRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasImageName()) {
+    query["ImageName"] = request.getImageName();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSnapshotId()) {
+    query["SnapshotId"] = request.getSnapshotId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateRCImage"},
+    {"version" , "2014-08-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateRCImageResponse>();
+}
+
+/**
+ * @summary Creates a custom image for an RDS Custom instance.
+ *
+ * @description ### [](#)Supported database engines
+ * *   RDS MySQL
+ * *   RDS SQL Server
+ * ### [](#)References
+ * *   [Introduction to RDS Custom for MySQL](https://help.aliyun.com/document_detail/2844223.html)
+ * *   [Introduction to RDS Custom for SQL Server](https://help.aliyun.com/document_detail/2864363.html)
+ * ### [](#)Usage
+ * *   Method 1: Create a custom image by using a snapshot generated from the **system disk**. In this case, specify the SnapshotId and ImageName parameters at the same time in the request.
+ * *   Method 2: Create a custom image by using an RDS Custom instance. In this case, specify the InstanceId and ImageName parameters at the same time in the request.
+ *
+ * @param request CreateRCImageRequest
+ * @return CreateRCImageResponse
+ */
+CreateRCImageResponse Client::createRCImage(const CreateRCImageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createRCImageWithOptions(request, runtime);
 }
 
 /**
@@ -13455,6 +13615,110 @@ DescribeHostWebShellResponse Client::describeHostWebShell(const DescribeHostWebS
 }
 
 /**
+ * @summary 查询原生复制上云任务详情
+ *
+ * @param request DescribeImportTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeImportTaskResponse
+ */
+DescribeImportTaskResponse Client::describeImportTaskWithOptions(const DescribeImportTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.getDBInstanceId();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTaskId()) {
+    query["TaskId"] = request.getTaskId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeImportTask"},
+    {"version" , "2014-08-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeImportTaskResponse>();
+}
+
+/**
+ * @summary 查询原生复制上云任务详情
+ *
+ * @param request DescribeImportTaskRequest
+ * @return DescribeImportTaskResponse
+ */
+DescribeImportTaskResponse Client::describeImportTask(const DescribeImportTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeImportTaskWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查看数据导入预检查状态
+ *
+ * @param request DescribeImportTaskValidationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeImportTaskValidationResponse
+ */
+DescribeImportTaskValidationResponse Client::describeImportTaskValidationWithOptions(const DescribeImportTaskValidationRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDbInstanceId()) {
+    query["DbInstanceId"] = request.getDbInstanceId();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasTaskId()) {
+    query["TaskId"] = request.getTaskId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeImportTaskValidation"},
+    {"version" , "2014-08-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeImportTaskValidationResponse>();
+}
+
+/**
+ * @summary 查看数据导入预检查状态
+ *
+ * @param request DescribeImportTaskValidationRequest
+ * @return DescribeImportTaskValidationResponse
+ */
+DescribeImportTaskValidationResponse Client::describeImportTaskValidation(const DescribeImportTaskValidationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeImportTaskValidationWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the automatic renewal status of an instance.
  *
  * @description ### [](#)Supported database engines
@@ -15556,6 +15820,14 @@ DescribeRCClusterConfigResponse Client::describeRCClusterConfig(const DescribeRC
 DescribeRCClusterNodesResponse Client::describeRCClusterNodesWithOptions(const DescribeRCClusterNodesRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.getClusterId();
+  }
+
+  if (!!request.hasNodePoolId()) {
+    query["NodePoolId"] = request.getNodePoolId();
+  }
+
   if (!!request.hasPageNumber()) {
     query["PageNumber"] = request.getPageNumber();
   }
@@ -16746,6 +17018,10 @@ DescribeRCSnapshotsResponse Client::describeRCSnapshotsWithOptions(const Describ
   json query = {};
   if (!!request.hasDiskId()) {
     query["DiskId"] = request.getDiskId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasPageNumber()) {
@@ -19876,6 +20152,64 @@ ListClassesResponse Client::listClassesWithOptions(const ListClassesRequest &req
 ListClassesResponse Client::listClasses(const ListClassesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listClassesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询上云任务列表
+ *
+ * @param request ListImportTasksRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListImportTasksResponse
+ */
+ListImportTasksResponse Client::listImportTasksWithOptions(const ListImportTasksRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.getDBInstanceId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListImportTasks"},
+    {"version" , "2014-08-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListImportTasksResponse>();
+}
+
+/**
+ * @summary 查询上云任务列表
+ *
+ * @param request ListImportTasksRequest
+ * @return ListImportTasksResponse
+ */
+ListImportTasksResponse Client::listImportTasks(const ListImportTasksRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listImportTasksWithOptions(request, runtime);
 }
 
 /**
@@ -23627,6 +23961,52 @@ ModifyDBInstanceTDEResponse Client::modifyDBInstanceTDE(const ModifyDBInstanceTD
 }
 
 /**
+ * @summary 修改实例向量支持状态
+ *
+ * @param request ModifyDBInstanceVectorSupportStatusRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyDBInstanceVectorSupportStatusResponse
+ */
+ModifyDBInstanceVectorSupportStatusResponse Client::modifyDBInstanceVectorSupportStatusWithOptions(const ModifyDBInstanceVectorSupportStatusRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.getDBInstanceId();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyDBInstanceVectorSupportStatus"},
+    {"version" , "2014-08-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyDBInstanceVectorSupportStatusResponse>();
+}
+
+/**
+ * @summary 修改实例向量支持状态
+ *
+ * @param request ModifyDBInstanceVectorSupportStatusRequest
+ * @return ModifyDBInstanceVectorSupportStatusResponse
+ */
+ModifyDBInstanceVectorSupportStatusResponse Client::modifyDBInstanceVectorSupportStatus(const ModifyDBInstanceVectorSupportStatusRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyDBInstanceVectorSupportStatusWithOptions(request, runtime);
+}
+
+/**
  * @summary Changes the specifications, storage type, and storage capacity of an ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition.
  *
  * @description ### [](#)Supported database engine
@@ -24771,6 +25151,64 @@ ModifyHASwitchConfigResponse Client::modifyHASwitchConfig(const ModifyHASwitchCo
 }
 
 /**
+ * @summary 修改上云任务
+ *
+ * @param request ModifyImportTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyImportTaskResponse
+ */
+ModifyImportTaskResponse Client::modifyImportTaskWithOptions(const ModifyImportTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.getDBInstanceId();
+  }
+
+  if (!!request.hasOperation()) {
+    query["Operation"] = request.getOperation();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTaskId()) {
+    query["TaskId"] = request.getTaskId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyImportTask"},
+    {"version" , "2014-08-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyImportTaskResponse>();
+}
+
+/**
+ * @summary 修改上云任务
+ *
+ * @param request ModifyImportTaskRequest
+ * @return ModifyImportTaskResponse
+ */
+ModifyImportTaskResponse Client::modifyImportTask(const ModifyImportTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyImportTaskWithOptions(request, runtime);
+}
+
+/**
  * @summary Modifies the auto-renewal settings of an instance.
  *
  * @description ### Supported database engines
@@ -25343,6 +25781,68 @@ ModifyParameterGroupResponse Client::modifyParameterGroup(const ModifyParameterG
 }
 
 /**
+ * @summary 修改块存储属性
+ *
+ * @param request ModifyRCDiskAttributeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyRCDiskAttributeResponse
+ */
+ModifyRCDiskAttributeResponse Client::modifyRCDiskAttributeWithOptions(const ModifyRCDiskAttributeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBurstingEnabled()) {
+    query["BurstingEnabled"] = request.getBurstingEnabled();
+  }
+
+  if (!!request.hasDeleteWithInstance()) {
+    query["DeleteWithInstance"] = request.getDeleteWithInstance();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasDiskId()) {
+    query["DiskId"] = request.getDiskId();
+  }
+
+  if (!!request.hasDiskName()) {
+    query["DiskName"] = request.getDiskName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyRCDiskAttribute"},
+    {"version" , "2014-08-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyRCDiskAttributeResponse>();
+}
+
+/**
+ * @summary 修改块存储属性
+ *
+ * @param request ModifyRCDiskAttributeRequest
+ * @return ModifyRCDiskAttributeResponse
+ */
+ModifyRCDiskAttributeResponse Client::modifyRCDiskAttribute(const ModifyRCDiskAttributeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyRCDiskAttributeWithOptions(request, runtime);
+}
+
+/**
  * @summary 修改RDS用户磁盘付费类型
  *
  * @param request ModifyRCDiskChargeTypeRequest
@@ -25352,6 +25852,10 @@ ModifyParameterGroupResponse Client::modifyParameterGroup(const ModifyParameterG
 ModifyRCDiskChargeTypeResponse Client::modifyRCDiskChargeTypeWithOptions(const ModifyRCDiskChargeTypeRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAutoPay()) {
+    query["AutoPay"] = request.getAutoPay();
+  }
+
   if (!!request.hasAutoRenew()) {
     query["AutoRenew"] = request.getAutoRenew();
   }
@@ -25376,12 +25880,20 @@ ModifyRCDiskChargeTypeResponse Client::modifyRCDiskChargeTypeWithOptions(const M
     query["PayType"] = request.getPayType();
   }
 
+  if (!!request.hasPeriod()) {
+    query["Period"] = request.getPeriod();
+  }
+
   if (!!request.hasPromotionCode()) {
     query["PromotionCode"] = request.getPromotionCode();
   }
 
   if (!!request.hasRegionId()) {
     query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasUsedTime()) {
+    query["UsedTime"] = request.getUsedTime();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -27396,6 +27908,10 @@ RebootRCInstanceResponse Client::rebootRCInstanceWithOptions(const RebootRCInsta
     query["InstanceId"] = request.getInstanceId();
   }
 
+  if (!!request.hasRebootTime()) {
+    query["RebootTime"] = request.getRebootTime();
+  }
+
   if (!!request.hasRegionId()) {
     query["RegionId"] = request.getRegionId();
   }
@@ -27457,6 +27973,10 @@ RebootRCInstancesResponse Client::rebootRCInstancesWithOptions(const RebootRCIns
 
   if (!!request.hasInstanceIdsShrink()) {
     query["InstanceIds"] = request.getInstanceIdsShrink();
+  }
+
+  if (!!request.hasRebootTime()) {
+    query["RebootTime"] = request.getRebootTime();
   }
 
   if (!!request.hasRegionId()) {
@@ -29954,6 +30474,10 @@ StopRCInstanceResponse Client::stopRCInstanceWithOptions(const StopRCInstanceReq
     query["RegionId"] = request.getRegionId();
   }
 
+  if (!!request.hasStoppedMode()) {
+    query["StoppedMode"] = request.getStoppedMode();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -30019,6 +30543,10 @@ StopRCInstancesResponse Client::stopRCInstancesWithOptions(const StopRCInstances
 
   if (!!request.hasRegionId()) {
     query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasStoppedMode()) {
+    query["StoppedMode"] = request.getStoppedMode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -31692,6 +32220,92 @@ UpgradeDBProxyInstanceKernelVersionResponse Client::upgradeDBProxyInstanceKernel
 UpgradeDBProxyInstanceKernelVersionResponse Client::upgradeDBProxyInstanceKernelVersion(const UpgradeDBProxyInstanceKernelVersionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return upgradeDBProxyInstanceKernelVersionWithOptions(request, runtime);
+}
+
+/**
+ * @summary 预检验数据导入任务参数
+ *
+ * @param request ValidateImportTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ValidateImportTaskResponse
+ */
+ValidateImportTaskResponse Client::validateImportTaskWithOptions(const ValidateImportTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDbInstanceId()) {
+    query["DbInstanceId"] = request.getDbInstanceId();
+  }
+
+  if (!!request.hasEstimatedSize()) {
+    query["EstimatedSize"] = request.getEstimatedSize();
+  }
+
+  if (!!request.hasHost()) {
+    query["Host"] = request.getHost();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasPassword()) {
+    query["Password"] = request.getPassword();
+  }
+
+  if (!!request.hasPort()) {
+    query["Port"] = request.getPort();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSourceInstanceId()) {
+    query["SourceInstanceId"] = request.getSourceInstanceId();
+  }
+
+  if (!!request.hasSourcePlatform()) {
+    query["SourcePlatform"] = request.getSourcePlatform();
+  }
+
+  if (!!request.hasStreamPort()) {
+    query["StreamPort"] = request.getStreamPort();
+  }
+
+  if (!!request.hasUser()) {
+    query["User"] = request.getUser();
+  }
+
+  if (!!request.hasXtrabackupPath()) {
+    query["XtrabackupPath"] = request.getXtrabackupPath();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ValidateImportTask"},
+    {"version" , "2014-08-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ValidateImportTaskResponse>();
+}
+
+/**
+ * @summary 预检验数据导入任务参数
+ *
+ * @param request ValidateImportTaskRequest
+ * @return ValidateImportTaskResponse
+ */
+ValidateImportTaskResponse Client::validateImportTask(const ValidateImportTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return validateImportTaskWithOptions(request, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace Rds20140815

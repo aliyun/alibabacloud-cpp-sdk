@@ -47,6 +47,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Description, description_);
         DARABONBA_PTR_TO_JSON(Encrypted, encrypted_);
         DARABONBA_PTR_TO_JSON(InstantAccess, instantAccess_);
+        DARABONBA_PTR_TO_JSON(LastModifiedTime, lastModifiedTime_);
         DARABONBA_PTR_TO_JSON(Progress, progress_);
         DARABONBA_PTR_TO_JSON(RegionId, regionId_);
         DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
@@ -68,6 +69,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Description, description_);
         DARABONBA_PTR_FROM_JSON(Encrypted, encrypted_);
         DARABONBA_PTR_FROM_JSON(InstantAccess, instantAccess_);
+        DARABONBA_PTR_FROM_JSON(LastModifiedTime, lastModifiedTime_);
         DARABONBA_PTR_FROM_JSON(Progress, progress_);
         DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
         DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
@@ -137,9 +139,9 @@ namespace Models
 
       virtual bool empty() const override { return this->available_ == nullptr
         && this->category_ == nullptr && this->creationTime_ == nullptr && this->description_ == nullptr && this->encrypted_ == nullptr && this->instantAccess_ == nullptr
-        && this->progress_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->snapshotId_ == nullptr && this->snapshotName_ == nullptr
-        && this->snapshotType_ == nullptr && this->sourceDiskId_ == nullptr && this->sourceDiskSize_ == nullptr && this->sourceDiskType_ == nullptr && this->sourceStorageType_ == nullptr
-        && this->status_ == nullptr && this->tag_ == nullptr && this->usage_ == nullptr; };
+        && this->lastModifiedTime_ == nullptr && this->progress_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->snapshotId_ == nullptr
+        && this->snapshotName_ == nullptr && this->snapshotType_ == nullptr && this->sourceDiskId_ == nullptr && this->sourceDiskSize_ == nullptr && this->sourceDiskType_ == nullptr
+        && this->sourceStorageType_ == nullptr && this->status_ == nullptr && this->tag_ == nullptr && this->usage_ == nullptr; };
       // available Field Functions 
       bool hasAvailable() const { return this->available_ != nullptr;};
       void deleteAvailable() { this->available_ = nullptr;};
@@ -180,6 +182,13 @@ namespace Models
       void deleteInstantAccess() { this->instantAccess_ = nullptr;};
       inline bool getInstantAccess() const { DARABONBA_PTR_GET_DEFAULT(instantAccess_, false) };
       inline Snapshots& setInstantAccess(bool instantAccess) { DARABONBA_PTR_SET_VALUE(instantAccess_, instantAccess) };
+
+
+      // lastModifiedTime Field Functions 
+      bool hasLastModifiedTime() const { return this->lastModifiedTime_ != nullptr;};
+      void deleteLastModifiedTime() { this->lastModifiedTime_ = nullptr;};
+      inline string getLastModifiedTime() const { DARABONBA_PTR_GET_DEFAULT(lastModifiedTime_, "") };
+      inline Snapshots& setLastModifiedTime(string lastModifiedTime) { DARABONBA_PTR_SET_VALUE(lastModifiedTime_, lastModifiedTime) };
 
 
       // progress Field Functions 
@@ -298,6 +307,7 @@ namespace Models
       shared_ptr<bool> encrypted_ {};
       // This parameter is deprecated.
       shared_ptr<bool> instantAccess_ {};
+      shared_ptr<string> lastModifiedTime_ {};
       // The progress of the snapshot creation task in percentage.
       shared_ptr<string> progress_ {};
       // The region ID.

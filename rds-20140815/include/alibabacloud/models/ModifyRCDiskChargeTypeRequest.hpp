@@ -13,24 +13,30 @@ namespace Models
   class ModifyRCDiskChargeTypeRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ModifyRCDiskChargeTypeRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AutoPay, autoPay_);
       DARABONBA_PTR_TO_JSON(AutoRenew, autoRenew_);
       DARABONBA_PTR_TO_JSON(AutoUseCoupon, autoUseCoupon_);
       DARABONBA_PTR_TO_JSON(BusinessInfo, businessInfo_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(PayType, payType_);
+      DARABONBA_PTR_TO_JSON(Period, period_);
       DARABONBA_PTR_TO_JSON(PromotionCode, promotionCode_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+      DARABONBA_PTR_TO_JSON(UsedTime, usedTime_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyRCDiskChargeTypeRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AutoPay, autoPay_);
       DARABONBA_PTR_FROM_JSON(AutoRenew, autoRenew_);
       DARABONBA_PTR_FROM_JSON(AutoUseCoupon, autoUseCoupon_);
       DARABONBA_PTR_FROM_JSON(BusinessInfo, businessInfo_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(PayType, payType_);
+      DARABONBA_PTR_FROM_JSON(Period, period_);
       DARABONBA_PTR_FROM_JSON(PromotionCode, promotionCode_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(UsedTime, usedTime_);
     };
     ModifyRCDiskChargeTypeRequest() = default ;
     ModifyRCDiskChargeTypeRequest(const ModifyRCDiskChargeTypeRequest &) = default ;
@@ -43,9 +49,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->autoRenew_ == nullptr
-        && this->autoUseCoupon_ == nullptr && this->businessInfo_ == nullptr && this->clientToken_ == nullptr && this->instanceId_ == nullptr && this->payType_ == nullptr
-        && this->promotionCode_ == nullptr && this->regionId_ == nullptr; };
+    virtual bool empty() const override { return this->autoPay_ == nullptr
+        && this->autoRenew_ == nullptr && this->autoUseCoupon_ == nullptr && this->businessInfo_ == nullptr && this->clientToken_ == nullptr && this->instanceId_ == nullptr
+        && this->payType_ == nullptr && this->period_ == nullptr && this->promotionCode_ == nullptr && this->regionId_ == nullptr && this->usedTime_ == nullptr; };
+    // autoPay Field Functions 
+    bool hasAutoPay() const { return this->autoPay_ != nullptr;};
+    void deleteAutoPay() { this->autoPay_ = nullptr;};
+    inline bool getAutoPay() const { DARABONBA_PTR_GET_DEFAULT(autoPay_, false) };
+    inline ModifyRCDiskChargeTypeRequest& setAutoPay(bool autoPay) { DARABONBA_PTR_SET_VALUE(autoPay_, autoPay) };
+
+
     // autoRenew Field Functions 
     bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
     void deleteAutoRenew() { this->autoRenew_ = nullptr;};
@@ -88,6 +101,13 @@ namespace Models
     inline ModifyRCDiskChargeTypeRequest& setPayType(string payType) { DARABONBA_PTR_SET_VALUE(payType_, payType) };
 
 
+    // period Field Functions 
+    bool hasPeriod() const { return this->period_ != nullptr;};
+    void deletePeriod() { this->period_ = nullptr;};
+    inline string getPeriod() const { DARABONBA_PTR_GET_DEFAULT(period_, "") };
+    inline ModifyRCDiskChargeTypeRequest& setPeriod(string period) { DARABONBA_PTR_SET_VALUE(period_, period) };
+
+
     // promotionCode Field Functions 
     bool hasPromotionCode() const { return this->promotionCode_ != nullptr;};
     void deletePromotionCode() { this->promotionCode_ = nullptr;};
@@ -102,18 +122,27 @@ namespace Models
     inline ModifyRCDiskChargeTypeRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
+    // usedTime Field Functions 
+    bool hasUsedTime() const { return this->usedTime_ != nullptr;};
+    void deleteUsedTime() { this->usedTime_ = nullptr;};
+    inline int32_t getUsedTime() const { DARABONBA_PTR_GET_DEFAULT(usedTime_, 0) };
+    inline ModifyRCDiskChargeTypeRequest& setUsedTime(int32_t usedTime) { DARABONBA_PTR_SET_VALUE(usedTime_, usedTime) };
+
+
   protected:
+    shared_ptr<bool> autoPay_ {};
     shared_ptr<string> autoRenew_ {};
     shared_ptr<bool> autoUseCoupon_ {};
     shared_ptr<string> businessInfo_ {};
     shared_ptr<string> clientToken_ {};
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // This parameter is required.
     shared_ptr<string> payType_ {};
+    shared_ptr<string> period_ {};
     shared_ptr<string> promotionCode_ {};
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    shared_ptr<int32_t> usedTime_ {};
   };
 
   } // namespace Models

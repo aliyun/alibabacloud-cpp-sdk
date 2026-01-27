@@ -168,8 +168,6 @@ namespace Models
     // This parameter is deprecated.
     shared_ptr<int32_t> instantAccessRetentionDays_ {};
     // The region ID.
-    // 
-    // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceGroupId_ {};
     // The retention period of the snapshot. Valid values: 1 to 65536. Unit: days. The snapshot is automatically released when its retention period expires.

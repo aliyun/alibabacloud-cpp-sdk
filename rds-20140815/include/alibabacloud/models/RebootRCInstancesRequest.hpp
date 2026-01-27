@@ -17,12 +17,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(BatchOptimization, batchOptimization_);
       DARABONBA_PTR_TO_JSON(ForceReboot, forceReboot_);
       DARABONBA_PTR_TO_JSON(InstanceIds, instanceIds_);
+      DARABONBA_PTR_TO_JSON(RebootTime, rebootTime_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, RebootRCInstancesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BatchOptimization, batchOptimization_);
       DARABONBA_PTR_FROM_JSON(ForceReboot, forceReboot_);
       DARABONBA_PTR_FROM_JSON(InstanceIds, instanceIds_);
+      DARABONBA_PTR_FROM_JSON(RebootTime, rebootTime_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
     };
     RebootRCInstancesRequest() = default ;
@@ -37,7 +39,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->batchOptimization_ == nullptr
-        && this->forceReboot_ == nullptr && this->instanceIds_ == nullptr && this->regionId_ == nullptr; };
+        && this->forceReboot_ == nullptr && this->instanceIds_ == nullptr && this->rebootTime_ == nullptr && this->regionId_ == nullptr; };
     // batchOptimization Field Functions 
     bool hasBatchOptimization() const { return this->batchOptimization_ != nullptr;};
     void deleteBatchOptimization() { this->batchOptimization_ = nullptr;};
@@ -61,6 +63,13 @@ namespace Models
     inline RebootRCInstancesRequest& setInstanceIds(vector<string> && instanceIds) { DARABONBA_PTR_SET_RVALUE(instanceIds_, instanceIds) };
 
 
+    // rebootTime Field Functions 
+    bool hasRebootTime() const { return this->rebootTime_ != nullptr;};
+    void deleteRebootTime() { this->rebootTime_ = nullptr;};
+    inline string getRebootTime() const { DARABONBA_PTR_GET_DEFAULT(rebootTime_, "") };
+    inline RebootRCInstancesRequest& setRebootTime(string rebootTime) { DARABONBA_PTR_SET_VALUE(rebootTime_, rebootTime) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -78,6 +87,7 @@ namespace Models
     shared_ptr<bool> forceReboot_ {};
     // The node IDs.
     shared_ptr<vector<string>> instanceIds_ {};
+    shared_ptr<string> rebootTime_ {};
     // The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the most recent region list.
     shared_ptr<string> regionId_ {};
   };

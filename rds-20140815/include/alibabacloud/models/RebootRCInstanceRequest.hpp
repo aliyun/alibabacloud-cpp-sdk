@@ -16,12 +16,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(ForceStop, forceStop_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_TO_JSON(RebootTime, rebootTime_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, RebootRCInstanceRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(ForceStop, forceStop_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_FROM_JSON(RebootTime, rebootTime_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
     };
     RebootRCInstanceRequest() = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dryRun_ == nullptr
-        && this->forceStop_ == nullptr && this->instanceId_ == nullptr && this->regionId_ == nullptr; };
+        && this->forceStop_ == nullptr && this->instanceId_ == nullptr && this->rebootTime_ == nullptr && this->regionId_ == nullptr; };
     // dryRun Field Functions 
     bool hasDryRun() const { return this->dryRun_ != nullptr;};
     void deleteDryRun() { this->dryRun_ = nullptr;};
@@ -56,6 +58,13 @@ namespace Models
     void deleteInstanceId() { this->instanceId_ = nullptr;};
     inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline RebootRCInstanceRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+    // rebootTime Field Functions 
+    bool hasRebootTime() const { return this->rebootTime_ != nullptr;};
+    void deleteRebootTime() { this->rebootTime_ = nullptr;};
+    inline string getRebootTime() const { DARABONBA_PTR_GET_DEFAULT(rebootTime_, "") };
+    inline RebootRCInstanceRequest& setRebootTime(string rebootTime) { DARABONBA_PTR_SET_VALUE(rebootTime_, rebootTime) };
 
 
     // regionId Field Functions 
@@ -82,6 +91,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    shared_ptr<string> rebootTime_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
   };
