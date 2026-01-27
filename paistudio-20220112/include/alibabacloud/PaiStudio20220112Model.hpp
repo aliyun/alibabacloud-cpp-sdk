@@ -47,6 +47,8 @@
 #include <alibabacloud/models/ResourceAmount.hpp>
 #include <alibabacloud/models/NodePodInfo.hpp>
 #include <alibabacloud/models/NodeSnapshot.hpp>
+#include <alibabacloud/models/StatisticsResources.hpp>
+#include <alibabacloud/models/NodeStatistics.hpp>
 #include <alibabacloud/models/NodeType.hpp>
 #include <alibabacloud/models/NodeTypeStatistic.hpp>
 #include <alibabacloud/models/NodeViewMetric.hpp>
@@ -83,6 +85,7 @@
 #include <alibabacloud/models/Rules.hpp>
 #include <alibabacloud/models/SpotPriceItem.hpp>
 #include <alibabacloud/models/SpotStockPreview.hpp>
+#include <alibabacloud/models/StatisticsDetails.hpp>
 #include <alibabacloud/models/Task.hpp>
 #include <alibabacloud/models/TaskInstance.hpp>
 #include <alibabacloud/models/TaskInstanceEvent.hpp>
@@ -217,6 +220,9 @@
 #include <alibabacloud/models/ListTrainingJobsShrinkRequest.hpp>
 #include <alibabacloud/models/ListTrainingJobsResponseBody.hpp>
 #include <alibabacloud/models/ListTrainingJobsResponse.hpp>
+#include <alibabacloud/models/OperateNodeRequest.hpp>
+#include <alibabacloud/models/OperateNodeResponseBody.hpp>
+#include <alibabacloud/models/OperateNodeResponse.hpp>
 #include <alibabacloud/models/ScaleQuotaRequest.hpp>
 #include <alibabacloud/models/ScaleQuotaResponseBody.hpp>
 #include <alibabacloud/models/ScaleQuotaResponse.hpp>

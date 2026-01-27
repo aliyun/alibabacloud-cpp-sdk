@@ -2769,6 +2769,59 @@ ListTrainingJobsResponse Client::listTrainingJobs(const ListTrainingJobsRequest 
 }
 
 /**
+ * @summary 您可以通过OperateNode对节点进行操作
+ *
+ * @param request OperateNodeRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return OperateNodeResponse
+ */
+OperateNodeResponse Client::operateNodeWithOptions(const string &NodeId, const OperateNodeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasOperation()) {
+    body["Operation"] = request.getOperation();
+  }
+
+  if (!!request.hasOperationParameters()) {
+    body["OperationParameters"] = request.getOperationParameters();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    body["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "OperateNode"},
+    {"version" , "2022-01-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/nodes/" , Darabonba::Encode::Encoder::percentEncode(NodeId))},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<OperateNodeResponse>();
+}
+
+/**
+ * @summary 您可以通过OperateNode对节点进行操作
+ *
+ * @param request OperateNodeRequest
+ * @return OperateNodeResponse
+ */
+OperateNodeResponse Client::operateNode(const string &NodeId, const OperateNodeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return operateNodeWithOptions(NodeId, request, headers, runtime);
+}
+
+/**
  * @summary 扩缩容Quota
  *
  * @param request ScaleQuotaRequest

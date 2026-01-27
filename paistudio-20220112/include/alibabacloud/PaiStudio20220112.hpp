@@ -827,6 +827,24 @@ namespace PaiStudio20220112
       Models::ListTrainingJobsResponse listTrainingJobs(const Models::ListTrainingJobsRequest &request);
 
       /**
+       * @summary 您可以通过OperateNode对节点进行操作
+       *
+       * @param request OperateNodeRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return OperateNodeResponse
+       */
+      Models::OperateNodeResponse operateNodeWithOptions(const string &NodeId, const Models::OperateNodeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 您可以通过OperateNode对节点进行操作
+       *
+       * @param request OperateNodeRequest
+       * @return OperateNodeResponse
+       */
+      Models::OperateNodeResponse operateNode(const string &NodeId, const Models::OperateNodeRequest &request);
+
+      /**
        * @summary 扩缩容Quota
        *
        * @param request ScaleQuotaRequest
