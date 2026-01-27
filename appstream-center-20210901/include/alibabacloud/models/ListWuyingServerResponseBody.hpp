@@ -63,6 +63,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(SystemDiskCategory, systemDiskCategory_);
         DARABONBA_PTR_TO_JSON(SystemDiskPerformanceLevel, systemDiskPerformanceLevel_);
         DARABONBA_PTR_TO_JSON(SystemDiskSize, systemDiskSize_);
+        DARABONBA_PTR_TO_JSON(VirtualKubeletIp, virtualKubeletIp_);
         DARABONBA_PTR_TO_JSON(VirtualNodePoolId, virtualNodePoolId_);
         DARABONBA_PTR_TO_JSON(WuyingServerId, wuyingServerId_);
         DARABONBA_PTR_TO_JSON(WuyingServerName, wuyingServerName_);
@@ -90,6 +91,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(SystemDiskCategory, systemDiskCategory_);
         DARABONBA_PTR_FROM_JSON(SystemDiskPerformanceLevel, systemDiskPerformanceLevel_);
         DARABONBA_PTR_FROM_JSON(SystemDiskSize, systemDiskSize_);
+        DARABONBA_PTR_FROM_JSON(VirtualKubeletIp, virtualKubeletIp_);
         DARABONBA_PTR_FROM_JSON(VirtualNodePoolId, virtualNodePoolId_);
         DARABONBA_PTR_FROM_JSON(WuyingServerId, wuyingServerId_);
         DARABONBA_PTR_FROM_JSON(WuyingServerName, wuyingServerName_);
@@ -286,7 +288,7 @@ namespace Models
         && this->imageId_ == nullptr && this->imageName_ == nullptr && this->instanceInfoList_ == nullptr && this->maxPrice_ == nullptr && this->networkInterfaceIp_ == nullptr
         && this->officeSiteId_ == nullptr && this->officeSiteName_ == nullptr && this->officeSiteType_ == nullptr && this->osType_ == nullptr && this->securityGroupIds_ == nullptr
         && this->serverInstanceTypeInfo_ == nullptr && this->status_ == nullptr && this->subPayType_ == nullptr && this->systemDiskCategory_ == nullptr && this->systemDiskPerformanceLevel_ == nullptr
-        && this->systemDiskSize_ == nullptr && this->virtualNodePoolId_ == nullptr && this->wuyingServerId_ == nullptr && this->wuyingServerName_ == nullptr; };
+        && this->systemDiskSize_ == nullptr && this->virtualKubeletIp_ == nullptr && this->virtualNodePoolId_ == nullptr && this->wuyingServerId_ == nullptr && this->wuyingServerName_ == nullptr; };
       // addVirtualNodePoolStatus Field Functions 
       bool hasAddVirtualNodePoolStatus() const { return this->addVirtualNodePoolStatus_ != nullptr;};
       void deleteAddVirtualNodePoolStatus() { this->addVirtualNodePoolStatus_ = nullptr;};
@@ -449,6 +451,13 @@ namespace Models
       inline WuyingServerList& setSystemDiskSize(int32_t systemDiskSize) { DARABONBA_PTR_SET_VALUE(systemDiskSize_, systemDiskSize) };
 
 
+      // virtualKubeletIp Field Functions 
+      bool hasVirtualKubeletIp() const { return this->virtualKubeletIp_ != nullptr;};
+      void deleteVirtualKubeletIp() { this->virtualKubeletIp_ = nullptr;};
+      inline string getVirtualKubeletIp() const { DARABONBA_PTR_GET_DEFAULT(virtualKubeletIp_, "") };
+      inline WuyingServerList& setVirtualKubeletIp(string virtualKubeletIp) { DARABONBA_PTR_SET_VALUE(virtualKubeletIp_, virtualKubeletIp) };
+
+
       // virtualNodePoolId Field Functions 
       bool hasVirtualNodePoolId() const { return this->virtualNodePoolId_ != nullptr;};
       void deleteVirtualNodePoolId() { this->virtualNodePoolId_ = nullptr;};
@@ -511,6 +520,7 @@ namespace Models
       shared_ptr<string> systemDiskPerformanceLevel_ {};
       // The size of the system disk. Unit: GiB.
       shared_ptr<int32_t> systemDiskSize_ {};
+      shared_ptr<string> virtualKubeletIp_ {};
       shared_ptr<string> virtualNodePoolId_ {};
       // The ID of the workstation.
       shared_ptr<string> wuyingServerId_ {};
