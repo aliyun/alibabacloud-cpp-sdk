@@ -36,40 +36,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aliUid_ == nullptr
-        && return this->desktopId_ == nullptr && return this->ecsInstanceId_ == nullptr && return this->edsAgentInfo_ == nullptr; };
+        && this->desktopId_ == nullptr && this->ecsInstanceId_ == nullptr && this->edsAgentInfo_ == nullptr; };
     // aliUid Field Functions 
     bool hasAliUid() const { return this->aliUid_ != nullptr;};
     void deleteAliUid() { this->aliUid_ = nullptr;};
-    inline int64_t aliUid() const { DARABONBA_PTR_GET_DEFAULT(aliUid_, 0L) };
+    inline int64_t getAliUid() const { DARABONBA_PTR_GET_DEFAULT(aliUid_, 0L) };
     inline ReportEdsAgentInfoRequest& setAliUid(int64_t aliUid) { DARABONBA_PTR_SET_VALUE(aliUid_, aliUid) };
 
 
     // desktopId Field Functions 
     bool hasDesktopId() const { return this->desktopId_ != nullptr;};
     void deleteDesktopId() { this->desktopId_ = nullptr;};
-    inline string desktopId() const { DARABONBA_PTR_GET_DEFAULT(desktopId_, "") };
+    inline string getDesktopId() const { DARABONBA_PTR_GET_DEFAULT(desktopId_, "") };
     inline ReportEdsAgentInfoRequest& setDesktopId(string desktopId) { DARABONBA_PTR_SET_VALUE(desktopId_, desktopId) };
 
 
     // ecsInstanceId Field Functions 
     bool hasEcsInstanceId() const { return this->ecsInstanceId_ != nullptr;};
     void deleteEcsInstanceId() { this->ecsInstanceId_ = nullptr;};
-    inline string ecsInstanceId() const { DARABONBA_PTR_GET_DEFAULT(ecsInstanceId_, "") };
+    inline string getEcsInstanceId() const { DARABONBA_PTR_GET_DEFAULT(ecsInstanceId_, "") };
     inline ReportEdsAgentInfoRequest& setEcsInstanceId(string ecsInstanceId) { DARABONBA_PTR_SET_VALUE(ecsInstanceId_, ecsInstanceId) };
 
 
     // edsAgentInfo Field Functions 
     bool hasEdsAgentInfo() const { return this->edsAgentInfo_ != nullptr;};
     void deleteEdsAgentInfo() { this->edsAgentInfo_ = nullptr;};
-    inline string edsAgentInfo() const { DARABONBA_PTR_GET_DEFAULT(edsAgentInfo_, "") };
+    inline string getEdsAgentInfo() const { DARABONBA_PTR_GET_DEFAULT(edsAgentInfo_, "") };
     inline ReportEdsAgentInfoRequest& setEdsAgentInfo(string edsAgentInfo) { DARABONBA_PTR_SET_VALUE(edsAgentInfo_, edsAgentInfo) };
 
 
   protected:
-    std::shared_ptr<int64_t> aliUid_ = nullptr;
-    std::shared_ptr<string> desktopId_ = nullptr;
-    std::shared_ptr<string> ecsInstanceId_ = nullptr;
-    std::shared_ptr<string> edsAgentInfo_ = nullptr;
+    shared_ptr<int64_t> aliUid_ {};
+    shared_ptr<string> desktopId_ {};
+    shared_ptr<string> ecsInstanceId_ {};
+    shared_ptr<string> edsAgentInfo_ {};
   };
 
   } // namespace Models

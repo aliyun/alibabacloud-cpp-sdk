@@ -17,11 +17,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ClientId, clientId_);
       DARABONBA_PTR_TO_JSON(OfficeSiteId, officeSiteId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+      DARABONBA_PTR_TO_JSON(Uuid, uuid_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeOfficeSitesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ClientId, clientId_);
       DARABONBA_PTR_FROM_JSON(OfficeSiteId, officeSiteId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(Uuid, uuid_);
     };
     DescribeOfficeSitesRequest() = default ;
     DescribeOfficeSitesRequest(const DescribeOfficeSitesRequest &) = default ;
@@ -35,19 +37,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientId_ == nullptr
-        && return this->officeSiteId_ == nullptr && return this->regionId_ == nullptr; };
+        && this->officeSiteId_ == nullptr && this->regionId_ == nullptr && this->uuid_ == nullptr; };
     // clientId Field Functions 
     bool hasClientId() const { return this->clientId_ != nullptr;};
     void deleteClientId() { this->clientId_ = nullptr;};
-    inline string clientId() const { DARABONBA_PTR_GET_DEFAULT(clientId_, "") };
+    inline string getClientId() const { DARABONBA_PTR_GET_DEFAULT(clientId_, "") };
     inline DescribeOfficeSitesRequest& setClientId(string clientId) { DARABONBA_PTR_SET_VALUE(clientId_, clientId) };
 
 
     // officeSiteId Field Functions 
     bool hasOfficeSiteId() const { return this->officeSiteId_ != nullptr;};
     void deleteOfficeSiteId() { this->officeSiteId_ = nullptr;};
-    inline const vector<string> & officeSiteId() const { DARABONBA_PTR_GET_CONST(officeSiteId_, vector<string>) };
-    inline vector<string> officeSiteId() { DARABONBA_PTR_GET(officeSiteId_, vector<string>) };
+    inline const vector<string> & getOfficeSiteId() const { DARABONBA_PTR_GET_CONST(officeSiteId_, vector<string>) };
+    inline vector<string> getOfficeSiteId() { DARABONBA_PTR_GET(officeSiteId_, vector<string>) };
     inline DescribeOfficeSitesRequest& setOfficeSiteId(const vector<string> & officeSiteId) { DARABONBA_PTR_SET_VALUE(officeSiteId_, officeSiteId) };
     inline DescribeOfficeSitesRequest& setOfficeSiteId(vector<string> && officeSiteId) { DARABONBA_PTR_SET_RVALUE(officeSiteId_, officeSiteId) };
 
@@ -55,16 +57,25 @@ namespace Models
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeOfficeSitesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
+
+
+    // uuid Field Functions 
+    bool hasUuid() const { return this->uuid_ != nullptr;};
+    void deleteUuid() { this->uuid_ = nullptr;};
+    inline string getUuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
+    inline DescribeOfficeSitesRequest& setUuid(string uuid) { DARABONBA_PTR_SET_VALUE(uuid_, uuid) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> clientId_ = nullptr;
-    std::shared_ptr<vector<string>> officeSiteId_ = nullptr;
+    shared_ptr<string> clientId_ {};
+    shared_ptr<vector<string>> officeSiteId_ {};
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
+    // uuid
+    shared_ptr<string> uuid_ {};
   };
 
   } // namespace Models

@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aliUid_ == nullptr
-        && return this->desktopId_ == nullptr && return this->ecsInstanceId_ == nullptr; };
+        && this->desktopId_ == nullptr && this->ecsInstanceId_ == nullptr; };
     // aliUid Field Functions 
     bool hasAliUid() const { return this->aliUid_ != nullptr;};
     void deleteAliUid() { this->aliUid_ = nullptr;};
-    inline int64_t aliUid() const { DARABONBA_PTR_GET_DEFAULT(aliUid_, 0L) };
+    inline int64_t getAliUid() const { DARABONBA_PTR_GET_DEFAULT(aliUid_, 0L) };
     inline QueryEdsAgentReportConfigRequest& setAliUid(int64_t aliUid) { DARABONBA_PTR_SET_VALUE(aliUid_, aliUid) };
 
 
     // desktopId Field Functions 
     bool hasDesktopId() const { return this->desktopId_ != nullptr;};
     void deleteDesktopId() { this->desktopId_ = nullptr;};
-    inline string desktopId() const { DARABONBA_PTR_GET_DEFAULT(desktopId_, "") };
+    inline string getDesktopId() const { DARABONBA_PTR_GET_DEFAULT(desktopId_, "") };
     inline QueryEdsAgentReportConfigRequest& setDesktopId(string desktopId) { DARABONBA_PTR_SET_VALUE(desktopId_, desktopId) };
 
 
     // ecsInstanceId Field Functions 
     bool hasEcsInstanceId() const { return this->ecsInstanceId_ != nullptr;};
     void deleteEcsInstanceId() { this->ecsInstanceId_ = nullptr;};
-    inline string ecsInstanceId() const { DARABONBA_PTR_GET_DEFAULT(ecsInstanceId_, "") };
+    inline string getEcsInstanceId() const { DARABONBA_PTR_GET_DEFAULT(ecsInstanceId_, "") };
     inline QueryEdsAgentReportConfigRequest& setEcsInstanceId(string ecsInstanceId) { DARABONBA_PTR_SET_VALUE(ecsInstanceId_, ecsInstanceId) };
 
 
   protected:
-    std::shared_ptr<int64_t> aliUid_ = nullptr;
-    std::shared_ptr<string> desktopId_ = nullptr;
-    std::shared_ptr<string> ecsInstanceId_ = nullptr;
+    shared_ptr<int64_t> aliUid_ {};
+    shared_ptr<string> desktopId_ {};
+    shared_ptr<string> ecsInstanceId_ {};
   };
 
   } // namespace Models

@@ -40,56 +40,56 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessKeyId_ == nullptr
-        && return this->endpoint_ == nullptr && return this->filePath_ == nullptr && return this->ossPolicy_ == nullptr && return this->ossSignature_ == nullptr && return this->stsToken_ == nullptr; };
+        && this->endpoint_ == nullptr && this->filePath_ == nullptr && this->ossPolicy_ == nullptr && this->ossSignature_ == nullptr && this->stsToken_ == nullptr; };
     // accessKeyId Field Functions 
     bool hasAccessKeyId() const { return this->accessKeyId_ != nullptr;};
     void deleteAccessKeyId() { this->accessKeyId_ = nullptr;};
-    inline string accessKeyId() const { DARABONBA_PTR_GET_DEFAULT(accessKeyId_, "") };
+    inline string getAccessKeyId() const { DARABONBA_PTR_GET_DEFAULT(accessKeyId_, "") };
     inline OssUploadCredential& setAccessKeyId(string accessKeyId) { DARABONBA_PTR_SET_VALUE(accessKeyId_, accessKeyId) };
 
 
     // endpoint Field Functions 
     bool hasEndpoint() const { return this->endpoint_ != nullptr;};
     void deleteEndpoint() { this->endpoint_ = nullptr;};
-    inline string endpoint() const { DARABONBA_PTR_GET_DEFAULT(endpoint_, "") };
+    inline string getEndpoint() const { DARABONBA_PTR_GET_DEFAULT(endpoint_, "") };
     inline OssUploadCredential& setEndpoint(string endpoint) { DARABONBA_PTR_SET_VALUE(endpoint_, endpoint) };
 
 
     // filePath Field Functions 
     bool hasFilePath() const { return this->filePath_ != nullptr;};
     void deleteFilePath() { this->filePath_ = nullptr;};
-    inline string filePath() const { DARABONBA_PTR_GET_DEFAULT(filePath_, "") };
+    inline string getFilePath() const { DARABONBA_PTR_GET_DEFAULT(filePath_, "") };
     inline OssUploadCredential& setFilePath(string filePath) { DARABONBA_PTR_SET_VALUE(filePath_, filePath) };
 
 
     // ossPolicy Field Functions 
     bool hasOssPolicy() const { return this->ossPolicy_ != nullptr;};
     void deleteOssPolicy() { this->ossPolicy_ = nullptr;};
-    inline string ossPolicy() const { DARABONBA_PTR_GET_DEFAULT(ossPolicy_, "") };
+    inline string getOssPolicy() const { DARABONBA_PTR_GET_DEFAULT(ossPolicy_, "") };
     inline OssUploadCredential& setOssPolicy(string ossPolicy) { DARABONBA_PTR_SET_VALUE(ossPolicy_, ossPolicy) };
 
 
     // ossSignature Field Functions 
     bool hasOssSignature() const { return this->ossSignature_ != nullptr;};
     void deleteOssSignature() { this->ossSignature_ = nullptr;};
-    inline string ossSignature() const { DARABONBA_PTR_GET_DEFAULT(ossSignature_, "") };
+    inline string getOssSignature() const { DARABONBA_PTR_GET_DEFAULT(ossSignature_, "") };
     inline OssUploadCredential& setOssSignature(string ossSignature) { DARABONBA_PTR_SET_VALUE(ossSignature_, ossSignature) };
 
 
     // stsToken Field Functions 
     bool hasStsToken() const { return this->stsToken_ != nullptr;};
     void deleteStsToken() { this->stsToken_ = nullptr;};
-    inline string stsToken() const { DARABONBA_PTR_GET_DEFAULT(stsToken_, "") };
+    inline string getStsToken() const { DARABONBA_PTR_GET_DEFAULT(stsToken_, "") };
     inline OssUploadCredential& setStsToken(string stsToken) { DARABONBA_PTR_SET_VALUE(stsToken_, stsToken) };
 
 
   protected:
-    std::shared_ptr<string> accessKeyId_ = nullptr;
-    std::shared_ptr<string> endpoint_ = nullptr;
-    std::shared_ptr<string> filePath_ = nullptr;
-    std::shared_ptr<string> ossPolicy_ = nullptr;
-    std::shared_ptr<string> ossSignature_ = nullptr;
-    std::shared_ptr<string> stsToken_ = nullptr;
+    shared_ptr<string> accessKeyId_ {};
+    shared_ptr<string> endpoint_ {};
+    shared_ptr<string> filePath_ {};
+    shared_ptr<string> ossPolicy_ {};
+    shared_ptr<string> ossSignature_ {};
+    shared_ptr<string> stsToken_ {};
   };
 
   } // namespace Models

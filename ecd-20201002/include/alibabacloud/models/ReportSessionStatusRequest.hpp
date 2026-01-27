@@ -40,61 +40,61 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->endUserId_ == nullptr
-        && return this->instanceId_ == nullptr && return this->regionId_ == nullptr && return this->sessionChangeTime_ == nullptr && return this->sessionId_ == nullptr && return this->sessionStatus_ == nullptr; };
+        && this->instanceId_ == nullptr && this->regionId_ == nullptr && this->sessionChangeTime_ == nullptr && this->sessionId_ == nullptr && this->sessionStatus_ == nullptr; };
     // endUserId Field Functions 
     bool hasEndUserId() const { return this->endUserId_ != nullptr;};
     void deleteEndUserId() { this->endUserId_ = nullptr;};
-    inline string endUserId() const { DARABONBA_PTR_GET_DEFAULT(endUserId_, "") };
+    inline string getEndUserId() const { DARABONBA_PTR_GET_DEFAULT(endUserId_, "") };
     inline ReportSessionStatusRequest& setEndUserId(string endUserId) { DARABONBA_PTR_SET_VALUE(endUserId_, endUserId) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ReportSessionStatusRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ReportSessionStatusRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // sessionChangeTime Field Functions 
     bool hasSessionChangeTime() const { return this->sessionChangeTime_ != nullptr;};
     void deleteSessionChangeTime() { this->sessionChangeTime_ = nullptr;};
-    inline int64_t sessionChangeTime() const { DARABONBA_PTR_GET_DEFAULT(sessionChangeTime_, 0L) };
+    inline int64_t getSessionChangeTime() const { DARABONBA_PTR_GET_DEFAULT(sessionChangeTime_, 0L) };
     inline ReportSessionStatusRequest& setSessionChangeTime(int64_t sessionChangeTime) { DARABONBA_PTR_SET_VALUE(sessionChangeTime_, sessionChangeTime) };
 
 
     // sessionId Field Functions 
     bool hasSessionId() const { return this->sessionId_ != nullptr;};
     void deleteSessionId() { this->sessionId_ = nullptr;};
-    inline string sessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
+    inline string getSessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
     inline ReportSessionStatusRequest& setSessionId(string sessionId) { DARABONBA_PTR_SET_VALUE(sessionId_, sessionId) };
 
 
     // sessionStatus Field Functions 
     bool hasSessionStatus() const { return this->sessionStatus_ != nullptr;};
     void deleteSessionStatus() { this->sessionStatus_ = nullptr;};
-    inline string sessionStatus() const { DARABONBA_PTR_GET_DEFAULT(sessionStatus_, "") };
+    inline string getSessionStatus() const { DARABONBA_PTR_GET_DEFAULT(sessionStatus_, "") };
     inline ReportSessionStatusRequest& setSessionStatus(string sessionStatus) { DARABONBA_PTR_SET_VALUE(sessionStatus_, sessionStatus) };
 
 
   protected:
-    std::shared_ptr<string> endUserId_ = nullptr;
+    shared_ptr<string> endUserId_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> sessionChangeTime_ = nullptr;
+    shared_ptr<int64_t> sessionChangeTime_ {};
     // This parameter is required.
-    std::shared_ptr<string> sessionId_ = nullptr;
+    shared_ptr<string> sessionId_ {};
     // This parameter is required.
-    std::shared_ptr<string> sessionStatus_ = nullptr;
+    shared_ptr<string> sessionStatus_ {};
   };
 
   } // namespace Models

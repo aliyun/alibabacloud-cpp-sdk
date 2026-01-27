@@ -36,40 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->isKeepAlive_ == nullptr
-        && return this->officeSiteId_ == nullptr && return this->requestId_ == nullptr && return this->tenantId_ == nullptr; };
+        && this->officeSiteId_ == nullptr && this->requestId_ == nullptr && this->tenantId_ == nullptr; };
     // isKeepAlive Field Functions 
     bool hasIsKeepAlive() const { return this->isKeepAlive_ != nullptr;};
     void deleteIsKeepAlive() { this->isKeepAlive_ = nullptr;};
-    inline bool isKeepAlive() const { DARABONBA_PTR_GET_DEFAULT(isKeepAlive_, false) };
+    inline bool getIsKeepAlive() const { DARABONBA_PTR_GET_DEFAULT(isKeepAlive_, false) };
     inline IsKeepAliveResponseBody& setIsKeepAlive(bool isKeepAlive) { DARABONBA_PTR_SET_VALUE(isKeepAlive_, isKeepAlive) };
 
 
     // officeSiteId Field Functions 
     bool hasOfficeSiteId() const { return this->officeSiteId_ != nullptr;};
     void deleteOfficeSiteId() { this->officeSiteId_ = nullptr;};
-    inline string officeSiteId() const { DARABONBA_PTR_GET_DEFAULT(officeSiteId_, "") };
+    inline string getOfficeSiteId() const { DARABONBA_PTR_GET_DEFAULT(officeSiteId_, "") };
     inline IsKeepAliveResponseBody& setOfficeSiteId(string officeSiteId) { DARABONBA_PTR_SET_VALUE(officeSiteId_, officeSiteId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline IsKeepAliveResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // tenantId Field Functions 
     bool hasTenantId() const { return this->tenantId_ != nullptr;};
     void deleteTenantId() { this->tenantId_ = nullptr;};
-    inline string tenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
+    inline string getTenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
     inline IsKeepAliveResponseBody& setTenantId(string tenantId) { DARABONBA_PTR_SET_VALUE(tenantId_, tenantId) };
 
 
   protected:
-    std::shared_ptr<bool> isKeepAlive_ = nullptr;
-    std::shared_ptr<string> officeSiteId_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> tenantId_ = nullptr;
+    // Identifies whether the user should remain logged on to the client.
+    shared_ptr<bool> isKeepAlive_ {};
+    // The office network ID.
+    shared_ptr<string> officeSiteId_ {};
+    // The request ID.
+    shared_ptr<string> requestId_ {};
+    // The unique ID (UID) of the Alibaba Cloud account.
+    shared_ptr<string> tenantId_ {};
   };
 
   } // namespace Models

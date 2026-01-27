@@ -44,61 +44,61 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientId_ == nullptr
-        && return this->clientOS_ == nullptr && return this->clientVersion_ == nullptr && return this->endUserId_ == nullptr && return this->loginToken_ == nullptr && return this->officeSiteId_ == nullptr
-        && return this->sessionId_ == nullptr && return this->tokenCode_ == nullptr; };
+        && this->clientOS_ == nullptr && this->clientVersion_ == nullptr && this->endUserId_ == nullptr && this->loginToken_ == nullptr && this->officeSiteId_ == nullptr
+        && this->sessionId_ == nullptr && this->tokenCode_ == nullptr; };
     // clientId Field Functions 
     bool hasClientId() const { return this->clientId_ != nullptr;};
     void deleteClientId() { this->clientId_ = nullptr;};
-    inline string clientId() const { DARABONBA_PTR_GET_DEFAULT(clientId_, "") };
+    inline string getClientId() const { DARABONBA_PTR_GET_DEFAULT(clientId_, "") };
     inline SendTokenCodeRequest& setClientId(string clientId) { DARABONBA_PTR_SET_VALUE(clientId_, clientId) };
 
 
     // clientOS Field Functions 
     bool hasClientOS() const { return this->clientOS_ != nullptr;};
     void deleteClientOS() { this->clientOS_ = nullptr;};
-    inline string clientOS() const { DARABONBA_PTR_GET_DEFAULT(clientOS_, "") };
+    inline string getClientOS() const { DARABONBA_PTR_GET_DEFAULT(clientOS_, "") };
     inline SendTokenCodeRequest& setClientOS(string clientOS) { DARABONBA_PTR_SET_VALUE(clientOS_, clientOS) };
 
 
     // clientVersion Field Functions 
     bool hasClientVersion() const { return this->clientVersion_ != nullptr;};
     void deleteClientVersion() { this->clientVersion_ = nullptr;};
-    inline string clientVersion() const { DARABONBA_PTR_GET_DEFAULT(clientVersion_, "") };
+    inline string getClientVersion() const { DARABONBA_PTR_GET_DEFAULT(clientVersion_, "") };
     inline SendTokenCodeRequest& setClientVersion(string clientVersion) { DARABONBA_PTR_SET_VALUE(clientVersion_, clientVersion) };
 
 
     // endUserId Field Functions 
     bool hasEndUserId() const { return this->endUserId_ != nullptr;};
     void deleteEndUserId() { this->endUserId_ = nullptr;};
-    inline string endUserId() const { DARABONBA_PTR_GET_DEFAULT(endUserId_, "") };
+    inline string getEndUserId() const { DARABONBA_PTR_GET_DEFAULT(endUserId_, "") };
     inline SendTokenCodeRequest& setEndUserId(string endUserId) { DARABONBA_PTR_SET_VALUE(endUserId_, endUserId) };
 
 
     // loginToken Field Functions 
     bool hasLoginToken() const { return this->loginToken_ != nullptr;};
     void deleteLoginToken() { this->loginToken_ = nullptr;};
-    inline string loginToken() const { DARABONBA_PTR_GET_DEFAULT(loginToken_, "") };
+    inline string getLoginToken() const { DARABONBA_PTR_GET_DEFAULT(loginToken_, "") };
     inline SendTokenCodeRequest& setLoginToken(string loginToken) { DARABONBA_PTR_SET_VALUE(loginToken_, loginToken) };
 
 
     // officeSiteId Field Functions 
     bool hasOfficeSiteId() const { return this->officeSiteId_ != nullptr;};
     void deleteOfficeSiteId() { this->officeSiteId_ = nullptr;};
-    inline string officeSiteId() const { DARABONBA_PTR_GET_DEFAULT(officeSiteId_, "") };
+    inline string getOfficeSiteId() const { DARABONBA_PTR_GET_DEFAULT(officeSiteId_, "") };
     inline SendTokenCodeRequest& setOfficeSiteId(string officeSiteId) { DARABONBA_PTR_SET_VALUE(officeSiteId_, officeSiteId) };
 
 
     // sessionId Field Functions 
     bool hasSessionId() const { return this->sessionId_ != nullptr;};
     void deleteSessionId() { this->sessionId_ = nullptr;};
-    inline string sessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
+    inline string getSessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
     inline SendTokenCodeRequest& setSessionId(string sessionId) { DARABONBA_PTR_SET_VALUE(sessionId_, sessionId) };
 
 
     // tokenCode Field Functions 
     bool hasTokenCode() const { return this->tokenCode_ != nullptr;};
     void deleteTokenCode() { this->tokenCode_ = nullptr;};
-    inline string tokenCode() const { DARABONBA_PTR_GET_DEFAULT(tokenCode_, "") };
+    inline string getTokenCode() const { DARABONBA_PTR_GET_DEFAULT(tokenCode_, "") };
     inline SendTokenCodeRequest& setTokenCode(string tokenCode) { DARABONBA_PTR_SET_VALUE(tokenCode_, tokenCode) };
 
 
@@ -106,21 +106,21 @@ namespace Models
     // The client ID. The system generates a unique ID for each client.
     // 
     // This parameter is required.
-    std::shared_ptr<string> clientId_ = nullptr;
+    shared_ptr<string> clientId_ {};
     // The operating system on which the client runs.
-    std::shared_ptr<string> clientOS_ = nullptr;
+    shared_ptr<string> clientOS_ {};
     // The client version. If you use an Alibaba Cloud Workspace client, you can view the client version in the "About" dialog box on the client logon page.
-    std::shared_ptr<string> clientVersion_ = nullptr;
+    shared_ptr<string> clientVersion_ {};
     // The username of the account.
-    std::shared_ptr<string> endUserId_ = nullptr;
+    shared_ptr<string> endUserId_ {};
     // The logon token.
-    std::shared_ptr<string> loginToken_ = nullptr;
+    shared_ptr<string> loginToken_ {};
     // The office network ID.
-    std::shared_ptr<string> officeSiteId_ = nullptr;
+    shared_ptr<string> officeSiteId_ {};
     // The session ID.
-    std::shared_ptr<string> sessionId_ = nullptr;
+    shared_ptr<string> sessionId_ {};
     // If two-factor authentication is enabled for clients in the Elastic Desktop Service (EDS) Enterprise console, the system will send a verification code to the user\\"s email address if it detects that the current logged-on user is at risk. This parameter is required if you set `CurrentStage` to `TokenVerify`.
-    std::shared_ptr<string> tokenCode_ = nullptr;
+    shared_ptr<string> tokenCode_ {};
   };
 
   } // namespace Models

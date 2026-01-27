@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->encryptedPassword_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // encryptedPassword Field Functions 
     bool hasEncryptedPassword() const { return this->encryptedPassword_ != nullptr;};
     void deleteEncryptedPassword() { this->encryptedPassword_ = nullptr;};
-    inline string encryptedPassword() const { DARABONBA_PTR_GET_DEFAULT(encryptedPassword_, "") };
+    inline string getEncryptedPassword() const { DARABONBA_PTR_GET_DEFAULT(encryptedPassword_, "") };
     inline EncryptPasswordResponseBody& setEncryptedPassword(string encryptedPassword) { DARABONBA_PTR_SET_VALUE(encryptedPassword_, encryptedPassword) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline EncryptPasswordResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The encrypted password.
-    std::shared_ptr<string> encryptedPassword_ = nullptr;
+    shared_ptr<string> encryptedPassword_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

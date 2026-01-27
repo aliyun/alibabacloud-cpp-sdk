@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientId_ == nullptr
-        && return this->loginToken_ == nullptr && return this->officeSiteId_ == nullptr && return this->regionId_ == nullptr && return this->sessionId_ == nullptr; };
+        && this->loginToken_ == nullptr && this->officeSiteId_ == nullptr && this->regionId_ == nullptr && this->sessionId_ == nullptr; };
     // clientId Field Functions 
     bool hasClientId() const { return this->clientId_ != nullptr;};
     void deleteClientId() { this->clientId_ = nullptr;};
-    inline string clientId() const { DARABONBA_PTR_GET_DEFAULT(clientId_, "") };
+    inline string getClientId() const { DARABONBA_PTR_GET_DEFAULT(clientId_, "") };
     inline GetCloudDriveServiceMountTokenRequest& setClientId(string clientId) { DARABONBA_PTR_SET_VALUE(clientId_, clientId) };
 
 
     // loginToken Field Functions 
     bool hasLoginToken() const { return this->loginToken_ != nullptr;};
     void deleteLoginToken() { this->loginToken_ = nullptr;};
-    inline string loginToken() const { DARABONBA_PTR_GET_DEFAULT(loginToken_, "") };
+    inline string getLoginToken() const { DARABONBA_PTR_GET_DEFAULT(loginToken_, "") };
     inline GetCloudDriveServiceMountTokenRequest& setLoginToken(string loginToken) { DARABONBA_PTR_SET_VALUE(loginToken_, loginToken) };
 
 
     // officeSiteId Field Functions 
     bool hasOfficeSiteId() const { return this->officeSiteId_ != nullptr;};
     void deleteOfficeSiteId() { this->officeSiteId_ = nullptr;};
-    inline string officeSiteId() const { DARABONBA_PTR_GET_DEFAULT(officeSiteId_, "") };
+    inline string getOfficeSiteId() const { DARABONBA_PTR_GET_DEFAULT(officeSiteId_, "") };
     inline GetCloudDriveServiceMountTokenRequest& setOfficeSiteId(string officeSiteId) { DARABONBA_PTR_SET_VALUE(officeSiteId_, officeSiteId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline GetCloudDriveServiceMountTokenRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // sessionId Field Functions 
     bool hasSessionId() const { return this->sessionId_ != nullptr;};
     void deleteSessionId() { this->sessionId_ = nullptr;};
-    inline string sessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
+    inline string getSessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
     inline GetCloudDriveServiceMountTokenRequest& setSessionId(string sessionId) { DARABONBA_PTR_SET_VALUE(sessionId_, sessionId) };
 
 
   protected:
-    std::shared_ptr<string> clientId_ = nullptr;
-    std::shared_ptr<string> loginToken_ = nullptr;
-    std::shared_ptr<string> officeSiteId_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> sessionId_ = nullptr;
+    shared_ptr<string> clientId_ {};
+    shared_ptr<string> loginToken_ {};
+    shared_ptr<string> officeSiteId_ {};
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> sessionId_ {};
   };
 
   } // namespace Models

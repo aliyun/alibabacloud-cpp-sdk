@@ -97,29 +97,5 @@
 #include <alibabacloud/models/VerifyCredentialRequest.hpp>
 #include <alibabacloud/models/VerifyCredentialResponseBody.hpp>
 #include <alibabacloud/models/VerifyCredentialResponse.hpp>
-#include <alibabacloud/models/DescribeDirectoriesResponseBodyDirectories.hpp>
-#include <alibabacloud/models/DescribeFingerPrintTemplatesResponseBodyFingerPrintTemplates.hpp>
-#include <alibabacloud/models/DescribeGlobalDesktopsResponseBodyDesktopsClients.hpp>
-#include <alibabacloud/models/DescribeGlobalDesktopsResponseBodyDesktopsDesktopTimers.hpp>
-#include <alibabacloud/models/DescribeGlobalDesktopsResponseBodyDesktopsDisks.hpp>
-#include <alibabacloud/models/DescribeGlobalDesktopsResponseBodyDesktopsFotaUpdate.hpp>
-#include <alibabacloud/models/DescribeGlobalDesktopsResponseBodyDesktopsSessions.hpp>
-#include <alibabacloud/models/DescribeGlobalDesktopsResponseBodyDesktops.hpp>
-#include <alibabacloud/models/DescribeOfficeSitesResponseBodyOfficeSites.hpp>
-#include <alibabacloud/models/DescribeRegionsResponseBodyRegions.hpp>
-#include <alibabacloud/models/DescribeSnapshotsResponseBodySnapshots.hpp>
-#include <alibabacloud/models/DescribeUserResourcesResponseBodyResourcesClients.hpp>
-#include <alibabacloud/models/DescribeUserResourcesResponseBodyResourcesDesktopDurationList.hpp>
-#include <alibabacloud/models/DescribeUserResourcesResponseBodyResourcesDesktopTimers.hpp>
-#include <alibabacloud/models/DescribeUserResourcesResponseBodyResourcesFotaUpdate.hpp>
-#include <alibabacloud/models/DescribeUserResourcesResponseBodyResourcesOsUpdatePackages.hpp>
-#include <alibabacloud/models/DescribeUserResourcesResponseBodyResourcesOsUpdate.hpp>
-#include <alibabacloud/models/DescribeUserResourcesResponseBodyResourcesSessions.hpp>
-#include <alibabacloud/models/DescribeUserResourcesResponseBodyResources.hpp>
-#include <alibabacloud/models/GetCloudDriveServiceMountTokenResponseBodyToken.hpp>
-#include <alibabacloud/models/GetConnectionTicketRequestTag.hpp>
-#include <alibabacloud/models/GetLoginTokenResponseBodyPasswordStrategy.hpp>
-#include <alibabacloud/models/GetLoginTokenResponseBodyRiskVerifyInfo.hpp>
-#include <alibabacloud/models/QueryEdsAgentReportConfigResponseBodyData.hpp>
 
 #endif

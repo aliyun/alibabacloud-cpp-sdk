@@ -42,54 +42,54 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientId_ == nullptr
-        && return this->directoryId_ == nullptr && return this->loginToken_ == nullptr && return this->officeSiteId_ == nullptr && return this->password_ == nullptr && return this->regionId_ == nullptr
-        && return this->sessionId_ == nullptr; };
+        && this->directoryId_ == nullptr && this->loginToken_ == nullptr && this->officeSiteId_ == nullptr && this->password_ == nullptr && this->regionId_ == nullptr
+        && this->sessionId_ == nullptr; };
     // clientId Field Functions 
     bool hasClientId() const { return this->clientId_ != nullptr;};
     void deleteClientId() { this->clientId_ = nullptr;};
-    inline string clientId() const { DARABONBA_PTR_GET_DEFAULT(clientId_, "") };
+    inline string getClientId() const { DARABONBA_PTR_GET_DEFAULT(clientId_, "") };
     inline EncryptPasswordRequest& setClientId(string clientId) { DARABONBA_PTR_SET_VALUE(clientId_, clientId) };
 
 
     // directoryId Field Functions 
     bool hasDirectoryId() const { return this->directoryId_ != nullptr;};
     void deleteDirectoryId() { this->directoryId_ = nullptr;};
-    inline string directoryId() const { DARABONBA_PTR_GET_DEFAULT(directoryId_, "") };
+    inline string getDirectoryId() const { DARABONBA_PTR_GET_DEFAULT(directoryId_, "") };
     inline EncryptPasswordRequest& setDirectoryId(string directoryId) { DARABONBA_PTR_SET_VALUE(directoryId_, directoryId) };
 
 
     // loginToken Field Functions 
     bool hasLoginToken() const { return this->loginToken_ != nullptr;};
     void deleteLoginToken() { this->loginToken_ = nullptr;};
-    inline string loginToken() const { DARABONBA_PTR_GET_DEFAULT(loginToken_, "") };
+    inline string getLoginToken() const { DARABONBA_PTR_GET_DEFAULT(loginToken_, "") };
     inline EncryptPasswordRequest& setLoginToken(string loginToken) { DARABONBA_PTR_SET_VALUE(loginToken_, loginToken) };
 
 
     // officeSiteId Field Functions 
     bool hasOfficeSiteId() const { return this->officeSiteId_ != nullptr;};
     void deleteOfficeSiteId() { this->officeSiteId_ = nullptr;};
-    inline string officeSiteId() const { DARABONBA_PTR_GET_DEFAULT(officeSiteId_, "") };
+    inline string getOfficeSiteId() const { DARABONBA_PTR_GET_DEFAULT(officeSiteId_, "") };
     inline EncryptPasswordRequest& setOfficeSiteId(string officeSiteId) { DARABONBA_PTR_SET_VALUE(officeSiteId_, officeSiteId) };
 
 
     // password Field Functions 
     bool hasPassword() const { return this->password_ != nullptr;};
     void deletePassword() { this->password_ = nullptr;};
-    inline string password() const { DARABONBA_PTR_GET_DEFAULT(password_, "") };
+    inline string getPassword() const { DARABONBA_PTR_GET_DEFAULT(password_, "") };
     inline EncryptPasswordRequest& setPassword(string password) { DARABONBA_PTR_SET_VALUE(password_, password) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline EncryptPasswordRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // sessionId Field Functions 
     bool hasSessionId() const { return this->sessionId_ != nullptr;};
     void deleteSessionId() { this->sessionId_ = nullptr;};
-    inline string sessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
+    inline string getSessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
     inline EncryptPasswordRequest& setSessionId(string sessionId) { DARABONBA_PTR_SET_VALUE(sessionId_, sessionId) };
 
 
@@ -97,27 +97,27 @@ namespace Models
     // The ID of the client. The system generates a unique ID for each client.
     // 
     // This parameter is required.
-    std::shared_ptr<string> clientId_ = nullptr;
+    shared_ptr<string> clientId_ {};
     // The directory ID.
-    std::shared_ptr<string> directoryId_ = nullptr;
+    shared_ptr<string> directoryId_ {};
     // The logon token.
     // 
     // This parameter is required.
-    std::shared_ptr<string> loginToken_ = nullptr;
+    shared_ptr<string> loginToken_ {};
     // The office network ID.
-    std::shared_ptr<string> officeSiteId_ = nullptr;
+    shared_ptr<string> officeSiteId_ {};
     // The password that you want to encrypt.
     // 
     // This parameter is required.
-    std::shared_ptr<string> password_ = nullptr;
+    shared_ptr<string> password_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The session ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> sessionId_ = nullptr;
+    shared_ptr<string> sessionId_ {};
   };
 
   } // namespace Models

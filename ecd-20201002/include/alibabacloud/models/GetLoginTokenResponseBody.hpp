@@ -2,9 +2,8 @@
 #ifndef ALIBABACLOUD_MODELS_GETLOGINTOKENRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_GETLOGINTOKENRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/GetLoginTokenResponseBodyPasswordStrategy.hpp>
+#include <vector>
 #include <map>
-#include <alibabacloud/models/GetLoginTokenResponseBodyRiskVerifyInfo.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -68,88 +67,200 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class RiskVerifyInfo : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const RiskVerifyInfo& obj) { 
+        DARABONBA_PTR_TO_JSON(Email, email_);
+        DARABONBA_PTR_TO_JSON(LastLockDuration, lastLockDuration_);
+        DARABONBA_PTR_TO_JSON(Locked, locked_);
+        DARABONBA_PTR_TO_JSON(Phone, phone_);
+      };
+      friend void from_json(const Darabonba::Json& j, RiskVerifyInfo& obj) { 
+        DARABONBA_PTR_FROM_JSON(Email, email_);
+        DARABONBA_PTR_FROM_JSON(LastLockDuration, lastLockDuration_);
+        DARABONBA_PTR_FROM_JSON(Locked, locked_);
+        DARABONBA_PTR_FROM_JSON(Phone, phone_);
+      };
+      RiskVerifyInfo() = default ;
+      RiskVerifyInfo(const RiskVerifyInfo &) = default ;
+      RiskVerifyInfo(RiskVerifyInfo &&) = default ;
+      RiskVerifyInfo(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~RiskVerifyInfo() = default ;
+      RiskVerifyInfo& operator=(const RiskVerifyInfo &) = default ;
+      RiskVerifyInfo& operator=(RiskVerifyInfo &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->email_ == nullptr
+        && this->lastLockDuration_ == nullptr && this->locked_ == nullptr && this->phone_ == nullptr; };
+      // email Field Functions 
+      bool hasEmail() const { return this->email_ != nullptr;};
+      void deleteEmail() { this->email_ = nullptr;};
+      inline string getEmail() const { DARABONBA_PTR_GET_DEFAULT(email_, "") };
+      inline RiskVerifyInfo& setEmail(string email) { DARABONBA_PTR_SET_VALUE(email_, email) };
+
+
+      // lastLockDuration Field Functions 
+      bool hasLastLockDuration() const { return this->lastLockDuration_ != nullptr;};
+      void deleteLastLockDuration() { this->lastLockDuration_ = nullptr;};
+      inline int64_t getLastLockDuration() const { DARABONBA_PTR_GET_DEFAULT(lastLockDuration_, 0L) };
+      inline RiskVerifyInfo& setLastLockDuration(int64_t lastLockDuration) { DARABONBA_PTR_SET_VALUE(lastLockDuration_, lastLockDuration) };
+
+
+      // locked Field Functions 
+      bool hasLocked() const { return this->locked_ != nullptr;};
+      void deleteLocked() { this->locked_ = nullptr;};
+      inline string getLocked() const { DARABONBA_PTR_GET_DEFAULT(locked_, "") };
+      inline RiskVerifyInfo& setLocked(string locked) { DARABONBA_PTR_SET_VALUE(locked_, locked) };
+
+
+      // phone Field Functions 
+      bool hasPhone() const { return this->phone_ != nullptr;};
+      void deletePhone() { this->phone_ = nullptr;};
+      inline string getPhone() const { DARABONBA_PTR_GET_DEFAULT(phone_, "") };
+      inline RiskVerifyInfo& setPhone(string phone) { DARABONBA_PTR_SET_VALUE(phone_, phone) };
+
+
+    protected:
+      // The email used for authentication.
+      shared_ptr<string> email_ {};
+      // The duration of the lock.
+      shared_ptr<int64_t> lastLockDuration_ {};
+      // Whether the account is locked or not.
+      shared_ptr<string> locked_ {};
+      // The mobile number used for authentication.
+      shared_ptr<string> phone_ {};
+    };
+
+    class PasswordStrategy : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const PasswordStrategy& obj) { 
+        DARABONBA_PTR_TO_JSON(TenantAlternativeChars, tenantAlternativeChars_);
+        DARABONBA_PTR_TO_JSON(TenantPasswordLength, tenantPasswordLength_);
+      };
+      friend void from_json(const Darabonba::Json& j, PasswordStrategy& obj) { 
+        DARABONBA_PTR_FROM_JSON(TenantAlternativeChars, tenantAlternativeChars_);
+        DARABONBA_PTR_FROM_JSON(TenantPasswordLength, tenantPasswordLength_);
+      };
+      PasswordStrategy() = default ;
+      PasswordStrategy(const PasswordStrategy &) = default ;
+      PasswordStrategy(PasswordStrategy &&) = default ;
+      PasswordStrategy(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~PasswordStrategy() = default ;
+      PasswordStrategy& operator=(const PasswordStrategy &) = default ;
+      PasswordStrategy& operator=(PasswordStrategy &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->tenantAlternativeChars_ == nullptr
+        && this->tenantPasswordLength_ == nullptr; };
+      // tenantAlternativeChars Field Functions 
+      bool hasTenantAlternativeChars() const { return this->tenantAlternativeChars_ != nullptr;};
+      void deleteTenantAlternativeChars() { this->tenantAlternativeChars_ = nullptr;};
+      inline const vector<string> & getTenantAlternativeChars() const { DARABONBA_PTR_GET_CONST(tenantAlternativeChars_, vector<string>) };
+      inline vector<string> getTenantAlternativeChars() { DARABONBA_PTR_GET(tenantAlternativeChars_, vector<string>) };
+      inline PasswordStrategy& setTenantAlternativeChars(const vector<string> & tenantAlternativeChars) { DARABONBA_PTR_SET_VALUE(tenantAlternativeChars_, tenantAlternativeChars) };
+      inline PasswordStrategy& setTenantAlternativeChars(vector<string> && tenantAlternativeChars) { DARABONBA_PTR_SET_RVALUE(tenantAlternativeChars_, tenantAlternativeChars) };
+
+
+      // tenantPasswordLength Field Functions 
+      bool hasTenantPasswordLength() const { return this->tenantPasswordLength_ != nullptr;};
+      void deleteTenantPasswordLength() { this->tenantPasswordLength_ = nullptr;};
+      inline string getTenantPasswordLength() const { DARABONBA_PTR_GET_DEFAULT(tenantPasswordLength_, "") };
+      inline PasswordStrategy& setTenantPasswordLength(string tenantPasswordLength) { DARABONBA_PTR_SET_VALUE(tenantPasswordLength_, tenantPasswordLength) };
+
+
+    protected:
+      // > This is a parameter only for internal use.
+      shared_ptr<vector<string>> tenantAlternativeChars_ {};
+      // > This is a parameter only for internal use.
+      shared_ptr<string> tenantPasswordLength_ {};
+    };
+
     virtual bool empty() const override { return this->email_ == nullptr
-        && return this->endUserId_ == nullptr && return this->industry_ == nullptr && return this->keepAliveToken_ == nullptr && return this->label_ == nullptr && return this->loginToken_ == nullptr
-        && return this->nextStage_ == nullptr && return this->nickName_ == nullptr && return this->passwordStrategy_ == nullptr && return this->phone_ == nullptr && return this->props_ == nullptr
-        && return this->qrCodePng_ == nullptr && return this->reason_ == nullptr && return this->requestId_ == nullptr && return this->riskVerifyInfo_ == nullptr && return this->secret_ == nullptr
-        && return this->sessionId_ == nullptr && return this->tenantId_ == nullptr && return this->windowDisplayMode_ == nullptr; };
+        && this->endUserId_ == nullptr && this->industry_ == nullptr && this->keepAliveToken_ == nullptr && this->label_ == nullptr && this->loginToken_ == nullptr
+        && this->nextStage_ == nullptr && this->nickName_ == nullptr && this->passwordStrategy_ == nullptr && this->phone_ == nullptr && this->props_ == nullptr
+        && this->qrCodePng_ == nullptr && this->reason_ == nullptr && this->requestId_ == nullptr && this->riskVerifyInfo_ == nullptr && this->secret_ == nullptr
+        && this->sessionId_ == nullptr && this->tenantId_ == nullptr && this->windowDisplayMode_ == nullptr; };
     // email Field Functions 
     bool hasEmail() const { return this->email_ != nullptr;};
     void deleteEmail() { this->email_ = nullptr;};
-    inline string email() const { DARABONBA_PTR_GET_DEFAULT(email_, "") };
+    inline string getEmail() const { DARABONBA_PTR_GET_DEFAULT(email_, "") };
     inline GetLoginTokenResponseBody& setEmail(string email) { DARABONBA_PTR_SET_VALUE(email_, email) };
 
 
     // endUserId Field Functions 
     bool hasEndUserId() const { return this->endUserId_ != nullptr;};
     void deleteEndUserId() { this->endUserId_ = nullptr;};
-    inline string endUserId() const { DARABONBA_PTR_GET_DEFAULT(endUserId_, "") };
+    inline string getEndUserId() const { DARABONBA_PTR_GET_DEFAULT(endUserId_, "") };
     inline GetLoginTokenResponseBody& setEndUserId(string endUserId) { DARABONBA_PTR_SET_VALUE(endUserId_, endUserId) };
 
 
     // industry Field Functions 
     bool hasIndustry() const { return this->industry_ != nullptr;};
     void deleteIndustry() { this->industry_ = nullptr;};
-    inline string industry() const { DARABONBA_PTR_GET_DEFAULT(industry_, "") };
+    inline string getIndustry() const { DARABONBA_PTR_GET_DEFAULT(industry_, "") };
     inline GetLoginTokenResponseBody& setIndustry(string industry) { DARABONBA_PTR_SET_VALUE(industry_, industry) };
 
 
     // keepAliveToken Field Functions 
     bool hasKeepAliveToken() const { return this->keepAliveToken_ != nullptr;};
     void deleteKeepAliveToken() { this->keepAliveToken_ = nullptr;};
-    inline string keepAliveToken() const { DARABONBA_PTR_GET_DEFAULT(keepAliveToken_, "") };
+    inline string getKeepAliveToken() const { DARABONBA_PTR_GET_DEFAULT(keepAliveToken_, "") };
     inline GetLoginTokenResponseBody& setKeepAliveToken(string keepAliveToken) { DARABONBA_PTR_SET_VALUE(keepAliveToken_, keepAliveToken) };
 
 
     // label Field Functions 
     bool hasLabel() const { return this->label_ != nullptr;};
     void deleteLabel() { this->label_ = nullptr;};
-    inline string label() const { DARABONBA_PTR_GET_DEFAULT(label_, "") };
+    inline string getLabel() const { DARABONBA_PTR_GET_DEFAULT(label_, "") };
     inline GetLoginTokenResponseBody& setLabel(string label) { DARABONBA_PTR_SET_VALUE(label_, label) };
 
 
     // loginToken Field Functions 
     bool hasLoginToken() const { return this->loginToken_ != nullptr;};
     void deleteLoginToken() { this->loginToken_ = nullptr;};
-    inline string loginToken() const { DARABONBA_PTR_GET_DEFAULT(loginToken_, "") };
+    inline string getLoginToken() const { DARABONBA_PTR_GET_DEFAULT(loginToken_, "") };
     inline GetLoginTokenResponseBody& setLoginToken(string loginToken) { DARABONBA_PTR_SET_VALUE(loginToken_, loginToken) };
 
 
     // nextStage Field Functions 
     bool hasNextStage() const { return this->nextStage_ != nullptr;};
     void deleteNextStage() { this->nextStage_ = nullptr;};
-    inline string nextStage() const { DARABONBA_PTR_GET_DEFAULT(nextStage_, "") };
+    inline string getNextStage() const { DARABONBA_PTR_GET_DEFAULT(nextStage_, "") };
     inline GetLoginTokenResponseBody& setNextStage(string nextStage) { DARABONBA_PTR_SET_VALUE(nextStage_, nextStage) };
 
 
     // nickName Field Functions 
     bool hasNickName() const { return this->nickName_ != nullptr;};
     void deleteNickName() { this->nickName_ = nullptr;};
-    inline string nickName() const { DARABONBA_PTR_GET_DEFAULT(nickName_, "") };
+    inline string getNickName() const { DARABONBA_PTR_GET_DEFAULT(nickName_, "") };
     inline GetLoginTokenResponseBody& setNickName(string nickName) { DARABONBA_PTR_SET_VALUE(nickName_, nickName) };
 
 
     // passwordStrategy Field Functions 
     bool hasPasswordStrategy() const { return this->passwordStrategy_ != nullptr;};
     void deletePasswordStrategy() { this->passwordStrategy_ = nullptr;};
-    inline const GetLoginTokenResponseBodyPasswordStrategy & passwordStrategy() const { DARABONBA_PTR_GET_CONST(passwordStrategy_, GetLoginTokenResponseBodyPasswordStrategy) };
-    inline GetLoginTokenResponseBodyPasswordStrategy passwordStrategy() { DARABONBA_PTR_GET(passwordStrategy_, GetLoginTokenResponseBodyPasswordStrategy) };
-    inline GetLoginTokenResponseBody& setPasswordStrategy(const GetLoginTokenResponseBodyPasswordStrategy & passwordStrategy) { DARABONBA_PTR_SET_VALUE(passwordStrategy_, passwordStrategy) };
-    inline GetLoginTokenResponseBody& setPasswordStrategy(GetLoginTokenResponseBodyPasswordStrategy && passwordStrategy) { DARABONBA_PTR_SET_RVALUE(passwordStrategy_, passwordStrategy) };
+    inline const GetLoginTokenResponseBody::PasswordStrategy & getPasswordStrategy() const { DARABONBA_PTR_GET_CONST(passwordStrategy_, GetLoginTokenResponseBody::PasswordStrategy) };
+    inline GetLoginTokenResponseBody::PasswordStrategy getPasswordStrategy() { DARABONBA_PTR_GET(passwordStrategy_, GetLoginTokenResponseBody::PasswordStrategy) };
+    inline GetLoginTokenResponseBody& setPasswordStrategy(const GetLoginTokenResponseBody::PasswordStrategy & passwordStrategy) { DARABONBA_PTR_SET_VALUE(passwordStrategy_, passwordStrategy) };
+    inline GetLoginTokenResponseBody& setPasswordStrategy(GetLoginTokenResponseBody::PasswordStrategy && passwordStrategy) { DARABONBA_PTR_SET_RVALUE(passwordStrategy_, passwordStrategy) };
 
 
     // phone Field Functions 
     bool hasPhone() const { return this->phone_ != nullptr;};
     void deletePhone() { this->phone_ = nullptr;};
-    inline string phone() const { DARABONBA_PTR_GET_DEFAULT(phone_, "") };
+    inline string getPhone() const { DARABONBA_PTR_GET_DEFAULT(phone_, "") };
     inline GetLoginTokenResponseBody& setPhone(string phone) { DARABONBA_PTR_SET_VALUE(phone_, phone) };
 
 
     // props Field Functions 
     bool hasProps() const { return this->props_ != nullptr;};
     void deleteProps() { this->props_ = nullptr;};
-    inline const map<string, string> & props() const { DARABONBA_PTR_GET_CONST(props_, map<string, string>) };
-    inline map<string, string> props() { DARABONBA_PTR_GET(props_, map<string, string>) };
+    inline const map<string, string> & getProps() const { DARABONBA_PTR_GET_CONST(props_, map<string, string>) };
+    inline map<string, string> getProps() { DARABONBA_PTR_GET(props_, map<string, string>) };
     inline GetLoginTokenResponseBody& setProps(const map<string, string> & props) { DARABONBA_PTR_SET_VALUE(props_, props) };
     inline GetLoginTokenResponseBody& setProps(map<string, string> && props) { DARABONBA_PTR_SET_RVALUE(props_, props) };
 
@@ -157,58 +268,58 @@ namespace Models
     // qrCodePng Field Functions 
     bool hasQrCodePng() const { return this->qrCodePng_ != nullptr;};
     void deleteQrCodePng() { this->qrCodePng_ = nullptr;};
-    inline string qrCodePng() const { DARABONBA_PTR_GET_DEFAULT(qrCodePng_, "") };
+    inline string getQrCodePng() const { DARABONBA_PTR_GET_DEFAULT(qrCodePng_, "") };
     inline GetLoginTokenResponseBody& setQrCodePng(string qrCodePng) { DARABONBA_PTR_SET_VALUE(qrCodePng_, qrCodePng) };
 
 
     // reason Field Functions 
     bool hasReason() const { return this->reason_ != nullptr;};
     void deleteReason() { this->reason_ = nullptr;};
-    inline string reason() const { DARABONBA_PTR_GET_DEFAULT(reason_, "") };
+    inline string getReason() const { DARABONBA_PTR_GET_DEFAULT(reason_, "") };
     inline GetLoginTokenResponseBody& setReason(string reason) { DARABONBA_PTR_SET_VALUE(reason_, reason) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetLoginTokenResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // riskVerifyInfo Field Functions 
     bool hasRiskVerifyInfo() const { return this->riskVerifyInfo_ != nullptr;};
     void deleteRiskVerifyInfo() { this->riskVerifyInfo_ = nullptr;};
-    inline const GetLoginTokenResponseBodyRiskVerifyInfo & riskVerifyInfo() const { DARABONBA_PTR_GET_CONST(riskVerifyInfo_, GetLoginTokenResponseBodyRiskVerifyInfo) };
-    inline GetLoginTokenResponseBodyRiskVerifyInfo riskVerifyInfo() { DARABONBA_PTR_GET(riskVerifyInfo_, GetLoginTokenResponseBodyRiskVerifyInfo) };
-    inline GetLoginTokenResponseBody& setRiskVerifyInfo(const GetLoginTokenResponseBodyRiskVerifyInfo & riskVerifyInfo) { DARABONBA_PTR_SET_VALUE(riskVerifyInfo_, riskVerifyInfo) };
-    inline GetLoginTokenResponseBody& setRiskVerifyInfo(GetLoginTokenResponseBodyRiskVerifyInfo && riskVerifyInfo) { DARABONBA_PTR_SET_RVALUE(riskVerifyInfo_, riskVerifyInfo) };
+    inline const GetLoginTokenResponseBody::RiskVerifyInfo & getRiskVerifyInfo() const { DARABONBA_PTR_GET_CONST(riskVerifyInfo_, GetLoginTokenResponseBody::RiskVerifyInfo) };
+    inline GetLoginTokenResponseBody::RiskVerifyInfo getRiskVerifyInfo() { DARABONBA_PTR_GET(riskVerifyInfo_, GetLoginTokenResponseBody::RiskVerifyInfo) };
+    inline GetLoginTokenResponseBody& setRiskVerifyInfo(const GetLoginTokenResponseBody::RiskVerifyInfo & riskVerifyInfo) { DARABONBA_PTR_SET_VALUE(riskVerifyInfo_, riskVerifyInfo) };
+    inline GetLoginTokenResponseBody& setRiskVerifyInfo(GetLoginTokenResponseBody::RiskVerifyInfo && riskVerifyInfo) { DARABONBA_PTR_SET_RVALUE(riskVerifyInfo_, riskVerifyInfo) };
 
 
     // secret Field Functions 
     bool hasSecret() const { return this->secret_ != nullptr;};
     void deleteSecret() { this->secret_ = nullptr;};
-    inline string secret() const { DARABONBA_PTR_GET_DEFAULT(secret_, "") };
+    inline string getSecret() const { DARABONBA_PTR_GET_DEFAULT(secret_, "") };
     inline GetLoginTokenResponseBody& setSecret(string secret) { DARABONBA_PTR_SET_VALUE(secret_, secret) };
 
 
     // sessionId Field Functions 
     bool hasSessionId() const { return this->sessionId_ != nullptr;};
     void deleteSessionId() { this->sessionId_ = nullptr;};
-    inline string sessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
+    inline string getSessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
     inline GetLoginTokenResponseBody& setSessionId(string sessionId) { DARABONBA_PTR_SET_VALUE(sessionId_, sessionId) };
 
 
     // tenantId Field Functions 
     bool hasTenantId() const { return this->tenantId_ != nullptr;};
     void deleteTenantId() { this->tenantId_ = nullptr;};
-    inline int64_t tenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, 0L) };
+    inline int64_t getTenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, 0L) };
     inline GetLoginTokenResponseBody& setTenantId(int64_t tenantId) { DARABONBA_PTR_SET_VALUE(tenantId_, tenantId) };
 
 
     // windowDisplayMode Field Functions 
     bool hasWindowDisplayMode() const { return this->windowDisplayMode_ != nullptr;};
     void deleteWindowDisplayMode() { this->windowDisplayMode_ = nullptr;};
-    inline string windowDisplayMode() const { DARABONBA_PTR_GET_DEFAULT(windowDisplayMode_, "") };
+    inline string getWindowDisplayMode() const { DARABONBA_PTR_GET_DEFAULT(windowDisplayMode_, "") };
     inline GetLoginTokenResponseBody& setWindowDisplayMode(string windowDisplayMode) { DARABONBA_PTR_SET_VALUE(windowDisplayMode_, windowDisplayMode) };
 
 
@@ -217,50 +328,50 @@ namespace Models
     // 
     // *   For a convenience user, the return value is the email address specified when the administrator creates the convenience user.
     // *   For an AD user, the return value is in the following format: `Username@Name of the AD domain`.
-    std::shared_ptr<string> email_ = nullptr;
+    shared_ptr<string> email_ {};
     // The account of the convenience user or the AD user.
-    std::shared_ptr<string> endUserId_ = nullptr;
+    shared_ptr<string> endUserId_ {};
     // > This is a parameter only for internal use.
-    std::shared_ptr<string> industry_ = nullptr;
+    shared_ptr<string> industry_ {};
     // The token used to keep the user logged on. After the user logs on to the client and select the Keep Logon option, `KeepAliveToken` is returned when you call the operation. If the user does not select the Keep Logon option, null is returned.
-    std::shared_ptr<string> keepAliveToken_ = nullptr;
+    shared_ptr<string> keepAliveToken_ {};
     // The attribute of the convenience user. For an AD user, null is returned.
-    std::shared_ptr<string> label_ = nullptr;
+    shared_ptr<string> label_ {};
     // The logon token.
-    std::shared_ptr<string> loginToken_ = nullptr;
+    shared_ptr<string> loginToken_ {};
     // The next stage that is expected to enter. For example, an administrator enables MFA in the EDS console. When an end user enters the password, that is, the end user completes the `ADPassword` stage, this parameter returns `MFAVerify`. This indicates that MFA is required.
     // 
     // >  For more information about the authentication stages, see the `CurrentStage` parameter.
-    std::shared_ptr<string> nextStage_ = nullptr;
-    std::shared_ptr<string> nickName_ = nullptr;
+    shared_ptr<string> nextStage_ {};
+    shared_ptr<string> nickName_ {};
     // > This is a parameter only for internal use.
-    std::shared_ptr<GetLoginTokenResponseBodyPasswordStrategy> passwordStrategy_ = nullptr;
+    shared_ptr<GetLoginTokenResponseBody::PasswordStrategy> passwordStrategy_ {};
     // Enter the mobile number of the convenience user. For an AD user, null is returned.
-    std::shared_ptr<string> phone_ = nullptr;
+    shared_ptr<string> phone_ {};
     // > This is a parameter only for internal use.
-    std::shared_ptr<map<string, string>> props_ = nullptr;
+    shared_ptr<map<string, string>> props_ {};
     // The QR code that is generated when the virtual MFA device is bound. The value is encoded in Base64. This parameter can be empty. This parameter is required only when the CurrentStage parameter is set to `MFABind`.
     // 
     // > For more information about each authentication stage, see the parameter description of the request parameter `CurrentStage`.
-    std::shared_ptr<string> qrCodePng_ = nullptr;
+    shared_ptr<string> qrCodePng_ {};
     // > This is a parameter only for internal use.
-    std::shared_ptr<string> reason_ = nullptr;
+    shared_ptr<string> reason_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Risk identification information regarding the signin process.
-    std::shared_ptr<GetLoginTokenResponseBodyRiskVerifyInfo> riskVerifyInfo_ = nullptr;
+    shared_ptr<GetLoginTokenResponseBody::RiskVerifyInfo> riskVerifyInfo_ {};
     // The key that is generated when you bind the virtual MFA device. This parameter is required when the CurrentStage parameter is set to `MFABind`.
     // 
     // > For more information about each authentication stage, see the parameter description of the request parameter `CurrentStage`.
-    std::shared_ptr<string> secret_ = nullptr;
+    shared_ptr<string> secret_ {};
     // The ID of the session. The ID is returned the first time you call the `GetLoginToken` operation in the session. If MFA is required, you must specify this parameter in subsequent stages.
     // 
     // > For more information about each authentication stage, see the parameter description of the request parameter `CurrentStage`.
-    std::shared_ptr<string> sessionId_ = nullptr;
+    shared_ptr<string> sessionId_ {};
     // The ID of the Alibaba Cloud account. The ID is used for hardware client authentication.
-    std::shared_ptr<int64_t> tenantId_ = nullptr;
+    shared_ptr<int64_t> tenantId_ {};
     // > This is a parameter only for internal use.
-    std::shared_ptr<string> windowDisplayMode_ = nullptr;
+    shared_ptr<string> windowDisplayMode_ {};
   };
 
   } // namespace Models
