@@ -1,0 +1,4 @@
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/alibabacloud_bailian_voice_bot20250101Targets.cmake")
+check_required_components("alibabacloud_bailian_voice_bot20250101")
