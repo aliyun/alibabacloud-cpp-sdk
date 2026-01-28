@@ -63,11 +63,15 @@ namespace Models
           DARABONBA_PTR_TO_JSON(HandScoreIdList, handScoreIdList_);
           DARABONBA_PTR_TO_JSON(Rules, rules_);
           DARABONBA_PTR_TO_JSON(Score, score_);
+          DARABONBA_PTR_TO_JSON(TyxmPlusCount, tyxmPlusCount_);
+          DARABONBA_PTR_TO_JSON(TyxmTurboCount, tyxmTurboCount_);
         };
         friend void from_json(const Darabonba::Json& j, ResultInfo& obj) { 
           DARABONBA_PTR_FROM_JSON(HandScoreIdList, handScoreIdList_);
           DARABONBA_PTR_FROM_JSON(Rules, rules_);
           DARABONBA_PTR_FROM_JSON(Score, score_);
+          DARABONBA_PTR_FROM_JSON(TyxmPlusCount, tyxmPlusCount_);
+          DARABONBA_PTR_FROM_JSON(TyxmTurboCount, tyxmTurboCount_);
         };
         ResultInfo() = default ;
         ResultInfo(const ResultInfo &) = default ;
@@ -588,7 +592,7 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->handScoreIdList_ == nullptr
-        && this->rules_ == nullptr && this->score_ == nullptr; };
+        && this->rules_ == nullptr && this->score_ == nullptr && this->tyxmPlusCount_ == nullptr && this->tyxmTurboCount_ == nullptr; };
         // handScoreIdList Field Functions 
         bool hasHandScoreIdList() const { return this->handScoreIdList_ != nullptr;};
         void deleteHandScoreIdList() { this->handScoreIdList_ = nullptr;};
@@ -614,10 +618,26 @@ namespace Models
         inline ResultInfo& setScore(int32_t score) { DARABONBA_PTR_SET_VALUE(score_, score) };
 
 
+        // tyxmPlusCount Field Functions 
+        bool hasTyxmPlusCount() const { return this->tyxmPlusCount_ != nullptr;};
+        void deleteTyxmPlusCount() { this->tyxmPlusCount_ = nullptr;};
+        inline string getTyxmPlusCount() const { DARABONBA_PTR_GET_DEFAULT(tyxmPlusCount_, "") };
+        inline ResultInfo& setTyxmPlusCount(string tyxmPlusCount) { DARABONBA_PTR_SET_VALUE(tyxmPlusCount_, tyxmPlusCount) };
+
+
+        // tyxmTurboCount Field Functions 
+        bool hasTyxmTurboCount() const { return this->tyxmTurboCount_ != nullptr;};
+        void deleteTyxmTurboCount() { this->tyxmTurboCount_ = nullptr;};
+        inline string getTyxmTurboCount() const { DARABONBA_PTR_GET_DEFAULT(tyxmTurboCount_, "") };
+        inline ResultInfo& setTyxmTurboCount(string tyxmTurboCount) { DARABONBA_PTR_SET_VALUE(tyxmTurboCount_, tyxmTurboCount) };
+
+
       protected:
         shared_ptr<ResultInfo::HandScoreIdList> handScoreIdList_ {};
         shared_ptr<ResultInfo::Rules> rules_ {};
         shared_ptr<int32_t> score_ {};
+        shared_ptr<string> tyxmPlusCount_ {};
+        shared_ptr<string> tyxmTurboCount_ {};
       };
 
       virtual bool empty() const override { return this->resultInfo_ == nullptr; };
