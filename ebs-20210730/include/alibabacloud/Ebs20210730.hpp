@@ -923,6 +923,23 @@ namespace Ebs20210730
       Models::ListTagResourcesResponse listTagResources(const Models::ListTagResourcesRequest &request);
 
       /**
+       * @summary 中心化角色：修改App
+       *
+       * @param request ModifyAppRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyAppResponse
+       */
+      Models::ModifyAppResponse modifyAppWithOptions(const Models::ModifyAppRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 中心化角色：修改App
+       *
+       * @param request ModifyAppRequest
+       * @return ModifyAppResponse
+       */
+      Models::ModifyAppResponse modifyApp(const Models::ModifyAppRequest &request);
+
+      /**
        * @summary 修改专属集群属性OpenApi
        *
        * @description You can call this operation to modify the information of a dedicated block storage cluster. The information includes the name and description of the cluster.

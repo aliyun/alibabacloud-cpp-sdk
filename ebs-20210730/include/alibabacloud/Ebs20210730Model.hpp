@@ -124,6 +124,9 @@
 #include <alibabacloud/models/ListTagResourcesRequest.hpp>
 #include <alibabacloud/models/ListTagResourcesResponseBody.hpp>
 #include <alibabacloud/models/ListTagResourcesResponse.hpp>
+#include <alibabacloud/models/ModifyAppRequest.hpp>
+#include <alibabacloud/models/ModifyAppResponseBody.hpp>
+#include <alibabacloud/models/ModifyAppResponse.hpp>
 #include <alibabacloud/models/ModifyDedicatedBlockStorageClusterAttributeRequest.hpp>
 #include <alibabacloud/models/ModifyDedicatedBlockStorageClusterAttributeResponseBody.hpp>
 #include <alibabacloud/models/ModifyDedicatedBlockStorageClusterAttributeResponse.hpp>

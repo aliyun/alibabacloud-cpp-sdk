@@ -2801,6 +2801,84 @@ ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest 
 }
 
 /**
+ * @summary 中心化角色：修改App
+ *
+ * @param request ModifyAppRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyAppResponse
+ */
+ModifyAppResponse Client::modifyAppWithOptions(const ModifyAppRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasAppName()) {
+    query["AppName"] = request.getAppName();
+  }
+
+  if (!!request.hasAppTags()) {
+    query["AppTags"] = request.getAppTags();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasOwner()) {
+    query["Owner"] = request.getOwner();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasReportSendEnabled()) {
+    query["ReportSendEnabled"] = request.getReportSendEnabled();
+  }
+
+  if (!!request.hasSubscribePeriod()) {
+    query["SubscribePeriod"] = request.getSubscribePeriod();
+  }
+
+  if (!!request.hasSubscribeStatus()) {
+    query["SubscribeStatus"] = request.getSubscribeStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyApp"},
+    {"version" , "2021-07-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyAppResponse>();
+}
+
+/**
+ * @summary 中心化角色：修改App
+ *
+ * @param request ModifyAppRequest
+ * @return ModifyAppResponse
+ */
+ModifyAppResponse Client::modifyApp(const ModifyAppRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyAppWithOptions(request, runtime);
+}
+
+/**
  * @summary 修改专属集群属性OpenApi
  *
  * @description You can call this operation to modify the information of a dedicated block storage cluster. The information includes the name and description of the cluster.
