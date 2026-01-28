@@ -193,10 +193,12 @@ namespace Models
     class GpuDetails : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const GpuDetails& obj) { 
+        DARABONBA_PTR_TO_JSON(AllocatedUnit, allocatedUnit_);
         DARABONBA_PTR_TO_JSON(GpuModel, gpuModel_);
         DARABONBA_PTR_TO_JSON(TotalCount, totalCount_);
       };
       friend void from_json(const Darabonba::Json& j, GpuDetails& obj) { 
+        DARABONBA_PTR_FROM_JSON(AllocatedUnit, allocatedUnit_);
         DARABONBA_PTR_FROM_JSON(GpuModel, gpuModel_);
         DARABONBA_PTR_FROM_JSON(TotalCount, totalCount_);
       };
@@ -211,8 +213,15 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->gpuModel_ == nullptr
-        && this->totalCount_ == nullptr; };
+      virtual bool empty() const override { return this->allocatedUnit_ == nullptr
+        && this->gpuModel_ == nullptr && this->totalCount_ == nullptr; };
+      // allocatedUnit Field Functions 
+      bool hasAllocatedUnit() const { return this->allocatedUnit_ != nullptr;};
+      void deleteAllocatedUnit() { this->allocatedUnit_ = nullptr;};
+      inline int32_t getAllocatedUnit() const { DARABONBA_PTR_GET_DEFAULT(allocatedUnit_, 0) };
+      inline GpuDetails& setAllocatedUnit(int32_t allocatedUnit) { DARABONBA_PTR_SET_VALUE(allocatedUnit_, allocatedUnit) };
+
+
       // gpuModel Field Functions 
       bool hasGpuModel() const { return this->gpuModel_ != nullptr;};
       void deleteGpuModel() { this->gpuModel_ = nullptr;};
@@ -228,6 +237,7 @@ namespace Models
 
 
     protected:
+      shared_ptr<int32_t> allocatedUnit_ {};
       shared_ptr<string> gpuModel_ {};
       shared_ptr<int32_t> totalCount_ {};
     };
