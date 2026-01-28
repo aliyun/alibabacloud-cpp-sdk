@@ -16,6 +16,9 @@
 #include <alibabacloud/models/DeletePlaybookRequest.hpp>
 #include <alibabacloud/models/DeletePlaybookResponseBody.hpp>
 #include <alibabacloud/models/DeletePlaybookResponse.hpp>
+#include <alibabacloud/models/ExecuteComponentRequest.hpp>
+#include <alibabacloud/models/ExecuteComponentResponseBody.hpp>
+#include <alibabacloud/models/ExecuteComponentResponse.hpp>
 #include <alibabacloud/models/GetPlaybookRequest.hpp>
 #include <alibabacloud/models/GetPlaybookResponseBody.hpp>
 #include <alibabacloud/models/GetPlaybookResponse.hpp>
@@ -36,16 +39,5 @@
 #include <alibabacloud/models/UpdatePlaybookShrinkRequest.hpp>
 #include <alibabacloud/models/UpdatePlaybookResponseBody.hpp>
 #include <alibabacloud/models/UpdatePlaybookResponse.hpp>
-#include <alibabacloud/models/CreateComponentAssetRequestComponentAssetValues.hpp>
-#include <alibabacloud/models/GetPlaybookResponseBodyPlaybook.hpp>
-#include <alibabacloud/models/ListComponentAssetsResponseBodyComponentAssetsComponentAssetValues.hpp>
-#include <alibabacloud/models/ListComponentAssetsResponseBodyComponentAssets.hpp>
-#include <alibabacloud/models/ListComponentsResponseBodyComponentsComponentActionsInputConfigs.hpp>
-#include <alibabacloud/models/ListComponentsResponseBodyComponentsComponentActionsOutputConfigs.hpp>
-#include <alibabacloud/models/ListComponentsResponseBodyComponentsComponentActions.hpp>
-#include <alibabacloud/models/ListComponentsResponseBodyComponentsComponentAssetConfigs.hpp>
-#include <alibabacloud/models/ListComponentsResponseBodyComponents.hpp>
-#include <alibabacloud/models/ListPlaybooksResponseBodyPlaybooks.hpp>
-#include <alibabacloud/models/UpdateComponentAssetRequestComponentAssetValues.hpp>
 
 #endif

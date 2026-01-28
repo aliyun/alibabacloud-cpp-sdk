@@ -97,6 +97,23 @@ namespace Sophonsoar20250903
       Models::DeletePlaybookResponse deletePlaybook(const Models::DeletePlaybookRequest &request);
 
       /**
+       * @summary 执行组件动作
+       *
+       * @param request ExecuteComponentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ExecuteComponentResponse
+       */
+      Models::ExecuteComponentResponse executeComponentWithOptions(const Models::ExecuteComponentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 执行组件动作
+       *
+       * @param request ExecuteComponentRequest
+       * @return ExecuteComponentResponse
+       */
+      Models::ExecuteComponentResponse executeComponent(const Models::ExecuteComponentRequest &request);
+
+      /**
        * @summary Get playbook details.
        *
        * @param request GetPlaybookRequest

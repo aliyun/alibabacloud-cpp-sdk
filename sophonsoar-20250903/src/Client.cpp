@@ -48,24 +48,24 @@ CreateComponentAssetResponse Client::createComponentAssetWithOptions(const Creat
   request.validate();
   json body = {};
   if (!!request.hasComponentAssetName()) {
-    body["ComponentAssetName"] = request.componentAssetName();
+    body["ComponentAssetName"] = request.getComponentAssetName();
   }
 
   json bodyFlat = {};
   if (!!request.hasComponentAssetValues()) {
-    bodyFlat["ComponentAssetValues"] = request.componentAssetValues();
+    bodyFlat["ComponentAssetValues"] = request.getComponentAssetValues();
   }
 
   if (!!request.hasComponentName()) {
-    body["ComponentName"] = request.componentName();
+    body["ComponentName"] = request.getComponentName();
   }
 
   if (!!request.hasLang()) {
-    body["Lang"] = request.lang();
+    body["Lang"] = request.getLang();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   body = Darabonba::Core::merge(body,
@@ -112,40 +112,40 @@ CreatePlaybookResponse Client::createPlaybookWithOptions(const CreatePlaybookReq
   request.validate();
   json body = {};
   if (!!request.hasLang()) {
-    body["Lang"] = request.lang();
+    body["Lang"] = request.getLang();
   }
 
   if (!!request.hasPlaybookDescription()) {
-    body["PlaybookDescription"] = request.playbookDescription();
+    body["PlaybookDescription"] = request.getPlaybookDescription();
   }
 
   json bodyFlat = {};
   if (!!request.hasPlaybookInputConfigs()) {
-    bodyFlat["PlaybookInputConfigs"] = request.playbookInputConfigs();
+    bodyFlat["PlaybookInputConfigs"] = request.getPlaybookInputConfigs();
   }
 
   if (!!request.hasPlaybookName()) {
-    body["PlaybookName"] = request.playbookName();
+    body["PlaybookName"] = request.getPlaybookName();
   }
 
   if (!!request.hasPlaybookOutputConfigs()) {
-    bodyFlat["PlaybookOutputConfigs"] = request.playbookOutputConfigs();
+    bodyFlat["PlaybookOutputConfigs"] = request.getPlaybookOutputConfigs();
   }
 
   if (!!request.hasPlaybookParamType()) {
-    body["PlaybookParamType"] = request.playbookParamType();
+    body["PlaybookParamType"] = request.getPlaybookParamType();
   }
 
   if (!!request.hasPlaybookTaskFlow()) {
-    body["PlaybookTaskFlow"] = request.playbookTaskFlow();
+    body["PlaybookTaskFlow"] = request.getPlaybookTaskFlow();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasSrcPlaybookUuid()) {
-    body["SrcPlaybookUuid"] = request.srcPlaybookUuid();
+    body["SrcPlaybookUuid"] = request.getSrcPlaybookUuid();
   }
 
   body = Darabonba::Core::merge(body,
@@ -192,15 +192,15 @@ DeleteComponentAssetResponse Client::deleteComponentAssetWithOptions(const Delet
   request.validate();
   json body = {};
   if (!!request.hasComponentAssetUuid()) {
-    body["ComponentAssetUuid"] = request.componentAssetUuid();
+    body["ComponentAssetUuid"] = request.getComponentAssetUuid();
   }
 
   if (!!request.hasLang()) {
-    body["Lang"] = request.lang();
+    body["Lang"] = request.getLang();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -244,15 +244,15 @@ DeletePlaybookResponse Client::deletePlaybookWithOptions(const DeletePlaybookReq
   request.validate();
   json body = {};
   if (!!request.hasLang()) {
-    body["Lang"] = request.lang();
+    body["Lang"] = request.getLang();
   }
 
   if (!!request.hasPlaybookUuid()) {
-    body["PlaybookUuid"] = request.playbookUuid();
+    body["PlaybookUuid"] = request.getPlaybookUuid();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -284,6 +284,72 @@ DeletePlaybookResponse Client::deletePlaybook(const DeletePlaybookRequest &reque
 }
 
 /**
+ * @summary 执行组件动作
+ *
+ * @param request ExecuteComponentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ExecuteComponentResponse
+ */
+ExecuteComponentResponse Client::executeComponentWithOptions(const ExecuteComponentRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasComponentActionName()) {
+    body["ComponentActionName"] = request.getComponentActionName();
+  }
+
+  if (!!request.hasComponentAssetUuid()) {
+    body["ComponentAssetUuid"] = request.getComponentAssetUuid();
+  }
+
+  if (!!request.hasComponentInput()) {
+    body["ComponentInput"] = request.getComponentInput();
+  }
+
+  if (!!request.hasComponentName()) {
+    body["ComponentName"] = request.getComponentName();
+  }
+
+  if (!!request.hasLang()) {
+    body["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasPlayBookNodeName()) {
+    body["PlayBookNodeName"] = request.getPlayBookNodeName();
+  }
+
+  if (!!request.hasPlaybookUuid()) {
+    body["PlaybookUuid"] = request.getPlaybookUuid();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ExecuteComponent"},
+    {"version" , "2025-09-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ExecuteComponentResponse>();
+}
+
+/**
+ * @summary 执行组件动作
+ *
+ * @param request ExecuteComponentRequest
+ * @return ExecuteComponentResponse
+ */
+ExecuteComponentResponse Client::executeComponent(const ExecuteComponentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return executeComponentWithOptions(request, runtime);
+}
+
+/**
  * @summary Get playbook details.
  *
  * @param request GetPlaybookRequest
@@ -294,23 +360,23 @@ GetPlaybookResponse Client::getPlaybookWithOptions(const GetPlaybookRequest &req
   request.validate();
   json body = {};
   if (!!request.hasLang()) {
-    body["Lang"] = request.lang();
+    body["Lang"] = request.getLang();
   }
 
   if (!!request.hasPlaybookUuid()) {
-    body["PlaybookUuid"] = request.playbookUuid();
+    body["PlaybookUuid"] = request.getPlaybookUuid();
   }
 
   if (!!request.hasPlaybookVersion()) {
-    body["PlaybookVersion"] = request.playbookVersion();
+    body["PlaybookVersion"] = request.getPlaybookVersion();
   }
 
   if (!!request.hasPlaybookVersionType()) {
-    body["PlaybookVersionType"] = request.playbookVersionType();
+    body["PlaybookVersionType"] = request.getPlaybookVersionType();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -352,35 +418,35 @@ ListComponentAssetsResponse Client::listComponentAssetsWithOptions(const ListCom
   request.validate();
   json body = {};
   if (!!request.hasComponentAssetUuid()) {
-    body["ComponentAssetUuid"] = request.componentAssetUuid();
+    body["ComponentAssetUuid"] = request.getComponentAssetUuid();
   }
 
   if (!!request.hasComponentName()) {
-    body["ComponentName"] = request.componentName();
+    body["ComponentName"] = request.getComponentName();
   }
 
   if (!!request.hasLang()) {
-    body["Lang"] = request.lang();
+    body["Lang"] = request.getLang();
   }
 
   if (!!request.hasMaxResults()) {
-    body["MaxResults"] = request.maxResults();
+    body["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    body["NextToken"] = request.nextToken();
+    body["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasPageNumber()) {
-    body["PageNumber"] = request.pageNumber();
+    body["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -422,31 +488,31 @@ ListComponentsResponse Client::listComponentsWithOptions(const ListComponentsReq
   request.validate();
   json body = {};
   if (!!request.hasComponentName()) {
-    body["ComponentName"] = request.componentName();
+    body["ComponentName"] = request.getComponentName();
   }
 
   if (!!request.hasLang()) {
-    body["Lang"] = request.lang();
+    body["Lang"] = request.getLang();
   }
 
   if (!!request.hasMaxResults()) {
-    body["MaxResults"] = request.maxResults();
+    body["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    body["NextToken"] = request.nextToken();
+    body["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasPageNumber()) {
-    body["PageNumber"] = request.pageNumber();
+    body["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -489,72 +555,72 @@ ListPlaybooksResponse Client::listPlaybooksWithOptions(const ListPlaybooksReques
   ListPlaybooksShrinkRequest request = ListPlaybooksShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasPlaybookParamTypes()) {
-    request.setPlaybookParamTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.playbookParamTypes(), "PlaybookParamTypes", "simple"));
+    request.setPlaybookParamTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPlaybookParamTypes(), "PlaybookParamTypes", "simple"));
   }
 
   if (!!tmpReq.hasPlaybookUuids()) {
-    request.setPlaybookUuidsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.playbookUuids(), "PlaybookUuids", "simple"));
+    request.setPlaybookUuidsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPlaybookUuids(), "PlaybookUuids", "simple"));
   }
 
   json body = {};
   if (!!request.hasLang()) {
-    body["Lang"] = request.lang();
+    body["Lang"] = request.getLang();
   }
 
   if (!!request.hasMaxResults()) {
-    body["MaxResults"] = request.maxResults();
+    body["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    body["NextToken"] = request.nextToken();
+    body["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasOrder()) {
-    body["Order"] = request.order();
+    body["Order"] = request.getOrder();
   }
 
   if (!!request.hasOrderField()) {
-    body["OrderField"] = request.orderField();
+    body["OrderField"] = request.getOrderField();
   }
 
   if (!!request.hasPageNumber()) {
-    body["PageNumber"] = request.pageNumber();
+    body["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasPlaybookExecutionEndTime()) {
-    body["PlaybookExecutionEndTime"] = request.playbookExecutionEndTime();
+    body["PlaybookExecutionEndTime"] = request.getPlaybookExecutionEndTime();
   }
 
   if (!!request.hasPlaybookExecutionStartTime()) {
-    body["PlaybookExecutionStartTime"] = request.playbookExecutionStartTime();
+    body["PlaybookExecutionStartTime"] = request.getPlaybookExecutionStartTime();
   }
 
   if (!!request.hasPlaybookName()) {
-    body["PlaybookName"] = request.playbookName();
+    body["PlaybookName"] = request.getPlaybookName();
   }
 
   if (!!request.hasPlaybookParamTypesShrink()) {
-    body["PlaybookParamTypes"] = request.playbookParamTypesShrink();
+    body["PlaybookParamTypes"] = request.getPlaybookParamTypesShrink();
   }
 
   if (!!request.hasPlaybookStatus()) {
-    body["PlaybookStatus"] = request.playbookStatus();
+    body["PlaybookStatus"] = request.getPlaybookStatus();
   }
 
   if (!!request.hasPlaybookType()) {
-    body["PlaybookType"] = request.playbookType();
+    body["PlaybookType"] = request.getPlaybookType();
   }
 
   if (!!request.hasPlaybookUuidsShrink()) {
-    body["PlaybookUuids"] = request.playbookUuidsShrink();
+    body["PlaybookUuids"] = request.getPlaybookUuidsShrink();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -596,24 +662,24 @@ UpdateComponentAssetResponse Client::updateComponentAssetWithOptions(const Updat
   request.validate();
   json body = {};
   if (!!request.hasComponentAssetName()) {
-    body["ComponentAssetName"] = request.componentAssetName();
+    body["ComponentAssetName"] = request.getComponentAssetName();
   }
 
   if (!!request.hasComponentAssetUuid()) {
-    body["ComponentAssetUuid"] = request.componentAssetUuid();
+    body["ComponentAssetUuid"] = request.getComponentAssetUuid();
   }
 
   json bodyFlat = {};
   if (!!request.hasComponentAssetValues()) {
-    bodyFlat["ComponentAssetValues"] = request.componentAssetValues();
+    bodyFlat["ComponentAssetValues"] = request.getComponentAssetValues();
   }
 
   if (!!request.hasLang()) {
-    body["Lang"] = request.lang();
+    body["Lang"] = request.getLang();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   body = Darabonba::Core::merge(body,
@@ -659,48 +725,48 @@ UpdatePlaybookResponse Client::updatePlaybookWithOptions(const UpdatePlaybookReq
   UpdatePlaybookShrinkRequest request = UpdatePlaybookShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasPlaybookInputConfigs()) {
-    request.setPlaybookInputConfigsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.playbookInputConfigs(), "PlaybookInputConfigs", "json"));
+    request.setPlaybookInputConfigsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPlaybookInputConfigs(), "PlaybookInputConfigs", "json"));
   }
 
   if (!!tmpReq.hasPlaybookOutputConfigs()) {
-    request.setPlaybookOutputConfigsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.playbookOutputConfigs(), "PlaybookOutputConfigs", "json"));
+    request.setPlaybookOutputConfigsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPlaybookOutputConfigs(), "PlaybookOutputConfigs", "json"));
   }
 
   json body = {};
   if (!!request.hasLang()) {
-    body["Lang"] = request.lang();
+    body["Lang"] = request.getLang();
   }
 
   if (!!request.hasPlaybookDescription()) {
-    body["PlaybookDescription"] = request.playbookDescription();
+    body["PlaybookDescription"] = request.getPlaybookDescription();
   }
 
   if (!!request.hasPlaybookInputConfigsShrink()) {
-    body["PlaybookInputConfigs"] = request.playbookInputConfigsShrink();
+    body["PlaybookInputConfigs"] = request.getPlaybookInputConfigsShrink();
   }
 
   if (!!request.hasPlaybookName()) {
-    body["PlaybookName"] = request.playbookName();
+    body["PlaybookName"] = request.getPlaybookName();
   }
 
   if (!!request.hasPlaybookOutputConfigsShrink()) {
-    body["PlaybookOutputConfigs"] = request.playbookOutputConfigsShrink();
+    body["PlaybookOutputConfigs"] = request.getPlaybookOutputConfigsShrink();
   }
 
   if (!!request.hasPlaybookParamType()) {
-    body["PlaybookParamType"] = request.playbookParamType();
+    body["PlaybookParamType"] = request.getPlaybookParamType();
   }
 
   if (!!request.hasPlaybookTaskFlow()) {
-    body["PlaybookTaskFlow"] = request.playbookTaskFlow();
+    body["PlaybookTaskFlow"] = request.getPlaybookTaskFlow();
   }
 
   if (!!request.hasPlaybookUuid()) {
-    body["PlaybookUuid"] = request.playbookUuid();
+    body["PlaybookUuid"] = request.getPlaybookUuid();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

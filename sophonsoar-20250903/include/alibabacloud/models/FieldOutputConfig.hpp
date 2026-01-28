@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->defaultValue_ == nullptr
-        && return this->fieldDescription_ == nullptr && return this->fieldExample_ == nullptr && return this->fieldName_ == nullptr && return this->fieldType_ == nullptr; };
+        && this->fieldDescription_ == nullptr && this->fieldExample_ == nullptr && this->fieldName_ == nullptr && this->fieldType_ == nullptr; };
     // defaultValue Field Functions 
     bool hasDefaultValue() const { return this->defaultValue_ != nullptr;};
     void deleteDefaultValue() { this->defaultValue_ = nullptr;};
-    inline string defaultValue() const { DARABONBA_PTR_GET_DEFAULT(defaultValue_, "") };
+    inline string getDefaultValue() const { DARABONBA_PTR_GET_DEFAULT(defaultValue_, "") };
     inline FieldOutputConfig& setDefaultValue(string defaultValue) { DARABONBA_PTR_SET_VALUE(defaultValue_, defaultValue) };
 
 
     // fieldDescription Field Functions 
     bool hasFieldDescription() const { return this->fieldDescription_ != nullptr;};
     void deleteFieldDescription() { this->fieldDescription_ = nullptr;};
-    inline string fieldDescription() const { DARABONBA_PTR_GET_DEFAULT(fieldDescription_, "") };
+    inline string getFieldDescription() const { DARABONBA_PTR_GET_DEFAULT(fieldDescription_, "") };
     inline FieldOutputConfig& setFieldDescription(string fieldDescription) { DARABONBA_PTR_SET_VALUE(fieldDescription_, fieldDescription) };
 
 
     // fieldExample Field Functions 
     bool hasFieldExample() const { return this->fieldExample_ != nullptr;};
     void deleteFieldExample() { this->fieldExample_ = nullptr;};
-    inline string fieldExample() const { DARABONBA_PTR_GET_DEFAULT(fieldExample_, "") };
+    inline string getFieldExample() const { DARABONBA_PTR_GET_DEFAULT(fieldExample_, "") };
     inline FieldOutputConfig& setFieldExample(string fieldExample) { DARABONBA_PTR_SET_VALUE(fieldExample_, fieldExample) };
 
 
     // fieldName Field Functions 
     bool hasFieldName() const { return this->fieldName_ != nullptr;};
     void deleteFieldName() { this->fieldName_ = nullptr;};
-    inline string fieldName() const { DARABONBA_PTR_GET_DEFAULT(fieldName_, "") };
+    inline string getFieldName() const { DARABONBA_PTR_GET_DEFAULT(fieldName_, "") };
     inline FieldOutputConfig& setFieldName(string fieldName) { DARABONBA_PTR_SET_VALUE(fieldName_, fieldName) };
 
 
     // fieldType Field Functions 
     bool hasFieldType() const { return this->fieldType_ != nullptr;};
     void deleteFieldType() { this->fieldType_ = nullptr;};
-    inline string fieldType() const { DARABONBA_PTR_GET_DEFAULT(fieldType_, "") };
+    inline string getFieldType() const { DARABONBA_PTR_GET_DEFAULT(fieldType_, "") };
     inline FieldOutputConfig& setFieldType(string fieldType) { DARABONBA_PTR_SET_VALUE(fieldType_, fieldType) };
 
 
   protected:
-    std::shared_ptr<string> defaultValue_ = nullptr;
-    std::shared_ptr<string> fieldDescription_ = nullptr;
-    std::shared_ptr<string> fieldExample_ = nullptr;
-    std::shared_ptr<string> fieldName_ = nullptr;
-    std::shared_ptr<string> fieldType_ = nullptr;
+    shared_ptr<string> defaultValue_ {};
+    shared_ptr<string> fieldDescription_ {};
+    shared_ptr<string> fieldExample_ {};
+    shared_ptr<string> fieldName_ {};
+    shared_ptr<string> fieldType_ {};
   };
 
   } // namespace Models
