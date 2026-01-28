@@ -66,6 +66,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ExtStorageSize, extStorageSize_);
         DARABONBA_PTR_TO_JSON(ExtStorageType, extStorageType_);
         DARABONBA_PTR_TO_JSON(IsExpired, isExpired_);
+        DARABONBA_PTR_TO_JSON(LbKind, lbKind_);
         DARABONBA_PTR_TO_JSON(LockMode, lockMode_);
         DARABONBA_PTR_TO_JSON(LockReason, lockReason_);
         DARABONBA_PTR_TO_JSON(MaintainAutoType, maintainAutoType_);
@@ -124,6 +125,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ExtStorageSize, extStorageSize_);
         DARABONBA_PTR_FROM_JSON(ExtStorageType, extStorageType_);
         DARABONBA_PTR_FROM_JSON(IsExpired, isExpired_);
+        DARABONBA_PTR_FROM_JSON(LbKind, lbKind_);
         DARABONBA_PTR_FROM_JSON(LockMode, lockMode_);
         DARABONBA_PTR_FROM_JSON(LockReason, lockReason_);
         DARABONBA_PTR_FROM_JSON(MaintainAutoType, maintainAutoType_);
@@ -293,11 +295,12 @@ namespace Models
         && this->DBClusterStatus_ == nullptr && this->DBClusterType_ == nullptr && this->DBNodeClass_ == nullptr && this->DBNodeCount_ == nullptr && this->DBNodeStorage_ == nullptr
         && this->encryptionKey_ == nullptr && this->encryptionType_ == nullptr && this->engine_ == nullptr && this->engineLatestMinorVersion_ == nullptr && this->engineMinorVersion_ == nullptr
         && this->engineVersion_ == nullptr && this->expireTime_ == nullptr && this->extStorageSize_ == nullptr && this->extStorageType_ == nullptr && this->isExpired_ == nullptr
-        && this->lockMode_ == nullptr && this->lockReason_ == nullptr && this->maintainAutoType_ == nullptr && this->maintainTime_ == nullptr && this->payType_ == nullptr
-        && this->port_ == nullptr && this->publicConnectionString_ == nullptr && this->publicIpAddr_ == nullptr && this->publicPort_ == nullptr && this->regionId_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->scaleOutStatus_ == nullptr && this->storageType_ == nullptr && this->supportBackup_ == nullptr && this->supportHttpsPort_ == nullptr
-        && this->supportMysqlPort_ == nullptr && this->supportOss_ == nullptr && this->tags_ == nullptr && this->vSwitchId_ == nullptr && this->vpcCloudInstanceId_ == nullptr
-        && this->vpcId_ == nullptr && this->vpcIpAddr_ == nullptr && this->zoneId_ == nullptr && this->zoneIdVswitchMap_ == nullptr && this->zookeeperClass_ == nullptr; };
+        && this->lbKind_ == nullptr && this->lockMode_ == nullptr && this->lockReason_ == nullptr && this->maintainAutoType_ == nullptr && this->maintainTime_ == nullptr
+        && this->payType_ == nullptr && this->port_ == nullptr && this->publicConnectionString_ == nullptr && this->publicIpAddr_ == nullptr && this->publicPort_ == nullptr
+        && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->scaleOutStatus_ == nullptr && this->storageType_ == nullptr && this->supportBackup_ == nullptr
+        && this->supportHttpsPort_ == nullptr && this->supportMysqlPort_ == nullptr && this->supportOss_ == nullptr && this->tags_ == nullptr && this->vSwitchId_ == nullptr
+        && this->vpcCloudInstanceId_ == nullptr && this->vpcId_ == nullptr && this->vpcIpAddr_ == nullptr && this->zoneId_ == nullptr && this->zoneIdVswitchMap_ == nullptr
+        && this->zookeeperClass_ == nullptr; };
       // aliUid Field Functions 
       bool hasAliUid() const { return this->aliUid_ != nullptr;};
       void deleteAliUid() { this->aliUid_ = nullptr;};
@@ -515,6 +518,13 @@ namespace Models
       void deleteIsExpired() { this->isExpired_ = nullptr;};
       inline string getIsExpired() const { DARABONBA_PTR_GET_DEFAULT(isExpired_, "") };
       inline DBCluster& setIsExpired(string isExpired) { DARABONBA_PTR_SET_VALUE(isExpired_, isExpired) };
+
+
+      // lbKind Field Functions 
+      bool hasLbKind() const { return this->lbKind_ != nullptr;};
+      void deleteLbKind() { this->lbKind_ = nullptr;};
+      inline string getLbKind() const { DARABONBA_PTR_GET_DEFAULT(lbKind_, "") };
+      inline DBCluster& setLbKind(string lbKind) { DARABONBA_PTR_SET_VALUE(lbKind_, lbKind) };
 
 
       // lockMode Field Functions 
@@ -816,6 +826,7 @@ namespace Models
       // *   **true**
       // *   **false**
       shared_ptr<string> isExpired_ {};
+      shared_ptr<string> lbKind_ {};
       // The lock mode of the cluster. Valid values:
       // 
       // *   **Unlock**: The cluster is not locked.
