@@ -88,6 +88,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(Language, language_);
           DARABONBA_PTR_TO_JSON(McpServerIds, mcpServerIds_);
           DARABONBA_PTR_TO_JSON(Mode, mode_);
+          DARABONBA_PTR_TO_JSON(UserOssBucket, userOssBucket_);
         };
         friend void from_json(const Darabonba::Json& j, SessionConfig& obj) { 
           DARABONBA_PTR_FROM_JSON(CustomAgentId, customAgentId_);
@@ -96,6 +97,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(Language, language_);
           DARABONBA_PTR_FROM_JSON(McpServerIds, mcpServerIds_);
           DARABONBA_PTR_FROM_JSON(Mode, mode_);
+          DARABONBA_PTR_FROM_JSON(UserOssBucket, userOssBucket_);
         };
         SessionConfig() = default ;
         SessionConfig(const SessionConfig &) = default ;
@@ -109,7 +111,8 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->customAgentId_ == nullptr
-        && this->customAgentStage_ == nullptr && this->enableSearch_ == nullptr && this->language_ == nullptr && this->mcpServerIds_ == nullptr && this->mode_ == nullptr; };
+        && this->customAgentStage_ == nullptr && this->enableSearch_ == nullptr && this->language_ == nullptr && this->mcpServerIds_ == nullptr && this->mode_ == nullptr
+        && this->userOssBucket_ == nullptr; };
         // customAgentId Field Functions 
         bool hasCustomAgentId() const { return this->customAgentId_ != nullptr;};
         void deleteCustomAgentId() { this->customAgentId_ = nullptr;};
@@ -154,6 +157,13 @@ namespace Models
         inline SessionConfig& setMode(string mode) { DARABONBA_PTR_SET_VALUE(mode_, mode) };
 
 
+        // userOssBucket Field Functions 
+        bool hasUserOssBucket() const { return this->userOssBucket_ != nullptr;};
+        void deleteUserOssBucket() { this->userOssBucket_ = nullptr;};
+        inline string getUserOssBucket() const { DARABONBA_PTR_GET_DEFAULT(userOssBucket_, "") };
+        inline SessionConfig& setUserOssBucket(string userOssBucket) { DARABONBA_PTR_SET_VALUE(userOssBucket_, userOssBucket) };
+
+
       protected:
         shared_ptr<string> customAgentId_ {};
         shared_ptr<string> customAgentStage_ {};
@@ -161,6 +171,7 @@ namespace Models
         shared_ptr<string> language_ {};
         shared_ptr<vector<string>> mcpServerIds_ {};
         shared_ptr<string> mode_ {};
+        shared_ptr<string> userOssBucket_ {};
       };
 
       class ChatHistoryLocations : public Darabonba::Model {

@@ -19,6 +19,12 @@
 #include <alibabacloud/models/DLTablebaseInfo.hpp>
 #include <alibabacloud/models/ForeignInstance.hpp>
 #include <alibabacloud/models/ForeignInstanceCredInfo.hpp>
+#include <alibabacloud/models/OneMetaDatabaseObject.hpp>
+#include <alibabacloud/models/OneMetaTableEngineMeta.hpp>
+#include <alibabacloud/models/OneMetaTableBaseInfo.hpp>
+#include <alibabacloud/models/OneMetaTableColumnEngineMeta.hpp>
+#include <alibabacloud/models/OneMetaTableColumn.hpp>
+#include <alibabacloud/models/OneMetaTableIndex.hpp>
 #include <alibabacloud/models/PartitionError.hpp>
 #include <alibabacloud/models/AddUserToDataAgentWorkspaceRequest.hpp>
 #include <alibabacloud/models/AddUserToDataAgentWorkspaceResponseBody.hpp>
