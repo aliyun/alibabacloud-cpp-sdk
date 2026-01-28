@@ -15,6 +15,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DescribeAIDBClusterAttributeResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(AiNodeType, aiNodeType_);
+      DARABONBA_PTR_TO_JSON(ApiKey, apiKey_);
       DARABONBA_PTR_TO_JSON(CreationTime, creationTime_);
       DARABONBA_PTR_TO_JSON(DBClusterDescription, DBClusterDescription_);
       DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
@@ -46,6 +47,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, DescribeAIDBClusterAttributeResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(AiNodeType, aiNodeType_);
+      DARABONBA_PTR_FROM_JSON(ApiKey, apiKey_);
       DARABONBA_PTR_FROM_JSON(CreationTime, creationTime_);
       DARABONBA_PTR_FROM_JSON(DBClusterDescription, DBClusterDescription_);
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
@@ -492,17 +494,24 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->aiNodeType_ == nullptr
-        && this->creationTime_ == nullptr && this->DBClusterDescription_ == nullptr && this->DBClusterId_ == nullptr && this->DBClusterStatus_ == nullptr && this->DBNodes_ == nullptr
-        && this->DBVersion_ == nullptr && this->ecsSecurityGroupId_ == nullptr && this->endpointList_ == nullptr && this->expireTime_ == nullptr && this->expired_ == nullptr
-        && this->internalIp_ == nullptr && this->KVCacheInstanceId_ == nullptr && this->kubeClusterId_ == nullptr && this->lockMode_ == nullptr && this->maxQPM_ == nullptr
-        && this->modelName_ == nullptr && this->modelType_ == nullptr && this->payType_ == nullptr && this->publicIp_ == nullptr && this->regionId_ == nullptr
-        && this->requestId_ == nullptr && this->runType_ == nullptr && this->storageType_ == nullptr && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr
-        && this->volumes_ == nullptr && this->zoneId_ == nullptr && this->zoneIds_ == nullptr; };
+        && this->apiKey_ == nullptr && this->creationTime_ == nullptr && this->DBClusterDescription_ == nullptr && this->DBClusterId_ == nullptr && this->DBClusterStatus_ == nullptr
+        && this->DBNodes_ == nullptr && this->DBVersion_ == nullptr && this->ecsSecurityGroupId_ == nullptr && this->endpointList_ == nullptr && this->expireTime_ == nullptr
+        && this->expired_ == nullptr && this->internalIp_ == nullptr && this->KVCacheInstanceId_ == nullptr && this->kubeClusterId_ == nullptr && this->lockMode_ == nullptr
+        && this->maxQPM_ == nullptr && this->modelName_ == nullptr && this->modelType_ == nullptr && this->payType_ == nullptr && this->publicIp_ == nullptr
+        && this->regionId_ == nullptr && this->requestId_ == nullptr && this->runType_ == nullptr && this->storageType_ == nullptr && this->VPCId_ == nullptr
+        && this->vSwitchId_ == nullptr && this->volumes_ == nullptr && this->zoneId_ == nullptr && this->zoneIds_ == nullptr; };
     // aiNodeType Field Functions 
     bool hasAiNodeType() const { return this->aiNodeType_ != nullptr;};
     void deleteAiNodeType() { this->aiNodeType_ = nullptr;};
     inline string getAiNodeType() const { DARABONBA_PTR_GET_DEFAULT(aiNodeType_, "") };
     inline DescribeAIDBClusterAttributeResponseBody& setAiNodeType(string aiNodeType) { DARABONBA_PTR_SET_VALUE(aiNodeType_, aiNodeType) };
+
+
+    // apiKey Field Functions 
+    bool hasApiKey() const { return this->apiKey_ != nullptr;};
+    void deleteApiKey() { this->apiKey_ = nullptr;};
+    inline string getApiKey() const { DARABONBA_PTR_GET_DEFAULT(apiKey_, "") };
+    inline DescribeAIDBClusterAttributeResponseBody& setApiKey(string apiKey) { DARABONBA_PTR_SET_VALUE(apiKey_, apiKey) };
 
 
     // creationTime Field Functions 
@@ -709,6 +718,7 @@ namespace Models
 
   protected:
     shared_ptr<string> aiNodeType_ {};
+    shared_ptr<string> apiKey_ {};
     shared_ptr<string> creationTime_ {};
     shared_ptr<string> DBClusterDescription_ {};
     shared_ptr<string> DBClusterId_ {};
