@@ -38,6 +38,23 @@ namespace Eiam20211201
       Models::AddApplicationAccountToUserResponse addApplicationAccountToUser(const Models::AddApplicationAccountToUserRequest &request);
 
       /**
+       * @summary 将应用添加到授权规则
+       *
+       * @param request AddApplicationToAuthorizationRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddApplicationToAuthorizationRuleResponse
+       */
+      Models::AddApplicationToAuthorizationRuleResponse addApplicationToAuthorizationRuleWithOptions(const Models::AddApplicationToAuthorizationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 将应用添加到授权规则
+       *
+       * @param request AddApplicationToAuthorizationRuleRequest
+       * @return AddApplicationToAuthorizationRuleResponse
+       */
+      Models::AddApplicationToAuthorizationRuleResponse addApplicationToAuthorizationRule(const Models::AddApplicationToAuthorizationRuleRequest &request);
+
+      /**
        * @summary 添加条款到品牌
        *
        * @param request AddCustomPrivacyPoliciesToBrandRequest
@@ -53,6 +70,40 @@ namespace Eiam20211201
        * @return AddCustomPrivacyPoliciesToBrandResponse
        */
       Models::AddCustomPrivacyPoliciesToBrandResponse addCustomPrivacyPoliciesToBrand(const Models::AddCustomPrivacyPoliciesToBrandRequest &request);
+
+      /**
+       * @summary 将组添加到授权规则
+       *
+       * @param request AddGroupToAuthorizationRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddGroupToAuthorizationRuleResponse
+       */
+      Models::AddGroupToAuthorizationRuleResponse addGroupToAuthorizationRuleWithOptions(const Models::AddGroupToAuthorizationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 将组添加到授权规则
+       *
+       * @param request AddGroupToAuthorizationRuleRequest
+       * @return AddGroupToAuthorizationRuleResponse
+       */
+      Models::AddGroupToAuthorizationRuleResponse addGroupToAuthorizationRule(const Models::AddGroupToAuthorizationRuleRequest &request);
+
+      /**
+       * @summary 将账户添加到授权规则
+       *
+       * @param request AddUserToAuthorizationRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddUserToAuthorizationRuleResponse
+       */
+      Models::AddUserToAuthorizationRuleResponse addUserToAuthorizationRuleWithOptions(const Models::AddUserToAuthorizationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 将账户添加到授权规则
+       *
+       * @param request AddUserToAuthorizationRuleRequest
+       * @return AddUserToAuthorizationRuleResponse
+       */
+      Models::AddUserToAuthorizationRuleResponse addUserToAuthorizationRule(const Models::AddUserToAuthorizationRuleRequest &request);
 
       /**
        * @summary Adds an Employee Identity and Access Management (EIAM) account to multiple EIAM organizations of Identity as a Service (IDaaS). If the account already exists in the organizational unit, the system directly returns a success response.
@@ -329,6 +380,40 @@ namespace Eiam20211201
        * @return CreateApplicationTokenResponse
        */
       Models::CreateApplicationTokenResponse createApplicationToken(const Models::CreateApplicationTokenRequest &request);
+
+      /**
+       * @summary 创建授权资源
+       *
+       * @param request CreateAuthorizationResourceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateAuthorizationResourceResponse
+       */
+      Models::CreateAuthorizationResourceResponse createAuthorizationResourceWithOptions(const Models::CreateAuthorizationResourceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建授权资源
+       *
+       * @param request CreateAuthorizationResourceRequest
+       * @return CreateAuthorizationResourceResponse
+       */
+      Models::CreateAuthorizationResourceResponse createAuthorizationResource(const Models::CreateAuthorizationResourceRequest &request);
+
+      /**
+       * @summary 创建授权规则
+       *
+       * @param request CreateAuthorizationRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateAuthorizationRuleResponse
+       */
+      Models::CreateAuthorizationRuleResponse createAuthorizationRuleWithOptions(const Models::CreateAuthorizationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建授权规则
+       *
+       * @param request CreateAuthorizationRuleRequest
+       * @return CreateAuthorizationRuleResponse
+       */
+      Models::CreateAuthorizationRuleResponse createAuthorizationRule(const Models::CreateAuthorizationRuleRequest &request);
 
       /**
        * @summary 创建品牌
@@ -728,6 +813,40 @@ namespace Eiam20211201
        * @return DeleteApplicationTokenResponse
        */
       Models::DeleteApplicationTokenResponse deleteApplicationToken(const Models::DeleteApplicationTokenRequest &request);
+
+      /**
+       * @summary 删除授权资源
+       *
+       * @param request DeleteAuthorizationResourceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteAuthorizationResourceResponse
+       */
+      Models::DeleteAuthorizationResourceResponse deleteAuthorizationResourceWithOptions(const Models::DeleteAuthorizationResourceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除授权资源
+       *
+       * @param request DeleteAuthorizationResourceRequest
+       * @return DeleteAuthorizationResourceResponse
+       */
+      Models::DeleteAuthorizationResourceResponse deleteAuthorizationResource(const Models::DeleteAuthorizationResourceRequest &request);
+
+      /**
+       * @summary 删除授权规则
+       *
+       * @param request DeleteAuthorizationRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteAuthorizationRuleResponse
+       */
+      Models::DeleteAuthorizationRuleResponse deleteAuthorizationRuleWithOptions(const Models::DeleteAuthorizationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除授权规则
+       *
+       * @param request DeleteAuthorizationRuleRequest
+       * @return DeleteAuthorizationRuleResponse
+       */
+      Models::DeleteAuthorizationRuleResponse deleteAuthorizationRule(const Models::DeleteAuthorizationRuleRequest &request);
 
       /**
        * @summary 删除品牌
@@ -1235,6 +1354,23 @@ namespace Eiam20211201
       Models::DisableApplicationTokenResponse disableApplicationToken(const Models::DisableApplicationTokenRequest &request);
 
       /**
+       * @summary 禁用授权规则
+       *
+       * @param request DisableAuthorizationRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DisableAuthorizationRuleResponse
+       */
+      Models::DisableAuthorizationRuleResponse disableAuthorizationRuleWithOptions(const Models::DisableAuthorizationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 禁用授权规则
+       *
+       * @param request DisableAuthorizationRuleRequest
+       * @return DisableAuthorizationRuleResponse
+       */
+      Models::DisableAuthorizationRuleResponse disableAuthorizationRule(const Models::DisableAuthorizationRuleRequest &request);
+
+      /**
        * @summary 禁用品牌
        *
        * @param request DisableBrandRequest
@@ -1628,6 +1764,23 @@ namespace Eiam20211201
        * @return EnableApplicationTokenResponse
        */
       Models::EnableApplicationTokenResponse enableApplicationToken(const Models::EnableApplicationTokenRequest &request);
+
+      /**
+       * @summary 启用授权规则
+       *
+       * @param request EnableAuthorizationRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return EnableAuthorizationRuleResponse
+       */
+      Models::EnableAuthorizationRuleResponse enableAuthorizationRuleWithOptions(const Models::EnableAuthorizationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 启用授权规则
+       *
+       * @param request EnableAuthorizationRuleRequest
+       * @return EnableAuthorizationRuleResponse
+       */
+      Models::EnableAuthorizationRuleResponse enableAuthorizationRule(const Models::EnableAuthorizationRuleRequest &request);
 
       /**
        * @summary 启用品牌
@@ -2074,6 +2227,40 @@ namespace Eiam20211201
        * @return GetApplicationTemplateResponse
        */
       Models::GetApplicationTemplateResponse getApplicationTemplate(const Models::GetApplicationTemplateRequest &request);
+
+      /**
+       * @summary 获取授权资源信息
+       *
+       * @param request GetAuthorizationResourceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAuthorizationResourceResponse
+       */
+      Models::GetAuthorizationResourceResponse getAuthorizationResourceWithOptions(const Models::GetAuthorizationResourceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取授权资源信息
+       *
+       * @param request GetAuthorizationResourceRequest
+       * @return GetAuthorizationResourceResponse
+       */
+      Models::GetAuthorizationResourceResponse getAuthorizationResource(const Models::GetAuthorizationResourceRequest &request);
+
+      /**
+       * @summary 获取授权规则信息
+       *
+       * @param request GetAuthorizationRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAuthorizationRuleResponse
+       */
+      Models::GetAuthorizationRuleResponse getAuthorizationRuleWithOptions(const Models::GetAuthorizationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取授权规则信息
+       *
+       * @param request GetAuthorizationRuleRequest
+       * @return GetAuthorizationRuleResponse
+       */
+      Models::GetAuthorizationRuleResponse getAuthorizationRule(const Models::GetAuthorizationRuleRequest &request);
 
       /**
        * @summary 获取品牌详情
@@ -2696,6 +2883,23 @@ namespace Eiam20211201
       Models::ListApplicationsResponse listApplications(const Models::ListApplicationsRequest &request);
 
       /**
+       * @summary 查询授权规则关联的应用列表
+       *
+       * @param request ListApplicationsForAuthorizationRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListApplicationsForAuthorizationRuleResponse
+       */
+      Models::ListApplicationsForAuthorizationRuleResponse listApplicationsForAuthorizationRuleWithOptions(const Models::ListApplicationsForAuthorizationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询授权规则关联的应用列表
+       *
+       * @param request ListApplicationsForAuthorizationRuleRequest
+       * @return ListApplicationsForAuthorizationRuleResponse
+       */
+      Models::ListApplicationsForAuthorizationRuleResponse listApplicationsForAuthorizationRule(const Models::ListApplicationsForAuthorizationRuleRequest &request);
+
+      /**
        * @summary 查询一个EIAM组可访问的应用列表
        *
        * @param request ListApplicationsForGroupRequest
@@ -2783,6 +2987,91 @@ namespace Eiam20211201
        * @return ListApplicationsForUserResponse
        */
       Models::ListApplicationsForUserResponse listApplicationsForUser(const Models::ListApplicationsForUserRequest &request);
+
+      /**
+       * @summary 查询授权资源信息列表
+       *
+       * @param request ListAuthorizationResourcesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAuthorizationResourcesResponse
+       */
+      Models::ListAuthorizationResourcesResponse listAuthorizationResourcesWithOptions(const Models::ListAuthorizationResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询授权资源信息列表
+       *
+       * @param request ListAuthorizationResourcesRequest
+       * @return ListAuthorizationResourcesResponse
+       */
+      Models::ListAuthorizationResourcesResponse listAuthorizationResources(const Models::ListAuthorizationResourcesRequest &request);
+
+      /**
+       * @summary 查询授权规则信息列表
+       *
+       * @param request ListAuthorizationRulesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAuthorizationRulesResponse
+       */
+      Models::ListAuthorizationRulesResponse listAuthorizationRulesWithOptions(const Models::ListAuthorizationRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询授权规则信息列表
+       *
+       * @param request ListAuthorizationRulesRequest
+       * @return ListAuthorizationRulesResponse
+       */
+      Models::ListAuthorizationRulesResponse listAuthorizationRules(const Models::ListAuthorizationRulesRequest &request);
+
+      /**
+       * @summary 查询应用关联的授权规则信息列表
+       *
+       * @param request ListAuthorizationRulesForApplicationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAuthorizationRulesForApplicationResponse
+       */
+      Models::ListAuthorizationRulesForApplicationResponse listAuthorizationRulesForApplicationWithOptions(const Models::ListAuthorizationRulesForApplicationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询应用关联的授权规则信息列表
+       *
+       * @param request ListAuthorizationRulesForApplicationRequest
+       * @return ListAuthorizationRulesForApplicationResponse
+       */
+      Models::ListAuthorizationRulesForApplicationResponse listAuthorizationRulesForApplication(const Models::ListAuthorizationRulesForApplicationRequest &request);
+
+      /**
+       * @summary 查询组关联的授权规则信息列表
+       *
+       * @param request ListAuthorizationRulesForGroupRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAuthorizationRulesForGroupResponse
+       */
+      Models::ListAuthorizationRulesForGroupResponse listAuthorizationRulesForGroupWithOptions(const Models::ListAuthorizationRulesForGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询组关联的授权规则信息列表
+       *
+       * @param request ListAuthorizationRulesForGroupRequest
+       * @return ListAuthorizationRulesForGroupResponse
+       */
+      Models::ListAuthorizationRulesForGroupResponse listAuthorizationRulesForGroup(const Models::ListAuthorizationRulesForGroupRequest &request);
+
+      /**
+       * @summary 查询用户关联的授权规则信息列表
+       *
+       * @param request ListAuthorizationRulesForUserRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAuthorizationRulesForUserResponse
+       */
+      Models::ListAuthorizationRulesForUserResponse listAuthorizationRulesForUserWithOptions(const Models::ListAuthorizationRulesForUserRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询用户关联的授权规则信息列表
+       *
+       * @param request ListAuthorizationRulesForUserRequest
+       * @return ListAuthorizationRulesForUserResponse
+       */
+      Models::ListAuthorizationRulesForUserResponse listAuthorizationRulesForUser(const Models::ListAuthorizationRulesForUserRequest &request);
 
       /**
        * @summary 获取品牌列表
@@ -3079,6 +3368,23 @@ namespace Eiam20211201
        * @return ListGroupsForApplicationResponse
        */
       Models::ListGroupsForApplicationResponse listGroupsForApplication(const Models::ListGroupsForApplicationRequest &request);
+
+      /**
+       * @summary 查询授权规则关联的组列表
+       *
+       * @param request ListGroupsForAuthorizationRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListGroupsForAuthorizationRuleResponse
+       */
+      Models::ListGroupsForAuthorizationRuleResponse listGroupsForAuthorizationRuleWithOptions(const Models::ListGroupsForAuthorizationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询授权规则关联的组列表
+       *
+       * @param request ListGroupsForAuthorizationRuleRequest
+       * @return ListGroupsForAuthorizationRuleResponse
+       */
+      Models::ListGroupsForAuthorizationRuleResponse listGroupsForAuthorizationRule(const Models::ListGroupsForAuthorizationRuleRequest &request);
 
       /**
        * @summary 查询ResourceServer授权的组和Scope权限
@@ -3419,6 +3725,23 @@ namespace Eiam20211201
       Models::ListUsersForApplicationResponse listUsersForApplication(const Models::ListUsersForApplicationRequest &request);
 
       /**
+       * @summary 查询授权规则关联的账户列表
+       *
+       * @param request ListUsersForAuthorizationRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListUsersForAuthorizationRuleResponse
+       */
+      Models::ListUsersForAuthorizationRuleResponse listUsersForAuthorizationRuleWithOptions(const Models::ListUsersForAuthorizationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询授权规则关联的账户列表
+       *
+       * @param request ListUsersForAuthorizationRuleRequest
+       * @return ListUsersForAuthorizationRuleResponse
+       */
+      Models::ListUsersForAuthorizationRuleResponse listUsersForAuthorizationRule(const Models::ListUsersForAuthorizationRuleRequest &request);
+
+      /**
        * @summary Queries the information of accounts in an Employee Identity and Access Management (EIAM) group of Identity as a Service (IDaaS).
        *
        * @param request ListUsersForGroupRequest
@@ -3521,6 +3844,23 @@ namespace Eiam20211201
       Models::RemoveApplicationAccountFromUserResponse removeApplicationAccountFromUser(const Models::RemoveApplicationAccountFromUserRequest &request);
 
       /**
+       * @summary 将应用从授权规则中解除
+       *
+       * @param request RemoveApplicationFromAuthorizationRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RemoveApplicationFromAuthorizationRuleResponse
+       */
+      Models::RemoveApplicationFromAuthorizationRuleResponse removeApplicationFromAuthorizationRuleWithOptions(const Models::RemoveApplicationFromAuthorizationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 将应用从授权规则中解除
+       *
+       * @param request RemoveApplicationFromAuthorizationRuleRequest
+       * @return RemoveApplicationFromAuthorizationRuleResponse
+       */
+      Models::RemoveApplicationFromAuthorizationRuleResponse removeApplicationFromAuthorizationRule(const Models::RemoveApplicationFromAuthorizationRuleRequest &request);
+
+      /**
        * @summary 移除品牌关联条款
        *
        * @param request RemoveCustomPrivacyPoliciesFromBrandRequest
@@ -3536,6 +3876,40 @@ namespace Eiam20211201
        * @return RemoveCustomPrivacyPoliciesFromBrandResponse
        */
       Models::RemoveCustomPrivacyPoliciesFromBrandResponse removeCustomPrivacyPoliciesFromBrand(const Models::RemoveCustomPrivacyPoliciesFromBrandRequest &request);
+
+      /**
+       * @summary 将组从授权规则中解除
+       *
+       * @param request RemoveGroupFromAuthorizationRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RemoveGroupFromAuthorizationRuleResponse
+       */
+      Models::RemoveGroupFromAuthorizationRuleResponse removeGroupFromAuthorizationRuleWithOptions(const Models::RemoveGroupFromAuthorizationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 将组从授权规则中解除
+       *
+       * @param request RemoveGroupFromAuthorizationRuleRequest
+       * @return RemoveGroupFromAuthorizationRuleResponse
+       */
+      Models::RemoveGroupFromAuthorizationRuleResponse removeGroupFromAuthorizationRule(const Models::RemoveGroupFromAuthorizationRuleRequest &request);
+
+      /**
+       * @summary 将账户从授权规则中解除
+       *
+       * @param request RemoveUserFromAuthorizationRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RemoveUserFromAuthorizationRuleResponse
+       */
+      Models::RemoveUserFromAuthorizationRuleResponse removeUserFromAuthorizationRuleWithOptions(const Models::RemoveUserFromAuthorizationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 将账户从授权规则中解除
+       *
+       * @param request RemoveUserFromAuthorizationRuleRequest
+       * @return RemoveUserFromAuthorizationRuleResponse
+       */
+      Models::RemoveUserFromAuthorizationRuleResponse removeUserFromAuthorizationRule(const Models::RemoveUserFromAuthorizationRuleRequest &request);
 
       /**
        * @summary Removes an Employee Identity and Access Management (EIAM) account from multiple EIAM organizations of Identity as a Service (IDaaS). You cannot remove an account from a primary organization.
@@ -4220,6 +4594,91 @@ namespace Eiam20211201
        * @return UpdateApplicationTokenExpirationTimeResponse
        */
       Models::UpdateApplicationTokenExpirationTimeResponse updateApplicationTokenExpirationTime(const Models::UpdateApplicationTokenExpirationTimeRequest &request);
+
+      /**
+       * @summary 更新授权规则信息
+       *
+       * @param request UpdateAuthorizationRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateAuthorizationRuleResponse
+       */
+      Models::UpdateAuthorizationRuleResponse updateAuthorizationRuleWithOptions(const Models::UpdateAuthorizationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新授权规则信息
+       *
+       * @param request UpdateAuthorizationRuleRequest
+       * @return UpdateAuthorizationRuleResponse
+       */
+      Models::UpdateAuthorizationRuleResponse updateAuthorizationRule(const Models::UpdateAuthorizationRuleRequest &request);
+
+      /**
+       * @summary 更新授权规则应用关联关系属性
+       *
+       * @param request UpdateAuthorizationRuleApplicationAttachmentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateAuthorizationRuleApplicationAttachmentResponse
+       */
+      Models::UpdateAuthorizationRuleApplicationAttachmentResponse updateAuthorizationRuleApplicationAttachmentWithOptions(const Models::UpdateAuthorizationRuleApplicationAttachmentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新授权规则应用关联关系属性
+       *
+       * @param request UpdateAuthorizationRuleApplicationAttachmentRequest
+       * @return UpdateAuthorizationRuleApplicationAttachmentResponse
+       */
+      Models::UpdateAuthorizationRuleApplicationAttachmentResponse updateAuthorizationRuleApplicationAttachment(const Models::UpdateAuthorizationRuleApplicationAttachmentRequest &request);
+
+      /**
+       * @summary 更新授权规则描述信息
+       *
+       * @param request UpdateAuthorizationRuleDescriptionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateAuthorizationRuleDescriptionResponse
+       */
+      Models::UpdateAuthorizationRuleDescriptionResponse updateAuthorizationRuleDescriptionWithOptions(const Models::UpdateAuthorizationRuleDescriptionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新授权规则描述信息
+       *
+       * @param request UpdateAuthorizationRuleDescriptionRequest
+       * @return UpdateAuthorizationRuleDescriptionResponse
+       */
+      Models::UpdateAuthorizationRuleDescriptionResponse updateAuthorizationRuleDescription(const Models::UpdateAuthorizationRuleDescriptionRequest &request);
+
+      /**
+       * @summary 更新授权规则组关联关系属性
+       *
+       * @param request UpdateAuthorizationRuleGroupAttachmentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateAuthorizationRuleGroupAttachmentResponse
+       */
+      Models::UpdateAuthorizationRuleGroupAttachmentResponse updateAuthorizationRuleGroupAttachmentWithOptions(const Models::UpdateAuthorizationRuleGroupAttachmentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新授权规则组关联关系属性
+       *
+       * @param request UpdateAuthorizationRuleGroupAttachmentRequest
+       * @return UpdateAuthorizationRuleGroupAttachmentResponse
+       */
+      Models::UpdateAuthorizationRuleGroupAttachmentResponse updateAuthorizationRuleGroupAttachment(const Models::UpdateAuthorizationRuleGroupAttachmentRequest &request);
+
+      /**
+       * @summary 更新授权规则账户关联关系属性
+       *
+       * @param request UpdateAuthorizationRuleUserAttachmentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateAuthorizationRuleUserAttachmentResponse
+       */
+      Models::UpdateAuthorizationRuleUserAttachmentResponse updateAuthorizationRuleUserAttachmentWithOptions(const Models::UpdateAuthorizationRuleUserAttachmentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新授权规则账户关联关系属性
+       *
+       * @param request UpdateAuthorizationRuleUserAttachmentRequest
+       * @return UpdateAuthorizationRuleUserAttachmentResponse
+       */
+      Models::UpdateAuthorizationRuleUserAttachmentResponse updateAuthorizationRuleUserAttachment(const Models::UpdateAuthorizationRuleUserAttachmentRequest &request);
 
       /**
        * @summary 修改品牌

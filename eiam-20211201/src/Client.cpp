@@ -90,6 +90,70 @@ AddApplicationAccountToUserResponse Client::addApplicationAccountToUser(const Ad
 }
 
 /**
+ * @summary 将应用添加到授权规则
+ *
+ * @param request AddApplicationToAuthorizationRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddApplicationToAuthorizationRuleResponse
+ */
+AddApplicationToAuthorizationRuleResponse Client::addApplicationToAuthorizationRuleWithOptions(const AddApplicationToAuthorizationRuleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasAuthorizationRuleId()) {
+    query["AuthorizationRuleId"] = request.getAuthorizationRuleId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasValidityPeriod()) {
+    query["ValidityPeriod"] = request.getValidityPeriod();
+  }
+
+  if (!!request.hasValidityType()) {
+    query["ValidityType"] = request.getValidityType();
+  }
+
+  json body = {};
+  if (!!request.hasClientToken()) {
+    body["ClientToken"] = request.getClientToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "AddApplicationToAuthorizationRule"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddApplicationToAuthorizationRuleResponse>();
+}
+
+/**
+ * @summary 将应用添加到授权规则
+ *
+ * @param request AddApplicationToAuthorizationRuleRequest
+ * @return AddApplicationToAuthorizationRuleResponse
+ */
+AddApplicationToAuthorizationRuleResponse Client::addApplicationToAuthorizationRule(const AddApplicationToAuthorizationRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return addApplicationToAuthorizationRuleWithOptions(request, runtime);
+}
+
+/**
  * @summary 添加条款到品牌
  *
  * @param request AddCustomPrivacyPoliciesToBrandRequest
@@ -137,6 +201,134 @@ AddCustomPrivacyPoliciesToBrandResponse Client::addCustomPrivacyPoliciesToBrandW
 AddCustomPrivacyPoliciesToBrandResponse Client::addCustomPrivacyPoliciesToBrand(const AddCustomPrivacyPoliciesToBrandRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return addCustomPrivacyPoliciesToBrandWithOptions(request, runtime);
+}
+
+/**
+ * @summary 将组添加到授权规则
+ *
+ * @param request AddGroupToAuthorizationRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddGroupToAuthorizationRuleResponse
+ */
+AddGroupToAuthorizationRuleResponse Client::addGroupToAuthorizationRuleWithOptions(const AddGroupToAuthorizationRuleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAuthorizationRuleId()) {
+    query["AuthorizationRuleId"] = request.getAuthorizationRuleId();
+  }
+
+  if (!!request.hasGroupId()) {
+    query["GroupId"] = request.getGroupId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasValidityPeriod()) {
+    query["ValidityPeriod"] = request.getValidityPeriod();
+  }
+
+  if (!!request.hasValidityType()) {
+    query["ValidityType"] = request.getValidityType();
+  }
+
+  json body = {};
+  if (!!request.hasClientToken()) {
+    body["ClientToken"] = request.getClientToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "AddGroupToAuthorizationRule"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddGroupToAuthorizationRuleResponse>();
+}
+
+/**
+ * @summary 将组添加到授权规则
+ *
+ * @param request AddGroupToAuthorizationRuleRequest
+ * @return AddGroupToAuthorizationRuleResponse
+ */
+AddGroupToAuthorizationRuleResponse Client::addGroupToAuthorizationRule(const AddGroupToAuthorizationRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return addGroupToAuthorizationRuleWithOptions(request, runtime);
+}
+
+/**
+ * @summary 将账户添加到授权规则
+ *
+ * @param request AddUserToAuthorizationRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddUserToAuthorizationRuleResponse
+ */
+AddUserToAuthorizationRuleResponse Client::addUserToAuthorizationRuleWithOptions(const AddUserToAuthorizationRuleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAuthorizationRuleId()) {
+    query["AuthorizationRuleId"] = request.getAuthorizationRuleId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasUserId()) {
+    query["UserId"] = request.getUserId();
+  }
+
+  if (!!request.hasValidityPeriod()) {
+    query["ValidityPeriod"] = request.getValidityPeriod();
+  }
+
+  if (!!request.hasValidityType()) {
+    query["ValidityType"] = request.getValidityType();
+  }
+
+  json body = {};
+  if (!!request.hasClientToken()) {
+    body["ClientToken"] = request.getClientToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "AddUserToAuthorizationRule"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddUserToAuthorizationRuleResponse>();
+}
+
+/**
+ * @summary 将账户添加到授权规则
+ *
+ * @param request AddUserToAuthorizationRuleRequest
+ * @return AddUserToAuthorizationRuleResponse
+ */
+AddUserToAuthorizationRuleResponse Client::addUserToAuthorizationRule(const AddUserToAuthorizationRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return addUserToAuthorizationRuleWithOptions(request, runtime);
 }
 
 /**
@@ -1033,6 +1225,130 @@ CreateApplicationTokenResponse Client::createApplicationTokenWithOptions(const C
 CreateApplicationTokenResponse Client::createApplicationToken(const CreateApplicationTokenRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createApplicationTokenWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建授权资源
+ *
+ * @param request CreateAuthorizationResourceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateAuthorizationResourceResponse
+ */
+CreateAuthorizationResourceResponse Client::createAuthorizationResourceWithOptions(const CreateAuthorizationResourceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAuthorizationResourceEntityId()) {
+    query["AuthorizationResourceEntityId"] = request.getAuthorizationResourceEntityId();
+  }
+
+  if (!!request.hasAuthorizationResourceEntityType()) {
+    query["AuthorizationResourceEntityType"] = request.getAuthorizationResourceEntityType();
+  }
+
+  if (!!request.hasAuthorizationRuleId()) {
+    query["AuthorizationRuleId"] = request.getAuthorizationRuleId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  json body = {};
+  if (!!request.hasClientToken()) {
+    body["ClientToken"] = request.getClientToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateAuthorizationResource"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateAuthorizationResourceResponse>();
+}
+
+/**
+ * @summary 创建授权资源
+ *
+ * @param request CreateAuthorizationResourceRequest
+ * @return CreateAuthorizationResourceResponse
+ */
+CreateAuthorizationResourceResponse Client::createAuthorizationResource(const CreateAuthorizationResourceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createAuthorizationResourceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建授权规则
+ *
+ * @param request CreateAuthorizationRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateAuthorizationRuleResponse
+ */
+CreateAuthorizationRuleResponse Client::createAuthorizationRuleWithOptions(const CreateAuthorizationRuleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAuthorizationResourceScope()) {
+    query["AuthorizationResourceScope"] = request.getAuthorizationResourceScope();
+  }
+
+  if (!!request.hasAuthorizationRuleName()) {
+    query["AuthorizationRuleName"] = request.getAuthorizationRuleName();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  json body = {};
+  if (!!request.hasClientToken()) {
+    body["ClientToken"] = request.getClientToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateAuthorizationRule"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateAuthorizationRuleResponse>();
+}
+
+/**
+ * @summary 创建授权规则
+ *
+ * @param request CreateAuthorizationRuleRequest
+ * @return CreateAuthorizationRuleResponse
+ */
+CreateAuthorizationRuleResponse Client::createAuthorizationRule(const CreateAuthorizationRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createAuthorizationRuleWithOptions(request, runtime);
 }
 
 /**
@@ -2434,6 +2750,102 @@ DeleteApplicationTokenResponse Client::deleteApplicationToken(const DeleteApplic
 }
 
 /**
+ * @summary 删除授权资源
+ *
+ * @param request DeleteAuthorizationResourceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteAuthorizationResourceResponse
+ */
+DeleteAuthorizationResourceResponse Client::deleteAuthorizationResourceWithOptions(const DeleteAuthorizationResourceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAuthorizationResourceId()) {
+    query["AuthorizationResourceId"] = request.getAuthorizationResourceId();
+  }
+
+  if (!!request.hasAuthorizationRuleId()) {
+    query["AuthorizationRuleId"] = request.getAuthorizationRuleId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteAuthorizationResource"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteAuthorizationResourceResponse>();
+}
+
+/**
+ * @summary 删除授权资源
+ *
+ * @param request DeleteAuthorizationResourceRequest
+ * @return DeleteAuthorizationResourceResponse
+ */
+DeleteAuthorizationResourceResponse Client::deleteAuthorizationResource(const DeleteAuthorizationResourceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteAuthorizationResourceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除授权规则
+ *
+ * @param request DeleteAuthorizationRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteAuthorizationRuleResponse
+ */
+DeleteAuthorizationRuleResponse Client::deleteAuthorizationRuleWithOptions(const DeleteAuthorizationRuleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAuthorizationRuleId()) {
+    query["AuthorizationRuleId"] = request.getAuthorizationRuleId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteAuthorizationRule"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteAuthorizationRuleResponse>();
+}
+
+/**
+ * @summary 删除授权规则
+ *
+ * @param request DeleteAuthorizationRuleRequest
+ * @return DeleteAuthorizationRuleResponse
+ */
+DeleteAuthorizationRuleResponse Client::deleteAuthorizationRule(const DeleteAuthorizationRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteAuthorizationRuleWithOptions(request, runtime);
+}
+
+/**
  * @summary 删除品牌
  *
  * @param request DeleteBrandRequest
@@ -3808,6 +4220,58 @@ DisableApplicationTokenResponse Client::disableApplicationToken(const DisableApp
 }
 
 /**
+ * @summary 禁用授权规则
+ *
+ * @param request DisableAuthorizationRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DisableAuthorizationRuleResponse
+ */
+DisableAuthorizationRuleResponse Client::disableAuthorizationRuleWithOptions(const DisableAuthorizationRuleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAuthorizationRuleId()) {
+    query["AuthorizationRuleId"] = request.getAuthorizationRuleId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  json body = {};
+  if (!!request.hasClientToken()) {
+    body["ClientToken"] = request.getClientToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "DisableAuthorizationRule"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DisableAuthorizationRuleResponse>();
+}
+
+/**
+ * @summary 禁用授权规则
+ *
+ * @param request DisableAuthorizationRuleRequest
+ * @return DisableAuthorizationRuleResponse
+ */
+DisableAuthorizationRuleResponse Client::disableAuthorizationRule(const DisableAuthorizationRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return disableAuthorizationRuleWithOptions(request, runtime);
+}
+
+/**
  * @summary 禁用品牌
  *
  * @param request DisableBrandRequest
@@ -4895,6 +5359,58 @@ EnableApplicationTokenResponse Client::enableApplicationTokenWithOptions(const E
 EnableApplicationTokenResponse Client::enableApplicationToken(const EnableApplicationTokenRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return enableApplicationTokenWithOptions(request, runtime);
+}
+
+/**
+ * @summary 启用授权规则
+ *
+ * @param request EnableAuthorizationRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EnableAuthorizationRuleResponse
+ */
+EnableAuthorizationRuleResponse Client::enableAuthorizationRuleWithOptions(const EnableAuthorizationRuleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAuthorizationRuleId()) {
+    query["AuthorizationRuleId"] = request.getAuthorizationRuleId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  json body = {};
+  if (!!request.hasClientToken()) {
+    body["ClientToken"] = request.getClientToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "EnableAuthorizationRule"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EnableAuthorizationRuleResponse>();
+}
+
+/**
+ * @summary 启用授权规则
+ *
+ * @param request EnableAuthorizationRuleRequest
+ * @return EnableAuthorizationRuleResponse
+ */
+EnableAuthorizationRuleResponse Client::enableAuthorizationRule(const EnableAuthorizationRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return enableAuthorizationRuleWithOptions(request, runtime);
 }
 
 /**
@@ -6119,6 +6635,102 @@ GetApplicationTemplateResponse Client::getApplicationTemplateWithOptions(const G
 GetApplicationTemplateResponse Client::getApplicationTemplate(const GetApplicationTemplateRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getApplicationTemplateWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取授权资源信息
+ *
+ * @param request GetAuthorizationResourceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAuthorizationResourceResponse
+ */
+GetAuthorizationResourceResponse Client::getAuthorizationResourceWithOptions(const GetAuthorizationResourceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAuthorizationResourceId()) {
+    query["AuthorizationResourceId"] = request.getAuthorizationResourceId();
+  }
+
+  if (!!request.hasAuthorizationRuleId()) {
+    query["AuthorizationRuleId"] = request.getAuthorizationRuleId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAuthorizationResource"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAuthorizationResourceResponse>();
+}
+
+/**
+ * @summary 获取授权资源信息
+ *
+ * @param request GetAuthorizationResourceRequest
+ * @return GetAuthorizationResourceResponse
+ */
+GetAuthorizationResourceResponse Client::getAuthorizationResource(const GetAuthorizationResourceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAuthorizationResourceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取授权规则信息
+ *
+ * @param request GetAuthorizationRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAuthorizationRuleResponse
+ */
+GetAuthorizationRuleResponse Client::getAuthorizationRuleWithOptions(const GetAuthorizationRuleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAuthorizationRuleId()) {
+    query["AuthorizationRuleId"] = request.getAuthorizationRuleId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAuthorizationRule"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAuthorizationRuleResponse>();
+}
+
+/**
+ * @summary 获取授权规则信息
+ *
+ * @param request GetAuthorizationRuleRequest
+ * @return GetAuthorizationRuleResponse
+ */
+GetAuthorizationRuleResponse Client::getAuthorizationRule(const GetAuthorizationRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAuthorizationRuleWithOptions(request, runtime);
 }
 
 /**
@@ -7858,6 +8470,64 @@ ListApplicationsResponse Client::listApplications(const ListApplicationsRequest 
 }
 
 /**
+ * @summary 查询授权规则关联的应用列表
+ *
+ * @param request ListApplicationsForAuthorizationRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListApplicationsForAuthorizationRuleResponse
+ */
+ListApplicationsForAuthorizationRuleResponse Client::listApplicationsForAuthorizationRuleWithOptions(const ListApplicationsForAuthorizationRuleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAuthorizationRuleId()) {
+    query["AuthorizationRuleId"] = request.getAuthorizationRuleId();
+  }
+
+  if (!!request.hasFilter()) {
+    query["Filter"] = request.getFilter();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListApplicationsForAuthorizationRule"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListApplicationsForAuthorizationRuleResponse>();
+}
+
+/**
+ * @summary 查询授权规则关联的应用列表
+ *
+ * @param request ListApplicationsForAuthorizationRuleRequest
+ * @return ListApplicationsForAuthorizationRuleResponse
+ */
+ListApplicationsForAuthorizationRuleResponse Client::listApplicationsForAuthorizationRule(const ListApplicationsForAuthorizationRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listApplicationsForAuthorizationRuleWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询一个EIAM组可访问的应用列表
  *
  * @param request ListApplicationsForGroupRequest
@@ -8149,6 +8819,280 @@ ListApplicationsForUserResponse Client::listApplicationsForUserWithOptions(const
 ListApplicationsForUserResponse Client::listApplicationsForUser(const ListApplicationsForUserRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listApplicationsForUserWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询授权资源信息列表
+ *
+ * @param request ListAuthorizationResourcesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAuthorizationResourcesResponse
+ */
+ListAuthorizationResourcesResponse Client::listAuthorizationResourcesWithOptions(const ListAuthorizationResourcesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAuthorizationRuleId()) {
+    query["AuthorizationRuleId"] = request.getAuthorizationRuleId();
+  }
+
+  if (!!request.hasFilter()) {
+    query["Filter"] = request.getFilter();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAuthorizationResources"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAuthorizationResourcesResponse>();
+}
+
+/**
+ * @summary 查询授权资源信息列表
+ *
+ * @param request ListAuthorizationResourcesRequest
+ * @return ListAuthorizationResourcesResponse
+ */
+ListAuthorizationResourcesResponse Client::listAuthorizationResources(const ListAuthorizationResourcesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAuthorizationResourcesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询授权规则信息列表
+ *
+ * @param request ListAuthorizationRulesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAuthorizationRulesResponse
+ */
+ListAuthorizationRulesResponse Client::listAuthorizationRulesWithOptions(const ListAuthorizationRulesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFilter()) {
+    query["Filter"] = request.getFilter();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAuthorizationRules"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAuthorizationRulesResponse>();
+}
+
+/**
+ * @summary 查询授权规则信息列表
+ *
+ * @param request ListAuthorizationRulesRequest
+ * @return ListAuthorizationRulesResponse
+ */
+ListAuthorizationRulesResponse Client::listAuthorizationRules(const ListAuthorizationRulesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAuthorizationRulesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询应用关联的授权规则信息列表
+ *
+ * @param request ListAuthorizationRulesForApplicationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAuthorizationRulesForApplicationResponse
+ */
+ListAuthorizationRulesForApplicationResponse Client::listAuthorizationRulesForApplicationWithOptions(const ListAuthorizationRulesForApplicationRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAuthorizationRulesForApplication"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAuthorizationRulesForApplicationResponse>();
+}
+
+/**
+ * @summary 查询应用关联的授权规则信息列表
+ *
+ * @param request ListAuthorizationRulesForApplicationRequest
+ * @return ListAuthorizationRulesForApplicationResponse
+ */
+ListAuthorizationRulesForApplicationResponse Client::listAuthorizationRulesForApplication(const ListAuthorizationRulesForApplicationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAuthorizationRulesForApplicationWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询组关联的授权规则信息列表
+ *
+ * @param request ListAuthorizationRulesForGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAuthorizationRulesForGroupResponse
+ */
+ListAuthorizationRulesForGroupResponse Client::listAuthorizationRulesForGroupWithOptions(const ListAuthorizationRulesForGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasGroupId()) {
+    query["GroupId"] = request.getGroupId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAuthorizationRulesForGroup"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAuthorizationRulesForGroupResponse>();
+}
+
+/**
+ * @summary 查询组关联的授权规则信息列表
+ *
+ * @param request ListAuthorizationRulesForGroupRequest
+ * @return ListAuthorizationRulesForGroupResponse
+ */
+ListAuthorizationRulesForGroupResponse Client::listAuthorizationRulesForGroup(const ListAuthorizationRulesForGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAuthorizationRulesForGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询用户关联的授权规则信息列表
+ *
+ * @param request ListAuthorizationRulesForUserRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAuthorizationRulesForUserResponse
+ */
+ListAuthorizationRulesForUserResponse Client::listAuthorizationRulesForUserWithOptions(const ListAuthorizationRulesForUserRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasUserId()) {
+    query["UserId"] = request.getUserId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAuthorizationRulesForUser"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAuthorizationRulesForUserResponse>();
+}
+
+/**
+ * @summary 查询用户关联的授权规则信息列表
+ *
+ * @param request ListAuthorizationRulesForUserRequest
+ * @return ListAuthorizationRulesForUserResponse
+ */
+ListAuthorizationRulesForUserResponse Client::listAuthorizationRulesForUser(const ListAuthorizationRulesForUserRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAuthorizationRulesForUserWithOptions(request, runtime);
 }
 
 /**
@@ -9046,6 +9990,64 @@ ListGroupsForApplicationResponse Client::listGroupsForApplicationWithOptions(con
 ListGroupsForApplicationResponse Client::listGroupsForApplication(const ListGroupsForApplicationRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listGroupsForApplicationWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询授权规则关联的组列表
+ *
+ * @param request ListGroupsForAuthorizationRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListGroupsForAuthorizationRuleResponse
+ */
+ListGroupsForAuthorizationRuleResponse Client::listGroupsForAuthorizationRuleWithOptions(const ListGroupsForAuthorizationRuleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAuthorizationRuleId()) {
+    query["AuthorizationRuleId"] = request.getAuthorizationRuleId();
+  }
+
+  if (!!request.hasFilter()) {
+    query["Filter"] = request.getFilter();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListGroupsForAuthorizationRule"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListGroupsForAuthorizationRuleResponse>();
+}
+
+/**
+ * @summary 查询授权规则关联的组列表
+ *
+ * @param request ListGroupsForAuthorizationRuleRequest
+ * @return ListGroupsForAuthorizationRuleResponse
+ */
+ListGroupsForAuthorizationRuleResponse Client::listGroupsForAuthorizationRule(const ListGroupsForAuthorizationRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listGroupsForAuthorizationRuleWithOptions(request, runtime);
 }
 
 /**
@@ -10199,6 +11201,64 @@ ListUsersForApplicationResponse Client::listUsersForApplication(const ListUsersF
 }
 
 /**
+ * @summary 查询授权规则关联的账户列表
+ *
+ * @param request ListUsersForAuthorizationRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListUsersForAuthorizationRuleResponse
+ */
+ListUsersForAuthorizationRuleResponse Client::listUsersForAuthorizationRuleWithOptions(const ListUsersForAuthorizationRuleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAuthorizationRuleId()) {
+    query["AuthorizationRuleId"] = request.getAuthorizationRuleId();
+  }
+
+  if (!!request.hasFilter()) {
+    query["Filter"] = request.getFilter();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListUsersForAuthorizationRule"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListUsersForAuthorizationRuleResponse>();
+}
+
+/**
+ * @summary 查询授权规则关联的账户列表
+ *
+ * @param request ListUsersForAuthorizationRuleRequest
+ * @return ListUsersForAuthorizationRuleResponse
+ */
+ListUsersForAuthorizationRuleResponse Client::listUsersForAuthorizationRule(const ListUsersForAuthorizationRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listUsersForAuthorizationRuleWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the information of accounts in an Employee Identity and Access Management (EIAM) group of Identity as a Service (IDaaS).
  *
  * @param request ListUsersForGroupRequest
@@ -10519,6 +11579,56 @@ RemoveApplicationAccountFromUserResponse Client::removeApplicationAccountFromUse
 }
 
 /**
+ * @summary 将应用从授权规则中解除
+ *
+ * @param request RemoveApplicationFromAuthorizationRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RemoveApplicationFromAuthorizationRuleResponse
+ */
+RemoveApplicationFromAuthorizationRuleResponse Client::removeApplicationFromAuthorizationRuleWithOptions(const RemoveApplicationFromAuthorizationRuleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasAuthorizationRuleId()) {
+    query["AuthorizationRuleId"] = request.getAuthorizationRuleId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RemoveApplicationFromAuthorizationRule"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RemoveApplicationFromAuthorizationRuleResponse>();
+}
+
+/**
+ * @summary 将应用从授权规则中解除
+ *
+ * @param request RemoveApplicationFromAuthorizationRuleRequest
+ * @return RemoveApplicationFromAuthorizationRuleResponse
+ */
+RemoveApplicationFromAuthorizationRuleResponse Client::removeApplicationFromAuthorizationRule(const RemoveApplicationFromAuthorizationRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return removeApplicationFromAuthorizationRuleWithOptions(request, runtime);
+}
+
+/**
  * @summary 移除品牌关联条款
  *
  * @param request RemoveCustomPrivacyPoliciesFromBrandRequest
@@ -10566,6 +11676,106 @@ RemoveCustomPrivacyPoliciesFromBrandResponse Client::removeCustomPrivacyPolicies
 RemoveCustomPrivacyPoliciesFromBrandResponse Client::removeCustomPrivacyPoliciesFromBrand(const RemoveCustomPrivacyPoliciesFromBrandRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return removeCustomPrivacyPoliciesFromBrandWithOptions(request, runtime);
+}
+
+/**
+ * @summary 将组从授权规则中解除
+ *
+ * @param request RemoveGroupFromAuthorizationRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RemoveGroupFromAuthorizationRuleResponse
+ */
+RemoveGroupFromAuthorizationRuleResponse Client::removeGroupFromAuthorizationRuleWithOptions(const RemoveGroupFromAuthorizationRuleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAuthorizationRuleId()) {
+    query["AuthorizationRuleId"] = request.getAuthorizationRuleId();
+  }
+
+  if (!!request.hasGroupId()) {
+    query["GroupId"] = request.getGroupId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RemoveGroupFromAuthorizationRule"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RemoveGroupFromAuthorizationRuleResponse>();
+}
+
+/**
+ * @summary 将组从授权规则中解除
+ *
+ * @param request RemoveGroupFromAuthorizationRuleRequest
+ * @return RemoveGroupFromAuthorizationRuleResponse
+ */
+RemoveGroupFromAuthorizationRuleResponse Client::removeGroupFromAuthorizationRule(const RemoveGroupFromAuthorizationRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return removeGroupFromAuthorizationRuleWithOptions(request, runtime);
+}
+
+/**
+ * @summary 将账户从授权规则中解除
+ *
+ * @param request RemoveUserFromAuthorizationRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RemoveUserFromAuthorizationRuleResponse
+ */
+RemoveUserFromAuthorizationRuleResponse Client::removeUserFromAuthorizationRuleWithOptions(const RemoveUserFromAuthorizationRuleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAuthorizationRuleId()) {
+    query["AuthorizationRuleId"] = request.getAuthorizationRuleId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasUserId()) {
+    query["UserId"] = request.getUserId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RemoveUserFromAuthorizationRule"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RemoveUserFromAuthorizationRuleResponse>();
+}
+
+/**
+ * @summary 将账户从授权规则中解除
+ *
+ * @param request RemoveUserFromAuthorizationRuleRequest
+ * @return RemoveUserFromAuthorizationRuleResponse
+ */
+RemoveUserFromAuthorizationRuleResponse Client::removeUserFromAuthorizationRule(const RemoveUserFromAuthorizationRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return removeUserFromAuthorizationRuleWithOptions(request, runtime);
 }
 
 /**
@@ -12754,6 +13964,314 @@ UpdateApplicationTokenExpirationTimeResponse Client::updateApplicationTokenExpir
 UpdateApplicationTokenExpirationTimeResponse Client::updateApplicationTokenExpirationTime(const UpdateApplicationTokenExpirationTimeRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateApplicationTokenExpirationTimeWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新授权规则信息
+ *
+ * @param request UpdateAuthorizationRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateAuthorizationRuleResponse
+ */
+UpdateAuthorizationRuleResponse Client::updateAuthorizationRuleWithOptions(const UpdateAuthorizationRuleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAuthorizationResourceScope()) {
+    query["AuthorizationResourceScope"] = request.getAuthorizationResourceScope();
+  }
+
+  if (!!request.hasAuthorizationRuleId()) {
+    query["AuthorizationRuleId"] = request.getAuthorizationRuleId();
+  }
+
+  if (!!request.hasAuthorizationRuleName()) {
+    query["AuthorizationRuleName"] = request.getAuthorizationRuleName();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  json body = {};
+  if (!!request.hasClientToken()) {
+    body["ClientToken"] = request.getClientToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateAuthorizationRule"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateAuthorizationRuleResponse>();
+}
+
+/**
+ * @summary 更新授权规则信息
+ *
+ * @param request UpdateAuthorizationRuleRequest
+ * @return UpdateAuthorizationRuleResponse
+ */
+UpdateAuthorizationRuleResponse Client::updateAuthorizationRule(const UpdateAuthorizationRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateAuthorizationRuleWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新授权规则应用关联关系属性
+ *
+ * @param request UpdateAuthorizationRuleApplicationAttachmentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateAuthorizationRuleApplicationAttachmentResponse
+ */
+UpdateAuthorizationRuleApplicationAttachmentResponse Client::updateAuthorizationRuleApplicationAttachmentWithOptions(const UpdateAuthorizationRuleApplicationAttachmentRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasAuthorizationRuleId()) {
+    query["AuthorizationRuleId"] = request.getAuthorizationRuleId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasValidityPeriod()) {
+    query["ValidityPeriod"] = request.getValidityPeriod();
+  }
+
+  if (!!request.hasValidityType()) {
+    query["ValidityType"] = request.getValidityType();
+  }
+
+  json body = {};
+  if (!!request.hasClientToken()) {
+    body["ClientToken"] = request.getClientToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateAuthorizationRuleApplicationAttachment"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateAuthorizationRuleApplicationAttachmentResponse>();
+}
+
+/**
+ * @summary 更新授权规则应用关联关系属性
+ *
+ * @param request UpdateAuthorizationRuleApplicationAttachmentRequest
+ * @return UpdateAuthorizationRuleApplicationAttachmentResponse
+ */
+UpdateAuthorizationRuleApplicationAttachmentResponse Client::updateAuthorizationRuleApplicationAttachment(const UpdateAuthorizationRuleApplicationAttachmentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateAuthorizationRuleApplicationAttachmentWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新授权规则描述信息
+ *
+ * @param request UpdateAuthorizationRuleDescriptionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateAuthorizationRuleDescriptionResponse
+ */
+UpdateAuthorizationRuleDescriptionResponse Client::updateAuthorizationRuleDescriptionWithOptions(const UpdateAuthorizationRuleDescriptionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAuthorizationRuleId()) {
+    query["AuthorizationRuleId"] = request.getAuthorizationRuleId();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  json body = {};
+  if (!!request.hasClientToken()) {
+    body["ClientToken"] = request.getClientToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateAuthorizationRuleDescription"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateAuthorizationRuleDescriptionResponse>();
+}
+
+/**
+ * @summary 更新授权规则描述信息
+ *
+ * @param request UpdateAuthorizationRuleDescriptionRequest
+ * @return UpdateAuthorizationRuleDescriptionResponse
+ */
+UpdateAuthorizationRuleDescriptionResponse Client::updateAuthorizationRuleDescription(const UpdateAuthorizationRuleDescriptionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateAuthorizationRuleDescriptionWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新授权规则组关联关系属性
+ *
+ * @param request UpdateAuthorizationRuleGroupAttachmentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateAuthorizationRuleGroupAttachmentResponse
+ */
+UpdateAuthorizationRuleGroupAttachmentResponse Client::updateAuthorizationRuleGroupAttachmentWithOptions(const UpdateAuthorizationRuleGroupAttachmentRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAuthorizationRuleId()) {
+    query["AuthorizationRuleId"] = request.getAuthorizationRuleId();
+  }
+
+  if (!!request.hasGroupId()) {
+    query["GroupId"] = request.getGroupId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasValidityPeriod()) {
+    query["ValidityPeriod"] = request.getValidityPeriod();
+  }
+
+  if (!!request.hasValidityType()) {
+    query["ValidityType"] = request.getValidityType();
+  }
+
+  json body = {};
+  if (!!request.hasClientToken()) {
+    body["ClientToken"] = request.getClientToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateAuthorizationRuleGroupAttachment"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateAuthorizationRuleGroupAttachmentResponse>();
+}
+
+/**
+ * @summary 更新授权规则组关联关系属性
+ *
+ * @param request UpdateAuthorizationRuleGroupAttachmentRequest
+ * @return UpdateAuthorizationRuleGroupAttachmentResponse
+ */
+UpdateAuthorizationRuleGroupAttachmentResponse Client::updateAuthorizationRuleGroupAttachment(const UpdateAuthorizationRuleGroupAttachmentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateAuthorizationRuleGroupAttachmentWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新授权规则账户关联关系属性
+ *
+ * @param request UpdateAuthorizationRuleUserAttachmentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateAuthorizationRuleUserAttachmentResponse
+ */
+UpdateAuthorizationRuleUserAttachmentResponse Client::updateAuthorizationRuleUserAttachmentWithOptions(const UpdateAuthorizationRuleUserAttachmentRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAuthorizationRuleId()) {
+    query["AuthorizationRuleId"] = request.getAuthorizationRuleId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasUserId()) {
+    query["UserId"] = request.getUserId();
+  }
+
+  if (!!request.hasValidityPeriod()) {
+    query["ValidityPeriod"] = request.getValidityPeriod();
+  }
+
+  if (!!request.hasValidityType()) {
+    query["ValidityType"] = request.getValidityType();
+  }
+
+  json body = {};
+  if (!!request.hasClientToken()) {
+    body["ClientToken"] = request.getClientToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateAuthorizationRuleUserAttachment"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateAuthorizationRuleUserAttachmentResponse>();
+}
+
+/**
+ * @summary 更新授权规则账户关联关系属性
+ *
+ * @param request UpdateAuthorizationRuleUserAttachmentRequest
+ * @return UpdateAuthorizationRuleUserAttachmentResponse
+ */
+UpdateAuthorizationRuleUserAttachmentResponse Client::updateAuthorizationRuleUserAttachment(const UpdateAuthorizationRuleUserAttachmentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateAuthorizationRuleUserAttachmentWithOptions(request, runtime);
 }
 
 /**

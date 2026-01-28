@@ -1,0 +1,158 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_ADDUSERTOAUTHORIZATIONRULEREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_ADDUSERTOAUTHORIZATIONRULEREQUEST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Eiam20211201
+{
+namespace Models
+{
+  class AddUserToAuthorizationRuleRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const AddUserToAuthorizationRuleRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AuthorizationRuleId, authorizationRuleId_);
+      DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_TO_JSON(UserId, userId_);
+      DARABONBA_PTR_TO_JSON(ValidityPeriod, validityPeriod_);
+      DARABONBA_PTR_TO_JSON(ValidityType, validityType_);
+    };
+    friend void from_json(const Darabonba::Json& j, AddUserToAuthorizationRuleRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AuthorizationRuleId, authorizationRuleId_);
+      DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_FROM_JSON(UserId, userId_);
+      DARABONBA_PTR_FROM_JSON(ValidityPeriod, validityPeriod_);
+      DARABONBA_PTR_FROM_JSON(ValidityType, validityType_);
+    };
+    AddUserToAuthorizationRuleRequest() = default ;
+    AddUserToAuthorizationRuleRequest(const AddUserToAuthorizationRuleRequest &) = default ;
+    AddUserToAuthorizationRuleRequest(AddUserToAuthorizationRuleRequest &&) = default ;
+    AddUserToAuthorizationRuleRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~AddUserToAuthorizationRuleRequest() = default ;
+    AddUserToAuthorizationRuleRequest& operator=(const AddUserToAuthorizationRuleRequest &) = default ;
+    AddUserToAuthorizationRuleRequest& operator=(AddUserToAuthorizationRuleRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class ValidityPeriod : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const ValidityPeriod& obj) { 
+        DARABONBA_PTR_TO_JSON(EndTime, endTime_);
+        DARABONBA_PTR_TO_JSON(StartTime, startTime_);
+      };
+      friend void from_json(const Darabonba::Json& j, ValidityPeriod& obj) { 
+        DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
+        DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
+      };
+      ValidityPeriod() = default ;
+      ValidityPeriod(const ValidityPeriod &) = default ;
+      ValidityPeriod(ValidityPeriod &&) = default ;
+      ValidityPeriod(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~ValidityPeriod() = default ;
+      ValidityPeriod& operator=(const ValidityPeriod &) = default ;
+      ValidityPeriod& operator=(ValidityPeriod &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->endTime_ == nullptr
+        && this->startTime_ == nullptr; };
+      // endTime Field Functions 
+      bool hasEndTime() const { return this->endTime_ != nullptr;};
+      void deleteEndTime() { this->endTime_ = nullptr;};
+      inline int64_t getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
+      inline ValidityPeriod& setEndTime(int64_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
+
+
+      // startTime Field Functions 
+      bool hasStartTime() const { return this->startTime_ != nullptr;};
+      void deleteStartTime() { this->startTime_ = nullptr;};
+      inline int64_t getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
+      inline ValidityPeriod& setStartTime(int64_t startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
+
+
+    protected:
+      // 授权规则生效结束时间，采用unix纪元精确到毫秒。
+      shared_ptr<int64_t> endTime_ {};
+      // 授权规则生效开始时间，采用unix纪元精确到毫秒。
+      shared_ptr<int64_t> startTime_ {};
+    };
+
+    virtual bool empty() const override { return this->authorizationRuleId_ == nullptr
+        && this->clientToken_ == nullptr && this->instanceId_ == nullptr && this->userId_ == nullptr && this->validityPeriod_ == nullptr && this->validityType_ == nullptr; };
+    // authorizationRuleId Field Functions 
+    bool hasAuthorizationRuleId() const { return this->authorizationRuleId_ != nullptr;};
+    void deleteAuthorizationRuleId() { this->authorizationRuleId_ = nullptr;};
+    inline string getAuthorizationRuleId() const { DARABONBA_PTR_GET_DEFAULT(authorizationRuleId_, "") };
+    inline AddUserToAuthorizationRuleRequest& setAuthorizationRuleId(string authorizationRuleId) { DARABONBA_PTR_SET_VALUE(authorizationRuleId_, authorizationRuleId) };
+
+
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline AddUserToAuthorizationRuleRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
+    // instanceId Field Functions 
+    bool hasInstanceId() const { return this->instanceId_ != nullptr;};
+    void deleteInstanceId() { this->instanceId_ = nullptr;};
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline AddUserToAuthorizationRuleRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+    // userId Field Functions 
+    bool hasUserId() const { return this->userId_ != nullptr;};
+    void deleteUserId() { this->userId_ = nullptr;};
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline AddUserToAuthorizationRuleRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
+
+
+    // validityPeriod Field Functions 
+    bool hasValidityPeriod() const { return this->validityPeriod_ != nullptr;};
+    void deleteValidityPeriod() { this->validityPeriod_ = nullptr;};
+    inline const AddUserToAuthorizationRuleRequest::ValidityPeriod & getValidityPeriod() const { DARABONBA_PTR_GET_CONST(validityPeriod_, AddUserToAuthorizationRuleRequest::ValidityPeriod) };
+    inline AddUserToAuthorizationRuleRequest::ValidityPeriod getValidityPeriod() { DARABONBA_PTR_GET(validityPeriod_, AddUserToAuthorizationRuleRequest::ValidityPeriod) };
+    inline AddUserToAuthorizationRuleRequest& setValidityPeriod(const AddUserToAuthorizationRuleRequest::ValidityPeriod & validityPeriod) { DARABONBA_PTR_SET_VALUE(validityPeriod_, validityPeriod) };
+    inline AddUserToAuthorizationRuleRequest& setValidityPeriod(AddUserToAuthorizationRuleRequest::ValidityPeriod && validityPeriod) { DARABONBA_PTR_SET_RVALUE(validityPeriod_, validityPeriod) };
+
+
+    // validityType Field Functions 
+    bool hasValidityType() const { return this->validityType_ != nullptr;};
+    void deleteValidityType() { this->validityType_ = nullptr;};
+    inline string getValidityType() const { DARABONBA_PTR_GET_DEFAULT(validityType_, "") };
+    inline AddUserToAuthorizationRuleRequest& setValidityType(string validityType) { DARABONBA_PTR_SET_VALUE(validityType_, validityType) };
+
+
+  protected:
+    // 授权规则标识。
+    // 
+    // This parameter is required.
+    shared_ptr<string> authorizationRuleId_ {};
+    // This parameter is required.
+    shared_ptr<string> clientToken_ {};
+    // IDaaS EIAM实例的ID。
+    // 
+    // This parameter is required.
+    shared_ptr<string> instanceId_ {};
+    // 账户ID。
+    // 
+    // This parameter is required.
+    shared_ptr<string> userId_ {};
+    // 有效周期，当validityPeriodType为custom有效。
+    shared_ptr<AddUserToAuthorizationRuleRequest::ValidityPeriod> validityPeriod_ {};
+    // 有效期类型，枚举值：permanent（永久），time_bound（自定义时间范围）。
+    // 
+    // This parameter is required.
+    shared_ptr<string> validityType_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Eiam20211201
+#endif
