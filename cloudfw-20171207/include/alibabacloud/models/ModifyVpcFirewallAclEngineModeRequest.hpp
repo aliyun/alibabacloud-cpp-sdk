@@ -58,6 +58,7 @@ namespace Models
 
   protected:
     shared_ptr<string> memberUid_ {};
+    // This parameter is required.
     shared_ptr<string> strictMode_ {};
     // This parameter is required.
     shared_ptr<string> vpcFirewallId_ {};
