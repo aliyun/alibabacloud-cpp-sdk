@@ -37,45 +37,45 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appName_ == nullptr
-        && return this->clusterId_ == nullptr && return this->jobExecutionId_ == nullptr && return this->taskList_ == nullptr; };
+        && this->clusterId_ == nullptr && this->jobExecutionId_ == nullptr && this->taskList_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
-    inline string appName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
+    inline string getAppName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
     inline OperateStopJobExecutionRequest& setAppName(string appName) { DARABONBA_PTR_SET_VALUE(appName_, appName) };
 
 
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline OperateStopJobExecutionRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // jobExecutionId Field Functions 
     bool hasJobExecutionId() const { return this->jobExecutionId_ != nullptr;};
     void deleteJobExecutionId() { this->jobExecutionId_ = nullptr;};
-    inline string jobExecutionId() const { DARABONBA_PTR_GET_DEFAULT(jobExecutionId_, "") };
+    inline string getJobExecutionId() const { DARABONBA_PTR_GET_DEFAULT(jobExecutionId_, "") };
     inline OperateStopJobExecutionRequest& setJobExecutionId(string jobExecutionId) { DARABONBA_PTR_SET_VALUE(jobExecutionId_, jobExecutionId) };
 
 
     // taskList Field Functions 
     bool hasTaskList() const { return this->taskList_ != nullptr;};
     void deleteTaskList() { this->taskList_ = nullptr;};
-    inline const vector<string> & taskList() const { DARABONBA_PTR_GET_CONST(taskList_, vector<string>) };
-    inline vector<string> taskList() { DARABONBA_PTR_GET(taskList_, vector<string>) };
+    inline const vector<string> & getTaskList() const { DARABONBA_PTR_GET_CONST(taskList_, vector<string>) };
+    inline vector<string> getTaskList() { DARABONBA_PTR_GET(taskList_, vector<string>) };
     inline OperateStopJobExecutionRequest& setTaskList(const vector<string> & taskList) { DARABONBA_PTR_SET_VALUE(taskList_, taskList) };
     inline OperateStopJobExecutionRequest& setTaskList(vector<string> && taskList) { DARABONBA_PTR_SET_RVALUE(taskList_, taskList) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> appName_ = nullptr;
+    shared_ptr<string> appName_ {};
     // This parameter is required.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // This parameter is required.
-    std::shared_ptr<string> jobExecutionId_ = nullptr;
-    std::shared_ptr<vector<string>> taskList_ = nullptr;
+    shared_ptr<string> jobExecutionId_ {};
+    shared_ptr<vector<string>> taskList_ {};
   };
 
   } // namespace Models

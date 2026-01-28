@@ -35,38 +35,37 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appName_ == nullptr
-        && return this->clusterId_ == nullptr && return this->workflowId_ == nullptr; };
+        && this->clusterId_ == nullptr && this->workflowId_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
-    inline string appName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
+    inline string getAppName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
     inline ExportWorkflowsRequest& setAppName(string appName) { DARABONBA_PTR_SET_VALUE(appName_, appName) };
 
 
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline ExportWorkflowsRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // workflowId Field Functions 
     bool hasWorkflowId() const { return this->workflowId_ != nullptr;};
     void deleteWorkflowId() { this->workflowId_ = nullptr;};
-    inline const vector<int64_t> & workflowId() const { DARABONBA_PTR_GET_CONST(workflowId_, vector<int64_t>) };
-    inline vector<int64_t> workflowId() { DARABONBA_PTR_GET(workflowId_, vector<int64_t>) };
+    inline const vector<int64_t> & getWorkflowId() const { DARABONBA_PTR_GET_CONST(workflowId_, vector<int64_t>) };
+    inline vector<int64_t> getWorkflowId() { DARABONBA_PTR_GET(workflowId_, vector<int64_t>) };
     inline ExportWorkflowsRequest& setWorkflowId(const vector<int64_t> & workflowId) { DARABONBA_PTR_SET_VALUE(workflowId_, workflowId) };
     inline ExportWorkflowsRequest& setWorkflowId(vector<int64_t> && workflowId) { DARABONBA_PTR_SET_RVALUE(workflowId_, workflowId) };
 
 
   protected:
-    // This parameter is required.
-    std::shared_ptr<string> appName_ = nullptr;
+    shared_ptr<string> appName_ {};
     // A short description of struct
     // 
     // This parameter is required.
-    std::shared_ptr<string> clusterId_ = nullptr;
-    std::shared_ptr<vector<int64_t>> workflowId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
+    shared_ptr<vector<int64_t>> workflowId_ {};
   };
 
   } // namespace Models

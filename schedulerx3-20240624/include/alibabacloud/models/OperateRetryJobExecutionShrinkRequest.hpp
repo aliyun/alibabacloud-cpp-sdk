@@ -38,51 +38,51 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appName_ == nullptr
-        && return this->clusterId_ == nullptr && return this->jobExecutionId_ == nullptr && return this->taskListShrink_ == nullptr && return this->triggerChild_ == nullptr; };
+        && this->clusterId_ == nullptr && this->jobExecutionId_ == nullptr && this->taskListShrink_ == nullptr && this->triggerChild_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
-    inline string appName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
+    inline string getAppName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
     inline OperateRetryJobExecutionShrinkRequest& setAppName(string appName) { DARABONBA_PTR_SET_VALUE(appName_, appName) };
 
 
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline OperateRetryJobExecutionShrinkRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // jobExecutionId Field Functions 
     bool hasJobExecutionId() const { return this->jobExecutionId_ != nullptr;};
     void deleteJobExecutionId() { this->jobExecutionId_ = nullptr;};
-    inline string jobExecutionId() const { DARABONBA_PTR_GET_DEFAULT(jobExecutionId_, "") };
+    inline string getJobExecutionId() const { DARABONBA_PTR_GET_DEFAULT(jobExecutionId_, "") };
     inline OperateRetryJobExecutionShrinkRequest& setJobExecutionId(string jobExecutionId) { DARABONBA_PTR_SET_VALUE(jobExecutionId_, jobExecutionId) };
 
 
     // taskListShrink Field Functions 
     bool hasTaskListShrink() const { return this->taskListShrink_ != nullptr;};
     void deleteTaskListShrink() { this->taskListShrink_ = nullptr;};
-    inline string taskListShrink() const { DARABONBA_PTR_GET_DEFAULT(taskListShrink_, "") };
+    inline string getTaskListShrink() const { DARABONBA_PTR_GET_DEFAULT(taskListShrink_, "") };
     inline OperateRetryJobExecutionShrinkRequest& setTaskListShrink(string taskListShrink) { DARABONBA_PTR_SET_VALUE(taskListShrink_, taskListShrink) };
 
 
     // triggerChild Field Functions 
     bool hasTriggerChild() const { return this->triggerChild_ != nullptr;};
     void deleteTriggerChild() { this->triggerChild_ = nullptr;};
-    inline bool triggerChild() const { DARABONBA_PTR_GET_DEFAULT(triggerChild_, false) };
+    inline bool getTriggerChild() const { DARABONBA_PTR_GET_DEFAULT(triggerChild_, false) };
     inline OperateRetryJobExecutionShrinkRequest& setTriggerChild(bool triggerChild) { DARABONBA_PTR_SET_VALUE(triggerChild_, triggerChild) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> appName_ = nullptr;
+    shared_ptr<string> appName_ {};
     // This parameter is required.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // This parameter is required.
-    std::shared_ptr<string> jobExecutionId_ = nullptr;
-    std::shared_ptr<string> taskListShrink_ = nullptr;
-    std::shared_ptr<bool> triggerChild_ = nullptr;
+    shared_ptr<string> jobExecutionId_ {};
+    shared_ptr<string> taskListShrink_ {};
+    shared_ptr<bool> triggerChild_ {};
   };
 
   } // namespace Models

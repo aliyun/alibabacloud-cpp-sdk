@@ -40,59 +40,59 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appName_ == nullptr
-        && return this->clusterId_ == nullptr && return this->instanceParameters_ == nullptr && return this->jobId_ == nullptr && return this->label_ == nullptr && return this->worker_ == nullptr; };
+        && this->clusterId_ == nullptr && this->instanceParameters_ == nullptr && this->jobId_ == nullptr && this->label_ == nullptr && this->worker_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
-    inline string appName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
+    inline string getAppName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
     inline OperateExecuteJobRequest& setAppName(string appName) { DARABONBA_PTR_SET_VALUE(appName_, appName) };
 
 
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline OperateExecuteJobRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // instanceParameters Field Functions 
     bool hasInstanceParameters() const { return this->instanceParameters_ != nullptr;};
     void deleteInstanceParameters() { this->instanceParameters_ = nullptr;};
-    inline string instanceParameters() const { DARABONBA_PTR_GET_DEFAULT(instanceParameters_, "") };
+    inline string getInstanceParameters() const { DARABONBA_PTR_GET_DEFAULT(instanceParameters_, "") };
     inline OperateExecuteJobRequest& setInstanceParameters(string instanceParameters) { DARABONBA_PTR_SET_VALUE(instanceParameters_, instanceParameters) };
 
 
     // jobId Field Functions 
     bool hasJobId() const { return this->jobId_ != nullptr;};
     void deleteJobId() { this->jobId_ = nullptr;};
-    inline int64_t jobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, 0L) };
+    inline int64_t getJobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, 0L) };
     inline OperateExecuteJobRequest& setJobId(int64_t jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
 
 
     // label Field Functions 
     bool hasLabel() const { return this->label_ != nullptr;};
     void deleteLabel() { this->label_ = nullptr;};
-    inline string label() const { DARABONBA_PTR_GET_DEFAULT(label_, "") };
+    inline string getLabel() const { DARABONBA_PTR_GET_DEFAULT(label_, "") };
     inline OperateExecuteJobRequest& setLabel(string label) { DARABONBA_PTR_SET_VALUE(label_, label) };
 
 
     // worker Field Functions 
     bool hasWorker() const { return this->worker_ != nullptr;};
     void deleteWorker() { this->worker_ = nullptr;};
-    inline string worker() const { DARABONBA_PTR_GET_DEFAULT(worker_, "") };
+    inline string getWorker() const { DARABONBA_PTR_GET_DEFAULT(worker_, "") };
     inline OperateExecuteJobRequest& setWorker(string worker) { DARABONBA_PTR_SET_VALUE(worker_, worker) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> appName_ = nullptr;
+    shared_ptr<string> appName_ {};
     // This parameter is required.
-    std::shared_ptr<string> clusterId_ = nullptr;
-    std::shared_ptr<string> instanceParameters_ = nullptr;
+    shared_ptr<string> clusterId_ {};
+    shared_ptr<string> instanceParameters_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> jobId_ = nullptr;
-    std::shared_ptr<string> label_ = nullptr;
-    std::shared_ptr<string> worker_ = nullptr;
+    shared_ptr<int64_t> jobId_ {};
+    shared_ptr<string> label_ {};
+    shared_ptr<string> worker_ {};
   };
 
   } // namespace Models

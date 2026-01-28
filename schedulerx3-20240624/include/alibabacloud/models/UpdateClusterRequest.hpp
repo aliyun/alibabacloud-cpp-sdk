@@ -15,10 +15,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const UpdateClusterRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ClusterId, clusterId_);
       DARABONBA_PTR_TO_JSON(ClusterName, clusterName_);
+      DARABONBA_PTR_TO_JSON(IpWhitelist, ipWhitelist_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateClusterRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ClusterId, clusterId_);
       DARABONBA_PTR_FROM_JSON(ClusterName, clusterName_);
+      DARABONBA_PTR_FROM_JSON(IpWhitelist, ipWhitelist_);
     };
     UpdateClusterRequest() = default ;
     UpdateClusterRequest(const UpdateClusterRequest &) = default ;
@@ -32,26 +34,33 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterId_ == nullptr
-        && return this->clusterName_ == nullptr; };
+        && this->clusterName_ == nullptr && this->ipWhitelist_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline UpdateClusterRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // clusterName Field Functions 
     bool hasClusterName() const { return this->clusterName_ != nullptr;};
     void deleteClusterName() { this->clusterName_ = nullptr;};
-    inline string clusterName() const { DARABONBA_PTR_GET_DEFAULT(clusterName_, "") };
+    inline string getClusterName() const { DARABONBA_PTR_GET_DEFAULT(clusterName_, "") };
     inline UpdateClusterRequest& setClusterName(string clusterName) { DARABONBA_PTR_SET_VALUE(clusterName_, clusterName) };
+
+
+    // ipWhitelist Field Functions 
+    bool hasIpWhitelist() const { return this->ipWhitelist_ != nullptr;};
+    void deleteIpWhitelist() { this->ipWhitelist_ = nullptr;};
+    inline string getIpWhitelist() const { DARABONBA_PTR_GET_DEFAULT(ipWhitelist_, "") };
+    inline UpdateClusterRequest& setIpWhitelist(string ipWhitelist) { DARABONBA_PTR_SET_VALUE(ipWhitelist_, ipWhitelist) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> clusterId_ = nullptr;
-    // This parameter is required.
-    std::shared_ptr<string> clusterName_ = nullptr;
+    shared_ptr<string> clusterId_ {};
+    shared_ptr<string> clusterName_ {};
+    shared_ptr<string> ipWhitelist_ {};
   };
 
   } // namespace Models

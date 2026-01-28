@@ -40,60 +40,60 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appName_ == nullptr
-        && return this->calendar_ == nullptr && return this->clusterId_ == nullptr && return this->timeExpression_ == nullptr && return this->timeType_ == nullptr && return this->timeZone_ == nullptr; };
+        && this->calendar_ == nullptr && this->clusterId_ == nullptr && this->timeExpression_ == nullptr && this->timeType_ == nullptr && this->timeZone_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
-    inline string appName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
+    inline string getAppName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
     inline ListScheduleTimesRequest& setAppName(string appName) { DARABONBA_PTR_SET_VALUE(appName_, appName) };
 
 
     // calendar Field Functions 
     bool hasCalendar() const { return this->calendar_ != nullptr;};
     void deleteCalendar() { this->calendar_ = nullptr;};
-    inline string calendar() const { DARABONBA_PTR_GET_DEFAULT(calendar_, "") };
+    inline string getCalendar() const { DARABONBA_PTR_GET_DEFAULT(calendar_, "") };
     inline ListScheduleTimesRequest& setCalendar(string calendar) { DARABONBA_PTR_SET_VALUE(calendar_, calendar) };
 
 
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline ListScheduleTimesRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // timeExpression Field Functions 
     bool hasTimeExpression() const { return this->timeExpression_ != nullptr;};
     void deleteTimeExpression() { this->timeExpression_ = nullptr;};
-    inline string timeExpression() const { DARABONBA_PTR_GET_DEFAULT(timeExpression_, "") };
+    inline string getTimeExpression() const { DARABONBA_PTR_GET_DEFAULT(timeExpression_, "") };
     inline ListScheduleTimesRequest& setTimeExpression(string timeExpression) { DARABONBA_PTR_SET_VALUE(timeExpression_, timeExpression) };
 
 
     // timeType Field Functions 
     bool hasTimeType() const { return this->timeType_ != nullptr;};
     void deleteTimeType() { this->timeType_ = nullptr;};
-    inline int32_t timeType() const { DARABONBA_PTR_GET_DEFAULT(timeType_, 0) };
+    inline int32_t getTimeType() const { DARABONBA_PTR_GET_DEFAULT(timeType_, 0) };
     inline ListScheduleTimesRequest& setTimeType(int32_t timeType) { DARABONBA_PTR_SET_VALUE(timeType_, timeType) };
 
 
     // timeZone Field Functions 
     bool hasTimeZone() const { return this->timeZone_ != nullptr;};
     void deleteTimeZone() { this->timeZone_ = nullptr;};
-    inline string timeZone() const { DARABONBA_PTR_GET_DEFAULT(timeZone_, "") };
+    inline string getTimeZone() const { DARABONBA_PTR_GET_DEFAULT(timeZone_, "") };
     inline ListScheduleTimesRequest& setTimeZone(string timeZone) { DARABONBA_PTR_SET_VALUE(timeZone_, timeZone) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> appName_ = nullptr;
-    std::shared_ptr<string> calendar_ = nullptr;
+    shared_ptr<string> appName_ {};
+    shared_ptr<string> calendar_ {};
     // This parameter is required.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // This parameter is required.
-    std::shared_ptr<string> timeExpression_ = nullptr;
+    shared_ptr<string> timeExpression_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> timeType_ = nullptr;
-    std::shared_ptr<string> timeZone_ = nullptr;
+    shared_ptr<int32_t> timeType_ {};
+    shared_ptr<string> timeZone_ {};
   };
 
   } // namespace Models

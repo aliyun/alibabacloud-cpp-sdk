@@ -44,76 +44,76 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessToken_ == nullptr
-        && return this->appName_ == nullptr && return this->appType_ == nullptr && return this->clusterId_ == nullptr && return this->enableLog_ == nullptr && return this->labelRouteStrategy_ == nullptr
-        && return this->maxConcurrency_ == nullptr && return this->title_ == nullptr; };
+        && this->appName_ == nullptr && this->appType_ == nullptr && this->clusterId_ == nullptr && this->enableLog_ == nullptr && this->labelRouteStrategy_ == nullptr
+        && this->maxConcurrency_ == nullptr && this->title_ == nullptr; };
     // accessToken Field Functions 
     bool hasAccessToken() const { return this->accessToken_ != nullptr;};
     void deleteAccessToken() { this->accessToken_ = nullptr;};
-    inline string accessToken() const { DARABONBA_PTR_GET_DEFAULT(accessToken_, "") };
+    inline string getAccessToken() const { DARABONBA_PTR_GET_DEFAULT(accessToken_, "") };
     inline CreateAppRequest& setAccessToken(string accessToken) { DARABONBA_PTR_SET_VALUE(accessToken_, accessToken) };
 
 
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
-    inline string appName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
+    inline string getAppName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
     inline CreateAppRequest& setAppName(string appName) { DARABONBA_PTR_SET_VALUE(appName_, appName) };
 
 
     // appType Field Functions 
     bool hasAppType() const { return this->appType_ != nullptr;};
     void deleteAppType() { this->appType_ = nullptr;};
-    inline int32_t appType() const { DARABONBA_PTR_GET_DEFAULT(appType_, 0) };
+    inline int32_t getAppType() const { DARABONBA_PTR_GET_DEFAULT(appType_, 0) };
     inline CreateAppRequest& setAppType(int32_t appType) { DARABONBA_PTR_SET_VALUE(appType_, appType) };
 
 
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline CreateAppRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // enableLog Field Functions 
     bool hasEnableLog() const { return this->enableLog_ != nullptr;};
     void deleteEnableLog() { this->enableLog_ = nullptr;};
-    inline bool enableLog() const { DARABONBA_PTR_GET_DEFAULT(enableLog_, false) };
+    inline bool getEnableLog() const { DARABONBA_PTR_GET_DEFAULT(enableLog_, false) };
     inline CreateAppRequest& setEnableLog(bool enableLog) { DARABONBA_PTR_SET_VALUE(enableLog_, enableLog) };
 
 
     // labelRouteStrategy Field Functions 
     bool hasLabelRouteStrategy() const { return this->labelRouteStrategy_ != nullptr;};
     void deleteLabelRouteStrategy() { this->labelRouteStrategy_ = nullptr;};
-    inline int32_t labelRouteStrategy() const { DARABONBA_PTR_GET_DEFAULT(labelRouteStrategy_, 0) };
+    inline int32_t getLabelRouteStrategy() const { DARABONBA_PTR_GET_DEFAULT(labelRouteStrategy_, 0) };
     inline CreateAppRequest& setLabelRouteStrategy(int32_t labelRouteStrategy) { DARABONBA_PTR_SET_VALUE(labelRouteStrategy_, labelRouteStrategy) };
 
 
     // maxConcurrency Field Functions 
     bool hasMaxConcurrency() const { return this->maxConcurrency_ != nullptr;};
     void deleteMaxConcurrency() { this->maxConcurrency_ = nullptr;};
-    inline int32_t maxConcurrency() const { DARABONBA_PTR_GET_DEFAULT(maxConcurrency_, 0) };
+    inline int32_t getMaxConcurrency() const { DARABONBA_PTR_GET_DEFAULT(maxConcurrency_, 0) };
     inline CreateAppRequest& setMaxConcurrency(int32_t maxConcurrency) { DARABONBA_PTR_SET_VALUE(maxConcurrency_, maxConcurrency) };
 
 
     // title Field Functions 
     bool hasTitle() const { return this->title_ != nullptr;};
     void deleteTitle() { this->title_ = nullptr;};
-    inline string title() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
+    inline string getTitle() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
     inline CreateAppRequest& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
 
 
   protected:
-    std::shared_ptr<string> accessToken_ = nullptr;
+    shared_ptr<string> accessToken_ {};
     // This parameter is required.
-    std::shared_ptr<string> appName_ = nullptr;
-    std::shared_ptr<int32_t> appType_ = nullptr;
+    shared_ptr<string> appName_ {};
+    shared_ptr<int32_t> appType_ {};
     // This parameter is required.
-    std::shared_ptr<string> clusterId_ = nullptr;
-    std::shared_ptr<bool> enableLog_ = nullptr;
-    std::shared_ptr<int32_t> labelRouteStrategy_ = nullptr;
-    std::shared_ptr<int32_t> maxConcurrency_ = nullptr;
+    shared_ptr<string> clusterId_ {};
+    shared_ptr<bool> enableLog_ {};
+    shared_ptr<int32_t> labelRouteStrategy_ {};
+    shared_ptr<int32_t> maxConcurrency_ {};
     // This parameter is required.
-    std::shared_ptr<string> title_ = nullptr;
+    shared_ptr<string> title_ {};
   };
 
   } // namespace Models

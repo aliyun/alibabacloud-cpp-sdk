@@ -46,35 +46,35 @@ CreateAppResponse Client::createAppWithOptions(const CreateAppRequest &request, 
   request.validate();
   json body = {};
   if (!!request.hasAccessToken()) {
-    body["AccessToken"] = request.accessToken();
+    body["AccessToken"] = request.getAccessToken();
   }
 
   if (!!request.hasAppName()) {
-    body["AppName"] = request.appName();
+    body["AppName"] = request.getAppName();
   }
 
   if (!!request.hasAppType()) {
-    body["AppType"] = request.appType();
+    body["AppType"] = request.getAppType();
   }
 
   if (!!request.hasClusterId()) {
-    body["ClusterId"] = request.clusterId();
+    body["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasEnableLog()) {
-    body["EnableLog"] = request.enableLog();
+    body["EnableLog"] = request.getEnableLog();
   }
 
   if (!!request.hasLabelRouteStrategy()) {
-    body["LabelRouteStrategy"] = request.labelRouteStrategy();
+    body["LabelRouteStrategy"] = request.getLabelRouteStrategy();
   }
 
   if (!!request.hasMaxConcurrency()) {
-    body["MaxConcurrency"] = request.maxConcurrency();
+    body["MaxConcurrency"] = request.getMaxConcurrency();
   }
 
   if (!!request.hasTitle()) {
-    body["Title"] = request.title();
+    body["Title"] = request.getTitle();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -116,23 +116,23 @@ CreateCalendarResponse Client::createCalendarWithOptions(const CreateCalendarReq
   request.validate();
   json body = {};
   if (!!request.hasCalendarName()) {
-    body["CalendarName"] = request.calendarName();
+    body["CalendarName"] = request.getCalendarName();
   }
 
   if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.clientToken();
+    body["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasClusterId()) {
-    body["ClusterId"] = request.clusterId();
+    body["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasMonths()) {
-    body["Months"] = request.months();
+    body["Months"] = request.getMonths();
   }
 
   if (!!request.hasYear()) {
-    body["Year"] = request.year();
+    body["Year"] = request.getYear();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -175,45 +175,45 @@ CreateClusterResponse Client::createClusterWithOptions(const CreateClusterReques
   CreateClusterShrinkRequest request = CreateClusterShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasVSwitches()) {
-    request.setVSwitchesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.vSwitches(), "VSwitches", "json"));
+    request.setVSwitchesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getVSwitches(), "VSwitches", "json"));
   }
 
   json query = {};
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   json body = {};
   if (!!request.hasChargeType()) {
-    body["ChargeType"] = request.chargeType();
+    body["ChargeType"] = request.getChargeType();
   }
 
   if (!!request.hasClusterName()) {
-    body["ClusterName"] = request.clusterName();
+    body["ClusterName"] = request.getClusterName();
   }
 
   if (!!request.hasClusterSpec()) {
-    body["ClusterSpec"] = request.clusterSpec();
+    body["ClusterSpec"] = request.getClusterSpec();
   }
 
   if (!!request.hasDuration()) {
-    body["Duration"] = request.duration();
+    body["Duration"] = request.getDuration();
   }
 
   if (!!request.hasEngineType()) {
-    body["EngineType"] = request.engineType();
+    body["EngineType"] = request.getEngineType();
   }
 
   if (!!request.hasPricingCycle()) {
-    body["PricingCycle"] = request.pricingCycle();
+    body["PricingCycle"] = request.getPricingCycle();
   }
 
   if (!!request.hasVSwitchesShrink()) {
-    body["VSwitches"] = request.vSwitchesShrink();
+    body["VSwitches"] = request.getVSwitchesShrink();
   }
 
   if (!!request.hasVpcId()) {
-    body["VpcId"] = request.vpcId();
+    body["VpcId"] = request.getVpcId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -246,6 +246,68 @@ CreateClusterResponse Client::createCluster(const CreateClusterRequest &request)
 }
 
 /**
+ * @summary 创建数据源
+ *
+ * @param request CreateDatasourceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateDatasourceResponse
+ */
+CreateDatasourceResponse Client::createDatasourceWithOptions(const CreateDatasourceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasClusterId()) {
+    body["ClusterId"] = request.getClusterId();
+  }
+
+  if (!!request.hasConnectionParams()) {
+    body["ConnectionParams"] = request.getConnectionParams();
+  }
+
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  if (!!request.hasPassword()) {
+    body["Password"] = request.getPassword();
+  }
+
+  if (!!request.hasType()) {
+    body["Type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateDatasource"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateDatasourceResponse>();
+}
+
+/**
+ * @summary 创建数据源
+ *
+ * @param request CreateDatasourceRequest
+ * @return CreateDatasourceResponse
+ */
+CreateDatasourceResponse Client::createDatasource(const CreateDatasourceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createDatasourceWithOptions(request, runtime);
+}
+
+/**
  * @summary 添加执行器
  *
  * @param request CreateExecutorsRequest
@@ -256,19 +318,19 @@ CreateExecutorsResponse Client::createExecutorsWithOptions(const CreateExecutors
   request.validate();
   json body = {};
   if (!!request.hasAppName()) {
-    body["AppName"] = request.appName();
+    body["AppName"] = request.getAppName();
   }
 
   if (!!request.hasClusterId()) {
-    body["ClusterId"] = request.clusterId();
+    body["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasWorkerType()) {
-    body["WorkerType"] = request.workerType();
+    body["WorkerType"] = request.getWorkerType();
   }
 
   if (!!request.hasWorkers()) {
-    body["Workers"] = request.workers();
+    body["Workers"] = request.getWorkers();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -311,124 +373,124 @@ CreateJobResponse Client::createJobWithOptions(const CreateJobRequest &tmpReq, c
   CreateJobShrinkRequest request = CreateJobShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasCoordinate()) {
-    request.setCoordinateShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.coordinate(), "Coordinate", "json"));
+    request.setCoordinateShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCoordinate(), "Coordinate", "json"));
   }
 
   if (!!tmpReq.hasNoticeConfig()) {
-    request.setNoticeConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.noticeConfig(), "NoticeConfig", "json"));
+    request.setNoticeConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNoticeConfig(), "NoticeConfig", "json"));
   }
 
   if (!!tmpReq.hasNoticeContacts()) {
-    request.setNoticeContactsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.noticeContacts(), "NoticeContacts", "json"));
+    request.setNoticeContactsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNoticeContacts(), "NoticeContacts", "json"));
   }
 
   json body = {};
   if (!!request.hasAppName()) {
-    body["AppName"] = request.appName();
+    body["AppName"] = request.getAppName();
   }
 
   if (!!request.hasAttemptInterval()) {
-    body["AttemptInterval"] = request.attemptInterval();
+    body["AttemptInterval"] = request.getAttemptInterval();
   }
 
   if (!!request.hasCalendar()) {
-    body["Calendar"] = request.calendar();
+    body["Calendar"] = request.getCalendar();
   }
 
   if (!!request.hasChildJobId()) {
-    body["ChildJobId"] = request.childJobId();
+    body["ChildJobId"] = request.getChildJobId();
   }
 
   if (!!request.hasClusterId()) {
-    body["ClusterId"] = request.clusterId();
+    body["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasCoordinateShrink()) {
-    body["Coordinate"] = request.coordinateShrink();
+    body["Coordinate"] = request.getCoordinateShrink();
   }
 
   if (!!request.hasDependentStrategy()) {
-    body["DependentStrategy"] = request.dependentStrategy();
+    body["DependentStrategy"] = request.getDependentStrategy();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasExecutorBlockStrategy()) {
-    body["ExecutorBlockStrategy"] = request.executorBlockStrategy();
+    body["ExecutorBlockStrategy"] = request.getExecutorBlockStrategy();
   }
 
   if (!!request.hasJobHandler()) {
-    body["JobHandler"] = request.jobHandler();
+    body["JobHandler"] = request.getJobHandler();
   }
 
   if (!!request.hasJobType()) {
-    body["JobType"] = request.jobType();
+    body["JobType"] = request.getJobType();
   }
 
   if (!!request.hasMaxAttempt()) {
-    body["MaxAttempt"] = request.maxAttempt();
+    body["MaxAttempt"] = request.getMaxAttempt();
   }
 
   if (!!request.hasMaxConcurrency()) {
-    body["MaxConcurrency"] = request.maxConcurrency();
+    body["MaxConcurrency"] = request.getMaxConcurrency();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasNoticeConfigShrink()) {
-    body["NoticeConfig"] = request.noticeConfigShrink();
+    body["NoticeConfig"] = request.getNoticeConfigShrink();
   }
 
   if (!!request.hasNoticeContactsShrink()) {
-    body["NoticeContacts"] = request.noticeContactsShrink();
+    body["NoticeContacts"] = request.getNoticeContactsShrink();
   }
 
   if (!!request.hasParameters()) {
-    body["Parameters"] = request.parameters();
+    body["Parameters"] = request.getParameters();
   }
 
   if (!!request.hasPriority()) {
-    body["Priority"] = request.priority();
+    body["Priority"] = request.getPriority();
   }
 
   if (!!request.hasRouteStrategy()) {
-    body["RouteStrategy"] = request.routeStrategy();
+    body["RouteStrategy"] = request.getRouteStrategy();
   }
 
   if (!!request.hasScript()) {
-    body["Script"] = request.script();
+    body["Script"] = request.getScript();
   }
 
   if (!!request.hasStartTime()) {
-    body["StartTime"] = request.startTime();
+    body["StartTime"] = request.getStartTime();
   }
 
   if (!!request.hasStartTimeType()) {
-    body["StartTimeType"] = request.startTimeType();
+    body["StartTimeType"] = request.getStartTimeType();
   }
 
   if (!!request.hasStatus()) {
-    body["Status"] = request.status();
+    body["Status"] = request.getStatus();
   }
 
   if (!!request.hasTimeExpression()) {
-    body["TimeExpression"] = request.timeExpression();
+    body["TimeExpression"] = request.getTimeExpression();
   }
 
   if (!!request.hasTimeType()) {
-    body["TimeType"] = request.timeType();
+    body["TimeType"] = request.getTimeType();
   }
 
   if (!!request.hasTimezone()) {
-    body["Timezone"] = request.timezone();
+    body["Timezone"] = request.getTimezone();
   }
 
   if (!!request.hasWeight()) {
-    body["Weight"] = request.weight();
+    body["Weight"] = request.getWeight();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -470,47 +532,47 @@ CreateWorkflowResponse Client::createWorkflowWithOptions(const CreateWorkflowReq
   request.validate();
   json body = {};
   if (!!request.hasAppName()) {
-    body["AppName"] = request.appName();
+    body["AppName"] = request.getAppName();
   }
 
   if (!!request.hasCalendar()) {
-    body["Calendar"] = request.calendar();
+    body["Calendar"] = request.getCalendar();
   }
 
   if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.clientToken();
+    body["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasClusterId()) {
-    body["ClusterId"] = request.clusterId();
+    body["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasMaxConcurrency()) {
-    body["MaxConcurrency"] = request.maxConcurrency();
+    body["MaxConcurrency"] = request.getMaxConcurrency();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasStatus()) {
-    body["Status"] = request.status();
+    body["Status"] = request.getStatus();
   }
 
   if (!!request.hasTimeExpression()) {
-    body["TimeExpression"] = request.timeExpression();
+    body["TimeExpression"] = request.getTimeExpression();
   }
 
   if (!!request.hasTimeType()) {
-    body["TimeType"] = request.timeType();
+    body["TimeType"] = request.getTimeType();
   }
 
   if (!!request.hasTimezone()) {
-    body["Timezone"] = request.timezone();
+    body["Timezone"] = request.getTimezone();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -552,11 +614,11 @@ DeleteAppResponse Client::deleteAppWithOptions(const DeleteAppRequest &request, 
   request.validate();
   json body = {};
   if (!!request.hasAppName()) {
-    body["AppName"] = request.appName();
+    body["AppName"] = request.getAppName();
   }
 
   if (!!request.hasClusterId()) {
-    body["ClusterId"] = request.clusterId();
+    body["ClusterId"] = request.getClusterId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -598,15 +660,15 @@ DeleteCalendarResponse Client::deleteCalendarWithOptions(const DeleteCalendarReq
   request.validate();
   json body = {};
   if (!!request.hasCalendarName()) {
-    body["CalendarName"] = request.calendarName();
+    body["CalendarName"] = request.getCalendarName();
   }
 
   if (!!request.hasClusterId()) {
-    body["ClusterId"] = request.clusterId();
+    body["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasYear()) {
-    body["Year"] = request.year();
+    body["Year"] = request.getYear();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -648,7 +710,7 @@ DeleteClusterResponse Client::deleteClusterWithOptions(const DeleteClusterReques
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -680,6 +742,52 @@ DeleteClusterResponse Client::deleteCluster(const DeleteClusterRequest &request)
 }
 
 /**
+ * @summary 删除数据源
+ *
+ * @param request DeleteDatasourceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteDatasourceResponse
+ */
+DeleteDatasourceResponse Client::deleteDatasourceWithOptions(const DeleteDatasourceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasClusterId()) {
+    body["ClusterId"] = request.getClusterId();
+  }
+
+  if (!!request.hasDatasourceId()) {
+    body["DatasourceId"] = request.getDatasourceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteDatasource"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteDatasourceResponse>();
+}
+
+/**
+ * @summary 删除数据源
+ *
+ * @param request DeleteDatasourceRequest
+ * @return DeleteDatasourceResponse
+ */
+DeleteDatasourceResponse Client::deleteDatasource(const DeleteDatasourceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteDatasourceWithOptions(request, runtime);
+}
+
+/**
  * @summary 批量删除任务
  *
  * @param tmpReq DeleteJobsRequest
@@ -691,20 +799,20 @@ DeleteJobsResponse Client::deleteJobsWithOptions(const DeleteJobsRequest &tmpReq
   DeleteJobsShrinkRequest request = DeleteJobsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasJobIds()) {
-    request.setJobIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.jobIds(), "JobIds", "json"));
+    request.setJobIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getJobIds(), "JobIds", "json"));
   }
 
   json body = {};
   if (!!request.hasAppName()) {
-    body["AppName"] = request.appName();
+    body["AppName"] = request.getAppName();
   }
 
   if (!!request.hasClusterId()) {
-    body["ClusterId"] = request.clusterId();
+    body["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasJobIdsShrink()) {
-    body["JobIds"] = request.jobIdsShrink();
+    body["JobIds"] = request.getJobIdsShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -746,19 +854,19 @@ DeleteWorkflowResponse Client::deleteWorkflowWithOptions(const DeleteWorkflowReq
   request.validate();
   json body = {};
   if (!!request.hasAppName()) {
-    body["AppName"] = request.appName();
+    body["AppName"] = request.getAppName();
   }
 
   if (!!request.hasClusterId()) {
-    body["ClusterId"] = request.clusterId();
+    body["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasDeleteJobs()) {
-    body["DeleteJobs"] = request.deleteJobs();
+    body["DeleteJobs"] = request.getDeleteJobs();
   }
 
   if (!!request.hasWorkflowId()) {
-    body["WorkflowId"] = request.workflowId();
+    body["WorkflowId"] = request.getWorkflowId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -801,24 +909,24 @@ DeleteWorkflowsResponse Client::deleteWorkflowsWithOptions(const DeleteWorkflows
   DeleteWorkflowsShrinkRequest request = DeleteWorkflowsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasWorkflowIds()) {
-    request.setWorkflowIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.workflowIds(), "WorkflowIds", "json"));
+    request.setWorkflowIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getWorkflowIds(), "WorkflowIds", "json"));
   }
 
   json body = {};
   if (!!request.hasAppName()) {
-    body["AppName"] = request.appName();
+    body["AppName"] = request.getAppName();
   }
 
   if (!!request.hasClusterId()) {
-    body["ClusterId"] = request.clusterId();
+    body["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasDeleteJobs()) {
-    body["DeleteJobs"] = request.deleteJobs();
+    body["DeleteJobs"] = request.getDeleteJobs();
   }
 
   if (!!request.hasWorkflowIdsShrink()) {
-    body["WorkflowIds"] = request.workflowIdsShrink();
+    body["WorkflowIds"] = request.getWorkflowIdsShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -861,24 +969,24 @@ ExportJobsResponse Client::exportJobsWithOptions(const ExportJobsRequest &tmpReq
   ExportJobsShrinkRequest request = ExportJobsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasJobIds()) {
-    request.setJobIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.jobIds(), "JobIds", "json"));
+    request.setJobIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getJobIds(), "JobIds", "json"));
   }
 
   json body = {};
   if (!!request.hasAppName()) {
-    body["AppName"] = request.appName();
+    body["AppName"] = request.getAppName();
   }
 
   if (!!request.hasClusterId()) {
-    body["ClusterId"] = request.clusterId();
+    body["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasExportJobType()) {
-    body["ExportJobType"] = request.exportJobType();
+    body["ExportJobType"] = request.getExportJobType();
   }
 
   if (!!request.hasJobIdsShrink()) {
-    body["JobIds"] = request.jobIdsShrink();
+    body["JobIds"] = request.getJobIdsShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -921,20 +1029,20 @@ ExportWorkflowsResponse Client::exportWorkflowsWithOptions(const ExportWorkflows
   ExportWorkflowsShrinkRequest request = ExportWorkflowsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasWorkflowId()) {
-    request.setWorkflowIdShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.workflowId(), "WorkflowId", "json"));
+    request.setWorkflowIdShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getWorkflowId(), "WorkflowId", "json"));
   }
 
   json body = {};
   if (!!request.hasAppName()) {
-    body["AppName"] = request.appName();
+    body["AppName"] = request.getAppName();
   }
 
   if (!!request.hasClusterId()) {
-    body["ClusterId"] = request.clusterId();
+    body["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasWorkflowIdShrink()) {
-    body["WorkflowId"] = request.workflowIdShrink();
+    body["WorkflowId"] = request.getWorkflowIdShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -976,11 +1084,11 @@ GetAppResponse Client::getAppWithOptions(const GetAppRequest &request, const Dar
   request.validate();
   json query = {};
   if (!!request.hasAppName()) {
-    query["AppName"] = request.appName();
+    query["AppName"] = request.getAppName();
   }
 
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1022,15 +1130,15 @@ GetCalendarResponse Client::getCalendarWithOptions(const GetCalendarRequest &req
   request.validate();
   json query = {};
   if (!!request.hasCalendarName()) {
-    query["CalendarName"] = request.calendarName();
+    query["CalendarName"] = request.getCalendarName();
   }
 
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasYear()) {
-    query["Year"] = request.year();
+    query["Year"] = request.getYear();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1148,11 +1256,11 @@ GetExecutorConfigResponse Client::getExecutorConfigWithOptions(const GetExecutor
   request.validate();
   json query = {};
   if (!!request.hasAppName()) {
-    query["AppName"] = request.appName();
+    query["AppName"] = request.getAppName();
   }
 
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1194,19 +1302,19 @@ GetJobExecutionResponse Client::getJobExecutionWithOptions(const GetJobExecution
   request.validate();
   json query = {};
   if (!!request.hasAppName()) {
-    query["AppName"] = request.appName();
+    query["AppName"] = request.getAppName();
   }
 
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasJobExecutionId()) {
-    query["JobExecutionId"] = request.jobExecutionId();
+    query["JobExecutionId"] = request.getJobExecutionId();
   }
 
   if (!!request.hasMseSessionId()) {
-    query["MseSessionId"] = request.mseSessionId();
+    query["MseSessionId"] = request.getMseSessionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1400,15 +1508,15 @@ GetWorkflowResponse Client::getWorkflowWithOptions(const GetWorkflowRequest &req
   request.validate();
   json query = {};
   if (!!request.hasAppName()) {
-    query["AppName"] = request.appName();
+    query["AppName"] = request.getAppName();
   }
 
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasWorkflowId()) {
-    query["WorkflowId"] = request.workflowId();
+    query["WorkflowId"] = request.getWorkflowId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1450,15 +1558,15 @@ GetWorkflowDAGResponse Client::getWorkflowDAGWithOptions(const GetWorkflowDAGReq
   request.validate();
   json query = {};
   if (!!request.hasAppName()) {
-    query["AppName"] = request.appName();
+    query["AppName"] = request.getAppName();
   }
 
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasWorkflowId()) {
-    query["WorkflowId"] = request.workflowId();
+    query["WorkflowId"] = request.getWorkflowId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1500,19 +1608,19 @@ GetWorkflowDAGPreviewResponse Client::getWorkflowDAGPreviewWithOptions(const Get
   request.validate();
   json query = {};
   if (!!request.hasAppName()) {
-    query["AppName"] = request.appName();
+    query["AppName"] = request.getAppName();
   }
 
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasDagVersion()) {
-    query["DagVersion"] = request.dagVersion();
+    query["DagVersion"] = request.getDagVersion();
   }
 
   if (!!request.hasWorkflowId()) {
-    query["WorkflowId"] = request.workflowId();
+    query["WorkflowId"] = request.getWorkflowId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1554,15 +1662,15 @@ GetWorkflowExecutionDAGResponse Client::getWorkflowExecutionDAGWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasAppName()) {
-    query["AppName"] = request.appName();
+    query["AppName"] = request.getAppName();
   }
 
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasWorkflowExecutionId()) {
-    query["WorkflowExecutionId"] = request.workflowExecutionId();
+    query["WorkflowExecutionId"] = request.getWorkflowExecutionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1604,19 +1712,19 @@ ImportCalendarResponse Client::importCalendarWithOptions(const ImportCalendarReq
   request.validate();
   json body = {};
   if (!!request.hasClusterId()) {
-    body["ClusterId"] = request.clusterId();
+    body["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasMonths()) {
-    body["Months"] = request.months();
+    body["Months"] = request.getMonths();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasYear()) {
-    body["Year"] = request.year();
+    body["Year"] = request.getYear();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1658,19 +1766,19 @@ ImportJobsResponse Client::importJobsWithOptions(const ImportJobsRequest &reques
   request.validate();
   json body = {};
   if (!!request.hasAutoCreateApp()) {
-    body["AutoCreateApp"] = request.autoCreateApp();
+    body["AutoCreateApp"] = request.getAutoCreateApp();
   }
 
   if (!!request.hasClusterId()) {
-    body["ClusterId"] = request.clusterId();
+    body["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasContent()) {
-    body["Content"] = request.content();
+    body["Content"] = request.getContent();
   }
 
   if (!!request.hasOverwrite()) {
-    body["Overwrite"] = request.overwrite();
+    body["Overwrite"] = request.getOverwrite();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1712,19 +1820,19 @@ ImportWorkflowsResponse Client::importWorkflowsWithOptions(const ImportWorkflows
   request.validate();
   json body = {};
   if (!!request.hasAutoCreateApp()) {
-    body["AutoCreateApp"] = request.autoCreateApp();
+    body["AutoCreateApp"] = request.getAutoCreateApp();
   }
 
   if (!!request.hasClusterId()) {
-    body["ClusterId"] = request.clusterId();
+    body["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasContent()) {
-    body["Content"] = request.content();
+    body["Content"] = request.getContent();
   }
 
   if (!!request.hasOverwrite()) {
-    body["Overwrite"] = request.overwrite();
+    body["Overwrite"] = request.getOverwrite();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1918,27 +2026,27 @@ ListCalendarsResponse Client::listCalendarsWithOptions(const ListCalendarsReques
   request.validate();
   json query = {};
   if (!!request.hasCalendarName()) {
-    query["CalendarName"] = request.calendarName();
+    query["CalendarName"] = request.getCalendarName();
   }
 
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasFetchCalendarDetail()) {
-    query["FetchCalendarDetail"] = request.fetchCalendarDetail();
+    query["FetchCalendarDetail"] = request.getFetchCalendarDetail();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasYear()) {
-    query["Year"] = request.year();
+    query["Year"] = request.getYear();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2008,6 +2116,72 @@ ListClustersResponse Client::listClusters(const ListClustersRequest &request) {
 }
 
 /**
+ * @summary 获取数据源列表
+ *
+ * @param request ListDatasourcesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListDatasourcesResponse
+ */
+ListDatasourcesResponse Client::listDatasourcesWithOptions(const ListDatasourcesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.getClusterId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPageNum()) {
+    query["PageNum"] = request.getPageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListDatasources"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListDatasourcesResponse>();
+}
+
+/**
+ * @summary 获取数据源列表
+ *
+ * @param request ListDatasourcesRequest
+ * @return ListDatasourcesResponse
+ */
+ListDatasourcesResponse Client::listDatasources(const ListDatasourcesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listDatasourcesWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询Executor列表
  *
  * @param request ListExecutorsRequest
@@ -2056,47 +2230,47 @@ ListJobExecutionsResponse Client::listJobExecutionsWithOptions(const ListJobExec
   request.validate();
   json query = {};
   if (!!request.hasAppName()) {
-    query["AppName"] = request.appName();
+    query["AppName"] = request.getAppName();
   }
 
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasEndTime()) {
-    query["EndTime"] = request.endTime();
+    query["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasJobExecutionId()) {
-    query["JobExecutionId"] = request.jobExecutionId();
+    query["JobExecutionId"] = request.getJobExecutionId();
   }
 
   if (!!request.hasJobId()) {
-    query["JobId"] = request.jobId();
+    query["JobId"] = request.getJobId();
   }
 
   if (!!request.hasJobName()) {
-    query["JobName"] = request.jobName();
+    query["JobName"] = request.getJobName();
   }
 
   if (!!request.hasPageNum()) {
-    query["PageNum"] = request.pageNum();
+    query["PageNum"] = request.getPageNum();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasStartTime()) {
-    query["StartTime"] = request.startTime();
+    query["StartTime"] = request.getStartTime();
   }
 
   if (!!request.hasStatus()) {
-    query["Status"] = request.status();
+    query["Status"] = request.getStatus();
   }
 
   if (!!request.hasWorkflowExecutionId()) {
-    query["WorkflowExecutionId"] = request.workflowExecutionId();
+    query["WorkflowExecutionId"] = request.getWorkflowExecutionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2138,23 +2312,23 @@ ListJobScriptHistoryResponse Client::listJobScriptHistoryWithOptions(const ListJ
   request.validate();
   json query = {};
   if (!!request.hasAppName()) {
-    query["AppName"] = request.appName();
+    query["AppName"] = request.getAppName();
   }
 
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasJobId()) {
-    query["JobId"] = request.jobId();
+    query["JobId"] = request.getJobId();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2196,43 +2370,43 @@ ListJobsResponse Client::listJobsWithOptions(const ListJobsRequest &request, con
   request.validate();
   json query = {};
   if (!!request.hasAppName()) {
-    query["AppName"] = request.appName();
+    query["AppName"] = request.getAppName();
   }
 
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasJobHandler()) {
-    query["JobHandler"] = request.jobHandler();
+    query["JobHandler"] = request.getJobHandler();
   }
 
   if (!!request.hasJobId()) {
-    query["JobId"] = request.jobId();
+    query["JobId"] = request.getJobId();
   }
 
   if (!!request.hasJobName()) {
-    query["JobName"] = request.jobName();
+    query["JobName"] = request.getJobName();
   }
 
   if (!!request.hasPageNum()) {
-    query["PageNum"] = request.pageNum();
+    query["PageNum"] = request.getPageNum();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasStatus()) {
-    query["Status"] = request.status();
+    query["Status"] = request.getStatus();
   }
 
   if (!!request.hasWorkflowId()) {
-    query["WorkflowId"] = request.workflowId();
+    query["WorkflowId"] = request.getWorkflowId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2274,23 +2448,23 @@ ListK8sResourceResponse Client::listK8sResourceWithOptions(const ListK8sResource
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasK8sClusterId()) {
-    query["K8sClusterId"] = request.k8sClusterId();
+    query["K8sClusterId"] = request.getK8sClusterId();
   }
 
   if (!!request.hasK8sNamespace()) {
-    query["K8sNamespace"] = request.k8sNamespace();
+    query["K8sNamespace"] = request.getK8sNamespace();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasVpcId()) {
-    query["VpcId"] = request.vpcId();
+    query["VpcId"] = request.getVpcId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2512,51 +2686,51 @@ ListWorkflowExecutionsResponse Client::listWorkflowExecutionsWithOptions(const L
   request.validate();
   json query = {};
   if (!!request.hasAppName()) {
-    query["AppName"] = request.appName();
+    query["AppName"] = request.getAppName();
   }
 
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasEndTime()) {
-    query["EndTime"] = request.endTime();
+    query["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasPageNum()) {
-    query["PageNum"] = request.pageNum();
+    query["PageNum"] = request.getPageNum();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasStartTime()) {
-    query["StartTime"] = request.startTime();
+    query["StartTime"] = request.getStartTime();
   }
 
   if (!!request.hasStatus()) {
-    query["Status"] = request.status();
+    query["Status"] = request.getStatus();
   }
 
   if (!!request.hasWorkflowExecutionId()) {
-    query["WorkflowExecutionId"] = request.workflowExecutionId();
+    query["WorkflowExecutionId"] = request.getWorkflowExecutionId();
   }
 
   if (!!request.hasWorkflowId()) {
-    query["WorkflowId"] = request.workflowId();
+    query["WorkflowId"] = request.getWorkflowId();
   }
 
   if (!!request.hasWorkflowName()) {
-    query["WorkflowName"] = request.workflowName();
+    query["WorkflowName"] = request.getWorkflowName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2598,23 +2772,23 @@ ListWorkflowVersionsResponse Client::listWorkflowVersionsWithOptions(const ListW
   request.validate();
   json query = {};
   if (!!request.hasAppName()) {
-    query["AppName"] = request.appName();
+    query["AppName"] = request.getAppName();
   }
 
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasWorkflowId()) {
-    query["WorkflowId"] = request.workflowId();
+    query["WorkflowId"] = request.getWorkflowId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2656,43 +2830,43 @@ ListWorkflowsResponse Client::listWorkflowsWithOptions(const ListWorkflowsReques
   request.validate();
   json query = {};
   if (!!request.hasAppName()) {
-    query["AppName"] = request.appName();
+    query["AppName"] = request.getAppName();
   }
 
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasPageNum()) {
-    query["PageNum"] = request.pageNum();
+    query["PageNum"] = request.getPageNum();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasStatus()) {
-    query["Status"] = request.status();
+    query["Status"] = request.getStatus();
   }
 
   if (!!request.hasWorkflowId()) {
-    query["WorkflowId"] = request.workflowId();
+    query["WorkflowId"] = request.getWorkflowId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2734,23 +2908,23 @@ OperateBackfillWorkflowResponse Client::operateBackfillWorkflowWithOptions(const
   request.validate();
   json body = {};
   if (!!request.hasAppName()) {
-    body["AppName"] = request.appName();
+    body["AppName"] = request.getAppName();
   }
 
   if (!!request.hasClusterId()) {
-    body["ClusterId"] = request.clusterId();
+    body["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasEndDate()) {
-    body["EndDate"] = request.endDate();
+    body["EndDate"] = request.getEndDate();
   }
 
   if (!!request.hasStartDate()) {
-    body["StartDate"] = request.startDate();
+    body["StartDate"] = request.getStartDate();
   }
 
   if (!!request.hasWorkflowId()) {
-    body["WorkflowId"] = request.workflowId();
+    body["WorkflowId"] = request.getWorkflowId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2782,6 +2956,60 @@ OperateBackfillWorkflowResponse Client::operateBackfillWorkflow(const OperateBac
 }
 
 /**
+ * @summary 连接数据源
+ *
+ * @param request OperateConnectDatasourceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return OperateConnectDatasourceResponse
+ */
+OperateConnectDatasourceResponse Client::operateConnectDatasourceWithOptions(const OperateConnectDatasourceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasClusterId()) {
+    body["ClusterId"] = request.getClusterId();
+  }
+
+  if (!!request.hasConnectionParams()) {
+    body["ConnectionParams"] = request.getConnectionParams();
+  }
+
+  if (!!request.hasPassword()) {
+    body["Password"] = request.getPassword();
+  }
+
+  if (!!request.hasType()) {
+    body["Type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "OperateConnectDatasource"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<OperateConnectDatasourceResponse>();
+}
+
+/**
+ * @summary 连接数据源
+ *
+ * @param request OperateConnectDatasourceRequest
+ * @return OperateConnectDatasourceResponse
+ */
+OperateConnectDatasourceResponse Client::operateConnectDatasource(const OperateConnectDatasourceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return operateConnectDatasourceWithOptions(request, runtime);
+}
+
+/**
  * @summary 指定执行器
  *
  * @param tmpReq OperateDesignateExecutorsRequest
@@ -2793,32 +3021,32 @@ OperateDesignateExecutorsResponse Client::operateDesignateExecutorsWithOptions(c
   OperateDesignateExecutorsShrinkRequest request = OperateDesignateExecutorsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasAddressList()) {
-    request.setAddressListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.addressList(), "AddressList", "json"));
+    request.setAddressListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAddressList(), "AddressList", "json"));
   }
 
   json body = {};
   if (!!request.hasAddressListShrink()) {
-    body["AddressList"] = request.addressListShrink();
+    body["AddressList"] = request.getAddressListShrink();
   }
 
   if (!!request.hasAppName()) {
-    body["AppName"] = request.appName();
+    body["AppName"] = request.getAppName();
   }
 
   if (!!request.hasClusterId()) {
-    body["ClusterId"] = request.clusterId();
+    body["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasDesignateType()) {
-    body["DesignateType"] = request.designateType();
+    body["DesignateType"] = request.getDesignateType();
   }
 
   if (!!request.hasJobId()) {
-    body["JobId"] = request.jobId();
+    body["JobId"] = request.getJobId();
   }
 
   if (!!request.hasTransferable()) {
-    body["Transferable"] = request.transferable();
+    body["Transferable"] = request.getTransferable();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2861,20 +3089,20 @@ OperateDisableJobsResponse Client::operateDisableJobsWithOptions(const OperateDi
   OperateDisableJobsShrinkRequest request = OperateDisableJobsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasJobIds()) {
-    request.setJobIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.jobIds(), "JobIds", "json"));
+    request.setJobIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getJobIds(), "JobIds", "json"));
   }
 
   json body = {};
   if (!!request.hasAppName()) {
-    body["AppName"] = request.appName();
+    body["AppName"] = request.getAppName();
   }
 
   if (!!request.hasClusterId()) {
-    body["ClusterId"] = request.clusterId();
+    body["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasJobIdsShrink()) {
-    body["JobIds"] = request.jobIdsShrink();
+    body["JobIds"] = request.getJobIdsShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2917,20 +3145,20 @@ OperateDisableWorkflowsResponse Client::operateDisableWorkflowsWithOptions(const
   OperateDisableWorkflowsShrinkRequest request = OperateDisableWorkflowsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasWorkflowIds()) {
-    request.setWorkflowIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.workflowIds(), "WorkflowIds", "json"));
+    request.setWorkflowIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getWorkflowIds(), "WorkflowIds", "json"));
   }
 
   json body = {};
   if (!!request.hasAppName()) {
-    body["AppName"] = request.appName();
+    body["AppName"] = request.getAppName();
   }
 
   if (!!request.hasClusterId()) {
-    body["ClusterId"] = request.clusterId();
+    body["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasWorkflowIdsShrink()) {
-    body["WorkflowIds"] = request.workflowIdsShrink();
+    body["WorkflowIds"] = request.getWorkflowIdsShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2973,20 +3201,20 @@ OperateEnableJobsResponse Client::operateEnableJobsWithOptions(const OperateEnab
   OperateEnableJobsShrinkRequest request = OperateEnableJobsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasJobIds()) {
-    request.setJobIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.jobIds(), "JobIds", "json"));
+    request.setJobIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getJobIds(), "JobIds", "json"));
   }
 
   json body = {};
   if (!!request.hasAppName()) {
-    body["AppName"] = request.appName();
+    body["AppName"] = request.getAppName();
   }
 
   if (!!request.hasClusterId()) {
-    body["ClusterId"] = request.clusterId();
+    body["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasJobIdsShrink()) {
-    body["JobIds"] = request.jobIdsShrink();
+    body["JobIds"] = request.getJobIdsShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3029,20 +3257,20 @@ OperateEnableWorkflowsResponse Client::operateEnableWorkflowsWithOptions(const O
   OperateEnableWorkflowsShrinkRequest request = OperateEnableWorkflowsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasWorkflowIds()) {
-    request.setWorkflowIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.workflowIds(), "WorkflowIds", "json"));
+    request.setWorkflowIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getWorkflowIds(), "WorkflowIds", "json"));
   }
 
   json body = {};
   if (!!request.hasAppName()) {
-    body["AppName"] = request.appName();
+    body["AppName"] = request.getAppName();
   }
 
   if (!!request.hasClusterId()) {
-    body["ClusterId"] = request.clusterId();
+    body["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasWorkflowIdsShrink()) {
-    body["WorkflowIds"] = request.workflowIdsShrink();
+    body["WorkflowIds"] = request.getWorkflowIdsShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3084,27 +3312,27 @@ OperateExecuteJobResponse Client::operateExecuteJobWithOptions(const OperateExec
   request.validate();
   json body = {};
   if (!!request.hasAppName()) {
-    body["AppName"] = request.appName();
+    body["AppName"] = request.getAppName();
   }
 
   if (!!request.hasClusterId()) {
-    body["ClusterId"] = request.clusterId();
+    body["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasInstanceParameters()) {
-    body["InstanceParameters"] = request.instanceParameters();
+    body["InstanceParameters"] = request.getInstanceParameters();
   }
 
   if (!!request.hasJobId()) {
-    body["JobId"] = request.jobId();
+    body["JobId"] = request.getJobId();
   }
 
   if (!!request.hasLabel()) {
-    body["Label"] = request.label();
+    body["Label"] = request.getLabel();
   }
 
   if (!!request.hasWorker()) {
-    body["Worker"] = request.worker();
+    body["Worker"] = request.getWorker();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3146,15 +3374,15 @@ OperateExecuteWorkflowResponse Client::operateExecuteWorkflowWithOptions(const O
   request.validate();
   json body = {};
   if (!!request.hasAppName()) {
-    body["AppName"] = request.appName();
+    body["AppName"] = request.getAppName();
   }
 
   if (!!request.hasClusterId()) {
-    body["ClusterId"] = request.clusterId();
+    body["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasWorkflowId()) {
-    body["WorkflowId"] = request.workflowId();
+    body["WorkflowId"] = request.getWorkflowId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3196,15 +3424,15 @@ OperateHoldJobExecutionResponse Client::operateHoldJobExecutionWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasAppName()) {
-    query["AppName"] = request.appName();
+    query["AppName"] = request.getAppName();
   }
 
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasJobExecutionId()) {
-    query["JobExecutionId"] = request.jobExecutionId();
+    query["JobExecutionId"] = request.getJobExecutionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3246,15 +3474,15 @@ OperateHoldWorkflowExecutionResponse Client::operateHoldWorkflowExecutionWithOpt
   request.validate();
   json body = {};
   if (!!request.hasAppName()) {
-    body["AppName"] = request.appName();
+    body["AppName"] = request.getAppName();
   }
 
   if (!!request.hasClusterId()) {
-    body["ClusterId"] = request.clusterId();
+    body["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasWorkflowExecutionId()) {
-    body["WorkflowExecutionId"] = request.workflowExecutionId();
+    body["WorkflowExecutionId"] = request.getWorkflowExecutionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3296,15 +3524,15 @@ OperateMarkSuccessJobExecutionResponse Client::operateMarkSuccessJobExecutionWit
   request.validate();
   json query = {};
   if (!!request.hasAppName()) {
-    query["AppName"] = request.appName();
+    query["AppName"] = request.getAppName();
   }
 
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasJobExecutionId()) {
-    query["JobExecutionId"] = request.jobExecutionId();
+    query["JobExecutionId"] = request.getJobExecutionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3346,15 +3574,15 @@ OperateMarkSuccessWorkflowExecutionResponse Client::operateMarkSuccessWorkflowEx
   request.validate();
   json body = {};
   if (!!request.hasAppName()) {
-    body["AppName"] = request.appName();
+    body["AppName"] = request.getAppName();
   }
 
   if (!!request.hasClusterId()) {
-    body["ClusterId"] = request.clusterId();
+    body["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasWorkflowExecutionId()) {
-    body["WorkflowExecutionId"] = request.workflowExecutionId();
+    body["WorkflowExecutionId"] = request.getWorkflowExecutionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3396,27 +3624,27 @@ OperateRerunJobResponse Client::operateRerunJobWithOptions(const OperateRerunJob
   request.validate();
   json query = {};
   if (!!request.hasAppName()) {
-    query["AppName"] = request.appName();
+    query["AppName"] = request.getAppName();
   }
 
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasDataTime()) {
-    query["DataTime"] = request.dataTime();
+    query["DataTime"] = request.getDataTime();
   }
 
   if (!!request.hasEndDate()) {
-    query["EndDate"] = request.endDate();
+    query["EndDate"] = request.getEndDate();
   }
 
   if (!!request.hasJobId()) {
-    query["JobId"] = request.jobId();
+    query["JobId"] = request.getJobId();
   }
 
   if (!!request.hasStartDate()) {
-    query["StartDate"] = request.startDate();
+    query["StartDate"] = request.getStartDate();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3459,28 +3687,28 @@ OperateRetryJobExecutionResponse Client::operateRetryJobExecutionWithOptions(con
   OperateRetryJobExecutionShrinkRequest request = OperateRetryJobExecutionShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasTaskList()) {
-    request.setTaskListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.taskList(), "TaskList", "json"));
+    request.setTaskListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTaskList(), "TaskList", "json"));
   }
 
   json query = {};
   if (!!request.hasAppName()) {
-    query["AppName"] = request.appName();
+    query["AppName"] = request.getAppName();
   }
 
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasJobExecutionId()) {
-    query["JobExecutionId"] = request.jobExecutionId();
+    query["JobExecutionId"] = request.getJobExecutionId();
   }
 
   if (!!request.hasTaskListShrink()) {
-    query["TaskList"] = request.taskListShrink();
+    query["TaskList"] = request.getTaskListShrink();
   }
 
   if (!!request.hasTriggerChild()) {
-    query["TriggerChild"] = request.triggerChild();
+    query["TriggerChild"] = request.getTriggerChild();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3522,19 +3750,19 @@ OperateRetryWorkflowExecutionResponse Client::operateRetryWorkflowExecutionWithO
   request.validate();
   json body = {};
   if (!!request.hasAppName()) {
-    body["AppName"] = request.appName();
+    body["AppName"] = request.getAppName();
   }
 
   if (!!request.hasClusterId()) {
-    body["ClusterId"] = request.clusterId();
+    body["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasOnlyFailed()) {
-    body["OnlyFailed"] = request.onlyFailed();
+    body["OnlyFailed"] = request.getOnlyFailed();
   }
 
   if (!!request.hasWorkflowExecutionId()) {
-    body["WorkflowExecutionId"] = request.workflowExecutionId();
+    body["WorkflowExecutionId"] = request.getWorkflowExecutionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3576,15 +3804,15 @@ OperateSkipJobExecutionResponse Client::operateSkipJobExecutionWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasAppName()) {
-    query["AppName"] = request.appName();
+    query["AppName"] = request.getAppName();
   }
 
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasJobExecutionId()) {
-    query["JobExecutionId"] = request.jobExecutionId();
+    query["JobExecutionId"] = request.getJobExecutionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3627,24 +3855,24 @@ OperateStopJobExecutionResponse Client::operateStopJobExecutionWithOptions(const
   OperateStopJobExecutionShrinkRequest request = OperateStopJobExecutionShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasTaskList()) {
-    request.setTaskListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.taskList(), "TaskList", "json"));
+    request.setTaskListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTaskList(), "TaskList", "json"));
   }
 
   json query = {};
   if (!!request.hasAppName()) {
-    query["AppName"] = request.appName();
+    query["AppName"] = request.getAppName();
   }
 
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasJobExecutionId()) {
-    query["JobExecutionId"] = request.jobExecutionId();
+    query["JobExecutionId"] = request.getJobExecutionId();
   }
 
   if (!!request.hasTaskListShrink()) {
-    query["TaskList"] = request.taskListShrink();
+    query["TaskList"] = request.getTaskListShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3686,15 +3914,15 @@ OperateStopWorkflowExecutionResponse Client::operateStopWorkflowExecutionWithOpt
   request.validate();
   json body = {};
   if (!!request.hasAppName()) {
-    body["AppName"] = request.appName();
+    body["AppName"] = request.getAppName();
   }
 
   if (!!request.hasClusterId()) {
-    body["ClusterId"] = request.clusterId();
+    body["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasWorkflowExecutionId()) {
-    body["WorkflowExecutionId"] = request.workflowExecutionId();
+    body["WorkflowExecutionId"] = request.getWorkflowExecutionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3736,15 +3964,15 @@ OperateUnholdJobExecutionResponse Client::operateUnholdJobExecutionWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasAppName()) {
-    query["AppName"] = request.appName();
+    query["AppName"] = request.getAppName();
   }
 
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasJobExecutionId()) {
-    query["JobExecutionId"] = request.jobExecutionId();
+    query["JobExecutionId"] = request.getJobExecutionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3786,15 +4014,15 @@ OperateUnholdWorkflowExecutionResponse Client::operateUnholdWorkflowExecutionWit
   request.validate();
   json body = {};
   if (!!request.hasAppName()) {
-    body["AppName"] = request.appName();
+    body["AppName"] = request.getAppName();
   }
 
   if (!!request.hasClusterId()) {
-    body["ClusterId"] = request.clusterId();
+    body["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasWorkflowExecutionId()) {
-    body["WorkflowExecutionId"] = request.workflowExecutionId();
+    body["WorkflowExecutionId"] = request.getWorkflowExecutionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3836,15 +4064,15 @@ OperateUnskipJobExecutionResponse Client::operateUnskipJobExecutionWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasAppName()) {
-    query["AppName"] = request.appName();
+    query["AppName"] = request.getAppName();
   }
 
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasJobExecutionId()) {
-    query["JobExecutionId"] = request.jobExecutionId();
+    query["JobExecutionId"] = request.getJobExecutionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3887,28 +4115,28 @@ SyncJobsResponse Client::syncJobsWithOptions(const SyncJobsRequest &tmpReq, cons
   SyncJobsShrinkRequest request = SyncJobsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasJobIds()) {
-    request.setJobIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.jobIds(), "JobIds", "json"));
+    request.setJobIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getJobIds(), "JobIds", "json"));
   }
 
   json body = {};
   if (!!request.hasJobIdsShrink()) {
-    body["JobIds"] = request.jobIdsShrink();
+    body["JobIds"] = request.getJobIdsShrink();
   }
 
   if (!!request.hasOriginalAppName()) {
-    body["OriginalAppName"] = request.originalAppName();
+    body["OriginalAppName"] = request.getOriginalAppName();
   }
 
   if (!!request.hasOriginalClusterId()) {
-    body["OriginalClusterId"] = request.originalClusterId();
+    body["OriginalClusterId"] = request.getOriginalClusterId();
   }
 
   if (!!request.hasTargetAppName()) {
-    body["TargetAppName"] = request.targetAppName();
+    body["TargetAppName"] = request.getTargetAppName();
   }
 
   if (!!request.hasTargetClusterId()) {
-    body["TargetClusterId"] = request.targetClusterId();
+    body["TargetClusterId"] = request.getTargetClusterId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3950,31 +4178,31 @@ UpdateAppResponse Client::updateAppWithOptions(const UpdateAppRequest &request, 
   request.validate();
   json body = {};
   if (!!request.hasAccessToken()) {
-    body["AccessToken"] = request.accessToken();
+    body["AccessToken"] = request.getAccessToken();
   }
 
   if (!!request.hasAppName()) {
-    body["AppName"] = request.appName();
+    body["AppName"] = request.getAppName();
   }
 
   if (!!request.hasClusterId()) {
-    body["ClusterId"] = request.clusterId();
+    body["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasEnableLog()) {
-    body["EnableLog"] = request.enableLog();
+    body["EnableLog"] = request.getEnableLog();
   }
 
   if (!!request.hasLabelRouteStrategy()) {
-    body["LabelRouteStrategy"] = request.labelRouteStrategy();
+    body["LabelRouteStrategy"] = request.getLabelRouteStrategy();
   }
 
   if (!!request.hasMaxConcurrency()) {
-    body["MaxConcurrency"] = request.maxConcurrency();
+    body["MaxConcurrency"] = request.getMaxConcurrency();
   }
 
   if (!!request.hasTitle()) {
-    body["Title"] = request.title();
+    body["Title"] = request.getTitle();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4016,27 +4244,27 @@ UpdateCalendarResponse Client::updateCalendarWithOptions(const UpdateCalendarReq
   request.validate();
   json body = {};
   if (!!request.hasCalendarName()) {
-    body["CalendarName"] = request.calendarName();
+    body["CalendarName"] = request.getCalendarName();
   }
 
   if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.clientToken();
+    body["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasClusterId()) {
-    body["ClusterId"] = request.clusterId();
+    body["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasIncremental()) {
-    body["Incremental"] = request.incremental();
+    body["Incremental"] = request.getIncremental();
   }
 
   if (!!request.hasMonths()) {
-    body["Months"] = request.months();
+    body["Months"] = request.getMonths();
   }
 
   if (!!request.hasYear()) {
-    body["Year"] = request.year();
+    body["Year"] = request.getYear();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4076,18 +4304,22 @@ UpdateCalendarResponse Client::updateCalendar(const UpdateCalendarRequest &reque
  */
 UpdateClusterResponse Client::updateClusterWithOptions(const UpdateClusterRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  json query = {};
+  json body = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    body["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasClusterName()) {
-    query["ClusterName"] = request.clusterName();
+    body["ClusterName"] = request.getClusterName();
+  }
+
+  if (!!request.hasIpWhitelist()) {
+    body["IpWhitelist"] = request.getIpWhitelist();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "UpdateCluster"},
     {"version" , "2024-06-24"},
@@ -4114,6 +4346,68 @@ UpdateClusterResponse Client::updateCluster(const UpdateClusterRequest &request)
 }
 
 /**
+ * @summary 更新数据源
+ *
+ * @param request UpdateDatasourceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateDatasourceResponse
+ */
+UpdateDatasourceResponse Client::updateDatasourceWithOptions(const UpdateDatasourceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasClusterId()) {
+    body["ClusterId"] = request.getClusterId();
+  }
+
+  if (!!request.hasConnectionParams()) {
+    body["ConnectionParams"] = request.getConnectionParams();
+  }
+
+  if (!!request.hasDatasourceId()) {
+    body["DatasourceId"] = request.getDatasourceId();
+  }
+
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  if (!!request.hasPassword()) {
+    body["Password"] = request.getPassword();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateDatasource"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateDatasourceResponse>();
+}
+
+/**
+ * @summary 更新数据源
+ *
+ * @param request UpdateDatasourceRequest
+ * @return UpdateDatasourceResponse
+ */
+UpdateDatasourceResponse Client::updateDatasource(const UpdateDatasourceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateDatasourceWithOptions(request, runtime);
+}
+
+/**
  * @summary 更新执行器
  *
  * @param request UpdateExecutorsRequest
@@ -4124,19 +4418,19 @@ UpdateExecutorsResponse Client::updateExecutorsWithOptions(const UpdateExecutors
   request.validate();
   json body = {};
   if (!!request.hasAppName()) {
-    body["AppName"] = request.appName();
+    body["AppName"] = request.getAppName();
   }
 
   if (!!request.hasClusterId()) {
-    body["ClusterId"] = request.clusterId();
+    body["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasWorkerType()) {
-    body["WorkerType"] = request.workerType();
+    body["WorkerType"] = request.getWorkerType();
   }
 
   if (!!request.hasWorkers()) {
-    body["Workers"] = request.workers();
+    body["Workers"] = request.getWorkers();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4179,112 +4473,112 @@ UpdateJobResponse Client::updateJobWithOptions(const UpdateJobRequest &tmpReq, c
   UpdateJobShrinkRequest request = UpdateJobShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasNoticeConfig()) {
-    request.setNoticeConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.noticeConfig(), "NoticeConfig", "json"));
+    request.setNoticeConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNoticeConfig(), "NoticeConfig", "json"));
   }
 
   if (!!tmpReq.hasNoticeContacts()) {
-    request.setNoticeContactsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.noticeContacts(), "NoticeContacts", "json"));
+    request.setNoticeContactsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNoticeContacts(), "NoticeContacts", "json"));
   }
 
   json body = {};
   if (!!request.hasAppName()) {
-    body["AppName"] = request.appName();
+    body["AppName"] = request.getAppName();
   }
 
   if (!!request.hasAttemptInterval()) {
-    body["AttemptInterval"] = request.attemptInterval();
+    body["AttemptInterval"] = request.getAttemptInterval();
   }
 
   if (!!request.hasCalendar()) {
-    body["Calendar"] = request.calendar();
+    body["Calendar"] = request.getCalendar();
   }
 
   if (!!request.hasChildJobId()) {
-    body["ChildJobId"] = request.childJobId();
+    body["ChildJobId"] = request.getChildJobId();
   }
 
   if (!!request.hasClusterId()) {
-    body["ClusterId"] = request.clusterId();
+    body["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasDependentStrategy()) {
-    body["DependentStrategy"] = request.dependentStrategy();
+    body["DependentStrategy"] = request.getDependentStrategy();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasExecutorBlockStrategy()) {
-    body["ExecutorBlockStrategy"] = request.executorBlockStrategy();
+    body["ExecutorBlockStrategy"] = request.getExecutorBlockStrategy();
   }
 
   if (!!request.hasJobHandler()) {
-    body["JobHandler"] = request.jobHandler();
+    body["JobHandler"] = request.getJobHandler();
   }
 
   if (!!request.hasJobId()) {
-    body["JobId"] = request.jobId();
+    body["JobId"] = request.getJobId();
   }
 
   if (!!request.hasMaxAttempt()) {
-    body["MaxAttempt"] = request.maxAttempt();
+    body["MaxAttempt"] = request.getMaxAttempt();
   }
 
   if (!!request.hasMaxConcurrency()) {
-    body["MaxConcurrency"] = request.maxConcurrency();
+    body["MaxConcurrency"] = request.getMaxConcurrency();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasNoticeConfigShrink()) {
-    body["NoticeConfig"] = request.noticeConfigShrink();
+    body["NoticeConfig"] = request.getNoticeConfigShrink();
   }
 
   if (!!request.hasNoticeContactsShrink()) {
-    body["NoticeContacts"] = request.noticeContactsShrink();
+    body["NoticeContacts"] = request.getNoticeContactsShrink();
   }
 
   if (!!request.hasParameters()) {
-    body["Parameters"] = request.parameters();
+    body["Parameters"] = request.getParameters();
   }
 
   if (!!request.hasPriority()) {
-    body["Priority"] = request.priority();
+    body["Priority"] = request.getPriority();
   }
 
   if (!!request.hasRouteStrategy()) {
-    body["RouteStrategy"] = request.routeStrategy();
+    body["RouteStrategy"] = request.getRouteStrategy();
   }
 
   if (!!request.hasScript()) {
-    body["Script"] = request.script();
+    body["Script"] = request.getScript();
   }
 
   if (!!request.hasStartTime()) {
-    body["StartTime"] = request.startTime();
+    body["StartTime"] = request.getStartTime();
   }
 
   if (!!request.hasStartTimeType()) {
-    body["StartTimeType"] = request.startTimeType();
+    body["StartTimeType"] = request.getStartTimeType();
   }
 
   if (!!request.hasTimeExpression()) {
-    body["TimeExpression"] = request.timeExpression();
+    body["TimeExpression"] = request.getTimeExpression();
   }
 
   if (!!request.hasTimeType()) {
-    body["TimeType"] = request.timeType();
+    body["TimeType"] = request.getTimeType();
   }
 
   if (!!request.hasTimezone()) {
-    body["Timezone"] = request.timezone();
+    body["Timezone"] = request.getTimezone();
   }
 
   if (!!request.hasWeight()) {
-    body["Weight"] = request.weight();
+    body["Weight"] = request.getWeight();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4316,6 +4610,60 @@ UpdateJobResponse Client::updateJob(const UpdateJobRequest &request) {
 }
 
 /**
+ * @summary 更新任务实例
+ *
+ * @param request UpdateJobExecutionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateJobExecutionResponse
+ */
+UpdateJobExecutionResponse Client::updateJobExecutionWithOptions(const UpdateJobExecutionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAppName()) {
+    body["AppName"] = request.getAppName();
+  }
+
+  if (!!request.hasClusterId()) {
+    body["ClusterId"] = request.getClusterId();
+  }
+
+  if (!!request.hasJobExecutionId()) {
+    body["JobExecutionId"] = request.getJobExecutionId();
+  }
+
+  if (!!request.hasScheduleTime()) {
+    body["ScheduleTime"] = request.getScheduleTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateJobExecution"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateJobExecutionResponse>();
+}
+
+/**
+ * @summary 更新任务实例
+ *
+ * @param request UpdateJobExecutionRequest
+ * @return UpdateJobExecutionResponse
+ */
+UpdateJobExecutionResponse Client::updateJobExecution(const UpdateJobExecutionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateJobExecutionWithOptions(request, runtime);
+}
+
+/**
  * @summary 更新任务脚本内容
  *
  * @param request UpdateJobScriptRequest
@@ -4326,23 +4674,23 @@ UpdateJobScriptResponse Client::updateJobScriptWithOptions(const UpdateJobScript
   request.validate();
   json body = {};
   if (!!request.hasAppName()) {
-    body["AppName"] = request.appName();
+    body["AppName"] = request.getAppName();
   }
 
   if (!!request.hasClusterId()) {
-    body["ClusterId"] = request.clusterId();
+    body["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasJobId()) {
-    body["JobId"] = request.jobId();
+    body["JobId"] = request.getJobId();
   }
 
   if (!!request.hasScriptContent()) {
-    body["ScriptContent"] = request.scriptContent();
+    body["ScriptContent"] = request.getScriptContent();
   }
 
   if (!!request.hasVersionDescription()) {
-    body["VersionDescription"] = request.versionDescription();
+    body["VersionDescription"] = request.getVersionDescription();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4384,47 +4732,47 @@ UpdateWorkflowResponse Client::updateWorkflowWithOptions(const UpdateWorkflowReq
   request.validate();
   json body = {};
   if (!!request.hasAppName()) {
-    body["AppName"] = request.appName();
+    body["AppName"] = request.getAppName();
   }
 
   if (!!request.hasCalendar()) {
-    body["Calendar"] = request.calendar();
+    body["Calendar"] = request.getCalendar();
   }
 
   if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.clientToken();
+    body["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasClusterId()) {
-    body["ClusterId"] = request.clusterId();
+    body["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasMaxConcurrency()) {
-    body["MaxConcurrency"] = request.maxConcurrency();
+    body["MaxConcurrency"] = request.getMaxConcurrency();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasTimeExpression()) {
-    body["TimeExpression"] = request.timeExpression();
+    body["TimeExpression"] = request.getTimeExpression();
   }
 
   if (!!request.hasTimeType()) {
-    body["TimeType"] = request.timeType();
+    body["TimeType"] = request.getTimeType();
   }
 
   if (!!request.hasTimezone()) {
-    body["Timezone"] = request.timezone();
+    body["Timezone"] = request.getTimezone();
   }
 
   if (!!request.hasWorkflowId()) {
-    body["WorkflowId"] = request.workflowId();
+    body["WorkflowId"] = request.getWorkflowId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4467,28 +4815,28 @@ UpdateWorkflowDAGResponse Client::updateWorkflowDAGWithOptions(const UpdateWorkf
   UpdateWorkflowDAGShrinkRequest request = UpdateWorkflowDAGShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDag()) {
-    request.setDagShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.dag(), "Dag", "json"));
+    request.setDagShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDag(), "Dag", "json"));
   }
 
   json body = {};
   if (!!request.hasAppName()) {
-    body["AppName"] = request.appName();
+    body["AppName"] = request.getAppName();
   }
 
   if (!!request.hasClusterId()) {
-    body["ClusterId"] = request.clusterId();
+    body["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasDagShrink()) {
-    body["Dag"] = request.dagShrink();
+    body["Dag"] = request.getDagShrink();
   }
 
   if (!!request.hasDagVersion()) {
-    body["DagVersion"] = request.dagVersion();
+    body["DagVersion"] = request.getDagVersion();
   }
 
   if (!!request.hasWorkflowId()) {
-    body["WorkflowId"] = request.workflowId();
+    body["WorkflowId"] = request.getWorkflowId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4530,19 +4878,19 @@ UpdateWorkflowDAGVersionResponse Client::updateWorkflowDAGVersionWithOptions(con
   request.validate();
   json body = {};
   if (!!request.hasAppName()) {
-    body["AppName"] = request.appName();
+    body["AppName"] = request.getAppName();
   }
 
   if (!!request.hasClusterId()) {
-    body["ClusterId"] = request.clusterId();
+    body["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasDagVersion()) {
-    body["DagVersion"] = request.dagVersion();
+    body["DagVersion"] = request.getDagVersion();
   }
 
   if (!!request.hasWorkflowId()) {
-    body["WorkflowId"] = request.workflowId();
+    body["WorkflowId"] = request.getWorkflowId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

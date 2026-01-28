@@ -38,52 +38,52 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appName_ == nullptr
-        && return this->clusterId_ == nullptr && return this->jobId_ == nullptr && return this->scriptContent_ == nullptr && return this->versionDescription_ == nullptr; };
+        && this->clusterId_ == nullptr && this->jobId_ == nullptr && this->scriptContent_ == nullptr && this->versionDescription_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
-    inline string appName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
+    inline string getAppName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
     inline UpdateJobScriptRequest& setAppName(string appName) { DARABONBA_PTR_SET_VALUE(appName_, appName) };
 
 
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline UpdateJobScriptRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // jobId Field Functions 
     bool hasJobId() const { return this->jobId_ != nullptr;};
     void deleteJobId() { this->jobId_ = nullptr;};
-    inline int64_t jobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, 0L) };
+    inline int64_t getJobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, 0L) };
     inline UpdateJobScriptRequest& setJobId(int64_t jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
 
 
     // scriptContent Field Functions 
     bool hasScriptContent() const { return this->scriptContent_ != nullptr;};
     void deleteScriptContent() { this->scriptContent_ = nullptr;};
-    inline string scriptContent() const { DARABONBA_PTR_GET_DEFAULT(scriptContent_, "") };
+    inline string getScriptContent() const { DARABONBA_PTR_GET_DEFAULT(scriptContent_, "") };
     inline UpdateJobScriptRequest& setScriptContent(string scriptContent) { DARABONBA_PTR_SET_VALUE(scriptContent_, scriptContent) };
 
 
     // versionDescription Field Functions 
     bool hasVersionDescription() const { return this->versionDescription_ != nullptr;};
     void deleteVersionDescription() { this->versionDescription_ = nullptr;};
-    inline string versionDescription() const { DARABONBA_PTR_GET_DEFAULT(versionDescription_, "") };
+    inline string getVersionDescription() const { DARABONBA_PTR_GET_DEFAULT(versionDescription_, "") };
     inline UpdateJobScriptRequest& setVersionDescription(string versionDescription) { DARABONBA_PTR_SET_VALUE(versionDescription_, versionDescription) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> appName_ = nullptr;
+    shared_ptr<string> appName_ {};
     // This parameter is required.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> jobId_ = nullptr;
-    std::shared_ptr<string> scriptContent_ = nullptr;
+    shared_ptr<int64_t> jobId_ {};
+    shared_ptr<string> scriptContent_ {};
     // This parameter is required.
-    std::shared_ptr<string> versionDescription_ = nullptr;
+    shared_ptr<string> versionDescription_ {};
   };
 
   } // namespace Models

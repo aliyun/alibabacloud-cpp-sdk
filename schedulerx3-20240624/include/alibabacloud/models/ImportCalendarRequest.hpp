@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterId_ == nullptr
-        && return this->months_ == nullptr && return this->name_ == nullptr && return this->year_ == nullptr; };
+        && this->months_ == nullptr && this->name_ == nullptr && this->year_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline ImportCalendarRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // months Field Functions 
     bool hasMonths() const { return this->months_ != nullptr;};
     void deleteMonths() { this->months_ = nullptr;};
-    inline string months() const { DARABONBA_PTR_GET_DEFAULT(months_, "") };
+    inline string getMonths() const { DARABONBA_PTR_GET_DEFAULT(months_, "") };
     inline ImportCalendarRequest& setMonths(string months) { DARABONBA_PTR_SET_VALUE(months_, months) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline ImportCalendarRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // year Field Functions 
     bool hasYear() const { return this->year_ != nullptr;};
     void deleteYear() { this->year_ = nullptr;};
-    inline int32_t year() const { DARABONBA_PTR_GET_DEFAULT(year_, 0) };
+    inline int32_t getYear() const { DARABONBA_PTR_GET_DEFAULT(year_, 0) };
     inline ImportCalendarRequest& setYear(int32_t year) { DARABONBA_PTR_SET_VALUE(year_, year) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // This parameter is required.
-    std::shared_ptr<string> months_ = nullptr;
+    shared_ptr<string> months_ {};
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> year_ = nullptr;
+    shared_ptr<int32_t> year_ {};
   };
 
   } // namespace Models

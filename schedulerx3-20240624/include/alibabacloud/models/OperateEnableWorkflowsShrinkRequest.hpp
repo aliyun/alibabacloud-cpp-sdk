@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appName_ == nullptr
-        && return this->clusterId_ == nullptr && return this->workflowIdsShrink_ == nullptr; };
+        && this->clusterId_ == nullptr && this->workflowIdsShrink_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
-    inline string appName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
+    inline string getAppName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
     inline OperateEnableWorkflowsShrinkRequest& setAppName(string appName) { DARABONBA_PTR_SET_VALUE(appName_, appName) };
 
 
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline OperateEnableWorkflowsShrinkRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // workflowIdsShrink Field Functions 
     bool hasWorkflowIdsShrink() const { return this->workflowIdsShrink_ != nullptr;};
     void deleteWorkflowIdsShrink() { this->workflowIdsShrink_ = nullptr;};
-    inline string workflowIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(workflowIdsShrink_, "") };
+    inline string getWorkflowIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(workflowIdsShrink_, "") };
     inline OperateEnableWorkflowsShrinkRequest& setWorkflowIdsShrink(string workflowIdsShrink) { DARABONBA_PTR_SET_VALUE(workflowIdsShrink_, workflowIdsShrink) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> appName_ = nullptr;
+    shared_ptr<string> appName_ {};
     // This parameter is required.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // This parameter is required.
-    std::shared_ptr<string> workflowIdsShrink_ = nullptr;
+    shared_ptr<string> workflowIdsShrink_ {};
   };
 
   } // namespace Models

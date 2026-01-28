@@ -40,60 +40,60 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->calendarName_ == nullptr
-        && return this->clientToken_ == nullptr && return this->clusterId_ == nullptr && return this->incremental_ == nullptr && return this->months_ == nullptr && return this->year_ == nullptr; };
+        && this->clientToken_ == nullptr && this->clusterId_ == nullptr && this->incremental_ == nullptr && this->months_ == nullptr && this->year_ == nullptr; };
     // calendarName Field Functions 
     bool hasCalendarName() const { return this->calendarName_ != nullptr;};
     void deleteCalendarName() { this->calendarName_ = nullptr;};
-    inline string calendarName() const { DARABONBA_PTR_GET_DEFAULT(calendarName_, "") };
+    inline string getCalendarName() const { DARABONBA_PTR_GET_DEFAULT(calendarName_, "") };
     inline UpdateCalendarRequest& setCalendarName(string calendarName) { DARABONBA_PTR_SET_VALUE(calendarName_, calendarName) };
 
 
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline UpdateCalendarRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline UpdateCalendarRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // incremental Field Functions 
     bool hasIncremental() const { return this->incremental_ != nullptr;};
     void deleteIncremental() { this->incremental_ = nullptr;};
-    inline bool incremental() const { DARABONBA_PTR_GET_DEFAULT(incremental_, false) };
+    inline bool getIncremental() const { DARABONBA_PTR_GET_DEFAULT(incremental_, false) };
     inline UpdateCalendarRequest& setIncremental(bool incremental) { DARABONBA_PTR_SET_VALUE(incremental_, incremental) };
 
 
     // months Field Functions 
     bool hasMonths() const { return this->months_ != nullptr;};
     void deleteMonths() { this->months_ = nullptr;};
-    inline string months() const { DARABONBA_PTR_GET_DEFAULT(months_, "") };
+    inline string getMonths() const { DARABONBA_PTR_GET_DEFAULT(months_, "") };
     inline UpdateCalendarRequest& setMonths(string months) { DARABONBA_PTR_SET_VALUE(months_, months) };
 
 
     // year Field Functions 
     bool hasYear() const { return this->year_ != nullptr;};
     void deleteYear() { this->year_ = nullptr;};
-    inline int32_t year() const { DARABONBA_PTR_GET_DEFAULT(year_, 0) };
+    inline int32_t getYear() const { DARABONBA_PTR_GET_DEFAULT(year_, 0) };
     inline UpdateCalendarRequest& setYear(int32_t year) { DARABONBA_PTR_SET_VALUE(year_, year) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> calendarName_ = nullptr;
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> calendarName_ {};
+    shared_ptr<string> clientToken_ {};
     // This parameter is required.
-    std::shared_ptr<string> clusterId_ = nullptr;
-    std::shared_ptr<bool> incremental_ = nullptr;
+    shared_ptr<string> clusterId_ {};
+    shared_ptr<bool> incremental_ {};
     // This parameter is required.
-    std::shared_ptr<string> months_ = nullptr;
+    shared_ptr<string> months_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> year_ = nullptr;
+    shared_ptr<int32_t> year_ {};
   };
 
   } // namespace Models

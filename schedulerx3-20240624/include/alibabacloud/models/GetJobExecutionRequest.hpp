@@ -36,43 +36,43 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appName_ == nullptr
-        && return this->clusterId_ == nullptr && return this->jobExecutionId_ == nullptr && return this->mseSessionId_ == nullptr; };
+        && this->clusterId_ == nullptr && this->jobExecutionId_ == nullptr && this->mseSessionId_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
-    inline string appName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
+    inline string getAppName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
     inline GetJobExecutionRequest& setAppName(string appName) { DARABONBA_PTR_SET_VALUE(appName_, appName) };
 
 
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline GetJobExecutionRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // jobExecutionId Field Functions 
     bool hasJobExecutionId() const { return this->jobExecutionId_ != nullptr;};
     void deleteJobExecutionId() { this->jobExecutionId_ = nullptr;};
-    inline string jobExecutionId() const { DARABONBA_PTR_GET_DEFAULT(jobExecutionId_, "") };
+    inline string getJobExecutionId() const { DARABONBA_PTR_GET_DEFAULT(jobExecutionId_, "") };
     inline GetJobExecutionRequest& setJobExecutionId(string jobExecutionId) { DARABONBA_PTR_SET_VALUE(jobExecutionId_, jobExecutionId) };
 
 
     // mseSessionId Field Functions 
     bool hasMseSessionId() const { return this->mseSessionId_ != nullptr;};
     void deleteMseSessionId() { this->mseSessionId_ = nullptr;};
-    inline string mseSessionId() const { DARABONBA_PTR_GET_DEFAULT(mseSessionId_, "") };
+    inline string getMseSessionId() const { DARABONBA_PTR_GET_DEFAULT(mseSessionId_, "") };
     inline GetJobExecutionRequest& setMseSessionId(string mseSessionId) { DARABONBA_PTR_SET_VALUE(mseSessionId_, mseSessionId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> appName_ = nullptr;
+    shared_ptr<string> appName_ {};
     // This parameter is required.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // This parameter is required.
-    std::shared_ptr<string> jobExecutionId_ = nullptr;
-    std::shared_ptr<string> mseSessionId_ = nullptr;
+    shared_ptr<string> jobExecutionId_ {};
+    shared_ptr<string> mseSessionId_ {};
   };
 
   } // namespace Models

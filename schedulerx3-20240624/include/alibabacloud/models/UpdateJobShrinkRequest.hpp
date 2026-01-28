@@ -78,215 +78,215 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appName_ == nullptr
-        && return this->attemptInterval_ == nullptr && return this->calendar_ == nullptr && return this->childJobId_ == nullptr && return this->clusterId_ == nullptr && return this->dependentStrategy_ == nullptr
-        && return this->description_ == nullptr && return this->executorBlockStrategy_ == nullptr && return this->jobHandler_ == nullptr && return this->jobId_ == nullptr && return this->maxAttempt_ == nullptr
-        && return this->maxConcurrency_ == nullptr && return this->name_ == nullptr && return this->noticeConfigShrink_ == nullptr && return this->noticeContactsShrink_ == nullptr && return this->parameters_ == nullptr
-        && return this->priority_ == nullptr && return this->routeStrategy_ == nullptr && return this->script_ == nullptr && return this->startTime_ == nullptr && return this->startTimeType_ == nullptr
-        && return this->timeExpression_ == nullptr && return this->timeType_ == nullptr && return this->timezone_ == nullptr && return this->weight_ == nullptr; };
+        && this->attemptInterval_ == nullptr && this->calendar_ == nullptr && this->childJobId_ == nullptr && this->clusterId_ == nullptr && this->dependentStrategy_ == nullptr
+        && this->description_ == nullptr && this->executorBlockStrategy_ == nullptr && this->jobHandler_ == nullptr && this->jobId_ == nullptr && this->maxAttempt_ == nullptr
+        && this->maxConcurrency_ == nullptr && this->name_ == nullptr && this->noticeConfigShrink_ == nullptr && this->noticeContactsShrink_ == nullptr && this->parameters_ == nullptr
+        && this->priority_ == nullptr && this->routeStrategy_ == nullptr && this->script_ == nullptr && this->startTime_ == nullptr && this->startTimeType_ == nullptr
+        && this->timeExpression_ == nullptr && this->timeType_ == nullptr && this->timezone_ == nullptr && this->weight_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
-    inline string appName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
+    inline string getAppName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
     inline UpdateJobShrinkRequest& setAppName(string appName) { DARABONBA_PTR_SET_VALUE(appName_, appName) };
 
 
     // attemptInterval Field Functions 
     bool hasAttemptInterval() const { return this->attemptInterval_ != nullptr;};
     void deleteAttemptInterval() { this->attemptInterval_ = nullptr;};
-    inline int32_t attemptInterval() const { DARABONBA_PTR_GET_DEFAULT(attemptInterval_, 0) };
+    inline int32_t getAttemptInterval() const { DARABONBA_PTR_GET_DEFAULT(attemptInterval_, 0) };
     inline UpdateJobShrinkRequest& setAttemptInterval(int32_t attemptInterval) { DARABONBA_PTR_SET_VALUE(attemptInterval_, attemptInterval) };
 
 
     // calendar Field Functions 
     bool hasCalendar() const { return this->calendar_ != nullptr;};
     void deleteCalendar() { this->calendar_ = nullptr;};
-    inline string calendar() const { DARABONBA_PTR_GET_DEFAULT(calendar_, "") };
+    inline string getCalendar() const { DARABONBA_PTR_GET_DEFAULT(calendar_, "") };
     inline UpdateJobShrinkRequest& setCalendar(string calendar) { DARABONBA_PTR_SET_VALUE(calendar_, calendar) };
 
 
     // childJobId Field Functions 
     bool hasChildJobId() const { return this->childJobId_ != nullptr;};
     void deleteChildJobId() { this->childJobId_ = nullptr;};
-    inline string childJobId() const { DARABONBA_PTR_GET_DEFAULT(childJobId_, "") };
+    inline string getChildJobId() const { DARABONBA_PTR_GET_DEFAULT(childJobId_, "") };
     inline UpdateJobShrinkRequest& setChildJobId(string childJobId) { DARABONBA_PTR_SET_VALUE(childJobId_, childJobId) };
 
 
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline UpdateJobShrinkRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // dependentStrategy Field Functions 
     bool hasDependentStrategy() const { return this->dependentStrategy_ != nullptr;};
     void deleteDependentStrategy() { this->dependentStrategy_ = nullptr;};
-    inline int32_t dependentStrategy() const { DARABONBA_PTR_GET_DEFAULT(dependentStrategy_, 0) };
+    inline int32_t getDependentStrategy() const { DARABONBA_PTR_GET_DEFAULT(dependentStrategy_, 0) };
     inline UpdateJobShrinkRequest& setDependentStrategy(int32_t dependentStrategy) { DARABONBA_PTR_SET_VALUE(dependentStrategy_, dependentStrategy) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline UpdateJobShrinkRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // executorBlockStrategy Field Functions 
     bool hasExecutorBlockStrategy() const { return this->executorBlockStrategy_ != nullptr;};
     void deleteExecutorBlockStrategy() { this->executorBlockStrategy_ = nullptr;};
-    inline int32_t executorBlockStrategy() const { DARABONBA_PTR_GET_DEFAULT(executorBlockStrategy_, 0) };
+    inline int32_t getExecutorBlockStrategy() const { DARABONBA_PTR_GET_DEFAULT(executorBlockStrategy_, 0) };
     inline UpdateJobShrinkRequest& setExecutorBlockStrategy(int32_t executorBlockStrategy) { DARABONBA_PTR_SET_VALUE(executorBlockStrategy_, executorBlockStrategy) };
 
 
     // jobHandler Field Functions 
     bool hasJobHandler() const { return this->jobHandler_ != nullptr;};
     void deleteJobHandler() { this->jobHandler_ = nullptr;};
-    inline string jobHandler() const { DARABONBA_PTR_GET_DEFAULT(jobHandler_, "") };
+    inline string getJobHandler() const { DARABONBA_PTR_GET_DEFAULT(jobHandler_, "") };
     inline UpdateJobShrinkRequest& setJobHandler(string jobHandler) { DARABONBA_PTR_SET_VALUE(jobHandler_, jobHandler) };
 
 
     // jobId Field Functions 
     bool hasJobId() const { return this->jobId_ != nullptr;};
     void deleteJobId() { this->jobId_ = nullptr;};
-    inline int64_t jobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, 0L) };
+    inline int64_t getJobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, 0L) };
     inline UpdateJobShrinkRequest& setJobId(int64_t jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
 
 
     // maxAttempt Field Functions 
     bool hasMaxAttempt() const { return this->maxAttempt_ != nullptr;};
     void deleteMaxAttempt() { this->maxAttempt_ = nullptr;};
-    inline int32_t maxAttempt() const { DARABONBA_PTR_GET_DEFAULT(maxAttempt_, 0) };
+    inline int32_t getMaxAttempt() const { DARABONBA_PTR_GET_DEFAULT(maxAttempt_, 0) };
     inline UpdateJobShrinkRequest& setMaxAttempt(int32_t maxAttempt) { DARABONBA_PTR_SET_VALUE(maxAttempt_, maxAttempt) };
 
 
     // maxConcurrency Field Functions 
     bool hasMaxConcurrency() const { return this->maxConcurrency_ != nullptr;};
     void deleteMaxConcurrency() { this->maxConcurrency_ = nullptr;};
-    inline int32_t maxConcurrency() const { DARABONBA_PTR_GET_DEFAULT(maxConcurrency_, 0) };
+    inline int32_t getMaxConcurrency() const { DARABONBA_PTR_GET_DEFAULT(maxConcurrency_, 0) };
     inline UpdateJobShrinkRequest& setMaxConcurrency(int32_t maxConcurrency) { DARABONBA_PTR_SET_VALUE(maxConcurrency_, maxConcurrency) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline UpdateJobShrinkRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // noticeConfigShrink Field Functions 
     bool hasNoticeConfigShrink() const { return this->noticeConfigShrink_ != nullptr;};
     void deleteNoticeConfigShrink() { this->noticeConfigShrink_ = nullptr;};
-    inline string noticeConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(noticeConfigShrink_, "") };
+    inline string getNoticeConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(noticeConfigShrink_, "") };
     inline UpdateJobShrinkRequest& setNoticeConfigShrink(string noticeConfigShrink) { DARABONBA_PTR_SET_VALUE(noticeConfigShrink_, noticeConfigShrink) };
 
 
     // noticeContactsShrink Field Functions 
     bool hasNoticeContactsShrink() const { return this->noticeContactsShrink_ != nullptr;};
     void deleteNoticeContactsShrink() { this->noticeContactsShrink_ = nullptr;};
-    inline string noticeContactsShrink() const { DARABONBA_PTR_GET_DEFAULT(noticeContactsShrink_, "") };
+    inline string getNoticeContactsShrink() const { DARABONBA_PTR_GET_DEFAULT(noticeContactsShrink_, "") };
     inline UpdateJobShrinkRequest& setNoticeContactsShrink(string noticeContactsShrink) { DARABONBA_PTR_SET_VALUE(noticeContactsShrink_, noticeContactsShrink) };
 
 
     // parameters Field Functions 
     bool hasParameters() const { return this->parameters_ != nullptr;};
     void deleteParameters() { this->parameters_ = nullptr;};
-    inline string parameters() const { DARABONBA_PTR_GET_DEFAULT(parameters_, "") };
+    inline string getParameters() const { DARABONBA_PTR_GET_DEFAULT(parameters_, "") };
     inline UpdateJobShrinkRequest& setParameters(string parameters) { DARABONBA_PTR_SET_VALUE(parameters_, parameters) };
 
 
     // priority Field Functions 
     bool hasPriority() const { return this->priority_ != nullptr;};
     void deletePriority() { this->priority_ = nullptr;};
-    inline int32_t priority() const { DARABONBA_PTR_GET_DEFAULT(priority_, 0) };
+    inline int32_t getPriority() const { DARABONBA_PTR_GET_DEFAULT(priority_, 0) };
     inline UpdateJobShrinkRequest& setPriority(int32_t priority) { DARABONBA_PTR_SET_VALUE(priority_, priority) };
 
 
     // routeStrategy Field Functions 
     bool hasRouteStrategy() const { return this->routeStrategy_ != nullptr;};
     void deleteRouteStrategy() { this->routeStrategy_ = nullptr;};
-    inline int32_t routeStrategy() const { DARABONBA_PTR_GET_DEFAULT(routeStrategy_, 0) };
+    inline int32_t getRouteStrategy() const { DARABONBA_PTR_GET_DEFAULT(routeStrategy_, 0) };
     inline UpdateJobShrinkRequest& setRouteStrategy(int32_t routeStrategy) { DARABONBA_PTR_SET_VALUE(routeStrategy_, routeStrategy) };
 
 
     // script Field Functions 
     bool hasScript() const { return this->script_ != nullptr;};
     void deleteScript() { this->script_ = nullptr;};
-    inline string script() const { DARABONBA_PTR_GET_DEFAULT(script_, "") };
+    inline string getScript() const { DARABONBA_PTR_GET_DEFAULT(script_, "") };
     inline UpdateJobShrinkRequest& setScript(string script) { DARABONBA_PTR_SET_VALUE(script_, script) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline int64_t startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
+    inline int64_t getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
     inline UpdateJobShrinkRequest& setStartTime(int64_t startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // startTimeType Field Functions 
     bool hasStartTimeType() const { return this->startTimeType_ != nullptr;};
     void deleteStartTimeType() { this->startTimeType_ = nullptr;};
-    inline string startTimeType() const { DARABONBA_PTR_GET_DEFAULT(startTimeType_, "") };
+    inline string getStartTimeType() const { DARABONBA_PTR_GET_DEFAULT(startTimeType_, "") };
     inline UpdateJobShrinkRequest& setStartTimeType(string startTimeType) { DARABONBA_PTR_SET_VALUE(startTimeType_, startTimeType) };
 
 
     // timeExpression Field Functions 
     bool hasTimeExpression() const { return this->timeExpression_ != nullptr;};
     void deleteTimeExpression() { this->timeExpression_ = nullptr;};
-    inline string timeExpression() const { DARABONBA_PTR_GET_DEFAULT(timeExpression_, "") };
+    inline string getTimeExpression() const { DARABONBA_PTR_GET_DEFAULT(timeExpression_, "") };
     inline UpdateJobShrinkRequest& setTimeExpression(string timeExpression) { DARABONBA_PTR_SET_VALUE(timeExpression_, timeExpression) };
 
 
     // timeType Field Functions 
     bool hasTimeType() const { return this->timeType_ != nullptr;};
     void deleteTimeType() { this->timeType_ = nullptr;};
-    inline int32_t timeType() const { DARABONBA_PTR_GET_DEFAULT(timeType_, 0) };
+    inline int32_t getTimeType() const { DARABONBA_PTR_GET_DEFAULT(timeType_, 0) };
     inline UpdateJobShrinkRequest& setTimeType(int32_t timeType) { DARABONBA_PTR_SET_VALUE(timeType_, timeType) };
 
 
     // timezone Field Functions 
     bool hasTimezone() const { return this->timezone_ != nullptr;};
     void deleteTimezone() { this->timezone_ = nullptr;};
-    inline string timezone() const { DARABONBA_PTR_GET_DEFAULT(timezone_, "") };
+    inline string getTimezone() const { DARABONBA_PTR_GET_DEFAULT(timezone_, "") };
     inline UpdateJobShrinkRequest& setTimezone(string timezone) { DARABONBA_PTR_SET_VALUE(timezone_, timezone) };
 
 
     // weight Field Functions 
     bool hasWeight() const { return this->weight_ != nullptr;};
     void deleteWeight() { this->weight_ = nullptr;};
-    inline int32_t weight() const { DARABONBA_PTR_GET_DEFAULT(weight_, 0) };
+    inline int32_t getWeight() const { DARABONBA_PTR_GET_DEFAULT(weight_, 0) };
     inline UpdateJobShrinkRequest& setWeight(int32_t weight) { DARABONBA_PTR_SET_VALUE(weight_, weight) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> appName_ = nullptr;
-    std::shared_ptr<int32_t> attemptInterval_ = nullptr;
-    std::shared_ptr<string> calendar_ = nullptr;
-    std::shared_ptr<string> childJobId_ = nullptr;
+    shared_ptr<string> appName_ {};
+    shared_ptr<int32_t> attemptInterval_ {};
+    shared_ptr<string> calendar_ {};
+    shared_ptr<string> childJobId_ {};
     // This parameter is required.
-    std::shared_ptr<string> clusterId_ = nullptr;
-    std::shared_ptr<int32_t> dependentStrategy_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<int32_t> executorBlockStrategy_ = nullptr;
-    std::shared_ptr<string> jobHandler_ = nullptr;
+    shared_ptr<string> clusterId_ {};
+    shared_ptr<int32_t> dependentStrategy_ {};
+    shared_ptr<string> description_ {};
+    shared_ptr<int32_t> executorBlockStrategy_ {};
+    shared_ptr<string> jobHandler_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> jobId_ = nullptr;
-    std::shared_ptr<int32_t> maxAttempt_ = nullptr;
-    std::shared_ptr<int32_t> maxConcurrency_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> noticeConfigShrink_ = nullptr;
-    std::shared_ptr<string> noticeContactsShrink_ = nullptr;
-    std::shared_ptr<string> parameters_ = nullptr;
-    std::shared_ptr<int32_t> priority_ = nullptr;
-    std::shared_ptr<int32_t> routeStrategy_ = nullptr;
-    std::shared_ptr<string> script_ = nullptr;
-    std::shared_ptr<int64_t> startTime_ = nullptr;
-    std::shared_ptr<string> startTimeType_ = nullptr;
-    std::shared_ptr<string> timeExpression_ = nullptr;
-    std::shared_ptr<int32_t> timeType_ = nullptr;
-    std::shared_ptr<string> timezone_ = nullptr;
-    std::shared_ptr<int32_t> weight_ = nullptr;
+    shared_ptr<int64_t> jobId_ {};
+    shared_ptr<int32_t> maxAttempt_ {};
+    shared_ptr<int32_t> maxConcurrency_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<string> noticeConfigShrink_ {};
+    shared_ptr<string> noticeContactsShrink_ {};
+    shared_ptr<string> parameters_ {};
+    shared_ptr<int32_t> priority_ {};
+    shared_ptr<int32_t> routeStrategy_ {};
+    shared_ptr<string> script_ {};
+    shared_ptr<int64_t> startTime_ {};
+    shared_ptr<string> startTimeType_ {};
+    shared_ptr<string> timeExpression_ {};
+    shared_ptr<int32_t> timeType_ {};
+    shared_ptr<string> timezone_ {};
+    shared_ptr<int32_t> weight_ {};
   };
 
   } // namespace Models

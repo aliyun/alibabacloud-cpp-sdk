@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_GETCALENDARRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_GETCALENDARRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/GetCalendarResponseBodyData.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -38,53 +37,105 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(CalendarName, calendarName_);
+        DARABONBA_PTR_TO_JSON(Months, months_);
+        DARABONBA_PTR_TO_JSON(Year, year_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(CalendarName, calendarName_);
+        DARABONBA_PTR_FROM_JSON(Months, months_);
+        DARABONBA_PTR_FROM_JSON(Year, year_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->calendarName_ == nullptr
+        && this->months_ == nullptr && this->year_ == nullptr; };
+      // calendarName Field Functions 
+      bool hasCalendarName() const { return this->calendarName_ != nullptr;};
+      void deleteCalendarName() { this->calendarName_ = nullptr;};
+      inline string getCalendarName() const { DARABONBA_PTR_GET_DEFAULT(calendarName_, "") };
+      inline Data& setCalendarName(string calendarName) { DARABONBA_PTR_SET_VALUE(calendarName_, calendarName) };
+
+
+      // months Field Functions 
+      bool hasMonths() const { return this->months_ != nullptr;};
+      void deleteMonths() { this->months_ = nullptr;};
+      inline string getMonths() const { DARABONBA_PTR_GET_DEFAULT(months_, "") };
+      inline Data& setMonths(string months) { DARABONBA_PTR_SET_VALUE(months_, months) };
+
+
+      // year Field Functions 
+      bool hasYear() const { return this->year_ != nullptr;};
+      void deleteYear() { this->year_ = nullptr;};
+      inline int32_t getYear() const { DARABONBA_PTR_GET_DEFAULT(year_, 0) };
+      inline Data& setYear(int32_t year) { DARABONBA_PTR_SET_VALUE(year_, year) };
+
+
+    protected:
+      shared_ptr<string> calendarName_ {};
+      shared_ptr<string> months_ {};
+      shared_ptr<int32_t> year_ {};
+    };
+
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->data_ == nullptr && return this->message_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr; };
+        && this->data_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline int32_t code() const { DARABONBA_PTR_GET_DEFAULT(code_, 0) };
+    inline int32_t getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, 0) };
     inline GetCalendarResponseBody& setCode(int32_t code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const GetCalendarResponseBodyData & data() const { DARABONBA_PTR_GET_CONST(data_, GetCalendarResponseBodyData) };
-    inline GetCalendarResponseBodyData data() { DARABONBA_PTR_GET(data_, GetCalendarResponseBodyData) };
-    inline GetCalendarResponseBody& setData(const GetCalendarResponseBodyData & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline GetCalendarResponseBody& setData(GetCalendarResponseBodyData && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const GetCalendarResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, GetCalendarResponseBody::Data) };
+    inline GetCalendarResponseBody::Data getData() { DARABONBA_PTR_GET(data_, GetCalendarResponseBody::Data) };
+    inline GetCalendarResponseBody& setData(const GetCalendarResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline GetCalendarResponseBody& setData(GetCalendarResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline GetCalendarResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetCalendarResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline GetCalendarResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
-    std::shared_ptr<int32_t> code_ = nullptr;
+    shared_ptr<int32_t> code_ {};
     // -
-    std::shared_ptr<GetCalendarResponseBodyData> data_ = nullptr;
-    std::shared_ptr<string> message_ = nullptr;
+    shared_ptr<GetCalendarResponseBody::Data> data_ {};
+    shared_ptr<string> message_ {};
     // Id of the request
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<string> requestId_ {};
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

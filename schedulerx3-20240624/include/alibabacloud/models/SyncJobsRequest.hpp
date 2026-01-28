@@ -39,12 +39,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->jobIds_ == nullptr
-        && return this->originalAppName_ == nullptr && return this->originalClusterId_ == nullptr && return this->targetAppName_ == nullptr && return this->targetClusterId_ == nullptr; };
+        && this->originalAppName_ == nullptr && this->originalClusterId_ == nullptr && this->targetAppName_ == nullptr && this->targetClusterId_ == nullptr; };
     // jobIds Field Functions 
     bool hasJobIds() const { return this->jobIds_ != nullptr;};
     void deleteJobIds() { this->jobIds_ = nullptr;};
-    inline const vector<int64_t> & jobIds() const { DARABONBA_PTR_GET_CONST(jobIds_, vector<int64_t>) };
-    inline vector<int64_t> jobIds() { DARABONBA_PTR_GET(jobIds_, vector<int64_t>) };
+    inline const vector<int64_t> & getJobIds() const { DARABONBA_PTR_GET_CONST(jobIds_, vector<int64_t>) };
+    inline vector<int64_t> getJobIds() { DARABONBA_PTR_GET(jobIds_, vector<int64_t>) };
     inline SyncJobsRequest& setJobIds(const vector<int64_t> & jobIds) { DARABONBA_PTR_SET_VALUE(jobIds_, jobIds) };
     inline SyncJobsRequest& setJobIds(vector<int64_t> && jobIds) { DARABONBA_PTR_SET_RVALUE(jobIds_, jobIds) };
 
@@ -52,42 +52,42 @@ namespace Models
     // originalAppName Field Functions 
     bool hasOriginalAppName() const { return this->originalAppName_ != nullptr;};
     void deleteOriginalAppName() { this->originalAppName_ = nullptr;};
-    inline string originalAppName() const { DARABONBA_PTR_GET_DEFAULT(originalAppName_, "") };
+    inline string getOriginalAppName() const { DARABONBA_PTR_GET_DEFAULT(originalAppName_, "") };
     inline SyncJobsRequest& setOriginalAppName(string originalAppName) { DARABONBA_PTR_SET_VALUE(originalAppName_, originalAppName) };
 
 
     // originalClusterId Field Functions 
     bool hasOriginalClusterId() const { return this->originalClusterId_ != nullptr;};
     void deleteOriginalClusterId() { this->originalClusterId_ = nullptr;};
-    inline string originalClusterId() const { DARABONBA_PTR_GET_DEFAULT(originalClusterId_, "") };
+    inline string getOriginalClusterId() const { DARABONBA_PTR_GET_DEFAULT(originalClusterId_, "") };
     inline SyncJobsRequest& setOriginalClusterId(string originalClusterId) { DARABONBA_PTR_SET_VALUE(originalClusterId_, originalClusterId) };
 
 
     // targetAppName Field Functions 
     bool hasTargetAppName() const { return this->targetAppName_ != nullptr;};
     void deleteTargetAppName() { this->targetAppName_ = nullptr;};
-    inline string targetAppName() const { DARABONBA_PTR_GET_DEFAULT(targetAppName_, "") };
+    inline string getTargetAppName() const { DARABONBA_PTR_GET_DEFAULT(targetAppName_, "") };
     inline SyncJobsRequest& setTargetAppName(string targetAppName) { DARABONBA_PTR_SET_VALUE(targetAppName_, targetAppName) };
 
 
     // targetClusterId Field Functions 
     bool hasTargetClusterId() const { return this->targetClusterId_ != nullptr;};
     void deleteTargetClusterId() { this->targetClusterId_ = nullptr;};
-    inline string targetClusterId() const { DARABONBA_PTR_GET_DEFAULT(targetClusterId_, "") };
+    inline string getTargetClusterId() const { DARABONBA_PTR_GET_DEFAULT(targetClusterId_, "") };
     inline SyncJobsRequest& setTargetClusterId(string targetClusterId) { DARABONBA_PTR_SET_VALUE(targetClusterId_, targetClusterId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<vector<int64_t>> jobIds_ = nullptr;
+    shared_ptr<vector<int64_t>> jobIds_ {};
     // This parameter is required.
-    std::shared_ptr<string> originalAppName_ = nullptr;
+    shared_ptr<string> originalAppName_ {};
     // This parameter is required.
-    std::shared_ptr<string> originalClusterId_ = nullptr;
+    shared_ptr<string> originalClusterId_ {};
     // This parameter is required.
-    std::shared_ptr<string> targetAppName_ = nullptr;
+    shared_ptr<string> targetAppName_ {};
     // This parameter is required.
-    std::shared_ptr<string> targetClusterId_ = nullptr;
+    shared_ptr<string> targetClusterId_ {};
   };
 
   } // namespace Models

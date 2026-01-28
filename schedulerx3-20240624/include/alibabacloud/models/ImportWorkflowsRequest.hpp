@@ -36,43 +36,43 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoCreateApp_ == nullptr
-        && return this->clusterId_ == nullptr && return this->content_ == nullptr && return this->overwrite_ == nullptr; };
+        && this->clusterId_ == nullptr && this->content_ == nullptr && this->overwrite_ == nullptr; };
     // autoCreateApp Field Functions 
     bool hasAutoCreateApp() const { return this->autoCreateApp_ != nullptr;};
     void deleteAutoCreateApp() { this->autoCreateApp_ = nullptr;};
-    inline bool autoCreateApp() const { DARABONBA_PTR_GET_DEFAULT(autoCreateApp_, false) };
+    inline bool getAutoCreateApp() const { DARABONBA_PTR_GET_DEFAULT(autoCreateApp_, false) };
     inline ImportWorkflowsRequest& setAutoCreateApp(bool autoCreateApp) { DARABONBA_PTR_SET_VALUE(autoCreateApp_, autoCreateApp) };
 
 
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline ImportWorkflowsRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
-    inline string content() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
+    inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
     inline ImportWorkflowsRequest& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
 
 
     // overwrite Field Functions 
     bool hasOverwrite() const { return this->overwrite_ != nullptr;};
     void deleteOverwrite() { this->overwrite_ = nullptr;};
-    inline bool overwrite() const { DARABONBA_PTR_GET_DEFAULT(overwrite_, false) };
+    inline bool getOverwrite() const { DARABONBA_PTR_GET_DEFAULT(overwrite_, false) };
     inline ImportWorkflowsRequest& setOverwrite(bool overwrite) { DARABONBA_PTR_SET_VALUE(overwrite_, overwrite) };
 
 
   protected:
-    std::shared_ptr<bool> autoCreateApp_ = nullptr;
+    shared_ptr<bool> autoCreateApp_ {};
     // A short description of struct
     // 
     // This parameter is required.
-    std::shared_ptr<string> clusterId_ = nullptr;
-    std::shared_ptr<string> content_ = nullptr;
-    std::shared_ptr<bool> overwrite_ = nullptr;
+    shared_ptr<string> clusterId_ {};
+    shared_ptr<string> content_ {};
+    shared_ptr<bool> overwrite_ {};
   };
 
   } // namespace Models

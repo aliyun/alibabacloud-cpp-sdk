@@ -40,57 +40,57 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->calendarName_ == nullptr
-        && return this->clusterId_ == nullptr && return this->fetchCalendarDetail_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->year_ == nullptr; };
+        && this->clusterId_ == nullptr && this->fetchCalendarDetail_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->year_ == nullptr; };
     // calendarName Field Functions 
     bool hasCalendarName() const { return this->calendarName_ != nullptr;};
     void deleteCalendarName() { this->calendarName_ = nullptr;};
-    inline string calendarName() const { DARABONBA_PTR_GET_DEFAULT(calendarName_, "") };
+    inline string getCalendarName() const { DARABONBA_PTR_GET_DEFAULT(calendarName_, "") };
     inline ListCalendarsRequest& setCalendarName(string calendarName) { DARABONBA_PTR_SET_VALUE(calendarName_, calendarName) };
 
 
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline ListCalendarsRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // fetchCalendarDetail Field Functions 
     bool hasFetchCalendarDetail() const { return this->fetchCalendarDetail_ != nullptr;};
     void deleteFetchCalendarDetail() { this->fetchCalendarDetail_ = nullptr;};
-    inline bool fetchCalendarDetail() const { DARABONBA_PTR_GET_DEFAULT(fetchCalendarDetail_, false) };
+    inline bool getFetchCalendarDetail() const { DARABONBA_PTR_GET_DEFAULT(fetchCalendarDetail_, false) };
     inline ListCalendarsRequest& setFetchCalendarDetail(bool fetchCalendarDetail) { DARABONBA_PTR_SET_VALUE(fetchCalendarDetail_, fetchCalendarDetail) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListCalendarsRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListCalendarsRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // year Field Functions 
     bool hasYear() const { return this->year_ != nullptr;};
     void deleteYear() { this->year_ = nullptr;};
-    inline int32_t year() const { DARABONBA_PTR_GET_DEFAULT(year_, 0) };
+    inline int32_t getYear() const { DARABONBA_PTR_GET_DEFAULT(year_, 0) };
     inline ListCalendarsRequest& setYear(int32_t year) { DARABONBA_PTR_SET_VALUE(year_, year) };
 
 
   protected:
-    std::shared_ptr<string> calendarName_ = nullptr;
+    shared_ptr<string> calendarName_ {};
     // This parameter is required.
-    std::shared_ptr<string> clusterId_ = nullptr;
-    std::shared_ptr<bool> fetchCalendarDetail_ = nullptr;
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
-    std::shared_ptr<string> nextToken_ = nullptr;
-    std::shared_ptr<int32_t> year_ = nullptr;
+    shared_ptr<string> clusterId_ {};
+    shared_ptr<bool> fetchCalendarDetail_ {};
+    shared_ptr<int32_t> maxResults_ {};
+    shared_ptr<string> nextToken_ {};
+    shared_ptr<int32_t> year_ {};
   };
 
   } // namespace Models

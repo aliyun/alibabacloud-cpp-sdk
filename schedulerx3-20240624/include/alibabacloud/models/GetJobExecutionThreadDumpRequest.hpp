@@ -36,40 +36,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appName_ == nullptr
-        && return this->clusterId_ == nullptr && return this->executorAddr_ == nullptr && return this->jobExecutionId_ == nullptr; };
+        && this->clusterId_ == nullptr && this->executorAddr_ == nullptr && this->jobExecutionId_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
-    inline string appName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
+    inline string getAppName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
     inline GetJobExecutionThreadDumpRequest& setAppName(string appName) { DARABONBA_PTR_SET_VALUE(appName_, appName) };
 
 
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline GetJobExecutionThreadDumpRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // executorAddr Field Functions 
     bool hasExecutorAddr() const { return this->executorAddr_ != nullptr;};
     void deleteExecutorAddr() { this->executorAddr_ = nullptr;};
-    inline string executorAddr() const { DARABONBA_PTR_GET_DEFAULT(executorAddr_, "") };
+    inline string getExecutorAddr() const { DARABONBA_PTR_GET_DEFAULT(executorAddr_, "") };
     inline GetJobExecutionThreadDumpRequest& setExecutorAddr(string executorAddr) { DARABONBA_PTR_SET_VALUE(executorAddr_, executorAddr) };
 
 
     // jobExecutionId Field Functions 
     bool hasJobExecutionId() const { return this->jobExecutionId_ != nullptr;};
     void deleteJobExecutionId() { this->jobExecutionId_ = nullptr;};
-    inline string jobExecutionId() const { DARABONBA_PTR_GET_DEFAULT(jobExecutionId_, "") };
+    inline string getJobExecutionId() const { DARABONBA_PTR_GET_DEFAULT(jobExecutionId_, "") };
     inline GetJobExecutionThreadDumpRequest& setJobExecutionId(string jobExecutionId) { DARABONBA_PTR_SET_VALUE(jobExecutionId_, jobExecutionId) };
 
 
   protected:
-    std::shared_ptr<string> appName_ = nullptr;
-    std::shared_ptr<string> clusterId_ = nullptr;
-    std::shared_ptr<string> executorAddr_ = nullptr;
-    std::shared_ptr<string> jobExecutionId_ = nullptr;
+    shared_ptr<string> appName_ {};
+    shared_ptr<string> clusterId_ {};
+    shared_ptr<string> executorAddr_ {};
+    shared_ptr<string> jobExecutionId_ {};
   };
 
   } // namespace Models

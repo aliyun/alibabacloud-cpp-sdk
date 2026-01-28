@@ -72,6 +72,23 @@ namespace SchedulerX320240624
       Models::CreateClusterResponse createCluster(const Models::CreateClusterRequest &request);
 
       /**
+       * @summary 创建数据源
+       *
+       * @param request CreateDatasourceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateDatasourceResponse
+       */
+      Models::CreateDatasourceResponse createDatasourceWithOptions(const Models::CreateDatasourceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建数据源
+       *
+       * @param request CreateDatasourceRequest
+       * @return CreateDatasourceResponse
+       */
+      Models::CreateDatasourceResponse createDatasource(const Models::CreateDatasourceRequest &request);
+
+      /**
        * @summary 添加执行器
        *
        * @param request CreateExecutorsRequest
@@ -172,6 +189,23 @@ namespace SchedulerX320240624
        * @return DeleteClusterResponse
        */
       Models::DeleteClusterResponse deleteCluster(const Models::DeleteClusterRequest &request);
+
+      /**
+       * @summary 删除数据源
+       *
+       * @param request DeleteDatasourceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteDatasourceResponse
+       */
+      Models::DeleteDatasourceResponse deleteDatasourceWithOptions(const Models::DeleteDatasourceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除数据源
+       *
+       * @param request DeleteDatasourceRequest
+       * @return DeleteDatasourceResponse
+       */
+      Models::DeleteDatasourceResponse deleteDatasource(const Models::DeleteDatasourceRequest &request);
 
       /**
        * @summary 批量删除任务
@@ -650,6 +684,23 @@ namespace SchedulerX320240624
       Models::ListClustersResponse listClusters(const Models::ListClustersRequest &request);
 
       /**
+       * @summary 获取数据源列表
+       *
+       * @param request ListDatasourcesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListDatasourcesResponse
+       */
+      Models::ListDatasourcesResponse listDatasourcesWithOptions(const Models::ListDatasourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取数据源列表
+       *
+       * @param request ListDatasourcesRequest
+       * @return ListDatasourcesResponse
+       */
+      Models::ListDatasourcesResponse listDatasources(const Models::ListDatasourcesRequest &request);
+
+      /**
        * @summary 查询Executor列表
        *
        * @param request ListExecutorsRequest
@@ -884,6 +935,23 @@ namespace SchedulerX320240624
        * @return OperateBackfillWorkflowResponse
        */
       Models::OperateBackfillWorkflowResponse operateBackfillWorkflow(const Models::OperateBackfillWorkflowRequest &request);
+
+      /**
+       * @summary 连接数据源
+       *
+       * @param request OperateConnectDatasourceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return OperateConnectDatasourceResponse
+       */
+      Models::OperateConnectDatasourceResponse operateConnectDatasourceWithOptions(const Models::OperateConnectDatasourceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 连接数据源
+       *
+       * @param request OperateConnectDatasourceRequest
+       * @return OperateConnectDatasourceResponse
+       */
+      Models::OperateConnectDatasourceResponse operateConnectDatasource(const Models::OperateConnectDatasourceRequest &request);
 
       /**
        * @summary 指定执行器
@@ -1294,6 +1362,23 @@ namespace SchedulerX320240624
       Models::UpdateClusterResponse updateCluster(const Models::UpdateClusterRequest &request);
 
       /**
+       * @summary 更新数据源
+       *
+       * @param request UpdateDatasourceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateDatasourceResponse
+       */
+      Models::UpdateDatasourceResponse updateDatasourceWithOptions(const Models::UpdateDatasourceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新数据源
+       *
+       * @param request UpdateDatasourceRequest
+       * @return UpdateDatasourceResponse
+       */
+      Models::UpdateDatasourceResponse updateDatasource(const Models::UpdateDatasourceRequest &request);
+
+      /**
        * @summary 更新执行器
        *
        * @param request UpdateExecutorsRequest
@@ -1326,6 +1411,23 @@ namespace SchedulerX320240624
        * @return UpdateJobResponse
        */
       Models::UpdateJobResponse updateJob(const Models::UpdateJobRequest &request);
+
+      /**
+       * @summary 更新任务实例
+       *
+       * @param request UpdateJobExecutionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateJobExecutionResponse
+       */
+      Models::UpdateJobExecutionResponse updateJobExecutionWithOptions(const Models::UpdateJobExecutionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新任务实例
+       *
+       * @param request UpdateJobExecutionRequest
+       * @return UpdateJobExecutionResponse
+       */
+      Models::UpdateJobExecutionResponse updateJobExecution(const Models::UpdateJobExecutionRequest &request);
 
       /**
        * @summary 更新任务脚本内容

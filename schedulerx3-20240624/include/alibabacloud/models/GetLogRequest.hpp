@@ -54,116 +54,116 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appName_ == nullptr
-        && return this->clusterId_ == nullptr && return this->endTime_ == nullptr && return this->jobExecutionId_ == nullptr && return this->keyword_ == nullptr && return this->level_ == nullptr
-        && return this->lineNum_ == nullptr && return this->logId_ == nullptr && return this->offset_ == nullptr && return this->reverse_ == nullptr && return this->scheduleTime_ == nullptr
-        && return this->startTime_ == nullptr && return this->workerAddr_ == nullptr; };
+        && this->clusterId_ == nullptr && this->endTime_ == nullptr && this->jobExecutionId_ == nullptr && this->keyword_ == nullptr && this->level_ == nullptr
+        && this->lineNum_ == nullptr && this->logId_ == nullptr && this->offset_ == nullptr && this->reverse_ == nullptr && this->scheduleTime_ == nullptr
+        && this->startTime_ == nullptr && this->workerAddr_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
-    inline string appName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
+    inline string getAppName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
     inline GetLogRequest& setAppName(string appName) { DARABONBA_PTR_SET_VALUE(appName_, appName) };
 
 
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline GetLogRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline int64_t endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
+    inline int64_t getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
     inline GetLogRequest& setEndTime(int64_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // jobExecutionId Field Functions 
     bool hasJobExecutionId() const { return this->jobExecutionId_ != nullptr;};
     void deleteJobExecutionId() { this->jobExecutionId_ = nullptr;};
-    inline string jobExecutionId() const { DARABONBA_PTR_GET_DEFAULT(jobExecutionId_, "") };
+    inline string getJobExecutionId() const { DARABONBA_PTR_GET_DEFAULT(jobExecutionId_, "") };
     inline GetLogRequest& setJobExecutionId(string jobExecutionId) { DARABONBA_PTR_SET_VALUE(jobExecutionId_, jobExecutionId) };
 
 
     // keyword Field Functions 
     bool hasKeyword() const { return this->keyword_ != nullptr;};
     void deleteKeyword() { this->keyword_ = nullptr;};
-    inline string keyword() const { DARABONBA_PTR_GET_DEFAULT(keyword_, "") };
+    inline string getKeyword() const { DARABONBA_PTR_GET_DEFAULT(keyword_, "") };
     inline GetLogRequest& setKeyword(string keyword) { DARABONBA_PTR_SET_VALUE(keyword_, keyword) };
 
 
     // level Field Functions 
     bool hasLevel() const { return this->level_ != nullptr;};
     void deleteLevel() { this->level_ = nullptr;};
-    inline string level() const { DARABONBA_PTR_GET_DEFAULT(level_, "") };
+    inline string getLevel() const { DARABONBA_PTR_GET_DEFAULT(level_, "") };
     inline GetLogRequest& setLevel(string level) { DARABONBA_PTR_SET_VALUE(level_, level) };
 
 
     // lineNum Field Functions 
     bool hasLineNum() const { return this->lineNum_ != nullptr;};
     void deleteLineNum() { this->lineNum_ = nullptr;};
-    inline int32_t lineNum() const { DARABONBA_PTR_GET_DEFAULT(lineNum_, 0) };
+    inline int32_t getLineNum() const { DARABONBA_PTR_GET_DEFAULT(lineNum_, 0) };
     inline GetLogRequest& setLineNum(int32_t lineNum) { DARABONBA_PTR_SET_VALUE(lineNum_, lineNum) };
 
 
     // logId Field Functions 
     bool hasLogId() const { return this->logId_ != nullptr;};
     void deleteLogId() { this->logId_ = nullptr;};
-    inline int64_t logId() const { DARABONBA_PTR_GET_DEFAULT(logId_, 0L) };
+    inline int64_t getLogId() const { DARABONBA_PTR_GET_DEFAULT(logId_, 0L) };
     inline GetLogRequest& setLogId(int64_t logId) { DARABONBA_PTR_SET_VALUE(logId_, logId) };
 
 
     // offset Field Functions 
     bool hasOffset() const { return this->offset_ != nullptr;};
     void deleteOffset() { this->offset_ = nullptr;};
-    inline int32_t offset() const { DARABONBA_PTR_GET_DEFAULT(offset_, 0) };
+    inline int32_t getOffset() const { DARABONBA_PTR_GET_DEFAULT(offset_, 0) };
     inline GetLogRequest& setOffset(int32_t offset) { DARABONBA_PTR_SET_VALUE(offset_, offset) };
 
 
     // reverse Field Functions 
     bool hasReverse() const { return this->reverse_ != nullptr;};
     void deleteReverse() { this->reverse_ = nullptr;};
-    inline bool reverse() const { DARABONBA_PTR_GET_DEFAULT(reverse_, false) };
+    inline bool getReverse() const { DARABONBA_PTR_GET_DEFAULT(reverse_, false) };
     inline GetLogRequest& setReverse(bool reverse) { DARABONBA_PTR_SET_VALUE(reverse_, reverse) };
 
 
     // scheduleTime Field Functions 
     bool hasScheduleTime() const { return this->scheduleTime_ != nullptr;};
     void deleteScheduleTime() { this->scheduleTime_ = nullptr;};
-    inline int64_t scheduleTime() const { DARABONBA_PTR_GET_DEFAULT(scheduleTime_, 0L) };
+    inline int64_t getScheduleTime() const { DARABONBA_PTR_GET_DEFAULT(scheduleTime_, 0L) };
     inline GetLogRequest& setScheduleTime(int64_t scheduleTime) { DARABONBA_PTR_SET_VALUE(scheduleTime_, scheduleTime) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline int64_t startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
+    inline int64_t getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
     inline GetLogRequest& setStartTime(int64_t startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // workerAddr Field Functions 
     bool hasWorkerAddr() const { return this->workerAddr_ != nullptr;};
     void deleteWorkerAddr() { this->workerAddr_ = nullptr;};
-    inline string workerAddr() const { DARABONBA_PTR_GET_DEFAULT(workerAddr_, "") };
+    inline string getWorkerAddr() const { DARABONBA_PTR_GET_DEFAULT(workerAddr_, "") };
     inline GetLogRequest& setWorkerAddr(string workerAddr) { DARABONBA_PTR_SET_VALUE(workerAddr_, workerAddr) };
 
 
   protected:
-    std::shared_ptr<string> appName_ = nullptr;
+    shared_ptr<string> appName_ {};
     // This parameter is required.
-    std::shared_ptr<string> clusterId_ = nullptr;
-    std::shared_ptr<int64_t> endTime_ = nullptr;
-    std::shared_ptr<string> jobExecutionId_ = nullptr;
-    std::shared_ptr<string> keyword_ = nullptr;
-    std::shared_ptr<string> level_ = nullptr;
+    shared_ptr<string> clusterId_ {};
+    shared_ptr<int64_t> endTime_ {};
+    shared_ptr<string> jobExecutionId_ {};
+    shared_ptr<string> keyword_ {};
+    shared_ptr<string> level_ {};
     // LineNum
-    std::shared_ptr<int32_t> lineNum_ = nullptr;
-    std::shared_ptr<int64_t> logId_ = nullptr;
-    std::shared_ptr<int32_t> offset_ = nullptr;
-    std::shared_ptr<bool> reverse_ = nullptr;
-    std::shared_ptr<int64_t> scheduleTime_ = nullptr;
-    std::shared_ptr<int64_t> startTime_ = nullptr;
-    std::shared_ptr<string> workerAddr_ = nullptr;
+    shared_ptr<int32_t> lineNum_ {};
+    shared_ptr<int64_t> logId_ {};
+    shared_ptr<int32_t> offset_ {};
+    shared_ptr<bool> reverse_ {};
+    shared_ptr<int64_t> scheduleTime_ {};
+    shared_ptr<int64_t> startTime_ {};
+    shared_ptr<string> workerAddr_ {};
   };
 
   } // namespace Models
