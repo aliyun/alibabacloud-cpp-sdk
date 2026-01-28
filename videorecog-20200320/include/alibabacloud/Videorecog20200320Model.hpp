@@ -30,27 +30,5 @@
 #include <alibabacloud/models/UnderstandVideoContentAdvanceRequest.hpp>
 #include <alibabacloud/models/UnderstandVideoContentResponseBody.hpp>
 #include <alibabacloud/models/UnderstandVideoContentResponse.hpp>
-#include <alibabacloud/models/DetectVideoShotResponseBodyData.hpp>
-#include <alibabacloud/models/EvaluateVideoQualityResponseBodyDataVideoQualityInfo.hpp>
-#include <alibabacloud/models/EvaluateVideoQualityResponseBodyData.hpp>
-#include <alibabacloud/models/GenerateVideoCoverResponseBodyDataOutputs.hpp>
-#include <alibabacloud/models/GenerateVideoCoverResponseBodyData.hpp>
-#include <alibabacloud/models/GetAsyncJobResultResponseBodyData.hpp>
-#include <alibabacloud/models/RecognizeVideoCastCrewListRequestParams.hpp>
-#include <alibabacloud/models/RecognizeVideoCastCrewListAdvanceRequestParams.hpp>
-#include <alibabacloud/models/RecognizeVideoCastCrewListResponseBodyDataCastResults.hpp>
-#include <alibabacloud/models/RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoPosition.hpp>
-#include <alibabacloud/models/RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfo.hpp>
-#include <alibabacloud/models/RecognizeVideoCastCrewListResponseBodyDataOcrResults.hpp>
-#include <alibabacloud/models/RecognizeVideoCastCrewListResponseBodyDataSubtitlesResults.hpp>
-#include <alibabacloud/models/RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoPosition.hpp>
-#include <alibabacloud/models/RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfo.hpp>
-#include <alibabacloud/models/RecognizeVideoCastCrewListResponseBodyDataVideoOcrResults.hpp>
-#include <alibabacloud/models/RecognizeVideoCastCrewListResponseBodyData.hpp>
-#include <alibabacloud/models/SplitVideoPartsResponseBodyDataElements.hpp>
-#include <alibabacloud/models/SplitVideoPartsResponseBodyDataSplitVideoPartResults.hpp>
-#include <alibabacloud/models/SplitVideoPartsResponseBodyData.hpp>
-#include <alibabacloud/models/UnderstandVideoContentResponseBodyDataVideoInfo.hpp>
-#include <alibabacloud/models/UnderstandVideoContentResponseBodyData.hpp>
 
 #endif

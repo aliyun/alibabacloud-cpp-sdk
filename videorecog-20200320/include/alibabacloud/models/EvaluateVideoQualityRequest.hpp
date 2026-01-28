@@ -31,26 +31,26 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->mode_ != nullptr
-        && this->videoUrl_ != nullptr; };
+    virtual bool empty() const override { return this->mode_ == nullptr
+        && this->videoUrl_ == nullptr; };
     // mode Field Functions 
     bool hasMode() const { return this->mode_ != nullptr;};
     void deleteMode() { this->mode_ = nullptr;};
-    inline string mode() const { DARABONBA_PTR_GET_DEFAULT(mode_, "") };
+    inline string getMode() const { DARABONBA_PTR_GET_DEFAULT(mode_, "") };
     inline EvaluateVideoQualityRequest& setMode(string mode) { DARABONBA_PTR_SET_VALUE(mode_, mode) };
 
 
     // videoUrl Field Functions 
     bool hasVideoUrl() const { return this->videoUrl_ != nullptr;};
     void deleteVideoUrl() { this->videoUrl_ = nullptr;};
-    inline string videoUrl() const { DARABONBA_PTR_GET_DEFAULT(videoUrl_, "") };
+    inline string getVideoUrl() const { DARABONBA_PTR_GET_DEFAULT(videoUrl_, "") };
     inline EvaluateVideoQualityRequest& setVideoUrl(string videoUrl) { DARABONBA_PTR_SET_VALUE(videoUrl_, videoUrl) };
 
 
   protected:
-    std::shared_ptr<string> mode_ = nullptr;
+    shared_ptr<string> mode_ {};
     // This parameter is required.
-    std::shared_ptr<string> videoUrl_ = nullptr;
+    shared_ptr<string> videoUrl_ {};
   };
 
   } // namespace Models

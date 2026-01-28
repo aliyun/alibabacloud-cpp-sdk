@@ -1,3 +1,6 @@
+2026-01-28 Version: 1.0.8
+- Generated cpp 2020-03-20 for videorecog.
+
 2025-08-25 Version: 1.0.7
 - Generated cpp 2020-03-20 for videorecog.
 

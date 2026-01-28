@@ -14,11 +14,11 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const GenerateVideoCoverAdvanceRequest& obj) { 
       DARABONBA_PTR_TO_JSON(IsGif, isGif_);
-      DARABONBA_TO_JSON(VideoUrl, videoUrlObject_);
+      // videoUrlObject_ is stream
     };
     friend void from_json(const Darabonba::Json& j, GenerateVideoCoverAdvanceRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(IsGif, isGif_);
-      DARABONBA_FROM_JSON(VideoUrl, videoUrlObject_);
+      // videoUrlObject_ is stream
     };
     GenerateVideoCoverAdvanceRequest() = default ;
     GenerateVideoCoverAdvanceRequest(const GenerateVideoCoverAdvanceRequest &) = default ;
@@ -31,27 +31,27 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->isGif_ != nullptr
-        && this->videoUrlObject_ != nullptr; };
+    virtual bool empty() const override { return this->isGif_ == nullptr
+        && this->videoUrlObject_ == nullptr; };
     // isGif Field Functions 
     bool hasIsGif() const { return this->isGif_ != nullptr;};
     void deleteIsGif() { this->isGif_ = nullptr;};
-    inline bool isGif() const { DARABONBA_PTR_GET_DEFAULT(isGif_, false) };
+    inline bool getIsGif() const { DARABONBA_PTR_GET_DEFAULT(isGif_, false) };
     inline GenerateVideoCoverAdvanceRequest& setIsGif(bool isGif) { DARABONBA_PTR_SET_VALUE(isGif_, isGif) };
 
 
     // videoUrlObject Field Functions 
     bool hasVideoUrlObject() const { return this->videoUrlObject_ != nullptr;};
     void deleteVideoUrlObject() { this->videoUrlObject_ = nullptr;};
-    inline shared_ptr<Darabonba::IStream> videoUrlObject() const { DARABONBA_GET(videoUrlObject_) };
+    inline shared_ptr<Darabonba::IStream> getVideoUrlObject() const { DARABONBA_GET(videoUrlObject_) };
     inline GenerateVideoCoverAdvanceRequest& setVideoUrlObject(shared_ptr<Darabonba::IStream> videoUrlObject) { DARABONBA_SET_VALUE(videoUrlObject_, videoUrlObject) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<bool> isGif_ = nullptr;
+    shared_ptr<bool> isGif_ {};
     // This parameter is required.
-    shared_ptr<Darabonba::IStream> videoUrlObject_ = nullptr;
+    shared_ptr<Darabonba::IStream> videoUrlObject_ {};
   };
 
   } // namespace Models

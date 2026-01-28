@@ -5,9 +5,9 @@
 #include <alibabacloud/Videorecog20200320Model.hpp>
 #include <alibabacloud/Openapi.hpp>
 #include <alibabacloud/Utils.hpp>
+#include <darabonba/Runtime.hpp>
 #include <map>
 #include <alibabacloud/Videorecog20200320.hpp>
-#include <darabonba/Runtime.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -19,7 +19,7 @@ namespace Videorecog20200320
 
       Client(AlibabaCloud::OpenApi::Utils::Models::Config &config);
 
-      Darabonba::Json _postOSSObject(const string &bucketName, const Darabonba::Json &form);
+      Darabonba::Json _postOSSObject(const string &bucketName, const Darabonba::Json &form, const Darabonba::RuntimeOptions &runtime);
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**

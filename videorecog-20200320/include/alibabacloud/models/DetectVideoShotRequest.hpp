@@ -29,17 +29,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->videoUrl_ != nullptr; };
+    virtual bool empty() const override { return this->videoUrl_ == nullptr; };
     // videoUrl Field Functions 
     bool hasVideoUrl() const { return this->videoUrl_ != nullptr;};
     void deleteVideoUrl() { this->videoUrl_ = nullptr;};
-    inline string videoUrl() const { DARABONBA_PTR_GET_DEFAULT(videoUrl_, "") };
+    inline string getVideoUrl() const { DARABONBA_PTR_GET_DEFAULT(videoUrl_, "") };
     inline DetectVideoShotRequest& setVideoUrl(string videoUrl) { DARABONBA_PTR_SET_VALUE(videoUrl_, videoUrl) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> videoUrl_ = nullptr;
+    shared_ptr<string> videoUrl_ {};
   };
 
   } // namespace Models

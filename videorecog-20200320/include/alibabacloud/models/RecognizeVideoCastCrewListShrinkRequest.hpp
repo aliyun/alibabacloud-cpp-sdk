@@ -31,26 +31,26 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->paramsShrink_ != nullptr
-        && this->videoUrl_ != nullptr; };
+    virtual bool empty() const override { return this->paramsShrink_ == nullptr
+        && this->videoUrl_ == nullptr; };
     // paramsShrink Field Functions 
     bool hasParamsShrink() const { return this->paramsShrink_ != nullptr;};
     void deleteParamsShrink() { this->paramsShrink_ = nullptr;};
-    inline string paramsShrink() const { DARABONBA_PTR_GET_DEFAULT(paramsShrink_, "") };
+    inline string getParamsShrink() const { DARABONBA_PTR_GET_DEFAULT(paramsShrink_, "") };
     inline RecognizeVideoCastCrewListShrinkRequest& setParamsShrink(string paramsShrink) { DARABONBA_PTR_SET_VALUE(paramsShrink_, paramsShrink) };
 
 
     // videoUrl Field Functions 
     bool hasVideoUrl() const { return this->videoUrl_ != nullptr;};
     void deleteVideoUrl() { this->videoUrl_ = nullptr;};
-    inline string videoUrl() const { DARABONBA_PTR_GET_DEFAULT(videoUrl_, "") };
+    inline string getVideoUrl() const { DARABONBA_PTR_GET_DEFAULT(videoUrl_, "") };
     inline RecognizeVideoCastCrewListShrinkRequest& setVideoUrl(string videoUrl) { DARABONBA_PTR_SET_VALUE(videoUrl_, videoUrl) };
 
 
   protected:
-    std::shared_ptr<string> paramsShrink_ = nullptr;
+    shared_ptr<string> paramsShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> videoUrl_ = nullptr;
+    shared_ptr<string> videoUrl_ {};
   };
 
   } // namespace Models

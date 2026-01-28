@@ -31,27 +31,27 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->isGif_ != nullptr
-        && this->videoUrl_ != nullptr; };
+    virtual bool empty() const override { return this->isGif_ == nullptr
+        && this->videoUrl_ == nullptr; };
     // isGif Field Functions 
     bool hasIsGif() const { return this->isGif_ != nullptr;};
     void deleteIsGif() { this->isGif_ = nullptr;};
-    inline bool isGif() const { DARABONBA_PTR_GET_DEFAULT(isGif_, false) };
+    inline bool getIsGif() const { DARABONBA_PTR_GET_DEFAULT(isGif_, false) };
     inline GenerateVideoCoverRequest& setIsGif(bool isGif) { DARABONBA_PTR_SET_VALUE(isGif_, isGif) };
 
 
     // videoUrl Field Functions 
     bool hasVideoUrl() const { return this->videoUrl_ != nullptr;};
     void deleteVideoUrl() { this->videoUrl_ = nullptr;};
-    inline string videoUrl() const { DARABONBA_PTR_GET_DEFAULT(videoUrl_, "") };
+    inline string getVideoUrl() const { DARABONBA_PTR_GET_DEFAULT(videoUrl_, "") };
     inline GenerateVideoCoverRequest& setVideoUrl(string videoUrl) { DARABONBA_PTR_SET_VALUE(videoUrl_, videoUrl) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<bool> isGif_ = nullptr;
+    shared_ptr<bool> isGif_ {};
     // This parameter is required.
-    std::shared_ptr<string> videoUrl_ = nullptr;
+    shared_ptr<string> videoUrl_ {};
   };
 
   } // namespace Models
