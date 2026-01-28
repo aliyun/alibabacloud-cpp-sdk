@@ -193,6 +193,61 @@ BatchCreateAICoachTaskResponse Client::batchCreateAICoachTask(const BatchCreateA
 }
 
 /**
+ * @summary 批量删除对练任务
+ *
+ * @param tmpReq BatchDeletePracticeTaskRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BatchDeletePracticeTaskResponse
+ */
+BatchDeletePracticeTaskResponse Client::batchDeletePracticeTaskWithOptions(const BatchDeletePracticeTaskRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  BatchDeletePracticeTaskShrinkRequest request = BatchDeletePracticeTaskShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasTaskIds()) {
+    request.setTaskIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTaskIds(), "taskIds", "simple"));
+  }
+
+  json query = {};
+  if (!!request.hasIdempotentId()) {
+    query["idempotentId"] = request.getIdempotentId();
+  }
+
+  if (!!request.hasTaskIdsShrink()) {
+    query["taskIds"] = request.getTaskIdsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "BatchDeletePracticeTask"},
+    {"version" , "2024-03-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/yic/yic-console/openService/v1/aicoach/batchDeletePracticeTask")},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BatchDeletePracticeTaskResponse>();
+}
+
+/**
+ * @summary 批量删除对练任务
+ *
+ * @param request BatchDeletePracticeTaskRequest
+ * @return BatchDeletePracticeTaskResponse
+ */
+BatchDeletePracticeTaskResponse Client::batchDeletePracticeTask(const BatchDeletePracticeTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return batchDeletePracticeTaskWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 批量查询项目信息
  *
  * @param tmpReq BatchGetProjectTaskRequest

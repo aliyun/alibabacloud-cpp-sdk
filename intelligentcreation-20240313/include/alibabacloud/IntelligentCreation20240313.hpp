@@ -75,6 +75,24 @@ namespace IntelligentCreation20240313
       Models::BatchCreateAICoachTaskResponse batchCreateAICoachTask(const Models::BatchCreateAICoachTaskRequest &request);
 
       /**
+       * @summary 批量删除对练任务
+       *
+       * @param tmpReq BatchDeletePracticeTaskRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BatchDeletePracticeTaskResponse
+       */
+      Models::BatchDeletePracticeTaskResponse batchDeletePracticeTaskWithOptions(const Models::BatchDeletePracticeTaskRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量删除对练任务
+       *
+       * @param request BatchDeletePracticeTaskRequest
+       * @return BatchDeletePracticeTaskResponse
+       */
+      Models::BatchDeletePracticeTaskResponse batchDeletePracticeTask(const Models::BatchDeletePracticeTaskRequest &request);
+
+      /**
        * @summary 批量查询项目信息
        *
        * @param tmpReq BatchGetProjectTaskRequest

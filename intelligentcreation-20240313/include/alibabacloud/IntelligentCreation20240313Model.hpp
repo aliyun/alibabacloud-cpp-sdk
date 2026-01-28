@@ -35,6 +35,10 @@
 #include <alibabacloud/models/BatchCreateAICoachTaskRequest.hpp>
 #include <alibabacloud/models/BatchCreateAICoachTaskResponseBody.hpp>
 #include <alibabacloud/models/BatchCreateAICoachTaskResponse.hpp>
+#include <alibabacloud/models/BatchDeletePracticeTaskRequest.hpp>
+#include <alibabacloud/models/BatchDeletePracticeTaskShrinkRequest.hpp>
+#include <alibabacloud/models/BatchDeletePracticeTaskResponseBody.hpp>
+#include <alibabacloud/models/BatchDeletePracticeTaskResponse.hpp>
 #include <alibabacloud/models/BatchGetProjectTaskRequest.hpp>
 #include <alibabacloud/models/BatchGetProjectTaskShrinkRequest.hpp>
 #include <alibabacloud/models/BatchGetProjectTaskResponseBody.hpp>
