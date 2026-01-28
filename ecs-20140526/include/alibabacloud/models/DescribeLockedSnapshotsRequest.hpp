@@ -135,11 +135,11 @@ namespace Models
     // *   compliance: The snapshot is locked in compliance mode and the cooling-off period has ended. Snapshots cannot be unlocked or deleted. However, users with the corresponding RAM permissions can extend the locked duration.
     // *   expired: The snapshot was once locked, but the lock duration has ended and the lock has expired. The snapshot is not locked and can be deleted.
     shared_ptr<string> lockStatus_ {};
-    // The number of entries per page. Maximum value: 100.
+    // The maximum number of entries to return on each page. Maximum value: 100.
     // 
     // Default value:
     // 
-    // *   If you do not specify this parameter or if you set this parameter to a value that is smaller than 10, the default value is 10.
+    // *   If no value is set or the set value is less than 10, the default value is 10.
     // *   If you set a value greater than 100, the default value is 100.
     shared_ptr<int32_t> maxResults_ {};
     // The query token. Set the value to the `NextToken` parameter value returned in the last API call.
