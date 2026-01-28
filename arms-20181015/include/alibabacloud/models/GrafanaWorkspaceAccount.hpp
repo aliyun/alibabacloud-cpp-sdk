@@ -1,0 +1,102 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_GRAFANAWORKSPACEACCOUNT_HPP_
+#define ALIBABACLOUD_MODELS_GRAFANAWORKSPACEACCOUNT_HPP_
+#include <darabonba/Core.hpp>
+#include <vector>
+#include <alibabacloud/models/GrafanaWorkspaceUserOrg.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace ARMS20181015
+{
+namespace Models
+{
+  class GrafanaWorkspaceAccount : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const GrafanaWorkspaceAccount& obj) { 
+      DARABONBA_PTR_TO_JSON(accountId, accountId_);
+      DARABONBA_PTR_TO_JSON(accountNotes, accountNotes_);
+      DARABONBA_PTR_TO_JSON(aliyunUid, aliyunUid_);
+      DARABONBA_PTR_TO_JSON(aliyunUserName, aliyunUserName_);
+      DARABONBA_PTR_TO_JSON(gmtCreate, gmtCreate_);
+      DARABONBA_PTR_TO_JSON(orgs, orgs_);
+    };
+    friend void from_json(const Darabonba::Json& j, GrafanaWorkspaceAccount& obj) { 
+      DARABONBA_PTR_FROM_JSON(accountId, accountId_);
+      DARABONBA_PTR_FROM_JSON(accountNotes, accountNotes_);
+      DARABONBA_PTR_FROM_JSON(aliyunUid, aliyunUid_);
+      DARABONBA_PTR_FROM_JSON(aliyunUserName, aliyunUserName_);
+      DARABONBA_PTR_FROM_JSON(gmtCreate, gmtCreate_);
+      DARABONBA_PTR_FROM_JSON(orgs, orgs_);
+    };
+    GrafanaWorkspaceAccount() = default ;
+    GrafanaWorkspaceAccount(const GrafanaWorkspaceAccount &) = default ;
+    GrafanaWorkspaceAccount(GrafanaWorkspaceAccount &&) = default ;
+    GrafanaWorkspaceAccount(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~GrafanaWorkspaceAccount() = default ;
+    GrafanaWorkspaceAccount& operator=(const GrafanaWorkspaceAccount &) = default ;
+    GrafanaWorkspaceAccount& operator=(GrafanaWorkspaceAccount &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->accountId_ == nullptr
+        && this->accountNotes_ == nullptr && this->aliyunUid_ == nullptr && this->aliyunUserName_ == nullptr && this->gmtCreate_ == nullptr && this->orgs_ == nullptr; };
+    // accountId Field Functions 
+    bool hasAccountId() const { return this->accountId_ != nullptr;};
+    void deleteAccountId() { this->accountId_ = nullptr;};
+    inline int64_t getAccountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, 0L) };
+    inline GrafanaWorkspaceAccount& setAccountId(int64_t accountId) { DARABONBA_PTR_SET_VALUE(accountId_, accountId) };
+
+
+    // accountNotes Field Functions 
+    bool hasAccountNotes() const { return this->accountNotes_ != nullptr;};
+    void deleteAccountNotes() { this->accountNotes_ = nullptr;};
+    inline string getAccountNotes() const { DARABONBA_PTR_GET_DEFAULT(accountNotes_, "") };
+    inline GrafanaWorkspaceAccount& setAccountNotes(string accountNotes) { DARABONBA_PTR_SET_VALUE(accountNotes_, accountNotes) };
+
+
+    // aliyunUid Field Functions 
+    bool hasAliyunUid() const { return this->aliyunUid_ != nullptr;};
+    void deleteAliyunUid() { this->aliyunUid_ = nullptr;};
+    inline string getAliyunUid() const { DARABONBA_PTR_GET_DEFAULT(aliyunUid_, "") };
+    inline GrafanaWorkspaceAccount& setAliyunUid(string aliyunUid) { DARABONBA_PTR_SET_VALUE(aliyunUid_, aliyunUid) };
+
+
+    // aliyunUserName Field Functions 
+    bool hasAliyunUserName() const { return this->aliyunUserName_ != nullptr;};
+    void deleteAliyunUserName() { this->aliyunUserName_ = nullptr;};
+    inline string getAliyunUserName() const { DARABONBA_PTR_GET_DEFAULT(aliyunUserName_, "") };
+    inline GrafanaWorkspaceAccount& setAliyunUserName(string aliyunUserName) { DARABONBA_PTR_SET_VALUE(aliyunUserName_, aliyunUserName) };
+
+
+    // gmtCreate Field Functions 
+    bool hasGmtCreate() const { return this->gmtCreate_ != nullptr;};
+    void deleteGmtCreate() { this->gmtCreate_ = nullptr;};
+    inline float getGmtCreate() const { DARABONBA_PTR_GET_DEFAULT(gmtCreate_, 0.0) };
+    inline GrafanaWorkspaceAccount& setGmtCreate(float gmtCreate) { DARABONBA_PTR_SET_VALUE(gmtCreate_, gmtCreate) };
+
+
+    // orgs Field Functions 
+    bool hasOrgs() const { return this->orgs_ != nullptr;};
+    void deleteOrgs() { this->orgs_ = nullptr;};
+    inline const vector<GrafanaWorkspaceUserOrg> & getOrgs() const { DARABONBA_PTR_GET_CONST(orgs_, vector<GrafanaWorkspaceUserOrg>) };
+    inline vector<GrafanaWorkspaceUserOrg> getOrgs() { DARABONBA_PTR_GET(orgs_, vector<GrafanaWorkspaceUserOrg>) };
+    inline GrafanaWorkspaceAccount& setOrgs(const vector<GrafanaWorkspaceUserOrg> & orgs) { DARABONBA_PTR_SET_VALUE(orgs_, orgs) };
+    inline GrafanaWorkspaceAccount& setOrgs(vector<GrafanaWorkspaceUserOrg> && orgs) { DARABONBA_PTR_SET_RVALUE(orgs_, orgs) };
+
+
+  protected:
+    shared_ptr<int64_t> accountId_ {};
+    shared_ptr<string> accountNotes_ {};
+    shared_ptr<string> aliyunUid_ {};
+    shared_ptr<string> aliyunUserName_ {};
+    shared_ptr<float> gmtCreate_ {};
+    shared_ptr<vector<GrafanaWorkspaceUserOrg>> orgs_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace ARMS20181015
+#endif
