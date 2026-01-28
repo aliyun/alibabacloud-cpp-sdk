@@ -363,7 +363,7 @@ namespace Domain20180129
       Models::FuzzyMatchDomainSensitiveWordResponse fuzzyMatchDomainSensitiveWord(const Models::FuzzyMatchDomainSensitiveWordRequest &request);
 
       /**
-       * @summary 查询国际一口价在售域名列表
+       * @summary Queries the list of domain names for fixed-price orders at the international site (alibabacloud.com).
        *
        * @param request GetIntlFixPriceDomainListUrlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -372,7 +372,7 @@ namespace Domain20180129
       Models::GetIntlFixPriceDomainListUrlResponse getIntlFixPriceDomainListUrlWithOptions(const Models::GetIntlFixPriceDomainListUrlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询国际一口价在售域名列表
+       * @summary Queries the list of domain names for fixed-price orders at the international site (alibabacloud.com).
        *
        * @param request GetIntlFixPriceDomainListUrlRequest
        * @return GetIntlFixPriceDomainListUrlResponse
@@ -595,6 +595,8 @@ namespace Domain20180129
       Models::QueryDomainByInstanceIdResponse queryDomainByInstanceId(const Models::QueryDomainByInstanceIdRequest &request);
 
       /**
+       * @summary 查询域名分组信息
+       *
        * @param request QueryDomainGroupListRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return QueryDomainGroupListResponse
@@ -602,6 +604,8 @@ namespace Domain20180129
       Models::QueryDomainGroupListResponse queryDomainGroupListWithOptions(const Models::QueryDomainGroupListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询域名分组信息
+       *
        * @param request QueryDomainGroupListRequest
        * @return QueryDomainGroupListResponse
        */

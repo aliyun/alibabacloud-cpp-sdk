@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->domainNames_ == nullptr
-        && return this->lang_ == nullptr && return this->userClientIp_ == nullptr; };
+        && this->lang_ == nullptr && this->userClientIp_ == nullptr; };
     // domainNames Field Functions 
     bool hasDomainNames() const { return this->domainNames_ != nullptr;};
     void deleteDomainNames() { this->domainNames_ = nullptr;};
-    inline const vector<string> & domainNames() const { DARABONBA_PTR_GET_CONST(domainNames_, vector<string>) };
-    inline vector<string> domainNames() { DARABONBA_PTR_GET(domainNames_, vector<string>) };
+    inline const vector<string> & getDomainNames() const { DARABONBA_PTR_GET_CONST(domainNames_, vector<string>) };
+    inline vector<string> getDomainNames() { DARABONBA_PTR_GET(domainNames_, vector<string>) };
     inline SaveBatchTaskForApplyQuickTransferOutOpenlyRequest& setDomainNames(const vector<string> & domainNames) { DARABONBA_PTR_SET_VALUE(domainNames_, domainNames) };
     inline SaveBatchTaskForApplyQuickTransferOutOpenlyRequest& setDomainNames(vector<string> && domainNames) { DARABONBA_PTR_SET_RVALUE(domainNames_, domainNames) };
 
@@ -48,21 +48,21 @@ namespace Models
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline SaveBatchTaskForApplyQuickTransferOutOpenlyRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // userClientIp Field Functions 
     bool hasUserClientIp() const { return this->userClientIp_ != nullptr;};
     void deleteUserClientIp() { this->userClientIp_ = nullptr;};
-    inline string userClientIp() const { DARABONBA_PTR_GET_DEFAULT(userClientIp_, "") };
+    inline string getUserClientIp() const { DARABONBA_PTR_GET_DEFAULT(userClientIp_, "") };
     inline SaveBatchTaskForApplyQuickTransferOutOpenlyRequest& setUserClientIp(string userClientIp) { DARABONBA_PTR_SET_VALUE(userClientIp_, userClientIp) };
 
 
   protected:
-    std::shared_ptr<vector<string>> domainNames_ = nullptr;
-    std::shared_ptr<string> lang_ = nullptr;
-    std::shared_ptr<string> userClientIp_ = nullptr;
+    shared_ptr<vector<string>> domainNames_ {};
+    shared_ptr<string> lang_ {};
+    shared_ptr<string> userClientIp_ {};
   };
 
   } // namespace Models

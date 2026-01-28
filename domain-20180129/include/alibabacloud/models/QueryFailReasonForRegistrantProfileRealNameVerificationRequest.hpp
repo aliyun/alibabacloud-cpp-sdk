@@ -34,33 +34,33 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->registrantProfileID_ == nullptr && return this->userClientIp_ == nullptr; };
+        && this->registrantProfileID_ == nullptr && this->userClientIp_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline QueryFailReasonForRegistrantProfileRealNameVerificationRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // registrantProfileID Field Functions 
     bool hasRegistrantProfileID() const { return this->registrantProfileID_ != nullptr;};
     void deleteRegistrantProfileID() { this->registrantProfileID_ = nullptr;};
-    inline int64_t registrantProfileID() const { DARABONBA_PTR_GET_DEFAULT(registrantProfileID_, 0L) };
+    inline int64_t getRegistrantProfileID() const { DARABONBA_PTR_GET_DEFAULT(registrantProfileID_, 0L) };
     inline QueryFailReasonForRegistrantProfileRealNameVerificationRequest& setRegistrantProfileID(int64_t registrantProfileID) { DARABONBA_PTR_SET_VALUE(registrantProfileID_, registrantProfileID) };
 
 
     // userClientIp Field Functions 
     bool hasUserClientIp() const { return this->userClientIp_ != nullptr;};
     void deleteUserClientIp() { this->userClientIp_ = nullptr;};
-    inline string userClientIp() const { DARABONBA_PTR_GET_DEFAULT(userClientIp_, "") };
+    inline string getUserClientIp() const { DARABONBA_PTR_GET_DEFAULT(userClientIp_, "") };
     inline QueryFailReasonForRegistrantProfileRealNameVerificationRequest& setUserClientIp(string userClientIp) { DARABONBA_PTR_SET_VALUE(userClientIp_, userClientIp) };
 
 
   protected:
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> registrantProfileID_ = nullptr;
-    std::shared_ptr<string> userClientIp_ = nullptr;
+    shared_ptr<int64_t> registrantProfileID_ {};
+    shared_ptr<string> userClientIp_ {};
   };
 
   } // namespace Models

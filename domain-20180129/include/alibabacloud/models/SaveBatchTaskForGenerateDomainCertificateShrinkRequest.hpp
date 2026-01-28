@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->domainNamesShrink_ == nullptr
-        && return this->lang_ == nullptr && return this->userClientIp_ == nullptr; };
+        && this->lang_ == nullptr && this->userClientIp_ == nullptr; };
     // domainNamesShrink Field Functions 
     bool hasDomainNamesShrink() const { return this->domainNamesShrink_ != nullptr;};
     void deleteDomainNamesShrink() { this->domainNamesShrink_ = nullptr;};
-    inline string domainNamesShrink() const { DARABONBA_PTR_GET_DEFAULT(domainNamesShrink_, "") };
+    inline string getDomainNamesShrink() const { DARABONBA_PTR_GET_DEFAULT(domainNamesShrink_, "") };
     inline SaveBatchTaskForGenerateDomainCertificateShrinkRequest& setDomainNamesShrink(string domainNamesShrink) { DARABONBA_PTR_SET_VALUE(domainNamesShrink_, domainNamesShrink) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline SaveBatchTaskForGenerateDomainCertificateShrinkRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // userClientIp Field Functions 
     bool hasUserClientIp() const { return this->userClientIp_ != nullptr;};
     void deleteUserClientIp() { this->userClientIp_ = nullptr;};
-    inline string userClientIp() const { DARABONBA_PTR_GET_DEFAULT(userClientIp_, "") };
+    inline string getUserClientIp() const { DARABONBA_PTR_GET_DEFAULT(userClientIp_, "") };
     inline SaveBatchTaskForGenerateDomainCertificateShrinkRequest& setUserClientIp(string userClientIp) { DARABONBA_PTR_SET_VALUE(userClientIp_, userClientIp) };
 
 
@@ -60,16 +60,16 @@ namespace Models
     // The domain names.
     // 
     // This parameter is required.
-    std::shared_ptr<string> domainNamesShrink_ = nullptr;
+    shared_ptr<string> domainNamesShrink_ {};
     // The language of the error message to return if the request fails. Valid values:
     // 
     // *   **zh**: Chinese.
     // *   **en**: English.
     // 
     // Default value: **en**.
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The IP address of the client.
-    std::shared_ptr<string> userClientIp_ = nullptr;
+    shared_ptr<string> userClientIp_ {};
   };
 
   } // namespace Models

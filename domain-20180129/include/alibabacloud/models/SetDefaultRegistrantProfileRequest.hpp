@@ -32,25 +32,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->registrantProfileId_ == nullptr
-        && return this->userClientIp_ == nullptr; };
+        && this->userClientIp_ == nullptr; };
     // registrantProfileId Field Functions 
     bool hasRegistrantProfileId() const { return this->registrantProfileId_ != nullptr;};
     void deleteRegistrantProfileId() { this->registrantProfileId_ = nullptr;};
-    inline int64_t registrantProfileId() const { DARABONBA_PTR_GET_DEFAULT(registrantProfileId_, 0L) };
+    inline int64_t getRegistrantProfileId() const { DARABONBA_PTR_GET_DEFAULT(registrantProfileId_, 0L) };
     inline SetDefaultRegistrantProfileRequest& setRegistrantProfileId(int64_t registrantProfileId) { DARABONBA_PTR_SET_VALUE(registrantProfileId_, registrantProfileId) };
 
 
     // userClientIp Field Functions 
     bool hasUserClientIp() const { return this->userClientIp_ != nullptr;};
     void deleteUserClientIp() { this->userClientIp_ = nullptr;};
-    inline string userClientIp() const { DARABONBA_PTR_GET_DEFAULT(userClientIp_, "") };
+    inline string getUserClientIp() const { DARABONBA_PTR_GET_DEFAULT(userClientIp_, "") };
     inline SetDefaultRegistrantProfileRequest& setUserClientIp(string userClientIp) { DARABONBA_PTR_SET_VALUE(userClientIp_, userClientIp) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<int64_t> registrantProfileId_ = nullptr;
-    std::shared_ptr<string> userClientIp_ = nullptr;
+    shared_ptr<int64_t> registrantProfileId_ {};
+    shared_ptr<string> userClientIp_ {};
   };
 
   } // namespace Models

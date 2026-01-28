@@ -48,89 +48,89 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->auditInfo_ == nullptr
-        && return this->auditStatus_ == nullptr && return this->auditType_ == nullptr && return this->businessName_ == nullptr && return this->createTime_ == nullptr && return this->domainName_ == nullptr
-        && return this->id_ == nullptr && return this->remark_ == nullptr && return this->requestId_ == nullptr && return this->updateTime_ == nullptr; };
+        && this->auditStatus_ == nullptr && this->auditType_ == nullptr && this->businessName_ == nullptr && this->createTime_ == nullptr && this->domainName_ == nullptr
+        && this->id_ == nullptr && this->remark_ == nullptr && this->requestId_ == nullptr && this->updateTime_ == nullptr; };
     // auditInfo Field Functions 
     bool hasAuditInfo() const { return this->auditInfo_ != nullptr;};
     void deleteAuditInfo() { this->auditInfo_ = nullptr;};
-    inline string auditInfo() const { DARABONBA_PTR_GET_DEFAULT(auditInfo_, "") };
+    inline string getAuditInfo() const { DARABONBA_PTR_GET_DEFAULT(auditInfo_, "") };
     inline QueryOperationAuditInfoDetailResponseBody& setAuditInfo(string auditInfo) { DARABONBA_PTR_SET_VALUE(auditInfo_, auditInfo) };
 
 
     // auditStatus Field Functions 
     bool hasAuditStatus() const { return this->auditStatus_ != nullptr;};
     void deleteAuditStatus() { this->auditStatus_ = nullptr;};
-    inline int32_t auditStatus() const { DARABONBA_PTR_GET_DEFAULT(auditStatus_, 0) };
+    inline int32_t getAuditStatus() const { DARABONBA_PTR_GET_DEFAULT(auditStatus_, 0) };
     inline QueryOperationAuditInfoDetailResponseBody& setAuditStatus(int32_t auditStatus) { DARABONBA_PTR_SET_VALUE(auditStatus_, auditStatus) };
 
 
     // auditType Field Functions 
     bool hasAuditType() const { return this->auditType_ != nullptr;};
     void deleteAuditType() { this->auditType_ = nullptr;};
-    inline int32_t auditType() const { DARABONBA_PTR_GET_DEFAULT(auditType_, 0) };
+    inline int32_t getAuditType() const { DARABONBA_PTR_GET_DEFAULT(auditType_, 0) };
     inline QueryOperationAuditInfoDetailResponseBody& setAuditType(int32_t auditType) { DARABONBA_PTR_SET_VALUE(auditType_, auditType) };
 
 
     // businessName Field Functions 
     bool hasBusinessName() const { return this->businessName_ != nullptr;};
     void deleteBusinessName() { this->businessName_ = nullptr;};
-    inline string businessName() const { DARABONBA_PTR_GET_DEFAULT(businessName_, "") };
+    inline string getBusinessName() const { DARABONBA_PTR_GET_DEFAULT(businessName_, "") };
     inline QueryOperationAuditInfoDetailResponseBody& setBusinessName(string businessName) { DARABONBA_PTR_SET_VALUE(businessName_, businessName) };
 
 
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
-    inline int64_t createTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, 0L) };
+    inline int64_t getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, 0L) };
     inline QueryOperationAuditInfoDetailResponseBody& setCreateTime(int64_t createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
 
 
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
-    inline string domainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
+    inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline QueryOperationAuditInfoDetailResponseBody& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline string id() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+    inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline QueryOperationAuditInfoDetailResponseBody& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // remark Field Functions 
     bool hasRemark() const { return this->remark_ != nullptr;};
     void deleteRemark() { this->remark_ = nullptr;};
-    inline string remark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
+    inline string getRemark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
     inline QueryOperationAuditInfoDetailResponseBody& setRemark(string remark) { DARABONBA_PTR_SET_VALUE(remark_, remark) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline QueryOperationAuditInfoDetailResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // updateTime Field Functions 
     bool hasUpdateTime() const { return this->updateTime_ != nullptr;};
     void deleteUpdateTime() { this->updateTime_ = nullptr;};
-    inline int64_t updateTime() const { DARABONBA_PTR_GET_DEFAULT(updateTime_, 0L) };
+    inline int64_t getUpdateTime() const { DARABONBA_PTR_GET_DEFAULT(updateTime_, 0L) };
     inline QueryOperationAuditInfoDetailResponseBody& setUpdateTime(int64_t updateTime) { DARABONBA_PTR_SET_VALUE(updateTime_, updateTime) };
 
 
   protected:
-    std::shared_ptr<string> auditInfo_ = nullptr;
-    std::shared_ptr<int32_t> auditStatus_ = nullptr;
-    std::shared_ptr<int32_t> auditType_ = nullptr;
-    std::shared_ptr<string> businessName_ = nullptr;
-    std::shared_ptr<int64_t> createTime_ = nullptr;
-    std::shared_ptr<string> domainName_ = nullptr;
-    std::shared_ptr<string> id_ = nullptr;
-    std::shared_ptr<string> remark_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<int64_t> updateTime_ = nullptr;
+    shared_ptr<string> auditInfo_ {};
+    shared_ptr<int32_t> auditStatus_ {};
+    shared_ptr<int32_t> auditType_ {};
+    shared_ptr<string> businessName_ {};
+    shared_ptr<int64_t> createTime_ {};
+    shared_ptr<string> domainName_ {};
+    shared_ptr<string> id_ {};
+    shared_ptr<string> remark_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<int64_t> updateTime_ {};
   };
 
   } // namespace Models

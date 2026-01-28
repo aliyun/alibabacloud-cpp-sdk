@@ -36,42 +36,42 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->contactTemplateId_ == nullptr
-        && return this->dns1_ == nullptr && return this->dns2_ == nullptr && return this->domainName_ == nullptr; };
+        && this->dns1_ == nullptr && this->dns2_ == nullptr && this->domainName_ == nullptr; };
     // contactTemplateId Field Functions 
     bool hasContactTemplateId() const { return this->contactTemplateId_ != nullptr;};
     void deleteContactTemplateId() { this->contactTemplateId_ = nullptr;};
-    inline string contactTemplateId() const { DARABONBA_PTR_GET_DEFAULT(contactTemplateId_, "") };
+    inline string getContactTemplateId() const { DARABONBA_PTR_GET_DEFAULT(contactTemplateId_, "") };
     inline SaveSingleTaskForReserveDropListDomainRequest& setContactTemplateId(string contactTemplateId) { DARABONBA_PTR_SET_VALUE(contactTemplateId_, contactTemplateId) };
 
 
     // dns1 Field Functions 
     bool hasDns1() const { return this->dns1_ != nullptr;};
     void deleteDns1() { this->dns1_ = nullptr;};
-    inline string dns1() const { DARABONBA_PTR_GET_DEFAULT(dns1_, "") };
+    inline string getDns1() const { DARABONBA_PTR_GET_DEFAULT(dns1_, "") };
     inline SaveSingleTaskForReserveDropListDomainRequest& setDns1(string dns1) { DARABONBA_PTR_SET_VALUE(dns1_, dns1) };
 
 
     // dns2 Field Functions 
     bool hasDns2() const { return this->dns2_ != nullptr;};
     void deleteDns2() { this->dns2_ = nullptr;};
-    inline string dns2() const { DARABONBA_PTR_GET_DEFAULT(dns2_, "") };
+    inline string getDns2() const { DARABONBA_PTR_GET_DEFAULT(dns2_, "") };
     inline SaveSingleTaskForReserveDropListDomainRequest& setDns2(string dns2) { DARABONBA_PTR_SET_VALUE(dns2_, dns2) };
 
 
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
-    inline string domainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
+    inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline SaveSingleTaskForReserveDropListDomainRequest& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> contactTemplateId_ = nullptr;
-    std::shared_ptr<string> dns1_ = nullptr;
-    std::shared_ptr<string> dns2_ = nullptr;
+    shared_ptr<string> contactTemplateId_ {};
+    shared_ptr<string> dns1_ {};
+    shared_ptr<string> dns2_ {};
     // This parameter is required.
-    std::shared_ptr<string> domainName_ = nullptr;
+    shared_ptr<string> domainName_ {};
   };
 
   } // namespace Models

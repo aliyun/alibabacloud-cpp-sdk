@@ -33,12 +33,13 @@ namespace Models
     // listDate Field Functions 
     bool hasListDate() const { return this->listDate_ != nullptr;};
     void deleteListDate() { this->listDate_ = nullptr;};
-    inline string listDate() const { DARABONBA_PTR_GET_DEFAULT(listDate_, "") };
+    inline string getListDate() const { DARABONBA_PTR_GET_DEFAULT(listDate_, "") };
     inline GetIntlFixPriceDomainListUrlRequest& setListDate(string listDate) { DARABONBA_PTR_SET_VALUE(listDate_, listDate) };
 
 
   protected:
-    std::shared_ptr<string> listDate_ = nullptr;
+    // The date when the list is exported.
+    shared_ptr<string> listDate_ {};
   };
 
   } // namespace Models

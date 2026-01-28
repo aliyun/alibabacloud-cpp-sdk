@@ -36,42 +36,42 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->domainName_ == nullptr
-        && return this->lang_ == nullptr && return this->realNameVerificationAction_ == nullptr && return this->userClientIp_ == nullptr; };
+        && this->lang_ == nullptr && this->realNameVerificationAction_ == nullptr && this->userClientIp_ == nullptr; };
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
-    inline string domainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
+    inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline QueryFailReasonForDomainRealNameVerificationRequest& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline QueryFailReasonForDomainRealNameVerificationRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // realNameVerificationAction Field Functions 
     bool hasRealNameVerificationAction() const { return this->realNameVerificationAction_ != nullptr;};
     void deleteRealNameVerificationAction() { this->realNameVerificationAction_ = nullptr;};
-    inline string realNameVerificationAction() const { DARABONBA_PTR_GET_DEFAULT(realNameVerificationAction_, "") };
+    inline string getRealNameVerificationAction() const { DARABONBA_PTR_GET_DEFAULT(realNameVerificationAction_, "") };
     inline QueryFailReasonForDomainRealNameVerificationRequest& setRealNameVerificationAction(string realNameVerificationAction) { DARABONBA_PTR_SET_VALUE(realNameVerificationAction_, realNameVerificationAction) };
 
 
     // userClientIp Field Functions 
     bool hasUserClientIp() const { return this->userClientIp_ != nullptr;};
     void deleteUserClientIp() { this->userClientIp_ = nullptr;};
-    inline string userClientIp() const { DARABONBA_PTR_GET_DEFAULT(userClientIp_, "") };
+    inline string getUserClientIp() const { DARABONBA_PTR_GET_DEFAULT(userClientIp_, "") };
     inline QueryFailReasonForDomainRealNameVerificationRequest& setUserClientIp(string userClientIp) { DARABONBA_PTR_SET_VALUE(userClientIp_, userClientIp) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> domainName_ = nullptr;
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> domainName_ {};
+    shared_ptr<string> lang_ {};
     // This parameter is required.
-    std::shared_ptr<string> realNameVerificationAction_ = nullptr;
-    std::shared_ptr<string> userClientIp_ = nullptr;
+    shared_ptr<string> realNameVerificationAction_ {};
+    shared_ptr<string> userClientIp_ {};
   };
 
   } // namespace Models

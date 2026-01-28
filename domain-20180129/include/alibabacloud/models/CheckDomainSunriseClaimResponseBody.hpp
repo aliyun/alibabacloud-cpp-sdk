@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->claimKey_ == nullptr
-        && return this->requestId_ == nullptr && return this->result_ == nullptr; };
+        && this->requestId_ == nullptr && this->result_ == nullptr; };
     // claimKey Field Functions 
     bool hasClaimKey() const { return this->claimKey_ != nullptr;};
     void deleteClaimKey() { this->claimKey_ = nullptr;};
-    inline string claimKey() const { DARABONBA_PTR_GET_DEFAULT(claimKey_, "") };
+    inline string getClaimKey() const { DARABONBA_PTR_GET_DEFAULT(claimKey_, "") };
     inline CheckDomainSunriseClaimResponseBody& setClaimKey(string claimKey) { DARABONBA_PTR_SET_VALUE(claimKey_, claimKey) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CheckDomainSunriseClaimResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // result Field Functions 
     bool hasResult() const { return this->result_ != nullptr;};
     void deleteResult() { this->result_ = nullptr;};
-    inline int32_t result() const { DARABONBA_PTR_GET_DEFAULT(result_, 0) };
+    inline int32_t getResult() const { DARABONBA_PTR_GET_DEFAULT(result_, 0) };
     inline CheckDomainSunriseClaimResponseBody& setResult(int32_t result) { DARABONBA_PTR_SET_VALUE(result_, result) };
 
 
   protected:
-    std::shared_ptr<string> claimKey_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<int32_t> result_ = nullptr;
+    shared_ptr<string> claimKey_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<int32_t> result_ {};
   };
 
   } // namespace Models

@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->auditRecordId_ == nullptr
-        && return this->auditType_ == nullptr && return this->credentials_ == nullptr && return this->lang_ == nullptr && return this->regType_ == nullptr; };
+        && this->auditType_ == nullptr && this->credentials_ == nullptr && this->lang_ == nullptr && this->regType_ == nullptr; };
     // auditRecordId Field Functions 
     bool hasAuditRecordId() const { return this->auditRecordId_ != nullptr;};
     void deleteAuditRecordId() { this->auditRecordId_ = nullptr;};
-    inline int64_t auditRecordId() const { DARABONBA_PTR_GET_DEFAULT(auditRecordId_, 0L) };
+    inline int64_t getAuditRecordId() const { DARABONBA_PTR_GET_DEFAULT(auditRecordId_, 0L) };
     inline SubmitOperationCredentialsRequest& setAuditRecordId(int64_t auditRecordId) { DARABONBA_PTR_SET_VALUE(auditRecordId_, auditRecordId) };
 
 
     // auditType Field Functions 
     bool hasAuditType() const { return this->auditType_ != nullptr;};
     void deleteAuditType() { this->auditType_ = nullptr;};
-    inline int32_t auditType() const { DARABONBA_PTR_GET_DEFAULT(auditType_, 0) };
+    inline int32_t getAuditType() const { DARABONBA_PTR_GET_DEFAULT(auditType_, 0) };
     inline SubmitOperationCredentialsRequest& setAuditType(int32_t auditType) { DARABONBA_PTR_SET_VALUE(auditType_, auditType) };
 
 
     // credentials Field Functions 
     bool hasCredentials() const { return this->credentials_ != nullptr;};
     void deleteCredentials() { this->credentials_ = nullptr;};
-    inline string credentials() const { DARABONBA_PTR_GET_DEFAULT(credentials_, "") };
+    inline string getCredentials() const { DARABONBA_PTR_GET_DEFAULT(credentials_, "") };
     inline SubmitOperationCredentialsRequest& setCredentials(string credentials) { DARABONBA_PTR_SET_VALUE(credentials_, credentials) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline SubmitOperationCredentialsRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // regType Field Functions 
     bool hasRegType() const { return this->regType_ != nullptr;};
     void deleteRegType() { this->regType_ = nullptr;};
-    inline int32_t regType() const { DARABONBA_PTR_GET_DEFAULT(regType_, 0) };
+    inline int32_t getRegType() const { DARABONBA_PTR_GET_DEFAULT(regType_, 0) };
     inline SubmitOperationCredentialsRequest& setRegType(int32_t regType) { DARABONBA_PTR_SET_VALUE(regType_, regType) };
 
 
   protected:
-    std::shared_ptr<int64_t> auditRecordId_ = nullptr;
-    std::shared_ptr<int32_t> auditType_ = nullptr;
-    std::shared_ptr<string> credentials_ = nullptr;
-    std::shared_ptr<string> lang_ = nullptr;
-    std::shared_ptr<int32_t> regType_ = nullptr;
+    shared_ptr<int64_t> auditRecordId_ {};
+    shared_ptr<int32_t> auditType_ {};
+    shared_ptr<string> credentials_ {};
+    shared_ptr<string> lang_ {};
+    shared_ptr<int32_t> regType_ {};
   };
 
   } // namespace Models

@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_SAVEBATCHTASKFORCREATINGORDERRENEWREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/SaveBatchTaskForCreatingOrderRenewRequestOrderRenewParam.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -43,69 +42,121 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class OrderRenewParam : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const OrderRenewParam& obj) { 
+        DARABONBA_PTR_TO_JSON(CurrentExpirationDate, currentExpirationDate_);
+        DARABONBA_PTR_TO_JSON(DomainName, domainName_);
+        DARABONBA_PTR_TO_JSON(SubscriptionDuration, subscriptionDuration_);
+      };
+      friend void from_json(const Darabonba::Json& j, OrderRenewParam& obj) { 
+        DARABONBA_PTR_FROM_JSON(CurrentExpirationDate, currentExpirationDate_);
+        DARABONBA_PTR_FROM_JSON(DomainName, domainName_);
+        DARABONBA_PTR_FROM_JSON(SubscriptionDuration, subscriptionDuration_);
+      };
+      OrderRenewParam() = default ;
+      OrderRenewParam(const OrderRenewParam &) = default ;
+      OrderRenewParam(OrderRenewParam &&) = default ;
+      OrderRenewParam(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~OrderRenewParam() = default ;
+      OrderRenewParam& operator=(const OrderRenewParam &) = default ;
+      OrderRenewParam& operator=(OrderRenewParam &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->currentExpirationDate_ == nullptr
+        && this->domainName_ == nullptr && this->subscriptionDuration_ == nullptr; };
+      // currentExpirationDate Field Functions 
+      bool hasCurrentExpirationDate() const { return this->currentExpirationDate_ != nullptr;};
+      void deleteCurrentExpirationDate() { this->currentExpirationDate_ = nullptr;};
+      inline int64_t getCurrentExpirationDate() const { DARABONBA_PTR_GET_DEFAULT(currentExpirationDate_, 0L) };
+      inline OrderRenewParam& setCurrentExpirationDate(int64_t currentExpirationDate) { DARABONBA_PTR_SET_VALUE(currentExpirationDate_, currentExpirationDate) };
+
+
+      // domainName Field Functions 
+      bool hasDomainName() const { return this->domainName_ != nullptr;};
+      void deleteDomainName() { this->domainName_ = nullptr;};
+      inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
+      inline OrderRenewParam& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
+
+
+      // subscriptionDuration Field Functions 
+      bool hasSubscriptionDuration() const { return this->subscriptionDuration_ != nullptr;};
+      void deleteSubscriptionDuration() { this->subscriptionDuration_ = nullptr;};
+      inline int32_t getSubscriptionDuration() const { DARABONBA_PTR_GET_DEFAULT(subscriptionDuration_, 0) };
+      inline OrderRenewParam& setSubscriptionDuration(int32_t subscriptionDuration) { DARABONBA_PTR_SET_VALUE(subscriptionDuration_, subscriptionDuration) };
+
+
+    protected:
+      shared_ptr<int64_t> currentExpirationDate_ {};
+      shared_ptr<string> domainName_ {};
+      shared_ptr<int32_t> subscriptionDuration_ {};
+    };
+
     virtual bool empty() const override { return this->couponNo_ == nullptr
-        && return this->lang_ == nullptr && return this->orderRenewParam_ == nullptr && return this->promotionNo_ == nullptr && return this->useCoupon_ == nullptr && return this->usePromotion_ == nullptr
-        && return this->userClientIp_ == nullptr; };
+        && this->lang_ == nullptr && this->orderRenewParam_ == nullptr && this->promotionNo_ == nullptr && this->useCoupon_ == nullptr && this->usePromotion_ == nullptr
+        && this->userClientIp_ == nullptr; };
     // couponNo Field Functions 
     bool hasCouponNo() const { return this->couponNo_ != nullptr;};
     void deleteCouponNo() { this->couponNo_ = nullptr;};
-    inline string couponNo() const { DARABONBA_PTR_GET_DEFAULT(couponNo_, "") };
+    inline string getCouponNo() const { DARABONBA_PTR_GET_DEFAULT(couponNo_, "") };
     inline SaveBatchTaskForCreatingOrderRenewRequest& setCouponNo(string couponNo) { DARABONBA_PTR_SET_VALUE(couponNo_, couponNo) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline SaveBatchTaskForCreatingOrderRenewRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // orderRenewParam Field Functions 
     bool hasOrderRenewParam() const { return this->orderRenewParam_ != nullptr;};
     void deleteOrderRenewParam() { this->orderRenewParam_ = nullptr;};
-    inline const vector<SaveBatchTaskForCreatingOrderRenewRequestOrderRenewParam> & orderRenewParam() const { DARABONBA_PTR_GET_CONST(orderRenewParam_, vector<SaveBatchTaskForCreatingOrderRenewRequestOrderRenewParam>) };
-    inline vector<SaveBatchTaskForCreatingOrderRenewRequestOrderRenewParam> orderRenewParam() { DARABONBA_PTR_GET(orderRenewParam_, vector<SaveBatchTaskForCreatingOrderRenewRequestOrderRenewParam>) };
-    inline SaveBatchTaskForCreatingOrderRenewRequest& setOrderRenewParam(const vector<SaveBatchTaskForCreatingOrderRenewRequestOrderRenewParam> & orderRenewParam) { DARABONBA_PTR_SET_VALUE(orderRenewParam_, orderRenewParam) };
-    inline SaveBatchTaskForCreatingOrderRenewRequest& setOrderRenewParam(vector<SaveBatchTaskForCreatingOrderRenewRequestOrderRenewParam> && orderRenewParam) { DARABONBA_PTR_SET_RVALUE(orderRenewParam_, orderRenewParam) };
+    inline const vector<SaveBatchTaskForCreatingOrderRenewRequest::OrderRenewParam> & getOrderRenewParam() const { DARABONBA_PTR_GET_CONST(orderRenewParam_, vector<SaveBatchTaskForCreatingOrderRenewRequest::OrderRenewParam>) };
+    inline vector<SaveBatchTaskForCreatingOrderRenewRequest::OrderRenewParam> getOrderRenewParam() { DARABONBA_PTR_GET(orderRenewParam_, vector<SaveBatchTaskForCreatingOrderRenewRequest::OrderRenewParam>) };
+    inline SaveBatchTaskForCreatingOrderRenewRequest& setOrderRenewParam(const vector<SaveBatchTaskForCreatingOrderRenewRequest::OrderRenewParam> & orderRenewParam) { DARABONBA_PTR_SET_VALUE(orderRenewParam_, orderRenewParam) };
+    inline SaveBatchTaskForCreatingOrderRenewRequest& setOrderRenewParam(vector<SaveBatchTaskForCreatingOrderRenewRequest::OrderRenewParam> && orderRenewParam) { DARABONBA_PTR_SET_RVALUE(orderRenewParam_, orderRenewParam) };
 
 
     // promotionNo Field Functions 
     bool hasPromotionNo() const { return this->promotionNo_ != nullptr;};
     void deletePromotionNo() { this->promotionNo_ = nullptr;};
-    inline string promotionNo() const { DARABONBA_PTR_GET_DEFAULT(promotionNo_, "") };
+    inline string getPromotionNo() const { DARABONBA_PTR_GET_DEFAULT(promotionNo_, "") };
     inline SaveBatchTaskForCreatingOrderRenewRequest& setPromotionNo(string promotionNo) { DARABONBA_PTR_SET_VALUE(promotionNo_, promotionNo) };
 
 
     // useCoupon Field Functions 
     bool hasUseCoupon() const { return this->useCoupon_ != nullptr;};
     void deleteUseCoupon() { this->useCoupon_ = nullptr;};
-    inline bool useCoupon() const { DARABONBA_PTR_GET_DEFAULT(useCoupon_, false) };
+    inline bool getUseCoupon() const { DARABONBA_PTR_GET_DEFAULT(useCoupon_, false) };
     inline SaveBatchTaskForCreatingOrderRenewRequest& setUseCoupon(bool useCoupon) { DARABONBA_PTR_SET_VALUE(useCoupon_, useCoupon) };
 
 
     // usePromotion Field Functions 
     bool hasUsePromotion() const { return this->usePromotion_ != nullptr;};
     void deleteUsePromotion() { this->usePromotion_ = nullptr;};
-    inline bool usePromotion() const { DARABONBA_PTR_GET_DEFAULT(usePromotion_, false) };
+    inline bool getUsePromotion() const { DARABONBA_PTR_GET_DEFAULT(usePromotion_, false) };
     inline SaveBatchTaskForCreatingOrderRenewRequest& setUsePromotion(bool usePromotion) { DARABONBA_PTR_SET_VALUE(usePromotion_, usePromotion) };
 
 
     // userClientIp Field Functions 
     bool hasUserClientIp() const { return this->userClientIp_ != nullptr;};
     void deleteUserClientIp() { this->userClientIp_ = nullptr;};
-    inline string userClientIp() const { DARABONBA_PTR_GET_DEFAULT(userClientIp_, "") };
+    inline string getUserClientIp() const { DARABONBA_PTR_GET_DEFAULT(userClientIp_, "") };
     inline SaveBatchTaskForCreatingOrderRenewRequest& setUserClientIp(string userClientIp) { DARABONBA_PTR_SET_VALUE(userClientIp_, userClientIp) };
 
 
   protected:
-    std::shared_ptr<string> couponNo_ = nullptr;
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> couponNo_ {};
+    shared_ptr<string> lang_ {};
     // This parameter is required.
-    std::shared_ptr<vector<SaveBatchTaskForCreatingOrderRenewRequestOrderRenewParam>> orderRenewParam_ = nullptr;
-    std::shared_ptr<string> promotionNo_ = nullptr;
-    std::shared_ptr<bool> useCoupon_ = nullptr;
-    std::shared_ptr<bool> usePromotion_ = nullptr;
-    std::shared_ptr<string> userClientIp_ = nullptr;
+    shared_ptr<vector<SaveBatchTaskForCreatingOrderRenewRequest::OrderRenewParam>> orderRenewParam_ {};
+    shared_ptr<string> promotionNo_ {};
+    shared_ptr<bool> useCoupon_ {};
+    shared_ptr<bool> usePromotion_ {};
+    shared_ptr<string> userClientIp_ {};
   };
 
   } // namespace Models

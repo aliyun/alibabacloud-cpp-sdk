@@ -2,8 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_CONFIRMTRANSFERINEMAILRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_CONFIRMTRANSFERINEMAILRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/ConfirmTransferInEmailResponseBodyFailList.hpp>
-#include <alibabacloud/models/ConfirmTransferInEmailResponseBodySuccessList.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -35,37 +34,103 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class SuccessList : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const SuccessList& obj) { 
+        DARABONBA_PTR_TO_JSON(SuccessDomain, successDomain_);
+      };
+      friend void from_json(const Darabonba::Json& j, SuccessList& obj) { 
+        DARABONBA_PTR_FROM_JSON(SuccessDomain, successDomain_);
+      };
+      SuccessList() = default ;
+      SuccessList(const SuccessList &) = default ;
+      SuccessList(SuccessList &&) = default ;
+      SuccessList(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~SuccessList() = default ;
+      SuccessList& operator=(const SuccessList &) = default ;
+      SuccessList& operator=(SuccessList &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->successDomain_ == nullptr; };
+      // successDomain Field Functions 
+      bool hasSuccessDomain() const { return this->successDomain_ != nullptr;};
+      void deleteSuccessDomain() { this->successDomain_ = nullptr;};
+      inline const vector<string> & getSuccessDomain() const { DARABONBA_PTR_GET_CONST(successDomain_, vector<string>) };
+      inline vector<string> getSuccessDomain() { DARABONBA_PTR_GET(successDomain_, vector<string>) };
+      inline SuccessList& setSuccessDomain(const vector<string> & successDomain) { DARABONBA_PTR_SET_VALUE(successDomain_, successDomain) };
+      inline SuccessList& setSuccessDomain(vector<string> && successDomain) { DARABONBA_PTR_SET_RVALUE(successDomain_, successDomain) };
+
+
+    protected:
+      shared_ptr<vector<string>> successDomain_ {};
+    };
+
+    class FailList : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const FailList& obj) { 
+        DARABONBA_PTR_TO_JSON(FailDomain, failDomain_);
+      };
+      friend void from_json(const Darabonba::Json& j, FailList& obj) { 
+        DARABONBA_PTR_FROM_JSON(FailDomain, failDomain_);
+      };
+      FailList() = default ;
+      FailList(const FailList &) = default ;
+      FailList(FailList &&) = default ;
+      FailList(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~FailList() = default ;
+      FailList& operator=(const FailList &) = default ;
+      FailList& operator=(FailList &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->failDomain_ == nullptr; };
+      // failDomain Field Functions 
+      bool hasFailDomain() const { return this->failDomain_ != nullptr;};
+      void deleteFailDomain() { this->failDomain_ = nullptr;};
+      inline const vector<string> & getFailDomain() const { DARABONBA_PTR_GET_CONST(failDomain_, vector<string>) };
+      inline vector<string> getFailDomain() { DARABONBA_PTR_GET(failDomain_, vector<string>) };
+      inline FailList& setFailDomain(const vector<string> & failDomain) { DARABONBA_PTR_SET_VALUE(failDomain_, failDomain) };
+      inline FailList& setFailDomain(vector<string> && failDomain) { DARABONBA_PTR_SET_RVALUE(failDomain_, failDomain) };
+
+
+    protected:
+      shared_ptr<vector<string>> failDomain_ {};
+    };
+
     virtual bool empty() const override { return this->failList_ == nullptr
-        && return this->requestId_ == nullptr && return this->successList_ == nullptr; };
+        && this->requestId_ == nullptr && this->successList_ == nullptr; };
     // failList Field Functions 
     bool hasFailList() const { return this->failList_ != nullptr;};
     void deleteFailList() { this->failList_ = nullptr;};
-    inline const ConfirmTransferInEmailResponseBodyFailList & failList() const { DARABONBA_PTR_GET_CONST(failList_, ConfirmTransferInEmailResponseBodyFailList) };
-    inline ConfirmTransferInEmailResponseBodyFailList failList() { DARABONBA_PTR_GET(failList_, ConfirmTransferInEmailResponseBodyFailList) };
-    inline ConfirmTransferInEmailResponseBody& setFailList(const ConfirmTransferInEmailResponseBodyFailList & failList) { DARABONBA_PTR_SET_VALUE(failList_, failList) };
-    inline ConfirmTransferInEmailResponseBody& setFailList(ConfirmTransferInEmailResponseBodyFailList && failList) { DARABONBA_PTR_SET_RVALUE(failList_, failList) };
+    inline const ConfirmTransferInEmailResponseBody::FailList & getFailList() const { DARABONBA_PTR_GET_CONST(failList_, ConfirmTransferInEmailResponseBody::FailList) };
+    inline ConfirmTransferInEmailResponseBody::FailList getFailList() { DARABONBA_PTR_GET(failList_, ConfirmTransferInEmailResponseBody::FailList) };
+    inline ConfirmTransferInEmailResponseBody& setFailList(const ConfirmTransferInEmailResponseBody::FailList & failList) { DARABONBA_PTR_SET_VALUE(failList_, failList) };
+    inline ConfirmTransferInEmailResponseBody& setFailList(ConfirmTransferInEmailResponseBody::FailList && failList) { DARABONBA_PTR_SET_RVALUE(failList_, failList) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ConfirmTransferInEmailResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // successList Field Functions 
     bool hasSuccessList() const { return this->successList_ != nullptr;};
     void deleteSuccessList() { this->successList_ = nullptr;};
-    inline const ConfirmTransferInEmailResponseBodySuccessList & successList() const { DARABONBA_PTR_GET_CONST(successList_, ConfirmTransferInEmailResponseBodySuccessList) };
-    inline ConfirmTransferInEmailResponseBodySuccessList successList() { DARABONBA_PTR_GET(successList_, ConfirmTransferInEmailResponseBodySuccessList) };
-    inline ConfirmTransferInEmailResponseBody& setSuccessList(const ConfirmTransferInEmailResponseBodySuccessList & successList) { DARABONBA_PTR_SET_VALUE(successList_, successList) };
-    inline ConfirmTransferInEmailResponseBody& setSuccessList(ConfirmTransferInEmailResponseBodySuccessList && successList) { DARABONBA_PTR_SET_RVALUE(successList_, successList) };
+    inline const ConfirmTransferInEmailResponseBody::SuccessList & getSuccessList() const { DARABONBA_PTR_GET_CONST(successList_, ConfirmTransferInEmailResponseBody::SuccessList) };
+    inline ConfirmTransferInEmailResponseBody::SuccessList getSuccessList() { DARABONBA_PTR_GET(successList_, ConfirmTransferInEmailResponseBody::SuccessList) };
+    inline ConfirmTransferInEmailResponseBody& setSuccessList(const ConfirmTransferInEmailResponseBody::SuccessList & successList) { DARABONBA_PTR_SET_VALUE(successList_, successList) };
+    inline ConfirmTransferInEmailResponseBody& setSuccessList(ConfirmTransferInEmailResponseBody::SuccessList && successList) { DARABONBA_PTR_SET_RVALUE(successList_, successList) };
 
 
   protected:
-    std::shared_ptr<ConfirmTransferInEmailResponseBodyFailList> failList_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<ConfirmTransferInEmailResponseBodySuccessList> successList_ = nullptr;
+    shared_ptr<ConfirmTransferInEmailResponseBody::FailList> failList_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<ConfirmTransferInEmailResponseBody::SuccessList> successList_ {};
   };
 
   } // namespace Models

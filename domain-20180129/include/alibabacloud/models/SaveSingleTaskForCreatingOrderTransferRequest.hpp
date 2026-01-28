@@ -48,92 +48,92 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->authorizationCode_ == nullptr
-        && return this->couponNo_ == nullptr && return this->domainName_ == nullptr && return this->lang_ == nullptr && return this->permitPremiumTransfer_ == nullptr && return this->promotionNo_ == nullptr
-        && return this->registrantProfileId_ == nullptr && return this->useCoupon_ == nullptr && return this->usePromotion_ == nullptr && return this->userClientIp_ == nullptr; };
+        && this->couponNo_ == nullptr && this->domainName_ == nullptr && this->lang_ == nullptr && this->permitPremiumTransfer_ == nullptr && this->promotionNo_ == nullptr
+        && this->registrantProfileId_ == nullptr && this->useCoupon_ == nullptr && this->usePromotion_ == nullptr && this->userClientIp_ == nullptr; };
     // authorizationCode Field Functions 
     bool hasAuthorizationCode() const { return this->authorizationCode_ != nullptr;};
     void deleteAuthorizationCode() { this->authorizationCode_ = nullptr;};
-    inline string authorizationCode() const { DARABONBA_PTR_GET_DEFAULT(authorizationCode_, "") };
+    inline string getAuthorizationCode() const { DARABONBA_PTR_GET_DEFAULT(authorizationCode_, "") };
     inline SaveSingleTaskForCreatingOrderTransferRequest& setAuthorizationCode(string authorizationCode) { DARABONBA_PTR_SET_VALUE(authorizationCode_, authorizationCode) };
 
 
     // couponNo Field Functions 
     bool hasCouponNo() const { return this->couponNo_ != nullptr;};
     void deleteCouponNo() { this->couponNo_ = nullptr;};
-    inline string couponNo() const { DARABONBA_PTR_GET_DEFAULT(couponNo_, "") };
+    inline string getCouponNo() const { DARABONBA_PTR_GET_DEFAULT(couponNo_, "") };
     inline SaveSingleTaskForCreatingOrderTransferRequest& setCouponNo(string couponNo) { DARABONBA_PTR_SET_VALUE(couponNo_, couponNo) };
 
 
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
-    inline string domainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
+    inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline SaveSingleTaskForCreatingOrderTransferRequest& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline SaveSingleTaskForCreatingOrderTransferRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // permitPremiumTransfer Field Functions 
     bool hasPermitPremiumTransfer() const { return this->permitPremiumTransfer_ != nullptr;};
     void deletePermitPremiumTransfer() { this->permitPremiumTransfer_ = nullptr;};
-    inline bool permitPremiumTransfer() const { DARABONBA_PTR_GET_DEFAULT(permitPremiumTransfer_, false) };
+    inline bool getPermitPremiumTransfer() const { DARABONBA_PTR_GET_DEFAULT(permitPremiumTransfer_, false) };
     inline SaveSingleTaskForCreatingOrderTransferRequest& setPermitPremiumTransfer(bool permitPremiumTransfer) { DARABONBA_PTR_SET_VALUE(permitPremiumTransfer_, permitPremiumTransfer) };
 
 
     // promotionNo Field Functions 
     bool hasPromotionNo() const { return this->promotionNo_ != nullptr;};
     void deletePromotionNo() { this->promotionNo_ = nullptr;};
-    inline string promotionNo() const { DARABONBA_PTR_GET_DEFAULT(promotionNo_, "") };
+    inline string getPromotionNo() const { DARABONBA_PTR_GET_DEFAULT(promotionNo_, "") };
     inline SaveSingleTaskForCreatingOrderTransferRequest& setPromotionNo(string promotionNo) { DARABONBA_PTR_SET_VALUE(promotionNo_, promotionNo) };
 
 
     // registrantProfileId Field Functions 
     bool hasRegistrantProfileId() const { return this->registrantProfileId_ != nullptr;};
     void deleteRegistrantProfileId() { this->registrantProfileId_ = nullptr;};
-    inline int64_t registrantProfileId() const { DARABONBA_PTR_GET_DEFAULT(registrantProfileId_, 0L) };
+    inline int64_t getRegistrantProfileId() const { DARABONBA_PTR_GET_DEFAULT(registrantProfileId_, 0L) };
     inline SaveSingleTaskForCreatingOrderTransferRequest& setRegistrantProfileId(int64_t registrantProfileId) { DARABONBA_PTR_SET_VALUE(registrantProfileId_, registrantProfileId) };
 
 
     // useCoupon Field Functions 
     bool hasUseCoupon() const { return this->useCoupon_ != nullptr;};
     void deleteUseCoupon() { this->useCoupon_ = nullptr;};
-    inline bool useCoupon() const { DARABONBA_PTR_GET_DEFAULT(useCoupon_, false) };
+    inline bool getUseCoupon() const { DARABONBA_PTR_GET_DEFAULT(useCoupon_, false) };
     inline SaveSingleTaskForCreatingOrderTransferRequest& setUseCoupon(bool useCoupon) { DARABONBA_PTR_SET_VALUE(useCoupon_, useCoupon) };
 
 
     // usePromotion Field Functions 
     bool hasUsePromotion() const { return this->usePromotion_ != nullptr;};
     void deleteUsePromotion() { this->usePromotion_ = nullptr;};
-    inline bool usePromotion() const { DARABONBA_PTR_GET_DEFAULT(usePromotion_, false) };
+    inline bool getUsePromotion() const { DARABONBA_PTR_GET_DEFAULT(usePromotion_, false) };
     inline SaveSingleTaskForCreatingOrderTransferRequest& setUsePromotion(bool usePromotion) { DARABONBA_PTR_SET_VALUE(usePromotion_, usePromotion) };
 
 
     // userClientIp Field Functions 
     bool hasUserClientIp() const { return this->userClientIp_ != nullptr;};
     void deleteUserClientIp() { this->userClientIp_ = nullptr;};
-    inline string userClientIp() const { DARABONBA_PTR_GET_DEFAULT(userClientIp_, "") };
+    inline string getUserClientIp() const { DARABONBA_PTR_GET_DEFAULT(userClientIp_, "") };
     inline SaveSingleTaskForCreatingOrderTransferRequest& setUserClientIp(string userClientIp) { DARABONBA_PTR_SET_VALUE(userClientIp_, userClientIp) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> authorizationCode_ = nullptr;
-    std::shared_ptr<string> couponNo_ = nullptr;
+    shared_ptr<string> authorizationCode_ {};
+    shared_ptr<string> couponNo_ {};
     // This parameter is required.
-    std::shared_ptr<string> domainName_ = nullptr;
-    std::shared_ptr<string> lang_ = nullptr;
-    std::shared_ptr<bool> permitPremiumTransfer_ = nullptr;
-    std::shared_ptr<string> promotionNo_ = nullptr;
+    shared_ptr<string> domainName_ {};
+    shared_ptr<string> lang_ {};
+    shared_ptr<bool> permitPremiumTransfer_ {};
+    shared_ptr<string> promotionNo_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> registrantProfileId_ = nullptr;
-    std::shared_ptr<bool> useCoupon_ = nullptr;
-    std::shared_ptr<bool> usePromotion_ = nullptr;
-    std::shared_ptr<string> userClientIp_ = nullptr;
+    shared_ptr<int64_t> registrantProfileId_ {};
+    shared_ptr<bool> useCoupon_ {};
+    shared_ptr<bool> usePromotion_ {};
+    shared_ptr<string> userClientIp_ {};
   };
 
   } // namespace Models

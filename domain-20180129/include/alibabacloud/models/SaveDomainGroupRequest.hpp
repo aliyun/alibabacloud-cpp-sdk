@@ -36,41 +36,41 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->domainGroupId_ == nullptr
-        && return this->domainGroupName_ == nullptr && return this->lang_ == nullptr && return this->userClientIp_ == nullptr; };
+        && this->domainGroupName_ == nullptr && this->lang_ == nullptr && this->userClientIp_ == nullptr; };
     // domainGroupId Field Functions 
     bool hasDomainGroupId() const { return this->domainGroupId_ != nullptr;};
     void deleteDomainGroupId() { this->domainGroupId_ = nullptr;};
-    inline int64_t domainGroupId() const { DARABONBA_PTR_GET_DEFAULT(domainGroupId_, 0L) };
+    inline int64_t getDomainGroupId() const { DARABONBA_PTR_GET_DEFAULT(domainGroupId_, 0L) };
     inline SaveDomainGroupRequest& setDomainGroupId(int64_t domainGroupId) { DARABONBA_PTR_SET_VALUE(domainGroupId_, domainGroupId) };
 
 
     // domainGroupName Field Functions 
     bool hasDomainGroupName() const { return this->domainGroupName_ != nullptr;};
     void deleteDomainGroupName() { this->domainGroupName_ = nullptr;};
-    inline string domainGroupName() const { DARABONBA_PTR_GET_DEFAULT(domainGroupName_, "") };
+    inline string getDomainGroupName() const { DARABONBA_PTR_GET_DEFAULT(domainGroupName_, "") };
     inline SaveDomainGroupRequest& setDomainGroupName(string domainGroupName) { DARABONBA_PTR_SET_VALUE(domainGroupName_, domainGroupName) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline SaveDomainGroupRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // userClientIp Field Functions 
     bool hasUserClientIp() const { return this->userClientIp_ != nullptr;};
     void deleteUserClientIp() { this->userClientIp_ = nullptr;};
-    inline string userClientIp() const { DARABONBA_PTR_GET_DEFAULT(userClientIp_, "") };
+    inline string getUserClientIp() const { DARABONBA_PTR_GET_DEFAULT(userClientIp_, "") };
     inline SaveDomainGroupRequest& setUserClientIp(string userClientIp) { DARABONBA_PTR_SET_VALUE(userClientIp_, userClientIp) };
 
 
   protected:
-    std::shared_ptr<int64_t> domainGroupId_ = nullptr;
+    shared_ptr<int64_t> domainGroupId_ {};
     // This parameter is required.
-    std::shared_ptr<string> domainGroupName_ = nullptr;
-    std::shared_ptr<string> lang_ = nullptr;
-    std::shared_ptr<string> userClientIp_ = nullptr;
+    shared_ptr<string> domainGroupName_ {};
+    shared_ptr<string> lang_ {};
+    shared_ptr<string> userClientIp_ {};
   };
 
   } // namespace Models

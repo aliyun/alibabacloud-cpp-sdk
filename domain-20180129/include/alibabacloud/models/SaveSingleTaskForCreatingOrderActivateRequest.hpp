@@ -94,279 +94,279 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->address_ == nullptr
-        && return this->aliyunDns_ == nullptr && return this->city_ == nullptr && return this->country_ == nullptr && return this->couponNo_ == nullptr && return this->dns1_ == nullptr
-        && return this->dns2_ == nullptr && return this->domainName_ == nullptr && return this->email_ == nullptr && return this->enableDomainProxy_ == nullptr && return this->lang_ == nullptr
-        && return this->permitPremiumActivation_ == nullptr && return this->postalCode_ == nullptr && return this->promotionNo_ == nullptr && return this->province_ == nullptr && return this->registrantName_ == nullptr
-        && return this->registrantOrganization_ == nullptr && return this->registrantProfileId_ == nullptr && return this->registrantType_ == nullptr && return this->resourceGroupId_ == nullptr && return this->subscriptionDuration_ == nullptr
-        && return this->telArea_ == nullptr && return this->telExt_ == nullptr && return this->telephone_ == nullptr && return this->trademarkDomainActivation_ == nullptr && return this->useCoupon_ == nullptr
-        && return this->usePromotion_ == nullptr && return this->userClientIp_ == nullptr && return this->zhAddress_ == nullptr && return this->zhCity_ == nullptr && return this->zhProvince_ == nullptr
-        && return this->zhRegistrantName_ == nullptr && return this->zhRegistrantOrganization_ == nullptr; };
+        && this->aliyunDns_ == nullptr && this->city_ == nullptr && this->country_ == nullptr && this->couponNo_ == nullptr && this->dns1_ == nullptr
+        && this->dns2_ == nullptr && this->domainName_ == nullptr && this->email_ == nullptr && this->enableDomainProxy_ == nullptr && this->lang_ == nullptr
+        && this->permitPremiumActivation_ == nullptr && this->postalCode_ == nullptr && this->promotionNo_ == nullptr && this->province_ == nullptr && this->registrantName_ == nullptr
+        && this->registrantOrganization_ == nullptr && this->registrantProfileId_ == nullptr && this->registrantType_ == nullptr && this->resourceGroupId_ == nullptr && this->subscriptionDuration_ == nullptr
+        && this->telArea_ == nullptr && this->telExt_ == nullptr && this->telephone_ == nullptr && this->trademarkDomainActivation_ == nullptr && this->useCoupon_ == nullptr
+        && this->usePromotion_ == nullptr && this->userClientIp_ == nullptr && this->zhAddress_ == nullptr && this->zhCity_ == nullptr && this->zhProvince_ == nullptr
+        && this->zhRegistrantName_ == nullptr && this->zhRegistrantOrganization_ == nullptr; };
     // address Field Functions 
     bool hasAddress() const { return this->address_ != nullptr;};
     void deleteAddress() { this->address_ = nullptr;};
-    inline string address() const { DARABONBA_PTR_GET_DEFAULT(address_, "") };
+    inline string getAddress() const { DARABONBA_PTR_GET_DEFAULT(address_, "") };
     inline SaveSingleTaskForCreatingOrderActivateRequest& setAddress(string address) { DARABONBA_PTR_SET_VALUE(address_, address) };
 
 
     // aliyunDns Field Functions 
     bool hasAliyunDns() const { return this->aliyunDns_ != nullptr;};
     void deleteAliyunDns() { this->aliyunDns_ = nullptr;};
-    inline bool aliyunDns() const { DARABONBA_PTR_GET_DEFAULT(aliyunDns_, false) };
+    inline bool getAliyunDns() const { DARABONBA_PTR_GET_DEFAULT(aliyunDns_, false) };
     inline SaveSingleTaskForCreatingOrderActivateRequest& setAliyunDns(bool aliyunDns) { DARABONBA_PTR_SET_VALUE(aliyunDns_, aliyunDns) };
 
 
     // city Field Functions 
     bool hasCity() const { return this->city_ != nullptr;};
     void deleteCity() { this->city_ = nullptr;};
-    inline string city() const { DARABONBA_PTR_GET_DEFAULT(city_, "") };
+    inline string getCity() const { DARABONBA_PTR_GET_DEFAULT(city_, "") };
     inline SaveSingleTaskForCreatingOrderActivateRequest& setCity(string city) { DARABONBA_PTR_SET_VALUE(city_, city) };
 
 
     // country Field Functions 
     bool hasCountry() const { return this->country_ != nullptr;};
     void deleteCountry() { this->country_ = nullptr;};
-    inline string country() const { DARABONBA_PTR_GET_DEFAULT(country_, "") };
+    inline string getCountry() const { DARABONBA_PTR_GET_DEFAULT(country_, "") };
     inline SaveSingleTaskForCreatingOrderActivateRequest& setCountry(string country) { DARABONBA_PTR_SET_VALUE(country_, country) };
 
 
     // couponNo Field Functions 
     bool hasCouponNo() const { return this->couponNo_ != nullptr;};
     void deleteCouponNo() { this->couponNo_ = nullptr;};
-    inline string couponNo() const { DARABONBA_PTR_GET_DEFAULT(couponNo_, "") };
+    inline string getCouponNo() const { DARABONBA_PTR_GET_DEFAULT(couponNo_, "") };
     inline SaveSingleTaskForCreatingOrderActivateRequest& setCouponNo(string couponNo) { DARABONBA_PTR_SET_VALUE(couponNo_, couponNo) };
 
 
     // dns1 Field Functions 
     bool hasDns1() const { return this->dns1_ != nullptr;};
     void deleteDns1() { this->dns1_ = nullptr;};
-    inline string dns1() const { DARABONBA_PTR_GET_DEFAULT(dns1_, "") };
+    inline string getDns1() const { DARABONBA_PTR_GET_DEFAULT(dns1_, "") };
     inline SaveSingleTaskForCreatingOrderActivateRequest& setDns1(string dns1) { DARABONBA_PTR_SET_VALUE(dns1_, dns1) };
 
 
     // dns2 Field Functions 
     bool hasDns2() const { return this->dns2_ != nullptr;};
     void deleteDns2() { this->dns2_ = nullptr;};
-    inline string dns2() const { DARABONBA_PTR_GET_DEFAULT(dns2_, "") };
+    inline string getDns2() const { DARABONBA_PTR_GET_DEFAULT(dns2_, "") };
     inline SaveSingleTaskForCreatingOrderActivateRequest& setDns2(string dns2) { DARABONBA_PTR_SET_VALUE(dns2_, dns2) };
 
 
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
-    inline string domainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
+    inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline SaveSingleTaskForCreatingOrderActivateRequest& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
 
 
     // email Field Functions 
     bool hasEmail() const { return this->email_ != nullptr;};
     void deleteEmail() { this->email_ = nullptr;};
-    inline string email() const { DARABONBA_PTR_GET_DEFAULT(email_, "") };
+    inline string getEmail() const { DARABONBA_PTR_GET_DEFAULT(email_, "") };
     inline SaveSingleTaskForCreatingOrderActivateRequest& setEmail(string email) { DARABONBA_PTR_SET_VALUE(email_, email) };
 
 
     // enableDomainProxy Field Functions 
     bool hasEnableDomainProxy() const { return this->enableDomainProxy_ != nullptr;};
     void deleteEnableDomainProxy() { this->enableDomainProxy_ = nullptr;};
-    inline bool enableDomainProxy() const { DARABONBA_PTR_GET_DEFAULT(enableDomainProxy_, false) };
+    inline bool getEnableDomainProxy() const { DARABONBA_PTR_GET_DEFAULT(enableDomainProxy_, false) };
     inline SaveSingleTaskForCreatingOrderActivateRequest& setEnableDomainProxy(bool enableDomainProxy) { DARABONBA_PTR_SET_VALUE(enableDomainProxy_, enableDomainProxy) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline SaveSingleTaskForCreatingOrderActivateRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // permitPremiumActivation Field Functions 
     bool hasPermitPremiumActivation() const { return this->permitPremiumActivation_ != nullptr;};
     void deletePermitPremiumActivation() { this->permitPremiumActivation_ = nullptr;};
-    inline bool permitPremiumActivation() const { DARABONBA_PTR_GET_DEFAULT(permitPremiumActivation_, false) };
+    inline bool getPermitPremiumActivation() const { DARABONBA_PTR_GET_DEFAULT(permitPremiumActivation_, false) };
     inline SaveSingleTaskForCreatingOrderActivateRequest& setPermitPremiumActivation(bool permitPremiumActivation) { DARABONBA_PTR_SET_VALUE(permitPremiumActivation_, permitPremiumActivation) };
 
 
     // postalCode Field Functions 
     bool hasPostalCode() const { return this->postalCode_ != nullptr;};
     void deletePostalCode() { this->postalCode_ = nullptr;};
-    inline string postalCode() const { DARABONBA_PTR_GET_DEFAULT(postalCode_, "") };
+    inline string getPostalCode() const { DARABONBA_PTR_GET_DEFAULT(postalCode_, "") };
     inline SaveSingleTaskForCreatingOrderActivateRequest& setPostalCode(string postalCode) { DARABONBA_PTR_SET_VALUE(postalCode_, postalCode) };
 
 
     // promotionNo Field Functions 
     bool hasPromotionNo() const { return this->promotionNo_ != nullptr;};
     void deletePromotionNo() { this->promotionNo_ = nullptr;};
-    inline string promotionNo() const { DARABONBA_PTR_GET_DEFAULT(promotionNo_, "") };
+    inline string getPromotionNo() const { DARABONBA_PTR_GET_DEFAULT(promotionNo_, "") };
     inline SaveSingleTaskForCreatingOrderActivateRequest& setPromotionNo(string promotionNo) { DARABONBA_PTR_SET_VALUE(promotionNo_, promotionNo) };
 
 
     // province Field Functions 
     bool hasProvince() const { return this->province_ != nullptr;};
     void deleteProvince() { this->province_ = nullptr;};
-    inline string province() const { DARABONBA_PTR_GET_DEFAULT(province_, "") };
+    inline string getProvince() const { DARABONBA_PTR_GET_DEFAULT(province_, "") };
     inline SaveSingleTaskForCreatingOrderActivateRequest& setProvince(string province) { DARABONBA_PTR_SET_VALUE(province_, province) };
 
 
     // registrantName Field Functions 
     bool hasRegistrantName() const { return this->registrantName_ != nullptr;};
     void deleteRegistrantName() { this->registrantName_ = nullptr;};
-    inline string registrantName() const { DARABONBA_PTR_GET_DEFAULT(registrantName_, "") };
+    inline string getRegistrantName() const { DARABONBA_PTR_GET_DEFAULT(registrantName_, "") };
     inline SaveSingleTaskForCreatingOrderActivateRequest& setRegistrantName(string registrantName) { DARABONBA_PTR_SET_VALUE(registrantName_, registrantName) };
 
 
     // registrantOrganization Field Functions 
     bool hasRegistrantOrganization() const { return this->registrantOrganization_ != nullptr;};
     void deleteRegistrantOrganization() { this->registrantOrganization_ = nullptr;};
-    inline string registrantOrganization() const { DARABONBA_PTR_GET_DEFAULT(registrantOrganization_, "") };
+    inline string getRegistrantOrganization() const { DARABONBA_PTR_GET_DEFAULT(registrantOrganization_, "") };
     inline SaveSingleTaskForCreatingOrderActivateRequest& setRegistrantOrganization(string registrantOrganization) { DARABONBA_PTR_SET_VALUE(registrantOrganization_, registrantOrganization) };
 
 
     // registrantProfileId Field Functions 
     bool hasRegistrantProfileId() const { return this->registrantProfileId_ != nullptr;};
     void deleteRegistrantProfileId() { this->registrantProfileId_ = nullptr;};
-    inline int64_t registrantProfileId() const { DARABONBA_PTR_GET_DEFAULT(registrantProfileId_, 0L) };
+    inline int64_t getRegistrantProfileId() const { DARABONBA_PTR_GET_DEFAULT(registrantProfileId_, 0L) };
     inline SaveSingleTaskForCreatingOrderActivateRequest& setRegistrantProfileId(int64_t registrantProfileId) { DARABONBA_PTR_SET_VALUE(registrantProfileId_, registrantProfileId) };
 
 
     // registrantType Field Functions 
     bool hasRegistrantType() const { return this->registrantType_ != nullptr;};
     void deleteRegistrantType() { this->registrantType_ = nullptr;};
-    inline string registrantType() const { DARABONBA_PTR_GET_DEFAULT(registrantType_, "") };
+    inline string getRegistrantType() const { DARABONBA_PTR_GET_DEFAULT(registrantType_, "") };
     inline SaveSingleTaskForCreatingOrderActivateRequest& setRegistrantType(string registrantType) { DARABONBA_PTR_SET_VALUE(registrantType_, registrantType) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline SaveSingleTaskForCreatingOrderActivateRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // subscriptionDuration Field Functions 
     bool hasSubscriptionDuration() const { return this->subscriptionDuration_ != nullptr;};
     void deleteSubscriptionDuration() { this->subscriptionDuration_ = nullptr;};
-    inline int32_t subscriptionDuration() const { DARABONBA_PTR_GET_DEFAULT(subscriptionDuration_, 0) };
+    inline int32_t getSubscriptionDuration() const { DARABONBA_PTR_GET_DEFAULT(subscriptionDuration_, 0) };
     inline SaveSingleTaskForCreatingOrderActivateRequest& setSubscriptionDuration(int32_t subscriptionDuration) { DARABONBA_PTR_SET_VALUE(subscriptionDuration_, subscriptionDuration) };
 
 
     // telArea Field Functions 
     bool hasTelArea() const { return this->telArea_ != nullptr;};
     void deleteTelArea() { this->telArea_ = nullptr;};
-    inline string telArea() const { DARABONBA_PTR_GET_DEFAULT(telArea_, "") };
+    inline string getTelArea() const { DARABONBA_PTR_GET_DEFAULT(telArea_, "") };
     inline SaveSingleTaskForCreatingOrderActivateRequest& setTelArea(string telArea) { DARABONBA_PTR_SET_VALUE(telArea_, telArea) };
 
 
     // telExt Field Functions 
     bool hasTelExt() const { return this->telExt_ != nullptr;};
     void deleteTelExt() { this->telExt_ = nullptr;};
-    inline string telExt() const { DARABONBA_PTR_GET_DEFAULT(telExt_, "") };
+    inline string getTelExt() const { DARABONBA_PTR_GET_DEFAULT(telExt_, "") };
     inline SaveSingleTaskForCreatingOrderActivateRequest& setTelExt(string telExt) { DARABONBA_PTR_SET_VALUE(telExt_, telExt) };
 
 
     // telephone Field Functions 
     bool hasTelephone() const { return this->telephone_ != nullptr;};
     void deleteTelephone() { this->telephone_ = nullptr;};
-    inline string telephone() const { DARABONBA_PTR_GET_DEFAULT(telephone_, "") };
+    inline string getTelephone() const { DARABONBA_PTR_GET_DEFAULT(telephone_, "") };
     inline SaveSingleTaskForCreatingOrderActivateRequest& setTelephone(string telephone) { DARABONBA_PTR_SET_VALUE(telephone_, telephone) };
 
 
     // trademarkDomainActivation Field Functions 
     bool hasTrademarkDomainActivation() const { return this->trademarkDomainActivation_ != nullptr;};
     void deleteTrademarkDomainActivation() { this->trademarkDomainActivation_ = nullptr;};
-    inline bool trademarkDomainActivation() const { DARABONBA_PTR_GET_DEFAULT(trademarkDomainActivation_, false) };
+    inline bool getTrademarkDomainActivation() const { DARABONBA_PTR_GET_DEFAULT(trademarkDomainActivation_, false) };
     inline SaveSingleTaskForCreatingOrderActivateRequest& setTrademarkDomainActivation(bool trademarkDomainActivation) { DARABONBA_PTR_SET_VALUE(trademarkDomainActivation_, trademarkDomainActivation) };
 
 
     // useCoupon Field Functions 
     bool hasUseCoupon() const { return this->useCoupon_ != nullptr;};
     void deleteUseCoupon() { this->useCoupon_ = nullptr;};
-    inline bool useCoupon() const { DARABONBA_PTR_GET_DEFAULT(useCoupon_, false) };
+    inline bool getUseCoupon() const { DARABONBA_PTR_GET_DEFAULT(useCoupon_, false) };
     inline SaveSingleTaskForCreatingOrderActivateRequest& setUseCoupon(bool useCoupon) { DARABONBA_PTR_SET_VALUE(useCoupon_, useCoupon) };
 
 
     // usePromotion Field Functions 
     bool hasUsePromotion() const { return this->usePromotion_ != nullptr;};
     void deleteUsePromotion() { this->usePromotion_ = nullptr;};
-    inline bool usePromotion() const { DARABONBA_PTR_GET_DEFAULT(usePromotion_, false) };
+    inline bool getUsePromotion() const { DARABONBA_PTR_GET_DEFAULT(usePromotion_, false) };
     inline SaveSingleTaskForCreatingOrderActivateRequest& setUsePromotion(bool usePromotion) { DARABONBA_PTR_SET_VALUE(usePromotion_, usePromotion) };
 
 
     // userClientIp Field Functions 
     bool hasUserClientIp() const { return this->userClientIp_ != nullptr;};
     void deleteUserClientIp() { this->userClientIp_ = nullptr;};
-    inline string userClientIp() const { DARABONBA_PTR_GET_DEFAULT(userClientIp_, "") };
+    inline string getUserClientIp() const { DARABONBA_PTR_GET_DEFAULT(userClientIp_, "") };
     inline SaveSingleTaskForCreatingOrderActivateRequest& setUserClientIp(string userClientIp) { DARABONBA_PTR_SET_VALUE(userClientIp_, userClientIp) };
 
 
     // zhAddress Field Functions 
     bool hasZhAddress() const { return this->zhAddress_ != nullptr;};
     void deleteZhAddress() { this->zhAddress_ = nullptr;};
-    inline string zhAddress() const { DARABONBA_PTR_GET_DEFAULT(zhAddress_, "") };
+    inline string getZhAddress() const { DARABONBA_PTR_GET_DEFAULT(zhAddress_, "") };
     inline SaveSingleTaskForCreatingOrderActivateRequest& setZhAddress(string zhAddress) { DARABONBA_PTR_SET_VALUE(zhAddress_, zhAddress) };
 
 
     // zhCity Field Functions 
     bool hasZhCity() const { return this->zhCity_ != nullptr;};
     void deleteZhCity() { this->zhCity_ = nullptr;};
-    inline string zhCity() const { DARABONBA_PTR_GET_DEFAULT(zhCity_, "") };
+    inline string getZhCity() const { DARABONBA_PTR_GET_DEFAULT(zhCity_, "") };
     inline SaveSingleTaskForCreatingOrderActivateRequest& setZhCity(string zhCity) { DARABONBA_PTR_SET_VALUE(zhCity_, zhCity) };
 
 
     // zhProvince Field Functions 
     bool hasZhProvince() const { return this->zhProvince_ != nullptr;};
     void deleteZhProvince() { this->zhProvince_ = nullptr;};
-    inline string zhProvince() const { DARABONBA_PTR_GET_DEFAULT(zhProvince_, "") };
+    inline string getZhProvince() const { DARABONBA_PTR_GET_DEFAULT(zhProvince_, "") };
     inline SaveSingleTaskForCreatingOrderActivateRequest& setZhProvince(string zhProvince) { DARABONBA_PTR_SET_VALUE(zhProvince_, zhProvince) };
 
 
     // zhRegistrantName Field Functions 
     bool hasZhRegistrantName() const { return this->zhRegistrantName_ != nullptr;};
     void deleteZhRegistrantName() { this->zhRegistrantName_ = nullptr;};
-    inline string zhRegistrantName() const { DARABONBA_PTR_GET_DEFAULT(zhRegistrantName_, "") };
+    inline string getZhRegistrantName() const { DARABONBA_PTR_GET_DEFAULT(zhRegistrantName_, "") };
     inline SaveSingleTaskForCreatingOrderActivateRequest& setZhRegistrantName(string zhRegistrantName) { DARABONBA_PTR_SET_VALUE(zhRegistrantName_, zhRegistrantName) };
 
 
     // zhRegistrantOrganization Field Functions 
     bool hasZhRegistrantOrganization() const { return this->zhRegistrantOrganization_ != nullptr;};
     void deleteZhRegistrantOrganization() { this->zhRegistrantOrganization_ = nullptr;};
-    inline string zhRegistrantOrganization() const { DARABONBA_PTR_GET_DEFAULT(zhRegistrantOrganization_, "") };
+    inline string getZhRegistrantOrganization() const { DARABONBA_PTR_GET_DEFAULT(zhRegistrantOrganization_, "") };
     inline SaveSingleTaskForCreatingOrderActivateRequest& setZhRegistrantOrganization(string zhRegistrantOrganization) { DARABONBA_PTR_SET_VALUE(zhRegistrantOrganization_, zhRegistrantOrganization) };
 
 
   protected:
-    std::shared_ptr<string> address_ = nullptr;
-    std::shared_ptr<bool> aliyunDns_ = nullptr;
-    std::shared_ptr<string> city_ = nullptr;
-    std::shared_ptr<string> country_ = nullptr;
-    std::shared_ptr<string> couponNo_ = nullptr;
-    std::shared_ptr<string> dns1_ = nullptr;
-    std::shared_ptr<string> dns2_ = nullptr;
+    shared_ptr<string> address_ {};
+    shared_ptr<bool> aliyunDns_ {};
+    shared_ptr<string> city_ {};
+    shared_ptr<string> country_ {};
+    shared_ptr<string> couponNo_ {};
+    shared_ptr<string> dns1_ {};
+    shared_ptr<string> dns2_ {};
     // This parameter is required.
-    std::shared_ptr<string> domainName_ = nullptr;
-    std::shared_ptr<string> email_ = nullptr;
-    std::shared_ptr<bool> enableDomainProxy_ = nullptr;
-    std::shared_ptr<string> lang_ = nullptr;
-    std::shared_ptr<bool> permitPremiumActivation_ = nullptr;
-    std::shared_ptr<string> postalCode_ = nullptr;
-    std::shared_ptr<string> promotionNo_ = nullptr;
-    std::shared_ptr<string> province_ = nullptr;
-    std::shared_ptr<string> registrantName_ = nullptr;
-    std::shared_ptr<string> registrantOrganization_ = nullptr;
-    std::shared_ptr<int64_t> registrantProfileId_ = nullptr;
-    std::shared_ptr<string> registrantType_ = nullptr;
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
-    std::shared_ptr<int32_t> subscriptionDuration_ = nullptr;
-    std::shared_ptr<string> telArea_ = nullptr;
-    std::shared_ptr<string> telExt_ = nullptr;
-    std::shared_ptr<string> telephone_ = nullptr;
-    std::shared_ptr<bool> trademarkDomainActivation_ = nullptr;
-    std::shared_ptr<bool> useCoupon_ = nullptr;
-    std::shared_ptr<bool> usePromotion_ = nullptr;
-    std::shared_ptr<string> userClientIp_ = nullptr;
-    std::shared_ptr<string> zhAddress_ = nullptr;
-    std::shared_ptr<string> zhCity_ = nullptr;
-    std::shared_ptr<string> zhProvince_ = nullptr;
-    std::shared_ptr<string> zhRegistrantName_ = nullptr;
-    std::shared_ptr<string> zhRegistrantOrganization_ = nullptr;
+    shared_ptr<string> domainName_ {};
+    shared_ptr<string> email_ {};
+    shared_ptr<bool> enableDomainProxy_ {};
+    shared_ptr<string> lang_ {};
+    shared_ptr<bool> permitPremiumActivation_ {};
+    shared_ptr<string> postalCode_ {};
+    shared_ptr<string> promotionNo_ {};
+    shared_ptr<string> province_ {};
+    shared_ptr<string> registrantName_ {};
+    shared_ptr<string> registrantOrganization_ {};
+    shared_ptr<int64_t> registrantProfileId_ {};
+    shared_ptr<string> registrantType_ {};
+    shared_ptr<string> resourceGroupId_ {};
+    shared_ptr<int32_t> subscriptionDuration_ {};
+    shared_ptr<string> telArea_ {};
+    shared_ptr<string> telExt_ {};
+    shared_ptr<string> telephone_ {};
+    shared_ptr<bool> trademarkDomainActivation_ {};
+    shared_ptr<bool> useCoupon_ {};
+    shared_ptr<bool> usePromotion_ {};
+    shared_ptr<string> userClientIp_ {};
+    shared_ptr<string> zhAddress_ {};
+    shared_ptr<string> zhCity_ {};
+    shared_ptr<string> zhProvince_ {};
+    shared_ptr<string> zhRegistrantName_ {};
+    shared_ptr<string> zhRegistrantOrganization_ {};
   };
 
   } // namespace Models

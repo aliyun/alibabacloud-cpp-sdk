@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizId_ == nullptr
-        && return this->credentials_ == nullptr && return this->extend_ == nullptr && return this->userClientIp_ == nullptr; };
+        && this->credentials_ == nullptr && this->extend_ == nullptr && this->userClientIp_ == nullptr; };
     // bizId Field Functions 
     bool hasBizId() const { return this->bizId_ != nullptr;};
     void deleteBizId() { this->bizId_ = nullptr;};
-    inline int64_t bizId() const { DARABONBA_PTR_GET_DEFAULT(bizId_, 0L) };
+    inline int64_t getBizId() const { DARABONBA_PTR_GET_DEFAULT(bizId_, 0L) };
     inline SubmitDomainSpecialBizCredentialsRequest& setBizId(int64_t bizId) { DARABONBA_PTR_SET_VALUE(bizId_, bizId) };
 
 
     // credentials Field Functions 
     bool hasCredentials() const { return this->credentials_ != nullptr;};
     void deleteCredentials() { this->credentials_ = nullptr;};
-    inline string credentials() const { DARABONBA_PTR_GET_DEFAULT(credentials_, "") };
+    inline string getCredentials() const { DARABONBA_PTR_GET_DEFAULT(credentials_, "") };
     inline SubmitDomainSpecialBizCredentialsRequest& setCredentials(string credentials) { DARABONBA_PTR_SET_VALUE(credentials_, credentials) };
 
 
     // extend Field Functions 
     bool hasExtend() const { return this->extend_ != nullptr;};
     void deleteExtend() { this->extend_ = nullptr;};
-    inline string extend() const { DARABONBA_PTR_GET_DEFAULT(extend_, "") };
+    inline string getExtend() const { DARABONBA_PTR_GET_DEFAULT(extend_, "") };
     inline SubmitDomainSpecialBizCredentialsRequest& setExtend(string extend) { DARABONBA_PTR_SET_VALUE(extend_, extend) };
 
 
     // userClientIp Field Functions 
     bool hasUserClientIp() const { return this->userClientIp_ != nullptr;};
     void deleteUserClientIp() { this->userClientIp_ = nullptr;};
-    inline string userClientIp() const { DARABONBA_PTR_GET_DEFAULT(userClientIp_, "") };
+    inline string getUserClientIp() const { DARABONBA_PTR_GET_DEFAULT(userClientIp_, "") };
     inline SubmitDomainSpecialBizCredentialsRequest& setUserClientIp(string userClientIp) { DARABONBA_PTR_SET_VALUE(userClientIp_, userClientIp) };
 
 
   protected:
     // The business ID.
-    std::shared_ptr<int64_t> bizId_ = nullptr;
+    shared_ptr<int64_t> bizId_ {};
     // The certificate information.
-    std::shared_ptr<string> credentials_ = nullptr;
+    shared_ptr<string> credentials_ {};
     // The extended information.
-    std::shared_ptr<string> extend_ = nullptr;
+    shared_ptr<string> extend_ {};
     // The IP address of the client.
-    std::shared_ptr<string> userClientIp_ = nullptr;
+    shared_ptr<string> userClientIp_ {};
   };
 
   } // namespace Models

@@ -42,68 +42,68 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->addTransferLock_ == nullptr
-        && return this->contactType_ == nullptr && return this->domainName_ == nullptr && return this->instanceId_ == nullptr && return this->lang_ == nullptr && return this->registrantProfileId_ == nullptr
-        && return this->userClientIp_ == nullptr; };
+        && this->contactType_ == nullptr && this->domainName_ == nullptr && this->instanceId_ == nullptr && this->lang_ == nullptr && this->registrantProfileId_ == nullptr
+        && this->userClientIp_ == nullptr; };
     // addTransferLock Field Functions 
     bool hasAddTransferLock() const { return this->addTransferLock_ != nullptr;};
     void deleteAddTransferLock() { this->addTransferLock_ = nullptr;};
-    inline bool addTransferLock() const { DARABONBA_PTR_GET_DEFAULT(addTransferLock_, false) };
+    inline bool getAddTransferLock() const { DARABONBA_PTR_GET_DEFAULT(addTransferLock_, false) };
     inline SaveSingleTaskForUpdatingContactInfoRequest& setAddTransferLock(bool addTransferLock) { DARABONBA_PTR_SET_VALUE(addTransferLock_, addTransferLock) };
 
 
     // contactType Field Functions 
     bool hasContactType() const { return this->contactType_ != nullptr;};
     void deleteContactType() { this->contactType_ = nullptr;};
-    inline string contactType() const { DARABONBA_PTR_GET_DEFAULT(contactType_, "") };
+    inline string getContactType() const { DARABONBA_PTR_GET_DEFAULT(contactType_, "") };
     inline SaveSingleTaskForUpdatingContactInfoRequest& setContactType(string contactType) { DARABONBA_PTR_SET_VALUE(contactType_, contactType) };
 
 
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
-    inline string domainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
+    inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline SaveSingleTaskForUpdatingContactInfoRequest& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline SaveSingleTaskForUpdatingContactInfoRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline SaveSingleTaskForUpdatingContactInfoRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // registrantProfileId Field Functions 
     bool hasRegistrantProfileId() const { return this->registrantProfileId_ != nullptr;};
     void deleteRegistrantProfileId() { this->registrantProfileId_ = nullptr;};
-    inline int64_t registrantProfileId() const { DARABONBA_PTR_GET_DEFAULT(registrantProfileId_, 0L) };
+    inline int64_t getRegistrantProfileId() const { DARABONBA_PTR_GET_DEFAULT(registrantProfileId_, 0L) };
     inline SaveSingleTaskForUpdatingContactInfoRequest& setRegistrantProfileId(int64_t registrantProfileId) { DARABONBA_PTR_SET_VALUE(registrantProfileId_, registrantProfileId) };
 
 
     // userClientIp Field Functions 
     bool hasUserClientIp() const { return this->userClientIp_ != nullptr;};
     void deleteUserClientIp() { this->userClientIp_ = nullptr;};
-    inline string userClientIp() const { DARABONBA_PTR_GET_DEFAULT(userClientIp_, "") };
+    inline string getUserClientIp() const { DARABONBA_PTR_GET_DEFAULT(userClientIp_, "") };
     inline SaveSingleTaskForUpdatingContactInfoRequest& setUserClientIp(string userClientIp) { DARABONBA_PTR_SET_VALUE(userClientIp_, userClientIp) };
 
 
   protected:
-    std::shared_ptr<bool> addTransferLock_ = nullptr;
+    shared_ptr<bool> addTransferLock_ {};
     // This parameter is required.
-    std::shared_ptr<string> contactType_ = nullptr;
+    shared_ptr<string> contactType_ {};
     // This parameter is required.
-    std::shared_ptr<string> domainName_ = nullptr;
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> domainName_ {};
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> lang_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> registrantProfileId_ = nullptr;
-    std::shared_ptr<string> userClientIp_ = nullptr;
+    shared_ptr<int64_t> registrantProfileId_ {};
+    shared_ptr<string> userClientIp_ {};
   };
 
   } // namespace Models

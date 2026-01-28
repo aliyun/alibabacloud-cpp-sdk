@@ -34,33 +34,33 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->claimKey_ == nullptr
-        && return this->lang_ == nullptr && return this->userClientIp_ == nullptr; };
+        && this->lang_ == nullptr && this->userClientIp_ == nullptr; };
     // claimKey Field Functions 
     bool hasClaimKey() const { return this->claimKey_ != nullptr;};
     void deleteClaimKey() { this->claimKey_ = nullptr;};
-    inline string claimKey() const { DARABONBA_PTR_GET_DEFAULT(claimKey_, "") };
+    inline string getClaimKey() const { DARABONBA_PTR_GET_DEFAULT(claimKey_, "") };
     inline LookupTmchNoticeRequest& setClaimKey(string claimKey) { DARABONBA_PTR_SET_VALUE(claimKey_, claimKey) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline LookupTmchNoticeRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // userClientIp Field Functions 
     bool hasUserClientIp() const { return this->userClientIp_ != nullptr;};
     void deleteUserClientIp() { this->userClientIp_ = nullptr;};
-    inline string userClientIp() const { DARABONBA_PTR_GET_DEFAULT(userClientIp_, "") };
+    inline string getUserClientIp() const { DARABONBA_PTR_GET_DEFAULT(userClientIp_, "") };
     inline LookupTmchNoticeRequest& setUserClientIp(string userClientIp) { DARABONBA_PTR_SET_VALUE(userClientIp_, userClientIp) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> claimKey_ = nullptr;
-    std::shared_ptr<string> lang_ = nullptr;
-    std::shared_ptr<string> userClientIp_ = nullptr;
+    shared_ptr<string> claimKey_ {};
+    shared_ptr<string> lang_ {};
+    shared_ptr<string> userClientIp_ {};
   };
 
   } // namespace Models

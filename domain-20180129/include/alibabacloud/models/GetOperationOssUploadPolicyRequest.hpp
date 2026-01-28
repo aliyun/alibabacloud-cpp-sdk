@@ -32,25 +32,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->auditType_ == nullptr
-        && return this->lang_ == nullptr; };
+        && this->lang_ == nullptr; };
     // auditType Field Functions 
     bool hasAuditType() const { return this->auditType_ != nullptr;};
     void deleteAuditType() { this->auditType_ = nullptr;};
-    inline int32_t auditType() const { DARABONBA_PTR_GET_DEFAULT(auditType_, 0) };
+    inline int32_t getAuditType() const { DARABONBA_PTR_GET_DEFAULT(auditType_, 0) };
     inline GetOperationOssUploadPolicyRequest& setAuditType(int32_t auditType) { DARABONBA_PTR_SET_VALUE(auditType_, auditType) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline GetOperationOssUploadPolicyRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<int32_t> auditType_ = nullptr;
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<int32_t> auditType_ {};
+    shared_ptr<string> lang_ {};
   };
 
   } // namespace Models

@@ -32,25 +32,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->auditRecordId_ == nullptr
-        && return this->lang_ == nullptr; };
+        && this->lang_ == nullptr; };
     // auditRecordId Field Functions 
     bool hasAuditRecordId() const { return this->auditRecordId_ != nullptr;};
     void deleteAuditRecordId() { this->auditRecordId_ = nullptr;};
-    inline int64_t auditRecordId() const { DARABONBA_PTR_GET_DEFAULT(auditRecordId_, 0L) };
+    inline int64_t getAuditRecordId() const { DARABONBA_PTR_GET_DEFAULT(auditRecordId_, 0L) };
     inline CancelOperationAuditRequest& setAuditRecordId(int64_t auditRecordId) { DARABONBA_PTR_SET_VALUE(auditRecordId_, auditRecordId) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline CancelOperationAuditRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<int64_t> auditRecordId_ = nullptr;
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<int64_t> auditRecordId_ {};
+    shared_ptr<string> lang_ {};
   };
 
   } // namespace Models

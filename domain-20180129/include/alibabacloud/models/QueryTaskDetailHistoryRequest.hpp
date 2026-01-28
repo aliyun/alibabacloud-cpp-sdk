@@ -44,75 +44,75 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->domainName_ == nullptr
-        && return this->domainNameCursor_ == nullptr && return this->lang_ == nullptr && return this->pageSize_ == nullptr && return this->taskDetailNoCursor_ == nullptr && return this->taskNo_ == nullptr
-        && return this->taskStatus_ == nullptr && return this->userClientIp_ == nullptr; };
+        && this->domainNameCursor_ == nullptr && this->lang_ == nullptr && this->pageSize_ == nullptr && this->taskDetailNoCursor_ == nullptr && this->taskNo_ == nullptr
+        && this->taskStatus_ == nullptr && this->userClientIp_ == nullptr; };
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
-    inline string domainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
+    inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline QueryTaskDetailHistoryRequest& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
 
 
     // domainNameCursor Field Functions 
     bool hasDomainNameCursor() const { return this->domainNameCursor_ != nullptr;};
     void deleteDomainNameCursor() { this->domainNameCursor_ = nullptr;};
-    inline string domainNameCursor() const { DARABONBA_PTR_GET_DEFAULT(domainNameCursor_, "") };
+    inline string getDomainNameCursor() const { DARABONBA_PTR_GET_DEFAULT(domainNameCursor_, "") };
     inline QueryTaskDetailHistoryRequest& setDomainNameCursor(string domainNameCursor) { DARABONBA_PTR_SET_VALUE(domainNameCursor_, domainNameCursor) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline QueryTaskDetailHistoryRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline QueryTaskDetailHistoryRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // taskDetailNoCursor Field Functions 
     bool hasTaskDetailNoCursor() const { return this->taskDetailNoCursor_ != nullptr;};
     void deleteTaskDetailNoCursor() { this->taskDetailNoCursor_ = nullptr;};
-    inline string taskDetailNoCursor() const { DARABONBA_PTR_GET_DEFAULT(taskDetailNoCursor_, "") };
+    inline string getTaskDetailNoCursor() const { DARABONBA_PTR_GET_DEFAULT(taskDetailNoCursor_, "") };
     inline QueryTaskDetailHistoryRequest& setTaskDetailNoCursor(string taskDetailNoCursor) { DARABONBA_PTR_SET_VALUE(taskDetailNoCursor_, taskDetailNoCursor) };
 
 
     // taskNo Field Functions 
     bool hasTaskNo() const { return this->taskNo_ != nullptr;};
     void deleteTaskNo() { this->taskNo_ = nullptr;};
-    inline string taskNo() const { DARABONBA_PTR_GET_DEFAULT(taskNo_, "") };
+    inline string getTaskNo() const { DARABONBA_PTR_GET_DEFAULT(taskNo_, "") };
     inline QueryTaskDetailHistoryRequest& setTaskNo(string taskNo) { DARABONBA_PTR_SET_VALUE(taskNo_, taskNo) };
 
 
     // taskStatus Field Functions 
     bool hasTaskStatus() const { return this->taskStatus_ != nullptr;};
     void deleteTaskStatus() { this->taskStatus_ = nullptr;};
-    inline int32_t taskStatus() const { DARABONBA_PTR_GET_DEFAULT(taskStatus_, 0) };
+    inline int32_t getTaskStatus() const { DARABONBA_PTR_GET_DEFAULT(taskStatus_, 0) };
     inline QueryTaskDetailHistoryRequest& setTaskStatus(int32_t taskStatus) { DARABONBA_PTR_SET_VALUE(taskStatus_, taskStatus) };
 
 
     // userClientIp Field Functions 
     bool hasUserClientIp() const { return this->userClientIp_ != nullptr;};
     void deleteUserClientIp() { this->userClientIp_ = nullptr;};
-    inline string userClientIp() const { DARABONBA_PTR_GET_DEFAULT(userClientIp_, "") };
+    inline string getUserClientIp() const { DARABONBA_PTR_GET_DEFAULT(userClientIp_, "") };
     inline QueryTaskDetailHistoryRequest& setUserClientIp(string userClientIp) { DARABONBA_PTR_SET_VALUE(userClientIp_, userClientIp) };
 
 
   protected:
-    std::shared_ptr<string> domainName_ = nullptr;
-    std::shared_ptr<string> domainNameCursor_ = nullptr;
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> domainName_ {};
+    shared_ptr<string> domainNameCursor_ {};
+    shared_ptr<string> lang_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    std::shared_ptr<string> taskDetailNoCursor_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<string> taskDetailNoCursor_ {};
     // This parameter is required.
-    std::shared_ptr<string> taskNo_ = nullptr;
-    std::shared_ptr<int32_t> taskStatus_ = nullptr;
-    std::shared_ptr<string> userClientIp_ = nullptr;
+    shared_ptr<string> taskNo_ {};
+    shared_ptr<int32_t> taskStatus_ {};
+    shared_ptr<string> userClientIp_ {};
   };
 
   } // namespace Models

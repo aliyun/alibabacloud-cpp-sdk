@@ -2,7 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_BATCHFUZZYMATCHDOMAINSENSITIVEWORDRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_BATCHFUZZYMATCHDOMAINSENSITIVEWORDRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/BatchFuzzyMatchDomainSensitiveWordResponseBodySensitiveWordMatchResultList.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -32,27 +32,178 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class SensitiveWordMatchResultList : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const SensitiveWordMatchResultList& obj) { 
+        DARABONBA_PTR_TO_JSON(SensitiveWordMatchResult, sensitiveWordMatchResult_);
+      };
+      friend void from_json(const Darabonba::Json& j, SensitiveWordMatchResultList& obj) { 
+        DARABONBA_PTR_FROM_JSON(SensitiveWordMatchResult, sensitiveWordMatchResult_);
+      };
+      SensitiveWordMatchResultList() = default ;
+      SensitiveWordMatchResultList(const SensitiveWordMatchResultList &) = default ;
+      SensitiveWordMatchResultList(SensitiveWordMatchResultList &&) = default ;
+      SensitiveWordMatchResultList(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~SensitiveWordMatchResultList() = default ;
+      SensitiveWordMatchResultList& operator=(const SensitiveWordMatchResultList &) = default ;
+      SensitiveWordMatchResultList& operator=(SensitiveWordMatchResultList &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class SensitiveWordMatchResult : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const SensitiveWordMatchResult& obj) { 
+          DARABONBA_PTR_TO_JSON(Exist, exist_);
+          DARABONBA_PTR_TO_JSON(Keyword, keyword_);
+          DARABONBA_PTR_TO_JSON(MatchedSentiveWords, matchedSentiveWords_);
+        };
+        friend void from_json(const Darabonba::Json& j, SensitiveWordMatchResult& obj) { 
+          DARABONBA_PTR_FROM_JSON(Exist, exist_);
+          DARABONBA_PTR_FROM_JSON(Keyword, keyword_);
+          DARABONBA_PTR_FROM_JSON(MatchedSentiveWords, matchedSentiveWords_);
+        };
+        SensitiveWordMatchResult() = default ;
+        SensitiveWordMatchResult(const SensitiveWordMatchResult &) = default ;
+        SensitiveWordMatchResult(SensitiveWordMatchResult &&) = default ;
+        SensitiveWordMatchResult(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~SensitiveWordMatchResult() = default ;
+        SensitiveWordMatchResult& operator=(const SensitiveWordMatchResult &) = default ;
+        SensitiveWordMatchResult& operator=(SensitiveWordMatchResult &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class MatchedSentiveWords : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const MatchedSentiveWords& obj) { 
+            DARABONBA_PTR_TO_JSON(MatchedSensitiveWord, matchedSensitiveWord_);
+          };
+          friend void from_json(const Darabonba::Json& j, MatchedSentiveWords& obj) { 
+            DARABONBA_PTR_FROM_JSON(MatchedSensitiveWord, matchedSensitiveWord_);
+          };
+          MatchedSentiveWords() = default ;
+          MatchedSentiveWords(const MatchedSentiveWords &) = default ;
+          MatchedSentiveWords(MatchedSentiveWords &&) = default ;
+          MatchedSentiveWords(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~MatchedSentiveWords() = default ;
+          MatchedSentiveWords& operator=(const MatchedSentiveWords &) = default ;
+          MatchedSentiveWords& operator=(MatchedSentiveWords &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          class MatchedSensitiveWord : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const MatchedSensitiveWord& obj) { 
+              DARABONBA_PTR_TO_JSON(Word, word_);
+            };
+            friend void from_json(const Darabonba::Json& j, MatchedSensitiveWord& obj) { 
+              DARABONBA_PTR_FROM_JSON(Word, word_);
+            };
+            MatchedSensitiveWord() = default ;
+            MatchedSensitiveWord(const MatchedSensitiveWord &) = default ;
+            MatchedSensitiveWord(MatchedSensitiveWord &&) = default ;
+            MatchedSensitiveWord(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~MatchedSensitiveWord() = default ;
+            MatchedSensitiveWord& operator=(const MatchedSensitiveWord &) = default ;
+            MatchedSensitiveWord& operator=(MatchedSensitiveWord &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->word_ == nullptr; };
+            // word Field Functions 
+            bool hasWord() const { return this->word_ != nullptr;};
+            void deleteWord() { this->word_ = nullptr;};
+            inline string getWord() const { DARABONBA_PTR_GET_DEFAULT(word_, "") };
+            inline MatchedSensitiveWord& setWord(string word) { DARABONBA_PTR_SET_VALUE(word_, word) };
+
+
+          protected:
+            shared_ptr<string> word_ {};
+          };
+
+          virtual bool empty() const override { return this->matchedSensitiveWord_ == nullptr; };
+          // matchedSensitiveWord Field Functions 
+          bool hasMatchedSensitiveWord() const { return this->matchedSensitiveWord_ != nullptr;};
+          void deleteMatchedSensitiveWord() { this->matchedSensitiveWord_ = nullptr;};
+          inline const vector<MatchedSentiveWords::MatchedSensitiveWord> & getMatchedSensitiveWord() const { DARABONBA_PTR_GET_CONST(matchedSensitiveWord_, vector<MatchedSentiveWords::MatchedSensitiveWord>) };
+          inline vector<MatchedSentiveWords::MatchedSensitiveWord> getMatchedSensitiveWord() { DARABONBA_PTR_GET(matchedSensitiveWord_, vector<MatchedSentiveWords::MatchedSensitiveWord>) };
+          inline MatchedSentiveWords& setMatchedSensitiveWord(const vector<MatchedSentiveWords::MatchedSensitiveWord> & matchedSensitiveWord) { DARABONBA_PTR_SET_VALUE(matchedSensitiveWord_, matchedSensitiveWord) };
+          inline MatchedSentiveWords& setMatchedSensitiveWord(vector<MatchedSentiveWords::MatchedSensitiveWord> && matchedSensitiveWord) { DARABONBA_PTR_SET_RVALUE(matchedSensitiveWord_, matchedSensitiveWord) };
+
+
+        protected:
+          shared_ptr<vector<MatchedSentiveWords::MatchedSensitiveWord>> matchedSensitiveWord_ {};
+        };
+
+        virtual bool empty() const override { return this->exist_ == nullptr
+        && this->keyword_ == nullptr && this->matchedSentiveWords_ == nullptr; };
+        // exist Field Functions 
+        bool hasExist() const { return this->exist_ != nullptr;};
+        void deleteExist() { this->exist_ = nullptr;};
+        inline bool getExist() const { DARABONBA_PTR_GET_DEFAULT(exist_, false) };
+        inline SensitiveWordMatchResult& setExist(bool exist) { DARABONBA_PTR_SET_VALUE(exist_, exist) };
+
+
+        // keyword Field Functions 
+        bool hasKeyword() const { return this->keyword_ != nullptr;};
+        void deleteKeyword() { this->keyword_ = nullptr;};
+        inline string getKeyword() const { DARABONBA_PTR_GET_DEFAULT(keyword_, "") };
+        inline SensitiveWordMatchResult& setKeyword(string keyword) { DARABONBA_PTR_SET_VALUE(keyword_, keyword) };
+
+
+        // matchedSentiveWords Field Functions 
+        bool hasMatchedSentiveWords() const { return this->matchedSentiveWords_ != nullptr;};
+        void deleteMatchedSentiveWords() { this->matchedSentiveWords_ = nullptr;};
+        inline const SensitiveWordMatchResult::MatchedSentiveWords & getMatchedSentiveWords() const { DARABONBA_PTR_GET_CONST(matchedSentiveWords_, SensitiveWordMatchResult::MatchedSentiveWords) };
+        inline SensitiveWordMatchResult::MatchedSentiveWords getMatchedSentiveWords() { DARABONBA_PTR_GET(matchedSentiveWords_, SensitiveWordMatchResult::MatchedSentiveWords) };
+        inline SensitiveWordMatchResult& setMatchedSentiveWords(const SensitiveWordMatchResult::MatchedSentiveWords & matchedSentiveWords) { DARABONBA_PTR_SET_VALUE(matchedSentiveWords_, matchedSentiveWords) };
+        inline SensitiveWordMatchResult& setMatchedSentiveWords(SensitiveWordMatchResult::MatchedSentiveWords && matchedSentiveWords) { DARABONBA_PTR_SET_RVALUE(matchedSentiveWords_, matchedSentiveWords) };
+
+
+      protected:
+        shared_ptr<bool> exist_ {};
+        shared_ptr<string> keyword_ {};
+        shared_ptr<SensitiveWordMatchResult::MatchedSentiveWords> matchedSentiveWords_ {};
+      };
+
+      virtual bool empty() const override { return this->sensitiveWordMatchResult_ == nullptr; };
+      // sensitiveWordMatchResult Field Functions 
+      bool hasSensitiveWordMatchResult() const { return this->sensitiveWordMatchResult_ != nullptr;};
+      void deleteSensitiveWordMatchResult() { this->sensitiveWordMatchResult_ = nullptr;};
+      inline const vector<SensitiveWordMatchResultList::SensitiveWordMatchResult> & getSensitiveWordMatchResult() const { DARABONBA_PTR_GET_CONST(sensitiveWordMatchResult_, vector<SensitiveWordMatchResultList::SensitiveWordMatchResult>) };
+      inline vector<SensitiveWordMatchResultList::SensitiveWordMatchResult> getSensitiveWordMatchResult() { DARABONBA_PTR_GET(sensitiveWordMatchResult_, vector<SensitiveWordMatchResultList::SensitiveWordMatchResult>) };
+      inline SensitiveWordMatchResultList& setSensitiveWordMatchResult(const vector<SensitiveWordMatchResultList::SensitiveWordMatchResult> & sensitiveWordMatchResult) { DARABONBA_PTR_SET_VALUE(sensitiveWordMatchResult_, sensitiveWordMatchResult) };
+      inline SensitiveWordMatchResultList& setSensitiveWordMatchResult(vector<SensitiveWordMatchResultList::SensitiveWordMatchResult> && sensitiveWordMatchResult) { DARABONBA_PTR_SET_RVALUE(sensitiveWordMatchResult_, sensitiveWordMatchResult) };
+
+
+    protected:
+      shared_ptr<vector<SensitiveWordMatchResultList::SensitiveWordMatchResult>> sensitiveWordMatchResult_ {};
+    };
+
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->sensitiveWordMatchResultList_ == nullptr; };
+        && this->sensitiveWordMatchResultList_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline BatchFuzzyMatchDomainSensitiveWordResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // sensitiveWordMatchResultList Field Functions 
     bool hasSensitiveWordMatchResultList() const { return this->sensitiveWordMatchResultList_ != nullptr;};
     void deleteSensitiveWordMatchResultList() { this->sensitiveWordMatchResultList_ = nullptr;};
-    inline const BatchFuzzyMatchDomainSensitiveWordResponseBodySensitiveWordMatchResultList & sensitiveWordMatchResultList() const { DARABONBA_PTR_GET_CONST(sensitiveWordMatchResultList_, BatchFuzzyMatchDomainSensitiveWordResponseBodySensitiveWordMatchResultList) };
-    inline BatchFuzzyMatchDomainSensitiveWordResponseBodySensitiveWordMatchResultList sensitiveWordMatchResultList() { DARABONBA_PTR_GET(sensitiveWordMatchResultList_, BatchFuzzyMatchDomainSensitiveWordResponseBodySensitiveWordMatchResultList) };
-    inline BatchFuzzyMatchDomainSensitiveWordResponseBody& setSensitiveWordMatchResultList(const BatchFuzzyMatchDomainSensitiveWordResponseBodySensitiveWordMatchResultList & sensitiveWordMatchResultList) { DARABONBA_PTR_SET_VALUE(sensitiveWordMatchResultList_, sensitiveWordMatchResultList) };
-    inline BatchFuzzyMatchDomainSensitiveWordResponseBody& setSensitiveWordMatchResultList(BatchFuzzyMatchDomainSensitiveWordResponseBodySensitiveWordMatchResultList && sensitiveWordMatchResultList) { DARABONBA_PTR_SET_RVALUE(sensitiveWordMatchResultList_, sensitiveWordMatchResultList) };
+    inline const BatchFuzzyMatchDomainSensitiveWordResponseBody::SensitiveWordMatchResultList & getSensitiveWordMatchResultList() const { DARABONBA_PTR_GET_CONST(sensitiveWordMatchResultList_, BatchFuzzyMatchDomainSensitiveWordResponseBody::SensitiveWordMatchResultList) };
+    inline BatchFuzzyMatchDomainSensitiveWordResponseBody::SensitiveWordMatchResultList getSensitiveWordMatchResultList() { DARABONBA_PTR_GET(sensitiveWordMatchResultList_, BatchFuzzyMatchDomainSensitiveWordResponseBody::SensitiveWordMatchResultList) };
+    inline BatchFuzzyMatchDomainSensitiveWordResponseBody& setSensitiveWordMatchResultList(const BatchFuzzyMatchDomainSensitiveWordResponseBody::SensitiveWordMatchResultList & sensitiveWordMatchResultList) { DARABONBA_PTR_SET_VALUE(sensitiveWordMatchResultList_, sensitiveWordMatchResultList) };
+    inline BatchFuzzyMatchDomainSensitiveWordResponseBody& setSensitiveWordMatchResultList(BatchFuzzyMatchDomainSensitiveWordResponseBody::SensitiveWordMatchResultList && sensitiveWordMatchResultList) { DARABONBA_PTR_SET_RVALUE(sensitiveWordMatchResultList_, sensitiveWordMatchResultList) };
 
 
   protected:
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<BatchFuzzyMatchDomainSensitiveWordResponseBodySensitiveWordMatchResultList> sensitiveWordMatchResultList_ = nullptr;
+    shared_ptr<string> requestId_ {};
+    shared_ptr<BatchFuzzyMatchDomainSensitiveWordResponseBody::SensitiveWordMatchResultList> sensitiveWordMatchResultList_ {};
   };
 
   } // namespace Models

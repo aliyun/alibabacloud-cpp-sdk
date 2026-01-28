@@ -74,175 +74,175 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->domainGroupId_ == nullptr
-        && return this->domainStatus_ == nullptr && return this->endExpirationDate_ == nullptr && return this->endLength_ == nullptr && return this->endRegistrationDate_ == nullptr && return this->excluded_ == nullptr
-        && return this->excludedPrefix_ == nullptr && return this->excludedSuffix_ == nullptr && return this->form_ == nullptr && return this->keyWord_ == nullptr && return this->keyWordPrefix_ == nullptr
-        && return this->keyWordSuffix_ == nullptr && return this->lang_ == nullptr && return this->pageSize_ == nullptr && return this->productDomainType_ == nullptr && return this->resourceGroupId_ == nullptr
-        && return this->scrollId_ == nullptr && return this->startExpirationDate_ == nullptr && return this->startLength_ == nullptr && return this->startRegistrationDate_ == nullptr && return this->suffixs_ == nullptr
-        && return this->tradeType_ == nullptr && return this->userClientIp_ == nullptr; };
+        && this->domainStatus_ == nullptr && this->endExpirationDate_ == nullptr && this->endLength_ == nullptr && this->endRegistrationDate_ == nullptr && this->excluded_ == nullptr
+        && this->excludedPrefix_ == nullptr && this->excludedSuffix_ == nullptr && this->form_ == nullptr && this->keyWord_ == nullptr && this->keyWordPrefix_ == nullptr
+        && this->keyWordSuffix_ == nullptr && this->lang_ == nullptr && this->pageSize_ == nullptr && this->productDomainType_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->scrollId_ == nullptr && this->startExpirationDate_ == nullptr && this->startLength_ == nullptr && this->startRegistrationDate_ == nullptr && this->suffixs_ == nullptr
+        && this->tradeType_ == nullptr && this->userClientIp_ == nullptr; };
     // domainGroupId Field Functions 
     bool hasDomainGroupId() const { return this->domainGroupId_ != nullptr;};
     void deleteDomainGroupId() { this->domainGroupId_ = nullptr;};
-    inline int64_t domainGroupId() const { DARABONBA_PTR_GET_DEFAULT(domainGroupId_, 0L) };
+    inline int64_t getDomainGroupId() const { DARABONBA_PTR_GET_DEFAULT(domainGroupId_, 0L) };
     inline ScrollDomainListRequest& setDomainGroupId(int64_t domainGroupId) { DARABONBA_PTR_SET_VALUE(domainGroupId_, domainGroupId) };
 
 
     // domainStatus Field Functions 
     bool hasDomainStatus() const { return this->domainStatus_ != nullptr;};
     void deleteDomainStatus() { this->domainStatus_ = nullptr;};
-    inline int32_t domainStatus() const { DARABONBA_PTR_GET_DEFAULT(domainStatus_, 0) };
+    inline int32_t getDomainStatus() const { DARABONBA_PTR_GET_DEFAULT(domainStatus_, 0) };
     inline ScrollDomainListRequest& setDomainStatus(int32_t domainStatus) { DARABONBA_PTR_SET_VALUE(domainStatus_, domainStatus) };
 
 
     // endExpirationDate Field Functions 
     bool hasEndExpirationDate() const { return this->endExpirationDate_ != nullptr;};
     void deleteEndExpirationDate() { this->endExpirationDate_ = nullptr;};
-    inline int64_t endExpirationDate() const { DARABONBA_PTR_GET_DEFAULT(endExpirationDate_, 0L) };
+    inline int64_t getEndExpirationDate() const { DARABONBA_PTR_GET_DEFAULT(endExpirationDate_, 0L) };
     inline ScrollDomainListRequest& setEndExpirationDate(int64_t endExpirationDate) { DARABONBA_PTR_SET_VALUE(endExpirationDate_, endExpirationDate) };
 
 
     // endLength Field Functions 
     bool hasEndLength() const { return this->endLength_ != nullptr;};
     void deleteEndLength() { this->endLength_ = nullptr;};
-    inline int32_t endLength() const { DARABONBA_PTR_GET_DEFAULT(endLength_, 0) };
+    inline int32_t getEndLength() const { DARABONBA_PTR_GET_DEFAULT(endLength_, 0) };
     inline ScrollDomainListRequest& setEndLength(int32_t endLength) { DARABONBA_PTR_SET_VALUE(endLength_, endLength) };
 
 
     // endRegistrationDate Field Functions 
     bool hasEndRegistrationDate() const { return this->endRegistrationDate_ != nullptr;};
     void deleteEndRegistrationDate() { this->endRegistrationDate_ = nullptr;};
-    inline int64_t endRegistrationDate() const { DARABONBA_PTR_GET_DEFAULT(endRegistrationDate_, 0L) };
+    inline int64_t getEndRegistrationDate() const { DARABONBA_PTR_GET_DEFAULT(endRegistrationDate_, 0L) };
     inline ScrollDomainListRequest& setEndRegistrationDate(int64_t endRegistrationDate) { DARABONBA_PTR_SET_VALUE(endRegistrationDate_, endRegistrationDate) };
 
 
     // excluded Field Functions 
     bool hasExcluded() const { return this->excluded_ != nullptr;};
     void deleteExcluded() { this->excluded_ = nullptr;};
-    inline string excluded() const { DARABONBA_PTR_GET_DEFAULT(excluded_, "") };
+    inline string getExcluded() const { DARABONBA_PTR_GET_DEFAULT(excluded_, "") };
     inline ScrollDomainListRequest& setExcluded(string excluded) { DARABONBA_PTR_SET_VALUE(excluded_, excluded) };
 
 
     // excludedPrefix Field Functions 
     bool hasExcludedPrefix() const { return this->excludedPrefix_ != nullptr;};
     void deleteExcludedPrefix() { this->excludedPrefix_ = nullptr;};
-    inline bool excludedPrefix() const { DARABONBA_PTR_GET_DEFAULT(excludedPrefix_, false) };
+    inline bool getExcludedPrefix() const { DARABONBA_PTR_GET_DEFAULT(excludedPrefix_, false) };
     inline ScrollDomainListRequest& setExcludedPrefix(bool excludedPrefix) { DARABONBA_PTR_SET_VALUE(excludedPrefix_, excludedPrefix) };
 
 
     // excludedSuffix Field Functions 
     bool hasExcludedSuffix() const { return this->excludedSuffix_ != nullptr;};
     void deleteExcludedSuffix() { this->excludedSuffix_ = nullptr;};
-    inline bool excludedSuffix() const { DARABONBA_PTR_GET_DEFAULT(excludedSuffix_, false) };
+    inline bool getExcludedSuffix() const { DARABONBA_PTR_GET_DEFAULT(excludedSuffix_, false) };
     inline ScrollDomainListRequest& setExcludedSuffix(bool excludedSuffix) { DARABONBA_PTR_SET_VALUE(excludedSuffix_, excludedSuffix) };
 
 
     // form Field Functions 
     bool hasForm() const { return this->form_ != nullptr;};
     void deleteForm() { this->form_ = nullptr;};
-    inline int32_t form() const { DARABONBA_PTR_GET_DEFAULT(form_, 0) };
+    inline int32_t getForm() const { DARABONBA_PTR_GET_DEFAULT(form_, 0) };
     inline ScrollDomainListRequest& setForm(int32_t form) { DARABONBA_PTR_SET_VALUE(form_, form) };
 
 
     // keyWord Field Functions 
     bool hasKeyWord() const { return this->keyWord_ != nullptr;};
     void deleteKeyWord() { this->keyWord_ = nullptr;};
-    inline string keyWord() const { DARABONBA_PTR_GET_DEFAULT(keyWord_, "") };
+    inline string getKeyWord() const { DARABONBA_PTR_GET_DEFAULT(keyWord_, "") };
     inline ScrollDomainListRequest& setKeyWord(string keyWord) { DARABONBA_PTR_SET_VALUE(keyWord_, keyWord) };
 
 
     // keyWordPrefix Field Functions 
     bool hasKeyWordPrefix() const { return this->keyWordPrefix_ != nullptr;};
     void deleteKeyWordPrefix() { this->keyWordPrefix_ = nullptr;};
-    inline bool keyWordPrefix() const { DARABONBA_PTR_GET_DEFAULT(keyWordPrefix_, false) };
+    inline bool getKeyWordPrefix() const { DARABONBA_PTR_GET_DEFAULT(keyWordPrefix_, false) };
     inline ScrollDomainListRequest& setKeyWordPrefix(bool keyWordPrefix) { DARABONBA_PTR_SET_VALUE(keyWordPrefix_, keyWordPrefix) };
 
 
     // keyWordSuffix Field Functions 
     bool hasKeyWordSuffix() const { return this->keyWordSuffix_ != nullptr;};
     void deleteKeyWordSuffix() { this->keyWordSuffix_ = nullptr;};
-    inline bool keyWordSuffix() const { DARABONBA_PTR_GET_DEFAULT(keyWordSuffix_, false) };
+    inline bool getKeyWordSuffix() const { DARABONBA_PTR_GET_DEFAULT(keyWordSuffix_, false) };
     inline ScrollDomainListRequest& setKeyWordSuffix(bool keyWordSuffix) { DARABONBA_PTR_SET_VALUE(keyWordSuffix_, keyWordSuffix) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline ScrollDomainListRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ScrollDomainListRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // productDomainType Field Functions 
     bool hasProductDomainType() const { return this->productDomainType_ != nullptr;};
     void deleteProductDomainType() { this->productDomainType_ = nullptr;};
-    inline string productDomainType() const { DARABONBA_PTR_GET_DEFAULT(productDomainType_, "") };
+    inline string getProductDomainType() const { DARABONBA_PTR_GET_DEFAULT(productDomainType_, "") };
     inline ScrollDomainListRequest& setProductDomainType(string productDomainType) { DARABONBA_PTR_SET_VALUE(productDomainType_, productDomainType) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline ScrollDomainListRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // scrollId Field Functions 
     bool hasScrollId() const { return this->scrollId_ != nullptr;};
     void deleteScrollId() { this->scrollId_ = nullptr;};
-    inline string scrollId() const { DARABONBA_PTR_GET_DEFAULT(scrollId_, "") };
+    inline string getScrollId() const { DARABONBA_PTR_GET_DEFAULT(scrollId_, "") };
     inline ScrollDomainListRequest& setScrollId(string scrollId) { DARABONBA_PTR_SET_VALUE(scrollId_, scrollId) };
 
 
     // startExpirationDate Field Functions 
     bool hasStartExpirationDate() const { return this->startExpirationDate_ != nullptr;};
     void deleteStartExpirationDate() { this->startExpirationDate_ = nullptr;};
-    inline int64_t startExpirationDate() const { DARABONBA_PTR_GET_DEFAULT(startExpirationDate_, 0L) };
+    inline int64_t getStartExpirationDate() const { DARABONBA_PTR_GET_DEFAULT(startExpirationDate_, 0L) };
     inline ScrollDomainListRequest& setStartExpirationDate(int64_t startExpirationDate) { DARABONBA_PTR_SET_VALUE(startExpirationDate_, startExpirationDate) };
 
 
     // startLength Field Functions 
     bool hasStartLength() const { return this->startLength_ != nullptr;};
     void deleteStartLength() { this->startLength_ = nullptr;};
-    inline int32_t startLength() const { DARABONBA_PTR_GET_DEFAULT(startLength_, 0) };
+    inline int32_t getStartLength() const { DARABONBA_PTR_GET_DEFAULT(startLength_, 0) };
     inline ScrollDomainListRequest& setStartLength(int32_t startLength) { DARABONBA_PTR_SET_VALUE(startLength_, startLength) };
 
 
     // startRegistrationDate Field Functions 
     bool hasStartRegistrationDate() const { return this->startRegistrationDate_ != nullptr;};
     void deleteStartRegistrationDate() { this->startRegistrationDate_ = nullptr;};
-    inline int64_t startRegistrationDate() const { DARABONBA_PTR_GET_DEFAULT(startRegistrationDate_, 0L) };
+    inline int64_t getStartRegistrationDate() const { DARABONBA_PTR_GET_DEFAULT(startRegistrationDate_, 0L) };
     inline ScrollDomainListRequest& setStartRegistrationDate(int64_t startRegistrationDate) { DARABONBA_PTR_SET_VALUE(startRegistrationDate_, startRegistrationDate) };
 
 
     // suffixs Field Functions 
     bool hasSuffixs() const { return this->suffixs_ != nullptr;};
     void deleteSuffixs() { this->suffixs_ = nullptr;};
-    inline string suffixs() const { DARABONBA_PTR_GET_DEFAULT(suffixs_, "") };
+    inline string getSuffixs() const { DARABONBA_PTR_GET_DEFAULT(suffixs_, "") };
     inline ScrollDomainListRequest& setSuffixs(string suffixs) { DARABONBA_PTR_SET_VALUE(suffixs_, suffixs) };
 
 
     // tradeType Field Functions 
     bool hasTradeType() const { return this->tradeType_ != nullptr;};
     void deleteTradeType() { this->tradeType_ = nullptr;};
-    inline int32_t tradeType() const { DARABONBA_PTR_GET_DEFAULT(tradeType_, 0) };
+    inline int32_t getTradeType() const { DARABONBA_PTR_GET_DEFAULT(tradeType_, 0) };
     inline ScrollDomainListRequest& setTradeType(int32_t tradeType) { DARABONBA_PTR_SET_VALUE(tradeType_, tradeType) };
 
 
     // userClientIp Field Functions 
     bool hasUserClientIp() const { return this->userClientIp_ != nullptr;};
     void deleteUserClientIp() { this->userClientIp_ = nullptr;};
-    inline string userClientIp() const { DARABONBA_PTR_GET_DEFAULT(userClientIp_, "") };
+    inline string getUserClientIp() const { DARABONBA_PTR_GET_DEFAULT(userClientIp_, "") };
     inline ScrollDomainListRequest& setUserClientIp(string userClientIp) { DARABONBA_PTR_SET_VALUE(userClientIp_, userClientIp) };
 
 
   protected:
     // The ID of the domain name group. You can call the [QueryDomainGroupList](https://help.aliyun.com/document_detail/69362.html) operation to obtain the ID of the domain name group.
-    std::shared_ptr<int64_t> domainGroupId_ = nullptr;
+    shared_ptr<int64_t> domainGroupId_ {};
     // The status of the domain name. Valid values:
     // 
     // *   **0**: All.
@@ -254,55 +254,55 @@ namespace Models
     // *   **6**: Real-name verification is not performed on the domain name.
     // *   **7**: Real-name verification for the domain name fails. Real-name reverification is required.
     // *   **8**: The domain name is being reviewed.
-    std::shared_ptr<int32_t> domainStatus_ = nullptr;
+    shared_ptr<int32_t> domainStatus_ {};
     // The end of the time range to query domain names based on expiration dates. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-    std::shared_ptr<int64_t> endExpirationDate_ = nullptr;
+    shared_ptr<int64_t> endExpirationDate_ {};
     // The end of domain name length to query.
-    std::shared_ptr<int32_t> endLength_ = nullptr;
+    shared_ptr<int32_t> endLength_ {};
     // The end of the time range to query domain names based on registration dates. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-    std::shared_ptr<int64_t> endRegistrationDate_ = nullptr;
+    shared_ptr<int64_t> endRegistrationDate_ {};
     // The keyword that is used to exclude domain names.
-    std::shared_ptr<string> excluded_ = nullptr;
+    shared_ptr<string> excluded_ {};
     // Specifies whether to exclude the prefix keyword.
-    std::shared_ptr<bool> excludedPrefix_ = nullptr;
+    shared_ptr<bool> excludedPrefix_ {};
     // Specifies whether to exclude the suffix keyword.
-    std::shared_ptr<bool> excludedSuffix_ = nullptr;
+    shared_ptr<bool> excludedSuffix_ {};
     // The composition of the domain name.
-    std::shared_ptr<int32_t> form_ = nullptr;
+    shared_ptr<int32_t> form_ {};
     // The keyword.
-    std::shared_ptr<string> keyWord_ = nullptr;
+    shared_ptr<string> keyWord_ {};
     // Specifies whether the keyword is the prefix.
-    std::shared_ptr<bool> keyWordPrefix_ = nullptr;
+    shared_ptr<bool> keyWordPrefix_ {};
     // Specifies whether the keyword is the suffix.
-    std::shared_ptr<bool> keyWordSuffix_ = nullptr;
+    shared_ptr<bool> keyWordSuffix_ {};
     // The language of the error message to return if the request fails. Valid values:
     // 
     // *   **zh**: Chinese.
     // *   **en**: English.
     // 
     // Default value: **en**.
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The number of entries per page.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The type of the domain name. Valid values:
     // 
     // *   **New gTLD**
     // *   **gTLD**
     // *   **ccTLD**
     // *   **other**
-    std::shared_ptr<string> productDomainType_ = nullptr;
+    shared_ptr<string> productDomainType_ {};
     // The ID of the resource group.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // The scroll ID. This parameter is a technical parameter.
-    std::shared_ptr<string> scrollId_ = nullptr;
+    shared_ptr<string> scrollId_ {};
     // The beginning of the time range to query domain names based on expiration dates. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-    std::shared_ptr<int64_t> startExpirationDate_ = nullptr;
+    shared_ptr<int64_t> startExpirationDate_ {};
     // The start of the domain name length to query.
-    std::shared_ptr<int32_t> startLength_ = nullptr;
+    shared_ptr<int32_t> startLength_ {};
     // The beginning of the time range to query domain names based on registration dates. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-    std::shared_ptr<int64_t> startRegistrationDate_ = nullptr;
+    shared_ptr<int64_t> startRegistrationDate_ {};
     // The suffixes of domain names to be queried. Separate multiple suffixes with commas (,).
-    std::shared_ptr<string> suffixs_ = nullptr;
+    shared_ptr<string> suffixs_ {};
     // The publishing status of the domain name. Valid values:
     // 
     // *   **2**: The domain name is published at a fixed price.
@@ -310,9 +310,9 @@ namespace Models
     // *   **4**: The domain name is published for bidding.
     // *   **6**: The domain name is published with price push.
     // *   **-1**: The domain name is not published.
-    std::shared_ptr<int32_t> tradeType_ = nullptr;
+    shared_ptr<int32_t> tradeType_ {};
     // The IP address of the client. Set the value to **127.0.0.1**.
-    std::shared_ptr<string> userClientIp_ = nullptr;
+    shared_ptr<string> userClientIp_ {};
   };
 
   } // namespace Models

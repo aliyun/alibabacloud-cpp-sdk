@@ -39,26 +39,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dnsName_ == nullptr
-        && return this->instanceId_ == nullptr && return this->ip_ == nullptr && return this->lang_ == nullptr && return this->userClientIp_ == nullptr; };
+        && this->instanceId_ == nullptr && this->ip_ == nullptr && this->lang_ == nullptr && this->userClientIp_ == nullptr; };
     // dnsName Field Functions 
     bool hasDnsName() const { return this->dnsName_ != nullptr;};
     void deleteDnsName() { this->dnsName_ = nullptr;};
-    inline string dnsName() const { DARABONBA_PTR_GET_DEFAULT(dnsName_, "") };
+    inline string getDnsName() const { DARABONBA_PTR_GET_DEFAULT(dnsName_, "") };
     inline SaveSingleTaskForCreatingDnsHostRequest& setDnsName(string dnsName) { DARABONBA_PTR_SET_VALUE(dnsName_, dnsName) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline SaveSingleTaskForCreatingDnsHostRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // ip Field Functions 
     bool hasIp() const { return this->ip_ != nullptr;};
     void deleteIp() { this->ip_ = nullptr;};
-    inline const vector<string> & ip() const { DARABONBA_PTR_GET_CONST(ip_, vector<string>) };
-    inline vector<string> ip() { DARABONBA_PTR_GET(ip_, vector<string>) };
+    inline const vector<string> & getIp() const { DARABONBA_PTR_GET_CONST(ip_, vector<string>) };
+    inline vector<string> getIp() { DARABONBA_PTR_GET(ip_, vector<string>) };
     inline SaveSingleTaskForCreatingDnsHostRequest& setIp(const vector<string> & ip) { DARABONBA_PTR_SET_VALUE(ip_, ip) };
     inline SaveSingleTaskForCreatingDnsHostRequest& setIp(vector<string> && ip) { DARABONBA_PTR_SET_RVALUE(ip_, ip) };
 
@@ -66,26 +66,26 @@ namespace Models
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline SaveSingleTaskForCreatingDnsHostRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // userClientIp Field Functions 
     bool hasUserClientIp() const { return this->userClientIp_ != nullptr;};
     void deleteUserClientIp() { this->userClientIp_ = nullptr;};
-    inline string userClientIp() const { DARABONBA_PTR_GET_DEFAULT(userClientIp_, "") };
+    inline string getUserClientIp() const { DARABONBA_PTR_GET_DEFAULT(userClientIp_, "") };
     inline SaveSingleTaskForCreatingDnsHostRequest& setUserClientIp(string userClientIp) { DARABONBA_PTR_SET_VALUE(userClientIp_, userClientIp) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> dnsName_ = nullptr;
+    shared_ptr<string> dnsName_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<vector<string>> ip_ = nullptr;
-    std::shared_ptr<string> lang_ = nullptr;
-    std::shared_ptr<string> userClientIp_ = nullptr;
+    shared_ptr<vector<string>> ip_ {};
+    shared_ptr<string> lang_ {};
+    shared_ptr<string> userClientIp_ {};
   };
 
   } // namespace Models

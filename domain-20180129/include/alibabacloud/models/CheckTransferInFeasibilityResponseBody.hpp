@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->canTransfer_ == nullptr
-        && return this->code_ == nullptr && return this->message_ == nullptr && return this->productId_ == nullptr && return this->requestId_ == nullptr; };
+        && this->code_ == nullptr && this->message_ == nullptr && this->productId_ == nullptr && this->requestId_ == nullptr; };
     // canTransfer Field Functions 
     bool hasCanTransfer() const { return this->canTransfer_ != nullptr;};
     void deleteCanTransfer() { this->canTransfer_ = nullptr;};
-    inline bool canTransfer() const { DARABONBA_PTR_GET_DEFAULT(canTransfer_, false) };
+    inline bool getCanTransfer() const { DARABONBA_PTR_GET_DEFAULT(canTransfer_, false) };
     inline CheckTransferInFeasibilityResponseBody& setCanTransfer(bool canTransfer) { DARABONBA_PTR_SET_VALUE(canTransfer_, canTransfer) };
 
 
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline CheckTransferInFeasibilityResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline CheckTransferInFeasibilityResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // productId Field Functions 
     bool hasProductId() const { return this->productId_ != nullptr;};
     void deleteProductId() { this->productId_ = nullptr;};
-    inline string productId() const { DARABONBA_PTR_GET_DEFAULT(productId_, "") };
+    inline string getProductId() const { DARABONBA_PTR_GET_DEFAULT(productId_, "") };
     inline CheckTransferInFeasibilityResponseBody& setProductId(string productId) { DARABONBA_PTR_SET_VALUE(productId_, productId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CheckTransferInFeasibilityResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<bool> canTransfer_ = nullptr;
-    std::shared_ptr<string> code_ = nullptr;
-    std::shared_ptr<string> message_ = nullptr;
-    std::shared_ptr<string> productId_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<bool> canTransfer_ {};
+    shared_ptr<string> code_ {};
+    shared_ptr<string> message_ {};
+    shared_ptr<string> productId_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

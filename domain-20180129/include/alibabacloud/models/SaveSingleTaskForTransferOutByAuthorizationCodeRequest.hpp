@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->authorizationCode_ == nullptr
-        && return this->domainName_ == nullptr; };
+        && this->domainName_ == nullptr; };
     // authorizationCode Field Functions 
     bool hasAuthorizationCode() const { return this->authorizationCode_ != nullptr;};
     void deleteAuthorizationCode() { this->authorizationCode_ = nullptr;};
-    inline string authorizationCode() const { DARABONBA_PTR_GET_DEFAULT(authorizationCode_, "") };
+    inline string getAuthorizationCode() const { DARABONBA_PTR_GET_DEFAULT(authorizationCode_, "") };
     inline SaveSingleTaskForTransferOutByAuthorizationCodeRequest& setAuthorizationCode(string authorizationCode) { DARABONBA_PTR_SET_VALUE(authorizationCode_, authorizationCode) };
 
 
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
-    inline string domainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
+    inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline SaveSingleTaskForTransferOutByAuthorizationCodeRequest& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // Schema of Response
     // 
     // This parameter is required.
-    std::shared_ptr<string> authorizationCode_ = nullptr;
+    shared_ptr<string> authorizationCode_ {};
     // The transfer key.
     // 
     // This parameter is required.
-    std::shared_ptr<string> domainName_ = nullptr;
+    shared_ptr<string> domainName_ {};
   };
 
   } // namespace Models
