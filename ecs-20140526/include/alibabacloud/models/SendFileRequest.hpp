@@ -14,6 +14,7 @@ namespace Models
   class SendFileRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const SendFileRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(Content, content_);
       DARABONBA_PTR_TO_JSON(ContentType, contentType_);
       DARABONBA_PTR_TO_JSON(Description, description_);
@@ -34,6 +35,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Timeout, timeout_);
     };
     friend void from_json(const Darabonba::Json& j, SendFileRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(Content, content_);
       DARABONBA_PTR_FROM_JSON(ContentType, contentType_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
@@ -114,11 +116,18 @@ namespace Models
       shared_ptr<string> value_ {};
     };
 
-    virtual bool empty() const override { return this->content_ == nullptr
-        && this->contentType_ == nullptr && this->description_ == nullptr && this->fileGroup_ == nullptr && this->fileMode_ == nullptr && this->fileOwner_ == nullptr
-        && this->instanceId_ == nullptr && this->name_ == nullptr && this->overwrite_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr
-        && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->tag_ == nullptr
-        && this->targetDir_ == nullptr && this->timeout_ == nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && this->content_ == nullptr && this->contentType_ == nullptr && this->description_ == nullptr && this->fileGroup_ == nullptr && this->fileMode_ == nullptr
+        && this->fileOwner_ == nullptr && this->instanceId_ == nullptr && this->name_ == nullptr && this->overwrite_ == nullptr && this->ownerAccount_ == nullptr
+        && this->ownerId_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr
+        && this->tag_ == nullptr && this->targetDir_ == nullptr && this->timeout_ == nullptr; };
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline SendFileRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
@@ -250,6 +259,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> clientToken_ {};
     // The content of the file. The file must not exceed 32 KB in size after it is encoded in Base64.
     // 
     // *   If `ContentType` is set to `PlainText`, the value of Content is in plaintext.

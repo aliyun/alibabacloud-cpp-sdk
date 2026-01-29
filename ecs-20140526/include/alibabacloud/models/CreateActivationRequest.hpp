@@ -14,6 +14,7 @@ namespace Models
   class CreateActivationRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateActivationRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(InstanceCount, instanceCount_);
       DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TimeToLiveInHours, timeToLiveInHours_);
     };
     friend void from_json(const Darabonba::Json& j, CreateActivationRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(InstanceCount, instanceCount_);
       DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
@@ -102,10 +104,17 @@ namespace Models
       shared_ptr<string> value_ {};
     };
 
-    virtual bool empty() const override { return this->description_ == nullptr
-        && this->instanceCount_ == nullptr && this->instanceName_ == nullptr && this->ipAddressRange_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr
-        && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->tag_ == nullptr
-        && this->timeToLiveInHours_ == nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && this->description_ == nullptr && this->instanceCount_ == nullptr && this->instanceName_ == nullptr && this->ipAddressRange_ == nullptr && this->ownerAccount_ == nullptr
+        && this->ownerId_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr
+        && this->tag_ == nullptr && this->timeToLiveInHours_ == nullptr; };
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline CreateActivationRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
@@ -193,6 +202,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> clientToken_ {};
     // The description of the activation code. The description must be 1 to 100 characters in length.
     shared_ptr<string> description_ {};
     // The maximum number of times that you can use the activation code to register managed instances. Valid values: 1 to 1000.

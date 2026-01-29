@@ -2823,6 +2823,10 @@ CopySnapshotResponse Client::copySnapshot(const CopySnapshotRequest &request) {
 CreateActivationResponse Client::createActivationWithOptions(const CreateActivationRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
   if (!!request.hasDescription()) {
     query["Description"] = request.getDescription();
   }
@@ -3375,6 +3379,10 @@ CreateCapacityReservationResponse Client::createCapacityReservation(const Create
 CreateCommandResponse Client::createCommandWithOptions(const CreateCommandRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
   if (!!request.hasCommandContent()) {
     query["CommandContent"] = request.getCommandContent();
   }
@@ -10120,6 +10128,10 @@ DeleteVpcResponse Client::deleteVpc(const DeleteVpcRequest &request) {
 DeregisterManagedInstanceResponse Client::deregisterManagedInstanceWithOptions(const DeregisterManagedInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.getInstanceId();
   }
@@ -27312,6 +27324,10 @@ ModifyInvocationAttributeResponse Client::modifyInvocationAttributeWithOptions(c
   }
 
   json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
   if (!!request.hasCommandContent()) {
     query["CommandContent"] = request.getCommandContent();
   }
@@ -33265,6 +33281,10 @@ RunInstancesResponse Client::runInstances(const RunInstancesRequest &request) {
 SendFileResponse Client::sendFileWithOptions(const SendFileRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
   if (!!request.hasContent()) {
     query["Content"] = request.getContent();
   }
@@ -33652,6 +33672,10 @@ StartTerminalSessionResponse Client::startTerminalSessionWithOptions(const Start
   }
 
   json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
   if (!!request.hasCommandLine()) {
     query["CommandLine"] = request.getCommandLine();
   }

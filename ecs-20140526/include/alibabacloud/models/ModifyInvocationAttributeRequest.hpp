@@ -14,6 +14,7 @@ namespace Models
   class ModifyInvocationAttributeRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ModifyInvocationAttributeRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(CommandContent, commandContent_);
       DARABONBA_PTR_TO_JSON(ContentEncoding, contentEncoding_);
       DARABONBA_PTR_TO_JSON(EnableParameter, enableParameter_);
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyInvocationAttributeRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(CommandContent, commandContent_);
       DARABONBA_PTR_FROM_JSON(ContentEncoding, contentEncoding_);
       DARABONBA_PTR_FROM_JSON(EnableParameter, enableParameter_);
@@ -52,10 +54,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->commandContent_ == nullptr
-        && this->contentEncoding_ == nullptr && this->enableParameter_ == nullptr && this->frequency_ == nullptr && this->instanceId_ == nullptr && this->invokeId_ == nullptr
-        && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->parameters_ == nullptr && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr
-        && this->resourceOwnerId_ == nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && this->commandContent_ == nullptr && this->contentEncoding_ == nullptr && this->enableParameter_ == nullptr && this->frequency_ == nullptr && this->instanceId_ == nullptr
+        && this->invokeId_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->parameters_ == nullptr && this->regionId_ == nullptr
+        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr; };
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline ModifyInvocationAttributeRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
     // commandContent Field Functions 
     bool hasCommandContent() const { return this->commandContent_ != nullptr;};
     void deleteCommandContent() { this->commandContent_ = nullptr;};
@@ -145,6 +154,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> clientToken_ {};
     // The content of the command after modification. The command content can be plaintext or Base64-encoded. Take note of the following items:
     // 
     // *   You can specify whether to retain the command after the command is run when you created the command. If you specified to retain the command, the Base64-encoded command content cannot exceed 18 KB in size. If you specified not to retain the command, the Base64-encoded command content cannot exceed 24 KB in size.

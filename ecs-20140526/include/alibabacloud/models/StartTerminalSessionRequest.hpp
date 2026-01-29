@@ -14,6 +14,7 @@ namespace Models
   class StartTerminalSessionRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const StartTerminalSessionRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(CommandLine, commandLine_);
       DARABONBA_PTR_TO_JSON(ConnectionType, connectionType_);
       DARABONBA_PTR_TO_JSON(EncryptionOptions, encryptionOptions_);
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Username, username_);
     };
     friend void from_json(const Darabonba::Json& j, StartTerminalSessionRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(CommandLine, commandLine_);
       DARABONBA_PTR_FROM_JSON(ConnectionType, connectionType_);
       DARABONBA_PTR_FROM_JSON(EncryptionOptions, encryptionOptions_);
@@ -106,10 +108,17 @@ namespace Models
       shared_ptr<string> mode_ {};
     };
 
-    virtual bool empty() const override { return this->commandLine_ == nullptr
-        && this->connectionType_ == nullptr && this->encryptionOptions_ == nullptr && this->instanceId_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr
-        && this->passwordName_ == nullptr && this->portNumber_ == nullptr && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr
-        && this->targetServer_ == nullptr && this->username_ == nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && this->commandLine_ == nullptr && this->connectionType_ == nullptr && this->encryptionOptions_ == nullptr && this->instanceId_ == nullptr && this->ownerAccount_ == nullptr
+        && this->ownerId_ == nullptr && this->passwordName_ == nullptr && this->portNumber_ == nullptr && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr
+        && this->resourceOwnerId_ == nullptr && this->targetServer_ == nullptr && this->username_ == nullptr; };
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline StartTerminalSessionRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
     // commandLine Field Functions 
     bool hasCommandLine() const { return this->commandLine_ != nullptr;};
     void deleteCommandLine() { this->commandLine_ = nullptr;};
@@ -206,6 +215,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> clientToken_ {};
     // The command to run after the session is initiated. The command length cannot exceed 512 characters.
     // 
     // >  If you specify the `CommandLine` parameter, you cannot specify the `PortNumber` or `TargetServer` parameter.

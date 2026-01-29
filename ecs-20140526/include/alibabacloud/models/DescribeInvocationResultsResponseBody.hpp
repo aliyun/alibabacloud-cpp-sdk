@@ -95,6 +95,8 @@ namespace Models
             DARABONBA_PTR_TO_JSON(InvokeRecordStatus, invokeRecordStatus_);
             DARABONBA_PTR_TO_JSON(Launcher, launcher_);
             DARABONBA_PTR_TO_JSON(OssOutputDelivery, ossOutputDelivery_);
+            DARABONBA_PTR_TO_JSON(OssOutputErrorCode, ossOutputErrorCode_);
+            DARABONBA_PTR_TO_JSON(OssOutputErrorInfo, ossOutputErrorInfo_);
             DARABONBA_PTR_TO_JSON(OssOutputStatus, ossOutputStatus_);
             DARABONBA_PTR_TO_JSON(OssOutputUri, ossOutputUri_);
             DARABONBA_PTR_TO_JSON(Output, output_);
@@ -120,6 +122,8 @@ namespace Models
             DARABONBA_PTR_FROM_JSON(InvokeRecordStatus, invokeRecordStatus_);
             DARABONBA_PTR_FROM_JSON(Launcher, launcher_);
             DARABONBA_PTR_FROM_JSON(OssOutputDelivery, ossOutputDelivery_);
+            DARABONBA_PTR_FROM_JSON(OssOutputErrorCode, ossOutputErrorCode_);
+            DARABONBA_PTR_FROM_JSON(OssOutputErrorInfo, ossOutputErrorInfo_);
             DARABONBA_PTR_FROM_JSON(OssOutputStatus, ossOutputStatus_);
             DARABONBA_PTR_FROM_JSON(OssOutputUri, ossOutputUri_);
             DARABONBA_PTR_FROM_JSON(Output, output_);
@@ -225,9 +229,9 @@ namespace Models
           virtual bool empty() const override { return this->commandId_ == nullptr
         && this->containerId_ == nullptr && this->containerName_ == nullptr && this->dropped_ == nullptr && this->errorCode_ == nullptr && this->errorInfo_ == nullptr
         && this->exitCode_ == nullptr && this->finishedTime_ == nullptr && this->instanceId_ == nullptr && this->invocationStatus_ == nullptr && this->invokeId_ == nullptr
-        && this->invokeRecordStatus_ == nullptr && this->launcher_ == nullptr && this->ossOutputDelivery_ == nullptr && this->ossOutputStatus_ == nullptr && this->ossOutputUri_ == nullptr
-        && this->output_ == nullptr && this->repeats_ == nullptr && this->startTime_ == nullptr && this->stopTime_ == nullptr && this->tags_ == nullptr
-        && this->terminationMode_ == nullptr && this->username_ == nullptr; };
+        && this->invokeRecordStatus_ == nullptr && this->launcher_ == nullptr && this->ossOutputDelivery_ == nullptr && this->ossOutputErrorCode_ == nullptr && this->ossOutputErrorInfo_ == nullptr
+        && this->ossOutputStatus_ == nullptr && this->ossOutputUri_ == nullptr && this->output_ == nullptr && this->repeats_ == nullptr && this->startTime_ == nullptr
+        && this->stopTime_ == nullptr && this->tags_ == nullptr && this->terminationMode_ == nullptr && this->username_ == nullptr; };
           // commandId Field Functions 
           bool hasCommandId() const { return this->commandId_ != nullptr;};
           void deleteCommandId() { this->commandId_ = nullptr;};
@@ -324,6 +328,20 @@ namespace Models
           void deleteOssOutputDelivery() { this->ossOutputDelivery_ = nullptr;};
           inline string getOssOutputDelivery() const { DARABONBA_PTR_GET_DEFAULT(ossOutputDelivery_, "") };
           inline InvocationResult& setOssOutputDelivery(string ossOutputDelivery) { DARABONBA_PTR_SET_VALUE(ossOutputDelivery_, ossOutputDelivery) };
+
+
+          // ossOutputErrorCode Field Functions 
+          bool hasOssOutputErrorCode() const { return this->ossOutputErrorCode_ != nullptr;};
+          void deleteOssOutputErrorCode() { this->ossOutputErrorCode_ = nullptr;};
+          inline string getOssOutputErrorCode() const { DARABONBA_PTR_GET_DEFAULT(ossOutputErrorCode_, "") };
+          inline InvocationResult& setOssOutputErrorCode(string ossOutputErrorCode) { DARABONBA_PTR_SET_VALUE(ossOutputErrorCode_, ossOutputErrorCode) };
+
+
+          // ossOutputErrorInfo Field Functions 
+          bool hasOssOutputErrorInfo() const { return this->ossOutputErrorInfo_ != nullptr;};
+          void deleteOssOutputErrorInfo() { this->ossOutputErrorInfo_ = nullptr;};
+          inline string getOssOutputErrorInfo() const { DARABONBA_PTR_GET_DEFAULT(ossOutputErrorInfo_, "") };
+          inline InvocationResult& setOssOutputErrorInfo(string ossOutputErrorInfo) { DARABONBA_PTR_SET_VALUE(ossOutputErrorInfo_, ossOutputErrorInfo) };
 
 
           // ossOutputStatus Field Functions 
@@ -484,6 +502,8 @@ namespace Models
           shared_ptr<string> launcher_ {};
           // The tags of the command task.
           shared_ptr<string> ossOutputDelivery_ {};
+          shared_ptr<string> ossOutputErrorCode_ {};
+          shared_ptr<string> ossOutputErrorInfo_ {};
           // The execution results.
           shared_ptr<string> ossOutputStatus_ {};
           // A pagination token. It can be used in the next request to retrieve a new page of results.

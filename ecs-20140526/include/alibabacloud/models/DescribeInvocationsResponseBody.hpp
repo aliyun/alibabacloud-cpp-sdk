@@ -233,6 +233,8 @@ namespace Models
               DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
               DARABONBA_PTR_TO_JSON(InstanceInvokeStatus, instanceInvokeStatus_);
               DARABONBA_PTR_TO_JSON(InvocationStatus, invocationStatus_);
+              DARABONBA_PTR_TO_JSON(OssOutputErrorCode, ossOutputErrorCode_);
+              DARABONBA_PTR_TO_JSON(OssOutputErrorInfo, ossOutputErrorInfo_);
               DARABONBA_PTR_TO_JSON(OssOutputStatus, ossOutputStatus_);
               DARABONBA_PTR_TO_JSON(OssOutputUri, ossOutputUri_);
               DARABONBA_PTR_TO_JSON(Output, output_);
@@ -252,6 +254,8 @@ namespace Models
               DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
               DARABONBA_PTR_FROM_JSON(InstanceInvokeStatus, instanceInvokeStatus_);
               DARABONBA_PTR_FROM_JSON(InvocationStatus, invocationStatus_);
+              DARABONBA_PTR_FROM_JSON(OssOutputErrorCode, ossOutputErrorCode_);
+              DARABONBA_PTR_FROM_JSON(OssOutputErrorInfo, ossOutputErrorInfo_);
               DARABONBA_PTR_FROM_JSON(OssOutputStatus, ossOutputStatus_);
               DARABONBA_PTR_FROM_JSON(OssOutputUri, ossOutputUri_);
               DARABONBA_PTR_FROM_JSON(Output, output_);
@@ -274,9 +278,9 @@ namespace Models
             virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
             virtual bool empty() const override { return this->creationTime_ == nullptr
         && this->dropped_ == nullptr && this->errorCode_ == nullptr && this->errorInfo_ == nullptr && this->exitCode_ == nullptr && this->finishTime_ == nullptr
-        && this->instanceId_ == nullptr && this->instanceInvokeStatus_ == nullptr && this->invocationStatus_ == nullptr && this->ossOutputStatus_ == nullptr && this->ossOutputUri_ == nullptr
-        && this->output_ == nullptr && this->repeats_ == nullptr && this->startTime_ == nullptr && this->stopTime_ == nullptr && this->timed_ == nullptr
-        && this->updateTime_ == nullptr; };
+        && this->instanceId_ == nullptr && this->instanceInvokeStatus_ == nullptr && this->invocationStatus_ == nullptr && this->ossOutputErrorCode_ == nullptr && this->ossOutputErrorInfo_ == nullptr
+        && this->ossOutputStatus_ == nullptr && this->ossOutputUri_ == nullptr && this->output_ == nullptr && this->repeats_ == nullptr && this->startTime_ == nullptr
+        && this->stopTime_ == nullptr && this->timed_ == nullptr && this->updateTime_ == nullptr; };
             // creationTime Field Functions 
             bool hasCreationTime() const { return this->creationTime_ != nullptr;};
             void deleteCreationTime() { this->creationTime_ = nullptr;};
@@ -338,6 +342,20 @@ namespace Models
             void deleteInvocationStatus() { this->invocationStatus_ = nullptr;};
             inline string getInvocationStatus() const { DARABONBA_PTR_GET_DEFAULT(invocationStatus_, "") };
             inline InvokeInstance& setInvocationStatus(string invocationStatus) { DARABONBA_PTR_SET_VALUE(invocationStatus_, invocationStatus) };
+
+
+            // ossOutputErrorCode Field Functions 
+            bool hasOssOutputErrorCode() const { return this->ossOutputErrorCode_ != nullptr;};
+            void deleteOssOutputErrorCode() { this->ossOutputErrorCode_ = nullptr;};
+            inline string getOssOutputErrorCode() const { DARABONBA_PTR_GET_DEFAULT(ossOutputErrorCode_, "") };
+            inline InvokeInstance& setOssOutputErrorCode(string ossOutputErrorCode) { DARABONBA_PTR_SET_VALUE(ossOutputErrorCode_, ossOutputErrorCode) };
+
+
+            // ossOutputErrorInfo Field Functions 
+            bool hasOssOutputErrorInfo() const { return this->ossOutputErrorInfo_ != nullptr;};
+            void deleteOssOutputErrorInfo() { this->ossOutputErrorInfo_ = nullptr;};
+            inline string getOssOutputErrorInfo() const { DARABONBA_PTR_GET_DEFAULT(ossOutputErrorInfo_, "") };
+            inline InvokeInstance& setOssOutputErrorInfo(string ossOutputErrorInfo) { DARABONBA_PTR_SET_VALUE(ossOutputErrorInfo_, ossOutputErrorInfo) };
 
 
             // ossOutputStatus Field Functions 
@@ -419,6 +437,8 @@ namespace Models
             // 
             // The tag key can be up to 64 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `acs:` or `aliyun`.
             shared_ptr<string> invocationStatus_ {};
+            shared_ptr<string> ossOutputErrorCode_ {};
+            shared_ptr<string> ossOutputErrorInfo_ {};
             // The overall execution status of the command task. The value of this parameter depends on the execution status of the command task on all the involved instances. Valid values:
             // 
             // *   Pending: The command is being verified or sent. When the execution state on at least one instance is Pending, the overall execution state is Pending.
