@@ -4979,6 +4979,8 @@ EnableApplicationScalingRuleResponse Client::enableApplicationScalingRule(const 
 }
 
 /**
+ * @summary Executes a job.
+ *
  * @param request ExecJobRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -5046,6 +5048,8 @@ ExecJobResponse Client::execJobWithOptions(const ExecJobRequest &request, const 
 }
 
 /**
+ * @summary Executes a job.
+ *
  * @param request ExecJobRequest
  * @return ExecJobResponse
  */
@@ -5826,6 +5830,55 @@ ListAppVersionsResponse Client::listAppVersions(const ListAppVersionsRequest &re
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listAppVersionsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 查询服务实例列表
+ *
+ * @param request ListApplicationCenterServiceInstancesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListApplicationCenterServiceInstancesResponse
+ */
+ListApplicationCenterServiceInstancesResponse Client::listApplicationCenterServiceInstancesWithOptions(const ListApplicationCenterServiceInstancesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasNamespaceId()) {
+    query["NamespaceId"] = request.getNamespaceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListApplicationCenterServiceInstances"},
+    {"version" , "2019-05-06"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/pop/cas/v5/app/listApplicationCenterServiceInstances")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListApplicationCenterServiceInstancesResponse>();
+}
+
+/**
+ * @summary 查询服务实例列表
+ *
+ * @param request ListApplicationCenterServiceInstancesRequest
+ * @return ListApplicationCenterServiceInstancesResponse
+ */
+ListApplicationCenterServiceInstancesResponse Client::listApplicationCenterServiceInstances(const ListApplicationCenterServiceInstancesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listApplicationCenterServiceInstancesWithOptions(request, headers, runtime);
 }
 
 /**

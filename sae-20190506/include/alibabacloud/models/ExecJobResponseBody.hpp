@@ -97,9 +97,24 @@ namespace Models
 
 
     protected:
+      // The HTTP status code. Valid values: 
+      // 
+      // *   **2xx**: The call was successful.
+      // *   **3xx**: The call was redirected.
+      // *   **4xx**: The call failed.
+      // *   **5xx**: A server error occurred.
       shared_ptr<string> code_ {};
+      // The job ID.
       shared_ptr<string> data_ {};
+      // The returned message. Valid values:
+      // 
+      // - success: If the call is successful, **success** is returned.
+      // - An error code: If the call fails, an error code is returned.
       shared_ptr<string> msg_ {};
+      // Indicates whether the request was successful. Valid values:
+      // 
+      // *   **true**
+      // *   **false**
       shared_ptr<string> success_ {};
     };
 
@@ -158,12 +173,33 @@ namespace Models
 
 
   protected:
+    // The HTTP status code. Valid values: 
+    // 
+    // *   **2xx**: The call was successful.
+    // *   **3xx**: The call was redirected.
+    // *   **4xx**: The call failed.
+    // *   **5xx**: A server error occurred.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<ExecJobResponseBody::Data> data_ {};
+    // The error code. Valid values:
+    // 
+    // *   If the call is successful, the **ErrorCode** parameter is not returned.
+    // *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
+    // The returned message. Valid values:
+    // 
+    // *   success: If the call is successful, **success** is returned.
+    // *   An error code: If the call fails, an error code is returned.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // *   **true**
+    // *   **false**
     shared_ptr<bool> success_ {};
+    // The ID of the trace. This parameter is used to query the exact call information.
     shared_ptr<string> traceId_ {};
   };
 

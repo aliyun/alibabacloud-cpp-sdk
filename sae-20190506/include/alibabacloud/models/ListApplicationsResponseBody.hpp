@@ -194,6 +194,7 @@ namespace Models
             DARABONBA_PTR_TO_JSON(AppType, appType_);
             DARABONBA_PTR_TO_JSON(BaseAppId, baseAppId_);
             DARABONBA_PTR_TO_JSON(Cpu, cpu_);
+            DARABONBA_PTR_TO_JSON(EnableIdle, enableIdle_);
             DARABONBA_PTR_TO_JSON(Instances, instances_);
             DARABONBA_PTR_TO_JSON(IsStateful, isStateful_);
             DARABONBA_PTR_TO_JSON(Mem, mem_);
@@ -217,6 +218,7 @@ namespace Models
             DARABONBA_PTR_FROM_JSON(AppType, appType_);
             DARABONBA_PTR_FROM_JSON(BaseAppId, baseAppId_);
             DARABONBA_PTR_FROM_JSON(Cpu, cpu_);
+            DARABONBA_PTR_FROM_JSON(EnableIdle, enableIdle_);
             DARABONBA_PTR_FROM_JSON(Instances, instances_);
             DARABONBA_PTR_FROM_JSON(IsStateful, isStateful_);
             DARABONBA_PTR_FROM_JSON(Mem, mem_);
@@ -289,9 +291,10 @@ namespace Models
 
           virtual bool empty() const override { return this->appDeletingStatus_ == nullptr
         && this->appDescription_ == nullptr && this->appId_ == nullptr && this->appName_ == nullptr && this->appType_ == nullptr && this->baseAppId_ == nullptr
-        && this->cpu_ == nullptr && this->instances_ == nullptr && this->isStateful_ == nullptr && this->mem_ == nullptr && this->mseEnabled_ == nullptr
-        && this->namespaceId_ == nullptr && this->namespaceName_ == nullptr && this->newSaeVersion_ == nullptr && this->programmingLanguage_ == nullptr && this->regionId_ == nullptr
-        && this->resourceType_ == nullptr && this->runningInstances_ == nullptr && this->scaleRuleEnabled_ == nullptr && this->scaleRuleType_ == nullptr && this->tags_ == nullptr; };
+        && this->cpu_ == nullptr && this->enableIdle_ == nullptr && this->instances_ == nullptr && this->isStateful_ == nullptr && this->mem_ == nullptr
+        && this->mseEnabled_ == nullptr && this->namespaceId_ == nullptr && this->namespaceName_ == nullptr && this->newSaeVersion_ == nullptr && this->programmingLanguage_ == nullptr
+        && this->regionId_ == nullptr && this->resourceType_ == nullptr && this->runningInstances_ == nullptr && this->scaleRuleEnabled_ == nullptr && this->scaleRuleType_ == nullptr
+        && this->tags_ == nullptr; };
           // appDeletingStatus Field Functions 
           bool hasAppDeletingStatus() const { return this->appDeletingStatus_ != nullptr;};
           void deleteAppDeletingStatus() { this->appDeletingStatus_ = nullptr;};
@@ -339,6 +342,13 @@ namespace Models
           void deleteCpu() { this->cpu_ = nullptr;};
           inline int32_t getCpu() const { DARABONBA_PTR_GET_DEFAULT(cpu_, 0) };
           inline Children& setCpu(int32_t cpu) { DARABONBA_PTR_SET_VALUE(cpu_, cpu) };
+
+
+          // enableIdle Field Functions 
+          bool hasEnableIdle() const { return this->enableIdle_ != nullptr;};
+          void deleteEnableIdle() { this->enableIdle_ = nullptr;};
+          inline string getEnableIdle() const { DARABONBA_PTR_GET_DEFAULT(enableIdle_, "") };
+          inline Children& setEnableIdle(string enableIdle) { DARABONBA_PTR_SET_VALUE(enableIdle_, enableIdle) };
 
 
           // instances Field Functions 
@@ -456,6 +466,7 @@ namespace Models
           shared_ptr<string> baseAppId_ {};
           // The CPU sepcification.
           shared_ptr<int32_t> cpu_ {};
+          shared_ptr<string> enableIdle_ {};
           // The number of instances.
           shared_ptr<int32_t> instances_ {};
           shared_ptr<bool> isStateful_ {};

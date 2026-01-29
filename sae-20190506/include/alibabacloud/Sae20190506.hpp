@@ -1459,6 +1459,8 @@ namespace Sae20190506
       Models::EnableApplicationScalingRuleResponse enableApplicationScalingRule(const Models::EnableApplicationScalingRuleRequest &request);
 
       /**
+       * @summary Executes a job.
+       *
        * @param request ExecJobRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1467,6 +1469,8 @@ namespace Sae20190506
       Models::ExecJobResponse execJobWithOptions(const Models::ExecJobRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Executes a job.
+       *
        * @param request ExecJobRequest
        * @return ExecJobResponse
        */
@@ -1705,6 +1709,24 @@ namespace Sae20190506
        * @return ListAppVersionsResponse
        */
       Models::ListAppVersionsResponse listAppVersions(const Models::ListAppVersionsRequest &request);
+
+      /**
+       * @summary 查询服务实例列表
+       *
+       * @param request ListApplicationCenterServiceInstancesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListApplicationCenterServiceInstancesResponse
+       */
+      Models::ListApplicationCenterServiceInstancesResponse listApplicationCenterServiceInstancesWithOptions(const Models::ListApplicationCenterServiceInstancesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询服务实例列表
+       *
+       * @param request ListApplicationCenterServiceInstancesRequest
+       * @return ListApplicationCenterServiceInstancesResponse
+       */
+      Models::ListApplicationCenterServiceInstancesResponse listApplicationCenterServiceInstances(const Models::ListApplicationCenterServiceInstancesRequest &request);
 
       /**
        * @summary Queries a list of applications.
