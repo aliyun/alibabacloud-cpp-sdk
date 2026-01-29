@@ -39,58 +39,58 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->billingCycle_ != nullptr
-        && this->pageNum_ != nullptr && this->pageSize_ != nullptr && this->productCode_ != nullptr && this->productType_ != nullptr && this->subscriptionType_ != nullptr; };
+    virtual bool empty() const override { return this->billingCycle_ == nullptr
+        && this->pageNum_ == nullptr && this->pageSize_ == nullptr && this->productCode_ == nullptr && this->productType_ == nullptr && this->subscriptionType_ == nullptr; };
     // billingCycle Field Functions 
     bool hasBillingCycle() const { return this->billingCycle_ != nullptr;};
     void deleteBillingCycle() { this->billingCycle_ = nullptr;};
-    inline string billingCycle() const { DARABONBA_PTR_GET_DEFAULT(billingCycle_, "") };
+    inline string getBillingCycle() const { DARABONBA_PTR_GET_DEFAULT(billingCycle_, "") };
     inline QueryInstanceGaapCostRequest& setBillingCycle(string billingCycle) { DARABONBA_PTR_SET_VALUE(billingCycle_, billingCycle) };
 
 
     // pageNum Field Functions 
     bool hasPageNum() const { return this->pageNum_ != nullptr;};
     void deletePageNum() { this->pageNum_ = nullptr;};
-    inline int32_t pageNum() const { DARABONBA_PTR_GET_DEFAULT(pageNum_, 0) };
+    inline int32_t getPageNum() const { DARABONBA_PTR_GET_DEFAULT(pageNum_, 0) };
     inline QueryInstanceGaapCostRequest& setPageNum(int32_t pageNum) { DARABONBA_PTR_SET_VALUE(pageNum_, pageNum) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline QueryInstanceGaapCostRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // productCode Field Functions 
     bool hasProductCode() const { return this->productCode_ != nullptr;};
     void deleteProductCode() { this->productCode_ = nullptr;};
-    inline string productCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
+    inline string getProductCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
     inline QueryInstanceGaapCostRequest& setProductCode(string productCode) { DARABONBA_PTR_SET_VALUE(productCode_, productCode) };
 
 
     // productType Field Functions 
     bool hasProductType() const { return this->productType_ != nullptr;};
     void deleteProductType() { this->productType_ = nullptr;};
-    inline string productType() const { DARABONBA_PTR_GET_DEFAULT(productType_, "") };
+    inline string getProductType() const { DARABONBA_PTR_GET_DEFAULT(productType_, "") };
     inline QueryInstanceGaapCostRequest& setProductType(string productType) { DARABONBA_PTR_SET_VALUE(productType_, productType) };
 
 
     // subscriptionType Field Functions 
     bool hasSubscriptionType() const { return this->subscriptionType_ != nullptr;};
     void deleteSubscriptionType() { this->subscriptionType_ = nullptr;};
-    inline string subscriptionType() const { DARABONBA_PTR_GET_DEFAULT(subscriptionType_, "") };
+    inline string getSubscriptionType() const { DARABONBA_PTR_GET_DEFAULT(subscriptionType_, "") };
     inline QueryInstanceGaapCostRequest& setSubscriptionType(string subscriptionType) { DARABONBA_PTR_SET_VALUE(subscriptionType_, subscriptionType) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> billingCycle_ = nullptr;
-    std::shared_ptr<int32_t> pageNum_ = nullptr;
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    std::shared_ptr<string> productCode_ = nullptr;
-    std::shared_ptr<string> productType_ = nullptr;
-    std::shared_ptr<string> subscriptionType_ = nullptr;
+    shared_ptr<string> billingCycle_ {};
+    shared_ptr<int32_t> pageNum_ {};
+    shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<string> productCode_ {};
+    shared_ptr<string> productType_ {};
+    shared_ptr<string> subscriptionType_ {};
   };
 
   } // namespace Models

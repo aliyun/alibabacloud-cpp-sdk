@@ -42,35 +42,35 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->childUserId_ != nullptr
-        && this->confirmCode_ != nullptr && this->parentUserId_ != nullptr && this->permissionCodes_ != nullptr && this->relationId_ != nullptr && this->relationType_ != nullptr
-        && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->childUserId_ == nullptr
+        && this->confirmCode_ == nullptr && this->parentUserId_ == nullptr && this->permissionCodes_ == nullptr && this->relationId_ == nullptr && this->relationType_ == nullptr
+        && this->requestId_ == nullptr; };
     // childUserId Field Functions 
     bool hasChildUserId() const { return this->childUserId_ != nullptr;};
     void deleteChildUserId() { this->childUserId_ = nullptr;};
-    inline int64_t childUserId() const { DARABONBA_PTR_GET_DEFAULT(childUserId_, 0L) };
+    inline int64_t getChildUserId() const { DARABONBA_PTR_GET_DEFAULT(childUserId_, 0L) };
     inline ConfirmRelationRequest& setChildUserId(int64_t childUserId) { DARABONBA_PTR_SET_VALUE(childUserId_, childUserId) };
 
 
     // confirmCode Field Functions 
     bool hasConfirmCode() const { return this->confirmCode_ != nullptr;};
     void deleteConfirmCode() { this->confirmCode_ = nullptr;};
-    inline string confirmCode() const { DARABONBA_PTR_GET_DEFAULT(confirmCode_, "") };
+    inline string getConfirmCode() const { DARABONBA_PTR_GET_DEFAULT(confirmCode_, "") };
     inline ConfirmRelationRequest& setConfirmCode(string confirmCode) { DARABONBA_PTR_SET_VALUE(confirmCode_, confirmCode) };
 
 
     // parentUserId Field Functions 
     bool hasParentUserId() const { return this->parentUserId_ != nullptr;};
     void deleteParentUserId() { this->parentUserId_ = nullptr;};
-    inline int64_t parentUserId() const { DARABONBA_PTR_GET_DEFAULT(parentUserId_, 0L) };
+    inline int64_t getParentUserId() const { DARABONBA_PTR_GET_DEFAULT(parentUserId_, 0L) };
     inline ConfirmRelationRequest& setParentUserId(int64_t parentUserId) { DARABONBA_PTR_SET_VALUE(parentUserId_, parentUserId) };
 
 
     // permissionCodes Field Functions 
     bool hasPermissionCodes() const { return this->permissionCodes_ != nullptr;};
     void deletePermissionCodes() { this->permissionCodes_ = nullptr;};
-    inline const vector<string> & permissionCodes() const { DARABONBA_PTR_GET_CONST(permissionCodes_, vector<string>) };
-    inline vector<string> permissionCodes() { DARABONBA_PTR_GET(permissionCodes_, vector<string>) };
+    inline const vector<string> & getPermissionCodes() const { DARABONBA_PTR_GET_CONST(permissionCodes_, vector<string>) };
+    inline vector<string> getPermissionCodes() { DARABONBA_PTR_GET(permissionCodes_, vector<string>) };
     inline ConfirmRelationRequest& setPermissionCodes(const vector<string> & permissionCodes) { DARABONBA_PTR_SET_VALUE(permissionCodes_, permissionCodes) };
     inline ConfirmRelationRequest& setPermissionCodes(vector<string> && permissionCodes) { DARABONBA_PTR_SET_RVALUE(permissionCodes_, permissionCodes) };
 
@@ -78,27 +78,27 @@ namespace Models
     // relationId Field Functions 
     bool hasRelationId() const { return this->relationId_ != nullptr;};
     void deleteRelationId() { this->relationId_ = nullptr;};
-    inline int64_t relationId() const { DARABONBA_PTR_GET_DEFAULT(relationId_, 0L) };
+    inline int64_t getRelationId() const { DARABONBA_PTR_GET_DEFAULT(relationId_, 0L) };
     inline ConfirmRelationRequest& setRelationId(int64_t relationId) { DARABONBA_PTR_SET_VALUE(relationId_, relationId) };
 
 
     // relationType Field Functions 
     bool hasRelationType() const { return this->relationType_ != nullptr;};
     void deleteRelationType() { this->relationType_ = nullptr;};
-    inline string relationType() const { DARABONBA_PTR_GET_DEFAULT(relationType_, "") };
+    inline string getRelationType() const { DARABONBA_PTR_GET_DEFAULT(relationType_, "") };
     inline ConfirmRelationRequest& setRelationType(string relationType) { DARABONBA_PTR_SET_VALUE(relationType_, relationType) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ConfirmRelationRequest& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The ID of the Alibaba Cloud account that is used as the member.
-    std::shared_ptr<int64_t> childUserId_ = nullptr;
+    shared_ptr<int64_t> childUserId_ {};
     // The operation to be performed to confirm the invitation. Valid values:
     // 
     // *   child_agree: The member accepts the invitation.
@@ -106,9 +106,9 @@ namespace Models
     // *   Canceled by the master account: The management account cancels the confirmation.
     // 
     // This parameter is required.
-    std::shared_ptr<string> confirmCode_ = nullptr;
+    shared_ptr<string> confirmCode_ {};
     // The ID of the Alibaba Cloud account that is used as the management account.
-    std::shared_ptr<int64_t> parentUserId_ = nullptr;
+    shared_ptr<int64_t> parentUserId_ {};
     // The permissions that can be granted to the member. Valid values:
     // 
     // *   SYNCHRONIZE_FINANCE_IDENTITY: allows the credit control identity to be shared with the member.
@@ -120,15 +120,15 @@ namespace Models
     // *   CHECK_TARGET_CONSUMPTION: allows the member to view the bills.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> permissionCodes_ = nullptr;
+    shared_ptr<vector<string>> permissionCodes_ {};
     // The ID of the financial relationship. Set this parameter to the value of the RelationId response parameter returned by calling the QueryRelationList operation.
-    std::shared_ptr<int64_t> relationId_ = nullptr;
+    shared_ptr<int64_t> relationId_ {};
     // The type of the financial relationship. Set the value to enterprise_group.
-    std::shared_ptr<string> relationType_ = nullptr;
+    shared_ptr<string> relationType_ {};
     // The unique ID of the request.
     // 
     // This parameter is required.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

@@ -29,11 +29,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->userId_ == nullptr; };
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline int64_t userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, 0L) };
+    inline int64_t getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, 0L) };
     inline QueryFinancialAccountInfoRequest& setUserId(int64_t userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the Alibaba Cloud account.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> userId_ = nullptr;
+    shared_ptr<int64_t> userId_ {};
   };
 
   } // namespace Models

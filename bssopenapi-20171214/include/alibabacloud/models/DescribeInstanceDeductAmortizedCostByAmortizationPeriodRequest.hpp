@@ -48,14 +48,14 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->billOwnerIdList_ != nullptr
-        && this->billUserIdList_ != nullptr && this->billingCycle_ != nullptr && this->costUnitCode_ != nullptr && this->instanceIdList_ != nullptr && this->maxResults_ != nullptr
-        && this->nextToken_ != nullptr && this->productCode_ != nullptr && this->productDetail_ != nullptr && this->subscriptionType_ != nullptr; };
+    virtual bool empty() const override { return this->billOwnerIdList_ == nullptr
+        && this->billUserIdList_ == nullptr && this->billingCycle_ == nullptr && this->costUnitCode_ == nullptr && this->instanceIdList_ == nullptr && this->maxResults_ == nullptr
+        && this->nextToken_ == nullptr && this->productCode_ == nullptr && this->productDetail_ == nullptr && this->subscriptionType_ == nullptr; };
     // billOwnerIdList Field Functions 
     bool hasBillOwnerIdList() const { return this->billOwnerIdList_ != nullptr;};
     void deleteBillOwnerIdList() { this->billOwnerIdList_ = nullptr;};
-    inline const vector<string> & billOwnerIdList() const { DARABONBA_PTR_GET_CONST(billOwnerIdList_, vector<string>) };
-    inline vector<string> billOwnerIdList() { DARABONBA_PTR_GET(billOwnerIdList_, vector<string>) };
+    inline const vector<string> & getBillOwnerIdList() const { DARABONBA_PTR_GET_CONST(billOwnerIdList_, vector<string>) };
+    inline vector<string> getBillOwnerIdList() { DARABONBA_PTR_GET(billOwnerIdList_, vector<string>) };
     inline DescribeInstanceDeductAmortizedCostByAmortizationPeriodRequest& setBillOwnerIdList(const vector<string> & billOwnerIdList) { DARABONBA_PTR_SET_VALUE(billOwnerIdList_, billOwnerIdList) };
     inline DescribeInstanceDeductAmortizedCostByAmortizationPeriodRequest& setBillOwnerIdList(vector<string> && billOwnerIdList) { DARABONBA_PTR_SET_RVALUE(billOwnerIdList_, billOwnerIdList) };
 
@@ -63,8 +63,8 @@ namespace Models
     // billUserIdList Field Functions 
     bool hasBillUserIdList() const { return this->billUserIdList_ != nullptr;};
     void deleteBillUserIdList() { this->billUserIdList_ = nullptr;};
-    inline const vector<string> & billUserIdList() const { DARABONBA_PTR_GET_CONST(billUserIdList_, vector<string>) };
-    inline vector<string> billUserIdList() { DARABONBA_PTR_GET(billUserIdList_, vector<string>) };
+    inline const vector<string> & getBillUserIdList() const { DARABONBA_PTR_GET_CONST(billUserIdList_, vector<string>) };
+    inline vector<string> getBillUserIdList() { DARABONBA_PTR_GET(billUserIdList_, vector<string>) };
     inline DescribeInstanceDeductAmortizedCostByAmortizationPeriodRequest& setBillUserIdList(const vector<string> & billUserIdList) { DARABONBA_PTR_SET_VALUE(billUserIdList_, billUserIdList) };
     inline DescribeInstanceDeductAmortizedCostByAmortizationPeriodRequest& setBillUserIdList(vector<string> && billUserIdList) { DARABONBA_PTR_SET_RVALUE(billUserIdList_, billUserIdList) };
 
@@ -72,22 +72,22 @@ namespace Models
     // billingCycle Field Functions 
     bool hasBillingCycle() const { return this->billingCycle_ != nullptr;};
     void deleteBillingCycle() { this->billingCycle_ = nullptr;};
-    inline string billingCycle() const { DARABONBA_PTR_GET_DEFAULT(billingCycle_, "") };
+    inline string getBillingCycle() const { DARABONBA_PTR_GET_DEFAULT(billingCycle_, "") };
     inline DescribeInstanceDeductAmortizedCostByAmortizationPeriodRequest& setBillingCycle(string billingCycle) { DARABONBA_PTR_SET_VALUE(billingCycle_, billingCycle) };
 
 
     // costUnitCode Field Functions 
     bool hasCostUnitCode() const { return this->costUnitCode_ != nullptr;};
     void deleteCostUnitCode() { this->costUnitCode_ = nullptr;};
-    inline string costUnitCode() const { DARABONBA_PTR_GET_DEFAULT(costUnitCode_, "") };
+    inline string getCostUnitCode() const { DARABONBA_PTR_GET_DEFAULT(costUnitCode_, "") };
     inline DescribeInstanceDeductAmortizedCostByAmortizationPeriodRequest& setCostUnitCode(string costUnitCode) { DARABONBA_PTR_SET_VALUE(costUnitCode_, costUnitCode) };
 
 
     // instanceIdList Field Functions 
     bool hasInstanceIdList() const { return this->instanceIdList_ != nullptr;};
     void deleteInstanceIdList() { this->instanceIdList_ = nullptr;};
-    inline const vector<string> & instanceIdList() const { DARABONBA_PTR_GET_CONST(instanceIdList_, vector<string>) };
-    inline vector<string> instanceIdList() { DARABONBA_PTR_GET(instanceIdList_, vector<string>) };
+    inline const vector<string> & getInstanceIdList() const { DARABONBA_PTR_GET_CONST(instanceIdList_, vector<string>) };
+    inline vector<string> getInstanceIdList() { DARABONBA_PTR_GET(instanceIdList_, vector<string>) };
     inline DescribeInstanceDeductAmortizedCostByAmortizationPeriodRequest& setInstanceIdList(const vector<string> & instanceIdList) { DARABONBA_PTR_SET_VALUE(instanceIdList_, instanceIdList) };
     inline DescribeInstanceDeductAmortizedCostByAmortizationPeriodRequest& setInstanceIdList(vector<string> && instanceIdList) { DARABONBA_PTR_SET_RVALUE(instanceIdList_, instanceIdList) };
 
@@ -95,49 +95,49 @@ namespace Models
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline DescribeInstanceDeductAmortizedCostByAmortizationPeriodRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline DescribeInstanceDeductAmortizedCostByAmortizationPeriodRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // productCode Field Functions 
     bool hasProductCode() const { return this->productCode_ != nullptr;};
     void deleteProductCode() { this->productCode_ = nullptr;};
-    inline string productCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
+    inline string getProductCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
     inline DescribeInstanceDeductAmortizedCostByAmortizationPeriodRequest& setProductCode(string productCode) { DARABONBA_PTR_SET_VALUE(productCode_, productCode) };
 
 
     // productDetail Field Functions 
     bool hasProductDetail() const { return this->productDetail_ != nullptr;};
     void deleteProductDetail() { this->productDetail_ = nullptr;};
-    inline string productDetail() const { DARABONBA_PTR_GET_DEFAULT(productDetail_, "") };
+    inline string getProductDetail() const { DARABONBA_PTR_GET_DEFAULT(productDetail_, "") };
     inline DescribeInstanceDeductAmortizedCostByAmortizationPeriodRequest& setProductDetail(string productDetail) { DARABONBA_PTR_SET_VALUE(productDetail_, productDetail) };
 
 
     // subscriptionType Field Functions 
     bool hasSubscriptionType() const { return this->subscriptionType_ != nullptr;};
     void deleteSubscriptionType() { this->subscriptionType_ = nullptr;};
-    inline string subscriptionType() const { DARABONBA_PTR_GET_DEFAULT(subscriptionType_, "") };
+    inline string getSubscriptionType() const { DARABONBA_PTR_GET_DEFAULT(subscriptionType_, "") };
     inline DescribeInstanceDeductAmortizedCostByAmortizationPeriodRequest& setSubscriptionType(string subscriptionType) { DARABONBA_PTR_SET_VALUE(subscriptionType_, subscriptionType) };
 
 
   protected:
-    std::shared_ptr<vector<string>> billOwnerIdList_ = nullptr;
-    std::shared_ptr<vector<string>> billUserIdList_ = nullptr;
-    std::shared_ptr<string> billingCycle_ = nullptr;
-    std::shared_ptr<string> costUnitCode_ = nullptr;
-    std::shared_ptr<vector<string>> instanceIdList_ = nullptr;
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
-    std::shared_ptr<string> nextToken_ = nullptr;
-    std::shared_ptr<string> productCode_ = nullptr;
-    std::shared_ptr<string> productDetail_ = nullptr;
-    std::shared_ptr<string> subscriptionType_ = nullptr;
+    shared_ptr<vector<string>> billOwnerIdList_ {};
+    shared_ptr<vector<string>> billUserIdList_ {};
+    shared_ptr<string> billingCycle_ {};
+    shared_ptr<string> costUnitCode_ {};
+    shared_ptr<vector<string>> instanceIdList_ {};
+    shared_ptr<int32_t> maxResults_ {};
+    shared_ptr<string> nextToken_ {};
+    shared_ptr<string> productCode_ {};
+    shared_ptr<string> productDetail_ {};
+    shared_ptr<string> subscriptionType_ {};
   };
 
   } // namespace Models

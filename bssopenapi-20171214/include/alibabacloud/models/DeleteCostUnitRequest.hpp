@@ -31,19 +31,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ownerUid_ != nullptr
-        && this->unitId_ != nullptr; };
+    virtual bool empty() const override { return this->ownerUid_ == nullptr
+        && this->unitId_ == nullptr; };
     // ownerUid Field Functions 
     bool hasOwnerUid() const { return this->ownerUid_ != nullptr;};
     void deleteOwnerUid() { this->ownerUid_ = nullptr;};
-    inline int64_t ownerUid() const { DARABONBA_PTR_GET_DEFAULT(ownerUid_, 0L) };
+    inline int64_t getOwnerUid() const { DARABONBA_PTR_GET_DEFAULT(ownerUid_, 0L) };
     inline DeleteCostUnitRequest& setOwnerUid(int64_t ownerUid) { DARABONBA_PTR_SET_VALUE(ownerUid_, ownerUid) };
 
 
     // unitId Field Functions 
     bool hasUnitId() const { return this->unitId_ != nullptr;};
     void deleteUnitId() { this->unitId_ = nullptr;};
-    inline int64_t unitId() const { DARABONBA_PTR_GET_DEFAULT(unitId_, 0L) };
+    inline int64_t getUnitId() const { DARABONBA_PTR_GET_DEFAULT(unitId_, 0L) };
     inline DeleteCostUnitRequest& setUnitId(int64_t unitId) { DARABONBA_PTR_SET_VALUE(unitId_, unitId) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The user ID of the cost center owner.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> ownerUid_ = nullptr;
+    shared_ptr<int64_t> ownerUid_ {};
     // The ID of the cost center. A value of -1 indicates the root cost center.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> unitId_ = nullptr;
+    shared_ptr<int64_t> unitId_ {};
   };
 
   } // namespace Models

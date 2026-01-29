@@ -41,55 +41,55 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->duration_ != nullptr
-        && this->effectiveDate_ != nullptr && this->ownerId_ != nullptr && this->packageType_ != nullptr && this->pricingCycle_ != nullptr && this->productCode_ != nullptr
-        && this->specification_ != nullptr; };
+    virtual bool empty() const override { return this->duration_ == nullptr
+        && this->effectiveDate_ == nullptr && this->ownerId_ == nullptr && this->packageType_ == nullptr && this->pricingCycle_ == nullptr && this->productCode_ == nullptr
+        && this->specification_ == nullptr; };
     // duration Field Functions 
     bool hasDuration() const { return this->duration_ != nullptr;};
     void deleteDuration() { this->duration_ = nullptr;};
-    inline int32_t duration() const { DARABONBA_PTR_GET_DEFAULT(duration_, 0) };
+    inline int32_t getDuration() const { DARABONBA_PTR_GET_DEFAULT(duration_, 0) };
     inline CreateResourcePackageRequest& setDuration(int32_t duration) { DARABONBA_PTR_SET_VALUE(duration_, duration) };
 
 
     // effectiveDate Field Functions 
     bool hasEffectiveDate() const { return this->effectiveDate_ != nullptr;};
     void deleteEffectiveDate() { this->effectiveDate_ = nullptr;};
-    inline string effectiveDate() const { DARABONBA_PTR_GET_DEFAULT(effectiveDate_, "") };
+    inline string getEffectiveDate() const { DARABONBA_PTR_GET_DEFAULT(effectiveDate_, "") };
     inline CreateResourcePackageRequest& setEffectiveDate(string effectiveDate) { DARABONBA_PTR_SET_VALUE(effectiveDate_, effectiveDate) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline CreateResourcePackageRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // packageType Field Functions 
     bool hasPackageType() const { return this->packageType_ != nullptr;};
     void deletePackageType() { this->packageType_ = nullptr;};
-    inline string packageType() const { DARABONBA_PTR_GET_DEFAULT(packageType_, "") };
+    inline string getPackageType() const { DARABONBA_PTR_GET_DEFAULT(packageType_, "") };
     inline CreateResourcePackageRequest& setPackageType(string packageType) { DARABONBA_PTR_SET_VALUE(packageType_, packageType) };
 
 
     // pricingCycle Field Functions 
     bool hasPricingCycle() const { return this->pricingCycle_ != nullptr;};
     void deletePricingCycle() { this->pricingCycle_ = nullptr;};
-    inline string pricingCycle() const { DARABONBA_PTR_GET_DEFAULT(pricingCycle_, "") };
+    inline string getPricingCycle() const { DARABONBA_PTR_GET_DEFAULT(pricingCycle_, "") };
     inline CreateResourcePackageRequest& setPricingCycle(string pricingCycle) { DARABONBA_PTR_SET_VALUE(pricingCycle_, pricingCycle) };
 
 
     // productCode Field Functions 
     bool hasProductCode() const { return this->productCode_ != nullptr;};
     void deleteProductCode() { this->productCode_ = nullptr;};
-    inline string productCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
+    inline string getProductCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
     inline CreateResourcePackageRequest& setProductCode(string productCode) { DARABONBA_PTR_SET_VALUE(productCode_, productCode) };
 
 
     // specification Field Functions 
     bool hasSpecification() const { return this->specification_ != nullptr;};
     void deleteSpecification() { this->specification_ = nullptr;};
-    inline string specification() const { DARABONBA_PTR_GET_DEFAULT(specification_, "") };
+    inline string getSpecification() const { DARABONBA_PTR_GET_DEFAULT(specification_, "") };
     inline CreateResourcePackageRequest& setSpecification(string specification) { DARABONBA_PTR_SET_VALUE(specification_, specification) };
 
 
@@ -97,23 +97,23 @@ namespace Models
     // The ID of the resource plan.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> duration_ = nullptr;
+    shared_ptr<int32_t> duration_ {};
     // The data returned.
-    std::shared_ptr<string> effectiveDate_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<string> effectiveDate_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // The ID of the order.
     // 
     // This parameter is required.
-    std::shared_ptr<string> packageType_ = nullptr;
-    std::shared_ptr<string> pricingCycle_ = nullptr;
+    shared_ptr<string> packageType_ {};
+    shared_ptr<string> pricingCycle_ {};
     // Indicates whether the request is successful.
     // 
     // This parameter is required.
-    std::shared_ptr<string> productCode_ = nullptr;
+    shared_ptr<string> productCode_ {};
     // The ID of the order.
     // 
     // This parameter is required.
-    std::shared_ptr<string> specification_ = nullptr;
+    shared_ptr<string> specification_ {};
   };
 
   } // namespace Models

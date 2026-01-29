@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_QUERYSAVINGSPLANSINSTANCEREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/QuerySavingsPlansInstanceRequestTag.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -47,98 +46,142 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->commodityCode_ != nullptr
-        && this->endTime_ != nullptr && this->instanceId_ != nullptr && this->locale_ != nullptr && this->pageNum_ != nullptr && this->pageSize_ != nullptr
-        && this->startTime_ != nullptr && this->status_ != nullptr && this->tag_ != nullptr; };
+    class Tag : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Tag& obj) { 
+        DARABONBA_PTR_TO_JSON(Key, key_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, Tag& obj) { 
+        DARABONBA_PTR_FROM_JSON(Key, key_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
+      };
+      Tag() = default ;
+      Tag(const Tag &) = default ;
+      Tag(Tag &&) = default ;
+      Tag(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Tag() = default ;
+      Tag& operator=(const Tag &) = default ;
+      Tag& operator=(Tag &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline Tag& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline Tag& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      // The key of the tag to query.
+      shared_ptr<string> key_ {};
+      // The value of the tag to query.
+      shared_ptr<string> value_ {};
+    };
+
+    virtual bool empty() const override { return this->commodityCode_ == nullptr
+        && this->endTime_ == nullptr && this->instanceId_ == nullptr && this->locale_ == nullptr && this->pageNum_ == nullptr && this->pageSize_ == nullptr
+        && this->startTime_ == nullptr && this->status_ == nullptr && this->tag_ == nullptr; };
     // commodityCode Field Functions 
     bool hasCommodityCode() const { return this->commodityCode_ != nullptr;};
     void deleteCommodityCode() { this->commodityCode_ = nullptr;};
-    inline string commodityCode() const { DARABONBA_PTR_GET_DEFAULT(commodityCode_, "") };
+    inline string getCommodityCode() const { DARABONBA_PTR_GET_DEFAULT(commodityCode_, "") };
     inline QuerySavingsPlansInstanceRequest& setCommodityCode(string commodityCode) { DARABONBA_PTR_SET_VALUE(commodityCode_, commodityCode) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline QuerySavingsPlansInstanceRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline QuerySavingsPlansInstanceRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // locale Field Functions 
     bool hasLocale() const { return this->locale_ != nullptr;};
     void deleteLocale() { this->locale_ = nullptr;};
-    inline string locale() const { DARABONBA_PTR_GET_DEFAULT(locale_, "") };
+    inline string getLocale() const { DARABONBA_PTR_GET_DEFAULT(locale_, "") };
     inline QuerySavingsPlansInstanceRequest& setLocale(string locale) { DARABONBA_PTR_SET_VALUE(locale_, locale) };
 
 
     // pageNum Field Functions 
     bool hasPageNum() const { return this->pageNum_ != nullptr;};
     void deletePageNum() { this->pageNum_ = nullptr;};
-    inline int32_t pageNum() const { DARABONBA_PTR_GET_DEFAULT(pageNum_, 0) };
+    inline int32_t getPageNum() const { DARABONBA_PTR_GET_DEFAULT(pageNum_, 0) };
     inline QuerySavingsPlansInstanceRequest& setPageNum(int32_t pageNum) { DARABONBA_PTR_SET_VALUE(pageNum_, pageNum) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline QuerySavingsPlansInstanceRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline QuerySavingsPlansInstanceRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline QuerySavingsPlansInstanceRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // tag Field Functions 
     bool hasTag() const { return this->tag_ != nullptr;};
     void deleteTag() { this->tag_ = nullptr;};
-    inline const vector<QuerySavingsPlansInstanceRequestTag> & tag() const { DARABONBA_PTR_GET_CONST(tag_, vector<QuerySavingsPlansInstanceRequestTag>) };
-    inline vector<QuerySavingsPlansInstanceRequestTag> tag() { DARABONBA_PTR_GET(tag_, vector<QuerySavingsPlansInstanceRequestTag>) };
-    inline QuerySavingsPlansInstanceRequest& setTag(const vector<QuerySavingsPlansInstanceRequestTag> & tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
-    inline QuerySavingsPlansInstanceRequest& setTag(vector<QuerySavingsPlansInstanceRequestTag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
+    inline const vector<QuerySavingsPlansInstanceRequest::Tag> & getTag() const { DARABONBA_PTR_GET_CONST(tag_, vector<QuerySavingsPlansInstanceRequest::Tag>) };
+    inline vector<QuerySavingsPlansInstanceRequest::Tag> getTag() { DARABONBA_PTR_GET(tag_, vector<QuerySavingsPlansInstanceRequest::Tag>) };
+    inline QuerySavingsPlansInstanceRequest& setTag(const vector<QuerySavingsPlansInstanceRequest::Tag> & tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
+    inline QuerySavingsPlansInstanceRequest& setTag(vector<QuerySavingsPlansInstanceRequest::Tag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
 
 
   protected:
-    std::shared_ptr<string> commodityCode_ = nullptr;
+    shared_ptr<string> commodityCode_ {};
     // The end of the time range to query. Specify the time in the format of yyyy-MM-dd HH:mm:ss.
-    std::shared_ptr<string> endTime_ = nullptr;
+    shared_ptr<string> endTime_ {};
     // The ID of the savings plan instance.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The language of the return data. Valid values:
     // 
     // *   ZH: Chinese
     // *   EN: English
-    std::shared_ptr<string> locale_ = nullptr;
+    shared_ptr<string> locale_ {};
     // The number of the page to return.
-    std::shared_ptr<int32_t> pageNum_ = nullptr;
+    shared_ptr<int32_t> pageNum_ {};
     // The number of entries to return on each page.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The beginning of the time range to query. Specify the time in the format of yyyy-MM-dd HH:mm:ss.
-    std::shared_ptr<string> startTime_ = nullptr;
+    shared_ptr<string> startTime_ {};
     // The status of the Instance. 
     // 
     // *  NORMAL
     // * RELEASE
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
     // The tags.
-    std::shared_ptr<vector<QuerySavingsPlansInstanceRequestTag>> tag_ = nullptr;
+    shared_ptr<vector<QuerySavingsPlansInstanceRequest::Tag>> tag_ {};
   };
 
   } // namespace Models

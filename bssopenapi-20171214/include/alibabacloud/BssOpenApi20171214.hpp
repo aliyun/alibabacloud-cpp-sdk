@@ -543,11 +543,11 @@ namespace BssOpenApi20171214
       /**
        * @summary Queries the coverage details of savings plans.
        *
-       * @param request DescribeSavingsPlansCoverageDetailRequest
+       * @param tmpReq DescribeSavingsPlansCoverageDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeSavingsPlansCoverageDetailResponse
        */
-      Models::DescribeSavingsPlansCoverageDetailResponse describeSavingsPlansCoverageDetailWithOptions(const Models::DescribeSavingsPlansCoverageDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::DescribeSavingsPlansCoverageDetailResponse describeSavingsPlansCoverageDetailWithOptions(const Models::DescribeSavingsPlansCoverageDetailRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Queries the coverage details of savings plans.
@@ -560,11 +560,11 @@ namespace BssOpenApi20171214
       /**
        * @summary Queries the coverage summary of savings plans.
        *
-       * @param request DescribeSavingsPlansCoverageTotalRequest
+       * @param tmpReq DescribeSavingsPlansCoverageTotalRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeSavingsPlansCoverageTotalResponse
        */
-      Models::DescribeSavingsPlansCoverageTotalResponse describeSavingsPlansCoverageTotalWithOptions(const Models::DescribeSavingsPlansCoverageTotalRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::DescribeSavingsPlansCoverageTotalResponse describeSavingsPlansCoverageTotalWithOptions(const Models::DescribeSavingsPlansCoverageTotalRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Queries the coverage summary of savings plans.
@@ -577,11 +577,11 @@ namespace BssOpenApi20171214
       /**
        * @summary Queries the usage details of savings plans.
        *
-       * @param request DescribeSavingsPlansUsageDetailRequest
+       * @param tmpReq DescribeSavingsPlansUsageDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeSavingsPlansUsageDetailResponse
        */
-      Models::DescribeSavingsPlansUsageDetailResponse describeSavingsPlansUsageDetailWithOptions(const Models::DescribeSavingsPlansUsageDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::DescribeSavingsPlansUsageDetailResponse describeSavingsPlansUsageDetailWithOptions(const Models::DescribeSavingsPlansUsageDetailRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Queries the usage details of savings plans.
@@ -594,11 +594,11 @@ namespace BssOpenApi20171214
       /**
        * @summary Queries the usage summary of savings plans.
        *
-       * @param request DescribeSavingsPlansUsageTotalRequest
+       * @param tmpReq DescribeSavingsPlansUsageTotalRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeSavingsPlansUsageTotalResponse
        */
-      Models::DescribeSavingsPlansUsageTotalResponse describeSavingsPlansUsageTotalWithOptions(const Models::DescribeSavingsPlansUsageTotalRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::DescribeSavingsPlansUsageTotalResponse describeSavingsPlansUsageTotalWithOptions(const Models::DescribeSavingsPlansUsageTotalRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Queries the usage summary of savings plans.

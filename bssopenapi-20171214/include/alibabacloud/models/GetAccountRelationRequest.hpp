@@ -31,27 +31,27 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->relationId_ != nullptr
-        && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->relationId_ == nullptr
+        && this->requestId_ == nullptr; };
     // relationId Field Functions 
     bool hasRelationId() const { return this->relationId_ != nullptr;};
     void deleteRelationId() { this->relationId_ = nullptr;};
-    inline int64_t relationId() const { DARABONBA_PTR_GET_DEFAULT(relationId_, 0L) };
+    inline int64_t getRelationId() const { DARABONBA_PTR_GET_DEFAULT(relationId_, 0L) };
     inline GetAccountRelationRequest& setRelationId(int64_t relationId) { DARABONBA_PTR_SET_VALUE(relationId_, relationId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetAccountRelationRequest& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The ID of the financial relationship. Value returned by calling the AddAccountRelation operation.
-    std::shared_ptr<int64_t> relationId_ = nullptr;
+    shared_ptr<int64_t> relationId_ {};
     // The unique ID of the request. The ID is used to mark a request and troubleshoot a problem.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

@@ -33,26 +33,26 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->effectiveOrNot_ != nullptr
-        && this->expiryTimeEnd_ != nullptr && this->expiryTimeStart_ != nullptr; };
+    virtual bool empty() const override { return this->effectiveOrNot_ == nullptr
+        && this->expiryTimeEnd_ == nullptr && this->expiryTimeStart_ == nullptr; };
     // effectiveOrNot Field Functions 
     bool hasEffectiveOrNot() const { return this->effectiveOrNot_ != nullptr;};
     void deleteEffectiveOrNot() { this->effectiveOrNot_ = nullptr;};
-    inline bool effectiveOrNot() const { DARABONBA_PTR_GET_DEFAULT(effectiveOrNot_, false) };
+    inline bool getEffectiveOrNot() const { DARABONBA_PTR_GET_DEFAULT(effectiveOrNot_, false) };
     inline QueryCashCouponsRequest& setEffectiveOrNot(bool effectiveOrNot) { DARABONBA_PTR_SET_VALUE(effectiveOrNot_, effectiveOrNot) };
 
 
     // expiryTimeEnd Field Functions 
     bool hasExpiryTimeEnd() const { return this->expiryTimeEnd_ != nullptr;};
     void deleteExpiryTimeEnd() { this->expiryTimeEnd_ = nullptr;};
-    inline string expiryTimeEnd() const { DARABONBA_PTR_GET_DEFAULT(expiryTimeEnd_, "") };
+    inline string getExpiryTimeEnd() const { DARABONBA_PTR_GET_DEFAULT(expiryTimeEnd_, "") };
     inline QueryCashCouponsRequest& setExpiryTimeEnd(string expiryTimeEnd) { DARABONBA_PTR_SET_VALUE(expiryTimeEnd_, expiryTimeEnd) };
 
 
     // expiryTimeStart Field Functions 
     bool hasExpiryTimeStart() const { return this->expiryTimeStart_ != nullptr;};
     void deleteExpiryTimeStart() { this->expiryTimeStart_ = nullptr;};
-    inline string expiryTimeStart() const { DARABONBA_PTR_GET_DEFAULT(expiryTimeStart_, "") };
+    inline string getExpiryTimeStart() const { DARABONBA_PTR_GET_DEFAULT(expiryTimeStart_, "") };
     inline QueryCashCouponsRequest& setExpiryTimeStart(string expiryTimeStart) { DARABONBA_PTR_SET_VALUE(expiryTimeStart_, expiryTimeStart) };
 
 
@@ -61,11 +61,11 @@ namespace Models
     // 
     // *   true: The voucher takes effect.
     // *   false: The voucher does not take effect.
-    std::shared_ptr<bool> effectiveOrNot_ = nullptr;
+    shared_ptr<bool> effectiveOrNot_ {};
     // The end time of the validity period of the voucher. Specify the parameter in the yyyy-MM-ddTHH:mm:ssZ format. Example: 2018-08-01T00:00:00Z.
-    std::shared_ptr<string> expiryTimeEnd_ = nullptr;
+    shared_ptr<string> expiryTimeEnd_ {};
     // The start time of the validity period of the voucher. Specify the parameter in the yyyy-MM-ddTHH:mm:ssZ format. Example: 2018-08-01T00:00:00Z.
-    std::shared_ptr<string> expiryTimeStart_ = nullptr;
+    shared_ptr<string> expiryTimeStart_ {};
   };
 
   } // namespace Models

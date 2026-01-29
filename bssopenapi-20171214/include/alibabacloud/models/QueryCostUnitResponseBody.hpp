@@ -2,7 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_QUERYCOSTUNITRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_QUERYCOSTUNITRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/QueryCostUnitResponseBodyData.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -38,56 +38,190 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->code_ != nullptr
-        && this->data_ != nullptr && this->message_ != nullptr && this->requestId_ != nullptr && this->success_ != nullptr; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(CostUnitDtoList, costUnitDtoList_);
+        DARABONBA_PTR_TO_JSON(PageNum, pageNum_);
+        DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+        DARABONBA_PTR_TO_JSON(TotalCount, totalCount_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(CostUnitDtoList, costUnitDtoList_);
+        DARABONBA_PTR_FROM_JSON(PageNum, pageNum_);
+        DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+        DARABONBA_PTR_FROM_JSON(TotalCount, totalCount_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class CostUnitDtoList : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const CostUnitDtoList& obj) { 
+          DARABONBA_PTR_TO_JSON(OwnerUid, ownerUid_);
+          DARABONBA_PTR_TO_JSON(ParentUnitId, parentUnitId_);
+          DARABONBA_PTR_TO_JSON(UnitId, unitId_);
+          DARABONBA_PTR_TO_JSON(UnitName, unitName_);
+        };
+        friend void from_json(const Darabonba::Json& j, CostUnitDtoList& obj) { 
+          DARABONBA_PTR_FROM_JSON(OwnerUid, ownerUid_);
+          DARABONBA_PTR_FROM_JSON(ParentUnitId, parentUnitId_);
+          DARABONBA_PTR_FROM_JSON(UnitId, unitId_);
+          DARABONBA_PTR_FROM_JSON(UnitName, unitName_);
+        };
+        CostUnitDtoList() = default ;
+        CostUnitDtoList(const CostUnitDtoList &) = default ;
+        CostUnitDtoList(CostUnitDtoList &&) = default ;
+        CostUnitDtoList(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~CostUnitDtoList() = default ;
+        CostUnitDtoList& operator=(const CostUnitDtoList &) = default ;
+        CostUnitDtoList& operator=(CostUnitDtoList &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->ownerUid_ == nullptr
+        && this->parentUnitId_ == nullptr && this->unitId_ == nullptr && this->unitName_ == nullptr; };
+        // ownerUid Field Functions 
+        bool hasOwnerUid() const { return this->ownerUid_ != nullptr;};
+        void deleteOwnerUid() { this->ownerUid_ = nullptr;};
+        inline int64_t getOwnerUid() const { DARABONBA_PTR_GET_DEFAULT(ownerUid_, 0L) };
+        inline CostUnitDtoList& setOwnerUid(int64_t ownerUid) { DARABONBA_PTR_SET_VALUE(ownerUid_, ownerUid) };
+
+
+        // parentUnitId Field Functions 
+        bool hasParentUnitId() const { return this->parentUnitId_ != nullptr;};
+        void deleteParentUnitId() { this->parentUnitId_ = nullptr;};
+        inline int64_t getParentUnitId() const { DARABONBA_PTR_GET_DEFAULT(parentUnitId_, 0L) };
+        inline CostUnitDtoList& setParentUnitId(int64_t parentUnitId) { DARABONBA_PTR_SET_VALUE(parentUnitId_, parentUnitId) };
+
+
+        // unitId Field Functions 
+        bool hasUnitId() const { return this->unitId_ != nullptr;};
+        void deleteUnitId() { this->unitId_ = nullptr;};
+        inline int64_t getUnitId() const { DARABONBA_PTR_GET_DEFAULT(unitId_, 0L) };
+        inline CostUnitDtoList& setUnitId(int64_t unitId) { DARABONBA_PTR_SET_VALUE(unitId_, unitId) };
+
+
+        // unitName Field Functions 
+        bool hasUnitName() const { return this->unitName_ != nullptr;};
+        void deleteUnitName() { this->unitName_ = nullptr;};
+        inline string getUnitName() const { DARABONBA_PTR_GET_DEFAULT(unitName_, "") };
+        inline CostUnitDtoList& setUnitName(string unitName) { DARABONBA_PTR_SET_VALUE(unitName_, unitName) };
+
+
+      protected:
+        // The user ID of the cost center owner.
+        shared_ptr<int64_t> ownerUid_ {};
+        // The ID of the parent cost center. A value of -1 indicates the root cost center.
+        shared_ptr<int64_t> parentUnitId_ {};
+        // The ID of the cost center.
+        shared_ptr<int64_t> unitId_ {};
+        // The name of the cost center.
+        shared_ptr<string> unitName_ {};
+      };
+
+      virtual bool empty() const override { return this->costUnitDtoList_ == nullptr
+        && this->pageNum_ == nullptr && this->pageSize_ == nullptr && this->totalCount_ == nullptr; };
+      // costUnitDtoList Field Functions 
+      bool hasCostUnitDtoList() const { return this->costUnitDtoList_ != nullptr;};
+      void deleteCostUnitDtoList() { this->costUnitDtoList_ = nullptr;};
+      inline const vector<Data::CostUnitDtoList> & getCostUnitDtoList() const { DARABONBA_PTR_GET_CONST(costUnitDtoList_, vector<Data::CostUnitDtoList>) };
+      inline vector<Data::CostUnitDtoList> getCostUnitDtoList() { DARABONBA_PTR_GET(costUnitDtoList_, vector<Data::CostUnitDtoList>) };
+      inline Data& setCostUnitDtoList(const vector<Data::CostUnitDtoList> & costUnitDtoList) { DARABONBA_PTR_SET_VALUE(costUnitDtoList_, costUnitDtoList) };
+      inline Data& setCostUnitDtoList(vector<Data::CostUnitDtoList> && costUnitDtoList) { DARABONBA_PTR_SET_RVALUE(costUnitDtoList_, costUnitDtoList) };
+
+
+      // pageNum Field Functions 
+      bool hasPageNum() const { return this->pageNum_ != nullptr;};
+      void deletePageNum() { this->pageNum_ = nullptr;};
+      inline int32_t getPageNum() const { DARABONBA_PTR_GET_DEFAULT(pageNum_, 0) };
+      inline Data& setPageNum(int32_t pageNum) { DARABONBA_PTR_SET_VALUE(pageNum_, pageNum) };
+
+
+      // pageSize Field Functions 
+      bool hasPageSize() const { return this->pageSize_ != nullptr;};
+      void deletePageSize() { this->pageSize_ = nullptr;};
+      inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+      inline Data& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
+
+
+      // totalCount Field Functions 
+      bool hasTotalCount() const { return this->totalCount_ != nullptr;};
+      void deleteTotalCount() { this->totalCount_ = nullptr;};
+      inline int32_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
+      inline Data& setTotalCount(int32_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
+
+
+    protected:
+      // The cost centers.
+      shared_ptr<vector<Data::CostUnitDtoList>> costUnitDtoList_ {};
+      // The page number of the returned page.
+      shared_ptr<int32_t> pageNum_ {};
+      // The number of entries returned on each page.
+      shared_ptr<int32_t> pageSize_ {};
+      // The total number of returned entries.
+      shared_ptr<int32_t> totalCount_ {};
+    };
+
+    virtual bool empty() const override { return this->code_ == nullptr
+        && this->data_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline QueryCostUnitResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const QueryCostUnitResponseBodyData & data() const { DARABONBA_PTR_GET_CONST(data_, QueryCostUnitResponseBodyData) };
-    inline QueryCostUnitResponseBodyData data() { DARABONBA_PTR_GET(data_, QueryCostUnitResponseBodyData) };
-    inline QueryCostUnitResponseBody& setData(const QueryCostUnitResponseBodyData & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline QueryCostUnitResponseBody& setData(QueryCostUnitResponseBodyData && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const QueryCostUnitResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, QueryCostUnitResponseBody::Data) };
+    inline QueryCostUnitResponseBody::Data getData() { DARABONBA_PTR_GET(data_, QueryCostUnitResponseBody::Data) };
+    inline QueryCostUnitResponseBody& setData(const QueryCostUnitResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline QueryCostUnitResponseBody& setData(QueryCostUnitResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline QueryCostUnitResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline QueryCostUnitResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline QueryCostUnitResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
     // The status code.
-    std::shared_ptr<string> code_ = nullptr;
+    shared_ptr<string> code_ {};
     // The data returned.
-    std::shared_ptr<QueryCostUnitResponseBodyData> data_ = nullptr;
+    shared_ptr<QueryCostUnitResponseBody::Data> data_ {};
     // The error message returned.
-    std::shared_ptr<string> message_ = nullptr;
+    shared_ptr<string> message_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

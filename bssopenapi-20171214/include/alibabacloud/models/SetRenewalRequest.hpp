@@ -43,62 +43,62 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->instanceIDs_ != nullptr
-        && this->ownerId_ != nullptr && this->productCode_ != nullptr && this->productType_ != nullptr && this->renewalPeriod_ != nullptr && this->renewalPeriodUnit_ != nullptr
-        && this->renewalStatus_ != nullptr && this->subscriptionType_ != nullptr; };
+    virtual bool empty() const override { return this->instanceIDs_ == nullptr
+        && this->ownerId_ == nullptr && this->productCode_ == nullptr && this->productType_ == nullptr && this->renewalPeriod_ == nullptr && this->renewalPeriodUnit_ == nullptr
+        && this->renewalStatus_ == nullptr && this->subscriptionType_ == nullptr; };
     // instanceIDs Field Functions 
     bool hasInstanceIDs() const { return this->instanceIDs_ != nullptr;};
     void deleteInstanceIDs() { this->instanceIDs_ = nullptr;};
-    inline string instanceIDs() const { DARABONBA_PTR_GET_DEFAULT(instanceIDs_, "") };
+    inline string getInstanceIDs() const { DARABONBA_PTR_GET_DEFAULT(instanceIDs_, "") };
     inline SetRenewalRequest& setInstanceIDs(string instanceIDs) { DARABONBA_PTR_SET_VALUE(instanceIDs_, instanceIDs) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline SetRenewalRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // productCode Field Functions 
     bool hasProductCode() const { return this->productCode_ != nullptr;};
     void deleteProductCode() { this->productCode_ = nullptr;};
-    inline string productCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
+    inline string getProductCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
     inline SetRenewalRequest& setProductCode(string productCode) { DARABONBA_PTR_SET_VALUE(productCode_, productCode) };
 
 
     // productType Field Functions 
     bool hasProductType() const { return this->productType_ != nullptr;};
     void deleteProductType() { this->productType_ = nullptr;};
-    inline string productType() const { DARABONBA_PTR_GET_DEFAULT(productType_, "") };
+    inline string getProductType() const { DARABONBA_PTR_GET_DEFAULT(productType_, "") };
     inline SetRenewalRequest& setProductType(string productType) { DARABONBA_PTR_SET_VALUE(productType_, productType) };
 
 
     // renewalPeriod Field Functions 
     bool hasRenewalPeriod() const { return this->renewalPeriod_ != nullptr;};
     void deleteRenewalPeriod() { this->renewalPeriod_ = nullptr;};
-    inline int32_t renewalPeriod() const { DARABONBA_PTR_GET_DEFAULT(renewalPeriod_, 0) };
+    inline int32_t getRenewalPeriod() const { DARABONBA_PTR_GET_DEFAULT(renewalPeriod_, 0) };
     inline SetRenewalRequest& setRenewalPeriod(int32_t renewalPeriod) { DARABONBA_PTR_SET_VALUE(renewalPeriod_, renewalPeriod) };
 
 
     // renewalPeriodUnit Field Functions 
     bool hasRenewalPeriodUnit() const { return this->renewalPeriodUnit_ != nullptr;};
     void deleteRenewalPeriodUnit() { this->renewalPeriodUnit_ = nullptr;};
-    inline string renewalPeriodUnit() const { DARABONBA_PTR_GET_DEFAULT(renewalPeriodUnit_, "") };
+    inline string getRenewalPeriodUnit() const { DARABONBA_PTR_GET_DEFAULT(renewalPeriodUnit_, "") };
     inline SetRenewalRequest& setRenewalPeriodUnit(string renewalPeriodUnit) { DARABONBA_PTR_SET_VALUE(renewalPeriodUnit_, renewalPeriodUnit) };
 
 
     // renewalStatus Field Functions 
     bool hasRenewalStatus() const { return this->renewalStatus_ != nullptr;};
     void deleteRenewalStatus() { this->renewalStatus_ = nullptr;};
-    inline string renewalStatus() const { DARABONBA_PTR_GET_DEFAULT(renewalStatus_, "") };
+    inline string getRenewalStatus() const { DARABONBA_PTR_GET_DEFAULT(renewalStatus_, "") };
     inline SetRenewalRequest& setRenewalStatus(string renewalStatus) { DARABONBA_PTR_SET_VALUE(renewalStatus_, renewalStatus) };
 
 
     // subscriptionType Field Functions 
     bool hasSubscriptionType() const { return this->subscriptionType_ != nullptr;};
     void deleteSubscriptionType() { this->subscriptionType_ = nullptr;};
-    inline string subscriptionType() const { DARABONBA_PTR_GET_DEFAULT(subscriptionType_, "") };
+    inline string getSubscriptionType() const { DARABONBA_PTR_GET_DEFAULT(subscriptionType_, "") };
     inline SetRenewalRequest& setSubscriptionType(string subscriptionType) { DARABONBA_PTR_SET_VALUE(subscriptionType_, subscriptionType) };
 
 
@@ -106,14 +106,14 @@ namespace Models
     // The ID of the instance. You can enable auto-renewal for up to 100 subscription instances at a time. Separate multiple instance IDs with commas (,).
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceIDs_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<string> instanceIDs_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // The code of the service.
     // 
     // This parameter is required.
-    std::shared_ptr<string> productCode_ = nullptr;
+    shared_ptr<string> productCode_ {};
     // The type of the service.
-    std::shared_ptr<string> productType_ = nullptr;
+    shared_ptr<string> productType_ {};
     // The auto-renewal period. Valid values:
     // 
     // *   1
@@ -123,14 +123,14 @@ namespace Models
     // *   12
     // 
     // >  This parameter is required if the RenewalStatus parameter is set to AutoRenewal.
-    std::shared_ptr<int32_t> renewalPeriod_ = nullptr;
+    shared_ptr<int32_t> renewalPeriod_ {};
     // The unit of the auto-renewal period. Valid values:
     // 
     // *   M: months
     // *   Y: years
     // 
     // >  This parameter is required if the RenewalStatus parameter is set to AutoRenewal.
-    std::shared_ptr<string> renewalPeriodUnit_ = nullptr;
+    shared_ptr<string> renewalPeriodUnit_ {};
     // The status of renewal. Valid values:
     // 
     // *   AutoRenewal: The instance is automatically renewed.
@@ -138,12 +138,12 @@ namespace Models
     // *   NotRenewal: The instance is not renewed.
     // 
     // This parameter is required.
-    std::shared_ptr<string> renewalStatus_ = nullptr;
+    shared_ptr<string> renewalStatus_ {};
     // The billing method. Valid values:
     // 
     // *   Subscription: subscription
     // *   PayAsYouGo: pay-as-you-go
-    std::shared_ptr<string> subscriptionType_ = nullptr;
+    shared_ptr<string> subscriptionType_ {};
   };
 
   } // namespace Models

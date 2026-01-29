@@ -46,35 +46,35 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->childNick_ != nullptr
-        && this->childUserId_ != nullptr && this->parentUserId_ != nullptr && this->permissionCodes_ != nullptr && this->relationId_ != nullptr && this->relationOperation_ != nullptr
-        && this->relationType_ != nullptr && this->requestId_ != nullptr && this->roleCodes_ != nullptr; };
+    virtual bool empty() const override { return this->childNick_ == nullptr
+        && this->childUserId_ == nullptr && this->parentUserId_ == nullptr && this->permissionCodes_ == nullptr && this->relationId_ == nullptr && this->relationOperation_ == nullptr
+        && this->relationType_ == nullptr && this->requestId_ == nullptr && this->roleCodes_ == nullptr; };
     // childNick Field Functions 
     bool hasChildNick() const { return this->childNick_ != nullptr;};
     void deleteChildNick() { this->childNick_ = nullptr;};
-    inline string childNick() const { DARABONBA_PTR_GET_DEFAULT(childNick_, "") };
+    inline string getChildNick() const { DARABONBA_PTR_GET_DEFAULT(childNick_, "") };
     inline ModifyAccountRelationRequest& setChildNick(string childNick) { DARABONBA_PTR_SET_VALUE(childNick_, childNick) };
 
 
     // childUserId Field Functions 
     bool hasChildUserId() const { return this->childUserId_ != nullptr;};
     void deleteChildUserId() { this->childUserId_ = nullptr;};
-    inline int64_t childUserId() const { DARABONBA_PTR_GET_DEFAULT(childUserId_, 0L) };
+    inline int64_t getChildUserId() const { DARABONBA_PTR_GET_DEFAULT(childUserId_, 0L) };
     inline ModifyAccountRelationRequest& setChildUserId(int64_t childUserId) { DARABONBA_PTR_SET_VALUE(childUserId_, childUserId) };
 
 
     // parentUserId Field Functions 
     bool hasParentUserId() const { return this->parentUserId_ != nullptr;};
     void deleteParentUserId() { this->parentUserId_ = nullptr;};
-    inline int64_t parentUserId() const { DARABONBA_PTR_GET_DEFAULT(parentUserId_, 0L) };
+    inline int64_t getParentUserId() const { DARABONBA_PTR_GET_DEFAULT(parentUserId_, 0L) };
     inline ModifyAccountRelationRequest& setParentUserId(int64_t parentUserId) { DARABONBA_PTR_SET_VALUE(parentUserId_, parentUserId) };
 
 
     // permissionCodes Field Functions 
     bool hasPermissionCodes() const { return this->permissionCodes_ != nullptr;};
     void deletePermissionCodes() { this->permissionCodes_ = nullptr;};
-    inline const vector<string> & permissionCodes() const { DARABONBA_PTR_GET_CONST(permissionCodes_, vector<string>) };
-    inline vector<string> permissionCodes() { DARABONBA_PTR_GET(permissionCodes_, vector<string>) };
+    inline const vector<string> & getPermissionCodes() const { DARABONBA_PTR_GET_CONST(permissionCodes_, vector<string>) };
+    inline vector<string> getPermissionCodes() { DARABONBA_PTR_GET(permissionCodes_, vector<string>) };
     inline ModifyAccountRelationRequest& setPermissionCodes(const vector<string> & permissionCodes) { DARABONBA_PTR_SET_VALUE(permissionCodes_, permissionCodes) };
     inline ModifyAccountRelationRequest& setPermissionCodes(vector<string> && permissionCodes) { DARABONBA_PTR_SET_RVALUE(permissionCodes_, permissionCodes) };
 
@@ -82,47 +82,47 @@ namespace Models
     // relationId Field Functions 
     bool hasRelationId() const { return this->relationId_ != nullptr;};
     void deleteRelationId() { this->relationId_ = nullptr;};
-    inline int64_t relationId() const { DARABONBA_PTR_GET_DEFAULT(relationId_, 0L) };
+    inline int64_t getRelationId() const { DARABONBA_PTR_GET_DEFAULT(relationId_, 0L) };
     inline ModifyAccountRelationRequest& setRelationId(int64_t relationId) { DARABONBA_PTR_SET_VALUE(relationId_, relationId) };
 
 
     // relationOperation Field Functions 
     bool hasRelationOperation() const { return this->relationOperation_ != nullptr;};
     void deleteRelationOperation() { this->relationOperation_ = nullptr;};
-    inline string relationOperation() const { DARABONBA_PTR_GET_DEFAULT(relationOperation_, "") };
+    inline string getRelationOperation() const { DARABONBA_PTR_GET_DEFAULT(relationOperation_, "") };
     inline ModifyAccountRelationRequest& setRelationOperation(string relationOperation) { DARABONBA_PTR_SET_VALUE(relationOperation_, relationOperation) };
 
 
     // relationType Field Functions 
     bool hasRelationType() const { return this->relationType_ != nullptr;};
     void deleteRelationType() { this->relationType_ = nullptr;};
-    inline string relationType() const { DARABONBA_PTR_GET_DEFAULT(relationType_, "") };
+    inline string getRelationType() const { DARABONBA_PTR_GET_DEFAULT(relationType_, "") };
     inline ModifyAccountRelationRequest& setRelationType(string relationType) { DARABONBA_PTR_SET_VALUE(relationType_, relationType) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ModifyAccountRelationRequest& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // roleCodes Field Functions 
     bool hasRoleCodes() const { return this->roleCodes_ != nullptr;};
     void deleteRoleCodes() { this->roleCodes_ = nullptr;};
-    inline const vector<string> & roleCodes() const { DARABONBA_PTR_GET_CONST(roleCodes_, vector<string>) };
-    inline vector<string> roleCodes() { DARABONBA_PTR_GET(roleCodes_, vector<string>) };
+    inline const vector<string> & getRoleCodes() const { DARABONBA_PTR_GET_CONST(roleCodes_, vector<string>) };
+    inline vector<string> getRoleCodes() { DARABONBA_PTR_GET(roleCodes_, vector<string>) };
     inline ModifyAccountRelationRequest& setRoleCodes(const vector<string> & roleCodes) { DARABONBA_PTR_SET_VALUE(roleCodes_, roleCodes) };
     inline ModifyAccountRelationRequest& setRoleCodes(vector<string> && roleCodes) { DARABONBA_PTR_SET_RVALUE(roleCodes_, roleCodes) };
 
 
   protected:
     // The display name of the member. This helps clarify the scenario in which the account is used.
-    std::shared_ptr<string> childNick_ = nullptr;
+    shared_ptr<string> childNick_ {};
     // The ID of the Alibaba Cloud account that is used as the member.
-    std::shared_ptr<int64_t> childUserId_ = nullptr;
+    shared_ptr<int64_t> childUserId_ {};
     // The ID of the Alibaba Cloud account that is used as the management account.
-    std::shared_ptr<int64_t> parentUserId_ = nullptr;
+    shared_ptr<int64_t> parentUserId_ {};
     // The permissions that can be modified. Valid values:
     // 
     // *   SYNCHRONIZE_FINANCE_IDENTITY: allows the credit control identity to be shared with the member.
@@ -132,24 +132,24 @@ namespace Models
     // *   CHECK_FINANCE_INFO: requests to view information about the financial relationship.
     // *   MANAGE_TARGET_INVOICE: allows the member to manage invoices.
     // *   CHECK_TARGET_CONSUMPTION: allows the member to view the bills.
-    std::shared_ptr<vector<string>> permissionCodes_ = nullptr;
+    shared_ptr<vector<string>> permissionCodes_ {};
     // The ID of the financial relationship. Set this parameter to the value of the relationId response parameter returned by calling the QueryRelationList operation.
-    std::shared_ptr<int64_t> relationId_ = nullptr;
+    shared_ptr<int64_t> relationId_ {};
     // The operation to be performed. Valid values:
     // 
     // *   ADD
     // *   DELETE
     // 
     // This parameter is required.
-    std::shared_ptr<string> relationOperation_ = nullptr;
+    shared_ptr<string> relationOperation_ {};
     // The type of the financial relationship. Set the value to enterprise_group.
-    std::shared_ptr<string> relationType_ = nullptr;
+    shared_ptr<string> relationType_ {};
     // The unique ID of the request. The ID is used to mark a request and troubleshoot a problem.
     // 
     // This parameter is required.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The roles that can be assigned to the member. You cannot modify the roles.
-    std::shared_ptr<vector<string>> roleCodes_ = nullptr;
+    shared_ptr<vector<string>> roleCodes_ {};
   };
 
   } // namespace Models

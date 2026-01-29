@@ -29,11 +29,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->relationId_ != nullptr; };
+    virtual bool empty() const override { return this->relationId_ == nullptr; };
     // relationId Field Functions 
     bool hasRelationId() const { return this->relationId_ != nullptr;};
     void deleteRelationId() { this->relationId_ = nullptr;};
-    inline int64_t relationId() const { DARABONBA_PTR_GET_DEFAULT(relationId_, 0L) };
+    inline int64_t getRelationId() const { DARABONBA_PTR_GET_DEFAULT(relationId_, 0L) };
     inline QueryPermissionListRequest& setRelationId(int64_t relationId) { DARABONBA_PTR_SET_VALUE(relationId_, relationId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the relationship. Set this parameter to the value of the RelationId response parameter returned by calling the QueryRelationList operation.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> relationId_ = nullptr;
+    shared_ptr<int64_t> relationId_ {};
   };
 
   } // namespace Models

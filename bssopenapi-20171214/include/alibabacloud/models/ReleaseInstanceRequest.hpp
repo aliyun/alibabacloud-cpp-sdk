@@ -41,55 +41,55 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->instanceIds_ != nullptr
-        && this->ownerId_ != nullptr && this->productCode_ != nullptr && this->productType_ != nullptr && this->region_ != nullptr && this->renewStatus_ != nullptr
-        && this->subscriptionType_ != nullptr; };
+    virtual bool empty() const override { return this->instanceIds_ == nullptr
+        && this->ownerId_ == nullptr && this->productCode_ == nullptr && this->productType_ == nullptr && this->region_ == nullptr && this->renewStatus_ == nullptr
+        && this->subscriptionType_ == nullptr; };
     // instanceIds Field Functions 
     bool hasInstanceIds() const { return this->instanceIds_ != nullptr;};
     void deleteInstanceIds() { this->instanceIds_ = nullptr;};
-    inline string instanceIds() const { DARABONBA_PTR_GET_DEFAULT(instanceIds_, "") };
+    inline string getInstanceIds() const { DARABONBA_PTR_GET_DEFAULT(instanceIds_, "") };
     inline ReleaseInstanceRequest& setInstanceIds(string instanceIds) { DARABONBA_PTR_SET_VALUE(instanceIds_, instanceIds) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline ReleaseInstanceRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // productCode Field Functions 
     bool hasProductCode() const { return this->productCode_ != nullptr;};
     void deleteProductCode() { this->productCode_ = nullptr;};
-    inline string productCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
+    inline string getProductCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
     inline ReleaseInstanceRequest& setProductCode(string productCode) { DARABONBA_PTR_SET_VALUE(productCode_, productCode) };
 
 
     // productType Field Functions 
     bool hasProductType() const { return this->productType_ != nullptr;};
     void deleteProductType() { this->productType_ = nullptr;};
-    inline string productType() const { DARABONBA_PTR_GET_DEFAULT(productType_, "") };
+    inline string getProductType() const { DARABONBA_PTR_GET_DEFAULT(productType_, "") };
     inline ReleaseInstanceRequest& setProductType(string productType) { DARABONBA_PTR_SET_VALUE(productType_, productType) };
 
 
     // region Field Functions 
     bool hasRegion() const { return this->region_ != nullptr;};
     void deleteRegion() { this->region_ = nullptr;};
-    inline string region() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
+    inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
     inline ReleaseInstanceRequest& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
     // renewStatus Field Functions 
     bool hasRenewStatus() const { return this->renewStatus_ != nullptr;};
     void deleteRenewStatus() { this->renewStatus_ = nullptr;};
-    inline string renewStatus() const { DARABONBA_PTR_GET_DEFAULT(renewStatus_, "") };
+    inline string getRenewStatus() const { DARABONBA_PTR_GET_DEFAULT(renewStatus_, "") };
     inline ReleaseInstanceRequest& setRenewStatus(string renewStatus) { DARABONBA_PTR_SET_VALUE(renewStatus_, renewStatus) };
 
 
     // subscriptionType Field Functions 
     bool hasSubscriptionType() const { return this->subscriptionType_ != nullptr;};
     void deleteSubscriptionType() { this->subscriptionType_ = nullptr;};
-    inline string subscriptionType() const { DARABONBA_PTR_GET_DEFAULT(subscriptionType_, "") };
+    inline string getSubscriptionType() const { DARABONBA_PTR_GET_DEFAULT(subscriptionType_, "") };
     inline ReleaseInstanceRequest& setSubscriptionType(string subscriptionType) { DARABONBA_PTR_SET_VALUE(subscriptionType_, subscriptionType) };
 
 
@@ -97,17 +97,17 @@ namespace Models
     // The ID of the instance. Separate multiple IDs with commas (,). A maximum of 100 IDs can be specified.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceIds_ = nullptr;
+    shared_ptr<string> instanceIds_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<int64_t> ownerId_ {};
     // The code of the service.
     // 
     // This parameter is required.
-    std::shared_ptr<string> productCode_ = nullptr;
+    shared_ptr<string> productCode_ {};
     // The type of the service.
-    std::shared_ptr<string> productType_ = nullptr;
+    shared_ptr<string> productType_ {};
     // The region in which the instance resides.
-    std::shared_ptr<string> region_ = nullptr;
+    shared_ptr<string> region_ {};
     // The method that is used to renew the instance. Valid values:
     // 
     // AutoRenewal: automatically renews the instance.
@@ -115,7 +115,7 @@ namespace Models
     // ManualRenewal: manually renews the instance.
     // 
     // NotRenewal: does not renew the instance.
-    std::shared_ptr<string> renewStatus_ = nullptr;
+    shared_ptr<string> renewStatus_ {};
     // The billing method. Valid values:
     // 
     // Subscription: the subscription billing method.
@@ -123,7 +123,7 @@ namespace Models
     // PayAsYouGo: the pay-as-you-go billing method.
     // 
     // This parameter is required.
-    std::shared_ptr<string> subscriptionType_ = nullptr;
+    shared_ptr<string> subscriptionType_ {};
   };
 
   } // namespace Models

@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_INQUIRYPRICEREFUNDINSTANCERESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_INQUIRYPRICEREFUNDINSTANCERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/InquiryPriceRefundInstanceResponseBodyData.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -38,56 +37,122 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->code_ != nullptr
-        && this->data_ != nullptr && this->message_ != nullptr && this->requestId_ != nullptr && this->success_ != nullptr; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(Currency, currency_);
+        DARABONBA_PTR_TO_JSON(HostId, hostId_);
+        DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+        DARABONBA_PTR_TO_JSON(RefundAmount, refundAmount_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(Currency, currency_);
+        DARABONBA_PTR_FROM_JSON(HostId, hostId_);
+        DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+        DARABONBA_PTR_FROM_JSON(RefundAmount, refundAmount_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->currency_ == nullptr
+        && this->hostId_ == nullptr && this->instanceId_ == nullptr && this->refundAmount_ == nullptr; };
+      // currency Field Functions 
+      bool hasCurrency() const { return this->currency_ != nullptr;};
+      void deleteCurrency() { this->currency_ = nullptr;};
+      inline string getCurrency() const { DARABONBA_PTR_GET_DEFAULT(currency_, "") };
+      inline Data& setCurrency(string currency) { DARABONBA_PTR_SET_VALUE(currency_, currency) };
+
+
+      // hostId Field Functions 
+      bool hasHostId() const { return this->hostId_ != nullptr;};
+      void deleteHostId() { this->hostId_ = nullptr;};
+      inline string getHostId() const { DARABONBA_PTR_GET_DEFAULT(hostId_, "") };
+      inline Data& setHostId(string hostId) { DARABONBA_PTR_SET_VALUE(hostId_, hostId) };
+
+
+      // instanceId Field Functions 
+      bool hasInstanceId() const { return this->instanceId_ != nullptr;};
+      void deleteInstanceId() { this->instanceId_ = nullptr;};
+      inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+      inline Data& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+      // refundAmount Field Functions 
+      bool hasRefundAmount() const { return this->refundAmount_ != nullptr;};
+      void deleteRefundAmount() { this->refundAmount_ = nullptr;};
+      inline double getRefundAmount() const { DARABONBA_PTR_GET_DEFAULT(refundAmount_, 0.0) };
+      inline Data& setRefundAmount(double refundAmount) { DARABONBA_PTR_SET_VALUE(refundAmount_, refundAmount) };
+
+
+    protected:
+      // The currency.
+      shared_ptr<string> currency_ {};
+      // The site of the execution host.
+      shared_ptr<string> hostId_ {};
+      // The ID of the instance.
+      shared_ptr<string> instanceId_ {};
+      // The refundable amount.
+      shared_ptr<double> refundAmount_ {};
+    };
+
+    virtual bool empty() const override { return this->code_ == nullptr
+        && this->data_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline InquiryPriceRefundInstanceResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const InquiryPriceRefundInstanceResponseBodyData & data() const { DARABONBA_PTR_GET_CONST(data_, InquiryPriceRefundInstanceResponseBodyData) };
-    inline InquiryPriceRefundInstanceResponseBodyData data() { DARABONBA_PTR_GET(data_, InquiryPriceRefundInstanceResponseBodyData) };
-    inline InquiryPriceRefundInstanceResponseBody& setData(const InquiryPriceRefundInstanceResponseBodyData & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline InquiryPriceRefundInstanceResponseBody& setData(InquiryPriceRefundInstanceResponseBodyData && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const InquiryPriceRefundInstanceResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, InquiryPriceRefundInstanceResponseBody::Data) };
+    inline InquiryPriceRefundInstanceResponseBody::Data getData() { DARABONBA_PTR_GET(data_, InquiryPriceRefundInstanceResponseBody::Data) };
+    inline InquiryPriceRefundInstanceResponseBody& setData(const InquiryPriceRefundInstanceResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline InquiryPriceRefundInstanceResponseBody& setData(InquiryPriceRefundInstanceResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline InquiryPriceRefundInstanceResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline InquiryPriceRefundInstanceResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline InquiryPriceRefundInstanceResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
     // The HTTP status code.
-    std::shared_ptr<string> code_ = nullptr;
+    shared_ptr<string> code_ {};
     // data
-    std::shared_ptr<InquiryPriceRefundInstanceResponseBodyData> data_ = nullptr;
+    shared_ptr<InquiryPriceRefundInstanceResponseBody::Data> data_ {};
     // The description of the execution result.
-    std::shared_ptr<string> message_ = nullptr;
+    shared_ptr<string> message_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values: true and false.
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

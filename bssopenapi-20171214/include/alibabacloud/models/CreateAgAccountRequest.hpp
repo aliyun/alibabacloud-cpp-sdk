@@ -45,95 +45,95 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accountAttr_ != nullptr
-        && this->cityName_ != nullptr && this->enterpriseName_ != nullptr && this->firstName_ != nullptr && this->lastName_ != nullptr && this->loginEmail_ != nullptr
-        && this->nationCode_ != nullptr && this->postcode_ != nullptr && this->provinceName_ != nullptr; };
+    virtual bool empty() const override { return this->accountAttr_ == nullptr
+        && this->cityName_ == nullptr && this->enterpriseName_ == nullptr && this->firstName_ == nullptr && this->lastName_ == nullptr && this->loginEmail_ == nullptr
+        && this->nationCode_ == nullptr && this->postcode_ == nullptr && this->provinceName_ == nullptr; };
     // accountAttr Field Functions 
     bool hasAccountAttr() const { return this->accountAttr_ != nullptr;};
     void deleteAccountAttr() { this->accountAttr_ = nullptr;};
-    inline string accountAttr() const { DARABONBA_PTR_GET_DEFAULT(accountAttr_, "") };
+    inline string getAccountAttr() const { DARABONBA_PTR_GET_DEFAULT(accountAttr_, "") };
     inline CreateAgAccountRequest& setAccountAttr(string accountAttr) { DARABONBA_PTR_SET_VALUE(accountAttr_, accountAttr) };
 
 
     // cityName Field Functions 
     bool hasCityName() const { return this->cityName_ != nullptr;};
     void deleteCityName() { this->cityName_ = nullptr;};
-    inline string cityName() const { DARABONBA_PTR_GET_DEFAULT(cityName_, "") };
+    inline string getCityName() const { DARABONBA_PTR_GET_DEFAULT(cityName_, "") };
     inline CreateAgAccountRequest& setCityName(string cityName) { DARABONBA_PTR_SET_VALUE(cityName_, cityName) };
 
 
     // enterpriseName Field Functions 
     bool hasEnterpriseName() const { return this->enterpriseName_ != nullptr;};
     void deleteEnterpriseName() { this->enterpriseName_ = nullptr;};
-    inline string enterpriseName() const { DARABONBA_PTR_GET_DEFAULT(enterpriseName_, "") };
+    inline string getEnterpriseName() const { DARABONBA_PTR_GET_DEFAULT(enterpriseName_, "") };
     inline CreateAgAccountRequest& setEnterpriseName(string enterpriseName) { DARABONBA_PTR_SET_VALUE(enterpriseName_, enterpriseName) };
 
 
     // firstName Field Functions 
     bool hasFirstName() const { return this->firstName_ != nullptr;};
     void deleteFirstName() { this->firstName_ = nullptr;};
-    inline string firstName() const { DARABONBA_PTR_GET_DEFAULT(firstName_, "") };
+    inline string getFirstName() const { DARABONBA_PTR_GET_DEFAULT(firstName_, "") };
     inline CreateAgAccountRequest& setFirstName(string firstName) { DARABONBA_PTR_SET_VALUE(firstName_, firstName) };
 
 
     // lastName Field Functions 
     bool hasLastName() const { return this->lastName_ != nullptr;};
     void deleteLastName() { this->lastName_ = nullptr;};
-    inline string lastName() const { DARABONBA_PTR_GET_DEFAULT(lastName_, "") };
+    inline string getLastName() const { DARABONBA_PTR_GET_DEFAULT(lastName_, "") };
     inline CreateAgAccountRequest& setLastName(string lastName) { DARABONBA_PTR_SET_VALUE(lastName_, lastName) };
 
 
     // loginEmail Field Functions 
     bool hasLoginEmail() const { return this->loginEmail_ != nullptr;};
     void deleteLoginEmail() { this->loginEmail_ = nullptr;};
-    inline string loginEmail() const { DARABONBA_PTR_GET_DEFAULT(loginEmail_, "") };
+    inline string getLoginEmail() const { DARABONBA_PTR_GET_DEFAULT(loginEmail_, "") };
     inline CreateAgAccountRequest& setLoginEmail(string loginEmail) { DARABONBA_PTR_SET_VALUE(loginEmail_, loginEmail) };
 
 
     // nationCode Field Functions 
     bool hasNationCode() const { return this->nationCode_ != nullptr;};
     void deleteNationCode() { this->nationCode_ = nullptr;};
-    inline string nationCode() const { DARABONBA_PTR_GET_DEFAULT(nationCode_, "") };
+    inline string getNationCode() const { DARABONBA_PTR_GET_DEFAULT(nationCode_, "") };
     inline CreateAgAccountRequest& setNationCode(string nationCode) { DARABONBA_PTR_SET_VALUE(nationCode_, nationCode) };
 
 
     // postcode Field Functions 
     bool hasPostcode() const { return this->postcode_ != nullptr;};
     void deletePostcode() { this->postcode_ = nullptr;};
-    inline string postcode() const { DARABONBA_PTR_GET_DEFAULT(postcode_, "") };
+    inline string getPostcode() const { DARABONBA_PTR_GET_DEFAULT(postcode_, "") };
     inline CreateAgAccountRequest& setPostcode(string postcode) { DARABONBA_PTR_SET_VALUE(postcode_, postcode) };
 
 
     // provinceName Field Functions 
     bool hasProvinceName() const { return this->provinceName_ != nullptr;};
     void deleteProvinceName() { this->provinceName_ = nullptr;};
-    inline string provinceName() const { DARABONBA_PTR_GET_DEFAULT(provinceName_, "") };
+    inline string getProvinceName() const { DARABONBA_PTR_GET_DEFAULT(provinceName_, "") };
     inline CreateAgAccountRequest& setProvinceName(string provinceName) { DARABONBA_PTR_SET_VALUE(provinceName_, provinceName) };
 
 
   protected:
     // The attribute of the account. To view the attribute of the account, use the account to log on to the Alibaba Cloud Management Console, move the pointer over the profile picture in the upper-right corner, and then click **Security Settings**.
-    std::shared_ptr<string> accountAttr_ = nullptr;
+    shared_ptr<string> accountAttr_ {};
     // The name of the city.
-    std::shared_ptr<string> cityName_ = nullptr;
+    shared_ptr<string> cityName_ {};
     // The name of the enterprise.
-    std::shared_ptr<string> enterpriseName_ = nullptr;
+    shared_ptr<string> enterpriseName_ {};
     // The first name.
-    std::shared_ptr<string> firstName_ = nullptr;
+    shared_ptr<string> firstName_ {};
     // The last name.
     // 
     // The last name can be up to 64 characters in length.
-    std::shared_ptr<string> lastName_ = nullptr;
+    shared_ptr<string> lastName_ {};
     // The email address used to log on to the account.
     // 
     // This parameter is required.
-    std::shared_ptr<string> loginEmail_ = nullptr;
+    shared_ptr<string> loginEmail_ {};
     // The country code.
-    std::shared_ptr<string> nationCode_ = nullptr;
+    shared_ptr<string> nationCode_ {};
     // The zip code.
-    std::shared_ptr<string> postcode_ = nullptr;
+    shared_ptr<string> postcode_ {};
     // The name of the province. This parameter is optional.
-    std::shared_ptr<string> provinceName_ = nullptr;
+    shared_ptr<string> provinceName_ {};
   };
 
   } // namespace Models

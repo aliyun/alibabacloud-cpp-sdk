@@ -35,33 +35,33 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ownerUid_ != nullptr
-        && this->pageNum_ != nullptr && this->pageSize_ != nullptr && this->unitId_ != nullptr; };
+    virtual bool empty() const override { return this->ownerUid_ == nullptr
+        && this->pageNum_ == nullptr && this->pageSize_ == nullptr && this->unitId_ == nullptr; };
     // ownerUid Field Functions 
     bool hasOwnerUid() const { return this->ownerUid_ != nullptr;};
     void deleteOwnerUid() { this->ownerUid_ = nullptr;};
-    inline int64_t ownerUid() const { DARABONBA_PTR_GET_DEFAULT(ownerUid_, 0L) };
+    inline int64_t getOwnerUid() const { DARABONBA_PTR_GET_DEFAULT(ownerUid_, 0L) };
     inline QueryCostUnitResourceRequest& setOwnerUid(int64_t ownerUid) { DARABONBA_PTR_SET_VALUE(ownerUid_, ownerUid) };
 
 
     // pageNum Field Functions 
     bool hasPageNum() const { return this->pageNum_ != nullptr;};
     void deletePageNum() { this->pageNum_ = nullptr;};
-    inline int32_t pageNum() const { DARABONBA_PTR_GET_DEFAULT(pageNum_, 0) };
+    inline int32_t getPageNum() const { DARABONBA_PTR_GET_DEFAULT(pageNum_, 0) };
     inline QueryCostUnitResourceRequest& setPageNum(int32_t pageNum) { DARABONBA_PTR_SET_VALUE(pageNum_, pageNum) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline QueryCostUnitResourceRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // unitId Field Functions 
     bool hasUnitId() const { return this->unitId_ != nullptr;};
     void deleteUnitId() { this->unitId_ = nullptr;};
-    inline int64_t unitId() const { DARABONBA_PTR_GET_DEFAULT(unitId_, 0L) };
+    inline int64_t getUnitId() const { DARABONBA_PTR_GET_DEFAULT(unitId_, 0L) };
     inline QueryCostUnitResourceRequest& setUnitId(int64_t unitId) { DARABONBA_PTR_SET_VALUE(unitId_, unitId) };
 
 
@@ -69,15 +69,15 @@ namespace Models
     // The user ID of the cost center owner.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> ownerUid_ = nullptr;
+    shared_ptr<int64_t> ownerUid_ {};
     // The number of the page to return.
-    std::shared_ptr<int32_t> pageNum_ = nullptr;
+    shared_ptr<int32_t> pageNum_ {};
     // The number of entries to return on each page.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The ID of the cost center.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> unitId_ = nullptr;
+    shared_ptr<int64_t> unitId_ {};
   };
 
   } // namespace Models

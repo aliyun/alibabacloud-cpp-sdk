@@ -39,47 +39,47 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->commodityCode_ != nullptr
-        && this->lang_ != nullptr && this->nextPageToken_ != nullptr && this->pageSize_ != nullptr && this->priceEntityCode_ != nullptr && this->priceFactorConditionMapShrink_ != nullptr; };
+    virtual bool empty() const override { return this->commodityCode_ == nullptr
+        && this->lang_ == nullptr && this->nextPageToken_ == nullptr && this->pageSize_ == nullptr && this->priceEntityCode_ == nullptr && this->priceFactorConditionMapShrink_ == nullptr; };
     // commodityCode Field Functions 
     bool hasCommodityCode() const { return this->commodityCode_ != nullptr;};
     void deleteCommodityCode() { this->commodityCode_ = nullptr;};
-    inline string commodityCode() const { DARABONBA_PTR_GET_DEFAULT(commodityCode_, "") };
+    inline string getCommodityCode() const { DARABONBA_PTR_GET_DEFAULT(commodityCode_, "") };
     inline QuerySkuPriceListShrinkRequest& setCommodityCode(string commodityCode) { DARABONBA_PTR_SET_VALUE(commodityCode_, commodityCode) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline QuerySkuPriceListShrinkRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // nextPageToken Field Functions 
     bool hasNextPageToken() const { return this->nextPageToken_ != nullptr;};
     void deleteNextPageToken() { this->nextPageToken_ = nullptr;};
-    inline string nextPageToken() const { DARABONBA_PTR_GET_DEFAULT(nextPageToken_, "") };
+    inline string getNextPageToken() const { DARABONBA_PTR_GET_DEFAULT(nextPageToken_, "") };
     inline QuerySkuPriceListShrinkRequest& setNextPageToken(string nextPageToken) { DARABONBA_PTR_SET_VALUE(nextPageToken_, nextPageToken) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline QuerySkuPriceListShrinkRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // priceEntityCode Field Functions 
     bool hasPriceEntityCode() const { return this->priceEntityCode_ != nullptr;};
     void deletePriceEntityCode() { this->priceEntityCode_ = nullptr;};
-    inline string priceEntityCode() const { DARABONBA_PTR_GET_DEFAULT(priceEntityCode_, "") };
+    inline string getPriceEntityCode() const { DARABONBA_PTR_GET_DEFAULT(priceEntityCode_, "") };
     inline QuerySkuPriceListShrinkRequest& setPriceEntityCode(string priceEntityCode) { DARABONBA_PTR_SET_VALUE(priceEntityCode_, priceEntityCode) };
 
 
     // priceFactorConditionMapShrink Field Functions 
     bool hasPriceFactorConditionMapShrink() const { return this->priceFactorConditionMapShrink_ != nullptr;};
     void deletePriceFactorConditionMapShrink() { this->priceFactorConditionMapShrink_ = nullptr;};
-    inline string priceFactorConditionMapShrink() const { DARABONBA_PTR_GET_DEFAULT(priceFactorConditionMapShrink_, "") };
+    inline string getPriceFactorConditionMapShrink() const { DARABONBA_PTR_GET_DEFAULT(priceFactorConditionMapShrink_, "") };
     inline QuerySkuPriceListShrinkRequest& setPriceFactorConditionMapShrink(string priceFactorConditionMapShrink) { DARABONBA_PTR_SET_VALUE(priceFactorConditionMapShrink_, priceFactorConditionMapShrink) };
 
 
@@ -87,20 +87,20 @@ namespace Models
     // The code of the service.
     // 
     // This parameter is required.
-    std::shared_ptr<string> commodityCode_ = nullptr;
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> commodityCode_ {};
+    shared_ptr<string> lang_ {};
     // The token that is used to retrieve the next page. You do not need to set this parameter if you query coverage details for the first time. The response returns a token that you can use to query coverage details of the next page. If a null value is returned for the NextPageToken parameter, no more coverage details can be queried.
-    std::shared_ptr<string> nextPageToken_ = nullptr;
+    shared_ptr<string> nextPageToken_ {};
     // The number of entries to be returned on each page. Maximum value: 50.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The code of the pricing object.
     // 
     // This parameter is required.
-    std::shared_ptr<string> priceEntityCode_ = nullptr;
+    shared_ptr<string> priceEntityCode_ {};
     // The conditions of the pricing factors.
-    std::shared_ptr<string> priceFactorConditionMapShrink_ = nullptr;
+    shared_ptr<string> priceFactorConditionMapShrink_ {};
   };
 
   } // namespace Models
