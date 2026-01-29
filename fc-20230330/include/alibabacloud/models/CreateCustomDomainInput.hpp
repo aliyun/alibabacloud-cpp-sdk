@@ -4,6 +4,7 @@
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/AuthConfig.hpp>
 #include <alibabacloud/models/CertConfig.hpp>
+#include <alibabacloud/models/CORSConfig.hpp>
 #include <alibabacloud/models/RouteConfig.hpp>
 #include <alibabacloud/models/TLSConfig.hpp>
 #include <alibabacloud/models/WAFConfig.hpp>
@@ -20,6 +21,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreateCustomDomainInput& obj) { 
       DARABONBA_PTR_TO_JSON(authConfig, authConfig_);
       DARABONBA_PTR_TO_JSON(certConfig, certConfig_);
+      DARABONBA_PTR_TO_JSON(corsConfig, corsConfig_);
       DARABONBA_PTR_TO_JSON(domainName, domainName_);
       DARABONBA_PTR_TO_JSON(protocol, protocol_);
       DARABONBA_PTR_TO_JSON(routeConfig, routeConfig_);
@@ -29,6 +31,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, CreateCustomDomainInput& obj) { 
       DARABONBA_PTR_FROM_JSON(authConfig, authConfig_);
       DARABONBA_PTR_FROM_JSON(certConfig, certConfig_);
+      DARABONBA_PTR_FROM_JSON(corsConfig, corsConfig_);
       DARABONBA_PTR_FROM_JSON(domainName, domainName_);
       DARABONBA_PTR_FROM_JSON(protocol, protocol_);
       DARABONBA_PTR_FROM_JSON(routeConfig, routeConfig_);
@@ -47,8 +50,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->authConfig_ == nullptr
-        && this->certConfig_ == nullptr && this->domainName_ == nullptr && this->protocol_ == nullptr && this->routeConfig_ == nullptr && this->tlsConfig_ == nullptr
-        && this->wafConfig_ == nullptr; };
+        && this->certConfig_ == nullptr && this->corsConfig_ == nullptr && this->domainName_ == nullptr && this->protocol_ == nullptr && this->routeConfig_ == nullptr
+        && this->tlsConfig_ == nullptr && this->wafConfig_ == nullptr; };
     // authConfig Field Functions 
     bool hasAuthConfig() const { return this->authConfig_ != nullptr;};
     void deleteAuthConfig() { this->authConfig_ = nullptr;};
@@ -65,6 +68,15 @@ namespace Models
     inline CertConfig getCertConfig() { DARABONBA_PTR_GET(certConfig_, CertConfig) };
     inline CreateCustomDomainInput& setCertConfig(const CertConfig & certConfig) { DARABONBA_PTR_SET_VALUE(certConfig_, certConfig) };
     inline CreateCustomDomainInput& setCertConfig(CertConfig && certConfig) { DARABONBA_PTR_SET_RVALUE(certConfig_, certConfig) };
+
+
+    // corsConfig Field Functions 
+    bool hasCorsConfig() const { return this->corsConfig_ != nullptr;};
+    void deleteCorsConfig() { this->corsConfig_ = nullptr;};
+    inline const CORSConfig & getCorsConfig() const { DARABONBA_PTR_GET_CONST(corsConfig_, CORSConfig) };
+    inline CORSConfig getCorsConfig() { DARABONBA_PTR_GET(corsConfig_, CORSConfig) };
+    inline CreateCustomDomainInput& setCorsConfig(const CORSConfig & corsConfig) { DARABONBA_PTR_SET_VALUE(corsConfig_, corsConfig) };
+    inline CreateCustomDomainInput& setCorsConfig(CORSConfig && corsConfig) { DARABONBA_PTR_SET_RVALUE(corsConfig_, corsConfig) };
 
 
     // domainName Field Functions 
@@ -111,6 +123,7 @@ namespace Models
   protected:
     shared_ptr<AuthConfig> authConfig_ {};
     shared_ptr<CertConfig> certConfig_ {};
+    shared_ptr<CORSConfig> corsConfig_ {};
     // This parameter is required.
     shared_ptr<string> domainName_ {};
     shared_ptr<string> protocol_ {};

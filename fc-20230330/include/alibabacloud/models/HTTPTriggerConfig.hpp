@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_HTTPTRIGGERCONFIG_HPP_
 #define ALIBABACLOUD_MODELS_HTTPTRIGGERCONFIG_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/CORSConfig.hpp>
 #include <vector>
 using namespace std;
 using json = nlohmann::json;
@@ -16,12 +17,14 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const HTTPTriggerConfig& obj) { 
       DARABONBA_PTR_TO_JSON(authConfig, authConfig_);
       DARABONBA_PTR_TO_JSON(authType, authType_);
+      DARABONBA_PTR_TO_JSON(corsConfig, corsConfig_);
       DARABONBA_PTR_TO_JSON(disableURLInternet, disableURLInternet_);
       DARABONBA_PTR_TO_JSON(methods, methods_);
     };
     friend void from_json(const Darabonba::Json& j, HTTPTriggerConfig& obj) { 
       DARABONBA_PTR_FROM_JSON(authConfig, authConfig_);
       DARABONBA_PTR_FROM_JSON(authType, authType_);
+      DARABONBA_PTR_FROM_JSON(corsConfig, corsConfig_);
       DARABONBA_PTR_FROM_JSON(disableURLInternet, disableURLInternet_);
       DARABONBA_PTR_FROM_JSON(methods, methods_);
     };
@@ -37,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->authConfig_ == nullptr
-        && this->authType_ == nullptr && this->disableURLInternet_ == nullptr && this->methods_ == nullptr; };
+        && this->authType_ == nullptr && this->corsConfig_ == nullptr && this->disableURLInternet_ == nullptr && this->methods_ == nullptr; };
     // authConfig Field Functions 
     bool hasAuthConfig() const { return this->authConfig_ != nullptr;};
     void deleteAuthConfig() { this->authConfig_ = nullptr;};
@@ -50,6 +53,15 @@ namespace Models
     void deleteAuthType() { this->authType_ = nullptr;};
     inline string getAuthType() const { DARABONBA_PTR_GET_DEFAULT(authType_, "") };
     inline HTTPTriggerConfig& setAuthType(string authType) { DARABONBA_PTR_SET_VALUE(authType_, authType) };
+
+
+    // corsConfig Field Functions 
+    bool hasCorsConfig() const { return this->corsConfig_ != nullptr;};
+    void deleteCorsConfig() { this->corsConfig_ = nullptr;};
+    inline const CORSConfig & getCorsConfig() const { DARABONBA_PTR_GET_CONST(corsConfig_, CORSConfig) };
+    inline CORSConfig getCorsConfig() { DARABONBA_PTR_GET(corsConfig_, CORSConfig) };
+    inline HTTPTriggerConfig& setCorsConfig(const CORSConfig & corsConfig) { DARABONBA_PTR_SET_VALUE(corsConfig_, corsConfig) };
+    inline HTTPTriggerConfig& setCorsConfig(CORSConfig && corsConfig) { DARABONBA_PTR_SET_RVALUE(corsConfig_, corsConfig) };
 
 
     // disableURLInternet Field Functions 
@@ -71,6 +83,7 @@ namespace Models
   protected:
     shared_ptr<string> authConfig_ {};
     shared_ptr<string> authType_ {};
+    shared_ptr<CORSConfig> corsConfig_ {};
     shared_ptr<bool> disableURLInternet_ {};
     shared_ptr<vector<string>> methods_ {};
   };

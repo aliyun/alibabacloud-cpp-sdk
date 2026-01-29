@@ -12,6 +12,7 @@
 #include <alibabacloud/models/AuthConfig.hpp>
 #include <alibabacloud/models/BatchWindow.hpp>
 #include <alibabacloud/models/CDNTriggerConfig.hpp>
+#include <alibabacloud/models/CORSConfig.hpp>
 #include <alibabacloud/models/CertConfig.hpp>
 #include <alibabacloud/models/ChangeResourceGroupInput.hpp>
 #include <alibabacloud/models/ChangeResourceGroupOutput.hpp>
