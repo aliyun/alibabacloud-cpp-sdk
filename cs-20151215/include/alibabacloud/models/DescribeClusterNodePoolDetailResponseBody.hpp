@@ -4,6 +4,7 @@
 #include <darabonba/Core.hpp>
 #include <vector>
 #include <alibabacloud/models/DataDisk.hpp>
+#include <alibabacloud/models/DiskInit.hpp>
 #include <alibabacloud/models/InstanceMetadataOptions.hpp>
 #include <alibabacloud/models/InstancePatterns.hpp>
 #include <alibabacloud/models/Tag.hpp>
@@ -312,6 +313,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(data_disks, dataDisks_);
         DARABONBA_PTR_TO_JSON(deploymentset_id, deploymentsetId_);
         DARABONBA_PTR_TO_JSON(desired_size, desiredSize_);
+        DARABONBA_PTR_TO_JSON(disk_init, diskInit_);
         DARABONBA_PTR_TO_JSON(image_id, imageId_);
         DARABONBA_PTR_TO_JSON(image_type, imageType_);
         DARABONBA_PTR_TO_JSON(instance_charge_type, instanceChargeType_);
@@ -365,6 +367,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(data_disks, dataDisks_);
         DARABONBA_PTR_FROM_JSON(deploymentset_id, deploymentsetId_);
         DARABONBA_PTR_FROM_JSON(desired_size, desiredSize_);
+        DARABONBA_PTR_FROM_JSON(disk_init, diskInit_);
         DARABONBA_PTR_FROM_JSON(image_id, imageId_);
         DARABONBA_PTR_FROM_JSON(image_type, imageType_);
         DARABONBA_PTR_FROM_JSON(instance_charge_type, instanceChargeType_);
@@ -561,15 +564,16 @@ namespace Models
 
       virtual bool empty() const override { return this->autoRenew_ == nullptr
         && this->autoRenewPeriod_ == nullptr && this->cisEnabled_ == nullptr && this->compensateWithOnDemand_ == nullptr && this->dataDisks_ == nullptr && this->deploymentsetId_ == nullptr
-        && this->desiredSize_ == nullptr && this->imageId_ == nullptr && this->imageType_ == nullptr && this->instanceChargeType_ == nullptr && this->instanceMetadataOptions_ == nullptr
-        && this->instancePatterns_ == nullptr && this->instanceTypes_ == nullptr && this->internetChargeType_ == nullptr && this->internetMaxBandwidthOut_ == nullptr && this->keyPair_ == nullptr
-        && this->loginAsNonRoot_ == nullptr && this->loginPassword_ == nullptr && this->multiAzPolicy_ == nullptr && this->onDemandBaseCapacity_ == nullptr && this->onDemandPercentageAboveBaseCapacity_ == nullptr
-        && this->period_ == nullptr && this->periodUnit_ == nullptr && this->platform_ == nullptr && this->privatePoolOptions_ == nullptr && this->ramPolicy_ == nullptr
-        && this->ramRoleName_ == nullptr && this->rdsInstances_ == nullptr && this->resourcePoolOptions_ == nullptr && this->scalingGroupId_ == nullptr && this->scalingPolicy_ == nullptr
-        && this->securityGroupId_ == nullptr && this->securityGroupIds_ == nullptr && this->securityHardeningOs_ == nullptr && this->socEnabled_ == nullptr && this->spotInstancePools_ == nullptr
-        && this->spotInstanceRemedy_ == nullptr && this->spotPriceLimit_ == nullptr && this->spotStrategy_ == nullptr && this->systemDiskBurstingEnabled_ == nullptr && this->systemDiskCategories_ == nullptr
-        && this->systemDiskCategory_ == nullptr && this->systemDiskEncryptAlgorithm_ == nullptr && this->systemDiskEncrypted_ == nullptr && this->systemDiskKmsKeyId_ == nullptr && this->systemDiskPerformanceLevel_ == nullptr
-        && this->systemDiskProvisionedIops_ == nullptr && this->systemDiskSize_ == nullptr && this->systemDiskSnapshotPolicyId_ == nullptr && this->tags_ == nullptr && this->vswitchIds_ == nullptr; };
+        && this->desiredSize_ == nullptr && this->diskInit_ == nullptr && this->imageId_ == nullptr && this->imageType_ == nullptr && this->instanceChargeType_ == nullptr
+        && this->instanceMetadataOptions_ == nullptr && this->instancePatterns_ == nullptr && this->instanceTypes_ == nullptr && this->internetChargeType_ == nullptr && this->internetMaxBandwidthOut_ == nullptr
+        && this->keyPair_ == nullptr && this->loginAsNonRoot_ == nullptr && this->loginPassword_ == nullptr && this->multiAzPolicy_ == nullptr && this->onDemandBaseCapacity_ == nullptr
+        && this->onDemandPercentageAboveBaseCapacity_ == nullptr && this->period_ == nullptr && this->periodUnit_ == nullptr && this->platform_ == nullptr && this->privatePoolOptions_ == nullptr
+        && this->ramPolicy_ == nullptr && this->ramRoleName_ == nullptr && this->rdsInstances_ == nullptr && this->resourcePoolOptions_ == nullptr && this->scalingGroupId_ == nullptr
+        && this->scalingPolicy_ == nullptr && this->securityGroupId_ == nullptr && this->securityGroupIds_ == nullptr && this->securityHardeningOs_ == nullptr && this->socEnabled_ == nullptr
+        && this->spotInstancePools_ == nullptr && this->spotInstanceRemedy_ == nullptr && this->spotPriceLimit_ == nullptr && this->spotStrategy_ == nullptr && this->systemDiskBurstingEnabled_ == nullptr
+        && this->systemDiskCategories_ == nullptr && this->systemDiskCategory_ == nullptr && this->systemDiskEncryptAlgorithm_ == nullptr && this->systemDiskEncrypted_ == nullptr && this->systemDiskKmsKeyId_ == nullptr
+        && this->systemDiskPerformanceLevel_ == nullptr && this->systemDiskProvisionedIops_ == nullptr && this->systemDiskSize_ == nullptr && this->systemDiskSnapshotPolicyId_ == nullptr && this->tags_ == nullptr
+        && this->vswitchIds_ == nullptr; };
       // autoRenew Field Functions 
       bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
       void deleteAutoRenew() { this->autoRenew_ = nullptr;};
@@ -619,6 +623,15 @@ namespace Models
       void deleteDesiredSize() { this->desiredSize_ = nullptr;};
       inline int64_t getDesiredSize() const { DARABONBA_PTR_GET_DEFAULT(desiredSize_, 0L) };
       inline ScalingGroup& setDesiredSize(int64_t desiredSize) { DARABONBA_PTR_SET_VALUE(desiredSize_, desiredSize) };
+
+
+      // diskInit Field Functions 
+      bool hasDiskInit() const { return this->diskInit_ != nullptr;};
+      void deleteDiskInit() { this->diskInit_ = nullptr;};
+      inline const vector<DiskInit> & getDiskInit() const { DARABONBA_PTR_GET_CONST(diskInit_, vector<DiskInit>) };
+      inline vector<DiskInit> getDiskInit() { DARABONBA_PTR_GET(diskInit_, vector<DiskInit>) };
+      inline ScalingGroup& setDiskInit(const vector<DiskInit> & diskInit) { DARABONBA_PTR_SET_VALUE(diskInit_, diskInit) };
+      inline ScalingGroup& setDiskInit(vector<DiskInit> && diskInit) { DARABONBA_PTR_SET_RVALUE(diskInit_, diskInit) };
 
 
       // imageId Field Functions 
@@ -974,6 +987,7 @@ namespace Models
       shared_ptr<string> deploymentsetId_ {};
       // The expected number of nodes in the node pool.
       shared_ptr<int64_t> desiredSize_ {};
+      shared_ptr<vector<DiskInit>> diskInit_ {};
       // The ID of the custom image. You can call the `DescribeKubernetesVersionMetadata` operation to query the images supported by ACK.
       shared_ptr<string> imageId_ {};
       // Operating system image type.

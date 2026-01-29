@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_CS20151215MODEL_HPP_
 #define ALIBABACLOUD_CS20151215MODEL_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/DiskInit.hpp>
 #include <alibabacloud/models/Hugepage.hpp>
 #include <alibabacloud/models/InstanceMetadataOptions.hpp>
 #include <alibabacloud/models/Addon.hpp>
