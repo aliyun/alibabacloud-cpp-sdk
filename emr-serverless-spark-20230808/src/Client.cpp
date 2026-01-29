@@ -619,6 +619,75 @@ CreateProcessDefinitionWithScheduleResponse Client::createProcessDefinitionWithS
 }
 
 /**
+ * @summary 创建Ray集群
+ *
+ * @param request CreateRayClusterRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateRayClusterResponse
+ */
+CreateRayClusterResponse Client::createRayClusterWithOptions(const string &workspaceId, const CreateRayClusterRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasDisplayReleaseVersion()) {
+    body["displayReleaseVersion"] = request.getDisplayReleaseVersion();
+  }
+
+  if (!!request.hasExtraParam()) {
+    body["extraParam"] = request.getExtraParam();
+  }
+
+  if (!!request.hasHeadSpec()) {
+    body["headSpec"] = request.getHeadSpec();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  if (!!request.hasNetworkServiceName()) {
+    body["networkServiceName"] = request.getNetworkServiceName();
+  }
+
+  if (!!request.hasWorkerSpec()) {
+    body["workerSpec"] = request.getWorkerSpec();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateRayCluster"},
+    {"version" , "2023-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/rayCluster")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateRayClusterResponse>();
+}
+
+/**
+ * @summary 创建Ray集群
+ *
+ * @param request CreateRayClusterRequest
+ * @return CreateRayClusterResponse
+ */
+CreateRayClusterResponse Client::createRayCluster(const string &workspaceId, const CreateRayClusterRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createRayClusterWithOptions(workspaceId, request, headers, runtime);
+}
+
+/**
  * @summary Creates a session.
  *
  * @param request CreateSessionClusterRequest
@@ -1067,6 +1136,42 @@ DeleteLivyComputeTokenResponse Client::deleteLivyComputeToken(const string &work
 }
 
 /**
+ * @summary 删除Ray集群
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteRayClusterResponse
+ */
+DeleteRayClusterResponse Client::deleteRayClusterWithOptions(const string &workspaceId, const string &clusterId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteRayCluster"},
+    {"version" , "2023-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/rayCluster/" , Darabonba::Encode::Encoder::percentEncode(clusterId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteRayClusterResponse>();
+}
+
+/**
+ * @summary 删除Ray集群
+ *
+ * @return DeleteRayClusterResponse
+ */
+DeleteRayClusterResponse Client::deleteRayCluster(const string &workspaceId, const string &clusterId) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteRayClusterWithOptions(workspaceId, clusterId, headers, runtime);
+}
+
+/**
  * @summary Modifies the queue of a workspace.
  *
  * @param request EditWorkspaceQueueRequest
@@ -1498,6 +1603,42 @@ GetLivyComputeTokenResponse Client::getLivyComputeToken(const string &workspaceB
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getLivyComputeTokenWithOptions(workspaceBizId, livyComputeId, tokenId, request, headers, runtime);
+}
+
+/**
+ * @summary 获取Ray集群
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetRayClusterResponse
+ */
+GetRayClusterResponse Client::getRayClusterWithOptions(const string &workspaceId, const string &clusterId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetRayCluster"},
+    {"version" , "2023-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/rayCluster/" , Darabonba::Encode::Encoder::percentEncode(clusterId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetRayClusterResponse>();
+}
+
+/**
+ * @summary 获取Ray集群
+ *
+ * @return GetRayClusterResponse
+ */
+GetRayClusterResponse Client::getRayCluster(const string &workspaceId, const string &clusterId) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getRayClusterWithOptions(workspaceId, clusterId, headers, runtime);
 }
 
 /**
@@ -2402,6 +2543,55 @@ ListMembersResponse Client::listMembers(const string &workspaceId, const ListMem
 }
 
 /**
+ * @summary 列出Ray集群
+ *
+ * @param request ListRayClusterRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListRayClusterResponse
+ */
+ListRayClusterResponse Client::listRayClusterWithOptions(const string &workspaceId, const ListRayClusterRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPageNum()) {
+    query["pageNum"] = request.getPageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListRayCluster"},
+    {"version" , "2023-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/rayCluster")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListRayClusterResponse>();
+}
+
+/**
+ * @summary 列出Ray集群
+ *
+ * @param request ListRayClusterRequest
+ * @return ListRayClusterResponse
+ */
+ListRayClusterResponse Client::listRayCluster(const string &workspaceId, const ListRayClusterRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listRayClusterWithOptions(workspaceId, request, headers, runtime);
+}
+
+/**
  * @summary Queries the list of published versions of E-MapReduce (EMR) Serverless Spark.
  *
  * @param request ListReleaseVersionsRequest
@@ -3070,6 +3260,51 @@ StartProcessInstanceResponse Client::startProcessInstance(const string &bizId, c
 }
 
 /**
+ * @summary 启动Ray集群
+ *
+ * @param request StartRayClusterRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return StartRayClusterResponse
+ */
+StartRayClusterResponse Client::startRayClusterWithOptions(const string &workspaceId, const string &clusterId, const StartRayClusterRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasClientToken()) {
+    body["clientToken"] = request.getClientToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "StartRayCluster"},
+    {"version" , "2023-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/rayCluster/" , Darabonba::Encode::Encoder::percentEncode(clusterId) , "/start")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<StartRayClusterResponse>();
+}
+
+/**
+ * @summary 启动Ray集群
+ *
+ * @param request StartRayClusterRequest
+ * @return StartRayClusterResponse
+ */
+StartRayClusterResponse Client::startRayCluster(const string &workspaceId, const string &clusterId, const StartRayClusterRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return startRayClusterWithOptions(workspaceId, clusterId, request, headers, runtime);
+}
+
+/**
  * @summary Starts a session.
  *
  * @param request StartSessionClusterRequest
@@ -3203,6 +3438,51 @@ StopLivyComputeResponse Client::stopLivyCompute(const string &workspaceBizId, co
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return stopLivyComputeWithOptions(workspaceBizId, livyComputeId, request, headers, runtime);
+}
+
+/**
+ * @summary 停止Ray集群
+ *
+ * @param request StopRayClusterRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return StopRayClusterResponse
+ */
+StopRayClusterResponse Client::stopRayClusterWithOptions(const string &workspaceId, const string &clusterId, const StopRayClusterRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasInstanceId()) {
+    body["instanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "StopRayCluster"},
+    {"version" , "2023-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/rayCluster/" , Darabonba::Encode::Encoder::percentEncode(clusterId) , "/stop")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<StopRayClusterResponse>();
+}
+
+/**
+ * @summary 停止Ray集群
+ *
+ * @param request StopRayClusterRequest
+ * @return StopRayClusterResponse
+ */
+StopRayClusterResponse Client::stopRayCluster(const string &workspaceId, const string &clusterId, const StopRayClusterRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return stopRayClusterWithOptions(workspaceId, clusterId, request, headers, runtime);
 }
 
 /**
@@ -3689,6 +3969,75 @@ UpdateProcessDefinitionWithScheduleResponse Client::updateProcessDefinitionWithS
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateProcessDefinitionWithScheduleWithOptions(bizId, code, request, headers, runtime);
+}
+
+/**
+ * @summary 更新Ray集群
+ *
+ * @param request UpdateRayClusterRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateRayClusterResponse
+ */
+UpdateRayClusterResponse Client::updateRayClusterWithOptions(const string &workspaceId, const string &clusterId, const UpdateRayClusterRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasDisplayReleaseVersion()) {
+    body["displayReleaseVersion"] = request.getDisplayReleaseVersion();
+  }
+
+  if (!!request.hasExtraParam()) {
+    body["extraParam"] = request.getExtraParam();
+  }
+
+  if (!!request.hasHeadSpec()) {
+    body["headSpec"] = request.getHeadSpec();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  if (!!request.hasNetworkServiceName()) {
+    body["networkServiceName"] = request.getNetworkServiceName();
+  }
+
+  if (!!request.hasWorkerSpec()) {
+    body["workerSpec"] = request.getWorkerSpec();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateRayCluster"},
+    {"version" , "2023-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/rayCluster/" , Darabonba::Encode::Encoder::percentEncode(clusterId))},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateRayClusterResponse>();
+}
+
+/**
+ * @summary 更新Ray集群
+ *
+ * @param request UpdateRayClusterRequest
+ * @return UpdateRayClusterResponse
+ */
+UpdateRayClusterResponse Client::updateRayCluster(const string &workspaceId, const string &clusterId, const UpdateRayClusterRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateRayClusterWithOptions(workspaceId, clusterId, request, headers, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace EmrServerlessSpark20230808

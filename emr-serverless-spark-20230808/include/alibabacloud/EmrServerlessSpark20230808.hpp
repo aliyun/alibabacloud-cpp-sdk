@@ -165,6 +165,24 @@ namespace EmrServerlessSpark20230808
       Models::CreateProcessDefinitionWithScheduleResponse createProcessDefinitionWithSchedule(const string &bizId, const Models::CreateProcessDefinitionWithScheduleRequest &request);
 
       /**
+       * @summary 创建Ray集群
+       *
+       * @param request CreateRayClusterRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateRayClusterResponse
+       */
+      Models::CreateRayClusterResponse createRayClusterWithOptions(const string &workspaceId, const Models::CreateRayClusterRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建Ray集群
+       *
+       * @param request CreateRayClusterRequest
+       * @return CreateRayClusterResponse
+       */
+      Models::CreateRayClusterResponse createRayCluster(const string &workspaceId, const Models::CreateRayClusterRequest &request);
+
+      /**
        * @summary Creates a session.
        *
        * @param request CreateSessionClusterRequest
@@ -287,6 +305,22 @@ namespace EmrServerlessSpark20230808
        * @return DeleteLivyComputeTokenResponse
        */
       Models::DeleteLivyComputeTokenResponse deleteLivyComputeToken(const string &workspaceBizId, const string &livyComputeId, const string &tokenId, const Models::DeleteLivyComputeTokenRequest &request);
+
+      /**
+       * @summary 删除Ray集群
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteRayClusterResponse
+       */
+      Models::DeleteRayClusterResponse deleteRayClusterWithOptions(const string &workspaceId, const string &clusterId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除Ray集群
+       *
+       * @return DeleteRayClusterResponse
+       */
+      Models::DeleteRayClusterResponse deleteRayCluster(const string &workspaceId, const string &clusterId);
 
       /**
        * @summary Modifies the queue of a workspace.
@@ -447,6 +481,22 @@ namespace EmrServerlessSpark20230808
        * @return GetLivyComputeTokenResponse
        */
       Models::GetLivyComputeTokenResponse getLivyComputeToken(const string &workspaceBizId, const string &livyComputeId, const string &tokenId, const Models::GetLivyComputeTokenRequest &request);
+
+      /**
+       * @summary 获取Ray集群
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetRayClusterResponse
+       */
+      Models::GetRayClusterResponse getRayClusterWithOptions(const string &workspaceId, const string &clusterId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取Ray集群
+       *
+       * @return GetRayClusterResponse
+       */
+      Models::GetRayClusterResponse getRayCluster(const string &workspaceId, const string &clusterId);
 
       /**
        * @summary 获取任务配置
@@ -735,6 +785,24 @@ namespace EmrServerlessSpark20230808
       Models::ListMembersResponse listMembers(const string &workspaceId, const Models::ListMembersRequest &request);
 
       /**
+       * @summary 列出Ray集群
+       *
+       * @param request ListRayClusterRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListRayClusterResponse
+       */
+      Models::ListRayClusterResponse listRayClusterWithOptions(const string &workspaceId, const Models::ListRayClusterRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 列出Ray集群
+       *
+       * @param request ListRayClusterRequest
+       * @return ListRayClusterResponse
+       */
+      Models::ListRayClusterResponse listRayCluster(const string &workspaceId, const Models::ListRayClusterRequest &request);
+
+      /**
        * @summary Queries the list of published versions of E-MapReduce (EMR) Serverless Spark.
        *
        * @param request ListReleaseVersionsRequest
@@ -931,6 +999,24 @@ namespace EmrServerlessSpark20230808
       Models::StartProcessInstanceResponse startProcessInstance(const string &bizId, const Models::StartProcessInstanceRequest &request);
 
       /**
+       * @summary 启动Ray集群
+       *
+       * @param request StartRayClusterRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return StartRayClusterResponse
+       */
+      Models::StartRayClusterResponse startRayClusterWithOptions(const string &workspaceId, const string &clusterId, const Models::StartRayClusterRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 启动Ray集群
+       *
+       * @param request StartRayClusterRequest
+       * @return StartRayClusterResponse
+       */
+      Models::StartRayClusterResponse startRayCluster(const string &workspaceId, const string &clusterId, const Models::StartRayClusterRequest &request);
+
+      /**
        * @summary Starts a session.
        *
        * @param request StartSessionClusterRequest
@@ -981,6 +1067,24 @@ namespace EmrServerlessSpark20230808
        * @return StopLivyComputeResponse
        */
       Models::StopLivyComputeResponse stopLivyCompute(const string &workspaceBizId, const string &livyComputeId, const Models::StopLivyComputeRequest &request);
+
+      /**
+       * @summary 停止Ray集群
+       *
+       * @param request StopRayClusterRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return StopRayClusterResponse
+       */
+      Models::StopRayClusterResponse stopRayClusterWithOptions(const string &workspaceId, const string &clusterId, const Models::StopRayClusterRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 停止Ray集群
+       *
+       * @param request StopRayClusterRequest
+       * @return StopRayClusterResponse
+       */
+      Models::StopRayClusterResponse stopRayCluster(const string &workspaceId, const string &clusterId, const Models::StopRayClusterRequest &request);
 
       /**
        * @summary Stops a session.
@@ -1089,6 +1193,24 @@ namespace EmrServerlessSpark20230808
        * @return UpdateProcessDefinitionWithScheduleResponse
        */
       Models::UpdateProcessDefinitionWithScheduleResponse updateProcessDefinitionWithSchedule(const string &bizId, const string &code, const Models::UpdateProcessDefinitionWithScheduleRequest &request);
+
+      /**
+       * @summary 更新Ray集群
+       *
+       * @param request UpdateRayClusterRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateRayClusterResponse
+       */
+      Models::UpdateRayClusterResponse updateRayClusterWithOptions(const string &workspaceId, const string &clusterId, const Models::UpdateRayClusterRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新Ray集群
+       *
+       * @param request UpdateRayClusterRequest
+       * @return UpdateRayClusterResponse
+       */
+      Models::UpdateRayClusterResponse updateRayCluster(const string &workspaceId, const string &clusterId, const Models::UpdateRayClusterRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace EmrServerlessSpark20230808
