@@ -2999,6 +2999,23 @@ namespace Cams20200606
        * @return UpdateWabaMmlStatusResponse
        */
       Models::UpdateWabaMmlStatusResponse updateWabaMmlStatus(const Models::UpdateWabaMmlStatusRequest &request);
+
+      /**
+       * @summary Whatsapp 语音电话
+       *
+       * @param tmpReq WhatsappCallRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return WhatsappCallResponse
+       */
+      Models::WhatsappCallResponse whatsappCallWithOptions(const Models::WhatsappCallRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Whatsapp 语音电话
+       *
+       * @param request WhatsappCallRequest
+       * @return WhatsappCallResponse
+       */
+      Models::WhatsappCallResponse whatsappCall(const Models::WhatsappCallRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace Cams20200606

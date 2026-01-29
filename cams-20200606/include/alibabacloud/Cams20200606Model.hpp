@@ -173,9 +173,9 @@
 #include <alibabacloud/models/DeprecateFlowRequest.hpp>
 #include <alibabacloud/models/DeprecateFlowResponseBody.hpp>
 #include <alibabacloud/models/DeprecateFlowResponse.hpp>
-#include <alibabacloud/models/EnableWhatsappRoiMetricRequest.hpp>
-#include <alibabacloud/models/EnableWhatsappRoiMetricResponseBody.hpp>
-#include <alibabacloud/models/EnableWhatsappRoiMetricResponse.hpp>
+#include <alibabacloud/models/EnableWhatsappROIMetricRequest.hpp>
+#include <alibabacloud/models/EnableWhatsappROIMetricResponseBody.hpp>
+#include <alibabacloud/models/EnableWhatsappROIMetricResponse.hpp>
 #include <alibabacloud/models/FlowBindPhoneRequest.hpp>
 #include <alibabacloud/models/FlowBindPhoneShrinkRequest.hpp>
 #include <alibabacloud/models/FlowBindPhoneResponseBody.hpp>
@@ -244,9 +244,9 @@
 #include <alibabacloud/models/GetFlowRequest.hpp>
 #include <alibabacloud/models/GetFlowResponseBody.hpp>
 #include <alibabacloud/models/GetFlowResponse.hpp>
-#include <alibabacloud/models/GetFlowJsonAssestRequest.hpp>
-#include <alibabacloud/models/GetFlowJsonAssestResponseBody.hpp>
-#include <alibabacloud/models/GetFlowJsonAssestResponse.hpp>
+#include <alibabacloud/models/GetFlowJSONAssestRequest.hpp>
+#include <alibabacloud/models/GetFlowJSONAssestResponseBody.hpp>
+#include <alibabacloud/models/GetFlowJSONAssestResponse.hpp>
 #include <alibabacloud/models/GetFlowPreviewUrlRequest.hpp>
 #include <alibabacloud/models/GetFlowPreviewUrlResponseBody.hpp>
 #include <alibabacloud/models/GetFlowPreviewUrlResponse.hpp>
@@ -434,9 +434,9 @@
 #include <alibabacloud/models/QueryInstanceRequest.hpp>
 #include <alibabacloud/models/QueryInstanceResponseBody.hpp>
 #include <alibabacloud/models/QueryInstanceResponse.hpp>
-#include <alibabacloud/models/QueryMmlActiveRequest.hpp>
-#include <alibabacloud/models/QueryMmlActiveResponseBody.hpp>
-#include <alibabacloud/models/QueryMmlActiveResponse.hpp>
+#include <alibabacloud/models/QueryMMLActiveRequest.hpp>
+#include <alibabacloud/models/QueryMMLActiveResponseBody.hpp>
+#include <alibabacloud/models/QueryMMLActiveResponse.hpp>
 #include <alibabacloud/models/QueryPhoneBusinessProfileRequest.hpp>
 #include <alibabacloud/models/QueryPhoneBusinessProfileResponseBody.hpp>
 #include <alibabacloud/models/QueryPhoneBusinessProfileResponse.hpp>
@@ -513,9 +513,9 @@
 #include <alibabacloud/models/UpdateConversationalAutomationShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateConversationalAutomationResponseBody.hpp>
 #include <alibabacloud/models/UpdateConversationalAutomationResponse.hpp>
-#include <alibabacloud/models/UpdateFlowJsonAssetRequest.hpp>
-#include <alibabacloud/models/UpdateFlowJsonAssetResponseBody.hpp>
-#include <alibabacloud/models/UpdateFlowJsonAssetResponse.hpp>
+#include <alibabacloud/models/UpdateFlowJSONAssetRequest.hpp>
+#include <alibabacloud/models/UpdateFlowJSONAssetResponseBody.hpp>
+#include <alibabacloud/models/UpdateFlowJSONAssetResponse.hpp>
 #include <alibabacloud/models/UpdateFlowVersionRequest.hpp>
 #include <alibabacloud/models/UpdateFlowVersionShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateFlowVersionResponseBody.hpp>
@@ -542,5 +542,9 @@
 #include <alibabacloud/models/UpdateWabaMmlStatusRequest.hpp>
 #include <alibabacloud/models/UpdateWabaMmlStatusResponseBody.hpp>
 #include <alibabacloud/models/UpdateWabaMmlStatusResponse.hpp>
+#include <alibabacloud/models/WhatsappCallRequest.hpp>
+#include <alibabacloud/models/WhatsappCallShrinkRequest.hpp>
+#include <alibabacloud/models/WhatsappCallResponseBody.hpp>
+#include <alibabacloud/models/WhatsappCallResponse.hpp>
 
 #endif

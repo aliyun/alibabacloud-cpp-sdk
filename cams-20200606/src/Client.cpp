@@ -11420,5 +11420,85 @@ UpdateWabaMmlStatusResponse Client::updateWabaMmlStatus(const UpdateWabaMmlStatu
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateWabaMmlStatusWithOptions(request, runtime);
 }
+
+/**
+ * @summary Whatsapp 语音电话
+ *
+ * @param tmpReq WhatsappCallRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return WhatsappCallResponse
+ */
+WhatsappCallResponse Client::whatsappCallWithOptions(const WhatsappCallRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  WhatsappCallShrinkRequest request = WhatsappCallShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasSession()) {
+    request.setSessionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSession(), "Session", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasBusinessNumber()) {
+    query["BusinessNumber"] = request.getBusinessNumber();
+  }
+
+  if (!!request.hasCallAction()) {
+    query["CallAction"] = request.getCallAction();
+  }
+
+  if (!!request.hasCallId()) {
+    query["CallId"] = request.getCallId();
+  }
+
+  if (!!request.hasCustSpaceId()) {
+    query["CustSpaceId"] = request.getCustSpaceId();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasSessionShrink()) {
+    query["Session"] = request.getSessionShrink();
+  }
+
+  if (!!request.hasUserNumber()) {
+    query["UserNumber"] = request.getUserNumber();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "WhatsappCall"},
+    {"version" , "2020-06-06"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<WhatsappCallResponse>();
+}
+
+/**
+ * @summary Whatsapp 语音电话
+ *
+ * @param request WhatsappCallRequest
+ * @return WhatsappCallResponse
+ */
+WhatsappCallResponse Client::whatsappCall(const WhatsappCallRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return whatsappCallWithOptions(request, runtime);
+}
 } // namespace AlibabaCloud
 } // namespace Cams20200606
