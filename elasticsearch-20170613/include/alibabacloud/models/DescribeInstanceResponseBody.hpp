@@ -59,6 +59,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(haveClientNode, haveClientNode_);
         DARABONBA_PTR_TO_JSON(haveKibana, haveKibana_);
         DARABONBA_PTR_TO_JSON(ikHotDicts, ikHotDicts_);
+        DARABONBA_PTR_TO_JSON(inited, inited_);
         DARABONBA_PTR_TO_JSON(instanceCategory, instanceCategory_);
         DARABONBA_PTR_TO_JSON(instanceId, instanceId_);
         DARABONBA_PTR_TO_JSON(isNewDeployment, isNewDeployment_);
@@ -118,6 +119,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(haveClientNode, haveClientNode_);
         DARABONBA_PTR_FROM_JSON(haveKibana, haveKibana_);
         DARABONBA_PTR_FROM_JSON(ikHotDicts, ikHotDicts_);
+        DARABONBA_PTR_FROM_JSON(inited, inited_);
         DARABONBA_PTR_FROM_JSON(instanceCategory, instanceCategory_);
         DARABONBA_PTR_FROM_JSON(instanceId, instanceId_);
         DARABONBA_PTR_FROM_JSON(isNewDeployment, isNewDeployment_);
@@ -1163,14 +1165,14 @@ namespace Models
         && this->dedicateMaster_ == nullptr && this->description_ == nullptr && this->dictList_ == nullptr && this->domain_ == nullptr && this->elasticDataNodeConfiguration_ == nullptr
         && this->enableKibanaPrivateNetwork_ == nullptr && this->enableKibanaPublicNetwork_ == nullptr && this->enablePublic_ == nullptr && this->endTime_ == nullptr && this->endpoints_ == nullptr
         && this->esConfig_ == nullptr && this->esIPBlacklist_ == nullptr && this->esIPWhitelist_ == nullptr && this->esVersion_ == nullptr && this->extendConfigs_ == nullptr
-        && this->haveClientNode_ == nullptr && this->haveKibana_ == nullptr && this->ikHotDicts_ == nullptr && this->instanceCategory_ == nullptr && this->instanceId_ == nullptr
-        && this->isNewDeployment_ == nullptr && this->kibanaConfiguration_ == nullptr && this->kibanaDomain_ == nullptr && this->kibanaIPWhitelist_ == nullptr && this->kibanaPort_ == nullptr
-        && this->kibanaPrivateDomain_ == nullptr && this->kibanaPrivateIPWhitelist_ == nullptr && this->kibanaPrivatePort_ == nullptr && this->masterConfiguration_ == nullptr && this->networkConfig_ == nullptr
-        && this->nodeAmount_ == nullptr && this->nodeSpec_ == nullptr && this->paymentType_ == nullptr && this->port_ == nullptr && this->postpaidServiceStatus_ == nullptr
-        && this->privateNetworkIpWhiteList_ == nullptr && this->protocol_ == nullptr && this->publicDomain_ == nullptr && this->publicIpWhitelist_ == nullptr && this->publicPort_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->serviceVpc_ == nullptr && this->status_ == nullptr && this->synonymsDicts_ == nullptr && this->tags_ == nullptr
-        && this->updatedAt_ == nullptr && this->vpcInstanceId_ == nullptr && this->warmNode_ == nullptr && this->warmNodeConfiguration_ == nullptr && this->zoneCount_ == nullptr
-        && this->zoneInfos_ == nullptr; };
+        && this->haveClientNode_ == nullptr && this->haveKibana_ == nullptr && this->ikHotDicts_ == nullptr && this->inited_ == nullptr && this->instanceCategory_ == nullptr
+        && this->instanceId_ == nullptr && this->isNewDeployment_ == nullptr && this->kibanaConfiguration_ == nullptr && this->kibanaDomain_ == nullptr && this->kibanaIPWhitelist_ == nullptr
+        && this->kibanaPort_ == nullptr && this->kibanaPrivateDomain_ == nullptr && this->kibanaPrivateIPWhitelist_ == nullptr && this->kibanaPrivatePort_ == nullptr && this->masterConfiguration_ == nullptr
+        && this->networkConfig_ == nullptr && this->nodeAmount_ == nullptr && this->nodeSpec_ == nullptr && this->paymentType_ == nullptr && this->port_ == nullptr
+        && this->postpaidServiceStatus_ == nullptr && this->privateNetworkIpWhiteList_ == nullptr && this->protocol_ == nullptr && this->publicDomain_ == nullptr && this->publicIpWhitelist_ == nullptr
+        && this->publicPort_ == nullptr && this->resourceGroupId_ == nullptr && this->serviceVpc_ == nullptr && this->status_ == nullptr && this->synonymsDicts_ == nullptr
+        && this->tags_ == nullptr && this->updatedAt_ == nullptr && this->vpcInstanceId_ == nullptr && this->warmNode_ == nullptr && this->warmNodeConfiguration_ == nullptr
+        && this->zoneCount_ == nullptr && this->zoneInfos_ == nullptr; };
       // advancedDedicateMaster Field Functions 
       bool hasAdvancedDedicateMaster() const { return this->advancedDedicateMaster_ != nullptr;};
       void deleteAdvancedDedicateMaster() { this->advancedDedicateMaster_ = nullptr;};
@@ -1359,6 +1361,13 @@ namespace Models
       inline vector<Result::IkHotDicts> getIkHotDicts() { DARABONBA_PTR_GET(ikHotDicts_, vector<Result::IkHotDicts>) };
       inline Result& setIkHotDicts(const vector<Result::IkHotDicts> & ikHotDicts) { DARABONBA_PTR_SET_VALUE(ikHotDicts_, ikHotDicts) };
       inline Result& setIkHotDicts(vector<Result::IkHotDicts> && ikHotDicts) { DARABONBA_PTR_SET_RVALUE(ikHotDicts_, ikHotDicts) };
+
+
+      // inited Field Functions 
+      bool hasInited() const { return this->inited_ != nullptr;};
+      void deleteInited() { this->inited_ = nullptr;};
+      inline bool getInited() const { DARABONBA_PTR_GET_DEFAULT(inited_, false) };
+      inline Result& setInited(bool inited) { DARABONBA_PTR_SET_VALUE(inited_, inited) };
 
 
       // instanceCategory Field Functions 
@@ -1641,6 +1650,7 @@ namespace Models
       shared_ptr<bool> haveClientNode_ {};
       shared_ptr<bool> haveKibana_ {};
       shared_ptr<vector<Result::IkHotDicts>> ikHotDicts_ {};
+      shared_ptr<bool> inited_ {};
       shared_ptr<string> instanceCategory_ {};
       shared_ptr<string> instanceId_ {};
       shared_ptr<bool> isNewDeployment_ {};
