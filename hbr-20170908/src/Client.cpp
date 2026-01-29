@@ -127,6 +127,60 @@ AddContainerClusterResponse Client::addContainerCluster(const AddContainerCluste
 }
 
 /**
+ * @summary 添加跨账号信息
+ *
+ * @param request AddCrossAccountRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddCrossAccountResponse
+ */
+AddCrossAccountResponse Client::addCrossAccountWithOptions(const AddCrossAccountRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAlias()) {
+    query["Alias"] = request.getAlias();
+  }
+
+  if (!!request.hasCrossAccountRoleName()) {
+    query["CrossAccountRoleName"] = request.getCrossAccountRoleName();
+  }
+
+  if (!!request.hasCrossAccountType()) {
+    query["CrossAccountType"] = request.getCrossAccountType();
+  }
+
+  if (!!request.hasCrossAccountUserId()) {
+    query["CrossAccountUserId"] = request.getCrossAccountUserId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AddCrossAccount"},
+    {"version" , "2017-09-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddCrossAccountResponse>();
+}
+
+/**
+ * @summary 添加跨账号信息
+ *
+ * @param request AddCrossAccountRequest
+ * @return AddCrossAccountResponse
+ */
+AddCrossAccountResponse Client::addCrossAccount(const AddCrossAccountRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return addCrossAccountWithOptions(request, runtime);
+}
+
+/**
  * @summary Cancels a backup job.
  *
  * @param request CancelBackupJobRequest
@@ -1846,6 +1900,56 @@ DeleteClientResponse Client::deleteClientWithOptions(const DeleteClientRequest &
 DeleteClientResponse Client::deleteClient(const DeleteClientRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteClientWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除跨账号信息
+ *
+ * @param request DeleteCrossAccountRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteCrossAccountResponse
+ */
+DeleteCrossAccountResponse Client::deleteCrossAccountWithOptions(const DeleteCrossAccountRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCrossAccountRoleName()) {
+    query["CrossAccountRoleName"] = request.getCrossAccountRoleName();
+  }
+
+  if (!!request.hasCrossAccountType()) {
+    query["CrossAccountType"] = request.getCrossAccountType();
+  }
+
+  if (!!request.hasCrossAccountUserId()) {
+    query["CrossAccountUserId"] = request.getCrossAccountUserId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteCrossAccount"},
+    {"version" , "2017-09-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteCrossAccountResponse>();
+}
+
+/**
+ * @summary 删除跨账号信息
+ *
+ * @param request DeleteCrossAccountRequest
+ * @return DeleteCrossAccountResponse
+ */
+DeleteCrossAccountResponse Client::deleteCrossAccount(const DeleteCrossAccountRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteCrossAccountWithOptions(request, runtime);
 }
 
 /**

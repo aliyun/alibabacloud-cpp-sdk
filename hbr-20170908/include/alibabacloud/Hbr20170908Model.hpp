@@ -9,6 +9,9 @@
 #include <alibabacloud/models/AddContainerClusterRequest.hpp>
 #include <alibabacloud/models/AddContainerClusterResponseBody.hpp>
 #include <alibabacloud/models/AddContainerClusterResponse.hpp>
+#include <alibabacloud/models/AddCrossAccountRequest.hpp>
+#include <alibabacloud/models/AddCrossAccountResponseBody.hpp>
+#include <alibabacloud/models/AddCrossAccountResponse.hpp>
 #include <alibabacloud/models/CancelBackupJobRequest.hpp>
 #include <alibabacloud/models/CancelBackupJobResponseBody.hpp>
 #include <alibabacloud/models/CancelBackupJobResponse.hpp>
@@ -82,6 +85,9 @@
 #include <alibabacloud/models/DeleteClientRequest.hpp>
 #include <alibabacloud/models/DeleteClientResponseBody.hpp>
 #include <alibabacloud/models/DeleteClientResponse.hpp>
+#include <alibabacloud/models/DeleteCrossAccountRequest.hpp>
+#include <alibabacloud/models/DeleteCrossAccountResponseBody.hpp>
+#include <alibabacloud/models/DeleteCrossAccountResponse.hpp>
 #include <alibabacloud/models/DeleteHanaBackupPlanRequest.hpp>
 #include <alibabacloud/models/DeleteHanaBackupPlanResponseBody.hpp>
 #include <alibabacloud/models/DeleteHanaBackupPlanResponse.hpp>

@@ -38,6 +38,23 @@ namespace Hbr20170908
       Models::AddContainerClusterResponse addContainerCluster(const Models::AddContainerClusterRequest &request);
 
       /**
+       * @summary 添加跨账号信息
+       *
+       * @param request AddCrossAccountRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddCrossAccountResponse
+       */
+      Models::AddCrossAccountResponse addCrossAccountWithOptions(const Models::AddCrossAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 添加跨账号信息
+       *
+       * @param request AddCrossAccountRequest
+       * @return AddCrossAccountResponse
+       */
+      Models::AddCrossAccountResponse addCrossAccount(const Models::AddCrossAccountRequest &request);
+
+      /**
        * @summary Cancels a backup job.
        *
        * @param request CancelBackupJobRequest
@@ -516,6 +533,23 @@ namespace Hbr20170908
        * @return DeleteClientResponse
        */
       Models::DeleteClientResponse deleteClient(const Models::DeleteClientRequest &request);
+
+      /**
+       * @summary 删除跨账号信息
+       *
+       * @param request DeleteCrossAccountRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteCrossAccountResponse
+       */
+      Models::DeleteCrossAccountResponse deleteCrossAccountWithOptions(const Models::DeleteCrossAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除跨账号信息
+       *
+       * @param request DeleteCrossAccountRequest
+       * @return DeleteCrossAccountResponse
+       */
+      Models::DeleteCrossAccountResponse deleteCrossAccount(const Models::DeleteCrossAccountRequest &request);
 
       /**
        * @summary Deletes an SAP HANA backup plan.
