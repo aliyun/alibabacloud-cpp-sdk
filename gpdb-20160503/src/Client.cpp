@@ -1736,6 +1736,10 @@ CreateDocumentCollectionResponse Client::createDocumentCollectionWithOptions(con
     request.setRelationshipTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRelationshipTypes(), "RelationshipTypes", "json"));
   }
 
+  if (!!tmpReq.hasSparseVectorIndexConfig()) {
+    request.setSparseVectorIndexConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSparseVectorIndexConfig(), "SparseVectorIndexConfig", "json"));
+  }
+
   json query = {};
   if (!!request.hasCollection()) {
     query["Collection"] = request.getCollection();
@@ -1827,6 +1831,18 @@ CreateDocumentCollectionResponse Client::createDocumentCollectionWithOptions(con
 
   if (!!request.hasRelationshipTypesShrink()) {
     query["RelationshipTypes"] = request.getRelationshipTypesShrink();
+  }
+
+  if (!!request.hasSparseRetrievalFields()) {
+    query["SparseRetrievalFields"] = request.getSparseRetrievalFields();
+  }
+
+  if (!!request.hasSparseVectorIndexConfigShrink()) {
+    query["SparseVectorIndexConfig"] = request.getSparseVectorIndexConfigShrink();
+  }
+
+  if (!!request.hasSupportSparse()) {
+    query["SupportSparse"] = request.getSupportSparse();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

@@ -37,6 +37,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PqEnable, pqEnable_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(RelationshipTypes, relationshipTypes_);
+      DARABONBA_PTR_TO_JSON(SparseRetrievalFields, sparseRetrievalFields_);
+      DARABONBA_PTR_TO_JSON(SparseVectorIndexConfig, sparseVectorIndexConfig_);
+      DARABONBA_PTR_TO_JSON(SupportSparse, supportSparse_);
     };
     friend void from_json(const Darabonba::Json& j, CreateDocumentCollectionRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Collection, collection_);
@@ -62,6 +65,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PqEnable, pqEnable_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(RelationshipTypes, relationshipTypes_);
+      DARABONBA_PTR_FROM_JSON(SparseRetrievalFields, sparseRetrievalFields_);
+      DARABONBA_PTR_FROM_JSON(SparseVectorIndexConfig, sparseVectorIndexConfig_);
+      DARABONBA_PTR_FROM_JSON(SupportSparse, supportSparse_);
     };
     CreateDocumentCollectionRequest() = default ;
     CreateDocumentCollectionRequest(const CreateDocumentCollectionRequest &) = default ;
@@ -74,12 +80,54 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class SparseVectorIndexConfig : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const SparseVectorIndexConfig& obj) { 
+        DARABONBA_PTR_TO_JSON(HnswEfConstruction, hnswEfConstruction_);
+        DARABONBA_PTR_TO_JSON(HnswM, hnswM_);
+      };
+      friend void from_json(const Darabonba::Json& j, SparseVectorIndexConfig& obj) { 
+        DARABONBA_PTR_FROM_JSON(HnswEfConstruction, hnswEfConstruction_);
+        DARABONBA_PTR_FROM_JSON(HnswM, hnswM_);
+      };
+      SparseVectorIndexConfig() = default ;
+      SparseVectorIndexConfig(const SparseVectorIndexConfig &) = default ;
+      SparseVectorIndexConfig(SparseVectorIndexConfig &&) = default ;
+      SparseVectorIndexConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~SparseVectorIndexConfig() = default ;
+      SparseVectorIndexConfig& operator=(const SparseVectorIndexConfig &) = default ;
+      SparseVectorIndexConfig& operator=(SparseVectorIndexConfig &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->hnswEfConstruction_ == nullptr
+        && this->hnswM_ == nullptr; };
+      // hnswEfConstruction Field Functions 
+      bool hasHnswEfConstruction() const { return this->hnswEfConstruction_ != nullptr;};
+      void deleteHnswEfConstruction() { this->hnswEfConstruction_ = nullptr;};
+      inline int32_t getHnswEfConstruction() const { DARABONBA_PTR_GET_DEFAULT(hnswEfConstruction_, 0) };
+      inline SparseVectorIndexConfig& setHnswEfConstruction(int32_t hnswEfConstruction) { DARABONBA_PTR_SET_VALUE(hnswEfConstruction_, hnswEfConstruction) };
+
+
+      // hnswM Field Functions 
+      bool hasHnswM() const { return this->hnswM_ != nullptr;};
+      void deleteHnswM() { this->hnswM_ = nullptr;};
+      inline int32_t getHnswM() const { DARABONBA_PTR_GET_DEFAULT(hnswM_, 0) };
+      inline SparseVectorIndexConfig& setHnswM(int32_t hnswM) { DARABONBA_PTR_SET_VALUE(hnswM_, hnswM) };
+
+
+    protected:
+      shared_ptr<int32_t> hnswEfConstruction_ {};
+      shared_ptr<int32_t> hnswM_ {};
+    };
+
     virtual bool empty() const override { return this->collection_ == nullptr
         && this->DBInstanceId_ == nullptr && this->dimension_ == nullptr && this->embeddingModel_ == nullptr && this->enableGraph_ == nullptr && this->entityTypes_ == nullptr
         && this->externalStorage_ == nullptr && this->fullTextRetrievalFields_ == nullptr && this->hnswEfConstruction_ == nullptr && this->hnswM_ == nullptr && this->LLMModel_ == nullptr
         && this->language_ == nullptr && this->managerAccount_ == nullptr && this->managerAccountPassword_ == nullptr && this->metadata_ == nullptr && this->metadataIndices_ == nullptr
         && this->metrics_ == nullptr && this->namespace_ == nullptr && this->ownerId_ == nullptr && this->parser_ == nullptr && this->pqEnable_ == nullptr
-        && this->regionId_ == nullptr && this->relationshipTypes_ == nullptr; };
+        && this->regionId_ == nullptr && this->relationshipTypes_ == nullptr && this->sparseRetrievalFields_ == nullptr && this->sparseVectorIndexConfig_ == nullptr && this->supportSparse_ == nullptr; };
     // collection Field Functions 
     bool hasCollection() const { return this->collection_ != nullptr;};
     void deleteCollection() { this->collection_ = nullptr;};
@@ -245,6 +293,29 @@ namespace Models
     inline CreateDocumentCollectionRequest& setRelationshipTypes(vector<string> && relationshipTypes) { DARABONBA_PTR_SET_RVALUE(relationshipTypes_, relationshipTypes) };
 
 
+    // sparseRetrievalFields Field Functions 
+    bool hasSparseRetrievalFields() const { return this->sparseRetrievalFields_ != nullptr;};
+    void deleteSparseRetrievalFields() { this->sparseRetrievalFields_ = nullptr;};
+    inline string getSparseRetrievalFields() const { DARABONBA_PTR_GET_DEFAULT(sparseRetrievalFields_, "") };
+    inline CreateDocumentCollectionRequest& setSparseRetrievalFields(string sparseRetrievalFields) { DARABONBA_PTR_SET_VALUE(sparseRetrievalFields_, sparseRetrievalFields) };
+
+
+    // sparseVectorIndexConfig Field Functions 
+    bool hasSparseVectorIndexConfig() const { return this->sparseVectorIndexConfig_ != nullptr;};
+    void deleteSparseVectorIndexConfig() { this->sparseVectorIndexConfig_ = nullptr;};
+    inline const CreateDocumentCollectionRequest::SparseVectorIndexConfig & getSparseVectorIndexConfig() const { DARABONBA_PTR_GET_CONST(sparseVectorIndexConfig_, CreateDocumentCollectionRequest::SparseVectorIndexConfig) };
+    inline CreateDocumentCollectionRequest::SparseVectorIndexConfig getSparseVectorIndexConfig() { DARABONBA_PTR_GET(sparseVectorIndexConfig_, CreateDocumentCollectionRequest::SparseVectorIndexConfig) };
+    inline CreateDocumentCollectionRequest& setSparseVectorIndexConfig(const CreateDocumentCollectionRequest::SparseVectorIndexConfig & sparseVectorIndexConfig) { DARABONBA_PTR_SET_VALUE(sparseVectorIndexConfig_, sparseVectorIndexConfig) };
+    inline CreateDocumentCollectionRequest& setSparseVectorIndexConfig(CreateDocumentCollectionRequest::SparseVectorIndexConfig && sparseVectorIndexConfig) { DARABONBA_PTR_SET_RVALUE(sparseVectorIndexConfig_, sparseVectorIndexConfig) };
+
+
+    // supportSparse Field Functions 
+    bool hasSupportSparse() const { return this->supportSparse_ != nullptr;};
+    void deleteSupportSparse() { this->supportSparse_ = nullptr;};
+    inline bool getSupportSparse() const { DARABONBA_PTR_GET_DEFAULT(supportSparse_, false) };
+    inline CreateDocumentCollectionRequest& setSupportSparse(bool supportSparse) { DARABONBA_PTR_SET_VALUE(supportSparse_, supportSparse) };
+
+
   protected:
     // The name of the document collection that you want to create.
     // 
@@ -362,6 +433,9 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<vector<string>> relationshipTypes_ {};
+    shared_ptr<string> sparseRetrievalFields_ {};
+    shared_ptr<CreateDocumentCollectionRequest::SparseVectorIndexConfig> sparseVectorIndexConfig_ {};
+    shared_ptr<bool> supportSparse_ {};
   };
 
   } // namespace Models

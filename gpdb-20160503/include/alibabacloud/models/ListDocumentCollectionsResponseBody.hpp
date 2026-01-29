@@ -67,6 +67,8 @@ namespace Models
           DARABONBA_PTR_TO_JSON(Metadata, metadata_);
           DARABONBA_PTR_TO_JSON(Metrics, metrics_);
           DARABONBA_PTR_TO_JSON(Parser, parser_);
+          DARABONBA_PTR_TO_JSON(SparseRetrievalFields, sparseRetrievalFields_);
+          DARABONBA_PTR_TO_JSON(SupportSparse, supportSparse_);
         };
         friend void from_json(const Darabonba::Json& j, CollectionList& obj) { 
           DARABONBA_PTR_FROM_JSON(CollectionName, collectionName_);
@@ -76,6 +78,8 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(Metadata, metadata_);
           DARABONBA_PTR_FROM_JSON(Metrics, metrics_);
           DARABONBA_PTR_FROM_JSON(Parser, parser_);
+          DARABONBA_PTR_FROM_JSON(SparseRetrievalFields, sparseRetrievalFields_);
+          DARABONBA_PTR_FROM_JSON(SupportSparse, supportSparse_);
         };
         CollectionList() = default ;
         CollectionList(const CollectionList &) = default ;
@@ -90,7 +94,7 @@ namespace Models
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->collectionName_ == nullptr
         && this->dimension_ == nullptr && this->embeddingModel_ == nullptr && this->fullTextRetrievalFields_ == nullptr && this->metadata_ == nullptr && this->metrics_ == nullptr
-        && this->parser_ == nullptr; };
+        && this->parser_ == nullptr && this->sparseRetrievalFields_ == nullptr && this->supportSparse_ == nullptr; };
         // collectionName Field Functions 
         bool hasCollectionName() const { return this->collectionName_ != nullptr;};
         void deleteCollectionName() { this->collectionName_ = nullptr;};
@@ -140,6 +144,20 @@ namespace Models
         inline CollectionList& setParser(string parser) { DARABONBA_PTR_SET_VALUE(parser_, parser) };
 
 
+        // sparseRetrievalFields Field Functions 
+        bool hasSparseRetrievalFields() const { return this->sparseRetrievalFields_ != nullptr;};
+        void deleteSparseRetrievalFields() { this->sparseRetrievalFields_ = nullptr;};
+        inline string getSparseRetrievalFields() const { DARABONBA_PTR_GET_DEFAULT(sparseRetrievalFields_, "") };
+        inline CollectionList& setSparseRetrievalFields(string sparseRetrievalFields) { DARABONBA_PTR_SET_VALUE(sparseRetrievalFields_, sparseRetrievalFields) };
+
+
+        // supportSparse Field Functions 
+        bool hasSupportSparse() const { return this->supportSparse_ != nullptr;};
+        void deleteSupportSparse() { this->supportSparse_ = nullptr;};
+        inline bool getSupportSparse() const { DARABONBA_PTR_GET_DEFAULT(supportSparse_, false) };
+        inline CollectionList& setSupportSparse(bool supportSparse) { DARABONBA_PTR_SET_VALUE(supportSparse_, supportSparse) };
+
+
       protected:
         // The name of the document collection.
         shared_ptr<string> collectionName_ {};
@@ -155,6 +173,8 @@ namespace Models
         shared_ptr<string> metrics_ {};
         // The analyzer that is used for full-text search.
         shared_ptr<string> parser_ {};
+        shared_ptr<string> sparseRetrievalFields_ {};
+        shared_ptr<bool> supportSparse_ {};
       };
 
       virtual bool empty() const override { return this->collectionList_ == nullptr; };

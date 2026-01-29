@@ -36,6 +36,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PqEnable, pqEnable_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(RelationshipTypes, relationshipTypesShrink_);
+      DARABONBA_PTR_TO_JSON(SparseRetrievalFields, sparseRetrievalFields_);
+      DARABONBA_PTR_TO_JSON(SparseVectorIndexConfig, sparseVectorIndexConfigShrink_);
+      DARABONBA_PTR_TO_JSON(SupportSparse, supportSparse_);
     };
     friend void from_json(const Darabonba::Json& j, CreateDocumentCollectionShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Collection, collection_);
@@ -61,6 +64,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PqEnable, pqEnable_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(RelationshipTypes, relationshipTypesShrink_);
+      DARABONBA_PTR_FROM_JSON(SparseRetrievalFields, sparseRetrievalFields_);
+      DARABONBA_PTR_FROM_JSON(SparseVectorIndexConfig, sparseVectorIndexConfigShrink_);
+      DARABONBA_PTR_FROM_JSON(SupportSparse, supportSparse_);
     };
     CreateDocumentCollectionShrinkRequest() = default ;
     CreateDocumentCollectionShrinkRequest(const CreateDocumentCollectionShrinkRequest &) = default ;
@@ -78,7 +84,7 @@ namespace Models
         && this->externalStorage_ == nullptr && this->fullTextRetrievalFields_ == nullptr && this->hnswEfConstruction_ == nullptr && this->hnswM_ == nullptr && this->LLMModel_ == nullptr
         && this->language_ == nullptr && this->managerAccount_ == nullptr && this->managerAccountPassword_ == nullptr && this->metadata_ == nullptr && this->metadataIndices_ == nullptr
         && this->metrics_ == nullptr && this->namespace_ == nullptr && this->ownerId_ == nullptr && this->parser_ == nullptr && this->pqEnable_ == nullptr
-        && this->regionId_ == nullptr && this->relationshipTypesShrink_ == nullptr; };
+        && this->regionId_ == nullptr && this->relationshipTypesShrink_ == nullptr && this->sparseRetrievalFields_ == nullptr && this->sparseVectorIndexConfigShrink_ == nullptr && this->supportSparse_ == nullptr; };
     // collection Field Functions 
     bool hasCollection() const { return this->collection_ != nullptr;};
     void deleteCollection() { this->collection_ = nullptr;};
@@ -240,6 +246,27 @@ namespace Models
     inline CreateDocumentCollectionShrinkRequest& setRelationshipTypesShrink(string relationshipTypesShrink) { DARABONBA_PTR_SET_VALUE(relationshipTypesShrink_, relationshipTypesShrink) };
 
 
+    // sparseRetrievalFields Field Functions 
+    bool hasSparseRetrievalFields() const { return this->sparseRetrievalFields_ != nullptr;};
+    void deleteSparseRetrievalFields() { this->sparseRetrievalFields_ = nullptr;};
+    inline string getSparseRetrievalFields() const { DARABONBA_PTR_GET_DEFAULT(sparseRetrievalFields_, "") };
+    inline CreateDocumentCollectionShrinkRequest& setSparseRetrievalFields(string sparseRetrievalFields) { DARABONBA_PTR_SET_VALUE(sparseRetrievalFields_, sparseRetrievalFields) };
+
+
+    // sparseVectorIndexConfigShrink Field Functions 
+    bool hasSparseVectorIndexConfigShrink() const { return this->sparseVectorIndexConfigShrink_ != nullptr;};
+    void deleteSparseVectorIndexConfigShrink() { this->sparseVectorIndexConfigShrink_ = nullptr;};
+    inline string getSparseVectorIndexConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(sparseVectorIndexConfigShrink_, "") };
+    inline CreateDocumentCollectionShrinkRequest& setSparseVectorIndexConfigShrink(string sparseVectorIndexConfigShrink) { DARABONBA_PTR_SET_VALUE(sparseVectorIndexConfigShrink_, sparseVectorIndexConfigShrink) };
+
+
+    // supportSparse Field Functions 
+    bool hasSupportSparse() const { return this->supportSparse_ != nullptr;};
+    void deleteSupportSparse() { this->supportSparse_ = nullptr;};
+    inline bool getSupportSparse() const { DARABONBA_PTR_GET_DEFAULT(supportSparse_, false) };
+    inline CreateDocumentCollectionShrinkRequest& setSupportSparse(bool supportSparse) { DARABONBA_PTR_SET_VALUE(supportSparse_, supportSparse) };
+
+
   protected:
     // The name of the document collection that you want to create.
     // 
@@ -357,6 +384,9 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> relationshipTypesShrink_ {};
+    shared_ptr<string> sparseRetrievalFields_ {};
+    shared_ptr<string> sparseVectorIndexConfigShrink_ {};
+    shared_ptr<bool> supportSparse_ {};
   };
 
   } // namespace Models
