@@ -651,6 +651,10 @@ CreateIndexResponse Client::createIndexWithOptions(const string &WorkspaceId, co
     query["chunkMode"] = request.getChunkMode();
   }
 
+  if (!!request.hasConnectId()) {
+    query["connectId"] = request.getConnectId();
+  }
+
   if (!!request.hasDatabase()) {
     query["database"] = request.getDatabase();
   }
@@ -661,6 +665,10 @@ CreateIndexResponse Client::createIndexWithOptions(const string &WorkspaceId, co
 
   if (!!request.hasEnableHeaders()) {
     query["enableHeaders"] = request.getEnableHeaders();
+  }
+
+  if (!!request.hasKnowledgeScene()) {
+    query["knowledgeScene"] = request.getKnowledgeScene();
   }
 
   if (!!request.hasMetaExtractColumnsShrink()) {

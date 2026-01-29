@@ -35,9 +35,11 @@ namespace Models
       DARABONBA_PTR_TO_JSON(StructureType, structureType_);
       DARABONBA_PTR_TO_JSON(TableIds, tableIds_);
       DARABONBA_PTR_TO_JSON(chunkMode, chunkMode_);
+      DARABONBA_PTR_TO_JSON(connectId, connectId_);
       DARABONBA_PTR_TO_JSON(database, database_);
       DARABONBA_PTR_TO_JSON(datasourceCode, datasourceCode_);
       DARABONBA_PTR_TO_JSON(enableHeaders, enableHeaders_);
+      DARABONBA_PTR_TO_JSON(knowledgeScene, knowledgeScene_);
       DARABONBA_PTR_TO_JSON(metaExtractColumns, metaExtractColumns_);
       DARABONBA_PTR_TO_JSON(pipelineCommercialCu, pipelineCommercialCu_);
       DARABONBA_PTR_TO_JSON(pipelineCommercialType, pipelineCommercialType_);
@@ -66,9 +68,11 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(StructureType, structureType_);
       DARABONBA_PTR_FROM_JSON(TableIds, tableIds_);
       DARABONBA_PTR_FROM_JSON(chunkMode, chunkMode_);
+      DARABONBA_PTR_FROM_JSON(connectId, connectId_);
       DARABONBA_PTR_FROM_JSON(database, database_);
       DARABONBA_PTR_FROM_JSON(datasourceCode, datasourceCode_);
       DARABONBA_PTR_FROM_JSON(enableHeaders, enableHeaders_);
+      DARABONBA_PTR_FROM_JSON(knowledgeScene, knowledgeScene_);
       DARABONBA_PTR_FROM_JSON(metaExtractColumns, metaExtractColumns_);
       DARABONBA_PTR_FROM_JSON(pipelineCommercialCu, pipelineCommercialCu_);
       DARABONBA_PTR_FROM_JSON(pipelineCommercialType, pipelineCommercialType_);
@@ -408,8 +412,8 @@ namespace Models
         && this->documentIds_ == nullptr && this->embeddingModelName_ == nullptr && this->enableRewrite_ == nullptr && this->name_ == nullptr && this->overlapSize_ == nullptr
         && this->rerankMinScore_ == nullptr && this->rerankModelName_ == nullptr && this->separator_ == nullptr && this->sinkInstanceId_ == nullptr && this->sinkRegion_ == nullptr
         && this->sinkType_ == nullptr && this->sourceType_ == nullptr && this->structureType_ == nullptr && this->tableIds_ == nullptr && this->chunkMode_ == nullptr
-        && this->database_ == nullptr && this->datasourceCode_ == nullptr && this->enableHeaders_ == nullptr && this->metaExtractColumns_ == nullptr && this->pipelineCommercialCu_ == nullptr
-        && this->pipelineCommercialType_ == nullptr && this->pipelineRetrieveRateLimitStrategy_ == nullptr && this->table_ == nullptr; };
+        && this->connectId_ == nullptr && this->database_ == nullptr && this->datasourceCode_ == nullptr && this->enableHeaders_ == nullptr && this->knowledgeScene_ == nullptr
+        && this->metaExtractColumns_ == nullptr && this->pipelineCommercialCu_ == nullptr && this->pipelineCommercialType_ == nullptr && this->pipelineRetrieveRateLimitStrategy_ == nullptr && this->table_ == nullptr; };
     // categoryIds Field Functions 
     bool hasCategoryIds() const { return this->categoryIds_ != nullptr;};
     void deleteCategoryIds() { this->categoryIds_ = nullptr;};
@@ -567,6 +571,13 @@ namespace Models
     inline CreateIndexRequest& setChunkMode(string chunkMode) { DARABONBA_PTR_SET_VALUE(chunkMode_, chunkMode) };
 
 
+    // connectId Field Functions 
+    bool hasConnectId() const { return this->connectId_ != nullptr;};
+    void deleteConnectId() { this->connectId_ = nullptr;};
+    inline string getConnectId() const { DARABONBA_PTR_GET_DEFAULT(connectId_, "") };
+    inline CreateIndexRequest& setConnectId(string connectId) { DARABONBA_PTR_SET_VALUE(connectId_, connectId) };
+
+
     // database Field Functions 
     bool hasDatabase() const { return this->database_ != nullptr;};
     void deleteDatabase() { this->database_ = nullptr;};
@@ -586,6 +597,13 @@ namespace Models
     void deleteEnableHeaders() { this->enableHeaders_ = nullptr;};
     inline bool getEnableHeaders() const { DARABONBA_PTR_GET_DEFAULT(enableHeaders_, false) };
     inline CreateIndexRequest& setEnableHeaders(bool enableHeaders) { DARABONBA_PTR_SET_VALUE(enableHeaders_, enableHeaders) };
+
+
+    // knowledgeScene Field Functions 
+    bool hasKnowledgeScene() const { return this->knowledgeScene_ != nullptr;};
+    void deleteKnowledgeScene() { this->knowledgeScene_ = nullptr;};
+    inline string getKnowledgeScene() const { DARABONBA_PTR_GET_DEFAULT(knowledgeScene_, "") };
+    inline CreateIndexRequest& setKnowledgeScene(string knowledgeScene) { DARABONBA_PTR_SET_VALUE(knowledgeScene_, knowledgeScene) };
 
 
     // metaExtractColumns Field Functions 
@@ -717,6 +735,7 @@ namespace Models
     shared_ptr<vector<string>> tableIds_ {};
     // > This parameter is not available. Do not specify this parameter.
     shared_ptr<string> chunkMode_ {};
+    shared_ptr<string> connectId_ {};
     shared_ptr<string> database_ {};
     shared_ptr<string> datasourceCode_ {};
     // Whether to treat the first row of all .xlsx and .xls files as headers and concatenate them into each text chunk. This prevents the models from mistakenly interpreting headers as regular data rows.
@@ -730,6 +749,7 @@ namespace Models
     // 
     // Default value: false.
     shared_ptr<bool> enableHeaders_ {};
+    shared_ptr<string> knowledgeScene_ {};
     // The metadata extraction configurations. Metadata refers to a set of additional attributes associated with unstructured data, which are integrated into text chunks in key-value pairs. For more information, see [Knowledge base](https://help.aliyun.com/document_detail/2807740.html).
     shared_ptr<vector<CreateIndexRequest::MetaExtractColumns>> metaExtractColumns_ {};
     shared_ptr<int32_t> pipelineCommercialCu_ {};
