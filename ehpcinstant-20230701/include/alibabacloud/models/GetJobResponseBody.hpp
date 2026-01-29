@@ -44,6 +44,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(JobId, jobId_);
         DARABONBA_PTR_TO_JSON(JobName, jobName_);
         DARABONBA_PTR_TO_JSON(JobScheduler, jobScheduler_);
+        DARABONBA_PTR_TO_JSON(SecurityPolicy, securityPolicy_);
         DARABONBA_PTR_TO_JSON(StartTime, startTime_);
         DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(Tasks, tasks_);
@@ -58,6 +59,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(JobId, jobId_);
         DARABONBA_PTR_FROM_JSON(JobName, jobName_);
         DARABONBA_PTR_FROM_JSON(JobScheduler, jobScheduler_);
+        DARABONBA_PTR_FROM_JSON(SecurityPolicy, securityPolicy_);
         DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(Tasks, tasks_);
@@ -106,11 +108,13 @@ namespace Models
             DARABONBA_PTR_TO_JSON(Resource, resource_);
             DARABONBA_PTR_TO_JSON(RetryPolicy, retryPolicy_);
             DARABONBA_PTR_TO_JSON(TaskExecutor, taskExecutor_);
+            DARABONBA_PTR_TO_JSON(VolumeMount, volumeMount_);
           };
           friend void from_json(const Darabonba::Json& j, TaskSpec& obj) { 
             DARABONBA_PTR_FROM_JSON(Resource, resource_);
             DARABONBA_PTR_FROM_JSON(RetryPolicy, retryPolicy_);
             DARABONBA_PTR_FROM_JSON(TaskExecutor, taskExecutor_);
+            DARABONBA_PTR_FROM_JSON(VolumeMount, volumeMount_);
           };
           TaskSpec() = default ;
           TaskSpec(const TaskSpec &) = default ;
@@ -123,6 +127,58 @@ namespace Models
           };
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          class VolumeMount : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const VolumeMount& obj) { 
+              DARABONBA_PTR_TO_JSON(MountOptions, mountOptions_);
+              DARABONBA_PTR_TO_JSON(MountPath, mountPath_);
+              DARABONBA_PTR_TO_JSON(VolumeDriver, volumeDriver_);
+            };
+            friend void from_json(const Darabonba::Json& j, VolumeMount& obj) { 
+              DARABONBA_PTR_FROM_JSON(MountOptions, mountOptions_);
+              DARABONBA_PTR_FROM_JSON(MountPath, mountPath_);
+              DARABONBA_PTR_FROM_JSON(VolumeDriver, volumeDriver_);
+            };
+            VolumeMount() = default ;
+            VolumeMount(const VolumeMount &) = default ;
+            VolumeMount(VolumeMount &&) = default ;
+            VolumeMount(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~VolumeMount() = default ;
+            VolumeMount& operator=(const VolumeMount &) = default ;
+            VolumeMount& operator=(VolumeMount &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->mountOptions_ == nullptr
+        && this->mountPath_ == nullptr && this->volumeDriver_ == nullptr; };
+            // mountOptions Field Functions 
+            bool hasMountOptions() const { return this->mountOptions_ != nullptr;};
+            void deleteMountOptions() { this->mountOptions_ = nullptr;};
+            inline string getMountOptions() const { DARABONBA_PTR_GET_DEFAULT(mountOptions_, "") };
+            inline VolumeMount& setMountOptions(string mountOptions) { DARABONBA_PTR_SET_VALUE(mountOptions_, mountOptions) };
+
+
+            // mountPath Field Functions 
+            bool hasMountPath() const { return this->mountPath_ != nullptr;};
+            void deleteMountPath() { this->mountPath_ = nullptr;};
+            inline string getMountPath() const { DARABONBA_PTR_GET_DEFAULT(mountPath_, "") };
+            inline VolumeMount& setMountPath(string mountPath) { DARABONBA_PTR_SET_VALUE(mountPath_, mountPath) };
+
+
+            // volumeDriver Field Functions 
+            bool hasVolumeDriver() const { return this->volumeDriver_ != nullptr;};
+            void deleteVolumeDriver() { this->volumeDriver_ = nullptr;};
+            inline string getVolumeDriver() const { DARABONBA_PTR_GET_DEFAULT(volumeDriver_, "") };
+            inline VolumeMount& setVolumeDriver(string volumeDriver) { DARABONBA_PTR_SET_VALUE(volumeDriver_, volumeDriver) };
+
+
+          protected:
+            shared_ptr<string> mountOptions_ {};
+            shared_ptr<string> mountPath_ {};
+            shared_ptr<string> volumeDriver_ {};
+          };
+
           class TaskExecutor : public Darabonba::Model {
           public:
             friend void to_json(Darabonba::Json& j, const TaskExecutor& obj) { 
@@ -435,7 +491,7 @@ namespace Models
           };
 
           virtual bool empty() const override { return this->resource_ == nullptr
-        && this->retryPolicy_ == nullptr && this->taskExecutor_ == nullptr; };
+        && this->retryPolicy_ == nullptr && this->taskExecutor_ == nullptr && this->volumeMount_ == nullptr; };
           // resource Field Functions 
           bool hasResource() const { return this->resource_ != nullptr;};
           void deleteResource() { this->resource_ = nullptr;};
@@ -463,12 +519,22 @@ namespace Models
           inline TaskSpec& setTaskExecutor(vector<TaskSpec::TaskExecutor> && taskExecutor) { DARABONBA_PTR_SET_RVALUE(taskExecutor_, taskExecutor) };
 
 
+          // volumeMount Field Functions 
+          bool hasVolumeMount() const { return this->volumeMount_ != nullptr;};
+          void deleteVolumeMount() { this->volumeMount_ = nullptr;};
+          inline const vector<TaskSpec::VolumeMount> & getVolumeMount() const { DARABONBA_PTR_GET_CONST(volumeMount_, vector<TaskSpec::VolumeMount>) };
+          inline vector<TaskSpec::VolumeMount> getVolumeMount() { DARABONBA_PTR_GET(volumeMount_, vector<TaskSpec::VolumeMount>) };
+          inline TaskSpec& setVolumeMount(const vector<TaskSpec::VolumeMount> & volumeMount) { DARABONBA_PTR_SET_VALUE(volumeMount_, volumeMount) };
+          inline TaskSpec& setVolumeMount(vector<TaskSpec::VolumeMount> && volumeMount) { DARABONBA_PTR_SET_RVALUE(volumeMount_, volumeMount) };
+
+
         protected:
           // The resource information.
           shared_ptr<TaskSpec::Resource> resource_ {};
           shared_ptr<TaskSpec::RetryPolicy> retryPolicy_ {};
           // The task execution configurations.
           shared_ptr<vector<TaskSpec::TaskExecutor>> taskExecutor_ {};
+          shared_ptr<vector<TaskSpec::VolumeMount>> volumeMount_ {};
         };
 
         class ExecutorStatus : public Darabonba::Model {
@@ -716,6 +782,72 @@ namespace Models
         shared_ptr<Tasks::TaskSpec> taskSpec_ {};
         // Indicate whether the job is a long-running job.
         shared_ptr<bool> taskSustainable_ {};
+      };
+
+      class SecurityPolicy : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const SecurityPolicy& obj) { 
+          DARABONBA_PTR_TO_JSON(SecurityGroup, securityGroup_);
+        };
+        friend void from_json(const Darabonba::Json& j, SecurityPolicy& obj) { 
+          DARABONBA_PTR_FROM_JSON(SecurityGroup, securityGroup_);
+        };
+        SecurityPolicy() = default ;
+        SecurityPolicy(const SecurityPolicy &) = default ;
+        SecurityPolicy(SecurityPolicy &&) = default ;
+        SecurityPolicy(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~SecurityPolicy() = default ;
+        SecurityPolicy& operator=(const SecurityPolicy &) = default ;
+        SecurityPolicy& operator=(SecurityPolicy &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class SecurityGroup : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const SecurityGroup& obj) { 
+            DARABONBA_PTR_TO_JSON(SecurityGroupIds, securityGroupIds_);
+          };
+          friend void from_json(const Darabonba::Json& j, SecurityGroup& obj) { 
+            DARABONBA_PTR_FROM_JSON(SecurityGroupIds, securityGroupIds_);
+          };
+          SecurityGroup() = default ;
+          SecurityGroup(const SecurityGroup &) = default ;
+          SecurityGroup(SecurityGroup &&) = default ;
+          SecurityGroup(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~SecurityGroup() = default ;
+          SecurityGroup& operator=(const SecurityGroup &) = default ;
+          SecurityGroup& operator=(SecurityGroup &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->securityGroupIds_ == nullptr; };
+          // securityGroupIds Field Functions 
+          bool hasSecurityGroupIds() const { return this->securityGroupIds_ != nullptr;};
+          void deleteSecurityGroupIds() { this->securityGroupIds_ = nullptr;};
+          inline const vector<string> & getSecurityGroupIds() const { DARABONBA_PTR_GET_CONST(securityGroupIds_, vector<string>) };
+          inline vector<string> getSecurityGroupIds() { DARABONBA_PTR_GET(securityGroupIds_, vector<string>) };
+          inline SecurityGroup& setSecurityGroupIds(const vector<string> & securityGroupIds) { DARABONBA_PTR_SET_VALUE(securityGroupIds_, securityGroupIds) };
+          inline SecurityGroup& setSecurityGroupIds(vector<string> && securityGroupIds) { DARABONBA_PTR_SET_RVALUE(securityGroupIds_, securityGroupIds) };
+
+
+        protected:
+          shared_ptr<vector<string>> securityGroupIds_ {};
+        };
+
+        virtual bool empty() const override { return this->securityGroup_ == nullptr; };
+        // securityGroup Field Functions 
+        bool hasSecurityGroup() const { return this->securityGroup_ != nullptr;};
+        void deleteSecurityGroup() { this->securityGroup_ = nullptr;};
+        inline const SecurityPolicy::SecurityGroup & getSecurityGroup() const { DARABONBA_PTR_GET_CONST(securityGroup_, SecurityPolicy::SecurityGroup) };
+        inline SecurityPolicy::SecurityGroup getSecurityGroup() { DARABONBA_PTR_GET(securityGroup_, SecurityPolicy::SecurityGroup) };
+        inline SecurityPolicy& setSecurityGroup(const SecurityPolicy::SecurityGroup & securityGroup) { DARABONBA_PTR_SET_VALUE(securityGroup_, securityGroup) };
+        inline SecurityPolicy& setSecurityGroup(SecurityPolicy::SecurityGroup && securityGroup) { DARABONBA_PTR_SET_RVALUE(securityGroup_, securityGroup) };
+
+
+      protected:
+        shared_ptr<SecurityPolicy::SecurityGroup> securityGroup_ {};
       };
 
       class DeploymentPolicy : public Darabonba::Model {
@@ -979,8 +1111,8 @@ namespace Models
 
       virtual bool empty() const override { return this->appExtraInfo_ == nullptr
         && this->createTime_ == nullptr && this->dependencyPolicy_ == nullptr && this->deploymentPolicy_ == nullptr && this->endTime_ == nullptr && this->jobDescription_ == nullptr
-        && this->jobId_ == nullptr && this->jobName_ == nullptr && this->jobScheduler_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr
-        && this->tasks_ == nullptr; };
+        && this->jobId_ == nullptr && this->jobName_ == nullptr && this->jobScheduler_ == nullptr && this->securityPolicy_ == nullptr && this->startTime_ == nullptr
+        && this->status_ == nullptr && this->tasks_ == nullptr; };
       // appExtraInfo Field Functions 
       bool hasAppExtraInfo() const { return this->appExtraInfo_ != nullptr;};
       void deleteAppExtraInfo() { this->appExtraInfo_ = nullptr;};
@@ -1048,6 +1180,15 @@ namespace Models
       inline JobInfo& setJobScheduler(string jobScheduler) { DARABONBA_PTR_SET_VALUE(jobScheduler_, jobScheduler) };
 
 
+      // securityPolicy Field Functions 
+      bool hasSecurityPolicy() const { return this->securityPolicy_ != nullptr;};
+      void deleteSecurityPolicy() { this->securityPolicy_ = nullptr;};
+      inline const JobInfo::SecurityPolicy & getSecurityPolicy() const { DARABONBA_PTR_GET_CONST(securityPolicy_, JobInfo::SecurityPolicy) };
+      inline JobInfo::SecurityPolicy getSecurityPolicy() { DARABONBA_PTR_GET(securityPolicy_, JobInfo::SecurityPolicy) };
+      inline JobInfo& setSecurityPolicy(const JobInfo::SecurityPolicy & securityPolicy) { DARABONBA_PTR_SET_VALUE(securityPolicy_, securityPolicy) };
+      inline JobInfo& setSecurityPolicy(JobInfo::SecurityPolicy && securityPolicy) { DARABONBA_PTR_SET_RVALUE(securityPolicy_, securityPolicy) };
+
+
       // startTime Field Functions 
       bool hasStartTime() const { return this->startTime_ != nullptr;};
       void deleteStartTime() { this->startTime_ = nullptr;};
@@ -1089,6 +1230,7 @@ namespace Models
       shared_ptr<string> jobName_ {};
       // The type of the job scheduler.
       shared_ptr<string> jobScheduler_ {};
+      shared_ptr<JobInfo::SecurityPolicy> securityPolicy_ {};
       // The time when the job started.
       shared_ptr<string> startTime_ {};
       // The job status. Valid values:
