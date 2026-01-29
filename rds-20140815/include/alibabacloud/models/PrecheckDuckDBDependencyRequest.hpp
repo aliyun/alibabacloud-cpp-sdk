@@ -17,12 +17,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
+      DARABONBA_PTR_TO_JSON(TargetMode, targetMode_);
     };
     friend void from_json(const Darabonba::Json& j, PrecheckDuckDBDependencyRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DBInstanceId, DBInstanceId_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
+      DARABONBA_PTR_FROM_JSON(TargetMode, targetMode_);
     };
     PrecheckDuckDBDependencyRequest() = default ;
     PrecheckDuckDBDependencyRequest(const PrecheckDuckDBDependencyRequest &) = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBInstanceId_ == nullptr
-        && this->ownerId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr; };
+        && this->ownerId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->targetMode_ == nullptr; };
     // DBInstanceId Field Functions 
     bool hasDBInstanceId() const { return this->DBInstanceId_ != nullptr;};
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
@@ -65,6 +67,13 @@ namespace Models
     inline PrecheckDuckDBDependencyRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
+    // targetMode Field Functions 
+    bool hasTargetMode() const { return this->targetMode_ != nullptr;};
+    void deleteTargetMode() { this->targetMode_ = nullptr;};
+    inline string getTargetMode() const { DARABONBA_PTR_GET_DEFAULT(targetMode_, "") };
+    inline PrecheckDuckDBDependencyRequest& setTargetMode(string targetMode) { DARABONBA_PTR_SET_VALUE(targetMode_, targetMode) };
+
+
   protected:
     // The primary instance ID.
     // 
@@ -73,6 +82,7 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    shared_ptr<string> targetMode_ {};
   };
 
   } // namespace Models

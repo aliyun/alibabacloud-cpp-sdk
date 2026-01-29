@@ -27591,6 +27591,10 @@ PrecheckDuckDBDependencyResponse Client::precheckDuckDBDependencyWithOptions(con
     query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
+  if (!!request.hasTargetMode()) {
+    query["TargetMode"] = request.getTargetMode();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
