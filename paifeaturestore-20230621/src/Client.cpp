@@ -404,6 +404,10 @@ CreateLLMConfigResponse Client::createLLMConfigWithOptions(const string &Instanc
     body["BatchSize"] = request.getBatchSize();
   }
 
+  if (!!request.hasEmbeddingDimension()) {
+    body["EmbeddingDimension"] = request.getEmbeddingDimension();
+  }
+
   if (!!request.hasMaxTokens()) {
     body["MaxTokens"] = request.getMaxTokens();
   }
@@ -2831,6 +2835,10 @@ UpdateLLMConfigResponse Client::updateLLMConfigWithOptions(const string &Instanc
 
   if (!!request.hasBatchSize()) {
     body["BatchSize"] = request.getBatchSize();
+  }
+
+  if (!!request.hasEmbeddingDimension()) {
+    body["EmbeddingDimension"] = request.getEmbeddingDimension();
   }
 
   if (!!request.hasMaxTokens()) {

@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ApiKey, apiKey_);
       DARABONBA_PTR_TO_JSON(BaseUrl, baseUrl_);
       DARABONBA_PTR_TO_JSON(BatchSize, batchSize_);
+      DARABONBA_PTR_TO_JSON(EmbeddingDimension, embeddingDimension_);
       DARABONBA_PTR_TO_JSON(GmtCreateTime, gmtCreateTime_);
       DARABONBA_PTR_TO_JSON(GmtModifiedTime, gmtModifiedTime_);
       DARABONBA_PTR_TO_JSON(LLMConfigId, LLMConfigId_);
@@ -30,6 +31,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ApiKey, apiKey_);
       DARABONBA_PTR_FROM_JSON(BaseUrl, baseUrl_);
       DARABONBA_PTR_FROM_JSON(BatchSize, batchSize_);
+      DARABONBA_PTR_FROM_JSON(EmbeddingDimension, embeddingDimension_);
       DARABONBA_PTR_FROM_JSON(GmtCreateTime, gmtCreateTime_);
       DARABONBA_PTR_FROM_JSON(GmtModifiedTime, gmtModifiedTime_);
       DARABONBA_PTR_FROM_JSON(LLMConfigId, LLMConfigId_);
@@ -52,9 +54,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apiKey_ == nullptr
-        && this->baseUrl_ == nullptr && this->batchSize_ == nullptr && this->gmtCreateTime_ == nullptr && this->gmtModifiedTime_ == nullptr && this->LLMConfigId_ == nullptr
-        && this->maxTokens_ == nullptr && this->model_ == nullptr && this->name_ == nullptr && this->requestId_ == nullptr && this->rps_ == nullptr
-        && this->workspaceId_ == nullptr; };
+        && this->baseUrl_ == nullptr && this->batchSize_ == nullptr && this->embeddingDimension_ == nullptr && this->gmtCreateTime_ == nullptr && this->gmtModifiedTime_ == nullptr
+        && this->LLMConfigId_ == nullptr && this->maxTokens_ == nullptr && this->model_ == nullptr && this->name_ == nullptr && this->requestId_ == nullptr
+        && this->rps_ == nullptr && this->workspaceId_ == nullptr; };
     // apiKey Field Functions 
     bool hasApiKey() const { return this->apiKey_ != nullptr;};
     void deleteApiKey() { this->apiKey_ = nullptr;};
@@ -74,6 +76,13 @@ namespace Models
     void deleteBatchSize() { this->batchSize_ = nullptr;};
     inline int32_t getBatchSize() const { DARABONBA_PTR_GET_DEFAULT(batchSize_, 0) };
     inline GetLLMConfigResponseBody& setBatchSize(int32_t batchSize) { DARABONBA_PTR_SET_VALUE(batchSize_, batchSize) };
+
+
+    // embeddingDimension Field Functions 
+    bool hasEmbeddingDimension() const { return this->embeddingDimension_ != nullptr;};
+    void deleteEmbeddingDimension() { this->embeddingDimension_ = nullptr;};
+    inline int32_t getEmbeddingDimension() const { DARABONBA_PTR_GET_DEFAULT(embeddingDimension_, 0) };
+    inline GetLLMConfigResponseBody& setEmbeddingDimension(int32_t embeddingDimension) { DARABONBA_PTR_SET_VALUE(embeddingDimension_, embeddingDimension) };
 
 
     // gmtCreateTime Field Functions 
@@ -143,6 +152,7 @@ namespace Models
     shared_ptr<string> apiKey_ {};
     shared_ptr<string> baseUrl_ {};
     shared_ptr<int32_t> batchSize_ {};
+    shared_ptr<int32_t> embeddingDimension_ {};
     shared_ptr<string> gmtCreateTime_ {};
     shared_ptr<string> gmtModifiedTime_ {};
     shared_ptr<string> LLMConfigId_ {};
