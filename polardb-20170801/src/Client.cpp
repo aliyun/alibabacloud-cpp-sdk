@@ -6447,6 +6447,10 @@ DescribeApplicationsResponse Client::describeApplicationsWithOptions(const Descr
     query["RegionId"] = request.getRegionId();
   }
 
+  if (!!request.hasTag()) {
+    query["Tag"] = request.getTag();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
