@@ -415,6 +415,9 @@
 #include <alibabacloud/models/QueryConversationDetailInfoRequest.hpp>
 #include <alibabacloud/models/QueryConversationDetailInfoResponseBody.hpp>
 #include <alibabacloud/models/QueryConversationDetailInfoResponse.hpp>
+#include <alibabacloud/models/QueryConversationDetailInfoNewRequest.hpp>
+#include <alibabacloud/models/QueryConversationDetailInfoNewResponseBody.hpp>
+#include <alibabacloud/models/QueryConversationDetailInfoNewResponse.hpp>
 #include <alibabacloud/models/QueryHotlineInQueueRequest.hpp>
 #include <alibabacloud/models/QueryHotlineInQueueResponseBody.hpp>
 #include <alibabacloud/models/QueryHotlineInQueueResponse.hpp>

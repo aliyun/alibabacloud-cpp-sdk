@@ -7094,6 +7094,72 @@ QueryConversationDetailInfoResponse Client::queryConversationDetailInfo(const Qu
 }
 
 /**
+ * @summary 查询通话记录接口-新
+ *
+ * @param request QueryConversationDetailInfoNewRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryConversationDetailInfoNewResponse
+ */
+QueryConversationDetailInfoNewResponse Client::queryConversationDetailInfoNewWithOptions(const QueryConversationDetailInfoNewRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCallId()) {
+    query["CallId"] = request.getCallId();
+  }
+
+  if (!!request.hasDetailId()) {
+    query["DetailId"] = request.getDetailId();
+  }
+
+  if (!!request.hasOutId()) {
+    query["OutId"] = request.getOutId();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasTaskId()) {
+    query["TaskId"] = request.getTaskId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryConversationDetailInfoNew"},
+    {"version" , "2019-10-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryConversationDetailInfoNewResponse>();
+}
+
+/**
+ * @summary 查询通话记录接口-新
+ *
+ * @param request QueryConversationDetailInfoNewRequest
+ * @return QueryConversationDetailInfoNewResponse
+ */
+QueryConversationDetailInfoNewResponse Client::queryConversationDetailInfoNew(const QueryConversationDetailInfoNewRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryConversationDetailInfoNewWithOptions(request, runtime);
+}
+
+/**
  * @param request QueryHotlineInQueueRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryHotlineInQueueResponse

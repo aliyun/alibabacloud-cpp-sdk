@@ -1994,6 +1994,23 @@ namespace Aiccs20191015
       Models::QueryConversationDetailInfoResponse queryConversationDetailInfo(const Models::QueryConversationDetailInfoRequest &request);
 
       /**
+       * @summary 查询通话记录接口-新
+       *
+       * @param request QueryConversationDetailInfoNewRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryConversationDetailInfoNewResponse
+       */
+      Models::QueryConversationDetailInfoNewResponse queryConversationDetailInfoNewWithOptions(const Models::QueryConversationDetailInfoNewRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询通话记录接口-新
+       *
+       * @param request QueryConversationDetailInfoNewRequest
+       * @return QueryConversationDetailInfoNewResponse
+       */
+      Models::QueryConversationDetailInfoNewResponse queryConversationDetailInfoNew(const Models::QueryConversationDetailInfoNewRequest &request);
+
+      /**
        * @param request QueryHotlineInQueueRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return QueryHotlineInQueueResponse
