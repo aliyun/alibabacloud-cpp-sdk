@@ -429,22 +429,22 @@ namespace QuanMiaoLightApp20240801
       /**
        * @summary 营销文案写作服务
        *
-       * @param request RunMarketingInformationWritingRequest
+       * @param tmpReq RunMarketingInformationWritingRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunMarketingInformationWritingResponse
        */
-      FutureGenerator<Models::RunMarketingInformationWritingResponse> runMarketingInformationWritingWithSSE(const string &workspaceId, const Models::RunMarketingInformationWritingRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunMarketingInformationWritingResponse> runMarketingInformationWritingWithSSE(const string &workspaceId, const Models::RunMarketingInformationWritingRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 营销文案写作服务
        *
-       * @param request RunMarketingInformationWritingRequest
+       * @param tmpReq RunMarketingInformationWritingRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunMarketingInformationWritingResponse
        */
-      Models::RunMarketingInformationWritingResponse runMarketingInformationWritingWithOptions(const string &workspaceId, const Models::RunMarketingInformationWritingRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::RunMarketingInformationWritingResponse runMarketingInformationWritingWithOptions(const string &workspaceId, const Models::RunMarketingInformationWritingRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 营销文案写作服务

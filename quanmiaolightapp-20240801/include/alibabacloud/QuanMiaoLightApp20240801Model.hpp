@@ -68,6 +68,7 @@
 #include <alibabacloud/models/RunMarketingInformationExtractResponseBody.hpp>
 #include <alibabacloud/models/RunMarketingInformationExtractResponse.hpp>
 #include <alibabacloud/models/RunMarketingInformationWritingRequest.hpp>
+#include <alibabacloud/models/RunMarketingInformationWritingShrinkRequest.hpp>
 #include <alibabacloud/models/RunMarketingInformationWritingResponseBody.hpp>
 #include <alibabacloud/models/RunMarketingInformationWritingResponse.hpp>
 #include <alibabacloud/models/RunNetworkContentAuditRequest.hpp>

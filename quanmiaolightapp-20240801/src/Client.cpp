@@ -1543,13 +1543,19 @@ RunMarketingInformationExtractResponse Client::runMarketingInformationExtract(co
 /**
  * @summary 营销文案写作服务
  *
- * @param request RunMarketingInformationWritingRequest
+ * @param tmpReq RunMarketingInformationWritingRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return RunMarketingInformationWritingResponse
  */
-FutureGenerator<RunMarketingInformationWritingResponse> Client::runMarketingInformationWritingWithSSE(const string &workspaceId, const RunMarketingInformationWritingRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+FutureGenerator<RunMarketingInformationWritingResponse> Client::runMarketingInformationWritingWithSSE(const string &workspaceId, const RunMarketingInformationWritingRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  RunMarketingInformationWritingShrinkRequest request = RunMarketingInformationWritingShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasExtParameters()) {
+    request.setExtParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExtParameters(), "extParameters", "json"));
+  }
+
   json body = {};
   if (!!request.hasApiKey()) {
     body["apiKey"] = request.getApiKey();
@@ -1563,20 +1569,48 @@ FutureGenerator<RunMarketingInformationWritingResponse> Client::runMarketingInfo
     body["customPrompt"] = request.getCustomPrompt();
   }
 
+  if (!!request.hasExtParametersShrink()) {
+    body["extParameters"] = request.getExtParametersShrink();
+  }
+
+  if (!!request.hasGenerateCount()) {
+    body["generateCount"] = request.getGenerateCount();
+  }
+
   if (!!request.hasInputExample()) {
     body["inputExample"] = request.getInputExample();
+  }
+
+  if (!!request.hasKeywords()) {
+    body["keywords"] = request.getKeywords();
+  }
+
+  if (!!request.hasLanguage()) {
+    body["language"] = request.getLanguage();
   }
 
   if (!!request.hasModelId()) {
     body["modelId"] = request.getModelId();
   }
 
+  if (!!request.hasOtherRequirements()) {
+    body["otherRequirements"] = request.getOtherRequirements();
+  }
+
   if (!!request.hasOutputExample()) {
     body["outputExample"] = request.getOutputExample();
   }
 
+  if (!!request.hasPrompt()) {
+    body["prompt"] = request.getPrompt();
+  }
+
   if (!!request.hasSourceMaterial()) {
     body["sourceMaterial"] = request.getSourceMaterial();
+  }
+
+  if (!!request.hasWordCountRange()) {
+    body["wordCountRange"] = request.getWordCountRange();
   }
 
   if (!!request.hasWritingType()) {
@@ -1616,13 +1650,19 @@ return Darabonba::FutureGenerator<json>(__retrun);
 /**
  * @summary 营销文案写作服务
  *
- * @param request RunMarketingInformationWritingRequest
+ * @param tmpReq RunMarketingInformationWritingRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return RunMarketingInformationWritingResponse
  */
-RunMarketingInformationWritingResponse Client::runMarketingInformationWritingWithOptions(const string &workspaceId, const RunMarketingInformationWritingRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+RunMarketingInformationWritingResponse Client::runMarketingInformationWritingWithOptions(const string &workspaceId, const RunMarketingInformationWritingRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  RunMarketingInformationWritingShrinkRequest request = RunMarketingInformationWritingShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasExtParameters()) {
+    request.setExtParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExtParameters(), "extParameters", "json"));
+  }
+
   json body = {};
   if (!!request.hasApiKey()) {
     body["apiKey"] = request.getApiKey();
@@ -1636,20 +1676,48 @@ RunMarketingInformationWritingResponse Client::runMarketingInformationWritingWit
     body["customPrompt"] = request.getCustomPrompt();
   }
 
+  if (!!request.hasExtParametersShrink()) {
+    body["extParameters"] = request.getExtParametersShrink();
+  }
+
+  if (!!request.hasGenerateCount()) {
+    body["generateCount"] = request.getGenerateCount();
+  }
+
   if (!!request.hasInputExample()) {
     body["inputExample"] = request.getInputExample();
+  }
+
+  if (!!request.hasKeywords()) {
+    body["keywords"] = request.getKeywords();
+  }
+
+  if (!!request.hasLanguage()) {
+    body["language"] = request.getLanguage();
   }
 
   if (!!request.hasModelId()) {
     body["modelId"] = request.getModelId();
   }
 
+  if (!!request.hasOtherRequirements()) {
+    body["otherRequirements"] = request.getOtherRequirements();
+  }
+
   if (!!request.hasOutputExample()) {
     body["outputExample"] = request.getOutputExample();
   }
 
+  if (!!request.hasPrompt()) {
+    body["prompt"] = request.getPrompt();
+  }
+
   if (!!request.hasSourceMaterial()) {
     body["sourceMaterial"] = request.getSourceMaterial();
+  }
+
+  if (!!request.hasWordCountRange()) {
+    body["wordCountRange"] = request.getWordCountRange();
   }
 
   if (!!request.hasWritingType()) {
