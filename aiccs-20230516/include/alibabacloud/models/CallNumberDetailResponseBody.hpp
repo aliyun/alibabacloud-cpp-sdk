@@ -44,16 +44,26 @@ namespace Models
     class Model : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Model& obj) { 
+        DARABONBA_PTR_TO_JSON(AiBill, aiBill_);
+        DARABONBA_PTR_TO_JSON(AnswerTransferType, answerTransferType_);
         DARABONBA_PTR_TO_JSON(BatchId, batchId_);
         DARABONBA_PTR_TO_JSON(Bill, bill_);
+        DARABONBA_PTR_TO_JSON(BridgeBill, bridgeBill_);
         DARABONBA_PTR_TO_JSON(CallId, callId_);
         DARABONBA_PTR_TO_JSON(CallType, callType_);
+        DARABONBA_PTR_TO_JSON(ClientUrl, clientUrl_);
+        DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
+        DARABONBA_PTR_TO_JSON(Duration, duration_);
+        DARABONBA_PTR_TO_JSON(GatewayId, gatewayId_);
         DARABONBA_PTR_TO_JSON(Id, id_);
         DARABONBA_PTR_TO_JSON(IntentTag, intentTag_);
         DARABONBA_PTR_TO_JSON(Keywords, keywords_);
         DARABONBA_PTR_TO_JSON(Number, number_);
         DARABONBA_PTR_TO_JSON(NumberMd5, numberMd5_);
+        DARABONBA_PTR_TO_JSON(Params, params_);
         DARABONBA_PTR_TO_JSON(PersonalityTag, personalityTag_);
+        DARABONBA_PTR_TO_JSON(Remark, remark_);
+        DARABONBA_PTR_TO_JSON(Sid, sid_);
         DARABONBA_PTR_TO_JSON(StatusCode, statusCode_);
         DARABONBA_PTR_TO_JSON(Tag, tag_);
         DARABONBA_PTR_TO_JSON(TaskId, taskId_);
@@ -61,16 +71,26 @@ namespace Models
         DARABONBA_PTR_TO_JSON(TransferStatus, transferStatus_);
       };
       friend void from_json(const Darabonba::Json& j, Model& obj) { 
+        DARABONBA_PTR_FROM_JSON(AiBill, aiBill_);
+        DARABONBA_PTR_FROM_JSON(AnswerTransferType, answerTransferType_);
         DARABONBA_PTR_FROM_JSON(BatchId, batchId_);
         DARABONBA_PTR_FROM_JSON(Bill, bill_);
+        DARABONBA_PTR_FROM_JSON(BridgeBill, bridgeBill_);
         DARABONBA_PTR_FROM_JSON(CallId, callId_);
         DARABONBA_PTR_FROM_JSON(CallType, callType_);
+        DARABONBA_PTR_FROM_JSON(ClientUrl, clientUrl_);
+        DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
+        DARABONBA_PTR_FROM_JSON(Duration, duration_);
+        DARABONBA_PTR_FROM_JSON(GatewayId, gatewayId_);
         DARABONBA_PTR_FROM_JSON(Id, id_);
         DARABONBA_PTR_FROM_JSON(IntentTag, intentTag_);
         DARABONBA_PTR_FROM_JSON(Keywords, keywords_);
         DARABONBA_PTR_FROM_JSON(Number, number_);
         DARABONBA_PTR_FROM_JSON(NumberMd5, numberMd5_);
+        DARABONBA_PTR_FROM_JSON(Params, params_);
         DARABONBA_PTR_FROM_JSON(PersonalityTag, personalityTag_);
+        DARABONBA_PTR_FROM_JSON(Remark, remark_);
+        DARABONBA_PTR_FROM_JSON(Sid, sid_);
         DARABONBA_PTR_FROM_JSON(StatusCode, statusCode_);
         DARABONBA_PTR_FROM_JSON(Tag, tag_);
         DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
@@ -88,10 +108,26 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->batchId_ == nullptr
-        && this->bill_ == nullptr && this->callId_ == nullptr && this->callType_ == nullptr && this->id_ == nullptr && this->intentTag_ == nullptr
-        && this->keywords_ == nullptr && this->number_ == nullptr && this->numberMd5_ == nullptr && this->personalityTag_ == nullptr && this->statusCode_ == nullptr
+      virtual bool empty() const override { return this->aiBill_ == nullptr
+        && this->answerTransferType_ == nullptr && this->batchId_ == nullptr && this->bill_ == nullptr && this->bridgeBill_ == nullptr && this->callId_ == nullptr
+        && this->callType_ == nullptr && this->clientUrl_ == nullptr && this->createTime_ == nullptr && this->duration_ == nullptr && this->gatewayId_ == nullptr
+        && this->id_ == nullptr && this->intentTag_ == nullptr && this->keywords_ == nullptr && this->number_ == nullptr && this->numberMd5_ == nullptr
+        && this->params_ == nullptr && this->personalityTag_ == nullptr && this->remark_ == nullptr && this->sid_ == nullptr && this->statusCode_ == nullptr
         && this->tag_ == nullptr && this->taskId_ == nullptr && this->templateId_ == nullptr && this->transferStatus_ == nullptr; };
+      // aiBill Field Functions 
+      bool hasAiBill() const { return this->aiBill_ != nullptr;};
+      void deleteAiBill() { this->aiBill_ = nullptr;};
+      inline int64_t getAiBill() const { DARABONBA_PTR_GET_DEFAULT(aiBill_, 0L) };
+      inline Model& setAiBill(int64_t aiBill) { DARABONBA_PTR_SET_VALUE(aiBill_, aiBill) };
+
+
+      // answerTransferType Field Functions 
+      bool hasAnswerTransferType() const { return this->answerTransferType_ != nullptr;};
+      void deleteAnswerTransferType() { this->answerTransferType_ = nullptr;};
+      inline int64_t getAnswerTransferType() const { DARABONBA_PTR_GET_DEFAULT(answerTransferType_, 0L) };
+      inline Model& setAnswerTransferType(int64_t answerTransferType) { DARABONBA_PTR_SET_VALUE(answerTransferType_, answerTransferType) };
+
+
       // batchId Field Functions 
       bool hasBatchId() const { return this->batchId_ != nullptr;};
       void deleteBatchId() { this->batchId_ = nullptr;};
@@ -106,6 +142,13 @@ namespace Models
       inline Model& setBill(int64_t bill) { DARABONBA_PTR_SET_VALUE(bill_, bill) };
 
 
+      // bridgeBill Field Functions 
+      bool hasBridgeBill() const { return this->bridgeBill_ != nullptr;};
+      void deleteBridgeBill() { this->bridgeBill_ = nullptr;};
+      inline int64_t getBridgeBill() const { DARABONBA_PTR_GET_DEFAULT(bridgeBill_, 0L) };
+      inline Model& setBridgeBill(int64_t bridgeBill) { DARABONBA_PTR_SET_VALUE(bridgeBill_, bridgeBill) };
+
+
       // callId Field Functions 
       bool hasCallId() const { return this->callId_ != nullptr;};
       void deleteCallId() { this->callId_ = nullptr;};
@@ -118,6 +161,34 @@ namespace Models
       void deleteCallType() { this->callType_ = nullptr;};
       inline int64_t getCallType() const { DARABONBA_PTR_GET_DEFAULT(callType_, 0L) };
       inline Model& setCallType(int64_t callType) { DARABONBA_PTR_SET_VALUE(callType_, callType) };
+
+
+      // clientUrl Field Functions 
+      bool hasClientUrl() const { return this->clientUrl_ != nullptr;};
+      void deleteClientUrl() { this->clientUrl_ = nullptr;};
+      inline string getClientUrl() const { DARABONBA_PTR_GET_DEFAULT(clientUrl_, "") };
+      inline Model& setClientUrl(string clientUrl) { DARABONBA_PTR_SET_VALUE(clientUrl_, clientUrl) };
+
+
+      // createTime Field Functions 
+      bool hasCreateTime() const { return this->createTime_ != nullptr;};
+      void deleteCreateTime() { this->createTime_ = nullptr;};
+      inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
+      inline Model& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
+
+
+      // duration Field Functions 
+      bool hasDuration() const { return this->duration_ != nullptr;};
+      void deleteDuration() { this->duration_ = nullptr;};
+      inline int64_t getDuration() const { DARABONBA_PTR_GET_DEFAULT(duration_, 0L) };
+      inline Model& setDuration(int64_t duration) { DARABONBA_PTR_SET_VALUE(duration_, duration) };
+
+
+      // gatewayId Field Functions 
+      bool hasGatewayId() const { return this->gatewayId_ != nullptr;};
+      void deleteGatewayId() { this->gatewayId_ = nullptr;};
+      inline int64_t getGatewayId() const { DARABONBA_PTR_GET_DEFAULT(gatewayId_, 0L) };
+      inline Model& setGatewayId(int64_t gatewayId) { DARABONBA_PTR_SET_VALUE(gatewayId_, gatewayId) };
 
 
       // id Field Functions 
@@ -155,11 +226,32 @@ namespace Models
       inline Model& setNumberMd5(string numberMd5) { DARABONBA_PTR_SET_VALUE(numberMd5_, numberMd5) };
 
 
+      // params Field Functions 
+      bool hasParams() const { return this->params_ != nullptr;};
+      void deleteParams() { this->params_ = nullptr;};
+      inline string getParams() const { DARABONBA_PTR_GET_DEFAULT(params_, "") };
+      inline Model& setParams(string params) { DARABONBA_PTR_SET_VALUE(params_, params) };
+
+
       // personalityTag Field Functions 
       bool hasPersonalityTag() const { return this->personalityTag_ != nullptr;};
       void deletePersonalityTag() { this->personalityTag_ = nullptr;};
       inline string getPersonalityTag() const { DARABONBA_PTR_GET_DEFAULT(personalityTag_, "") };
       inline Model& setPersonalityTag(string personalityTag) { DARABONBA_PTR_SET_VALUE(personalityTag_, personalityTag) };
+
+
+      // remark Field Functions 
+      bool hasRemark() const { return this->remark_ != nullptr;};
+      void deleteRemark() { this->remark_ = nullptr;};
+      inline string getRemark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
+      inline Model& setRemark(string remark) { DARABONBA_PTR_SET_VALUE(remark_, remark) };
+
+
+      // sid Field Functions 
+      bool hasSid() const { return this->sid_ != nullptr;};
+      void deleteSid() { this->sid_ = nullptr;};
+      inline int64_t getSid() const { DARABONBA_PTR_GET_DEFAULT(sid_, 0L) };
+      inline Model& setSid(int64_t sid) { DARABONBA_PTR_SET_VALUE(sid_, sid) };
 
 
       // statusCode Field Functions 
@@ -198,14 +290,28 @@ namespace Models
 
 
     protected:
+      // ai计费时长
+      shared_ptr<int64_t> aiBill_ {};
+      // 接通转接类型 1-不转人工；2-接通转人工；3-智能转人工
+      shared_ptr<int64_t> answerTransferType_ {};
       // 导入号码时返回的批次号
       shared_ptr<string> batchId_ {};
       // 通话时长，单位为毫秒，实际计费需向上取整转换为秒
       shared_ptr<int64_t> bill_ {};
+      // 转接计费时长
+      shared_ptr<int64_t> bridgeBill_ {};
       // 每次呼叫的唯一标识
       shared_ptr<string> callId_ {};
       // 可选项 1-AI外呼，6-语音通知
       shared_ptr<int64_t> callType_ {};
+      // 客户详情url
+      shared_ptr<string> clientUrl_ {};
+      // 创建时间 格式 2026-01-01 00:00:00
+      shared_ptr<string> createTime_ {};
+      // 通话轮次
+      shared_ptr<int64_t> duration_ {};
+      // 线路id
+      shared_ptr<int64_t> gatewayId_ {};
       // 号码编号
       shared_ptr<int64_t> id_ {};
       // 意向标签
@@ -216,8 +322,14 @@ namespace Models
       shared_ptr<string> number_ {};
       // 外呼号码MD5
       shared_ptr<string> numberMd5_ {};
+      // 自定义参数 json
+      shared_ptr<string> params_ {};
       // 个性标签
       shared_ptr<string> personalityTag_ {};
+      // 备注信息
+      shared_ptr<string> remark_ {};
+      // 坐席id
+      shared_ptr<int64_t> sid_ {};
       // 外呼状态编码
       shared_ptr<int64_t> statusCode_ {};
       // 用户自定义标签
