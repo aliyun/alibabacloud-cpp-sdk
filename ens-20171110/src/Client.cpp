@@ -6227,6 +6227,10 @@ DescribeClusterUserKubeconfigResponse Client::describeClusterUserKubeconfigWithO
     query["ClusterId"] = request.getClusterId();
   }
 
+  if (!!request.hasPrivateIpAddress()) {
+    query["PrivateIpAddress"] = request.getPrivateIpAddress();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
