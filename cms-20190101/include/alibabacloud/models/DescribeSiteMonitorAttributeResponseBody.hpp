@@ -180,6 +180,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(ip_network, ipNetwork_);
           DARABONBA_PTR_TO_JSON(isBase64Encode, isBase64Encode_);
           DARABONBA_PTR_TO_JSON(match_rule, matchRule_);
+          DARABONBA_PTR_TO_JSON(max_tls_version, maxTlsVersion_);
           DARABONBA_PTR_TO_JSON(min_tls_version, minTlsVersion_);
           DARABONBA_PTR_TO_JSON(password, password_);
           DARABONBA_PTR_TO_JSON(ping_num, pingNum_);
@@ -198,8 +199,10 @@ namespace Models
           DARABONBA_PTR_TO_JSON(safe_link, safeLink_);
           DARABONBA_PTR_TO_JSON(screen_shot, screenShot_);
           DARABONBA_PTR_TO_JSON(scroll_end, scrollEnd_);
+          DARABONBA_PTR_TO_JSON(server_name, serverName_);
           DARABONBA_PTR_TO_JSON(steps, steps_);
           DARABONBA_PTR_TO_JSON(strict_mode, strictMode_);
+          DARABONBA_PTR_TO_JSON(supported_cipher_suits, supportedCipherSuits_);
           DARABONBA_PTR_TO_JSON(time_out, timeOut_);
           DARABONBA_PTR_TO_JSON(trace_region, traceRegion_);
           DARABONBA_PTR_TO_JSON(trace_type, traceType_);
@@ -207,6 +210,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(traffic_hijack_element_count, trafficHijackElementCount_);
           DARABONBA_PTR_TO_JSON(traffic_hijack_element_whitelist, trafficHijackElementWhitelist_);
           DARABONBA_PTR_TO_JSON(use_private_crt, usePrivateCrt_);
+          DARABONBA_PTR_TO_JSON(use_ssl, useSsl_);
           DARABONBA_PTR_TO_JSON(username, username_);
           DARABONBA_PTR_TO_JSON(waitTime_after_completion, waitTimeAfterCompletion_);
         };
@@ -243,6 +247,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(ip_network, ipNetwork_);
           DARABONBA_PTR_FROM_JSON(isBase64Encode, isBase64Encode_);
           DARABONBA_PTR_FROM_JSON(match_rule, matchRule_);
+          DARABONBA_PTR_FROM_JSON(max_tls_version, maxTlsVersion_);
           DARABONBA_PTR_FROM_JSON(min_tls_version, minTlsVersion_);
           DARABONBA_PTR_FROM_JSON(password, password_);
           DARABONBA_PTR_FROM_JSON(ping_num, pingNum_);
@@ -261,8 +266,10 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(safe_link, safeLink_);
           DARABONBA_PTR_FROM_JSON(screen_shot, screenShot_);
           DARABONBA_PTR_FROM_JSON(scroll_end, scrollEnd_);
+          DARABONBA_PTR_FROM_JSON(server_name, serverName_);
           DARABONBA_PTR_FROM_JSON(steps, steps_);
           DARABONBA_PTR_FROM_JSON(strict_mode, strictMode_);
+          DARABONBA_PTR_FROM_JSON(supported_cipher_suits, supportedCipherSuits_);
           DARABONBA_PTR_FROM_JSON(time_out, timeOut_);
           DARABONBA_PTR_FROM_JSON(trace_region, traceRegion_);
           DARABONBA_PTR_FROM_JSON(trace_type, traceType_);
@@ -270,6 +277,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(traffic_hijack_element_count, trafficHijackElementCount_);
           DARABONBA_PTR_FROM_JSON(traffic_hijack_element_whitelist, trafficHijackElementWhitelist_);
           DARABONBA_PTR_FROM_JSON(use_private_crt, usePrivateCrt_);
+          DARABONBA_PTR_FROM_JSON(use_ssl, useSsl_);
           DARABONBA_PTR_FROM_JSON(username, username_);
           DARABONBA_PTR_FROM_JSON(waitTime_after_completion, waitTimeAfterCompletion_);
         };
@@ -1379,12 +1387,13 @@ namespace Models
         && this->dnsType_ == nullptr && this->emptyMessage_ == nullptr && this->enablePacketCapture_ == nullptr && this->expectExistString_ == nullptr && this->expectNonExistString_ == nullptr
         && this->expectValue_ == nullptr && this->failureRate_ == nullptr && this->header_ == nullptr && this->hops_ == nullptr && this->hostBinding_ == nullptr
         && this->hostBindingType_ == nullptr && this->httpMethod_ == nullptr && this->icmpTimeoutMillis_ == nullptr && this->ipNetwork_ == nullptr && this->isBase64Encode_ == nullptr
-        && this->matchRule_ == nullptr && this->minTlsVersion_ == nullptr && this->password_ == nullptr && this->pingNum_ == nullptr && this->pingPort_ == nullptr
-        && this->pingType_ == nullptr && this->port_ == nullptr && this->privateCrtFileName_ == nullptr && this->protocol_ == nullptr && this->quicEnabled_ == nullptr
-        && this->quicTarget_ == nullptr && this->requestContent_ == nullptr && this->requestFormat_ == nullptr && this->responseContent_ == nullptr && this->responseFormat_ == nullptr
-        && this->retryDelay_ == nullptr && this->safeLink_ == nullptr && this->screenShot_ == nullptr && this->scrollEnd_ == nullptr && this->steps_ == nullptr
-        && this->strictMode_ == nullptr && this->timeOut_ == nullptr && this->traceRegion_ == nullptr && this->traceType_ == nullptr && this->trafficHijackElementBlacklist_ == nullptr
-        && this->trafficHijackElementCount_ == nullptr && this->trafficHijackElementWhitelist_ == nullptr && this->usePrivateCrt_ == nullptr && this->username_ == nullptr && this->waitTimeAfterCompletion_ == nullptr; };
+        && this->matchRule_ == nullptr && this->maxTlsVersion_ == nullptr && this->minTlsVersion_ == nullptr && this->password_ == nullptr && this->pingNum_ == nullptr
+        && this->pingPort_ == nullptr && this->pingType_ == nullptr && this->port_ == nullptr && this->privateCrtFileName_ == nullptr && this->protocol_ == nullptr
+        && this->quicEnabled_ == nullptr && this->quicTarget_ == nullptr && this->requestContent_ == nullptr && this->requestFormat_ == nullptr && this->responseContent_ == nullptr
+        && this->responseFormat_ == nullptr && this->retryDelay_ == nullptr && this->safeLink_ == nullptr && this->screenShot_ == nullptr && this->scrollEnd_ == nullptr
+        && this->serverName_ == nullptr && this->steps_ == nullptr && this->strictMode_ == nullptr && this->supportedCipherSuits_ == nullptr && this->timeOut_ == nullptr
+        && this->traceRegion_ == nullptr && this->traceType_ == nullptr && this->trafficHijackElementBlacklist_ == nullptr && this->trafficHijackElementCount_ == nullptr && this->trafficHijackElementWhitelist_ == nullptr
+        && this->usePrivateCrt_ == nullptr && this->useSsl_ == nullptr && this->username_ == nullptr && this->waitTimeAfterCompletion_ == nullptr; };
         // assertions Field Functions 
         bool hasAssertions() const { return this->assertions_ != nullptr;};
         void deleteAssertions() { this->assertions_ = nullptr;};
@@ -1627,6 +1636,13 @@ namespace Models
         inline OptionJson& setMatchRule(int32_t matchRule) { DARABONBA_PTR_SET_VALUE(matchRule_, matchRule) };
 
 
+        // maxTlsVersion Field Functions 
+        bool hasMaxTlsVersion() const { return this->maxTlsVersion_ != nullptr;};
+        void deleteMaxTlsVersion() { this->maxTlsVersion_ = nullptr;};
+        inline string getMaxTlsVersion() const { DARABONBA_PTR_GET_DEFAULT(maxTlsVersion_, "") };
+        inline OptionJson& setMaxTlsVersion(string maxTlsVersion) { DARABONBA_PTR_SET_VALUE(maxTlsVersion_, maxTlsVersion) };
+
+
         // minTlsVersion Field Functions 
         bool hasMinTlsVersion() const { return this->minTlsVersion_ != nullptr;};
         void deleteMinTlsVersion() { this->minTlsVersion_ = nullptr;};
@@ -1755,6 +1771,13 @@ namespace Models
         inline OptionJson& setScrollEnd(bool scrollEnd) { DARABONBA_PTR_SET_VALUE(scrollEnd_, scrollEnd) };
 
 
+        // serverName Field Functions 
+        bool hasServerName() const { return this->serverName_ != nullptr;};
+        void deleteServerName() { this->serverName_ = nullptr;};
+        inline string getServerName() const { DARABONBA_PTR_GET_DEFAULT(serverName_, "") };
+        inline OptionJson& setServerName(string serverName) { DARABONBA_PTR_SET_VALUE(serverName_, serverName) };
+
+
         // steps Field Functions 
         bool hasSteps() const { return this->steps_ != nullptr;};
         void deleteSteps() { this->steps_ = nullptr;};
@@ -1769,6 +1792,13 @@ namespace Models
         void deleteStrictMode() { this->strictMode_ = nullptr;};
         inline bool getStrictMode() const { DARABONBA_PTR_GET_DEFAULT(strictMode_, false) };
         inline OptionJson& setStrictMode(bool strictMode) { DARABONBA_PTR_SET_VALUE(strictMode_, strictMode) };
+
+
+        // supportedCipherSuits Field Functions 
+        bool hasSupportedCipherSuits() const { return this->supportedCipherSuits_ != nullptr;};
+        void deleteSupportedCipherSuits() { this->supportedCipherSuits_ = nullptr;};
+        inline string getSupportedCipherSuits() const { DARABONBA_PTR_GET_DEFAULT(supportedCipherSuits_, "") };
+        inline OptionJson& setSupportedCipherSuits(string supportedCipherSuits) { DARABONBA_PTR_SET_VALUE(supportedCipherSuits_, supportedCipherSuits) };
 
 
         // timeOut Field Functions 
@@ -1822,6 +1852,13 @@ namespace Models
         void deleteUsePrivateCrt() { this->usePrivateCrt_ = nullptr;};
         inline bool getUsePrivateCrt() const { DARABONBA_PTR_GET_DEFAULT(usePrivateCrt_, false) };
         inline OptionJson& setUsePrivateCrt(bool usePrivateCrt) { DARABONBA_PTR_SET_VALUE(usePrivateCrt_, usePrivateCrt) };
+
+
+        // useSsl Field Functions 
+        bool hasUseSsl() const { return this->useSsl_ != nullptr;};
+        void deleteUseSsl() { this->useSsl_ = nullptr;};
+        inline bool getUseSsl() const { DARABONBA_PTR_GET_DEFAULT(useSsl_, false) };
+        inline OptionJson& setUseSsl(bool useSsl) { DARABONBA_PTR_SET_VALUE(useSsl_, useSsl) };
 
 
         // username Field Functions 
@@ -1932,6 +1969,7 @@ namespace Models
         // *   0: The alert rule is included.
         // *   1: The alert rule is excluded.
         shared_ptr<int32_t> matchRule_ {};
+        shared_ptr<string> maxTlsVersion_ {};
         // The minimum TLS version. By default, TLS 1.2 and later versions are supported. TLS 1.0 and 1.1 are disabled. If you still require TLS 1.0 or 1.1, you can change the configuration.
         shared_ptr<string> minTlsVersion_ {};
         // The password of the SMTP, POP3, or FTP protocol.
@@ -1976,9 +2014,11 @@ namespace Models
         shared_ptr<bool> screenShot_ {};
         // Indicates whether to scroll to the bottom of the page after opening the page. This parameter is valid for a browser test task.
         shared_ptr<bool> scrollEnd_ {};
+        shared_ptr<string> serverName_ {};
         shared_ptr<OptionJson::Steps> steps_ {};
         // Indicates whether to allow the loading failures of some page elements. Valid values: false and true.
         shared_ptr<bool> strictMode_ {};
+        shared_ptr<string> supportedCipherSuits_ {};
         // The timeout period. Unit: milliseconds.
         shared_ptr<int64_t> timeOut_ {};
         shared_ptr<string> traceRegion_ {};
@@ -1990,6 +2030,7 @@ namespace Models
         // The traffic hijacking whitelist. When redirection occurs, if the URL of the resource loaded by the browser does not match any expression in the whitelist, traffic hijacking is considered to have occurred.
         shared_ptr<OptionJson::TrafficHijackElementWhitelist> trafficHijackElementWhitelist_ {};
         shared_ptr<bool> usePrivateCrt_ {};
+        shared_ptr<bool> useSsl_ {};
         // The username of the FTP, SMTP, or POP3 protocol.
         shared_ptr<string> username_ {};
         // The additional waiting time after a page is opened in a browser test task.
