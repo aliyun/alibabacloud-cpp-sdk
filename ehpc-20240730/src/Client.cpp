@@ -556,6 +556,72 @@ CreateQueueResponse Client::createQueue(const CreateQueueRequest &request) {
 }
 
 /**
+ * @summary 创建预设节点池
+ *
+ * @param request CreateReservedNodePoolRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateReservedNodePoolResponse
+ */
+CreateReservedNodePoolResponse Client::createReservedNodePoolWithOptions(const CreateReservedNodePoolRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.getClusterId();
+  }
+
+  if (!!request.hasCount()) {
+    query["Count"] = request.getCount();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasHostPostfix()) {
+    query["HostPostfix"] = request.getHostPostfix();
+  }
+
+  if (!!request.hasHostPrefix()) {
+    query["HostPrefix"] = request.getHostPrefix();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasVSwitchId()) {
+    query["VSwitchId"] = request.getVSwitchId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateReservedNodePool"},
+    {"version" , "2024-07-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateReservedNodePoolResponse>();
+}
+
+/**
+ * @summary 创建预设节点池
+ *
+ * @param request CreateReservedNodePoolRequest
+ * @return CreateReservedNodePoolResponse
+ */
+CreateReservedNodePoolResponse Client::createReservedNodePool(const CreateReservedNodePoolRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createReservedNodePoolWithOptions(request, runtime);
+}
+
+/**
  * @summary Adds users to an Elastic High Performance Computing (E-HPC) cluster.
  *
  * @param tmpReq CreateUsersRequest
@@ -771,6 +837,52 @@ DeleteQueuesResponse Client::deleteQueuesWithOptions(const DeleteQueuesRequest &
 DeleteQueuesResponse Client::deleteQueues(const DeleteQueuesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteQueuesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除集群预设节点池
+ *
+ * @param request DeleteReservedNodePoolRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteReservedNodePoolResponse
+ */
+DeleteReservedNodePoolResponse Client::deleteReservedNodePoolWithOptions(const DeleteReservedNodePoolRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.getClusterId();
+  }
+
+  if (!!request.hasId()) {
+    query["Id"] = request.getId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteReservedNodePool"},
+    {"version" , "2024-07-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteReservedNodePoolResponse>();
+}
+
+/**
+ * @summary 删除集群预设节点池
+ *
+ * @param request DeleteReservedNodePoolRequest
+ * @return DeleteReservedNodePoolResponse
+ */
+DeleteReservedNodePoolResponse Client::deleteReservedNodePool(const DeleteReservedNodePoolRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteReservedNodePoolWithOptions(request, runtime);
 }
 
 /**

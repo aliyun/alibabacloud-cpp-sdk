@@ -30,6 +30,9 @@
 #include <alibabacloud/models/CreateQueueShrinkRequest.hpp>
 #include <alibabacloud/models/CreateQueueResponseBody.hpp>
 #include <alibabacloud/models/CreateQueueResponse.hpp>
+#include <alibabacloud/models/CreateReservedNodePoolRequest.hpp>
+#include <alibabacloud/models/CreateReservedNodePoolResponseBody.hpp>
+#include <alibabacloud/models/CreateReservedNodePoolResponse.hpp>
 #include <alibabacloud/models/CreateUsersRequest.hpp>
 #include <alibabacloud/models/CreateUsersShrinkRequest.hpp>
 #include <alibabacloud/models/CreateUsersResponseBody.hpp>
@@ -45,6 +48,9 @@
 #include <alibabacloud/models/DeleteQueuesShrinkRequest.hpp>
 #include <alibabacloud/models/DeleteQueuesResponseBody.hpp>
 #include <alibabacloud/models/DeleteQueuesResponse.hpp>
+#include <alibabacloud/models/DeleteReservedNodePoolRequest.hpp>
+#include <alibabacloud/models/DeleteReservedNodePoolResponseBody.hpp>
+#include <alibabacloud/models/DeleteReservedNodePoolResponse.hpp>
 #include <alibabacloud/models/DeleteUsersRequest.hpp>
 #include <alibabacloud/models/DeleteUsersShrinkRequest.hpp>
 #include <alibabacloud/models/DeleteUsersResponseBody.hpp>

@@ -167,6 +167,23 @@ namespace EHPC20240730
       Models::CreateQueueResponse createQueue(const Models::CreateQueueRequest &request);
 
       /**
+       * @summary 创建预设节点池
+       *
+       * @param request CreateReservedNodePoolRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateReservedNodePoolResponse
+       */
+      Models::CreateReservedNodePoolResponse createReservedNodePoolWithOptions(const Models::CreateReservedNodePoolRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建预设节点池
+       *
+       * @param request CreateReservedNodePoolRequest
+       * @return CreateReservedNodePoolResponse
+       */
+      Models::CreateReservedNodePoolResponse createReservedNodePool(const Models::CreateReservedNodePoolRequest &request);
+
+      /**
        * @summary Adds users to an Elastic High Performance Computing (E-HPC) cluster.
        *
        * @param tmpReq CreateUsersRequest
@@ -253,6 +270,23 @@ namespace EHPC20240730
        * @return DeleteQueuesResponse
        */
       Models::DeleteQueuesResponse deleteQueues(const Models::DeleteQueuesRequest &request);
+
+      /**
+       * @summary 删除集群预设节点池
+       *
+       * @param request DeleteReservedNodePoolRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteReservedNodePoolResponse
+       */
+      Models::DeleteReservedNodePoolResponse deleteReservedNodePoolWithOptions(const Models::DeleteReservedNodePoolRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除集群预设节点池
+       *
+       * @param request DeleteReservedNodePoolRequest
+       * @return DeleteReservedNodePoolResponse
+       */
+      Models::DeleteReservedNodePoolResponse deleteReservedNodePool(const Models::DeleteReservedNodePoolRequest &request);
 
       /**
        * @summary Deletes users from a cluster.
