@@ -76,6 +76,9 @@
 #include <alibabacloud/models/GetShutdownPolicyRecordRequest.hpp>
 #include <alibabacloud/models/GetShutdownPolicyRecordResponseBody.hpp>
 #include <alibabacloud/models/GetShutdownPolicyRecordResponse.hpp>
+#include <alibabacloud/models/GetTier2CouponApprovalDetailRequest.hpp>
+#include <alibabacloud/models/GetTier2CouponApprovalDetailResponseBody.hpp>
+#include <alibabacloud/models/GetTier2CouponApprovalDetailResponse.hpp>
 #include <alibabacloud/models/GetUnassociatedCustomerRequest.hpp>
 #include <alibabacloud/models/GetUnassociatedCustomerResponseBody.hpp>
 #include <alibabacloud/models/GetUnassociatedCustomerResponse.hpp>
@@ -93,6 +96,12 @@
 #include <alibabacloud/models/ListExportTasksRequest.hpp>
 #include <alibabacloud/models/ListExportTasksResponseBody.hpp>
 #include <alibabacloud/models/ListExportTasksResponse.hpp>
+#include <alibabacloud/models/ListTier2CouponApprovalRequest.hpp>
+#include <alibabacloud/models/ListTier2CouponApprovalResponseBody.hpp>
+#include <alibabacloud/models/ListTier2CouponApprovalResponse.hpp>
+#include <alibabacloud/models/ProcessApprovalRequest.hpp>
+#include <alibabacloud/models/ProcessApprovalResponseBody.hpp>
+#include <alibabacloud/models/ProcessApprovalResponse.hpp>
 #include <alibabacloud/models/QueryReversedDeductionHistoryRequest.hpp>
 #include <alibabacloud/models/QueryReversedDeductionHistoryResponseBody.hpp>
 #include <alibabacloud/models/QueryReversedDeductionHistoryResponse.hpp>

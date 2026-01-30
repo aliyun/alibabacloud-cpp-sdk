@@ -1320,6 +1320,48 @@ GetShutdownPolicyRecordResponse Client::getShutdownPolicyRecord(const GetShutdow
 }
 
 /**
+ * @summary 查询T2优惠券审批详情
+ *
+ * @param request GetTier2CouponApprovalDetailRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetTier2CouponApprovalDetailResponse
+ */
+GetTier2CouponApprovalDetailResponse Client::getTier2CouponApprovalDetailWithOptions(const GetTier2CouponApprovalDetailRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationSheetId()) {
+    query["ApplicationSheetId"] = request.getApplicationSheetId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetTier2CouponApprovalDetail"},
+    {"version" , "2022-12-16"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetTier2CouponApprovalDetailResponse>();
+}
+
+/**
+ * @summary 查询T2优惠券审批详情
+ *
+ * @param request GetTier2CouponApprovalDetailRequest
+ * @return GetTier2CouponApprovalDetailResponse
+ */
+GetTier2CouponApprovalDetailResponse Client::getTier2CouponApprovalDetail(const GetTier2CouponApprovalDetailRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getTier2CouponApprovalDetailWithOptions(request, runtime);
+}
+
+/**
  * @summary Query all the Unassociated Customer.
  *
  * @param request GetUnassociatedCustomerRequest
@@ -1620,6 +1662,118 @@ ListExportTasksResponse Client::listExportTasksWithOptions(const ListExportTasks
 ListExportTasksResponse Client::listExportTasks(const ListExportTasksRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listExportTasksWithOptions(request, runtime);
+}
+
+/**
+ * @summary T1查询T2优惠券申请列表
+ *
+ * @param request ListTier2CouponApprovalRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListTier2CouponApprovalResponse
+ */
+ListTier2CouponApprovalResponse Client::listTier2CouponApprovalWithOptions(const ListTier2CouponApprovalRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationSheetId()) {
+    query["ApplicationSheetId"] = request.getApplicationSheetId();
+  }
+
+  if (!!request.hasApprovalStatus()) {
+    query["ApprovalStatus"] = request.getApprovalStatus();
+  }
+
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.getCurrentPage();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasT2PartnerName()) {
+    query["T2PartnerName"] = request.getT2PartnerName();
+  }
+
+  if (!!request.hasT2PartnerUid()) {
+    query["T2PartnerUid"] = request.getT2PartnerUid();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListTier2CouponApproval"},
+    {"version" , "2022-12-16"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListTier2CouponApprovalResponse>();
+}
+
+/**
+ * @summary T1查询T2优惠券申请列表
+ *
+ * @param request ListTier2CouponApprovalRequest
+ * @return ListTier2CouponApprovalResponse
+ */
+ListTier2CouponApprovalResponse Client::listTier2CouponApproval(const ListTier2CouponApprovalRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listTier2CouponApprovalWithOptions(request, runtime);
+}
+
+/**
+ * @summary 审批流审批通用接口
+ *
+ * @param request ProcessApprovalRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ProcessApprovalResponse
+ */
+ProcessApprovalResponse Client::processApprovalWithOptions(const ProcessApprovalRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationSheetId()) {
+    query["ApplicationSheetId"] = request.getApplicationSheetId();
+  }
+
+  if (!!request.hasApprovalAction()) {
+    query["ApprovalAction"] = request.getApprovalAction();
+  }
+
+  if (!!request.hasApprovalComments()) {
+    query["ApprovalComments"] = request.getApprovalComments();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ProcessApproval"},
+    {"version" , "2022-12-16"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ProcessApprovalResponse>();
+}
+
+/**
+ * @summary 审批流审批通用接口
+ *
+ * @param request ProcessApprovalRequest
+ * @return ProcessApprovalResponse
+ */
+ProcessApprovalResponse Client::processApproval(const ProcessApprovalRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return processApprovalWithOptions(request, runtime);
 }
 
 /**

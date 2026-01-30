@@ -467,6 +467,23 @@ namespace Agency20221216
       Models::GetShutdownPolicyRecordResponse getShutdownPolicyRecord(const Models::GetShutdownPolicyRecordRequest &request);
 
       /**
+       * @summary 查询T2优惠券审批详情
+       *
+       * @param request GetTier2CouponApprovalDetailRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetTier2CouponApprovalDetailResponse
+       */
+      Models::GetTier2CouponApprovalDetailResponse getTier2CouponApprovalDetailWithOptions(const Models::GetTier2CouponApprovalDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询T2优惠券审批详情
+       *
+       * @param request GetTier2CouponApprovalDetailRequest
+       * @return GetTier2CouponApprovalDetailResponse
+       */
+      Models::GetTier2CouponApprovalDetailResponse getTier2CouponApprovalDetail(const Models::GetTier2CouponApprovalDetailRequest &request);
+
+      /**
        * @summary Query all the Unassociated Customer.
        *
        * @param request GetUnassociatedCustomerRequest
@@ -574,6 +591,40 @@ namespace Agency20221216
        * @return ListExportTasksResponse
        */
       Models::ListExportTasksResponse listExportTasks(const Models::ListExportTasksRequest &request);
+
+      /**
+       * @summary T1查询T2优惠券申请列表
+       *
+       * @param request ListTier2CouponApprovalRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListTier2CouponApprovalResponse
+       */
+      Models::ListTier2CouponApprovalResponse listTier2CouponApprovalWithOptions(const Models::ListTier2CouponApprovalRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary T1查询T2优惠券申请列表
+       *
+       * @param request ListTier2CouponApprovalRequest
+       * @return ListTier2CouponApprovalResponse
+       */
+      Models::ListTier2CouponApprovalResponse listTier2CouponApproval(const Models::ListTier2CouponApprovalRequest &request);
+
+      /**
+       * @summary 审批流审批通用接口
+       *
+       * @param request ProcessApprovalRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ProcessApprovalResponse
+       */
+      Models::ProcessApprovalResponse processApprovalWithOptions(const Models::ProcessApprovalRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 审批流审批通用接口
+       *
+       * @param request ProcessApprovalRequest
+       * @return ProcessApprovalResponse
+       */
+      Models::ProcessApprovalResponse processApproval(const Models::ProcessApprovalRequest &request);
 
       /**
        * @summary 额度冲减明细列表
