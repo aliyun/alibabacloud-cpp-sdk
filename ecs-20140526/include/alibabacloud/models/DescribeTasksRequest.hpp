@@ -25,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
       DARABONBA_PTR_TO_JSON(TaskAction, taskAction_);
+      DARABONBA_PTR_TO_JSON(TaskGroupId, taskGroupId_);
       DARABONBA_PTR_TO_JSON(TaskIds, taskIds_);
       DARABONBA_PTR_TO_JSON(TaskStatus, taskStatus_);
     };
@@ -40,6 +41,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
       DARABONBA_PTR_FROM_JSON(TaskAction, taskAction_);
+      DARABONBA_PTR_FROM_JSON(TaskGroupId, taskGroupId_);
       DARABONBA_PTR_FROM_JSON(TaskIds, taskIds_);
       DARABONBA_PTR_FROM_JSON(TaskStatus, taskStatus_);
     };
@@ -57,7 +59,7 @@ namespace Models
     virtual bool empty() const override { return this->endTime_ == nullptr
         && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr
         && this->resourceIds_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->startTime_ == nullptr && this->taskAction_ == nullptr
-        && this->taskIds_ == nullptr && this->taskStatus_ == nullptr; };
+        && this->taskGroupId_ == nullptr && this->taskIds_ == nullptr && this->taskStatus_ == nullptr; };
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
@@ -137,6 +139,13 @@ namespace Models
     inline DescribeTasksRequest& setTaskAction(string taskAction) { DARABONBA_PTR_SET_VALUE(taskAction_, taskAction) };
 
 
+    // taskGroupId Field Functions 
+    bool hasTaskGroupId() const { return this->taskGroupId_ != nullptr;};
+    void deleteTaskGroupId() { this->taskGroupId_ = nullptr;};
+    inline string getTaskGroupId() const { DARABONBA_PTR_GET_DEFAULT(taskGroupId_, "") };
+    inline DescribeTasksRequest& setTaskGroupId(string taskGroupId) { DARABONBA_PTR_SET_VALUE(taskGroupId_, taskGroupId) };
+
+
     // taskIds Field Functions 
     bool hasTaskIds() const { return this->taskIds_ != nullptr;};
     void deleteTaskIds() { this->taskIds_ = nullptr;};
@@ -186,6 +195,7 @@ namespace Models
     // *   ModifyDiskSpec
     // *   ArchiveSnapshot
     shared_ptr<string> taskAction_ {};
+    shared_ptr<string> taskGroupId_ {};
     // The task IDs. You can specify up to 100 task IDs at a time. Separate the task IDs with commas (,).
     shared_ptr<string> taskIds_ {};
     // The task status. Valid values:

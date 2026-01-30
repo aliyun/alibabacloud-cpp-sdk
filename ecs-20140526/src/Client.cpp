@@ -20527,6 +20527,10 @@ DescribeTasksResponse Client::describeTasksWithOptions(const DescribeTasksReques
     query["TaskAction"] = request.getTaskAction();
   }
 
+  if (!!request.hasTaskGroupId()) {
+    query["TaskGroupId"] = request.getTaskGroupId();
+  }
+
   if (!!request.hasTaskIds()) {
     query["TaskIds"] = request.getTaskIds();
   }
