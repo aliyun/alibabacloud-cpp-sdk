@@ -29,17 +29,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bucketName_ != nullptr; };
+    virtual bool empty() const override { return this->bucketName_ == nullptr; };
     // bucketName Field Functions 
     bool hasBucketName() const { return this->bucketName_ != nullptr;};
     void deleteBucketName() { this->bucketName_ = nullptr;};
-    inline string bucketName() const { DARABONBA_PTR_GET_DEFAULT(bucketName_, "") };
+    inline string getBucketName() const { DARABONBA_PTR_GET_DEFAULT(bucketName_, "") };
     inline GetOssScanConfigRequest& setBucketName(string bucketName) { DARABONBA_PTR_SET_VALUE(bucketName_, bucketName) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> bucketName_ = nullptr;
+    shared_ptr<string> bucketName_ {};
   };
 
   } // namespace Models

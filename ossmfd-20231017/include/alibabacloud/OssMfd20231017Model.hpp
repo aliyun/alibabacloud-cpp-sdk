@@ -45,15 +45,5 @@
 #include <alibabacloud/models/UpdateOssScanConfigRequest.hpp>
 #include <alibabacloud/models/UpdateOssScanConfigResponseBody.hpp>
 #include <alibabacloud/models/UpdateOssScanConfigResponse.hpp>
-#include <alibabacloud/models/DescribeServiceLinkedRoleStatusResponseBodyRoleStatus.hpp>
-#include <alibabacloud/models/GetFileDetectReportResponseBodyData.hpp>
-#include <alibabacloud/models/GetOssBucketScanStatisticResponseBodyData.hpp>
-#include <alibabacloud/models/GetOssScanConfigResponseBodyData.hpp>
-#include <alibabacloud/models/ListObjectScanEventResponseBodyDataDetails.hpp>
-#include <alibabacloud/models/ListObjectScanEventResponseBodyData.hpp>
-#include <alibabacloud/models/ListObjectScanEventResponseBodyPageInfo.hpp>
-#include <alibabacloud/models/ListOssBucketResponseBodyData.hpp>
-#include <alibabacloud/models/ListOssBucketScanInfoResponseBodyData.hpp>
-#include <alibabacloud/models/ListOssBucketScanInfoResponseBodyPageInfo.hpp>
 
 #endif

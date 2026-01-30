@@ -33,34 +33,34 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->exportType_ != nullptr
-        && this->lang_ != nullptr && this->params_ != nullptr; };
+    virtual bool empty() const override { return this->exportType_ == nullptr
+        && this->lang_ == nullptr && this->params_ == nullptr; };
     // exportType Field Functions 
     bool hasExportType() const { return this->exportType_ != nullptr;};
     void deleteExportType() { this->exportType_ = nullptr;};
-    inline string exportType() const { DARABONBA_PTR_GET_DEFAULT(exportType_, "") };
+    inline string getExportType() const { DARABONBA_PTR_GET_DEFAULT(exportType_, "") };
     inline ExportRecordRequest& setExportType(string exportType) { DARABONBA_PTR_SET_VALUE(exportType_, exportType) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline ExportRecordRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // params Field Functions 
     bool hasParams() const { return this->params_ != nullptr;};
     void deleteParams() { this->params_ = nullptr;};
-    inline string params() const { DARABONBA_PTR_GET_DEFAULT(params_, "") };
+    inline string getParams() const { DARABONBA_PTR_GET_DEFAULT(params_, "") };
     inline ExportRecordRequest& setParams(string params) { DARABONBA_PTR_SET_VALUE(params_, params) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> exportType_ = nullptr;
-    std::shared_ptr<string> lang_ = nullptr;
-    std::shared_ptr<string> params_ = nullptr;
+    shared_ptr<string> exportType_ {};
+    shared_ptr<string> lang_ {};
+    shared_ptr<string> params_ {};
   };
 
   } // namespace Models

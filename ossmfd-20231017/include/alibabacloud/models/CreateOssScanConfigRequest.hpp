@@ -56,43 +56,43 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allKeyPrefix_ != nullptr
-        && this->bucketName_ != nullptr && this->decompressMaxFileCount_ != nullptr && this->decompressMaxLayer_ != nullptr && this->decryptionList_ != nullptr && this->enable_ != nullptr
-        && this->endTime_ != nullptr && this->keyPrefixList_ != nullptr && this->keySuffixList_ != nullptr && this->lastModifiedStartTime_ != nullptr && this->name_ != nullptr
-        && this->realTimeIncr_ != nullptr && this->scanDayList_ != nullptr && this->startTime_ != nullptr; };
+    virtual bool empty() const override { return this->allKeyPrefix_ == nullptr
+        && this->bucketName_ == nullptr && this->decompressMaxFileCount_ == nullptr && this->decompressMaxLayer_ == nullptr && this->decryptionList_ == nullptr && this->enable_ == nullptr
+        && this->endTime_ == nullptr && this->keyPrefixList_ == nullptr && this->keySuffixList_ == nullptr && this->lastModifiedStartTime_ == nullptr && this->name_ == nullptr
+        && this->realTimeIncr_ == nullptr && this->scanDayList_ == nullptr && this->startTime_ == nullptr; };
     // allKeyPrefix Field Functions 
     bool hasAllKeyPrefix() const { return this->allKeyPrefix_ != nullptr;};
     void deleteAllKeyPrefix() { this->allKeyPrefix_ = nullptr;};
-    inline string allKeyPrefix() const { DARABONBA_PTR_GET_DEFAULT(allKeyPrefix_, "") };
+    inline string getAllKeyPrefix() const { DARABONBA_PTR_GET_DEFAULT(allKeyPrefix_, "") };
     inline CreateOssScanConfigRequest& setAllKeyPrefix(string allKeyPrefix) { DARABONBA_PTR_SET_VALUE(allKeyPrefix_, allKeyPrefix) };
 
 
     // bucketName Field Functions 
     bool hasBucketName() const { return this->bucketName_ != nullptr;};
     void deleteBucketName() { this->bucketName_ = nullptr;};
-    inline string bucketName() const { DARABONBA_PTR_GET_DEFAULT(bucketName_, "") };
+    inline string getBucketName() const { DARABONBA_PTR_GET_DEFAULT(bucketName_, "") };
     inline CreateOssScanConfigRequest& setBucketName(string bucketName) { DARABONBA_PTR_SET_VALUE(bucketName_, bucketName) };
 
 
     // decompressMaxFileCount Field Functions 
     bool hasDecompressMaxFileCount() const { return this->decompressMaxFileCount_ != nullptr;};
     void deleteDecompressMaxFileCount() { this->decompressMaxFileCount_ = nullptr;};
-    inline int32_t decompressMaxFileCount() const { DARABONBA_PTR_GET_DEFAULT(decompressMaxFileCount_, 0) };
+    inline int32_t getDecompressMaxFileCount() const { DARABONBA_PTR_GET_DEFAULT(decompressMaxFileCount_, 0) };
     inline CreateOssScanConfigRequest& setDecompressMaxFileCount(int32_t decompressMaxFileCount) { DARABONBA_PTR_SET_VALUE(decompressMaxFileCount_, decompressMaxFileCount) };
 
 
     // decompressMaxLayer Field Functions 
     bool hasDecompressMaxLayer() const { return this->decompressMaxLayer_ != nullptr;};
     void deleteDecompressMaxLayer() { this->decompressMaxLayer_ = nullptr;};
-    inline int32_t decompressMaxLayer() const { DARABONBA_PTR_GET_DEFAULT(decompressMaxLayer_, 0) };
+    inline int32_t getDecompressMaxLayer() const { DARABONBA_PTR_GET_DEFAULT(decompressMaxLayer_, 0) };
     inline CreateOssScanConfigRequest& setDecompressMaxLayer(int32_t decompressMaxLayer) { DARABONBA_PTR_SET_VALUE(decompressMaxLayer_, decompressMaxLayer) };
 
 
     // decryptionList Field Functions 
     bool hasDecryptionList() const { return this->decryptionList_ != nullptr;};
     void deleteDecryptionList() { this->decryptionList_ = nullptr;};
-    inline const vector<string> & decryptionList() const { DARABONBA_PTR_GET_CONST(decryptionList_, vector<string>) };
-    inline vector<string> decryptionList() { DARABONBA_PTR_GET(decryptionList_, vector<string>) };
+    inline const vector<string> & getDecryptionList() const { DARABONBA_PTR_GET_CONST(decryptionList_, vector<string>) };
+    inline vector<string> getDecryptionList() { DARABONBA_PTR_GET(decryptionList_, vector<string>) };
     inline CreateOssScanConfigRequest& setDecryptionList(const vector<string> & decryptionList) { DARABONBA_PTR_SET_VALUE(decryptionList_, decryptionList) };
     inline CreateOssScanConfigRequest& setDecryptionList(vector<string> && decryptionList) { DARABONBA_PTR_SET_RVALUE(decryptionList_, decryptionList) };
 
@@ -100,22 +100,22 @@ namespace Models
     // enable Field Functions 
     bool hasEnable() const { return this->enable_ != nullptr;};
     void deleteEnable() { this->enable_ = nullptr;};
-    inline int32_t enable() const { DARABONBA_PTR_GET_DEFAULT(enable_, 0) };
+    inline int32_t getEnable() const { DARABONBA_PTR_GET_DEFAULT(enable_, 0) };
     inline CreateOssScanConfigRequest& setEnable(int32_t enable) { DARABONBA_PTR_SET_VALUE(enable_, enable) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline CreateOssScanConfigRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // keyPrefixList Field Functions 
     bool hasKeyPrefixList() const { return this->keyPrefixList_ != nullptr;};
     void deleteKeyPrefixList() { this->keyPrefixList_ = nullptr;};
-    inline const vector<string> & keyPrefixList() const { DARABONBA_PTR_GET_CONST(keyPrefixList_, vector<string>) };
-    inline vector<string> keyPrefixList() { DARABONBA_PTR_GET(keyPrefixList_, vector<string>) };
+    inline const vector<string> & getKeyPrefixList() const { DARABONBA_PTR_GET_CONST(keyPrefixList_, vector<string>) };
+    inline vector<string> getKeyPrefixList() { DARABONBA_PTR_GET(keyPrefixList_, vector<string>) };
     inline CreateOssScanConfigRequest& setKeyPrefixList(const vector<string> & keyPrefixList) { DARABONBA_PTR_SET_VALUE(keyPrefixList_, keyPrefixList) };
     inline CreateOssScanConfigRequest& setKeyPrefixList(vector<string> && keyPrefixList) { DARABONBA_PTR_SET_RVALUE(keyPrefixList_, keyPrefixList) };
 
@@ -123,8 +123,8 @@ namespace Models
     // keySuffixList Field Functions 
     bool hasKeySuffixList() const { return this->keySuffixList_ != nullptr;};
     void deleteKeySuffixList() { this->keySuffixList_ = nullptr;};
-    inline const vector<string> & keySuffixList() const { DARABONBA_PTR_GET_CONST(keySuffixList_, vector<string>) };
-    inline vector<string> keySuffixList() { DARABONBA_PTR_GET(keySuffixList_, vector<string>) };
+    inline const vector<string> & getKeySuffixList() const { DARABONBA_PTR_GET_CONST(keySuffixList_, vector<string>) };
+    inline vector<string> getKeySuffixList() { DARABONBA_PTR_GET(keySuffixList_, vector<string>) };
     inline CreateOssScanConfigRequest& setKeySuffixList(const vector<string> & keySuffixList) { DARABONBA_PTR_SET_VALUE(keySuffixList_, keySuffixList) };
     inline CreateOssScanConfigRequest& setKeySuffixList(vector<string> && keySuffixList) { DARABONBA_PTR_SET_RVALUE(keySuffixList_, keySuffixList) };
 
@@ -132,29 +132,29 @@ namespace Models
     // lastModifiedStartTime Field Functions 
     bool hasLastModifiedStartTime() const { return this->lastModifiedStartTime_ != nullptr;};
     void deleteLastModifiedStartTime() { this->lastModifiedStartTime_ = nullptr;};
-    inline int64_t lastModifiedStartTime() const { DARABONBA_PTR_GET_DEFAULT(lastModifiedStartTime_, 0L) };
+    inline int64_t getLastModifiedStartTime() const { DARABONBA_PTR_GET_DEFAULT(lastModifiedStartTime_, 0L) };
     inline CreateOssScanConfigRequest& setLastModifiedStartTime(int64_t lastModifiedStartTime) { DARABONBA_PTR_SET_VALUE(lastModifiedStartTime_, lastModifiedStartTime) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateOssScanConfigRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // realTimeIncr Field Functions 
     bool hasRealTimeIncr() const { return this->realTimeIncr_ != nullptr;};
     void deleteRealTimeIncr() { this->realTimeIncr_ = nullptr;};
-    inline bool realTimeIncr() const { DARABONBA_PTR_GET_DEFAULT(realTimeIncr_, false) };
+    inline bool getRealTimeIncr() const { DARABONBA_PTR_GET_DEFAULT(realTimeIncr_, false) };
     inline CreateOssScanConfigRequest& setRealTimeIncr(bool realTimeIncr) { DARABONBA_PTR_SET_VALUE(realTimeIncr_, realTimeIncr) };
 
 
     // scanDayList Field Functions 
     bool hasScanDayList() const { return this->scanDayList_ != nullptr;};
     void deleteScanDayList() { this->scanDayList_ = nullptr;};
-    inline const vector<int32_t> & scanDayList() const { DARABONBA_PTR_GET_CONST(scanDayList_, vector<int32_t>) };
-    inline vector<int32_t> scanDayList() { DARABONBA_PTR_GET(scanDayList_, vector<int32_t>) };
+    inline const vector<int32_t> & getScanDayList() const { DARABONBA_PTR_GET_CONST(scanDayList_, vector<int32_t>) };
+    inline vector<int32_t> getScanDayList() { DARABONBA_PTR_GET(scanDayList_, vector<int32_t>) };
     inline CreateOssScanConfigRequest& setScanDayList(const vector<int32_t> & scanDayList) { DARABONBA_PTR_SET_VALUE(scanDayList_, scanDayList) };
     inline CreateOssScanConfigRequest& setScanDayList(vector<int32_t> && scanDayList) { DARABONBA_PTR_SET_RVALUE(scanDayList_, scanDayList) };
 
@@ -162,27 +162,27 @@ namespace Models
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline CreateOssScanConfigRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
   protected:
-    std::shared_ptr<string> allKeyPrefix_ = nullptr;
+    shared_ptr<string> allKeyPrefix_ {};
     // This parameter is required.
-    std::shared_ptr<string> bucketName_ = nullptr;
-    std::shared_ptr<int32_t> decompressMaxFileCount_ = nullptr;
-    std::shared_ptr<int32_t> decompressMaxLayer_ = nullptr;
-    std::shared_ptr<vector<string>> decryptionList_ = nullptr;
+    shared_ptr<string> bucketName_ {};
+    shared_ptr<int32_t> decompressMaxFileCount_ {};
+    shared_ptr<int32_t> decompressMaxLayer_ {};
+    shared_ptr<vector<string>> decryptionList_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> enable_ = nullptr;
-    std::shared_ptr<string> endTime_ = nullptr;
-    std::shared_ptr<vector<string>> keyPrefixList_ = nullptr;
-    std::shared_ptr<vector<string>> keySuffixList_ = nullptr;
-    std::shared_ptr<int64_t> lastModifiedStartTime_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<bool> realTimeIncr_ = nullptr;
-    std::shared_ptr<vector<int32_t>> scanDayList_ = nullptr;
-    std::shared_ptr<string> startTime_ = nullptr;
+    shared_ptr<int32_t> enable_ {};
+    shared_ptr<string> endTime_ {};
+    shared_ptr<vector<string>> keyPrefixList_ {};
+    shared_ptr<vector<string>> keySuffixList_ {};
+    shared_ptr<int64_t> lastModifiedStartTime_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<bool> realTimeIncr_ {};
+    shared_ptr<vector<int32_t>> scanDayList_ {};
+    shared_ptr<string> startTime_ {};
   };
 
   } // namespace Models
