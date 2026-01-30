@@ -33,7 +33,7 @@ namespace Models
     // objectName Field Functions 
     bool hasObjectName() const { return this->objectName_ != nullptr;};
     void deleteObjectName() { this->objectName_ = nullptr;};
-    inline string objectName() const { DARABONBA_PTR_GET_DEFAULT(objectName_, "") };
+    inline string getObjectName() const { DARABONBA_PTR_GET_DEFAULT(objectName_, "") };
     inline TempOssUrlIntlRequest& setObjectName(string objectName) { DARABONBA_PTR_SET_VALUE(objectName_, objectName) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // Object name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> objectName_ = nullptr;
+    shared_ptr<string> objectName_ {};
   };
 
   } // namespace Models

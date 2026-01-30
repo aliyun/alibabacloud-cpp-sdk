@@ -40,66 +40,66 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->facePictureQualityCheck_ == nullptr
-        && return this->merchantBizId_ == nullptr && return this->sourceFacePicture_ == nullptr && return this->sourceFacePictureUrl_ == nullptr && return this->targetFacePicture_ == nullptr && return this->targetFacePictureUrl_ == nullptr; };
+        && this->merchantBizId_ == nullptr && this->sourceFacePicture_ == nullptr && this->sourceFacePictureUrl_ == nullptr && this->targetFacePicture_ == nullptr && this->targetFacePictureUrl_ == nullptr; };
     // facePictureQualityCheck Field Functions 
     bool hasFacePictureQualityCheck() const { return this->facePictureQualityCheck_ != nullptr;};
     void deleteFacePictureQualityCheck() { this->facePictureQualityCheck_ = nullptr;};
-    inline string facePictureQualityCheck() const { DARABONBA_PTR_GET_DEFAULT(facePictureQualityCheck_, "") };
+    inline string getFacePictureQualityCheck() const { DARABONBA_PTR_GET_DEFAULT(facePictureQualityCheck_, "") };
     inline FaceCompareRequest& setFacePictureQualityCheck(string facePictureQualityCheck) { DARABONBA_PTR_SET_VALUE(facePictureQualityCheck_, facePictureQualityCheck) };
 
 
     // merchantBizId Field Functions 
     bool hasMerchantBizId() const { return this->merchantBizId_ != nullptr;};
     void deleteMerchantBizId() { this->merchantBizId_ = nullptr;};
-    inline string merchantBizId() const { DARABONBA_PTR_GET_DEFAULT(merchantBizId_, "") };
+    inline string getMerchantBizId() const { DARABONBA_PTR_GET_DEFAULT(merchantBizId_, "") };
     inline FaceCompareRequest& setMerchantBizId(string merchantBizId) { DARABONBA_PTR_SET_VALUE(merchantBizId_, merchantBizId) };
 
 
     // sourceFacePicture Field Functions 
     bool hasSourceFacePicture() const { return this->sourceFacePicture_ != nullptr;};
     void deleteSourceFacePicture() { this->sourceFacePicture_ = nullptr;};
-    inline string sourceFacePicture() const { DARABONBA_PTR_GET_DEFAULT(sourceFacePicture_, "") };
+    inline string getSourceFacePicture() const { DARABONBA_PTR_GET_DEFAULT(sourceFacePicture_, "") };
     inline FaceCompareRequest& setSourceFacePicture(string sourceFacePicture) { DARABONBA_PTR_SET_VALUE(sourceFacePicture_, sourceFacePicture) };
 
 
     // sourceFacePictureUrl Field Functions 
     bool hasSourceFacePictureUrl() const { return this->sourceFacePictureUrl_ != nullptr;};
     void deleteSourceFacePictureUrl() { this->sourceFacePictureUrl_ = nullptr;};
-    inline string sourceFacePictureUrl() const { DARABONBA_PTR_GET_DEFAULT(sourceFacePictureUrl_, "") };
+    inline string getSourceFacePictureUrl() const { DARABONBA_PTR_GET_DEFAULT(sourceFacePictureUrl_, "") };
     inline FaceCompareRequest& setSourceFacePictureUrl(string sourceFacePictureUrl) { DARABONBA_PTR_SET_VALUE(sourceFacePictureUrl_, sourceFacePictureUrl) };
 
 
     // targetFacePicture Field Functions 
     bool hasTargetFacePicture() const { return this->targetFacePicture_ != nullptr;};
     void deleteTargetFacePicture() { this->targetFacePicture_ = nullptr;};
-    inline string targetFacePicture() const { DARABONBA_PTR_GET_DEFAULT(targetFacePicture_, "") };
+    inline string getTargetFacePicture() const { DARABONBA_PTR_GET_DEFAULT(targetFacePicture_, "") };
     inline FaceCompareRequest& setTargetFacePicture(string targetFacePicture) { DARABONBA_PTR_SET_VALUE(targetFacePicture_, targetFacePicture) };
 
 
     // targetFacePictureUrl Field Functions 
     bool hasTargetFacePictureUrl() const { return this->targetFacePictureUrl_ != nullptr;};
     void deleteTargetFacePictureUrl() { this->targetFacePictureUrl_ = nullptr;};
-    inline string targetFacePictureUrl() const { DARABONBA_PTR_GET_DEFAULT(targetFacePictureUrl_, "") };
+    inline string getTargetFacePictureUrl() const { DARABONBA_PTR_GET_DEFAULT(targetFacePictureUrl_, "") };
     inline FaceCompareRequest& setTargetFacePictureUrl(string targetFacePictureUrl) { DARABONBA_PTR_SET_VALUE(targetFacePictureUrl_, targetFacePictureUrl) };
 
 
   protected:
     // 是否开启传入人脸图片质量检测
-    std::shared_ptr<string> facePictureQualityCheck_ = nullptr;
+    shared_ptr<string> facePictureQualityCheck_ {};
     // A custom unique business ID used for troubleshooting. It can be a combination of up to 32 letters and digits. Make sure that the ID is unique.
-    std::shared_ptr<string> merchantBizId_ = nullptr;
-    std::shared_ptr<string> sourceFacePicture_ = nullptr;
+    shared_ptr<string> merchantBizId_ {};
+    shared_ptr<string> sourceFacePicture_ {};
     // The URL of the portrait photo. The URL must be an HTTP or HTTPS link accessible over the Internet.
     // 
     // > You must specify either SourceFacePicture or SourceFacePictureUrl.
-    std::shared_ptr<string> sourceFacePictureUrl_ = nullptr;
-    std::shared_ptr<string> targetFacePicture_ = nullptr;
+    shared_ptr<string> sourceFacePictureUrl_ {};
+    shared_ptr<string> targetFacePicture_ {};
     // The URL of the base portrait photo. The URL must be an HTTP or HTTPS link accessible over the Internet.
     // 
     // 
     // 
     // > You must specify either TargetFacePicture or TargetFacePictureUrl.
-    std::shared_ptr<string> targetFacePictureUrl_ = nullptr;
+    shared_ptr<string> targetFacePictureUrl_ {};
   };
 
   } // namespace Models

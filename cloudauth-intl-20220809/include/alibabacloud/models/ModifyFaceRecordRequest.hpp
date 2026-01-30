@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->faceGroupCode_ == nullptr
-        && return this->imgOssInfos_ == nullptr; };
+        && this->imgOssInfos_ == nullptr; };
     // faceGroupCode Field Functions 
     bool hasFaceGroupCode() const { return this->faceGroupCode_ != nullptr;};
     void deleteFaceGroupCode() { this->faceGroupCode_ = nullptr;};
-    inline string faceGroupCode() const { DARABONBA_PTR_GET_DEFAULT(faceGroupCode_, "") };
+    inline string getFaceGroupCode() const { DARABONBA_PTR_GET_DEFAULT(faceGroupCode_, "") };
     inline ModifyFaceRecordRequest& setFaceGroupCode(string faceGroupCode) { DARABONBA_PTR_SET_VALUE(faceGroupCode_, faceGroupCode) };
 
 
     // imgOssInfos Field Functions 
     bool hasImgOssInfos() const { return this->imgOssInfos_ != nullptr;};
     void deleteImgOssInfos() { this->imgOssInfos_ = nullptr;};
-    inline string imgOssInfos() const { DARABONBA_PTR_GET_DEFAULT(imgOssInfos_, "") };
+    inline string getImgOssInfos() const { DARABONBA_PTR_GET_DEFAULT(imgOssInfos_, "") };
     inline ModifyFaceRecordRequest& setImgOssInfos(string imgOssInfos) { DARABONBA_PTR_SET_VALUE(imgOssInfos_, imgOssInfos) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> faceGroupCode_ = nullptr;
+    shared_ptr<string> faceGroupCode_ {};
     // This parameter is required.
-    std::shared_ptr<string> imgOssInfos_ = nullptr;
+    shared_ptr<string> imgOssInfos_ {};
   };
 
   } // namespace Models

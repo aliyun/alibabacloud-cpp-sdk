@@ -33,7 +33,7 @@ namespace Models
     // transactionId Field Functions 
     bool hasTransactionId() const { return this->transactionId_ != nullptr;};
     void deleteTransactionId() { this->transactionId_ = nullptr;};
-    inline string transactionId() const { DARABONBA_PTR_GET_DEFAULT(transactionId_, "") };
+    inline string getTransactionId() const { DARABONBA_PTR_GET_DEFAULT(transactionId_, "") };
     inline CredentialGetResultIntlRequest& setTransactionId(string transactionId) { DARABONBA_PTR_SET_VALUE(transactionId_, transactionId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // Unique identifier for the authentication request
     // 
     // This parameter is required.
-    std::shared_ptr<string> transactionId_ = nullptr;
+    shared_ptr<string> transactionId_ {};
   };
 
   } // namespace Models

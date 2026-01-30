@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->merchantBizId_ == nullptr
-        && return this->transactionId_ == nullptr; };
+        && this->transactionId_ == nullptr; };
     // merchantBizId Field Functions 
     bool hasMerchantBizId() const { return this->merchantBizId_ != nullptr;};
     void deleteMerchantBizId() { this->merchantBizId_ = nullptr;};
-    inline string merchantBizId() const { DARABONBA_PTR_GET_DEFAULT(merchantBizId_, "") };
+    inline string getMerchantBizId() const { DARABONBA_PTR_GET_DEFAULT(merchantBizId_, "") };
     inline CheckVerifyLogRequest& setMerchantBizId(string merchantBizId) { DARABONBA_PTR_SET_VALUE(merchantBizId_, merchantBizId) };
 
 
     // transactionId Field Functions 
     bool hasTransactionId() const { return this->transactionId_ != nullptr;};
     void deleteTransactionId() { this->transactionId_ = nullptr;};
-    inline string transactionId() const { DARABONBA_PTR_GET_DEFAULT(transactionId_, "") };
+    inline string getTransactionId() const { DARABONBA_PTR_GET_DEFAULT(transactionId_, "") };
     inline CheckVerifyLogRequest& setTransactionId(string transactionId) { DARABONBA_PTR_SET_VALUE(transactionId_, transactionId) };
 
 
   protected:
     // A unique business identifier defined by the merchant, used for subsequent problem localization and troubleshooting. Supports a combination of letters and numbers, with a maximum length of 32 characters. Ensure uniqueness.
-    std::shared_ptr<string> merchantBizId_ = nullptr;
+    shared_ptr<string> merchantBizId_ {};
     // The unique identifier for the entire authentication process. This value needs to be obtained by calling Initialize.
-    std::shared_ptr<string> transactionId_ = nullptr;
+    shared_ptr<string> transactionId_ {};
   };
 
   } // namespace Models

@@ -36,19 +36,19 @@ AlibabaCloud::CloudauthIntl20220809::Client::Client(AlibabaCloud::OpenApi::Utils
 
 Darabonba::Json Client::_postOSSObject(const string &bucketName, const Darabonba::Json &form, const Darabonba::RuntimeOptions &runtime) {
   Darabonba::RuntimeOptions runtime_(json({
-    {"key", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.key(), _key))},
-    {"cert", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.cert(), _cert))},
-    {"ca", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.ca(), _ca))},
-    {"readTimeout", Darabonba::Convert::int64Val(Darabonba::defaultVal(runtime.readTimeout(), _readTimeout))},
-    {"connectTimeout", Darabonba::Convert::int64Val(Darabonba::defaultVal(runtime.connectTimeout(), _connectTimeout))},
-    {"httpProxy", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.httpProxy(), _httpProxy))},
-    {"httpsProxy", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.httpsProxy(), _httpsProxy))},
-    {"noProxy", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.noProxy(), _noProxy))},
-    {"socks5Proxy", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.socks5Proxy(), _socks5Proxy))},
-    {"socks5NetWork", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.socks5NetWork(), _socks5NetWork))},
-    {"maxIdleConns", Darabonba::Convert::int64Val(Darabonba::defaultVal(runtime.maxIdleConns(), _maxIdleConns))},
+    {"key", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.getKey(), _key))},
+    {"cert", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.getCert(), _cert))},
+    {"ca", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.getCa(), _ca))},
+    {"readTimeout", Darabonba::Convert::int64Val(Darabonba::defaultVal(runtime.getReadTimeout(), _readTimeout))},
+    {"connectTimeout", Darabonba::Convert::int64Val(Darabonba::defaultVal(runtime.getConnectTimeout(), _connectTimeout))},
+    {"httpProxy", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.getHttpProxy(), _httpProxy))},
+    {"httpsProxy", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.getHttpsProxy(), _httpsProxy))},
+    {"noProxy", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.getNoProxy(), _noProxy))},
+    {"socks5Proxy", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.getSocks5Proxy(), _socks5Proxy))},
+    {"socks5NetWork", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.getSocks5NetWork(), _socks5NetWork))},
+    {"maxIdleConns", Darabonba::Convert::int64Val(Darabonba::defaultVal(runtime.getMaxIdleConns(), _maxIdleConns))},
     {"retryOptions", _retryOptions},
-    {"ignoreSSL", Darabonba::Convert::boolVal(Darabonba::defaultVal(runtime.ignoreSSL(), false))},
+    {"ignoreSSL", Darabonba::Convert::boolVal(Darabonba::defaultVal(runtime.getIgnoreSSL(), false))},
     {"tlsMinVersion", _tlsMinVersion}
     }));
 
@@ -59,9 +59,9 @@ Darabonba::Json Client::_postOSSObject(const string &bucketName, const Darabonba
   Darabonba::Policy::RetryPolicyContext _context = json({
     {"retriesAttempted" , _retriesAttempted}
   });
-  while (Darabonba::allowRetry(runtime_.retryOptions(), _context)) {
+  while (Darabonba::allowRetry(runtime_.getRetryOptions(), _context)) {
     if (_retriesAttempted > 0) {
-      int _backoffTime = Darabonba::getBackoffTime(runtime_.retryOptions(), _context);
+      int _backoffTime = Darabonba::getBackoffTime(runtime_.getRetryOptions(), _context);
       if (_backoffTime > 0) {
         Darabonba::sleep(_backoffTime);
       }
@@ -78,7 +78,7 @@ Darabonba::Json Client::_postOSSObject(const string &bucketName, const Darabonba
         {"date" , Utils::Utils::getDateUTCString()},
         {"user-agent" , Utils::Utils::getUserAgent("")}
       }).get<map<string, string>>());
-      request_.addHeader("content-type", DARA_STRING_TEMPLATE("multipart/form-data; boundary=" , boundary));
+      request_.getHeaders()["content-type"] = DARA_STRING_TEMPLATE("multipart/form-data; boundary=" , boundary);
       request_.setBody(Darabonba::Http::Form::toFileForm(form, boundary));
       _lastRequest = make_shared<Darabonba::Http::Request>(request_);
       auto futureResp_ = Darabonba::Core::doAction(request_, runtime_);
@@ -86,15 +86,15 @@ Darabonba::Json Client::_postOSSObject(const string &bucketName, const Darabonba
       _lastResponse  = response_;
 
       json respMap = nullptr;
-      string bodyStr = Darabonba::Stream::readAsString(response_->body());
-      if ((response_->statusCode() >= 400) && (response_->statusCode() < 600)) {
+      string bodyStr = Darabonba::Stream::readAsString(response_->getBody());
+      if ((response_->getStatusCode() >= 400) && (response_->getStatusCode() < 600)) {
         respMap = Darabonba::XML::parseXml(bodyStr, nullptr);
         json err = json(respMap["Error"]);
         throw ClientException(json({
           {"code" , Darabonba::Convert::stringVal(err["Code"])},
           {"message" , Darabonba::Convert::stringVal(err["Message"])},
           {"data" , json({
-            {"httpCode" , response_->statusCode()},
+            {"httpCode" , response_->getStatusCode()},
             {"requestId" , Darabonba::Convert::stringVal(err["RequestId"])},
             {"hostId" , Darabonba::Convert::stringVal(err["HostId"])}
           })}
@@ -115,7 +115,7 @@ Darabonba::Json Client::_postOSSObject(const string &bucketName, const Darabonba
     }
   }
 
-  throw *_context.exception();
+  throw *_context.getException();
 }
 
 string Client::getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint) {
@@ -141,31 +141,31 @@ AddFaceRecordResponse Client::addFaceRecordWithOptions(const AddFaceRecordReques
   request.validate();
   json body = {};
   if (!!request.hasFaceGroupCode()) {
-    body["FaceGroupCode"] = request.faceGroupCode();
+    body["FaceGroupCode"] = request.getFaceGroupCode();
   }
 
   if (!!request.hasFacePicture()) {
-    body["FacePicture"] = request.facePicture();
+    body["FacePicture"] = request.getFacePicture();
   }
 
   if (!!request.hasFacePictureFile()) {
-    body["FacePictureFile"] = request.facePictureFile();
+    body["FacePictureFile"] = request.getFacePictureFile();
   }
 
   if (!!request.hasFacePictureUrl()) {
-    body["FacePictureUrl"] = request.facePictureUrl();
+    body["FacePictureUrl"] = request.getFacePictureUrl();
   }
 
   if (!!request.hasFaceQualityCheck()) {
-    body["FaceQualityCheck"] = request.faceQualityCheck();
+    body["FaceQualityCheck"] = request.getFaceQualityCheck();
   }
 
   if (!!request.hasMerchantUserId()) {
-    body["MerchantUserId"] = request.merchantUserId();
+    body["MerchantUserId"] = request.getMerchantUserId();
   }
 
   if (!!request.hasProductCode()) {
-    body["ProductCode"] = request.productCode();
+    body["ProductCode"] = request.getProductCode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -206,10 +206,10 @@ AddFaceRecordResponse Client::addFaceRecordAdvance(const AddFaceRecordAdvanceReq
   }
 
   CredentialModel credentialModel = _credential->getCredential();
-  string accessKeyId = credentialModel.accessKeyId();
-  string accessKeySecret = credentialModel.accessKeySecret();
-  string securityToken = credentialModel.securityToken();
-  string credentialType = credentialModel.type();
+  string accessKeyId = credentialModel.getAccessKeyId();
+  string accessKeySecret = credentialModel.getAccessKeySecret();
+  string securityToken = credentialModel.getSecurityToken();
+  string credentialType = credentialModel.getType();
   string openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba::isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
     openPlatformEndpoint = "openplatform.aliyuncs.com";
@@ -262,7 +262,7 @@ AddFaceRecordResponse Client::addFaceRecordAdvance(const AddFaceRecordAdvanceReq
     authResponseBody = Utils::Utils::stringifyMapValue(tmpBody);
     fileObj = FileField(json({
       {"filename" , authResponseBody.at("ObjectKey")},
-      {"content" , request.facePictureFileObject()},
+      {"content" , request.getFacePictureFileObject()},
       {"contentType" , ""}
     }));
     ossHeader = json({
@@ -295,19 +295,19 @@ AddressCompareIntlResponse Client::addressCompareIntlWithOptions(const AddressCo
   request.validate();
   json query = {};
   if (!!request.hasDefaultCountry()) {
-    query["DefaultCountry"] = request.defaultCountry();
+    query["DefaultCountry"] = request.getDefaultCountry();
   }
 
   if (!!request.hasProductCode()) {
-    query["ProductCode"] = request.productCode();
+    query["ProductCode"] = request.getProductCode();
   }
 
   if (!!request.hasText1()) {
-    query["Text1"] = request.text1();
+    query["Text1"] = request.getText1();
   }
 
   if (!!request.hasText2()) {
-    query["Text2"] = request.text2();
+    query["Text2"] = request.getText2();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -355,47 +355,47 @@ AddressVerifyIntlResponse Client::addressVerifyIntlWithOptions(const AddressVeri
   request.validate();
   json query = {};
   if (!!request.hasAddressType()) {
-    query["AddressType"] = request.addressType();
+    query["AddressType"] = request.getAddressType();
   }
 
   if (!!request.hasDefaultCity()) {
-    query["DefaultCity"] = request.defaultCity();
+    query["DefaultCity"] = request.getDefaultCity();
   }
 
   if (!!request.hasDefaultCountry()) {
-    query["DefaultCountry"] = request.defaultCountry();
+    query["DefaultCountry"] = request.getDefaultCountry();
   }
 
   if (!!request.hasDefaultDistrict()) {
-    query["DefaultDistrict"] = request.defaultDistrict();
+    query["DefaultDistrict"] = request.getDefaultDistrict();
   }
 
   if (!!request.hasDefaultProvince()) {
-    query["DefaultProvince"] = request.defaultProvince();
+    query["DefaultProvince"] = request.getDefaultProvince();
   }
 
   if (!!request.hasLatitude()) {
-    query["Latitude"] = request.latitude();
+    query["Latitude"] = request.getLatitude();
   }
 
   if (!!request.hasLongitude()) {
-    query["Longitude"] = request.longitude();
+    query["Longitude"] = request.getLongitude();
   }
 
   if (!!request.hasMobile()) {
-    query["Mobile"] = request.mobile();
+    query["Mobile"] = request.getMobile();
   }
 
   if (!!request.hasProductCode()) {
-    query["ProductCode"] = request.productCode();
+    query["ProductCode"] = request.getProductCode();
   }
 
   if (!!request.hasText()) {
-    query["Text"] = request.text();
+    query["Text"] = request.getText();
   }
 
   if (!!request.hasVerifyType()) {
-    query["VerifyType"] = request.verifyType();
+    query["VerifyType"] = request.getVerifyType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -441,27 +441,27 @@ AddressVerifyV2IntlResponse Client::addressVerifyV2IntlWithOptions(const Address
   request.validate();
   json query = {};
   if (!!request.hasDeviceToken()) {
-    query["DeviceToken"] = request.deviceToken();
+    query["DeviceToken"] = request.getDeviceToken();
   }
 
   if (!!request.hasMobile()) {
-    query["Mobile"] = request.mobile();
+    query["Mobile"] = request.getMobile();
   }
 
   if (!!request.hasProductCode()) {
-    query["ProductCode"] = request.productCode();
+    query["ProductCode"] = request.getProductCode();
   }
 
   if (!!request.hasRegCountry()) {
-    query["RegCountry"] = request.regCountry();
+    query["RegCountry"] = request.getRegCountry();
   }
 
   if (!!request.hasText()) {
-    query["Text"] = request.text();
+    query["Text"] = request.getText();
   }
 
   if (!!request.hasVerifyType()) {
-    query["VerifyType"] = request.verifyType();
+    query["VerifyType"] = request.getVerifyType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -505,39 +505,39 @@ BankMetaVerifyIntlResponse Client::bankMetaVerifyIntlWithOptions(const BankMetaV
   request.validate();
   json query = {};
   if (!!request.hasBankCard()) {
-    query["BankCard"] = request.bankCard();
+    query["BankCard"] = request.getBankCard();
   }
 
   if (!!request.hasIdentifyNum()) {
-    query["IdentifyNum"] = request.identifyNum();
+    query["IdentifyNum"] = request.getIdentifyNum();
   }
 
   if (!!request.hasIdentityType()) {
-    query["IdentityType"] = request.identityType();
+    query["IdentityType"] = request.getIdentityType();
   }
 
   if (!!request.hasMobile()) {
-    query["Mobile"] = request.mobile();
+    query["Mobile"] = request.getMobile();
   }
 
   if (!!request.hasParamType()) {
-    query["ParamType"] = request.paramType();
+    query["ParamType"] = request.getParamType();
   }
 
   if (!!request.hasProductCode()) {
-    query["ProductCode"] = request.productCode();
+    query["ProductCode"] = request.getProductCode();
   }
 
   if (!!request.hasProductType()) {
-    query["ProductType"] = request.productType();
+    query["ProductType"] = request.getProductType();
   }
 
   if (!!request.hasUserName()) {
-    query["UserName"] = request.userName();
+    query["UserName"] = request.getUserName();
   }
 
   if (!!request.hasVerifyMode()) {
-    query["VerifyMode"] = request.verifyMode();
+    query["VerifyMode"] = request.getVerifyMode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -583,40 +583,40 @@ CardOcrResponse Client::cardOcrWithOptions(const CardOcrRequest &request, const 
   request.validate();
   json query = {};
   if (!!request.hasDocType()) {
-    query["DocType"] = request.docType();
+    query["DocType"] = request.getDocType();
   }
 
   if (!!request.hasIdFaceQuality()) {
-    query["IdFaceQuality"] = request.idFaceQuality();
+    query["IdFaceQuality"] = request.getIdFaceQuality();
   }
 
   if (!!request.hasIdOcrPictureUrl()) {
-    query["IdOcrPictureUrl"] = request.idOcrPictureUrl();
+    query["IdOcrPictureUrl"] = request.getIdOcrPictureUrl();
   }
 
   if (!!request.hasMerchantBizId()) {
-    query["MerchantBizId"] = request.merchantBizId();
+    query["MerchantBizId"] = request.getMerchantBizId();
   }
 
   if (!!request.hasMerchantUserId()) {
-    query["MerchantUserId"] = request.merchantUserId();
+    query["MerchantUserId"] = request.getMerchantUserId();
   }
 
   if (!!request.hasOcr()) {
-    query["Ocr"] = request.ocr();
+    query["Ocr"] = request.getOcr();
   }
 
   if (!!request.hasProductCode()) {
-    query["ProductCode"] = request.productCode();
+    query["ProductCode"] = request.getProductCode();
   }
 
   if (!!request.hasSpoof()) {
-    query["Spoof"] = request.spoof();
+    query["Spoof"] = request.getSpoof();
   }
 
   json body = {};
   if (!!request.hasIdOcrPictureBase64()) {
-    body["IdOcrPictureBase64"] = request.idOcrPictureBase64();
+    body["IdOcrPictureBase64"] = request.getIdOcrPictureBase64();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -661,23 +661,23 @@ CheckResultResponse Client::checkResultWithOptions(const CheckResultRequest &req
   request.validate();
   json query = {};
   if (!!request.hasExtraImageControlList()) {
-    query["ExtraImageControlList"] = request.extraImageControlList();
+    query["ExtraImageControlList"] = request.getExtraImageControlList();
   }
 
   if (!!request.hasIsReturnImage()) {
-    query["IsReturnImage"] = request.isReturnImage();
+    query["IsReturnImage"] = request.getIsReturnImage();
   }
 
   if (!!request.hasMerchantBizId()) {
-    query["MerchantBizId"] = request.merchantBizId();
+    query["MerchantBizId"] = request.getMerchantBizId();
   }
 
   if (!!request.hasReturnFiveCategorySpoofResult()) {
-    query["ReturnFiveCategorySpoofResult"] = request.returnFiveCategorySpoofResult();
+    query["ReturnFiveCategorySpoofResult"] = request.getReturnFiveCategorySpoofResult();
   }
 
   if (!!request.hasTransactionId()) {
-    query["TransactionId"] = request.transactionId();
+    query["TransactionId"] = request.getTransactionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -719,11 +719,11 @@ CheckVerifyLogResponse Client::checkVerifyLogWithOptions(const CheckVerifyLogReq
   request.validate();
   json body = {};
   if (!!request.hasMerchantBizId()) {
-    body["MerchantBizId"] = request.merchantBizId();
+    body["MerchantBizId"] = request.getMerchantBizId();
   }
 
   if (!!request.hasTransactionId()) {
-    body["TransactionId"] = request.transactionId();
+    body["TransactionId"] = request.getTransactionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -767,7 +767,7 @@ CredentialGetResultIntlResponse Client::credentialGetResultIntlWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasTransactionId()) {
-    query["TransactionId"] = request.transactionId();
+    query["TransactionId"] = request.getTransactionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -813,28 +813,28 @@ CredentialRecognitionIntlResponse Client::credentialRecognitionIntlWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasDocType()) {
-    query["DocType"] = request.docType();
+    query["DocType"] = request.getDocType();
   }
 
   if (!!request.hasFraudCheck()) {
-    query["FraudCheck"] = request.fraudCheck();
+    query["FraudCheck"] = request.getFraudCheck();
   }
 
   if (!!request.hasOcrArea()) {
-    query["OcrArea"] = request.ocrArea();
+    query["OcrArea"] = request.getOcrArea();
   }
 
   if (!!request.hasProductCode()) {
-    query["ProductCode"] = request.productCode();
+    query["ProductCode"] = request.getProductCode();
   }
 
   json body = {};
   if (!!request.hasCredentialOcrPictureBase64()) {
-    body["CredentialOcrPictureBase64"] = request.credentialOcrPictureBase64();
+    body["CredentialOcrPictureBase64"] = request.getCredentialOcrPictureBase64();
   }
 
   if (!!request.hasCredentialOcrPictureUrl()) {
-    body["CredentialOcrPictureUrl"] = request.credentialOcrPictureUrl();
+    body["CredentialOcrPictureUrl"] = request.getCredentialOcrPictureUrl();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -881,36 +881,36 @@ CredentialSubmitIntlResponse Client::credentialSubmitIntlWithOptions(const Crede
   request.validate();
   json query = {};
   if (!!request.hasDocType()) {
-    query["DocType"] = request.docType();
+    query["DocType"] = request.getDocType();
   }
 
   if (!!request.hasFraudCheck()) {
-    query["FraudCheck"] = request.fraudCheck();
+    query["FraudCheck"] = request.getFraudCheck();
   }
 
   if (!!request.hasMerchantBizId()) {
-    query["MerchantBizId"] = request.merchantBizId();
+    query["MerchantBizId"] = request.getMerchantBizId();
   }
 
   if (!!request.hasOcrArea()) {
-    query["OcrArea"] = request.ocrArea();
+    query["OcrArea"] = request.getOcrArea();
   }
 
   if (!!request.hasProductCode()) {
-    query["ProductCode"] = request.productCode();
+    query["ProductCode"] = request.getProductCode();
   }
 
   if (!!request.hasSceneCode()) {
-    query["SceneCode"] = request.sceneCode();
+    query["SceneCode"] = request.getSceneCode();
   }
 
   json body = {};
   if (!!request.hasCredentialOcrPictureBase64()) {
-    body["CredentialOcrPictureBase64"] = request.credentialOcrPictureBase64();
+    body["CredentialOcrPictureBase64"] = request.getCredentialOcrPictureBase64();
   }
 
   if (!!request.hasCredentialOcrPictureUrl()) {
-    body["CredentialOcrPictureUrl"] = request.credentialOcrPictureUrl();
+    body["CredentialOcrPictureUrl"] = request.getCredentialOcrPictureUrl();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -957,24 +957,24 @@ CredentialVerifyIntlResponse Client::credentialVerifyIntlWithOptions(const Crede
   request.validate();
   json query = {};
   if (!!request.hasCredName()) {
-    query["CredName"] = request.credName();
+    query["CredName"] = request.getCredName();
   }
 
   if (!!request.hasCredType()) {
-    query["CredType"] = request.credType();
+    query["CredType"] = request.getCredType();
   }
 
   if (!!request.hasImageUrl()) {
-    query["ImageUrl"] = request.imageUrl();
+    query["ImageUrl"] = request.getImageUrl();
   }
 
   if (!!request.hasProductCode()) {
-    query["ProductCode"] = request.productCode();
+    query["ProductCode"] = request.getProductCode();
   }
 
   json body = {};
   if (!!request.hasImageFile()) {
-    body["ImageFile"] = request.imageFile();
+    body["ImageFile"] = request.getImageFile();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1018,10 +1018,10 @@ CredentialVerifyIntlResponse Client::credentialVerifyIntlAdvance(const Credentia
   }
 
   CredentialModel credentialModel = _credential->getCredential();
-  string accessKeyId = credentialModel.accessKeyId();
-  string accessKeySecret = credentialModel.accessKeySecret();
-  string securityToken = credentialModel.securityToken();
-  string credentialType = credentialModel.type();
+  string accessKeyId = credentialModel.getAccessKeyId();
+  string accessKeySecret = credentialModel.getAccessKeySecret();
+  string securityToken = credentialModel.getSecurityToken();
+  string credentialType = credentialModel.getType();
   string openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba::isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
     openPlatformEndpoint = "openplatform.aliyuncs.com";
@@ -1074,7 +1074,7 @@ CredentialVerifyIntlResponse Client::credentialVerifyIntlAdvance(const Credentia
     authResponseBody = Utils::Utils::stringifyMapValue(tmpBody);
     fileObj = FileField(json({
       {"filename" , authResponseBody.at("ObjectKey")},
-      {"content" , request.imageFileObject()},
+      {"content" , request.getImageFileObject()},
       {"contentType" , ""}
     }));
     ossHeader = json({
@@ -1107,28 +1107,28 @@ DeepfakeDetectIntlResponse Client::deepfakeDetectIntlWithOptions(const DeepfakeD
   request.validate();
   json query = {};
   if (!!request.hasFaceInputType()) {
-    query["FaceInputType"] = request.faceInputType();
+    query["FaceInputType"] = request.getFaceInputType();
   }
 
   if (!!request.hasFaceUrl()) {
-    query["FaceUrl"] = request.faceUrl();
+    query["FaceUrl"] = request.getFaceUrl();
   }
 
   if (!!request.hasMerchantBizId()) {
-    query["MerchantBizId"] = request.merchantBizId();
+    query["MerchantBizId"] = request.getMerchantBizId();
   }
 
   if (!!request.hasProductCode()) {
-    query["ProductCode"] = request.productCode();
+    query["ProductCode"] = request.getProductCode();
   }
 
   if (!!request.hasSceneCode()) {
-    query["SceneCode"] = request.sceneCode();
+    query["SceneCode"] = request.getSceneCode();
   }
 
   json body = {};
   if (!!request.hasFaceBase64()) {
-    body["FaceBase64"] = request.faceBase64();
+    body["FaceBase64"] = request.getFaceBase64();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1175,31 +1175,31 @@ DeepfakeDetectIntlStreamResponse Client::deepfakeDetectIntlStreamWithOptions(con
   request.validate();
   json body = {};
   if (!!request.hasFaceBase64()) {
-    body["FaceBase64"] = request.faceBase64();
+    body["FaceBase64"] = request.getFaceBase64();
   }
 
   if (!!request.hasFaceFile()) {
-    body["FaceFile"] = request.faceFile();
+    body["FaceFile"] = request.getFaceFile();
   }
 
   if (!!request.hasFaceInputType()) {
-    body["FaceInputType"] = request.faceInputType();
+    body["FaceInputType"] = request.getFaceInputType();
   }
 
   if (!!request.hasFaceUrl()) {
-    body["FaceUrl"] = request.faceUrl();
+    body["FaceUrl"] = request.getFaceUrl();
   }
 
   if (!!request.hasMerchantBizId()) {
-    body["MerchantBizId"] = request.merchantBizId();
+    body["MerchantBizId"] = request.getMerchantBizId();
   }
 
   if (!!request.hasProductCode()) {
-    body["ProductCode"] = request.productCode();
+    body["ProductCode"] = request.getProductCode();
   }
 
   if (!!request.hasSceneCode()) {
-    body["SceneCode"] = request.sceneCode();
+    body["SceneCode"] = request.getSceneCode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1242,10 +1242,10 @@ DeepfakeDetectIntlStreamResponse Client::deepfakeDetectIntlStreamAdvance(const D
   }
 
   CredentialModel credentialModel = _credential->getCredential();
-  string accessKeyId = credentialModel.accessKeyId();
-  string accessKeySecret = credentialModel.accessKeySecret();
-  string securityToken = credentialModel.securityToken();
-  string credentialType = credentialModel.type();
+  string accessKeyId = credentialModel.getAccessKeyId();
+  string accessKeySecret = credentialModel.getAccessKeySecret();
+  string securityToken = credentialModel.getSecurityToken();
+  string credentialType = credentialModel.getType();
   string openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba::isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
     openPlatformEndpoint = "openplatform.aliyuncs.com";
@@ -1298,7 +1298,7 @@ DeepfakeDetectIntlStreamResponse Client::deepfakeDetectIntlStreamAdvance(const D
     authResponseBody = Utils::Utils::stringifyMapValue(tmpBody);
     fileObj = FileField(json({
       {"filename" , authResponseBody.at("ObjectKey")},
-      {"content" , request.faceFileObject()},
+      {"content" , request.getFaceFileObject()},
       {"contentType" , ""}
     }));
     ossHeader = json({
@@ -1329,7 +1329,7 @@ DeleteFaceGroupResponse Client::deleteFaceGroupWithOptions(const DeleteFaceGroup
   request.validate();
   json body = {};
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1371,7 +1371,7 @@ DeleteFaceRecordResponse Client::deleteFaceRecordWithOptions(const DeleteFaceRec
   request.validate();
   json body = {};
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1413,15 +1413,15 @@ DeleteVerifyResultResponse Client::deleteVerifyResultWithOptions(const DeleteVer
   request.validate();
   json query = {};
   if (!!request.hasDeleteAfterQuery()) {
-    query["DeleteAfterQuery"] = request.deleteAfterQuery();
+    query["DeleteAfterQuery"] = request.getDeleteAfterQuery();
   }
 
   if (!!request.hasDeleteType()) {
-    query["DeleteType"] = request.deleteType();
+    query["DeleteType"] = request.getDeleteType();
   }
 
   if (!!request.hasTransactionId()) {
-    query["TransactionId"] = request.transactionId();
+    query["TransactionId"] = request.getTransactionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1463,48 +1463,48 @@ DocOcrResponse Client::docOcrWithOptions(const DocOcrRequest &request, const Dar
   request.validate();
   json query = {};
   if (!!request.hasCardSide()) {
-    query["CardSide"] = request.cardSide();
+    query["CardSide"] = request.getCardSide();
   }
 
   if (!!request.hasDocType()) {
-    query["DocType"] = request.docType();
+    query["DocType"] = request.getDocType();
   }
 
   if (!!request.hasIdFaceQuality()) {
-    query["IdFaceQuality"] = request.idFaceQuality();
+    query["IdFaceQuality"] = request.getIdFaceQuality();
   }
 
   if (!!request.hasIdOcrPictureUrl()) {
-    query["IdOcrPictureUrl"] = request.idOcrPictureUrl();
+    query["IdOcrPictureUrl"] = request.getIdOcrPictureUrl();
   }
 
   if (!!request.hasIdThreshold()) {
-    query["IdThreshold"] = request.idThreshold();
+    query["IdThreshold"] = request.getIdThreshold();
   }
 
   if (!!request.hasMerchantBizId()) {
-    query["MerchantBizId"] = request.merchantBizId();
+    query["MerchantBizId"] = request.getMerchantBizId();
   }
 
   if (!!request.hasMerchantUserId()) {
-    query["MerchantUserId"] = request.merchantUserId();
+    query["MerchantUserId"] = request.getMerchantUserId();
   }
 
   if (!!request.hasOcr()) {
-    query["Ocr"] = request.ocr();
+    query["Ocr"] = request.getOcr();
   }
 
   if (!!request.hasProductCode()) {
-    query["ProductCode"] = request.productCode();
+    query["ProductCode"] = request.getProductCode();
   }
 
   if (!!request.hasSpoof()) {
-    query["Spoof"] = request.spoof();
+    query["Spoof"] = request.getSpoof();
   }
 
   json body = {};
   if (!!request.hasIdOcrPictureBase64()) {
-    body["IdOcrPictureBase64"] = request.idOcrPictureBase64();
+    body["IdOcrPictureBase64"] = request.getIdOcrPictureBase64();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1547,64 +1547,64 @@ DocOcrMaxResponse Client::docOcrMaxWithOptions(const DocOcrMaxRequest &request, 
   request.validate();
   json query = {};
   if (!!request.hasOcrValueStandard()) {
-    query["OcrValueStandard"] = request.ocrValueStandard();
+    query["OcrValueStandard"] = request.getOcrValueStandard();
   }
 
   json body = {};
   if (!!request.hasAuthorize()) {
-    body["Authorize"] = request.authorize();
+    body["Authorize"] = request.getAuthorize();
   }
 
   if (!!request.hasDocPage()) {
-    body["DocPage"] = request.docPage();
+    body["DocPage"] = request.getDocPage();
   }
 
   if (!!request.hasDocType()) {
-    body["DocType"] = request.docType();
+    body["DocType"] = request.getDocType();
   }
 
   if (!!request.hasIdOcrPictureBase64()) {
-    body["IdOcrPictureBase64"] = request.idOcrPictureBase64();
+    body["IdOcrPictureBase64"] = request.getIdOcrPictureBase64();
   }
 
   if (!!request.hasIdOcrPictureUrl()) {
-    body["IdOcrPictureUrl"] = request.idOcrPictureUrl();
+    body["IdOcrPictureUrl"] = request.getIdOcrPictureUrl();
   }
 
   if (!!request.hasIdSpoof()) {
-    body["IdSpoof"] = request.idSpoof();
+    body["IdSpoof"] = request.getIdSpoof();
   }
 
   if (!!request.hasIdThreshold()) {
-    body["IdThreshold"] = request.idThreshold();
+    body["IdThreshold"] = request.getIdThreshold();
   }
 
   if (!!request.hasMerchantBizId()) {
-    body["MerchantBizId"] = request.merchantBizId();
+    body["MerchantBizId"] = request.getMerchantBizId();
   }
 
   if (!!request.hasMerchantUserId()) {
-    body["MerchantUserId"] = request.merchantUserId();
+    body["MerchantUserId"] = request.getMerchantUserId();
   }
 
   if (!!request.hasOcrModel()) {
-    body["OcrModel"] = request.ocrModel();
+    body["OcrModel"] = request.getOcrModel();
   }
 
   if (!!request.hasProductCode()) {
-    body["ProductCode"] = request.productCode();
+    body["ProductCode"] = request.getProductCode();
   }
 
   if (!!request.hasPrompt()) {
-    body["Prompt"] = request.prompt();
+    body["Prompt"] = request.getPrompt();
   }
 
   if (!!request.hasSceneCode()) {
-    body["SceneCode"] = request.sceneCode();
+    body["SceneCode"] = request.getSceneCode();
   }
 
   if (!!request.hasSpoof()) {
-    body["Spoof"] = request.spoof();
+    body["Spoof"] = request.getSpoof();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1647,23 +1647,23 @@ DownloadVerifyRecordIntlResponse Client::downloadVerifyRecordIntlWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasBizType()) {
-    query["BizType"] = request.bizType();
+    query["BizType"] = request.getBizType();
   }
 
   if (!!request.hasCode()) {
-    query["Code"] = request.code();
+    query["Code"] = request.getCode();
   }
 
   if (!!request.hasDownloadMode()) {
-    query["DownloadMode"] = request.downloadMode();
+    query["DownloadMode"] = request.getDownloadMode();
   }
 
   if (!!request.hasParam()) {
-    query["Param"] = request.param();
+    query["Param"] = request.getParam();
   }
 
   if (!!request.hasProductType()) {
-    query["ProductType"] = request.productType();
+    query["ProductType"] = request.getProductType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1705,56 +1705,56 @@ EkycVerifyResponse Client::ekycVerifyWithOptions(const EkycVerifyRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasAuthorize()) {
-    query["Authorize"] = request.authorize();
+    query["Authorize"] = request.getAuthorize();
   }
 
   if (!!request.hasCrop()) {
-    query["Crop"] = request.crop();
+    query["Crop"] = request.getCrop();
   }
 
   if (!!request.hasDocName()) {
-    query["DocName"] = request.docName();
+    query["DocName"] = request.getDocName();
   }
 
   if (!!request.hasDocNo()) {
-    query["DocNo"] = request.docNo();
+    query["DocNo"] = request.getDocNo();
   }
 
   if (!!request.hasDocType()) {
-    query["DocType"] = request.docType();
+    query["DocType"] = request.getDocType();
   }
 
   if (!!request.hasFacePictureUrl()) {
-    query["FacePictureUrl"] = request.facePictureUrl();
+    query["FacePictureUrl"] = request.getFacePictureUrl();
   }
 
   if (!!request.hasIdOcrPictureUrl()) {
-    query["IdOcrPictureUrl"] = request.idOcrPictureUrl();
+    query["IdOcrPictureUrl"] = request.getIdOcrPictureUrl();
   }
 
   if (!!request.hasIdThreshold()) {
-    query["IdThreshold"] = request.idThreshold();
+    query["IdThreshold"] = request.getIdThreshold();
   }
 
   if (!!request.hasMerchantBizId()) {
-    query["MerchantBizId"] = request.merchantBizId();
+    query["MerchantBizId"] = request.getMerchantBizId();
   }
 
   if (!!request.hasMerchantUserId()) {
-    query["MerchantUserId"] = request.merchantUserId();
+    query["MerchantUserId"] = request.getMerchantUserId();
   }
 
   if (!!request.hasProductCode()) {
-    query["ProductCode"] = request.productCode();
+    query["ProductCode"] = request.getProductCode();
   }
 
   json body = {};
   if (!!request.hasFacePictureBase64()) {
-    body["FacePictureBase64"] = request.facePictureBase64();
+    body["FacePictureBase64"] = request.getFacePictureBase64();
   }
 
   if (!!request.hasIdOcrPictureBase64()) {
-    body["IdOcrPictureBase64"] = request.idOcrPictureBase64();
+    body["IdOcrPictureBase64"] = request.getIdOcrPictureBase64();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1797,28 +1797,28 @@ FaceCompareResponse Client::faceCompareWithOptions(const FaceCompareRequest &req
   request.validate();
   json query = {};
   if (!!request.hasFacePictureQualityCheck()) {
-    query["FacePictureQualityCheck"] = request.facePictureQualityCheck();
+    query["FacePictureQualityCheck"] = request.getFacePictureQualityCheck();
   }
 
   if (!!request.hasMerchantBizId()) {
-    query["MerchantBizId"] = request.merchantBizId();
+    query["MerchantBizId"] = request.getMerchantBizId();
   }
 
   if (!!request.hasSourceFacePictureUrl()) {
-    query["SourceFacePictureUrl"] = request.sourceFacePictureUrl();
+    query["SourceFacePictureUrl"] = request.getSourceFacePictureUrl();
   }
 
   if (!!request.hasTargetFacePictureUrl()) {
-    query["TargetFacePictureUrl"] = request.targetFacePictureUrl();
+    query["TargetFacePictureUrl"] = request.getTargetFacePictureUrl();
   }
 
   json body = {};
   if (!!request.hasSourceFacePicture()) {
-    body["SourceFacePicture"] = request.sourceFacePicture();
+    body["SourceFacePicture"] = request.getSourceFacePicture();
   }
 
   if (!!request.hasTargetFacePicture()) {
-    body["TargetFacePicture"] = request.targetFacePicture();
+    body["TargetFacePicture"] = request.getTargetFacePicture();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1861,48 +1861,48 @@ FaceCrossCompareIntlResponse Client::faceCrossCompareIntlWithOptions(const FaceC
   request.validate();
   json query = {};
   if (!!request.hasCompareModel()) {
-    query["CompareModel"] = request.compareModel();
+    query["CompareModel"] = request.getCompareModel();
   }
 
   if (!!request.hasFaceVerifyThreshold()) {
-    query["FaceVerifyThreshold"] = request.faceVerifyThreshold();
+    query["FaceVerifyThreshold"] = request.getFaceVerifyThreshold();
   }
 
   if (!!request.hasMerchantBizId()) {
-    query["MerchantBizId"] = request.merchantBizId();
+    query["MerchantBizId"] = request.getMerchantBizId();
   }
 
   if (!!request.hasProductCode()) {
-    query["ProductCode"] = request.productCode();
+    query["ProductCode"] = request.getProductCode();
   }
 
   if (!!request.hasSceneCode()) {
-    query["SceneCode"] = request.sceneCode();
+    query["SceneCode"] = request.getSceneCode();
   }
 
   if (!!request.hasSourceAFacePictureUrl()) {
-    query["SourceAFacePictureUrl"] = request.sourceAFacePictureUrl();
+    query["SourceAFacePictureUrl"] = request.getSourceAFacePictureUrl();
   }
 
   if (!!request.hasSourceBFacePictureUrl()) {
-    query["SourceBFacePictureUrl"] = request.sourceBFacePictureUrl();
+    query["SourceBFacePictureUrl"] = request.getSourceBFacePictureUrl();
   }
 
   if (!!request.hasSourceCFacePictureUrl()) {
-    query["SourceCFacePictureUrl"] = request.sourceCFacePictureUrl();
+    query["SourceCFacePictureUrl"] = request.getSourceCFacePictureUrl();
   }
 
   json body = {};
   if (!!request.hasSourceAFacePicture()) {
-    body["SourceAFacePicture"] = request.sourceAFacePicture();
+    body["SourceAFacePicture"] = request.getSourceAFacePicture();
   }
 
   if (!!request.hasSourceBFacePicture()) {
-    body["SourceBFacePicture"] = request.sourceBFacePicture();
+    body["SourceBFacePicture"] = request.getSourceBFacePicture();
   }
 
   if (!!request.hasSourceCFacePicture()) {
-    body["SourceCFacePicture"] = request.sourceCFacePicture();
+    body["SourceCFacePicture"] = request.getSourceCFacePicture();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1945,68 +1945,68 @@ FaceDuplicationCheckIntlResponse Client::faceDuplicationCheckIntlWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasProductCode()) {
-    query["ProductCode"] = request.productCode();
+    query["ProductCode"] = request.getProductCode();
   }
 
   json body = {};
   if (!!request.hasAutoRegistration()) {
-    body["AutoRegistration"] = request.autoRegistration();
+    body["AutoRegistration"] = request.getAutoRegistration();
   }
 
   if (!!request.hasFaceGroupCodes()) {
-    body["FaceGroupCodes"] = request.faceGroupCodes();
+    body["FaceGroupCodes"] = request.getFaceGroupCodes();
   }
 
   if (!!request.hasFaceRegisterGroupCode()) {
-    body["FaceRegisterGroupCode"] = request.faceRegisterGroupCode();
+    body["FaceRegisterGroupCode"] = request.getFaceRegisterGroupCode();
   }
 
   if (!!request.hasFaceVerifyThreshold()) {
-    body["FaceVerifyThreshold"] = request.faceVerifyThreshold();
+    body["FaceVerifyThreshold"] = request.getFaceVerifyThreshold();
   }
 
   if (!!request.hasLiveness()) {
-    body["Liveness"] = request.liveness();
+    body["Liveness"] = request.getLiveness();
   }
 
   if (!!request.hasMerchantBizId()) {
-    body["MerchantBizId"] = request.merchantBizId();
+    body["MerchantBizId"] = request.getMerchantBizId();
   }
 
   if (!!request.hasMerchantUserId()) {
-    body["MerchantUserId"] = request.merchantUserId();
+    body["MerchantUserId"] = request.getMerchantUserId();
   }
 
   if (!!request.hasReturnFaces()) {
-    body["ReturnFaces"] = request.returnFaces();
+    body["ReturnFaces"] = request.getReturnFaces();
   }
 
   if (!!request.hasSaveFacePicture()) {
-    body["SaveFacePicture"] = request.saveFacePicture();
+    body["SaveFacePicture"] = request.getSaveFacePicture();
   }
 
   if (!!request.hasSceneCode()) {
-    body["SceneCode"] = request.sceneCode();
+    body["SceneCode"] = request.getSceneCode();
   }
 
   if (!!request.hasSourceFacePicture()) {
-    body["SourceFacePicture"] = request.sourceFacePicture();
+    body["SourceFacePicture"] = request.getSourceFacePicture();
   }
 
   if (!!request.hasSourceFacePictureUrl()) {
-    body["SourceFacePictureUrl"] = request.sourceFacePictureUrl();
+    body["SourceFacePictureUrl"] = request.getSourceFacePictureUrl();
   }
 
   if (!!request.hasTargetFacePicture()) {
-    body["TargetFacePicture"] = request.targetFacePicture();
+    body["TargetFacePicture"] = request.getTargetFacePicture();
   }
 
   if (!!request.hasTargetFacePictureUrl()) {
-    body["TargetFacePictureUrl"] = request.targetFacePictureUrl();
+    body["TargetFacePictureUrl"] = request.getTargetFacePictureUrl();
   }
 
   if (!!request.hasVerifyModel()) {
-    body["VerifyModel"] = request.verifyModel();
+    body["VerifyModel"] = request.getVerifyModel();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2049,19 +2049,19 @@ FaceGuardRiskResponse Client::faceGuardRiskWithOptions(const FaceGuardRiskReques
   request.validate();
   json query = {};
   if (!!request.hasBizId()) {
-    query["BizId"] = request.bizId();
+    query["BizId"] = request.getBizId();
   }
 
   if (!!request.hasDeviceToken()) {
-    query["DeviceToken"] = request.deviceToken();
+    query["DeviceToken"] = request.getDeviceToken();
   }
 
   if (!!request.hasMerchantBizId()) {
-    query["MerchantBizId"] = request.merchantBizId();
+    query["MerchantBizId"] = request.getMerchantBizId();
   }
 
   if (!!request.hasProductCode()) {
-    query["ProductCode"] = request.productCode();
+    query["ProductCode"] = request.getProductCode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2103,36 +2103,36 @@ FaceLivenessResponse Client::faceLivenessWithOptions(const FaceLivenessRequest &
   request.validate();
   json query = {};
   if (!!request.hasCrop()) {
-    query["Crop"] = request.crop();
+    query["Crop"] = request.getCrop();
   }
 
   if (!!request.hasFacePictureUrl()) {
-    query["FacePictureUrl"] = request.facePictureUrl();
+    query["FacePictureUrl"] = request.getFacePictureUrl();
   }
 
   if (!!request.hasFaceQuality()) {
-    query["FaceQuality"] = request.faceQuality();
+    query["FaceQuality"] = request.getFaceQuality();
   }
 
   if (!!request.hasMerchantBizId()) {
-    query["MerchantBizId"] = request.merchantBizId();
+    query["MerchantBizId"] = request.getMerchantBizId();
   }
 
   if (!!request.hasMerchantUserId()) {
-    query["MerchantUserId"] = request.merchantUserId();
+    query["MerchantUserId"] = request.getMerchantUserId();
   }
 
   if (!!request.hasOcclusion()) {
-    query["Occlusion"] = request.occlusion();
+    query["Occlusion"] = request.getOcclusion();
   }
 
   if (!!request.hasProductCode()) {
-    query["ProductCode"] = request.productCode();
+    query["ProductCode"] = request.getProductCode();
   }
 
   json body = {};
   if (!!request.hasFacePictureBase64()) {
-    body["FacePictureBase64"] = request.facePictureBase64();
+    body["FacePictureBase64"] = request.getFacePictureBase64();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2177,19 +2177,19 @@ FraudResultCallBackResponse Client::fraudResultCallBackWithOptions(const FraudRe
   request.validate();
   json query = {};
   if (!!request.hasCertifyId()) {
-    query["CertifyId"] = request.certifyId();
+    query["CertifyId"] = request.getCertifyId();
   }
 
   if (!!request.hasExtParams()) {
-    query["ExtParams"] = request.extParams();
+    query["ExtParams"] = request.getExtParams();
   }
 
   if (!!request.hasResultCode()) {
-    query["ResultCode"] = request.resultCode();
+    query["ResultCode"] = request.getResultCode();
   }
 
   if (!!request.hasVerifyDeployEnv()) {
-    query["VerifyDeployEnv"] = request.verifyDeployEnv();
+    query["VerifyDeployEnv"] = request.getVerifyDeployEnv();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2233,39 +2233,39 @@ Id2MetaPeriodVerifyIntlResponse Client::id2MetaPeriodVerifyIntlWithOptions(const
   request.validate();
   json body = {};
   if (!!request.hasDocName()) {
-    body["DocName"] = request.docName();
+    body["DocName"] = request.getDocName();
   }
 
   if (!!request.hasDocNo()) {
-    body["DocNo"] = request.docNo();
+    body["DocNo"] = request.getDocNo();
   }
 
   if (!!request.hasDocType()) {
-    body["DocType"] = request.docType();
+    body["DocType"] = request.getDocType();
   }
 
   if (!!request.hasMerchantBizId()) {
-    body["MerchantBizId"] = request.merchantBizId();
+    body["MerchantBizId"] = request.getMerchantBizId();
   }
 
   if (!!request.hasMerchantUserId()) {
-    body["MerchantUserId"] = request.merchantUserId();
+    body["MerchantUserId"] = request.getMerchantUserId();
   }
 
   if (!!request.hasProductCode()) {
-    body["ProductCode"] = request.productCode();
+    body["ProductCode"] = request.getProductCode();
   }
 
   if (!!request.hasSceneCode()) {
-    body["SceneCode"] = request.sceneCode();
+    body["SceneCode"] = request.getSceneCode();
   }
 
   if (!!request.hasValidityEndDate()) {
-    body["ValidityEndDate"] = request.validityEndDate();
+    body["ValidityEndDate"] = request.getValidityEndDate();
   }
 
   if (!!request.hasValidityStartDate()) {
-    body["ValidityStartDate"] = request.validityStartDate();
+    body["ValidityStartDate"] = request.getValidityStartDate();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2307,19 +2307,19 @@ Id2MetaVerifyIntlResponse Client::id2MetaVerifyIntlWithOptions(const Id2MetaVeri
   request.validate();
   json query = {};
   if (!!request.hasIdentifyNum()) {
-    query["IdentifyNum"] = request.identifyNum();
+    query["IdentifyNum"] = request.getIdentifyNum();
   }
 
   if (!!request.hasParamType()) {
-    query["ParamType"] = request.paramType();
+    query["ParamType"] = request.getParamType();
   }
 
   if (!!request.hasProductCode()) {
-    query["ProductCode"] = request.productCode();
+    query["ProductCode"] = request.getProductCode();
   }
 
   if (!!request.hasUserName()) {
-    query["UserName"] = request.userName();
+    query["UserName"] = request.getUserName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2362,209 +2362,217 @@ InitializeResponse Client::initializeWithOptions(const InitializeRequest &tmpReq
   InitializeShrinkRequest request = InitializeShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDocPageConfig()) {
-    request.setDocPageConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.docPageConfig(), "DocPageConfig", "json"));
+    request.setDocPageConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDocPageConfig(), "DocPageConfig", "json"));
   }
 
   json query = {};
   if (!!request.hasAppQualityCheck()) {
-    query["AppQualityCheck"] = request.appQualityCheck();
+    query["AppQualityCheck"] = request.getAppQualityCheck();
   }
 
   if (!!request.hasAuthorize()) {
-    query["Authorize"] = request.authorize();
+    query["Authorize"] = request.getAuthorize();
   }
 
   if (!!request.hasAutoRegistration()) {
-    query["AutoRegistration"] = request.autoRegistration();
+    query["AutoRegistration"] = request.getAutoRegistration();
   }
 
   if (!!request.hasCallbackToken()) {
-    query["CallbackToken"] = request.callbackToken();
+    query["CallbackToken"] = request.getCallbackToken();
   }
 
   if (!!request.hasCallbackUrl()) {
-    query["CallbackUrl"] = request.callbackUrl();
+    query["CallbackUrl"] = request.getCallbackUrl();
   }
 
   if (!!request.hasChameleonFrameEnable()) {
-    query["ChameleonFrameEnable"] = request.chameleonFrameEnable();
+    query["ChameleonFrameEnable"] = request.getChameleonFrameEnable();
   }
 
   if (!!request.hasCrop()) {
-    query["Crop"] = request.crop();
+    query["Crop"] = request.getCrop();
   }
 
   if (!!request.hasDateOfBirth()) {
-    query["DateOfBirth"] = request.dateOfBirth();
+    query["DateOfBirth"] = request.getDateOfBirth();
   }
 
   if (!!request.hasDateOfExpiry()) {
-    query["DateOfExpiry"] = request.dateOfExpiry();
+    query["DateOfExpiry"] = request.getDateOfExpiry();
   }
 
   if (!!request.hasDocName()) {
-    query["DocName"] = request.docName();
+    query["DocName"] = request.getDocName();
   }
 
   if (!!request.hasDocNo()) {
-    query["DocNo"] = request.docNo();
+    query["DocNo"] = request.getDocNo();
   }
 
   if (!!request.hasDocPageConfigShrink()) {
-    query["DocPageConfig"] = request.docPageConfigShrink();
+    query["DocPageConfig"] = request.getDocPageConfigShrink();
   }
 
   if (!!request.hasDocScanMode()) {
-    query["DocScanMode"] = request.docScanMode();
+    query["DocScanMode"] = request.getDocScanMode();
   }
 
   if (!!request.hasDocType()) {
-    query["DocType"] = request.docType();
+    query["DocType"] = request.getDocType();
   }
 
   if (!!request.hasDocVideo()) {
-    query["DocVideo"] = request.docVideo();
+    query["DocVideo"] = request.getDocVideo();
   }
 
   if (!!request.hasDocumentNumber()) {
-    query["DocumentNumber"] = request.documentNumber();
+    query["DocumentNumber"] = request.getDocumentNumber();
   }
 
   if (!!request.hasEditOcrResult()) {
-    query["EditOcrResult"] = request.editOcrResult();
+    query["EditOcrResult"] = request.getEditOcrResult();
+  }
+
+  if (!!request.hasEmail()) {
+    query["Email"] = request.getEmail();
   }
 
   if (!!request.hasExperienceCode()) {
-    query["ExperienceCode"] = request.experienceCode();
+    query["ExperienceCode"] = request.getExperienceCode();
   }
 
   if (!!request.hasFaceGroupCodes()) {
-    query["FaceGroupCodes"] = request.faceGroupCodes();
+    query["FaceGroupCodes"] = request.getFaceGroupCodes();
   }
 
   if (!!request.hasFacePictureUrl()) {
-    query["FacePictureUrl"] = request.facePictureUrl();
+    query["FacePictureUrl"] = request.getFacePictureUrl();
   }
 
   if (!!request.hasFaceRegisterGroupCode()) {
-    query["FaceRegisterGroupCode"] = request.faceRegisterGroupCode();
+    query["FaceRegisterGroupCode"] = request.getFaceRegisterGroupCode();
   }
 
   if (!!request.hasFaceVerifyThreshold()) {
-    query["FaceVerifyThreshold"] = request.faceVerifyThreshold();
+    query["FaceVerifyThreshold"] = request.getFaceVerifyThreshold();
   }
 
   if (!!request.hasIdFaceQuality()) {
-    query["IdFaceQuality"] = request.idFaceQuality();
+    query["IdFaceQuality"] = request.getIdFaceQuality();
   }
 
   if (!!request.hasIdSpoof()) {
-    query["IdSpoof"] = request.idSpoof();
+    query["IdSpoof"] = request.getIdSpoof();
   }
 
   if (!!request.hasIdThreshold()) {
-    query["IdThreshold"] = request.idThreshold();
+    query["IdThreshold"] = request.getIdThreshold();
   }
 
   if (!!request.hasLanguageConfig()) {
-    query["LanguageConfig"] = request.languageConfig();
+    query["LanguageConfig"] = request.getLanguageConfig();
   }
 
   if (!!request.hasMRTDInput()) {
-    query["MRTDInput"] = request.MRTDInput();
+    query["MRTDInput"] = request.getMRTDInput();
   }
 
   if (!!request.hasMerchantBizId()) {
-    query["MerchantBizId"] = request.merchantBizId();
+    query["MerchantBizId"] = request.getMerchantBizId();
   }
 
   if (!!request.hasMerchantUserId()) {
-    query["MerchantUserId"] = request.merchantUserId();
+    query["MerchantUserId"] = request.getMerchantUserId();
   }
 
   if (!!request.hasMetaInfo()) {
-    query["MetaInfo"] = request.metaInfo();
+    query["MetaInfo"] = request.getMetaInfo();
+  }
+
+  if (!!request.hasMobile()) {
+    query["Mobile"] = request.getMobile();
   }
 
   if (!!request.hasModel()) {
-    query["Model"] = request.model();
+    query["Model"] = request.getModel();
   }
 
   if (!!request.hasOcr()) {
-    query["Ocr"] = request.ocr();
+    query["Ocr"] = request.getOcr();
   }
 
   if (!!request.hasPages()) {
-    query["Pages"] = request.pages();
+    query["Pages"] = request.getPages();
   }
 
   if (!!request.hasProcedurePriority()) {
-    query["ProcedurePriority"] = request.procedurePriority();
+    query["ProcedurePriority"] = request.getProcedurePriority();
   }
 
   if (!!request.hasProductCode()) {
-    query["ProductCode"] = request.productCode();
+    query["ProductCode"] = request.getProductCode();
   }
 
   if (!!request.hasProductFlow()) {
-    query["ProductFlow"] = request.productFlow();
+    query["ProductFlow"] = request.getProductFlow();
   }
 
   if (!!request.hasReturnFaces()) {
-    query["ReturnFaces"] = request.returnFaces();
+    query["ReturnFaces"] = request.getReturnFaces();
   }
 
   if (!!request.hasReturnUrl()) {
-    query["ReturnUrl"] = request.returnUrl();
+    query["ReturnUrl"] = request.getReturnUrl();
   }
 
   if (!!request.hasSaveFacePicture()) {
-    query["SaveFacePicture"] = request.saveFacePicture();
+    query["SaveFacePicture"] = request.getSaveFacePicture();
   }
 
   if (!!request.hasSceneCode()) {
-    query["SceneCode"] = request.sceneCode();
+    query["SceneCode"] = request.getSceneCode();
   }
 
   if (!!request.hasSecurityLevel()) {
-    query["SecurityLevel"] = request.securityLevel();
+    query["SecurityLevel"] = request.getSecurityLevel();
   }
 
   if (!!request.hasShowAlbumIcon()) {
-    query["ShowAlbumIcon"] = request.showAlbumIcon();
+    query["ShowAlbumIcon"] = request.getShowAlbumIcon();
   }
 
   if (!!request.hasShowGuidePage()) {
-    query["ShowGuidePage"] = request.showGuidePage();
+    query["ShowGuidePage"] = request.getShowGuidePage();
   }
 
   if (!!request.hasShowOcrResult()) {
-    query["ShowOcrResult"] = request.showOcrResult();
+    query["ShowOcrResult"] = request.getShowOcrResult();
   }
 
   if (!!request.hasStyleConfig()) {
-    query["StyleConfig"] = request.styleConfig();
+    query["StyleConfig"] = request.getStyleConfig();
   }
 
   if (!!request.hasTargetFacePicture()) {
-    query["TargetFacePicture"] = request.targetFacePicture();
+    query["TargetFacePicture"] = request.getTargetFacePicture();
   }
 
   if (!!request.hasTargetFacePictureUrl()) {
-    query["TargetFacePictureUrl"] = request.targetFacePictureUrl();
+    query["TargetFacePictureUrl"] = request.getTargetFacePictureUrl();
   }
 
   if (!!request.hasUseNFC()) {
-    query["UseNFC"] = request.useNFC();
+    query["UseNFC"] = request.getUseNFC();
   }
 
   if (!!request.hasVerifyModel()) {
-    query["VerifyModel"] = request.verifyModel();
+    query["VerifyModel"] = request.getVerifyModel();
   }
 
   json body = {};
   if (!!request.hasFacePictureBase64()) {
-    body["FacePictureBase64"] = request.facePictureBase64();
+    body["FacePictureBase64"] = request.getFacePictureBase64();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2640,19 +2648,19 @@ Mobile2MetaVerifyIntlResponse Client::mobile2MetaVerifyIntlWithOptions(const Mob
   request.validate();
   json body = {};
   if (!!request.hasMobile()) {
-    body["Mobile"] = request.mobile();
+    body["Mobile"] = request.getMobile();
   }
 
   if (!!request.hasParamType()) {
-    body["ParamType"] = request.paramType();
+    body["ParamType"] = request.getParamType();
   }
 
   if (!!request.hasProductCode()) {
-    body["ProductCode"] = request.productCode();
+    body["ProductCode"] = request.getProductCode();
   }
 
   if (!!request.hasUserName()) {
-    body["UserName"] = request.userName();
+    body["UserName"] = request.getUserName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2694,23 +2702,23 @@ Mobile3MetaVerifyIntlResponse Client::mobile3MetaVerifyIntlWithOptions(const Mob
   request.validate();
   json query = {};
   if (!!request.hasIdentifyNum()) {
-    query["IdentifyNum"] = request.identifyNum();
+    query["IdentifyNum"] = request.getIdentifyNum();
   }
 
   if (!!request.hasMobile()) {
-    query["Mobile"] = request.mobile();
+    query["Mobile"] = request.getMobile();
   }
 
   if (!!request.hasParamType()) {
-    query["ParamType"] = request.paramType();
+    query["ParamType"] = request.getParamType();
   }
 
   if (!!request.hasProductCode()) {
-    query["ProductCode"] = request.productCode();
+    query["ProductCode"] = request.getProductCode();
   }
 
   if (!!request.hasUserName()) {
-    query["UserName"] = request.userName();
+    query["UserName"] = request.getUserName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2752,15 +2760,15 @@ ModifyFaceGroupResponse Client::modifyFaceGroupWithOptions(const ModifyFaceGroup
   request.validate();
   json body = {};
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2802,11 +2810,11 @@ ModifyFaceRecordResponse Client::modifyFaceRecordWithOptions(const ModifyFaceRec
   request.validate();
   json body = {};
   if (!!request.hasFaceGroupCode()) {
-    body["FaceGroupCode"] = request.faceGroupCode();
+    body["FaceGroupCode"] = request.getFaceGroupCode();
   }
 
   if (!!request.hasImgOssInfos()) {
-    body["ImgOssInfos"] = request.imgOssInfos();
+    body["ImgOssInfos"] = request.getImgOssInfos();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2848,27 +2856,27 @@ QueryFaceGroupResponse Client::queryFaceGroupWithOptions(const QueryFaceGroupReq
   request.validate();
   json query = {};
   if (!!request.hasCurrentPage()) {
-    query["CurrentPage"] = request.currentPage();
+    query["CurrentPage"] = request.getCurrentPage();
   }
 
   if (!!request.hasGroupCode()) {
-    query["GroupCode"] = request.groupCode();
+    query["GroupCode"] = request.getGroupCode();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2910,35 +2918,35 @@ QueryFaceRecordResponse Client::queryFaceRecordWithOptions(const QueryFaceRecord
   request.validate();
   json query = {};
   if (!!request.hasCurrentPage()) {
-    query["CurrentPage"] = request.currentPage();
+    query["CurrentPage"] = request.getCurrentPage();
   }
 
   if (!!request.hasFaceGroupCode()) {
-    query["FaceGroupCode"] = request.faceGroupCode();
+    query["FaceGroupCode"] = request.getFaceGroupCode();
   }
 
   if (!!request.hasFaceId()) {
-    query["FaceId"] = request.faceId();
+    query["FaceId"] = request.getFaceId();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasMerchantUserId()) {
-    query["MerchantUserId"] = request.merchantUserId();
+    query["MerchantUserId"] = request.getMerchantUserId();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRegistrationType()) {
-    query["RegistrationType"] = request.registrationType();
+    query["RegistrationType"] = request.getRegistrationType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2980,7 +2988,7 @@ TempAccessTokenIntlResponse Client::tempAccessTokenIntlWithOptions(const TempAcc
   request.validate();
   json body = {};
   if (!!request.hasType()) {
-    body["Type"] = request.type();
+    body["Type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3022,7 +3030,7 @@ TempOssUrlIntlResponse Client::tempOssUrlIntlWithOptions(const TempOssUrlIntlReq
   request.validate();
   json body = {};
   if (!!request.hasObjectName()) {
-    body["ObjectName"] = request.objectName();
+    body["ObjectName"] = request.getObjectName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

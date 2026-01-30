@@ -44,98 +44,98 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->credentialOcrPictureBase64_ == nullptr
-        && return this->credentialOcrPictureUrl_ == nullptr && return this->docType_ == nullptr && return this->fraudCheck_ == nullptr && return this->merchantBizId_ == nullptr && return this->ocrArea_ == nullptr
-        && return this->productCode_ == nullptr && return this->sceneCode_ == nullptr; };
+        && this->credentialOcrPictureUrl_ == nullptr && this->docType_ == nullptr && this->fraudCheck_ == nullptr && this->merchantBizId_ == nullptr && this->ocrArea_ == nullptr
+        && this->productCode_ == nullptr && this->sceneCode_ == nullptr; };
     // credentialOcrPictureBase64 Field Functions 
     bool hasCredentialOcrPictureBase64() const { return this->credentialOcrPictureBase64_ != nullptr;};
     void deleteCredentialOcrPictureBase64() { this->credentialOcrPictureBase64_ = nullptr;};
-    inline string credentialOcrPictureBase64() const { DARABONBA_PTR_GET_DEFAULT(credentialOcrPictureBase64_, "") };
+    inline string getCredentialOcrPictureBase64() const { DARABONBA_PTR_GET_DEFAULT(credentialOcrPictureBase64_, "") };
     inline CredentialSubmitIntlRequest& setCredentialOcrPictureBase64(string credentialOcrPictureBase64) { DARABONBA_PTR_SET_VALUE(credentialOcrPictureBase64_, credentialOcrPictureBase64) };
 
 
     // credentialOcrPictureUrl Field Functions 
     bool hasCredentialOcrPictureUrl() const { return this->credentialOcrPictureUrl_ != nullptr;};
     void deleteCredentialOcrPictureUrl() { this->credentialOcrPictureUrl_ = nullptr;};
-    inline string credentialOcrPictureUrl() const { DARABONBA_PTR_GET_DEFAULT(credentialOcrPictureUrl_, "") };
+    inline string getCredentialOcrPictureUrl() const { DARABONBA_PTR_GET_DEFAULT(credentialOcrPictureUrl_, "") };
     inline CredentialSubmitIntlRequest& setCredentialOcrPictureUrl(string credentialOcrPictureUrl) { DARABONBA_PTR_SET_VALUE(credentialOcrPictureUrl_, credentialOcrPictureUrl) };
 
 
     // docType Field Functions 
     bool hasDocType() const { return this->docType_ != nullptr;};
     void deleteDocType() { this->docType_ = nullptr;};
-    inline string docType() const { DARABONBA_PTR_GET_DEFAULT(docType_, "") };
+    inline string getDocType() const { DARABONBA_PTR_GET_DEFAULT(docType_, "") };
     inline CredentialSubmitIntlRequest& setDocType(string docType) { DARABONBA_PTR_SET_VALUE(docType_, docType) };
 
 
     // fraudCheck Field Functions 
     bool hasFraudCheck() const { return this->fraudCheck_ != nullptr;};
     void deleteFraudCheck() { this->fraudCheck_ = nullptr;};
-    inline string fraudCheck() const { DARABONBA_PTR_GET_DEFAULT(fraudCheck_, "") };
+    inline string getFraudCheck() const { DARABONBA_PTR_GET_DEFAULT(fraudCheck_, "") };
     inline CredentialSubmitIntlRequest& setFraudCheck(string fraudCheck) { DARABONBA_PTR_SET_VALUE(fraudCheck_, fraudCheck) };
 
 
     // merchantBizId Field Functions 
     bool hasMerchantBizId() const { return this->merchantBizId_ != nullptr;};
     void deleteMerchantBizId() { this->merchantBizId_ = nullptr;};
-    inline string merchantBizId() const { DARABONBA_PTR_GET_DEFAULT(merchantBizId_, "") };
+    inline string getMerchantBizId() const { DARABONBA_PTR_GET_DEFAULT(merchantBizId_, "") };
     inline CredentialSubmitIntlRequest& setMerchantBizId(string merchantBizId) { DARABONBA_PTR_SET_VALUE(merchantBizId_, merchantBizId) };
 
 
     // ocrArea Field Functions 
     bool hasOcrArea() const { return this->ocrArea_ != nullptr;};
     void deleteOcrArea() { this->ocrArea_ = nullptr;};
-    inline string ocrArea() const { DARABONBA_PTR_GET_DEFAULT(ocrArea_, "") };
+    inline string getOcrArea() const { DARABONBA_PTR_GET_DEFAULT(ocrArea_, "") };
     inline CredentialSubmitIntlRequest& setOcrArea(string ocrArea) { DARABONBA_PTR_SET_VALUE(ocrArea_, ocrArea) };
 
 
     // productCode Field Functions 
     bool hasProductCode() const { return this->productCode_ != nullptr;};
     void deleteProductCode() { this->productCode_ = nullptr;};
-    inline string productCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
+    inline string getProductCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
     inline CredentialSubmitIntlRequest& setProductCode(string productCode) { DARABONBA_PTR_SET_VALUE(productCode_, productCode) };
 
 
     // sceneCode Field Functions 
     bool hasSceneCode() const { return this->sceneCode_ != nullptr;};
     void deleteSceneCode() { this->sceneCode_ = nullptr;};
-    inline string sceneCode() const { DARABONBA_PTR_GET_DEFAULT(sceneCode_, "") };
+    inline string getSceneCode() const { DARABONBA_PTR_GET_DEFAULT(sceneCode_, "") };
     inline CredentialSubmitIntlRequest& setSceneCode(string sceneCode) { DARABONBA_PTR_SET_VALUE(sceneCode_, sceneCode) };
 
 
   protected:
     // Base64 encoding of the image. If you choose to upload the photo this way, please check the photo size and avoid uploading overly large photos.
-    std::shared_ptr<string> credentialOcrPictureBase64_ = nullptr;
+    shared_ptr<string> credentialOcrPictureBase64_ {};
     // Image URL, accessible via HTTP or HTTPS on the public network.
-    std::shared_ptr<string> credentialOcrPictureUrl_ = nullptr;
+    shared_ptr<string> credentialOcrPictureUrl_ {};
     // Credential type:
     // - 02: Vehicle registration certificate
     // 
     // This parameter is required.
-    std::shared_ptr<string> docType_ = nullptr;
+    shared_ptr<string> docType_ {};
     // Whether to enable tampering detection
     // - true: Enable
     // - false: Disable
     // 
     // This parameter is required.
-    std::shared_ptr<string> fraudCheck_ = nullptr;
+    shared_ptr<string> fraudCheck_ {};
     // A unique business identifier defined on the merchant side, used for troubleshooting issues later. Supports a combination of letters and digits, with a maximum length of 32 characters. Ensure uniqueness.
     // 
     // This parameter is required.
-    std::shared_ptr<string> merchantBizId_ = nullptr;
+    shared_ptr<string> merchantBizId_ {};
     // Extraction type:
     // 
     // - 0201: Thai vehicle registration certificate
     // 
     // This parameter is required.
-    std::shared_ptr<string> ocrArea_ = nullptr;
+    shared_ptr<string> ocrArea_ {};
     // The product solution to be integrated. Value: CREDENTIAL_RECOGNITION.
     // 
     // This parameter is required.
-    std::shared_ptr<string> productCode_ = nullptr;
+    shared_ptr<string> productCode_ {};
     // Your custom authentication scenario ID, used for querying related records by entering this scenario ID in the console later. Supports a combination of 10 characters, digits, or underscores.
     // 
     // This parameter is required.
-    std::shared_ptr<string> sceneCode_ = nullptr;
+    shared_ptr<string> sceneCode_ {};
   };
 
   } // namespace Models

@@ -36,48 +36,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->certifyId_ == nullptr
-        && return this->extParams_ == nullptr && return this->resultCode_ == nullptr && return this->verifyDeployEnv_ == nullptr; };
+        && this->extParams_ == nullptr && this->resultCode_ == nullptr && this->verifyDeployEnv_ == nullptr; };
     // certifyId Field Functions 
     bool hasCertifyId() const { return this->certifyId_ != nullptr;};
     void deleteCertifyId() { this->certifyId_ = nullptr;};
-    inline string certifyId() const { DARABONBA_PTR_GET_DEFAULT(certifyId_, "") };
+    inline string getCertifyId() const { DARABONBA_PTR_GET_DEFAULT(certifyId_, "") };
     inline FraudResultCallBackRequest& setCertifyId(string certifyId) { DARABONBA_PTR_SET_VALUE(certifyId_, certifyId) };
 
 
     // extParams Field Functions 
     bool hasExtParams() const { return this->extParams_ != nullptr;};
     void deleteExtParams() { this->extParams_ = nullptr;};
-    inline string extParams() const { DARABONBA_PTR_GET_DEFAULT(extParams_, "") };
+    inline string getExtParams() const { DARABONBA_PTR_GET_DEFAULT(extParams_, "") };
     inline FraudResultCallBackRequest& setExtParams(string extParams) { DARABONBA_PTR_SET_VALUE(extParams_, extParams) };
 
 
     // resultCode Field Functions 
     bool hasResultCode() const { return this->resultCode_ != nullptr;};
     void deleteResultCode() { this->resultCode_ = nullptr;};
-    inline string resultCode() const { DARABONBA_PTR_GET_DEFAULT(resultCode_, "") };
+    inline string getResultCode() const { DARABONBA_PTR_GET_DEFAULT(resultCode_, "") };
     inline FraudResultCallBackRequest& setResultCode(string resultCode) { DARABONBA_PTR_SET_VALUE(resultCode_, resultCode) };
 
 
     // verifyDeployEnv Field Functions 
     bool hasVerifyDeployEnv() const { return this->verifyDeployEnv_ != nullptr;};
     void deleteVerifyDeployEnv() { this->verifyDeployEnv_ = nullptr;};
-    inline string verifyDeployEnv() const { DARABONBA_PTR_GET_DEFAULT(verifyDeployEnv_, "") };
+    inline string getVerifyDeployEnv() const { DARABONBA_PTR_GET_DEFAULT(verifyDeployEnv_, "") };
     inline FraudResultCallBackRequest& setVerifyDeployEnv(string verifyDeployEnv) { DARABONBA_PTR_SET_VALUE(verifyDeployEnv_, verifyDeployEnv) };
 
 
   protected:
     // Unique identifier for real-person authentication, corresponding to Ant\\"s verifyId.
-    std::shared_ptr<string> certifyId_ = nullptr;
+    shared_ptr<string> certifyId_ {};
     // Extended parameters, in JSON string format.
-    std::shared_ptr<string> extParams_ = nullptr;
+    shared_ptr<string> extParams_ {};
     // Whether the anti-fraud check passed
     // - PASS (Passed)
     // - REJECT (Rejected)
-    std::shared_ptr<string> resultCode_ = nullptr;
+    shared_ptr<string> resultCode_ {};
     // Environment routing parameter
     // - staging (Staging environment)
     // - production (Production environment)
-    std::shared_ptr<string> verifyDeployEnv_ = nullptr;
+    shared_ptr<string> verifyDeployEnv_ {};
   };
 
   } // namespace Models

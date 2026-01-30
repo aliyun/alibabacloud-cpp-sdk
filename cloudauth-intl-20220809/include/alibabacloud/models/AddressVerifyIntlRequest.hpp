@@ -50,82 +50,82 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->addressType_ == nullptr
-        && return this->defaultCity_ == nullptr && return this->defaultCountry_ == nullptr && return this->defaultDistrict_ == nullptr && return this->defaultProvince_ == nullptr && return this->latitude_ == nullptr
-        && return this->longitude_ == nullptr && return this->mobile_ == nullptr && return this->productCode_ == nullptr && return this->text_ == nullptr && return this->verifyType_ == nullptr; };
+        && this->defaultCity_ == nullptr && this->defaultCountry_ == nullptr && this->defaultDistrict_ == nullptr && this->defaultProvince_ == nullptr && this->latitude_ == nullptr
+        && this->longitude_ == nullptr && this->mobile_ == nullptr && this->productCode_ == nullptr && this->text_ == nullptr && this->verifyType_ == nullptr; };
     // addressType Field Functions 
     bool hasAddressType() const { return this->addressType_ != nullptr;};
     void deleteAddressType() { this->addressType_ = nullptr;};
-    inline string addressType() const { DARABONBA_PTR_GET_DEFAULT(addressType_, "") };
+    inline string getAddressType() const { DARABONBA_PTR_GET_DEFAULT(addressType_, "") };
     inline AddressVerifyIntlRequest& setAddressType(string addressType) { DARABONBA_PTR_SET_VALUE(addressType_, addressType) };
 
 
     // defaultCity Field Functions 
     bool hasDefaultCity() const { return this->defaultCity_ != nullptr;};
     void deleteDefaultCity() { this->defaultCity_ = nullptr;};
-    inline string defaultCity() const { DARABONBA_PTR_GET_DEFAULT(defaultCity_, "") };
+    inline string getDefaultCity() const { DARABONBA_PTR_GET_DEFAULT(defaultCity_, "") };
     inline AddressVerifyIntlRequest& setDefaultCity(string defaultCity) { DARABONBA_PTR_SET_VALUE(defaultCity_, defaultCity) };
 
 
     // defaultCountry Field Functions 
     bool hasDefaultCountry() const { return this->defaultCountry_ != nullptr;};
     void deleteDefaultCountry() { this->defaultCountry_ = nullptr;};
-    inline string defaultCountry() const { DARABONBA_PTR_GET_DEFAULT(defaultCountry_, "") };
+    inline string getDefaultCountry() const { DARABONBA_PTR_GET_DEFAULT(defaultCountry_, "") };
     inline AddressVerifyIntlRequest& setDefaultCountry(string defaultCountry) { DARABONBA_PTR_SET_VALUE(defaultCountry_, defaultCountry) };
 
 
     // defaultDistrict Field Functions 
     bool hasDefaultDistrict() const { return this->defaultDistrict_ != nullptr;};
     void deleteDefaultDistrict() { this->defaultDistrict_ = nullptr;};
-    inline string defaultDistrict() const { DARABONBA_PTR_GET_DEFAULT(defaultDistrict_, "") };
+    inline string getDefaultDistrict() const { DARABONBA_PTR_GET_DEFAULT(defaultDistrict_, "") };
     inline AddressVerifyIntlRequest& setDefaultDistrict(string defaultDistrict) { DARABONBA_PTR_SET_VALUE(defaultDistrict_, defaultDistrict) };
 
 
     // defaultProvince Field Functions 
     bool hasDefaultProvince() const { return this->defaultProvince_ != nullptr;};
     void deleteDefaultProvince() { this->defaultProvince_ = nullptr;};
-    inline string defaultProvince() const { DARABONBA_PTR_GET_DEFAULT(defaultProvince_, "") };
+    inline string getDefaultProvince() const { DARABONBA_PTR_GET_DEFAULT(defaultProvince_, "") };
     inline AddressVerifyIntlRequest& setDefaultProvince(string defaultProvince) { DARABONBA_PTR_SET_VALUE(defaultProvince_, defaultProvince) };
 
 
     // latitude Field Functions 
     bool hasLatitude() const { return this->latitude_ != nullptr;};
     void deleteLatitude() { this->latitude_ = nullptr;};
-    inline string latitude() const { DARABONBA_PTR_GET_DEFAULT(latitude_, "") };
+    inline string getLatitude() const { DARABONBA_PTR_GET_DEFAULT(latitude_, "") };
     inline AddressVerifyIntlRequest& setLatitude(string latitude) { DARABONBA_PTR_SET_VALUE(latitude_, latitude) };
 
 
     // longitude Field Functions 
     bool hasLongitude() const { return this->longitude_ != nullptr;};
     void deleteLongitude() { this->longitude_ = nullptr;};
-    inline string longitude() const { DARABONBA_PTR_GET_DEFAULT(longitude_, "") };
+    inline string getLongitude() const { DARABONBA_PTR_GET_DEFAULT(longitude_, "") };
     inline AddressVerifyIntlRequest& setLongitude(string longitude) { DARABONBA_PTR_SET_VALUE(longitude_, longitude) };
 
 
     // mobile Field Functions 
     bool hasMobile() const { return this->mobile_ != nullptr;};
     void deleteMobile() { this->mobile_ = nullptr;};
-    inline string mobile() const { DARABONBA_PTR_GET_DEFAULT(mobile_, "") };
+    inline string getMobile() const { DARABONBA_PTR_GET_DEFAULT(mobile_, "") };
     inline AddressVerifyIntlRequest& setMobile(string mobile) { DARABONBA_PTR_SET_VALUE(mobile_, mobile) };
 
 
     // productCode Field Functions 
     bool hasProductCode() const { return this->productCode_ != nullptr;};
     void deleteProductCode() { this->productCode_ = nullptr;};
-    inline string productCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
+    inline string getProductCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
     inline AddressVerifyIntlRequest& setProductCode(string productCode) { DARABONBA_PTR_SET_VALUE(productCode_, productCode) };
 
 
     // text Field Functions 
     bool hasText() const { return this->text_ != nullptr;};
     void deleteText() { this->text_ = nullptr;};
-    inline string text() const { DARABONBA_PTR_GET_DEFAULT(text_, "") };
+    inline string getText() const { DARABONBA_PTR_GET_DEFAULT(text_, "") };
     inline AddressVerifyIntlRequest& setText(string text) { DARABONBA_PTR_SET_VALUE(text_, text) };
 
 
     // verifyType Field Functions 
     bool hasVerifyType() const { return this->verifyType_ != nullptr;};
     void deleteVerifyType() { this->verifyType_ = nullptr;};
-    inline string verifyType() const { DARABONBA_PTR_GET_DEFAULT(verifyType_, "") };
+    inline string getVerifyType() const { DARABONBA_PTR_GET_DEFAULT(verifyType_, "") };
     inline AddressVerifyIntlRequest& setVerifyType(string verifyType) { DARABONBA_PTR_SET_VALUE(verifyType_, verifyType) };
 
 
@@ -135,37 +135,37 @@ namespace Models
     // - “1”: Latitude and longitude
     // 
     // This parameter is required.
-    std::shared_ptr<string> addressType_ = nullptr;
+    shared_ptr<string> addressType_ {};
     // Default city
-    std::shared_ptr<string> defaultCity_ = nullptr;
+    shared_ptr<string> defaultCity_ {};
     // Country name, currently only supports: China
     // 
     // This parameter is required.
-    std::shared_ptr<string> defaultCountry_ = nullptr;
+    shared_ptr<string> defaultCountry_ {};
     // Default district
-    std::shared_ptr<string> defaultDistrict_ = nullptr;
+    shared_ptr<string> defaultDistrict_ {};
     // Default province
-    std::shared_ptr<string> defaultProvince_ = nullptr;
+    shared_ptr<string> defaultProvince_ {};
     // Latitude.
-    std::shared_ptr<string> latitude_ = nullptr;
+    shared_ptr<string> latitude_ {};
     // Longitude.
-    std::shared_ptr<string> longitude_ = nullptr;
+    shared_ptr<string> longitude_ {};
     // Supports Chinese mobile phone numbers.
     // 
     // This parameter is required.
-    std::shared_ptr<string> mobile_ = nullptr;
+    shared_ptr<string> mobile_ {};
     // Fixed value: ADD_VERIFY_PRO
     // 
     // This parameter is required.
-    std::shared_ptr<string> productCode_ = nullptr;
+    shared_ptr<string> productCode_ {};
     // Detailed address text content
-    std::shared_ptr<string> text_ = nullptr;
+    shared_ptr<string> text_ {};
     // Address verification method:
     // - HOME: Home address verification
     // - WORK: Work address verification
     // 
     // This parameter is required.
-    std::shared_ptr<string> verifyType_ = nullptr;
+    shared_ptr<string> verifyType_ {};
   };
 
   } // namespace Models

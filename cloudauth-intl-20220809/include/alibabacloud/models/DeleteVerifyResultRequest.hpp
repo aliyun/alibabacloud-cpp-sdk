@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->deleteAfterQuery_ == nullptr
-        && return this->deleteType_ == nullptr && return this->transactionId_ == nullptr; };
+        && this->deleteType_ == nullptr && this->transactionId_ == nullptr; };
     // deleteAfterQuery Field Functions 
     bool hasDeleteAfterQuery() const { return this->deleteAfterQuery_ != nullptr;};
     void deleteDeleteAfterQuery() { this->deleteAfterQuery_ = nullptr;};
-    inline string deleteAfterQuery() const { DARABONBA_PTR_GET_DEFAULT(deleteAfterQuery_, "") };
+    inline string getDeleteAfterQuery() const { DARABONBA_PTR_GET_DEFAULT(deleteAfterQuery_, "") };
     inline DeleteVerifyResultRequest& setDeleteAfterQuery(string deleteAfterQuery) { DARABONBA_PTR_SET_VALUE(deleteAfterQuery_, deleteAfterQuery) };
 
 
     // deleteType Field Functions 
     bool hasDeleteType() const { return this->deleteType_ != nullptr;};
     void deleteDeleteType() { this->deleteType_ = nullptr;};
-    inline string deleteType() const { DARABONBA_PTR_GET_DEFAULT(deleteType_, "") };
+    inline string getDeleteType() const { DARABONBA_PTR_GET_DEFAULT(deleteType_, "") };
     inline DeleteVerifyResultRequest& setDeleteType(string deleteType) { DARABONBA_PTR_SET_VALUE(deleteType_, deleteType) };
 
 
     // transactionId Field Functions 
     bool hasTransactionId() const { return this->transactionId_ != nullptr;};
     void deleteTransactionId() { this->transactionId_ = nullptr;};
-    inline string transactionId() const { DARABONBA_PTR_GET_DEFAULT(transactionId_, "") };
+    inline string getTransactionId() const { DARABONBA_PTR_GET_DEFAULT(transactionId_, "") };
     inline DeleteVerifyResultRequest& setTransactionId(string transactionId) { DARABONBA_PTR_SET_VALUE(transactionId_, transactionId) };
 
 
   protected:
     // Whether to depend on the query interface when deleting data
-    std::shared_ptr<string> deleteAfterQuery_ = nullptr;
+    shared_ptr<string> deleteAfterQuery_ {};
     // Type of data to be deleted
-    std::shared_ptr<string> deleteType_ = nullptr;
+    shared_ptr<string> deleteType_ {};
     // Unique identifier of the authentication request
-    std::shared_ptr<string> transactionId_ = nullptr;
+    shared_ptr<string> transactionId_ {};
   };
 
   } // namespace Models

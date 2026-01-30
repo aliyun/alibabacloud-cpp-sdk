@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->identifyNum_ == nullptr
-        && return this->paramType_ == nullptr && return this->productCode_ == nullptr && return this->userName_ == nullptr; };
+        && this->paramType_ == nullptr && this->productCode_ == nullptr && this->userName_ == nullptr; };
     // identifyNum Field Functions 
     bool hasIdentifyNum() const { return this->identifyNum_ != nullptr;};
     void deleteIdentifyNum() { this->identifyNum_ = nullptr;};
-    inline string identifyNum() const { DARABONBA_PTR_GET_DEFAULT(identifyNum_, "") };
+    inline string getIdentifyNum() const { DARABONBA_PTR_GET_DEFAULT(identifyNum_, "") };
     inline Id2MetaVerifyIntlRequest& setIdentifyNum(string identifyNum) { DARABONBA_PTR_SET_VALUE(identifyNum_, identifyNum) };
 
 
     // paramType Field Functions 
     bool hasParamType() const { return this->paramType_ != nullptr;};
     void deleteParamType() { this->paramType_ = nullptr;};
-    inline string paramType() const { DARABONBA_PTR_GET_DEFAULT(paramType_, "") };
+    inline string getParamType() const { DARABONBA_PTR_GET_DEFAULT(paramType_, "") };
     inline Id2MetaVerifyIntlRequest& setParamType(string paramType) { DARABONBA_PTR_SET_VALUE(paramType_, paramType) };
 
 
     // productCode Field Functions 
     bool hasProductCode() const { return this->productCode_ != nullptr;};
     void deleteProductCode() { this->productCode_ = nullptr;};
-    inline string productCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
+    inline string getProductCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
     inline Id2MetaVerifyIntlRequest& setProductCode(string productCode) { DARABONBA_PTR_SET_VALUE(productCode_, productCode) };
 
 
     // userName Field Functions 
     bool hasUserName() const { return this->userName_ != nullptr;};
     void deleteUserName() { this->userName_ = nullptr;};
-    inline string userName() const { DARABONBA_PTR_GET_DEFAULT(userName_, "") };
+    inline string getUserName() const { DARABONBA_PTR_GET_DEFAULT(userName_, "") };
     inline Id2MetaVerifyIntlRequest& setUserName(string userName) { DARABONBA_PTR_SET_VALUE(userName_, userName) };
 
 
@@ -69,17 +69,17 @@ namespace Models
     // The ID card number.
     // 
     // > Only ID cards of residents in the Chinese mainland are supported.
-    std::shared_ptr<string> identifyNum_ = nullptr;
+    shared_ptr<string> identifyNum_ {};
     // The parameter type.
     // 
     // **normal**: The original value in plaintext.
     // 
     // > Due to limitations of the authoritative data source, two-factor ID verification does not support MD5 encryption.
-    std::shared_ptr<string> paramType_ = nullptr;
+    shared_ptr<string> paramType_ {};
     // The product plan. This is a static field. Set the value to **ID_2META**.
-    std::shared_ptr<string> productCode_ = nullptr;
+    shared_ptr<string> productCode_ {};
     // The name.
-    std::shared_ptr<string> userName_ = nullptr;
+    shared_ptr<string> userName_ {};
   };
 
   } // namespace Models

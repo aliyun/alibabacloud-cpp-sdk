@@ -50,82 +50,82 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->compareModel_ == nullptr
-        && return this->faceVerifyThreshold_ == nullptr && return this->merchantBizId_ == nullptr && return this->productCode_ == nullptr && return this->sceneCode_ == nullptr && return this->sourceAFacePicture_ == nullptr
-        && return this->sourceAFacePictureUrl_ == nullptr && return this->sourceBFacePicture_ == nullptr && return this->sourceBFacePictureUrl_ == nullptr && return this->sourceCFacePicture_ == nullptr && return this->sourceCFacePictureUrl_ == nullptr; };
+        && this->faceVerifyThreshold_ == nullptr && this->merchantBizId_ == nullptr && this->productCode_ == nullptr && this->sceneCode_ == nullptr && this->sourceAFacePicture_ == nullptr
+        && this->sourceAFacePictureUrl_ == nullptr && this->sourceBFacePicture_ == nullptr && this->sourceBFacePictureUrl_ == nullptr && this->sourceCFacePicture_ == nullptr && this->sourceCFacePictureUrl_ == nullptr; };
     // compareModel Field Functions 
     bool hasCompareModel() const { return this->compareModel_ != nullptr;};
     void deleteCompareModel() { this->compareModel_ = nullptr;};
-    inline string compareModel() const { DARABONBA_PTR_GET_DEFAULT(compareModel_, "") };
+    inline string getCompareModel() const { DARABONBA_PTR_GET_DEFAULT(compareModel_, "") };
     inline FaceCrossCompareIntlRequest& setCompareModel(string compareModel) { DARABONBA_PTR_SET_VALUE(compareModel_, compareModel) };
 
 
     // faceVerifyThreshold Field Functions 
     bool hasFaceVerifyThreshold() const { return this->faceVerifyThreshold_ != nullptr;};
     void deleteFaceVerifyThreshold() { this->faceVerifyThreshold_ = nullptr;};
-    inline string faceVerifyThreshold() const { DARABONBA_PTR_GET_DEFAULT(faceVerifyThreshold_, "") };
+    inline string getFaceVerifyThreshold() const { DARABONBA_PTR_GET_DEFAULT(faceVerifyThreshold_, "") };
     inline FaceCrossCompareIntlRequest& setFaceVerifyThreshold(string faceVerifyThreshold) { DARABONBA_PTR_SET_VALUE(faceVerifyThreshold_, faceVerifyThreshold) };
 
 
     // merchantBizId Field Functions 
     bool hasMerchantBizId() const { return this->merchantBizId_ != nullptr;};
     void deleteMerchantBizId() { this->merchantBizId_ = nullptr;};
-    inline string merchantBizId() const { DARABONBA_PTR_GET_DEFAULT(merchantBizId_, "") };
+    inline string getMerchantBizId() const { DARABONBA_PTR_GET_DEFAULT(merchantBizId_, "") };
     inline FaceCrossCompareIntlRequest& setMerchantBizId(string merchantBizId) { DARABONBA_PTR_SET_VALUE(merchantBizId_, merchantBizId) };
 
 
     // productCode Field Functions 
     bool hasProductCode() const { return this->productCode_ != nullptr;};
     void deleteProductCode() { this->productCode_ = nullptr;};
-    inline string productCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
+    inline string getProductCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
     inline FaceCrossCompareIntlRequest& setProductCode(string productCode) { DARABONBA_PTR_SET_VALUE(productCode_, productCode) };
 
 
     // sceneCode Field Functions 
     bool hasSceneCode() const { return this->sceneCode_ != nullptr;};
     void deleteSceneCode() { this->sceneCode_ = nullptr;};
-    inline string sceneCode() const { DARABONBA_PTR_GET_DEFAULT(sceneCode_, "") };
+    inline string getSceneCode() const { DARABONBA_PTR_GET_DEFAULT(sceneCode_, "") };
     inline FaceCrossCompareIntlRequest& setSceneCode(string sceneCode) { DARABONBA_PTR_SET_VALUE(sceneCode_, sceneCode) };
 
 
     // sourceAFacePicture Field Functions 
     bool hasSourceAFacePicture() const { return this->sourceAFacePicture_ != nullptr;};
     void deleteSourceAFacePicture() { this->sourceAFacePicture_ = nullptr;};
-    inline string sourceAFacePicture() const { DARABONBA_PTR_GET_DEFAULT(sourceAFacePicture_, "") };
+    inline string getSourceAFacePicture() const { DARABONBA_PTR_GET_DEFAULT(sourceAFacePicture_, "") };
     inline FaceCrossCompareIntlRequest& setSourceAFacePicture(string sourceAFacePicture) { DARABONBA_PTR_SET_VALUE(sourceAFacePicture_, sourceAFacePicture) };
 
 
     // sourceAFacePictureUrl Field Functions 
     bool hasSourceAFacePictureUrl() const { return this->sourceAFacePictureUrl_ != nullptr;};
     void deleteSourceAFacePictureUrl() { this->sourceAFacePictureUrl_ = nullptr;};
-    inline string sourceAFacePictureUrl() const { DARABONBA_PTR_GET_DEFAULT(sourceAFacePictureUrl_, "") };
+    inline string getSourceAFacePictureUrl() const { DARABONBA_PTR_GET_DEFAULT(sourceAFacePictureUrl_, "") };
     inline FaceCrossCompareIntlRequest& setSourceAFacePictureUrl(string sourceAFacePictureUrl) { DARABONBA_PTR_SET_VALUE(sourceAFacePictureUrl_, sourceAFacePictureUrl) };
 
 
     // sourceBFacePicture Field Functions 
     bool hasSourceBFacePicture() const { return this->sourceBFacePicture_ != nullptr;};
     void deleteSourceBFacePicture() { this->sourceBFacePicture_ = nullptr;};
-    inline string sourceBFacePicture() const { DARABONBA_PTR_GET_DEFAULT(sourceBFacePicture_, "") };
+    inline string getSourceBFacePicture() const { DARABONBA_PTR_GET_DEFAULT(sourceBFacePicture_, "") };
     inline FaceCrossCompareIntlRequest& setSourceBFacePicture(string sourceBFacePicture) { DARABONBA_PTR_SET_VALUE(sourceBFacePicture_, sourceBFacePicture) };
 
 
     // sourceBFacePictureUrl Field Functions 
     bool hasSourceBFacePictureUrl() const { return this->sourceBFacePictureUrl_ != nullptr;};
     void deleteSourceBFacePictureUrl() { this->sourceBFacePictureUrl_ = nullptr;};
-    inline string sourceBFacePictureUrl() const { DARABONBA_PTR_GET_DEFAULT(sourceBFacePictureUrl_, "") };
+    inline string getSourceBFacePictureUrl() const { DARABONBA_PTR_GET_DEFAULT(sourceBFacePictureUrl_, "") };
     inline FaceCrossCompareIntlRequest& setSourceBFacePictureUrl(string sourceBFacePictureUrl) { DARABONBA_PTR_SET_VALUE(sourceBFacePictureUrl_, sourceBFacePictureUrl) };
 
 
     // sourceCFacePicture Field Functions 
     bool hasSourceCFacePicture() const { return this->sourceCFacePicture_ != nullptr;};
     void deleteSourceCFacePicture() { this->sourceCFacePicture_ = nullptr;};
-    inline string sourceCFacePicture() const { DARABONBA_PTR_GET_DEFAULT(sourceCFacePicture_, "") };
+    inline string getSourceCFacePicture() const { DARABONBA_PTR_GET_DEFAULT(sourceCFacePicture_, "") };
     inline FaceCrossCompareIntlRequest& setSourceCFacePicture(string sourceCFacePicture) { DARABONBA_PTR_SET_VALUE(sourceCFacePicture_, sourceCFacePicture) };
 
 
     // sourceCFacePictureUrl Field Functions 
     bool hasSourceCFacePictureUrl() const { return this->sourceCFacePictureUrl_ != nullptr;};
     void deleteSourceCFacePictureUrl() { this->sourceCFacePictureUrl_ = nullptr;};
-    inline string sourceCFacePictureUrl() const { DARABONBA_PTR_GET_DEFAULT(sourceCFacePictureUrl_, "") };
+    inline string getSourceCFacePictureUrl() const { DARABONBA_PTR_GET_DEFAULT(sourceCFacePictureUrl_, "") };
     inline FaceCrossCompareIntlRequest& setSourceCFacePictureUrl(string sourceCFacePictureUrl) { DARABONBA_PTR_SET_VALUE(sourceCFacePictureUrl_, sourceCFacePictureUrl) };
 
 
@@ -133,29 +133,29 @@ namespace Models
     // Comparison mode
     // - 0-Chain comparison (default): A:B and B:C
     // - 1-Circular comparison: A:B and B:C and C:A
-    std::shared_ptr<string> compareModel_ = nullptr;
+    shared_ptr<string> compareModel_ {};
     // Face matching threshold.
-    std::shared_ptr<string> faceVerifyThreshold_ = nullptr;
+    shared_ptr<string> faceVerifyThreshold_ {};
     // A unique business identifier for subsequent troubleshooting. It supports a combination of 32 alphanumeric characters, please ensure its uniqueness.
     // 
     // This parameter is required.
-    std::shared_ptr<string> merchantBizId_ = nullptr;
+    shared_ptr<string> merchantBizId_ {};
     // Product solution to be integrated. Value: 
     // FACE_CROSS_COMPARE
     // 
     // This parameter is required.
-    std::shared_ptr<string> productCode_ = nullptr;
+    shared_ptr<string> productCode_ {};
     // Custom business scenario ID
-    std::shared_ptr<string> sceneCode_ = nullptr;
-    std::shared_ptr<string> sourceAFacePicture_ = nullptr;
+    shared_ptr<string> sceneCode_ {};
+    shared_ptr<string> sourceAFacePicture_ {};
     // Portrait image URL, accessible via HTTP or HTTPS on the public network.
-    std::shared_ptr<string> sourceAFacePictureUrl_ = nullptr;
-    std::shared_ptr<string> sourceBFacePicture_ = nullptr;
+    shared_ptr<string> sourceAFacePictureUrl_ {};
+    shared_ptr<string> sourceBFacePicture_ {};
     // Portrait image URL, accessible via HTTP or HTTPS on the public network.
-    std::shared_ptr<string> sourceBFacePictureUrl_ = nullptr;
-    std::shared_ptr<string> sourceCFacePicture_ = nullptr;
+    shared_ptr<string> sourceBFacePictureUrl_ {};
+    shared_ptr<string> sourceCFacePicture_ {};
     // Portrait image URL, accessible via HTTP or HTTPS on the public network.
-    std::shared_ptr<string> sourceCFacePictureUrl_ = nullptr;
+    shared_ptr<string> sourceCFacePictureUrl_ {};
   };
 
   } // namespace Models

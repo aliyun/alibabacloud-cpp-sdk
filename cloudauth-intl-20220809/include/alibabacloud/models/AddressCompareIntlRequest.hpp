@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->defaultCountry_ == nullptr
-        && return this->productCode_ == nullptr && return this->text1_ == nullptr && return this->text2_ == nullptr; };
+        && this->productCode_ == nullptr && this->text1_ == nullptr && this->text2_ == nullptr; };
     // defaultCountry Field Functions 
     bool hasDefaultCountry() const { return this->defaultCountry_ != nullptr;};
     void deleteDefaultCountry() { this->defaultCountry_ = nullptr;};
-    inline string defaultCountry() const { DARABONBA_PTR_GET_DEFAULT(defaultCountry_, "") };
+    inline string getDefaultCountry() const { DARABONBA_PTR_GET_DEFAULT(defaultCountry_, "") };
     inline AddressCompareIntlRequest& setDefaultCountry(string defaultCountry) { DARABONBA_PTR_SET_VALUE(defaultCountry_, defaultCountry) };
 
 
     // productCode Field Functions 
     bool hasProductCode() const { return this->productCode_ != nullptr;};
     void deleteProductCode() { this->productCode_ = nullptr;};
-    inline string productCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
+    inline string getProductCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
     inline AddressCompareIntlRequest& setProductCode(string productCode) { DARABONBA_PTR_SET_VALUE(productCode_, productCode) };
 
 
     // text1 Field Functions 
     bool hasText1() const { return this->text1_ != nullptr;};
     void deleteText1() { this->text1_ = nullptr;};
-    inline string text1() const { DARABONBA_PTR_GET_DEFAULT(text1_, "") };
+    inline string getText1() const { DARABONBA_PTR_GET_DEFAULT(text1_, "") };
     inline AddressCompareIntlRequest& setText1(string text1) { DARABONBA_PTR_SET_VALUE(text1_, text1) };
 
 
     // text2 Field Functions 
     bool hasText2() const { return this->text2_ != nullptr;};
     void deleteText2() { this->text2_ = nullptr;};
-    inline string text2() const { DARABONBA_PTR_GET_DEFAULT(text2_, "") };
+    inline string getText2() const { DARABONBA_PTR_GET_DEFAULT(text2_, "") };
     inline AddressCompareIntlRequest& setText2(string text2) { DARABONBA_PTR_SET_VALUE(text2_, text2) };
 
 
@@ -70,19 +70,19 @@ namespace Models
     // - China
     // 
     // This parameter is required.
-    std::shared_ptr<string> defaultCountry_ = nullptr;
+    shared_ptr<string> defaultCountry_ {};
     // ADD_VERIFY
     // 
     // This parameter is required.
-    std::shared_ptr<string> productCode_ = nullptr;
+    shared_ptr<string> productCode_ {};
     // Address 1
     // 
     // This parameter is required.
-    std::shared_ptr<string> text1_ = nullptr;
+    shared_ptr<string> text1_ {};
     // Address 2
     // 
     // This parameter is required.
-    std::shared_ptr<string> text2_ = nullptr;
+    shared_ptr<string> text2_ {};
   };
 
   } // namespace Models

@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->deviceToken_ == nullptr
-        && return this->mobile_ == nullptr && return this->productCode_ == nullptr && return this->regCountry_ == nullptr && return this->text_ == nullptr && return this->verifyType_ == nullptr; };
+        && this->mobile_ == nullptr && this->productCode_ == nullptr && this->regCountry_ == nullptr && this->text_ == nullptr && this->verifyType_ == nullptr; };
     // deviceToken Field Functions 
     bool hasDeviceToken() const { return this->deviceToken_ != nullptr;};
     void deleteDeviceToken() { this->deviceToken_ = nullptr;};
-    inline string deviceToken() const { DARABONBA_PTR_GET_DEFAULT(deviceToken_, "") };
+    inline string getDeviceToken() const { DARABONBA_PTR_GET_DEFAULT(deviceToken_, "") };
     inline AddressVerifyV2IntlRequest& setDeviceToken(string deviceToken) { DARABONBA_PTR_SET_VALUE(deviceToken_, deviceToken) };
 
 
     // mobile Field Functions 
     bool hasMobile() const { return this->mobile_ != nullptr;};
     void deleteMobile() { this->mobile_ = nullptr;};
-    inline string mobile() const { DARABONBA_PTR_GET_DEFAULT(mobile_, "") };
+    inline string getMobile() const { DARABONBA_PTR_GET_DEFAULT(mobile_, "") };
     inline AddressVerifyV2IntlRequest& setMobile(string mobile) { DARABONBA_PTR_SET_VALUE(mobile_, mobile) };
 
 
     // productCode Field Functions 
     bool hasProductCode() const { return this->productCode_ != nullptr;};
     void deleteProductCode() { this->productCode_ = nullptr;};
-    inline string productCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
+    inline string getProductCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
     inline AddressVerifyV2IntlRequest& setProductCode(string productCode) { DARABONBA_PTR_SET_VALUE(productCode_, productCode) };
 
 
     // regCountry Field Functions 
     bool hasRegCountry() const { return this->regCountry_ != nullptr;};
     void deleteRegCountry() { this->regCountry_ = nullptr;};
-    inline string regCountry() const { DARABONBA_PTR_GET_DEFAULT(regCountry_, "") };
+    inline string getRegCountry() const { DARABONBA_PTR_GET_DEFAULT(regCountry_, "") };
     inline AddressVerifyV2IntlRequest& setRegCountry(string regCountry) { DARABONBA_PTR_SET_VALUE(regCountry_, regCountry) };
 
 
     // text Field Functions 
     bool hasText() const { return this->text_ != nullptr;};
     void deleteText() { this->text_ = nullptr;};
-    inline string text() const { DARABONBA_PTR_GET_DEFAULT(text_, "") };
+    inline string getText() const { DARABONBA_PTR_GET_DEFAULT(text_, "") };
     inline AddressVerifyV2IntlRequest& setText(string text) { DARABONBA_PTR_SET_VALUE(text_, text) };
 
 
     // verifyType Field Functions 
     bool hasVerifyType() const { return this->verifyType_ != nullptr;};
     void deleteVerifyType() { this->verifyType_ = nullptr;};
-    inline string verifyType() const { DARABONBA_PTR_GET_DEFAULT(verifyType_, "") };
+    inline string getVerifyType() const { DARABONBA_PTR_GET_DEFAULT(verifyType_, "") };
     inline AddressVerifyV2IntlRequest& setVerifyType(string verifyType) { DARABONBA_PTR_SET_VALUE(verifyType_, verifyType) };
 
 
@@ -87,25 +87,25 @@ namespace Models
     // DeviceToken obtained via the client SDK
     // 
     // This parameter is required.
-    std::shared_ptr<string> deviceToken_ = nullptr;
+    shared_ptr<string> deviceToken_ {};
     // Supported: Chinese mobile phone numbers
-    std::shared_ptr<string> mobile_ = nullptr;
+    shared_ptr<string> mobile_ {};
     // Fixed value: ADD_VERIFY_PRO
     // 
     // This parameter is required.
-    std::shared_ptr<string> productCode_ = nullptr;
+    shared_ptr<string> productCode_ {};
     // List of prohibited countries or regions
     // 
     // This parameter is required.
-    std::shared_ptr<string> regCountry_ = nullptr;
+    shared_ptr<string> regCountry_ {};
     // Detailed address text content
-    std::shared_ptr<string> text_ = nullptr;
+    shared_ptr<string> text_ {};
     // Address verification method:
     // 
     // - **HOME**: Home address verification
     // 
     // - **WORK**: Work address verification
-    std::shared_ptr<string> verifyType_ = nullptr;
+    shared_ptr<string> verifyType_ {};
   };
 
   } // namespace Models

@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizId_ == nullptr
-        && return this->deviceToken_ == nullptr && return this->merchantBizId_ == nullptr && return this->productCode_ == nullptr; };
+        && this->deviceToken_ == nullptr && this->merchantBizId_ == nullptr && this->productCode_ == nullptr; };
     // bizId Field Functions 
     bool hasBizId() const { return this->bizId_ != nullptr;};
     void deleteBizId() { this->bizId_ = nullptr;};
-    inline string bizId() const { DARABONBA_PTR_GET_DEFAULT(bizId_, "") };
+    inline string getBizId() const { DARABONBA_PTR_GET_DEFAULT(bizId_, "") };
     inline FaceGuardRiskRequest& setBizId(string bizId) { DARABONBA_PTR_SET_VALUE(bizId_, bizId) };
 
 
     // deviceToken Field Functions 
     bool hasDeviceToken() const { return this->deviceToken_ != nullptr;};
     void deleteDeviceToken() { this->deviceToken_ = nullptr;};
-    inline string deviceToken() const { DARABONBA_PTR_GET_DEFAULT(deviceToken_, "") };
+    inline string getDeviceToken() const { DARABONBA_PTR_GET_DEFAULT(deviceToken_, "") };
     inline FaceGuardRiskRequest& setDeviceToken(string deviceToken) { DARABONBA_PTR_SET_VALUE(deviceToken_, deviceToken) };
 
 
     // merchantBizId Field Functions 
     bool hasMerchantBizId() const { return this->merchantBizId_ != nullptr;};
     void deleteMerchantBizId() { this->merchantBizId_ = nullptr;};
-    inline string merchantBizId() const { DARABONBA_PTR_GET_DEFAULT(merchantBizId_, "") };
+    inline string getMerchantBizId() const { DARABONBA_PTR_GET_DEFAULT(merchantBizId_, "") };
     inline FaceGuardRiskRequest& setMerchantBizId(string merchantBizId) { DARABONBA_PTR_SET_VALUE(merchantBizId_, merchantBizId) };
 
 
     // productCode Field Functions 
     bool hasProductCode() const { return this->productCode_ != nullptr;};
     void deleteProductCode() { this->productCode_ = nullptr;};
-    inline string productCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
+    inline string getProductCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
     inline FaceGuardRiskRequest& setProductCode(string productCode) { DARABONBA_PTR_SET_VALUE(productCode_, productCode) };
 
 
   protected:
     // The unique ID of the current business authentication. It is used with FACE_GUARD for verification during queries.
-    std::shared_ptr<string> bizId_ = nullptr;
+    shared_ptr<string> bizId_ {};
     // The deviceToken obtained from the client SDK.
-    std::shared_ptr<string> deviceToken_ = nullptr;
+    shared_ptr<string> deviceToken_ {};
     // A custom unique business identifier. It is used to locate and troubleshoot issues. The identifier can be a combination of letters and digits up to 32 characters long. Ensure that it is unique.
-    std::shared_ptr<string> merchantBizId_ = nullptr;
+    shared_ptr<string> merchantBizId_ {};
     // The product code. Set this to the static field **FACE_GUARD**.
-    std::shared_ptr<string> productCode_ = nullptr;
+    shared_ptr<string> productCode_ {};
   };
 
   } // namespace Models
