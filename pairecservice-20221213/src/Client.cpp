@@ -5885,6 +5885,96 @@ ListFeatureConsistencyCheckJobsResponse Client::listFeatureConsistencyCheckJobs(
 }
 
 /**
+ * @summary 获取数据资源下的Schema列表。
+ *
+ * @param request ListInstanceResourceSchemasRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListInstanceResourceSchemasResponse
+ */
+ListInstanceResourceSchemasResponse Client::listInstanceResourceSchemasWithOptions(const string &InstanceId, const string &ResourceId, const ListInstanceResourceSchemasRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasSchemaName()) {
+    query["SchemaName"] = request.getSchemaName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListInstanceResourceSchemas"},
+    {"version" , "2022-12-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/resources/" , Darabonba::Encode::Encoder::percentEncode(ResourceId) , "/schemas")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListInstanceResourceSchemasResponse>();
+}
+
+/**
+ * @summary 获取数据资源下的Schema列表。
+ *
+ * @param request ListInstanceResourceSchemasRequest
+ * @return ListInstanceResourceSchemasResponse
+ */
+ListInstanceResourceSchemasResponse Client::listInstanceResourceSchemas(const string &InstanceId, const string &ResourceId, const ListInstanceResourceSchemasRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listInstanceResourceSchemasWithOptions(InstanceId, ResourceId, request, headers, runtime);
+}
+
+/**
+ * @summary 获取数据源下数据表的列表。
+ *
+ * @param request ListInstanceResourceTablesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListInstanceResourceTablesResponse
+ */
+ListInstanceResourceTablesResponse Client::listInstanceResourceTablesWithOptions(const string &InstanceId, const string &ResourceId, const ListInstanceResourceTablesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxcomputeSchema()) {
+    query["MaxcomputeSchema"] = request.getMaxcomputeSchema();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListInstanceResourceTables"},
+    {"version" , "2022-12-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/resources/" , Darabonba::Encode::Encoder::percentEncode(ResourceId) , "/tables")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListInstanceResourceTablesResponse>();
+}
+
+/**
+ * @summary 获取数据源下数据表的列表。
+ *
+ * @param request ListInstanceResourceTablesRequest
+ * @return ListInstanceResourceTablesResponse
+ */
+ListInstanceResourceTablesResponse Client::listInstanceResourceTables(const string &InstanceId, const string &ResourceId, const ListInstanceResourceTablesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listInstanceResourceTablesWithOptions(InstanceId, ResourceId, request, headers, runtime);
+}
+
+/**
  * @summary 获取实例下配置的资源列表。
  *
  * @param request ListInstanceResourcesRequest

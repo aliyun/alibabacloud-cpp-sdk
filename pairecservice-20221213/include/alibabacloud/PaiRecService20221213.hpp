@@ -1885,6 +1885,42 @@ namespace PaiRecService20221213
       Models::ListFeatureConsistencyCheckJobsResponse listFeatureConsistencyCheckJobs(const Models::ListFeatureConsistencyCheckJobsRequest &request);
 
       /**
+       * @summary 获取数据资源下的Schema列表。
+       *
+       * @param request ListInstanceResourceSchemasRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListInstanceResourceSchemasResponse
+       */
+      Models::ListInstanceResourceSchemasResponse listInstanceResourceSchemasWithOptions(const string &InstanceId, const string &ResourceId, const Models::ListInstanceResourceSchemasRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取数据资源下的Schema列表。
+       *
+       * @param request ListInstanceResourceSchemasRequest
+       * @return ListInstanceResourceSchemasResponse
+       */
+      Models::ListInstanceResourceSchemasResponse listInstanceResourceSchemas(const string &InstanceId, const string &ResourceId, const Models::ListInstanceResourceSchemasRequest &request);
+
+      /**
+       * @summary 获取数据源下数据表的列表。
+       *
+       * @param request ListInstanceResourceTablesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListInstanceResourceTablesResponse
+       */
+      Models::ListInstanceResourceTablesResponse listInstanceResourceTablesWithOptions(const string &InstanceId, const string &ResourceId, const Models::ListInstanceResourceTablesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取数据源下数据表的列表。
+       *
+       * @param request ListInstanceResourceTablesRequest
+       * @return ListInstanceResourceTablesResponse
+       */
+      Models::ListInstanceResourceTablesResponse listInstanceResourceTables(const string &InstanceId, const string &ResourceId, const Models::ListInstanceResourceTablesRequest &request);
+
+      /**
        * @summary 获取实例下配置的资源列表。
        *
        * @param request ListInstanceResourcesRequest

@@ -315,6 +315,12 @@
 #include <alibabacloud/models/ListFeatureConsistencyCheckJobsRequest.hpp>
 #include <alibabacloud/models/ListFeatureConsistencyCheckJobsResponseBody.hpp>
 #include <alibabacloud/models/ListFeatureConsistencyCheckJobsResponse.hpp>
+#include <alibabacloud/models/ListInstanceResourceSchemasRequest.hpp>
+#include <alibabacloud/models/ListInstanceResourceSchemasResponseBody.hpp>
+#include <alibabacloud/models/ListInstanceResourceSchemasResponse.hpp>
+#include <alibabacloud/models/ListInstanceResourceTablesRequest.hpp>
+#include <alibabacloud/models/ListInstanceResourceTablesResponseBody.hpp>
+#include <alibabacloud/models/ListInstanceResourceTablesResponse.hpp>
 #include <alibabacloud/models/ListInstanceResourcesRequest.hpp>
 #include <alibabacloud/models/ListInstanceResourcesResponseBody.hpp>
 #include <alibabacloud/models/ListInstanceResourcesResponse.hpp>
