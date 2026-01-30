@@ -15,10 +15,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const UpdateResourceInstanceRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Action, action_);
       DARABONBA_PTR_TO_JSON(NewDiskSize, newDiskSize_);
+      DARABONBA_PTR_TO_JSON(Reason, reason_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateResourceInstanceRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Action, action_);
       DARABONBA_PTR_FROM_JSON(NewDiskSize, newDiskSize_);
+      DARABONBA_PTR_FROM_JSON(Reason, reason_);
     };
     UpdateResourceInstanceRequest() = default ;
     UpdateResourceInstanceRequest(const UpdateResourceInstanceRequest &) = default ;
@@ -32,7 +34,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->action_ == nullptr
-        && this->newDiskSize_ == nullptr; };
+        && this->newDiskSize_ == nullptr && this->reason_ == nullptr; };
     // action Field Functions 
     bool hasAction() const { return this->action_ != nullptr;};
     void deleteAction() { this->action_ = nullptr;};
@@ -47,6 +49,13 @@ namespace Models
     inline UpdateResourceInstanceRequest& setNewDiskSize(string newDiskSize) { DARABONBA_PTR_SET_VALUE(newDiskSize_, newDiskSize) };
 
 
+    // reason Field Functions 
+    bool hasReason() const { return this->reason_ != nullptr;};
+    void deleteReason() { this->reason_ = nullptr;};
+    inline string getReason() const { DARABONBA_PTR_GET_DEFAULT(reason_, "") };
+    inline UpdateResourceInstanceRequest& setReason(string reason) { DARABONBA_PTR_SET_VALUE(reason_, reason) };
+
+
   protected:
     // The operation that updates the scheduling state of the instance in a dedicated resource group. Valid values:
     // 
@@ -57,6 +66,7 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> action_ {};
     shared_ptr<string> newDiskSize_ {};
+    shared_ptr<string> reason_ {};
   };
 
   } // namespace Models

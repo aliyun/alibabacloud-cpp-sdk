@@ -4883,6 +4883,10 @@ UpdateResourceInstanceResponse Client::updateResourceInstanceWithOptions(const s
     body["NewDiskSize"] = request.getNewDiskSize();
   }
 
+  if (!!request.hasReason()) {
+    body["Reason"] = request.getReason();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"body" , Utils::Utils::parseToMap(body)}

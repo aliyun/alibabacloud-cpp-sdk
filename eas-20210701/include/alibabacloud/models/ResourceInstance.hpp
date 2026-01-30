@@ -36,6 +36,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InstanceUsedGpuMemory, instanceUsedGpuMemory_);
       DARABONBA_PTR_TO_JSON(InstanceUsedMemory, instanceUsedMemory_);
       DARABONBA_PTR_TO_JSON(Labels, labels_);
+      DARABONBA_PTR_TO_JSON(LastCordonOperator, lastCordonOperator_);
+      DARABONBA_PTR_TO_JSON(LastCordonReason, lastCordonReason_);
       DARABONBA_PTR_TO_JSON(Region, region_);
       DARABONBA_PTR_TO_JSON(ResourceId, resourceId_);
       DARABONBA_PTR_TO_JSON(Zone, zone_);
@@ -63,6 +65,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(InstanceUsedGpuMemory, instanceUsedGpuMemory_);
       DARABONBA_PTR_FROM_JSON(InstanceUsedMemory, instanceUsedMemory_);
       DARABONBA_PTR_FROM_JSON(Labels, labels_);
+      DARABONBA_PTR_FROM_JSON(LastCordonOperator, lastCordonOperator_);
+      DARABONBA_PTR_FROM_JSON(LastCordonReason, lastCordonReason_);
       DARABONBA_PTR_FROM_JSON(Region, region_);
       DARABONBA_PTR_FROM_JSON(ResourceId, resourceId_);
       DARABONBA_PTR_FROM_JSON(Zone, zone_);
@@ -125,7 +129,8 @@ namespace Models
         && this->instanceGpuCount_ == nullptr && this->instanceGpuMemory_ == nullptr && this->instanceId_ == nullptr && this->instanceIp_ == nullptr && this->instanceMemory_ == nullptr
         && this->instanceName_ == nullptr && this->instancePhase_ == nullptr && this->instanceStatus_ == nullptr && this->instanceSystemDiskSize_ == nullptr && this->instanceTenantIp_ == nullptr
         && this->instanceType_ == nullptr && this->instanceUsedCpu_ == nullptr && this->instanceUsedGpu_ == nullptr && this->instanceUsedGpuMemory_ == nullptr && this->instanceUsedMemory_ == nullptr
-        && this->labels_ == nullptr && this->region_ == nullptr && this->resourceId_ == nullptr && this->zone_ == nullptr; };
+        && this->labels_ == nullptr && this->lastCordonOperator_ == nullptr && this->lastCordonReason_ == nullptr && this->region_ == nullptr && this->resourceId_ == nullptr
+        && this->zone_ == nullptr; };
     // arch Field Functions 
     bool hasArch() const { return this->arch_ != nullptr;};
     void deleteArch() { this->arch_ = nullptr;};
@@ -282,6 +287,20 @@ namespace Models
     inline ResourceInstance& setLabels(vector<ResourceInstance::Labels> && labels) { DARABONBA_PTR_SET_RVALUE(labels_, labels) };
 
 
+    // lastCordonOperator Field Functions 
+    bool hasLastCordonOperator() const { return this->lastCordonOperator_ != nullptr;};
+    void deleteLastCordonOperator() { this->lastCordonOperator_ = nullptr;};
+    inline string getLastCordonOperator() const { DARABONBA_PTR_GET_DEFAULT(lastCordonOperator_, "") };
+    inline ResourceInstance& setLastCordonOperator(string lastCordonOperator) { DARABONBA_PTR_SET_VALUE(lastCordonOperator_, lastCordonOperator) };
+
+
+    // lastCordonReason Field Functions 
+    bool hasLastCordonReason() const { return this->lastCordonReason_ != nullptr;};
+    void deleteLastCordonReason() { this->lastCordonReason_ = nullptr;};
+    inline string getLastCordonReason() const { DARABONBA_PTR_GET_DEFAULT(lastCordonReason_, "") };
+    inline ResourceInstance& setLastCordonReason(string lastCordonReason) { DARABONBA_PTR_SET_VALUE(lastCordonReason_, lastCordonReason) };
+
+
     // region Field Functions 
     bool hasRegion() const { return this->region_ != nullptr;};
     void deleteRegion() { this->region_ = nullptr;};
@@ -326,6 +345,8 @@ namespace Models
     shared_ptr<string> instanceUsedGpuMemory_ {};
     shared_ptr<string> instanceUsedMemory_ {};
     shared_ptr<vector<ResourceInstance::Labels>> labels_ {};
+    shared_ptr<string> lastCordonOperator_ {};
+    shared_ptr<string> lastCordonReason_ {};
     shared_ptr<string> region_ {};
     shared_ptr<string> resourceId_ {};
     shared_ptr<string> zone_ {};
