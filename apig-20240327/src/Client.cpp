@@ -883,6 +883,10 @@ CreateHttpApiRouteResponse Client::createHttpApiRouteWithOptions(const string &h
     body["name"] = request.getName();
   }
 
+  if (!!request.hasPolicyConfigs()) {
+    body["policyConfigs"] = request.getPolicyConfigs();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"body" , Utils::Utils::parseToMap(body)}
@@ -1274,6 +1278,11 @@ CreateSecretResponse Client::createSecret(const CreateSecretRequest &request) {
  */
 CreateServiceResponse Client::createServiceWithOptions(const CreateServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["clientToken"] = request.getClientToken();
+  }
+
   json body = {};
   if (!!request.hasGatewayId()) {
     body["gatewayId"] = request.getGatewayId();
@@ -1293,6 +1302,7 @@ CreateServiceResponse Client::createServiceWithOptions(const CreateServiceReques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
   }));
   Params params = Params(json({

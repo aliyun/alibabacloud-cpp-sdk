@@ -34,6 +34,7 @@
 #include <alibabacloud/models/HttpApiResponseContract.hpp>
 #include <alibabacloud/models/HttpApiOperation.hpp>
 #include <alibabacloud/models/HttpApiOperationInfo.hpp>
+#include <alibabacloud/models/HttpApiPolicyConfigs.hpp>
 #include <alibabacloud/models/HttpApiPublishRevisionInfo.hpp>
 #include <alibabacloud/models/HttpApiVersionConfig.hpp>
 #include <alibabacloud/models/HttpDubboTranscoder.hpp>
@@ -56,6 +57,7 @@
 #include <alibabacloud/models/ServiceLinkedRole.hpp>
 #include <alibabacloud/models/SslCertMetaInfo.hpp>
 #include <alibabacloud/models/TlsCipherSuitesConfig.hpp>
+#include <alibabacloud/models/ValidationOptions.hpp>
 #include <alibabacloud/models/AddGatewaySecurityGroupRuleRequest.hpp>
 #include <alibabacloud/models/AddGatewaySecurityGroupRuleResponseBody.hpp>
 #include <alibabacloud/models/AddGatewaySecurityGroupRuleResponse.hpp>

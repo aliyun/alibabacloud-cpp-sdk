@@ -15,17 +15,21 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const AgentServiceConfig& obj) { 
       DARABONBA_PTR_TO_JSON(address, address_);
+      DARABONBA_PTR_TO_JSON(customConfig, customConfig_);
       DARABONBA_PTR_TO_JSON(dashScopeConfig, dashScopeConfig_);
       DARABONBA_PTR_TO_JSON(difyConfig, difyConfig_);
       DARABONBA_PTR_TO_JSON(enableHealthCheck, enableHealthCheck_);
+      DARABONBA_PTR_TO_JSON(enableOutlierDetection, enableOutlierDetection_);
       DARABONBA_PTR_TO_JSON(protocols, protocols_);
       DARABONBA_PTR_TO_JSON(provider, provider_);
     };
     friend void from_json(const Darabonba::Json& j, AgentServiceConfig& obj) { 
       DARABONBA_PTR_FROM_JSON(address, address_);
+      DARABONBA_PTR_FROM_JSON(customConfig, customConfig_);
       DARABONBA_PTR_FROM_JSON(dashScopeConfig, dashScopeConfig_);
       DARABONBA_PTR_FROM_JSON(difyConfig, difyConfig_);
       DARABONBA_PTR_FROM_JSON(enableHealthCheck, enableHealthCheck_);
+      DARABONBA_PTR_FROM_JSON(enableOutlierDetection, enableOutlierDetection_);
       DARABONBA_PTR_FROM_JSON(protocols, protocols_);
       DARABONBA_PTR_FROM_JSON(provider, provider_);
     };
@@ -157,13 +161,65 @@ namespace Models
       shared_ptr<vector<DashScopeConfig::AppCredentials>> appCredentials_ {};
     };
 
+    class CustomConfig : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const CustomConfig& obj) { 
+        DARABONBA_PTR_TO_JSON(apiKey, apiKey_);
+        DARABONBA_PTR_TO_JSON(apiKeyGenerateMode, apiKeyGenerateMode_);
+      };
+      friend void from_json(const Darabonba::Json& j, CustomConfig& obj) { 
+        DARABONBA_PTR_FROM_JSON(apiKey, apiKey_);
+        DARABONBA_PTR_FROM_JSON(apiKeyGenerateMode, apiKeyGenerateMode_);
+      };
+      CustomConfig() = default ;
+      CustomConfig(const CustomConfig &) = default ;
+      CustomConfig(CustomConfig &&) = default ;
+      CustomConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~CustomConfig() = default ;
+      CustomConfig& operator=(const CustomConfig &) = default ;
+      CustomConfig& operator=(CustomConfig &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->apiKey_ == nullptr
+        && this->apiKeyGenerateMode_ == nullptr; };
+      // apiKey Field Functions 
+      bool hasApiKey() const { return this->apiKey_ != nullptr;};
+      void deleteApiKey() { this->apiKey_ = nullptr;};
+      inline string getApiKey() const { DARABONBA_PTR_GET_DEFAULT(apiKey_, "") };
+      inline CustomConfig& setApiKey(string apiKey) { DARABONBA_PTR_SET_VALUE(apiKey_, apiKey) };
+
+
+      // apiKeyGenerateMode Field Functions 
+      bool hasApiKeyGenerateMode() const { return this->apiKeyGenerateMode_ != nullptr;};
+      void deleteApiKeyGenerateMode() { this->apiKeyGenerateMode_ = nullptr;};
+      inline string getApiKeyGenerateMode() const { DARABONBA_PTR_GET_DEFAULT(apiKeyGenerateMode_, "") };
+      inline CustomConfig& setApiKeyGenerateMode(string apiKeyGenerateMode) { DARABONBA_PTR_SET_VALUE(apiKeyGenerateMode_, apiKeyGenerateMode) };
+
+
+    protected:
+      shared_ptr<string> apiKey_ {};
+      shared_ptr<string> apiKeyGenerateMode_ {};
+    };
+
     virtual bool empty() const override { return this->address_ == nullptr
-        && this->dashScopeConfig_ == nullptr && this->difyConfig_ == nullptr && this->enableHealthCheck_ == nullptr && this->protocols_ == nullptr && this->provider_ == nullptr; };
+        && this->customConfig_ == nullptr && this->dashScopeConfig_ == nullptr && this->difyConfig_ == nullptr && this->enableHealthCheck_ == nullptr && this->enableOutlierDetection_ == nullptr
+        && this->protocols_ == nullptr && this->provider_ == nullptr; };
     // address Field Functions 
     bool hasAddress() const { return this->address_ != nullptr;};
     void deleteAddress() { this->address_ = nullptr;};
     inline string getAddress() const { DARABONBA_PTR_GET_DEFAULT(address_, "") };
     inline AgentServiceConfig& setAddress(string address) { DARABONBA_PTR_SET_VALUE(address_, address) };
+
+
+    // customConfig Field Functions 
+    bool hasCustomConfig() const { return this->customConfig_ != nullptr;};
+    void deleteCustomConfig() { this->customConfig_ = nullptr;};
+    inline const AgentServiceConfig::CustomConfig & getCustomConfig() const { DARABONBA_PTR_GET_CONST(customConfig_, AgentServiceConfig::CustomConfig) };
+    inline AgentServiceConfig::CustomConfig getCustomConfig() { DARABONBA_PTR_GET(customConfig_, AgentServiceConfig::CustomConfig) };
+    inline AgentServiceConfig& setCustomConfig(const AgentServiceConfig::CustomConfig & customConfig) { DARABONBA_PTR_SET_VALUE(customConfig_, customConfig) };
+    inline AgentServiceConfig& setCustomConfig(AgentServiceConfig::CustomConfig && customConfig) { DARABONBA_PTR_SET_RVALUE(customConfig_, customConfig) };
 
 
     // dashScopeConfig Field Functions 
@@ -191,6 +247,13 @@ namespace Models
     inline AgentServiceConfig& setEnableHealthCheck(bool enableHealthCheck) { DARABONBA_PTR_SET_VALUE(enableHealthCheck_, enableHealthCheck) };
 
 
+    // enableOutlierDetection Field Functions 
+    bool hasEnableOutlierDetection() const { return this->enableOutlierDetection_ != nullptr;};
+    void deleteEnableOutlierDetection() { this->enableOutlierDetection_ = nullptr;};
+    inline bool getEnableOutlierDetection() const { DARABONBA_PTR_GET_DEFAULT(enableOutlierDetection_, false) };
+    inline AgentServiceConfig& setEnableOutlierDetection(bool enableOutlierDetection) { DARABONBA_PTR_SET_VALUE(enableOutlierDetection_, enableOutlierDetection) };
+
+
     // protocols Field Functions 
     bool hasProtocols() const { return this->protocols_ != nullptr;};
     void deleteProtocols() { this->protocols_ = nullptr;};
@@ -210,9 +273,11 @@ namespace Models
   protected:
     // This parameter is required.
     shared_ptr<string> address_ {};
+    shared_ptr<AgentServiceConfig::CustomConfig> customConfig_ {};
     shared_ptr<AgentServiceConfig::DashScopeConfig> dashScopeConfig_ {};
     shared_ptr<AgentServiceConfig::DifyConfig> difyConfig_ {};
     shared_ptr<bool> enableHealthCheck_ {};
+    shared_ptr<bool> enableOutlierDetection_ {};
     shared_ptr<vector<string>> protocols_ {};
     // This parameter is required.
     shared_ptr<string> provider_ {};

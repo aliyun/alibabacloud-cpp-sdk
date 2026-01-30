@@ -20,12 +20,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(resourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(serviceConfigs, serviceConfigs_);
       DARABONBA_PTR_TO_JSON(sourceType, sourceType_);
+      DARABONBA_PTR_TO_JSON(clientToken, clientToken_);
     };
     friend void from_json(const Darabonba::Json& j, CreateServiceRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(gatewayId, gatewayId_);
       DARABONBA_PTR_FROM_JSON(resourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(serviceConfigs, serviceConfigs_);
       DARABONBA_PTR_FROM_JSON(sourceType, sourceType_);
+      DARABONBA_PTR_FROM_JSON(clientToken, clientToken_);
     };
     CreateServiceRequest() = default ;
     CreateServiceRequest(const CreateServiceRequest &) = default ;
@@ -45,22 +47,26 @@ namespace Models
         DARABONBA_PTR_TO_JSON(agentServiceConfig, agentServiceConfig_);
         DARABONBA_PTR_TO_JSON(aiServiceConfig, aiServiceConfig_);
         DARABONBA_PTR_TO_JSON(dnsServers, dnsServers_);
+        DARABONBA_PTR_TO_JSON(expressType, expressType_);
         DARABONBA_PTR_TO_JSON(groupName, groupName_);
         DARABONBA_PTR_TO_JSON(name, name_);
         DARABONBA_PTR_TO_JSON(namespace, namespace_);
         DARABONBA_PTR_TO_JSON(qualifier, qualifier_);
         DARABONBA_PTR_TO_JSON(sourceId, sourceId_);
+        DARABONBA_PTR_TO_JSON(validationOptions, validationOptions_);
       };
       friend void from_json(const Darabonba::Json& j, ServiceConfigs& obj) { 
         DARABONBA_PTR_FROM_JSON(addresses, addresses_);
         DARABONBA_PTR_FROM_JSON(agentServiceConfig, agentServiceConfig_);
         DARABONBA_PTR_FROM_JSON(aiServiceConfig, aiServiceConfig_);
         DARABONBA_PTR_FROM_JSON(dnsServers, dnsServers_);
+        DARABONBA_PTR_FROM_JSON(expressType, expressType_);
         DARABONBA_PTR_FROM_JSON(groupName, groupName_);
         DARABONBA_PTR_FROM_JSON(name, name_);
         DARABONBA_PTR_FROM_JSON(namespace, namespace_);
         DARABONBA_PTR_FROM_JSON(qualifier, qualifier_);
         DARABONBA_PTR_FROM_JSON(sourceId, sourceId_);
+        DARABONBA_PTR_FROM_JSON(validationOptions, validationOptions_);
       };
       ServiceConfigs() = default ;
       ServiceConfigs(const ServiceConfigs &) = default ;
@@ -73,9 +79,40 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class ValidationOptions : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const ValidationOptions& obj) { 
+          DARABONBA_PTR_TO_JSON(skipVerifyAIChatCompletion, skipVerifyAIChatCompletion_);
+        };
+        friend void from_json(const Darabonba::Json& j, ValidationOptions& obj) { 
+          DARABONBA_PTR_FROM_JSON(skipVerifyAIChatCompletion, skipVerifyAIChatCompletion_);
+        };
+        ValidationOptions() = default ;
+        ValidationOptions(const ValidationOptions &) = default ;
+        ValidationOptions(ValidationOptions &&) = default ;
+        ValidationOptions(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~ValidationOptions() = default ;
+        ValidationOptions& operator=(const ValidationOptions &) = default ;
+        ValidationOptions& operator=(ValidationOptions &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->skipVerifyAIChatCompletion_ == nullptr; };
+        // skipVerifyAIChatCompletion Field Functions 
+        bool hasSkipVerifyAIChatCompletion() const { return this->skipVerifyAIChatCompletion_ != nullptr;};
+        void deleteSkipVerifyAIChatCompletion() { this->skipVerifyAIChatCompletion_ = nullptr;};
+        inline bool getSkipVerifyAIChatCompletion() const { DARABONBA_PTR_GET_DEFAULT(skipVerifyAIChatCompletion_, false) };
+        inline ValidationOptions& setSkipVerifyAIChatCompletion(bool skipVerifyAIChatCompletion) { DARABONBA_PTR_SET_VALUE(skipVerifyAIChatCompletion_, skipVerifyAIChatCompletion) };
+
+
+      protected:
+        shared_ptr<bool> skipVerifyAIChatCompletion_ {};
+      };
+
       virtual bool empty() const override { return this->addresses_ == nullptr
-        && this->agentServiceConfig_ == nullptr && this->aiServiceConfig_ == nullptr && this->dnsServers_ == nullptr && this->groupName_ == nullptr && this->name_ == nullptr
-        && this->namespace_ == nullptr && this->qualifier_ == nullptr && this->sourceId_ == nullptr; };
+        && this->agentServiceConfig_ == nullptr && this->aiServiceConfig_ == nullptr && this->dnsServers_ == nullptr && this->expressType_ == nullptr && this->groupName_ == nullptr
+        && this->name_ == nullptr && this->namespace_ == nullptr && this->qualifier_ == nullptr && this->sourceId_ == nullptr && this->validationOptions_ == nullptr; };
       // addresses Field Functions 
       bool hasAddresses() const { return this->addresses_ != nullptr;};
       void deleteAddresses() { this->addresses_ = nullptr;};
@@ -110,6 +147,13 @@ namespace Models
       inline vector<string> getDnsServers() { DARABONBA_PTR_GET(dnsServers_, vector<string>) };
       inline ServiceConfigs& setDnsServers(const vector<string> & dnsServers) { DARABONBA_PTR_SET_VALUE(dnsServers_, dnsServers) };
       inline ServiceConfigs& setDnsServers(vector<string> && dnsServers) { DARABONBA_PTR_SET_RVALUE(dnsServers_, dnsServers) };
+
+
+      // expressType Field Functions 
+      bool hasExpressType() const { return this->expressType_ != nullptr;};
+      void deleteExpressType() { this->expressType_ = nullptr;};
+      inline string getExpressType() const { DARABONBA_PTR_GET_DEFAULT(expressType_, "") };
+      inline ServiceConfigs& setExpressType(string expressType) { DARABONBA_PTR_SET_VALUE(expressType_, expressType) };
 
 
       // groupName Field Functions 
@@ -147,6 +191,15 @@ namespace Models
       inline ServiceConfigs& setSourceId(string sourceId) { DARABONBA_PTR_SET_VALUE(sourceId_, sourceId) };
 
 
+      // validationOptions Field Functions 
+      bool hasValidationOptions() const { return this->validationOptions_ != nullptr;};
+      void deleteValidationOptions() { this->validationOptions_ = nullptr;};
+      inline const ServiceConfigs::ValidationOptions & getValidationOptions() const { DARABONBA_PTR_GET_CONST(validationOptions_, ServiceConfigs::ValidationOptions) };
+      inline ServiceConfigs::ValidationOptions getValidationOptions() { DARABONBA_PTR_GET(validationOptions_, ServiceConfigs::ValidationOptions) };
+      inline ServiceConfigs& setValidationOptions(const ServiceConfigs::ValidationOptions & validationOptions) { DARABONBA_PTR_SET_VALUE(validationOptions_, validationOptions) };
+      inline ServiceConfigs& setValidationOptions(ServiceConfigs::ValidationOptions && validationOptions) { DARABONBA_PTR_SET_RVALUE(validationOptions_, validationOptions) };
+
+
     protected:
       // The list of domain names or fixed addresses.
       shared_ptr<vector<string>> addresses_ {};
@@ -155,6 +208,7 @@ namespace Models
       shared_ptr<AiServiceConfig> aiServiceConfig_ {};
       // The list of DNS service addresses.
       shared_ptr<vector<string>> dnsServers_ {};
+      shared_ptr<string> expressType_ {};
       // The service group name. This parameter is required if sourceType is set to MSE_NACOS.
       shared_ptr<string> groupName_ {};
       // The service name.
@@ -167,10 +221,11 @@ namespace Models
       // The function version or alias.
       shared_ptr<string> qualifier_ {};
       shared_ptr<string> sourceId_ {};
+      shared_ptr<ServiceConfigs::ValidationOptions> validationOptions_ {};
     };
 
     virtual bool empty() const override { return this->gatewayId_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->serviceConfigs_ == nullptr && this->sourceType_ == nullptr; };
+        && this->resourceGroupId_ == nullptr && this->serviceConfigs_ == nullptr && this->sourceType_ == nullptr && this->clientToken_ == nullptr; };
     // gatewayId Field Functions 
     bool hasGatewayId() const { return this->gatewayId_ != nullptr;};
     void deleteGatewayId() { this->gatewayId_ = nullptr;};
@@ -201,6 +256,13 @@ namespace Models
     inline CreateServiceRequest& setSourceType(string sourceType) { DARABONBA_PTR_SET_VALUE(sourceType_, sourceType) };
 
 
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline CreateServiceRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
   protected:
     // The gateway instance ID.
     shared_ptr<string> gatewayId_ {};
@@ -226,6 +288,7 @@ namespace Models
     // *   VIP
     // *   MSE_NACOS
     shared_ptr<string> sourceType_ {};
+    shared_ptr<string> clientToken_ {};
   };
 
   } // namespace Models

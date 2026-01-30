@@ -5,6 +5,7 @@
 #include <vector>
 #include <alibabacloud/models/HttpApiDeployConfig.hpp>
 #include <alibabacloud/models/HttpRouteMatch.hpp>
+#include <alibabacloud/models/HttpApiPolicyConfigs.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(match, match_);
       DARABONBA_PTR_TO_JSON(mcpRouteConfig, mcpRouteConfig_);
       DARABONBA_PTR_TO_JSON(name, name_);
+      DARABONBA_PTR_TO_JSON(policyConfigs, policyConfigs_);
     };
     friend void from_json(const Darabonba::Json& j, CreateHttpApiRouteRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(backendConfig, backendConfig_);
@@ -34,6 +36,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(match, match_);
       DARABONBA_PTR_FROM_JSON(mcpRouteConfig, mcpRouteConfig_);
       DARABONBA_PTR_FROM_JSON(name, name_);
+      DARABONBA_PTR_FROM_JSON(policyConfigs, policyConfigs_);
     };
     CreateHttpApiRouteRequest() = default ;
     CreateHttpApiRouteRequest(const CreateHttpApiRouteRequest &) = default ;
@@ -231,7 +234,7 @@ namespace Models
 
     virtual bool empty() const override { return this->backendConfig_ == nullptr
         && this->deployConfigs_ == nullptr && this->description_ == nullptr && this->domainIds_ == nullptr && this->environmentId_ == nullptr && this->match_ == nullptr
-        && this->mcpRouteConfig_ == nullptr && this->name_ == nullptr; };
+        && this->mcpRouteConfig_ == nullptr && this->name_ == nullptr && this->policyConfigs_ == nullptr; };
     // backendConfig Field Functions 
     bool hasBackendConfig() const { return this->backendConfig_ != nullptr;};
     void deleteBackendConfig() { this->backendConfig_ = nullptr;};
@@ -298,6 +301,15 @@ namespace Models
     inline CreateHttpApiRouteRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+    // policyConfigs Field Functions 
+    bool hasPolicyConfigs() const { return this->policyConfigs_ != nullptr;};
+    void deletePolicyConfigs() { this->policyConfigs_ = nullptr;};
+    inline const vector<HttpApiPolicyConfigs> & getPolicyConfigs() const { DARABONBA_PTR_GET_CONST(policyConfigs_, vector<HttpApiPolicyConfigs>) };
+    inline vector<HttpApiPolicyConfigs> getPolicyConfigs() { DARABONBA_PTR_GET(policyConfigs_, vector<HttpApiPolicyConfigs>) };
+    inline CreateHttpApiRouteRequest& setPolicyConfigs(const vector<HttpApiPolicyConfigs> & policyConfigs) { DARABONBA_PTR_SET_VALUE(policyConfigs_, policyConfigs) };
+    inline CreateHttpApiRouteRequest& setPolicyConfigs(vector<HttpApiPolicyConfigs> && policyConfigs) { DARABONBA_PTR_SET_RVALUE(policyConfigs_, policyConfigs) };
+
+
   protected:
     // The backend service configurations of the route.
     shared_ptr<CreateHttpApiRouteRequest::BackendConfig> backendConfig_ {};
@@ -313,6 +325,7 @@ namespace Models
     shared_ptr<CreateHttpApiRouteRequest::McpRouteConfig> mcpRouteConfig_ {};
     // The route name.
     shared_ptr<string> name_ {};
+    shared_ptr<vector<HttpApiPolicyConfigs>> policyConfigs_ {};
   };
 
   } // namespace Models
