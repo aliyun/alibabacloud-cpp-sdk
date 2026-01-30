@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->notificationTypes_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // notificationTypes Field Functions 
     bool hasNotificationTypes() const { return this->notificationTypes_ != nullptr;};
     void deleteNotificationTypes() { this->notificationTypes_ = nullptr;};
-    inline const vector<string> & notificationTypes() const { DARABONBA_PTR_GET_CONST(notificationTypes_, vector<string>) };
-    inline vector<string> notificationTypes() { DARABONBA_PTR_GET(notificationTypes_, vector<string>) };
+    inline const vector<string> & getNotificationTypes() const { DARABONBA_PTR_GET_CONST(notificationTypes_, vector<string>) };
+    inline vector<string> getNotificationTypes() { DARABONBA_PTR_GET(notificationTypes_, vector<string>) };
     inline DescribeNotificationTypesResponseBody& setNotificationTypes(const vector<string> & notificationTypes) { DARABONBA_PTR_SET_VALUE(notificationTypes_, notificationTypes) };
     inline DescribeNotificationTypesResponseBody& setNotificationTypes(vector<string> && notificationTypes) { DARABONBA_PTR_SET_RVALUE(notificationTypes_, notificationTypes) };
 
@@ -46,7 +46,7 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeNotificationTypesResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
@@ -61,9 +61,9 @@ namespace Models
     // *   AUTOSCALING:SCALE_OUT_START: The scale-out activity starts.
     // *   AUTOSCALING:SCALE_IN_START: The scale-in activity starts.
     // *   AUTOSCALING:SCHEDULE_TASK_EXPIRING: Auto Scaling sends a notification when a scheduled task is about to expire.
-    std::shared_ptr<vector<string>> notificationTypes_ = nullptr;
+    shared_ptr<vector<string>> notificationTypes_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

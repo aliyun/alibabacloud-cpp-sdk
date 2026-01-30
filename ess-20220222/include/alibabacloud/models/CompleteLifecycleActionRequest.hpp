@@ -44,61 +44,61 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && return this->lifecycleActionResult_ == nullptr && return this->lifecycleActionToken_ == nullptr && return this->lifecycleHookId_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr
-        && return this->regionId_ == nullptr && return this->resourceOwnerAccount_ == nullptr; };
+        && this->lifecycleActionResult_ == nullptr && this->lifecycleActionToken_ == nullptr && this->lifecycleHookId_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr
+        && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline CompleteLifecycleActionRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // lifecycleActionResult Field Functions 
     bool hasLifecycleActionResult() const { return this->lifecycleActionResult_ != nullptr;};
     void deleteLifecycleActionResult() { this->lifecycleActionResult_ = nullptr;};
-    inline string lifecycleActionResult() const { DARABONBA_PTR_GET_DEFAULT(lifecycleActionResult_, "") };
+    inline string getLifecycleActionResult() const { DARABONBA_PTR_GET_DEFAULT(lifecycleActionResult_, "") };
     inline CompleteLifecycleActionRequest& setLifecycleActionResult(string lifecycleActionResult) { DARABONBA_PTR_SET_VALUE(lifecycleActionResult_, lifecycleActionResult) };
 
 
     // lifecycleActionToken Field Functions 
     bool hasLifecycleActionToken() const { return this->lifecycleActionToken_ != nullptr;};
     void deleteLifecycleActionToken() { this->lifecycleActionToken_ = nullptr;};
-    inline string lifecycleActionToken() const { DARABONBA_PTR_GET_DEFAULT(lifecycleActionToken_, "") };
+    inline string getLifecycleActionToken() const { DARABONBA_PTR_GET_DEFAULT(lifecycleActionToken_, "") };
     inline CompleteLifecycleActionRequest& setLifecycleActionToken(string lifecycleActionToken) { DARABONBA_PTR_SET_VALUE(lifecycleActionToken_, lifecycleActionToken) };
 
 
     // lifecycleHookId Field Functions 
     bool hasLifecycleHookId() const { return this->lifecycleHookId_ != nullptr;};
     void deleteLifecycleHookId() { this->lifecycleHookId_ = nullptr;};
-    inline string lifecycleHookId() const { DARABONBA_PTR_GET_DEFAULT(lifecycleHookId_, "") };
+    inline string getLifecycleHookId() const { DARABONBA_PTR_GET_DEFAULT(lifecycleHookId_, "") };
     inline CompleteLifecycleActionRequest& setLifecycleHookId(string lifecycleHookId) { DARABONBA_PTR_SET_VALUE(lifecycleHookId_, lifecycleHookId) };
 
 
     // ownerAccount Field Functions 
     bool hasOwnerAccount() const { return this->ownerAccount_ != nullptr;};
     void deleteOwnerAccount() { this->ownerAccount_ = nullptr;};
-    inline string ownerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
+    inline string getOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
     inline CompleteLifecycleActionRequest& setOwnerAccount(string ownerAccount) { DARABONBA_PTR_SET_VALUE(ownerAccount_, ownerAccount) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline CompleteLifecycleActionRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CompleteLifecycleActionRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline CompleteLifecycleActionRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
@@ -106,7 +106,7 @@ namespace Models
     // The client token that is used to ensure the idempotence of the request.
     // 
     // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/25965.html).
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // The action that you want Auto Scaling to perform after the lifecycle hook times out. Valid values:
     // 
     // *   CONTINUE: Auto Scaling continues to respond to a scale-in or scale-out request.
@@ -119,20 +119,20 @@ namespace Models
     // 
     // *   For scale-in activities, when lifecycle hooks whose LifecycleActionResult parameter is set to ABANDON or ROLLBACK time out, other lifecycle hooks time out ahead of schedule.
     // *   For scale-in and scale-out activities, if you set the LifecycleActionResult parameter for all lifecycle hooks to CONTINUE, Auto Scaling performs the next action only after the last lifecycle hook times out. The action that Auto Scaling performs varies based on the value that you specify for the LifecycleActionResult parameter of the lifecycle hook that last times out.
-    std::shared_ptr<string> lifecycleActionResult_ = nullptr;
+    shared_ptr<string> lifecycleActionResult_ {};
     // The token of the lifecycle action. You can obtain the token from the Simple Message Queue (SMQ, formerly MNS) queue or topic that is specified for the lifecycle hook.
     // 
     // This parameter is required.
-    std::shared_ptr<string> lifecycleActionToken_ = nullptr;
+    shared_ptr<string> lifecycleActionToken_ {};
     // The ID of the lifecycle hook.
     // 
     // This parameter is required.
-    std::shared_ptr<string> lifecycleHookId_ = nullptr;
-    std::shared_ptr<string> ownerAccount_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<string> lifecycleHookId_ {};
+    shared_ptr<string> ownerAccount_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // The region ID of the scaling group.
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
   };
 
   } // namespace Models

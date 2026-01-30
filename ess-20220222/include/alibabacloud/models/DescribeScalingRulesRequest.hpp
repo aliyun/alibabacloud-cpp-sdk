@@ -55,70 +55,70 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ownerAccount_ == nullptr
-        && return this->ownerId_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->regionId_ == nullptr && return this->resourceOwnerAccount_ == nullptr
-        && return this->resourceOwnerId_ == nullptr && return this->scalingGroupId_ == nullptr && return this->scalingRuleAris_ == nullptr && return this->scalingRuleIds_ == nullptr && return this->scalingRuleNames_ == nullptr
-        && return this->scalingRuleType_ == nullptr && return this->showAlarmRules_ == nullptr; };
+        && this->ownerId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr
+        && this->resourceOwnerId_ == nullptr && this->scalingGroupId_ == nullptr && this->scalingRuleAris_ == nullptr && this->scalingRuleIds_ == nullptr && this->scalingRuleNames_ == nullptr
+        && this->scalingRuleType_ == nullptr && this->showAlarmRules_ == nullptr; };
     // ownerAccount Field Functions 
     bool hasOwnerAccount() const { return this->ownerAccount_ != nullptr;};
     void deleteOwnerAccount() { this->ownerAccount_ = nullptr;};
-    inline string ownerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
+    inline string getOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
     inline DescribeScalingRulesRequest& setOwnerAccount(string ownerAccount) { DARABONBA_PTR_SET_VALUE(ownerAccount_, ownerAccount) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline DescribeScalingRulesRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline DescribeScalingRulesRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DescribeScalingRulesRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeScalingRulesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline DescribeScalingRulesRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline DescribeScalingRulesRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // scalingGroupId Field Functions 
     bool hasScalingGroupId() const { return this->scalingGroupId_ != nullptr;};
     void deleteScalingGroupId() { this->scalingGroupId_ = nullptr;};
-    inline string scalingGroupId() const { DARABONBA_PTR_GET_DEFAULT(scalingGroupId_, "") };
+    inline string getScalingGroupId() const { DARABONBA_PTR_GET_DEFAULT(scalingGroupId_, "") };
     inline DescribeScalingRulesRequest& setScalingGroupId(string scalingGroupId) { DARABONBA_PTR_SET_VALUE(scalingGroupId_, scalingGroupId) };
 
 
     // scalingRuleAris Field Functions 
     bool hasScalingRuleAris() const { return this->scalingRuleAris_ != nullptr;};
     void deleteScalingRuleAris() { this->scalingRuleAris_ = nullptr;};
-    inline const vector<string> & scalingRuleAris() const { DARABONBA_PTR_GET_CONST(scalingRuleAris_, vector<string>) };
-    inline vector<string> scalingRuleAris() { DARABONBA_PTR_GET(scalingRuleAris_, vector<string>) };
+    inline const vector<string> & getScalingRuleAris() const { DARABONBA_PTR_GET_CONST(scalingRuleAris_, vector<string>) };
+    inline vector<string> getScalingRuleAris() { DARABONBA_PTR_GET(scalingRuleAris_, vector<string>) };
     inline DescribeScalingRulesRequest& setScalingRuleAris(const vector<string> & scalingRuleAris) { DARABONBA_PTR_SET_VALUE(scalingRuleAris_, scalingRuleAris) };
     inline DescribeScalingRulesRequest& setScalingRuleAris(vector<string> && scalingRuleAris) { DARABONBA_PTR_SET_RVALUE(scalingRuleAris_, scalingRuleAris) };
 
@@ -126,8 +126,8 @@ namespace Models
     // scalingRuleIds Field Functions 
     bool hasScalingRuleIds() const { return this->scalingRuleIds_ != nullptr;};
     void deleteScalingRuleIds() { this->scalingRuleIds_ = nullptr;};
-    inline const vector<string> & scalingRuleIds() const { DARABONBA_PTR_GET_CONST(scalingRuleIds_, vector<string>) };
-    inline vector<string> scalingRuleIds() { DARABONBA_PTR_GET(scalingRuleIds_, vector<string>) };
+    inline const vector<string> & getScalingRuleIds() const { DARABONBA_PTR_GET_CONST(scalingRuleIds_, vector<string>) };
+    inline vector<string> getScalingRuleIds() { DARABONBA_PTR_GET(scalingRuleIds_, vector<string>) };
     inline DescribeScalingRulesRequest& setScalingRuleIds(const vector<string> & scalingRuleIds) { DARABONBA_PTR_SET_VALUE(scalingRuleIds_, scalingRuleIds) };
     inline DescribeScalingRulesRequest& setScalingRuleIds(vector<string> && scalingRuleIds) { DARABONBA_PTR_SET_RVALUE(scalingRuleIds_, scalingRuleIds) };
 
@@ -135,8 +135,8 @@ namespace Models
     // scalingRuleNames Field Functions 
     bool hasScalingRuleNames() const { return this->scalingRuleNames_ != nullptr;};
     void deleteScalingRuleNames() { this->scalingRuleNames_ = nullptr;};
-    inline const vector<string> & scalingRuleNames() const { DARABONBA_PTR_GET_CONST(scalingRuleNames_, vector<string>) };
-    inline vector<string> scalingRuleNames() { DARABONBA_PTR_GET(scalingRuleNames_, vector<string>) };
+    inline const vector<string> & getScalingRuleNames() const { DARABONBA_PTR_GET_CONST(scalingRuleNames_, vector<string>) };
+    inline vector<string> getScalingRuleNames() { DARABONBA_PTR_GET(scalingRuleNames_, vector<string>) };
     inline DescribeScalingRulesRequest& setScalingRuleNames(const vector<string> & scalingRuleNames) { DARABONBA_PTR_SET_VALUE(scalingRuleNames_, scalingRuleNames) };
     inline DescribeScalingRulesRequest& setScalingRuleNames(vector<string> && scalingRuleNames) { DARABONBA_PTR_SET_RVALUE(scalingRuleNames_, scalingRuleNames) };
 
@@ -144,56 +144,56 @@ namespace Models
     // scalingRuleType Field Functions 
     bool hasScalingRuleType() const { return this->scalingRuleType_ != nullptr;};
     void deleteScalingRuleType() { this->scalingRuleType_ = nullptr;};
-    inline string scalingRuleType() const { DARABONBA_PTR_GET_DEFAULT(scalingRuleType_, "") };
+    inline string getScalingRuleType() const { DARABONBA_PTR_GET_DEFAULT(scalingRuleType_, "") };
     inline DescribeScalingRulesRequest& setScalingRuleType(string scalingRuleType) { DARABONBA_PTR_SET_VALUE(scalingRuleType_, scalingRuleType) };
 
 
     // showAlarmRules Field Functions 
     bool hasShowAlarmRules() const { return this->showAlarmRules_ != nullptr;};
     void deleteShowAlarmRules() { this->showAlarmRules_ = nullptr;};
-    inline bool showAlarmRules() const { DARABONBA_PTR_GET_DEFAULT(showAlarmRules_, false) };
+    inline bool getShowAlarmRules() const { DARABONBA_PTR_GET_DEFAULT(showAlarmRules_, false) };
     inline DescribeScalingRulesRequest& setShowAlarmRules(bool showAlarmRules) { DARABONBA_PTR_SET_VALUE(showAlarmRules_, showAlarmRules) };
 
 
   protected:
-    std::shared_ptr<string> ownerAccount_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<string> ownerAccount_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // The page number. Pages start from page 1.
     // 
     // Default value: 1.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Maximum value: 50.
     // 
     // Default value: 10.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The region ID of the scaling group to which the scaling rules that you want to query belong.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
     // The ID of the scaling group.
-    std::shared_ptr<string> scalingGroupId_ = nullptr;
+    shared_ptr<string> scalingGroupId_ {};
     // The unique identifiers of the scaling rules that you want to query.
-    std::shared_ptr<vector<string>> scalingRuleAris_ = nullptr;
+    shared_ptr<vector<string>> scalingRuleAris_ {};
     // The IDs of the scaling rules that you want to query.
-    std::shared_ptr<vector<string>> scalingRuleIds_ = nullptr;
+    shared_ptr<vector<string>> scalingRuleIds_ {};
     // The names of the scaling rules that you want to query.
-    std::shared_ptr<vector<string>> scalingRuleNames_ = nullptr;
+    shared_ptr<vector<string>> scalingRuleNames_ {};
     // The type of the scaling rule. Valid values:
     // 
     // *   SimpleScalingRule: adjusts the number of ECS instances based on the values of the AdjustmentType and AdjustmentValue parameters.
     // *   TargetTrackingScalingRule: calculates the number of ECS instances that need to be scaled in a dynamic manner and maintains the value of a predefined metric close to the value of the TargetValue parameter.
     // *   StepScalingRule: scales ECS instances in steps based on the specified thresholds and metric values.
     // *   PredictiveScalingRule: uses machine learning to analyze historical monitoring data of the scaling group and predicts the future values of metrics. In addition, Auto Scaling automatically creates scheduled tasks to adjust the boundary values for the scaling group.
-    std::shared_ptr<string> scalingRuleType_ = nullptr;
+    shared_ptr<string> scalingRuleType_ {};
     // Specifies whether to return the event-triggered tasks that are associated with the scaling rule. Valid values:
     // 
     // *   true
     // *   false
     // 
     // Default value: false.
-    std::shared_ptr<bool> showAlarmRules_ = nullptr;
+    shared_ptr<bool> showAlarmRules_ {};
   };
 
   } // namespace Models

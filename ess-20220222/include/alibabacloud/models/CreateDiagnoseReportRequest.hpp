@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->regionId_ == nullptr
-        && return this->scalingGroupId_ == nullptr; };
+        && this->scalingGroupId_ == nullptr; };
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreateDiagnoseReportRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // scalingGroupId Field Functions 
     bool hasScalingGroupId() const { return this->scalingGroupId_ != nullptr;};
     void deleteScalingGroupId() { this->scalingGroupId_ = nullptr;};
-    inline string scalingGroupId() const { DARABONBA_PTR_GET_DEFAULT(scalingGroupId_, "") };
+    inline string getScalingGroupId() const { DARABONBA_PTR_GET_DEFAULT(scalingGroupId_, "") };
     inline CreateDiagnoseReportRequest& setScalingGroupId(string scalingGroupId) { DARABONBA_PTR_SET_VALUE(scalingGroupId_, scalingGroupId) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The region ID of the scaling group.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The ID of the scaling group.
     // 
     // This parameter is required.
-    std::shared_ptr<string> scalingGroupId_ = nullptr;
+    shared_ptr<string> scalingGroupId_ {};
   };
 
   } // namespace Models

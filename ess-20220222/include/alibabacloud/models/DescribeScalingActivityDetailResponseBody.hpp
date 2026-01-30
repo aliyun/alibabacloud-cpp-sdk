@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->detail_ == nullptr
-        && return this->requestId_ == nullptr && return this->scalingActivityId_ == nullptr; };
+        && this->requestId_ == nullptr && this->scalingActivityId_ == nullptr; };
     // detail Field Functions 
     bool hasDetail() const { return this->detail_ != nullptr;};
     void deleteDetail() { this->detail_ = nullptr;};
-    inline string detail() const { DARABONBA_PTR_GET_DEFAULT(detail_, "") };
+    inline string getDetail() const { DARABONBA_PTR_GET_DEFAULT(detail_, "") };
     inline DescribeScalingActivityDetailResponseBody& setDetail(string detail) { DARABONBA_PTR_SET_VALUE(detail_, detail) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeScalingActivityDetailResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // scalingActivityId Field Functions 
     bool hasScalingActivityId() const { return this->scalingActivityId_ != nullptr;};
     void deleteScalingActivityId() { this->scalingActivityId_ = nullptr;};
-    inline string scalingActivityId() const { DARABONBA_PTR_GET_DEFAULT(scalingActivityId_, "") };
+    inline string getScalingActivityId() const { DARABONBA_PTR_GET_DEFAULT(scalingActivityId_, "") };
     inline DescribeScalingActivityDetailResponseBody& setScalingActivityId(string scalingActivityId) { DARABONBA_PTR_SET_VALUE(scalingActivityId_, scalingActivityId) };
 
 
   protected:
     // The details of the scaling activity. The result of a scaling activity is either successful or failed. If the scaling activity is rejected, no scaling activity details are returned.
-    std::shared_ptr<string> detail_ = nullptr;
+    shared_ptr<string> detail_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The ID of the scaling activity.
-    std::shared_ptr<string> scalingActivityId_ = nullptr;
+    shared_ptr<string> scalingActivityId_ {};
   };
 
   } // namespace Models

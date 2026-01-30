@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->content_ == nullptr
-        && return this->format_ == nullptr && return this->regionId_ == nullptr && return this->scalingConfigurationId_ == nullptr && return this->scalingGroupId_ == nullptr; };
+        && this->format_ == nullptr && this->regionId_ == nullptr && this->scalingConfigurationId_ == nullptr && this->scalingGroupId_ == nullptr; };
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
-    inline string content() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
+    inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
     inline ApplyEciScalingConfigurationRequest& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
 
 
     // format Field Functions 
     bool hasFormat() const { return this->format_ != nullptr;};
     void deleteFormat() { this->format_ = nullptr;};
-    inline string format() const { DARABONBA_PTR_GET_DEFAULT(format_, "") };
+    inline string getFormat() const { DARABONBA_PTR_GET_DEFAULT(format_, "") };
     inline ApplyEciScalingConfigurationRequest& setFormat(string format) { DARABONBA_PTR_SET_VALUE(format_, format) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ApplyEciScalingConfigurationRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // scalingConfigurationId Field Functions 
     bool hasScalingConfigurationId() const { return this->scalingConfigurationId_ != nullptr;};
     void deleteScalingConfigurationId() { this->scalingConfigurationId_ = nullptr;};
-    inline string scalingConfigurationId() const { DARABONBA_PTR_GET_DEFAULT(scalingConfigurationId_, "") };
+    inline string getScalingConfigurationId() const { DARABONBA_PTR_GET_DEFAULT(scalingConfigurationId_, "") };
     inline ApplyEciScalingConfigurationRequest& setScalingConfigurationId(string scalingConfigurationId) { DARABONBA_PTR_SET_VALUE(scalingConfigurationId_, scalingConfigurationId) };
 
 
     // scalingGroupId Field Functions 
     bool hasScalingGroupId() const { return this->scalingGroupId_ != nullptr;};
     void deleteScalingGroupId() { this->scalingGroupId_ = nullptr;};
-    inline string scalingGroupId() const { DARABONBA_PTR_GET_DEFAULT(scalingGroupId_, "") };
+    inline string getScalingGroupId() const { DARABONBA_PTR_GET_DEFAULT(scalingGroupId_, "") };
     inline ApplyEciScalingConfigurationRequest& setScalingGroupId(string scalingGroupId) { DARABONBA_PTR_SET_VALUE(scalingGroupId_, scalingGroupId) };
 
 
@@ -78,19 +78,19 @@ namespace Models
     // The content of the configuration file.
     // 
     // This parameter is required.
-    std::shared_ptr<string> content_ = nullptr;
+    shared_ptr<string> content_ {};
     // Optional. Set the value to YAML.
-    std::shared_ptr<string> format_ = nullptr;
+    shared_ptr<string> format_ {};
     // The region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The ID of the scaling configuration.
     // 
     // If you want the system to update a scaling configuration of the Elastic Container Instance type based on a YAML configuration file, you must specify `ScalingConfigurationId`. If you do not specify `ScalingConfigurationId`, the system creates a new scaling configuration based on the YAML configuration file.
-    std::shared_ptr<string> scalingConfigurationId_ = nullptr;
+    shared_ptr<string> scalingConfigurationId_ {};
     // The ID of the scaling group.
     // 
     // This parameter is required.
-    std::shared_ptr<string> scalingGroupId_ = nullptr;
+    shared_ptr<string> scalingGroupId_ {};
   };
 
   } // namespace Models

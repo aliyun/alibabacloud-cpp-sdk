@@ -33,28 +33,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->scaleStatuses_ == nullptr; };
+        && this->scaleStatuses_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeAlertConfigurationResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // scaleStatuses Field Functions 
     bool hasScaleStatuses() const { return this->scaleStatuses_ != nullptr;};
     void deleteScaleStatuses() { this->scaleStatuses_ = nullptr;};
-    inline const vector<string> & scaleStatuses() const { DARABONBA_PTR_GET_CONST(scaleStatuses_, vector<string>) };
-    inline vector<string> scaleStatuses() { DARABONBA_PTR_GET(scaleStatuses_, vector<string>) };
+    inline const vector<string> & getScaleStatuses() const { DARABONBA_PTR_GET_CONST(scaleStatuses_, vector<string>) };
+    inline vector<string> getScaleStatuses() { DARABONBA_PTR_GET(scaleStatuses_, vector<string>) };
     inline DescribeAlertConfigurationResponseBody& setScaleStatuses(const vector<string> & scaleStatuses) { DARABONBA_PTR_SET_VALUE(scaleStatuses_, scaleStatuses) };
     inline DescribeAlertConfigurationResponseBody& setScaleStatuses(vector<string> && scaleStatuses) { DARABONBA_PTR_SET_RVALUE(scaleStatuses_, scaleStatuses) };
 
 
   protected:
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The status of the scaling activities that trigger text message, internal message, or email-based notifications.
-    std::shared_ptr<vector<string>> scaleStatuses_ = nullptr;
+    shared_ptr<vector<string>> scaleStatuses_ {};
   };
 
   } // namespace Models

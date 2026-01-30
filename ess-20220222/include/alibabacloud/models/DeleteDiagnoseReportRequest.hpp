@@ -32,26 +32,30 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->regionId_ == nullptr
-        && return this->reportId_ == nullptr; };
+        && this->reportId_ == nullptr; };
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteDiagnoseReportRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // reportId Field Functions 
     bool hasReportId() const { return this->reportId_ != nullptr;};
     void deleteReportId() { this->reportId_ = nullptr;};
-    inline string reportId() const { DARABONBA_PTR_GET_DEFAULT(reportId_, "") };
+    inline string getReportId() const { DARABONBA_PTR_GET_DEFAULT(reportId_, "") };
     inline DeleteDiagnoseReportRequest& setReportId(string reportId) { DARABONBA_PTR_SET_VALUE(reportId_, reportId) };
 
 
   protected:
+    // The region ID
+    // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
+    // The ID of the diagnostic report.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> reportId_ = nullptr;
+    shared_ptr<string> reportId_ {};
   };
 
   } // namespace Models

@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_DESCRIBEREGIONSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/DescribeRegionsResponseBodyRegions.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -33,29 +32,112 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Regions : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Regions& obj) { 
+        DARABONBA_PTR_TO_JSON(ClassicUnavailable, classicUnavailable_);
+        DARABONBA_PTR_TO_JSON(LocalName, localName_);
+        DARABONBA_PTR_TO_JSON(RegionEndpoint, regionEndpoint_);
+        DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+        DARABONBA_PTR_TO_JSON(VpcUnavailable, vpcUnavailable_);
+      };
+      friend void from_json(const Darabonba::Json& j, Regions& obj) { 
+        DARABONBA_PTR_FROM_JSON(ClassicUnavailable, classicUnavailable_);
+        DARABONBA_PTR_FROM_JSON(LocalName, localName_);
+        DARABONBA_PTR_FROM_JSON(RegionEndpoint, regionEndpoint_);
+        DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+        DARABONBA_PTR_FROM_JSON(VpcUnavailable, vpcUnavailable_);
+      };
+      Regions() = default ;
+      Regions(const Regions &) = default ;
+      Regions(Regions &&) = default ;
+      Regions(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Regions() = default ;
+      Regions& operator=(const Regions &) = default ;
+      Regions& operator=(Regions &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->classicUnavailable_ == nullptr
+        && this->localName_ == nullptr && this->regionEndpoint_ == nullptr && this->regionId_ == nullptr && this->vpcUnavailable_ == nullptr; };
+      // classicUnavailable Field Functions 
+      bool hasClassicUnavailable() const { return this->classicUnavailable_ != nullptr;};
+      void deleteClassicUnavailable() { this->classicUnavailable_ = nullptr;};
+      inline bool getClassicUnavailable() const { DARABONBA_PTR_GET_DEFAULT(classicUnavailable_, false) };
+      inline Regions& setClassicUnavailable(bool classicUnavailable) { DARABONBA_PTR_SET_VALUE(classicUnavailable_, classicUnavailable) };
+
+
+      // localName Field Functions 
+      bool hasLocalName() const { return this->localName_ != nullptr;};
+      void deleteLocalName() { this->localName_ = nullptr;};
+      inline string getLocalName() const { DARABONBA_PTR_GET_DEFAULT(localName_, "") };
+      inline Regions& setLocalName(string localName) { DARABONBA_PTR_SET_VALUE(localName_, localName) };
+
+
+      // regionEndpoint Field Functions 
+      bool hasRegionEndpoint() const { return this->regionEndpoint_ != nullptr;};
+      void deleteRegionEndpoint() { this->regionEndpoint_ = nullptr;};
+      inline string getRegionEndpoint() const { DARABONBA_PTR_GET_DEFAULT(regionEndpoint_, "") };
+      inline Regions& setRegionEndpoint(string regionEndpoint) { DARABONBA_PTR_SET_VALUE(regionEndpoint_, regionEndpoint) };
+
+
+      // regionId Field Functions 
+      bool hasRegionId() const { return this->regionId_ != nullptr;};
+      void deleteRegionId() { this->regionId_ = nullptr;};
+      inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+      inline Regions& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
+
+
+      // vpcUnavailable Field Functions 
+      bool hasVpcUnavailable() const { return this->vpcUnavailable_ != nullptr;};
+      void deleteVpcUnavailable() { this->vpcUnavailable_ = nullptr;};
+      inline bool getVpcUnavailable() const { DARABONBA_PTR_GET_DEFAULT(vpcUnavailable_, false) };
+      inline Regions& setVpcUnavailable(bool vpcUnavailable) { DARABONBA_PTR_SET_VALUE(vpcUnavailable_, vpcUnavailable) };
+
+
+    protected:
+      // Indicates whether the current region supports scaling groups that reside in the classic network. Valid values:
+      // 
+      // *   true
+      // *   false
+      shared_ptr<bool> classicUnavailable_ {};
+      // The region name.
+      shared_ptr<string> localName_ {};
+      // The region endpoint.
+      shared_ptr<string> regionEndpoint_ {};
+      // The region ID.
+      shared_ptr<string> regionId_ {};
+      // Indicates whether the current region supports scaling groups that reside in virtual private clouds (VPCs). Valid values:
+      // 
+      // *   true
+      // *   false
+      shared_ptr<bool> vpcUnavailable_ {};
+    };
+
     virtual bool empty() const override { return this->regions_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // regions Field Functions 
     bool hasRegions() const { return this->regions_ != nullptr;};
     void deleteRegions() { this->regions_ = nullptr;};
-    inline const vector<DescribeRegionsResponseBodyRegions> & regions() const { DARABONBA_PTR_GET_CONST(regions_, vector<DescribeRegionsResponseBodyRegions>) };
-    inline vector<DescribeRegionsResponseBodyRegions> regions() { DARABONBA_PTR_GET(regions_, vector<DescribeRegionsResponseBodyRegions>) };
-    inline DescribeRegionsResponseBody& setRegions(const vector<DescribeRegionsResponseBodyRegions> & regions) { DARABONBA_PTR_SET_VALUE(regions_, regions) };
-    inline DescribeRegionsResponseBody& setRegions(vector<DescribeRegionsResponseBodyRegions> && regions) { DARABONBA_PTR_SET_RVALUE(regions_, regions) };
+    inline const vector<DescribeRegionsResponseBody::Regions> & getRegions() const { DARABONBA_PTR_GET_CONST(regions_, vector<DescribeRegionsResponseBody::Regions>) };
+    inline vector<DescribeRegionsResponseBody::Regions> getRegions() { DARABONBA_PTR_GET(regions_, vector<DescribeRegionsResponseBody::Regions>) };
+    inline DescribeRegionsResponseBody& setRegions(const vector<DescribeRegionsResponseBody::Regions> & regions) { DARABONBA_PTR_SET_VALUE(regions_, regions) };
+    inline DescribeRegionsResponseBody& setRegions(vector<DescribeRegionsResponseBody::Regions> && regions) { DARABONBA_PTR_SET_RVALUE(regions_, regions) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeRegionsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The collection of region information.
-    std::shared_ptr<vector<DescribeRegionsResponseBodyRegions>> regions_ = nullptr;
+    shared_ptr<vector<DescribeRegionsResponseBody::Regions>> regions_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models
