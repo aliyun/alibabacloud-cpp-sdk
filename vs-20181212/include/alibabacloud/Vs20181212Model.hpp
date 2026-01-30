@@ -410,6 +410,9 @@
 #include <alibabacloud/models/ModifyParentPlatformRequest.hpp>
 #include <alibabacloud/models/ModifyParentPlatformResponseBody.hpp>
 #include <alibabacloud/models/ModifyParentPlatformResponse.hpp>
+#include <alibabacloud/models/ModifyRenderingChargeTypeRequest.hpp>
+#include <alibabacloud/models/ModifyRenderingChargeTypeResponseBody.hpp>
+#include <alibabacloud/models/ModifyRenderingChargeTypeResponse.hpp>
 #include <alibabacloud/models/ModifyRenderingInstanceRequest.hpp>
 #include <alibabacloud/models/ModifyRenderingInstanceResponseBody.hpp>
 #include <alibabacloud/models/ModifyRenderingInstanceResponse.hpp>

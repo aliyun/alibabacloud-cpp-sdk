@@ -1914,6 +1914,23 @@ namespace Vs20181212
       Models::ModifyParentPlatformResponse modifyParentPlatform(const Models::ModifyParentPlatformRequest &request);
 
       /**
+       * @summary 变配云渲染资源实例付费类型
+       *
+       * @param request ModifyRenderingChargeTypeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyRenderingChargeTypeResponse
+       */
+      Models::ModifyRenderingChargeTypeResponse modifyRenderingChargeTypeWithOptions(const Models::ModifyRenderingChargeTypeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 变配云渲染资源实例付费类型
+       *
+       * @param request ModifyRenderingChargeTypeRequest
+       * @return ModifyRenderingChargeTypeResponse
+       */
+      Models::ModifyRenderingChargeTypeResponse modifyRenderingChargeType(const Models::ModifyRenderingChargeTypeRequest &request);
+
+      /**
        * @summary 变配云渲染资源实例
        *
        * @param request ModifyRenderingInstanceRequest

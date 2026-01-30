@@ -7310,6 +7310,64 @@ ModifyParentPlatformResponse Client::modifyParentPlatform(const ModifyParentPlat
 }
 
 /**
+ * @summary 变配云渲染资源实例付费类型
+ *
+ * @param request ModifyRenderingChargeTypeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyRenderingChargeTypeResponse
+ */
+ModifyRenderingChargeTypeResponse Client::modifyRenderingChargeTypeWithOptions(const ModifyRenderingChargeTypeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAutoRenew()) {
+    query["AutoRenew"] = request.getAutoRenew();
+  }
+
+  if (!!request.hasInstanceBillingCycle()) {
+    query["InstanceBillingCycle"] = request.getInstanceBillingCycle();
+  }
+
+  if (!!request.hasInstanceChargeType()) {
+    query["InstanceChargeType"] = request.getInstanceChargeType();
+  }
+
+  if (!!request.hasPeriod()) {
+    query["Period"] = request.getPeriod();
+  }
+
+  if (!!request.hasRenderingInstanceId()) {
+    query["RenderingInstanceId"] = request.getRenderingInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyRenderingChargeType"},
+    {"version" , "2018-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyRenderingChargeTypeResponse>();
+}
+
+/**
+ * @summary 变配云渲染资源实例付费类型
+ *
+ * @param request ModifyRenderingChargeTypeRequest
+ * @return ModifyRenderingChargeTypeResponse
+ */
+ModifyRenderingChargeTypeResponse Client::modifyRenderingChargeType(const ModifyRenderingChargeTypeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyRenderingChargeTypeWithOptions(request, runtime);
+}
+
+/**
  * @summary 变配云渲染资源实例
  *
  * @param request ModifyRenderingInstanceRequest
