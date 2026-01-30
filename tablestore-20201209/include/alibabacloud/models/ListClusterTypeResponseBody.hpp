@@ -14,13 +14,13 @@ namespace Models
   class ListClusterTypeResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListClusterTypeResponseBody& obj) { 
-      DARABONBA_PTR_TO_JSON(ClusterTypeDetailList, clusterTypeDetailList_);
-      DARABONBA_PTR_TO_JSON(ClusterTypeList, clusterTypeList_);
+      DARABONBA_PTR_TO_JSON(ClusterTypeInfos, clusterTypeInfos_);
+      DARABONBA_PTR_TO_JSON(ClusterTypes, clusterTypes_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
     };
     friend void from_json(const Darabonba::Json& j, ListClusterTypeResponseBody& obj) { 
-      DARABONBA_PTR_FROM_JSON(ClusterTypeDetailList, clusterTypeDetailList_);
-      DARABONBA_PTR_FROM_JSON(ClusterTypeList, clusterTypeList_);
+      DARABONBA_PTR_FROM_JSON(ClusterTypeInfos, clusterTypeInfos_);
+      DARABONBA_PTR_FROM_JSON(ClusterTypes, clusterTypes_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
     };
     ListClusterTypeResponseBody() = default ;
@@ -34,23 +34,23 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    class ClusterTypeDetailList : public Darabonba::Model {
+    class ClusterTypeInfos : public Darabonba::Model {
     public:
-      friend void to_json(Darabonba::Json& j, const ClusterTypeDetailList& obj) { 
+      friend void to_json(Darabonba::Json& j, const ClusterTypeInfos& obj) { 
         DARABONBA_PTR_TO_JSON(ClusterType, clusterType_);
         DARABONBA_PTR_TO_JSON(IsMultiAZ, isMultiAZ_);
       };
-      friend void from_json(const Darabonba::Json& j, ClusterTypeDetailList& obj) { 
+      friend void from_json(const Darabonba::Json& j, ClusterTypeInfos& obj) { 
         DARABONBA_PTR_FROM_JSON(ClusterType, clusterType_);
         DARABONBA_PTR_FROM_JSON(IsMultiAZ, isMultiAZ_);
       };
-      ClusterTypeDetailList() = default ;
-      ClusterTypeDetailList(const ClusterTypeDetailList &) = default ;
-      ClusterTypeDetailList(ClusterTypeDetailList &&) = default ;
-      ClusterTypeDetailList(const Darabonba::Json & obj) { from_json(obj, *this); };
-      virtual ~ClusterTypeDetailList() = default ;
-      ClusterTypeDetailList& operator=(const ClusterTypeDetailList &) = default ;
-      ClusterTypeDetailList& operator=(ClusterTypeDetailList &&) = default ;
+      ClusterTypeInfos() = default ;
+      ClusterTypeInfos(const ClusterTypeInfos &) = default ;
+      ClusterTypeInfos(ClusterTypeInfos &&) = default ;
+      ClusterTypeInfos(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~ClusterTypeInfos() = default ;
+      ClusterTypeInfos& operator=(const ClusterTypeInfos &) = default ;
+      ClusterTypeInfos& operator=(ClusterTypeInfos &&) = default ;
       virtual void validate() const override {
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -61,14 +61,14 @@ namespace Models
       bool hasClusterType() const { return this->clusterType_ != nullptr;};
       void deleteClusterType() { this->clusterType_ = nullptr;};
       inline string getClusterType() const { DARABONBA_PTR_GET_DEFAULT(clusterType_, "") };
-      inline ClusterTypeDetailList& setClusterType(string clusterType) { DARABONBA_PTR_SET_VALUE(clusterType_, clusterType) };
+      inline ClusterTypeInfos& setClusterType(string clusterType) { DARABONBA_PTR_SET_VALUE(clusterType_, clusterType) };
 
 
       // isMultiAZ Field Functions 
       bool hasIsMultiAZ() const { return this->isMultiAZ_ != nullptr;};
       void deleteIsMultiAZ() { this->isMultiAZ_ = nullptr;};
       inline bool getIsMultiAZ() const { DARABONBA_PTR_GET_DEFAULT(isMultiAZ_, false) };
-      inline ClusterTypeDetailList& setIsMultiAZ(bool isMultiAZ) { DARABONBA_PTR_SET_VALUE(isMultiAZ_, isMultiAZ) };
+      inline ClusterTypeInfos& setIsMultiAZ(bool isMultiAZ) { DARABONBA_PTR_SET_VALUE(isMultiAZ_, isMultiAZ) };
 
 
     protected:
@@ -76,24 +76,24 @@ namespace Models
       shared_ptr<bool> isMultiAZ_ {};
     };
 
-    virtual bool empty() const override { return this->clusterTypeDetailList_ == nullptr
-        && this->clusterTypeList_ == nullptr && this->requestId_ == nullptr; };
-    // clusterTypeDetailList Field Functions 
-    bool hasClusterTypeDetailList() const { return this->clusterTypeDetailList_ != nullptr;};
-    void deleteClusterTypeDetailList() { this->clusterTypeDetailList_ = nullptr;};
-    inline const vector<ListClusterTypeResponseBody::ClusterTypeDetailList> & getClusterTypeDetailList() const { DARABONBA_PTR_GET_CONST(clusterTypeDetailList_, vector<ListClusterTypeResponseBody::ClusterTypeDetailList>) };
-    inline vector<ListClusterTypeResponseBody::ClusterTypeDetailList> getClusterTypeDetailList() { DARABONBA_PTR_GET(clusterTypeDetailList_, vector<ListClusterTypeResponseBody::ClusterTypeDetailList>) };
-    inline ListClusterTypeResponseBody& setClusterTypeDetailList(const vector<ListClusterTypeResponseBody::ClusterTypeDetailList> & clusterTypeDetailList) { DARABONBA_PTR_SET_VALUE(clusterTypeDetailList_, clusterTypeDetailList) };
-    inline ListClusterTypeResponseBody& setClusterTypeDetailList(vector<ListClusterTypeResponseBody::ClusterTypeDetailList> && clusterTypeDetailList) { DARABONBA_PTR_SET_RVALUE(clusterTypeDetailList_, clusterTypeDetailList) };
+    virtual bool empty() const override { return this->clusterTypeInfos_ == nullptr
+        && this->clusterTypes_ == nullptr && this->requestId_ == nullptr; };
+    // clusterTypeInfos Field Functions 
+    bool hasClusterTypeInfos() const { return this->clusterTypeInfos_ != nullptr;};
+    void deleteClusterTypeInfos() { this->clusterTypeInfos_ = nullptr;};
+    inline const vector<ListClusterTypeResponseBody::ClusterTypeInfos> & getClusterTypeInfos() const { DARABONBA_PTR_GET_CONST(clusterTypeInfos_, vector<ListClusterTypeResponseBody::ClusterTypeInfos>) };
+    inline vector<ListClusterTypeResponseBody::ClusterTypeInfos> getClusterTypeInfos() { DARABONBA_PTR_GET(clusterTypeInfos_, vector<ListClusterTypeResponseBody::ClusterTypeInfos>) };
+    inline ListClusterTypeResponseBody& setClusterTypeInfos(const vector<ListClusterTypeResponseBody::ClusterTypeInfos> & clusterTypeInfos) { DARABONBA_PTR_SET_VALUE(clusterTypeInfos_, clusterTypeInfos) };
+    inline ListClusterTypeResponseBody& setClusterTypeInfos(vector<ListClusterTypeResponseBody::ClusterTypeInfos> && clusterTypeInfos) { DARABONBA_PTR_SET_RVALUE(clusterTypeInfos_, clusterTypeInfos) };
 
 
-    // clusterTypeList Field Functions 
-    bool hasClusterTypeList() const { return this->clusterTypeList_ != nullptr;};
-    void deleteClusterTypeList() { this->clusterTypeList_ = nullptr;};
-    inline const vector<string> & getClusterTypeList() const { DARABONBA_PTR_GET_CONST(clusterTypeList_, vector<string>) };
-    inline vector<string> getClusterTypeList() { DARABONBA_PTR_GET(clusterTypeList_, vector<string>) };
-    inline ListClusterTypeResponseBody& setClusterTypeList(const vector<string> & clusterTypeList) { DARABONBA_PTR_SET_VALUE(clusterTypeList_, clusterTypeList) };
-    inline ListClusterTypeResponseBody& setClusterTypeList(vector<string> && clusterTypeList) { DARABONBA_PTR_SET_RVALUE(clusterTypeList_, clusterTypeList) };
+    // clusterTypes Field Functions 
+    bool hasClusterTypes() const { return this->clusterTypes_ != nullptr;};
+    void deleteClusterTypes() { this->clusterTypes_ = nullptr;};
+    inline const vector<string> & getClusterTypes() const { DARABONBA_PTR_GET_CONST(clusterTypes_, vector<string>) };
+    inline vector<string> getClusterTypes() { DARABONBA_PTR_GET(clusterTypes_, vector<string>) };
+    inline ListClusterTypeResponseBody& setClusterTypes(const vector<string> & clusterTypes) { DARABONBA_PTR_SET_VALUE(clusterTypes_, clusterTypes) };
+    inline ListClusterTypeResponseBody& setClusterTypes(vector<string> && clusterTypes) { DARABONBA_PTR_SET_RVALUE(clusterTypes_, clusterTypes) };
 
 
     // requestId Field Functions 
@@ -104,8 +104,8 @@ namespace Models
 
 
   protected:
-    shared_ptr<vector<ListClusterTypeResponseBody::ClusterTypeDetailList>> clusterTypeDetailList_ {};
-    shared_ptr<vector<string>> clusterTypeList_ {};
+    shared_ptr<vector<ListClusterTypeResponseBody::ClusterTypeInfos>> clusterTypeInfos_ {};
+    shared_ptr<vector<string>> clusterTypes_ {};
     shared_ptr<string> requestId_ {};
   };
 
