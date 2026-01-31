@@ -21,6 +21,23 @@ namespace Cas20200407
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary 申请证书
+       *
+       * @param request ApplyCertificateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ApplyCertificateResponse
+       */
+      Models::ApplyCertificateResponse applyCertificateWithOptions(const Models::ApplyCertificateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 申请证书
+       *
+       * @param request ApplyCertificateRequest
+       * @return ApplyCertificateResponse
+       */
+      Models::ApplyCertificateResponse applyCertificate(const Models::ApplyCertificateRequest &request);
+
+      /**
        * @summary Revokes an issued certificate and cancels the application order of the certificate.
        *
        * @description You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
@@ -61,6 +78,23 @@ namespace Cas20200407
        * @return CancelOrderRequestResponse
        */
       Models::CancelOrderRequestResponse cancelOrderRequest(const Models::CancelOrderRequestRequest &request);
+
+      /**
+       * @summary 撤回证书申请
+       *
+       * @param request CancelPendingCertificateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CancelPendingCertificateResponse
+       */
+      Models::CancelPendingCertificateResponse cancelPendingCertificateWithOptions(const Models::CancelPendingCertificateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 撤回证书申请
+       *
+       * @param request CancelPendingCertificateRequest
+       * @return CancelPendingCertificateResponse
+       */
+      Models::CancelPendingCertificateResponse cancelPendingCertificate(const Models::CancelPendingCertificateRequest &request);
 
       /**
        * @summary Submits a certificate application.
@@ -260,6 +294,23 @@ namespace Cas20200407
       Models::DeleteDeploymentJobResponse deleteDeploymentJob(const Models::DeleteDeploymentJobRequest &request);
 
       /**
+       * @summary 删除实例
+       *
+       * @param request DeleteInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteInstanceResponse
+       */
+      Models::DeleteInstanceResponse deleteInstanceWithOptions(const Models::DeleteInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除实例
+       *
+       * @param request DeleteInstanceRequest
+       * @return DeleteInstanceResponse
+       */
+      Models::DeleteInstanceResponse deleteInstance(const Models::DeleteInstanceRequest &request);
+
+      /**
        * @summary Deletes a private certificate from a certificate application repository.
        *
        * @description You can call the DeletePCACert operation to delete a private certificate from a certificate application repository.
@@ -455,6 +506,23 @@ namespace Cas20200407
       Models::GetCertWarehouseQuotaResponse getCertWarehouseQuota();
 
       /**
+       * @summary 查询证书详情
+       *
+       * @param request GetCertificateDetailRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetCertificateDetailResponse
+       */
+      Models::GetCertificateDetailResponse getCertificateDetailWithOptions(const Models::GetCertificateDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询证书详情
+       *
+       * @param request GetCertificateDetailRequest
+       * @return GetCertificateDetailResponse
+       */
+      Models::GetCertificateDetailResponse getCertificateDetail(const Models::GetCertificateDetailRequest &request);
+
+      /**
        * @summary Obtains the content of a certificate signing request (CSR) file.
        *
        * @param request GetCsrDetailRequest
@@ -470,6 +538,57 @@ namespace Cas20200407
        * @return GetCsrDetailResponse
        */
       Models::GetCsrDetailResponse getCsrDetail(const Models::GetCsrDetailRequest &request);
+
+      /**
+       * @summary 查询实例详情
+       *
+       * @param request GetInstanceDetailRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetInstanceDetailResponse
+       */
+      Models::GetInstanceDetailResponse getInstanceDetailWithOptions(const Models::GetInstanceDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询实例详情
+       *
+       * @param request GetInstanceDetailRequest
+       * @return GetInstanceDetailResponse
+       */
+      Models::GetInstanceDetailResponse getInstanceDetail(const Models::GetInstanceDetailRequest &request);
+
+      /**
+       * @summary 实例统计
+       *
+       * @param request GetInstanceSummaryRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetInstanceSummaryResponse
+       */
+      Models::GetInstanceSummaryResponse getInstanceSummaryWithOptions(const Models::GetInstanceSummaryRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 实例统计
+       *
+       * @param request GetInstanceSummaryRequest
+       * @return GetInstanceSummaryResponse
+       */
+      Models::GetInstanceSummaryResponse getInstanceSummary(const Models::GetInstanceSummaryRequest &request);
+
+      /**
+       * @summary 查询异步任务状态
+       *
+       * @param request GetTaskAttributeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetTaskAttributeResponse
+       */
+      Models::GetTaskAttributeResponse getTaskAttributeWithOptions(const Models::GetTaskAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询异步任务状态
+       *
+       * @param request GetTaskAttributeRequest
+       * @return GetTaskAttributeResponse
+       */
+      Models::GetTaskAttributeResponse getTaskAttribute(const Models::GetTaskAttributeRequest &request);
 
       /**
        * @summary Queries the details of a certificate.
@@ -537,6 +656,23 @@ namespace Cas20200407
        * @return ListCertWarehouseResponse
        */
       Models::ListCertWarehouseResponse listCertWarehouse(const Models::ListCertWarehouseRequest &request);
+
+      /**
+       * @summary 获取证书列表
+       *
+       * @param request ListCertificatesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListCertificatesResponse
+       */
+      Models::ListCertificatesResponse listCertificatesWithOptions(const Models::ListCertificatesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取证书列表
+       *
+       * @param request ListCertificatesRequest
+       * @return ListCertificatesResponse
+       */
+      Models::ListCertificatesResponse listCertificates(const Models::ListCertificatesRequest &request);
 
       /**
        * @summary Queries a list of AccessKey pairs for multi-cloud deployment.
@@ -658,6 +794,23 @@ namespace Cas20200407
       Models::ListDeploymentJobResourceResponse listDeploymentJobResource(const Models::ListDeploymentJobResourceRequest &request);
 
       /**
+       * @summary 获取实例列表
+       *
+       * @param request ListInstancesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListInstancesResponse
+       */
+      Models::ListInstancesResponse listInstancesWithOptions(const Models::ListInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取实例列表
+       *
+       * @param request ListInstancesRequest
+       * @return ListInstancesResponse
+       */
+      Models::ListInstancesResponse listInstances(const Models::ListInstancesRequest &request);
+
+      /**
        * @summary Queries the certificates or certificate orders of users.
        *
        * @description You can call the ListUserCertificateOrder operation to query the certificates or certificate orders of users. If you set OrderType to CERT or UPLOAD, certificates are returned. If you set OrderType to CPACK or BUY, certificate orders are returned.
@@ -717,6 +870,23 @@ namespace Cas20200407
       Models::MoveResourceGroupResponse moveResourceGroup(const Models::MoveResourceGroupRequest &request);
 
       /**
+       * @summary 申请证书
+       *
+       * @param request RefundInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RefundInstanceResponse
+       */
+      Models::RefundInstanceResponse refundInstanceWithOptions(const Models::RefundInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 申请证书
+       *
+       * @param request RefundInstanceRequest
+       * @return RefundInstanceResponse
+       */
+      Models::RefundInstanceResponse refundInstance(const Models::RefundInstanceRequest &request);
+
+      /**
        * @summary Submits a renewal application for an issued certificate.
        *
        * @description You can call the RenewCertificateOrderForPackageRequest operation to submit a renewal application for a certificate only when the order of the certificate is in the expiring state. After the renewal is complete, a new certificate order whose status is pending application is generated. You must submit a certificate application for the new certificate order and install the new certificate after the new certificate is issued.
@@ -738,6 +908,23 @@ namespace Cas20200407
        * @return RenewCertificateOrderForPackageRequestResponse
        */
       Models::RenewCertificateOrderForPackageRequestResponse renewCertificateOrderForPackageRequest(const Models::RenewCertificateOrderForPackageRequestRequest &request);
+
+      /**
+       * @summary 吊销证书
+       *
+       * @param request RevokeCertificateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RevokeCertificateResponse
+       */
+      Models::RevokeCertificateResponse revokeCertificateWithOptions(const Models::RevokeCertificateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 吊销证书
+       *
+       * @param request RevokeCertificateRequest
+       * @return RevokeCertificateResponse
+       */
+      Models::RevokeCertificateResponse revokeCertificate(const Models::RevokeCertificateRequest &request);
 
       /**
        * @summary Signs a private certificate in a certificate application repository.
@@ -814,6 +1001,23 @@ namespace Cas20200407
        * @return UpdateDeploymentJobStatusResponse
        */
       Models::UpdateDeploymentJobStatusResponse updateDeploymentJobStatus(const Models::UpdateDeploymentJobStatusRequest &request);
+
+      /**
+       * @summary 更新实例
+       *
+       * @param request UpdateInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateInstanceResponse
+       */
+      Models::UpdateInstanceResponse updateInstanceWithOptions(const Models::UpdateInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新实例
+       *
+       * @param request UpdateInstanceRequest
+       * @return UpdateInstanceResponse
+       */
+      Models::UpdateInstanceResponse updateInstance(const Models::UpdateInstanceRequest &request);
 
       /**
        * @summary Rolls back or executes a worker task in a deployment task.

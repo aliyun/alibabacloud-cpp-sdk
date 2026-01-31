@@ -89,6 +89,48 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary 申请证书
+ *
+ * @param request ApplyCertificateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ApplyCertificateResponse
+ */
+ApplyCertificateResponse Client::applyCertificateWithOptions(const ApplyCertificateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ApplyCertificate"},
+    {"version" , "2020-04-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ApplyCertificateResponse>();
+}
+
+/**
+ * @summary 申请证书
+ *
+ * @param request ApplyCertificateRequest
+ * @return ApplyCertificateResponse
+ */
+ApplyCertificateResponse Client::applyCertificate(const ApplyCertificateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return applyCertificateWithOptions(request, runtime);
+}
+
+/**
  * @summary Revokes an issued certificate and cancels the application order of the certificate.
  *
  * @description You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
@@ -178,6 +220,48 @@ CancelOrderRequestResponse Client::cancelOrderRequestWithOptions(const CancelOrd
 CancelOrderRequestResponse Client::cancelOrderRequest(const CancelOrderRequestRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return cancelOrderRequestWithOptions(request, runtime);
+}
+
+/**
+ * @summary 撤回证书申请
+ *
+ * @param request CancelPendingCertificateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CancelPendingCertificateResponse
+ */
+CancelPendingCertificateResponse Client::cancelPendingCertificateWithOptions(const CancelPendingCertificateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CancelPendingCertificate"},
+    {"version" , "2020-04-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CancelPendingCertificateResponse>();
+}
+
+/**
+ * @summary 撤回证书申请
+ *
+ * @param request CancelPendingCertificateRequest
+ * @return CancelPendingCertificateResponse
+ */
+CancelPendingCertificateResponse Client::cancelPendingCertificate(const CancelPendingCertificateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cancelPendingCertificateWithOptions(request, runtime);
 }
 
 /**
@@ -759,6 +843,48 @@ DeleteDeploymentJobResponse Client::deleteDeploymentJob(const DeleteDeploymentJo
 }
 
 /**
+ * @summary 删除实例
+ *
+ * @param request DeleteInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteInstanceResponse
+ */
+DeleteInstanceResponse Client::deleteInstanceWithOptions(const DeleteInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteInstance"},
+    {"version" , "2020-04-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteInstanceResponse>();
+}
+
+/**
+ * @summary 删除实例
+ *
+ * @param request DeleteInstanceRequest
+ * @return DeleteInstanceResponse
+ */
+DeleteInstanceResponse Client::deleteInstance(const DeleteInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteInstanceWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes a private certificate from a certificate application repository.
  *
  * @description You can call the DeletePCACert operation to delete a private certificate from a certificate application repository.
@@ -1220,6 +1346,48 @@ GetCertWarehouseQuotaResponse Client::getCertWarehouseQuota() {
 }
 
 /**
+ * @summary 查询证书详情
+ *
+ * @param request GetCertificateDetailRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetCertificateDetailResponse
+ */
+GetCertificateDetailResponse Client::getCertificateDetailWithOptions(const GetCertificateDetailRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCertificateId()) {
+    query["CertificateId"] = request.getCertificateId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetCertificateDetail"},
+    {"version" , "2020-04-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetCertificateDetailResponse>();
+}
+
+/**
+ * @summary 查询证书详情
+ *
+ * @param request GetCertificateDetailRequest
+ * @return GetCertificateDetailResponse
+ */
+GetCertificateDetailResponse Client::getCertificateDetail(const GetCertificateDetailRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getCertificateDetailWithOptions(request, runtime);
+}
+
+/**
  * @summary Obtains the content of a certificate signing request (CSR) file.
  *
  * @param request GetCsrDetailRequest
@@ -1259,6 +1427,136 @@ GetCsrDetailResponse Client::getCsrDetailWithOptions(const GetCsrDetailRequest &
 GetCsrDetailResponse Client::getCsrDetail(const GetCsrDetailRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getCsrDetailWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询实例详情
+ *
+ * @param request GetInstanceDetailRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetInstanceDetailResponse
+ */
+GetInstanceDetailResponse Client::getInstanceDetailWithOptions(const GetInstanceDetailRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetInstanceDetail"},
+    {"version" , "2020-04-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetInstanceDetailResponse>();
+}
+
+/**
+ * @summary 查询实例详情
+ *
+ * @param request GetInstanceDetailRequest
+ * @return GetInstanceDetailResponse
+ */
+GetInstanceDetailResponse Client::getInstanceDetail(const GetInstanceDetailRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getInstanceDetailWithOptions(request, runtime);
+}
+
+/**
+ * @summary 实例统计
+ *
+ * @param request GetInstanceSummaryRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetInstanceSummaryResponse
+ */
+GetInstanceSummaryResponse Client::getInstanceSummaryWithOptions(const GetInstanceSummaryRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceType()) {
+    query["InstanceType"] = request.getInstanceType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetInstanceSummary"},
+    {"version" , "2020-04-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetInstanceSummaryResponse>();
+}
+
+/**
+ * @summary 实例统计
+ *
+ * @param request GetInstanceSummaryRequest
+ * @return GetInstanceSummaryResponse
+ */
+GetInstanceSummaryResponse Client::getInstanceSummary(const GetInstanceSummaryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getInstanceSummaryWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询异步任务状态
+ *
+ * @param request GetTaskAttributeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetTaskAttributeResponse
+ */
+GetTaskAttributeResponse Client::getTaskAttributeWithOptions(const GetTaskAttributeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTaskId()) {
+    query["TaskId"] = request.getTaskId();
+  }
+
+  if (!!request.hasTaskType()) {
+    query["TaskType"] = request.getTaskType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetTaskAttribute"},
+    {"version" , "2020-04-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetTaskAttributeResponse>();
+}
+
+/**
+ * @summary 查询异步任务状态
+ *
+ * @param request GetTaskAttributeRequest
+ * @return GetTaskAttributeResponse
+ */
+GetTaskAttributeResponse Client::getTaskAttribute(const GetTaskAttributeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getTaskAttributeWithOptions(request, runtime);
 }
 
 /**
@@ -1445,6 +1743,72 @@ ListCertWarehouseResponse Client::listCertWarehouseWithOptions(const ListCertWar
 ListCertWarehouseResponse Client::listCertWarehouse(const ListCertWarehouseRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listCertWarehouseWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取证书列表
+ *
+ * @param request ListCertificatesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListCertificatesResponse
+ */
+ListCertificatesResponse Client::listCertificatesWithOptions(const ListCertificatesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCertificateSource()) {
+    query["CertificateSource"] = request.getCertificateSource();
+  }
+
+  if (!!request.hasCertificateStatus()) {
+    query["CertificateStatus"] = request.getCertificateStatus();
+  }
+
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.getCurrentPage();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasKeyword()) {
+    query["Keyword"] = request.getKeyword();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasShowSize()) {
+    query["ShowSize"] = request.getShowSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListCertificates"},
+    {"version" , "2020-04-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListCertificatesResponse>();
+}
+
+/**
+ * @summary 获取证书列表
+ *
+ * @param request ListCertificatesRequest
+ * @return ListCertificatesResponse
+ */
+ListCertificatesResponse Client::listCertificates(const ListCertificatesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listCertificatesWithOptions(request, runtime);
 }
 
 /**
@@ -1816,6 +2180,80 @@ ListDeploymentJobResourceResponse Client::listDeploymentJobResource(const ListDe
 }
 
 /**
+ * @summary 获取实例列表
+ *
+ * @param request ListInstancesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListInstancesResponse
+ */
+ListInstancesResponse Client::listInstancesWithOptions(const ListInstancesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBrand()) {
+    query["Brand"] = request.getBrand();
+  }
+
+  if (!!request.hasCertificateStatus()) {
+    query["CertificateStatus"] = request.getCertificateStatus();
+  }
+
+  if (!!request.hasCertificateType()) {
+    query["CertificateType"] = request.getCertificateType();
+  }
+
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.getCurrentPage();
+  }
+
+  if (!!request.hasInstanceType()) {
+    query["InstanceType"] = request.getInstanceType();
+  }
+
+  if (!!request.hasKeyword()) {
+    query["Keyword"] = request.getKeyword();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasShowSize()) {
+    query["ShowSize"] = request.getShowSize();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListInstances"},
+    {"version" , "2020-04-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListInstancesResponse>();
+}
+
+/**
+ * @summary 获取实例列表
+ *
+ * @param request ListInstancesRequest
+ * @return ListInstancesResponse
+ */
+ListInstancesResponse Client::listInstances(const ListInstancesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listInstancesWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the certificates or certificate orders of users.
  *
  * @description You can call the ListUserCertificateOrder operation to query the certificates or certificate orders of users. If you set OrderType to CERT or UPLOAD, certificates are returned. If you set OrderType to CPACK or BUY, certificate orders are returned.
@@ -1998,6 +2436,48 @@ MoveResourceGroupResponse Client::moveResourceGroup(const MoveResourceGroupReque
 }
 
 /**
+ * @summary 申请证书
+ *
+ * @param request RefundInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RefundInstanceResponse
+ */
+RefundInstanceResponse Client::refundInstanceWithOptions(const RefundInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RefundInstance"},
+    {"version" , "2020-04-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RefundInstanceResponse>();
+}
+
+/**
+ * @summary 申请证书
+ *
+ * @param request RefundInstanceRequest
+ * @return RefundInstanceResponse
+ */
+RefundInstanceResponse Client::refundInstance(const RefundInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return refundInstanceWithOptions(request, runtime);
+}
+
+/**
  * @summary Submits a renewal application for an issued certificate.
  *
  * @description You can call the RenewCertificateOrderForPackageRequest operation to submit a renewal application for a certificate only when the order of the certificate is in the expiring state. After the renewal is complete, a new certificate order whose status is pending application is generated. You must submit a certificate application for the new certificate order and install the new certificate after the new certificate is issued.
@@ -2051,6 +2531,48 @@ RenewCertificateOrderForPackageRequestResponse Client::renewCertificateOrderForP
 RenewCertificateOrderForPackageRequestResponse Client::renewCertificateOrderForPackageRequest(const RenewCertificateOrderForPackageRequestRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return renewCertificateOrderForPackageRequestWithOptions(request, runtime);
+}
+
+/**
+ * @summary 吊销证书
+ *
+ * @param request RevokeCertificateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RevokeCertificateResponse
+ */
+RevokeCertificateResponse Client::revokeCertificateWithOptions(const RevokeCertificateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RevokeCertificate"},
+    {"version" , "2020-04-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RevokeCertificateResponse>();
+}
+
+/**
+ * @summary 吊销证书
+ *
+ * @param request RevokeCertificateRequest
+ * @return RevokeCertificateResponse
+ */
+RevokeCertificateResponse Client::revokeCertificate(const RevokeCertificateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return revokeCertificateWithOptions(request, runtime);
 }
 
 /**
@@ -2275,6 +2797,104 @@ UpdateDeploymentJobStatusResponse Client::updateDeploymentJobStatusWithOptions(c
 UpdateDeploymentJobStatusResponse Client::updateDeploymentJobStatus(const UpdateDeploymentJobStatusRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateDeploymentJobStatusWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新实例
+ *
+ * @param request UpdateInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateInstanceResponse
+ */
+UpdateInstanceResponse Client::updateInstanceWithOptions(const UpdateInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAutoReissue()) {
+    query["AutoReissue"] = request.getAutoReissue();
+  }
+
+  if (!!request.hasCertificateName()) {
+    query["CertificateName"] = request.getCertificateName();
+  }
+
+  if (!!request.hasCity()) {
+    query["City"] = request.getCity();
+  }
+
+  if (!!request.hasCompanyId()) {
+    query["CompanyId"] = request.getCompanyId();
+  }
+
+  if (!!request.hasContactIdList()) {
+    query["ContactIdList"] = request.getContactIdList();
+  }
+
+  if (!!request.hasCountryCode()) {
+    query["CountryCode"] = request.getCountryCode();
+  }
+
+  if (!!request.hasCsr()) {
+    query["Csr"] = request.getCsr();
+  }
+
+  if (!!request.hasDomain()) {
+    query["Domain"] = request.getDomain();
+  }
+
+  if (!!request.hasGenerateCsrMethod()) {
+    query["GenerateCsrMethod"] = request.getGenerateCsrMethod();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasKeyAlgorithm()) {
+    query["KeyAlgorithm"] = request.getKeyAlgorithm();
+  }
+
+  if (!!request.hasProvince()) {
+    query["Province"] = request.getProvince();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasTags()) {
+    query["Tags"] = request.getTags();
+  }
+
+  if (!!request.hasValidationMethod()) {
+    query["ValidationMethod"] = request.getValidationMethod();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateInstance"},
+    {"version" , "2020-04-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateInstanceResponse>();
+}
+
+/**
+ * @summary 更新实例
+ *
+ * @param request UpdateInstanceRequest
+ * @return UpdateInstanceResponse
+ */
+UpdateInstanceResponse Client::updateInstance(const UpdateInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateInstanceWithOptions(request, runtime);
 }
 
 /**
