@@ -2,7 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_GETHOTSPOTPIDLISTRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_GETHOTSPOTPIDLISTRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/GetHotspotPidListResponseBodyData.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -36,44 +36,90 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(columns, columns_);
+        DARABONBA_PTR_TO_JSON(values, values_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(columns, columns_);
+        DARABONBA_PTR_FROM_JSON(values, values_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->columns_ == nullptr
+        && this->values_ == nullptr; };
+      // columns Field Functions 
+      bool hasColumns() const { return this->columns_ != nullptr;};
+      void deleteColumns() { this->columns_ = nullptr;};
+      inline const vector<string> & getColumns() const { DARABONBA_PTR_GET_CONST(columns_, vector<string>) };
+      inline vector<string> getColumns() { DARABONBA_PTR_GET(columns_, vector<string>) };
+      inline Data& setColumns(const vector<string> & columns) { DARABONBA_PTR_SET_VALUE(columns_, columns) };
+      inline Data& setColumns(vector<string> && columns) { DARABONBA_PTR_SET_RVALUE(columns_, columns) };
+
+
+      // values Field Functions 
+      bool hasValues() const { return this->values_ != nullptr;};
+      void deleteValues() { this->values_ = nullptr;};
+      inline const vector<vector<string>> & getValues() const { DARABONBA_PTR_GET_CONST(values_, vector<vector<string>>) };
+      inline vector<vector<string>> getValues() { DARABONBA_PTR_GET(values_, vector<vector<string>>) };
+      inline Data& setValues(const vector<vector<string>> & values) { DARABONBA_PTR_SET_VALUE(values_, values) };
+      inline Data& setValues(vector<vector<string>> && values) { DARABONBA_PTR_SET_RVALUE(values_, values) };
+
+
+    protected:
+      shared_ptr<vector<string>> columns_ {};
+      shared_ptr<vector<vector<string>>> values_ {};
+    };
+
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->data_ == nullptr && return this->message_ == nullptr && return this->requestId_ == nullptr; };
+        && this->data_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline GetHotspotPidListResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const GetHotspotPidListResponseBodyData & data() const { DARABONBA_PTR_GET_CONST(data_, GetHotspotPidListResponseBodyData) };
-    inline GetHotspotPidListResponseBodyData data() { DARABONBA_PTR_GET(data_, GetHotspotPidListResponseBodyData) };
-    inline GetHotspotPidListResponseBody& setData(const GetHotspotPidListResponseBodyData & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline GetHotspotPidListResponseBody& setData(GetHotspotPidListResponseBodyData && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const GetHotspotPidListResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, GetHotspotPidListResponseBody::Data) };
+    inline GetHotspotPidListResponseBody::Data getData() { DARABONBA_PTR_GET(data_, GetHotspotPidListResponseBody::Data) };
+    inline GetHotspotPidListResponseBody& setData(const GetHotspotPidListResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline GetHotspotPidListResponseBody& setData(GetHotspotPidListResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline GetHotspotPidListResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetHotspotPidListResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<string> code_ = nullptr;
-    std::shared_ptr<GetHotspotPidListResponseBodyData> data_ = nullptr;
-    std::shared_ptr<string> message_ = nullptr;
+    shared_ptr<string> code_ {};
+    shared_ptr<GetHotspotPidListResponseBody::Data> data_ {};
+    shared_ptr<string> message_ {};
     // Id of the request
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

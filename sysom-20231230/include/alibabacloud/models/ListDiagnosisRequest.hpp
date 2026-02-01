@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->current_ == nullptr
-        && return this->pageSize_ == nullptr && return this->params_ == nullptr && return this->serviceName_ == nullptr && return this->status_ == nullptr; };
+        && this->pageSize_ == nullptr && this->params_ == nullptr && this->serviceName_ == nullptr && this->status_ == nullptr; };
     // current Field Functions 
     bool hasCurrent() const { return this->current_ != nullptr;};
     void deleteCurrent() { this->current_ = nullptr;};
-    inline int64_t current() const { DARABONBA_PTR_GET_DEFAULT(current_, 0L) };
+    inline int64_t getCurrent() const { DARABONBA_PTR_GET_DEFAULT(current_, 0L) };
     inline ListDiagnosisRequest& setCurrent(int64_t current) { DARABONBA_PTR_SET_VALUE(current_, current) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int64_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
+    inline int64_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
     inline ListDiagnosisRequest& setPageSize(int64_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // params Field Functions 
     bool hasParams() const { return this->params_ != nullptr;};
     void deleteParams() { this->params_ = nullptr;};
-    inline string params() const { DARABONBA_PTR_GET_DEFAULT(params_, "") };
+    inline string getParams() const { DARABONBA_PTR_GET_DEFAULT(params_, "") };
     inline ListDiagnosisRequest& setParams(string params) { DARABONBA_PTR_SET_VALUE(params_, params) };
 
 
     // serviceName Field Functions 
     bool hasServiceName() const { return this->serviceName_ != nullptr;};
     void deleteServiceName() { this->serviceName_ = nullptr;};
-    inline string serviceName() const { DARABONBA_PTR_GET_DEFAULT(serviceName_, "") };
+    inline string getServiceName() const { DARABONBA_PTR_GET_DEFAULT(serviceName_, "") };
     inline ListDiagnosisRequest& setServiceName(string serviceName) { DARABONBA_PTR_SET_VALUE(serviceName_, serviceName) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline ListDiagnosisRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
   protected:
-    std::shared_ptr<int64_t> current_ = nullptr;
-    std::shared_ptr<int64_t> pageSize_ = nullptr;
-    std::shared_ptr<string> params_ = nullptr;
-    std::shared_ptr<string> serviceName_ = nullptr;
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<int64_t> current_ {};
+    shared_ptr<int64_t> pageSize_ {};
+    shared_ptr<string> params_ {};
+    shared_ptr<string> serviceName_ {};
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models

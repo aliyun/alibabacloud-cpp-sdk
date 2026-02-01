@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cluster_ == nullptr
-        && return this->instance_ == nullptr && return this->type_ == nullptr; };
+        && this->instance_ == nullptr && this->type_ == nullptr; };
     // cluster Field Functions 
     bool hasCluster() const { return this->cluster_ != nullptr;};
     void deleteCluster() { this->cluster_ = nullptr;};
-    inline string cluster() const { DARABONBA_PTR_GET_DEFAULT(cluster_, "") };
+    inline string getCluster() const { DARABONBA_PTR_GET_DEFAULT(cluster_, "") };
     inline GetResourcesRequest& setCluster(string cluster) { DARABONBA_PTR_SET_VALUE(cluster_, cluster) };
 
 
     // instance Field Functions 
     bool hasInstance() const { return this->instance_ != nullptr;};
     void deleteInstance() { this->instance_ = nullptr;};
-    inline string instance() const { DARABONBA_PTR_GET_DEFAULT(instance_, "") };
+    inline string getInstance() const { DARABONBA_PTR_GET_DEFAULT(instance_, "") };
     inline GetResourcesRequest& setInstance(string instance) { DARABONBA_PTR_SET_VALUE(instance_, instance) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline GetResourcesRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
-    std::shared_ptr<string> cluster_ = nullptr;
-    std::shared_ptr<string> instance_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> cluster_ {};
+    shared_ptr<string> instance_ {};
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

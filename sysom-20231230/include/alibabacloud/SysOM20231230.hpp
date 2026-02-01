@@ -154,7 +154,7 @@ namespace SysOM20231230
        * @param runtime runtime options for this request RuntimeOptions
        * @return GenerateCopilotStreamResponseResponse
        */
-      FutrueGenerator<Models::GenerateCopilotStreamResponseResponse> generateCopilotStreamResponseWithSSE(const Models::GenerateCopilotStreamResponseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::GenerateCopilotStreamResponseResponse> generateCopilotStreamResponseWithSSE(const Models::GenerateCopilotStreamResponseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 流式copilot服务接口

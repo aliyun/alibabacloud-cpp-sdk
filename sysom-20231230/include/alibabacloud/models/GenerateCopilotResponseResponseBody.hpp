@@ -36,41 +36,41 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->data_ == nullptr && return this->massage_ == nullptr && return this->requestId_ == nullptr; };
+        && this->data_ == nullptr && this->massage_ == nullptr && this->requestId_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline GenerateCopilotResponseResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline string data() const { DARABONBA_PTR_GET_DEFAULT(data_, "") };
+    inline string getData() const { DARABONBA_PTR_GET_DEFAULT(data_, "") };
     inline GenerateCopilotResponseResponseBody& setData(string data) { DARABONBA_PTR_SET_VALUE(data_, data) };
 
 
     // massage Field Functions 
     bool hasMassage() const { return this->massage_ != nullptr;};
     void deleteMassage() { this->massage_ = nullptr;};
-    inline string massage() const { DARABONBA_PTR_GET_DEFAULT(massage_, "") };
+    inline string getMassage() const { DARABONBA_PTR_GET_DEFAULT(massage_, "") };
     inline GenerateCopilotResponseResponseBody& setMassage(string massage) { DARABONBA_PTR_SET_VALUE(massage_, massage) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GenerateCopilotResponseResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<string> code_ = nullptr;
-    std::shared_ptr<string> data_ = nullptr;
-    std::shared_ptr<string> massage_ = nullptr;
+    shared_ptr<string> code_ {};
+    shared_ptr<string> data_ {};
+    shared_ptr<string> massage_ {};
     // Id of the request
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

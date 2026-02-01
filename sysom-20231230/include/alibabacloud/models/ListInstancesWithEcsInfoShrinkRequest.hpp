@@ -58,131 +58,131 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->current_ == nullptr
-        && return this->healthStatus_ == nullptr && return this->instanceId_ == nullptr && return this->instanceIdName_ == nullptr && return this->instanceName_ == nullptr && return this->instanceTagShrink_ == nullptr
-        && return this->isManaged_ == nullptr && return this->osName_ == nullptr && return this->pageSize_ == nullptr && return this->privateIp_ == nullptr && return this->publicIp_ == nullptr
-        && return this->region_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceGroupIdName_ == nullptr && return this->resourceGroupName_ == nullptr; };
+        && this->healthStatus_ == nullptr && this->instanceId_ == nullptr && this->instanceIdName_ == nullptr && this->instanceName_ == nullptr && this->instanceTagShrink_ == nullptr
+        && this->isManaged_ == nullptr && this->osName_ == nullptr && this->pageSize_ == nullptr && this->privateIp_ == nullptr && this->publicIp_ == nullptr
+        && this->region_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceGroupIdName_ == nullptr && this->resourceGroupName_ == nullptr; };
     // current Field Functions 
     bool hasCurrent() const { return this->current_ != nullptr;};
     void deleteCurrent() { this->current_ = nullptr;};
-    inline int32_t current() const { DARABONBA_PTR_GET_DEFAULT(current_, 0) };
+    inline int32_t getCurrent() const { DARABONBA_PTR_GET_DEFAULT(current_, 0) };
     inline ListInstancesWithEcsInfoShrinkRequest& setCurrent(int32_t current) { DARABONBA_PTR_SET_VALUE(current_, current) };
 
 
     // healthStatus Field Functions 
     bool hasHealthStatus() const { return this->healthStatus_ != nullptr;};
     void deleteHealthStatus() { this->healthStatus_ = nullptr;};
-    inline string healthStatus() const { DARABONBA_PTR_GET_DEFAULT(healthStatus_, "") };
+    inline string getHealthStatus() const { DARABONBA_PTR_GET_DEFAULT(healthStatus_, "") };
     inline ListInstancesWithEcsInfoShrinkRequest& setHealthStatus(string healthStatus) { DARABONBA_PTR_SET_VALUE(healthStatus_, healthStatus) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ListInstancesWithEcsInfoShrinkRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // instanceIdName Field Functions 
     bool hasInstanceIdName() const { return this->instanceIdName_ != nullptr;};
     void deleteInstanceIdName() { this->instanceIdName_ = nullptr;};
-    inline string instanceIdName() const { DARABONBA_PTR_GET_DEFAULT(instanceIdName_, "") };
+    inline string getInstanceIdName() const { DARABONBA_PTR_GET_DEFAULT(instanceIdName_, "") };
     inline ListInstancesWithEcsInfoShrinkRequest& setInstanceIdName(string instanceIdName) { DARABONBA_PTR_SET_VALUE(instanceIdName_, instanceIdName) };
 
 
     // instanceName Field Functions 
     bool hasInstanceName() const { return this->instanceName_ != nullptr;};
     void deleteInstanceName() { this->instanceName_ = nullptr;};
-    inline string instanceName() const { DARABONBA_PTR_GET_DEFAULT(instanceName_, "") };
+    inline string getInstanceName() const { DARABONBA_PTR_GET_DEFAULT(instanceName_, "") };
     inline ListInstancesWithEcsInfoShrinkRequest& setInstanceName(string instanceName) { DARABONBA_PTR_SET_VALUE(instanceName_, instanceName) };
 
 
     // instanceTagShrink Field Functions 
     bool hasInstanceTagShrink() const { return this->instanceTagShrink_ != nullptr;};
     void deleteInstanceTagShrink() { this->instanceTagShrink_ = nullptr;};
-    inline string instanceTagShrink() const { DARABONBA_PTR_GET_DEFAULT(instanceTagShrink_, "") };
+    inline string getInstanceTagShrink() const { DARABONBA_PTR_GET_DEFAULT(instanceTagShrink_, "") };
     inline ListInstancesWithEcsInfoShrinkRequest& setInstanceTagShrink(string instanceTagShrink) { DARABONBA_PTR_SET_VALUE(instanceTagShrink_, instanceTagShrink) };
 
 
     // isManaged Field Functions 
     bool hasIsManaged() const { return this->isManaged_ != nullptr;};
     void deleteIsManaged() { this->isManaged_ = nullptr;};
-    inline int32_t isManaged() const { DARABONBA_PTR_GET_DEFAULT(isManaged_, 0) };
+    inline int32_t getIsManaged() const { DARABONBA_PTR_GET_DEFAULT(isManaged_, 0) };
     inline ListInstancesWithEcsInfoShrinkRequest& setIsManaged(int32_t isManaged) { DARABONBA_PTR_SET_VALUE(isManaged_, isManaged) };
 
 
     // osName Field Functions 
     bool hasOsName() const { return this->osName_ != nullptr;};
     void deleteOsName() { this->osName_ = nullptr;};
-    inline string osName() const { DARABONBA_PTR_GET_DEFAULT(osName_, "") };
+    inline string getOsName() const { DARABONBA_PTR_GET_DEFAULT(osName_, "") };
     inline ListInstancesWithEcsInfoShrinkRequest& setOsName(string osName) { DARABONBA_PTR_SET_VALUE(osName_, osName) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListInstancesWithEcsInfoShrinkRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // privateIp Field Functions 
     bool hasPrivateIp() const { return this->privateIp_ != nullptr;};
     void deletePrivateIp() { this->privateIp_ = nullptr;};
-    inline string privateIp() const { DARABONBA_PTR_GET_DEFAULT(privateIp_, "") };
+    inline string getPrivateIp() const { DARABONBA_PTR_GET_DEFAULT(privateIp_, "") };
     inline ListInstancesWithEcsInfoShrinkRequest& setPrivateIp(string privateIp) { DARABONBA_PTR_SET_VALUE(privateIp_, privateIp) };
 
 
     // publicIp Field Functions 
     bool hasPublicIp() const { return this->publicIp_ != nullptr;};
     void deletePublicIp() { this->publicIp_ = nullptr;};
-    inline string publicIp() const { DARABONBA_PTR_GET_DEFAULT(publicIp_, "") };
+    inline string getPublicIp() const { DARABONBA_PTR_GET_DEFAULT(publicIp_, "") };
     inline ListInstancesWithEcsInfoShrinkRequest& setPublicIp(string publicIp) { DARABONBA_PTR_SET_VALUE(publicIp_, publicIp) };
 
 
     // region Field Functions 
     bool hasRegion() const { return this->region_ != nullptr;};
     void deleteRegion() { this->region_ = nullptr;};
-    inline string region() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
+    inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
     inline ListInstancesWithEcsInfoShrinkRequest& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline ListInstancesWithEcsInfoShrinkRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // resourceGroupIdName Field Functions 
     bool hasResourceGroupIdName() const { return this->resourceGroupIdName_ != nullptr;};
     void deleteResourceGroupIdName() { this->resourceGroupIdName_ = nullptr;};
-    inline string resourceGroupIdName() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupIdName_, "") };
+    inline string getResourceGroupIdName() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupIdName_, "") };
     inline ListInstancesWithEcsInfoShrinkRequest& setResourceGroupIdName(string resourceGroupIdName) { DARABONBA_PTR_SET_VALUE(resourceGroupIdName_, resourceGroupIdName) };
 
 
     // resourceGroupName Field Functions 
     bool hasResourceGroupName() const { return this->resourceGroupName_ != nullptr;};
     void deleteResourceGroupName() { this->resourceGroupName_ = nullptr;};
-    inline string resourceGroupName() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupName_, "") };
+    inline string getResourceGroupName() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupName_, "") };
     inline ListInstancesWithEcsInfoShrinkRequest& setResourceGroupName(string resourceGroupName) { DARABONBA_PTR_SET_VALUE(resourceGroupName_, resourceGroupName) };
 
 
   protected:
-    std::shared_ptr<int32_t> current_ = nullptr;
-    std::shared_ptr<string> healthStatus_ = nullptr;
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> instanceIdName_ = nullptr;
-    std::shared_ptr<string> instanceName_ = nullptr;
-    std::shared_ptr<string> instanceTagShrink_ = nullptr;
-    std::shared_ptr<int32_t> isManaged_ = nullptr;
-    std::shared_ptr<string> osName_ = nullptr;
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    std::shared_ptr<string> privateIp_ = nullptr;
-    std::shared_ptr<string> publicIp_ = nullptr;
+    shared_ptr<int32_t> current_ {};
+    shared_ptr<string> healthStatus_ {};
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> instanceIdName_ {};
+    shared_ptr<string> instanceName_ {};
+    shared_ptr<string> instanceTagShrink_ {};
+    shared_ptr<int32_t> isManaged_ {};
+    shared_ptr<string> osName_ {};
+    shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<string> privateIp_ {};
+    shared_ptr<string> publicIp_ {};
     // This parameter is required.
-    std::shared_ptr<string> region_ = nullptr;
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
-    std::shared_ptr<string> resourceGroupIdName_ = nullptr;
-    std::shared_ptr<string> resourceGroupName_ = nullptr;
+    shared_ptr<string> region_ {};
+    shared_ptr<string> resourceGroupId_ {};
+    shared_ptr<string> resourceGroupIdName_ {};
+    shared_ptr<string> resourceGroupName_ {};
   };
 
   } // namespace Models

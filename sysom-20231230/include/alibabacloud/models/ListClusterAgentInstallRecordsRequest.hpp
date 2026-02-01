@@ -40,56 +40,56 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentConfigId_ == nullptr
-        && return this->clusterId_ == nullptr && return this->current_ == nullptr && return this->pageSize_ == nullptr && return this->pluginId_ == nullptr && return this->pluginVersion_ == nullptr; };
+        && this->clusterId_ == nullptr && this->current_ == nullptr && this->pageSize_ == nullptr && this->pluginId_ == nullptr && this->pluginVersion_ == nullptr; };
     // agentConfigId Field Functions 
     bool hasAgentConfigId() const { return this->agentConfigId_ != nullptr;};
     void deleteAgentConfigId() { this->agentConfigId_ = nullptr;};
-    inline string agentConfigId() const { DARABONBA_PTR_GET_DEFAULT(agentConfigId_, "") };
+    inline string getAgentConfigId() const { DARABONBA_PTR_GET_DEFAULT(agentConfigId_, "") };
     inline ListClusterAgentInstallRecordsRequest& setAgentConfigId(string agentConfigId) { DARABONBA_PTR_SET_VALUE(agentConfigId_, agentConfigId) };
 
 
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline ListClusterAgentInstallRecordsRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // current Field Functions 
     bool hasCurrent() const { return this->current_ != nullptr;};
     void deleteCurrent() { this->current_ = nullptr;};
-    inline int64_t current() const { DARABONBA_PTR_GET_DEFAULT(current_, 0L) };
+    inline int64_t getCurrent() const { DARABONBA_PTR_GET_DEFAULT(current_, 0L) };
     inline ListClusterAgentInstallRecordsRequest& setCurrent(int64_t current) { DARABONBA_PTR_SET_VALUE(current_, current) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int64_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
+    inline int64_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
     inline ListClusterAgentInstallRecordsRequest& setPageSize(int64_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // pluginId Field Functions 
     bool hasPluginId() const { return this->pluginId_ != nullptr;};
     void deletePluginId() { this->pluginId_ = nullptr;};
-    inline string pluginId() const { DARABONBA_PTR_GET_DEFAULT(pluginId_, "") };
+    inline string getPluginId() const { DARABONBA_PTR_GET_DEFAULT(pluginId_, "") };
     inline ListClusterAgentInstallRecordsRequest& setPluginId(string pluginId) { DARABONBA_PTR_SET_VALUE(pluginId_, pluginId) };
 
 
     // pluginVersion Field Functions 
     bool hasPluginVersion() const { return this->pluginVersion_ != nullptr;};
     void deletePluginVersion() { this->pluginVersion_ = nullptr;};
-    inline string pluginVersion() const { DARABONBA_PTR_GET_DEFAULT(pluginVersion_, "") };
+    inline string getPluginVersion() const { DARABONBA_PTR_GET_DEFAULT(pluginVersion_, "") };
     inline ListClusterAgentInstallRecordsRequest& setPluginVersion(string pluginVersion) { DARABONBA_PTR_SET_VALUE(pluginVersion_, pluginVersion) };
 
 
   protected:
-    std::shared_ptr<string> agentConfigId_ = nullptr;
-    std::shared_ptr<string> clusterId_ = nullptr;
-    std::shared_ptr<int64_t> current_ = nullptr;
-    std::shared_ptr<int64_t> pageSize_ = nullptr;
-    std::shared_ptr<string> pluginId_ = nullptr;
-    std::shared_ptr<string> pluginVersion_ = nullptr;
+    shared_ptr<string> agentConfigId_ {};
+    shared_ptr<string> clusterId_ {};
+    shared_ptr<int64_t> current_ {};
+    shared_ptr<int64_t> pageSize_ {};
+    shared_ptr<string> pluginId_ {};
+    shared_ptr<string> pluginVersion_ {};
   };
 
   } // namespace Models

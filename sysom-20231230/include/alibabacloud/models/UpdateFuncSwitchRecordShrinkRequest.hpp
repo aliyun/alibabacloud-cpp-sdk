@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->channel_ == nullptr
-        && return this->paramsShrink_ == nullptr && return this->serviceName_ == nullptr; };
+        && this->paramsShrink_ == nullptr && this->serviceName_ == nullptr; };
     // channel Field Functions 
     bool hasChannel() const { return this->channel_ != nullptr;};
     void deleteChannel() { this->channel_ = nullptr;};
-    inline string channel() const { DARABONBA_PTR_GET_DEFAULT(channel_, "") };
+    inline string getChannel() const { DARABONBA_PTR_GET_DEFAULT(channel_, "") };
     inline UpdateFuncSwitchRecordShrinkRequest& setChannel(string channel) { DARABONBA_PTR_SET_VALUE(channel_, channel) };
 
 
     // paramsShrink Field Functions 
     bool hasParamsShrink() const { return this->paramsShrink_ != nullptr;};
     void deleteParamsShrink() { this->paramsShrink_ = nullptr;};
-    inline string paramsShrink() const { DARABONBA_PTR_GET_DEFAULT(paramsShrink_, "") };
+    inline string getParamsShrink() const { DARABONBA_PTR_GET_DEFAULT(paramsShrink_, "") };
     inline UpdateFuncSwitchRecordShrinkRequest& setParamsShrink(string paramsShrink) { DARABONBA_PTR_SET_VALUE(paramsShrink_, paramsShrink) };
 
 
     // serviceName Field Functions 
     bool hasServiceName() const { return this->serviceName_ != nullptr;};
     void deleteServiceName() { this->serviceName_ = nullptr;};
-    inline string serviceName() const { DARABONBA_PTR_GET_DEFAULT(serviceName_, "") };
+    inline string getServiceName() const { DARABONBA_PTR_GET_DEFAULT(serviceName_, "") };
     inline UpdateFuncSwitchRecordShrinkRequest& setServiceName(string serviceName) { DARABONBA_PTR_SET_VALUE(serviceName_, serviceName) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> channel_ = nullptr;
+    shared_ptr<string> channel_ {};
     // This parameter is required.
-    std::shared_ptr<string> paramsShrink_ = nullptr;
+    shared_ptr<string> paramsShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> serviceName_ = nullptr;
+    shared_ptr<string> serviceName_ {};
   };
 
   } // namespace Models

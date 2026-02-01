@@ -36,40 +36,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->current_ == nullptr
-        && return this->name_ == nullptr && return this->pageSize_ == nullptr && return this->type_ == nullptr; };
+        && this->name_ == nullptr && this->pageSize_ == nullptr && this->type_ == nullptr; };
     // current Field Functions 
     bool hasCurrent() const { return this->current_ != nullptr;};
     void deleteCurrent() { this->current_ = nullptr;};
-    inline int64_t current() const { DARABONBA_PTR_GET_DEFAULT(current_, 0L) };
+    inline int64_t getCurrent() const { DARABONBA_PTR_GET_DEFAULT(current_, 0L) };
     inline ListAgentsRequest& setCurrent(int64_t current) { DARABONBA_PTR_SET_VALUE(current_, current) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline ListAgentsRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int64_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
+    inline int64_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
     inline ListAgentsRequest& setPageSize(int64_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline ListAgentsRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
-    std::shared_ptr<int64_t> current_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<int64_t> pageSize_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<int64_t> current_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<int64_t> pageSize_ {};
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

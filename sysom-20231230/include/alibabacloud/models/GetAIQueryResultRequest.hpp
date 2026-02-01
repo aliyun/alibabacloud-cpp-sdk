@@ -33,12 +33,12 @@ namespace Models
     // analysisId Field Functions 
     bool hasAnalysisId() const { return this->analysisId_ != nullptr;};
     void deleteAnalysisId() { this->analysisId_ = nullptr;};
-    inline string analysisId() const { DARABONBA_PTR_GET_DEFAULT(analysisId_, "") };
+    inline string getAnalysisId() const { DARABONBA_PTR_GET_DEFAULT(analysisId_, "") };
     inline GetAIQueryResultRequest& setAnalysisId(string analysisId) { DARABONBA_PTR_SET_VALUE(analysisId_, analysisId) };
 
 
   protected:
-    std::shared_ptr<string> analysisId_ = nullptr;
+    shared_ptr<string> analysisId_ {};
   };
 
   } // namespace Models

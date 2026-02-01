@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->current_ == nullptr
-        && return this->pageSize_ == nullptr && return this->region_ == nullptr; };
+        && this->pageSize_ == nullptr && this->region_ == nullptr; };
     // current Field Functions 
     bool hasCurrent() const { return this->current_ != nullptr;};
     void deleteCurrent() { this->current_ = nullptr;};
-    inline int64_t current() const { DARABONBA_PTR_GET_DEFAULT(current_, 0L) };
+    inline int64_t getCurrent() const { DARABONBA_PTR_GET_DEFAULT(current_, 0L) };
     inline GetListRecordRequest& setCurrent(int64_t current) { DARABONBA_PTR_SET_VALUE(current_, current) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int64_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
+    inline int64_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
     inline GetListRecordRequest& setPageSize(int64_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // region Field Functions 
     bool hasRegion() const { return this->region_ != nullptr;};
     void deleteRegion() { this->region_ = nullptr;};
-    inline string region() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
+    inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
     inline GetListRecordRequest& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
   protected:
-    std::shared_ptr<int64_t> current_ = nullptr;
-    std::shared_ptr<int64_t> pageSize_ = nullptr;
-    std::shared_ptr<string> region_ = nullptr;
+    shared_ptr<int64_t> current_ {};
+    shared_ptr<int64_t> pageSize_ {};
+    shared_ptr<string> region_ {};
   };
 
   } // namespace Models

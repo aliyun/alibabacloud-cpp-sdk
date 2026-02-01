@@ -34,33 +34,33 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->mode_ == nullptr
-        && return this->range_ == nullptr && return this->uuid_ == nullptr; };
+        && this->range_ == nullptr && this->uuid_ == nullptr; };
     // mode Field Functions 
     bool hasMode() const { return this->mode_ != nullptr;};
     void deleteMode() { this->mode_ = nullptr;};
-    inline int32_t mode() const { DARABONBA_PTR_GET_DEFAULT(mode_, 0) };
+    inline int32_t getMode() const { DARABONBA_PTR_GET_DEFAULT(mode_, 0) };
     inline UpdateEventsAttentionRequest& setMode(int32_t mode) { DARABONBA_PTR_SET_VALUE(mode_, mode) };
 
 
     // range Field Functions 
     bool hasRange() const { return this->range_ != nullptr;};
     void deleteRange() { this->range_ = nullptr;};
-    inline string range() const { DARABONBA_PTR_GET_DEFAULT(range_, "") };
+    inline string getRange() const { DARABONBA_PTR_GET_DEFAULT(range_, "") };
     inline UpdateEventsAttentionRequest& setRange(string range) { DARABONBA_PTR_SET_VALUE(range_, range) };
 
 
     // uuid Field Functions 
     bool hasUuid() const { return this->uuid_ != nullptr;};
     void deleteUuid() { this->uuid_ = nullptr;};
-    inline string uuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
+    inline string getUuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
     inline UpdateEventsAttentionRequest& setUuid(string uuid) { DARABONBA_PTR_SET_VALUE(uuid_, uuid) };
 
 
   protected:
-    std::shared_ptr<int32_t> mode_ = nullptr;
-    std::shared_ptr<string> range_ = nullptr;
+    shared_ptr<int32_t> mode_ {};
+    shared_ptr<string> range_ {};
     // This parameter is required.
-    std::shared_ptr<string> uuid_ = nullptr;
+    shared_ptr<string> uuid_ {};
   };
 
   } // namespace Models

@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cluster_ == nullptr
-        && return this->instance_ == nullptr; };
+        && this->instance_ == nullptr; };
     // cluster Field Functions 
     bool hasCluster() const { return this->cluster_ != nullptr;};
     void deleteCluster() { this->cluster_ = nullptr;};
-    inline string cluster() const { DARABONBA_PTR_GET_DEFAULT(cluster_, "") };
+    inline string getCluster() const { DARABONBA_PTR_GET_DEFAULT(cluster_, "") };
     inline GetInstantScoreRequest& setCluster(string cluster) { DARABONBA_PTR_SET_VALUE(cluster_, cluster) };
 
 
     // instance Field Functions 
     bool hasInstance() const { return this->instance_ != nullptr;};
     void deleteInstance() { this->instance_ = nullptr;};
-    inline string instance() const { DARABONBA_PTR_GET_DEFAULT(instance_, "") };
+    inline string getInstance() const { DARABONBA_PTR_GET_DEFAULT(instance_, "") };
     inline GetInstantScoreRequest& setInstance(string instance) { DARABONBA_PTR_SET_VALUE(instance_, instance) };
 
 
   protected:
-    std::shared_ptr<string> cluster_ = nullptr;
-    std::shared_ptr<string> instance_ = nullptr;
+    shared_ptr<string> cluster_ {};
+    shared_ptr<string> instance_ {};
   };
 
   } // namespace Models

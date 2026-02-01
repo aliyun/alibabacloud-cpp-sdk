@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentId_ == nullptr
-        && return this->agentVersion_ == nullptr && return this->clusterId_ == nullptr && return this->configId_ == nullptr && return this->grayscaleConfig_ == nullptr; };
+        && this->agentVersion_ == nullptr && this->clusterId_ == nullptr && this->configId_ == nullptr && this->grayscaleConfig_ == nullptr; };
     // agentId Field Functions 
     bool hasAgentId() const { return this->agentId_ != nullptr;};
     void deleteAgentId() { this->agentId_ = nullptr;};
-    inline string agentId() const { DARABONBA_PTR_GET_DEFAULT(agentId_, "") };
+    inline string getAgentId() const { DARABONBA_PTR_GET_DEFAULT(agentId_, "") };
     inline InstallAgentForClusterRequest& setAgentId(string agentId) { DARABONBA_PTR_SET_VALUE(agentId_, agentId) };
 
 
     // agentVersion Field Functions 
     bool hasAgentVersion() const { return this->agentVersion_ != nullptr;};
     void deleteAgentVersion() { this->agentVersion_ = nullptr;};
-    inline string agentVersion() const { DARABONBA_PTR_GET_DEFAULT(agentVersion_, "") };
+    inline string getAgentVersion() const { DARABONBA_PTR_GET_DEFAULT(agentVersion_, "") };
     inline InstallAgentForClusterRequest& setAgentVersion(string agentVersion) { DARABONBA_PTR_SET_VALUE(agentVersion_, agentVersion) };
 
 
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline InstallAgentForClusterRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // configId Field Functions 
     bool hasConfigId() const { return this->configId_ != nullptr;};
     void deleteConfigId() { this->configId_ = nullptr;};
-    inline string configId() const { DARABONBA_PTR_GET_DEFAULT(configId_, "") };
+    inline string getConfigId() const { DARABONBA_PTR_GET_DEFAULT(configId_, "") };
     inline InstallAgentForClusterRequest& setConfigId(string configId) { DARABONBA_PTR_SET_VALUE(configId_, configId) };
 
 
     // grayscaleConfig Field Functions 
     bool hasGrayscaleConfig() const { return this->grayscaleConfig_ != nullptr;};
     void deleteGrayscaleConfig() { this->grayscaleConfig_ = nullptr;};
-    inline string grayscaleConfig() const { DARABONBA_PTR_GET_DEFAULT(grayscaleConfig_, "") };
+    inline string getGrayscaleConfig() const { DARABONBA_PTR_GET_DEFAULT(grayscaleConfig_, "") };
     inline InstallAgentForClusterRequest& setGrayscaleConfig(string grayscaleConfig) { DARABONBA_PTR_SET_VALUE(grayscaleConfig_, grayscaleConfig) };
 
 
   protected:
-    std::shared_ptr<string> agentId_ = nullptr;
-    std::shared_ptr<string> agentVersion_ = nullptr;
-    std::shared_ptr<string> clusterId_ = nullptr;
-    std::shared_ptr<string> configId_ = nullptr;
-    std::shared_ptr<string> grayscaleConfig_ = nullptr;
+    shared_ptr<string> agentId_ {};
+    shared_ptr<string> agentVersion_ {};
+    shared_ptr<string> clusterId_ {};
+    shared_ptr<string> configId_ {};
+    shared_ptr<string> grayscaleConfig_ {};
   };
 
   } // namespace Models

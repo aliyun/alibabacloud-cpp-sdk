@@ -33,12 +33,12 @@ namespace Models
     // agentId Field Functions 
     bool hasAgentId() const { return this->agentId_ != nullptr;};
     void deleteAgentId() { this->agentId_ = nullptr;};
-    inline string agentId() const { DARABONBA_PTR_GET_DEFAULT(agentId_, "") };
+    inline string getAgentId() const { DARABONBA_PTR_GET_DEFAULT(agentId_, "") };
     inline GetAgentRequest& setAgentId(string agentId) { DARABONBA_PTR_SET_VALUE(agentId_, agentId) };
 
 
   protected:
-    std::shared_ptr<string> agentId_ = nullptr;
+    shared_ptr<string> agentId_ {};
   };
 
   } // namespace Models

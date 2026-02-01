@@ -36,42 +36,42 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cluster_ == nullptr
-        && return this->end_ == nullptr && return this->instance_ == nullptr && return this->start_ == nullptr; };
+        && this->end_ == nullptr && this->instance_ == nullptr && this->start_ == nullptr; };
     // cluster Field Functions 
     bool hasCluster() const { return this->cluster_ != nullptr;};
     void deleteCluster() { this->cluster_ = nullptr;};
-    inline string cluster() const { DARABONBA_PTR_GET_DEFAULT(cluster_, "") };
+    inline string getCluster() const { DARABONBA_PTR_GET_DEFAULT(cluster_, "") };
     inline GetRangeScoreRequest& setCluster(string cluster) { DARABONBA_PTR_SET_VALUE(cluster_, cluster) };
 
 
     // end Field Functions 
     bool hasEnd() const { return this->end_ != nullptr;};
     void deleteEnd() { this->end_ = nullptr;};
-    inline float end() const { DARABONBA_PTR_GET_DEFAULT(end_, 0.0) };
+    inline float getEnd() const { DARABONBA_PTR_GET_DEFAULT(end_, 0.0) };
     inline GetRangeScoreRequest& setEnd(float end) { DARABONBA_PTR_SET_VALUE(end_, end) };
 
 
     // instance Field Functions 
     bool hasInstance() const { return this->instance_ != nullptr;};
     void deleteInstance() { this->instance_ = nullptr;};
-    inline string instance() const { DARABONBA_PTR_GET_DEFAULT(instance_, "") };
+    inline string getInstance() const { DARABONBA_PTR_GET_DEFAULT(instance_, "") };
     inline GetRangeScoreRequest& setInstance(string instance) { DARABONBA_PTR_SET_VALUE(instance_, instance) };
 
 
     // start Field Functions 
     bool hasStart() const { return this->start_ != nullptr;};
     void deleteStart() { this->start_ = nullptr;};
-    inline float start() const { DARABONBA_PTR_GET_DEFAULT(start_, 0.0) };
+    inline float getStart() const { DARABONBA_PTR_GET_DEFAULT(start_, 0.0) };
     inline GetRangeScoreRequest& setStart(float start) { DARABONBA_PTR_SET_VALUE(start_, start) };
 
 
   protected:
-    std::shared_ptr<string> cluster_ = nullptr;
+    shared_ptr<string> cluster_ {};
     // This parameter is required.
-    std::shared_ptr<float> end_ = nullptr;
-    std::shared_ptr<string> instance_ = nullptr;
+    shared_ptr<float> end_ {};
+    shared_ptr<string> instance_ {};
     // This parameter is required.
-    std::shared_ptr<float> start_ = nullptr;
+    shared_ptr<float> start_ {};
   };
 
   } // namespace Models

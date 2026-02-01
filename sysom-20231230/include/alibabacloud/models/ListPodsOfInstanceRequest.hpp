@@ -36,40 +36,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterId_ == nullptr
-        && return this->current_ == nullptr && return this->instance_ == nullptr && return this->pageSize_ == nullptr; };
+        && this->current_ == nullptr && this->instance_ == nullptr && this->pageSize_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline ListPodsOfInstanceRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // current Field Functions 
     bool hasCurrent() const { return this->current_ != nullptr;};
     void deleteCurrent() { this->current_ = nullptr;};
-    inline int64_t current() const { DARABONBA_PTR_GET_DEFAULT(current_, 0L) };
+    inline int64_t getCurrent() const { DARABONBA_PTR_GET_DEFAULT(current_, 0L) };
     inline ListPodsOfInstanceRequest& setCurrent(int64_t current) { DARABONBA_PTR_SET_VALUE(current_, current) };
 
 
     // instance Field Functions 
     bool hasInstance() const { return this->instance_ != nullptr;};
     void deleteInstance() { this->instance_ = nullptr;};
-    inline string instance() const { DARABONBA_PTR_GET_DEFAULT(instance_, "") };
+    inline string getInstance() const { DARABONBA_PTR_GET_DEFAULT(instance_, "") };
     inline ListPodsOfInstanceRequest& setInstance(string instance) { DARABONBA_PTR_SET_VALUE(instance_, instance) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int64_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
+    inline int64_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
     inline ListPodsOfInstanceRequest& setPageSize(int64_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
   protected:
-    std::shared_ptr<string> clusterId_ = nullptr;
-    std::shared_ptr<int64_t> current_ = nullptr;
-    std::shared_ptr<string> instance_ = nullptr;
-    std::shared_ptr<int64_t> pageSize_ = nullptr;
+    shared_ptr<string> clusterId_ {};
+    shared_ptr<int64_t> current_ {};
+    shared_ptr<string> instance_ {};
+    shared_ptr<int64_t> pageSize_ {};
   };
 
   } // namespace Models

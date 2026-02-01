@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_LISTPLUGINSINSTANCESRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/ListPluginsInstancesResponseBodyData.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -39,51 +38,208 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(instance_id, instanceId_);
+        DARABONBA_PTR_TO_JSON(instance_name, instanceName_);
+        DARABONBA_PTR_TO_JSON(instance_tag, instanceTag_);
+        DARABONBA_PTR_TO_JSON(os_name, osName_);
+        DARABONBA_PTR_TO_JSON(private_ip, privateIp_);
+        DARABONBA_PTR_TO_JSON(public_ip, publicIp_);
+        DARABONBA_PTR_TO_JSON(region, region_);
+        DARABONBA_PTR_TO_JSON(resource_group_id, resourceGroupId_);
+        DARABONBA_PTR_TO_JSON(resource_group_name, resourceGroupName_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(instance_id, instanceId_);
+        DARABONBA_PTR_FROM_JSON(instance_name, instanceName_);
+        DARABONBA_PTR_FROM_JSON(instance_tag, instanceTag_);
+        DARABONBA_PTR_FROM_JSON(os_name, osName_);
+        DARABONBA_PTR_FROM_JSON(private_ip, privateIp_);
+        DARABONBA_PTR_FROM_JSON(public_ip, publicIp_);
+        DARABONBA_PTR_FROM_JSON(region, region_);
+        DARABONBA_PTR_FROM_JSON(resource_group_id, resourceGroupId_);
+        DARABONBA_PTR_FROM_JSON(resource_group_name, resourceGroupName_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class InstanceTag : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const InstanceTag& obj) { 
+          DARABONBA_PTR_TO_JSON(tag_key, tagKey_);
+          DARABONBA_PTR_TO_JSON(tag_value, tagValue_);
+        };
+        friend void from_json(const Darabonba::Json& j, InstanceTag& obj) { 
+          DARABONBA_PTR_FROM_JSON(tag_key, tagKey_);
+          DARABONBA_PTR_FROM_JSON(tag_value, tagValue_);
+        };
+        InstanceTag() = default ;
+        InstanceTag(const InstanceTag &) = default ;
+        InstanceTag(InstanceTag &&) = default ;
+        InstanceTag(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~InstanceTag() = default ;
+        InstanceTag& operator=(const InstanceTag &) = default ;
+        InstanceTag& operator=(InstanceTag &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->tagKey_ == nullptr
+        && this->tagValue_ == nullptr; };
+        // tagKey Field Functions 
+        bool hasTagKey() const { return this->tagKey_ != nullptr;};
+        void deleteTagKey() { this->tagKey_ = nullptr;};
+        inline string getTagKey() const { DARABONBA_PTR_GET_DEFAULT(tagKey_, "") };
+        inline InstanceTag& setTagKey(string tagKey) { DARABONBA_PTR_SET_VALUE(tagKey_, tagKey) };
+
+
+        // tagValue Field Functions 
+        bool hasTagValue() const { return this->tagValue_ != nullptr;};
+        void deleteTagValue() { this->tagValue_ = nullptr;};
+        inline string getTagValue() const { DARABONBA_PTR_GET_DEFAULT(tagValue_, "") };
+        inline InstanceTag& setTagValue(string tagValue) { DARABONBA_PTR_SET_VALUE(tagValue_, tagValue) };
+
+
+      protected:
+        shared_ptr<string> tagKey_ {};
+        shared_ptr<string> tagValue_ {};
+      };
+
+      virtual bool empty() const override { return this->instanceId_ == nullptr
+        && this->instanceName_ == nullptr && this->instanceTag_ == nullptr && this->osName_ == nullptr && this->privateIp_ == nullptr && this->publicIp_ == nullptr
+        && this->region_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceGroupName_ == nullptr; };
+      // instanceId Field Functions 
+      bool hasInstanceId() const { return this->instanceId_ != nullptr;};
+      void deleteInstanceId() { this->instanceId_ = nullptr;};
+      inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+      inline Data& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+      // instanceName Field Functions 
+      bool hasInstanceName() const { return this->instanceName_ != nullptr;};
+      void deleteInstanceName() { this->instanceName_ = nullptr;};
+      inline string getInstanceName() const { DARABONBA_PTR_GET_DEFAULT(instanceName_, "") };
+      inline Data& setInstanceName(string instanceName) { DARABONBA_PTR_SET_VALUE(instanceName_, instanceName) };
+
+
+      // instanceTag Field Functions 
+      bool hasInstanceTag() const { return this->instanceTag_ != nullptr;};
+      void deleteInstanceTag() { this->instanceTag_ = nullptr;};
+      inline const vector<Data::InstanceTag> & getInstanceTag() const { DARABONBA_PTR_GET_CONST(instanceTag_, vector<Data::InstanceTag>) };
+      inline vector<Data::InstanceTag> getInstanceTag() { DARABONBA_PTR_GET(instanceTag_, vector<Data::InstanceTag>) };
+      inline Data& setInstanceTag(const vector<Data::InstanceTag> & instanceTag) { DARABONBA_PTR_SET_VALUE(instanceTag_, instanceTag) };
+      inline Data& setInstanceTag(vector<Data::InstanceTag> && instanceTag) { DARABONBA_PTR_SET_RVALUE(instanceTag_, instanceTag) };
+
+
+      // osName Field Functions 
+      bool hasOsName() const { return this->osName_ != nullptr;};
+      void deleteOsName() { this->osName_ = nullptr;};
+      inline string getOsName() const { DARABONBA_PTR_GET_DEFAULT(osName_, "") };
+      inline Data& setOsName(string osName) { DARABONBA_PTR_SET_VALUE(osName_, osName) };
+
+
+      // privateIp Field Functions 
+      bool hasPrivateIp() const { return this->privateIp_ != nullptr;};
+      void deletePrivateIp() { this->privateIp_ = nullptr;};
+      inline string getPrivateIp() const { DARABONBA_PTR_GET_DEFAULT(privateIp_, "") };
+      inline Data& setPrivateIp(string privateIp) { DARABONBA_PTR_SET_VALUE(privateIp_, privateIp) };
+
+
+      // publicIp Field Functions 
+      bool hasPublicIp() const { return this->publicIp_ != nullptr;};
+      void deletePublicIp() { this->publicIp_ = nullptr;};
+      inline string getPublicIp() const { DARABONBA_PTR_GET_DEFAULT(publicIp_, "") };
+      inline Data& setPublicIp(string publicIp) { DARABONBA_PTR_SET_VALUE(publicIp_, publicIp) };
+
+
+      // region Field Functions 
+      bool hasRegion() const { return this->region_ != nullptr;};
+      void deleteRegion() { this->region_ = nullptr;};
+      inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
+      inline Data& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
+
+
+      // resourceGroupId Field Functions 
+      bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
+      void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
+      inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+      inline Data& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
+
+
+      // resourceGroupName Field Functions 
+      bool hasResourceGroupName() const { return this->resourceGroupName_ != nullptr;};
+      void deleteResourceGroupName() { this->resourceGroupName_ = nullptr;};
+      inline string getResourceGroupName() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupName_, "") };
+      inline Data& setResourceGroupName(string resourceGroupName) { DARABONBA_PTR_SET_VALUE(resourceGroupName_, resourceGroupName) };
+
+
+    protected:
+      shared_ptr<string> instanceId_ {};
+      shared_ptr<string> instanceName_ {};
+      shared_ptr<vector<Data::InstanceTag>> instanceTag_ {};
+      shared_ptr<string> osName_ {};
+      shared_ptr<string> privateIp_ {};
+      shared_ptr<string> publicIp_ {};
+      shared_ptr<string> region_ {};
+      shared_ptr<string> resourceGroupId_ {};
+      shared_ptr<string> resourceGroupName_ {};
+    };
+
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->data_ == nullptr && return this->message_ == nullptr && return this->requestId_ == nullptr && return this->total_ == nullptr; };
+        && this->data_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr && this->total_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline ListPluginsInstancesResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const vector<ListPluginsInstancesResponseBodyData> & data() const { DARABONBA_PTR_GET_CONST(data_, vector<ListPluginsInstancesResponseBodyData>) };
-    inline vector<ListPluginsInstancesResponseBodyData> data() { DARABONBA_PTR_GET(data_, vector<ListPluginsInstancesResponseBodyData>) };
-    inline ListPluginsInstancesResponseBody& setData(const vector<ListPluginsInstancesResponseBodyData> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline ListPluginsInstancesResponseBody& setData(vector<ListPluginsInstancesResponseBodyData> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const vector<ListPluginsInstancesResponseBody::Data> & getData() const { DARABONBA_PTR_GET_CONST(data_, vector<ListPluginsInstancesResponseBody::Data>) };
+    inline vector<ListPluginsInstancesResponseBody::Data> getData() { DARABONBA_PTR_GET(data_, vector<ListPluginsInstancesResponseBody::Data>) };
+    inline ListPluginsInstancesResponseBody& setData(const vector<ListPluginsInstancesResponseBody::Data> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline ListPluginsInstancesResponseBody& setData(vector<ListPluginsInstancesResponseBody::Data> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline ListPluginsInstancesResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListPluginsInstancesResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // total Field Functions 
     bool hasTotal() const { return this->total_ != nullptr;};
     void deleteTotal() { this->total_ = nullptr;};
-    inline int64_t total() const { DARABONBA_PTR_GET_DEFAULT(total_, 0L) };
+    inline int64_t getTotal() const { DARABONBA_PTR_GET_DEFAULT(total_, 0L) };
     inline ListPluginsInstancesResponseBody& setTotal(int64_t total) { DARABONBA_PTR_SET_VALUE(total_, total) };
 
 
   protected:
-    std::shared_ptr<string> code_ = nullptr;
-    std::shared_ptr<vector<ListPluginsInstancesResponseBodyData>> data_ = nullptr;
-    std::shared_ptr<string> message_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<int64_t> total_ = nullptr;
+    shared_ptr<string> code_ {};
+    shared_ptr<vector<ListPluginsInstancesResponseBody::Data>> data_ {};
+    shared_ptr<string> message_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<int64_t> total_ {};
   };
 
   } // namespace Models

@@ -2,7 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_UPDATEALERTSTRATEGYREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_UPDATEALERTSTRATEGYREQUEST_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/UpdateAlertStrategyRequestStrategy.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -38,55 +38,101 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Strategy : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Strategy& obj) { 
+        DARABONBA_PTR_TO_JSON(clusters, clusters_);
+        DARABONBA_PTR_TO_JSON(items, items_);
+      };
+      friend void from_json(const Darabonba::Json& j, Strategy& obj) { 
+        DARABONBA_PTR_FROM_JSON(clusters, clusters_);
+        DARABONBA_PTR_FROM_JSON(items, items_);
+      };
+      Strategy() = default ;
+      Strategy(const Strategy &) = default ;
+      Strategy(Strategy &&) = default ;
+      Strategy(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Strategy() = default ;
+      Strategy& operator=(const Strategy &) = default ;
+      Strategy& operator=(Strategy &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->clusters_ == nullptr
+        && this->items_ == nullptr; };
+      // clusters Field Functions 
+      bool hasClusters() const { return this->clusters_ != nullptr;};
+      void deleteClusters() { this->clusters_ = nullptr;};
+      inline const vector<string> & getClusters() const { DARABONBA_PTR_GET_CONST(clusters_, vector<string>) };
+      inline vector<string> getClusters() { DARABONBA_PTR_GET(clusters_, vector<string>) };
+      inline Strategy& setClusters(const vector<string> & clusters) { DARABONBA_PTR_SET_VALUE(clusters_, clusters) };
+      inline Strategy& setClusters(vector<string> && clusters) { DARABONBA_PTR_SET_RVALUE(clusters_, clusters) };
+
+
+      // items Field Functions 
+      bool hasItems() const { return this->items_ != nullptr;};
+      void deleteItems() { this->items_ = nullptr;};
+      inline const vector<string> & getItems() const { DARABONBA_PTR_GET_CONST(items_, vector<string>) };
+      inline vector<string> getItems() { DARABONBA_PTR_GET(items_, vector<string>) };
+      inline Strategy& setItems(const vector<string> & items) { DARABONBA_PTR_SET_VALUE(items_, items) };
+      inline Strategy& setItems(vector<string> && items) { DARABONBA_PTR_SET_RVALUE(items_, items) };
+
+
+    protected:
+      shared_ptr<vector<string>> clusters_ {};
+      shared_ptr<vector<string>> items_ {};
+    };
+
     virtual bool empty() const override { return this->enabled_ == nullptr
-        && return this->id_ == nullptr && return this->k8sLabel_ == nullptr && return this->name_ == nullptr && return this->strategy_ == nullptr; };
+        && this->id_ == nullptr && this->k8sLabel_ == nullptr && this->name_ == nullptr && this->strategy_ == nullptr; };
     // enabled Field Functions 
     bool hasEnabled() const { return this->enabled_ != nullptr;};
     void deleteEnabled() { this->enabled_ = nullptr;};
-    inline bool enabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
+    inline bool getEnabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
     inline UpdateAlertStrategyRequest& setEnabled(bool enabled) { DARABONBA_PTR_SET_VALUE(enabled_, enabled) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline int64_t id() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+    inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
     inline UpdateAlertStrategyRequest& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // k8sLabel Field Functions 
     bool hasK8sLabel() const { return this->k8sLabel_ != nullptr;};
     void deleteK8sLabel() { this->k8sLabel_ = nullptr;};
-    inline bool k8sLabel() const { DARABONBA_PTR_GET_DEFAULT(k8sLabel_, false) };
+    inline bool getK8sLabel() const { DARABONBA_PTR_GET_DEFAULT(k8sLabel_, false) };
     inline UpdateAlertStrategyRequest& setK8sLabel(bool k8sLabel) { DARABONBA_PTR_SET_VALUE(k8sLabel_, k8sLabel) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline UpdateAlertStrategyRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // strategy Field Functions 
     bool hasStrategy() const { return this->strategy_ != nullptr;};
     void deleteStrategy() { this->strategy_ = nullptr;};
-    inline const UpdateAlertStrategyRequestStrategy & strategy() const { DARABONBA_PTR_GET_CONST(strategy_, UpdateAlertStrategyRequestStrategy) };
-    inline UpdateAlertStrategyRequestStrategy strategy() { DARABONBA_PTR_GET(strategy_, UpdateAlertStrategyRequestStrategy) };
-    inline UpdateAlertStrategyRequest& setStrategy(const UpdateAlertStrategyRequestStrategy & strategy) { DARABONBA_PTR_SET_VALUE(strategy_, strategy) };
-    inline UpdateAlertStrategyRequest& setStrategy(UpdateAlertStrategyRequestStrategy && strategy) { DARABONBA_PTR_SET_RVALUE(strategy_, strategy) };
+    inline const UpdateAlertStrategyRequest::Strategy & getStrategy() const { DARABONBA_PTR_GET_CONST(strategy_, UpdateAlertStrategyRequest::Strategy) };
+    inline UpdateAlertStrategyRequest::Strategy getStrategy() { DARABONBA_PTR_GET(strategy_, UpdateAlertStrategyRequest::Strategy) };
+    inline UpdateAlertStrategyRequest& setStrategy(const UpdateAlertStrategyRequest::Strategy & strategy) { DARABONBA_PTR_SET_VALUE(strategy_, strategy) };
+    inline UpdateAlertStrategyRequest& setStrategy(UpdateAlertStrategyRequest::Strategy && strategy) { DARABONBA_PTR_SET_RVALUE(strategy_, strategy) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<bool> enabled_ = nullptr;
+    shared_ptr<bool> enabled_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> id_ = nullptr;
-    std::shared_ptr<bool> k8sLabel_ = nullptr;
+    shared_ptr<int64_t> id_ {};
+    shared_ptr<bool> k8sLabel_ {};
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // This parameter is required.
-    std::shared_ptr<UpdateAlertStrategyRequestStrategy> strategy_ = nullptr;
+    shared_ptr<UpdateAlertStrategyRequest::Strategy> strategy_ {};
   };
 
   } // namespace Models

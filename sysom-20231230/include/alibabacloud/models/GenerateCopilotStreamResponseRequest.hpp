@@ -33,12 +33,12 @@ namespace Models
     // llmParamString Field Functions 
     bool hasLlmParamString() const { return this->llmParamString_ != nullptr;};
     void deleteLlmParamString() { this->llmParamString_ = nullptr;};
-    inline string llmParamString() const { DARABONBA_PTR_GET_DEFAULT(llmParamString_, "") };
+    inline string getLlmParamString() const { DARABONBA_PTR_GET_DEFAULT(llmParamString_, "") };
     inline GenerateCopilotStreamResponseRequest& setLlmParamString(string llmParamString) { DARABONBA_PTR_SET_VALUE(llmParamString_, llmParamString) };
 
 
   protected:
-    std::shared_ptr<string> llmParamString_ = nullptr;
+    shared_ptr<string> llmParamString_ {};
   };
 
   } // namespace Models

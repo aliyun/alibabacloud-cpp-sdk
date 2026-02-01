@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->begEnd_ == nullptr
-        && return this->begStart_ == nullptr && return this->instance_ == nullptr && return this->table_ == nullptr; };
+        && this->begStart_ == nullptr && this->instance_ == nullptr && this->table_ == nullptr; };
     // begEnd Field Functions 
     bool hasBegEnd() const { return this->begEnd_ != nullptr;};
     void deleteBegEnd() { this->begEnd_ = nullptr;};
-    inline int64_t begEnd() const { DARABONBA_PTR_GET_DEFAULT(begEnd_, 0L) };
+    inline int64_t getBegEnd() const { DARABONBA_PTR_GET_DEFAULT(begEnd_, 0L) };
     inline GetHotspotPidListRequest& setBegEnd(int64_t begEnd) { DARABONBA_PTR_SET_VALUE(begEnd_, begEnd) };
 
 
     // begStart Field Functions 
     bool hasBegStart() const { return this->begStart_ != nullptr;};
     void deleteBegStart() { this->begStart_ = nullptr;};
-    inline int64_t begStart() const { DARABONBA_PTR_GET_DEFAULT(begStart_, 0L) };
+    inline int64_t getBegStart() const { DARABONBA_PTR_GET_DEFAULT(begStart_, 0L) };
     inline GetHotspotPidListRequest& setBegStart(int64_t begStart) { DARABONBA_PTR_SET_VALUE(begStart_, begStart) };
 
 
     // instance Field Functions 
     bool hasInstance() const { return this->instance_ != nullptr;};
     void deleteInstance() { this->instance_ = nullptr;};
-    inline string instance() const { DARABONBA_PTR_GET_DEFAULT(instance_, "") };
+    inline string getInstance() const { DARABONBA_PTR_GET_DEFAULT(instance_, "") };
     inline GetHotspotPidListRequest& setInstance(string instance) { DARABONBA_PTR_SET_VALUE(instance_, instance) };
 
 
     // table Field Functions 
     bool hasTable() const { return this->table_ != nullptr;};
     void deleteTable() { this->table_ = nullptr;};
-    inline string table() const { DARABONBA_PTR_GET_DEFAULT(table_, "") };
+    inline string getTable() const { DARABONBA_PTR_GET_DEFAULT(table_, "") };
     inline GetHotspotPidListRequest& setTable(string table) { DARABONBA_PTR_SET_VALUE(table_, table) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<int64_t> begEnd_ = nullptr;
+    shared_ptr<int64_t> begEnd_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> begStart_ = nullptr;
+    shared_ptr<int64_t> begStart_ {};
     // This parameter is required.
-    std::shared_ptr<string> instance_ = nullptr;
+    shared_ptr<string> instance_ {};
     // This parameter is required.
-    std::shared_ptr<string> table_ = nullptr;
+    shared_ptr<string> table_ {};
   };
 
   } // namespace Models

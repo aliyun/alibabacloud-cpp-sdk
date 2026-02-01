@@ -40,58 +40,58 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cluster_ == nullptr
-        && return this->current_ == nullptr && return this->end_ == nullptr && return this->instance_ == nullptr && return this->pageSize_ == nullptr && return this->start_ == nullptr; };
+        && this->current_ == nullptr && this->end_ == nullptr && this->instance_ == nullptr && this->pageSize_ == nullptr && this->start_ == nullptr; };
     // cluster Field Functions 
     bool hasCluster() const { return this->cluster_ != nullptr;};
     void deleteCluster() { this->cluster_ = nullptr;};
-    inline string cluster() const { DARABONBA_PTR_GET_DEFAULT(cluster_, "") };
+    inline string getCluster() const { DARABONBA_PTR_GET_DEFAULT(cluster_, "") };
     inline ListInstanceHealthRequest& setCluster(string cluster) { DARABONBA_PTR_SET_VALUE(cluster_, cluster) };
 
 
     // current Field Functions 
     bool hasCurrent() const { return this->current_ != nullptr;};
     void deleteCurrent() { this->current_ = nullptr;};
-    inline int32_t current() const { DARABONBA_PTR_GET_DEFAULT(current_, 0) };
+    inline int32_t getCurrent() const { DARABONBA_PTR_GET_DEFAULT(current_, 0) };
     inline ListInstanceHealthRequest& setCurrent(int32_t current) { DARABONBA_PTR_SET_VALUE(current_, current) };
 
 
     // end Field Functions 
     bool hasEnd() const { return this->end_ != nullptr;};
     void deleteEnd() { this->end_ = nullptr;};
-    inline float end() const { DARABONBA_PTR_GET_DEFAULT(end_, 0.0) };
+    inline float getEnd() const { DARABONBA_PTR_GET_DEFAULT(end_, 0.0) };
     inline ListInstanceHealthRequest& setEnd(float end) { DARABONBA_PTR_SET_VALUE(end_, end) };
 
 
     // instance Field Functions 
     bool hasInstance() const { return this->instance_ != nullptr;};
     void deleteInstance() { this->instance_ = nullptr;};
-    inline string instance() const { DARABONBA_PTR_GET_DEFAULT(instance_, "") };
+    inline string getInstance() const { DARABONBA_PTR_GET_DEFAULT(instance_, "") };
     inline ListInstanceHealthRequest& setInstance(string instance) { DARABONBA_PTR_SET_VALUE(instance_, instance) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListInstanceHealthRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // start Field Functions 
     bool hasStart() const { return this->start_ != nullptr;};
     void deleteStart() { this->start_ = nullptr;};
-    inline float start() const { DARABONBA_PTR_GET_DEFAULT(start_, 0.0) };
+    inline float getStart() const { DARABONBA_PTR_GET_DEFAULT(start_, 0.0) };
     inline ListInstanceHealthRequest& setStart(float start) { DARABONBA_PTR_SET_VALUE(start_, start) };
 
 
   protected:
-    std::shared_ptr<string> cluster_ = nullptr;
-    std::shared_ptr<int32_t> current_ = nullptr;
+    shared_ptr<string> cluster_ {};
+    shared_ptr<int32_t> current_ {};
     // This parameter is required.
-    std::shared_ptr<float> end_ = nullptr;
-    std::shared_ptr<string> instance_ = nullptr;
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<float> end_ {};
+    shared_ptr<string> instance_ {};
+    shared_ptr<int32_t> pageSize_ {};
     // This parameter is required.
-    std::shared_ptr<float> start_ = nullptr;
+    shared_ptr<float> start_ {};
   };
 
   } // namespace Models

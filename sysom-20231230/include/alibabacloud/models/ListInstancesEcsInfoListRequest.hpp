@@ -38,50 +38,50 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->infoType_ == nullptr
-        && return this->instanceId_ == nullptr && return this->managedType_ == nullptr && return this->pluginId_ == nullptr && return this->region_ == nullptr; };
+        && this->instanceId_ == nullptr && this->managedType_ == nullptr && this->pluginId_ == nullptr && this->region_ == nullptr; };
     // infoType Field Functions 
     bool hasInfoType() const { return this->infoType_ != nullptr;};
     void deleteInfoType() { this->infoType_ = nullptr;};
-    inline string infoType() const { DARABONBA_PTR_GET_DEFAULT(infoType_, "") };
+    inline string getInfoType() const { DARABONBA_PTR_GET_DEFAULT(infoType_, "") };
     inline ListInstancesEcsInfoListRequest& setInfoType(string infoType) { DARABONBA_PTR_SET_VALUE(infoType_, infoType) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ListInstancesEcsInfoListRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // managedType Field Functions 
     bool hasManagedType() const { return this->managedType_ != nullptr;};
     void deleteManagedType() { this->managedType_ = nullptr;};
-    inline string managedType() const { DARABONBA_PTR_GET_DEFAULT(managedType_, "") };
+    inline string getManagedType() const { DARABONBA_PTR_GET_DEFAULT(managedType_, "") };
     inline ListInstancesEcsInfoListRequest& setManagedType(string managedType) { DARABONBA_PTR_SET_VALUE(managedType_, managedType) };
 
 
     // pluginId Field Functions 
     bool hasPluginId() const { return this->pluginId_ != nullptr;};
     void deletePluginId() { this->pluginId_ = nullptr;};
-    inline string pluginId() const { DARABONBA_PTR_GET_DEFAULT(pluginId_, "") };
+    inline string getPluginId() const { DARABONBA_PTR_GET_DEFAULT(pluginId_, "") };
     inline ListInstancesEcsInfoListRequest& setPluginId(string pluginId) { DARABONBA_PTR_SET_VALUE(pluginId_, pluginId) };
 
 
     // region Field Functions 
     bool hasRegion() const { return this->region_ != nullptr;};
     void deleteRegion() { this->region_ = nullptr;};
-    inline string region() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
+    inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
     inline ListInstancesEcsInfoListRequest& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> infoType_ = nullptr;
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> managedType_ = nullptr;
-    std::shared_ptr<string> pluginId_ = nullptr;
+    shared_ptr<string> infoType_ {};
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> managedType_ {};
+    shared_ptr<string> pluginId_ {};
     // This parameter is required.
-    std::shared_ptr<string> region_ = nullptr;
+    shared_ptr<string> region_ {};
   };
 
   } // namespace Models

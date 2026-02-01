@@ -48,96 +48,96 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->beg1End_ == nullptr
-        && return this->beg1Start_ == nullptr && return this->beg2End_ == nullptr && return this->beg2Start_ == nullptr && return this->hotType_ == nullptr && return this->instance1_ == nullptr
-        && return this->instance2_ == nullptr && return this->pid1_ == nullptr && return this->pid2_ == nullptr && return this->table_ == nullptr; };
+        && this->beg1Start_ == nullptr && this->beg2End_ == nullptr && this->beg2Start_ == nullptr && this->hotType_ == nullptr && this->instance1_ == nullptr
+        && this->instance2_ == nullptr && this->pid1_ == nullptr && this->pid2_ == nullptr && this->table_ == nullptr; };
     // beg1End Field Functions 
     bool hasBeg1End() const { return this->beg1End_ != nullptr;};
     void deleteBeg1End() { this->beg1End_ = nullptr;};
-    inline int64_t beg1End() const { DARABONBA_PTR_GET_DEFAULT(beg1End_, 0L) };
+    inline int64_t getBeg1End() const { DARABONBA_PTR_GET_DEFAULT(beg1End_, 0L) };
     inline GetHotspotCompareRequest& setBeg1End(int64_t beg1End) { DARABONBA_PTR_SET_VALUE(beg1End_, beg1End) };
 
 
     // beg1Start Field Functions 
     bool hasBeg1Start() const { return this->beg1Start_ != nullptr;};
     void deleteBeg1Start() { this->beg1Start_ = nullptr;};
-    inline int64_t beg1Start() const { DARABONBA_PTR_GET_DEFAULT(beg1Start_, 0L) };
+    inline int64_t getBeg1Start() const { DARABONBA_PTR_GET_DEFAULT(beg1Start_, 0L) };
     inline GetHotspotCompareRequest& setBeg1Start(int64_t beg1Start) { DARABONBA_PTR_SET_VALUE(beg1Start_, beg1Start) };
 
 
     // beg2End Field Functions 
     bool hasBeg2End() const { return this->beg2End_ != nullptr;};
     void deleteBeg2End() { this->beg2End_ = nullptr;};
-    inline int64_t beg2End() const { DARABONBA_PTR_GET_DEFAULT(beg2End_, 0L) };
+    inline int64_t getBeg2End() const { DARABONBA_PTR_GET_DEFAULT(beg2End_, 0L) };
     inline GetHotspotCompareRequest& setBeg2End(int64_t beg2End) { DARABONBA_PTR_SET_VALUE(beg2End_, beg2End) };
 
 
     // beg2Start Field Functions 
     bool hasBeg2Start() const { return this->beg2Start_ != nullptr;};
     void deleteBeg2Start() { this->beg2Start_ = nullptr;};
-    inline int64_t beg2Start() const { DARABONBA_PTR_GET_DEFAULT(beg2Start_, 0L) };
+    inline int64_t getBeg2Start() const { DARABONBA_PTR_GET_DEFAULT(beg2Start_, 0L) };
     inline GetHotspotCompareRequest& setBeg2Start(int64_t beg2Start) { DARABONBA_PTR_SET_VALUE(beg2Start_, beg2Start) };
 
 
     // hotType Field Functions 
     bool hasHotType() const { return this->hotType_ != nullptr;};
     void deleteHotType() { this->hotType_ = nullptr;};
-    inline string hotType() const { DARABONBA_PTR_GET_DEFAULT(hotType_, "") };
+    inline string getHotType() const { DARABONBA_PTR_GET_DEFAULT(hotType_, "") };
     inline GetHotspotCompareRequest& setHotType(string hotType) { DARABONBA_PTR_SET_VALUE(hotType_, hotType) };
 
 
     // instance1 Field Functions 
     bool hasInstance1() const { return this->instance1_ != nullptr;};
     void deleteInstance1() { this->instance1_ = nullptr;};
-    inline string instance1() const { DARABONBA_PTR_GET_DEFAULT(instance1_, "") };
+    inline string getInstance1() const { DARABONBA_PTR_GET_DEFAULT(instance1_, "") };
     inline GetHotspotCompareRequest& setInstance1(string instance1) { DARABONBA_PTR_SET_VALUE(instance1_, instance1) };
 
 
     // instance2 Field Functions 
     bool hasInstance2() const { return this->instance2_ != nullptr;};
     void deleteInstance2() { this->instance2_ = nullptr;};
-    inline string instance2() const { DARABONBA_PTR_GET_DEFAULT(instance2_, "") };
+    inline string getInstance2() const { DARABONBA_PTR_GET_DEFAULT(instance2_, "") };
     inline GetHotspotCompareRequest& setInstance2(string instance2) { DARABONBA_PTR_SET_VALUE(instance2_, instance2) };
 
 
     // pid1 Field Functions 
     bool hasPid1() const { return this->pid1_ != nullptr;};
     void deletePid1() { this->pid1_ = nullptr;};
-    inline int64_t pid1() const { DARABONBA_PTR_GET_DEFAULT(pid1_, 0L) };
+    inline int64_t getPid1() const { DARABONBA_PTR_GET_DEFAULT(pid1_, 0L) };
     inline GetHotspotCompareRequest& setPid1(int64_t pid1) { DARABONBA_PTR_SET_VALUE(pid1_, pid1) };
 
 
     // pid2 Field Functions 
     bool hasPid2() const { return this->pid2_ != nullptr;};
     void deletePid2() { this->pid2_ = nullptr;};
-    inline int64_t pid2() const { DARABONBA_PTR_GET_DEFAULT(pid2_, 0L) };
+    inline int64_t getPid2() const { DARABONBA_PTR_GET_DEFAULT(pid2_, 0L) };
     inline GetHotspotCompareRequest& setPid2(int64_t pid2) { DARABONBA_PTR_SET_VALUE(pid2_, pid2) };
 
 
     // table Field Functions 
     bool hasTable() const { return this->table_ != nullptr;};
     void deleteTable() { this->table_ = nullptr;};
-    inline string table() const { DARABONBA_PTR_GET_DEFAULT(table_, "") };
+    inline string getTable() const { DARABONBA_PTR_GET_DEFAULT(table_, "") };
     inline GetHotspotCompareRequest& setTable(string table) { DARABONBA_PTR_SET_VALUE(table_, table) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<int64_t> beg1End_ = nullptr;
+    shared_ptr<int64_t> beg1End_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> beg1Start_ = nullptr;
+    shared_ptr<int64_t> beg1Start_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> beg2End_ = nullptr;
+    shared_ptr<int64_t> beg2End_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> beg2Start_ = nullptr;
-    std::shared_ptr<string> hotType_ = nullptr;
+    shared_ptr<int64_t> beg2Start_ {};
+    shared_ptr<string> hotType_ {};
     // This parameter is required.
-    std::shared_ptr<string> instance1_ = nullptr;
+    shared_ptr<string> instance1_ {};
     // This parameter is required.
-    std::shared_ptr<string> instance2_ = nullptr;
-    std::shared_ptr<int64_t> pid1_ = nullptr;
-    std::shared_ptr<int64_t> pid2_ = nullptr;
+    shared_ptr<string> instance2_ {};
+    shared_ptr<int64_t> pid1_ {};
+    shared_ptr<int64_t> pid2_ {};
     // This parameter is required.
-    std::shared_ptr<string> table_ = nullptr;
+    shared_ptr<string> table_ {};
   };
 
   } // namespace Models

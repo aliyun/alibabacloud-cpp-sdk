@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_AUTHDIAGNOSISREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/AuthDiagnosisRequestInstances.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -35,35 +34,77 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Instances : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Instances& obj) { 
+        DARABONBA_PTR_TO_JSON(instance, instance_);
+        DARABONBA_PTR_TO_JSON(region, region_);
+      };
+      friend void from_json(const Darabonba::Json& j, Instances& obj) { 
+        DARABONBA_PTR_FROM_JSON(instance, instance_);
+        DARABONBA_PTR_FROM_JSON(region, region_);
+      };
+      Instances() = default ;
+      Instances(const Instances &) = default ;
+      Instances(Instances &&) = default ;
+      Instances(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Instances() = default ;
+      Instances& operator=(const Instances &) = default ;
+      Instances& operator=(Instances &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->instance_ == nullptr
+        && this->region_ == nullptr; };
+      // instance Field Functions 
+      bool hasInstance() const { return this->instance_ != nullptr;};
+      void deleteInstance() { this->instance_ = nullptr;};
+      inline string getInstance() const { DARABONBA_PTR_GET_DEFAULT(instance_, "") };
+      inline Instances& setInstance(string instance) { DARABONBA_PTR_SET_VALUE(instance_, instance) };
+
+
+      // region Field Functions 
+      bool hasRegion() const { return this->region_ != nullptr;};
+      void deleteRegion() { this->region_ = nullptr;};
+      inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
+      inline Instances& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
+
+
+    protected:
+      shared_ptr<string> instance_ {};
+      shared_ptr<string> region_ {};
+    };
+
     virtual bool empty() const override { return this->autoCreateRole_ == nullptr
-        && return this->autoInstallAgent_ == nullptr && return this->instances_ == nullptr; };
+        && this->autoInstallAgent_ == nullptr && this->instances_ == nullptr; };
     // autoCreateRole Field Functions 
     bool hasAutoCreateRole() const { return this->autoCreateRole_ != nullptr;};
     void deleteAutoCreateRole() { this->autoCreateRole_ = nullptr;};
-    inline bool autoCreateRole() const { DARABONBA_PTR_GET_DEFAULT(autoCreateRole_, false) };
+    inline bool getAutoCreateRole() const { DARABONBA_PTR_GET_DEFAULT(autoCreateRole_, false) };
     inline AuthDiagnosisRequest& setAutoCreateRole(bool autoCreateRole) { DARABONBA_PTR_SET_VALUE(autoCreateRole_, autoCreateRole) };
 
 
     // autoInstallAgent Field Functions 
     bool hasAutoInstallAgent() const { return this->autoInstallAgent_ != nullptr;};
     void deleteAutoInstallAgent() { this->autoInstallAgent_ = nullptr;};
-    inline bool autoInstallAgent() const { DARABONBA_PTR_GET_DEFAULT(autoInstallAgent_, false) };
+    inline bool getAutoInstallAgent() const { DARABONBA_PTR_GET_DEFAULT(autoInstallAgent_, false) };
     inline AuthDiagnosisRequest& setAutoInstallAgent(bool autoInstallAgent) { DARABONBA_PTR_SET_VALUE(autoInstallAgent_, autoInstallAgent) };
 
 
     // instances Field Functions 
     bool hasInstances() const { return this->instances_ != nullptr;};
     void deleteInstances() { this->instances_ = nullptr;};
-    inline const vector<AuthDiagnosisRequestInstances> & instances() const { DARABONBA_PTR_GET_CONST(instances_, vector<AuthDiagnosisRequestInstances>) };
-    inline vector<AuthDiagnosisRequestInstances> instances() { DARABONBA_PTR_GET(instances_, vector<AuthDiagnosisRequestInstances>) };
-    inline AuthDiagnosisRequest& setInstances(const vector<AuthDiagnosisRequestInstances> & instances) { DARABONBA_PTR_SET_VALUE(instances_, instances) };
-    inline AuthDiagnosisRequest& setInstances(vector<AuthDiagnosisRequestInstances> && instances) { DARABONBA_PTR_SET_RVALUE(instances_, instances) };
+    inline const vector<AuthDiagnosisRequest::Instances> & getInstances() const { DARABONBA_PTR_GET_CONST(instances_, vector<AuthDiagnosisRequest::Instances>) };
+    inline vector<AuthDiagnosisRequest::Instances> getInstances() { DARABONBA_PTR_GET(instances_, vector<AuthDiagnosisRequest::Instances>) };
+    inline AuthDiagnosisRequest& setInstances(const vector<AuthDiagnosisRequest::Instances> & instances) { DARABONBA_PTR_SET_VALUE(instances_, instances) };
+    inline AuthDiagnosisRequest& setInstances(vector<AuthDiagnosisRequest::Instances> && instances) { DARABONBA_PTR_SET_RVALUE(instances_, instances) };
 
 
   protected:
-    std::shared_ptr<bool> autoCreateRole_ = nullptr;
-    std::shared_ptr<bool> autoInstallAgent_ = nullptr;
-    std::shared_ptr<vector<AuthDiagnosisRequestInstances>> instances_ = nullptr;
+    shared_ptr<bool> autoCreateRole_ {};
+    shared_ptr<bool> autoInstallAgent_ {};
+    shared_ptr<vector<AuthDiagnosisRequest::Instances>> instances_ {};
   };
 
   } // namespace Models

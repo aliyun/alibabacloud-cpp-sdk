@@ -33,13 +33,13 @@ namespace Models
     // days Field Functions 
     bool hasDays() const { return this->days_ != nullptr;};
     void deleteDays() { this->days_ = nullptr;};
-    inline int64_t days() const { DARABONBA_PTR_GET_DEFAULT(days_, 0L) };
+    inline int64_t getDays() const { DARABONBA_PTR_GET_DEFAULT(days_, 0L) };
     inline ListVmcoreDiagnosisTaskRequest& setDays(int64_t days) { DARABONBA_PTR_SET_VALUE(days_, days) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<int64_t> days_ = nullptr;
+    shared_ptr<int64_t> days_ {};
   };
 
   } // namespace Models
