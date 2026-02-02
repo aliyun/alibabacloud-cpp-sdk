@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(Skills, skills_);
       DARABONBA_PTR_TO_JSON(TotalCount, totalCount_);
     };
     friend void from_json(const Darabonba::Json& j, ListCustomAgentResponseBody& obj) { 
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(Skills, skills_);
       DARABONBA_PTR_FROM_JSON(TotalCount, totalCount_);
     };
     ListCustomAgentResponseBody() = default ;
@@ -38,6 +40,68 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Skills : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Skills& obj) { 
+        DARABONBA_PTR_TO_JSON(Description, description_);
+        DARABONBA_PTR_TO_JSON(Id, id_);
+        DARABONBA_PTR_TO_JSON(Name, name_);
+        DARABONBA_PTR_TO_JSON(SkillType, skillType_);
+      };
+      friend void from_json(const Darabonba::Json& j, Skills& obj) { 
+        DARABONBA_PTR_FROM_JSON(Description, description_);
+        DARABONBA_PTR_FROM_JSON(Id, id_);
+        DARABONBA_PTR_FROM_JSON(Name, name_);
+        DARABONBA_PTR_FROM_JSON(SkillType, skillType_);
+      };
+      Skills() = default ;
+      Skills(const Skills &) = default ;
+      Skills(Skills &&) = default ;
+      Skills(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Skills() = default ;
+      Skills& operator=(const Skills &) = default ;
+      Skills& operator=(Skills &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->description_ == nullptr
+        && this->id_ == nullptr && this->name_ == nullptr && this->skillType_ == nullptr; };
+      // description Field Functions 
+      bool hasDescription() const { return this->description_ != nullptr;};
+      void deleteDescription() { this->description_ = nullptr;};
+      inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+      inline Skills& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+      // id Field Functions 
+      bool hasId() const { return this->id_ != nullptr;};
+      void deleteId() { this->id_ = nullptr;};
+      inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+      inline Skills& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+      // name Field Functions 
+      bool hasName() const { return this->name_ != nullptr;};
+      void deleteName() { this->name_ = nullptr;};
+      inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+      inline Skills& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+      // skillType Field Functions 
+      bool hasSkillType() const { return this->skillType_ != nullptr;};
+      void deleteSkillType() { this->skillType_ = nullptr;};
+      inline string getSkillType() const { DARABONBA_PTR_GET_DEFAULT(skillType_, "") };
+      inline Skills& setSkillType(string skillType) { DARABONBA_PTR_SET_VALUE(skillType_, skillType) };
+
+
+    protected:
+      shared_ptr<string> description_ {};
+      shared_ptr<string> id_ {};
+      shared_ptr<string> name_ {};
+      shared_ptr<string> skillType_ {};
+    };
+
     class Data : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
@@ -141,7 +205,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->data_ == nullptr
-        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->requestId_ == nullptr && this->totalCount_ == nullptr; };
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->requestId_ == nullptr && this->skills_ == nullptr && this->totalCount_ == nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
@@ -172,6 +236,15 @@ namespace Models
     inline ListCustomAgentResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
+    // skills Field Functions 
+    bool hasSkills() const { return this->skills_ != nullptr;};
+    void deleteSkills() { this->skills_ = nullptr;};
+    inline const vector<ListCustomAgentResponseBody::Skills> & getSkills() const { DARABONBA_PTR_GET_CONST(skills_, vector<ListCustomAgentResponseBody::Skills>) };
+    inline vector<ListCustomAgentResponseBody::Skills> getSkills() { DARABONBA_PTR_GET(skills_, vector<ListCustomAgentResponseBody::Skills>) };
+    inline ListCustomAgentResponseBody& setSkills(const vector<ListCustomAgentResponseBody::Skills> & skills) { DARABONBA_PTR_SET_VALUE(skills_, skills) };
+    inline ListCustomAgentResponseBody& setSkills(vector<ListCustomAgentResponseBody::Skills> && skills) { DARABONBA_PTR_SET_RVALUE(skills_, skills) };
+
+
     // totalCount Field Functions 
     bool hasTotalCount() const { return this->totalCount_ != nullptr;};
     void deleteTotalCount() { this->totalCount_ = nullptr;};
@@ -188,6 +261,7 @@ namespace Models
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
+    shared_ptr<vector<ListCustomAgentResponseBody::Skills>> skills_ {};
     // The total number of entries returned. By default, this parameter is not returned.
     shared_ptr<int32_t> totalCount_ {};
   };

@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The RDS Supabase instances whose SSL settings are modified.
     shared_ptr<vector<string>> instanceNames_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

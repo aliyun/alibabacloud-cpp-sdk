@@ -611,7 +611,12 @@ namespace RdsAi20250507
       Models::ModifyInstanceStorageConfigResponse modifyInstanceStorageConfig(const Models::ModifyInstanceStorageConfigRequest &request);
 
       /**
-       * @summary 批量修改实例的SSL配置
+       * @summary Modifies the SSL settings of RDS Supabase instances in batches.
+       *
+       * @description ### [](#)Supported database engine
+       * RDS PostgreSQL
+       * ### [](#)References
+       * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
        *
        * @param tmpReq ModifyInstancesSSLRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -620,7 +625,12 @@ namespace RdsAi20250507
       Models::ModifyInstancesSSLResponse modifyInstancesSSLWithOptions(const Models::ModifyInstancesSSLRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量修改实例的SSL配置
+       * @summary Modifies the SSL settings of RDS Supabase instances in batches.
+       *
+       * @description ### [](#)Supported database engine
+       * RDS PostgreSQL
+       * ### [](#)References
+       * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
        *
        * @param request ModifyInstancesSSLRequest
        * @return ModifyInstancesSSLResponse

@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CustomAgentId, customAgentId_);
       DARABONBA_PTR_TO_JSON(EnableTools, enableTools_);
       DARABONBA_PTR_TO_JSON(Name, name_);
+      DARABONBA_PTR_TO_JSON(SkillIds, skillIds_);
       DARABONBA_PTR_TO_JSON(SystemPrompt, systemPrompt_);
       DARABONBA_PTR_TO_JSON(Tools, tools_);
     };
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CustomAgentId, customAgentId_);
       DARABONBA_PTR_FROM_JSON(EnableTools, enableTools_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
+      DARABONBA_PTR_FROM_JSON(SkillIds, skillIds_);
       DARABONBA_PTR_FROM_JSON(SystemPrompt, systemPrompt_);
       DARABONBA_PTR_FROM_JSON(Tools, tools_);
     };
@@ -39,7 +41,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->customAgentId_ == nullptr
-        && this->enableTools_ == nullptr && this->name_ == nullptr && this->systemPrompt_ == nullptr && this->tools_ == nullptr; };
+        && this->enableTools_ == nullptr && this->name_ == nullptr && this->skillIds_ == nullptr && this->systemPrompt_ == nullptr && this->tools_ == nullptr; };
     // customAgentId Field Functions 
     bool hasCustomAgentId() const { return this->customAgentId_ != nullptr;};
     void deleteCustomAgentId() { this->customAgentId_ = nullptr;};
@@ -59,6 +61,15 @@ namespace Models
     void deleteName() { this->name_ = nullptr;};
     inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline UpdateCustomAgentRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+    // skillIds Field Functions 
+    bool hasSkillIds() const { return this->skillIds_ != nullptr;};
+    void deleteSkillIds() { this->skillIds_ = nullptr;};
+    inline const vector<string> & getSkillIds() const { DARABONBA_PTR_GET_CONST(skillIds_, vector<string>) };
+    inline vector<string> getSkillIds() { DARABONBA_PTR_GET(skillIds_, vector<string>) };
+    inline UpdateCustomAgentRequest& setSkillIds(const vector<string> & skillIds) { DARABONBA_PTR_SET_VALUE(skillIds_, skillIds) };
+    inline UpdateCustomAgentRequest& setSkillIds(vector<string> && skillIds) { DARABONBA_PTR_SET_RVALUE(skillIds_, skillIds) };
 
 
     // systemPrompt Field Functions 
@@ -86,6 +97,7 @@ namespace Models
     shared_ptr<bool> enableTools_ {};
     // The ID of the agent.
     shared_ptr<string> name_ {};
+    shared_ptr<vector<string>> skillIds_ {};
     // The name of the agent.
     shared_ptr<string> systemPrompt_ {};
     // Specifies whether to enable tools.

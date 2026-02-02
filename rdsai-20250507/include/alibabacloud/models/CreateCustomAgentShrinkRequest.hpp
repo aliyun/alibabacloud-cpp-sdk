@@ -15,12 +15,14 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreateCustomAgentShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(EnableTools, enableTools_);
       DARABONBA_PTR_TO_JSON(Name, name_);
+      DARABONBA_PTR_TO_JSON(SkillIds, skillIdsShrink_);
       DARABONBA_PTR_TO_JSON(SystemPrompt, systemPrompt_);
       DARABONBA_PTR_TO_JSON(Tools, toolsShrink_);
     };
     friend void from_json(const Darabonba::Json& j, CreateCustomAgentShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(EnableTools, enableTools_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
+      DARABONBA_PTR_FROM_JSON(SkillIds, skillIdsShrink_);
       DARABONBA_PTR_FROM_JSON(SystemPrompt, systemPrompt_);
       DARABONBA_PTR_FROM_JSON(Tools, toolsShrink_);
     };
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->enableTools_ == nullptr
-        && this->name_ == nullptr && this->systemPrompt_ == nullptr && this->toolsShrink_ == nullptr; };
+        && this->name_ == nullptr && this->skillIdsShrink_ == nullptr && this->systemPrompt_ == nullptr && this->toolsShrink_ == nullptr; };
     // enableTools Field Functions 
     bool hasEnableTools() const { return this->enableTools_ != nullptr;};
     void deleteEnableTools() { this->enableTools_ = nullptr;};
@@ -49,6 +51,13 @@ namespace Models
     void deleteName() { this->name_ = nullptr;};
     inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateCustomAgentShrinkRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+    // skillIdsShrink Field Functions 
+    bool hasSkillIdsShrink() const { return this->skillIdsShrink_ != nullptr;};
+    void deleteSkillIdsShrink() { this->skillIdsShrink_ = nullptr;};
+    inline string getSkillIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(skillIdsShrink_, "") };
+    inline CreateCustomAgentShrinkRequest& setSkillIdsShrink(string skillIdsShrink) { DARABONBA_PTR_SET_VALUE(skillIdsShrink_, skillIdsShrink) };
 
 
     // systemPrompt Field Functions 
@@ -70,6 +79,7 @@ namespace Models
     shared_ptr<bool> enableTools_ {};
     // The operation that you want to perform. Set the value to **CreateCustomAgent**.
     shared_ptr<string> name_ {};
+    shared_ptr<string> skillIdsShrink_ {};
     // The name of the dedicated agent.
     // 
     // This parameter is required.
