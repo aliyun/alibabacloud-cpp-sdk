@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
       DARABONBA_PTR_TO_JSON(Log, log_);
       DARABONBA_PTR_TO_JSON(RecallManagementJobId, recallManagementJobId_);
+      DARABONBA_PTR_TO_JSON(RecallManagementTableInfo, recallManagementTableInfo_);
       DARABONBA_PTR_TO_JSON(RecallManagerTableInfo, recallManagerTableInfo_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
       DARABONBA_PTR_FROM_JSON(Log, log_);
       DARABONBA_PTR_FROM_JSON(RecallManagementJobId, recallManagementJobId_);
+      DARABONBA_PTR_FROM_JSON(RecallManagementTableInfo, recallManagementTableInfo_);
       DARABONBA_PTR_FROM_JSON(RecallManagerTableInfo, recallManagerTableInfo_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
@@ -103,9 +105,71 @@ namespace Models
       shared_ptr<string> sourceTableRowCount_ {};
     };
 
+    class RecallManagementTableInfo : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const RecallManagementTableInfo& obj) { 
+        DARABONBA_PTR_TO_JSON(DataVersion, dataVersion_);
+        DARABONBA_PTR_TO_JSON(RecallManagementTableVersionId, recallManagementTableVersionId_);
+        DARABONBA_PTR_TO_JSON(SourceTableDataSize, sourceTableDataSize_);
+        DARABONBA_PTR_TO_JSON(SourceTableRowCount, sourceTableRowCount_);
+      };
+      friend void from_json(const Darabonba::Json& j, RecallManagementTableInfo& obj) { 
+        DARABONBA_PTR_FROM_JSON(DataVersion, dataVersion_);
+        DARABONBA_PTR_FROM_JSON(RecallManagementTableVersionId, recallManagementTableVersionId_);
+        DARABONBA_PTR_FROM_JSON(SourceTableDataSize, sourceTableDataSize_);
+        DARABONBA_PTR_FROM_JSON(SourceTableRowCount, sourceTableRowCount_);
+      };
+      RecallManagementTableInfo() = default ;
+      RecallManagementTableInfo(const RecallManagementTableInfo &) = default ;
+      RecallManagementTableInfo(RecallManagementTableInfo &&) = default ;
+      RecallManagementTableInfo(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~RecallManagementTableInfo() = default ;
+      RecallManagementTableInfo& operator=(const RecallManagementTableInfo &) = default ;
+      RecallManagementTableInfo& operator=(RecallManagementTableInfo &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->dataVersion_ == nullptr
+        && this->recallManagementTableVersionId_ == nullptr && this->sourceTableDataSize_ == nullptr && this->sourceTableRowCount_ == nullptr; };
+      // dataVersion Field Functions 
+      bool hasDataVersion() const { return this->dataVersion_ != nullptr;};
+      void deleteDataVersion() { this->dataVersion_ = nullptr;};
+      inline string getDataVersion() const { DARABONBA_PTR_GET_DEFAULT(dataVersion_, "") };
+      inline RecallManagementTableInfo& setDataVersion(string dataVersion) { DARABONBA_PTR_SET_VALUE(dataVersion_, dataVersion) };
+
+
+      // recallManagementTableVersionId Field Functions 
+      bool hasRecallManagementTableVersionId() const { return this->recallManagementTableVersionId_ != nullptr;};
+      void deleteRecallManagementTableVersionId() { this->recallManagementTableVersionId_ = nullptr;};
+      inline string getRecallManagementTableVersionId() const { DARABONBA_PTR_GET_DEFAULT(recallManagementTableVersionId_, "") };
+      inline RecallManagementTableInfo& setRecallManagementTableVersionId(string recallManagementTableVersionId) { DARABONBA_PTR_SET_VALUE(recallManagementTableVersionId_, recallManagementTableVersionId) };
+
+
+      // sourceTableDataSize Field Functions 
+      bool hasSourceTableDataSize() const { return this->sourceTableDataSize_ != nullptr;};
+      void deleteSourceTableDataSize() { this->sourceTableDataSize_ = nullptr;};
+      inline string getSourceTableDataSize() const { DARABONBA_PTR_GET_DEFAULT(sourceTableDataSize_, "") };
+      inline RecallManagementTableInfo& setSourceTableDataSize(string sourceTableDataSize) { DARABONBA_PTR_SET_VALUE(sourceTableDataSize_, sourceTableDataSize) };
+
+
+      // sourceTableRowCount Field Functions 
+      bool hasSourceTableRowCount() const { return this->sourceTableRowCount_ != nullptr;};
+      void deleteSourceTableRowCount() { this->sourceTableRowCount_ = nullptr;};
+      inline string getSourceTableRowCount() const { DARABONBA_PTR_GET_DEFAULT(sourceTableRowCount_, "") };
+      inline RecallManagementTableInfo& setSourceTableRowCount(string sourceTableRowCount) { DARABONBA_PTR_SET_VALUE(sourceTableRowCount_, sourceTableRowCount) };
+
+
+    protected:
+      shared_ptr<string> dataVersion_ {};
+      shared_ptr<string> recallManagementTableVersionId_ {};
+      shared_ptr<string> sourceTableDataSize_ {};
+      shared_ptr<string> sourceTableRowCount_ {};
+    };
+
     virtual bool empty() const override { return this->endTime_ == nullptr
-        && this->log_ == nullptr && this->recallManagementJobId_ == nullptr && this->recallManagerTableInfo_ == nullptr && this->requestId_ == nullptr && this->startTime_ == nullptr
-        && this->status_ == nullptr; };
+        && this->log_ == nullptr && this->recallManagementJobId_ == nullptr && this->recallManagementTableInfo_ == nullptr && this->recallManagerTableInfo_ == nullptr && this->requestId_ == nullptr
+        && this->startTime_ == nullptr && this->status_ == nullptr; };
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
@@ -125,6 +189,15 @@ namespace Models
     void deleteRecallManagementJobId() { this->recallManagementJobId_ = nullptr;};
     inline string getRecallManagementJobId() const { DARABONBA_PTR_GET_DEFAULT(recallManagementJobId_, "") };
     inline GetRecallManagementJobResponseBody& setRecallManagementJobId(string recallManagementJobId) { DARABONBA_PTR_SET_VALUE(recallManagementJobId_, recallManagementJobId) };
+
+
+    // recallManagementTableInfo Field Functions 
+    bool hasRecallManagementTableInfo() const { return this->recallManagementTableInfo_ != nullptr;};
+    void deleteRecallManagementTableInfo() { this->recallManagementTableInfo_ = nullptr;};
+    inline const GetRecallManagementJobResponseBody::RecallManagementTableInfo & getRecallManagementTableInfo() const { DARABONBA_PTR_GET_CONST(recallManagementTableInfo_, GetRecallManagementJobResponseBody::RecallManagementTableInfo) };
+    inline GetRecallManagementJobResponseBody::RecallManagementTableInfo getRecallManagementTableInfo() { DARABONBA_PTR_GET(recallManagementTableInfo_, GetRecallManagementJobResponseBody::RecallManagementTableInfo) };
+    inline GetRecallManagementJobResponseBody& setRecallManagementTableInfo(const GetRecallManagementJobResponseBody::RecallManagementTableInfo & recallManagementTableInfo) { DARABONBA_PTR_SET_VALUE(recallManagementTableInfo_, recallManagementTableInfo) };
+    inline GetRecallManagementJobResponseBody& setRecallManagementTableInfo(GetRecallManagementJobResponseBody::RecallManagementTableInfo && recallManagementTableInfo) { DARABONBA_PTR_SET_RVALUE(recallManagementTableInfo_, recallManagementTableInfo) };
 
 
     // recallManagerTableInfo Field Functions 
@@ -161,6 +234,7 @@ namespace Models
     shared_ptr<string> endTime_ {};
     shared_ptr<string> log_ {};
     shared_ptr<string> recallManagementJobId_ {};
+    shared_ptr<GetRecallManagementJobResponseBody::RecallManagementTableInfo> recallManagementTableInfo_ {};
     shared_ptr<GetRecallManagementJobResponseBody::RecallManagerTableInfo> recallManagerTableInfo_ {};
     shared_ptr<string> requestId_ {};
     shared_ptr<string> startTime_ {};
