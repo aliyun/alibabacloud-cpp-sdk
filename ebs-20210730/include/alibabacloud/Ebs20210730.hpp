@@ -381,6 +381,23 @@ namespace Ebs20210730
       Models::DeleteEnterpriseSnapshotPolicyResponse deleteEnterpriseSnapshotPolicy(const Models::DeleteEnterpriseSnapshotPolicyRequest &request);
 
       /**
+       * @summary 中心化角色：查询App信息
+       *
+       * @param request DescribeAppsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAppsResponse
+       */
+      Models::DescribeAppsResponse describeAppsWithOptions(const Models::DescribeAppsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 中心化角色：查询App信息
+       *
+       * @param request DescribeAppsRequest
+       * @return DescribeAppsResponse
+       */
+      Models::DescribeAppsResponse describeApps(const Models::DescribeAppsRequest &request);
+
+      /**
        * @summary Queries the details of one or more disks in a dedicated block storage cluster.
        *
        * @description *   You can use one of the following methods to check the responses:

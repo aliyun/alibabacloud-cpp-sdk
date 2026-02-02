@@ -1118,6 +1118,64 @@ DeleteEnterpriseSnapshotPolicyResponse Client::deleteEnterpriseSnapshotPolicy(co
 }
 
 /**
+ * @summary 中心化角色：查询App信息
+ *
+ * @param request DescribeAppsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeAppsResponse
+ */
+DescribeAppsResponse Client::describeAppsWithOptions(const DescribeAppsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppIds()) {
+    query["AppIds"] = request.getAppIds();
+  }
+
+  if (!!request.hasAppNames()) {
+    query["AppNames"] = request.getAppNames();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasOwner()) {
+    query["Owner"] = request.getOwner();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeApps"},
+    {"version" , "2021-07-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeAppsResponse>();
+}
+
+/**
+ * @summary 中心化角色：查询App信息
+ *
+ * @param request DescribeAppsRequest
+ * @return DescribeAppsResponse
+ */
+DescribeAppsResponse Client::describeApps(const DescribeAppsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeAppsWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the details of one or more disks in a dedicated block storage cluster.
  *
  * @description *   You can use one of the following methods to check the responses:

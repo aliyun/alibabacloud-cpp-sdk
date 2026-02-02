@@ -49,6 +49,9 @@
 #include <alibabacloud/models/DeleteEnterpriseSnapshotPolicyRequest.hpp>
 #include <alibabacloud/models/DeleteEnterpriseSnapshotPolicyResponseBody.hpp>
 #include <alibabacloud/models/DeleteEnterpriseSnapshotPolicyResponse.hpp>
+#include <alibabacloud/models/DescribeAppsRequest.hpp>
+#include <alibabacloud/models/DescribeAppsResponseBody.hpp>
+#include <alibabacloud/models/DescribeAppsResponse.hpp>
 #include <alibabacloud/models/DescribeDedicatedBlockStorageClusterDisksRequest.hpp>
 #include <alibabacloud/models/DescribeDedicatedBlockStorageClusterDisksResponseBody.hpp>
 #include <alibabacloud/models/DescribeDedicatedBlockStorageClusterDisksResponse.hpp>
