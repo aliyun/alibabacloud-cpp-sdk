@@ -59,7 +59,7 @@ namespace Ecs20140526
       Models::ActivateRouterInterfaceResponse activateRouterInterface(const Models::ActivateRouterInterfaceRequest &request);
 
       /**
-       * @deprecated OpenAPI AddBandwidthPackageIps is deprecated, please use Vpc::2016-04-28::AddBandwidthPackageIps instead.
+       * @deprecated OpenAPI AddBandwidthPackageIps is deprecated
        *
        * @summary AddBandwidthPackageIps
        *
@@ -70,7 +70,7 @@ namespace Ecs20140526
       Models::AddBandwidthPackageIpsResponse addBandwidthPackageIpsWithOptions(const Models::AddBandwidthPackageIpsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @deprecated OpenAPI AddBandwidthPackageIps is deprecated, please use Vpc::2016-04-28::AddBandwidthPackageIps instead.
+       * @deprecated OpenAPI AddBandwidthPackageIps is deprecated
        *
        * @summary AddBandwidthPackageIps
        *
@@ -1691,6 +1691,23 @@ namespace Ecs20140526
       Models::CreatePhysicalConnectionResponse createPhysicalConnection(const Models::CreatePhysicalConnectionRequest &request);
 
       /**
+       * @summary 创建运维窗口
+       *
+       * @param tmpReq CreatePlanMaintenanceWindowRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreatePlanMaintenanceWindowResponse
+       */
+      Models::CreatePlanMaintenanceWindowResponse createPlanMaintenanceWindowWithOptions(const Models::CreatePlanMaintenanceWindowRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建运维窗口
+       *
+       * @param request CreatePlanMaintenanceWindowRequest
+       * @return CreatePlanMaintenanceWindowResponse
+       */
+      Models::CreatePlanMaintenanceWindowResponse createPlanMaintenanceWindow(const Models::CreatePlanMaintenanceWindowRequest &request);
+
+      /**
        * @summary Creates a port list. You can associate a port list with resources, such as security groups.
        *
        * @param request CreatePortRangeListRequest
@@ -2130,8 +2147,6 @@ namespace Ecs20140526
       Models::DeleteAutoSnapshotPolicyResponse deleteAutoSnapshotPolicy(const Models::DeleteAutoSnapshotPolicyRequest &request);
 
       /**
-       * @deprecated OpenAPI DeleteBandwidthPackage is deprecated, please use Vpc::2016-04-28::DeleteBandwidthPackage instead.
-       *
        * @summary DeleteBandwidthPackage
        *
        * @param request DeleteBandwidthPackageRequest
@@ -2141,8 +2156,6 @@ namespace Ecs20140526
       Models::DeleteBandwidthPackageResponse deleteBandwidthPackageWithOptions(const Models::DeleteBandwidthPackageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @deprecated OpenAPI DeleteBandwidthPackage is deprecated, please use Vpc::2016-04-28::DeleteBandwidthPackage instead.
-       *
        * @summary DeleteBandwidthPackage
        *
        * @param request DeleteBandwidthPackageRequest
@@ -2648,6 +2661,23 @@ namespace Ecs20140526
        * @return DeletePhysicalConnectionResponse
        */
       Models::DeletePhysicalConnectionResponse deletePhysicalConnection(const Models::DeletePhysicalConnectionRequest &request);
+
+      /**
+       * @summary 删除运维窗口
+       *
+       * @param request DeletePlanMaintenanceWindowRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeletePlanMaintenanceWindowResponse
+       */
+      Models::DeletePlanMaintenanceWindowResponse deletePlanMaintenanceWindowWithOptions(const Models::DeletePlanMaintenanceWindowRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除运维窗口
+       *
+       * @param request DeletePlanMaintenanceWindowRequest
+       * @return DeletePlanMaintenanceWindowResponse
+       */
+      Models::DeletePlanMaintenanceWindowResponse deletePlanMaintenanceWindow(const Models::DeletePlanMaintenanceWindowRequest &request);
 
       /**
        * @summary Deletes a port list and all entries in the port list.
@@ -4646,6 +4676,23 @@ namespace Ecs20140526
        * @return DescribePhysicalConnectionsResponse
        */
       Models::DescribePhysicalConnectionsResponse describePhysicalConnections(const Models::DescribePhysicalConnectionsRequest &request);
+
+      /**
+       * @summary 查询运维窗口
+       *
+       * @param tmpReq DescribePlanMaintenanceWindowsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribePlanMaintenanceWindowsResponse
+       */
+      Models::DescribePlanMaintenanceWindowsResponse describePlanMaintenanceWindowsWithOptions(const Models::DescribePlanMaintenanceWindowsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询运维窗口
+       *
+       * @param request DescribePlanMaintenanceWindowsRequest
+       * @return DescribePlanMaintenanceWindowsResponse
+       */
+      Models::DescribePlanMaintenanceWindowsResponse describePlanMaintenanceWindows(const Models::DescribePlanMaintenanceWindowsRequest &request);
 
       /**
        * @summary Queries the resources that are associated with a port list, such as security groups.
@@ -6705,7 +6752,7 @@ namespace Ecs20140526
       Models::ModifyAutoSnapshotPolicyExResponse modifyAutoSnapshotPolicyEx(const Models::ModifyAutoSnapshotPolicyExRequest &request);
 
       /**
-       * @deprecated OpenAPI ModifyBandwidthPackageSpec is deprecated, please use Vpc::2016-04-28::ModifyBandwidthPackageSpec instead.
+       * @deprecated OpenAPI ModifyBandwidthPackageSpec is deprecated
        *
        * @summary ModifyBandwidthPackageSpec
        *
@@ -6716,7 +6763,7 @@ namespace Ecs20140526
       Models::ModifyBandwidthPackageSpecResponse modifyBandwidthPackageSpecWithOptions(const Models::ModifyBandwidthPackageSpecRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @deprecated OpenAPI ModifyBandwidthPackageSpec is deprecated, please use Vpc::2016-04-28::ModifyBandwidthPackageSpec instead.
+       * @deprecated OpenAPI ModifyBandwidthPackageSpec is deprecated
        *
        * @summary ModifyBandwidthPackageSpec
        *
@@ -7845,6 +7892,23 @@ namespace Ecs20140526
       Models::ModifyPhysicalConnectionAttributeResponse modifyPhysicalConnectionAttribute(const Models::ModifyPhysicalConnectionAttributeRequest &request);
 
       /**
+       * @summary 更新运维窗口
+       *
+       * @param tmpReq ModifyPlanMaintenanceWindowRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyPlanMaintenanceWindowResponse
+       */
+      Models::ModifyPlanMaintenanceWindowResponse modifyPlanMaintenanceWindowWithOptions(const Models::ModifyPlanMaintenanceWindowRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新运维窗口
+       *
+       * @param request ModifyPlanMaintenanceWindowRequest
+       * @return ModifyPlanMaintenanceWindowResponse
+       */
+      Models::ModifyPlanMaintenanceWindowResponse modifyPlanMaintenanceWindow(const Models::ModifyPlanMaintenanceWindowRequest &request);
+
+      /**
        * @summary Modifies the name and entries of a port list. You can call this operation to add, modify, and remove entries for a port list.
        *
        * @param request ModifyPortRangeListRequest
@@ -8830,8 +8894,6 @@ namespace Ecs20140526
       Models::ReleasePublicIpAddressResponse releasePublicIpAddress(const Models::ReleasePublicIpAddressRequest &request);
 
       /**
-       * @deprecated OpenAPI RemoveBandwidthPackageIps is deprecated, please use Vpc::2016-04-28::RemoveBandwidthPackageIps instead.
-       *
        * @summary RemoveBandwidthPackageIps
        *
        * @param request RemoveBandwidthPackageIpsRequest
@@ -8841,8 +8903,6 @@ namespace Ecs20140526
       Models::RemoveBandwidthPackageIpsResponse removeBandwidthPackageIpsWithOptions(const Models::RemoveBandwidthPackageIpsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @deprecated OpenAPI RemoveBandwidthPackageIps is deprecated, please use Vpc::2016-04-28::RemoveBandwidthPackageIps instead.
-       *
        * @summary RemoveBandwidthPackageIps
        *
        * @param request RemoveBandwidthPackageIpsRequest

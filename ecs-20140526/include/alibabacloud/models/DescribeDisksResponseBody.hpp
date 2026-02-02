@@ -100,6 +100,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
           DARABONBA_PTR_TO_JSON(SerialNumber, serialNumber_);
           DARABONBA_PTR_TO_JSON(Size, size_);
+          DARABONBA_PTR_TO_JSON(SourceDiskId, sourceDiskId_);
           DARABONBA_PTR_TO_JSON(SourceSnapshotId, sourceSnapshotId_);
           DARABONBA_PTR_TO_JSON(Status, status_);
           DARABONBA_PTR_TO_JSON(StorageClusterId, storageClusterId_);
@@ -151,6 +152,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
           DARABONBA_PTR_FROM_JSON(SerialNumber, serialNumber_);
           DARABONBA_PTR_FROM_JSON(Size, size_);
+          DARABONBA_PTR_FROM_JSON(SourceDiskId, sourceDiskId_);
           DARABONBA_PTR_FROM_JSON(SourceSnapshotId, sourceSnapshotId_);
           DARABONBA_PTR_FROM_JSON(Status, status_);
           DARABONBA_PTR_FROM_JSON(StorageClusterId, storageClusterId_);
@@ -532,9 +534,9 @@ namespace Models
         && this->IOPSWrite_ == nullptr && this->imageId_ == nullptr && this->instanceId_ == nullptr && this->KMSKeyId_ == nullptr && this->mountInstanceNum_ == nullptr
         && this->mountInstances_ == nullptr && this->multiAttach_ == nullptr && this->operationLocks_ == nullptr && this->performanceLevel_ == nullptr && this->placement_ == nullptr
         && this->portable_ == nullptr && this->productCode_ == nullptr && this->provisionedIops_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->serialNumber_ == nullptr && this->size_ == nullptr && this->sourceSnapshotId_ == nullptr && this->status_ == nullptr && this->storageClusterId_ == nullptr
-        && this->storageSetId_ == nullptr && this->storageSetPartitionNumber_ == nullptr && this->tags_ == nullptr && this->throughput_ == nullptr && this->throughputRead_ == nullptr
-        && this->throughputWrite_ == nullptr && this->type_ == nullptr && this->zoneId_ == nullptr; };
+        && this->serialNumber_ == nullptr && this->size_ == nullptr && this->sourceDiskId_ == nullptr && this->sourceSnapshotId_ == nullptr && this->status_ == nullptr
+        && this->storageClusterId_ == nullptr && this->storageSetId_ == nullptr && this->storageSetPartitionNumber_ == nullptr && this->tags_ == nullptr && this->throughput_ == nullptr
+        && this->throughputRead_ == nullptr && this->throughputWrite_ == nullptr && this->type_ == nullptr && this->zoneId_ == nullptr; };
         // attachedTime Field Functions 
         bool hasAttachedTime() const { return this->attachedTime_ != nullptr;};
         void deleteAttachedTime() { this->attachedTime_ = nullptr;};
@@ -809,6 +811,13 @@ namespace Models
         inline Disk& setSize(int32_t size) { DARABONBA_PTR_SET_VALUE(size_, size) };
 
 
+        // sourceDiskId Field Functions 
+        bool hasSourceDiskId() const { return this->sourceDiskId_ != nullptr;};
+        void deleteSourceDiskId() { this->sourceDiskId_ = nullptr;};
+        inline string getSourceDiskId() const { DARABONBA_PTR_GET_DEFAULT(sourceDiskId_, "") };
+        inline Disk& setSourceDiskId(string sourceDiskId) { DARABONBA_PTR_SET_VALUE(sourceDiskId_, sourceDiskId) };
+
+
         // sourceSnapshotId Field Functions 
         bool hasSourceSnapshotId() const { return this->sourceSnapshotId_ != nullptr;};
         void deleteSourceSnapshotId() { this->sourceSnapshotId_ = nullptr;};
@@ -1015,6 +1024,7 @@ namespace Models
         shared_ptr<string> serialNumber_ {};
         // The size of the disk. Unit: GiB.
         shared_ptr<int32_t> size_ {};
+        shared_ptr<string> sourceDiskId_ {};
         // The ID of the snapshot that was used to create the cloud disk.
         // 
         // This parameter is empty unless the cloud disk was created from a snapshot. The value of this parameter remains unchanged throughout the lifecycle of the cloud disk.

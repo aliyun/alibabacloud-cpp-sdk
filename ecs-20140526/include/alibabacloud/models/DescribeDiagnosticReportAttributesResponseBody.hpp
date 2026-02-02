@@ -125,12 +125,16 @@ namespace Models
               DARABONBA_PTR_TO_JSON(Additional, additional_);
               DARABONBA_PTR_TO_JSON(IssueId, issueId_);
               DARABONBA_PTR_TO_JSON(OccurrenceTime, occurrenceTime_);
+              DARABONBA_PTR_TO_JSON(RepairStatus, repairStatus_);
+              DARABONBA_PTR_TO_JSON(Repairable, repairable_);
               DARABONBA_PTR_TO_JSON(Severity, severity_);
             };
             friend void from_json(const Darabonba::Json& j, Issue& obj) { 
               DARABONBA_PTR_FROM_JSON(Additional, additional_);
               DARABONBA_PTR_FROM_JSON(IssueId, issueId_);
               DARABONBA_PTR_FROM_JSON(OccurrenceTime, occurrenceTime_);
+              DARABONBA_PTR_FROM_JSON(RepairStatus, repairStatus_);
+              DARABONBA_PTR_FROM_JSON(Repairable, repairable_);
               DARABONBA_PTR_FROM_JSON(Severity, severity_);
             };
             Issue() = default ;
@@ -145,7 +149,7 @@ namespace Models
             virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
             virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
             virtual bool empty() const override { return this->additional_ == nullptr
-        && this->issueId_ == nullptr && this->occurrenceTime_ == nullptr && this->severity_ == nullptr; };
+        && this->issueId_ == nullptr && this->occurrenceTime_ == nullptr && this->repairStatus_ == nullptr && this->repairable_ == nullptr && this->severity_ == nullptr; };
             // additional Field Functions 
             bool hasAdditional() const { return this->additional_ != nullptr;};
             void deleteAdditional() { this->additional_ = nullptr;};
@@ -167,6 +171,20 @@ namespace Models
             inline Issue& setOccurrenceTime(string occurrenceTime) { DARABONBA_PTR_SET_VALUE(occurrenceTime_, occurrenceTime) };
 
 
+            // repairStatus Field Functions 
+            bool hasRepairStatus() const { return this->repairStatus_ != nullptr;};
+            void deleteRepairStatus() { this->repairStatus_ = nullptr;};
+            inline string getRepairStatus() const { DARABONBA_PTR_GET_DEFAULT(repairStatus_, "") };
+            inline Issue& setRepairStatus(string repairStatus) { DARABONBA_PTR_SET_VALUE(repairStatus_, repairStatus) };
+
+
+            // repairable Field Functions 
+            bool hasRepairable() const { return this->repairable_ != nullptr;};
+            void deleteRepairable() { this->repairable_ = nullptr;};
+            inline bool getRepairable() const { DARABONBA_PTR_GET_DEFAULT(repairable_, false) };
+            inline Issue& setRepairable(bool repairable) { DARABONBA_PTR_SET_VALUE(repairable_, repairable) };
+
+
             // severity Field Functions 
             bool hasSeverity() const { return this->severity_ != nullptr;};
             void deleteSeverity() { this->severity_ = nullptr;};
@@ -181,6 +199,8 @@ namespace Models
             shared_ptr<string> issueId_ {};
             // The time when the diagnosed issue occurred.
             shared_ptr<string> occurrenceTime_ {};
+            shared_ptr<string> repairStatus_ {};
+            shared_ptr<bool> repairable_ {};
             // The severity level of the diagnosed issue. Valid values:
             // 
             // *   Info: Diagnostic information was recorded and may be related to exceptions.

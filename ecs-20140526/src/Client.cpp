@@ -205,7 +205,7 @@ ActivateRouterInterfaceResponse Client::activateRouterInterface(const ActivateRo
 }
 
 /**
- * @deprecated OpenAPI AddBandwidthPackageIps is deprecated, please use Vpc::2016-04-28::AddBandwidthPackageIps instead.
+ * @deprecated OpenAPI AddBandwidthPackageIps is deprecated
  *
  * @summary AddBandwidthPackageIps
  *
@@ -266,7 +266,7 @@ AddBandwidthPackageIpsResponse Client::addBandwidthPackageIpsWithOptions(const A
 }
 
 /**
- * @deprecated OpenAPI AddBandwidthPackageIps is deprecated, please use Vpc::2016-04-28::AddBandwidthPackageIps instead.
+ * @deprecated OpenAPI AddBandwidthPackageIps is deprecated
  *
  * @summary AddBandwidthPackageIps
  *
@@ -6179,6 +6179,78 @@ CreatePhysicalConnectionResponse Client::createPhysicalConnection(const CreatePh
 }
 
 /**
+ * @summary 创建运维窗口
+ *
+ * @param tmpReq CreatePlanMaintenanceWindowRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreatePlanMaintenanceWindowResponse
+ */
+CreatePlanMaintenanceWindowResponse Client::createPlanMaintenanceWindowWithOptions(const CreatePlanMaintenanceWindowRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreatePlanMaintenanceWindowShrinkRequest request = CreatePlanMaintenanceWindowShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasTargetResource()) {
+    request.setTargetResourceShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTargetResource(), "TargetResource", "json"));
+  }
+
+  if (!!tmpReq.hasTimePeriod()) {
+    request.setTimePeriodShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTimePeriod(), "TimePeriod", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasEnable()) {
+    query["Enable"] = request.getEnable();
+  }
+
+  if (!!request.hasPlanWindowName()) {
+    query["PlanWindowName"] = request.getPlanWindowName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSupportMaintenanceAction()) {
+    query["SupportMaintenanceAction"] = request.getSupportMaintenanceAction();
+  }
+
+  if (!!request.hasTargetResourceShrink()) {
+    query["TargetResource"] = request.getTargetResourceShrink();
+  }
+
+  if (!!request.hasTimePeriodShrink()) {
+    query["TimePeriod"] = request.getTimePeriodShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreatePlanMaintenanceWindow"},
+    {"version" , "2014-05-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreatePlanMaintenanceWindowResponse>();
+}
+
+/**
+ * @summary 创建运维窗口
+ *
+ * @param request CreatePlanMaintenanceWindowRequest
+ * @return CreatePlanMaintenanceWindowResponse
+ */
+CreatePlanMaintenanceWindowResponse Client::createPlanMaintenanceWindow(const CreatePlanMaintenanceWindowRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createPlanMaintenanceWindowWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a port list. You can associate a port list with resources, such as security groups.
  *
  * @param request CreatePortRangeListRequest
@@ -7783,8 +7855,6 @@ DeleteAutoSnapshotPolicyResponse Client::deleteAutoSnapshotPolicy(const DeleteAu
 }
 
 /**
- * @deprecated OpenAPI DeleteBandwidthPackage is deprecated, please use Vpc::2016-04-28::DeleteBandwidthPackage instead.
- *
  * @summary DeleteBandwidthPackage
  *
  * @param request DeleteBandwidthPackageRequest
@@ -7836,8 +7906,6 @@ DeleteBandwidthPackageResponse Client::deleteBandwidthPackageWithOptions(const D
 }
 
 /**
- * @deprecated OpenAPI DeleteBandwidthPackage is deprecated, please use Vpc::2016-04-28::DeleteBandwidthPackage instead.
- *
  * @summary DeleteBandwidthPackage
  *
  * @param request DeleteBandwidthPackageRequest
@@ -9346,6 +9414,52 @@ DeletePhysicalConnectionResponse Client::deletePhysicalConnectionWithOptions(con
 DeletePhysicalConnectionResponse Client::deletePhysicalConnection(const DeletePhysicalConnectionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deletePhysicalConnectionWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除运维窗口
+ *
+ * @param request DeletePlanMaintenanceWindowRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeletePlanMaintenanceWindowResponse
+ */
+DeletePlanMaintenanceWindowResponse Client::deletePlanMaintenanceWindowWithOptions(const DeletePlanMaintenanceWindowRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPlanWindowId()) {
+    query["PlanWindowId"] = request.getPlanWindowId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeletePlanMaintenanceWindow"},
+    {"version" , "2014-05-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeletePlanMaintenanceWindowResponse>();
+}
+
+/**
+ * @summary 删除运维窗口
+ *
+ * @param request DeletePlanMaintenanceWindowRequest
+ * @return DeletePlanMaintenanceWindowResponse
+ */
+DeletePlanMaintenanceWindowResponse Client::deletePlanMaintenanceWindow(const DeletePlanMaintenanceWindowRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deletePlanMaintenanceWindowWithOptions(request, runtime);
 }
 
 /**
@@ -17233,6 +17347,82 @@ DescribePhysicalConnectionsResponse Client::describePhysicalConnections(const De
 }
 
 /**
+ * @summary 查询运维窗口
+ *
+ * @param tmpReq DescribePlanMaintenanceWindowsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribePlanMaintenanceWindowsResponse
+ */
+DescribePlanMaintenanceWindowsResponse Client::describePlanMaintenanceWindowsWithOptions(const DescribePlanMaintenanceWindowsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DescribePlanMaintenanceWindowsShrinkRequest request = DescribePlanMaintenanceWindowsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasTargetResourceTags()) {
+    request.setTargetResourceTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTargetResourceTags(), "TargetResourceTags", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasEnable()) {
+    query["Enable"] = request.getEnable();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPlanWindowId()) {
+    query["PlanWindowId"] = request.getPlanWindowId();
+  }
+
+  if (!!request.hasPlanWindowName()) {
+    query["PlanWindowName"] = request.getPlanWindowName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTargetResourceGroupId()) {
+    query["TargetResourceGroupId"] = request.getTargetResourceGroupId();
+  }
+
+  if (!!request.hasTargetResourceTagsShrink()) {
+    query["TargetResourceTags"] = request.getTargetResourceTagsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribePlanMaintenanceWindows"},
+    {"version" , "2014-05-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribePlanMaintenanceWindowsResponse>();
+}
+
+/**
+ * @summary 查询运维窗口
+ *
+ * @param request DescribePlanMaintenanceWindowsRequest
+ * @return DescribePlanMaintenanceWindowsResponse
+ */
+DescribePlanMaintenanceWindowsResponse Client::describePlanMaintenanceWindows(const DescribePlanMaintenanceWindowsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describePlanMaintenanceWindowsWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the resources that are associated with a port list, such as security groups.
  *
  * @param request DescribePortRangeListAssociationsRequest
@@ -23869,7 +24059,7 @@ ModifyAutoSnapshotPolicyExResponse Client::modifyAutoSnapshotPolicyEx(const Modi
 }
 
 /**
- * @deprecated OpenAPI ModifyBandwidthPackageSpec is deprecated, please use Vpc::2016-04-28::ModifyBandwidthPackageSpec instead.
+ * @deprecated OpenAPI ModifyBandwidthPackageSpec is deprecated
  *
  * @summary ModifyBandwidthPackageSpec
  *
@@ -23926,7 +24116,7 @@ ModifyBandwidthPackageSpecResponse Client::modifyBandwidthPackageSpecWithOptions
 }
 
 /**
- * @deprecated OpenAPI ModifyBandwidthPackageSpec is deprecated, please use Vpc::2016-04-28::ModifyBandwidthPackageSpec instead.
+ * @deprecated OpenAPI ModifyBandwidthPackageSpec is deprecated
  *
  * @summary ModifyBandwidthPackageSpec
  *
@@ -27801,6 +27991,82 @@ ModifyPhysicalConnectionAttributeResponse Client::modifyPhysicalConnectionAttrib
 }
 
 /**
+ * @summary 更新运维窗口
+ *
+ * @param tmpReq ModifyPlanMaintenanceWindowRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyPlanMaintenanceWindowResponse
+ */
+ModifyPlanMaintenanceWindowResponse Client::modifyPlanMaintenanceWindowWithOptions(const ModifyPlanMaintenanceWindowRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ModifyPlanMaintenanceWindowShrinkRequest request = ModifyPlanMaintenanceWindowShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasTargetResource()) {
+    request.setTargetResourceShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTargetResource(), "TargetResource", "json"));
+  }
+
+  if (!!tmpReq.hasTimePeriod()) {
+    request.setTimePeriodShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTimePeriod(), "TimePeriod", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasEnable()) {
+    query["Enable"] = request.getEnable();
+  }
+
+  if (!!request.hasPlanWindowId()) {
+    query["PlanWindowId"] = request.getPlanWindowId();
+  }
+
+  if (!!request.hasPlanWindowName()) {
+    query["PlanWindowName"] = request.getPlanWindowName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSupportMaintenanceAction()) {
+    query["SupportMaintenanceAction"] = request.getSupportMaintenanceAction();
+  }
+
+  if (!!request.hasTargetResourceShrink()) {
+    query["TargetResource"] = request.getTargetResourceShrink();
+  }
+
+  if (!!request.hasTimePeriodShrink()) {
+    query["TimePeriod"] = request.getTimePeriodShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyPlanMaintenanceWindow"},
+    {"version" , "2014-05-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyPlanMaintenanceWindowResponse>();
+}
+
+/**
+ * @summary 更新运维窗口
+ *
+ * @param request ModifyPlanMaintenanceWindowRequest
+ * @return ModifyPlanMaintenanceWindowResponse
+ */
+ModifyPlanMaintenanceWindowResponse Client::modifyPlanMaintenanceWindow(const ModifyPlanMaintenanceWindowRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyPlanMaintenanceWindowWithOptions(request, runtime);
+}
+
+/**
  * @summary Modifies the name and entries of a port list. You can call this operation to add, modify, and remove entries for a port list.
  *
  * @param request ModifyPortRangeListRequest
@@ -31035,8 +31301,6 @@ ReleasePublicIpAddressResponse Client::releasePublicIpAddress(const ReleasePubli
 }
 
 /**
- * @deprecated OpenAPI RemoveBandwidthPackageIps is deprecated, please use Vpc::2016-04-28::RemoveBandwidthPackageIps instead.
- *
  * @summary RemoveBandwidthPackageIps
  *
  * @param request RemoveBandwidthPackageIpsRequest
@@ -31096,8 +31360,6 @@ RemoveBandwidthPackageIpsResponse Client::removeBandwidthPackageIpsWithOptions(c
 }
 
 /**
- * @deprecated OpenAPI RemoveBandwidthPackageIps is deprecated, please use Vpc::2016-04-28::RemoveBandwidthPackageIps instead.
- *
  * @summary RemoveBandwidthPackageIps
  *
  * @param request RemoveBandwidthPackageIpsRequest

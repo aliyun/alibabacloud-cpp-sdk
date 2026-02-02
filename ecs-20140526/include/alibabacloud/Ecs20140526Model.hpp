@@ -165,6 +165,10 @@
 #include <alibabacloud/models/CreatePhysicalConnectionRequest.hpp>
 #include <alibabacloud/models/CreatePhysicalConnectionResponseBody.hpp>
 #include <alibabacloud/models/CreatePhysicalConnectionResponse.hpp>
+#include <alibabacloud/models/CreatePlanMaintenanceWindowRequest.hpp>
+#include <alibabacloud/models/CreatePlanMaintenanceWindowShrinkRequest.hpp>
+#include <alibabacloud/models/CreatePlanMaintenanceWindowResponseBody.hpp>
+#include <alibabacloud/models/CreatePlanMaintenanceWindowResponse.hpp>
 #include <alibabacloud/models/CreatePortRangeListRequest.hpp>
 #include <alibabacloud/models/CreatePortRangeListResponseBody.hpp>
 #include <alibabacloud/models/CreatePortRangeListResponse.hpp>
@@ -282,6 +286,9 @@
 #include <alibabacloud/models/DeletePhysicalConnectionRequest.hpp>
 #include <alibabacloud/models/DeletePhysicalConnectionResponseBody.hpp>
 #include <alibabacloud/models/DeletePhysicalConnectionResponse.hpp>
+#include <alibabacloud/models/DeletePlanMaintenanceWindowRequest.hpp>
+#include <alibabacloud/models/DeletePlanMaintenanceWindowResponseBody.hpp>
+#include <alibabacloud/models/DeletePlanMaintenanceWindowResponse.hpp>
 #include <alibabacloud/models/DeletePortRangeListRequest.hpp>
 #include <alibabacloud/models/DeletePortRangeListResponseBody.hpp>
 #include <alibabacloud/models/DeletePortRangeListResponse.hpp>
@@ -552,6 +559,10 @@
 #include <alibabacloud/models/DescribePhysicalConnectionsRequest.hpp>
 #include <alibabacloud/models/DescribePhysicalConnectionsResponseBody.hpp>
 #include <alibabacloud/models/DescribePhysicalConnectionsResponse.hpp>
+#include <alibabacloud/models/DescribePlanMaintenanceWindowsRequest.hpp>
+#include <alibabacloud/models/DescribePlanMaintenanceWindowsShrinkRequest.hpp>
+#include <alibabacloud/models/DescribePlanMaintenanceWindowsResponseBody.hpp>
+#include <alibabacloud/models/DescribePlanMaintenanceWindowsResponse.hpp>
 #include <alibabacloud/models/DescribePortRangeListAssociationsRequest.hpp>
 #include <alibabacloud/models/DescribePortRangeListAssociationsResponseBody.hpp>
 #include <alibabacloud/models/DescribePortRangeListAssociationsResponse.hpp>
@@ -906,6 +917,10 @@
 #include <alibabacloud/models/ModifyPhysicalConnectionAttributeRequest.hpp>
 #include <alibabacloud/models/ModifyPhysicalConnectionAttributeResponseBody.hpp>
 #include <alibabacloud/models/ModifyPhysicalConnectionAttributeResponse.hpp>
+#include <alibabacloud/models/ModifyPlanMaintenanceWindowRequest.hpp>
+#include <alibabacloud/models/ModifyPlanMaintenanceWindowShrinkRequest.hpp>
+#include <alibabacloud/models/ModifyPlanMaintenanceWindowResponseBody.hpp>
+#include <alibabacloud/models/ModifyPlanMaintenanceWindowResponse.hpp>
 #include <alibabacloud/models/ModifyPortRangeListRequest.hpp>
 #include <alibabacloud/models/ModifyPortRangeListResponseBody.hpp>
 #include <alibabacloud/models/ModifyPortRangeListResponse.hpp>
