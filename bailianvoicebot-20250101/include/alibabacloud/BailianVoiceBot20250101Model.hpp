@@ -18,6 +18,9 @@
 #include <alibabacloud/models/GetApplicationRequest.hpp>
 #include <alibabacloud/models/GetApplicationResponseBody.hpp>
 #include <alibabacloud/models/GetApplicationResponse.hpp>
+#include <alibabacloud/models/GetDataChannelCredentialRequest.hpp>
+#include <alibabacloud/models/GetDataChannelCredentialResponseBody.hpp>
+#include <alibabacloud/models/GetDataChannelCredentialResponse.hpp>
 #include <alibabacloud/models/ListApplicationsRequest.hpp>
 #include <alibabacloud/models/ListApplicationsResponseBody.hpp>
 #include <alibabacloud/models/ListApplicationsResponse.hpp>

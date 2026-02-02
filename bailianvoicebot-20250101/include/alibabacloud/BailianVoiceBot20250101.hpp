@@ -106,6 +106,23 @@ namespace BailianVoiceBot20250101
       Models::GetApplicationResponse getApplication(const Models::GetApplicationRequest &request);
 
       /**
+       * @summary 获取数据通道凭证
+       *
+       * @param request GetDataChannelCredentialRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetDataChannelCredentialResponse
+       */
+      Models::GetDataChannelCredentialResponse getDataChannelCredentialWithOptions(const Models::GetDataChannelCredentialRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取数据通道凭证
+       *
+       * @param request GetDataChannelCredentialRequest
+       * @return GetDataChannelCredentialResponse
+       */
+      Models::GetDataChannelCredentialResponse getDataChannelCredential(const Models::GetDataChannelCredentialRequest &request);
+
+      /**
        * @summary 查询应用
        *
        * @param request ListApplicationsRequest

@@ -340,6 +340,52 @@ GetApplicationResponse Client::getApplication(const GetApplicationRequest &reque
 }
 
 /**
+ * @summary 获取数据通道凭证
+ *
+ * @param request GetDataChannelCredentialRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetDataChannelCredentialResponse
+ */
+GetDataChannelCredentialResponse Client::getDataChannelCredentialWithOptions(const GetDataChannelCredentialRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBusinessUnitId()) {
+    query["BusinessUnitId"] = request.getBusinessUnitId();
+  }
+
+  if (!!request.hasDeviceId()) {
+    query["DeviceId"] = request.getDeviceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetDataChannelCredential"},
+    {"version" , "2025-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetDataChannelCredentialResponse>();
+}
+
+/**
+ * @summary 获取数据通道凭证
+ *
+ * @param request GetDataChannelCredentialRequest
+ * @return GetDataChannelCredentialResponse
+ */
+GetDataChannelCredentialResponse Client::getDataChannelCredential(const GetDataChannelCredentialRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getDataChannelCredentialWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询应用
  *
  * @param request ListApplicationsRequest
