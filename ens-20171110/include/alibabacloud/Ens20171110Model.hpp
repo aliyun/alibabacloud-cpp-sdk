@@ -744,6 +744,9 @@
 #include <alibabacloud/models/ManageAICLoginRequest.hpp>
 #include <alibabacloud/models/ManageAICLoginResponseBody.hpp>
 #include <alibabacloud/models/ManageAICLoginResponse.hpp>
+#include <alibabacloud/models/ModifyAICInstanceTypeRequest.hpp>
+#include <alibabacloud/models/ModifyAICInstanceTypeResponseBody.hpp>
+#include <alibabacloud/models/ModifyAICInstanceTypeResponse.hpp>
 #include <alibabacloud/models/ModifyClusterAddonRequest.hpp>
 #include <alibabacloud/models/ModifyClusterAddonShrinkRequest.hpp>
 #include <alibabacloud/models/ModifyClusterAddonResponseBody.hpp>

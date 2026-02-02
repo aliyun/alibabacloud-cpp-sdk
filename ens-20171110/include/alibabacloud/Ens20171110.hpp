@@ -4359,6 +4359,23 @@ namespace Ens20171110
       Models::ManageAICLoginResponse manageAICLogin(const Models::ManageAICLoginRequest &request);
 
       /**
+       * @summary aic实例变配接口
+       *
+       * @param request ModifyAICInstanceTypeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyAICInstanceTypeResponse
+       */
+      Models::ModifyAICInstanceTypeResponse modifyAICInstanceTypeWithOptions(const Models::ModifyAICInstanceTypeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary aic实例变配接口
+       *
+       * @param request ModifyAICInstanceTypeRequest
+       * @return ModifyAICInstanceTypeResponse
+       */
+      Models::ModifyAICInstanceTypeResponse modifyAICInstanceType(const Models::ModifyAICInstanceTypeRequest &request);
+
+      /**
        * @summary 修改集群组件实例配置
        *
        * @param tmpReq ModifyClusterAddonRequest

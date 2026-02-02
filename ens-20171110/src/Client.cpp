@@ -12937,6 +12937,68 @@ ManageAICLoginResponse Client::manageAICLogin(const ManageAICLoginRequest &reque
 }
 
 /**
+ * @summary aic实例变配接口
+ *
+ * @param request ModifyAICInstanceTypeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyAICInstanceTypeResponse
+ */
+ModifyAICInstanceTypeResponse Client::modifyAICInstanceTypeWithOptions(const ModifyAICInstanceTypeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEnvironmentVar()) {
+    query["EnvironmentVar"] = request.getEnvironmentVar();
+  }
+
+  if (!!request.hasFrequency()) {
+    query["Frequency"] = request.getFrequency();
+  }
+
+  if (!!request.hasImageId()) {
+    query["ImageId"] = request.getImageId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasInstanceType()) {
+    query["InstanceType"] = request.getInstanceType();
+  }
+
+  if (!!request.hasResolution()) {
+    query["Resolution"] = request.getResolution();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyAICInstanceType"},
+    {"version" , "2017-11-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyAICInstanceTypeResponse>();
+}
+
+/**
+ * @summary aic实例变配接口
+ *
+ * @param request ModifyAICInstanceTypeRequest
+ * @return ModifyAICInstanceTypeResponse
+ */
+ModifyAICInstanceTypeResponse Client::modifyAICInstanceType(const ModifyAICInstanceTypeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyAICInstanceTypeWithOptions(request, runtime);
+}
+
+/**
  * @summary 修改集群组件实例配置
  *
  * @param tmpReq ModifyClusterAddonRequest
