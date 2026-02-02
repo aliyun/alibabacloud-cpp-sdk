@@ -4672,6 +4672,68 @@ CreatePolicyGroupResponse Client::createPolicyGroup(const CreatePolicyGroupReque
 }
 
 /**
+ * @summary 新建限速组
+ *
+ * @param request CreateQosRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateQosRuleResponse
+ */
+CreateQosRuleResponse Client::createQosRuleWithOptions(const CreateQosRuleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAuthAndroidId()) {
+    query["AuthAndroidId"] = request.getAuthAndroidId();
+  }
+
+  if (!!request.hasAuthDesktopId()) {
+    query["AuthDesktopId"] = request.getAuthDesktopId();
+  }
+
+  if (!!request.hasDownload()) {
+    query["Download"] = request.getDownload();
+  }
+
+  if (!!request.hasNetworkPackageId()) {
+    query["NetworkPackageId"] = request.getNetworkPackageId();
+  }
+
+  if (!!request.hasQosRuleName()) {
+    query["QosRuleName"] = request.getQosRuleName();
+  }
+
+  if (!!request.hasUpload()) {
+    query["Upload"] = request.getUpload();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateQosRule"},
+    {"version" , "2020-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateQosRuleResponse>();
+}
+
+/**
+ * @summary 新建限速组
+ *
+ * @param request CreateQosRuleRequest
+ * @return CreateQosRuleResponse
+ */
+CreateQosRuleResponse Client::createQosRule(const CreateQosRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createQosRuleWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a Resource Access Management (RAM) directory.
  *
  * @description Before you create a RAM directory, complete the following preparations:
@@ -6321,6 +6383,44 @@ DeletePolicyGroupsResponse Client::deletePolicyGroupsWithOptions(const DeletePol
 DeletePolicyGroupsResponse Client::deletePolicyGroups(const DeletePolicyGroupsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deletePolicyGroupsWithOptions(request, runtime);
+}
+
+/**
+ * @param request DeleteQosRulesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteQosRulesResponse
+ */
+DeleteQosRulesResponse Client::deleteQosRulesWithOptions(const DeleteQosRulesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasQosRuleId()) {
+    query["QosRuleId"] = request.getQosRuleId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteQosRules"},
+    {"version" , "2020-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteQosRulesResponse>();
+}
+
+/**
+ * @param request DeleteQosRulesRequest
+ * @return DeleteQosRulesResponse
+ */
+DeleteQosRulesResponse Client::deleteQosRules(const DeleteQosRulesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteQosRulesWithOptions(request, runtime);
 }
 
 /**
@@ -10641,6 +10741,48 @@ DescribePriceForRenewDesktopOversoldGroupResponse Client::describePriceForRenewD
 DescribePriceForRenewDesktopOversoldGroupResponse Client::describePriceForRenewDesktopOversoldGroup(const DescribePriceForRenewDesktopOversoldGroupRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describePriceForRenewDesktopOversoldGroupWithOptions(request, runtime);
+}
+
+/**
+ * @param request DescribeQosRulesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeQosRulesResponse
+ */
+DescribeQosRulesResponse Client::describeQosRulesWithOptions(const DescribeQosRulesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasNetworkPackageId()) {
+    query["NetworkPackageId"] = request.getNetworkPackageId();
+  }
+
+  if (!!request.hasQosRuleName()) {
+    query["QosRuleName"] = request.getQosRuleName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeQosRules"},
+    {"version" , "2020-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeQosRulesResponse>();
+}
+
+/**
+ * @param request DescribeQosRulesRequest
+ * @return DescribeQosRulesResponse
+ */
+DescribeQosRulesResponse Client::describeQosRules(const DescribeQosRulesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeQosRulesWithOptions(request, runtime);
 }
 
 /**
@@ -16957,6 +17099,114 @@ ModifyPolicyGroupResponse Client::modifyPolicyGroupWithOptions(const ModifyPolic
 ModifyPolicyGroupResponse Client::modifyPolicyGroup(const ModifyPolicyGroupRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifyPolicyGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改限速组资源绑定关系
+ *
+ * @param request ModifyQosEntriesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyQosEntriesResponse
+ */
+ModifyQosEntriesResponse Client::modifyQosEntriesWithOptions(const ModifyQosEntriesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAuthAndroidId()) {
+    query["AuthAndroidId"] = request.getAuthAndroidId();
+  }
+
+  if (!!request.hasAuthDesktopId()) {
+    query["AuthDesktopId"] = request.getAuthDesktopId();
+  }
+
+  if (!!request.hasQosRuleId()) {
+    query["QosRuleId"] = request.getQosRuleId();
+  }
+
+  if (!!request.hasRevokeAndroidId()) {
+    query["RevokeAndroidId"] = request.getRevokeAndroidId();
+  }
+
+  if (!!request.hasRevokeDesktopId()) {
+    query["RevokeDesktopId"] = request.getRevokeDesktopId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyQosEntries"},
+    {"version" , "2020-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyQosEntriesResponse>();
+}
+
+/**
+ * @summary 修改限速组资源绑定关系
+ *
+ * @param request ModifyQosEntriesRequest
+ * @return ModifyQosEntriesResponse
+ */
+ModifyQosEntriesResponse Client::modifyQosEntries(const ModifyQosEntriesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyQosEntriesWithOptions(request, runtime);
+}
+
+/**
+ * @param request ModifyQosRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyQosRuleResponse
+ */
+ModifyQosRuleResponse Client::modifyQosRuleWithOptions(const ModifyQosRuleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDownload()) {
+    query["Download"] = request.getDownload();
+  }
+
+  if (!!request.hasQosRuleId()) {
+    query["QosRuleId"] = request.getQosRuleId();
+  }
+
+  if (!!request.hasQosRuleName()) {
+    query["QosRuleName"] = request.getQosRuleName();
+  }
+
+  if (!!request.hasUpload()) {
+    query["Upload"] = request.getUpload();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyQosRule"},
+    {"version" , "2020-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyQosRuleResponse>();
+}
+
+/**
+ * @param request ModifyQosRuleRequest
+ * @return ModifyQosRuleResponse
+ */
+ModifyQosRuleResponse Client::modifyQosRule(const ModifyQosRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyQosRuleWithOptions(request, runtime);
 }
 
 /**

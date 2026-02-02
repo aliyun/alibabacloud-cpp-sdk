@@ -169,6 +169,9 @@
 #include <alibabacloud/models/CreatePolicyGroupRequest.hpp>
 #include <alibabacloud/models/CreatePolicyGroupResponseBody.hpp>
 #include <alibabacloud/models/CreatePolicyGroupResponse.hpp>
+#include <alibabacloud/models/CreateQosRuleRequest.hpp>
+#include <alibabacloud/models/CreateQosRuleResponseBody.hpp>
+#include <alibabacloud/models/CreateQosRuleResponse.hpp>
 #include <alibabacloud/models/CreateRAMDirectoryRequest.hpp>
 #include <alibabacloud/models/CreateRAMDirectoryResponseBody.hpp>
 #include <alibabacloud/models/CreateRAMDirectoryResponse.hpp>
@@ -253,6 +256,9 @@
 #include <alibabacloud/models/DeletePolicyGroupsRequest.hpp>
 #include <alibabacloud/models/DeletePolicyGroupsResponseBody.hpp>
 #include <alibabacloud/models/DeletePolicyGroupsResponse.hpp>
+#include <alibabacloud/models/DeleteQosRulesRequest.hpp>
+#include <alibabacloud/models/DeleteQosRulesResponseBody.hpp>
+#include <alibabacloud/models/DeleteQosRulesResponse.hpp>
 #include <alibabacloud/models/DeleteRouteEntryRequest.hpp>
 #include <alibabacloud/models/DeleteRouteEntryResponseBody.hpp>
 #include <alibabacloud/models/DeleteRouteEntryResponse.hpp>
@@ -436,6 +442,9 @@
 #include <alibabacloud/models/DescribePriceForRenewDesktopOversoldGroupRequest.hpp>
 #include <alibabacloud/models/DescribePriceForRenewDesktopOversoldGroupResponseBody.hpp>
 #include <alibabacloud/models/DescribePriceForRenewDesktopOversoldGroupResponse.hpp>
+#include <alibabacloud/models/DescribeQosRulesRequest.hpp>
+#include <alibabacloud/models/DescribeQosRulesResponseBody.hpp>
+#include <alibabacloud/models/DescribeQosRulesResponse.hpp>
 #include <alibabacloud/models/DescribeRecordFileRequest.hpp>
 #include <alibabacloud/models/DescribeRecordFileResponseBody.hpp>
 #include <alibabacloud/models/DescribeRecordFileResponse.hpp>
@@ -698,6 +707,12 @@
 #include <alibabacloud/models/ModifyPolicyGroupRequest.hpp>
 #include <alibabacloud/models/ModifyPolicyGroupResponseBody.hpp>
 #include <alibabacloud/models/ModifyPolicyGroupResponse.hpp>
+#include <alibabacloud/models/ModifyQosEntriesRequest.hpp>
+#include <alibabacloud/models/ModifyQosEntriesResponseBody.hpp>
+#include <alibabacloud/models/ModifyQosEntriesResponse.hpp>
+#include <alibabacloud/models/ModifyQosRuleRequest.hpp>
+#include <alibabacloud/models/ModifyQosRuleResponseBody.hpp>
+#include <alibabacloud/models/ModifyQosRuleResponse.hpp>
 #include <alibabacloud/models/ModifyResourceCenterPolicyRequest.hpp>
 #include <alibabacloud/models/ModifyResourceCenterPolicyResponseBody.hpp>
 #include <alibabacloud/models/ModifyResourceCenterPolicyResponse.hpp>

@@ -1063,6 +1063,23 @@ namespace Ecd20200930
       Models::CreatePolicyGroupResponse createPolicyGroup(const Models::CreatePolicyGroupRequest &request);
 
       /**
+       * @summary 新建限速组
+       *
+       * @param request CreateQosRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateQosRuleResponse
+       */
+      Models::CreateQosRuleResponse createQosRuleWithOptions(const Models::CreateQosRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 新建限速组
+       *
+       * @param request CreateQosRuleRequest
+       * @return CreateQosRuleResponse
+       */
+      Models::CreateQosRuleResponse createQosRule(const Models::CreateQosRuleRequest &request);
+
+      /**
        * @summary Creates a Resource Access Management (RAM) directory.
        *
        * @description Before you create a RAM directory, complete the following preparations:
@@ -1597,6 +1614,19 @@ namespace Ecd20200930
        * @return DeletePolicyGroupsResponse
        */
       Models::DeletePolicyGroupsResponse deletePolicyGroups(const Models::DeletePolicyGroupsRequest &request);
+
+      /**
+       * @param request DeleteQosRulesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteQosRulesResponse
+       */
+      Models::DeleteQosRulesResponse deleteQosRulesWithOptions(const Models::DeleteQosRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request DeleteQosRulesRequest
+       * @return DeleteQosRulesResponse
+       */
+      Models::DeleteQosRulesResponse deleteQosRules(const Models::DeleteQosRulesRequest &request);
 
       /**
        * @summary 删除路由条目
@@ -2692,6 +2722,19 @@ namespace Ecd20200930
        * @return DescribePriceForRenewDesktopOversoldGroupResponse
        */
       Models::DescribePriceForRenewDesktopOversoldGroupResponse describePriceForRenewDesktopOversoldGroup(const Models::DescribePriceForRenewDesktopOversoldGroupRequest &request);
+
+      /**
+       * @param request DescribeQosRulesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeQosRulesResponse
+       */
+      Models::DescribeQosRulesResponse describeQosRulesWithOptions(const Models::DescribeQosRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request DescribeQosRulesRequest
+       * @return DescribeQosRulesResponse
+       */
+      Models::DescribeQosRulesResponse describeQosRules(const Models::DescribeQosRulesRequest &request);
 
       /**
        * @summary 查询录屏文件列表
@@ -4343,6 +4386,36 @@ namespace Ecd20200930
        * @return ModifyPolicyGroupResponse
        */
       Models::ModifyPolicyGroupResponse modifyPolicyGroup(const Models::ModifyPolicyGroupRequest &request);
+
+      /**
+       * @summary 修改限速组资源绑定关系
+       *
+       * @param request ModifyQosEntriesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyQosEntriesResponse
+       */
+      Models::ModifyQosEntriesResponse modifyQosEntriesWithOptions(const Models::ModifyQosEntriesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改限速组资源绑定关系
+       *
+       * @param request ModifyQosEntriesRequest
+       * @return ModifyQosEntriesResponse
+       */
+      Models::ModifyQosEntriesResponse modifyQosEntries(const Models::ModifyQosEntriesRequest &request);
+
+      /**
+       * @param request ModifyQosRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyQosRuleResponse
+       */
+      Models::ModifyQosRuleResponse modifyQosRuleWithOptions(const Models::ModifyQosRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request ModifyQosRuleRequest
+       * @return ModifyQosRuleResponse
+       */
+      Models::ModifyQosRuleResponse modifyQosRule(const Models::ModifyQosRuleRequest &request);
 
       /**
        * @param request ModifyResourceCenterPolicyRequest
