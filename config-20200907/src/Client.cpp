@@ -1482,6 +1482,78 @@ CreateRemediationResponse Client::createRemediation(const CreateRemediationReque
 }
 
 /**
+ * @summary 为当前UID创建合规报告模版
+ *
+ * @param tmpReq CreateReportTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateReportTemplateResponse
+ */
+CreateReportTemplateResponse Client::createReportTemplateWithOptions(const CreateReportTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateReportTemplateShrinkRequest request = CreateReportTemplateShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasReportScope()) {
+    request.setReportScopeShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getReportScope(), "ReportScope", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasReportFileFormats()) {
+    body["ReportFileFormats"] = request.getReportFileFormats();
+  }
+
+  if (!!request.hasReportGranularity()) {
+    body["ReportGranularity"] = request.getReportGranularity();
+  }
+
+  if (!!request.hasReportLanguage()) {
+    body["ReportLanguage"] = request.getReportLanguage();
+  }
+
+  if (!!request.hasReportScopeShrink()) {
+    body["ReportScope"] = request.getReportScopeShrink();
+  }
+
+  if (!!request.hasReportTemplateDescription()) {
+    body["ReportTemplateDescription"] = request.getReportTemplateDescription();
+  }
+
+  if (!!request.hasReportTemplateName()) {
+    body["ReportTemplateName"] = request.getReportTemplateName();
+  }
+
+  if (!!request.hasSubscriptionFrequency()) {
+    body["SubscriptionFrequency"] = request.getSubscriptionFrequency();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateReportTemplate"},
+    {"version" , "2020-09-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateReportTemplateResponse>();
+}
+
+/**
+ * @summary 为当前UID创建合规报告模版
+ *
+ * @param request CreateReportTemplateRequest
+ * @return CreateReportTemplateResponse
+ */
+CreateReportTemplateResponse Client::createReportTemplate(const CreateReportTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createReportTemplateWithOptions(request, runtime);
+}
+
+/**
  * @summary Disables one or more rules in an account group. After a rule is disabled, the resource in the rule is no longer evaluated. The compliance evaluation results before the rule is disabled are still displayed.
  *
  * @description ### [](#)Prerequisites
@@ -4636,6 +4708,48 @@ GetReportFromTemplateResponse Client::getReportFromTemplate(const GetReportFromT
 }
 
 /**
+ * @summary 获取合规报告模版详情
+ *
+ * @param request GetReportTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetReportTemplateResponse
+ */
+GetReportTemplateResponse Client::getReportTemplateWithOptions(const GetReportTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasReportTemplateId()) {
+    query["ReportTemplateId"] = request.getReportTemplateId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetReportTemplate"},
+    {"version" , "2020-09-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetReportTemplateResponse>();
+}
+
+/**
+ * @summary 获取合规报告模版详情
+ *
+ * @param request GetReportTemplateRequest
+ * @return GetReportTemplateResponse
+ */
+GetReportTemplateResponse Client::getReportTemplate(const GetReportTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getReportTemplateWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the compliance summary based on the compliance evaluation result of a rule.
  *
  * @description In this topic, the `cr-d369626622af008e****` rule is used as an example. The return result shows that a total of 10 resources are evaluated by the rule and `five` of them are evaluated as compliant.
@@ -7016,6 +7130,56 @@ ListRemediationsResponse Client::listRemediations(const ListRemediationsRequest 
 }
 
 /**
+ * @summary 批量获取合规报告模版详情
+ *
+ * @param request ListReportTemplatesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListReportTemplatesResponse
+ */
+ListReportTemplatesResponse Client::listReportTemplatesWithOptions(const ListReportTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasKeyword()) {
+    query["Keyword"] = request.getKeyword();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListReportTemplates"},
+    {"version" , "2020-09-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListReportTemplatesResponse>();
+}
+
+/**
+ * @summary 批量获取合规报告模版详情
+ *
+ * @param request ListReportTemplatesRequest
+ * @return ListReportTemplatesResponse
+ */
+ListReportTemplatesResponse Client::listReportTemplates(const ListReportTemplatesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listReportTemplatesWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the compliance evaluation results of resources.
  *
  * @description In this example, the compliance evaluation result of the `23642660635396****` resource is queried and the resource is a RAM user. The returned result indicates that the resource is evaluated as `NON_COMPLIANT` by using the `cr-7f7d626622af0041****` rule.
@@ -9097,6 +9261,82 @@ UpdateRemediationResponse Client::updateRemediationWithOptions(const UpdateRemed
 UpdateRemediationResponse Client::updateRemediation(const UpdateRemediationRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateRemediationWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新合规报告模版
+ *
+ * @param tmpReq UpdateReportTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateReportTemplateResponse
+ */
+UpdateReportTemplateResponse Client::updateReportTemplateWithOptions(const UpdateReportTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateReportTemplateShrinkRequest request = UpdateReportTemplateShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasReportScope()) {
+    request.setReportScopeShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getReportScope(), "ReportScope", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasReportFileFormats()) {
+    body["ReportFileFormats"] = request.getReportFileFormats();
+  }
+
+  if (!!request.hasReportGranularity()) {
+    body["ReportGranularity"] = request.getReportGranularity();
+  }
+
+  if (!!request.hasReportLanguage()) {
+    body["ReportLanguage"] = request.getReportLanguage();
+  }
+
+  if (!!request.hasReportScopeShrink()) {
+    body["ReportScope"] = request.getReportScopeShrink();
+  }
+
+  if (!!request.hasReportTemplateDescription()) {
+    body["ReportTemplateDescription"] = request.getReportTemplateDescription();
+  }
+
+  if (!!request.hasReportTemplateId()) {
+    body["ReportTemplateId"] = request.getReportTemplateId();
+  }
+
+  if (!!request.hasReportTemplateName()) {
+    body["ReportTemplateName"] = request.getReportTemplateName();
+  }
+
+  if (!!request.hasSubscriptionFrequency()) {
+    body["SubscriptionFrequency"] = request.getSubscriptionFrequency();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateReportTemplate"},
+    {"version" , "2020-09-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateReportTemplateResponse>();
+}
+
+/**
+ * @summary 更新合规报告模版
+ *
+ * @param request UpdateReportTemplateRequest
+ * @return UpdateReportTemplateResponse
+ */
+UpdateReportTemplateResponse Client::updateReportTemplate(const UpdateReportTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateReportTemplateWithOptions(request, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace Config20200907

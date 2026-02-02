@@ -390,6 +390,23 @@ namespace Config20200907
       Models::CreateRemediationResponse createRemediation(const Models::CreateRemediationRequest &request);
 
       /**
+       * @summary 为当前UID创建合规报告模版
+       *
+       * @param tmpReq CreateReportTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateReportTemplateResponse
+       */
+      Models::CreateReportTemplateResponse createReportTemplateWithOptions(const Models::CreateReportTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 为当前UID创建合规报告模版
+       *
+       * @param request CreateReportTemplateRequest
+       * @return CreateReportTemplateResponse
+       */
+      Models::CreateReportTemplateResponse createReportTemplate(const Models::CreateReportTemplateRequest &request);
+
+      /**
        * @summary Disables one or more rules in an account group. After a rule is disabled, the resource in the rule is no longer evaluated. The compliance evaluation results before the rule is disabled are still displayed.
        *
        * @description ### [](#)Prerequisites
@@ -1736,6 +1753,23 @@ namespace Config20200907
       Models::GetReportFromTemplateResponse getReportFromTemplate(const Models::GetReportFromTemplateRequest &request);
 
       /**
+       * @summary 获取合规报告模版详情
+       *
+       * @param request GetReportTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetReportTemplateResponse
+       */
+      Models::GetReportTemplateResponse getReportTemplateWithOptions(const Models::GetReportTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取合规报告模版详情
+       *
+       * @param request GetReportTemplateRequest
+       * @return GetReportTemplateResponse
+       */
+      Models::GetReportTemplateResponse getReportTemplate(const Models::GetReportTemplateRequest &request);
+
+      /**
        * @summary Queries the compliance summary based on the compliance evaluation result of a rule.
        *
        * @description In this topic, the `cr-d369626622af008e****` rule is used as an example. The return result shows that a total of 10 resources are evaluated by the rule and `five` of them are evaluated as compliant.
@@ -2560,6 +2594,23 @@ namespace Config20200907
       Models::ListRemediationsResponse listRemediations(const Models::ListRemediationsRequest &request);
 
       /**
+       * @summary 批量获取合规报告模版详情
+       *
+       * @param request ListReportTemplatesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListReportTemplatesResponse
+       */
+      Models::ListReportTemplatesResponse listReportTemplatesWithOptions(const Models::ListReportTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量获取合规报告模版详情
+       *
+       * @param request ListReportTemplatesRequest
+       * @return ListReportTemplatesResponse
+       */
+      Models::ListReportTemplatesResponse listReportTemplates(const Models::ListReportTemplatesRequest &request);
+
+      /**
        * @summary Queries the compliance evaluation results of resources.
        *
        * @description In this example, the compliance evaluation result of the `23642660635396****` resource is queried and the resource is a RAM user. The returned result indicates that the resource is evaluated as `NON_COMPLIANT` by using the `cr-7f7d626622af0041****` rule.
@@ -3165,6 +3216,23 @@ namespace Config20200907
        * @return UpdateRemediationResponse
        */
       Models::UpdateRemediationResponse updateRemediation(const Models::UpdateRemediationRequest &request);
+
+      /**
+       * @summary 更新合规报告模版
+       *
+       * @param tmpReq UpdateReportTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateReportTemplateResponse
+       */
+      Models::UpdateReportTemplateResponse updateReportTemplateWithOptions(const Models::UpdateReportTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新合规报告模版
+       *
+       * @param request UpdateReportTemplateRequest
+       * @return UpdateReportTemplateResponse
+       */
+      Models::UpdateReportTemplateResponse updateReportTemplate(const Models::UpdateReportTemplateRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace Config20200907

@@ -59,6 +59,10 @@
 #include <alibabacloud/models/CreateRemediationRequest.hpp>
 #include <alibabacloud/models/CreateRemediationResponseBody.hpp>
 #include <alibabacloud/models/CreateRemediationResponse.hpp>
+#include <alibabacloud/models/CreateReportTemplateRequest.hpp>
+#include <alibabacloud/models/CreateReportTemplateShrinkRequest.hpp>
+#include <alibabacloud/models/CreateReportTemplateResponseBody.hpp>
+#include <alibabacloud/models/CreateReportTemplateResponse.hpp>
 #include <alibabacloud/models/DeactiveAggregateConfigRulesRequest.hpp>
 #include <alibabacloud/models/DeactiveAggregateConfigRulesResponseBody.hpp>
 #include <alibabacloud/models/DeactiveAggregateConfigRulesResponse.hpp>
@@ -253,6 +257,9 @@
 #include <alibabacloud/models/GetReportFromTemplateRequest.hpp>
 #include <alibabacloud/models/GetReportFromTemplateResponseBody.hpp>
 #include <alibabacloud/models/GetReportFromTemplateResponse.hpp>
+#include <alibabacloud/models/GetReportTemplateRequest.hpp>
+#include <alibabacloud/models/GetReportTemplateResponseBody.hpp>
+#include <alibabacloud/models/GetReportTemplateResponse.hpp>
 #include <alibabacloud/models/GetResourceComplianceByConfigRuleRequest.hpp>
 #include <alibabacloud/models/GetResourceComplianceByConfigRuleResponseBody.hpp>
 #include <alibabacloud/models/GetResourceComplianceByConfigRuleResponse.hpp>
@@ -377,6 +384,9 @@
 #include <alibabacloud/models/ListRemediationsRequest.hpp>
 #include <alibabacloud/models/ListRemediationsResponseBody.hpp>
 #include <alibabacloud/models/ListRemediationsResponse.hpp>
+#include <alibabacloud/models/ListReportTemplatesRequest.hpp>
+#include <alibabacloud/models/ListReportTemplatesResponseBody.hpp>
+#include <alibabacloud/models/ListReportTemplatesResponse.hpp>
 #include <alibabacloud/models/ListResourceEvaluationResultsRequest.hpp>
 #include <alibabacloud/models/ListResourceEvaluationResultsResponseBody.hpp>
 #include <alibabacloud/models/ListResourceEvaluationResultsResponse.hpp>
@@ -471,5 +481,9 @@
 #include <alibabacloud/models/UpdateRemediationRequest.hpp>
 #include <alibabacloud/models/UpdateRemediationResponseBody.hpp>
 #include <alibabacloud/models/UpdateRemediationResponse.hpp>
+#include <alibabacloud/models/UpdateReportTemplateRequest.hpp>
+#include <alibabacloud/models/UpdateReportTemplateShrinkRequest.hpp>
+#include <alibabacloud/models/UpdateReportTemplateResponseBody.hpp>
+#include <alibabacloud/models/UpdateReportTemplateResponse.hpp>
 
 #endif
