@@ -14,10 +14,12 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DescribeHeadersResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(CustomHeader, customHeader_);
+      DARABONBA_PTR_TO_JSON(EmbeddedHeaders, embeddedHeaders_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeHeadersResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(CustomHeader, customHeader_);
+      DARABONBA_PTR_FROM_JSON(EmbeddedHeaders, embeddedHeaders_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
     };
     DescribeHeadersResponseBody() = default ;
@@ -76,7 +78,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->customHeader_ == nullptr
-        && this->requestId_ == nullptr; };
+        && this->embeddedHeaders_ == nullptr && this->requestId_ == nullptr; };
     // customHeader Field Functions 
     bool hasCustomHeader() const { return this->customHeader_ != nullptr;};
     void deleteCustomHeader() { this->customHeader_ = nullptr;};
@@ -84,6 +86,13 @@ namespace Models
     inline DescribeHeadersResponseBody::CustomHeader getCustomHeader() { DARABONBA_PTR_GET(customHeader_, DescribeHeadersResponseBody::CustomHeader) };
     inline DescribeHeadersResponseBody& setCustomHeader(const DescribeHeadersResponseBody::CustomHeader & customHeader) { DARABONBA_PTR_SET_VALUE(customHeader_, customHeader) };
     inline DescribeHeadersResponseBody& setCustomHeader(DescribeHeadersResponseBody::CustomHeader && customHeader) { DARABONBA_PTR_SET_RVALUE(customHeader_, customHeader) };
+
+
+    // embeddedHeaders Field Functions 
+    bool hasEmbeddedHeaders() const { return this->embeddedHeaders_ != nullptr;};
+    void deleteEmbeddedHeaders() { this->embeddedHeaders_ = nullptr;};
+    inline string getEmbeddedHeaders() const { DARABONBA_PTR_GET_DEFAULT(embeddedHeaders_, "") };
+    inline DescribeHeadersResponseBody& setEmbeddedHeaders(string embeddedHeaders) { DARABONBA_PTR_SET_VALUE(embeddedHeaders_, embeddedHeaders) };
 
 
     // requestId Field Functions 
@@ -96,6 +105,7 @@ namespace Models
   protected:
     // The information about the custom header.
     shared_ptr<DescribeHeadersResponseBody::CustomHeader> customHeader_ {};
+    shared_ptr<string> embeddedHeaders_ {};
     // The ID of the request, which is used to locate and troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };

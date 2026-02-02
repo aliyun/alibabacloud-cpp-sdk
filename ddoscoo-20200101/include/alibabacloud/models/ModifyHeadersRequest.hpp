@@ -15,11 +15,13 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ModifyHeadersRequest& obj) { 
       DARABONBA_PTR_TO_JSON(CustomHeaders, customHeaders_);
       DARABONBA_PTR_TO_JSON(Domain, domain_);
+      DARABONBA_PTR_TO_JSON(EmbeddedHeaders, embeddedHeaders_);
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyHeadersRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CustomHeaders, customHeaders_);
       DARABONBA_PTR_FROM_JSON(Domain, domain_);
+      DARABONBA_PTR_FROM_JSON(EmbeddedHeaders, embeddedHeaders_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
     };
     ModifyHeadersRequest() = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->customHeaders_ == nullptr
-        && this->domain_ == nullptr && this->resourceGroupId_ == nullptr; };
+        && this->domain_ == nullptr && this->embeddedHeaders_ == nullptr && this->resourceGroupId_ == nullptr; };
     // customHeaders Field Functions 
     bool hasCustomHeaders() const { return this->customHeaders_ != nullptr;};
     void deleteCustomHeaders() { this->customHeaders_ = nullptr;};
@@ -47,6 +49,13 @@ namespace Models
     void deleteDomain() { this->domain_ = nullptr;};
     inline string getDomain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
     inline ModifyHeadersRequest& setDomain(string domain) { DARABONBA_PTR_SET_VALUE(domain_, domain) };
+
+
+    // embeddedHeaders Field Functions 
+    bool hasEmbeddedHeaders() const { return this->embeddedHeaders_ != nullptr;};
+    void deleteEmbeddedHeaders() { this->embeddedHeaders_ = nullptr;};
+    inline string getEmbeddedHeaders() const { DARABONBA_PTR_GET_DEFAULT(embeddedHeaders_, "") };
+    inline ModifyHeadersRequest& setEmbeddedHeaders(string embeddedHeaders) { DARABONBA_PTR_SET_VALUE(embeddedHeaders_, embeddedHeaders) };
 
 
     // resourceGroupId Field Functions 
@@ -79,6 +88,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> domain_ {};
+    shared_ptr<string> embeddedHeaders_ {};
     // The ID of the resource group to which the instance belongs.
     // 
     // > 

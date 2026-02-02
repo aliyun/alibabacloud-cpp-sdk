@@ -8731,6 +8731,10 @@ ModifyHeadersResponse Client::modifyHeadersWithOptions(const ModifyHeadersReques
     query["Domain"] = request.getDomain();
   }
 
+  if (!!request.hasEmbeddedHeaders()) {
+    query["EmbeddedHeaders"] = request.getEmbeddedHeaders();
+  }
+
   if (!!request.hasResourceGroupId()) {
     query["ResourceGroupId"] = request.getResourceGroupId();
   }
