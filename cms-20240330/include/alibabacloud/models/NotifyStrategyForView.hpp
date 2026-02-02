@@ -74,13 +74,17 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Routes& obj) { 
         DARABONBA_PTR_TO_JSON(channels, channels_);
+        DARABONBA_PTR_TO_JSON(digitalEmployeeName, digitalEmployeeName_);
         DARABONBA_PTR_TO_JSON(effectTimeRange, effectTimeRange_);
+        DARABONBA_PTR_TO_JSON(enableRca, enableRca_);
         DARABONBA_PTR_TO_JSON(filterSetting, filterSetting_);
         DARABONBA_PTR_TO_JSON(severities, severities_);
       };
       friend void from_json(const Darabonba::Json& j, Routes& obj) { 
         DARABONBA_PTR_FROM_JSON(channels, channels_);
+        DARABONBA_PTR_FROM_JSON(digitalEmployeeName, digitalEmployeeName_);
         DARABONBA_PTR_FROM_JSON(effectTimeRange, effectTimeRange_);
+        DARABONBA_PTR_FROM_JSON(enableRca, enableRca_);
         DARABONBA_PTR_FROM_JSON(filterSetting, filterSetting_);
         DARABONBA_PTR_FROM_JSON(severities, severities_);
       };
@@ -218,7 +222,7 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->channels_ == nullptr
-        && this->effectTimeRange_ == nullptr && this->filterSetting_ == nullptr && this->severities_ == nullptr; };
+        && this->digitalEmployeeName_ == nullptr && this->effectTimeRange_ == nullptr && this->enableRca_ == nullptr && this->filterSetting_ == nullptr && this->severities_ == nullptr; };
       // channels Field Functions 
       bool hasChannels() const { return this->channels_ != nullptr;};
       void deleteChannels() { this->channels_ = nullptr;};
@@ -228,6 +232,13 @@ namespace Models
       inline Routes& setChannels(vector<Routes::Channels> && channels) { DARABONBA_PTR_SET_RVALUE(channels_, channels) };
 
 
+      // digitalEmployeeName Field Functions 
+      bool hasDigitalEmployeeName() const { return this->digitalEmployeeName_ != nullptr;};
+      void deleteDigitalEmployeeName() { this->digitalEmployeeName_ = nullptr;};
+      inline string getDigitalEmployeeName() const { DARABONBA_PTR_GET_DEFAULT(digitalEmployeeName_, "") };
+      inline Routes& setDigitalEmployeeName(string digitalEmployeeName) { DARABONBA_PTR_SET_VALUE(digitalEmployeeName_, digitalEmployeeName) };
+
+
       // effectTimeRange Field Functions 
       bool hasEffectTimeRange() const { return this->effectTimeRange_ != nullptr;};
       void deleteEffectTimeRange() { this->effectTimeRange_ = nullptr;};
@@ -235,6 +246,13 @@ namespace Models
       inline Routes::EffectTimeRange getEffectTimeRange() { DARABONBA_PTR_GET(effectTimeRange_, Routes::EffectTimeRange) };
       inline Routes& setEffectTimeRange(const Routes::EffectTimeRange & effectTimeRange) { DARABONBA_PTR_SET_VALUE(effectTimeRange_, effectTimeRange) };
       inline Routes& setEffectTimeRange(Routes::EffectTimeRange && effectTimeRange) { DARABONBA_PTR_SET_RVALUE(effectTimeRange_, effectTimeRange) };
+
+
+      // enableRca Field Functions 
+      bool hasEnableRca() const { return this->enableRca_ != nullptr;};
+      void deleteEnableRca() { this->enableRca_ = nullptr;};
+      inline bool getEnableRca() const { DARABONBA_PTR_GET_DEFAULT(enableRca_, false) };
+      inline Routes& setEnableRca(bool enableRca) { DARABONBA_PTR_SET_VALUE(enableRca_, enableRca) };
 
 
       // filterSetting Field Functions 
@@ -257,7 +275,9 @@ namespace Models
 
     protected:
       shared_ptr<vector<Routes::Channels>> channels_ {};
+      shared_ptr<string> digitalEmployeeName_ {};
       shared_ptr<Routes::EffectTimeRange> effectTimeRange_ {};
+      shared_ptr<bool> enableRca_ {};
       shared_ptr<FilterSetting> filterSetting_ {};
       shared_ptr<vector<string>> severities_ {};
     };

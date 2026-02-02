@@ -248,6 +248,7 @@
 #include <alibabacloud/models/ListBizTracesResponseBody.hpp>
 #include <alibabacloud/models/ListBizTracesResponse.hpp>
 #include <alibabacloud/models/ListDigitalEmployeesRequest.hpp>
+#include <alibabacloud/models/ListDigitalEmployeesShrinkRequest.hpp>
 #include <alibabacloud/models/ListDigitalEmployeesResponseBody.hpp>
 #include <alibabacloud/models/ListDigitalEmployeesResponse.hpp>
 #include <alibabacloud/models/ListIntegrationPoliciesRequest.hpp>

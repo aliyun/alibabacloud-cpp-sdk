@@ -1223,12 +1223,12 @@ namespace Cms20240330
       /**
        * @summary 列出资源DigitalEmployee
        *
-       * @param request ListDigitalEmployeesRequest
+       * @param tmpReq ListDigitalEmployeesRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListDigitalEmployeesResponse
        */
-      Models::ListDigitalEmployeesResponse listDigitalEmployeesWithOptions(const Models::ListDigitalEmployeesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::ListDigitalEmployeesResponse listDigitalEmployeesWithOptions(const Models::ListDigitalEmployeesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 列出资源DigitalEmployee

@@ -4,6 +4,7 @@
 #include <darabonba/Core.hpp>
 #include <vector>
 #include <alibabacloud/models/FilterSetting.hpp>
+#include <alibabacloud/models/WorkspaceFilterSetting.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(updateTime, updateTime_);
       DARABONBA_PTR_TO_JSON(userId, userId_);
       DARABONBA_PTR_TO_JSON(workspace, workspace_);
+      DARABONBA_PTR_TO_JSON(workspaceFilterSetting, workspaceFilterSetting_);
     };
     friend void from_json(const Darabonba::Json& j, SubscriptionForView& obj) { 
       DARABONBA_PTR_FROM_JSON(createTime, createTime_);
@@ -41,6 +43,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(updateTime, updateTime_);
       DARABONBA_PTR_FROM_JSON(userId, userId_);
       DARABONBA_PTR_FROM_JSON(workspace, workspace_);
+      DARABONBA_PTR_FROM_JSON(workspaceFilterSetting, workspaceFilterSetting_);
     };
     SubscriptionForView() = default ;
     SubscriptionForView(const SubscriptionForView &) = default ;
@@ -122,7 +125,7 @@ namespace Models
     virtual bool empty() const override { return this->createTime_ == nullptr
         && this->description_ == nullptr && this->enable_ == nullptr && this->filterSetting_ == nullptr && this->notifyStrategyId_ == nullptr && this->pushingSetting_ == nullptr
         && this->subscriptionId_ == nullptr && this->subscriptionName_ == nullptr && this->syncFromType_ == nullptr && this->updateTime_ == nullptr && this->userId_ == nullptr
-        && this->workspace_ == nullptr; };
+        && this->workspace_ == nullptr && this->workspaceFilterSetting_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -211,6 +214,15 @@ namespace Models
     inline SubscriptionForView& setWorkspace(string workspace) { DARABONBA_PTR_SET_VALUE(workspace_, workspace) };
 
 
+    // workspaceFilterSetting Field Functions 
+    bool hasWorkspaceFilterSetting() const { return this->workspaceFilterSetting_ != nullptr;};
+    void deleteWorkspaceFilterSetting() { this->workspaceFilterSetting_ = nullptr;};
+    inline const WorkspaceFilterSetting & getWorkspaceFilterSetting() const { DARABONBA_PTR_GET_CONST(workspaceFilterSetting_, WorkspaceFilterSetting) };
+    inline WorkspaceFilterSetting getWorkspaceFilterSetting() { DARABONBA_PTR_GET(workspaceFilterSetting_, WorkspaceFilterSetting) };
+    inline SubscriptionForView& setWorkspaceFilterSetting(const WorkspaceFilterSetting & workspaceFilterSetting) { DARABONBA_PTR_SET_VALUE(workspaceFilterSetting_, workspaceFilterSetting) };
+    inline SubscriptionForView& setWorkspaceFilterSetting(WorkspaceFilterSetting && workspaceFilterSetting) { DARABONBA_PTR_SET_RVALUE(workspaceFilterSetting_, workspaceFilterSetting) };
+
+
   protected:
     shared_ptr<string> createTime_ {};
     shared_ptr<string> description_ {};
@@ -225,6 +237,7 @@ namespace Models
     shared_ptr<string> updateTime_ {};
     shared_ptr<string> userId_ {};
     shared_ptr<string> workspace_ {};
+    shared_ptr<WorkspaceFilterSetting> workspaceFilterSetting_ {};
   };
 
   } // namespace Models

@@ -606,8 +606,16 @@ CreateDigitalEmployeeResponse Client::createDigitalEmployeeWithOptions(const Cre
     body["name"] = request.getName();
   }
 
+  if (!!request.hasResourceGroupId()) {
+    body["resourceGroupId"] = request.getResourceGroupId();
+  }
+
   if (!!request.hasRoleArn()) {
     body["roleArn"] = request.getRoleArn();
+  }
+
+  if (!!request.hasTags()) {
+    body["tags"] = request.getTags();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3402,13 +3410,19 @@ ListBizTracesResponse Client::listBizTraces(const ListBizTracesRequest &request)
 /**
  * @summary 列出资源DigitalEmployee
  *
- * @param request ListDigitalEmployeesRequest
+ * @param tmpReq ListDigitalEmployeesRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListDigitalEmployeesResponse
  */
-ListDigitalEmployeesResponse Client::listDigitalEmployeesWithOptions(const ListDigitalEmployeesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+ListDigitalEmployeesResponse Client::listDigitalEmployeesWithOptions(const ListDigitalEmployeesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListDigitalEmployeesShrinkRequest request = ListDigitalEmployeesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasTags()) {
+    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTags(), "tags", "json"));
+  }
+
   json query = {};
   if (!!request.hasDisplayName()) {
     query["displayName"] = request.getDisplayName();
@@ -3428,6 +3442,14 @@ ListDigitalEmployeesResponse Client::listDigitalEmployeesWithOptions(const ListD
 
   if (!!request.hasNextToken()) {
     query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["resourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasTagsShrink()) {
+    query["tags"] = request.getTagsShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
