@@ -82,6 +82,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(id, id_);
           DARABONBA_PTR_TO_JSON(intentCode, intentCode_);
           DARABONBA_PTR_TO_JSON(intentName, intentName_);
+          DARABONBA_PTR_TO_JSON(recordId, recordId_);
           DARABONBA_PTR_TO_JSON(role, role_);
           DARABONBA_PTR_TO_JSON(type, type_);
         };
@@ -94,6 +95,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(id, id_);
           DARABONBA_PTR_FROM_JSON(intentCode, intentCode_);
           DARABONBA_PTR_FROM_JSON(intentName, intentName_);
+          DARABONBA_PTR_FROM_JSON(recordId, recordId_);
           DARABONBA_PTR_FROM_JSON(role, role_);
           DARABONBA_PTR_FROM_JSON(type, type_);
         };
@@ -110,7 +112,7 @@ namespace Models
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->content_ == nullptr
         && this->customerId_ == nullptr && this->customerServiceId_ == nullptr && this->customerServiceType_ == nullptr && this->hangUpDialog_ == nullptr && this->id_ == nullptr
-        && this->intentCode_ == nullptr && this->intentName_ == nullptr && this->role_ == nullptr && this->type_ == nullptr; };
+        && this->intentCode_ == nullptr && this->intentName_ == nullptr && this->recordId_ == nullptr && this->role_ == nullptr && this->type_ == nullptr; };
         // content Field Functions 
         bool hasContent() const { return this->content_ != nullptr;};
         void deleteContent() { this->content_ = nullptr;};
@@ -167,6 +169,13 @@ namespace Models
         inline DialogueList& setIntentName(string intentName) { DARABONBA_PTR_SET_VALUE(intentName_, intentName) };
 
 
+        // recordId Field Functions 
+        bool hasRecordId() const { return this->recordId_ != nullptr;};
+        void deleteRecordId() { this->recordId_ = nullptr;};
+        inline string getRecordId() const { DARABONBA_PTR_GET_DEFAULT(recordId_, "") };
+        inline DialogueList& setRecordId(string recordId) { DARABONBA_PTR_SET_VALUE(recordId_, recordId) };
+
+
         // role Field Functions 
         bool hasRole() const { return this->role_ != nullptr;};
         void deleteRole() { this->role_ = nullptr;};
@@ -190,6 +199,7 @@ namespace Models
         shared_ptr<int64_t> id_ {};
         shared_ptr<string> intentCode_ {};
         shared_ptr<string> intentName_ {};
+        shared_ptr<string> recordId_ {};
         shared_ptr<string> role_ {};
         shared_ptr<string> type_ {};
       };
