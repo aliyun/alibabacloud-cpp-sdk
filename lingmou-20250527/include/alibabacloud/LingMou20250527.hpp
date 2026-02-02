@@ -129,7 +129,7 @@ namespace LingMou20250527
       Models::CreateChatConfigResponse createChatConfig(const Models::CreateChatConfigRequest &request);
 
       /**
-       * @summary 创建数字人会话
+       * @summary 创建实时数字人会话。
        *
        * @param request CreateChatSessionRequest
        * @param headers map
@@ -139,7 +139,7 @@ namespace LingMou20250527
       Models::CreateChatSessionResponse createChatSessionWithOptions(const string &id, const Models::CreateChatSessionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建数字人会话
+       * @summary 创建实时数字人会话。
        *
        * @param request CreateChatSessionRequest
        * @return CreateChatSessionResponse

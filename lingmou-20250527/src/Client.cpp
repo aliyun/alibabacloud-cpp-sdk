@@ -341,7 +341,7 @@ CreateChatConfigResponse Client::createChatConfig(const CreateChatConfigRequest 
 }
 
 /**
- * @summary 创建数字人会话
+ * @summary 创建实时数字人会话。
  *
  * @param request CreateChatSessionRequest
  * @param headers map
@@ -382,7 +382,7 @@ CreateChatSessionResponse Client::createChatSessionWithOptions(const string &id,
 }
 
 /**
- * @summary 创建数字人会话
+ * @summary 创建实时数字人会话。
  *
  * @param request CreateChatSessionRequest
  * @return CreateChatSessionResponse
@@ -530,6 +530,10 @@ CreateTTSVoiceCustomResponse Client::createTTSVoiceCustom(const CreateTTSVoiceCu
 CreateTrainPicAvatarResponse Client::createTrainPicAvatarWithOptions(const CreateTrainPicAvatarRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasBizType()) {
+    query["bizType"] = request.getBizType();
+  }
+
   if (!!request.hasGender()) {
     query["gender"] = request.getGender();
   }

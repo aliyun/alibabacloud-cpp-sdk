@@ -242,6 +242,7 @@ namespace Models
         shared_ptr<bool> common_ {};
         shared_ptr<string> createTime_ {};
         shared_ptr<string> description_ {};
+        // 错误码。
         shared_ptr<string> errorCode_ {};
         shared_ptr<string> errorDetail_ {};
         shared_ptr<string> gender_ {};

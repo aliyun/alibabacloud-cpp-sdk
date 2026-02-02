@@ -164,14 +164,23 @@ namespace Models
 
 
       protected:
+        // 应用id。
         shared_ptr<string> appId_ {};
+        // 数字人侧用户ID。
         shared_ptr<string> avatarUserId_ {};
+        // RTC通道ID。
         shared_ptr<string> channel_ {};
+        // 客户端侧用户ID。
         shared_ptr<string> clientUserId_ {};
+        // RTC服务地址。
         shared_ptr<string> gslb_ {};
+        // 随机串。
         shared_ptr<string> nonce_ {};
+        // 服务端侧用户ID。
         shared_ptr<string> serverUserId_ {};
+        // 过期时间戳。
         shared_ptr<int64_t> timestamp_ {};
+        // 访问凭证token。
         shared_ptr<string> token_ {};
       };
 
@@ -240,10 +249,15 @@ namespace Models
 
 
       protected:
+        // 资产MD5值。
         shared_ptr<string> md5_ {};
+        // 支持的SDK最低版本。
         shared_ptr<string> minRequiredVersion_ {};
+        // SDK使用的密钥。
         shared_ptr<string> secret_ {};
+        // 资产类型。
         shared_ptr<string> type_ {};
+        // 资产下载链接。
         shared_ptr<string> url_ {};
       };
 
@@ -275,8 +289,11 @@ namespace Models
 
 
     protected:
+      // 端渲染数字人资产信息。
       shared_ptr<Data::AvatarAssets> avatarAssets_ {};
+      // RTC入参。
       shared_ptr<Data::RtcParams> rtcParams_ {};
+      // 会话ID
       shared_ptr<string> sessionId_ {};
     };
 
@@ -327,11 +344,17 @@ namespace Models
 
 
   protected:
+    // 响应码。
     shared_ptr<string> code_ {};
+    // 响应数据。
     shared_ptr<CreateChatSessionResponseBody::Data> data_ {};
+    // http响应码
     shared_ptr<int64_t> httpStatusCode_ {};
+    // 状态码描述。
     shared_ptr<string> message_ {};
+    // 请求ID
     shared_ptr<string> requestId_ {};
+    // 请求是否成功
     shared_ptr<bool> success_ {};
   };
 

@@ -13,6 +13,7 @@ namespace Models
   class CreateTrainPicAvatarRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateTrainPicAvatarRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(bizType, bizType_);
       DARABONBA_PTR_TO_JSON(gender, gender_);
       DARABONBA_PTR_TO_JSON(generateAssets, generateAssets_);
       DARABONBA_PTR_TO_JSON(imageOssPath, imageOssPath_);
@@ -21,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(transparent, transparent_);
     };
     friend void from_json(const Darabonba::Json& j, CreateTrainPicAvatarRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(bizType, bizType_);
       DARABONBA_PTR_FROM_JSON(gender, gender_);
       DARABONBA_PTR_FROM_JSON(generateAssets, generateAssets_);
       DARABONBA_PTR_FROM_JSON(imageOssPath, imageOssPath_);
@@ -39,8 +41,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->gender_ == nullptr
-        && this->generateAssets_ == nullptr && this->imageOssPath_ == nullptr && this->name_ == nullptr && this->templateId_ == nullptr && this->transparent_ == nullptr; };
+    virtual bool empty() const override { return this->bizType_ == nullptr
+        && this->gender_ == nullptr && this->generateAssets_ == nullptr && this->imageOssPath_ == nullptr && this->name_ == nullptr && this->templateId_ == nullptr
+        && this->transparent_ == nullptr; };
+    // bizType Field Functions 
+    bool hasBizType() const { return this->bizType_ != nullptr;};
+    void deleteBizType() { this->bizType_ = nullptr;};
+    inline string getBizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
+    inline CreateTrainPicAvatarRequest& setBizType(string bizType) { DARABONBA_PTR_SET_VALUE(bizType_, bizType) };
+
+
     // gender Field Functions 
     bool hasGender() const { return this->gender_ != nullptr;};
     void deleteGender() { this->gender_ = nullptr;};
@@ -84,6 +94,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> bizType_ {};
     // This parameter is required.
     shared_ptr<string> gender_ {};
     shared_ptr<bool> generateAssets_ {};
