@@ -428,11 +428,23 @@ namespace Models
       class Document : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const Document& obj) { 
+          DARABONBA_PTR_TO_JSON(categoryUuid, categoryUuid_);
           DARABONBA_PTR_TO_JSON(docId, docId_);
+          DARABONBA_PTR_TO_JSON(extend1, extend1_);
+          DARABONBA_PTR_TO_JSON(extend2, extend2_);
+          DARABONBA_PTR_TO_JSON(extend3, extend3_);
+          DARABONBA_PTR_TO_JSON(metadata, metadata_);
+          DARABONBA_PTR_TO_JSON(tags, tags_);
           DARABONBA_PTR_TO_JSON(title, title_);
         };
         friend void from_json(const Darabonba::Json& j, Document& obj) { 
+          DARABONBA_PTR_FROM_JSON(categoryUuid, categoryUuid_);
           DARABONBA_PTR_FROM_JSON(docId, docId_);
+          DARABONBA_PTR_FROM_JSON(extend1, extend1_);
+          DARABONBA_PTR_FROM_JSON(extend2, extend2_);
+          DARABONBA_PTR_FROM_JSON(extend3, extend3_);
+          DARABONBA_PTR_FROM_JSON(metadata, metadata_);
+          DARABONBA_PTR_FROM_JSON(tags, tags_);
           DARABONBA_PTR_FROM_JSON(title, title_);
         };
         Document() = default ;
@@ -446,13 +458,135 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->docId_ == nullptr
-        && this->title_ == nullptr; };
+        class Metadata : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const Metadata& obj) { 
+            DARABONBA_PTR_TO_JSON(keyValues, keyValues_);
+          };
+          friend void from_json(const Darabonba::Json& j, Metadata& obj) { 
+            DARABONBA_PTR_FROM_JSON(keyValues, keyValues_);
+          };
+          Metadata() = default ;
+          Metadata(const Metadata &) = default ;
+          Metadata(Metadata &&) = default ;
+          Metadata(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~Metadata() = default ;
+          Metadata& operator=(const Metadata &) = default ;
+          Metadata& operator=(Metadata &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          class KeyValues : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const KeyValues& obj) { 
+              DARABONBA_PTR_TO_JSON(key, key_);
+              DARABONBA_PTR_TO_JSON(value, value_);
+            };
+            friend void from_json(const Darabonba::Json& j, KeyValues& obj) { 
+              DARABONBA_PTR_FROM_JSON(key, key_);
+              DARABONBA_PTR_FROM_JSON(value, value_);
+            };
+            KeyValues() = default ;
+            KeyValues(const KeyValues &) = default ;
+            KeyValues(KeyValues &&) = default ;
+            KeyValues(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~KeyValues() = default ;
+            KeyValues& operator=(const KeyValues &) = default ;
+            KeyValues& operator=(KeyValues &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+            // key Field Functions 
+            bool hasKey() const { return this->key_ != nullptr;};
+            void deleteKey() { this->key_ = nullptr;};
+            inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+            inline KeyValues& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+            // value Field Functions 
+            bool hasValue() const { return this->value_ != nullptr;};
+            void deleteValue() { this->value_ = nullptr;};
+            inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+            inline KeyValues& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+          protected:
+            shared_ptr<string> key_ {};
+            shared_ptr<string> value_ {};
+          };
+
+          virtual bool empty() const override { return this->keyValues_ == nullptr; };
+          // keyValues Field Functions 
+          bool hasKeyValues() const { return this->keyValues_ != nullptr;};
+          void deleteKeyValues() { this->keyValues_ = nullptr;};
+          inline const vector<Metadata::KeyValues> & getKeyValues() const { DARABONBA_PTR_GET_CONST(keyValues_, vector<Metadata::KeyValues>) };
+          inline vector<Metadata::KeyValues> getKeyValues() { DARABONBA_PTR_GET(keyValues_, vector<Metadata::KeyValues>) };
+          inline Metadata& setKeyValues(const vector<Metadata::KeyValues> & keyValues) { DARABONBA_PTR_SET_VALUE(keyValues_, keyValues) };
+          inline Metadata& setKeyValues(vector<Metadata::KeyValues> && keyValues) { DARABONBA_PTR_SET_RVALUE(keyValues_, keyValues) };
+
+
+        protected:
+          shared_ptr<vector<Metadata::KeyValues>> keyValues_ {};
+        };
+
+        virtual bool empty() const override { return this->categoryUuid_ == nullptr
+        && this->docId_ == nullptr && this->extend1_ == nullptr && this->extend2_ == nullptr && this->extend3_ == nullptr && this->metadata_ == nullptr
+        && this->tags_ == nullptr && this->title_ == nullptr; };
+        // categoryUuid Field Functions 
+        bool hasCategoryUuid() const { return this->categoryUuid_ != nullptr;};
+        void deleteCategoryUuid() { this->categoryUuid_ = nullptr;};
+        inline string getCategoryUuid() const { DARABONBA_PTR_GET_DEFAULT(categoryUuid_, "") };
+        inline Document& setCategoryUuid(string categoryUuid) { DARABONBA_PTR_SET_VALUE(categoryUuid_, categoryUuid) };
+
+
         // docId Field Functions 
         bool hasDocId() const { return this->docId_ != nullptr;};
         void deleteDocId() { this->docId_ = nullptr;};
         inline string getDocId() const { DARABONBA_PTR_GET_DEFAULT(docId_, "") };
         inline Document& setDocId(string docId) { DARABONBA_PTR_SET_VALUE(docId_, docId) };
+
+
+        // extend1 Field Functions 
+        bool hasExtend1() const { return this->extend1_ != nullptr;};
+        void deleteExtend1() { this->extend1_ = nullptr;};
+        inline string getExtend1() const { DARABONBA_PTR_GET_DEFAULT(extend1_, "") };
+        inline Document& setExtend1(string extend1) { DARABONBA_PTR_SET_VALUE(extend1_, extend1) };
+
+
+        // extend2 Field Functions 
+        bool hasExtend2() const { return this->extend2_ != nullptr;};
+        void deleteExtend2() { this->extend2_ = nullptr;};
+        inline string getExtend2() const { DARABONBA_PTR_GET_DEFAULT(extend2_, "") };
+        inline Document& setExtend2(string extend2) { DARABONBA_PTR_SET_VALUE(extend2_, extend2) };
+
+
+        // extend3 Field Functions 
+        bool hasExtend3() const { return this->extend3_ != nullptr;};
+        void deleteExtend3() { this->extend3_ = nullptr;};
+        inline string getExtend3() const { DARABONBA_PTR_GET_DEFAULT(extend3_, "") };
+        inline Document& setExtend3(string extend3) { DARABONBA_PTR_SET_VALUE(extend3_, extend3) };
+
+
+        // metadata Field Functions 
+        bool hasMetadata() const { return this->metadata_ != nullptr;};
+        void deleteMetadata() { this->metadata_ = nullptr;};
+        inline const Document::Metadata & getMetadata() const { DARABONBA_PTR_GET_CONST(metadata_, Document::Metadata) };
+        inline Document::Metadata getMetadata() { DARABONBA_PTR_GET(metadata_, Document::Metadata) };
+        inline Document& setMetadata(const Document::Metadata & metadata) { DARABONBA_PTR_SET_VALUE(metadata_, metadata) };
+        inline Document& setMetadata(Document::Metadata && metadata) { DARABONBA_PTR_SET_RVALUE(metadata_, metadata) };
+
+
+        // tags Field Functions 
+        bool hasTags() const { return this->tags_ != nullptr;};
+        void deleteTags() { this->tags_ = nullptr;};
+        inline const vector<string> & getTags() const { DARABONBA_PTR_GET_CONST(tags_, vector<string>) };
+        inline vector<string> getTags() { DARABONBA_PTR_GET(tags_, vector<string>) };
+        inline Document& setTags(const vector<string> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+        inline Document& setTags(vector<string> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
 
 
         // title Field Functions 
@@ -463,7 +597,13 @@ namespace Models
 
 
       protected:
+        shared_ptr<string> categoryUuid_ {};
         shared_ptr<string> docId_ {};
+        shared_ptr<string> extend1_ {};
+        shared_ptr<string> extend2_ {};
+        shared_ptr<string> extend3_ {};
+        shared_ptr<Document::Metadata> metadata_ {};
+        shared_ptr<vector<string>> tags_ {};
         shared_ptr<string> title_ {};
       };
 
