@@ -103,6 +103,10 @@ AssociatePrincipalWithPortfolioResponse Client::associatePrincipalWithPortfolioW
     body["PrincipalId"] = request.getPrincipalId();
   }
 
+  if (!!request.hasPrincipalPattern()) {
+    body["PrincipalPattern"] = request.getPrincipalPattern();
+  }
+
   if (!!request.hasPrincipalType()) {
     body["PrincipalType"] = request.getPrincipalType();
   }
@@ -1057,6 +1061,10 @@ DisassociatePrincipalFromPortfolioResponse Client::disassociatePrincipalFromPort
 
   if (!!request.hasPrincipalId()) {
     body["PrincipalId"] = request.getPrincipalId();
+  }
+
+  if (!!request.hasPrincipalPattern()) {
+    body["PrincipalPattern"] = request.getPrincipalPattern();
   }
 
   if (!!request.hasPrincipalType()) {

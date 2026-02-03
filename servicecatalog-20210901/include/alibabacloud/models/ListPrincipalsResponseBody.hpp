@@ -36,10 +36,12 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Principals& obj) { 
         DARABONBA_PTR_TO_JSON(PrincipalId, principalId_);
+        DARABONBA_PTR_TO_JSON(PrincipalPattern, principalPattern_);
         DARABONBA_PTR_TO_JSON(PrincipalType, principalType_);
       };
       friend void from_json(const Darabonba::Json& j, Principals& obj) { 
         DARABONBA_PTR_FROM_JSON(PrincipalId, principalId_);
+        DARABONBA_PTR_FROM_JSON(PrincipalPattern, principalPattern_);
         DARABONBA_PTR_FROM_JSON(PrincipalType, principalType_);
       };
       Principals() = default ;
@@ -54,12 +56,19 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->principalId_ == nullptr
-        && this->principalType_ == nullptr; };
+        && this->principalPattern_ == nullptr && this->principalType_ == nullptr; };
       // principalId Field Functions 
       bool hasPrincipalId() const { return this->principalId_ != nullptr;};
       void deletePrincipalId() { this->principalId_ = nullptr;};
       inline string getPrincipalId() const { DARABONBA_PTR_GET_DEFAULT(principalId_, "") };
       inline Principals& setPrincipalId(string principalId) { DARABONBA_PTR_SET_VALUE(principalId_, principalId) };
+
+
+      // principalPattern Field Functions 
+      bool hasPrincipalPattern() const { return this->principalPattern_ != nullptr;};
+      void deletePrincipalPattern() { this->principalPattern_ = nullptr;};
+      inline string getPrincipalPattern() const { DARABONBA_PTR_GET_DEFAULT(principalPattern_, "") };
+      inline Principals& setPrincipalPattern(string principalPattern) { DARABONBA_PTR_SET_VALUE(principalPattern_, principalPattern) };
 
 
       // principalType Field Functions 
@@ -72,6 +81,7 @@ namespace Models
     protected:
       // The ID of the RAM entity.
       shared_ptr<string> principalId_ {};
+      shared_ptr<string> principalPattern_ {};
       // The type of the RAM entity. Valid values:
       // 
       // *   RamUser: a RAM user

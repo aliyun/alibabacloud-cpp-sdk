@@ -14,6 +14,7 @@ namespace Models
   class ListTagOptionsResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListTagOptionsResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
@@ -21,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TotalCount, totalCount_);
     };
     friend void from_json(const Darabonba::Json& j, ListTagOptionsResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
@@ -118,8 +120,15 @@ namespace Models
       shared_ptr<string> value_ {};
     };
 
-    virtual bool empty() const override { return this->pageNumber_ == nullptr
-        && this->pageSize_ == nullptr && this->requestId_ == nullptr && this->tagOptionDetails_ == nullptr && this->totalCount_ == nullptr; };
+    virtual bool empty() const override { return this->nextToken_ == nullptr
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->requestId_ == nullptr && this->tagOptionDetails_ == nullptr && this->totalCount_ == nullptr; };
+    // nextToken Field Functions 
+    bool hasNextToken() const { return this->nextToken_ != nullptr;};
+    void deleteNextToken() { this->nextToken_ = nullptr;};
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline ListTagOptionsResponseBody& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
+
+
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
@@ -158,6 +167,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> nextToken_ {};
     // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries returned per page.
