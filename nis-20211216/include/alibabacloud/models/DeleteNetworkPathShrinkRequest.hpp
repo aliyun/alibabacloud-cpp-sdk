@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->networkPathIdsShrink_ == nullptr
-        && return this->regionId_ == nullptr; };
+        && this->regionId_ == nullptr; };
     // networkPathIdsShrink Field Functions 
     bool hasNetworkPathIdsShrink() const { return this->networkPathIdsShrink_ != nullptr;};
     void deleteNetworkPathIdsShrink() { this->networkPathIdsShrink_ = nullptr;};
-    inline string networkPathIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(networkPathIdsShrink_, "") };
+    inline string getNetworkPathIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(networkPathIdsShrink_, "") };
     inline DeleteNetworkPathShrinkRequest& setNetworkPathIdsShrink(string networkPathIdsShrink) { DARABONBA_PTR_SET_VALUE(networkPathIdsShrink_, networkPathIdsShrink) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteNetworkPathShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -51,9 +51,9 @@ namespace Models
     // The IDs of network paths.
     // 
     // This parameter is required.
-    std::shared_ptr<string> networkPathIdsShrink_ = nullptr;
+    shared_ptr<string> networkPathIdsShrink_ {};
     // The region ID of the network path that you want to delete.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

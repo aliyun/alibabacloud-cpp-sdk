@@ -49,13 +49,13 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountIds_ == nullptr
-        && return this->beginTime_ == nullptr && return this->dimensionsShrink_ == nullptr && return this->endTime_ == nullptr && return this->metricName_ == nullptr && return this->regionNo_ == nullptr
-        && return this->resourceType_ == nullptr && return this->scanBy_ == nullptr && return this->stepMinutes_ == nullptr && return this->useCrossAccount_ == nullptr; };
+        && this->beginTime_ == nullptr && this->dimensionsShrink_ == nullptr && this->endTime_ == nullptr && this->metricName_ == nullptr && this->regionNo_ == nullptr
+        && this->resourceType_ == nullptr && this->scanBy_ == nullptr && this->stepMinutes_ == nullptr && this->useCrossAccount_ == nullptr; };
     // accountIds Field Functions 
     bool hasAccountIds() const { return this->accountIds_ != nullptr;};
     void deleteAccountIds() { this->accountIds_ = nullptr;};
-    inline const vector<string> & accountIds() const { DARABONBA_PTR_GET_CONST(accountIds_, vector<string>) };
-    inline vector<string> accountIds() { DARABONBA_PTR_GET(accountIds_, vector<string>) };
+    inline const vector<string> & getAccountIds() const { DARABONBA_PTR_GET_CONST(accountIds_, vector<string>) };
+    inline vector<string> getAccountIds() { DARABONBA_PTR_GET(accountIds_, vector<string>) };
     inline GetNisNetworkMetricsShrinkRequest& setAccountIds(const vector<string> & accountIds) { DARABONBA_PTR_SET_VALUE(accountIds_, accountIds) };
     inline GetNisNetworkMetricsShrinkRequest& setAccountIds(vector<string> && accountIds) { DARABONBA_PTR_SET_RVALUE(accountIds_, accountIds) };
 
@@ -63,81 +63,81 @@ namespace Models
     // beginTime Field Functions 
     bool hasBeginTime() const { return this->beginTime_ != nullptr;};
     void deleteBeginTime() { this->beginTime_ = nullptr;};
-    inline int64_t beginTime() const { DARABONBA_PTR_GET_DEFAULT(beginTime_, 0L) };
+    inline int64_t getBeginTime() const { DARABONBA_PTR_GET_DEFAULT(beginTime_, 0L) };
     inline GetNisNetworkMetricsShrinkRequest& setBeginTime(int64_t beginTime) { DARABONBA_PTR_SET_VALUE(beginTime_, beginTime) };
 
 
     // dimensionsShrink Field Functions 
     bool hasDimensionsShrink() const { return this->dimensionsShrink_ != nullptr;};
     void deleteDimensionsShrink() { this->dimensionsShrink_ = nullptr;};
-    inline string dimensionsShrink() const { DARABONBA_PTR_GET_DEFAULT(dimensionsShrink_, "") };
+    inline string getDimensionsShrink() const { DARABONBA_PTR_GET_DEFAULT(dimensionsShrink_, "") };
     inline GetNisNetworkMetricsShrinkRequest& setDimensionsShrink(string dimensionsShrink) { DARABONBA_PTR_SET_VALUE(dimensionsShrink_, dimensionsShrink) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline int64_t endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
+    inline int64_t getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
     inline GetNisNetworkMetricsShrinkRequest& setEndTime(int64_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // metricName Field Functions 
     bool hasMetricName() const { return this->metricName_ != nullptr;};
     void deleteMetricName() { this->metricName_ = nullptr;};
-    inline string metricName() const { DARABONBA_PTR_GET_DEFAULT(metricName_, "") };
+    inline string getMetricName() const { DARABONBA_PTR_GET_DEFAULT(metricName_, "") };
     inline GetNisNetworkMetricsShrinkRequest& setMetricName(string metricName) { DARABONBA_PTR_SET_VALUE(metricName_, metricName) };
 
 
     // regionNo Field Functions 
     bool hasRegionNo() const { return this->regionNo_ != nullptr;};
     void deleteRegionNo() { this->regionNo_ = nullptr;};
-    inline string regionNo() const { DARABONBA_PTR_GET_DEFAULT(regionNo_, "") };
+    inline string getRegionNo() const { DARABONBA_PTR_GET_DEFAULT(regionNo_, "") };
     inline GetNisNetworkMetricsShrinkRequest& setRegionNo(string regionNo) { DARABONBA_PTR_SET_VALUE(regionNo_, regionNo) };
 
 
     // resourceType Field Functions 
     bool hasResourceType() const { return this->resourceType_ != nullptr;};
     void deleteResourceType() { this->resourceType_ = nullptr;};
-    inline string resourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
+    inline string getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
     inline GetNisNetworkMetricsShrinkRequest& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
 
 
     // scanBy Field Functions 
     bool hasScanBy() const { return this->scanBy_ != nullptr;};
     void deleteScanBy() { this->scanBy_ = nullptr;};
-    inline string scanBy() const { DARABONBA_PTR_GET_DEFAULT(scanBy_, "") };
+    inline string getScanBy() const { DARABONBA_PTR_GET_DEFAULT(scanBy_, "") };
     inline GetNisNetworkMetricsShrinkRequest& setScanBy(string scanBy) { DARABONBA_PTR_SET_VALUE(scanBy_, scanBy) };
 
 
     // stepMinutes Field Functions 
     bool hasStepMinutes() const { return this->stepMinutes_ != nullptr;};
     void deleteStepMinutes() { this->stepMinutes_ = nullptr;};
-    inline int32_t stepMinutes() const { DARABONBA_PTR_GET_DEFAULT(stepMinutes_, 0) };
+    inline int32_t getStepMinutes() const { DARABONBA_PTR_GET_DEFAULT(stepMinutes_, 0) };
     inline GetNisNetworkMetricsShrinkRequest& setStepMinutes(int32_t stepMinutes) { DARABONBA_PTR_SET_VALUE(stepMinutes_, stepMinutes) };
 
 
     // useCrossAccount Field Functions 
     bool hasUseCrossAccount() const { return this->useCrossAccount_ != nullptr;};
     void deleteUseCrossAccount() { this->useCrossAccount_ = nullptr;};
-    inline bool useCrossAccount() const { DARABONBA_PTR_GET_DEFAULT(useCrossAccount_, false) };
+    inline bool getUseCrossAccount() const { DARABONBA_PTR_GET_DEFAULT(useCrossAccount_, false) };
     inline GetNisNetworkMetricsShrinkRequest& setUseCrossAccount(bool useCrossAccount) { DARABONBA_PTR_SET_VALUE(useCrossAccount_, useCrossAccount) };
 
 
   protected:
-    std::shared_ptr<vector<string>> accountIds_ = nullptr;
-    std::shared_ptr<int64_t> beginTime_ = nullptr;
+    shared_ptr<vector<string>> accountIds_ {};
+    shared_ptr<int64_t> beginTime_ {};
     // This parameter is required.
-    std::shared_ptr<string> dimensionsShrink_ = nullptr;
-    std::shared_ptr<int64_t> endTime_ = nullptr;
+    shared_ptr<string> dimensionsShrink_ {};
+    shared_ptr<int64_t> endTime_ {};
     // This parameter is required.
-    std::shared_ptr<string> metricName_ = nullptr;
+    shared_ptr<string> metricName_ {};
     // This parameter is required.
-    std::shared_ptr<string> regionNo_ = nullptr;
+    shared_ptr<string> regionNo_ {};
     // This parameter is required.
-    std::shared_ptr<string> resourceType_ = nullptr;
-    std::shared_ptr<string> scanBy_ = nullptr;
-    std::shared_ptr<int32_t> stepMinutes_ = nullptr;
-    std::shared_ptr<bool> useCrossAccount_ = nullptr;
+    shared_ptr<string> resourceType_ {};
+    shared_ptr<string> scanBy_ {};
+    shared_ptr<int32_t> stepMinutes_ {};
+    shared_ptr<bool> useCrossAccount_ {};
   };
 
   } // namespace Models

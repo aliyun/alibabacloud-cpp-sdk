@@ -42,54 +42,54 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->beginTime_ == nullptr
-        && return this->endTime_ == nullptr && return this->ip_ == nullptr && return this->natGatewayId_ == nullptr && return this->orderBy_ == nullptr && return this->regionId_ == nullptr
-        && return this->topN_ == nullptr; };
+        && this->endTime_ == nullptr && this->ip_ == nullptr && this->natGatewayId_ == nullptr && this->orderBy_ == nullptr && this->regionId_ == nullptr
+        && this->topN_ == nullptr; };
     // beginTime Field Functions 
     bool hasBeginTime() const { return this->beginTime_ != nullptr;};
     void deleteBeginTime() { this->beginTime_ = nullptr;};
-    inline int64_t beginTime() const { DARABONBA_PTR_GET_DEFAULT(beginTime_, 0L) };
+    inline int64_t getBeginTime() const { DARABONBA_PTR_GET_DEFAULT(beginTime_, 0L) };
     inline GetNatTopNRequest& setBeginTime(int64_t beginTime) { DARABONBA_PTR_SET_VALUE(beginTime_, beginTime) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline int64_t endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
+    inline int64_t getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
     inline GetNatTopNRequest& setEndTime(int64_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // ip Field Functions 
     bool hasIp() const { return this->ip_ != nullptr;};
     void deleteIp() { this->ip_ = nullptr;};
-    inline string ip() const { DARABONBA_PTR_GET_DEFAULT(ip_, "") };
+    inline string getIp() const { DARABONBA_PTR_GET_DEFAULT(ip_, "") };
     inline GetNatTopNRequest& setIp(string ip) { DARABONBA_PTR_SET_VALUE(ip_, ip) };
 
 
     // natGatewayId Field Functions 
     bool hasNatGatewayId() const { return this->natGatewayId_ != nullptr;};
     void deleteNatGatewayId() { this->natGatewayId_ = nullptr;};
-    inline string natGatewayId() const { DARABONBA_PTR_GET_DEFAULT(natGatewayId_, "") };
+    inline string getNatGatewayId() const { DARABONBA_PTR_GET_DEFAULT(natGatewayId_, "") };
     inline GetNatTopNRequest& setNatGatewayId(string natGatewayId) { DARABONBA_PTR_SET_VALUE(natGatewayId_, natGatewayId) };
 
 
     // orderBy Field Functions 
     bool hasOrderBy() const { return this->orderBy_ != nullptr;};
     void deleteOrderBy() { this->orderBy_ = nullptr;};
-    inline string orderBy() const { DARABONBA_PTR_GET_DEFAULT(orderBy_, "") };
+    inline string getOrderBy() const { DARABONBA_PTR_GET_DEFAULT(orderBy_, "") };
     inline GetNatTopNRequest& setOrderBy(string orderBy) { DARABONBA_PTR_SET_VALUE(orderBy_, orderBy) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline GetNatTopNRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // topN Field Functions 
     bool hasTopN() const { return this->topN_ != nullptr;};
     void deleteTopN() { this->topN_ = nullptr;};
-    inline int32_t topN() const { DARABONBA_PTR_GET_DEFAULT(topN_, 0) };
+    inline int32_t getTopN() const { DARABONBA_PTR_GET_DEFAULT(topN_, 0) };
     inline GetNatTopNRequest& setTopN(int32_t topN) { DARABONBA_PTR_SET_VALUE(topN_, topN) };
 
 
@@ -97,15 +97,15 @@ namespace Models
     // The beginning of the time range to query in milliseconds. If you do not specify **EndTime**, the point in time specified by **BeginTime** is queried.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> beginTime_ = nullptr;
+    shared_ptr<int64_t> beginTime_ {};
     // The end of the time range to query in milliseconds. The time range specified by **BeginTime** and **EndTime** cannot exceed **86400000** milliseconds (24 hours).
-    std::shared_ptr<int64_t> endTime_ = nullptr;
+    shared_ptr<int64_t> endTime_ {};
     // Query ranking statistics for a specific IP address. If you specify this parameter, you do not need to specify **TopN** or **OrderBy**.
-    std::shared_ptr<string> ip_ = nullptr;
+    shared_ptr<string> ip_ {};
     // The ID of the NAT gateway.
     // 
     // This parameter is required.
-    std::shared_ptr<string> natGatewayId_ = nullptr;
+    shared_ptr<string> natGatewayId_ {};
     // The metric that is used for real-time SNAT performance ranking. Valid values:
     // 
     // *   **InBps**: inbound data transfer. Unit: bit/s.
@@ -114,11 +114,11 @@ namespace Models
     // *   **OutPps**: outbound packet forwarding rate. Unit: packets per second.
     // *   **NewSessionPerSecond**: new connection creation rate. Unit: connections per second.
     // *   **ActiveSessionCount**: number of concurrent connections. Unit: connections.
-    std::shared_ptr<string> orderBy_ = nullptr;
+    shared_ptr<string> orderBy_ {};
     // The ID of the region in which the NAT gateway is deployed.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The number of entries to return for real-time SNAT performance ranking. Valid values: **1 to 100**. Default value: **10**.
-    std::shared_ptr<int32_t> topN_ = nullptr;
+    shared_ptr<int32_t> topN_ {};
   };
 
   } // namespace Models

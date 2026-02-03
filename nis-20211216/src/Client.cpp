@@ -91,59 +91,59 @@ CreateNetworkPathResponse Client::createNetworkPathWithOptions(const CreateNetwo
   request.validate();
   json query = {};
   if (!!request.hasNetworkPathDescription()) {
-    query["NetworkPathDescription"] = request.networkPathDescription();
+    query["NetworkPathDescription"] = request.getNetworkPathDescription();
   }
 
   if (!!request.hasNetworkPathName()) {
-    query["NetworkPathName"] = request.networkPathName();
+    query["NetworkPathName"] = request.getNetworkPathName();
   }
 
   if (!!request.hasProtocol()) {
-    query["Protocol"] = request.protocol();
+    query["Protocol"] = request.getProtocol();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasSourceId()) {
-    query["SourceId"] = request.sourceId();
+    query["SourceId"] = request.getSourceId();
   }
 
   if (!!request.hasSourceIpAddress()) {
-    query["SourceIpAddress"] = request.sourceIpAddress();
+    query["SourceIpAddress"] = request.getSourceIpAddress();
   }
 
   if (!!request.hasSourcePort()) {
-    query["SourcePort"] = request.sourcePort();
+    query["SourcePort"] = request.getSourcePort();
   }
 
   if (!!request.hasSourceType()) {
-    query["SourceType"] = request.sourceType();
+    query["SourceType"] = request.getSourceType();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   if (!!request.hasTargetId()) {
-    query["TargetId"] = request.targetId();
+    query["TargetId"] = request.getTargetId();
   }
 
   if (!!request.hasTargetIpAddress()) {
-    query["TargetIpAddress"] = request.targetIpAddress();
+    query["TargetIpAddress"] = request.getTargetIpAddress();
   }
 
   if (!!request.hasTargetPort()) {
-    query["TargetPort"] = request.targetPort();
+    query["TargetPort"] = request.getTargetPort();
   }
 
   if (!!request.hasTargetType()) {
-    query["TargetType"] = request.targetType();
+    query["TargetType"] = request.getTargetType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -192,15 +192,15 @@ CreateNetworkReachableAnalysisResponse Client::createNetworkReachableAnalysisWit
   request.validate();
   json query = {};
   if (!!request.hasNetworkPathId()) {
-    query["NetworkPathId"] = request.networkPathId();
+    query["NetworkPathId"] = request.getNetworkPathId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -247,16 +247,16 @@ DeleteNetworkPathResponse Client::deleteNetworkPathWithOptions(const DeleteNetwo
   DeleteNetworkPathShrinkRequest request = DeleteNetworkPathShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasNetworkPathIds()) {
-    request.setNetworkPathIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.networkPathIds(), "NetworkPathIds", "json"));
+    request.setNetworkPathIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNetworkPathIds(), "NetworkPathIds", "json"));
   }
 
   json query = {};
   if (!!request.hasNetworkPathIdsShrink()) {
-    query["NetworkPathIds"] = request.networkPathIdsShrink();
+    query["NetworkPathIds"] = request.getNetworkPathIdsShrink();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -299,16 +299,16 @@ DeleteNetworkReachableAnalysisResponse Client::deleteNetworkReachableAnalysisWit
   DeleteNetworkReachableAnalysisShrinkRequest request = DeleteNetworkReachableAnalysisShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasNetworkReachableAnalysisIds()) {
-    request.setNetworkReachableAnalysisIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.networkReachableAnalysisIds(), "NetworkReachableAnalysisIds", "json"));
+    request.setNetworkReachableAnalysisIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNetworkReachableAnalysisIds(), "NetworkReachableAnalysisIds", "json"));
   }
 
   json query = {};
   if (!!request.hasNetworkReachableAnalysisIdsShrink()) {
-    query["NetworkReachableAnalysisIds"] = request.networkReachableAnalysisIdsShrink();
+    query["NetworkReachableAnalysisIds"] = request.getNetworkReachableAnalysisIdsShrink();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -350,7 +350,7 @@ DeleteNisInspectionReportResponse Client::deleteNisInspectionReportWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasInspectionReportId()) {
-    query["InspectionReportId"] = request.inspectionReportId();
+    query["InspectionReportId"] = request.getInspectionReportId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -392,7 +392,7 @@ DeleteNisInspectionTaskResponse Client::deleteNisInspectionTaskWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasInspectionTaskId()) {
-    query["InspectionTaskId"] = request.inspectionTaskId();
+    query["InspectionTaskId"] = request.getInspectionTaskId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -434,23 +434,23 @@ DescribeNisInspectionRecommendationResourcesResponse Client::describeNisInspecti
   request.validate();
   json query = {};
   if (!!request.hasInspectionReportId()) {
-    query["InspectionReportId"] = request.inspectionReportId();
+    query["InspectionReportId"] = request.getInspectionReportId();
   }
 
   if (!!request.hasLanguage()) {
-    query["Language"] = request.language();
+    query["Language"] = request.getLanguage();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasRecommendationCode()) {
-    query["RecommendationCode"] = request.recommendationCode();
+    query["RecommendationCode"] = request.getRecommendationCode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -493,40 +493,40 @@ DescribeNisInspectionReportCheckItemsResponse Client::describeNisInspectionRepor
   DescribeNisInspectionReportCheckItemsShrinkRequest request = DescribeNisInspectionReportCheckItemsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasResourceType()) {
-    request.setResourceTypeShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.resourceType(), "ResourceType", "json"));
+    request.setResourceTypeShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getResourceType(), "ResourceType", "json"));
   }
 
   if (!!tmpReq.hasRiskLevel()) {
-    request.setRiskLevelShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.riskLevel(), "RiskLevel", "json"));
+    request.setRiskLevelShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRiskLevel(), "RiskLevel", "json"));
   }
 
   json query = {};
   if (!!request.hasCategoryCode()) {
-    query["CategoryCode"] = request.categoryCode();
+    query["CategoryCode"] = request.getCategoryCode();
   }
 
   if (!!request.hasInspectionReportId()) {
-    query["InspectionReportId"] = request.inspectionReportId();
+    query["InspectionReportId"] = request.getInspectionReportId();
   }
 
   if (!!request.hasLanguage()) {
-    query["Language"] = request.language();
+    query["Language"] = request.getLanguage();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasResourceTypeShrink()) {
-    query["ResourceType"] = request.resourceTypeShrink();
+    query["ResourceType"] = request.getResourceTypeShrink();
   }
 
   if (!!request.hasRiskLevelShrink()) {
-    query["RiskLevel"] = request.riskLevelShrink();
+    query["RiskLevel"] = request.getRiskLevelShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -568,7 +568,7 @@ DescribeNisInspectionReportStatusResponse Client::describeNisInspectionReportSta
   request.validate();
   json query = {};
   if (!!request.hasInspectionReportId()) {
-    query["InspectionReportId"] = request.inspectionReportId();
+    query["InspectionReportId"] = request.getInspectionReportId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -610,7 +610,7 @@ DescribeNisInspectionReportSummaryResponse Client::describeNisInspectionReportSu
   request.validate();
   json query = {};
   if (!!request.hasInspectionReportId()) {
-    query["InspectionReportId"] = request.inspectionReportId();
+    query["InspectionReportId"] = request.getInspectionReportId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -652,7 +652,7 @@ DescribeNisInspectionTaskResponse Client::describeNisInspectionTaskWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasInspectionTaskId()) {
-    query["InspectionTaskId"] = request.inspectionTaskId();
+    query["InspectionTaskId"] = request.getInspectionTaskId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -684,6 +684,56 @@ DescribeNisInspectionTaskResponse Client::describeNisInspectionTask(const Descri
 }
 
 /**
+ * @summary 查询流量分析topN异步任务结果
+ *
+ * @param request DescribeNisTrafficRankingRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeNisTrafficRankingResponse
+ */
+DescribeNisTrafficRankingResponse Client::describeNisTrafficRankingWithOptions(const DescribeNisTrafficRankingRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasNisTrafficRankingId()) {
+    query["NisTrafficRankingId"] = request.getNisTrafficRankingId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeNisTrafficRanking"},
+    {"version" , "2021-12-16"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeNisTrafficRankingResponse>();
+}
+
+/**
+ * @summary 查询流量分析topN异步任务结果
+ *
+ * @param request DescribeNisTrafficRankingRequest
+ * @return DescribeNisTrafficRankingResponse
+ */
+DescribeNisTrafficRankingResponse Client::describeNisTrafficRanking(const DescribeNisTrafficRankingRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeNisTrafficRankingWithOptions(request, runtime);
+}
+
+/**
  * @deprecated OpenAPI GetInternetTuple is deprecated, please use nis::2021-12-16::GetNisNetworkRanking instead.
  *
  * @summary Queries the rankings of Internet traffic data in the form of 1-tuple, 2-tuple, or 5-tuple. Internet traffic data can be ranked by metrics such as traffic volumes and the number of packets.
@@ -697,100 +747,100 @@ GetInternetTupleResponse Client::getInternetTupleWithOptions(const GetInternetTu
   GetInternetTupleShrinkRequest request = GetInternetTupleShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasCloudIpList()) {
-    request.setCloudIpListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.cloudIpList(), "CloudIpList", "json"));
+    request.setCloudIpListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCloudIpList(), "CloudIpList", "json"));
   }
 
   if (!!tmpReq.hasInstanceList()) {
-    request.setInstanceListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.instanceList(), "InstanceList", "json"));
+    request.setInstanceListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getInstanceList(), "InstanceList", "json"));
   }
 
   json query = {};
   if (!!request.hasAccountIds()) {
-    query["AccountIds"] = request.accountIds();
+    query["AccountIds"] = request.getAccountIds();
   }
 
   if (!!request.hasBeginTime()) {
-    query["BeginTime"] = request.beginTime();
+    query["BeginTime"] = request.getBeginTime();
   }
 
   if (!!request.hasCloudIp()) {
-    query["CloudIp"] = request.cloudIp();
+    query["CloudIp"] = request.getCloudIp();
   }
 
   if (!!request.hasCloudIpListShrink()) {
-    query["CloudIpList"] = request.cloudIpListShrink();
+    query["CloudIpList"] = request.getCloudIpListShrink();
   }
 
   if (!!request.hasCloudIsp()) {
-    query["CloudIsp"] = request.cloudIsp();
+    query["CloudIsp"] = request.getCloudIsp();
   }
 
   if (!!request.hasCloudPort()) {
-    query["CloudPort"] = request.cloudPort();
+    query["CloudPort"] = request.getCloudPort();
   }
 
   if (!!request.hasDirection()) {
-    query["Direction"] = request.direction();
+    query["Direction"] = request.getDirection();
   }
 
   if (!!request.hasEndTime()) {
-    query["EndTime"] = request.endTime();
+    query["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasInstanceListShrink()) {
-    query["InstanceList"] = request.instanceListShrink();
+    query["InstanceList"] = request.getInstanceListShrink();
   }
 
   if (!!request.hasOrderBy()) {
-    query["OrderBy"] = request.orderBy();
+    query["OrderBy"] = request.getOrderBy();
   }
 
   if (!!request.hasOtherCity()) {
-    query["OtherCity"] = request.otherCity();
+    query["OtherCity"] = request.getOtherCity();
   }
 
   if (!!request.hasOtherCountry()) {
-    query["OtherCountry"] = request.otherCountry();
+    query["OtherCountry"] = request.getOtherCountry();
   }
 
   if (!!request.hasOtherIp()) {
-    query["OtherIp"] = request.otherIp();
+    query["OtherIp"] = request.getOtherIp();
   }
 
   if (!!request.hasOtherIsp()) {
-    query["OtherIsp"] = request.otherIsp();
+    query["OtherIsp"] = request.getOtherIsp();
   }
 
   if (!!request.hasOtherPort()) {
-    query["OtherPort"] = request.otherPort();
+    query["OtherPort"] = request.getOtherPort();
   }
 
   if (!!request.hasProtocol()) {
-    query["Protocol"] = request.protocol();
+    query["Protocol"] = request.getProtocol();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasSort()) {
-    query["Sort"] = request.sort();
+    query["Sort"] = request.getSort();
   }
 
   if (!!request.hasTopN()) {
-    query["TopN"] = request.topN();
+    query["TopN"] = request.getTopN();
   }
 
   if (!!request.hasTupleType()) {
-    query["TupleType"] = request.tupleType();
+    query["TupleType"] = request.getTupleType();
   }
 
   if (!!request.hasUseMultiAccount()) {
-    query["UseMultiAccount"] = request.useMultiAccount();
+    query["UseMultiAccount"] = request.getUseMultiAccount();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -836,31 +886,31 @@ GetNatTopNResponse Client::getNatTopNWithOptions(const GetNatTopNRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasBeginTime()) {
-    query["BeginTime"] = request.beginTime();
+    query["BeginTime"] = request.getBeginTime();
   }
 
   if (!!request.hasEndTime()) {
-    query["EndTime"] = request.endTime();
+    query["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasIp()) {
-    query["Ip"] = request.ip();
+    query["Ip"] = request.getIp();
   }
 
   if (!!request.hasNatGatewayId()) {
-    query["NatGatewayId"] = request.natGatewayId();
+    query["NatGatewayId"] = request.getNatGatewayId();
   }
 
   if (!!request.hasOrderBy()) {
-    query["OrderBy"] = request.orderBy();
+    query["OrderBy"] = request.getOrderBy();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasTopN()) {
-    query["TopN"] = request.topN();
+    query["TopN"] = request.getTopN();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -908,11 +958,11 @@ GetNetworkReachableAnalysisResponse Client::getNetworkReachableAnalysisWithOptio
   request.validate();
   json query = {};
   if (!!request.hasNetworkReachableAnalysisId()) {
-    query["NetworkReachableAnalysisId"] = request.networkReachableAnalysisId();
+    query["NetworkReachableAnalysisId"] = request.getNetworkReachableAnalysisId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -959,48 +1009,48 @@ GetNisNetworkMetricsResponse Client::getNisNetworkMetricsWithOptions(const GetNi
   GetNisNetworkMetricsShrinkRequest request = GetNisNetworkMetricsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDimensions()) {
-    request.setDimensionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.dimensions(), "Dimensions", "json"));
+    request.setDimensionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDimensions(), "Dimensions", "json"));
   }
 
   json query = {};
   if (!!request.hasAccountIds()) {
-    query["AccountIds"] = request.accountIds();
+    query["AccountIds"] = request.getAccountIds();
   }
 
   if (!!request.hasBeginTime()) {
-    query["BeginTime"] = request.beginTime();
+    query["BeginTime"] = request.getBeginTime();
   }
 
   if (!!request.hasDimensionsShrink()) {
-    query["Dimensions"] = request.dimensionsShrink();
+    query["Dimensions"] = request.getDimensionsShrink();
   }
 
   if (!!request.hasEndTime()) {
-    query["EndTime"] = request.endTime();
+    query["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasMetricName()) {
-    query["MetricName"] = request.metricName();
+    query["MetricName"] = request.getMetricName();
   }
 
   if (!!request.hasRegionNo()) {
-    query["RegionNo"] = request.regionNo();
+    query["RegionNo"] = request.getRegionNo();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasScanBy()) {
-    query["ScanBy"] = request.scanBy();
+    query["ScanBy"] = request.getScanBy();
   }
 
   if (!!request.hasStepMinutes()) {
-    query["StepMinutes"] = request.stepMinutes();
+    query["StepMinutes"] = request.getStepMinutes();
   }
 
   if (!!request.hasUseCrossAccount()) {
-    query["UseCrossAccount"] = request.useCrossAccount();
+    query["UseCrossAccount"] = request.getUseCrossAccount();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1043,56 +1093,56 @@ GetNisNetworkRankingResponse Client::getNisNetworkRankingWithOptions(const GetNi
   GetNisNetworkRankingShrinkRequest request = GetNisNetworkRankingShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasFilter()) {
-    request.setFilterShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.filter(), "Filter", "json"));
+    request.setFilterShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFilter(), "Filter", "json"));
   }
 
   json query = {};
   if (!!request.hasAccountIds()) {
-    query["AccountIds"] = request.accountIds();
+    query["AccountIds"] = request.getAccountIds();
   }
 
   if (!!request.hasBeginTime()) {
-    query["BeginTime"] = request.beginTime();
+    query["BeginTime"] = request.getBeginTime();
   }
 
   if (!!request.hasDirection()) {
-    query["Direction"] = request.direction();
+    query["Direction"] = request.getDirection();
   }
 
   if (!!request.hasEndTime()) {
-    query["EndTime"] = request.endTime();
+    query["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasFilterShrink()) {
-    query["Filter"] = request.filterShrink();
+    query["Filter"] = request.getFilterShrink();
   }
 
   if (!!request.hasGroupBy()) {
-    query["GroupBy"] = request.groupBy();
+    query["GroupBy"] = request.getGroupBy();
   }
 
   if (!!request.hasOrderBy()) {
-    query["OrderBy"] = request.orderBy();
+    query["OrderBy"] = request.getOrderBy();
   }
 
   if (!!request.hasRegionNo()) {
-    query["RegionNo"] = request.regionNo();
+    query["RegionNo"] = request.getRegionNo();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasSort()) {
-    query["Sort"] = request.sort();
+    query["Sort"] = request.getSort();
   }
 
   if (!!request.hasTopN()) {
-    query["TopN"] = request.topN();
+    query["TopN"] = request.getTopN();
   }
 
   if (!!request.hasUseCrossAccount()) {
-    query["UseCrossAccount"] = request.useCrossAccount();
+    query["UseCrossAccount"] = request.getUseCrossAccount();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1137,80 +1187,80 @@ GetTransitRouterFlowTopNResponse Client::getTransitRouterFlowTopNWithOptions(con
   GetTransitRouterFlowTopNShrinkRequest request = GetTransitRouterFlowTopNShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasAccountIds()) {
-    request.setAccountIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.accountIds(), "AccountIds", "json"));
+    request.setAccountIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAccountIds(), "AccountIds", "json"));
   }
 
   json query = {};
   if (!!request.hasAccountIdsShrink()) {
-    query["AccountIds"] = request.accountIdsShrink();
+    query["AccountIds"] = request.getAccountIdsShrink();
   }
 
   if (!!request.hasBandwithPackageId()) {
-    query["BandwithPackageId"] = request.bandwithPackageId();
+    query["BandwithPackageId"] = request.getBandwithPackageId();
   }
 
   if (!!request.hasBeginTime()) {
-    query["BeginTime"] = request.beginTime();
+    query["BeginTime"] = request.getBeginTime();
   }
 
   if (!!request.hasCenId()) {
-    query["CenId"] = request.cenId();
+    query["CenId"] = request.getCenId();
   }
 
   if (!!request.hasDirection()) {
-    query["Direction"] = request.direction();
+    query["Direction"] = request.getDirection();
   }
 
   if (!!request.hasEndTime()) {
-    query["EndTime"] = request.endTime();
+    query["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasGroupBy()) {
-    query["GroupBy"] = request.groupBy();
+    query["GroupBy"] = request.getGroupBy();
   }
 
   if (!!request.hasOrderBy()) {
-    query["OrderBy"] = request.orderBy();
+    query["OrderBy"] = request.getOrderBy();
   }
 
   if (!!request.hasOtherIp()) {
-    query["OtherIp"] = request.otherIp();
+    query["OtherIp"] = request.getOtherIp();
   }
 
   if (!!request.hasOtherPort()) {
-    query["OtherPort"] = request.otherPort();
+    query["OtherPort"] = request.getOtherPort();
   }
 
   if (!!request.hasOtherRegion()) {
-    query["OtherRegion"] = request.otherRegion();
+    query["OtherRegion"] = request.getOtherRegion();
   }
 
   if (!!request.hasProtocol()) {
-    query["Protocol"] = request.protocol();
+    query["Protocol"] = request.getProtocol();
   }
 
   if (!!request.hasSort()) {
-    query["Sort"] = request.sort();
+    query["Sort"] = request.getSort();
   }
 
   if (!!request.hasThisIp()) {
-    query["ThisIp"] = request.thisIp();
+    query["ThisIp"] = request.getThisIp();
   }
 
   if (!!request.hasThisPort()) {
-    query["ThisPort"] = request.thisPort();
+    query["ThisPort"] = request.getThisPort();
   }
 
   if (!!request.hasThisRegion()) {
-    query["ThisRegion"] = request.thisRegion();
+    query["ThisRegion"] = request.getThisRegion();
   }
 
   if (!!request.hasTopN()) {
-    query["TopN"] = request.topN();
+    query["TopN"] = request.getTopN();
   }
 
   if (!!request.hasUseMultiAccount()) {
-    query["UseMultiAccount"] = request.useMultiAccount();
+    query["UseMultiAccount"] = request.getUseMultiAccount();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1257,80 +1307,80 @@ GetVbrFlowTopNResponse Client::getVbrFlowTopNWithOptions(const GetVbrFlowTopNReq
   GetVbrFlowTopNShrinkRequest request = GetVbrFlowTopNShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasAccountIds()) {
-    request.setAccountIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.accountIds(), "AccountIds", "json"));
+    request.setAccountIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAccountIds(), "AccountIds", "json"));
   }
 
   json query = {};
   if (!!request.hasAccountIdsShrink()) {
-    query["AccountIds"] = request.accountIdsShrink();
+    query["AccountIds"] = request.getAccountIdsShrink();
   }
 
   if (!!request.hasAttachmentId()) {
-    query["AttachmentId"] = request.attachmentId();
+    query["AttachmentId"] = request.getAttachmentId();
   }
 
   if (!!request.hasBeginTime()) {
-    query["BeginTime"] = request.beginTime();
+    query["BeginTime"] = request.getBeginTime();
   }
 
   if (!!request.hasCenId()) {
-    query["CenId"] = request.cenId();
+    query["CenId"] = request.getCenId();
   }
 
   if (!!request.hasCloudIp()) {
-    query["CloudIp"] = request.cloudIp();
+    query["CloudIp"] = request.getCloudIp();
   }
 
   if (!!request.hasCloudPort()) {
-    query["CloudPort"] = request.cloudPort();
+    query["CloudPort"] = request.getCloudPort();
   }
 
   if (!!request.hasDirection()) {
-    query["Direction"] = request.direction();
+    query["Direction"] = request.getDirection();
   }
 
   if (!!request.hasEndTime()) {
-    query["EndTime"] = request.endTime();
+    query["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasGroupBy()) {
-    query["GroupBy"] = request.groupBy();
+    query["GroupBy"] = request.getGroupBy();
   }
 
   if (!!request.hasOrderBy()) {
-    query["OrderBy"] = request.orderBy();
+    query["OrderBy"] = request.getOrderBy();
   }
 
   if (!!request.hasOtherIp()) {
-    query["OtherIp"] = request.otherIp();
+    query["OtherIp"] = request.getOtherIp();
   }
 
   if (!!request.hasOtherPort()) {
-    query["OtherPort"] = request.otherPort();
+    query["OtherPort"] = request.getOtherPort();
   }
 
   if (!!request.hasProtocol()) {
-    query["Protocol"] = request.protocol();
+    query["Protocol"] = request.getProtocol();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasSort()) {
-    query["Sort"] = request.sort();
+    query["Sort"] = request.getSort();
   }
 
   if (!!request.hasTopN()) {
-    query["TopN"] = request.topN();
+    query["TopN"] = request.getTopN();
   }
 
   if (!!request.hasUseMultiAccount()) {
-    query["UseMultiAccount"] = request.useMultiAccount();
+    query["UseMultiAccount"] = request.getUseMultiAccount();
   }
 
   if (!!request.hasVirtualBorderRouterId()) {
-    query["VirtualBorderRouterId"] = request.virtualBorderRouterId();
+    query["VirtualBorderRouterId"] = request.getVirtualBorderRouterId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1407,15 +1457,15 @@ ListNisInspectionTaskReportsResponse Client::listNisInspectionTaskReportsWithOpt
   request.validate();
   json query = {};
   if (!!request.hasInspectionTaskId()) {
-    query["InspectionTaskId"] = request.inspectionTaskId();
+    query["InspectionTaskId"] = request.getInspectionTaskId();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1457,27 +1507,27 @@ ListNisInspectionTasksResponse Client::listNisInspectionTasksWithOptions(const L
   request.validate();
   json query = {};
   if (!!request.hasInspectionName()) {
-    query["InspectionName"] = request.inspectionName();
+    query["InspectionName"] = request.getInspectionName();
   }
 
   if (!!request.hasInspectionProject()) {
-    query["InspectionProject"] = request.inspectionProject();
+    query["InspectionProject"] = request.getInspectionProject();
   }
 
   if (!!request.hasInspectionTaskId()) {
-    query["InspectionTaskId"] = request.inspectionTaskId();
+    query["InspectionTaskId"] = request.getInspectionTaskId();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasStatus()) {
-    query["Status"] = request.status();
+    query["Status"] = request.getStatus();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1519,7 +1569,7 @@ StartNisInspectionTaskResponse Client::startNisInspectionTaskWithOptions(const S
   request.validate();
   json query = {};
   if (!!request.hasInspectionTaskId()) {
-    query["InspectionTaskId"] = request.inspectionTaskId();
+    query["InspectionTaskId"] = request.getInspectionTaskId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1551,6 +1601,118 @@ StartNisInspectionTaskResponse Client::startNisInspectionTask(const StartNisInsp
 }
 
 /**
+ * @summary 获取云网络流量指标排名
+ *
+ * @param tmpReq StartNisTrafficRankingRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return StartNisTrafficRankingResponse
+ */
+StartNisTrafficRankingResponse Client::startNisTrafficRankingWithOptions(const StartNisTrafficRankingRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  StartNisTrafficRankingShrinkRequest request = StartNisTrafficRankingShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasFilter()) {
+    request.setFilterShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFilter(), "Filter", "json"));
+  }
+
+  if (!!tmpReq.hasGroupBy()) {
+    request.setGroupByShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getGroupBy(), "GroupBy", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasBeginTime()) {
+    query["BeginTime"] = request.getBeginTime();
+  }
+
+  if (!!request.hasDirection()) {
+    query["Direction"] = request.getDirection();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasFilterShrink()) {
+    query["Filter"] = request.getFilterShrink();
+  }
+
+  if (!!request.hasGroupByShrink()) {
+    query["GroupBy"] = request.getGroupByShrink();
+  }
+
+  if (!!request.hasLanguage()) {
+    query["Language"] = request.getLanguage();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasOrderBy()) {
+    query["OrderBy"] = request.getOrderBy();
+  }
+
+  if (!!request.hasRegionNo()) {
+    query["RegionNo"] = request.getRegionNo();
+  }
+
+  if (!!request.hasSort()) {
+    query["Sort"] = request.getSort();
+  }
+
+  if (!!request.hasStorageInterval()) {
+    query["StorageInterval"] = request.getStorageInterval();
+  }
+
+  if (!!request.hasTopN()) {
+    query["TopN"] = request.getTopN();
+  }
+
+  if (!!request.hasTrafficAnalyzerId()) {
+    query["TrafficAnalyzerId"] = request.getTrafficAnalyzerId();
+  }
+
+  if (!!request.hasTrafficScenario()) {
+    query["TrafficScenario"] = request.getTrafficScenario();
+  }
+
+  if (!!request.hasTupleDimension()) {
+    query["TupleDimension"] = request.getTupleDimension();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "StartNisTrafficRanking"},
+    {"version" , "2021-12-16"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<StartNisTrafficRankingResponse>();
+}
+
+/**
+ * @summary 获取云网络流量指标排名
+ *
+ * @param request StartNisTrafficRankingRequest
+ * @return StartNisTrafficRankingResponse
+ */
+StartNisTrafficRankingResponse Client::startNisTrafficRanking(const StartNisTrafficRankingRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return startNisTrafficRankingWithOptions(request, runtime);
+}
+
+/**
  * @summary 修改巡检项
  *
  * @param request UpdateNisInspectionTaskRequest
@@ -1561,11 +1723,11 @@ UpdateNisInspectionTaskResponse Client::updateNisInspectionTaskWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasInspectionTaskId()) {
-    query["InspectionTaskId"] = request.inspectionTaskId();
+    query["InspectionTaskId"] = request.getInspectionTaskId();
   }
 
   if (!!request.hasStatus()) {
-    query["Status"] = request.status();
+    query["Status"] = request.getStatus();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

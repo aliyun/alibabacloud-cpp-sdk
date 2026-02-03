@@ -40,56 +40,56 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->inspectionName_ == nullptr
-        && return this->inspectionProject_ == nullptr && return this->inspectionTaskId_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->status_ == nullptr; };
+        && this->inspectionProject_ == nullptr && this->inspectionTaskId_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->status_ == nullptr; };
     // inspectionName Field Functions 
     bool hasInspectionName() const { return this->inspectionName_ != nullptr;};
     void deleteInspectionName() { this->inspectionName_ = nullptr;};
-    inline string inspectionName() const { DARABONBA_PTR_GET_DEFAULT(inspectionName_, "") };
+    inline string getInspectionName() const { DARABONBA_PTR_GET_DEFAULT(inspectionName_, "") };
     inline ListNisInspectionTasksRequest& setInspectionName(string inspectionName) { DARABONBA_PTR_SET_VALUE(inspectionName_, inspectionName) };
 
 
     // inspectionProject Field Functions 
     bool hasInspectionProject() const { return this->inspectionProject_ != nullptr;};
     void deleteInspectionProject() { this->inspectionProject_ = nullptr;};
-    inline string inspectionProject() const { DARABONBA_PTR_GET_DEFAULT(inspectionProject_, "") };
+    inline string getInspectionProject() const { DARABONBA_PTR_GET_DEFAULT(inspectionProject_, "") };
     inline ListNisInspectionTasksRequest& setInspectionProject(string inspectionProject) { DARABONBA_PTR_SET_VALUE(inspectionProject_, inspectionProject) };
 
 
     // inspectionTaskId Field Functions 
     bool hasInspectionTaskId() const { return this->inspectionTaskId_ != nullptr;};
     void deleteInspectionTaskId() { this->inspectionTaskId_ = nullptr;};
-    inline string inspectionTaskId() const { DARABONBA_PTR_GET_DEFAULT(inspectionTaskId_, "") };
+    inline string getInspectionTaskId() const { DARABONBA_PTR_GET_DEFAULT(inspectionTaskId_, "") };
     inline ListNisInspectionTasksRequest& setInspectionTaskId(string inspectionTaskId) { DARABONBA_PTR_SET_VALUE(inspectionTaskId_, inspectionTaskId) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListNisInspectionTasksRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListNisInspectionTasksRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline ListNisInspectionTasksRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
   protected:
-    std::shared_ptr<string> inspectionName_ = nullptr;
-    std::shared_ptr<string> inspectionProject_ = nullptr;
-    std::shared_ptr<string> inspectionTaskId_ = nullptr;
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
-    std::shared_ptr<string> nextToken_ = nullptr;
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> inspectionName_ {};
+    shared_ptr<string> inspectionProject_ {};
+    shared_ptr<string> inspectionTaskId_ {};
+    shared_ptr<int32_t> maxResults_ {};
+    shared_ptr<string> nextToken_ {};
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models

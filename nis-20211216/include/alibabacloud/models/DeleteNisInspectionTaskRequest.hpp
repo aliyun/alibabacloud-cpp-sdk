@@ -33,13 +33,13 @@ namespace Models
     // inspectionTaskId Field Functions 
     bool hasInspectionTaskId() const { return this->inspectionTaskId_ != nullptr;};
     void deleteInspectionTaskId() { this->inspectionTaskId_ = nullptr;};
-    inline string inspectionTaskId() const { DARABONBA_PTR_GET_DEFAULT(inspectionTaskId_, "") };
+    inline string getInspectionTaskId() const { DARABONBA_PTR_GET_DEFAULT(inspectionTaskId_, "") };
     inline DeleteNisInspectionTaskRequest& setInspectionTaskId(string inspectionTaskId) { DARABONBA_PTR_SET_VALUE(inspectionTaskId_, inspectionTaskId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> inspectionTaskId_ = nullptr;
+    shared_ptr<string> inspectionTaskId_ {};
   };
 
   } // namespace Models

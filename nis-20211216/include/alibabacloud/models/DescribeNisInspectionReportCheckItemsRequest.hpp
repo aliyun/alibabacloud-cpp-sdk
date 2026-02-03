@@ -43,48 +43,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->categoryCode_ == nullptr
-        && return this->inspectionReportId_ == nullptr && return this->language_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->resourceType_ == nullptr
-        && return this->riskLevel_ == nullptr; };
+        && this->inspectionReportId_ == nullptr && this->language_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->resourceType_ == nullptr
+        && this->riskLevel_ == nullptr; };
     // categoryCode Field Functions 
     bool hasCategoryCode() const { return this->categoryCode_ != nullptr;};
     void deleteCategoryCode() { this->categoryCode_ = nullptr;};
-    inline string categoryCode() const { DARABONBA_PTR_GET_DEFAULT(categoryCode_, "") };
+    inline string getCategoryCode() const { DARABONBA_PTR_GET_DEFAULT(categoryCode_, "") };
     inline DescribeNisInspectionReportCheckItemsRequest& setCategoryCode(string categoryCode) { DARABONBA_PTR_SET_VALUE(categoryCode_, categoryCode) };
 
 
     // inspectionReportId Field Functions 
     bool hasInspectionReportId() const { return this->inspectionReportId_ != nullptr;};
     void deleteInspectionReportId() { this->inspectionReportId_ = nullptr;};
-    inline string inspectionReportId() const { DARABONBA_PTR_GET_DEFAULT(inspectionReportId_, "") };
+    inline string getInspectionReportId() const { DARABONBA_PTR_GET_DEFAULT(inspectionReportId_, "") };
     inline DescribeNisInspectionReportCheckItemsRequest& setInspectionReportId(string inspectionReportId) { DARABONBA_PTR_SET_VALUE(inspectionReportId_, inspectionReportId) };
 
 
     // language Field Functions 
     bool hasLanguage() const { return this->language_ != nullptr;};
     void deleteLanguage() { this->language_ = nullptr;};
-    inline string language() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
+    inline string getLanguage() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
     inline DescribeNisInspectionReportCheckItemsRequest& setLanguage(string language) { DARABONBA_PTR_SET_VALUE(language_, language) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline DescribeNisInspectionReportCheckItemsRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline DescribeNisInspectionReportCheckItemsRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // resourceType Field Functions 
     bool hasResourceType() const { return this->resourceType_ != nullptr;};
     void deleteResourceType() { this->resourceType_ = nullptr;};
-    inline const vector<string> & resourceType() const { DARABONBA_PTR_GET_CONST(resourceType_, vector<string>) };
-    inline vector<string> resourceType() { DARABONBA_PTR_GET(resourceType_, vector<string>) };
+    inline const vector<string> & getResourceType() const { DARABONBA_PTR_GET_CONST(resourceType_, vector<string>) };
+    inline vector<string> getResourceType() { DARABONBA_PTR_GET(resourceType_, vector<string>) };
     inline DescribeNisInspectionReportCheckItemsRequest& setResourceType(const vector<string> & resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
     inline DescribeNisInspectionReportCheckItemsRequest& setResourceType(vector<string> && resourceType) { DARABONBA_PTR_SET_RVALUE(resourceType_, resourceType) };
 
@@ -92,21 +92,21 @@ namespace Models
     // riskLevel Field Functions 
     bool hasRiskLevel() const { return this->riskLevel_ != nullptr;};
     void deleteRiskLevel() { this->riskLevel_ = nullptr;};
-    inline const vector<string> & riskLevel() const { DARABONBA_PTR_GET_CONST(riskLevel_, vector<string>) };
-    inline vector<string> riskLevel() { DARABONBA_PTR_GET(riskLevel_, vector<string>) };
+    inline const vector<string> & getRiskLevel() const { DARABONBA_PTR_GET_CONST(riskLevel_, vector<string>) };
+    inline vector<string> getRiskLevel() { DARABONBA_PTR_GET(riskLevel_, vector<string>) };
     inline DescribeNisInspectionReportCheckItemsRequest& setRiskLevel(const vector<string> & riskLevel) { DARABONBA_PTR_SET_VALUE(riskLevel_, riskLevel) };
     inline DescribeNisInspectionReportCheckItemsRequest& setRiskLevel(vector<string> && riskLevel) { DARABONBA_PTR_SET_RVALUE(riskLevel_, riskLevel) };
 
 
   protected:
-    std::shared_ptr<string> categoryCode_ = nullptr;
+    shared_ptr<string> categoryCode_ {};
     // This parameter is required.
-    std::shared_ptr<string> inspectionReportId_ = nullptr;
-    std::shared_ptr<string> language_ = nullptr;
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
-    std::shared_ptr<string> nextToken_ = nullptr;
-    std::shared_ptr<vector<string>> resourceType_ = nullptr;
-    std::shared_ptr<vector<string>> riskLevel_ = nullptr;
+    shared_ptr<string> inspectionReportId_ {};
+    shared_ptr<string> language_ {};
+    shared_ptr<int32_t> maxResults_ {};
+    shared_ptr<string> nextToken_ {};
+    shared_ptr<vector<string>> resourceType_ {};
+    shared_ptr<vector<string>> riskLevel_ {};
   };
 
   } // namespace Models

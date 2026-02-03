@@ -41,6 +41,9 @@
 #include <alibabacloud/models/DescribeNisInspectionTaskRequest.hpp>
 #include <alibabacloud/models/DescribeNisInspectionTaskResponseBody.hpp>
 #include <alibabacloud/models/DescribeNisInspectionTaskResponse.hpp>
+#include <alibabacloud/models/DescribeNisTrafficRankingRequest.hpp>
+#include <alibabacloud/models/DescribeNisTrafficRankingResponseBody.hpp>
+#include <alibabacloud/models/DescribeNisTrafficRankingResponse.hpp>
 #include <alibabacloud/models/GetInternetTupleRequest.hpp>
 #include <alibabacloud/models/GetInternetTupleShrinkRequest.hpp>
 #include <alibabacloud/models/GetInternetTupleResponseBody.hpp>
@@ -78,30 +81,12 @@
 #include <alibabacloud/models/StartNisInspectionTaskRequest.hpp>
 #include <alibabacloud/models/StartNisInspectionTaskResponseBody.hpp>
 #include <alibabacloud/models/StartNisInspectionTaskResponse.hpp>
+#include <alibabacloud/models/StartNisTrafficRankingRequest.hpp>
+#include <alibabacloud/models/StartNisTrafficRankingShrinkRequest.hpp>
+#include <alibabacloud/models/StartNisTrafficRankingResponseBody.hpp>
+#include <alibabacloud/models/StartNisTrafficRankingResponse.hpp>
 #include <alibabacloud/models/UpdateNisInspectionTaskRequest.hpp>
 #include <alibabacloud/models/UpdateNisInspectionTaskResponseBody.hpp>
 #include <alibabacloud/models/UpdateNisInspectionTaskResponse.hpp>
-#include <alibabacloud/models/CreateNetworkPathRequestTag.hpp>
-#include <alibabacloud/models/CreateNetworkReachableAnalysisRequestTag.hpp>
-#include <alibabacloud/models/DescribeNisInspectionRecommendationResourcesResponseBodyResourceList.hpp>
-#include <alibabacloud/models/DescribeNisInspectionReportCheckItemsResponseBodyCheckItemListCheckResultList.hpp>
-#include <alibabacloud/models/DescribeNisInspectionReportCheckItemsResponseBodyCheckItemListRecommendationList.hpp>
-#include <alibabacloud/models/DescribeNisInspectionReportCheckItemsResponseBodyCheckItemList.hpp>
-#include <alibabacloud/models/DescribeNisInspectionReportSummaryResponseBodySummaryPassRateSummary.hpp>
-#include <alibabacloud/models/DescribeNisInspectionReportSummaryResponseBodySummaryRiskSummary.hpp>
-#include <alibabacloud/models/DescribeNisInspectionReportSummaryResponseBodySummary.hpp>
-#include <alibabacloud/models/DescribeNisInspectionTaskResponseBodyCheckResourceList.hpp>
-#include <alibabacloud/models/GetInternetTupleResponseBodyData.hpp>
-#include <alibabacloud/models/GetNatTopNResponseBodyNatGatewayTopN.hpp>
-#include <alibabacloud/models/GetNisNetworkMetricsRequestDimensions.hpp>
-#include <alibabacloud/models/GetNisNetworkMetricsResponseBodyDataMetrics.hpp>
-#include <alibabacloud/models/GetNisNetworkMetricsResponseBodyData.hpp>
-#include <alibabacloud/models/GetNisNetworkRankingRequestFilter.hpp>
-#include <alibabacloud/models/GetNisNetworkRankingResponseBodyData.hpp>
-#include <alibabacloud/models/GetTransitRouterFlowTopNResponseBodyTransitRouterFlowTopN.hpp>
-#include <alibabacloud/models/GetVbrFlowTopNResponseBodyVirtualBorderRouterFlowlogTopN.hpp>
-#include <alibabacloud/models/ListNisInspectionResourceTypeResponseBodyResourceTypeList.hpp>
-#include <alibabacloud/models/ListNisInspectionTaskReportsResponseBodyInspectionReportList.hpp>
-#include <alibabacloud/models/ListNisInspectionTasksResponseBodyInspectionTaskList.hpp>
 
 #endif

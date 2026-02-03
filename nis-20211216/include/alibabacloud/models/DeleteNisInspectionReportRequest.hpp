@@ -33,13 +33,13 @@ namespace Models
     // inspectionReportId Field Functions 
     bool hasInspectionReportId() const { return this->inspectionReportId_ != nullptr;};
     void deleteInspectionReportId() { this->inspectionReportId_ = nullptr;};
-    inline string inspectionReportId() const { DARABONBA_PTR_GET_DEFAULT(inspectionReportId_, "") };
+    inline string getInspectionReportId() const { DARABONBA_PTR_GET_DEFAULT(inspectionReportId_, "") };
     inline DeleteNisInspectionReportRequest& setInspectionReportId(string inspectionReportId) { DARABONBA_PTR_SET_VALUE(inspectionReportId_, inspectionReportId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> inspectionReportId_ = nullptr;
+    shared_ptr<string> inspectionReportId_ {};
   };
 
   } // namespace Models

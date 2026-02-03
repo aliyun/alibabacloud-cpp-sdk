@@ -243,6 +243,23 @@ namespace Nis20211216
       Models::DescribeNisInspectionTaskResponse describeNisInspectionTask(const Models::DescribeNisInspectionTaskRequest &request);
 
       /**
+       * @summary 查询流量分析topN异步任务结果
+       *
+       * @param request DescribeNisTrafficRankingRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeNisTrafficRankingResponse
+       */
+      Models::DescribeNisTrafficRankingResponse describeNisTrafficRankingWithOptions(const Models::DescribeNisTrafficRankingRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询流量分析topN异步任务结果
+       *
+       * @param request DescribeNisTrafficRankingRequest
+       * @return DescribeNisTrafficRankingResponse
+       */
+      Models::DescribeNisTrafficRankingResponse describeNisTrafficRanking(const Models::DescribeNisTrafficRankingRequest &request);
+
+      /**
        * @deprecated OpenAPI GetInternetTuple is deprecated, please use nis::2021-12-16::GetNisNetworkRanking instead.
        *
        * @summary Queries the rankings of Internet traffic data in the form of 1-tuple, 2-tuple, or 5-tuple. Internet traffic data can be ranked by metrics such as traffic volumes and the number of packets.
@@ -451,6 +468,23 @@ namespace Nis20211216
        * @return StartNisInspectionTaskResponse
        */
       Models::StartNisInspectionTaskResponse startNisInspectionTask(const Models::StartNisInspectionTaskRequest &request);
+
+      /**
+       * @summary 获取云网络流量指标排名
+       *
+       * @param tmpReq StartNisTrafficRankingRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return StartNisTrafficRankingResponse
+       */
+      Models::StartNisTrafficRankingResponse startNisTrafficRankingWithOptions(const Models::StartNisTrafficRankingRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取云网络流量指标排名
+       *
+       * @param request StartNisTrafficRankingRequest
+       * @return StartNisTrafficRankingResponse
+       */
+      Models::StartNisTrafficRankingResponse startNisTrafficRanking(const Models::StartNisTrafficRankingRequest &request);
 
       /**
        * @summary 修改巡检项
