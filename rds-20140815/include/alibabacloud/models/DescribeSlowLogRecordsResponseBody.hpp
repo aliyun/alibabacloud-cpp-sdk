@@ -71,6 +71,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(ExecutionStartTime, executionStartTime_);
           DARABONBA_PTR_TO_JSON(HostAddress, hostAddress_);
           DARABONBA_PTR_TO_JSON(LastRowsAffectedCount, lastRowsAffectedCount_);
+          DARABONBA_PTR_TO_JSON(LockTimeMS, lockTimeMS_);
           DARABONBA_PTR_TO_JSON(LockTimes, lockTimes_);
           DARABONBA_PTR_TO_JSON(LogicalIORead, logicalIORead_);
           DARABONBA_PTR_TO_JSON(ParseRowCounts, parseRowCounts_);
@@ -92,6 +93,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(ExecutionStartTime, executionStartTime_);
           DARABONBA_PTR_FROM_JSON(HostAddress, hostAddress_);
           DARABONBA_PTR_FROM_JSON(LastRowsAffectedCount, lastRowsAffectedCount_);
+          DARABONBA_PTR_FROM_JSON(LockTimeMS, lockTimeMS_);
           DARABONBA_PTR_FROM_JSON(LockTimes, lockTimes_);
           DARABONBA_PTR_FROM_JSON(LogicalIORead, logicalIORead_);
           DARABONBA_PTR_FROM_JSON(ParseRowCounts, parseRowCounts_);
@@ -118,9 +120,9 @@ namespace Models
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->applicationName_ == nullptr
         && this->clientHostName_ == nullptr && this->cpuTime_ == nullptr && this->DBName_ == nullptr && this->executionStartTime_ == nullptr && this->hostAddress_ == nullptr
-        && this->lastRowsAffectedCount_ == nullptr && this->lockTimes_ == nullptr && this->logicalIORead_ == nullptr && this->parseRowCounts_ == nullptr && this->physicalIORead_ == nullptr
-        && this->queryTimeMS_ == nullptr && this->queryTimes_ == nullptr && this->returnRowCounts_ == nullptr && this->rowsAffectedCount_ == nullptr && this->SQLHash_ == nullptr
-        && this->SQLText_ == nullptr && this->userName_ == nullptr && this->writeIOCount_ == nullptr; };
+        && this->lastRowsAffectedCount_ == nullptr && this->lockTimeMS_ == nullptr && this->lockTimes_ == nullptr && this->logicalIORead_ == nullptr && this->parseRowCounts_ == nullptr
+        && this->physicalIORead_ == nullptr && this->queryTimeMS_ == nullptr && this->queryTimes_ == nullptr && this->returnRowCounts_ == nullptr && this->rowsAffectedCount_ == nullptr
+        && this->SQLHash_ == nullptr && this->SQLText_ == nullptr && this->userName_ == nullptr && this->writeIOCount_ == nullptr; };
         // applicationName Field Functions 
         bool hasApplicationName() const { return this->applicationName_ != nullptr;};
         void deleteApplicationName() { this->applicationName_ = nullptr;};
@@ -168,6 +170,13 @@ namespace Models
         void deleteLastRowsAffectedCount() { this->lastRowsAffectedCount_ = nullptr;};
         inline int64_t getLastRowsAffectedCount() const { DARABONBA_PTR_GET_DEFAULT(lastRowsAffectedCount_, 0L) };
         inline SQLSlowRecord& setLastRowsAffectedCount(int64_t lastRowsAffectedCount) { DARABONBA_PTR_SET_VALUE(lastRowsAffectedCount_, lastRowsAffectedCount) };
+
+
+        // lockTimeMS Field Functions 
+        bool hasLockTimeMS() const { return this->lockTimeMS_ != nullptr;};
+        void deleteLockTimeMS() { this->lockTimeMS_ = nullptr;};
+        inline int64_t getLockTimeMS() const { DARABONBA_PTR_GET_DEFAULT(lockTimeMS_, 0L) };
+        inline SQLSlowRecord& setLockTimeMS(int64_t lockTimeMS) { DARABONBA_PTR_SET_VALUE(lockTimeMS_, lockTimeMS) };
 
 
         // lockTimes Field Functions 
@@ -277,6 +286,7 @@ namespace Models
         // 
         // > This parameter is returned only for instances that run SQL Server.
         shared_ptr<int64_t> lastRowsAffectedCount_ {};
+        shared_ptr<int64_t> lockTimeMS_ {};
         // The lock duration of the query. Unit: seconds.
         shared_ptr<int64_t> lockTimes_ {};
         // The number of logical reads.
