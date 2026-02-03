@@ -35,14 +35,14 @@ namespace Models
     // changes Field Functions 
     bool hasChanges() const { return this->changes_ != nullptr;};
     void deleteChanges() { this->changes_ = nullptr;};
-    inline const vector<FullSchemaChange> & changes() const { DARABONBA_PTR_GET_CONST(changes_, vector<FullSchemaChange>) };
-    inline vector<FullSchemaChange> changes() { DARABONBA_PTR_GET(changes_, vector<FullSchemaChange>) };
+    inline const vector<FullSchemaChange> & getChanges() const { DARABONBA_PTR_GET_CONST(changes_, vector<FullSchemaChange>) };
+    inline vector<FullSchemaChange> getChanges() { DARABONBA_PTR_GET(changes_, vector<FullSchemaChange>) };
     inline AlterTableRequest& setChanges(const vector<FullSchemaChange> & changes) { DARABONBA_PTR_SET_VALUE(changes_, changes) };
     inline AlterTableRequest& setChanges(vector<FullSchemaChange> && changes) { DARABONBA_PTR_SET_RVALUE(changes_, changes) };
 
 
   protected:
-    std::shared_ptr<vector<FullSchemaChange>> changes_ = nullptr;
+    shared_ptr<vector<FullSchemaChange>> changes_ {};
   };
 
   } // namespace Models

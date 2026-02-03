@@ -33,12 +33,12 @@ namespace Models
     // userPrincipal Field Functions 
     bool hasUserPrincipal() const { return this->userPrincipal_ != nullptr;};
     void deleteUserPrincipal() { this->userPrincipal_ = nullptr;};
-    inline string userPrincipal() const { DARABONBA_PTR_GET_DEFAULT(userPrincipal_, "") };
+    inline string getUserPrincipal() const { DARABONBA_PTR_GET_DEFAULT(userPrincipal_, "") };
     inline GetUserRequest& setUserPrincipal(string userPrincipal) { DARABONBA_PTR_SET_VALUE(userPrincipal_, userPrincipal) };
 
 
   protected:
-    std::shared_ptr<string> userPrincipal_ = nullptr;
+    shared_ptr<string> userPrincipal_ {};
   };
 
   } // namespace Models

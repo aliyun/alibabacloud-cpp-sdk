@@ -34,12 +34,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->identifier_ == nullptr
-        && return this->schema_ == nullptr; };
+        && this->schema_ == nullptr; };
     // identifier Field Functions 
     bool hasIdentifier() const { return this->identifier_ != nullptr;};
     void deleteIdentifier() { this->identifier_ = nullptr;};
-    inline const Identifier & identifier() const { DARABONBA_PTR_GET_CONST(identifier_, Identifier) };
-    inline Identifier identifier() { DARABONBA_PTR_GET(identifier_, Identifier) };
+    inline const Identifier & getIdentifier() const { DARABONBA_PTR_GET_CONST(identifier_, Identifier) };
+    inline Identifier getIdentifier() { DARABONBA_PTR_GET(identifier_, Identifier) };
     inline CreateTableRequest& setIdentifier(const Identifier & identifier) { DARABONBA_PTR_SET_VALUE(identifier_, identifier) };
     inline CreateTableRequest& setIdentifier(Identifier && identifier) { DARABONBA_PTR_SET_RVALUE(identifier_, identifier) };
 
@@ -47,15 +47,15 @@ namespace Models
     // schema Field Functions 
     bool hasSchema() const { return this->schema_ != nullptr;};
     void deleteSchema() { this->schema_ = nullptr;};
-    inline const Schema & schema() const { DARABONBA_PTR_GET_CONST(schema_, Schema) };
-    inline Schema schema() { DARABONBA_PTR_GET(schema_, Schema) };
+    inline const Schema & getSchema() const { DARABONBA_PTR_GET_CONST(schema_, Schema) };
+    inline Schema getSchema() { DARABONBA_PTR_GET(schema_, Schema) };
     inline CreateTableRequest& setSchema(const Schema & schema) { DARABONBA_PTR_SET_VALUE(schema_, schema) };
     inline CreateTableRequest& setSchema(Schema && schema) { DARABONBA_PTR_SET_RVALUE(schema_, schema) };
 
 
   protected:
-    std::shared_ptr<Identifier> identifier_ = nullptr;
-    std::shared_ptr<Schema> schema_ = nullptr;
+    shared_ptr<Identifier> identifier_ {};
+    shared_ptr<Schema> schema_ {};
   };
 
   } // namespace Models

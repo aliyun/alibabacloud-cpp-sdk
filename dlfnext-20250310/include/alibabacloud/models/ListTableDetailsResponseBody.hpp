@@ -34,26 +34,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->nextPageToken_ == nullptr
-        && return this->tableDetails_ == nullptr; };
+        && this->tableDetails_ == nullptr; };
     // nextPageToken Field Functions 
     bool hasNextPageToken() const { return this->nextPageToken_ != nullptr;};
     void deleteNextPageToken() { this->nextPageToken_ = nullptr;};
-    inline string nextPageToken() const { DARABONBA_PTR_GET_DEFAULT(nextPageToken_, "") };
+    inline string getNextPageToken() const { DARABONBA_PTR_GET_DEFAULT(nextPageToken_, "") };
     inline ListTableDetailsResponseBody& setNextPageToken(string nextPageToken) { DARABONBA_PTR_SET_VALUE(nextPageToken_, nextPageToken) };
 
 
     // tableDetails Field Functions 
     bool hasTableDetails() const { return this->tableDetails_ != nullptr;};
     void deleteTableDetails() { this->tableDetails_ = nullptr;};
-    inline const vector<Table> & tableDetails() const { DARABONBA_PTR_GET_CONST(tableDetails_, vector<Table>) };
-    inline vector<Table> tableDetails() { DARABONBA_PTR_GET(tableDetails_, vector<Table>) };
+    inline const vector<Table> & getTableDetails() const { DARABONBA_PTR_GET_CONST(tableDetails_, vector<Table>) };
+    inline vector<Table> getTableDetails() { DARABONBA_PTR_GET(tableDetails_, vector<Table>) };
     inline ListTableDetailsResponseBody& setTableDetails(const vector<Table> & tableDetails) { DARABONBA_PTR_SET_VALUE(tableDetails_, tableDetails) };
     inline ListTableDetailsResponseBody& setTableDetails(vector<Table> && tableDetails) { DARABONBA_PTR_SET_RVALUE(tableDetails_, tableDetails) };
 
 
   protected:
-    std::shared_ptr<string> nextPageToken_ = nullptr;
-    std::shared_ptr<vector<Table>> tableDetails_ = nullptr;
+    shared_ptr<string> nextPageToken_ {};
+    shared_ptr<vector<Table>> tableDetails_ {};
   };
 
   } // namespace Models

@@ -33,26 +33,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->rolePrincipal_ == nullptr
-        && return this->userPrincipals_ == nullptr; };
+        && this->userPrincipals_ == nullptr; };
     // rolePrincipal Field Functions 
     bool hasRolePrincipal() const { return this->rolePrincipal_ != nullptr;};
     void deleteRolePrincipal() { this->rolePrincipal_ = nullptr;};
-    inline string rolePrincipal() const { DARABONBA_PTR_GET_DEFAULT(rolePrincipal_, "") };
+    inline string getRolePrincipal() const { DARABONBA_PTR_GET_DEFAULT(rolePrincipal_, "") };
     inline UpdateRoleUsersRequest& setRolePrincipal(string rolePrincipal) { DARABONBA_PTR_SET_VALUE(rolePrincipal_, rolePrincipal) };
 
 
     // userPrincipals Field Functions 
     bool hasUserPrincipals() const { return this->userPrincipals_ != nullptr;};
     void deleteUserPrincipals() { this->userPrincipals_ = nullptr;};
-    inline const vector<string> & userPrincipals() const { DARABONBA_PTR_GET_CONST(userPrincipals_, vector<string>) };
-    inline vector<string> userPrincipals() { DARABONBA_PTR_GET(userPrincipals_, vector<string>) };
+    inline const vector<string> & getUserPrincipals() const { DARABONBA_PTR_GET_CONST(userPrincipals_, vector<string>) };
+    inline vector<string> getUserPrincipals() { DARABONBA_PTR_GET(userPrincipals_, vector<string>) };
     inline UpdateRoleUsersRequest& setUserPrincipals(const vector<string> & userPrincipals) { DARABONBA_PTR_SET_VALUE(userPrincipals_, userPrincipals) };
     inline UpdateRoleUsersRequest& setUserPrincipals(vector<string> && userPrincipals) { DARABONBA_PTR_SET_RVALUE(userPrincipals_, userPrincipals) };
 
 
   protected:
-    std::shared_ptr<string> rolePrincipal_ = nullptr;
-    std::shared_ptr<vector<string>> userPrincipals_ = nullptr;
+    shared_ptr<string> rolePrincipal_ {};
+    shared_ptr<vector<string>> userPrincipals_ {};
   };
 
   } // namespace Models

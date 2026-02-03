@@ -45,48 +45,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->createdAt_ == nullptr
-        && return this->createdBy_ == nullptr && return this->id_ == nullptr && return this->name_ == nullptr && return this->owner_ == nullptr && return this->schema_ == nullptr
-        && return this->updatedAt_ == nullptr && return this->updatedBy_ == nullptr; };
+        && this->createdBy_ == nullptr && this->id_ == nullptr && this->name_ == nullptr && this->owner_ == nullptr && this->schema_ == nullptr
+        && this->updatedAt_ == nullptr && this->updatedBy_ == nullptr; };
     // createdAt Field Functions 
     bool hasCreatedAt() const { return this->createdAt_ != nullptr;};
     void deleteCreatedAt() { this->createdAt_ = nullptr;};
-    inline int64_t createdAt() const { DARABONBA_PTR_GET_DEFAULT(createdAt_, 0L) };
+    inline int64_t getCreatedAt() const { DARABONBA_PTR_GET_DEFAULT(createdAt_, 0L) };
     inline View& setCreatedAt(int64_t createdAt) { DARABONBA_PTR_SET_VALUE(createdAt_, createdAt) };
 
 
     // createdBy Field Functions 
     bool hasCreatedBy() const { return this->createdBy_ != nullptr;};
     void deleteCreatedBy() { this->createdBy_ = nullptr;};
-    inline string createdBy() const { DARABONBA_PTR_GET_DEFAULT(createdBy_, "") };
+    inline string getCreatedBy() const { DARABONBA_PTR_GET_DEFAULT(createdBy_, "") };
     inline View& setCreatedBy(string createdBy) { DARABONBA_PTR_SET_VALUE(createdBy_, createdBy) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline string id() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+    inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline View& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline View& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // owner Field Functions 
     bool hasOwner() const { return this->owner_ != nullptr;};
     void deleteOwner() { this->owner_ = nullptr;};
-    inline string owner() const { DARABONBA_PTR_GET_DEFAULT(owner_, "") };
+    inline string getOwner() const { DARABONBA_PTR_GET_DEFAULT(owner_, "") };
     inline View& setOwner(string owner) { DARABONBA_PTR_SET_VALUE(owner_, owner) };
 
 
     // schema Field Functions 
     bool hasSchema() const { return this->schema_ != nullptr;};
     void deleteSchema() { this->schema_ = nullptr;};
-    inline const ViewSchema & schema() const { DARABONBA_PTR_GET_CONST(schema_, ViewSchema) };
-    inline ViewSchema schema() { DARABONBA_PTR_GET(schema_, ViewSchema) };
+    inline const ViewSchema & getSchema() const { DARABONBA_PTR_GET_CONST(schema_, ViewSchema) };
+    inline ViewSchema getSchema() { DARABONBA_PTR_GET(schema_, ViewSchema) };
     inline View& setSchema(const ViewSchema & schema) { DARABONBA_PTR_SET_VALUE(schema_, schema) };
     inline View& setSchema(ViewSchema && schema) { DARABONBA_PTR_SET_RVALUE(schema_, schema) };
 
@@ -94,26 +94,26 @@ namespace Models
     // updatedAt Field Functions 
     bool hasUpdatedAt() const { return this->updatedAt_ != nullptr;};
     void deleteUpdatedAt() { this->updatedAt_ = nullptr;};
-    inline int64_t updatedAt() const { DARABONBA_PTR_GET_DEFAULT(updatedAt_, 0L) };
+    inline int64_t getUpdatedAt() const { DARABONBA_PTR_GET_DEFAULT(updatedAt_, 0L) };
     inline View& setUpdatedAt(int64_t updatedAt) { DARABONBA_PTR_SET_VALUE(updatedAt_, updatedAt) };
 
 
     // updatedBy Field Functions 
     bool hasUpdatedBy() const { return this->updatedBy_ != nullptr;};
     void deleteUpdatedBy() { this->updatedBy_ = nullptr;};
-    inline string updatedBy() const { DARABONBA_PTR_GET_DEFAULT(updatedBy_, "") };
+    inline string getUpdatedBy() const { DARABONBA_PTR_GET_DEFAULT(updatedBy_, "") };
     inline View& setUpdatedBy(string updatedBy) { DARABONBA_PTR_SET_VALUE(updatedBy_, updatedBy) };
 
 
   protected:
-    std::shared_ptr<int64_t> createdAt_ = nullptr;
-    std::shared_ptr<string> createdBy_ = nullptr;
-    std::shared_ptr<string> id_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> owner_ = nullptr;
-    std::shared_ptr<ViewSchema> schema_ = nullptr;
-    std::shared_ptr<int64_t> updatedAt_ = nullptr;
-    std::shared_ptr<string> updatedBy_ = nullptr;
+    shared_ptr<int64_t> createdAt_ {};
+    shared_ptr<string> createdBy_ {};
+    shared_ptr<string> id_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<string> owner_ {};
+    shared_ptr<ViewSchema> schema_ {};
+    shared_ptr<int64_t> updatedAt_ {};
+    shared_ptr<string> updatedBy_ {};
   };
 
   } // namespace Models

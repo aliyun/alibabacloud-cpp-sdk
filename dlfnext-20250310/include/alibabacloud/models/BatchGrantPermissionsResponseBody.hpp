@@ -36,19 +36,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->errorMessage_ == nullptr
-        && return this->failurePermissions_ == nullptr && return this->success_ == nullptr; };
+        && this->failurePermissions_ == nullptr && this->success_ == nullptr; };
     // errorMessage Field Functions 
     bool hasErrorMessage() const { return this->errorMessage_ != nullptr;};
     void deleteErrorMessage() { this->errorMessage_ = nullptr;};
-    inline string errorMessage() const { DARABONBA_PTR_GET_DEFAULT(errorMessage_, "") };
+    inline string getErrorMessage() const { DARABONBA_PTR_GET_DEFAULT(errorMessage_, "") };
     inline BatchGrantPermissionsResponseBody& setErrorMessage(string errorMessage) { DARABONBA_PTR_SET_VALUE(errorMessage_, errorMessage) };
 
 
     // failurePermissions Field Functions 
     bool hasFailurePermissions() const { return this->failurePermissions_ != nullptr;};
     void deleteFailurePermissions() { this->failurePermissions_ = nullptr;};
-    inline const vector<FailurePermission> & failurePermissions() const { DARABONBA_PTR_GET_CONST(failurePermissions_, vector<FailurePermission>) };
-    inline vector<FailurePermission> failurePermissions() { DARABONBA_PTR_GET(failurePermissions_, vector<FailurePermission>) };
+    inline const vector<FailurePermission> & getFailurePermissions() const { DARABONBA_PTR_GET_CONST(failurePermissions_, vector<FailurePermission>) };
+    inline vector<FailurePermission> getFailurePermissions() { DARABONBA_PTR_GET(failurePermissions_, vector<FailurePermission>) };
     inline BatchGrantPermissionsResponseBody& setFailurePermissions(const vector<FailurePermission> & failurePermissions) { DARABONBA_PTR_SET_VALUE(failurePermissions_, failurePermissions) };
     inline BatchGrantPermissionsResponseBody& setFailurePermissions(vector<FailurePermission> && failurePermissions) { DARABONBA_PTR_SET_RVALUE(failurePermissions_, failurePermissions) };
 
@@ -56,14 +56,14 @@ namespace Models
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline BatchGrantPermissionsResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
-    std::shared_ptr<string> errorMessage_ = nullptr;
-    std::shared_ptr<vector<FailurePermission>> failurePermissions_ = nullptr;
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<string> errorMessage_ {};
+    shared_ptr<vector<FailurePermission>> failurePermissions_ {};
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

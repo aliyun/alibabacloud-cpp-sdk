@@ -34,26 +34,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->nextPageToken_ == nullptr
-        && return this->snapshots_ == nullptr; };
+        && this->snapshots_ == nullptr; };
     // nextPageToken Field Functions 
     bool hasNextPageToken() const { return this->nextPageToken_ != nullptr;};
     void deleteNextPageToken() { this->nextPageToken_ = nullptr;};
-    inline string nextPageToken() const { DARABONBA_PTR_GET_DEFAULT(nextPageToken_, "") };
+    inline string getNextPageToken() const { DARABONBA_PTR_GET_DEFAULT(nextPageToken_, "") };
     inline ListSnapshotsResponseBody& setNextPageToken(string nextPageToken) { DARABONBA_PTR_SET_VALUE(nextPageToken_, nextPageToken) };
 
 
     // snapshots Field Functions 
     bool hasSnapshots() const { return this->snapshots_ != nullptr;};
     void deleteSnapshots() { this->snapshots_ = nullptr;};
-    inline const vector<Snapshot> & snapshots() const { DARABONBA_PTR_GET_CONST(snapshots_, vector<Snapshot>) };
-    inline vector<Snapshot> snapshots() { DARABONBA_PTR_GET(snapshots_, vector<Snapshot>) };
+    inline const vector<Snapshot> & getSnapshots() const { DARABONBA_PTR_GET_CONST(snapshots_, vector<Snapshot>) };
+    inline vector<Snapshot> getSnapshots() { DARABONBA_PTR_GET(snapshots_, vector<Snapshot>) };
     inline ListSnapshotsResponseBody& setSnapshots(const vector<Snapshot> & snapshots) { DARABONBA_PTR_SET_VALUE(snapshots_, snapshots) };
     inline ListSnapshotsResponseBody& setSnapshots(vector<Snapshot> && snapshots) { DARABONBA_PTR_SET_RVALUE(snapshots_, snapshots) };
 
 
   protected:
-    std::shared_ptr<string> nextPageToken_ = nullptr;
-    std::shared_ptr<vector<Snapshot>> snapshots_ = nullptr;
+    shared_ptr<string> nextPageToken_ {};
+    shared_ptr<vector<Snapshot>> snapshots_ {};
   };
 
   } // namespace Models

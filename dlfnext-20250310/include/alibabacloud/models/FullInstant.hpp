@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->snapshotId_ == nullptr
-        && return this->tagName_ == nullptr && return this->type_ == nullptr; };
+        && this->tagName_ == nullptr && this->type_ == nullptr; };
     // snapshotId Field Functions 
     bool hasSnapshotId() const { return this->snapshotId_ != nullptr;};
     void deleteSnapshotId() { this->snapshotId_ = nullptr;};
-    inline int64_t snapshotId() const { DARABONBA_PTR_GET_DEFAULT(snapshotId_, 0L) };
+    inline int64_t getSnapshotId() const { DARABONBA_PTR_GET_DEFAULT(snapshotId_, 0L) };
     inline FullInstant& setSnapshotId(int64_t snapshotId) { DARABONBA_PTR_SET_VALUE(snapshotId_, snapshotId) };
 
 
     // tagName Field Functions 
     bool hasTagName() const { return this->tagName_ != nullptr;};
     void deleteTagName() { this->tagName_ = nullptr;};
-    inline string tagName() const { DARABONBA_PTR_GET_DEFAULT(tagName_, "") };
+    inline string getTagName() const { DARABONBA_PTR_GET_DEFAULT(tagName_, "") };
     inline FullInstant& setTagName(string tagName) { DARABONBA_PTR_SET_VALUE(tagName_, tagName) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline FullInstant& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
-    std::shared_ptr<int64_t> snapshotId_ = nullptr;
-    std::shared_ptr<string> tagName_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<int64_t> snapshotId_ {};
+    shared_ptr<string> tagName_ {};
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

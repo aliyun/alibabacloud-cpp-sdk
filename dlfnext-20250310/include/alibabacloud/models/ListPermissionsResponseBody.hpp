@@ -34,26 +34,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->nextPageToken_ == nullptr
-        && return this->permissions_ == nullptr; };
+        && this->permissions_ == nullptr; };
     // nextPageToken Field Functions 
     bool hasNextPageToken() const { return this->nextPageToken_ != nullptr;};
     void deleteNextPageToken() { this->nextPageToken_ = nullptr;};
-    inline string nextPageToken() const { DARABONBA_PTR_GET_DEFAULT(nextPageToken_, "") };
+    inline string getNextPageToken() const { DARABONBA_PTR_GET_DEFAULT(nextPageToken_, "") };
     inline ListPermissionsResponseBody& setNextPageToken(string nextPageToken) { DARABONBA_PTR_SET_VALUE(nextPageToken_, nextPageToken) };
 
 
     // permissions Field Functions 
     bool hasPermissions() const { return this->permissions_ != nullptr;};
     void deletePermissions() { this->permissions_ = nullptr;};
-    inline const vector<Permission> & permissions() const { DARABONBA_PTR_GET_CONST(permissions_, vector<Permission>) };
-    inline vector<Permission> permissions() { DARABONBA_PTR_GET(permissions_, vector<Permission>) };
+    inline const vector<Permission> & getPermissions() const { DARABONBA_PTR_GET_CONST(permissions_, vector<Permission>) };
+    inline vector<Permission> getPermissions() { DARABONBA_PTR_GET(permissions_, vector<Permission>) };
     inline ListPermissionsResponseBody& setPermissions(const vector<Permission> & permissions) { DARABONBA_PTR_SET_VALUE(permissions_, permissions) };
     inline ListPermissionsResponseBody& setPermissions(vector<Permission> && permissions) { DARABONBA_PTR_SET_RVALUE(permissions_, permissions) };
 
 
   protected:
-    std::shared_ptr<string> nextPageToken_ = nullptr;
-    std::shared_ptr<vector<Permission>> permissions_ = nullptr;
+    shared_ptr<string> nextPageToken_ {};
+    shared_ptr<vector<Permission>> permissions_ {};
   };
 
   } // namespace Models

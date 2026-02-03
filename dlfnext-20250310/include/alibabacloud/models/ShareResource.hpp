@@ -42,65 +42,65 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->createdAt_ == nullptr
-        && return this->createdBy_ == nullptr && return this->databaseName_ == nullptr && return this->shareType_ == nullptr && return this->tableName_ == nullptr && return this->updatedAt_ == nullptr
-        && return this->updatedBy_ == nullptr; };
+        && this->createdBy_ == nullptr && this->databaseName_ == nullptr && this->shareType_ == nullptr && this->tableName_ == nullptr && this->updatedAt_ == nullptr
+        && this->updatedBy_ == nullptr; };
     // createdAt Field Functions 
     bool hasCreatedAt() const { return this->createdAt_ != nullptr;};
     void deleteCreatedAt() { this->createdAt_ = nullptr;};
-    inline int64_t createdAt() const { DARABONBA_PTR_GET_DEFAULT(createdAt_, 0L) };
+    inline int64_t getCreatedAt() const { DARABONBA_PTR_GET_DEFAULT(createdAt_, 0L) };
     inline ShareResource& setCreatedAt(int64_t createdAt) { DARABONBA_PTR_SET_VALUE(createdAt_, createdAt) };
 
 
     // createdBy Field Functions 
     bool hasCreatedBy() const { return this->createdBy_ != nullptr;};
     void deleteCreatedBy() { this->createdBy_ = nullptr;};
-    inline string createdBy() const { DARABONBA_PTR_GET_DEFAULT(createdBy_, "") };
+    inline string getCreatedBy() const { DARABONBA_PTR_GET_DEFAULT(createdBy_, "") };
     inline ShareResource& setCreatedBy(string createdBy) { DARABONBA_PTR_SET_VALUE(createdBy_, createdBy) };
 
 
     // databaseName Field Functions 
     bool hasDatabaseName() const { return this->databaseName_ != nullptr;};
     void deleteDatabaseName() { this->databaseName_ = nullptr;};
-    inline string databaseName() const { DARABONBA_PTR_GET_DEFAULT(databaseName_, "") };
+    inline string getDatabaseName() const { DARABONBA_PTR_GET_DEFAULT(databaseName_, "") };
     inline ShareResource& setDatabaseName(string databaseName) { DARABONBA_PTR_SET_VALUE(databaseName_, databaseName) };
 
 
     // shareType Field Functions 
     bool hasShareType() const { return this->shareType_ != nullptr;};
     void deleteShareType() { this->shareType_ = nullptr;};
-    inline string shareType() const { DARABONBA_PTR_GET_DEFAULT(shareType_, "") };
+    inline string getShareType() const { DARABONBA_PTR_GET_DEFAULT(shareType_, "") };
     inline ShareResource& setShareType(string shareType) { DARABONBA_PTR_SET_VALUE(shareType_, shareType) };
 
 
     // tableName Field Functions 
     bool hasTableName() const { return this->tableName_ != nullptr;};
     void deleteTableName() { this->tableName_ = nullptr;};
-    inline string tableName() const { DARABONBA_PTR_GET_DEFAULT(tableName_, "") };
+    inline string getTableName() const { DARABONBA_PTR_GET_DEFAULT(tableName_, "") };
     inline ShareResource& setTableName(string tableName) { DARABONBA_PTR_SET_VALUE(tableName_, tableName) };
 
 
     // updatedAt Field Functions 
     bool hasUpdatedAt() const { return this->updatedAt_ != nullptr;};
     void deleteUpdatedAt() { this->updatedAt_ = nullptr;};
-    inline int64_t updatedAt() const { DARABONBA_PTR_GET_DEFAULT(updatedAt_, 0L) };
+    inline int64_t getUpdatedAt() const { DARABONBA_PTR_GET_DEFAULT(updatedAt_, 0L) };
     inline ShareResource& setUpdatedAt(int64_t updatedAt) { DARABONBA_PTR_SET_VALUE(updatedAt_, updatedAt) };
 
 
     // updatedBy Field Functions 
     bool hasUpdatedBy() const { return this->updatedBy_ != nullptr;};
     void deleteUpdatedBy() { this->updatedBy_ = nullptr;};
-    inline string updatedBy() const { DARABONBA_PTR_GET_DEFAULT(updatedBy_, "") };
+    inline string getUpdatedBy() const { DARABONBA_PTR_GET_DEFAULT(updatedBy_, "") };
     inline ShareResource& setUpdatedBy(string updatedBy) { DARABONBA_PTR_SET_VALUE(updatedBy_, updatedBy) };
 
 
   protected:
-    std::shared_ptr<int64_t> createdAt_ = nullptr;
-    std::shared_ptr<string> createdBy_ = nullptr;
-    std::shared_ptr<string> databaseName_ = nullptr;
-    std::shared_ptr<string> shareType_ = nullptr;
-    std::shared_ptr<string> tableName_ = nullptr;
-    std::shared_ptr<int64_t> updatedAt_ = nullptr;
-    std::shared_ptr<string> updatedBy_ = nullptr;
+    shared_ptr<int64_t> createdAt_ {};
+    shared_ptr<string> createdBy_ {};
+    shared_ptr<string> databaseName_ {};
+    shared_ptr<string> shareType_ {};
+    shared_ptr<string> tableName_ {};
+    shared_ptr<int64_t> updatedAt_ {};
+    shared_ptr<string> updatedBy_ {};
   };
 
   } // namespace Models

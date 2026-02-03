@@ -44,74 +44,74 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->database_ == nullptr
-        && return this->function_ == nullptr && return this->maxResults_ == nullptr && return this->pageToken_ == nullptr && return this->principal_ == nullptr && return this->resourceType_ == nullptr
-        && return this->table_ == nullptr && return this->view_ == nullptr; };
+        && this->function_ == nullptr && this->maxResults_ == nullptr && this->pageToken_ == nullptr && this->principal_ == nullptr && this->resourceType_ == nullptr
+        && this->table_ == nullptr && this->view_ == nullptr; };
     // database Field Functions 
     bool hasDatabase() const { return this->database_ != nullptr;};
     void deleteDatabase() { this->database_ = nullptr;};
-    inline string database() const { DARABONBA_PTR_GET_DEFAULT(database_, "") };
+    inline string getDatabase() const { DARABONBA_PTR_GET_DEFAULT(database_, "") };
     inline ListPermissionsRequest& setDatabase(string database) { DARABONBA_PTR_SET_VALUE(database_, database) };
 
 
     // function Field Functions 
     bool hasFunction() const { return this->function_ != nullptr;};
     void deleteFunction() { this->function_ = nullptr;};
-    inline string function() const { DARABONBA_PTR_GET_DEFAULT(function_, "") };
+    inline string getFunction() const { DARABONBA_PTR_GET_DEFAULT(function_, "") };
     inline ListPermissionsRequest& setFunction(string function) { DARABONBA_PTR_SET_VALUE(function_, function) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListPermissionsRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // pageToken Field Functions 
     bool hasPageToken() const { return this->pageToken_ != nullptr;};
     void deletePageToken() { this->pageToken_ = nullptr;};
-    inline string pageToken() const { DARABONBA_PTR_GET_DEFAULT(pageToken_, "") };
+    inline string getPageToken() const { DARABONBA_PTR_GET_DEFAULT(pageToken_, "") };
     inline ListPermissionsRequest& setPageToken(string pageToken) { DARABONBA_PTR_SET_VALUE(pageToken_, pageToken) };
 
 
     // principal Field Functions 
     bool hasPrincipal() const { return this->principal_ != nullptr;};
     void deletePrincipal() { this->principal_ = nullptr;};
-    inline string principal() const { DARABONBA_PTR_GET_DEFAULT(principal_, "") };
+    inline string getPrincipal() const { DARABONBA_PTR_GET_DEFAULT(principal_, "") };
     inline ListPermissionsRequest& setPrincipal(string principal) { DARABONBA_PTR_SET_VALUE(principal_, principal) };
 
 
     // resourceType Field Functions 
     bool hasResourceType() const { return this->resourceType_ != nullptr;};
     void deleteResourceType() { this->resourceType_ = nullptr;};
-    inline string resourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
+    inline string getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
     inline ListPermissionsRequest& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
 
 
     // table Field Functions 
     bool hasTable() const { return this->table_ != nullptr;};
     void deleteTable() { this->table_ = nullptr;};
-    inline string table() const { DARABONBA_PTR_GET_DEFAULT(table_, "") };
+    inline string getTable() const { DARABONBA_PTR_GET_DEFAULT(table_, "") };
     inline ListPermissionsRequest& setTable(string table) { DARABONBA_PTR_SET_VALUE(table_, table) };
 
 
     // view Field Functions 
     bool hasView() const { return this->view_ != nullptr;};
     void deleteView() { this->view_ = nullptr;};
-    inline string view() const { DARABONBA_PTR_GET_DEFAULT(view_, "") };
+    inline string getView() const { DARABONBA_PTR_GET_DEFAULT(view_, "") };
     inline ListPermissionsRequest& setView(string view) { DARABONBA_PTR_SET_VALUE(view_, view) };
 
 
   protected:
-    std::shared_ptr<string> database_ = nullptr;
-    std::shared_ptr<string> function_ = nullptr;
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
-    std::shared_ptr<string> pageToken_ = nullptr;
-    std::shared_ptr<string> principal_ = nullptr;
+    shared_ptr<string> database_ {};
+    shared_ptr<string> function_ {};
+    shared_ptr<int32_t> maxResults_ {};
+    shared_ptr<string> pageToken_ {};
+    shared_ptr<string> principal_ {};
     // This parameter is required.
-    std::shared_ptr<string> resourceType_ = nullptr;
-    std::shared_ptr<string> table_ = nullptr;
-    std::shared_ptr<string> view_ = nullptr;
+    shared_ptr<string> resourceType_ {};
+    shared_ptr<string> table_ {};
+    shared_ptr<string> view_ {};
   };
 
   } // namespace Models

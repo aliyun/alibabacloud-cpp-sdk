@@ -35,34 +35,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->errorCode_ == nullptr
-        && return this->errorMessage_ == nullptr && return this->permission_ == nullptr; };
+        && this->errorMessage_ == nullptr && this->permission_ == nullptr; };
     // errorCode Field Functions 
     bool hasErrorCode() const { return this->errorCode_ != nullptr;};
     void deleteErrorCode() { this->errorCode_ = nullptr;};
-    inline string errorCode() const { DARABONBA_PTR_GET_DEFAULT(errorCode_, "") };
+    inline string getErrorCode() const { DARABONBA_PTR_GET_DEFAULT(errorCode_, "") };
     inline FailurePermission& setErrorCode(string errorCode) { DARABONBA_PTR_SET_VALUE(errorCode_, errorCode) };
 
 
     // errorMessage Field Functions 
     bool hasErrorMessage() const { return this->errorMessage_ != nullptr;};
     void deleteErrorMessage() { this->errorMessage_ = nullptr;};
-    inline string errorMessage() const { DARABONBA_PTR_GET_DEFAULT(errorMessage_, "") };
+    inline string getErrorMessage() const { DARABONBA_PTR_GET_DEFAULT(errorMessage_, "") };
     inline FailurePermission& setErrorMessage(string errorMessage) { DARABONBA_PTR_SET_VALUE(errorMessage_, errorMessage) };
 
 
     // permission Field Functions 
     bool hasPermission() const { return this->permission_ != nullptr;};
     void deletePermission() { this->permission_ = nullptr;};
-    inline const Permission & permission() const { DARABONBA_PTR_GET_CONST(permission_, Permission) };
-    inline Permission permission() { DARABONBA_PTR_GET(permission_, Permission) };
+    inline const Permission & getPermission() const { DARABONBA_PTR_GET_CONST(permission_, Permission) };
+    inline Permission getPermission() { DARABONBA_PTR_GET(permission_, Permission) };
     inline FailurePermission& setPermission(const Permission & permission) { DARABONBA_PTR_SET_VALUE(permission_, permission) };
     inline FailurePermission& setPermission(Permission && permission) { DARABONBA_PTR_SET_RVALUE(permission_, permission) };
 
 
   protected:
-    std::shared_ptr<string> errorCode_ = nullptr;
-    std::shared_ptr<string> errorMessage_ = nullptr;
-    std::shared_ptr<Permission> permission_ = nullptr;
+    shared_ptr<string> errorCode_ {};
+    shared_ptr<string> errorMessage_ {};
+    shared_ptr<Permission> permission_ {};
   };
 
   } // namespace Models

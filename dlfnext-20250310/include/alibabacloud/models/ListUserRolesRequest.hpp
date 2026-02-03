@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->maxResults_ == nullptr
-        && return this->pageToken_ == nullptr && return this->userPrincipal_ == nullptr; };
+        && this->pageToken_ == nullptr && this->userPrincipal_ == nullptr; };
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListUserRolesRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // pageToken Field Functions 
     bool hasPageToken() const { return this->pageToken_ != nullptr;};
     void deletePageToken() { this->pageToken_ = nullptr;};
-    inline string pageToken() const { DARABONBA_PTR_GET_DEFAULT(pageToken_, "") };
+    inline string getPageToken() const { DARABONBA_PTR_GET_DEFAULT(pageToken_, "") };
     inline ListUserRolesRequest& setPageToken(string pageToken) { DARABONBA_PTR_SET_VALUE(pageToken_, pageToken) };
 
 
     // userPrincipal Field Functions 
     bool hasUserPrincipal() const { return this->userPrincipal_ != nullptr;};
     void deleteUserPrincipal() { this->userPrincipal_ = nullptr;};
-    inline string userPrincipal() const { DARABONBA_PTR_GET_DEFAULT(userPrincipal_, "") };
+    inline string getUserPrincipal() const { DARABONBA_PTR_GET_DEFAULT(userPrincipal_, "") };
     inline ListUserRolesRequest& setUserPrincipal(string userPrincipal) { DARABONBA_PTR_SET_VALUE(userPrincipal_, userPrincipal) };
 
 
   protected:
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
-    std::shared_ptr<string> pageToken_ = nullptr;
-    std::shared_ptr<string> userPrincipal_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
+    shared_ptr<string> pageToken_ {};
+    shared_ptr<string> userPrincipal_ {};
   };
 
   } // namespace Models

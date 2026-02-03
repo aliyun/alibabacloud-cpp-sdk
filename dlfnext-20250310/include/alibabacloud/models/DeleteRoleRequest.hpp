@@ -33,12 +33,12 @@ namespace Models
     // rolePrincipal Field Functions 
     bool hasRolePrincipal() const { return this->rolePrincipal_ != nullptr;};
     void deleteRolePrincipal() { this->rolePrincipal_ = nullptr;};
-    inline string rolePrincipal() const { DARABONBA_PTR_GET_DEFAULT(rolePrincipal_, "") };
+    inline string getRolePrincipal() const { DARABONBA_PTR_GET_DEFAULT(rolePrincipal_, "") };
     inline DeleteRoleRequest& setRolePrincipal(string rolePrincipal) { DARABONBA_PTR_SET_VALUE(rolePrincipal_, rolePrincipal) };
 
 
   protected:
-    std::shared_ptr<string> rolePrincipal_ = nullptr;
+    shared_ptr<string> rolePrincipal_ {};
   };
 
   } // namespace Models

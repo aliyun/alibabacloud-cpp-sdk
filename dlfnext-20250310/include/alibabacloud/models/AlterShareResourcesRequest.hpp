@@ -34,26 +34,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->catalogId_ == nullptr
-        && return this->shareResourceList_ == nullptr; };
+        && this->shareResourceList_ == nullptr; };
     // catalogId Field Functions 
     bool hasCatalogId() const { return this->catalogId_ != nullptr;};
     void deleteCatalogId() { this->catalogId_ = nullptr;};
-    inline string catalogId() const { DARABONBA_PTR_GET_DEFAULT(catalogId_, "") };
+    inline string getCatalogId() const { DARABONBA_PTR_GET_DEFAULT(catalogId_, "") };
     inline AlterShareResourcesRequest& setCatalogId(string catalogId) { DARABONBA_PTR_SET_VALUE(catalogId_, catalogId) };
 
 
     // shareResourceList Field Functions 
     bool hasShareResourceList() const { return this->shareResourceList_ != nullptr;};
     void deleteShareResourceList() { this->shareResourceList_ = nullptr;};
-    inline const vector<ShareResource> & shareResourceList() const { DARABONBA_PTR_GET_CONST(shareResourceList_, vector<ShareResource>) };
-    inline vector<ShareResource> shareResourceList() { DARABONBA_PTR_GET(shareResourceList_, vector<ShareResource>) };
+    inline const vector<ShareResource> & getShareResourceList() const { DARABONBA_PTR_GET_CONST(shareResourceList_, vector<ShareResource>) };
+    inline vector<ShareResource> getShareResourceList() { DARABONBA_PTR_GET(shareResourceList_, vector<ShareResource>) };
     inline AlterShareResourcesRequest& setShareResourceList(const vector<ShareResource> & shareResourceList) { DARABONBA_PTR_SET_VALUE(shareResourceList_, shareResourceList) };
     inline AlterShareResourcesRequest& setShareResourceList(vector<ShareResource> && shareResourceList) { DARABONBA_PTR_SET_RVALUE(shareResourceList_, shareResourceList) };
 
 
   protected:
-    std::shared_ptr<string> catalogId_ = nullptr;
-    std::shared_ptr<vector<ShareResource>> shareResourceList_ = nullptr;
+    shared_ptr<string> catalogId_ {};
+    shared_ptr<vector<ShareResource>> shareResourceList_ {};
   };
 
   } // namespace Models

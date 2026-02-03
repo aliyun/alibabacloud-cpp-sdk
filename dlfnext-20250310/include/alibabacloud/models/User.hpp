@@ -46,81 +46,81 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->createdAt_ == nullptr
-        && return this->createdBy_ == nullptr && return this->displayName_ == nullptr && return this->type_ == nullptr && return this->updatedAt_ == nullptr && return this->updatedBy_ == nullptr
-        && return this->userId_ == nullptr && return this->userName_ == nullptr && return this->userPrincipal_ == nullptr; };
+        && this->createdBy_ == nullptr && this->displayName_ == nullptr && this->type_ == nullptr && this->updatedAt_ == nullptr && this->updatedBy_ == nullptr
+        && this->userId_ == nullptr && this->userName_ == nullptr && this->userPrincipal_ == nullptr; };
     // createdAt Field Functions 
     bool hasCreatedAt() const { return this->createdAt_ != nullptr;};
     void deleteCreatedAt() { this->createdAt_ = nullptr;};
-    inline int64_t createdAt() const { DARABONBA_PTR_GET_DEFAULT(createdAt_, 0L) };
+    inline int64_t getCreatedAt() const { DARABONBA_PTR_GET_DEFAULT(createdAt_, 0L) };
     inline User& setCreatedAt(int64_t createdAt) { DARABONBA_PTR_SET_VALUE(createdAt_, createdAt) };
 
 
     // createdBy Field Functions 
     bool hasCreatedBy() const { return this->createdBy_ != nullptr;};
     void deleteCreatedBy() { this->createdBy_ = nullptr;};
-    inline string createdBy() const { DARABONBA_PTR_GET_DEFAULT(createdBy_, "") };
+    inline string getCreatedBy() const { DARABONBA_PTR_GET_DEFAULT(createdBy_, "") };
     inline User& setCreatedBy(string createdBy) { DARABONBA_PTR_SET_VALUE(createdBy_, createdBy) };
 
 
     // displayName Field Functions 
     bool hasDisplayName() const { return this->displayName_ != nullptr;};
     void deleteDisplayName() { this->displayName_ = nullptr;};
-    inline string displayName() const { DARABONBA_PTR_GET_DEFAULT(displayName_, "") };
+    inline string getDisplayName() const { DARABONBA_PTR_GET_DEFAULT(displayName_, "") };
     inline User& setDisplayName(string displayName) { DARABONBA_PTR_SET_VALUE(displayName_, displayName) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline User& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
     // updatedAt Field Functions 
     bool hasUpdatedAt() const { return this->updatedAt_ != nullptr;};
     void deleteUpdatedAt() { this->updatedAt_ = nullptr;};
-    inline int64_t updatedAt() const { DARABONBA_PTR_GET_DEFAULT(updatedAt_, 0L) };
+    inline int64_t getUpdatedAt() const { DARABONBA_PTR_GET_DEFAULT(updatedAt_, 0L) };
     inline User& setUpdatedAt(int64_t updatedAt) { DARABONBA_PTR_SET_VALUE(updatedAt_, updatedAt) };
 
 
     // updatedBy Field Functions 
     bool hasUpdatedBy() const { return this->updatedBy_ != nullptr;};
     void deleteUpdatedBy() { this->updatedBy_ = nullptr;};
-    inline string updatedBy() const { DARABONBA_PTR_GET_DEFAULT(updatedBy_, "") };
+    inline string getUpdatedBy() const { DARABONBA_PTR_GET_DEFAULT(updatedBy_, "") };
     inline User& setUpdatedBy(string updatedBy) { DARABONBA_PTR_SET_VALUE(updatedBy_, updatedBy) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline User& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
     // userName Field Functions 
     bool hasUserName() const { return this->userName_ != nullptr;};
     void deleteUserName() { this->userName_ = nullptr;};
-    inline string userName() const { DARABONBA_PTR_GET_DEFAULT(userName_, "") };
+    inline string getUserName() const { DARABONBA_PTR_GET_DEFAULT(userName_, "") };
     inline User& setUserName(string userName) { DARABONBA_PTR_SET_VALUE(userName_, userName) };
 
 
     // userPrincipal Field Functions 
     bool hasUserPrincipal() const { return this->userPrincipal_ != nullptr;};
     void deleteUserPrincipal() { this->userPrincipal_ = nullptr;};
-    inline string userPrincipal() const { DARABONBA_PTR_GET_DEFAULT(userPrincipal_, "") };
+    inline string getUserPrincipal() const { DARABONBA_PTR_GET_DEFAULT(userPrincipal_, "") };
     inline User& setUserPrincipal(string userPrincipal) { DARABONBA_PTR_SET_VALUE(userPrincipal_, userPrincipal) };
 
 
   protected:
-    std::shared_ptr<int64_t> createdAt_ = nullptr;
-    std::shared_ptr<string> createdBy_ = nullptr;
-    std::shared_ptr<string> displayName_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
-    std::shared_ptr<int64_t> updatedAt_ = nullptr;
-    std::shared_ptr<string> updatedBy_ = nullptr;
-    std::shared_ptr<string> userId_ = nullptr;
-    std::shared_ptr<string> userName_ = nullptr;
-    std::shared_ptr<string> userPrincipal_ = nullptr;
+    shared_ptr<int64_t> createdAt_ {};
+    shared_ptr<string> createdBy_ {};
+    shared_ptr<string> displayName_ {};
+    shared_ptr<string> type_ {};
+    shared_ptr<int64_t> updatedAt_ {};
+    shared_ptr<string> updatedBy_ {};
+    shared_ptr<string> userId_ {};
+    shared_ptr<string> userName_ {};
+    shared_ptr<string> userPrincipal_ {};
   };
 
   } // namespace Models

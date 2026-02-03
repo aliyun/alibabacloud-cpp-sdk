@@ -34,27 +34,27 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->nextPageToken_ == nullptr
-        && return this->partitions_ == nullptr; };
+        && this->partitions_ == nullptr; };
     // nextPageToken Field Functions 
     bool hasNextPageToken() const { return this->nextPageToken_ != nullptr;};
     void deleteNextPageToken() { this->nextPageToken_ = nullptr;};
-    inline string nextPageToken() const { DARABONBA_PTR_GET_DEFAULT(nextPageToken_, "") };
+    inline string getNextPageToken() const { DARABONBA_PTR_GET_DEFAULT(nextPageToken_, "") };
     inline PartitionSummaries& setNextPageToken(string nextPageToken) { DARABONBA_PTR_SET_VALUE(nextPageToken_, nextPageToken) };
 
 
     // partitions Field Functions 
     bool hasPartitions() const { return this->partitions_ != nullptr;};
     void deletePartitions() { this->partitions_ = nullptr;};
-    inline const vector<PartitionSummary> & partitions() const { DARABONBA_PTR_GET_CONST(partitions_, vector<PartitionSummary>) };
-    inline vector<PartitionSummary> partitions() { DARABONBA_PTR_GET(partitions_, vector<PartitionSummary>) };
+    inline const vector<PartitionSummary> & getPartitions() const { DARABONBA_PTR_GET_CONST(partitions_, vector<PartitionSummary>) };
+    inline vector<PartitionSummary> getPartitions() { DARABONBA_PTR_GET(partitions_, vector<PartitionSummary>) };
     inline PartitionSummaries& setPartitions(const vector<PartitionSummary> & partitions) { DARABONBA_PTR_SET_VALUE(partitions_, partitions) };
     inline PartitionSummaries& setPartitions(vector<PartitionSummary> && partitions) { DARABONBA_PTR_SET_RVALUE(partitions_, partitions) };
 
 
   protected:
-    std::shared_ptr<string> nextPageToken_ = nullptr;
+    shared_ptr<string> nextPageToken_ {};
     // Current page of partition profiles
-    std::shared_ptr<vector<PartitionSummary>> partitions_ = nullptr;
+    shared_ptr<vector<PartitionSummary>> partitions_ {};
   };
 
   } // namespace Models

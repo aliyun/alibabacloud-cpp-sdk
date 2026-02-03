@@ -33,26 +33,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->expiresAtMillis_ == nullptr
-        && return this->token_ == nullptr; };
+        && this->token_ == nullptr; };
     // expiresAtMillis Field Functions 
     bool hasExpiresAtMillis() const { return this->expiresAtMillis_ != nullptr;};
     void deleteExpiresAtMillis() { this->expiresAtMillis_ = nullptr;};
-    inline int64_t expiresAtMillis() const { DARABONBA_PTR_GET_DEFAULT(expiresAtMillis_, 0L) };
+    inline int64_t getExpiresAtMillis() const { DARABONBA_PTR_GET_DEFAULT(expiresAtMillis_, 0L) };
     inline GetTableTokenResponseBody& setExpiresAtMillis(int64_t expiresAtMillis) { DARABONBA_PTR_SET_VALUE(expiresAtMillis_, expiresAtMillis) };
 
 
     // token Field Functions 
     bool hasToken() const { return this->token_ != nullptr;};
     void deleteToken() { this->token_ = nullptr;};
-    inline const map<string, string> & token() const { DARABONBA_PTR_GET_CONST(token_, map<string, string>) };
-    inline map<string, string> token() { DARABONBA_PTR_GET(token_, map<string, string>) };
+    inline const map<string, string> & getToken() const { DARABONBA_PTR_GET_CONST(token_, map<string, string>) };
+    inline map<string, string> getToken() { DARABONBA_PTR_GET(token_, map<string, string>) };
     inline GetTableTokenResponseBody& setToken(const map<string, string> & token) { DARABONBA_PTR_SET_VALUE(token_, token) };
     inline GetTableTokenResponseBody& setToken(map<string, string> && token) { DARABONBA_PTR_SET_RVALUE(token_, token) };
 
 
   protected:
-    std::shared_ptr<int64_t> expiresAtMillis_ = nullptr;
-    std::shared_ptr<map<string, string>> token_ = nullptr;
+    shared_ptr<int64_t> expiresAtMillis_ {};
+    shared_ptr<map<string, string>> token_ {};
   };
 
   } // namespace Models

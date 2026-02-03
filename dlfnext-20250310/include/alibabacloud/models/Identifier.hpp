@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->database_ == nullptr
-        && return this->object_ == nullptr; };
+        && this->object_ == nullptr; };
     // database Field Functions 
     bool hasDatabase() const { return this->database_ != nullptr;};
     void deleteDatabase() { this->database_ = nullptr;};
-    inline string database() const { DARABONBA_PTR_GET_DEFAULT(database_, "") };
+    inline string getDatabase() const { DARABONBA_PTR_GET_DEFAULT(database_, "") };
     inline Identifier& setDatabase(string database) { DARABONBA_PTR_SET_VALUE(database_, database) };
 
 
     // object Field Functions 
     bool hasObject() const { return this->object_ != nullptr;};
     void deleteObject() { this->object_ = nullptr;};
-    inline string object() const { DARABONBA_PTR_GET_DEFAULT(object_, "") };
+    inline string getObject() const { DARABONBA_PTR_GET_DEFAULT(object_, "") };
     inline Identifier& setObject(string object) { DARABONBA_PTR_SET_VALUE(object_, object) };
 
 
   protected:
-    std::shared_ptr<string> database_ = nullptr;
-    std::shared_ptr<string> object_ = nullptr;
+    shared_ptr<string> database_ {};
+    shared_ptr<string> object_ {};
   };
 
   } // namespace Models

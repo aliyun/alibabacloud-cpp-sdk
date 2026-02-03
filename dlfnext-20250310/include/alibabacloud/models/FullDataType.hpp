@@ -41,12 +41,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->element_ == nullptr
-        && return this->fields_ == nullptr && return this->key_ == nullptr && return this->type_ == nullptr && return this->value_ == nullptr; };
+        && this->fields_ == nullptr && this->key_ == nullptr && this->type_ == nullptr && this->value_ == nullptr; };
     // element Field Functions 
     bool hasElement() const { return this->element_ != nullptr;};
     void deleteElement() { this->element_ = nullptr;};
-    inline const FullDataType & element() const { DARABONBA_PTR_GET_CONST(element_, FullDataType) };
-    inline FullDataType element() { DARABONBA_PTR_GET(element_, FullDataType) };
+    inline const FullDataType & getElement() const { DARABONBA_PTR_GET_CONST(element_, FullDataType) };
+    inline FullDataType getElement() { DARABONBA_PTR_GET(element_, FullDataType) };
     inline FullDataType& setElement(const FullDataType & element) { DARABONBA_PTR_SET_VALUE(element_, element) };
     inline FullDataType& setElement(FullDataType && element) { DARABONBA_PTR_SET_RVALUE(element_, element) };
 
@@ -54,8 +54,8 @@ namespace Models
     // fields Field Functions 
     bool hasFields() const { return this->fields_ != nullptr;};
     void deleteFields() { this->fields_ = nullptr;};
-    inline const vector<DataField> & fields() const { DARABONBA_PTR_GET_CONST(fields_, vector<DataField>) };
-    inline vector<DataField> fields() { DARABONBA_PTR_GET(fields_, vector<DataField>) };
+    inline const vector<DataField> & getFields() const { DARABONBA_PTR_GET_CONST(fields_, vector<DataField>) };
+    inline vector<DataField> getFields() { DARABONBA_PTR_GET(fields_, vector<DataField>) };
     inline FullDataType& setFields(const vector<DataField> & fields) { DARABONBA_PTR_SET_VALUE(fields_, fields) };
     inline FullDataType& setFields(vector<DataField> && fields) { DARABONBA_PTR_SET_RVALUE(fields_, fields) };
 
@@ -63,8 +63,8 @@ namespace Models
     // key Field Functions 
     bool hasKey() const { return this->key_ != nullptr;};
     void deleteKey() { this->key_ = nullptr;};
-    inline const FullDataType & key() const { DARABONBA_PTR_GET_CONST(key_, FullDataType) };
-    inline FullDataType key() { DARABONBA_PTR_GET(key_, FullDataType) };
+    inline const FullDataType & getKey() const { DARABONBA_PTR_GET_CONST(key_, FullDataType) };
+    inline FullDataType getKey() { DARABONBA_PTR_GET(key_, FullDataType) };
     inline FullDataType& setKey(const FullDataType & key) { DARABONBA_PTR_SET_VALUE(key_, key) };
     inline FullDataType& setKey(FullDataType && key) { DARABONBA_PTR_SET_RVALUE(key_, key) };
 
@@ -72,25 +72,25 @@ namespace Models
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline FullDataType& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
     // value Field Functions 
     bool hasValue() const { return this->value_ != nullptr;};
     void deleteValue() { this->value_ = nullptr;};
-    inline const FullDataType & value() const { DARABONBA_PTR_GET_CONST(value_, FullDataType) };
-    inline FullDataType value() { DARABONBA_PTR_GET(value_, FullDataType) };
+    inline const FullDataType & getValue() const { DARABONBA_PTR_GET_CONST(value_, FullDataType) };
+    inline FullDataType getValue() { DARABONBA_PTR_GET(value_, FullDataType) };
     inline FullDataType& setValue(const FullDataType & value) { DARABONBA_PTR_SET_VALUE(value_, value) };
     inline FullDataType& setValue(FullDataType && value) { DARABONBA_PTR_SET_RVALUE(value_, value) };
 
 
   protected:
-    std::shared_ptr<FullDataType> element_ = nullptr;
-    std::shared_ptr<vector<DataField>> fields_ = nullptr;
-    std::shared_ptr<FullDataType> key_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
-    std::shared_ptr<FullDataType> value_ = nullptr;
+    shared_ptr<FullDataType> element_ {};
+    shared_ptr<vector<DataField>> fields_ {};
+    shared_ptr<FullDataType> key_ {};
+    shared_ptr<string> type_ {};
+    shared_ptr<FullDataType> value_ {};
   };
 
   } // namespace Models

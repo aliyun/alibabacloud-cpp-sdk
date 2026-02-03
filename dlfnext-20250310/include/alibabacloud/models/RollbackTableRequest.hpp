@@ -34,14 +34,14 @@ namespace Models
     // instant Field Functions 
     bool hasInstant() const { return this->instant_ != nullptr;};
     void deleteInstant() { this->instant_ = nullptr;};
-    inline const FullInstant & instant() const { DARABONBA_PTR_GET_CONST(instant_, FullInstant) };
-    inline FullInstant instant() { DARABONBA_PTR_GET(instant_, FullInstant) };
+    inline const FullInstant & getInstant() const { DARABONBA_PTR_GET_CONST(instant_, FullInstant) };
+    inline FullInstant getInstant() { DARABONBA_PTR_GET(instant_, FullInstant) };
     inline RollbackTableRequest& setInstant(const FullInstant & instant) { DARABONBA_PTR_SET_VALUE(instant_, instant) };
     inline RollbackTableRequest& setInstant(FullInstant && instant) { DARABONBA_PTR_SET_RVALUE(instant_, instant) };
 
 
   protected:
-    std::shared_ptr<FullInstant> instant_ = nullptr;
+    shared_ptr<FullInstant> instant_ {};
   };
 
   } // namespace Models

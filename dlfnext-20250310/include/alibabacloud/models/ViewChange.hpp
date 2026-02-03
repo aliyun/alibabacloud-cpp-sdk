@@ -40,61 +40,61 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->action_ == nullptr
-        && return this->comment_ == nullptr && return this->dialect_ == nullptr && return this->key_ == nullptr && return this->query_ == nullptr && return this->value_ == nullptr; };
+        && this->comment_ == nullptr && this->dialect_ == nullptr && this->key_ == nullptr && this->query_ == nullptr && this->value_ == nullptr; };
     // action Field Functions 
     bool hasAction() const { return this->action_ != nullptr;};
     void deleteAction() { this->action_ = nullptr;};
-    inline string action() const { DARABONBA_PTR_GET_DEFAULT(action_, "") };
+    inline string getAction() const { DARABONBA_PTR_GET_DEFAULT(action_, "") };
     inline ViewChange& setAction(string action) { DARABONBA_PTR_SET_VALUE(action_, action) };
 
 
     // comment Field Functions 
     bool hasComment() const { return this->comment_ != nullptr;};
     void deleteComment() { this->comment_ = nullptr;};
-    inline string comment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
+    inline string getComment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
     inline ViewChange& setComment(string comment) { DARABONBA_PTR_SET_VALUE(comment_, comment) };
 
 
     // dialect Field Functions 
     bool hasDialect() const { return this->dialect_ != nullptr;};
     void deleteDialect() { this->dialect_ = nullptr;};
-    inline string dialect() const { DARABONBA_PTR_GET_DEFAULT(dialect_, "") };
+    inline string getDialect() const { DARABONBA_PTR_GET_DEFAULT(dialect_, "") };
     inline ViewChange& setDialect(string dialect) { DARABONBA_PTR_SET_VALUE(dialect_, dialect) };
 
 
     // key Field Functions 
     bool hasKey() const { return this->key_ != nullptr;};
     void deleteKey() { this->key_ = nullptr;};
-    inline string key() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+    inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
     inline ViewChange& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
 
 
     // query Field Functions 
     bool hasQuery() const { return this->query_ != nullptr;};
     void deleteQuery() { this->query_ = nullptr;};
-    inline string query() const { DARABONBA_PTR_GET_DEFAULT(query_, "") };
+    inline string getQuery() const { DARABONBA_PTR_GET_DEFAULT(query_, "") };
     inline ViewChange& setQuery(string query) { DARABONBA_PTR_SET_VALUE(query_, query) };
 
 
     // value Field Functions 
     bool hasValue() const { return this->value_ != nullptr;};
     void deleteValue() { this->value_ = nullptr;};
-    inline string value() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+    inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
     inline ViewChange& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
 
 
   protected:
-    std::shared_ptr<string> action_ = nullptr;
+    shared_ptr<string> action_ {};
     // required in UpdateComment
-    std::shared_ptr<string> comment_ = nullptr;
+    shared_ptr<string> comment_ {};
     // required in AddDialect/UpdateDialect/DropDialect
-    std::shared_ptr<string> dialect_ = nullptr;
+    shared_ptr<string> dialect_ {};
     // required in SetOption/RemoveOption
-    std::shared_ptr<string> key_ = nullptr;
+    shared_ptr<string> key_ {};
     // required in AddDialect/UpdateDialect
-    std::shared_ptr<string> query_ = nullptr;
+    shared_ptr<string> query_ {};
     // required in SetOption
-    std::shared_ptr<string> value_ = nullptr;
+    shared_ptr<string> value_ {};
   };
 
   } // namespace Models

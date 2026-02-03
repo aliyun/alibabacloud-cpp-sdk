@@ -34,26 +34,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->nextPageToken_ == nullptr
-        && return this->shares_ == nullptr; };
+        && this->shares_ == nullptr; };
     // nextPageToken Field Functions 
     bool hasNextPageToken() const { return this->nextPageToken_ != nullptr;};
     void deleteNextPageToken() { this->nextPageToken_ = nullptr;};
-    inline string nextPageToken() const { DARABONBA_PTR_GET_DEFAULT(nextPageToken_, "") };
+    inline string getNextPageToken() const { DARABONBA_PTR_GET_DEFAULT(nextPageToken_, "") };
     inline ListProvidedSharesResponseBody& setNextPageToken(string nextPageToken) { DARABONBA_PTR_SET_VALUE(nextPageToken_, nextPageToken) };
 
 
     // shares Field Functions 
     bool hasShares() const { return this->shares_ != nullptr;};
     void deleteShares() { this->shares_ = nullptr;};
-    inline const vector<Share> & shares() const { DARABONBA_PTR_GET_CONST(shares_, vector<Share>) };
-    inline vector<Share> shares() { DARABONBA_PTR_GET(shares_, vector<Share>) };
+    inline const vector<Share> & getShares() const { DARABONBA_PTR_GET_CONST(shares_, vector<Share>) };
+    inline vector<Share> getShares() { DARABONBA_PTR_GET(shares_, vector<Share>) };
     inline ListProvidedSharesResponseBody& setShares(const vector<Share> & shares) { DARABONBA_PTR_SET_VALUE(shares_, shares) };
     inline ListProvidedSharesResponseBody& setShares(vector<Share> && shares) { DARABONBA_PTR_SET_RVALUE(shares_, shares) };
 
 
   protected:
-    std::shared_ptr<string> nextPageToken_ = nullptr;
-    std::shared_ptr<vector<Share>> shares_ = nullptr;
+    shared_ptr<string> nextPageToken_ {};
+    shared_ptr<vector<Share>> shares_ {};
   };
 
   } // namespace Models

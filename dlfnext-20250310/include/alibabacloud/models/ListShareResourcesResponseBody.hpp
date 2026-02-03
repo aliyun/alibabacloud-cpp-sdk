@@ -36,34 +36,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->catalogId_ == nullptr
-        && return this->nextPageToken_ == nullptr && return this->shareResources_ == nullptr; };
+        && this->nextPageToken_ == nullptr && this->shareResources_ == nullptr; };
     // catalogId Field Functions 
     bool hasCatalogId() const { return this->catalogId_ != nullptr;};
     void deleteCatalogId() { this->catalogId_ = nullptr;};
-    inline string catalogId() const { DARABONBA_PTR_GET_DEFAULT(catalogId_, "") };
+    inline string getCatalogId() const { DARABONBA_PTR_GET_DEFAULT(catalogId_, "") };
     inline ListShareResourcesResponseBody& setCatalogId(string catalogId) { DARABONBA_PTR_SET_VALUE(catalogId_, catalogId) };
 
 
     // nextPageToken Field Functions 
     bool hasNextPageToken() const { return this->nextPageToken_ != nullptr;};
     void deleteNextPageToken() { this->nextPageToken_ = nullptr;};
-    inline string nextPageToken() const { DARABONBA_PTR_GET_DEFAULT(nextPageToken_, "") };
+    inline string getNextPageToken() const { DARABONBA_PTR_GET_DEFAULT(nextPageToken_, "") };
     inline ListShareResourcesResponseBody& setNextPageToken(string nextPageToken) { DARABONBA_PTR_SET_VALUE(nextPageToken_, nextPageToken) };
 
 
     // shareResources Field Functions 
     bool hasShareResources() const { return this->shareResources_ != nullptr;};
     void deleteShareResources() { this->shareResources_ = nullptr;};
-    inline const vector<ShareResource> & shareResources() const { DARABONBA_PTR_GET_CONST(shareResources_, vector<ShareResource>) };
-    inline vector<ShareResource> shareResources() { DARABONBA_PTR_GET(shareResources_, vector<ShareResource>) };
+    inline const vector<ShareResource> & getShareResources() const { DARABONBA_PTR_GET_CONST(shareResources_, vector<ShareResource>) };
+    inline vector<ShareResource> getShareResources() { DARABONBA_PTR_GET(shareResources_, vector<ShareResource>) };
     inline ListShareResourcesResponseBody& setShareResources(const vector<ShareResource> & shareResources) { DARABONBA_PTR_SET_VALUE(shareResources_, shareResources) };
     inline ListShareResourcesResponseBody& setShareResources(vector<ShareResource> && shareResources) { DARABONBA_PTR_SET_RVALUE(shareResources_, shareResources) };
 
 
   protected:
-    std::shared_ptr<string> catalogId_ = nullptr;
-    std::shared_ptr<string> nextPageToken_ = nullptr;
-    std::shared_ptr<vector<ShareResource>> shareResources_ = nullptr;
+    shared_ptr<string> catalogId_ {};
+    shared_ptr<string> nextPageToken_ {};
+    shared_ptr<vector<ShareResource>> shareResources_ {};
   };
 
   } // namespace Models

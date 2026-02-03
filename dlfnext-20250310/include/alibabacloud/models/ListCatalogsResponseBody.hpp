@@ -37,12 +37,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->catalogs_ == nullptr
-        && return this->nextPageToken_ == nullptr && return this->prepayResource_ == nullptr; };
+        && this->nextPageToken_ == nullptr && this->prepayResource_ == nullptr; };
     // catalogs Field Functions 
     bool hasCatalogs() const { return this->catalogs_ != nullptr;};
     void deleteCatalogs() { this->catalogs_ = nullptr;};
-    inline const vector<Catalog> & catalogs() const { DARABONBA_PTR_GET_CONST(catalogs_, vector<Catalog>) };
-    inline vector<Catalog> catalogs() { DARABONBA_PTR_GET(catalogs_, vector<Catalog>) };
+    inline const vector<Catalog> & getCatalogs() const { DARABONBA_PTR_GET_CONST(catalogs_, vector<Catalog>) };
+    inline vector<Catalog> getCatalogs() { DARABONBA_PTR_GET(catalogs_, vector<Catalog>) };
     inline ListCatalogsResponseBody& setCatalogs(const vector<Catalog> & catalogs) { DARABONBA_PTR_SET_VALUE(catalogs_, catalogs) };
     inline ListCatalogsResponseBody& setCatalogs(vector<Catalog> && catalogs) { DARABONBA_PTR_SET_RVALUE(catalogs_, catalogs) };
 
@@ -50,23 +50,23 @@ namespace Models
     // nextPageToken Field Functions 
     bool hasNextPageToken() const { return this->nextPageToken_ != nullptr;};
     void deleteNextPageToken() { this->nextPageToken_ = nullptr;};
-    inline string nextPageToken() const { DARABONBA_PTR_GET_DEFAULT(nextPageToken_, "") };
+    inline string getNextPageToken() const { DARABONBA_PTR_GET_DEFAULT(nextPageToken_, "") };
     inline ListCatalogsResponseBody& setNextPageToken(string nextPageToken) { DARABONBA_PTR_SET_VALUE(nextPageToken_, nextPageToken) };
 
 
     // prepayResource Field Functions 
     bool hasPrepayResource() const { return this->prepayResource_ != nullptr;};
     void deletePrepayResource() { this->prepayResource_ = nullptr;};
-    inline const vector<PrepayResource> & prepayResource() const { DARABONBA_PTR_GET_CONST(prepayResource_, vector<PrepayResource>) };
-    inline vector<PrepayResource> prepayResource() { DARABONBA_PTR_GET(prepayResource_, vector<PrepayResource>) };
+    inline const vector<PrepayResource> & getPrepayResource() const { DARABONBA_PTR_GET_CONST(prepayResource_, vector<PrepayResource>) };
+    inline vector<PrepayResource> getPrepayResource() { DARABONBA_PTR_GET(prepayResource_, vector<PrepayResource>) };
     inline ListCatalogsResponseBody& setPrepayResource(const vector<PrepayResource> & prepayResource) { DARABONBA_PTR_SET_VALUE(prepayResource_, prepayResource) };
     inline ListCatalogsResponseBody& setPrepayResource(vector<PrepayResource> && prepayResource) { DARABONBA_PTR_SET_RVALUE(prepayResource_, prepayResource) };
 
 
   protected:
-    std::shared_ptr<vector<Catalog>> catalogs_ = nullptr;
-    std::shared_ptr<string> nextPageToken_ = nullptr;
-    std::shared_ptr<vector<PrepayResource>> prepayResource_ = nullptr;
+    shared_ptr<vector<Catalog>> catalogs_ {};
+    shared_ptr<string> nextPageToken_ {};
+    shared_ptr<vector<PrepayResource>> prepayResource_ {};
   };
 
   } // namespace Models

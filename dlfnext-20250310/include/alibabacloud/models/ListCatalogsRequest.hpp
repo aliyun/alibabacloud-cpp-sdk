@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->catalogNamePattern_ == nullptr
-        && return this->maxResults_ == nullptr && return this->pageToken_ == nullptr; };
+        && this->maxResults_ == nullptr && this->pageToken_ == nullptr; };
     // catalogNamePattern Field Functions 
     bool hasCatalogNamePattern() const { return this->catalogNamePattern_ != nullptr;};
     void deleteCatalogNamePattern() { this->catalogNamePattern_ = nullptr;};
-    inline string catalogNamePattern() const { DARABONBA_PTR_GET_DEFAULT(catalogNamePattern_, "") };
+    inline string getCatalogNamePattern() const { DARABONBA_PTR_GET_DEFAULT(catalogNamePattern_, "") };
     inline ListCatalogsRequest& setCatalogNamePattern(string catalogNamePattern) { DARABONBA_PTR_SET_VALUE(catalogNamePattern_, catalogNamePattern) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListCatalogsRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // pageToken Field Functions 
     bool hasPageToken() const { return this->pageToken_ != nullptr;};
     void deletePageToken() { this->pageToken_ = nullptr;};
-    inline string pageToken() const { DARABONBA_PTR_GET_DEFAULT(pageToken_, "") };
+    inline string getPageToken() const { DARABONBA_PTR_GET_DEFAULT(pageToken_, "") };
     inline ListCatalogsRequest& setPageToken(string pageToken) { DARABONBA_PTR_SET_VALUE(pageToken_, pageToken) };
 
 
   protected:
-    std::shared_ptr<string> catalogNamePattern_ = nullptr;
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
-    std::shared_ptr<string> pageToken_ = nullptr;
+    shared_ptr<string> catalogNamePattern_ {};
+    shared_ptr<int32_t> maxResults_ {};
+    shared_ptr<string> pageToken_ {};
   };
 
   } // namespace Models

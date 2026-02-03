@@ -34,12 +34,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->namespaceDetails_ == nullptr
-        && return this->nextPageToken_ == nullptr; };
+        && this->nextPageToken_ == nullptr; };
     // namespaceDetails Field Functions 
     bool hasNamespaceDetails() const { return this->namespaceDetails_ != nullptr;};
     void deleteNamespaceDetails() { this->namespaceDetails_ = nullptr;};
-    inline const vector<Namespace> & namespaceDetails() const { DARABONBA_PTR_GET_CONST(namespaceDetails_, vector<Namespace>) };
-    inline vector<Namespace> namespaceDetails() { DARABONBA_PTR_GET(namespaceDetails_, vector<Namespace>) };
+    inline const vector<Namespace> & getNamespaceDetails() const { DARABONBA_PTR_GET_CONST(namespaceDetails_, vector<Namespace>) };
+    inline vector<Namespace> getNamespaceDetails() { DARABONBA_PTR_GET(namespaceDetails_, vector<Namespace>) };
     inline ListIcebergNamespaceDetailsResponseBody& setNamespaceDetails(const vector<Namespace> & namespaceDetails) { DARABONBA_PTR_SET_VALUE(namespaceDetails_, namespaceDetails) };
     inline ListIcebergNamespaceDetailsResponseBody& setNamespaceDetails(vector<Namespace> && namespaceDetails) { DARABONBA_PTR_SET_RVALUE(namespaceDetails_, namespaceDetails) };
 
@@ -47,13 +47,13 @@ namespace Models
     // nextPageToken Field Functions 
     bool hasNextPageToken() const { return this->nextPageToken_ != nullptr;};
     void deleteNextPageToken() { this->nextPageToken_ = nullptr;};
-    inline string nextPageToken() const { DARABONBA_PTR_GET_DEFAULT(nextPageToken_, "") };
+    inline string getNextPageToken() const { DARABONBA_PTR_GET_DEFAULT(nextPageToken_, "") };
     inline ListIcebergNamespaceDetailsResponseBody& setNextPageToken(string nextPageToken) { DARABONBA_PTR_SET_VALUE(nextPageToken_, nextPageToken) };
 
 
   protected:
-    std::shared_ptr<vector<Namespace>> namespaceDetails_ = nullptr;
-    std::shared_ptr<string> nextPageToken_ = nullptr;
+    shared_ptr<vector<Namespace>> namespaceDetails_ {};
+    shared_ptr<string> nextPageToken_ {};
   };
 
   } // namespace Models

@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->serviceRoleExists_ == nullptr
-        && return this->status_ == nullptr; };
+        && this->status_ == nullptr; };
     // serviceRoleExists Field Functions 
     bool hasServiceRoleExists() const { return this->serviceRoleExists_ != nullptr;};
     void deleteServiceRoleExists() { this->serviceRoleExists_ = nullptr;};
-    inline bool serviceRoleExists() const { DARABONBA_PTR_GET_DEFAULT(serviceRoleExists_, false) };
+    inline bool getServiceRoleExists() const { DARABONBA_PTR_GET_DEFAULT(serviceRoleExists_, false) };
     inline GetRegionStatusResponseBody& setServiceRoleExists(bool serviceRoleExists) { DARABONBA_PTR_SET_VALUE(serviceRoleExists_, serviceRoleExists) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline GetRegionStatusResponseBody& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
   protected:
-    std::shared_ptr<bool> serviceRoleExists_ = nullptr;
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<bool> serviceRoleExists_ {};
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models

@@ -33,26 +33,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->nextPageToken_ == nullptr
-        && return this->views_ == nullptr; };
+        && this->views_ == nullptr; };
     // nextPageToken Field Functions 
     bool hasNextPageToken() const { return this->nextPageToken_ != nullptr;};
     void deleteNextPageToken() { this->nextPageToken_ = nullptr;};
-    inline string nextPageToken() const { DARABONBA_PTR_GET_DEFAULT(nextPageToken_, "") };
+    inline string getNextPageToken() const { DARABONBA_PTR_GET_DEFAULT(nextPageToken_, "") };
     inline ListViewsResponseBody& setNextPageToken(string nextPageToken) { DARABONBA_PTR_SET_VALUE(nextPageToken_, nextPageToken) };
 
 
     // views Field Functions 
     bool hasViews() const { return this->views_ != nullptr;};
     void deleteViews() { this->views_ = nullptr;};
-    inline const vector<string> & views() const { DARABONBA_PTR_GET_CONST(views_, vector<string>) };
-    inline vector<string> views() { DARABONBA_PTR_GET(views_, vector<string>) };
+    inline const vector<string> & getViews() const { DARABONBA_PTR_GET_CONST(views_, vector<string>) };
+    inline vector<string> getViews() { DARABONBA_PTR_GET(views_, vector<string>) };
     inline ListViewsResponseBody& setViews(const vector<string> & views) { DARABONBA_PTR_SET_VALUE(views_, views) };
     inline ListViewsResponseBody& setViews(vector<string> && views) { DARABONBA_PTR_SET_RVALUE(views_, views) };
 
 
   protected:
-    std::shared_ptr<string> nextPageToken_ = nullptr;
-    std::shared_ptr<vector<string>> views_ = nullptr;
+    shared_ptr<string> nextPageToken_ {};
+    shared_ptr<vector<string>> views_ {};
   };
 
   } // namespace Models

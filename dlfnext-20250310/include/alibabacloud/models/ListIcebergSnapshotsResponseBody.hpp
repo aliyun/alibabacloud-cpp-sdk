@@ -34,26 +34,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->nextPageToken_ == nullptr
-        && return this->snapshots_ == nullptr; };
+        && this->snapshots_ == nullptr; };
     // nextPageToken Field Functions 
     bool hasNextPageToken() const { return this->nextPageToken_ != nullptr;};
     void deleteNextPageToken() { this->nextPageToken_ = nullptr;};
-    inline string nextPageToken() const { DARABONBA_PTR_GET_DEFAULT(nextPageToken_, "") };
+    inline string getNextPageToken() const { DARABONBA_PTR_GET_DEFAULT(nextPageToken_, "") };
     inline ListIcebergSnapshotsResponseBody& setNextPageToken(string nextPageToken) { DARABONBA_PTR_SET_VALUE(nextPageToken_, nextPageToken) };
 
 
     // snapshots Field Functions 
     bool hasSnapshots() const { return this->snapshots_ != nullptr;};
     void deleteSnapshots() { this->snapshots_ = nullptr;};
-    inline const vector<IcebergSnapshot> & snapshots() const { DARABONBA_PTR_GET_CONST(snapshots_, vector<IcebergSnapshot>) };
-    inline vector<IcebergSnapshot> snapshots() { DARABONBA_PTR_GET(snapshots_, vector<IcebergSnapshot>) };
+    inline const vector<IcebergSnapshot> & getSnapshots() const { DARABONBA_PTR_GET_CONST(snapshots_, vector<IcebergSnapshot>) };
+    inline vector<IcebergSnapshot> getSnapshots() { DARABONBA_PTR_GET(snapshots_, vector<IcebergSnapshot>) };
     inline ListIcebergSnapshotsResponseBody& setSnapshots(const vector<IcebergSnapshot> & snapshots) { DARABONBA_PTR_SET_VALUE(snapshots_, snapshots) };
     inline ListIcebergSnapshotsResponseBody& setSnapshots(vector<IcebergSnapshot> && snapshots) { DARABONBA_PTR_SET_RVALUE(snapshots_, snapshots) };
 
 
   protected:
-    std::shared_ptr<string> nextPageToken_ = nullptr;
-    std::shared_ptr<vector<IcebergSnapshot>> snapshots_ = nullptr;
+    shared_ptr<string> nextPageToken_ {};
+    shared_ptr<vector<IcebergSnapshot>> snapshots_ {};
   };
 
   } // namespace Models

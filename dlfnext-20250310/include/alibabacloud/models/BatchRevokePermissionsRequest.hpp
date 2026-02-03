@@ -35,14 +35,14 @@ namespace Models
     // permissions Field Functions 
     bool hasPermissions() const { return this->permissions_ != nullptr;};
     void deletePermissions() { this->permissions_ = nullptr;};
-    inline const vector<Permission> & permissions() const { DARABONBA_PTR_GET_CONST(permissions_, vector<Permission>) };
-    inline vector<Permission> permissions() { DARABONBA_PTR_GET(permissions_, vector<Permission>) };
+    inline const vector<Permission> & getPermissions() const { DARABONBA_PTR_GET_CONST(permissions_, vector<Permission>) };
+    inline vector<Permission> getPermissions() { DARABONBA_PTR_GET(permissions_, vector<Permission>) };
     inline BatchRevokePermissionsRequest& setPermissions(const vector<Permission> & permissions) { DARABONBA_PTR_SET_VALUE(permissions_, permissions) };
     inline BatchRevokePermissionsRequest& setPermissions(vector<Permission> && permissions) { DARABONBA_PTR_SET_RVALUE(permissions_, permissions) };
 
 
   protected:
-    std::shared_ptr<vector<Permission>> permissions_ = nullptr;
+    shared_ptr<vector<Permission>> permissions_ {};
   };
 
   } // namespace Models

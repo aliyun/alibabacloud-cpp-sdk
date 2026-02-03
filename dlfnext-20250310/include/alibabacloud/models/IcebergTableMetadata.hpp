@@ -43,12 +43,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->currentSnapshot_ == nullptr
-        && return this->fields_ == nullptr && return this->identifierFieldIds_ == nullptr && return this->partitionFields_ == nullptr && return this->properties_ == nullptr; };
+        && this->fields_ == nullptr && this->identifierFieldIds_ == nullptr && this->partitionFields_ == nullptr && this->properties_ == nullptr; };
     // currentSnapshot Field Functions 
     bool hasCurrentSnapshot() const { return this->currentSnapshot_ != nullptr;};
     void deleteCurrentSnapshot() { this->currentSnapshot_ = nullptr;};
-    inline const IcebergSnapshot & currentSnapshot() const { DARABONBA_PTR_GET_CONST(currentSnapshot_, IcebergSnapshot) };
-    inline IcebergSnapshot currentSnapshot() { DARABONBA_PTR_GET(currentSnapshot_, IcebergSnapshot) };
+    inline const IcebergSnapshot & getCurrentSnapshot() const { DARABONBA_PTR_GET_CONST(currentSnapshot_, IcebergSnapshot) };
+    inline IcebergSnapshot getCurrentSnapshot() { DARABONBA_PTR_GET(currentSnapshot_, IcebergSnapshot) };
     inline IcebergTableMetadata& setCurrentSnapshot(const IcebergSnapshot & currentSnapshot) { DARABONBA_PTR_SET_VALUE(currentSnapshot_, currentSnapshot) };
     inline IcebergTableMetadata& setCurrentSnapshot(IcebergSnapshot && currentSnapshot) { DARABONBA_PTR_SET_RVALUE(currentSnapshot_, currentSnapshot) };
 
@@ -56,8 +56,8 @@ namespace Models
     // fields Field Functions 
     bool hasFields() const { return this->fields_ != nullptr;};
     void deleteFields() { this->fields_ = nullptr;};
-    inline const vector<IcebergNestedField> & fields() const { DARABONBA_PTR_GET_CONST(fields_, vector<IcebergNestedField>) };
-    inline vector<IcebergNestedField> fields() { DARABONBA_PTR_GET(fields_, vector<IcebergNestedField>) };
+    inline const vector<IcebergNestedField> & getFields() const { DARABONBA_PTR_GET_CONST(fields_, vector<IcebergNestedField>) };
+    inline vector<IcebergNestedField> getFields() { DARABONBA_PTR_GET(fields_, vector<IcebergNestedField>) };
     inline IcebergTableMetadata& setFields(const vector<IcebergNestedField> & fields) { DARABONBA_PTR_SET_VALUE(fields_, fields) };
     inline IcebergTableMetadata& setFields(vector<IcebergNestedField> && fields) { DARABONBA_PTR_SET_RVALUE(fields_, fields) };
 
@@ -65,8 +65,8 @@ namespace Models
     // identifierFieldIds Field Functions 
     bool hasIdentifierFieldIds() const { return this->identifierFieldIds_ != nullptr;};
     void deleteIdentifierFieldIds() { this->identifierFieldIds_ = nullptr;};
-    inline const vector<int32_t> & identifierFieldIds() const { DARABONBA_PTR_GET_CONST(identifierFieldIds_, vector<int32_t>) };
-    inline vector<int32_t> identifierFieldIds() { DARABONBA_PTR_GET(identifierFieldIds_, vector<int32_t>) };
+    inline const vector<int32_t> & getIdentifierFieldIds() const { DARABONBA_PTR_GET_CONST(identifierFieldIds_, vector<int32_t>) };
+    inline vector<int32_t> getIdentifierFieldIds() { DARABONBA_PTR_GET(identifierFieldIds_, vector<int32_t>) };
     inline IcebergTableMetadata& setIdentifierFieldIds(const vector<int32_t> & identifierFieldIds) { DARABONBA_PTR_SET_VALUE(identifierFieldIds_, identifierFieldIds) };
     inline IcebergTableMetadata& setIdentifierFieldIds(vector<int32_t> && identifierFieldIds) { DARABONBA_PTR_SET_RVALUE(identifierFieldIds_, identifierFieldIds) };
 
@@ -74,8 +74,8 @@ namespace Models
     // partitionFields Field Functions 
     bool hasPartitionFields() const { return this->partitionFields_ != nullptr;};
     void deletePartitionFields() { this->partitionFields_ = nullptr;};
-    inline const vector<IcebergPartitionField> & partitionFields() const { DARABONBA_PTR_GET_CONST(partitionFields_, vector<IcebergPartitionField>) };
-    inline vector<IcebergPartitionField> partitionFields() { DARABONBA_PTR_GET(partitionFields_, vector<IcebergPartitionField>) };
+    inline const vector<IcebergPartitionField> & getPartitionFields() const { DARABONBA_PTR_GET_CONST(partitionFields_, vector<IcebergPartitionField>) };
+    inline vector<IcebergPartitionField> getPartitionFields() { DARABONBA_PTR_GET(partitionFields_, vector<IcebergPartitionField>) };
     inline IcebergTableMetadata& setPartitionFields(const vector<IcebergPartitionField> & partitionFields) { DARABONBA_PTR_SET_VALUE(partitionFields_, partitionFields) };
     inline IcebergTableMetadata& setPartitionFields(vector<IcebergPartitionField> && partitionFields) { DARABONBA_PTR_SET_RVALUE(partitionFields_, partitionFields) };
 
@@ -83,18 +83,18 @@ namespace Models
     // properties Field Functions 
     bool hasProperties() const { return this->properties_ != nullptr;};
     void deleteProperties() { this->properties_ = nullptr;};
-    inline const map<string, string> & properties() const { DARABONBA_PTR_GET_CONST(properties_, map<string, string>) };
-    inline map<string, string> properties() { DARABONBA_PTR_GET(properties_, map<string, string>) };
+    inline const map<string, string> & getProperties() const { DARABONBA_PTR_GET_CONST(properties_, map<string, string>) };
+    inline map<string, string> getProperties() { DARABONBA_PTR_GET(properties_, map<string, string>) };
     inline IcebergTableMetadata& setProperties(const map<string, string> & properties) { DARABONBA_PTR_SET_VALUE(properties_, properties) };
     inline IcebergTableMetadata& setProperties(map<string, string> && properties) { DARABONBA_PTR_SET_RVALUE(properties_, properties) };
 
 
   protected:
-    std::shared_ptr<IcebergSnapshot> currentSnapshot_ = nullptr;
-    std::shared_ptr<vector<IcebergNestedField>> fields_ = nullptr;
-    std::shared_ptr<vector<int32_t>> identifierFieldIds_ = nullptr;
-    std::shared_ptr<vector<IcebergPartitionField>> partitionFields_ = nullptr;
-    std::shared_ptr<map<string, string>> properties_ = nullptr;
+    shared_ptr<IcebergSnapshot> currentSnapshot_ {};
+    shared_ptr<vector<IcebergNestedField>> fields_ {};
+    shared_ptr<vector<int32_t>> identifierFieldIds_ {};
+    shared_ptr<vector<IcebergPartitionField>> partitionFields_ {};
+    shared_ptr<map<string, string>> properties_ {};
   };
 
   } // namespace Models

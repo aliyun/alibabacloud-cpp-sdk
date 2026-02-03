@@ -325,7 +325,7 @@ namespace DlfNext20250310
       Models::DescribeRegionsResponse describeRegions();
 
       /**
-       * @summary 创建数据湖Catalog
+       * @summary 删除数据湖Catalog
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -334,7 +334,7 @@ namespace DlfNext20250310
       Models::DropCatalogResponse dropCatalogWithOptions(const string &catalog, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建数据湖Catalog
+       * @summary 删除数据湖Catalog
        *
        * @return DropCatalogResponse
        */

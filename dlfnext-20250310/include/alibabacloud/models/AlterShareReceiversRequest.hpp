@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->addedReceivers_ == nullptr
-        && return this->removedReceivers_ == nullptr; };
+        && this->removedReceivers_ == nullptr; };
     // addedReceivers Field Functions 
     bool hasAddedReceivers() const { return this->addedReceivers_ != nullptr;};
     void deleteAddedReceivers() { this->addedReceivers_ = nullptr;};
-    inline const vector<string> & addedReceivers() const { DARABONBA_PTR_GET_CONST(addedReceivers_, vector<string>) };
-    inline vector<string> addedReceivers() { DARABONBA_PTR_GET(addedReceivers_, vector<string>) };
+    inline const vector<string> & getAddedReceivers() const { DARABONBA_PTR_GET_CONST(addedReceivers_, vector<string>) };
+    inline vector<string> getAddedReceivers() { DARABONBA_PTR_GET(addedReceivers_, vector<string>) };
     inline AlterShareReceiversRequest& setAddedReceivers(const vector<string> & addedReceivers) { DARABONBA_PTR_SET_VALUE(addedReceivers_, addedReceivers) };
     inline AlterShareReceiversRequest& setAddedReceivers(vector<string> && addedReceivers) { DARABONBA_PTR_SET_RVALUE(addedReceivers_, addedReceivers) };
 
@@ -46,15 +46,15 @@ namespace Models
     // removedReceivers Field Functions 
     bool hasRemovedReceivers() const { return this->removedReceivers_ != nullptr;};
     void deleteRemovedReceivers() { this->removedReceivers_ = nullptr;};
-    inline const vector<string> & removedReceivers() const { DARABONBA_PTR_GET_CONST(removedReceivers_, vector<string>) };
-    inline vector<string> removedReceivers() { DARABONBA_PTR_GET(removedReceivers_, vector<string>) };
+    inline const vector<string> & getRemovedReceivers() const { DARABONBA_PTR_GET_CONST(removedReceivers_, vector<string>) };
+    inline vector<string> getRemovedReceivers() { DARABONBA_PTR_GET(removedReceivers_, vector<string>) };
     inline AlterShareReceiversRequest& setRemovedReceivers(const vector<string> & removedReceivers) { DARABONBA_PTR_SET_VALUE(removedReceivers_, removedReceivers) };
     inline AlterShareReceiversRequest& setRemovedReceivers(vector<string> && removedReceivers) { DARABONBA_PTR_SET_RVALUE(removedReceivers_, removedReceivers) };
 
 
   protected:
-    std::shared_ptr<vector<string>> addedReceivers_ = nullptr;
-    std::shared_ptr<vector<string>> removedReceivers_ = nullptr;
+    shared_ptr<vector<string>> addedReceivers_ {};
+    shared_ptr<vector<string>> removedReceivers_ {};
   };
 
   } // namespace Models

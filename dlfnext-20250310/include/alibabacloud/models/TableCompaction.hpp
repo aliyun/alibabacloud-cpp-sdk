@@ -40,56 +40,56 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->catalogId_ == nullptr
-        && return this->cuUsage_ == nullptr && return this->lastCompactedFileTime_ == nullptr && return this->latencyFileEarliestTime_ == nullptr && return this->maxLevel0FileCount_ == nullptr && return this->tableId_ == nullptr; };
+        && this->cuUsage_ == nullptr && this->lastCompactedFileTime_ == nullptr && this->latencyFileEarliestTime_ == nullptr && this->maxLevel0FileCount_ == nullptr && this->tableId_ == nullptr; };
     // catalogId Field Functions 
     bool hasCatalogId() const { return this->catalogId_ != nullptr;};
     void deleteCatalogId() { this->catalogId_ = nullptr;};
-    inline string catalogId() const { DARABONBA_PTR_GET_DEFAULT(catalogId_, "") };
+    inline string getCatalogId() const { DARABONBA_PTR_GET_DEFAULT(catalogId_, "") };
     inline TableCompaction& setCatalogId(string catalogId) { DARABONBA_PTR_SET_VALUE(catalogId_, catalogId) };
 
 
     // cuUsage Field Functions 
     bool hasCuUsage() const { return this->cuUsage_ != nullptr;};
     void deleteCuUsage() { this->cuUsage_ = nullptr;};
-    inline double cuUsage() const { DARABONBA_PTR_GET_DEFAULT(cuUsage_, 0.0) };
+    inline double getCuUsage() const { DARABONBA_PTR_GET_DEFAULT(cuUsage_, 0.0) };
     inline TableCompaction& setCuUsage(double cuUsage) { DARABONBA_PTR_SET_VALUE(cuUsage_, cuUsage) };
 
 
     // lastCompactedFileTime Field Functions 
     bool hasLastCompactedFileTime() const { return this->lastCompactedFileTime_ != nullptr;};
     void deleteLastCompactedFileTime() { this->lastCompactedFileTime_ = nullptr;};
-    inline int64_t lastCompactedFileTime() const { DARABONBA_PTR_GET_DEFAULT(lastCompactedFileTime_, 0L) };
+    inline int64_t getLastCompactedFileTime() const { DARABONBA_PTR_GET_DEFAULT(lastCompactedFileTime_, 0L) };
     inline TableCompaction& setLastCompactedFileTime(int64_t lastCompactedFileTime) { DARABONBA_PTR_SET_VALUE(lastCompactedFileTime_, lastCompactedFileTime) };
 
 
     // latencyFileEarliestTime Field Functions 
     bool hasLatencyFileEarliestTime() const { return this->latencyFileEarliestTime_ != nullptr;};
     void deleteLatencyFileEarliestTime() { this->latencyFileEarliestTime_ = nullptr;};
-    inline int64_t latencyFileEarliestTime() const { DARABONBA_PTR_GET_DEFAULT(latencyFileEarliestTime_, 0L) };
+    inline int64_t getLatencyFileEarliestTime() const { DARABONBA_PTR_GET_DEFAULT(latencyFileEarliestTime_, 0L) };
     inline TableCompaction& setLatencyFileEarliestTime(int64_t latencyFileEarliestTime) { DARABONBA_PTR_SET_VALUE(latencyFileEarliestTime_, latencyFileEarliestTime) };
 
 
     // maxLevel0FileCount Field Functions 
     bool hasMaxLevel0FileCount() const { return this->maxLevel0FileCount_ != nullptr;};
     void deleteMaxLevel0FileCount() { this->maxLevel0FileCount_ = nullptr;};
-    inline string maxLevel0FileCount() const { DARABONBA_PTR_GET_DEFAULT(maxLevel0FileCount_, "") };
+    inline string getMaxLevel0FileCount() const { DARABONBA_PTR_GET_DEFAULT(maxLevel0FileCount_, "") };
     inline TableCompaction& setMaxLevel0FileCount(string maxLevel0FileCount) { DARABONBA_PTR_SET_VALUE(maxLevel0FileCount_, maxLevel0FileCount) };
 
 
     // tableId Field Functions 
     bool hasTableId() const { return this->tableId_ != nullptr;};
     void deleteTableId() { this->tableId_ = nullptr;};
-    inline string tableId() const { DARABONBA_PTR_GET_DEFAULT(tableId_, "") };
+    inline string getTableId() const { DARABONBA_PTR_GET_DEFAULT(tableId_, "") };
     inline TableCompaction& setTableId(string tableId) { DARABONBA_PTR_SET_VALUE(tableId_, tableId) };
 
 
   protected:
-    std::shared_ptr<string> catalogId_ = nullptr;
-    std::shared_ptr<double> cuUsage_ = nullptr;
-    std::shared_ptr<int64_t> lastCompactedFileTime_ = nullptr;
-    std::shared_ptr<int64_t> latencyFileEarliestTime_ = nullptr;
-    std::shared_ptr<string> maxLevel0FileCount_ = nullptr;
-    std::shared_ptr<string> tableId_ = nullptr;
+    shared_ptr<string> catalogId_ {};
+    shared_ptr<double> cuUsage_ {};
+    shared_ptr<int64_t> lastCompactedFileTime_ {};
+    shared_ptr<int64_t> latencyFileEarliestTime_ {};
+    shared_ptr<string> maxLevel0FileCount_ {};
+    shared_ptr<string> tableId_ {};
   };
 
   } // namespace Models

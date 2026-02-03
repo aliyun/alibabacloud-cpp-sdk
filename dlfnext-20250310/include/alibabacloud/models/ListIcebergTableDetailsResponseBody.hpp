@@ -34,26 +34,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->nextPageToken_ == nullptr
-        && return this->tableDetails_ == nullptr; };
+        && this->tableDetails_ == nullptr; };
     // nextPageToken Field Functions 
     bool hasNextPageToken() const { return this->nextPageToken_ != nullptr;};
     void deleteNextPageToken() { this->nextPageToken_ = nullptr;};
-    inline string nextPageToken() const { DARABONBA_PTR_GET_DEFAULT(nextPageToken_, "") };
+    inline string getNextPageToken() const { DARABONBA_PTR_GET_DEFAULT(nextPageToken_, "") };
     inline ListIcebergTableDetailsResponseBody& setNextPageToken(string nextPageToken) { DARABONBA_PTR_SET_VALUE(nextPageToken_, nextPageToken) };
 
 
     // tableDetails Field Functions 
     bool hasTableDetails() const { return this->tableDetails_ != nullptr;};
     void deleteTableDetails() { this->tableDetails_ = nullptr;};
-    inline const vector<IcebergTable> & tableDetails() const { DARABONBA_PTR_GET_CONST(tableDetails_, vector<IcebergTable>) };
-    inline vector<IcebergTable> tableDetails() { DARABONBA_PTR_GET(tableDetails_, vector<IcebergTable>) };
+    inline const vector<IcebergTable> & getTableDetails() const { DARABONBA_PTR_GET_CONST(tableDetails_, vector<IcebergTable>) };
+    inline vector<IcebergTable> getTableDetails() { DARABONBA_PTR_GET(tableDetails_, vector<IcebergTable>) };
     inline ListIcebergTableDetailsResponseBody& setTableDetails(const vector<IcebergTable> & tableDetails) { DARABONBA_PTR_SET_VALUE(tableDetails_, tableDetails) };
     inline ListIcebergTableDetailsResponseBody& setTableDetails(vector<IcebergTable> && tableDetails) { DARABONBA_PTR_SET_RVALUE(tableDetails_, tableDetails) };
 
 
   protected:
-    std::shared_ptr<string> nextPageToken_ = nullptr;
-    std::shared_ptr<vector<IcebergTable>> tableDetails_ = nullptr;
+    shared_ptr<string> nextPageToken_ {};
+    shared_ptr<vector<IcebergTable>> tableDetails_ {};
   };
 
   } // namespace Models

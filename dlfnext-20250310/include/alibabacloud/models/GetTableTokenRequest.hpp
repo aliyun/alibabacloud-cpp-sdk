@@ -33,12 +33,12 @@ namespace Models
     // isInternal Field Functions 
     bool hasIsInternal() const { return this->isInternal_ != nullptr;};
     void deleteIsInternal() { this->isInternal_ = nullptr;};
-    inline bool isInternal() const { DARABONBA_PTR_GET_DEFAULT(isInternal_, false) };
+    inline bool getIsInternal() const { DARABONBA_PTR_GET_DEFAULT(isInternal_, false) };
     inline GetTableTokenRequest& setIsInternal(bool isInternal) { DARABONBA_PTR_SET_VALUE(isInternal_, isInternal) };
 
 
   protected:
-    std::shared_ptr<bool> isInternal_ = nullptr;
+    shared_ptr<bool> isInternal_ {};
   };
 
   } // namespace Models

@@ -33,12 +33,12 @@ namespace Models
     // date Field Functions 
     bool hasDate() const { return this->date_ != nullptr;};
     void deleteDate() { this->date_ = nullptr;};
-    inline string date() const { DARABONBA_PTR_GET_DEFAULT(date_, "") };
+    inline string getDate() const { DARABONBA_PTR_GET_DEFAULT(date_, "") };
     inline GetCatalogSummaryRequest& setDate(string date) { DARABONBA_PTR_SET_VALUE(date_, date) };
 
 
   protected:
-    std::shared_ptr<string> date_ = nullptr;
+    shared_ptr<string> date_ {};
   };
 
   } // namespace Models

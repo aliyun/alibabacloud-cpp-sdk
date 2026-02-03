@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fieldName_ == nullptr
-        && return this->referenceFieldName_ == nullptr && return this->type_ == nullptr; };
+        && this->referenceFieldName_ == nullptr && this->type_ == nullptr; };
     // fieldName Field Functions 
     bool hasFieldName() const { return this->fieldName_ != nullptr;};
     void deleteFieldName() { this->fieldName_ = nullptr;};
-    inline string fieldName() const { DARABONBA_PTR_GET_DEFAULT(fieldName_, "") };
+    inline string getFieldName() const { DARABONBA_PTR_GET_DEFAULT(fieldName_, "") };
     inline Move& setFieldName(string fieldName) { DARABONBA_PTR_SET_VALUE(fieldName_, fieldName) };
 
 
     // referenceFieldName Field Functions 
     bool hasReferenceFieldName() const { return this->referenceFieldName_ != nullptr;};
     void deleteReferenceFieldName() { this->referenceFieldName_ = nullptr;};
-    inline string referenceFieldName() const { DARABONBA_PTR_GET_DEFAULT(referenceFieldName_, "") };
+    inline string getReferenceFieldName() const { DARABONBA_PTR_GET_DEFAULT(referenceFieldName_, "") };
     inline Move& setReferenceFieldName(string referenceFieldName) { DARABONBA_PTR_SET_VALUE(referenceFieldName_, referenceFieldName) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline Move& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
-    std::shared_ptr<string> fieldName_ = nullptr;
-    std::shared_ptr<string> referenceFieldName_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> fieldName_ {};
+    shared_ptr<string> referenceFieldName_ {};
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

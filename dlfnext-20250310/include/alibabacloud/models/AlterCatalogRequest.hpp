@@ -34,12 +34,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->removals_ == nullptr
-        && return this->updates_ == nullptr; };
+        && this->updates_ == nullptr; };
     // removals Field Functions 
     bool hasRemovals() const { return this->removals_ != nullptr;};
     void deleteRemovals() { this->removals_ = nullptr;};
-    inline const vector<string> & removals() const { DARABONBA_PTR_GET_CONST(removals_, vector<string>) };
-    inline vector<string> removals() { DARABONBA_PTR_GET(removals_, vector<string>) };
+    inline const vector<string> & getRemovals() const { DARABONBA_PTR_GET_CONST(removals_, vector<string>) };
+    inline vector<string> getRemovals() { DARABONBA_PTR_GET(removals_, vector<string>) };
     inline AlterCatalogRequest& setRemovals(const vector<string> & removals) { DARABONBA_PTR_SET_VALUE(removals_, removals) };
     inline AlterCatalogRequest& setRemovals(vector<string> && removals) { DARABONBA_PTR_SET_RVALUE(removals_, removals) };
 
@@ -47,15 +47,15 @@ namespace Models
     // updates Field Functions 
     bool hasUpdates() const { return this->updates_ != nullptr;};
     void deleteUpdates() { this->updates_ = nullptr;};
-    inline const map<string, string> & updates() const { DARABONBA_PTR_GET_CONST(updates_, map<string, string>) };
-    inline map<string, string> updates() { DARABONBA_PTR_GET(updates_, map<string, string>) };
+    inline const map<string, string> & getUpdates() const { DARABONBA_PTR_GET_CONST(updates_, map<string, string>) };
+    inline map<string, string> getUpdates() { DARABONBA_PTR_GET(updates_, map<string, string>) };
     inline AlterCatalogRequest& setUpdates(const map<string, string> & updates) { DARABONBA_PTR_SET_VALUE(updates_, updates) };
     inline AlterCatalogRequest& setUpdates(map<string, string> && updates) { DARABONBA_PTR_SET_RVALUE(updates_, updates) };
 
 
   protected:
-    std::shared_ptr<vector<string>> removals_ = nullptr;
-    std::shared_ptr<map<string, string>> updates_ = nullptr;
+    shared_ptr<vector<string>> removals_ {};
+    shared_ptr<map<string, string>> updates_ {};
   };
 
   } // namespace Models

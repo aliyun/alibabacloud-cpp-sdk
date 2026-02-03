@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->comment_ == nullptr
-        && return this->receiverName_ == nullptr; };
+        && this->receiverName_ == nullptr; };
     // comment Field Functions 
     bool hasComment() const { return this->comment_ != nullptr;};
     void deleteComment() { this->comment_ = nullptr;};
-    inline string comment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
+    inline string getComment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
     inline AlterReceiverRequest& setComment(string comment) { DARABONBA_PTR_SET_VALUE(comment_, comment) };
 
 
     // receiverName Field Functions 
     bool hasReceiverName() const { return this->receiverName_ != nullptr;};
     void deleteReceiverName() { this->receiverName_ = nullptr;};
-    inline string receiverName() const { DARABONBA_PTR_GET_DEFAULT(receiverName_, "") };
+    inline string getReceiverName() const { DARABONBA_PTR_GET_DEFAULT(receiverName_, "") };
     inline AlterReceiverRequest& setReceiverName(string receiverName) { DARABONBA_PTR_SET_VALUE(receiverName_, receiverName) };
 
 
   protected:
-    std::shared_ptr<string> comment_ = nullptr;
-    std::shared_ptr<string> receiverName_ = nullptr;
+    shared_ptr<string> comment_ {};
+    shared_ptr<string> receiverName_ {};
   };
 
   } // namespace Models

@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->functions_ == nullptr
-        && return this->nextPageToken_ == nullptr; };
+        && this->nextPageToken_ == nullptr; };
     // functions Field Functions 
     bool hasFunctions() const { return this->functions_ != nullptr;};
     void deleteFunctions() { this->functions_ = nullptr;};
-    inline const vector<string> & functions() const { DARABONBA_PTR_GET_CONST(functions_, vector<string>) };
-    inline vector<string> functions() { DARABONBA_PTR_GET(functions_, vector<string>) };
+    inline const vector<string> & getFunctions() const { DARABONBA_PTR_GET_CONST(functions_, vector<string>) };
+    inline vector<string> getFunctions() { DARABONBA_PTR_GET(functions_, vector<string>) };
     inline ListFunctionsResponseBody& setFunctions(const vector<string> & functions) { DARABONBA_PTR_SET_VALUE(functions_, functions) };
     inline ListFunctionsResponseBody& setFunctions(vector<string> && functions) { DARABONBA_PTR_SET_RVALUE(functions_, functions) };
 
@@ -46,13 +46,13 @@ namespace Models
     // nextPageToken Field Functions 
     bool hasNextPageToken() const { return this->nextPageToken_ != nullptr;};
     void deleteNextPageToken() { this->nextPageToken_ = nullptr;};
-    inline string nextPageToken() const { DARABONBA_PTR_GET_DEFAULT(nextPageToken_, "") };
+    inline string getNextPageToken() const { DARABONBA_PTR_GET_DEFAULT(nextPageToken_, "") };
     inline ListFunctionsResponseBody& setNextPageToken(string nextPageToken) { DARABONBA_PTR_SET_VALUE(nextPageToken_, nextPageToken) };
 
 
   protected:
-    std::shared_ptr<vector<string>> functions_ = nullptr;
-    std::shared_ptr<string> nextPageToken_ = nullptr;
+    shared_ptr<vector<string>> functions_ {};
+    shared_ptr<string> nextPageToken_ {};
   };
 
   } // namespace Models

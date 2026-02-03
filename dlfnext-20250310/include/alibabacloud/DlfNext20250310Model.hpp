@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_DLFNEXT20250310MODEL_HPP_
 #define ALIBABACLOUD_DLFNEXT20250310MODEL_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/CacheCluster.hpp>
 #include <alibabacloud/models/Catalog.hpp>
 #include <alibabacloud/models/MoMValues.hpp>
 #include <alibabacloud/models/CatalogSummary.hpp>
@@ -12,8 +13,10 @@
 #include <alibabacloud/models/Database.hpp>
 #include <alibabacloud/models/DatabaseSummary.hpp>
 #include <alibabacloud/models/ErrorResponse.hpp>
+#include <alibabacloud/models/RowFilter.hpp>
 #include <alibabacloud/models/Permission.hpp>
 #include <alibabacloud/models/FailurePermission.hpp>
+#include <alibabacloud/models/FieldRef.hpp>
 #include <alibabacloud/models/FullInstant.hpp>
 #include <alibabacloud/models/Move.hpp>
 #include <alibabacloud/models/FullSchemaChange.hpp>
@@ -31,6 +34,9 @@
 #include <alibabacloud/models/Partition.hpp>
 #include <alibabacloud/models/PartitionSummary.hpp>
 #include <alibabacloud/models/PartitionSummaries.hpp>
+#include <alibabacloud/models/TransformInput.hpp>
+#include <alibabacloud/models/Transform.hpp>
+#include <alibabacloud/models/Predicate.hpp>
 #include <alibabacloud/models/PrepayResource.hpp>
 #include <alibabacloud/models/ReceivedShare.hpp>
 #include <alibabacloud/models/Receiver.hpp>
@@ -205,7 +211,5 @@
 #include <alibabacloud/models/UpdateRoleResponse.hpp>
 #include <alibabacloud/models/UpdateRoleUsersRequest.hpp>
 #include <alibabacloud/models/UpdateRoleUsersResponse.hpp>
-#include <alibabacloud/models/PermissionColumns.hpp>
-#include <alibabacloud/models/DescribeRegionsResponseBodyRegions.hpp>
 
 #endif
