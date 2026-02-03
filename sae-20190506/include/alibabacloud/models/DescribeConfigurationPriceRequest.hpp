@@ -15,6 +15,8 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DescribeConfigurationPriceRequest& obj) { 
       DARABONBA_PTR_TO_JSON(BestEffortType, bestEffortType_);
       DARABONBA_PTR_TO_JSON(Cpu, cpu_);
+      DARABONBA_PTR_TO_JSON(GpuA10, gpuA10_);
+      DARABONBA_PTR_TO_JSON(GpuPpu810e, gpuPpu810e_);
       DARABONBA_PTR_TO_JSON(Memory, memory_);
       DARABONBA_PTR_TO_JSON(NewSaeVersion, newSaeVersion_);
       DARABONBA_PTR_TO_JSON(ResourceType, resourceType_);
@@ -23,6 +25,8 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, DescribeConfigurationPriceRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BestEffortType, bestEffortType_);
       DARABONBA_PTR_FROM_JSON(Cpu, cpu_);
+      DARABONBA_PTR_FROM_JSON(GpuA10, gpuA10_);
+      DARABONBA_PTR_FROM_JSON(GpuPpu810e, gpuPpu810e_);
       DARABONBA_PTR_FROM_JSON(Memory, memory_);
       DARABONBA_PTR_FROM_JSON(NewSaeVersion, newSaeVersion_);
       DARABONBA_PTR_FROM_JSON(ResourceType, resourceType_);
@@ -40,7 +44,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bestEffortType_ == nullptr
-        && this->cpu_ == nullptr && this->memory_ == nullptr && this->newSaeVersion_ == nullptr && this->resourceType_ == nullptr && this->workload_ == nullptr; };
+        && this->cpu_ == nullptr && this->gpuA10_ == nullptr && this->gpuPpu810e_ == nullptr && this->memory_ == nullptr && this->newSaeVersion_ == nullptr
+        && this->resourceType_ == nullptr && this->workload_ == nullptr; };
     // bestEffortType Field Functions 
     bool hasBestEffortType() const { return this->bestEffortType_ != nullptr;};
     void deleteBestEffortType() { this->bestEffortType_ = nullptr;};
@@ -53,6 +58,20 @@ namespace Models
     void deleteCpu() { this->cpu_ = nullptr;};
     inline int32_t getCpu() const { DARABONBA_PTR_GET_DEFAULT(cpu_, 0) };
     inline DescribeConfigurationPriceRequest& setCpu(int32_t cpu) { DARABONBA_PTR_SET_VALUE(cpu_, cpu) };
+
+
+    // gpuA10 Field Functions 
+    bool hasGpuA10() const { return this->gpuA10_ != nullptr;};
+    void deleteGpuA10() { this->gpuA10_ = nullptr;};
+    inline string getGpuA10() const { DARABONBA_PTR_GET_DEFAULT(gpuA10_, "") };
+    inline DescribeConfigurationPriceRequest& setGpuA10(string gpuA10) { DARABONBA_PTR_SET_VALUE(gpuA10_, gpuA10) };
+
+
+    // gpuPpu810e Field Functions 
+    bool hasGpuPpu810e() const { return this->gpuPpu810e_ != nullptr;};
+    void deleteGpuPpu810e() { this->gpuPpu810e_ = nullptr;};
+    inline string getGpuPpu810e() const { DARABONBA_PTR_GET_DEFAULT(gpuPpu810e_, "") };
+    inline DescribeConfigurationPriceRequest& setGpuPpu810e(string gpuPpu810e) { DARABONBA_PTR_SET_VALUE(gpuPpu810e_, gpuPpu810e) };
 
 
     // memory Field Functions 
@@ -98,6 +117,8 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int32_t> cpu_ {};
+    shared_ptr<string> gpuA10_ {};
+    shared_ptr<string> gpuPpu810e_ {};
     // The memory size that is required by each instance. Unit: MB. This parameter cannot be set to 0. The values of this parameter correspond to the values of the Cpu parameter:
     // 
     // *   This parameter is set to **1024** if the Cpu parameter is set to 500 or 1000.

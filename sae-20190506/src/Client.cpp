@@ -3644,6 +3644,14 @@ DescribeConfigurationPriceResponse Client::describeConfigurationPriceWithOptions
     query["Cpu"] = request.getCpu();
   }
 
+  if (!!request.hasGpuA10()) {
+    query["GpuA10"] = request.getGpuA10();
+  }
+
+  if (!!request.hasGpuPpu810e()) {
+    query["GpuPpu810e"] = request.getGpuPpu810e();
+  }
+
   if (!!request.hasMemory()) {
     query["Memory"] = request.getMemory();
   }
