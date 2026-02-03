@@ -580,6 +580,7 @@
 #include <alibabacloud/models/SaveStyleLearningResultResponseBody.hpp>
 #include <alibabacloud/models/SaveStyleLearningResultResponse.hpp>
 #include <alibabacloud/models/SearchDatasetDocumentsRequest.hpp>
+#include <alibabacloud/models/SearchDatasetDocumentsShrinkRequest.hpp>
 #include <alibabacloud/models/SearchDatasetDocumentsResponseBody.hpp>
 #include <alibabacloud/models/SearchDatasetDocumentsResponse.hpp>
 #include <alibabacloud/models/SearchNewsRequest.hpp>

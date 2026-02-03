@@ -52,6 +52,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(CategoryUuid, categoryUuid_);
         DARABONBA_PTR_TO_JSON(Content, content_);
         DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
+        DARABONBA_PTR_TO_JSON(CreateUser, createUser_);
         DARABONBA_PTR_TO_JSON(DisableHandleMultimodalMedia, disableHandleMultimodalMedia_);
         DARABONBA_PTR_TO_JSON(DocId, docId_);
         DARABONBA_PTR_TO_JSON(DocType, docType_);
@@ -64,14 +65,17 @@ namespace Models
         DARABONBA_PTR_TO_JSON(SourceFrom, sourceFrom_);
         DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(Summary, summary_);
+        DARABONBA_PTR_TO_JSON(Tags, tags_);
         DARABONBA_PTR_TO_JSON(Title, title_);
         DARABONBA_PTR_TO_JSON(UpdateTime, updateTime_);
+        DARABONBA_PTR_TO_JSON(UpdateUser, updateUser_);
         DARABONBA_PTR_TO_JSON(Url, url_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(CategoryUuid, categoryUuid_);
         DARABONBA_PTR_FROM_JSON(Content, content_);
         DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
+        DARABONBA_PTR_FROM_JSON(CreateUser, createUser_);
         DARABONBA_PTR_FROM_JSON(DisableHandleMultimodalMedia, disableHandleMultimodalMedia_);
         DARABONBA_PTR_FROM_JSON(DocId, docId_);
         DARABONBA_PTR_FROM_JSON(DocType, docType_);
@@ -84,8 +88,10 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(SourceFrom, sourceFrom_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(Summary, summary_);
+        DARABONBA_PTR_FROM_JSON(Tags, tags_);
         DARABONBA_PTR_FROM_JSON(Title, title_);
         DARABONBA_PTR_FROM_JSON(UpdateTime, updateTime_);
+        DARABONBA_PTR_FROM_JSON(UpdateUser, updateUser_);
         DARABONBA_PTR_FROM_JSON(Url, url_);
       };
       Data() = default ;
@@ -152,10 +158,10 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->categoryUuid_ == nullptr
-        && this->content_ == nullptr && this->createTime_ == nullptr && this->disableHandleMultimodalMedia_ == nullptr && this->docId_ == nullptr && this->docType_ == nullptr
-        && this->docUuid_ == nullptr && this->extend1_ == nullptr && this->extend2_ == nullptr && this->extend3_ == nullptr && this->multimodalMedias_ == nullptr
-        && this->pubTime_ == nullptr && this->sourceFrom_ == nullptr && this->status_ == nullptr && this->summary_ == nullptr && this->title_ == nullptr
-        && this->updateTime_ == nullptr && this->url_ == nullptr; };
+        && this->content_ == nullptr && this->createTime_ == nullptr && this->createUser_ == nullptr && this->disableHandleMultimodalMedia_ == nullptr && this->docId_ == nullptr
+        && this->docType_ == nullptr && this->docUuid_ == nullptr && this->extend1_ == nullptr && this->extend2_ == nullptr && this->extend3_ == nullptr
+        && this->multimodalMedias_ == nullptr && this->pubTime_ == nullptr && this->sourceFrom_ == nullptr && this->status_ == nullptr && this->summary_ == nullptr
+        && this->tags_ == nullptr && this->title_ == nullptr && this->updateTime_ == nullptr && this->updateUser_ == nullptr && this->url_ == nullptr; };
       // categoryUuid Field Functions 
       bool hasCategoryUuid() const { return this->categoryUuid_ != nullptr;};
       void deleteCategoryUuid() { this->categoryUuid_ = nullptr;};
@@ -175,6 +181,13 @@ namespace Models
       void deleteCreateTime() { this->createTime_ = nullptr;};
       inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
       inline Data& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
+
+
+      // createUser Field Functions 
+      bool hasCreateUser() const { return this->createUser_ != nullptr;};
+      void deleteCreateUser() { this->createUser_ = nullptr;};
+      inline string getCreateUser() const { DARABONBA_PTR_GET_DEFAULT(createUser_, "") };
+      inline Data& setCreateUser(string createUser) { DARABONBA_PTR_SET_VALUE(createUser_, createUser) };
 
 
       // disableHandleMultimodalMedia Field Functions 
@@ -263,6 +276,15 @@ namespace Models
       inline Data& setSummary(string summary) { DARABONBA_PTR_SET_VALUE(summary_, summary) };
 
 
+      // tags Field Functions 
+      bool hasTags() const { return this->tags_ != nullptr;};
+      void deleteTags() { this->tags_ = nullptr;};
+      inline const vector<string> & getTags() const { DARABONBA_PTR_GET_CONST(tags_, vector<string>) };
+      inline vector<string> getTags() { DARABONBA_PTR_GET(tags_, vector<string>) };
+      inline Data& setTags(const vector<string> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+      inline Data& setTags(vector<string> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
+
+
       // title Field Functions 
       bool hasTitle() const { return this->title_ != nullptr;};
       void deleteTitle() { this->title_ = nullptr;};
@@ -277,6 +299,13 @@ namespace Models
       inline Data& setUpdateTime(string updateTime) { DARABONBA_PTR_SET_VALUE(updateTime_, updateTime) };
 
 
+      // updateUser Field Functions 
+      bool hasUpdateUser() const { return this->updateUser_ != nullptr;};
+      void deleteUpdateUser() { this->updateUser_ = nullptr;};
+      inline string getUpdateUser() const { DARABONBA_PTR_GET_DEFAULT(updateUser_, "") };
+      inline Data& setUpdateUser(string updateUser) { DARABONBA_PTR_SET_VALUE(updateUser_, updateUser) };
+
+
       // url Field Functions 
       bool hasUrl() const { return this->url_ != nullptr;};
       void deleteUrl() { this->url_ = nullptr;};
@@ -288,6 +317,7 @@ namespace Models
       shared_ptr<string> categoryUuid_ {};
       shared_ptr<string> content_ {};
       shared_ptr<string> createTime_ {};
+      shared_ptr<string> createUser_ {};
       shared_ptr<bool> disableHandleMultimodalMedia_ {};
       shared_ptr<string> docId_ {};
       shared_ptr<string> docType_ {};
@@ -300,8 +330,10 @@ namespace Models
       shared_ptr<string> sourceFrom_ {};
       shared_ptr<int32_t> status_ {};
       shared_ptr<string> summary_ {};
+      shared_ptr<vector<string>> tags_ {};
       shared_ptr<string> title_ {};
       shared_ptr<string> updateTime_ {};
+      shared_ptr<string> updateUser_ {};
       // url
       shared_ptr<string> url_ {};
     };

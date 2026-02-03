@@ -78,9 +78,11 @@ namespace Models
     class DatasetConfig : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const DatasetConfig& obj) { 
+        DARABONBA_PTR_TO_JSON(SearchSourceConfig, searchSourceConfig_);
         DARABONBA_PTR_TO_JSON(SearchSourceConfigs, searchSourceConfigs_);
       };
       friend void from_json(const Darabonba::Json& j, DatasetConfig& obj) { 
+        DARABONBA_PTR_FROM_JSON(SearchSourceConfig, searchSourceConfig_);
         DARABONBA_PTR_FROM_JSON(SearchSourceConfigs, searchSourceConfigs_);
       };
       DatasetConfig() = default ;
@@ -604,7 +606,79 @@ namespace Models
         shared_ptr<int32_t> size_ {};
       };
 
-      virtual bool empty() const override { return this->searchSourceConfigs_ == nullptr; };
+      class SearchSourceConfig : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const SearchSourceConfig& obj) { 
+          DARABONBA_PTR_TO_JSON(MetadataKeyValueGenerateEnable, metadataKeyValueGenerateEnable_);
+          DARABONBA_PTR_TO_JSON(MetadataKeyValueSearchEnable, metadataKeyValueSearchEnable_);
+          DARABONBA_PTR_TO_JSON(TagGenerateEnable, tagGenerateEnable_);
+          DARABONBA_PTR_TO_JSON(TagSearchEnable, tagSearchEnable_);
+        };
+        friend void from_json(const Darabonba::Json& j, SearchSourceConfig& obj) { 
+          DARABONBA_PTR_FROM_JSON(MetadataKeyValueGenerateEnable, metadataKeyValueGenerateEnable_);
+          DARABONBA_PTR_FROM_JSON(MetadataKeyValueSearchEnable, metadataKeyValueSearchEnable_);
+          DARABONBA_PTR_FROM_JSON(TagGenerateEnable, tagGenerateEnable_);
+          DARABONBA_PTR_FROM_JSON(TagSearchEnable, tagSearchEnable_);
+        };
+        SearchSourceConfig() = default ;
+        SearchSourceConfig(const SearchSourceConfig &) = default ;
+        SearchSourceConfig(SearchSourceConfig &&) = default ;
+        SearchSourceConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~SearchSourceConfig() = default ;
+        SearchSourceConfig& operator=(const SearchSourceConfig &) = default ;
+        SearchSourceConfig& operator=(SearchSourceConfig &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->metadataKeyValueGenerateEnable_ == nullptr
+        && this->metadataKeyValueSearchEnable_ == nullptr && this->tagGenerateEnable_ == nullptr && this->tagSearchEnable_ == nullptr; };
+        // metadataKeyValueGenerateEnable Field Functions 
+        bool hasMetadataKeyValueGenerateEnable() const { return this->metadataKeyValueGenerateEnable_ != nullptr;};
+        void deleteMetadataKeyValueGenerateEnable() { this->metadataKeyValueGenerateEnable_ = nullptr;};
+        inline bool getMetadataKeyValueGenerateEnable() const { DARABONBA_PTR_GET_DEFAULT(metadataKeyValueGenerateEnable_, false) };
+        inline SearchSourceConfig& setMetadataKeyValueGenerateEnable(bool metadataKeyValueGenerateEnable) { DARABONBA_PTR_SET_VALUE(metadataKeyValueGenerateEnable_, metadataKeyValueGenerateEnable) };
+
+
+        // metadataKeyValueSearchEnable Field Functions 
+        bool hasMetadataKeyValueSearchEnable() const { return this->metadataKeyValueSearchEnable_ != nullptr;};
+        void deleteMetadataKeyValueSearchEnable() { this->metadataKeyValueSearchEnable_ = nullptr;};
+        inline bool getMetadataKeyValueSearchEnable() const { DARABONBA_PTR_GET_DEFAULT(metadataKeyValueSearchEnable_, false) };
+        inline SearchSourceConfig& setMetadataKeyValueSearchEnable(bool metadataKeyValueSearchEnable) { DARABONBA_PTR_SET_VALUE(metadataKeyValueSearchEnable_, metadataKeyValueSearchEnable) };
+
+
+        // tagGenerateEnable Field Functions 
+        bool hasTagGenerateEnable() const { return this->tagGenerateEnable_ != nullptr;};
+        void deleteTagGenerateEnable() { this->tagGenerateEnable_ = nullptr;};
+        inline bool getTagGenerateEnable() const { DARABONBA_PTR_GET_DEFAULT(tagGenerateEnable_, false) };
+        inline SearchSourceConfig& setTagGenerateEnable(bool tagGenerateEnable) { DARABONBA_PTR_SET_VALUE(tagGenerateEnable_, tagGenerateEnable) };
+
+
+        // tagSearchEnable Field Functions 
+        bool hasTagSearchEnable() const { return this->tagSearchEnable_ != nullptr;};
+        void deleteTagSearchEnable() { this->tagSearchEnable_ = nullptr;};
+        inline bool getTagSearchEnable() const { DARABONBA_PTR_GET_DEFAULT(tagSearchEnable_, false) };
+        inline SearchSourceConfig& setTagSearchEnable(bool tagSearchEnable) { DARABONBA_PTR_SET_VALUE(tagSearchEnable_, tagSearchEnable) };
+
+
+      protected:
+        shared_ptr<bool> metadataKeyValueGenerateEnable_ {};
+        shared_ptr<bool> metadataKeyValueSearchEnable_ {};
+        shared_ptr<bool> tagGenerateEnable_ {};
+        shared_ptr<bool> tagSearchEnable_ {};
+      };
+
+      virtual bool empty() const override { return this->searchSourceConfig_ == nullptr
+        && this->searchSourceConfigs_ == nullptr; };
+      // searchSourceConfig Field Functions 
+      bool hasSearchSourceConfig() const { return this->searchSourceConfig_ != nullptr;};
+      void deleteSearchSourceConfig() { this->searchSourceConfig_ = nullptr;};
+      inline const DatasetConfig::SearchSourceConfig & getSearchSourceConfig() const { DARABONBA_PTR_GET_CONST(searchSourceConfig_, DatasetConfig::SearchSourceConfig) };
+      inline DatasetConfig::SearchSourceConfig getSearchSourceConfig() { DARABONBA_PTR_GET(searchSourceConfig_, DatasetConfig::SearchSourceConfig) };
+      inline DatasetConfig& setSearchSourceConfig(const DatasetConfig::SearchSourceConfig & searchSourceConfig) { DARABONBA_PTR_SET_VALUE(searchSourceConfig_, searchSourceConfig) };
+      inline DatasetConfig& setSearchSourceConfig(DatasetConfig::SearchSourceConfig && searchSourceConfig) { DARABONBA_PTR_SET_RVALUE(searchSourceConfig_, searchSourceConfig) };
+
+
       // searchSourceConfigs Field Functions 
       bool hasSearchSourceConfigs() const { return this->searchSourceConfigs_ != nullptr;};
       void deleteSearchSourceConfigs() { this->searchSourceConfigs_ = nullptr;};
@@ -615,6 +689,7 @@ namespace Models
 
 
     protected:
+      shared_ptr<DatasetConfig::SearchSourceConfig> searchSourceConfig_ {};
       shared_ptr<vector<DatasetConfig::SearchSourceConfigs>> searchSourceConfigs_ {};
     };
 

@@ -5533,12 +5533,77 @@ ListDatasetDocumentsResponse Client::listDatasetDocumentsWithOptions(const ListD
   tmpReq.validate();
   ListDatasetDocumentsShrinkRequest request = ListDatasetDocumentsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCategoryUuids()) {
+    request.setCategoryUuidsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCategoryUuids(), "CategoryUuids", "json"));
+  }
+
+  if (!!tmpReq.hasDocIds()) {
+    request.setDocIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDocIds(), "DocIds", "json"));
+  }
+
+  if (!!tmpReq.hasDocUuids()) {
+    request.setDocUuidsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDocUuids(), "DocUuids", "json"));
+  }
+
   if (!!tmpReq.hasExcludeFields()) {
     request.setExcludeFieldsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExcludeFields(), "ExcludeFields", "json"));
   }
 
   if (!!tmpReq.hasIncludeFields()) {
     request.setIncludeFieldsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getIncludeFields(), "IncludeFields", "json"));
+  }
+
+  if (!!tmpReq.hasTags()) {
+    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTags(), "Tags", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasCategoryUuidsShrink()) {
+    query["CategoryUuids"] = request.getCategoryUuidsShrink();
+  }
+
+  if (!!request.hasCreateTimeEnd()) {
+    query["CreateTimeEnd"] = request.getCreateTimeEnd();
+  }
+
+  if (!!request.hasCreateTimeStart()) {
+    query["CreateTimeStart"] = request.getCreateTimeStart();
+  }
+
+  if (!!request.hasDocIdsShrink()) {
+    query["DocIds"] = request.getDocIdsShrink();
+  }
+
+  if (!!request.hasDocUuidsShrink()) {
+    query["DocUuids"] = request.getDocUuidsShrink();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasExtend1()) {
+    query["Extend1"] = request.getExtend1();
+  }
+
+  if (!!request.hasExtend2()) {
+    query["Extend2"] = request.getExtend2();
+  }
+
+  if (!!request.hasExtend3()) {
+    query["Extend3"] = request.getExtend3();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasTagsShrink()) {
+    query["Tags"] = request.getTagsShrink();
+  }
+
+  if (!!request.hasTitle()) {
+    query["Title"] = request.getTitle();
   }
 
   json body = {};
@@ -5587,8 +5652,9 @@ ListDatasetDocumentsResponse Client::listDatasetDocumentsWithOptions(const ListD
   }
 
   OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
+  }));
   Params params = Params(json({
     {"action" , "ListDatasetDocuments"},
     {"version" , "2023-08-01"},
@@ -12772,12 +12838,83 @@ SaveStyleLearningResultResponse Client::saveStyleLearningResult(const SaveStyleL
 /**
  * @summary 搜索数据集文档
  *
- * @param request SearchDatasetDocumentsRequest
+ * @param tmpReq SearchDatasetDocumentsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return SearchDatasetDocumentsResponse
  */
-SearchDatasetDocumentsResponse Client::searchDatasetDocumentsWithOptions(const SearchDatasetDocumentsRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+SearchDatasetDocumentsResponse Client::searchDatasetDocumentsWithOptions(const SearchDatasetDocumentsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  SearchDatasetDocumentsShrinkRequest request = SearchDatasetDocumentsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCategoryUuids()) {
+    request.setCategoryUuidsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCategoryUuids(), "CategoryUuids", "json"));
+  }
+
+  if (!!tmpReq.hasDocIds()) {
+    request.setDocIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDocIds(), "DocIds", "json"));
+  }
+
+  if (!!tmpReq.hasDocTypes()) {
+    request.setDocTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDocTypes(), "DocTypes", "json"));
+  }
+
+  if (!!tmpReq.hasDocUuids()) {
+    request.setDocUuidsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDocUuids(), "DocUuids", "json"));
+  }
+
+  if (!!tmpReq.hasTags()) {
+    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTags(), "Tags", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasCategoryUuidsShrink()) {
+    query["CategoryUuids"] = request.getCategoryUuidsShrink();
+  }
+
+  if (!!request.hasCreateTimeEnd()) {
+    query["CreateTimeEnd"] = request.getCreateTimeEnd();
+  }
+
+  if (!!request.hasCreateTimeStart()) {
+    query["CreateTimeStart"] = request.getCreateTimeStart();
+  }
+
+  if (!!request.hasDocIdsShrink()) {
+    query["DocIds"] = request.getDocIdsShrink();
+  }
+
+  if (!!request.hasDocTypesShrink()) {
+    query["DocTypes"] = request.getDocTypesShrink();
+  }
+
+  if (!!request.hasDocUuidsShrink()) {
+    query["DocUuids"] = request.getDocUuidsShrink();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasExtend2()) {
+    query["Extend2"] = request.getExtend2();
+  }
+
+  if (!!request.hasExtend3()) {
+    query["Extend3"] = request.getExtend3();
+  }
+
+  if (!!request.hasSearchMode()) {
+    query["SearchMode"] = request.getSearchMode();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasTagsShrink()) {
+    query["Tags"] = request.getTagsShrink();
+  }
+
   json body = {};
   if (!!request.hasDatasetId()) {
     body["DatasetId"] = request.getDatasetId();
@@ -12808,8 +12945,9 @@ SearchDatasetDocumentsResponse Client::searchDatasetDocumentsWithOptions(const S
   }
 
   OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
+  }));
   Params params = Params(json({
     {"action" , "SearchDatasetDocuments"},
     {"version" , "2023-08-01"},

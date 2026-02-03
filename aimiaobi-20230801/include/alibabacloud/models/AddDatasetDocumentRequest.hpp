@@ -39,6 +39,7 @@ namespace Models
     class Document : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Document& obj) { 
+        DARABONBA_PTR_TO_JSON(CategoryUuid, categoryUuid_);
         DARABONBA_PTR_TO_JSON(Content, content_);
         DARABONBA_PTR_TO_JSON(DisableHandleMultimodalMedia, disableHandleMultimodalMedia_);
         DARABONBA_PTR_TO_JSON(DocId, docId_);
@@ -53,10 +54,12 @@ namespace Models
         DARABONBA_PTR_TO_JSON(PubTime, pubTime_);
         DARABONBA_PTR_TO_JSON(SourceFrom, sourceFrom_);
         DARABONBA_PTR_TO_JSON(Summary, summary_);
+        DARABONBA_PTR_TO_JSON(Tags, tags_);
         DARABONBA_PTR_TO_JSON(Title, title_);
         DARABONBA_PTR_TO_JSON(Url, url_);
       };
       friend void from_json(const Darabonba::Json& j, Document& obj) { 
+        DARABONBA_PTR_FROM_JSON(CategoryUuid, categoryUuid_);
         DARABONBA_PTR_FROM_JSON(Content, content_);
         DARABONBA_PTR_FROM_JSON(DisableHandleMultimodalMedia, disableHandleMultimodalMedia_);
         DARABONBA_PTR_FROM_JSON(DocId, docId_);
@@ -71,6 +74,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(PubTime, pubTime_);
         DARABONBA_PTR_FROM_JSON(SourceFrom, sourceFrom_);
         DARABONBA_PTR_FROM_JSON(Summary, summary_);
+        DARABONBA_PTR_FROM_JSON(Tags, tags_);
         DARABONBA_PTR_FROM_JSON(Title, title_);
         DARABONBA_PTR_FROM_JSON(Url, url_);
       };
@@ -141,11 +145,13 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const Metadata& obj) { 
           DARABONBA_PTR_TO_JSON(AsrSentences, asrSentences_);
+          DARABONBA_PTR_TO_JSON(KeyValues, keyValues_);
           DARABONBA_PTR_TO_JSON(Text, text_);
           DARABONBA_PTR_TO_JSON(VideoShots, videoShots_);
         };
         friend void from_json(const Darabonba::Json& j, Metadata& obj) { 
           DARABONBA_PTR_FROM_JSON(AsrSentences, asrSentences_);
+          DARABONBA_PTR_FROM_JSON(KeyValues, keyValues_);
           DARABONBA_PTR_FROM_JSON(Text, text_);
           DARABONBA_PTR_FROM_JSON(VideoShots, videoShots_);
         };
@@ -212,6 +218,48 @@ namespace Models
           shared_ptr<string> text_ {};
         };
 
+        class KeyValues : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const KeyValues& obj) { 
+            DARABONBA_PTR_TO_JSON(Key, key_);
+            DARABONBA_PTR_TO_JSON(Value, value_);
+          };
+          friend void from_json(const Darabonba::Json& j, KeyValues& obj) { 
+            DARABONBA_PTR_FROM_JSON(Key, key_);
+            DARABONBA_PTR_FROM_JSON(Value, value_);
+          };
+          KeyValues() = default ;
+          KeyValues(const KeyValues &) = default ;
+          KeyValues(KeyValues &&) = default ;
+          KeyValues(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~KeyValues() = default ;
+          KeyValues& operator=(const KeyValues &) = default ;
+          KeyValues& operator=(KeyValues &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+          // key Field Functions 
+          bool hasKey() const { return this->key_ != nullptr;};
+          void deleteKey() { this->key_ = nullptr;};
+          inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+          inline KeyValues& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+          // value Field Functions 
+          bool hasValue() const { return this->value_ != nullptr;};
+          void deleteValue() { this->value_ = nullptr;};
+          inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+          inline KeyValues& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+        protected:
+          shared_ptr<string> key_ {};
+          shared_ptr<string> value_ {};
+        };
+
         class AsrSentences : public Darabonba::Model {
         public:
           friend void to_json(Darabonba::Json& j, const AsrSentences& obj) { 
@@ -265,7 +313,7 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->asrSentences_ == nullptr
-        && this->text_ == nullptr && this->videoShots_ == nullptr; };
+        && this->keyValues_ == nullptr && this->text_ == nullptr && this->videoShots_ == nullptr; };
         // asrSentences Field Functions 
         bool hasAsrSentences() const { return this->asrSentences_ != nullptr;};
         void deleteAsrSentences() { this->asrSentences_ = nullptr;};
@@ -273,6 +321,15 @@ namespace Models
         inline vector<Metadata::AsrSentences> getAsrSentences() { DARABONBA_PTR_GET(asrSentences_, vector<Metadata::AsrSentences>) };
         inline Metadata& setAsrSentences(const vector<Metadata::AsrSentences> & asrSentences) { DARABONBA_PTR_SET_VALUE(asrSentences_, asrSentences) };
         inline Metadata& setAsrSentences(vector<Metadata::AsrSentences> && asrSentences) { DARABONBA_PTR_SET_RVALUE(asrSentences_, asrSentences) };
+
+
+        // keyValues Field Functions 
+        bool hasKeyValues() const { return this->keyValues_ != nullptr;};
+        void deleteKeyValues() { this->keyValues_ = nullptr;};
+        inline const vector<Metadata::KeyValues> & getKeyValues() const { DARABONBA_PTR_GET_CONST(keyValues_, vector<Metadata::KeyValues>) };
+        inline vector<Metadata::KeyValues> getKeyValues() { DARABONBA_PTR_GET(keyValues_, vector<Metadata::KeyValues>) };
+        inline Metadata& setKeyValues(const vector<Metadata::KeyValues> & keyValues) { DARABONBA_PTR_SET_VALUE(keyValues_, keyValues) };
+        inline Metadata& setKeyValues(vector<Metadata::KeyValues> && keyValues) { DARABONBA_PTR_SET_RVALUE(keyValues_, keyValues) };
 
 
         // text Field Functions 
@@ -293,14 +350,23 @@ namespace Models
 
       protected:
         shared_ptr<vector<Metadata::AsrSentences>> asrSentences_ {};
+        shared_ptr<vector<Metadata::KeyValues>> keyValues_ {};
         shared_ptr<string> text_ {};
         shared_ptr<vector<Metadata::VideoShots>> videoShots_ {};
       };
 
-      virtual bool empty() const override { return this->content_ == nullptr
-        && this->disableHandleMultimodalMedia_ == nullptr && this->docId_ == nullptr && this->docType_ == nullptr && this->docUuid_ == nullptr && this->extend1_ == nullptr
-        && this->extend2_ == nullptr && this->extend3_ == nullptr && this->metadata_ == nullptr && this->multimodalIndexName_ == nullptr && this->multimodalMedias_ == nullptr
-        && this->pubTime_ == nullptr && this->sourceFrom_ == nullptr && this->summary_ == nullptr && this->title_ == nullptr && this->url_ == nullptr; };
+      virtual bool empty() const override { return this->categoryUuid_ == nullptr
+        && this->content_ == nullptr && this->disableHandleMultimodalMedia_ == nullptr && this->docId_ == nullptr && this->docType_ == nullptr && this->docUuid_ == nullptr
+        && this->extend1_ == nullptr && this->extend2_ == nullptr && this->extend3_ == nullptr && this->metadata_ == nullptr && this->multimodalIndexName_ == nullptr
+        && this->multimodalMedias_ == nullptr && this->pubTime_ == nullptr && this->sourceFrom_ == nullptr && this->summary_ == nullptr && this->tags_ == nullptr
+        && this->title_ == nullptr && this->url_ == nullptr; };
+      // categoryUuid Field Functions 
+      bool hasCategoryUuid() const { return this->categoryUuid_ != nullptr;};
+      void deleteCategoryUuid() { this->categoryUuid_ = nullptr;};
+      inline string getCategoryUuid() const { DARABONBA_PTR_GET_DEFAULT(categoryUuid_, "") };
+      inline Document& setCategoryUuid(string categoryUuid) { DARABONBA_PTR_SET_VALUE(categoryUuid_, categoryUuid) };
+
+
       // content Field Functions 
       bool hasContent() const { return this->content_ != nullptr;};
       void deleteContent() { this->content_ = nullptr;};
@@ -403,6 +469,15 @@ namespace Models
       inline Document& setSummary(string summary) { DARABONBA_PTR_SET_VALUE(summary_, summary) };
 
 
+      // tags Field Functions 
+      bool hasTags() const { return this->tags_ != nullptr;};
+      void deleteTags() { this->tags_ = nullptr;};
+      inline const vector<string> & getTags() const { DARABONBA_PTR_GET_CONST(tags_, vector<string>) };
+      inline vector<string> getTags() { DARABONBA_PTR_GET(tags_, vector<string>) };
+      inline Document& setTags(const vector<string> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+      inline Document& setTags(vector<string> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
+
+
       // title Field Functions 
       bool hasTitle() const { return this->title_ != nullptr;};
       void deleteTitle() { this->title_ = nullptr;};
@@ -418,6 +493,7 @@ namespace Models
 
 
     protected:
+      shared_ptr<string> categoryUuid_ {};
       shared_ptr<string> content_ {};
       shared_ptr<bool> disableHandleMultimodalMedia_ {};
       shared_ptr<string> docId_ {};
@@ -432,6 +508,7 @@ namespace Models
       shared_ptr<string> pubTime_ {};
       shared_ptr<string> sourceFrom_ {};
       shared_ptr<string> summary_ {};
+      shared_ptr<vector<string>> tags_ {};
       shared_ptr<string> title_ {};
       shared_ptr<string> url_ {};
     };

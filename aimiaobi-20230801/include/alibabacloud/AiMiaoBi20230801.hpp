@@ -3297,11 +3297,11 @@ namespace AiMiaoBi20230801
       /**
        * @summary 搜索数据集文档
        *
-       * @param request SearchDatasetDocumentsRequest
+       * @param tmpReq SearchDatasetDocumentsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return SearchDatasetDocumentsResponse
        */
-      Models::SearchDatasetDocumentsResponse searchDatasetDocumentsWithOptions(const Models::SearchDatasetDocumentsRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::SearchDatasetDocumentsResponse searchDatasetDocumentsWithOptions(const Models::SearchDatasetDocumentsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 搜索数据集文档

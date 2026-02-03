@@ -131,22 +131,38 @@ namespace Models
         class Articles : public Darabonba::Model {
         public:
           friend void to_json(Darabonba::Json& j, const Articles& obj) { 
+            DARABONBA_PTR_TO_JSON(CategoryUuid, categoryUuid_);
             DARABONBA_PTR_TO_JSON(DocId, docId_);
+            DARABONBA_PTR_TO_JSON(DocType, docType_);
             DARABONBA_PTR_TO_JSON(DocUuid, docUuid_);
+            DARABONBA_PTR_TO_JSON(Extend1, extend1_);
+            DARABONBA_PTR_TO_JSON(Extend2, extend2_);
+            DARABONBA_PTR_TO_JSON(Extend3, extend3_);
             DARABONBA_PTR_TO_JSON(PubTime, pubTime_);
+            DARABONBA_PTR_TO_JSON(SearchSource, searchSource_);
             DARABONBA_PTR_TO_JSON(SearchSourceName, searchSourceName_);
+            DARABONBA_PTR_TO_JSON(SearchSourceType, searchSourceType_);
             DARABONBA_PTR_TO_JSON(Source, source_);
             DARABONBA_PTR_TO_JSON(Summary, summary_);
+            DARABONBA_PTR_TO_JSON(Tags, tags_);
             DARABONBA_PTR_TO_JSON(Title, title_);
             DARABONBA_PTR_TO_JSON(Url, url_);
           };
           friend void from_json(const Darabonba::Json& j, Articles& obj) { 
+            DARABONBA_PTR_FROM_JSON(CategoryUuid, categoryUuid_);
             DARABONBA_PTR_FROM_JSON(DocId, docId_);
+            DARABONBA_PTR_FROM_JSON(DocType, docType_);
             DARABONBA_PTR_FROM_JSON(DocUuid, docUuid_);
+            DARABONBA_PTR_FROM_JSON(Extend1, extend1_);
+            DARABONBA_PTR_FROM_JSON(Extend2, extend2_);
+            DARABONBA_PTR_FROM_JSON(Extend3, extend3_);
             DARABONBA_PTR_FROM_JSON(PubTime, pubTime_);
+            DARABONBA_PTR_FROM_JSON(SearchSource, searchSource_);
             DARABONBA_PTR_FROM_JSON(SearchSourceName, searchSourceName_);
+            DARABONBA_PTR_FROM_JSON(SearchSourceType, searchSourceType_);
             DARABONBA_PTR_FROM_JSON(Source, source_);
             DARABONBA_PTR_FROM_JSON(Summary, summary_);
+            DARABONBA_PTR_FROM_JSON(Tags, tags_);
             DARABONBA_PTR_FROM_JSON(Title, title_);
             DARABONBA_PTR_FROM_JSON(Url, url_);
           };
@@ -161,14 +177,29 @@ namespace Models
           };
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-          virtual bool empty() const override { return this->docId_ == nullptr
-        && this->docUuid_ == nullptr && this->pubTime_ == nullptr && this->searchSourceName_ == nullptr && this->source_ == nullptr && this->summary_ == nullptr
-        && this->title_ == nullptr && this->url_ == nullptr; };
+          virtual bool empty() const override { return this->categoryUuid_ == nullptr
+        && this->docId_ == nullptr && this->docType_ == nullptr && this->docUuid_ == nullptr && this->extend1_ == nullptr && this->extend2_ == nullptr
+        && this->extend3_ == nullptr && this->pubTime_ == nullptr && this->searchSource_ == nullptr && this->searchSourceName_ == nullptr && this->searchSourceType_ == nullptr
+        && this->source_ == nullptr && this->summary_ == nullptr && this->tags_ == nullptr && this->title_ == nullptr && this->url_ == nullptr; };
+          // categoryUuid Field Functions 
+          bool hasCategoryUuid() const { return this->categoryUuid_ != nullptr;};
+          void deleteCategoryUuid() { this->categoryUuid_ = nullptr;};
+          inline string getCategoryUuid() const { DARABONBA_PTR_GET_DEFAULT(categoryUuid_, "") };
+          inline Articles& setCategoryUuid(string categoryUuid) { DARABONBA_PTR_SET_VALUE(categoryUuid_, categoryUuid) };
+
+
           // docId Field Functions 
           bool hasDocId() const { return this->docId_ != nullptr;};
           void deleteDocId() { this->docId_ = nullptr;};
           inline string getDocId() const { DARABONBA_PTR_GET_DEFAULT(docId_, "") };
           inline Articles& setDocId(string docId) { DARABONBA_PTR_SET_VALUE(docId_, docId) };
+
+
+          // docType Field Functions 
+          bool hasDocType() const { return this->docType_ != nullptr;};
+          void deleteDocType() { this->docType_ = nullptr;};
+          inline string getDocType() const { DARABONBA_PTR_GET_DEFAULT(docType_, "") };
+          inline Articles& setDocType(string docType) { DARABONBA_PTR_SET_VALUE(docType_, docType) };
 
 
           // docUuid Field Functions 
@@ -178,6 +209,27 @@ namespace Models
           inline Articles& setDocUuid(string docUuid) { DARABONBA_PTR_SET_VALUE(docUuid_, docUuid) };
 
 
+          // extend1 Field Functions 
+          bool hasExtend1() const { return this->extend1_ != nullptr;};
+          void deleteExtend1() { this->extend1_ = nullptr;};
+          inline string getExtend1() const { DARABONBA_PTR_GET_DEFAULT(extend1_, "") };
+          inline Articles& setExtend1(string extend1) { DARABONBA_PTR_SET_VALUE(extend1_, extend1) };
+
+
+          // extend2 Field Functions 
+          bool hasExtend2() const { return this->extend2_ != nullptr;};
+          void deleteExtend2() { this->extend2_ = nullptr;};
+          inline string getExtend2() const { DARABONBA_PTR_GET_DEFAULT(extend2_, "") };
+          inline Articles& setExtend2(string extend2) { DARABONBA_PTR_SET_VALUE(extend2_, extend2) };
+
+
+          // extend3 Field Functions 
+          bool hasExtend3() const { return this->extend3_ != nullptr;};
+          void deleteExtend3() { this->extend3_ = nullptr;};
+          inline string getExtend3() const { DARABONBA_PTR_GET_DEFAULT(extend3_, "") };
+          inline Articles& setExtend3(string extend3) { DARABONBA_PTR_SET_VALUE(extend3_, extend3) };
+
+
           // pubTime Field Functions 
           bool hasPubTime() const { return this->pubTime_ != nullptr;};
           void deletePubTime() { this->pubTime_ = nullptr;};
@@ -185,11 +237,25 @@ namespace Models
           inline Articles& setPubTime(string pubTime) { DARABONBA_PTR_SET_VALUE(pubTime_, pubTime) };
 
 
+          // searchSource Field Functions 
+          bool hasSearchSource() const { return this->searchSource_ != nullptr;};
+          void deleteSearchSource() { this->searchSource_ = nullptr;};
+          inline string getSearchSource() const { DARABONBA_PTR_GET_DEFAULT(searchSource_, "") };
+          inline Articles& setSearchSource(string searchSource) { DARABONBA_PTR_SET_VALUE(searchSource_, searchSource) };
+
+
           // searchSourceName Field Functions 
           bool hasSearchSourceName() const { return this->searchSourceName_ != nullptr;};
           void deleteSearchSourceName() { this->searchSourceName_ = nullptr;};
           inline string getSearchSourceName() const { DARABONBA_PTR_GET_DEFAULT(searchSourceName_, "") };
           inline Articles& setSearchSourceName(string searchSourceName) { DARABONBA_PTR_SET_VALUE(searchSourceName_, searchSourceName) };
+
+
+          // searchSourceType Field Functions 
+          bool hasSearchSourceType() const { return this->searchSourceType_ != nullptr;};
+          void deleteSearchSourceType() { this->searchSourceType_ = nullptr;};
+          inline string getSearchSourceType() const { DARABONBA_PTR_GET_DEFAULT(searchSourceType_, "") };
+          inline Articles& setSearchSourceType(string searchSourceType) { DARABONBA_PTR_SET_VALUE(searchSourceType_, searchSourceType) };
 
 
           // source Field Functions 
@@ -204,6 +270,15 @@ namespace Models
           void deleteSummary() { this->summary_ = nullptr;};
           inline string getSummary() const { DARABONBA_PTR_GET_DEFAULT(summary_, "") };
           inline Articles& setSummary(string summary) { DARABONBA_PTR_SET_VALUE(summary_, summary) };
+
+
+          // tags Field Functions 
+          bool hasTags() const { return this->tags_ != nullptr;};
+          void deleteTags() { this->tags_ = nullptr;};
+          inline const vector<string> & getTags() const { DARABONBA_PTR_GET_CONST(tags_, vector<string>) };
+          inline vector<string> getTags() { DARABONBA_PTR_GET(tags_, vector<string>) };
+          inline Articles& setTags(const vector<string> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+          inline Articles& setTags(vector<string> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
 
 
           // title Field Functions 
@@ -221,12 +296,20 @@ namespace Models
 
 
         protected:
+          shared_ptr<string> categoryUuid_ {};
           shared_ptr<string> docId_ {};
+          shared_ptr<string> docType_ {};
           shared_ptr<string> docUuid_ {};
+          shared_ptr<string> extend1_ {};
+          shared_ptr<string> extend2_ {};
+          shared_ptr<string> extend3_ {};
           shared_ptr<string> pubTime_ {};
+          shared_ptr<string> searchSource_ {};
           shared_ptr<string> searchSourceName_ {};
+          shared_ptr<string> searchSourceType_ {};
           shared_ptr<string> source_ {};
           shared_ptr<string> summary_ {};
+          shared_ptr<vector<string>> tags_ {};
           shared_ptr<string> title_ {};
           shared_ptr<string> url_ {};
         };
