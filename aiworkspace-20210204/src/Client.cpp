@@ -3313,6 +3313,14 @@ GetPermissionResponse Client::getPermissionWithOptions(const string &WorkspaceId
     query["Accessibility"] = request.getAccessibility();
   }
 
+  if (!!request.hasCallerType()) {
+    query["CallerType"] = request.getCallerType();
+  }
+
+  if (!!request.hasCallerUid()) {
+    query["CallerUid"] = request.getCallerUid();
+  }
+
   if (!!request.hasCreator()) {
     query["Creator"] = request.getCreator();
   }
@@ -3327,6 +3335,10 @@ GetPermissionResponse Client::getPermissionWithOptions(const string &WorkspaceId
 
   if (!!request.hasResource()) {
     query["Resource"] = request.getResource();
+  }
+
+  if (!!request.hasSecurityToken()) {
+    query["SecurityToken"] = request.getSecurityToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6646,6 +6658,71 @@ UpdateWorkspaceResourceResponse Client::updateWorkspaceResource(const string &Wo
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateWorkspaceResourceWithOptions(WorkspaceId, request, headers, runtime);
+}
+
+/**
+ * @summary 验证连接
+ *
+ * @param request ValidateConnectionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ValidateConnectionResponse
+ */
+ValidateConnectionResponse Client::validateConnectionWithOptions(const ValidateConnectionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasConfigs()) {
+    body["Configs"] = request.getConfigs();
+  }
+
+  if (!!request.hasConnectionId()) {
+    body["ConnectionId"] = request.getConnectionId();
+  }
+
+  if (!!request.hasConnectionType()) {
+    body["ConnectionType"] = request.getConnectionType();
+  }
+
+  if (!!request.hasSecrets()) {
+    body["Secrets"] = request.getSecrets();
+  }
+
+  if (!!request.hasValidateType()) {
+    body["ValidateType"] = request.getValidateType();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ValidateConnection"},
+    {"version" , "2021-02-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/connections/validate")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ValidateConnectionResponse>();
+}
+
+/**
+ * @summary 验证连接
+ *
+ * @param request ValidateConnectionRequest
+ * @return ValidateConnectionResponse
+ */
+ValidateConnectionResponse Client::validateConnection(const ValidateConnectionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return validateConnectionWithOptions(request, headers, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace AIWorkSpace20210204

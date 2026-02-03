@@ -2055,6 +2055,24 @@ namespace AIWorkSpace20210204
        * @return UpdateWorkspaceResourceResponse
        */
       Models::UpdateWorkspaceResourceResponse updateWorkspaceResource(const string &WorkspaceId, const Models::UpdateWorkspaceResourceRequest &request);
+
+      /**
+       * @summary 验证连接
+       *
+       * @param request ValidateConnectionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ValidateConnectionResponse
+       */
+      Models::ValidateConnectionResponse validateConnectionWithOptions(const Models::ValidateConnectionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 验证连接
+       *
+       * @param request ValidateConnectionRequest
+       * @return ValidateConnectionResponse
+       */
+      Models::ValidateConnectionResponse validateConnection(const Models::ValidateConnectionRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace AIWorkSpace20210204

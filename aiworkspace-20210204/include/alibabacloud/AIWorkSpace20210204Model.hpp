@@ -357,5 +357,8 @@
 #include <alibabacloud/models/UpdateWorkspaceResourceRequest.hpp>
 #include <alibabacloud/models/UpdateWorkspaceResourceResponseBody.hpp>
 #include <alibabacloud/models/UpdateWorkspaceResourceResponse.hpp>
+#include <alibabacloud/models/ValidateConnectionRequest.hpp>
+#include <alibabacloud/models/ValidateConnectionResponseBody.hpp>
+#include <alibabacloud/models/ValidateConnectionResponse.hpp>
 
 #endif
