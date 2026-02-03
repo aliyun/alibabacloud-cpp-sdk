@@ -45,6 +45,7 @@
 #include <alibabacloud/models/JobSpec.hpp>
 #include <alibabacloud/models/PodNetworkInterface.hpp>
 #include <alibabacloud/models/PodItem.hpp>
+#include <alibabacloud/models/ModelTemplate.hpp>
 #include <alibabacloud/models/ModelConfig.hpp>
 #include <alibabacloud/models/JobSettings.hpp>
 #include <alibabacloud/models/StatusTransitionItem.hpp>

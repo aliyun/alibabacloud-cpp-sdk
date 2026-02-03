@@ -26,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ClusterId, clusterId_);
       DARABONBA_PTR_TO_JSON(CodeSource, codeSource_);
       DARABONBA_PTR_TO_JSON(CredentialConfig, credentialConfig_);
+      DARABONBA_PTR_TO_JSON(CustomEnvs, customEnvs_);
       DARABONBA_PTR_TO_JSON(DataSources, dataSources_);
       DARABONBA_PTR_TO_JSON(DisplayName, displayName_);
       DARABONBA_PTR_TO_JSON(Duration, duration_);
@@ -71,6 +72,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ClusterId, clusterId_);
       DARABONBA_PTR_FROM_JSON(CodeSource, codeSource_);
       DARABONBA_PTR_FROM_JSON(CredentialConfig, credentialConfig_);
+      DARABONBA_PTR_FROM_JSON(CustomEnvs, customEnvs_);
       DARABONBA_PTR_FROM_JSON(DataSources, dataSources_);
       DARABONBA_PTR_FROM_JSON(DisplayName, displayName_);
       DARABONBA_PTR_FROM_JSON(Duration, duration_);
@@ -843,6 +845,58 @@ namespace Models
       shared_ptr<string> uri_ {};
     };
 
+    class CustomEnvs : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const CustomEnvs& obj) { 
+        DARABONBA_PTR_TO_JSON(Key, key_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
+        DARABONBA_PTR_TO_JSON(Visible, visible_);
+      };
+      friend void from_json(const Darabonba::Json& j, CustomEnvs& obj) { 
+        DARABONBA_PTR_FROM_JSON(Key, key_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
+        DARABONBA_PTR_FROM_JSON(Visible, visible_);
+      };
+      CustomEnvs() = default ;
+      CustomEnvs(const CustomEnvs &) = default ;
+      CustomEnvs(CustomEnvs &&) = default ;
+      CustomEnvs(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~CustomEnvs() = default ;
+      CustomEnvs& operator=(const CustomEnvs &) = default ;
+      CustomEnvs& operator=(CustomEnvs &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr && this->visible_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline CustomEnvs& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline CustomEnvs& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+      // visible Field Functions 
+      bool hasVisible() const { return this->visible_ != nullptr;};
+      void deleteVisible() { this->visible_ = nullptr;};
+      inline string getVisible() const { DARABONBA_PTR_GET_DEFAULT(visible_, "") };
+      inline CustomEnvs& setVisible(string visible) { DARABONBA_PTR_SET_VALUE(visible_, visible) };
+
+
+    protected:
+      shared_ptr<string> key_ {};
+      shared_ptr<string> value_ {};
+      shared_ptr<string> visible_ {};
+    };
+
     class CodeSource : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const CodeSource& obj) { 
@@ -910,15 +964,15 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->accessibility_ == nullptr
-        && this->clusterId_ == nullptr && this->codeSource_ == nullptr && this->credentialConfig_ == nullptr && this->dataSources_ == nullptr && this->displayName_ == nullptr
-        && this->duration_ == nullptr && this->elasticSpec_ == nullptr && this->enabledDebugger_ == nullptr && this->envs_ == nullptr && this->gmtCreateTime_ == nullptr
-        && this->gmtFailedTime_ == nullptr && this->gmtFinishTime_ == nullptr && this->gmtRunningTime_ == nullptr && this->gmtStoppedTime_ == nullptr && this->gmtSubmittedTime_ == nullptr
-        && this->gmtSuccessedTime_ == nullptr && this->jobId_ == nullptr && this->jobReplicaStatuses_ == nullptr && this->jobSpecs_ == nullptr && this->jobType_ == nullptr
-        && this->pods_ == nullptr && this->priority_ == nullptr && this->reasonCode_ == nullptr && this->reasonMessage_ == nullptr && this->requestId_ == nullptr
-        && this->resourceId_ == nullptr && this->resourceLevel_ == nullptr && this->resourceType_ == nullptr && this->restartRecord_ == nullptr && this->restartTimes_ == nullptr
-        && this->settings_ == nullptr && this->status_ == nullptr && this->statusHistory_ == nullptr && this->subStatus_ == nullptr && this->tenantId_ == nullptr
-        && this->thirdpartyLibDir_ == nullptr && this->thirdpartyLibs_ == nullptr && this->userCommand_ == nullptr && this->userId_ == nullptr && this->userVpc_ == nullptr
-        && this->workspaceId_ == nullptr && this->workspaceName_ == nullptr; };
+        && this->clusterId_ == nullptr && this->codeSource_ == nullptr && this->credentialConfig_ == nullptr && this->customEnvs_ == nullptr && this->dataSources_ == nullptr
+        && this->displayName_ == nullptr && this->duration_ == nullptr && this->elasticSpec_ == nullptr && this->enabledDebugger_ == nullptr && this->envs_ == nullptr
+        && this->gmtCreateTime_ == nullptr && this->gmtFailedTime_ == nullptr && this->gmtFinishTime_ == nullptr && this->gmtRunningTime_ == nullptr && this->gmtStoppedTime_ == nullptr
+        && this->gmtSubmittedTime_ == nullptr && this->gmtSuccessedTime_ == nullptr && this->jobId_ == nullptr && this->jobReplicaStatuses_ == nullptr && this->jobSpecs_ == nullptr
+        && this->jobType_ == nullptr && this->pods_ == nullptr && this->priority_ == nullptr && this->reasonCode_ == nullptr && this->reasonMessage_ == nullptr
+        && this->requestId_ == nullptr && this->resourceId_ == nullptr && this->resourceLevel_ == nullptr && this->resourceType_ == nullptr && this->restartRecord_ == nullptr
+        && this->restartTimes_ == nullptr && this->settings_ == nullptr && this->status_ == nullptr && this->statusHistory_ == nullptr && this->subStatus_ == nullptr
+        && this->tenantId_ == nullptr && this->thirdpartyLibDir_ == nullptr && this->thirdpartyLibs_ == nullptr && this->userCommand_ == nullptr && this->userId_ == nullptr
+        && this->userVpc_ == nullptr && this->workspaceId_ == nullptr && this->workspaceName_ == nullptr; };
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};
@@ -949,6 +1003,15 @@ namespace Models
     inline CredentialConfig getCredentialConfig() { DARABONBA_PTR_GET(credentialConfig_, CredentialConfig) };
     inline GetJobResponseBody& setCredentialConfig(const CredentialConfig & credentialConfig) { DARABONBA_PTR_SET_VALUE(credentialConfig_, credentialConfig) };
     inline GetJobResponseBody& setCredentialConfig(CredentialConfig && credentialConfig) { DARABONBA_PTR_SET_RVALUE(credentialConfig_, credentialConfig) };
+
+
+    // customEnvs Field Functions 
+    bool hasCustomEnvs() const { return this->customEnvs_ != nullptr;};
+    void deleteCustomEnvs() { this->customEnvs_ = nullptr;};
+    inline const vector<GetJobResponseBody::CustomEnvs> & getCustomEnvs() const { DARABONBA_PTR_GET_CONST(customEnvs_, vector<GetJobResponseBody::CustomEnvs>) };
+    inline vector<GetJobResponseBody::CustomEnvs> getCustomEnvs() { DARABONBA_PTR_GET(customEnvs_, vector<GetJobResponseBody::CustomEnvs>) };
+    inline GetJobResponseBody& setCustomEnvs(const vector<GetJobResponseBody::CustomEnvs> & customEnvs) { DARABONBA_PTR_SET_VALUE(customEnvs_, customEnvs) };
+    inline GetJobResponseBody& setCustomEnvs(vector<GetJobResponseBody::CustomEnvs> && customEnvs) { DARABONBA_PTR_SET_RVALUE(customEnvs_, customEnvs) };
 
 
     // dataSources Field Functions 
@@ -1258,6 +1321,7 @@ namespace Models
     shared_ptr<GetJobResponseBody::CodeSource> codeSource_ {};
     // The access credential configurations.
     shared_ptr<CredentialConfig> credentialConfig_ {};
+    shared_ptr<vector<GetJobResponseBody::CustomEnvs>> customEnvs_ {};
     // The data sources.
     shared_ptr<vector<GetJobResponseBody::DataSources>> dataSources_ {};
     // The job name.

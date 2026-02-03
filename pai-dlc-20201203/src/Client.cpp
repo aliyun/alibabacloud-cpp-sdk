@@ -106,6 +106,10 @@ CreateJobResponse Client::createJobWithOptions(const CreateJobRequest &request, 
     body["CredentialConfig"] = request.getCredentialConfig();
   }
 
+  if (!!request.hasCustomEnvs()) {
+    body["CustomEnvs"] = request.getCustomEnvs();
+  }
+
   if (!!request.hasDataSources()) {
     body["DataSources"] = request.getDataSources();
   }
