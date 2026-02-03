@@ -27,6 +27,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RegionNo, regionNo_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(RouteMode, routeMode_);
+      DARABONBA_PTR_TO_JSON(TrAttachmentId, trAttachmentId_);
       DARABONBA_PTR_TO_JSON(TrAttachmentMasterCidr, trAttachmentMasterCidr_);
       DARABONBA_PTR_TO_JSON(TrAttachmentMasterZone, trAttachmentMasterZone_);
       DARABONBA_PTR_TO_JSON(TrAttachmentSlaveCidr, trAttachmentSlaveCidr_);
@@ -48,6 +49,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RegionNo, regionNo_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(RouteMode, routeMode_);
+      DARABONBA_PTR_FROM_JSON(TrAttachmentId, trAttachmentId_);
       DARABONBA_PTR_FROM_JSON(TrAttachmentMasterCidr, trAttachmentMasterCidr_);
       DARABONBA_PTR_FROM_JSON(TrAttachmentMasterZone, trAttachmentMasterZone_);
       DARABONBA_PTR_FROM_JSON(TrAttachmentSlaveCidr, trAttachmentSlaveCidr_);
@@ -68,8 +70,8 @@ namespace Models
     virtual bool empty() const override { return this->cenId_ == nullptr
         && this->firewallDescription_ == nullptr && this->firewallEniId_ == nullptr && this->firewallEniVpcId_ == nullptr && this->firewallEniVswitchId_ == nullptr && this->firewallId_ == nullptr
         && this->firewallName_ == nullptr && this->firewallStatus_ == nullptr && this->firewallSubnetCidr_ == nullptr && this->firewallSwitchStatus_ == nullptr && this->firewallVpcCidr_ == nullptr
-        && this->regionNo_ == nullptr && this->requestId_ == nullptr && this->routeMode_ == nullptr && this->trAttachmentMasterCidr_ == nullptr && this->trAttachmentMasterZone_ == nullptr
-        && this->trAttachmentSlaveCidr_ == nullptr && this->trAttachmentSlaveZone_ == nullptr && this->transitRouterId_ == nullptr; };
+        && this->regionNo_ == nullptr && this->requestId_ == nullptr && this->routeMode_ == nullptr && this->trAttachmentId_ == nullptr && this->trAttachmentMasterCidr_ == nullptr
+        && this->trAttachmentMasterZone_ == nullptr && this->trAttachmentSlaveCidr_ == nullptr && this->trAttachmentSlaveZone_ == nullptr && this->transitRouterId_ == nullptr; };
     // cenId Field Functions 
     bool hasCenId() const { return this->cenId_ != nullptr;};
     void deleteCenId() { this->cenId_ = nullptr;};
@@ -168,6 +170,13 @@ namespace Models
     inline DescribeTrFirewallsV2DetailResponseBody& setRouteMode(string routeMode) { DARABONBA_PTR_SET_VALUE(routeMode_, routeMode) };
 
 
+    // trAttachmentId Field Functions 
+    bool hasTrAttachmentId() const { return this->trAttachmentId_ != nullptr;};
+    void deleteTrAttachmentId() { this->trAttachmentId_ = nullptr;};
+    inline string getTrAttachmentId() const { DARABONBA_PTR_GET_DEFAULT(trAttachmentId_, "") };
+    inline DescribeTrFirewallsV2DetailResponseBody& setTrAttachmentId(string trAttachmentId) { DARABONBA_PTR_SET_VALUE(trAttachmentId_, trAttachmentId) };
+
+
     // trAttachmentMasterCidr Field Functions 
     bool hasTrAttachmentMasterCidr() const { return this->trAttachmentMasterCidr_ != nullptr;};
     void deleteTrAttachmentMasterCidr() { this->trAttachmentMasterCidr_ = nullptr;};
@@ -249,6 +258,7 @@ namespace Models
     // *   **managed**: automatic mode
     // *   **manual**: manual mode
     shared_ptr<string> routeMode_ {};
+    shared_ptr<string> trAttachmentId_ {};
     // The primary subnet CIDR block that the VPC uses to connect to the transit router in automatic mode.
     shared_ptr<string> trAttachmentMasterCidr_ {};
     // In automatic mode, the primary availability zone of the subnet in the firewall VPC used for connecting to TR.
