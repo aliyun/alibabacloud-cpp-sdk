@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DataSource, dataSource_);
       DARABONBA_PTR_TO_JSON(Message, message_);
       DARABONBA_PTR_TO_JSON(MessageType, messageType_);
+      DARABONBA_PTR_TO_JSON(ParentSessionId, parentSessionId_);
       DARABONBA_PTR_TO_JSON(Question, question_);
       DARABONBA_PTR_TO_JSON(QuotedMessage, quotedMessage_);
       DARABONBA_PTR_TO_JSON(ReplyTo, replyTo_);
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DataSource, dataSource_);
       DARABONBA_PTR_FROM_JSON(Message, message_);
       DARABONBA_PTR_FROM_JSON(MessageType, messageType_);
+      DARABONBA_PTR_FROM_JSON(ParentSessionId, parentSessionId_);
       DARABONBA_PTR_FROM_JSON(Question, question_);
       DARABONBA_PTR_FROM_JSON(QuotedMessage, quotedMessage_);
       DARABONBA_PTR_FROM_JSON(ReplyTo, replyTo_);
@@ -246,8 +248,8 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->agentId_ == nullptr
-        && this->DMSUnit_ == nullptr && this->dataSource_ == nullptr && this->message_ == nullptr && this->messageType_ == nullptr && this->question_ == nullptr
-        && this->quotedMessage_ == nullptr && this->replyTo_ == nullptr && this->sessionConfig_ == nullptr && this->sessionId_ == nullptr; };
+        && this->DMSUnit_ == nullptr && this->dataSource_ == nullptr && this->message_ == nullptr && this->messageType_ == nullptr && this->parentSessionId_ == nullptr
+        && this->question_ == nullptr && this->quotedMessage_ == nullptr && this->replyTo_ == nullptr && this->sessionConfig_ == nullptr && this->sessionId_ == nullptr; };
     // agentId Field Functions 
     bool hasAgentId() const { return this->agentId_ != nullptr;};
     void deleteAgentId() { this->agentId_ = nullptr;};
@@ -283,6 +285,13 @@ namespace Models
     void deleteMessageType() { this->messageType_ = nullptr;};
     inline string getMessageType() const { DARABONBA_PTR_GET_DEFAULT(messageType_, "") };
     inline SendChatMessageRequest& setMessageType(string messageType) { DARABONBA_PTR_SET_VALUE(messageType_, messageType) };
+
+
+    // parentSessionId Field Functions 
+    bool hasParentSessionId() const { return this->parentSessionId_ != nullptr;};
+    void deleteParentSessionId() { this->parentSessionId_ = nullptr;};
+    inline string getParentSessionId() const { DARABONBA_PTR_GET_DEFAULT(parentSessionId_, "") };
+    inline SendChatMessageRequest& setParentSessionId(string parentSessionId) { DARABONBA_PTR_SET_VALUE(parentSessionId_, parentSessionId) };
 
 
     // question Field Functions 
@@ -330,6 +339,7 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> message_ {};
     shared_ptr<string> messageType_ {};
+    shared_ptr<string> parentSessionId_ {};
     shared_ptr<string> question_ {};
     shared_ptr<string> quotedMessage_ {};
     shared_ptr<string> replyTo_ {};

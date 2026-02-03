@@ -3175,6 +3175,10 @@ SendChatMessageResponse Client::sendChatMessageWithOptions(const SendChatMessage
     query["MessageType"] = request.getMessageType();
   }
 
+  if (!!request.hasParentSessionId()) {
+    query["ParentSessionId"] = request.getParentSessionId();
+  }
+
   if (!!request.hasQuestion()) {
     query["Question"] = request.getQuestion();
   }
