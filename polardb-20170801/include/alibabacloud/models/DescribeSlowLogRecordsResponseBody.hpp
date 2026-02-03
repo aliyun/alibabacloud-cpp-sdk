@@ -68,6 +68,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(DBNodeId, DBNodeId_);
           DARABONBA_PTR_TO_JSON(ExecutionStartTime, executionStartTime_);
           DARABONBA_PTR_TO_JSON(HostAddress, hostAddress_);
+          DARABONBA_PTR_TO_JSON(LockTimeMS, lockTimeMS_);
           DARABONBA_PTR_TO_JSON(LockTimes, lockTimes_);
           DARABONBA_PTR_TO_JSON(ParseRowCounts, parseRowCounts_);
           DARABONBA_PTR_TO_JSON(QueryTimeMS, queryTimeMS_);
@@ -81,6 +82,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(DBNodeId, DBNodeId_);
           DARABONBA_PTR_FROM_JSON(ExecutionStartTime, executionStartTime_);
           DARABONBA_PTR_FROM_JSON(HostAddress, hostAddress_);
+          DARABONBA_PTR_FROM_JSON(LockTimeMS, lockTimeMS_);
           DARABONBA_PTR_FROM_JSON(LockTimes, lockTimes_);
           DARABONBA_PTR_FROM_JSON(ParseRowCounts, parseRowCounts_);
           DARABONBA_PTR_FROM_JSON(QueryTimeMS, queryTimeMS_);
@@ -101,8 +103,9 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->DBName_ == nullptr
-        && this->DBNodeId_ == nullptr && this->executionStartTime_ == nullptr && this->hostAddress_ == nullptr && this->lockTimes_ == nullptr && this->parseRowCounts_ == nullptr
-        && this->queryTimeMS_ == nullptr && this->queryTimes_ == nullptr && this->returnRowCounts_ == nullptr && this->SQLHash_ == nullptr && this->SQLText_ == nullptr; };
+        && this->DBNodeId_ == nullptr && this->executionStartTime_ == nullptr && this->hostAddress_ == nullptr && this->lockTimeMS_ == nullptr && this->lockTimes_ == nullptr
+        && this->parseRowCounts_ == nullptr && this->queryTimeMS_ == nullptr && this->queryTimes_ == nullptr && this->returnRowCounts_ == nullptr && this->SQLHash_ == nullptr
+        && this->SQLText_ == nullptr; };
         // DBName Field Functions 
         bool hasDBName() const { return this->DBName_ != nullptr;};
         void deleteDBName() { this->DBName_ = nullptr;};
@@ -129,6 +132,13 @@ namespace Models
         void deleteHostAddress() { this->hostAddress_ = nullptr;};
         inline string getHostAddress() const { DARABONBA_PTR_GET_DEFAULT(hostAddress_, "") };
         inline SQLSlowRecord& setHostAddress(string hostAddress) { DARABONBA_PTR_SET_VALUE(hostAddress_, hostAddress) };
+
+
+        // lockTimeMS Field Functions 
+        bool hasLockTimeMS() const { return this->lockTimeMS_ != nullptr;};
+        void deleteLockTimeMS() { this->lockTimeMS_ = nullptr;};
+        inline int64_t getLockTimeMS() const { DARABONBA_PTR_GET_DEFAULT(lockTimeMS_, 0L) };
+        inline SQLSlowRecord& setLockTimeMS(int64_t lockTimeMS) { DARABONBA_PTR_SET_VALUE(lockTimeMS_, lockTimeMS) };
 
 
         // lockTimes Field Functions 
@@ -189,6 +199,7 @@ namespace Models
         shared_ptr<string> executionStartTime_ {};
         // Client address connecting to the database.
         shared_ptr<string> hostAddress_ {};
+        shared_ptr<int64_t> lockTimeMS_ {};
         // SQL lock duration in seconds.
         shared_ptr<int64_t> lockTimes_ {};
         // Number of rows parsed.
