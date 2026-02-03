@@ -76,6 +76,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(Status, status_);
           DARABONBA_PTR_TO_JSON(Type, type_);
           DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
+          DARABONBA_PTR_TO_JSON(VmncLearn, vmncLearn_);
         };
         friend void from_json(const Darabonba::Json& j, NetworkInterfaceSet& obj) { 
           DARABONBA_PTR_FROM_JSON(CreationTime, creationTime_);
@@ -94,6 +95,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(Status, status_);
           DARABONBA_PTR_FROM_JSON(Type, type_);
           DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
+          DARABONBA_PTR_FROM_JSON(VmncLearn, vmncLearn_);
         };
         NetworkInterfaceSet() = default ;
         NetworkInterfaceSet(const NetworkInterfaceSet &) = default ;
@@ -297,7 +299,8 @@ namespace Models
         virtual bool empty() const override { return this->creationTime_ == nullptr
         && this->description_ == nullptr && this->ensRegionId_ == nullptr && this->instanceId_ == nullptr && this->ipv6Sets_ == nullptr && this->macAddress_ == nullptr
         && this->networkId_ == nullptr && this->networkInterfaceId_ == nullptr && this->networkInterfaceName_ == nullptr && this->primaryIp_ == nullptr && this->primaryIpType_ == nullptr
-        && this->privateIpSets_ == nullptr && this->securityGroupIds_ == nullptr && this->status_ == nullptr && this->type_ == nullptr && this->vSwitchId_ == nullptr; };
+        && this->privateIpSets_ == nullptr && this->securityGroupIds_ == nullptr && this->status_ == nullptr && this->type_ == nullptr && this->vSwitchId_ == nullptr
+        && this->vmncLearn_ == nullptr; };
         // creationTime Field Functions 
         bool hasCreationTime() const { return this->creationTime_ != nullptr;};
         void deleteCreationTime() { this->creationTime_ = nullptr;};
@@ -416,6 +419,13 @@ namespace Models
         inline NetworkInterfaceSet& setVSwitchId(string vSwitchId) { DARABONBA_PTR_SET_VALUE(vSwitchId_, vSwitchId) };
 
 
+        // vmncLearn Field Functions 
+        bool hasVmncLearn() const { return this->vmncLearn_ != nullptr;};
+        void deleteVmncLearn() { this->vmncLearn_ = nullptr;};
+        inline bool getVmncLearn() const { DARABONBA_PTR_GET_DEFAULT(vmncLearn_, false) };
+        inline NetworkInterfaceSet& setVmncLearn(bool vmncLearn) { DARABONBA_PTR_SET_VALUE(vmncLearn_, vmncLearn) };
+
+
       protected:
         // The time when the ENI was created. Specify the time in the ISO 8601 standard in the yyyy-MM-ddThh:mmZ format. The time is displayed in UTC.
         shared_ptr<string> creationTime_ {};
@@ -461,6 +471,7 @@ namespace Models
         shared_ptr<string> type_ {};
         // The ID of the vSwitch.
         shared_ptr<string> vSwitchId_ {};
+        shared_ptr<bool> vmncLearn_ {};
       };
 
       virtual bool empty() const override { return this->networkInterfaceSet_ == nullptr; };
