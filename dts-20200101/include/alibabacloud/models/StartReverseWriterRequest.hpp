@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->checkPoint_ == nullptr
-        && return this->dtsJobId_ == nullptr && return this->resourceGroupId_ == nullptr; };
+        && this->dtsJobId_ == nullptr && this->resourceGroupId_ == nullptr; };
     // checkPoint Field Functions 
     bool hasCheckPoint() const { return this->checkPoint_ != nullptr;};
     void deleteCheckPoint() { this->checkPoint_ = nullptr;};
-    inline string checkPoint() const { DARABONBA_PTR_GET_DEFAULT(checkPoint_, "") };
+    inline string getCheckPoint() const { DARABONBA_PTR_GET_DEFAULT(checkPoint_, "") };
     inline StartReverseWriterRequest& setCheckPoint(string checkPoint) { DARABONBA_PTR_SET_VALUE(checkPoint_, checkPoint) };
 
 
     // dtsJobId Field Functions 
     bool hasDtsJobId() const { return this->dtsJobId_ != nullptr;};
     void deleteDtsJobId() { this->dtsJobId_ = nullptr;};
-    inline string dtsJobId() const { DARABONBA_PTR_GET_DEFAULT(dtsJobId_, "") };
+    inline string getDtsJobId() const { DARABONBA_PTR_GET_DEFAULT(dtsJobId_, "") };
     inline StartReverseWriterRequest& setDtsJobId(string dtsJobId) { DARABONBA_PTR_SET_VALUE(dtsJobId_, dtsJobId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline StartReverseWriterRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
@@ -60,13 +60,13 @@ namespace Models
     // The offset of the Incremental Write module. Specify a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. 
     // 
     // > The default value is the offset that is automatically saved by DTS when the task is paused.
-    std::shared_ptr<string> checkPoint_ = nullptr;
+    shared_ptr<string> checkPoint_ {};
     // The ID of the reverse task that was created by calling the CreateReverseDtsJob operation.
     // 
     // This parameter is required.
-    std::shared_ptr<string> dtsJobId_ = nullptr;
+    shared_ptr<string> dtsJobId_ {};
     // Resource group ID.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
   };
 
   } // namespace Models

@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->checkType_ == nullptr
-        && return this->dbName_ == nullptr && return this->dtsJobId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->tbName_ == nullptr; };
+        && this->dbName_ == nullptr && this->dtsJobId_ == nullptr && this->resourceGroupId_ == nullptr && this->tbName_ == nullptr; };
     // checkType Field Functions 
     bool hasCheckType() const { return this->checkType_ != nullptr;};
     void deleteCheckType() { this->checkType_ = nullptr;};
-    inline int32_t checkType() const { DARABONBA_PTR_GET_DEFAULT(checkType_, 0) };
+    inline int32_t getCheckType() const { DARABONBA_PTR_GET_DEFAULT(checkType_, 0) };
     inline DescribeDataCheckReportUrlRequest& setCheckType(int32_t checkType) { DARABONBA_PTR_SET_VALUE(checkType_, checkType) };
 
 
     // dbName Field Functions 
     bool hasDbName() const { return this->dbName_ != nullptr;};
     void deleteDbName() { this->dbName_ = nullptr;};
-    inline string dbName() const { DARABONBA_PTR_GET_DEFAULT(dbName_, "") };
+    inline string getDbName() const { DARABONBA_PTR_GET_DEFAULT(dbName_, "") };
     inline DescribeDataCheckReportUrlRequest& setDbName(string dbName) { DARABONBA_PTR_SET_VALUE(dbName_, dbName) };
 
 
     // dtsJobId Field Functions 
     bool hasDtsJobId() const { return this->dtsJobId_ != nullptr;};
     void deleteDtsJobId() { this->dtsJobId_ = nullptr;};
-    inline string dtsJobId() const { DARABONBA_PTR_GET_DEFAULT(dtsJobId_, "") };
+    inline string getDtsJobId() const { DARABONBA_PTR_GET_DEFAULT(dtsJobId_, "") };
     inline DescribeDataCheckReportUrlRequest& setDtsJobId(string dtsJobId) { DARABONBA_PTR_SET_VALUE(dtsJobId_, dtsJobId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline DescribeDataCheckReportUrlRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // tbName Field Functions 
     bool hasTbName() const { return this->tbName_ != nullptr;};
     void deleteTbName() { this->tbName_ = nullptr;};
-    inline string tbName() const { DARABONBA_PTR_GET_DEFAULT(tbName_, "") };
+    inline string getTbName() const { DARABONBA_PTR_GET_DEFAULT(tbName_, "") };
     inline DescribeDataCheckReportUrlRequest& setTbName(string tbName) { DARABONBA_PTR_SET_VALUE(tbName_, tbName) };
 
 
@@ -81,21 +81,21 @@ namespace Models
     // *   **2**: incremental data verification.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> checkType_ = nullptr;
+    shared_ptr<int32_t> checkType_ {};
     // The name of the verified source database.
     // 
     // This parameter is required.
-    std::shared_ptr<string> dbName_ = nullptr;
+    shared_ptr<string> dbName_ {};
     // The ID of the Data Transmission Service (DTS) task. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the task ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> dtsJobId_ = nullptr;
+    shared_ptr<string> dtsJobId_ {};
     // Resource group ID.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // The name of the table verified in the source database.
     // 
     // This parameter is required.
-    std::shared_ptr<string> tbName_ = nullptr;
+    shared_ptr<string> tbName_ {};
   };
 
   } // namespace Models

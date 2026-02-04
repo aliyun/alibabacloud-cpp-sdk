@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_DESCRIBESYNCSTATUSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/DescribeSyncStatusResponseBodySyncStatusList.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -47,84 +46,166 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class SyncStatusList : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const SyncStatusList& obj) { 
+        DARABONBA_PTR_TO_JSON(Checkpoint, checkpoint_);
+        DARABONBA_PTR_TO_JSON(Code, code_);
+        DARABONBA_PTR_TO_JSON(Delay, delay_);
+        DARABONBA_PTR_TO_JSON(JobId, jobId_);
+        DARABONBA_PTR_TO_JSON(Rate, rate_);
+        DARABONBA_PTR_TO_JSON(Status, status_);
+      };
+      friend void from_json(const Darabonba::Json& j, SyncStatusList& obj) { 
+        DARABONBA_PTR_FROM_JSON(Checkpoint, checkpoint_);
+        DARABONBA_PTR_FROM_JSON(Code, code_);
+        DARABONBA_PTR_FROM_JSON(Delay, delay_);
+        DARABONBA_PTR_FROM_JSON(JobId, jobId_);
+        DARABONBA_PTR_FROM_JSON(Rate, rate_);
+        DARABONBA_PTR_FROM_JSON(Status, status_);
+      };
+      SyncStatusList() = default ;
+      SyncStatusList(const SyncStatusList &) = default ;
+      SyncStatusList(SyncStatusList &&) = default ;
+      SyncStatusList(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~SyncStatusList() = default ;
+      SyncStatusList& operator=(const SyncStatusList &) = default ;
+      SyncStatusList& operator=(SyncStatusList &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->checkpoint_ == nullptr
+        && this->code_ == nullptr && this->delay_ == nullptr && this->jobId_ == nullptr && this->rate_ == nullptr && this->status_ == nullptr; };
+      // checkpoint Field Functions 
+      bool hasCheckpoint() const { return this->checkpoint_ != nullptr;};
+      void deleteCheckpoint() { this->checkpoint_ = nullptr;};
+      inline int64_t getCheckpoint() const { DARABONBA_PTR_GET_DEFAULT(checkpoint_, 0L) };
+      inline SyncStatusList& setCheckpoint(int64_t checkpoint) { DARABONBA_PTR_SET_VALUE(checkpoint_, checkpoint) };
+
+
+      // code Field Functions 
+      bool hasCode() const { return this->code_ != nullptr;};
+      void deleteCode() { this->code_ = nullptr;};
+      inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+      inline SyncStatusList& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+
+
+      // delay Field Functions 
+      bool hasDelay() const { return this->delay_ != nullptr;};
+      void deleteDelay() { this->delay_ = nullptr;};
+      inline int64_t getDelay() const { DARABONBA_PTR_GET_DEFAULT(delay_, 0L) };
+      inline SyncStatusList& setDelay(int64_t delay) { DARABONBA_PTR_SET_VALUE(delay_, delay) };
+
+
+      // jobId Field Functions 
+      bool hasJobId() const { return this->jobId_ != nullptr;};
+      void deleteJobId() { this->jobId_ = nullptr;};
+      inline string getJobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
+      inline SyncStatusList& setJobId(string jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
+
+
+      // rate Field Functions 
+      bool hasRate() const { return this->rate_ != nullptr;};
+      void deleteRate() { this->rate_ = nullptr;};
+      inline string getRate() const { DARABONBA_PTR_GET_DEFAULT(rate_, "") };
+      inline SyncStatusList& setRate(string rate) { DARABONBA_PTR_SET_VALUE(rate_, rate) };
+
+
+      // status Field Functions 
+      bool hasStatus() const { return this->status_ != nullptr;};
+      void deleteStatus() { this->status_ = nullptr;};
+      inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+      inline SyncStatusList& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+    protected:
+      shared_ptr<int64_t> checkpoint_ {};
+      shared_ptr<string> code_ {};
+      shared_ptr<int64_t> delay_ {};
+      shared_ptr<string> jobId_ {};
+      shared_ptr<string> rate_ {};
+      shared_ptr<string> status_ {};
+    };
+
     virtual bool empty() const override { return this->dynamicCode_ == nullptr
-        && return this->dynamicMessage_ == nullptr && return this->errCode_ == nullptr && return this->errMessage_ == nullptr && return this->httpStatusCode_ == nullptr && return this->pageNumber_ == nullptr
-        && return this->requestId_ == nullptr && return this->success_ == nullptr && return this->syncStatusList_ == nullptr; };
+        && this->dynamicMessage_ == nullptr && this->errCode_ == nullptr && this->errMessage_ == nullptr && this->httpStatusCode_ == nullptr && this->pageNumber_ == nullptr
+        && this->requestId_ == nullptr && this->success_ == nullptr && this->syncStatusList_ == nullptr; };
     // dynamicCode Field Functions 
     bool hasDynamicCode() const { return this->dynamicCode_ != nullptr;};
     void deleteDynamicCode() { this->dynamicCode_ = nullptr;};
-    inline string dynamicCode() const { DARABONBA_PTR_GET_DEFAULT(dynamicCode_, "") };
+    inline string getDynamicCode() const { DARABONBA_PTR_GET_DEFAULT(dynamicCode_, "") };
     inline DescribeSyncStatusResponseBody& setDynamicCode(string dynamicCode) { DARABONBA_PTR_SET_VALUE(dynamicCode_, dynamicCode) };
 
 
     // dynamicMessage Field Functions 
     bool hasDynamicMessage() const { return this->dynamicMessage_ != nullptr;};
     void deleteDynamicMessage() { this->dynamicMessage_ = nullptr;};
-    inline string dynamicMessage() const { DARABONBA_PTR_GET_DEFAULT(dynamicMessage_, "") };
+    inline string getDynamicMessage() const { DARABONBA_PTR_GET_DEFAULT(dynamicMessage_, "") };
     inline DescribeSyncStatusResponseBody& setDynamicMessage(string dynamicMessage) { DARABONBA_PTR_SET_VALUE(dynamicMessage_, dynamicMessage) };
 
 
     // errCode Field Functions 
     bool hasErrCode() const { return this->errCode_ != nullptr;};
     void deleteErrCode() { this->errCode_ = nullptr;};
-    inline string errCode() const { DARABONBA_PTR_GET_DEFAULT(errCode_, "") };
+    inline string getErrCode() const { DARABONBA_PTR_GET_DEFAULT(errCode_, "") };
     inline DescribeSyncStatusResponseBody& setErrCode(string errCode) { DARABONBA_PTR_SET_VALUE(errCode_, errCode) };
 
 
     // errMessage Field Functions 
     bool hasErrMessage() const { return this->errMessage_ != nullptr;};
     void deleteErrMessage() { this->errMessage_ = nullptr;};
-    inline string errMessage() const { DARABONBA_PTR_GET_DEFAULT(errMessage_, "") };
+    inline string getErrMessage() const { DARABONBA_PTR_GET_DEFAULT(errMessage_, "") };
     inline DescribeSyncStatusResponseBody& setErrMessage(string errMessage) { DARABONBA_PTR_SET_VALUE(errMessage_, errMessage) };
 
 
     // httpStatusCode Field Functions 
     bool hasHttpStatusCode() const { return this->httpStatusCode_ != nullptr;};
     void deleteHttpStatusCode() { this->httpStatusCode_ = nullptr;};
-    inline int32_t httpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
+    inline int32_t getHttpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
     inline DescribeSyncStatusResponseBody& setHttpStatusCode(int32_t httpStatusCode) { DARABONBA_PTR_SET_VALUE(httpStatusCode_, httpStatusCode) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline DescribeSyncStatusResponseBody& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeSyncStatusResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline DescribeSyncStatusResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
     // syncStatusList Field Functions 
     bool hasSyncStatusList() const { return this->syncStatusList_ != nullptr;};
     void deleteSyncStatusList() { this->syncStatusList_ = nullptr;};
-    inline const vector<DescribeSyncStatusResponseBodySyncStatusList> & syncStatusList() const { DARABONBA_PTR_GET_CONST(syncStatusList_, vector<DescribeSyncStatusResponseBodySyncStatusList>) };
-    inline vector<DescribeSyncStatusResponseBodySyncStatusList> syncStatusList() { DARABONBA_PTR_GET(syncStatusList_, vector<DescribeSyncStatusResponseBodySyncStatusList>) };
-    inline DescribeSyncStatusResponseBody& setSyncStatusList(const vector<DescribeSyncStatusResponseBodySyncStatusList> & syncStatusList) { DARABONBA_PTR_SET_VALUE(syncStatusList_, syncStatusList) };
-    inline DescribeSyncStatusResponseBody& setSyncStatusList(vector<DescribeSyncStatusResponseBodySyncStatusList> && syncStatusList) { DARABONBA_PTR_SET_RVALUE(syncStatusList_, syncStatusList) };
+    inline const vector<DescribeSyncStatusResponseBody::SyncStatusList> & getSyncStatusList() const { DARABONBA_PTR_GET_CONST(syncStatusList_, vector<DescribeSyncStatusResponseBody::SyncStatusList>) };
+    inline vector<DescribeSyncStatusResponseBody::SyncStatusList> getSyncStatusList() { DARABONBA_PTR_GET(syncStatusList_, vector<DescribeSyncStatusResponseBody::SyncStatusList>) };
+    inline DescribeSyncStatusResponseBody& setSyncStatusList(const vector<DescribeSyncStatusResponseBody::SyncStatusList> & syncStatusList) { DARABONBA_PTR_SET_VALUE(syncStatusList_, syncStatusList) };
+    inline DescribeSyncStatusResponseBody& setSyncStatusList(vector<DescribeSyncStatusResponseBody::SyncStatusList> && syncStatusList) { DARABONBA_PTR_SET_RVALUE(syncStatusList_, syncStatusList) };
 
 
   protected:
-    std::shared_ptr<string> dynamicCode_ = nullptr;
-    std::shared_ptr<string> dynamicMessage_ = nullptr;
-    std::shared_ptr<string> errCode_ = nullptr;
-    std::shared_ptr<string> errMessage_ = nullptr;
-    std::shared_ptr<int32_t> httpStatusCode_ = nullptr;
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<bool> success_ = nullptr;
-    std::shared_ptr<vector<DescribeSyncStatusResponseBodySyncStatusList>> syncStatusList_ = nullptr;
+    shared_ptr<string> dynamicCode_ {};
+    shared_ptr<string> dynamicMessage_ {};
+    shared_ptr<string> errCode_ {};
+    shared_ptr<string> errMessage_ {};
+    shared_ptr<int32_t> httpStatusCode_ {};
+    shared_ptr<int32_t> pageNumber_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<bool> success_ {};
+    shared_ptr<vector<DescribeSyncStatusResponseBody::SyncStatusList>> syncStatusList_ {};
   };
 
   } // namespace Models

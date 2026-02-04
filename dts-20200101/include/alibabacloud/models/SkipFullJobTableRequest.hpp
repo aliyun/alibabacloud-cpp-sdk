@@ -38,56 +38,56 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dtsJobId_ == nullptr
-        && return this->jobProgressId_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->zeroEtlJob_ == nullptr; };
+        && this->jobProgressId_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->zeroEtlJob_ == nullptr; };
     // dtsJobId Field Functions 
     bool hasDtsJobId() const { return this->dtsJobId_ != nullptr;};
     void deleteDtsJobId() { this->dtsJobId_ = nullptr;};
-    inline string dtsJobId() const { DARABONBA_PTR_GET_DEFAULT(dtsJobId_, "") };
+    inline string getDtsJobId() const { DARABONBA_PTR_GET_DEFAULT(dtsJobId_, "") };
     inline SkipFullJobTableRequest& setDtsJobId(string dtsJobId) { DARABONBA_PTR_SET_VALUE(dtsJobId_, dtsJobId) };
 
 
     // jobProgressId Field Functions 
     bool hasJobProgressId() const { return this->jobProgressId_ != nullptr;};
     void deleteJobProgressId() { this->jobProgressId_ = nullptr;};
-    inline string jobProgressId() const { DARABONBA_PTR_GET_DEFAULT(jobProgressId_, "") };
+    inline string getJobProgressId() const { DARABONBA_PTR_GET_DEFAULT(jobProgressId_, "") };
     inline SkipFullJobTableRequest& setJobProgressId(string jobProgressId) { DARABONBA_PTR_SET_VALUE(jobProgressId_, jobProgressId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline SkipFullJobTableRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline SkipFullJobTableRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // zeroEtlJob Field Functions 
     bool hasZeroEtlJob() const { return this->zeroEtlJob_ != nullptr;};
     void deleteZeroEtlJob() { this->zeroEtlJob_ = nullptr;};
-    inline bool zeroEtlJob() const { DARABONBA_PTR_GET_DEFAULT(zeroEtlJob_, false) };
+    inline bool getZeroEtlJob() const { DARABONBA_PTR_GET_DEFAULT(zeroEtlJob_, false) };
     inline SkipFullJobTableRequest& setZeroEtlJob(bool zeroEtlJob) { DARABONBA_PTR_SET_VALUE(zeroEtlJob_, zeroEtlJob) };
 
 
   protected:
     // The ID of the DTS task. The DTS task can be a data migration, data synchronization, or change tracking task.
-    std::shared_ptr<string> dtsJobId_ = nullptr;
+    shared_ptr<string> dtsJobId_ {};
     // The ID of the primary key.
-    std::shared_ptr<string> jobProgressId_ = nullptr;
+    shared_ptr<string> jobProgressId_ {};
     // The region ID of the DTS instance. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The resource group ID.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // Specifies whether to query only zero-extract, transform, load (ETL) integration tasks. Valid values:
     // 
     // *   **true**: yes.
     // *   **false**: no.
-    std::shared_ptr<bool> zeroEtlJob_ = nullptr;
+    shared_ptr<bool> zeroEtlJob_ {};
   };
 
   } // namespace Models

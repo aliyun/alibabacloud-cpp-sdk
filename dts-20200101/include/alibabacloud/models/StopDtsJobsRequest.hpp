@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dtsJobIds_ == nullptr
-        && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->zeroEtlJob_ == nullptr; };
+        && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->zeroEtlJob_ == nullptr; };
     // dtsJobIds Field Functions 
     bool hasDtsJobIds() const { return this->dtsJobIds_ != nullptr;};
     void deleteDtsJobIds() { this->dtsJobIds_ = nullptr;};
-    inline string dtsJobIds() const { DARABONBA_PTR_GET_DEFAULT(dtsJobIds_, "") };
+    inline string getDtsJobIds() const { DARABONBA_PTR_GET_DEFAULT(dtsJobIds_, "") };
     inline StopDtsJobsRequest& setDtsJobIds(string dtsJobIds) { DARABONBA_PTR_SET_VALUE(dtsJobIds_, dtsJobIds) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline StopDtsJobsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline StopDtsJobsRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // zeroEtlJob Field Functions 
     bool hasZeroEtlJob() const { return this->zeroEtlJob_ != nullptr;};
     void deleteZeroEtlJob() { this->zeroEtlJob_ = nullptr;};
-    inline bool zeroEtlJob() const { DARABONBA_PTR_GET_DEFAULT(zeroEtlJob_, false) };
+    inline bool getZeroEtlJob() const { DARABONBA_PTR_GET_DEFAULT(zeroEtlJob_, false) };
     inline StopDtsJobsRequest& setZeroEtlJob(bool zeroEtlJob) { DARABONBA_PTR_SET_VALUE(zeroEtlJob_, zeroEtlJob) };
 
 
@@ -73,14 +73,14 @@ namespace Models
     // *   You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query task IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<string> dtsJobIds_ = nullptr;
+    shared_ptr<string> dtsJobIds_ {};
     // The region ID of the DTS instance. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // Resource group ID.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // Whether it is a seamless integration (Zero-ETL) task, the value can be:
     // - **false**: No. - **true**: Yes.
-    std::shared_ptr<bool> zeroEtlJob_ = nullptr;
+    shared_ptr<bool> zeroEtlJob_ {};
   };
 
   } // namespace Models

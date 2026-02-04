@@ -40,56 +40,56 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dtsJobId_ == nullptr
-        && return this->forAcceleration_ == nullptr && return this->module_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr; };
+        && this->forAcceleration_ == nullptr && this->module_ == nullptr && this->ownerId_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr; };
     // dtsJobId Field Functions 
     bool hasDtsJobId() const { return this->dtsJobId_ != nullptr;};
     void deleteDtsJobId() { this->dtsJobId_ = nullptr;};
-    inline string dtsJobId() const { DARABONBA_PTR_GET_DEFAULT(dtsJobId_, "") };
+    inline string getDtsJobId() const { DARABONBA_PTR_GET_DEFAULT(dtsJobId_, "") };
     inline DescribeDtsJobConfigRequest& setDtsJobId(string dtsJobId) { DARABONBA_PTR_SET_VALUE(dtsJobId_, dtsJobId) };
 
 
     // forAcceleration Field Functions 
     bool hasForAcceleration() const { return this->forAcceleration_ != nullptr;};
     void deleteForAcceleration() { this->forAcceleration_ = nullptr;};
-    inline string forAcceleration() const { DARABONBA_PTR_GET_DEFAULT(forAcceleration_, "") };
+    inline string getForAcceleration() const { DARABONBA_PTR_GET_DEFAULT(forAcceleration_, "") };
     inline DescribeDtsJobConfigRequest& setForAcceleration(string forAcceleration) { DARABONBA_PTR_SET_VALUE(forAcceleration_, forAcceleration) };
 
 
     // module Field Functions 
     bool hasModule() const { return this->module_ != nullptr;};
     void deleteModule() { this->module_ = nullptr;};
-    inline string module() const { DARABONBA_PTR_GET_DEFAULT(module_, "") };
+    inline string getModule() const { DARABONBA_PTR_GET_DEFAULT(module_, "") };
     inline DescribeDtsJobConfigRequest& setModule(string module) { DARABONBA_PTR_SET_VALUE(module_, module) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline string ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, "") };
+    inline string getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, "") };
     inline DescribeDtsJobConfigRequest& setOwnerId(string ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeDtsJobConfigRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline DescribeDtsJobConfigRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
   protected:
-    std::shared_ptr<string> dtsJobId_ = nullptr;
-    std::shared_ptr<string> forAcceleration_ = nullptr;
-    std::shared_ptr<string> module_ = nullptr;
-    std::shared_ptr<string> ownerId_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> dtsJobId_ {};
+    shared_ptr<string> forAcceleration_ {};
+    shared_ptr<string> module_ {};
+    shared_ptr<string> ownerId_ {};
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> resourceGroupId_ {};
   };
 
   } // namespace Models

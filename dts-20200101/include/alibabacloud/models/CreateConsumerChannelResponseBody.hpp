@@ -40,62 +40,62 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->consumerGroupID_ == nullptr
-        && return this->errCode_ == nullptr && return this->errMessage_ == nullptr && return this->httpStatusCode_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr; };
+        && this->errCode_ == nullptr && this->errMessage_ == nullptr && this->httpStatusCode_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
     // consumerGroupID Field Functions 
     bool hasConsumerGroupID() const { return this->consumerGroupID_ != nullptr;};
     void deleteConsumerGroupID() { this->consumerGroupID_ = nullptr;};
-    inline string consumerGroupID() const { DARABONBA_PTR_GET_DEFAULT(consumerGroupID_, "") };
+    inline string getConsumerGroupID() const { DARABONBA_PTR_GET_DEFAULT(consumerGroupID_, "") };
     inline CreateConsumerChannelResponseBody& setConsumerGroupID(string consumerGroupID) { DARABONBA_PTR_SET_VALUE(consumerGroupID_, consumerGroupID) };
 
 
     // errCode Field Functions 
     bool hasErrCode() const { return this->errCode_ != nullptr;};
     void deleteErrCode() { this->errCode_ = nullptr;};
-    inline string errCode() const { DARABONBA_PTR_GET_DEFAULT(errCode_, "") };
+    inline string getErrCode() const { DARABONBA_PTR_GET_DEFAULT(errCode_, "") };
     inline CreateConsumerChannelResponseBody& setErrCode(string errCode) { DARABONBA_PTR_SET_VALUE(errCode_, errCode) };
 
 
     // errMessage Field Functions 
     bool hasErrMessage() const { return this->errMessage_ != nullptr;};
     void deleteErrMessage() { this->errMessage_ = nullptr;};
-    inline string errMessage() const { DARABONBA_PTR_GET_DEFAULT(errMessage_, "") };
+    inline string getErrMessage() const { DARABONBA_PTR_GET_DEFAULT(errMessage_, "") };
     inline CreateConsumerChannelResponseBody& setErrMessage(string errMessage) { DARABONBA_PTR_SET_VALUE(errMessage_, errMessage) };
 
 
     // httpStatusCode Field Functions 
     bool hasHttpStatusCode() const { return this->httpStatusCode_ != nullptr;};
     void deleteHttpStatusCode() { this->httpStatusCode_ = nullptr;};
-    inline string httpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, "") };
+    inline string getHttpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, "") };
     inline CreateConsumerChannelResponseBody& setHttpStatusCode(string httpStatusCode) { DARABONBA_PTR_SET_VALUE(httpStatusCode_, httpStatusCode) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateConsumerChannelResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline string success() const { DARABONBA_PTR_GET_DEFAULT(success_, "") };
+    inline string getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, "") };
     inline CreateConsumerChannelResponseBody& setSuccess(string success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
     // The ID of the consumer group. You can specify this parameter on a downstream client when you consume tracked data.
-    std::shared_ptr<string> consumerGroupID_ = nullptr;
+    shared_ptr<string> consumerGroupID_ {};
     // The error code returned if the call failed.
-    std::shared_ptr<string> errCode_ = nullptr;
+    shared_ptr<string> errCode_ {};
     // The error message returned if the call failed.
-    std::shared_ptr<string> errMessage_ = nullptr;
+    shared_ptr<string> errMessage_ {};
     // The HTTP status code.
-    std::shared_ptr<string> httpStatusCode_ = nullptr;
+    shared_ptr<string> httpStatusCode_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Indicates whether the call was successful.
-    std::shared_ptr<string> success_ = nullptr;
+    shared_ptr<string> success_ {};
   };
 
   } // namespace Models

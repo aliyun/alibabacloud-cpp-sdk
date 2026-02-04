@@ -50,110 +50,110 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->dynamicMessage_ == nullptr && return this->errCode_ == nullptr && return this->errMessage_ == nullptr && return this->httpStatusCode_ == nullptr && return this->migrationJobId_ == nullptr
-        && return this->requestId_ == nullptr && return this->scheduleJobId_ == nullptr && return this->skipItems_ == nullptr && return this->skipNames_ == nullptr && return this->success_ == nullptr; };
+        && this->dynamicMessage_ == nullptr && this->errCode_ == nullptr && this->errMessage_ == nullptr && this->httpStatusCode_ == nullptr && this->migrationJobId_ == nullptr
+        && this->requestId_ == nullptr && this->scheduleJobId_ == nullptr && this->skipItems_ == nullptr && this->skipNames_ == nullptr && this->success_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline SkipPreCheckResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // dynamicMessage Field Functions 
     bool hasDynamicMessage() const { return this->dynamicMessage_ != nullptr;};
     void deleteDynamicMessage() { this->dynamicMessage_ = nullptr;};
-    inline string dynamicMessage() const { DARABONBA_PTR_GET_DEFAULT(dynamicMessage_, "") };
+    inline string getDynamicMessage() const { DARABONBA_PTR_GET_DEFAULT(dynamicMessage_, "") };
     inline SkipPreCheckResponseBody& setDynamicMessage(string dynamicMessage) { DARABONBA_PTR_SET_VALUE(dynamicMessage_, dynamicMessage) };
 
 
     // errCode Field Functions 
     bool hasErrCode() const { return this->errCode_ != nullptr;};
     void deleteErrCode() { this->errCode_ = nullptr;};
-    inline string errCode() const { DARABONBA_PTR_GET_DEFAULT(errCode_, "") };
+    inline string getErrCode() const { DARABONBA_PTR_GET_DEFAULT(errCode_, "") };
     inline SkipPreCheckResponseBody& setErrCode(string errCode) { DARABONBA_PTR_SET_VALUE(errCode_, errCode) };
 
 
     // errMessage Field Functions 
     bool hasErrMessage() const { return this->errMessage_ != nullptr;};
     void deleteErrMessage() { this->errMessage_ = nullptr;};
-    inline string errMessage() const { DARABONBA_PTR_GET_DEFAULT(errMessage_, "") };
+    inline string getErrMessage() const { DARABONBA_PTR_GET_DEFAULT(errMessage_, "") };
     inline SkipPreCheckResponseBody& setErrMessage(string errMessage) { DARABONBA_PTR_SET_VALUE(errMessage_, errMessage) };
 
 
     // httpStatusCode Field Functions 
     bool hasHttpStatusCode() const { return this->httpStatusCode_ != nullptr;};
     void deleteHttpStatusCode() { this->httpStatusCode_ = nullptr;};
-    inline int32_t httpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
+    inline int32_t getHttpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
     inline SkipPreCheckResponseBody& setHttpStatusCode(int32_t httpStatusCode) { DARABONBA_PTR_SET_VALUE(httpStatusCode_, httpStatusCode) };
 
 
     // migrationJobId Field Functions 
     bool hasMigrationJobId() const { return this->migrationJobId_ != nullptr;};
     void deleteMigrationJobId() { this->migrationJobId_ = nullptr;};
-    inline string migrationJobId() const { DARABONBA_PTR_GET_DEFAULT(migrationJobId_, "") };
+    inline string getMigrationJobId() const { DARABONBA_PTR_GET_DEFAULT(migrationJobId_, "") };
     inline SkipPreCheckResponseBody& setMigrationJobId(string migrationJobId) { DARABONBA_PTR_SET_VALUE(migrationJobId_, migrationJobId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline SkipPreCheckResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // scheduleJobId Field Functions 
     bool hasScheduleJobId() const { return this->scheduleJobId_ != nullptr;};
     void deleteScheduleJobId() { this->scheduleJobId_ = nullptr;};
-    inline string scheduleJobId() const { DARABONBA_PTR_GET_DEFAULT(scheduleJobId_, "") };
+    inline string getScheduleJobId() const { DARABONBA_PTR_GET_DEFAULT(scheduleJobId_, "") };
     inline SkipPreCheckResponseBody& setScheduleJobId(string scheduleJobId) { DARABONBA_PTR_SET_VALUE(scheduleJobId_, scheduleJobId) };
 
 
     // skipItems Field Functions 
     bool hasSkipItems() const { return this->skipItems_ != nullptr;};
     void deleteSkipItems() { this->skipItems_ = nullptr;};
-    inline string skipItems() const { DARABONBA_PTR_GET_DEFAULT(skipItems_, "") };
+    inline string getSkipItems() const { DARABONBA_PTR_GET_DEFAULT(skipItems_, "") };
     inline SkipPreCheckResponseBody& setSkipItems(string skipItems) { DARABONBA_PTR_SET_VALUE(skipItems_, skipItems) };
 
 
     // skipNames Field Functions 
     bool hasSkipNames() const { return this->skipNames_ != nullptr;};
     void deleteSkipNames() { this->skipNames_ = nullptr;};
-    inline string skipNames() const { DARABONBA_PTR_GET_DEFAULT(skipNames_, "") };
+    inline string getSkipNames() const { DARABONBA_PTR_GET_DEFAULT(skipNames_, "") };
     inline SkipPreCheckResponseBody& setSkipNames(string skipNames) { DARABONBA_PTR_SET_VALUE(skipNames_, skipNames) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline SkipPreCheckResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
     // The error code. This parameter will be removed in the future.
-    std::shared_ptr<string> code_ = nullptr;
+    shared_ptr<string> code_ {};
     // The dynamic part in the error message. This parameter is used to replace %s in ErrMessage.
     // 
     // > If JobId is invalid, JobId is returned for DynamicMessage, and the following message is returned for ErrMessage: The Value of Input Parameter %s is not valid.
-    std::shared_ptr<string> dynamicMessage_ = nullptr;
+    shared_ptr<string> dynamicMessage_ {};
     // The error code returned if the call failed.
-    std::shared_ptr<string> errCode_ = nullptr;
+    shared_ptr<string> errCode_ {};
     // The error message returned if the request failed.
-    std::shared_ptr<string> errMessage_ = nullptr;
+    shared_ptr<string> errMessage_ {};
     // The HTTP status codes returned.
-    std::shared_ptr<int32_t> httpStatusCode_ = nullptr;
+    shared_ptr<int32_t> httpStatusCode_ {};
     // The precheck task ID.
-    std::shared_ptr<string> migrationJobId_ = nullptr;
+    shared_ptr<string> migrationJobId_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The precheck task ID.
-    std::shared_ptr<string> scheduleJobId_ = nullptr;
+    shared_ptr<string> scheduleJobId_ {};
     // The shortened name of the precheck item.
-    std::shared_ptr<string> skipItems_ = nullptr;
+    shared_ptr<string> skipItems_ {};
     // The precheck item name.
-    std::shared_ptr<string> skipNames_ = nullptr;
+    shared_ptr<string> skipNames_ {};
     // Indicates whether the request is successful.
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

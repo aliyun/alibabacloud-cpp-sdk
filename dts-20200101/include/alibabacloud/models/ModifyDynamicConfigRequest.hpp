@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->configList_ == nullptr
-        && return this->dtsJobId_ == nullptr && return this->enableLimit_ == nullptr && return this->jobCode_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr; };
+        && this->dtsJobId_ == nullptr && this->enableLimit_ == nullptr && this->jobCode_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr; };
     // configList Field Functions 
     bool hasConfigList() const { return this->configList_ != nullptr;};
     void deleteConfigList() { this->configList_ = nullptr;};
-    inline string configList() const { DARABONBA_PTR_GET_DEFAULT(configList_, "") };
+    inline string getConfigList() const { DARABONBA_PTR_GET_DEFAULT(configList_, "") };
     inline ModifyDynamicConfigRequest& setConfigList(string configList) { DARABONBA_PTR_SET_VALUE(configList_, configList) };
 
 
     // dtsJobId Field Functions 
     bool hasDtsJobId() const { return this->dtsJobId_ != nullptr;};
     void deleteDtsJobId() { this->dtsJobId_ = nullptr;};
-    inline string dtsJobId() const { DARABONBA_PTR_GET_DEFAULT(dtsJobId_, "") };
+    inline string getDtsJobId() const { DARABONBA_PTR_GET_DEFAULT(dtsJobId_, "") };
     inline ModifyDynamicConfigRequest& setDtsJobId(string dtsJobId) { DARABONBA_PTR_SET_VALUE(dtsJobId_, dtsJobId) };
 
 
     // enableLimit Field Functions 
     bool hasEnableLimit() const { return this->enableLimit_ != nullptr;};
     void deleteEnableLimit() { this->enableLimit_ = nullptr;};
-    inline bool enableLimit() const { DARABONBA_PTR_GET_DEFAULT(enableLimit_, false) };
+    inline bool getEnableLimit() const { DARABONBA_PTR_GET_DEFAULT(enableLimit_, false) };
     inline ModifyDynamicConfigRequest& setEnableLimit(bool enableLimit) { DARABONBA_PTR_SET_VALUE(enableLimit_, enableLimit) };
 
 
     // jobCode Field Functions 
     bool hasJobCode() const { return this->jobCode_ != nullptr;};
     void deleteJobCode() { this->jobCode_ = nullptr;};
-    inline string jobCode() const { DARABONBA_PTR_GET_DEFAULT(jobCode_, "") };
+    inline string getJobCode() const { DARABONBA_PTR_GET_DEFAULT(jobCode_, "") };
     inline ModifyDynamicConfigRequest& setJobCode(string jobCode) { DARABONBA_PTR_SET_VALUE(jobCode_, jobCode) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ModifyDynamicConfigRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline ModifyDynamicConfigRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
@@ -96,17 +96,17 @@ namespace Models
     // 
     // *   If you set the **JobCode** parameter to **04** or **07**, you only need to specify the **dts.datamove.source.rps.max** and **dts.datamove.source.bps.max** parameters.
     // *   A value of \\*\\*-1\\*\\* indicates no rate limit.
-    std::shared_ptr<string> configList_ = nullptr;
+    shared_ptr<string> configList_ {};
     // The ID of the data migration or synchronization task.
     // 
     // >  You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the task ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> dtsJobId_ = nullptr;
+    shared_ptr<string> dtsJobId_ {};
     // Specifies whether to enable throttling for data synchronization or migration. Valid values: **true** and **false**.
     // 
     // >  Only needs to be configured when the **JobCode** parameter is set to **03**.
-    std::shared_ptr<bool> enableLimit_ = nullptr;
+    shared_ptr<bool> enableLimit_ {};
     // The task type. Valid values:
     // 
     // *   **03**: a full data synchronization or full data migration task.
@@ -114,11 +114,11 @@ namespace Models
     // *   **07**: an incremental data synchronization task.
     // 
     // This parameter is required.
-    std::shared_ptr<string> jobCode_ = nullptr;
+    shared_ptr<string> jobCode_ {};
     // The region ID of the DTS instance. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // Resource group ID.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
   };
 
   } // namespace Models

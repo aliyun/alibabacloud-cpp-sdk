@@ -42,54 +42,54 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dtsJobId_ == nullptr
-        && return this->jobId_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->skip_ == nullptr && return this->skipPreCheckItems_ == nullptr
-        && return this->skipPreCheckNames_ == nullptr; };
+        && this->jobId_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->skip_ == nullptr && this->skipPreCheckItems_ == nullptr
+        && this->skipPreCheckNames_ == nullptr; };
     // dtsJobId Field Functions 
     bool hasDtsJobId() const { return this->dtsJobId_ != nullptr;};
     void deleteDtsJobId() { this->dtsJobId_ = nullptr;};
-    inline string dtsJobId() const { DARABONBA_PTR_GET_DEFAULT(dtsJobId_, "") };
+    inline string getDtsJobId() const { DARABONBA_PTR_GET_DEFAULT(dtsJobId_, "") };
     inline SkipPreCheckRequest& setDtsJobId(string dtsJobId) { DARABONBA_PTR_SET_VALUE(dtsJobId_, dtsJobId) };
 
 
     // jobId Field Functions 
     bool hasJobId() const { return this->jobId_ != nullptr;};
     void deleteJobId() { this->jobId_ = nullptr;};
-    inline string jobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
+    inline string getJobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
     inline SkipPreCheckRequest& setJobId(string jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline SkipPreCheckRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline SkipPreCheckRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // skip Field Functions 
     bool hasSkip() const { return this->skip_ != nullptr;};
     void deleteSkip() { this->skip_ = nullptr;};
-    inline bool skip() const { DARABONBA_PTR_GET_DEFAULT(skip_, false) };
+    inline bool getSkip() const { DARABONBA_PTR_GET_DEFAULT(skip_, false) };
     inline SkipPreCheckRequest& setSkip(bool skip) { DARABONBA_PTR_SET_VALUE(skip_, skip) };
 
 
     // skipPreCheckItems Field Functions 
     bool hasSkipPreCheckItems() const { return this->skipPreCheckItems_ != nullptr;};
     void deleteSkipPreCheckItems() { this->skipPreCheckItems_ = nullptr;};
-    inline string skipPreCheckItems() const { DARABONBA_PTR_GET_DEFAULT(skipPreCheckItems_, "") };
+    inline string getSkipPreCheckItems() const { DARABONBA_PTR_GET_DEFAULT(skipPreCheckItems_, "") };
     inline SkipPreCheckRequest& setSkipPreCheckItems(string skipPreCheckItems) { DARABONBA_PTR_SET_VALUE(skipPreCheckItems_, skipPreCheckItems) };
 
 
     // skipPreCheckNames Field Functions 
     bool hasSkipPreCheckNames() const { return this->skipPreCheckNames_ != nullptr;};
     void deleteSkipPreCheckNames() { this->skipPreCheckNames_ = nullptr;};
-    inline string skipPreCheckNames() const { DARABONBA_PTR_GET_DEFAULT(skipPreCheckNames_, "") };
+    inline string getSkipPreCheckNames() const { DARABONBA_PTR_GET_DEFAULT(skipPreCheckNames_, "") };
     inline SkipPreCheckRequest& setSkipPreCheckNames(string skipPreCheckNames) { DARABONBA_PTR_SET_VALUE(skipPreCheckNames_, skipPreCheckNames) };
 
 
@@ -97,20 +97,20 @@ namespace Models
     // The ID of the data migration, data synchronization, or change tracking task.
     // 
     // This parameter is required.
-    std::shared_ptr<string> dtsJobId_ = nullptr;
+    shared_ptr<string> dtsJobId_ {};
     // The precheck task ID. You can call the **DescribePreCheckStatus** operation to query the task ID.
-    std::shared_ptr<string> jobId_ = nullptr;
+    shared_ptr<string> jobId_ {};
     // The region ID of the DTS instance. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The resource group ID.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // Specifies whether to skip the precheck item. Valid values:
     // 
     // *   **true**
     // *   **false**
     // 
     // This parameter is required.
-    std::shared_ptr<bool> skip_ = nullptr;
+    shared_ptr<bool> skip_ {};
     // The shortened name of the precheck item. Valid values:
     // 
     // *   **["CHECK_SAME_OBJ"]**: object name conflict.
@@ -121,7 +121,7 @@ namespace Models
     // *   **["CHECK_DEST_TABLE_EMPTY"]**: existence of objects in the destination database.
     // 
     // > Separate multiple item names with commas (,). Example: **["CHECK_SRC","CHECK_SAME_OBJ"]**.
-    std::shared_ptr<string> skipPreCheckItems_ = nullptr;
+    shared_ptr<string> skipPreCheckItems_ {};
     // The precheck item name. This parameter corresponds to **SkipPreCheckItems**. Valid values:
     // 
     // *   **["CHECK_SAME_OBJ_DETAIL"]**: object name conflict.
@@ -132,7 +132,7 @@ namespace Models
     // *   **["CHECK_DEST_TABLE_EMPTY_DETAIL"]**: empty tables in the destination database.
     // 
     // > Separate multiple item names with commas (,). Example: **["CHECK_SRC_DETAIL","CHECK_SAME_OBJ_DETAIL"]**.
-    std::shared_ptr<string> skipPreCheckNames_ = nullptr;
+    shared_ptr<string> skipPreCheckNames_ {};
   };
 
   } // namespace Models

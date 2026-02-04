@@ -40,56 +40,56 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fileName_ == nullptr
-        && return this->fileUrl_ == nullptr && return this->ragInstanceId_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resultType_ == nullptr; };
+        && this->fileUrl_ == nullptr && this->ragInstanceId_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->resultType_ == nullptr; };
     // fileName Field Functions 
     bool hasFileName() const { return this->fileName_ != nullptr;};
     void deleteFileName() { this->fileName_ = nullptr;};
-    inline string fileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
+    inline string getFileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
     inline CreateDocParserJobRequest& setFileName(string fileName) { DARABONBA_PTR_SET_VALUE(fileName_, fileName) };
 
 
     // fileUrl Field Functions 
     bool hasFileUrl() const { return this->fileUrl_ != nullptr;};
     void deleteFileUrl() { this->fileUrl_ = nullptr;};
-    inline string fileUrl() const { DARABONBA_PTR_GET_DEFAULT(fileUrl_, "") };
+    inline string getFileUrl() const { DARABONBA_PTR_GET_DEFAULT(fileUrl_, "") };
     inline CreateDocParserJobRequest& setFileUrl(string fileUrl) { DARABONBA_PTR_SET_VALUE(fileUrl_, fileUrl) };
 
 
     // ragInstanceId Field Functions 
     bool hasRagInstanceId() const { return this->ragInstanceId_ != nullptr;};
     void deleteRagInstanceId() { this->ragInstanceId_ = nullptr;};
-    inline string ragInstanceId() const { DARABONBA_PTR_GET_DEFAULT(ragInstanceId_, "") };
+    inline string getRagInstanceId() const { DARABONBA_PTR_GET_DEFAULT(ragInstanceId_, "") };
     inline CreateDocParserJobRequest& setRagInstanceId(string ragInstanceId) { DARABONBA_PTR_SET_VALUE(ragInstanceId_, ragInstanceId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreateDocParserJobRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline CreateDocParserJobRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // resultType Field Functions 
     bool hasResultType() const { return this->resultType_ != nullptr;};
     void deleteResultType() { this->resultType_ = nullptr;};
-    inline string resultType() const { DARABONBA_PTR_GET_DEFAULT(resultType_, "") };
+    inline string getResultType() const { DARABONBA_PTR_GET_DEFAULT(resultType_, "") };
     inline CreateDocParserJobRequest& setResultType(string resultType) { DARABONBA_PTR_SET_VALUE(resultType_, resultType) };
 
 
   protected:
-    std::shared_ptr<string> fileName_ = nullptr;
-    std::shared_ptr<string> fileUrl_ = nullptr;
-    std::shared_ptr<string> ragInstanceId_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
-    std::shared_ptr<string> resultType_ = nullptr;
+    shared_ptr<string> fileName_ {};
+    shared_ptr<string> fileUrl_ {};
+    shared_ptr<string> ragInstanceId_ {};
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> resourceGroupId_ {};
+    shared_ptr<string> resultType_ {};
   };
 
   } // namespace Models

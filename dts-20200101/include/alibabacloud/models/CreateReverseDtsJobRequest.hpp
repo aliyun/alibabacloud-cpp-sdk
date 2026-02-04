@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dtsJobId_ == nullptr
-        && return this->resourceGroupId_ == nullptr && return this->shardPassword_ == nullptr && return this->shardUsername_ == nullptr; };
+        && this->resourceGroupId_ == nullptr && this->shardPassword_ == nullptr && this->shardUsername_ == nullptr; };
     // dtsJobId Field Functions 
     bool hasDtsJobId() const { return this->dtsJobId_ != nullptr;};
     void deleteDtsJobId() { this->dtsJobId_ = nullptr;};
-    inline string dtsJobId() const { DARABONBA_PTR_GET_DEFAULT(dtsJobId_, "") };
+    inline string getDtsJobId() const { DARABONBA_PTR_GET_DEFAULT(dtsJobId_, "") };
     inline CreateReverseDtsJobRequest& setDtsJobId(string dtsJobId) { DARABONBA_PTR_SET_VALUE(dtsJobId_, dtsJobId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline CreateReverseDtsJobRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // shardPassword Field Functions 
     bool hasShardPassword() const { return this->shardPassword_ != nullptr;};
     void deleteShardPassword() { this->shardPassword_ = nullptr;};
-    inline string shardPassword() const { DARABONBA_PTR_GET_DEFAULT(shardPassword_, "") };
+    inline string getShardPassword() const { DARABONBA_PTR_GET_DEFAULT(shardPassword_, "") };
     inline CreateReverseDtsJobRequest& setShardPassword(string shardPassword) { DARABONBA_PTR_SET_VALUE(shardPassword_, shardPassword) };
 
 
     // shardUsername Field Functions 
     bool hasShardUsername() const { return this->shardUsername_ != nullptr;};
     void deleteShardUsername() { this->shardUsername_ = nullptr;};
-    inline string shardUsername() const { DARABONBA_PTR_GET_DEFAULT(shardUsername_, "") };
+    inline string getShardUsername() const { DARABONBA_PTR_GET_DEFAULT(shardUsername_, "") };
     inline CreateReverseDtsJobRequest& setShardUsername(string shardUsername) { DARABONBA_PTR_SET_VALUE(shardUsername_, shardUsername) };
 
 
@@ -69,13 +69,13 @@ namespace Models
     // The ID of the synchronization or migration task, which can be queried by calling [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> dtsJobId_ = nullptr;
+    shared_ptr<string> dtsJobId_ {};
     // Resource GroupId
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // Shard Password
-    std::shared_ptr<string> shardPassword_ = nullptr;
+    shared_ptr<string> shardPassword_ {};
     // Shard User name
-    std::shared_ptr<string> shardUsername_ = nullptr;
+    shared_ptr<string> shardUsername_ {};
   };
 
   } // namespace Models

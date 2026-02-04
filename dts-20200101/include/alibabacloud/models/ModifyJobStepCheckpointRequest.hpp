@@ -38,49 +38,49 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dtsJobId_ == nullptr
-        && return this->jobStepId_ == nullptr && return this->newCheckPoint_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr; };
+        && this->jobStepId_ == nullptr && this->newCheckPoint_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr; };
     // dtsJobId Field Functions 
     bool hasDtsJobId() const { return this->dtsJobId_ != nullptr;};
     void deleteDtsJobId() { this->dtsJobId_ = nullptr;};
-    inline string dtsJobId() const { DARABONBA_PTR_GET_DEFAULT(dtsJobId_, "") };
+    inline string getDtsJobId() const { DARABONBA_PTR_GET_DEFAULT(dtsJobId_, "") };
     inline ModifyJobStepCheckpointRequest& setDtsJobId(string dtsJobId) { DARABONBA_PTR_SET_VALUE(dtsJobId_, dtsJobId) };
 
 
     // jobStepId Field Functions 
     bool hasJobStepId() const { return this->jobStepId_ != nullptr;};
     void deleteJobStepId() { this->jobStepId_ = nullptr;};
-    inline string jobStepId() const { DARABONBA_PTR_GET_DEFAULT(jobStepId_, "") };
+    inline string getJobStepId() const { DARABONBA_PTR_GET_DEFAULT(jobStepId_, "") };
     inline ModifyJobStepCheckpointRequest& setJobStepId(string jobStepId) { DARABONBA_PTR_SET_VALUE(jobStepId_, jobStepId) };
 
 
     // newCheckPoint Field Functions 
     bool hasNewCheckPoint() const { return this->newCheckPoint_ != nullptr;};
     void deleteNewCheckPoint() { this->newCheckPoint_ = nullptr;};
-    inline int64_t newCheckPoint() const { DARABONBA_PTR_GET_DEFAULT(newCheckPoint_, 0L) };
+    inline int64_t getNewCheckPoint() const { DARABONBA_PTR_GET_DEFAULT(newCheckPoint_, 0L) };
     inline ModifyJobStepCheckpointRequest& setNewCheckPoint(int64_t newCheckPoint) { DARABONBA_PTR_SET_VALUE(newCheckPoint_, newCheckPoint) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ModifyJobStepCheckpointRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline ModifyJobStepCheckpointRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
   protected:
-    std::shared_ptr<string> dtsJobId_ = nullptr;
-    std::shared_ptr<string> jobStepId_ = nullptr;
-    std::shared_ptr<int64_t> newCheckPoint_ = nullptr;
+    shared_ptr<string> dtsJobId_ {};
+    shared_ptr<string> jobStepId_ {};
+    shared_ptr<int64_t> newCheckPoint_ {};
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> resourceGroupId_ {};
   };
 
   } // namespace Models

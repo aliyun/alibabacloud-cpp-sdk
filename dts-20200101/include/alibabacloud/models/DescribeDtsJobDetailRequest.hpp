@@ -42,68 +42,68 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dtsInstanceID_ == nullptr
-        && return this->dtsJobId_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->syncSubJobHistory_ == nullptr && return this->synchronizationDirection_ == nullptr
-        && return this->zeroEtlJob_ == nullptr; };
+        && this->dtsJobId_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->syncSubJobHistory_ == nullptr && this->synchronizationDirection_ == nullptr
+        && this->zeroEtlJob_ == nullptr; };
     // dtsInstanceID Field Functions 
     bool hasDtsInstanceID() const { return this->dtsInstanceID_ != nullptr;};
     void deleteDtsInstanceID() { this->dtsInstanceID_ = nullptr;};
-    inline string dtsInstanceID() const { DARABONBA_PTR_GET_DEFAULT(dtsInstanceID_, "") };
+    inline string getDtsInstanceID() const { DARABONBA_PTR_GET_DEFAULT(dtsInstanceID_, "") };
     inline DescribeDtsJobDetailRequest& setDtsInstanceID(string dtsInstanceID) { DARABONBA_PTR_SET_VALUE(dtsInstanceID_, dtsInstanceID) };
 
 
     // dtsJobId Field Functions 
     bool hasDtsJobId() const { return this->dtsJobId_ != nullptr;};
     void deleteDtsJobId() { this->dtsJobId_ = nullptr;};
-    inline string dtsJobId() const { DARABONBA_PTR_GET_DEFAULT(dtsJobId_, "") };
+    inline string getDtsJobId() const { DARABONBA_PTR_GET_DEFAULT(dtsJobId_, "") };
     inline DescribeDtsJobDetailRequest& setDtsJobId(string dtsJobId) { DARABONBA_PTR_SET_VALUE(dtsJobId_, dtsJobId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeDtsJobDetailRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline DescribeDtsJobDetailRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // syncSubJobHistory Field Functions 
     bool hasSyncSubJobHistory() const { return this->syncSubJobHistory_ != nullptr;};
     void deleteSyncSubJobHistory() { this->syncSubJobHistory_ = nullptr;};
-    inline bool syncSubJobHistory() const { DARABONBA_PTR_GET_DEFAULT(syncSubJobHistory_, false) };
+    inline bool getSyncSubJobHistory() const { DARABONBA_PTR_GET_DEFAULT(syncSubJobHistory_, false) };
     inline DescribeDtsJobDetailRequest& setSyncSubJobHistory(bool syncSubJobHistory) { DARABONBA_PTR_SET_VALUE(syncSubJobHistory_, syncSubJobHistory) };
 
 
     // synchronizationDirection Field Functions 
     bool hasSynchronizationDirection() const { return this->synchronizationDirection_ != nullptr;};
     void deleteSynchronizationDirection() { this->synchronizationDirection_ = nullptr;};
-    inline string synchronizationDirection() const { DARABONBA_PTR_GET_DEFAULT(synchronizationDirection_, "") };
+    inline string getSynchronizationDirection() const { DARABONBA_PTR_GET_DEFAULT(synchronizationDirection_, "") };
     inline DescribeDtsJobDetailRequest& setSynchronizationDirection(string synchronizationDirection) { DARABONBA_PTR_SET_VALUE(synchronizationDirection_, synchronizationDirection) };
 
 
     // zeroEtlJob Field Functions 
     bool hasZeroEtlJob() const { return this->zeroEtlJob_ != nullptr;};
     void deleteZeroEtlJob() { this->zeroEtlJob_ = nullptr;};
-    inline bool zeroEtlJob() const { DARABONBA_PTR_GET_DEFAULT(zeroEtlJob_, false) };
+    inline bool getZeroEtlJob() const { DARABONBA_PTR_GET_DEFAULT(zeroEtlJob_, false) };
     inline DescribeDtsJobDetailRequest& setZeroEtlJob(bool zeroEtlJob) { DARABONBA_PTR_SET_VALUE(zeroEtlJob_, zeroEtlJob) };
 
 
   protected:
     // The ID of the data migration, data synchronization, or change tracking instance.
-    std::shared_ptr<string> dtsInstanceID_ = nullptr;
+    shared_ptr<string> dtsInstanceID_ {};
     // The ID of the data migration, data synchronization, or change tracking task.
-    std::shared_ptr<string> dtsJobId_ = nullptr;
+    shared_ptr<string> dtsJobId_ {};
     // The ID of the region in which the Data Transmission Service (DTS) instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The resource group ID.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // Specifies whether to return the information about all data synchronization subtasks. Default value: **false**. A value of false indicates that the system returns only the information about a data synchronization subtask that is running or was most recently run.
-    std::shared_ptr<bool> syncSubJobHistory_ = nullptr;
+    shared_ptr<bool> syncSubJobHistory_ {};
     // The synchronization direction. Valid values:
     // 
     // *   **Forward**
@@ -113,12 +113,12 @@ namespace Models
     // 
     // *   The default value is **Forward**.
     // *   The value **Reverse** takes effect only if the topology of the data synchronization instance is two-way synchronization.
-    std::shared_ptr<string> synchronizationDirection_ = nullptr;
+    shared_ptr<string> synchronizationDirection_ {};
     // Specifies whether to query only zero-extract, transform, load (ETL) integration tasks. Valid values:
     // 
     // *   **true**
     // *   **false**
-    std::shared_ptr<bool> zeroEtlJob_ = nullptr;
+    shared_ptr<bool> zeroEtlJob_ {};
   };
 
   } // namespace Models

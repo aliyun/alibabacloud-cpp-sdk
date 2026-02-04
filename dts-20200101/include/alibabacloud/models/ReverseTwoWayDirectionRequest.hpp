@@ -36,41 +36,41 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dtsInstanceId_ == nullptr
-        && return this->ignoreErrorSubJob_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr; };
+        && this->ignoreErrorSubJob_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr; };
     // dtsInstanceId Field Functions 
     bool hasDtsInstanceId() const { return this->dtsInstanceId_ != nullptr;};
     void deleteDtsInstanceId() { this->dtsInstanceId_ = nullptr;};
-    inline string dtsInstanceId() const { DARABONBA_PTR_GET_DEFAULT(dtsInstanceId_, "") };
+    inline string getDtsInstanceId() const { DARABONBA_PTR_GET_DEFAULT(dtsInstanceId_, "") };
     inline ReverseTwoWayDirectionRequest& setDtsInstanceId(string dtsInstanceId) { DARABONBA_PTR_SET_VALUE(dtsInstanceId_, dtsInstanceId) };
 
 
     // ignoreErrorSubJob Field Functions 
     bool hasIgnoreErrorSubJob() const { return this->ignoreErrorSubJob_ != nullptr;};
     void deleteIgnoreErrorSubJob() { this->ignoreErrorSubJob_ = nullptr;};
-    inline bool ignoreErrorSubJob() const { DARABONBA_PTR_GET_DEFAULT(ignoreErrorSubJob_, false) };
+    inline bool getIgnoreErrorSubJob() const { DARABONBA_PTR_GET_DEFAULT(ignoreErrorSubJob_, false) };
     inline ReverseTwoWayDirectionRequest& setIgnoreErrorSubJob(bool ignoreErrorSubJob) { DARABONBA_PTR_SET_VALUE(ignoreErrorSubJob_, ignoreErrorSubJob) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ReverseTwoWayDirectionRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline ReverseTwoWayDirectionRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
   protected:
-    std::shared_ptr<string> dtsInstanceId_ = nullptr;
-    std::shared_ptr<bool> ignoreErrorSubJob_ = nullptr;
+    shared_ptr<string> dtsInstanceId_ {};
+    shared_ptr<bool> ignoreErrorSubJob_ {};
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> resourceGroupId_ {};
   };
 
   } // namespace Models

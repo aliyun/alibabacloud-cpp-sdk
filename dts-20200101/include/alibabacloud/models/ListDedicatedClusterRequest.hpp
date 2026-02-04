@@ -48,75 +48,75 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->orderColumn_ == nullptr
-        && return this->orderDirection_ == nullptr && return this->ownerId_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->params_ == nullptr
-        && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->state_ == nullptr && return this->type_ == nullptr; };
+        && this->orderDirection_ == nullptr && this->ownerId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->params_ == nullptr
+        && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->state_ == nullptr && this->type_ == nullptr; };
     // orderColumn Field Functions 
     bool hasOrderColumn() const { return this->orderColumn_ != nullptr;};
     void deleteOrderColumn() { this->orderColumn_ = nullptr;};
-    inline string orderColumn() const { DARABONBA_PTR_GET_DEFAULT(orderColumn_, "") };
+    inline string getOrderColumn() const { DARABONBA_PTR_GET_DEFAULT(orderColumn_, "") };
     inline ListDedicatedClusterRequest& setOrderColumn(string orderColumn) { DARABONBA_PTR_SET_VALUE(orderColumn_, orderColumn) };
 
 
     // orderDirection Field Functions 
     bool hasOrderDirection() const { return this->orderDirection_ != nullptr;};
     void deleteOrderDirection() { this->orderDirection_ = nullptr;};
-    inline string orderDirection() const { DARABONBA_PTR_GET_DEFAULT(orderDirection_, "") };
+    inline string getOrderDirection() const { DARABONBA_PTR_GET_DEFAULT(orderDirection_, "") };
     inline ListDedicatedClusterRequest& setOrderDirection(string orderDirection) { DARABONBA_PTR_SET_VALUE(orderDirection_, orderDirection) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline string ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, "") };
+    inline string getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, "") };
     inline ListDedicatedClusterRequest& setOwnerId(string ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline ListDedicatedClusterRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListDedicatedClusterRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // params Field Functions 
     bool hasParams() const { return this->params_ != nullptr;};
     void deleteParams() { this->params_ = nullptr;};
-    inline string params() const { DARABONBA_PTR_GET_DEFAULT(params_, "") };
+    inline string getParams() const { DARABONBA_PTR_GET_DEFAULT(params_, "") };
     inline ListDedicatedClusterRequest& setParams(string params) { DARABONBA_PTR_SET_VALUE(params_, params) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ListDedicatedClusterRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline ListDedicatedClusterRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // state Field Functions 
     bool hasState() const { return this->state_ != nullptr;};
     void deleteState() { this->state_ = nullptr;};
-    inline string state() const { DARABONBA_PTR_GET_DEFAULT(state_, "") };
+    inline string getState() const { DARABONBA_PTR_GET_DEFAULT(state_, "") };
     inline ListDedicatedClusterRequest& setState(string state) { DARABONBA_PTR_SET_VALUE(state_, state) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline ListDedicatedClusterRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
@@ -125,25 +125,25 @@ namespace Models
     // 
     // *   **gmtCreated**: the time when a cluster was created.
     // *   **orderCount**: the number of nodes in a cluster.
-    std::shared_ptr<string> orderColumn_ = nullptr;
+    shared_ptr<string> orderColumn_ {};
     // The order in which you want to sort the retrieved entries. Valid values:
     // 
     // *   asc: sorts the retrieved entries in ascending order. This is the default value.
     // *   desc: sorts the retrieved entries in descending order.
-    std::shared_ptr<string> orderDirection_ = nullptr;
-    std::shared_ptr<string> ownerId_ = nullptr;
+    shared_ptr<string> orderDirection_ {};
+    shared_ptr<string> ownerId_ {};
     // The number of the page to return. The value of this parameter must be an integer that is greater than 0. Default value: **1**.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // The number of clusters to return on each page.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The content of the query condition.
     // 
     // >  You must set the **Type parameter** to specify the type of the query condition.
-    std::shared_ptr<string> params_ = nullptr;
+    shared_ptr<string> params_ {};
     // The ID of the region.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The resource group ID.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // The status of the cluster. Valid values:
     // 
     // *   **init**: The cluster is being initialized.
@@ -154,7 +154,7 @@ namespace Models
     // *   **locked**: The cluster is locked.
     // *   **releasing**: The cluster is being released.
     // *   **released**: The cluster is released.
-    std::shared_ptr<string> state_ = nullptr;
+    shared_ptr<string> state_ {};
     // The type of the query condition. Valid values:
     // 
     // *   **NAME**: the name of the cluster.
@@ -162,7 +162,7 @@ namespace Models
     // *   **DEDICAETEDCLUSTERID**: the ID of a dedicated cluster.
     // 
     // >  You must specify the query condition by using the **Params** parameter.
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

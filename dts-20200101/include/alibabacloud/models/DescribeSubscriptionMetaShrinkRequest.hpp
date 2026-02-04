@@ -40,68 +40,68 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dtsInstanceId_ == nullptr
-        && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->sid_ == nullptr && return this->subMigrationJobIdsShrink_ == nullptr && return this->topicsShrink_ == nullptr; };
+        && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->sid_ == nullptr && this->subMigrationJobIdsShrink_ == nullptr && this->topicsShrink_ == nullptr; };
     // dtsInstanceId Field Functions 
     bool hasDtsInstanceId() const { return this->dtsInstanceId_ != nullptr;};
     void deleteDtsInstanceId() { this->dtsInstanceId_ = nullptr;};
-    inline string dtsInstanceId() const { DARABONBA_PTR_GET_DEFAULT(dtsInstanceId_, "") };
+    inline string getDtsInstanceId() const { DARABONBA_PTR_GET_DEFAULT(dtsInstanceId_, "") };
     inline DescribeSubscriptionMetaShrinkRequest& setDtsInstanceId(string dtsInstanceId) { DARABONBA_PTR_SET_VALUE(dtsInstanceId_, dtsInstanceId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeSubscriptionMetaShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline DescribeSubscriptionMetaShrinkRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // sid Field Functions 
     bool hasSid() const { return this->sid_ != nullptr;};
     void deleteSid() { this->sid_ = nullptr;};
-    inline string sid() const { DARABONBA_PTR_GET_DEFAULT(sid_, "") };
+    inline string getSid() const { DARABONBA_PTR_GET_DEFAULT(sid_, "") };
     inline DescribeSubscriptionMetaShrinkRequest& setSid(string sid) { DARABONBA_PTR_SET_VALUE(sid_, sid) };
 
 
     // subMigrationJobIdsShrink Field Functions 
     bool hasSubMigrationJobIdsShrink() const { return this->subMigrationJobIdsShrink_ != nullptr;};
     void deleteSubMigrationJobIdsShrink() { this->subMigrationJobIdsShrink_ = nullptr;};
-    inline string subMigrationJobIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(subMigrationJobIdsShrink_, "") };
+    inline string getSubMigrationJobIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(subMigrationJobIdsShrink_, "") };
     inline DescribeSubscriptionMetaShrinkRequest& setSubMigrationJobIdsShrink(string subMigrationJobIdsShrink) { DARABONBA_PTR_SET_VALUE(subMigrationJobIdsShrink_, subMigrationJobIdsShrink) };
 
 
     // topicsShrink Field Functions 
     bool hasTopicsShrink() const { return this->topicsShrink_ != nullptr;};
     void deleteTopicsShrink() { this->topicsShrink_ = nullptr;};
-    inline string topicsShrink() const { DARABONBA_PTR_GET_DEFAULT(topicsShrink_, "") };
+    inline string getTopicsShrink() const { DARABONBA_PTR_GET_DEFAULT(topicsShrink_, "") };
     inline DescribeSubscriptionMetaShrinkRequest& setTopicsShrink(string topicsShrink) { DARABONBA_PTR_SET_VALUE(topicsShrink_, topicsShrink) };
 
 
   protected:
     // The ID of the distributed change tracking instance.
-    std::shared_ptr<string> dtsInstanceId_ = nullptr;
+    shared_ptr<string> dtsInstanceId_ {};
     // The ID of the region in which the change tracking instance resides.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // Resource group ID.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // The ID of the consumer group.
     // 
     // This parameter is required.
-    std::shared_ptr<string> sid_ = nullptr;
+    shared_ptr<string> sid_ {};
     // The IDs of all subtasks in the distributed change tracking task. Separate multiple subtask IDs with commas (,).
     // 
     // >  You must specify at least one of the SubMigrationJobIds and **Topics** parameters. We recommend that you specify the SubMigrationJobIds parameter.
-    std::shared_ptr<string> subMigrationJobIdsShrink_ = nullptr;
+    shared_ptr<string> subMigrationJobIdsShrink_ {};
     // The topics of all subtasks in the distributed change tracking task. Separate multiple topics with commas (,).
     // 
     // >  You must specify at least one of the **SubMigrationJobIds** and Topics parameters. We recommend that you specify the **SubMigrationJobIds** parameter.
-    std::shared_ptr<string> topicsShrink_ = nullptr;
+    shared_ptr<string> topicsShrink_ {};
   };
 
   } // namespace Models

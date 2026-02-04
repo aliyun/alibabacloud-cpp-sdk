@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dtsInstanceId_ == nullptr
-        && return this->precheckItems_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr; };
+        && this->precheckItems_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr; };
     // dtsInstanceId Field Functions 
     bool hasDtsInstanceId() const { return this->dtsInstanceId_ != nullptr;};
     void deleteDtsInstanceId() { this->dtsInstanceId_ = nullptr;};
-    inline string dtsInstanceId() const { DARABONBA_PTR_GET_DEFAULT(dtsInstanceId_, "") };
+    inline string getDtsInstanceId() const { DARABONBA_PTR_GET_DEFAULT(dtsInstanceId_, "") };
     inline ShieldPrecheckRequest& setDtsInstanceId(string dtsInstanceId) { DARABONBA_PTR_SET_VALUE(dtsInstanceId_, dtsInstanceId) };
 
 
     // precheckItems Field Functions 
     bool hasPrecheckItems() const { return this->precheckItems_ != nullptr;};
     void deletePrecheckItems() { this->precheckItems_ = nullptr;};
-    inline string precheckItems() const { DARABONBA_PTR_GET_DEFAULT(precheckItems_, "") };
+    inline string getPrecheckItems() const { DARABONBA_PTR_GET_DEFAULT(precheckItems_, "") };
     inline ShieldPrecheckRequest& setPrecheckItems(string precheckItems) { DARABONBA_PTR_SET_VALUE(precheckItems_, precheckItems) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ShieldPrecheckRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline ShieldPrecheckRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
@@ -71,7 +71,7 @@ namespace Models
     // >  You must specify at least one of the **DtsInstanceId** and **DtsJobId** parameters.
     // 
     // This parameter is required.
-    std::shared_ptr<string> dtsInstanceId_ = nullptr;
+    shared_ptr<string> dtsInstanceId_ {};
     // The precheck items that you want to ignore. Separate multiple items with commas (,). Valid values:
     //  
     // *   **CHECK_SAME_OBJ**: schema name conflict
@@ -87,10 +87,10 @@ namespace Models
     // *   **CHECK_SERVER_ID**: value of server_id in the source database
     // 
     // This parameter is required.
-    std::shared_ptr<string> precheckItems_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> precheckItems_ {};
+    shared_ptr<string> regionId_ {};
     // Resource group ID.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
   };
 
   } // namespace Models
