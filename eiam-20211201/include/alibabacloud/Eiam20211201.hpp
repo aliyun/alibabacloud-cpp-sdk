@@ -2161,6 +2161,23 @@ namespace Eiam20211201
       Models::EnableUserResponse enableUser(const Models::EnableUserRequest &request);
 
       /**
+       * @summary 解析IdP Metadata信息。
+       *
+       * @param request ExecIdentityProviderMetadataUrlResolutionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ExecIdentityProviderMetadataUrlResolutionResponse
+       */
+      Models::ExecIdentityProviderMetadataUrlResolutionResponse execIdentityProviderMetadataUrlResolutionWithOptions(const Models::ExecIdentityProviderMetadataUrlResolutionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 解析IdP Metadata信息。
+       *
+       * @param request ExecIdentityProviderMetadataUrlResolutionRequest
+       * @return ExecIdentityProviderMetadataUrlResolutionResponse
+       */
+      Models::ExecIdentityProviderMetadataUrlResolutionResponse execIdentityProviderMetadataUrlResolution(const Models::ExecIdentityProviderMetadataUrlResolutionRequest &request);
+
+      /**
        * @summary 生成文件导入结果下载地址
        *
        * @param request GenerateDownloadUrlForSynchronizationJobRequest
@@ -2193,6 +2210,23 @@ namespace Eiam20211201
        * @return GenerateFileImportTemplateResponse
        */
       Models::GenerateFileImportTemplateResponse generateFileImportTemplate(const Models::GenerateFileImportTemplateRequest &request);
+
+      /**
+       * @summary 生成 Oauth Token
+       *
+       * @param request GenerateOauthTokenRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GenerateOauthTokenResponse
+       */
+      Models::GenerateOauthTokenResponse generateOauthTokenWithOptions(const Models::GenerateOauthTokenRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 生成 Oauth Token
+       *
+       * @param request GenerateOauthTokenRequest
+       * @return GenerateOauthTokenResponse
+       */
+      Models::GenerateOauthTokenResponse generateOauthToken(const Models::GenerateOauthTokenRequest &request);
 
       /**
        * @summary 获取上传认证
@@ -3002,6 +3036,23 @@ namespace Eiam20211201
       Models::GetRootOrganizationalUnitResponse getRootOrganizationalUnit(const Models::GetRootOrganizationalUnitRequest &request);
 
       /**
+       * @summary 获取服务Quota
+       *
+       * @param request GetServiceQuotaRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetServiceQuotaResponse
+       */
+      Models::GetServiceQuotaResponse getServiceQuotaWithOptions(const Models::GetServiceQuotaRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取服务Quota
+       *
+       * @param request GetServiceQuotaRequest
+       * @return GetServiceQuotaResponse
+       */
+      Models::GetServiceQuotaResponse getServiceQuota(const Models::GetServiceQuotaRequest &request);
+
+      /**
        * @summary Obtains the information about a single synchronization job.
        *
        * @param request GetSynchronizationJobRequest
@@ -3034,6 +3085,23 @@ namespace Eiam20211201
        * @return GetUserResponse
        */
       Models::GetUserResponse getUser(const Models::GetUserRequest &request);
+
+      /**
+       * @summary 查看调用事件列表
+       *
+       * @param request ListActionTrackEventTypesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListActionTrackEventTypesResponse
+       */
+      Models::ListActionTrackEventTypesResponse listActionTrackEventTypesWithOptions(const Models::ListActionTrackEventTypesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查看调用事件列表
+       *
+       * @param request ListActionTrackEventTypesRequest
+       * @return ListActionTrackEventTypesResponse
+       */
+      Models::ListActionTrackEventTypesResponse listActionTrackEventTypes(const Models::ListActionTrackEventTypesRequest &request);
 
       /**
        * @summary 分页查询应用下的应用账户列表
@@ -3623,6 +3691,23 @@ namespace Eiam20211201
        * @return ListEiamRegionsResponse
        */
       Models::ListEiamRegionsResponse listEiamRegions();
+
+      /**
+       * @summary 查看事件列表
+       *
+       * @param request ListEventTypesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListEventTypesResponse
+       */
+      Models::ListEventTypesResponse listEventTypesWithOptions(const Models::ListEventTypesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查看事件列表
+       *
+       * @param request ListEventTypesRequest
+       * @return ListEventTypesResponse
+       */
+      Models::ListEventTypesResponse listEventTypes(const Models::ListEventTypesRequest &request);
 
       /**
        * @summary 查询联邦凭证提供方列表
@@ -4252,6 +4337,23 @@ namespace Eiam20211201
       Models::RemoveUsersFromGroupResponse removeUsersFromGroup(const Models::RemoveUsersFromGroupRequest &request);
 
       /**
+       * @summary 免费版续期
+       *
+       * @param request RenewFreeLicenseEndTimeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RenewFreeLicenseEndTimeResponse
+       */
+      Models::RenewFreeLicenseEndTimeResponse renewFreeLicenseEndTimeWithOptions(const Models::RenewFreeLicenseEndTimeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 免费版续期
+       *
+       * @param request RenewFreeLicenseEndTimeRequest
+       * @return RenewFreeLicenseEndTimeResponse
+       */
+      Models::RenewFreeLicenseEndTimeResponse renewFreeLicenseEndTime(const Models::RenewFreeLicenseEndTimeRequest &request);
+
+      /**
        * @summary Revokes the permissions to access an application from multiple account groups at a time in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
        *
        * @param request RevokeApplicationFromGroupsRequest
@@ -4545,6 +4647,23 @@ namespace Eiam20211201
       Models::SetForgetPasswordConfigurationResponse setForgetPasswordConfiguration(const Models::SetForgetPasswordConfigurationRequest &request);
 
       /**
+       * @summary 修改认证信息
+       *
+       * @param request SetIdentityProviderAuthnConfigurationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SetIdentityProviderAuthnConfigurationResponse
+       */
+      Models::SetIdentityProviderAuthnConfigurationResponse setIdentityProviderAuthnConfigurationWithOptions(const Models::SetIdentityProviderAuthnConfigurationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改认证信息
+       *
+       * @param request SetIdentityProviderAuthnConfigurationRequest
+       * @return SetIdentityProviderAuthnConfigurationResponse
+       */
+      Models::SetIdentityProviderAuthnConfigurationResponse setIdentityProviderAuthnConfiguration(const Models::SetIdentityProviderAuthnConfigurationRequest &request);
+
+      /**
        * @summary Update IdP synchronization configuration.
        *
        * @param request SetIdentityProviderUdPullConfigurationRequest
@@ -4560,6 +4679,57 @@ namespace Eiam20211201
        * @return SetIdentityProviderUdPullConfigurationResponse
        */
       Models::SetIdentityProviderUdPullConfigurationResponse setIdentityProviderUdPullConfiguration(const Models::SetIdentityProviderUdPullConfigurationRequest &request);
+
+      /**
+       * @summary 修改IdP同步出配置
+       *
+       * @param request SetIdentityProviderUdPushConfigurationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SetIdentityProviderUdPushConfigurationResponse
+       */
+      Models::SetIdentityProviderUdPushConfigurationResponse setIdentityProviderUdPushConfigurationWithOptions(const Models::SetIdentityProviderUdPushConfigurationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改IdP同步出配置
+       *
+       * @param request SetIdentityProviderUdPushConfigurationRequest
+       * @return SetIdentityProviderUdPushConfigurationResponse
+       */
+      Models::SetIdentityProviderUdPushConfigurationResponse setIdentityProviderUdPushConfiguration(const Models::SetIdentityProviderUdPushConfigurationRequest &request);
+
+      /**
+       * @summary 设置实例控制项
+       *
+       * @param request SetInstanceControlConfigurationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SetInstanceControlConfigurationResponse
+       */
+      Models::SetInstanceControlConfigurationResponse setInstanceControlConfigurationWithOptions(const Models::SetInstanceControlConfigurationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 设置实例控制项
+       *
+       * @param request SetInstanceControlConfigurationRequest
+       * @return SetInstanceControlConfigurationResponse
+       */
+      Models::SetInstanceControlConfigurationResponse setInstanceControlConfiguration(const Models::SetInstanceControlConfigurationRequest &request);
+
+      /**
+       * @summary 设置实例语言、时区信息
+       *
+       * @param request SetInstanceGlobalizationConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SetInstanceGlobalizationConfigResponse
+       */
+      Models::SetInstanceGlobalizationConfigResponse setInstanceGlobalizationConfigWithOptions(const Models::SetInstanceGlobalizationConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 设置实例语言、时区信息
+       *
+       * @param request SetInstanceGlobalizationConfigRequest
+       * @return SetInstanceGlobalizationConfigResponse
+       */
+      Models::SetInstanceGlobalizationConfigResponse setInstanceGlobalizationConfig(const Models::SetInstanceGlobalizationConfigRequest &request);
 
       /**
        * @summary 为品牌设置登录后跳转应用
@@ -4679,6 +4849,40 @@ namespace Eiam20211201
        * @return SetUserPrimaryOrganizationalUnitResponse
        */
       Models::SetUserPrimaryOrganizationalUnitResponse setUserPrimaryOrganizationalUnit(const Models::SetUserPrimaryOrganizationalUnitRequest &request);
+
+      /**
+       * @summary 设置WebAuthn配置
+       *
+       * @param request SetWebAuthnConfigurationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SetWebAuthnConfigurationResponse
+       */
+      Models::SetWebAuthnConfigurationResponse setWebAuthnConfigurationWithOptions(const Models::SetWebAuthnConfigurationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 设置WebAuthn配置
+       *
+       * @param request SetWebAuthnConfigurationRequest
+       * @return SetWebAuthnConfigurationResponse
+       */
+      Models::SetWebAuthnConfigurationResponse setWebAuthnConfiguration(const Models::SetWebAuthnConfigurationRequest &request);
+
+      /**
+       * @summary 解绑指定用户TOTP
+       *
+       * @param request UnbindTotpAuthenticatorRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UnbindTotpAuthenticatorResponse
+       */
+      Models::UnbindTotpAuthenticatorResponse unbindTotpAuthenticatorWithOptions(const Models::UnbindTotpAuthenticatorRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 解绑指定用户TOTP
+       *
+       * @param request UnbindTotpAuthenticatorRequest
+       * @return UnbindTotpAuthenticatorResponse
+       */
+      Models::UnbindTotpAuthenticatorResponse unbindTotpAuthenticator(const Models::UnbindTotpAuthenticatorRequest &request);
 
       /**
        * @summary 解绑三方登录账户
