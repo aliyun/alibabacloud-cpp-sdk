@@ -56,122 +56,122 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dataSetId_ == nullptr
-        && return this->dataSetIdsShrink_ == nullptr && return this->dataSetName_ == nullptr && return this->dataSetStatus_ == nullptr && return this->dataSetType_ == nullptr && return this->lang_ == nullptr
-        && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->orderDirection_ == nullptr && return this->orderFieldName_ == nullptr && return this->pageNumber_ == nullptr
-        && return this->pageSize_ == nullptr && return this->regionId_ == nullptr && return this->roleFor_ == nullptr; };
+        && this->dataSetIdsShrink_ == nullptr && this->dataSetName_ == nullptr && this->dataSetStatus_ == nullptr && this->dataSetType_ == nullptr && this->lang_ == nullptr
+        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->orderDirection_ == nullptr && this->orderFieldName_ == nullptr && this->pageNumber_ == nullptr
+        && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->roleFor_ == nullptr; };
     // dataSetId Field Functions 
     bool hasDataSetId() const { return this->dataSetId_ != nullptr;};
     void deleteDataSetId() { this->dataSetId_ = nullptr;};
-    inline string dataSetId() const { DARABONBA_PTR_GET_DEFAULT(dataSetId_, "") };
+    inline string getDataSetId() const { DARABONBA_PTR_GET_DEFAULT(dataSetId_, "") };
     inline ListDataSetsShrinkRequest& setDataSetId(string dataSetId) { DARABONBA_PTR_SET_VALUE(dataSetId_, dataSetId) };
 
 
     // dataSetIdsShrink Field Functions 
     bool hasDataSetIdsShrink() const { return this->dataSetIdsShrink_ != nullptr;};
     void deleteDataSetIdsShrink() { this->dataSetIdsShrink_ = nullptr;};
-    inline string dataSetIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(dataSetIdsShrink_, "") };
+    inline string getDataSetIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(dataSetIdsShrink_, "") };
     inline ListDataSetsShrinkRequest& setDataSetIdsShrink(string dataSetIdsShrink) { DARABONBA_PTR_SET_VALUE(dataSetIdsShrink_, dataSetIdsShrink) };
 
 
     // dataSetName Field Functions 
     bool hasDataSetName() const { return this->dataSetName_ != nullptr;};
     void deleteDataSetName() { this->dataSetName_ = nullptr;};
-    inline string dataSetName() const { DARABONBA_PTR_GET_DEFAULT(dataSetName_, "") };
+    inline string getDataSetName() const { DARABONBA_PTR_GET_DEFAULT(dataSetName_, "") };
     inline ListDataSetsShrinkRequest& setDataSetName(string dataSetName) { DARABONBA_PTR_SET_VALUE(dataSetName_, dataSetName) };
 
 
     // dataSetStatus Field Functions 
     bool hasDataSetStatus() const { return this->dataSetStatus_ != nullptr;};
     void deleteDataSetStatus() { this->dataSetStatus_ = nullptr;};
-    inline int32_t dataSetStatus() const { DARABONBA_PTR_GET_DEFAULT(dataSetStatus_, 0) };
+    inline int32_t getDataSetStatus() const { DARABONBA_PTR_GET_DEFAULT(dataSetStatus_, 0) };
     inline ListDataSetsShrinkRequest& setDataSetStatus(int32_t dataSetStatus) { DARABONBA_PTR_SET_VALUE(dataSetStatus_, dataSetStatus) };
 
 
     // dataSetType Field Functions 
     bool hasDataSetType() const { return this->dataSetType_ != nullptr;};
     void deleteDataSetType() { this->dataSetType_ = nullptr;};
-    inline string dataSetType() const { DARABONBA_PTR_GET_DEFAULT(dataSetType_, "") };
+    inline string getDataSetType() const { DARABONBA_PTR_GET_DEFAULT(dataSetType_, "") };
     inline ListDataSetsShrinkRequest& setDataSetType(string dataSetType) { DARABONBA_PTR_SET_VALUE(dataSetType_, dataSetType) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline ListDataSetsShrinkRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListDataSetsShrinkRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListDataSetsShrinkRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // orderDirection Field Functions 
     bool hasOrderDirection() const { return this->orderDirection_ != nullptr;};
     void deleteOrderDirection() { this->orderDirection_ = nullptr;};
-    inline string orderDirection() const { DARABONBA_PTR_GET_DEFAULT(orderDirection_, "") };
+    inline string getOrderDirection() const { DARABONBA_PTR_GET_DEFAULT(orderDirection_, "") };
     inline ListDataSetsShrinkRequest& setOrderDirection(string orderDirection) { DARABONBA_PTR_SET_VALUE(orderDirection_, orderDirection) };
 
 
     // orderFieldName Field Functions 
     bool hasOrderFieldName() const { return this->orderFieldName_ != nullptr;};
     void deleteOrderFieldName() { this->orderFieldName_ = nullptr;};
-    inline string orderFieldName() const { DARABONBA_PTR_GET_DEFAULT(orderFieldName_, "") };
+    inline string getOrderFieldName() const { DARABONBA_PTR_GET_DEFAULT(orderFieldName_, "") };
     inline ListDataSetsShrinkRequest& setOrderFieldName(string orderFieldName) { DARABONBA_PTR_SET_VALUE(orderFieldName_, orderFieldName) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline ListDataSetsShrinkRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListDataSetsShrinkRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ListDataSetsShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // roleFor Field Functions 
     bool hasRoleFor() const { return this->roleFor_ != nullptr;};
     void deleteRoleFor() { this->roleFor_ = nullptr;};
-    inline int64_t roleFor() const { DARABONBA_PTR_GET_DEFAULT(roleFor_, 0L) };
+    inline int64_t getRoleFor() const { DARABONBA_PTR_GET_DEFAULT(roleFor_, 0L) };
     inline ListDataSetsShrinkRequest& setRoleFor(int64_t roleFor) { DARABONBA_PTR_SET_VALUE(roleFor_, roleFor) };
 
 
   protected:
-    std::shared_ptr<string> dataSetId_ = nullptr;
-    std::shared_ptr<string> dataSetIdsShrink_ = nullptr;
-    std::shared_ptr<string> dataSetName_ = nullptr;
-    std::shared_ptr<int32_t> dataSetStatus_ = nullptr;
-    std::shared_ptr<string> dataSetType_ = nullptr;
-    std::shared_ptr<string> lang_ = nullptr;
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
-    std::shared_ptr<string> nextToken_ = nullptr;
-    std::shared_ptr<string> orderDirection_ = nullptr;
-    std::shared_ptr<string> orderFieldName_ = nullptr;
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<int64_t> roleFor_ = nullptr;
+    shared_ptr<string> dataSetId_ {};
+    shared_ptr<string> dataSetIdsShrink_ {};
+    shared_ptr<string> dataSetName_ {};
+    shared_ptr<int32_t> dataSetStatus_ {};
+    shared_ptr<string> dataSetType_ {};
+    shared_ptr<string> lang_ {};
+    shared_ptr<int32_t> maxResults_ {};
+    shared_ptr<string> nextToken_ {};
+    shared_ptr<string> orderDirection_ {};
+    shared_ptr<string> orderFieldName_ {};
+    shared_ptr<int32_t> pageNumber_ {};
+    shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<string> regionId_ {};
+    shared_ptr<int64_t> roleFor_ {};
   };
 
   } // namespace Models

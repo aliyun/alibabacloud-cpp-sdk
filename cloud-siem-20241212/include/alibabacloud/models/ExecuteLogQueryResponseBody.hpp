@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->queryResult_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // queryResult Field Functions 
     bool hasQueryResult() const { return this->queryResult_ != nullptr;};
     void deleteQueryResult() { this->queryResult_ = nullptr;};
-    inline const vector<Darabonba::Json> & queryResult() const { DARABONBA_PTR_GET_CONST(queryResult_, vector<Darabonba::Json>) };
-    inline vector<Darabonba::Json> queryResult() { DARABONBA_PTR_GET(queryResult_, vector<Darabonba::Json>) };
+    inline const vector<Darabonba::Json> & getQueryResult() const { DARABONBA_PTR_GET_CONST(queryResult_, vector<Darabonba::Json>) };
+    inline vector<Darabonba::Json> getQueryResult() { DARABONBA_PTR_GET(queryResult_, vector<Darabonba::Json>) };
     inline ExecuteLogQueryResponseBody& setQueryResult(const vector<Darabonba::Json> & queryResult) { DARABONBA_PTR_SET_VALUE(queryResult_, queryResult) };
     inline ExecuteLogQueryResponseBody& setQueryResult(vector<Darabonba::Json> && queryResult) { DARABONBA_PTR_SET_RVALUE(queryResult_, queryResult) };
 
@@ -46,13 +46,13 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ExecuteLogQueryResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<vector<Darabonba::Json>> queryResult_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<vector<Darabonba::Json>> queryResult_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->vendorId_ == nullptr; };
+        && this->vendorId_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateVendorResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // vendorId Field Functions 
     bool hasVendorId() const { return this->vendorId_ != nullptr;};
     void deleteVendorId() { this->vendorId_ = nullptr;};
-    inline string vendorId() const { DARABONBA_PTR_GET_DEFAULT(vendorId_, "") };
+    inline string getVendorId() const { DARABONBA_PTR_GET_DEFAULT(vendorId_, "") };
     inline CreateVendorResponseBody& setVendorId(string vendorId) { DARABONBA_PTR_SET_VALUE(vendorId_, vendorId) };
 
 
   protected:
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> vendorId_ = nullptr;
+    shared_ptr<string> requestId_ {};
+    shared_ptr<string> vendorId_ {};
   };
 
   } // namespace Models

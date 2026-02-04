@@ -44,73 +44,73 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->exportStatus_ == nullptr
-        && return this->exportType_ == nullptr && return this->fileName_ == nullptr && return this->gmtCreate_ == nullptr && return this->id_ == nullptr && return this->link_ == nullptr
-        && return this->progress_ == nullptr && return this->requestId_ == nullptr; };
+        && this->exportType_ == nullptr && this->fileName_ == nullptr && this->gmtCreate_ == nullptr && this->id_ == nullptr && this->link_ == nullptr
+        && this->progress_ == nullptr && this->requestId_ == nullptr; };
     // exportStatus Field Functions 
     bool hasExportStatus() const { return this->exportStatus_ != nullptr;};
     void deleteExportStatus() { this->exportStatus_ = nullptr;};
-    inline string exportStatus() const { DARABONBA_PTR_GET_DEFAULT(exportStatus_, "") };
+    inline string getExportStatus() const { DARABONBA_PTR_GET_DEFAULT(exportStatus_, "") };
     inline GetExportTaskResponseBody& setExportStatus(string exportStatus) { DARABONBA_PTR_SET_VALUE(exportStatus_, exportStatus) };
 
 
     // exportType Field Functions 
     bool hasExportType() const { return this->exportType_ != nullptr;};
     void deleteExportType() { this->exportType_ = nullptr;};
-    inline string exportType() const { DARABONBA_PTR_GET_DEFAULT(exportType_, "") };
+    inline string getExportType() const { DARABONBA_PTR_GET_DEFAULT(exportType_, "") };
     inline GetExportTaskResponseBody& setExportType(string exportType) { DARABONBA_PTR_SET_VALUE(exportType_, exportType) };
 
 
     // fileName Field Functions 
     bool hasFileName() const { return this->fileName_ != nullptr;};
     void deleteFileName() { this->fileName_ = nullptr;};
-    inline string fileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
+    inline string getFileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
     inline GetExportTaskResponseBody& setFileName(string fileName) { DARABONBA_PTR_SET_VALUE(fileName_, fileName) };
 
 
     // gmtCreate Field Functions 
     bool hasGmtCreate() const { return this->gmtCreate_ != nullptr;};
     void deleteGmtCreate() { this->gmtCreate_ = nullptr;};
-    inline string gmtCreate() const { DARABONBA_PTR_GET_DEFAULT(gmtCreate_, "") };
+    inline string getGmtCreate() const { DARABONBA_PTR_GET_DEFAULT(gmtCreate_, "") };
     inline GetExportTaskResponseBody& setGmtCreate(string gmtCreate) { DARABONBA_PTR_SET_VALUE(gmtCreate_, gmtCreate) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline int64_t id() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+    inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
     inline GetExportTaskResponseBody& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // link Field Functions 
     bool hasLink() const { return this->link_ != nullptr;};
     void deleteLink() { this->link_ = nullptr;};
-    inline string link() const { DARABONBA_PTR_GET_DEFAULT(link_, "") };
+    inline string getLink() const { DARABONBA_PTR_GET_DEFAULT(link_, "") };
     inline GetExportTaskResponseBody& setLink(string link) { DARABONBA_PTR_SET_VALUE(link_, link) };
 
 
     // progress Field Functions 
     bool hasProgress() const { return this->progress_ != nullptr;};
     void deleteProgress() { this->progress_ = nullptr;};
-    inline int32_t progress() const { DARABONBA_PTR_GET_DEFAULT(progress_, 0) };
+    inline int32_t getProgress() const { DARABONBA_PTR_GET_DEFAULT(progress_, 0) };
     inline GetExportTaskResponseBody& setProgress(int32_t progress) { DARABONBA_PTR_SET_VALUE(progress_, progress) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetExportTaskResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<string> exportStatus_ = nullptr;
-    std::shared_ptr<string> exportType_ = nullptr;
-    std::shared_ptr<string> fileName_ = nullptr;
-    std::shared_ptr<string> gmtCreate_ = nullptr;
-    std::shared_ptr<int64_t> id_ = nullptr;
-    std::shared_ptr<string> link_ = nullptr;
-    std::shared_ptr<int32_t> progress_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> exportStatus_ {};
+    shared_ptr<string> exportType_ {};
+    shared_ptr<string> fileName_ {};
+    shared_ptr<string> gmtCreate_ {};
+    shared_ptr<int64_t> id_ {};
+    shared_ptr<string> link_ {};
+    shared_ptr<int32_t> progress_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

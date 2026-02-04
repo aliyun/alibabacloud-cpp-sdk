@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_UPDATEDATASOURCEREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/UpdateDataSourceRequestDataSourceStores.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -55,117 +54,189 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class DataSourceStores : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const DataSourceStores& obj) { 
+        DARABONBA_PTR_TO_JSON(DataSourceStoreFrom, dataSourceStoreFrom_);
+        DARABONBA_PTR_TO_JSON(DataSourceStoreId, dataSourceStoreId_);
+        DARABONBA_PTR_TO_JSON(LogProjectName, logProjectName_);
+        DARABONBA_PTR_TO_JSON(LogRegionId, logRegionId_);
+        DARABONBA_PTR_TO_JSON(LogStoreName, logStoreName_);
+      };
+      friend void from_json(const Darabonba::Json& j, DataSourceStores& obj) { 
+        DARABONBA_PTR_FROM_JSON(DataSourceStoreFrom, dataSourceStoreFrom_);
+        DARABONBA_PTR_FROM_JSON(DataSourceStoreId, dataSourceStoreId_);
+        DARABONBA_PTR_FROM_JSON(LogProjectName, logProjectName_);
+        DARABONBA_PTR_FROM_JSON(LogRegionId, logRegionId_);
+        DARABONBA_PTR_FROM_JSON(LogStoreName, logStoreName_);
+      };
+      DataSourceStores() = default ;
+      DataSourceStores(const DataSourceStores &) = default ;
+      DataSourceStores(DataSourceStores &&) = default ;
+      DataSourceStores(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~DataSourceStores() = default ;
+      DataSourceStores& operator=(const DataSourceStores &) = default ;
+      DataSourceStores& operator=(DataSourceStores &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->dataSourceStoreFrom_ == nullptr
+        && this->dataSourceStoreId_ == nullptr && this->logProjectName_ == nullptr && this->logRegionId_ == nullptr && this->logStoreName_ == nullptr; };
+      // dataSourceStoreFrom Field Functions 
+      bool hasDataSourceStoreFrom() const { return this->dataSourceStoreFrom_ != nullptr;};
+      void deleteDataSourceStoreFrom() { this->dataSourceStoreFrom_ = nullptr;};
+      inline string getDataSourceStoreFrom() const { DARABONBA_PTR_GET_DEFAULT(dataSourceStoreFrom_, "") };
+      inline DataSourceStores& setDataSourceStoreFrom(string dataSourceStoreFrom) { DARABONBA_PTR_SET_VALUE(dataSourceStoreFrom_, dataSourceStoreFrom) };
+
+
+      // dataSourceStoreId Field Functions 
+      bool hasDataSourceStoreId() const { return this->dataSourceStoreId_ != nullptr;};
+      void deleteDataSourceStoreId() { this->dataSourceStoreId_ = nullptr;};
+      inline string getDataSourceStoreId() const { DARABONBA_PTR_GET_DEFAULT(dataSourceStoreId_, "") };
+      inline DataSourceStores& setDataSourceStoreId(string dataSourceStoreId) { DARABONBA_PTR_SET_VALUE(dataSourceStoreId_, dataSourceStoreId) };
+
+
+      // logProjectName Field Functions 
+      bool hasLogProjectName() const { return this->logProjectName_ != nullptr;};
+      void deleteLogProjectName() { this->logProjectName_ = nullptr;};
+      inline string getLogProjectName() const { DARABONBA_PTR_GET_DEFAULT(logProjectName_, "") };
+      inline DataSourceStores& setLogProjectName(string logProjectName) { DARABONBA_PTR_SET_VALUE(logProjectName_, logProjectName) };
+
+
+      // logRegionId Field Functions 
+      bool hasLogRegionId() const { return this->logRegionId_ != nullptr;};
+      void deleteLogRegionId() { this->logRegionId_ = nullptr;};
+      inline string getLogRegionId() const { DARABONBA_PTR_GET_DEFAULT(logRegionId_, "") };
+      inline DataSourceStores& setLogRegionId(string logRegionId) { DARABONBA_PTR_SET_VALUE(logRegionId_, logRegionId) };
+
+
+      // logStoreName Field Functions 
+      bool hasLogStoreName() const { return this->logStoreName_ != nullptr;};
+      void deleteLogStoreName() { this->logStoreName_ = nullptr;};
+      inline string getLogStoreName() const { DARABONBA_PTR_GET_DEFAULT(logStoreName_, "") };
+      inline DataSourceStores& setLogStoreName(string logStoreName) { DARABONBA_PTR_SET_VALUE(logStoreName_, logStoreName) };
+
+
+    protected:
+      shared_ptr<string> dataSourceStoreFrom_ {};
+      shared_ptr<string> dataSourceStoreId_ {};
+      shared_ptr<string> logProjectName_ {};
+      shared_ptr<string> logRegionId_ {};
+      shared_ptr<string> logStoreName_ {};
+    };
+
     virtual bool empty() const override { return this->dataSourceFrom_ == nullptr
-        && return this->dataSourceId_ == nullptr && return this->dataSourceName_ == nullptr && return this->dataSourceRecognizeEnabled_ == nullptr && return this->dataSourceStores_ == nullptr && return this->lang_ == nullptr
-        && return this->logProjectName_ == nullptr && return this->logRegionId_ == nullptr && return this->logStoreName_ == nullptr && return this->logUserId_ == nullptr && return this->orderField_ == nullptr
-        && return this->regionId_ == nullptr && return this->roleFor_ == nullptr; };
+        && this->dataSourceId_ == nullptr && this->dataSourceName_ == nullptr && this->dataSourceRecognizeEnabled_ == nullptr && this->dataSourceStores_ == nullptr && this->lang_ == nullptr
+        && this->logProjectName_ == nullptr && this->logRegionId_ == nullptr && this->logStoreName_ == nullptr && this->logUserId_ == nullptr && this->orderField_ == nullptr
+        && this->regionId_ == nullptr && this->roleFor_ == nullptr; };
     // dataSourceFrom Field Functions 
     bool hasDataSourceFrom() const { return this->dataSourceFrom_ != nullptr;};
     void deleteDataSourceFrom() { this->dataSourceFrom_ = nullptr;};
-    inline string dataSourceFrom() const { DARABONBA_PTR_GET_DEFAULT(dataSourceFrom_, "") };
+    inline string getDataSourceFrom() const { DARABONBA_PTR_GET_DEFAULT(dataSourceFrom_, "") };
     inline UpdateDataSourceRequest& setDataSourceFrom(string dataSourceFrom) { DARABONBA_PTR_SET_VALUE(dataSourceFrom_, dataSourceFrom) };
 
 
     // dataSourceId Field Functions 
     bool hasDataSourceId() const { return this->dataSourceId_ != nullptr;};
     void deleteDataSourceId() { this->dataSourceId_ = nullptr;};
-    inline string dataSourceId() const { DARABONBA_PTR_GET_DEFAULT(dataSourceId_, "") };
+    inline string getDataSourceId() const { DARABONBA_PTR_GET_DEFAULT(dataSourceId_, "") };
     inline UpdateDataSourceRequest& setDataSourceId(string dataSourceId) { DARABONBA_PTR_SET_VALUE(dataSourceId_, dataSourceId) };
 
 
     // dataSourceName Field Functions 
     bool hasDataSourceName() const { return this->dataSourceName_ != nullptr;};
     void deleteDataSourceName() { this->dataSourceName_ = nullptr;};
-    inline string dataSourceName() const { DARABONBA_PTR_GET_DEFAULT(dataSourceName_, "") };
+    inline string getDataSourceName() const { DARABONBA_PTR_GET_DEFAULT(dataSourceName_, "") };
     inline UpdateDataSourceRequest& setDataSourceName(string dataSourceName) { DARABONBA_PTR_SET_VALUE(dataSourceName_, dataSourceName) };
 
 
     // dataSourceRecognizeEnabled Field Functions 
     bool hasDataSourceRecognizeEnabled() const { return this->dataSourceRecognizeEnabled_ != nullptr;};
     void deleteDataSourceRecognizeEnabled() { this->dataSourceRecognizeEnabled_ = nullptr;};
-    inline bool dataSourceRecognizeEnabled() const { DARABONBA_PTR_GET_DEFAULT(dataSourceRecognizeEnabled_, false) };
+    inline bool getDataSourceRecognizeEnabled() const { DARABONBA_PTR_GET_DEFAULT(dataSourceRecognizeEnabled_, false) };
     inline UpdateDataSourceRequest& setDataSourceRecognizeEnabled(bool dataSourceRecognizeEnabled) { DARABONBA_PTR_SET_VALUE(dataSourceRecognizeEnabled_, dataSourceRecognizeEnabled) };
 
 
     // dataSourceStores Field Functions 
     bool hasDataSourceStores() const { return this->dataSourceStores_ != nullptr;};
     void deleteDataSourceStores() { this->dataSourceStores_ = nullptr;};
-    inline const vector<UpdateDataSourceRequestDataSourceStores> & dataSourceStores() const { DARABONBA_PTR_GET_CONST(dataSourceStores_, vector<UpdateDataSourceRequestDataSourceStores>) };
-    inline vector<UpdateDataSourceRequestDataSourceStores> dataSourceStores() { DARABONBA_PTR_GET(dataSourceStores_, vector<UpdateDataSourceRequestDataSourceStores>) };
-    inline UpdateDataSourceRequest& setDataSourceStores(const vector<UpdateDataSourceRequestDataSourceStores> & dataSourceStores) { DARABONBA_PTR_SET_VALUE(dataSourceStores_, dataSourceStores) };
-    inline UpdateDataSourceRequest& setDataSourceStores(vector<UpdateDataSourceRequestDataSourceStores> && dataSourceStores) { DARABONBA_PTR_SET_RVALUE(dataSourceStores_, dataSourceStores) };
+    inline const vector<UpdateDataSourceRequest::DataSourceStores> & getDataSourceStores() const { DARABONBA_PTR_GET_CONST(dataSourceStores_, vector<UpdateDataSourceRequest::DataSourceStores>) };
+    inline vector<UpdateDataSourceRequest::DataSourceStores> getDataSourceStores() { DARABONBA_PTR_GET(dataSourceStores_, vector<UpdateDataSourceRequest::DataSourceStores>) };
+    inline UpdateDataSourceRequest& setDataSourceStores(const vector<UpdateDataSourceRequest::DataSourceStores> & dataSourceStores) { DARABONBA_PTR_SET_VALUE(dataSourceStores_, dataSourceStores) };
+    inline UpdateDataSourceRequest& setDataSourceStores(vector<UpdateDataSourceRequest::DataSourceStores> && dataSourceStores) { DARABONBA_PTR_SET_RVALUE(dataSourceStores_, dataSourceStores) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline UpdateDataSourceRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // logProjectName Field Functions 
     bool hasLogProjectName() const { return this->logProjectName_ != nullptr;};
     void deleteLogProjectName() { this->logProjectName_ = nullptr;};
-    inline string logProjectName() const { DARABONBA_PTR_GET_DEFAULT(logProjectName_, "") };
+    inline string getLogProjectName() const { DARABONBA_PTR_GET_DEFAULT(logProjectName_, "") };
     inline UpdateDataSourceRequest& setLogProjectName(string logProjectName) { DARABONBA_PTR_SET_VALUE(logProjectName_, logProjectName) };
 
 
     // logRegionId Field Functions 
     bool hasLogRegionId() const { return this->logRegionId_ != nullptr;};
     void deleteLogRegionId() { this->logRegionId_ = nullptr;};
-    inline string logRegionId() const { DARABONBA_PTR_GET_DEFAULT(logRegionId_, "") };
+    inline string getLogRegionId() const { DARABONBA_PTR_GET_DEFAULT(logRegionId_, "") };
     inline UpdateDataSourceRequest& setLogRegionId(string logRegionId) { DARABONBA_PTR_SET_VALUE(logRegionId_, logRegionId) };
 
 
     // logStoreName Field Functions 
     bool hasLogStoreName() const { return this->logStoreName_ != nullptr;};
     void deleteLogStoreName() { this->logStoreName_ = nullptr;};
-    inline string logStoreName() const { DARABONBA_PTR_GET_DEFAULT(logStoreName_, "") };
+    inline string getLogStoreName() const { DARABONBA_PTR_GET_DEFAULT(logStoreName_, "") };
     inline UpdateDataSourceRequest& setLogStoreName(string logStoreName) { DARABONBA_PTR_SET_VALUE(logStoreName_, logStoreName) };
 
 
     // logUserId Field Functions 
     bool hasLogUserId() const { return this->logUserId_ != nullptr;};
     void deleteLogUserId() { this->logUserId_ = nullptr;};
-    inline int64_t logUserId() const { DARABONBA_PTR_GET_DEFAULT(logUserId_, 0L) };
+    inline int64_t getLogUserId() const { DARABONBA_PTR_GET_DEFAULT(logUserId_, 0L) };
     inline UpdateDataSourceRequest& setLogUserId(int64_t logUserId) { DARABONBA_PTR_SET_VALUE(logUserId_, logUserId) };
 
 
     // orderField Field Functions 
     bool hasOrderField() const { return this->orderField_ != nullptr;};
     void deleteOrderField() { this->orderField_ = nullptr;};
-    inline string orderField() const { DARABONBA_PTR_GET_DEFAULT(orderField_, "") };
+    inline string getOrderField() const { DARABONBA_PTR_GET_DEFAULT(orderField_, "") };
     inline UpdateDataSourceRequest& setOrderField(string orderField) { DARABONBA_PTR_SET_VALUE(orderField_, orderField) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline UpdateDataSourceRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // roleFor Field Functions 
     bool hasRoleFor() const { return this->roleFor_ != nullptr;};
     void deleteRoleFor() { this->roleFor_ = nullptr;};
-    inline int64_t roleFor() const { DARABONBA_PTR_GET_DEFAULT(roleFor_, 0L) };
+    inline int64_t getRoleFor() const { DARABONBA_PTR_GET_DEFAULT(roleFor_, 0L) };
     inline UpdateDataSourceRequest& setRoleFor(int64_t roleFor) { DARABONBA_PTR_SET_VALUE(roleFor_, roleFor) };
 
 
   protected:
-    std::shared_ptr<string> dataSourceFrom_ = nullptr;
-    std::shared_ptr<string> dataSourceId_ = nullptr;
-    std::shared_ptr<string> dataSourceName_ = nullptr;
-    std::shared_ptr<bool> dataSourceRecognizeEnabled_ = nullptr;
-    std::shared_ptr<vector<UpdateDataSourceRequestDataSourceStores>> dataSourceStores_ = nullptr;
-    std::shared_ptr<string> lang_ = nullptr;
-    std::shared_ptr<string> logProjectName_ = nullptr;
-    std::shared_ptr<string> logRegionId_ = nullptr;
-    std::shared_ptr<string> logStoreName_ = nullptr;
-    std::shared_ptr<int64_t> logUserId_ = nullptr;
-    std::shared_ptr<string> orderField_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<int64_t> roleFor_ = nullptr;
+    shared_ptr<string> dataSourceFrom_ {};
+    shared_ptr<string> dataSourceId_ {};
+    shared_ptr<string> dataSourceName_ {};
+    shared_ptr<bool> dataSourceRecognizeEnabled_ {};
+    shared_ptr<vector<UpdateDataSourceRequest::DataSourceStores>> dataSourceStores_ {};
+    shared_ptr<string> lang_ {};
+    shared_ptr<string> logProjectName_ {};
+    shared_ptr<string> logRegionId_ {};
+    shared_ptr<string> logStoreName_ {};
+    shared_ptr<int64_t> logUserId_ {};
+    shared_ptr<string> orderField_ {};
+    shared_ptr<string> regionId_ {};
+    shared_ptr<int64_t> roleFor_ {};
   };
 
   } // namespace Models

@@ -157,6 +157,23 @@ namespace CloudSiem20241212
       Models::CreateNormalizationRuleResponse createNormalizationRule(const Models::CreateNormalizationRuleRequest &request);
 
       /**
+       * @summary 创建标准化结构
+       *
+       * @param request CreateNormalizationSchemaRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateNormalizationSchemaResponse
+       */
+      Models::CreateNormalizationSchemaResponse createNormalizationSchemaWithOptions(const Models::CreateNormalizationSchemaRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建标准化结构
+       *
+       * @param request CreateNormalizationSchemaRequest
+       * @return CreateNormalizationSchemaResponse
+       */
+      Models::CreateNormalizationSchemaResponse createNormalizationSchema(const Models::CreateNormalizationSchemaRequest &request);
+
+      /**
        * @summary 创建产品
        *
        * @param request CreateProductRequest
@@ -956,6 +973,23 @@ namespace CloudSiem20241212
       Models::ListVendorsResponse listVendors(const Models::ListVendorsRequest &request);
 
       /**
+       * @summary 刷新数据源
+       *
+       * @param request RefreshDataSourceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RefreshDataSourceResponse
+       */
+      Models::RefreshDataSourceResponse refreshDataSourceWithOptions(const Models::RefreshDataSourceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 刷新数据源
+       *
+       * @param request RefreshDataSourceRequest
+       * @return RefreshDataSourceResponse
+       */
+      Models::RefreshDataSourceResponse refreshDataSource(const Models::RefreshDataSourceRequest &request);
+
+      /**
        * @summary 数据存储的清空操作，该动作会删除已有的数据，重新初始化物理存储。
        *
        * @param request ResetDataStorageRequest
@@ -1192,6 +1226,23 @@ namespace CloudSiem20241212
        * @return UpdateNormalizationRuleResponse
        */
       Models::UpdateNormalizationRuleResponse updateNormalizationRule(const Models::UpdateNormalizationRuleRequest &request);
+
+      /**
+       * @summary 更新标准化结构
+       *
+       * @param request UpdateNormalizationSchemaRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateNormalizationSchemaResponse
+       */
+      Models::UpdateNormalizationSchemaResponse updateNormalizationSchemaWithOptions(const Models::UpdateNormalizationSchemaRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新标准化结构
+       *
+       * @param request UpdateNormalizationSchemaRequest
+       * @return UpdateNormalizationSchemaResponse
+       */
+      Models::UpdateNormalizationSchemaResponse updateNormalizationSchema(const Models::UpdateNormalizationSchemaRequest &request);
 
       /**
        * @summary 更新产品品

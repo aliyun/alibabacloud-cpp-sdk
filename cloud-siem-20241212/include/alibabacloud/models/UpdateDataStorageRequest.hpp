@@ -38,49 +38,49 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dataStorageRegionId_ == nullptr
-        && return this->deliveryStatus_ == nullptr && return this->lang_ == nullptr && return this->regionId_ == nullptr && return this->roleFor_ == nullptr; };
+        && this->deliveryStatus_ == nullptr && this->lang_ == nullptr && this->regionId_ == nullptr && this->roleFor_ == nullptr; };
     // dataStorageRegionId Field Functions 
     bool hasDataStorageRegionId() const { return this->dataStorageRegionId_ != nullptr;};
     void deleteDataStorageRegionId() { this->dataStorageRegionId_ = nullptr;};
-    inline string dataStorageRegionId() const { DARABONBA_PTR_GET_DEFAULT(dataStorageRegionId_, "") };
+    inline string getDataStorageRegionId() const { DARABONBA_PTR_GET_DEFAULT(dataStorageRegionId_, "") };
     inline UpdateDataStorageRequest& setDataStorageRegionId(string dataStorageRegionId) { DARABONBA_PTR_SET_VALUE(dataStorageRegionId_, dataStorageRegionId) };
 
 
     // deliveryStatus Field Functions 
     bool hasDeliveryStatus() const { return this->deliveryStatus_ != nullptr;};
     void deleteDeliveryStatus() { this->deliveryStatus_ = nullptr;};
-    inline string deliveryStatus() const { DARABONBA_PTR_GET_DEFAULT(deliveryStatus_, "") };
+    inline string getDeliveryStatus() const { DARABONBA_PTR_GET_DEFAULT(deliveryStatus_, "") };
     inline UpdateDataStorageRequest& setDeliveryStatus(string deliveryStatus) { DARABONBA_PTR_SET_VALUE(deliveryStatus_, deliveryStatus) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline UpdateDataStorageRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline UpdateDataStorageRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // roleFor Field Functions 
     bool hasRoleFor() const { return this->roleFor_ != nullptr;};
     void deleteRoleFor() { this->roleFor_ = nullptr;};
-    inline int64_t roleFor() const { DARABONBA_PTR_GET_DEFAULT(roleFor_, 0L) };
+    inline int64_t getRoleFor() const { DARABONBA_PTR_GET_DEFAULT(roleFor_, 0L) };
     inline UpdateDataStorageRequest& setRoleFor(int64_t roleFor) { DARABONBA_PTR_SET_VALUE(roleFor_, roleFor) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> dataStorageRegionId_ = nullptr;
-    std::shared_ptr<string> deliveryStatus_ = nullptr;
-    std::shared_ptr<string> lang_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<int64_t> roleFor_ = nullptr;
+    shared_ptr<string> dataStorageRegionId_ {};
+    shared_ptr<string> deliveryStatus_ {};
+    shared_ptr<string> lang_ {};
+    shared_ptr<string> regionId_ {};
+    shared_ptr<int64_t> roleFor_ {};
   };
 
   } // namespace Models

@@ -52,106 +52,106 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->endTime_ == nullptr
-        && return this->extendContentPacked_ == nullptr && return this->lang_ == nullptr && return this->logProjectName_ == nullptr && return this->logQuery_ == nullptr && return this->logRegionId_ == nullptr
-        && return this->logStoreName_ == nullptr && return this->logUserId_ == nullptr && return this->normalizationSchemaId_ == nullptr && return this->regionId_ == nullptr && return this->roleFor_ == nullptr
-        && return this->startTime_ == nullptr; };
+        && this->extendContentPacked_ == nullptr && this->lang_ == nullptr && this->logProjectName_ == nullptr && this->logQuery_ == nullptr && this->logRegionId_ == nullptr
+        && this->logStoreName_ == nullptr && this->logUserId_ == nullptr && this->normalizationSchemaId_ == nullptr && this->regionId_ == nullptr && this->roleFor_ == nullptr
+        && this->startTime_ == nullptr; };
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline ExecuteLogQueryRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // extendContentPacked Field Functions 
     bool hasExtendContentPacked() const { return this->extendContentPacked_ != nullptr;};
     void deleteExtendContentPacked() { this->extendContentPacked_ = nullptr;};
-    inline string extendContentPacked() const { DARABONBA_PTR_GET_DEFAULT(extendContentPacked_, "") };
+    inline string getExtendContentPacked() const { DARABONBA_PTR_GET_DEFAULT(extendContentPacked_, "") };
     inline ExecuteLogQueryRequest& setExtendContentPacked(string extendContentPacked) { DARABONBA_PTR_SET_VALUE(extendContentPacked_, extendContentPacked) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline ExecuteLogQueryRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // logProjectName Field Functions 
     bool hasLogProjectName() const { return this->logProjectName_ != nullptr;};
     void deleteLogProjectName() { this->logProjectName_ = nullptr;};
-    inline string logProjectName() const { DARABONBA_PTR_GET_DEFAULT(logProjectName_, "") };
+    inline string getLogProjectName() const { DARABONBA_PTR_GET_DEFAULT(logProjectName_, "") };
     inline ExecuteLogQueryRequest& setLogProjectName(string logProjectName) { DARABONBA_PTR_SET_VALUE(logProjectName_, logProjectName) };
 
 
     // logQuery Field Functions 
     bool hasLogQuery() const { return this->logQuery_ != nullptr;};
     void deleteLogQuery() { this->logQuery_ = nullptr;};
-    inline string logQuery() const { DARABONBA_PTR_GET_DEFAULT(logQuery_, "") };
+    inline string getLogQuery() const { DARABONBA_PTR_GET_DEFAULT(logQuery_, "") };
     inline ExecuteLogQueryRequest& setLogQuery(string logQuery) { DARABONBA_PTR_SET_VALUE(logQuery_, logQuery) };
 
 
     // logRegionId Field Functions 
     bool hasLogRegionId() const { return this->logRegionId_ != nullptr;};
     void deleteLogRegionId() { this->logRegionId_ = nullptr;};
-    inline string logRegionId() const { DARABONBA_PTR_GET_DEFAULT(logRegionId_, "") };
+    inline string getLogRegionId() const { DARABONBA_PTR_GET_DEFAULT(logRegionId_, "") };
     inline ExecuteLogQueryRequest& setLogRegionId(string logRegionId) { DARABONBA_PTR_SET_VALUE(logRegionId_, logRegionId) };
 
 
     // logStoreName Field Functions 
     bool hasLogStoreName() const { return this->logStoreName_ != nullptr;};
     void deleteLogStoreName() { this->logStoreName_ = nullptr;};
-    inline string logStoreName() const { DARABONBA_PTR_GET_DEFAULT(logStoreName_, "") };
+    inline string getLogStoreName() const { DARABONBA_PTR_GET_DEFAULT(logStoreName_, "") };
     inline ExecuteLogQueryRequest& setLogStoreName(string logStoreName) { DARABONBA_PTR_SET_VALUE(logStoreName_, logStoreName) };
 
 
     // logUserId Field Functions 
     bool hasLogUserId() const { return this->logUserId_ != nullptr;};
     void deleteLogUserId() { this->logUserId_ = nullptr;};
-    inline int64_t logUserId() const { DARABONBA_PTR_GET_DEFAULT(logUserId_, 0L) };
+    inline int64_t getLogUserId() const { DARABONBA_PTR_GET_DEFAULT(logUserId_, 0L) };
     inline ExecuteLogQueryRequest& setLogUserId(int64_t logUserId) { DARABONBA_PTR_SET_VALUE(logUserId_, logUserId) };
 
 
     // normalizationSchemaId Field Functions 
     bool hasNormalizationSchemaId() const { return this->normalizationSchemaId_ != nullptr;};
     void deleteNormalizationSchemaId() { this->normalizationSchemaId_ = nullptr;};
-    inline string normalizationSchemaId() const { DARABONBA_PTR_GET_DEFAULT(normalizationSchemaId_, "") };
+    inline string getNormalizationSchemaId() const { DARABONBA_PTR_GET_DEFAULT(normalizationSchemaId_, "") };
     inline ExecuteLogQueryRequest& setNormalizationSchemaId(string normalizationSchemaId) { DARABONBA_PTR_SET_VALUE(normalizationSchemaId_, normalizationSchemaId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ExecuteLogQueryRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // roleFor Field Functions 
     bool hasRoleFor() const { return this->roleFor_ != nullptr;};
     void deleteRoleFor() { this->roleFor_ = nullptr;};
-    inline int64_t roleFor() const { DARABONBA_PTR_GET_DEFAULT(roleFor_, 0L) };
+    inline int64_t getRoleFor() const { DARABONBA_PTR_GET_DEFAULT(roleFor_, 0L) };
     inline ExecuteLogQueryRequest& setRoleFor(int64_t roleFor) { DARABONBA_PTR_SET_VALUE(roleFor_, roleFor) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline ExecuteLogQueryRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
   protected:
-    std::shared_ptr<string> endTime_ = nullptr;
-    std::shared_ptr<string> extendContentPacked_ = nullptr;
-    std::shared_ptr<string> lang_ = nullptr;
-    std::shared_ptr<string> logProjectName_ = nullptr;
-    std::shared_ptr<string> logQuery_ = nullptr;
-    std::shared_ptr<string> logRegionId_ = nullptr;
-    std::shared_ptr<string> logStoreName_ = nullptr;
-    std::shared_ptr<int64_t> logUserId_ = nullptr;
-    std::shared_ptr<string> normalizationSchemaId_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<int64_t> roleFor_ = nullptr;
-    std::shared_ptr<string> startTime_ = nullptr;
+    shared_ptr<string> endTime_ {};
+    shared_ptr<string> extendContentPacked_ {};
+    shared_ptr<string> lang_ {};
+    shared_ptr<string> logProjectName_ {};
+    shared_ptr<string> logQuery_ {};
+    shared_ptr<string> logRegionId_ {};
+    shared_ptr<string> logStoreName_ {};
+    shared_ptr<int64_t> logUserId_ {};
+    shared_ptr<string> normalizationSchemaId_ {};
+    shared_ptr<string> regionId_ {};
+    shared_ptr<int64_t> roleFor_ {};
+    shared_ptr<string> startTime_ {};
   };
 
   } // namespace Models

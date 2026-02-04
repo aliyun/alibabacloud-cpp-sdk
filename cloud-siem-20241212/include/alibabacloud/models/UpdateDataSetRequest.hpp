@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_UPDATEDATASETREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/UpdateDataSetRequestIpWhitelistRecognizers.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -47,85 +46,137 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class IpWhitelistRecognizers : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const IpWhitelistRecognizers& obj) { 
+        DARABONBA_PTR_TO_JSON(AutoRecognizeStatus, autoRecognizeStatus_);
+        DARABONBA_PTR_TO_JSON(IpWhitelistRecognizerType, ipWhitelistRecognizerType_);
+        DARABONBA_PTR_TO_JSON(RecognizeScope, recognizeScope_);
+      };
+      friend void from_json(const Darabonba::Json& j, IpWhitelistRecognizers& obj) { 
+        DARABONBA_PTR_FROM_JSON(AutoRecognizeStatus, autoRecognizeStatus_);
+        DARABONBA_PTR_FROM_JSON(IpWhitelistRecognizerType, ipWhitelistRecognizerType_);
+        DARABONBA_PTR_FROM_JSON(RecognizeScope, recognizeScope_);
+      };
+      IpWhitelistRecognizers() = default ;
+      IpWhitelistRecognizers(const IpWhitelistRecognizers &) = default ;
+      IpWhitelistRecognizers(IpWhitelistRecognizers &&) = default ;
+      IpWhitelistRecognizers(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~IpWhitelistRecognizers() = default ;
+      IpWhitelistRecognizers& operator=(const IpWhitelistRecognizers &) = default ;
+      IpWhitelistRecognizers& operator=(IpWhitelistRecognizers &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->autoRecognizeStatus_ == nullptr
+        && this->ipWhitelistRecognizerType_ == nullptr && this->recognizeScope_ == nullptr; };
+      // autoRecognizeStatus Field Functions 
+      bool hasAutoRecognizeStatus() const { return this->autoRecognizeStatus_ != nullptr;};
+      void deleteAutoRecognizeStatus() { this->autoRecognizeStatus_ = nullptr;};
+      inline string getAutoRecognizeStatus() const { DARABONBA_PTR_GET_DEFAULT(autoRecognizeStatus_, "") };
+      inline IpWhitelistRecognizers& setAutoRecognizeStatus(string autoRecognizeStatus) { DARABONBA_PTR_SET_VALUE(autoRecognizeStatus_, autoRecognizeStatus) };
+
+
+      // ipWhitelistRecognizerType Field Functions 
+      bool hasIpWhitelistRecognizerType() const { return this->ipWhitelistRecognizerType_ != nullptr;};
+      void deleteIpWhitelistRecognizerType() { this->ipWhitelistRecognizerType_ = nullptr;};
+      inline string getIpWhitelistRecognizerType() const { DARABONBA_PTR_GET_DEFAULT(ipWhitelistRecognizerType_, "") };
+      inline IpWhitelistRecognizers& setIpWhitelistRecognizerType(string ipWhitelistRecognizerType) { DARABONBA_PTR_SET_VALUE(ipWhitelistRecognizerType_, ipWhitelistRecognizerType) };
+
+
+      // recognizeScope Field Functions 
+      bool hasRecognizeScope() const { return this->recognizeScope_ != nullptr;};
+      void deleteRecognizeScope() { this->recognizeScope_ = nullptr;};
+      inline string getRecognizeScope() const { DARABONBA_PTR_GET_DEFAULT(recognizeScope_, "") };
+      inline IpWhitelistRecognizers& setRecognizeScope(string recognizeScope) { DARABONBA_PTR_SET_VALUE(recognizeScope_, recognizeScope) };
+
+
+    protected:
+      shared_ptr<string> autoRecognizeStatus_ {};
+      shared_ptr<string> ipWhitelistRecognizerType_ {};
+      shared_ptr<string> recognizeScope_ {};
+    };
+
     virtual bool empty() const override { return this->dataSetDescription_ == nullptr
-        && return this->dataSetFileName_ == nullptr && return this->dataSetId_ == nullptr && return this->dataSetName_ == nullptr && return this->dataSetStatus_ == nullptr && return this->ipWhitelistRecognizers_ == nullptr
-        && return this->lang_ == nullptr && return this->regionId_ == nullptr && return this->roleFor_ == nullptr; };
+        && this->dataSetFileName_ == nullptr && this->dataSetId_ == nullptr && this->dataSetName_ == nullptr && this->dataSetStatus_ == nullptr && this->ipWhitelistRecognizers_ == nullptr
+        && this->lang_ == nullptr && this->regionId_ == nullptr && this->roleFor_ == nullptr; };
     // dataSetDescription Field Functions 
     bool hasDataSetDescription() const { return this->dataSetDescription_ != nullptr;};
     void deleteDataSetDescription() { this->dataSetDescription_ = nullptr;};
-    inline string dataSetDescription() const { DARABONBA_PTR_GET_DEFAULT(dataSetDescription_, "") };
+    inline string getDataSetDescription() const { DARABONBA_PTR_GET_DEFAULT(dataSetDescription_, "") };
     inline UpdateDataSetRequest& setDataSetDescription(string dataSetDescription) { DARABONBA_PTR_SET_VALUE(dataSetDescription_, dataSetDescription) };
 
 
     // dataSetFileName Field Functions 
     bool hasDataSetFileName() const { return this->dataSetFileName_ != nullptr;};
     void deleteDataSetFileName() { this->dataSetFileName_ = nullptr;};
-    inline string dataSetFileName() const { DARABONBA_PTR_GET_DEFAULT(dataSetFileName_, "") };
+    inline string getDataSetFileName() const { DARABONBA_PTR_GET_DEFAULT(dataSetFileName_, "") };
     inline UpdateDataSetRequest& setDataSetFileName(string dataSetFileName) { DARABONBA_PTR_SET_VALUE(dataSetFileName_, dataSetFileName) };
 
 
     // dataSetId Field Functions 
     bool hasDataSetId() const { return this->dataSetId_ != nullptr;};
     void deleteDataSetId() { this->dataSetId_ = nullptr;};
-    inline string dataSetId() const { DARABONBA_PTR_GET_DEFAULT(dataSetId_, "") };
+    inline string getDataSetId() const { DARABONBA_PTR_GET_DEFAULT(dataSetId_, "") };
     inline UpdateDataSetRequest& setDataSetId(string dataSetId) { DARABONBA_PTR_SET_VALUE(dataSetId_, dataSetId) };
 
 
     // dataSetName Field Functions 
     bool hasDataSetName() const { return this->dataSetName_ != nullptr;};
     void deleteDataSetName() { this->dataSetName_ = nullptr;};
-    inline string dataSetName() const { DARABONBA_PTR_GET_DEFAULT(dataSetName_, "") };
+    inline string getDataSetName() const { DARABONBA_PTR_GET_DEFAULT(dataSetName_, "") };
     inline UpdateDataSetRequest& setDataSetName(string dataSetName) { DARABONBA_PTR_SET_VALUE(dataSetName_, dataSetName) };
 
 
     // dataSetStatus Field Functions 
     bool hasDataSetStatus() const { return this->dataSetStatus_ != nullptr;};
     void deleteDataSetStatus() { this->dataSetStatus_ = nullptr;};
-    inline int32_t dataSetStatus() const { DARABONBA_PTR_GET_DEFAULT(dataSetStatus_, 0) };
+    inline int32_t getDataSetStatus() const { DARABONBA_PTR_GET_DEFAULT(dataSetStatus_, 0) };
     inline UpdateDataSetRequest& setDataSetStatus(int32_t dataSetStatus) { DARABONBA_PTR_SET_VALUE(dataSetStatus_, dataSetStatus) };
 
 
     // ipWhitelistRecognizers Field Functions 
     bool hasIpWhitelistRecognizers() const { return this->ipWhitelistRecognizers_ != nullptr;};
     void deleteIpWhitelistRecognizers() { this->ipWhitelistRecognizers_ = nullptr;};
-    inline const vector<UpdateDataSetRequestIpWhitelistRecognizers> & ipWhitelistRecognizers() const { DARABONBA_PTR_GET_CONST(ipWhitelistRecognizers_, vector<UpdateDataSetRequestIpWhitelistRecognizers>) };
-    inline vector<UpdateDataSetRequestIpWhitelistRecognizers> ipWhitelistRecognizers() { DARABONBA_PTR_GET(ipWhitelistRecognizers_, vector<UpdateDataSetRequestIpWhitelistRecognizers>) };
-    inline UpdateDataSetRequest& setIpWhitelistRecognizers(const vector<UpdateDataSetRequestIpWhitelistRecognizers> & ipWhitelistRecognizers) { DARABONBA_PTR_SET_VALUE(ipWhitelistRecognizers_, ipWhitelistRecognizers) };
-    inline UpdateDataSetRequest& setIpWhitelistRecognizers(vector<UpdateDataSetRequestIpWhitelistRecognizers> && ipWhitelistRecognizers) { DARABONBA_PTR_SET_RVALUE(ipWhitelistRecognizers_, ipWhitelistRecognizers) };
+    inline const vector<UpdateDataSetRequest::IpWhitelistRecognizers> & getIpWhitelistRecognizers() const { DARABONBA_PTR_GET_CONST(ipWhitelistRecognizers_, vector<UpdateDataSetRequest::IpWhitelistRecognizers>) };
+    inline vector<UpdateDataSetRequest::IpWhitelistRecognizers> getIpWhitelistRecognizers() { DARABONBA_PTR_GET(ipWhitelistRecognizers_, vector<UpdateDataSetRequest::IpWhitelistRecognizers>) };
+    inline UpdateDataSetRequest& setIpWhitelistRecognizers(const vector<UpdateDataSetRequest::IpWhitelistRecognizers> & ipWhitelistRecognizers) { DARABONBA_PTR_SET_VALUE(ipWhitelistRecognizers_, ipWhitelistRecognizers) };
+    inline UpdateDataSetRequest& setIpWhitelistRecognizers(vector<UpdateDataSetRequest::IpWhitelistRecognizers> && ipWhitelistRecognizers) { DARABONBA_PTR_SET_RVALUE(ipWhitelistRecognizers_, ipWhitelistRecognizers) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline UpdateDataSetRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline UpdateDataSetRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // roleFor Field Functions 
     bool hasRoleFor() const { return this->roleFor_ != nullptr;};
     void deleteRoleFor() { this->roleFor_ = nullptr;};
-    inline int64_t roleFor() const { DARABONBA_PTR_GET_DEFAULT(roleFor_, 0L) };
+    inline int64_t getRoleFor() const { DARABONBA_PTR_GET_DEFAULT(roleFor_, 0L) };
     inline UpdateDataSetRequest& setRoleFor(int64_t roleFor) { DARABONBA_PTR_SET_VALUE(roleFor_, roleFor) };
 
 
   protected:
-    std::shared_ptr<string> dataSetDescription_ = nullptr;
-    std::shared_ptr<string> dataSetFileName_ = nullptr;
+    shared_ptr<string> dataSetDescription_ {};
+    shared_ptr<string> dataSetFileName_ {};
     // This parameter is required.
-    std::shared_ptr<string> dataSetId_ = nullptr;
-    std::shared_ptr<string> dataSetName_ = nullptr;
-    std::shared_ptr<int32_t> dataSetStatus_ = nullptr;
-    std::shared_ptr<vector<UpdateDataSetRequestIpWhitelistRecognizers>> ipWhitelistRecognizers_ = nullptr;
-    std::shared_ptr<string> lang_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<int64_t> roleFor_ = nullptr;
+    shared_ptr<string> dataSetId_ {};
+    shared_ptr<string> dataSetName_ {};
+    shared_ptr<int32_t> dataSetStatus_ {};
+    shared_ptr<vector<UpdateDataSetRequest::IpWhitelistRecognizers>> ipWhitelistRecognizers_ {};
+    shared_ptr<string> lang_ {};
+    shared_ptr<string> regionId_ {};
+    shared_ptr<int64_t> roleFor_ {};
   };
 
   } // namespace Models

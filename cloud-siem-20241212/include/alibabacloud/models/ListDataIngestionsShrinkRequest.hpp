@@ -42,65 +42,65 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dataIngestionIdsShrink_ == nullptr
-        && return this->dataIngestionStatus_ == nullptr && return this->dataIngestionTemplateIdsShrink_ == nullptr && return this->lang_ == nullptr && return this->productId_ == nullptr && return this->regionId_ == nullptr
-        && return this->roleFor_ == nullptr; };
+        && this->dataIngestionStatus_ == nullptr && this->dataIngestionTemplateIdsShrink_ == nullptr && this->lang_ == nullptr && this->productId_ == nullptr && this->regionId_ == nullptr
+        && this->roleFor_ == nullptr; };
     // dataIngestionIdsShrink Field Functions 
     bool hasDataIngestionIdsShrink() const { return this->dataIngestionIdsShrink_ != nullptr;};
     void deleteDataIngestionIdsShrink() { this->dataIngestionIdsShrink_ = nullptr;};
-    inline string dataIngestionIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(dataIngestionIdsShrink_, "") };
+    inline string getDataIngestionIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(dataIngestionIdsShrink_, "") };
     inline ListDataIngestionsShrinkRequest& setDataIngestionIdsShrink(string dataIngestionIdsShrink) { DARABONBA_PTR_SET_VALUE(dataIngestionIdsShrink_, dataIngestionIdsShrink) };
 
 
     // dataIngestionStatus Field Functions 
     bool hasDataIngestionStatus() const { return this->dataIngestionStatus_ != nullptr;};
     void deleteDataIngestionStatus() { this->dataIngestionStatus_ = nullptr;};
-    inline string dataIngestionStatus() const { DARABONBA_PTR_GET_DEFAULT(dataIngestionStatus_, "") };
+    inline string getDataIngestionStatus() const { DARABONBA_PTR_GET_DEFAULT(dataIngestionStatus_, "") };
     inline ListDataIngestionsShrinkRequest& setDataIngestionStatus(string dataIngestionStatus) { DARABONBA_PTR_SET_VALUE(dataIngestionStatus_, dataIngestionStatus) };
 
 
     // dataIngestionTemplateIdsShrink Field Functions 
     bool hasDataIngestionTemplateIdsShrink() const { return this->dataIngestionTemplateIdsShrink_ != nullptr;};
     void deleteDataIngestionTemplateIdsShrink() { this->dataIngestionTemplateIdsShrink_ = nullptr;};
-    inline string dataIngestionTemplateIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(dataIngestionTemplateIdsShrink_, "") };
+    inline string getDataIngestionTemplateIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(dataIngestionTemplateIdsShrink_, "") };
     inline ListDataIngestionsShrinkRequest& setDataIngestionTemplateIdsShrink(string dataIngestionTemplateIdsShrink) { DARABONBA_PTR_SET_VALUE(dataIngestionTemplateIdsShrink_, dataIngestionTemplateIdsShrink) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline ListDataIngestionsShrinkRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // productId Field Functions 
     bool hasProductId() const { return this->productId_ != nullptr;};
     void deleteProductId() { this->productId_ = nullptr;};
-    inline string productId() const { DARABONBA_PTR_GET_DEFAULT(productId_, "") };
+    inline string getProductId() const { DARABONBA_PTR_GET_DEFAULT(productId_, "") };
     inline ListDataIngestionsShrinkRequest& setProductId(string productId) { DARABONBA_PTR_SET_VALUE(productId_, productId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ListDataIngestionsShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // roleFor Field Functions 
     bool hasRoleFor() const { return this->roleFor_ != nullptr;};
     void deleteRoleFor() { this->roleFor_ = nullptr;};
-    inline int64_t roleFor() const { DARABONBA_PTR_GET_DEFAULT(roleFor_, 0L) };
+    inline int64_t getRoleFor() const { DARABONBA_PTR_GET_DEFAULT(roleFor_, 0L) };
     inline ListDataIngestionsShrinkRequest& setRoleFor(int64_t roleFor) { DARABONBA_PTR_SET_VALUE(roleFor_, roleFor) };
 
 
   protected:
-    std::shared_ptr<string> dataIngestionIdsShrink_ = nullptr;
-    std::shared_ptr<string> dataIngestionStatus_ = nullptr;
-    std::shared_ptr<string> dataIngestionTemplateIdsShrink_ = nullptr;
-    std::shared_ptr<string> lang_ = nullptr;
-    std::shared_ptr<string> productId_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<int64_t> roleFor_ = nullptr;
+    shared_ptr<string> dataIngestionIdsShrink_ {};
+    shared_ptr<string> dataIngestionStatus_ {};
+    shared_ptr<string> dataIngestionTemplateIdsShrink_ {};
+    shared_ptr<string> lang_ {};
+    shared_ptr<string> productId_ {};
+    shared_ptr<string> regionId_ {};
+    shared_ptr<int64_t> roleFor_ {};
   };
 
   } // namespace Models
