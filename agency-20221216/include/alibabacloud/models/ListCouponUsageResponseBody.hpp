@@ -101,6 +101,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(EffDate, effDate_);
         DARABONBA_PTR_TO_JSON(PublishDate, publishDate_);
         DARABONBA_PTR_TO_JSON(Status, status_);
+        DARABONBA_PTR_TO_JSON(T2PartnerUid, t2PartnerUid_);
         DARABONBA_PTR_TO_JSON(Uid, uid_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
@@ -112,6 +113,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(EffDate, effDate_);
         DARABONBA_PTR_FROM_JSON(PublishDate, publishDate_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
+        DARABONBA_PTR_FROM_JSON(T2PartnerUid, t2PartnerUid_);
         DARABONBA_PTR_FROM_JSON(Uid, uid_);
       };
       Data() = default ;
@@ -127,7 +129,7 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->account_ == nullptr
         && this->amount_ == nullptr && this->balance_ == nullptr && this->couponId_ == nullptr && this->couponTemplateId_ == nullptr && this->effDate_ == nullptr
-        && this->publishDate_ == nullptr && this->status_ == nullptr && this->uid_ == nullptr; };
+        && this->publishDate_ == nullptr && this->status_ == nullptr && this->t2PartnerUid_ == nullptr && this->uid_ == nullptr; };
       // account Field Functions 
       bool hasAccount() const { return this->account_ != nullptr;};
       void deleteAccount() { this->account_ = nullptr;};
@@ -184,6 +186,13 @@ namespace Models
       inline Data& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+      // t2PartnerUid Field Functions 
+      bool hasT2PartnerUid() const { return this->t2PartnerUid_ != nullptr;};
+      void deleteT2PartnerUid() { this->t2PartnerUid_ = nullptr;};
+      inline string getT2PartnerUid() const { DARABONBA_PTR_GET_DEFAULT(t2PartnerUid_, "") };
+      inline Data& setT2PartnerUid(string t2PartnerUid) { DARABONBA_PTR_SET_VALUE(t2PartnerUid_, t2PartnerUid) };
+
+
       // uid Field Functions 
       bool hasUid() const { return this->uid_ != nullptr;};
       void deleteUid() { this->uid_ = nullptr;};
@@ -200,6 +209,7 @@ namespace Models
       shared_ptr<string> effDate_ {};
       shared_ptr<string> publishDate_ {};
       shared_ptr<string> status_ {};
+      shared_ptr<string> t2PartnerUid_ {};
       shared_ptr<int64_t> uid_ {};
     };
 
