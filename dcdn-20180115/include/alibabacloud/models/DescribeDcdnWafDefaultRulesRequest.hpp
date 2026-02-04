@@ -29,17 +29,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->queryArgs_ != nullptr; };
+    virtual bool empty() const override { return this->queryArgs_ == nullptr; };
     // queryArgs Field Functions 
     bool hasQueryArgs() const { return this->queryArgs_ != nullptr;};
     void deleteQueryArgs() { this->queryArgs_ = nullptr;};
-    inline string queryArgs() const { DARABONBA_PTR_GET_DEFAULT(queryArgs_, "") };
+    inline string getQueryArgs() const { DARABONBA_PTR_GET_DEFAULT(queryArgs_, "") };
     inline DescribeDcdnWafDefaultRulesRequest& setQueryArgs(string queryArgs) { DARABONBA_PTR_SET_VALUE(queryArgs_, queryArgs) };
 
 
   protected:
     // The query conditions. The value is a string in the JSON format. Format: `QueryArgs={"DefenseScene":"anti_scan"}`
-    std::shared_ptr<string> queryArgs_ = nullptr;
+    shared_ptr<string> queryArgs_ {};
   };
 
   } // namespace Models

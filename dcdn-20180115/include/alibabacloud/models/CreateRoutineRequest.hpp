@@ -33,40 +33,40 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->description_ != nullptr
-        && this->envConf_ != nullptr && this->name_ != nullptr; };
+    virtual bool empty() const override { return this->description_ == nullptr
+        && this->envConf_ == nullptr && this->name_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateRoutineRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // envConf Field Functions 
     bool hasEnvConf() const { return this->envConf_ != nullptr;};
     void deleteEnvConf() { this->envConf_ = nullptr;};
-    inline     const Darabonba::Json & envConf() const { DARABONBA_GET(envConf_) };
-    Darabonba::Json & envConf() { DARABONBA_GET(envConf_) };
+    inline     const Darabonba::Json & getEnvConf() const { DARABONBA_GET(envConf_) };
+    Darabonba::Json & getEnvConf() { DARABONBA_GET(envConf_) };
     inline CreateRoutineRequest& setEnvConf(const Darabonba::Json & envConf) { DARABONBA_SET_VALUE(envConf_, envConf) };
-    inline CreateRoutineRequest& setEnvConf(Darabonba::Json & envConf) { DARABONBA_SET_RVALUE(envConf_, envConf) };
+    inline CreateRoutineRequest& setEnvConf(Darabonba::Json && envConf) { DARABONBA_SET_RVALUE(envConf_, envConf) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateRoutineRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
   protected:
     // The description of the routine.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The configurations of the specified environment.
-    Darabonba::Json envConf_ = nullptr;
+    Darabonba::Json envConf_ {};
     // The name of the routine. The name must be unique among the routines that belong to the same Alibaba Cloud account.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
   };
 
   } // namespace Models

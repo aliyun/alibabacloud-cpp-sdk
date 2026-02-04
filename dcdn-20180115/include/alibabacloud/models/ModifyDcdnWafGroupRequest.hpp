@@ -33,26 +33,26 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->id_ != nullptr
-        && this->name_ != nullptr && this->rules_ != nullptr; };
+    virtual bool empty() const override { return this->id_ == nullptr
+        && this->name_ == nullptr && this->rules_ == nullptr; };
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline int64_t id() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+    inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
     inline ModifyDcdnWafGroupRequest& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline ModifyDcdnWafGroupRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // rules Field Functions 
     bool hasRules() const { return this->rules_ != nullptr;};
     void deleteRules() { this->rules_ = nullptr;};
-    inline string rules() const { DARABONBA_PTR_GET_DEFAULT(rules_, "") };
+    inline string getRules() const { DARABONBA_PTR_GET_DEFAULT(rules_, "") };
     inline ModifyDcdnWafGroupRequest& setRules(string rules) { DARABONBA_PTR_SET_VALUE(rules_, rules) };
 
 
@@ -60,11 +60,11 @@ namespace Models
     // The ID of the custom WAF rule group.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> id_ = nullptr;
+    shared_ptr<int64_t> id_ {};
     // The name of the custom WAF rule group.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The incremental modifications of the rules in the custom WAF rule group. The value is a JSON string.
-    std::shared_ptr<string> rules_ = nullptr;
+    shared_ptr<string> rules_ {};
   };
 
   } // namespace Models

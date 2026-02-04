@@ -35,33 +35,33 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ruleConfig_ != nullptr
-        && this->ruleId_ != nullptr && this->ruleName_ != nullptr && this->ruleStatus_ != nullptr; };
+    virtual bool empty() const override { return this->ruleConfig_ == nullptr
+        && this->ruleId_ == nullptr && this->ruleName_ == nullptr && this->ruleStatus_ == nullptr; };
     // ruleConfig Field Functions 
     bool hasRuleConfig() const { return this->ruleConfig_ != nullptr;};
     void deleteRuleConfig() { this->ruleConfig_ = nullptr;};
-    inline string ruleConfig() const { DARABONBA_PTR_GET_DEFAULT(ruleConfig_, "") };
+    inline string getRuleConfig() const { DARABONBA_PTR_GET_DEFAULT(ruleConfig_, "") };
     inline ModifyDcdnWafRuleRequest& setRuleConfig(string ruleConfig) { DARABONBA_PTR_SET_VALUE(ruleConfig_, ruleConfig) };
 
 
     // ruleId Field Functions 
     bool hasRuleId() const { return this->ruleId_ != nullptr;};
     void deleteRuleId() { this->ruleId_ = nullptr;};
-    inline int64_t ruleId() const { DARABONBA_PTR_GET_DEFAULT(ruleId_, 0L) };
+    inline int64_t getRuleId() const { DARABONBA_PTR_GET_DEFAULT(ruleId_, 0L) };
     inline ModifyDcdnWafRuleRequest& setRuleId(int64_t ruleId) { DARABONBA_PTR_SET_VALUE(ruleId_, ruleId) };
 
 
     // ruleName Field Functions 
     bool hasRuleName() const { return this->ruleName_ != nullptr;};
     void deleteRuleName() { this->ruleName_ = nullptr;};
-    inline string ruleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
+    inline string getRuleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
     inline ModifyDcdnWafRuleRequest& setRuleName(string ruleName) { DARABONBA_PTR_SET_VALUE(ruleName_, ruleName) };
 
 
     // ruleStatus Field Functions 
     bool hasRuleStatus() const { return this->ruleStatus_ != nullptr;};
     void deleteRuleStatus() { this->ruleStatus_ = nullptr;};
-    inline string ruleStatus() const { DARABONBA_PTR_GET_DEFAULT(ruleStatus_, "") };
+    inline string getRuleStatus() const { DARABONBA_PTR_GET_DEFAULT(ruleStatus_, "") };
     inline ModifyDcdnWafRuleRequest& setRuleStatus(string ruleStatus) { DARABONBA_PTR_SET_VALUE(ruleStatus_, ruleStatus) };
 
 
@@ -69,18 +69,18 @@ namespace Models
     // The new configurations of the protection rule.
     // 
     // > After you modify the configurations of the protection rule, the previous configurations are overwritten.
-    std::shared_ptr<string> ruleConfig_ = nullptr;
+    shared_ptr<string> ruleConfig_ {};
     // The ID of the protection rule. You can specify only one ID in each request.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> ruleId_ = nullptr;
+    shared_ptr<int64_t> ruleId_ {};
     // The new name of the protection rule.
-    std::shared_ptr<string> ruleName_ = nullptr;
+    shared_ptr<string> ruleName_ {};
     // The new status of the protection rule. Valid values:
     // 
     // *   **on**
     // *   **off**
-    std::shared_ptr<string> ruleStatus_ = nullptr;
+    shared_ptr<string> ruleStatus_ {};
   };
 
   } // namespace Models

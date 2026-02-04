@@ -29,11 +29,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->sources_ != nullptr; };
+    virtual bool empty() const override { return this->sources_ == nullptr; };
     // sources Field Functions 
     bool hasSources() const { return this->sources_ != nullptr;};
     void deleteSources() { this->sources_ = nullptr;};
-    inline string sources() const { DARABONBA_PTR_GET_DEFAULT(sources_, "") };
+    inline string getSources() const { DARABONBA_PTR_GET_DEFAULT(sources_, "") };
     inline DescribeDcdnDomainsBySourceRequest& setSources(string sources) { DARABONBA_PTR_SET_VALUE(sources_, sources) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The list of origin servers. Separate origin servers with commas (,). You can specify a maximum of 20 origin servers. Fuzzy match is not supported.
     // 
     // This parameter is required.
-    std::shared_ptr<string> sources_ = nullptr;
+    shared_ptr<string> sources_ {};
   };
 
   } // namespace Models

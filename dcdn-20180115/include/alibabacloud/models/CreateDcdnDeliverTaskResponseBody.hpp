@@ -31,27 +31,27 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->deliverId_ != nullptr
-        && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->deliverId_ == nullptr
+        && this->requestId_ == nullptr; };
     // deliverId Field Functions 
     bool hasDeliverId() const { return this->deliverId_ != nullptr;};
     void deleteDeliverId() { this->deliverId_ = nullptr;};
-    inline string deliverId() const { DARABONBA_PTR_GET_DEFAULT(deliverId_, "") };
+    inline string getDeliverId() const { DARABONBA_PTR_GET_DEFAULT(deliverId_, "") };
     inline CreateDcdnDeliverTaskResponseBody& setDeliverId(string deliverId) { DARABONBA_PTR_SET_VALUE(deliverId_, deliverId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateDcdnDeliverTaskResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The ID of the change tracking task.
-    std::shared_ptr<string> deliverId_ = nullptr;
+    shared_ptr<string> deliverId_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

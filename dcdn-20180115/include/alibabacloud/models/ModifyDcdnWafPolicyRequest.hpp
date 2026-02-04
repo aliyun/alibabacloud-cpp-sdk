@@ -33,26 +33,26 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->policyId_ != nullptr
-        && this->policyName_ != nullptr && this->policyStatus_ != nullptr; };
+    virtual bool empty() const override { return this->policyId_ == nullptr
+        && this->policyName_ == nullptr && this->policyStatus_ == nullptr; };
     // policyId Field Functions 
     bool hasPolicyId() const { return this->policyId_ != nullptr;};
     void deletePolicyId() { this->policyId_ = nullptr;};
-    inline int64_t policyId() const { DARABONBA_PTR_GET_DEFAULT(policyId_, 0L) };
+    inline int64_t getPolicyId() const { DARABONBA_PTR_GET_DEFAULT(policyId_, 0L) };
     inline ModifyDcdnWafPolicyRequest& setPolicyId(int64_t policyId) { DARABONBA_PTR_SET_VALUE(policyId_, policyId) };
 
 
     // policyName Field Functions 
     bool hasPolicyName() const { return this->policyName_ != nullptr;};
     void deletePolicyName() { this->policyName_ = nullptr;};
-    inline string policyName() const { DARABONBA_PTR_GET_DEFAULT(policyName_, "") };
+    inline string getPolicyName() const { DARABONBA_PTR_GET_DEFAULT(policyName_, "") };
     inline ModifyDcdnWafPolicyRequest& setPolicyName(string policyName) { DARABONBA_PTR_SET_VALUE(policyName_, policyName) };
 
 
     // policyStatus Field Functions 
     bool hasPolicyStatus() const { return this->policyStatus_ != nullptr;};
     void deletePolicyStatus() { this->policyStatus_ = nullptr;};
-    inline string policyStatus() const { DARABONBA_PTR_GET_DEFAULT(policyStatus_, "") };
+    inline string getPolicyStatus() const { DARABONBA_PTR_GET_DEFAULT(policyStatus_, "") };
     inline ModifyDcdnWafPolicyRequest& setPolicyStatus(string policyStatus) { DARABONBA_PTR_SET_VALUE(policyStatus_, policyStatus) };
 
 
@@ -60,18 +60,18 @@ namespace Models
     // The ID of the protection policy that you want to modify. You can specify only one ID in each request.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> policyId_ = nullptr;
+    shared_ptr<int64_t> policyId_ {};
     // The new name of the protection policy.
     // 
     // > You must specify PolicyName or PolicyStatus.
-    std::shared_ptr<string> policyName_ = nullptr;
+    shared_ptr<string> policyName_ {};
     // The new status of the protection policy. Valid values:
     // 
     // *   **on**
     // *   **off**
     // 
     // > You must specify PolicyName or PolicyStatus.
-    std::shared_ptr<string> policyStatus_ = nullptr;
+    shared_ptr<string> policyStatus_ {};
   };
 
   } // namespace Models

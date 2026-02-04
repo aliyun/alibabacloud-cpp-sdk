@@ -33,26 +33,26 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->complete_ != nullptr
-        && this->expire_ != nullptr && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->complete_ == nullptr
+        && this->expire_ == nullptr && this->requestId_ == nullptr; };
     // complete Field Functions 
     bool hasComplete() const { return this->complete_ != nullptr;};
     void deleteComplete() { this->complete_ = nullptr;};
-    inline bool complete() const { DARABONBA_PTR_GET_DEFAULT(complete_, false) };
+    inline bool getComplete() const { DARABONBA_PTR_GET_DEFAULT(complete_, false) };
     inline GetDcdnKvStatusResponseBody& setComplete(bool complete) { DARABONBA_PTR_SET_VALUE(complete_, complete) };
 
 
     // expire Field Functions 
     bool hasExpire() const { return this->expire_ != nullptr;};
     void deleteExpire() { this->expire_ = nullptr;};
-    inline string expire() const { DARABONBA_PTR_GET_DEFAULT(expire_, "") };
+    inline string getExpire() const { DARABONBA_PTR_GET_DEFAULT(expire_, "") };
     inline GetDcdnKvStatusResponseBody& setExpire(string expire) { DARABONBA_PTR_SET_VALUE(expire_, expire) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetDcdnKvStatusResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
@@ -61,11 +61,11 @@ namespace Models
     // 
     // *   **true**
     // *   **false**
-    std::shared_ptr<bool> complete_ = nullptr;
+    shared_ptr<bool> complete_ {};
     // The timeout period of the configured key. The value is an absolute timestamp, such as 2023-09-11T15:39:44+08:00. This parameter is not returned if the key is permanently stored.
-    std::shared_ptr<string> expire_ = nullptr;
+    shared_ptr<string> expire_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

@@ -33,36 +33,36 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->expireWithin30DaysCount_ != nullptr
-        && this->expiredCount_ != nullptr && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->expireWithin30DaysCount_ == nullptr
+        && this->expiredCount_ == nullptr && this->requestId_ == nullptr; };
     // expireWithin30DaysCount Field Functions 
     bool hasExpireWithin30DaysCount() const { return this->expireWithin30DaysCount_ != nullptr;};
     void deleteExpireWithin30DaysCount() { this->expireWithin30DaysCount_ = nullptr;};
-    inline int32_t expireWithin30DaysCount() const { DARABONBA_PTR_GET_DEFAULT(expireWithin30DaysCount_, 0) };
+    inline int32_t getExpireWithin30DaysCount() const { DARABONBA_PTR_GET_DEFAULT(expireWithin30DaysCount_, 0) };
     inline DescribeDcdnUserCertificateExpireCountResponseBody& setExpireWithin30DaysCount(int32_t expireWithin30DaysCount) { DARABONBA_PTR_SET_VALUE(expireWithin30DaysCount_, expireWithin30DaysCount) };
 
 
     // expiredCount Field Functions 
     bool hasExpiredCount() const { return this->expiredCount_ != nullptr;};
     void deleteExpiredCount() { this->expiredCount_ = nullptr;};
-    inline int32_t expiredCount() const { DARABONBA_PTR_GET_DEFAULT(expiredCount_, 0) };
+    inline int32_t getExpiredCount() const { DARABONBA_PTR_GET_DEFAULT(expiredCount_, 0) };
     inline DescribeDcdnUserCertificateExpireCountResponseBody& setExpiredCount(int32_t expiredCount) { DARABONBA_PTR_SET_VALUE(expiredCount_, expiredCount) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeDcdnUserCertificateExpireCountResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The number of domain names whose SSL certificates are about to expire within 30 days.
-    std::shared_ptr<int32_t> expireWithin30DaysCount_ = nullptr;
+    shared_ptr<int32_t> expireWithin30DaysCount_ {};
     // The number of domain names whose SSL certificates have already expired.
-    std::shared_ptr<int32_t> expiredCount_ = nullptr;
+    shared_ptr<int32_t> expiredCount_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

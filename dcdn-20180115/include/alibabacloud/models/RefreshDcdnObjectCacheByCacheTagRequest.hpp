@@ -33,35 +33,35 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cacheTag_ != nullptr
-        && this->domainName_ != nullptr && this->force_ != nullptr; };
+    virtual bool empty() const override { return this->cacheTag_ == nullptr
+        && this->domainName_ == nullptr && this->force_ == nullptr; };
     // cacheTag Field Functions 
     bool hasCacheTag() const { return this->cacheTag_ != nullptr;};
     void deleteCacheTag() { this->cacheTag_ = nullptr;};
-    inline string cacheTag() const { DARABONBA_PTR_GET_DEFAULT(cacheTag_, "") };
+    inline string getCacheTag() const { DARABONBA_PTR_GET_DEFAULT(cacheTag_, "") };
     inline RefreshDcdnObjectCacheByCacheTagRequest& setCacheTag(string cacheTag) { DARABONBA_PTR_SET_VALUE(cacheTag_, cacheTag) };
 
 
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
-    inline string domainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
+    inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline RefreshDcdnObjectCacheByCacheTagRequest& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
 
 
     // force Field Functions 
     bool hasForce() const { return this->force_ != nullptr;};
     void deleteForce() { this->force_ = nullptr;};
-    inline bool force() const { DARABONBA_PTR_GET_DEFAULT(force_, false) };
+    inline bool getForce() const { DARABONBA_PTR_GET_DEFAULT(force_, false) };
     inline RefreshDcdnObjectCacheByCacheTagRequest& setForce(bool force) { DARABONBA_PTR_SET_VALUE(force_, force) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> cacheTag_ = nullptr;
+    shared_ptr<string> cacheTag_ {};
     // This parameter is required.
-    std::shared_ptr<string> domainName_ = nullptr;
-    std::shared_ptr<bool> force_ = nullptr;
+    shared_ptr<string> domainName_ {};
+    shared_ptr<bool> force_ {};
   };
 
   } // namespace Models

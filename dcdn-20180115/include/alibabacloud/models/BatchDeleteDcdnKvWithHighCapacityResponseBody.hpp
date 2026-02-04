@@ -34,13 +34,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->failKeys_ != nullptr
-        && this->requestId_ != nullptr && this->successKeys_ != nullptr; };
+    virtual bool empty() const override { return this->failKeys_ == nullptr
+        && this->requestId_ == nullptr && this->successKeys_ == nullptr; };
     // failKeys Field Functions 
     bool hasFailKeys() const { return this->failKeys_ != nullptr;};
     void deleteFailKeys() { this->failKeys_ = nullptr;};
-    inline const vector<string> & failKeys() const { DARABONBA_PTR_GET_CONST(failKeys_, vector<string>) };
-    inline vector<string> failKeys() { DARABONBA_PTR_GET(failKeys_, vector<string>) };
+    inline const vector<string> & getFailKeys() const { DARABONBA_PTR_GET_CONST(failKeys_, vector<string>) };
+    inline vector<string> getFailKeys() { DARABONBA_PTR_GET(failKeys_, vector<string>) };
     inline BatchDeleteDcdnKvWithHighCapacityResponseBody& setFailKeys(const vector<string> & failKeys) { DARABONBA_PTR_SET_VALUE(failKeys_, failKeys) };
     inline BatchDeleteDcdnKvWithHighCapacityResponseBody& setFailKeys(vector<string> && failKeys) { DARABONBA_PTR_SET_RVALUE(failKeys_, failKeys) };
 
@@ -48,23 +48,23 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline BatchDeleteDcdnKvWithHighCapacityResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // successKeys Field Functions 
     bool hasSuccessKeys() const { return this->successKeys_ != nullptr;};
     void deleteSuccessKeys() { this->successKeys_ = nullptr;};
-    inline const vector<string> & successKeys() const { DARABONBA_PTR_GET_CONST(successKeys_, vector<string>) };
-    inline vector<string> successKeys() { DARABONBA_PTR_GET(successKeys_, vector<string>) };
+    inline const vector<string> & getSuccessKeys() const { DARABONBA_PTR_GET_CONST(successKeys_, vector<string>) };
+    inline vector<string> getSuccessKeys() { DARABONBA_PTR_GET(successKeys_, vector<string>) };
     inline BatchDeleteDcdnKvWithHighCapacityResponseBody& setSuccessKeys(const vector<string> & successKeys) { DARABONBA_PTR_SET_VALUE(successKeys_, successKeys) };
     inline BatchDeleteDcdnKvWithHighCapacityResponseBody& setSuccessKeys(vector<string> && successKeys) { DARABONBA_PTR_SET_RVALUE(successKeys_, successKeys) };
 
 
   protected:
-    std::shared_ptr<vector<string>> failKeys_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<vector<string>> successKeys_ = nullptr;
+    shared_ptr<vector<string>> failKeys_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<vector<string>> successKeys_ {};
   };
 
   } // namespace Models

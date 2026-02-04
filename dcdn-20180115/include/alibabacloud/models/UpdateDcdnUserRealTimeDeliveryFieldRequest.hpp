@@ -31,19 +31,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->businessType_ != nullptr
-        && this->fields_ != nullptr; };
+    virtual bool empty() const override { return this->businessType_ == nullptr
+        && this->fields_ == nullptr; };
     // businessType Field Functions 
     bool hasBusinessType() const { return this->businessType_ != nullptr;};
     void deleteBusinessType() { this->businessType_ = nullptr;};
-    inline string businessType() const { DARABONBA_PTR_GET_DEFAULT(businessType_, "") };
+    inline string getBusinessType() const { DARABONBA_PTR_GET_DEFAULT(businessType_, "") };
     inline UpdateDcdnUserRealTimeDeliveryFieldRequest& setBusinessType(string businessType) { DARABONBA_PTR_SET_VALUE(businessType_, businessType) };
 
 
     // fields Field Functions 
     bool hasFields() const { return this->fields_ != nullptr;};
     void deleteFields() { this->fields_ = nullptr;};
-    inline string fields() const { DARABONBA_PTR_GET_DEFAULT(fields_, "") };
+    inline string getFields() const { DARABONBA_PTR_GET_DEFAULT(fields_, "") };
     inline UpdateDcdnUserRealTimeDeliveryFieldRequest& setFields(string fields) { DARABONBA_PTR_SET_VALUE(fields_, fields) };
 
 
@@ -53,11 +53,11 @@ namespace Models
     // *   **cdn_log_access_l1**: access logs of L1 Dynamic Route for CDN (DCDN) points of presence (POPs)
     // *   **cdn_log_origin**: back-to-origin logs
     // *   **cdn_log_er**: EdgeRoutine logs
-    std::shared_ptr<string> businessType_ = nullptr;
+    shared_ptr<string> businessType_ {};
     // The list of fields. Separate multiple fields with commas (,). For more information, see [Fields in a real-time log](https://help.aliyun.com/document_detail/324199.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> fields_ = nullptr;
+    shared_ptr<string> fields_ {};
   };
 
   } // namespace Models

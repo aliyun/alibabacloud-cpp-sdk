@@ -43,84 +43,84 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->city_ != nullptr
-        && this->commonName_ != nullptr && this->country_ != nullptr && this->email_ != nullptr && this->organization_ != nullptr && this->organizationUnit_ != nullptr
-        && this->SANs_ != nullptr && this->state_ != nullptr; };
+    virtual bool empty() const override { return this->city_ == nullptr
+        && this->commonName_ == nullptr && this->country_ == nullptr && this->email_ == nullptr && this->organization_ == nullptr && this->organizationUnit_ == nullptr
+        && this->SANs_ == nullptr && this->state_ == nullptr; };
     // city Field Functions 
     bool hasCity() const { return this->city_ != nullptr;};
     void deleteCity() { this->city_ = nullptr;};
-    inline string city() const { DARABONBA_PTR_GET_DEFAULT(city_, "") };
+    inline string getCity() const { DARABONBA_PTR_GET_DEFAULT(city_, "") };
     inline CreateDcdnCertificateSigningRequestRequest& setCity(string city) { DARABONBA_PTR_SET_VALUE(city_, city) };
 
 
     // commonName Field Functions 
     bool hasCommonName() const { return this->commonName_ != nullptr;};
     void deleteCommonName() { this->commonName_ = nullptr;};
-    inline string commonName() const { DARABONBA_PTR_GET_DEFAULT(commonName_, "") };
+    inline string getCommonName() const { DARABONBA_PTR_GET_DEFAULT(commonName_, "") };
     inline CreateDcdnCertificateSigningRequestRequest& setCommonName(string commonName) { DARABONBA_PTR_SET_VALUE(commonName_, commonName) };
 
 
     // country Field Functions 
     bool hasCountry() const { return this->country_ != nullptr;};
     void deleteCountry() { this->country_ = nullptr;};
-    inline string country() const { DARABONBA_PTR_GET_DEFAULT(country_, "") };
+    inline string getCountry() const { DARABONBA_PTR_GET_DEFAULT(country_, "") };
     inline CreateDcdnCertificateSigningRequestRequest& setCountry(string country) { DARABONBA_PTR_SET_VALUE(country_, country) };
 
 
     // email Field Functions 
     bool hasEmail() const { return this->email_ != nullptr;};
     void deleteEmail() { this->email_ = nullptr;};
-    inline string email() const { DARABONBA_PTR_GET_DEFAULT(email_, "") };
+    inline string getEmail() const { DARABONBA_PTR_GET_DEFAULT(email_, "") };
     inline CreateDcdnCertificateSigningRequestRequest& setEmail(string email) { DARABONBA_PTR_SET_VALUE(email_, email) };
 
 
     // organization Field Functions 
     bool hasOrganization() const { return this->organization_ != nullptr;};
     void deleteOrganization() { this->organization_ = nullptr;};
-    inline string organization() const { DARABONBA_PTR_GET_DEFAULT(organization_, "") };
+    inline string getOrganization() const { DARABONBA_PTR_GET_DEFAULT(organization_, "") };
     inline CreateDcdnCertificateSigningRequestRequest& setOrganization(string organization) { DARABONBA_PTR_SET_VALUE(organization_, organization) };
 
 
     // organizationUnit Field Functions 
     bool hasOrganizationUnit() const { return this->organizationUnit_ != nullptr;};
     void deleteOrganizationUnit() { this->organizationUnit_ = nullptr;};
-    inline string organizationUnit() const { DARABONBA_PTR_GET_DEFAULT(organizationUnit_, "") };
+    inline string getOrganizationUnit() const { DARABONBA_PTR_GET_DEFAULT(organizationUnit_, "") };
     inline CreateDcdnCertificateSigningRequestRequest& setOrganizationUnit(string organizationUnit) { DARABONBA_PTR_SET_VALUE(organizationUnit_, organizationUnit) };
 
 
     // SANs Field Functions 
     bool hasSANs() const { return this->SANs_ != nullptr;};
     void deleteSANs() { this->SANs_ = nullptr;};
-    inline string SANs() const { DARABONBA_PTR_GET_DEFAULT(SANs_, "") };
+    inline string getSANs() const { DARABONBA_PTR_GET_DEFAULT(SANs_, "") };
     inline CreateDcdnCertificateSigningRequestRequest& setSANs(string SANs) { DARABONBA_PTR_SET_VALUE(SANs_, SANs) };
 
 
     // state Field Functions 
     bool hasState() const { return this->state_ != nullptr;};
     void deleteState() { this->state_ = nullptr;};
-    inline string state() const { DARABONBA_PTR_GET_DEFAULT(state_, "") };
+    inline string getState() const { DARABONBA_PTR_GET_DEFAULT(state_, "") };
     inline CreateDcdnCertificateSigningRequestRequest& setState(string state) { DARABONBA_PTR_SET_VALUE(state_, state) };
 
 
   protected:
     // The city. Default value: Hangzhou.
-    std::shared_ptr<string> city_ = nullptr;
+    shared_ptr<string> city_ {};
     // The Common Name of the certificate.
     // 
     // This parameter is required.
-    std::shared_ptr<string> commonName_ = nullptr;
+    shared_ptr<string> commonName_ {};
     // The country or region in which the organization is located. Default value: CN.
-    std::shared_ptr<string> country_ = nullptr;
+    shared_ptr<string> country_ {};
     // The email address.
-    std::shared_ptr<string> email_ = nullptr;
+    shared_ptr<string> email_ {};
     // The name of the organization. Default value: Alibaba Inc.
-    std::shared_ptr<string> organization_ = nullptr;
+    shared_ptr<string> organization_ {};
     // The name of the department. Default value: Aliyun CDN.
-    std::shared_ptr<string> organizationUnit_ = nullptr;
+    shared_ptr<string> organizationUnit_ {};
     // The Subject Alternative Name (SAN) extension that allows multiple domain names to be associated with the certificate. Separate multiple domain names with commas (,).
-    std::shared_ptr<string> SANs_ = nullptr;
+    shared_ptr<string> SANs_ {};
     // The provincial district. Default value: Zhejiang.
-    std::shared_ptr<string> state_ = nullptr;
+    shared_ptr<string> state_ {};
   };
 
   } // namespace Models

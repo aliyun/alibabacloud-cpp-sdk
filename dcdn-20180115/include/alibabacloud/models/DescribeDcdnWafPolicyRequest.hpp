@@ -29,11 +29,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->policyId_ != nullptr; };
+    virtual bool empty() const override { return this->policyId_ == nullptr; };
     // policyId Field Functions 
     bool hasPolicyId() const { return this->policyId_ != nullptr;};
     void deletePolicyId() { this->policyId_ = nullptr;};
-    inline int64_t policyId() const { DARABONBA_PTR_GET_DEFAULT(policyId_, 0L) };
+    inline int64_t getPolicyId() const { DARABONBA_PTR_GET_DEFAULT(policyId_, 0L) };
     inline DescribeDcdnWafPolicyRequest& setPolicyId(int64_t policyId) { DARABONBA_PTR_SET_VALUE(policyId_, policyId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the protection policy. You can specify only one ID in each request.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> policyId_ = nullptr;
+    shared_ptr<int64_t> policyId_ {};
   };
 
   } // namespace Models

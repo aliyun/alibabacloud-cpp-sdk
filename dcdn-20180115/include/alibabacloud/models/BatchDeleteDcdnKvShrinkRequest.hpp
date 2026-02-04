@@ -31,27 +31,27 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->keysShrink_ != nullptr
-        && this->namespace_ != nullptr; };
+    virtual bool empty() const override { return this->keysShrink_ == nullptr
+        && this->namespace_ == nullptr; };
     // keysShrink Field Functions 
     bool hasKeysShrink() const { return this->keysShrink_ != nullptr;};
     void deleteKeysShrink() { this->keysShrink_ = nullptr;};
-    inline string keysShrink() const { DARABONBA_PTR_GET_DEFAULT(keysShrink_, "") };
+    inline string getKeysShrink() const { DARABONBA_PTR_GET_DEFAULT(keysShrink_, "") };
     inline BatchDeleteDcdnKvShrinkRequest& setKeysShrink(string keysShrink) { DARABONBA_PTR_SET_VALUE(keysShrink_, keysShrink) };
 
 
     // namespace Field Functions 
     bool hasNamespace() const { return this->namespace_ != nullptr;};
     void deleteNamespace() { this->namespace_ = nullptr;};
-    inline string _namespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
+    inline string getNamespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
     inline BatchDeleteDcdnKvShrinkRequest& setNamespace(string _namespace) { DARABONBA_PTR_SET_VALUE(namespace_, _namespace) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> keysShrink_ = nullptr;
+    shared_ptr<string> keysShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> namespace_ = nullptr;
+    shared_ptr<string> namespace_ {};
   };
 
   } // namespace Models

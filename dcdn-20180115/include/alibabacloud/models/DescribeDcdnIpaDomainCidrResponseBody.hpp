@@ -32,13 +32,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cidr_ != nullptr
-        && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->cidr_ == nullptr
+        && this->requestId_ == nullptr; };
     // cidr Field Functions 
     bool hasCidr() const { return this->cidr_ != nullptr;};
     void deleteCidr() { this->cidr_ = nullptr;};
-    inline const vector<string> & cidr() const { DARABONBA_PTR_GET_CONST(cidr_, vector<string>) };
-    inline vector<string> cidr() { DARABONBA_PTR_GET(cidr_, vector<string>) };
+    inline const vector<string> & getCidr() const { DARABONBA_PTR_GET_CONST(cidr_, vector<string>) };
+    inline vector<string> getCidr() { DARABONBA_PTR_GET(cidr_, vector<string>) };
     inline DescribeDcdnIpaDomainCidrResponseBody& setCidr(const vector<string> & cidr) { DARABONBA_PTR_SET_VALUE(cidr_, cidr) };
     inline DescribeDcdnIpaDomainCidrResponseBody& setCidr(vector<string> && cidr) { DARABONBA_PTR_SET_RVALUE(cidr_, cidr) };
 
@@ -46,15 +46,15 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeDcdnIpaDomainCidrResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The back-to-origin IPv4 and IPv6 CIDR blocks.
-    std::shared_ptr<vector<string>> cidr_ = nullptr;
+    shared_ptr<vector<string>> cidr_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

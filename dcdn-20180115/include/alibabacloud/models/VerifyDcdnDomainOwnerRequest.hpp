@@ -31,19 +31,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->domainName_ != nullptr
-        && this->verifyType_ != nullptr; };
+    virtual bool empty() const override { return this->domainName_ == nullptr
+        && this->verifyType_ == nullptr; };
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
-    inline string domainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
+    inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline VerifyDcdnDomainOwnerRequest& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
 
 
     // verifyType Field Functions 
     bool hasVerifyType() const { return this->verifyType_ != nullptr;};
     void deleteVerifyType() { this->verifyType_ = nullptr;};
-    inline string verifyType() const { DARABONBA_PTR_GET_DEFAULT(verifyType_, "") };
+    inline string getVerifyType() const { DARABONBA_PTR_GET_DEFAULT(verifyType_, "") };
     inline VerifyDcdnDomainOwnerRequest& setVerifyType(string verifyType) { DARABONBA_PTR_SET_VALUE(verifyType_, verifyType) };
 
 
@@ -51,14 +51,14 @@ namespace Models
     // The domain name of which you want to verify the ownership. You can specify only one domain name in each call.
     // 
     // This parameter is required.
-    std::shared_ptr<string> domainName_ = nullptr;
+    shared_ptr<string> domainName_ {};
     // The verification method. Valid values:
     // 
     // *   **dnsCheck**: by DNS record
     // *   **fileCheck**: by verification file
     // 
     // This parameter is required.
-    std::shared_ptr<string> verifyType_ = nullptr;
+    shared_ptr<string> verifyType_ {};
   };
 
   } // namespace Models

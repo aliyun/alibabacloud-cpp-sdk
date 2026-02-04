@@ -33,26 +33,26 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->data_ != nullptr
-        && this->metric_ != nullptr && this->secFunc_ != nullptr; };
+    virtual bool empty() const override { return this->data_ == nullptr
+        && this->metric_ == nullptr && this->secFunc_ == nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline string data() const { DARABONBA_PTR_GET_DEFAULT(data_, "") };
+    inline string getData() const { DARABONBA_PTR_GET_DEFAULT(data_, "") };
     inline DescribeDcdnUserSecDropRequest& setData(string data) { DARABONBA_PTR_SET_VALUE(data_, data) };
 
 
     // metric Field Functions 
     bool hasMetric() const { return this->metric_ != nullptr;};
     void deleteMetric() { this->metric_ = nullptr;};
-    inline string metric() const { DARABONBA_PTR_GET_DEFAULT(metric_, "") };
+    inline string getMetric() const { DARABONBA_PTR_GET_DEFAULT(metric_, "") };
     inline DescribeDcdnUserSecDropRequest& setMetric(string metric) { DARABONBA_PTR_SET_VALUE(metric_, metric) };
 
 
     // secFunc Field Functions 
     bool hasSecFunc() const { return this->secFunc_ != nullptr;};
     void deleteSecFunc() { this->secFunc_ = nullptr;};
-    inline string secFunc() const { DARABONBA_PTR_GET_DEFAULT(secFunc_, "") };
+    inline string getSecFunc() const { DARABONBA_PTR_GET_DEFAULT(secFunc_, "") };
     inline DescribeDcdnUserSecDropRequest& setSecFunc(string secFunc) { DARABONBA_PTR_SET_VALUE(secFunc_, secFunc) };
 
 
@@ -63,14 +63,14 @@ namespace Models
     // *   If data is collected every month, set Data in the format of yyyymm, such as 202012.
     // 
     // This parameter is required.
-    std::shared_ptr<string> data_ = nullptr;
+    shared_ptr<string> data_ {};
     // The time interval at which data is collected.
     // 
     // *   If data is collected every day, the number of blocked packets on the specified day is calculated.
     // *   If data is collected every month, the number of blocked packets in the specified month is calculated.
     // 
     // This parameter is required.
-    std::shared_ptr<string> metric_ = nullptr;
+    shared_ptr<string> metric_ {};
     // The security feature. Valid values:
     // 
     // *   waf: WAF
@@ -79,7 +79,7 @@ namespace Models
     // *   l4_dm_drop: domain name blocking at Layer 4
     // 
     // This parameter is required.
-    std::shared_ptr<string> secFunc_ = nullptr;
+    shared_ptr<string> secFunc_ {};
   };
 
   } // namespace Models

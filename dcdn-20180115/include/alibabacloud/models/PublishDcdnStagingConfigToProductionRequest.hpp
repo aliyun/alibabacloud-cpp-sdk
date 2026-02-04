@@ -31,19 +31,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->domainName_ != nullptr
-        && this->functionName_ != nullptr; };
+    virtual bool empty() const override { return this->domainName_ == nullptr
+        && this->functionName_ == nullptr; };
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
-    inline string domainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
+    inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline PublishDcdnStagingConfigToProductionRequest& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
 
 
     // functionName Field Functions 
     bool hasFunctionName() const { return this->functionName_ != nullptr;};
     void deleteFunctionName() { this->functionName_ = nullptr;};
-    inline string functionName() const { DARABONBA_PTR_GET_DEFAULT(functionName_, "") };
+    inline string getFunctionName() const { DARABONBA_PTR_GET_DEFAULT(functionName_, "") };
     inline PublishDcdnStagingConfigToProductionRequest& setFunctionName(string functionName) { DARABONBA_PTR_SET_VALUE(functionName_, functionName) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The accelerated domain name. You can specify only one domain name in each request.
     // 
     // This parameter is required.
-    std::shared_ptr<string> domainName_ = nullptr;
+    shared_ptr<string> domainName_ {};
     // The name of the feature.
     // 
     // This parameter is required.
-    std::shared_ptr<string> functionName_ = nullptr;
+    shared_ptr<string> functionName_ {};
   };
 
   } // namespace Models

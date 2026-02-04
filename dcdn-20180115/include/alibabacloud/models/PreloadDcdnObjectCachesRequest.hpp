@@ -41,55 +41,55 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->area_ != nullptr
-        && this->l2Preload_ != nullptr && this->objectPath_ != nullptr && this->ownerId_ != nullptr && this->queryHashkey_ != nullptr && this->securityToken_ != nullptr
-        && this->withHeader_ != nullptr; };
+    virtual bool empty() const override { return this->area_ == nullptr
+        && this->l2Preload_ == nullptr && this->objectPath_ == nullptr && this->ownerId_ == nullptr && this->queryHashkey_ == nullptr && this->securityToken_ == nullptr
+        && this->withHeader_ == nullptr; };
     // area Field Functions 
     bool hasArea() const { return this->area_ != nullptr;};
     void deleteArea() { this->area_ = nullptr;};
-    inline string area() const { DARABONBA_PTR_GET_DEFAULT(area_, "") };
+    inline string getArea() const { DARABONBA_PTR_GET_DEFAULT(area_, "") };
     inline PreloadDcdnObjectCachesRequest& setArea(string area) { DARABONBA_PTR_SET_VALUE(area_, area) };
 
 
     // l2Preload Field Functions 
     bool hasL2Preload() const { return this->l2Preload_ != nullptr;};
     void deleteL2Preload() { this->l2Preload_ = nullptr;};
-    inline bool l2Preload() const { DARABONBA_PTR_GET_DEFAULT(l2Preload_, false) };
+    inline bool getL2Preload() const { DARABONBA_PTR_GET_DEFAULT(l2Preload_, false) };
     inline PreloadDcdnObjectCachesRequest& setL2Preload(bool l2Preload) { DARABONBA_PTR_SET_VALUE(l2Preload_, l2Preload) };
 
 
     // objectPath Field Functions 
     bool hasObjectPath() const { return this->objectPath_ != nullptr;};
     void deleteObjectPath() { this->objectPath_ = nullptr;};
-    inline string objectPath() const { DARABONBA_PTR_GET_DEFAULT(objectPath_, "") };
+    inline string getObjectPath() const { DARABONBA_PTR_GET_DEFAULT(objectPath_, "") };
     inline PreloadDcdnObjectCachesRequest& setObjectPath(string objectPath) { DARABONBA_PTR_SET_VALUE(objectPath_, objectPath) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline PreloadDcdnObjectCachesRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // queryHashkey Field Functions 
     bool hasQueryHashkey() const { return this->queryHashkey_ != nullptr;};
     void deleteQueryHashkey() { this->queryHashkey_ = nullptr;};
-    inline bool queryHashkey() const { DARABONBA_PTR_GET_DEFAULT(queryHashkey_, false) };
+    inline bool getQueryHashkey() const { DARABONBA_PTR_GET_DEFAULT(queryHashkey_, false) };
     inline PreloadDcdnObjectCachesRequest& setQueryHashkey(bool queryHashkey) { DARABONBA_PTR_SET_VALUE(queryHashkey_, queryHashkey) };
 
 
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
-    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
     inline PreloadDcdnObjectCachesRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
     // withHeader Field Functions 
     bool hasWithHeader() const { return this->withHeader_ != nullptr;};
     void deleteWithHeader() { this->withHeader_ = nullptr;};
-    inline string withHeader() const { DARABONBA_PTR_GET_DEFAULT(withHeader_, "") };
+    inline string getWithHeader() const { DARABONBA_PTR_GET_DEFAULT(withHeader_, "") };
     inline PreloadDcdnObjectCachesRequest& setWithHeader(string withHeader) { DARABONBA_PTR_SET_VALUE(withHeader_, withHeader) };
 
 
@@ -98,21 +98,21 @@ namespace Models
     // 
     // *   **domestic**: Chinese mainland
     // *   **overseas**: outside the Chinese mainland
-    std::shared_ptr<string> area_ = nullptr;
+    shared_ptr<string> area_ {};
     // Specifies whether to prefetch content to POPs. Valid values:
     // 
     // *   **true**: prefetches content to nodes that include L2 DCDN nodes.
     // *   **false**: prefetches content to L2 POPs or L3 POPs.
-    std::shared_ptr<bool> l2Preload_ = nullptr;
+    shared_ptr<bool> l2Preload_ {};
     // The path of the content that you want to prefetch. Separate multiple URLs with line feed characters (\\n) or a pair of carriage return and line feed characters (\\r\\n).
     // 
     // This parameter is required.
-    std::shared_ptr<string> objectPath_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
-    std::shared_ptr<bool> queryHashkey_ = nullptr;
-    std::shared_ptr<string> securityToken_ = nullptr;
+    shared_ptr<string> objectPath_ {};
+    shared_ptr<int64_t> ownerId_ {};
+    shared_ptr<bool> queryHashkey_ {};
+    shared_ptr<string> securityToken_ {};
     // The custom header for prefetch in the JSON format.
-    std::shared_ptr<string> withHeader_ = nullptr;
+    shared_ptr<string> withHeader_ {};
   };
 
   } // namespace Models

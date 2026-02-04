@@ -2,7 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_BATCHCREATEDCDNWAFRULESRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_BATCHCREATEDCDNWAFRULESRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/BatchCreateDcdnWafRulesResponseBodyRuleIds.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -32,29 +32,62 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->requestId_ != nullptr
-        && this->ruleIds_ != nullptr; };
+    class RuleIds : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const RuleIds& obj) { 
+        DARABONBA_PTR_TO_JSON(RuleId, ruleId_);
+      };
+      friend void from_json(const Darabonba::Json& j, RuleIds& obj) { 
+        DARABONBA_PTR_FROM_JSON(RuleId, ruleId_);
+      };
+      RuleIds() = default ;
+      RuleIds(const RuleIds &) = default ;
+      RuleIds(RuleIds &&) = default ;
+      RuleIds(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~RuleIds() = default ;
+      RuleIds& operator=(const RuleIds &) = default ;
+      RuleIds& operator=(RuleIds &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->ruleId_ == nullptr; };
+      // ruleId Field Functions 
+      bool hasRuleId() const { return this->ruleId_ != nullptr;};
+      void deleteRuleId() { this->ruleId_ = nullptr;};
+      inline const vector<string> & getRuleId() const { DARABONBA_PTR_GET_CONST(ruleId_, vector<string>) };
+      inline vector<string> getRuleId() { DARABONBA_PTR_GET(ruleId_, vector<string>) };
+      inline RuleIds& setRuleId(const vector<string> & ruleId) { DARABONBA_PTR_SET_VALUE(ruleId_, ruleId) };
+      inline RuleIds& setRuleId(vector<string> && ruleId) { DARABONBA_PTR_SET_RVALUE(ruleId_, ruleId) };
+
+
+    protected:
+      shared_ptr<vector<string>> ruleId_ {};
+    };
+
+    virtual bool empty() const override { return this->requestId_ == nullptr
+        && this->ruleIds_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline BatchCreateDcdnWafRulesResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // ruleIds Field Functions 
     bool hasRuleIds() const { return this->ruleIds_ != nullptr;};
     void deleteRuleIds() { this->ruleIds_ = nullptr;};
-    inline const BatchCreateDcdnWafRulesResponseBodyRuleIds & ruleIds() const { DARABONBA_PTR_GET_CONST(ruleIds_, BatchCreateDcdnWafRulesResponseBodyRuleIds) };
-    inline BatchCreateDcdnWafRulesResponseBodyRuleIds ruleIds() { DARABONBA_PTR_GET(ruleIds_, BatchCreateDcdnWafRulesResponseBodyRuleIds) };
-    inline BatchCreateDcdnWafRulesResponseBody& setRuleIds(const BatchCreateDcdnWafRulesResponseBodyRuleIds & ruleIds) { DARABONBA_PTR_SET_VALUE(ruleIds_, ruleIds) };
-    inline BatchCreateDcdnWafRulesResponseBody& setRuleIds(BatchCreateDcdnWafRulesResponseBodyRuleIds && ruleIds) { DARABONBA_PTR_SET_RVALUE(ruleIds_, ruleIds) };
+    inline const BatchCreateDcdnWafRulesResponseBody::RuleIds & getRuleIds() const { DARABONBA_PTR_GET_CONST(ruleIds_, BatchCreateDcdnWafRulesResponseBody::RuleIds) };
+    inline BatchCreateDcdnWafRulesResponseBody::RuleIds getRuleIds() { DARABONBA_PTR_GET(ruleIds_, BatchCreateDcdnWafRulesResponseBody::RuleIds) };
+    inline BatchCreateDcdnWafRulesResponseBody& setRuleIds(const BatchCreateDcdnWafRulesResponseBody::RuleIds & ruleIds) { DARABONBA_PTR_SET_VALUE(ruleIds_, ruleIds) };
+    inline BatchCreateDcdnWafRulesResponseBody& setRuleIds(BatchCreateDcdnWafRulesResponseBody::RuleIds && ruleIds) { DARABONBA_PTR_SET_RVALUE(ruleIds_, ruleIds) };
 
 
   protected:
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The IDs of created rules.
-    std::shared_ptr<BatchCreateDcdnWafRulesResponseBodyRuleIds> ruleIds_ = nullptr;
+    shared_ptr<BatchCreateDcdnWafRulesResponseBody::RuleIds> ruleIds_ {};
   };
 
   } // namespace Models

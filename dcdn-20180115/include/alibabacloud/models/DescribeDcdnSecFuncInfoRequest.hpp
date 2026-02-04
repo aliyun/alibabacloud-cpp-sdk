@@ -31,19 +31,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->lang_ != nullptr
-        && this->secFuncType_ != nullptr; };
+    virtual bool empty() const override { return this->lang_ == nullptr
+        && this->secFuncType_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeDcdnSecFuncInfoRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // secFuncType Field Functions 
     bool hasSecFuncType() const { return this->secFuncType_ != nullptr;};
     void deleteSecFuncType() { this->secFuncType_ = nullptr;};
-    inline string secFuncType() const { DARABONBA_PTR_GET_DEFAULT(secFuncType_, "") };
+    inline string getSecFuncType() const { DARABONBA_PTR_GET_DEFAULT(secFuncType_, "") };
     inline DescribeDcdnSecFuncInfoRequest& setSecFuncType(string secFuncType) { DARABONBA_PTR_SET_VALUE(secFuncType_, secFuncType) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The language. Valid values: en and zh. Default value: en.
     // 
     // This parameter is required.
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The type of the drop-down list. Valid values: RobotRuleName and RobotObject.
     // 
     // This parameter is required.
-    std::shared_ptr<string> secFuncType_ = nullptr;
+    shared_ptr<string> secFuncType_ {};
   };
 
   } // namespace Models

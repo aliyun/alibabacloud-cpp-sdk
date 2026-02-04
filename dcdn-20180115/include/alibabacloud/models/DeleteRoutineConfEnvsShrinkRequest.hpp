@@ -31,19 +31,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->envsShrink_ != nullptr
-        && this->name_ != nullptr; };
+    virtual bool empty() const override { return this->envsShrink_ == nullptr
+        && this->name_ == nullptr; };
     // envsShrink Field Functions 
     bool hasEnvsShrink() const { return this->envsShrink_ != nullptr;};
     void deleteEnvsShrink() { this->envsShrink_ = nullptr;};
-    inline string envsShrink() const { DARABONBA_PTR_GET_DEFAULT(envsShrink_, "") };
+    inline string getEnvsShrink() const { DARABONBA_PTR_GET_DEFAULT(envsShrink_, "") };
     inline DeleteRoutineConfEnvsShrinkRequest& setEnvsShrink(string envsShrink) { DARABONBA_PTR_SET_VALUE(envsShrink_, envsShrink) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline DeleteRoutineConfEnvsShrinkRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The custom canary release environments that you want to delete.
     // 
     // This parameter is required.
-    std::shared_ptr<string> envsShrink_ = nullptr;
+    shared_ptr<string> envsShrink_ {};
     // The name of the routine. The name must be unique among the routines that belong to the same Alibaba Cloud account.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
   };
 
   } // namespace Models

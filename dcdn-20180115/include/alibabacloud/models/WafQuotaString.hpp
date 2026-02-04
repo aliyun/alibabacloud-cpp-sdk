@@ -29,16 +29,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->regexp_ != nullptr; };
+    virtual bool empty() const override { return this->regexp_ == nullptr; };
     // regexp Field Functions 
     bool hasRegexp() const { return this->regexp_ != nullptr;};
     void deleteRegexp() { this->regexp_ = nullptr;};
-    inline string regexp() const { DARABONBA_PTR_GET_DEFAULT(regexp_, "") };
+    inline string getRegexp() const { DARABONBA_PTR_GET_DEFAULT(regexp_, "") };
     inline WafQuotaString& setRegexp(string regexp) { DARABONBA_PTR_SET_VALUE(regexp_, regexp) };
 
 
   protected:
-    std::shared_ptr<string> regexp_ = nullptr;
+    shared_ptr<string> regexp_ {};
   };
 
   } // namespace Models

@@ -35,48 +35,48 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->drops_ != nullptr
-        && this->msg_ != nullptr && this->requestId_ != nullptr && this->uuidStr_ != nullptr; };
+    virtual bool empty() const override { return this->drops_ == nullptr
+        && this->msg_ == nullptr && this->requestId_ == nullptr && this->uuidStr_ == nullptr; };
     // drops Field Functions 
     bool hasDrops() const { return this->drops_ != nullptr;};
     void deleteDrops() { this->drops_ = nullptr;};
-    inline int32_t drops() const { DARABONBA_PTR_GET_DEFAULT(drops_, 0) };
+    inline int32_t getDrops() const { DARABONBA_PTR_GET_DEFAULT(drops_, 0) };
     inline DescribeDcdnUserSecDropResponseBody& setDrops(int32_t drops) { DARABONBA_PTR_SET_VALUE(drops_, drops) };
 
 
     // msg Field Functions 
     bool hasMsg() const { return this->msg_ != nullptr;};
     void deleteMsg() { this->msg_ = nullptr;};
-    inline string msg() const { DARABONBA_PTR_GET_DEFAULT(msg_, "") };
+    inline string getMsg() const { DARABONBA_PTR_GET_DEFAULT(msg_, "") };
     inline DescribeDcdnUserSecDropResponseBody& setMsg(string msg) { DARABONBA_PTR_SET_VALUE(msg_, msg) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeDcdnUserSecDropResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // uuidStr Field Functions 
     bool hasUuidStr() const { return this->uuidStr_ != nullptr;};
     void deleteUuidStr() { this->uuidStr_ = nullptr;};
-    inline string uuidStr() const { DARABONBA_PTR_GET_DEFAULT(uuidStr_, "") };
+    inline string getUuidStr() const { DARABONBA_PTR_GET_DEFAULT(uuidStr_, "") };
     inline DescribeDcdnUserSecDropResponseBody& setUuidStr(string uuidStr) { DARABONBA_PTR_SET_VALUE(uuidStr_, uuidStr) };
 
 
   protected:
     // The number of packets that are blocked.
-    std::shared_ptr<int32_t> drops_ = nullptr;
+    shared_ptr<int32_t> drops_ {};
     // Indicates whether the information is found.
     // 
     // *   Found
     // *   Not Found
-    std::shared_ptr<string> msg_ = nullptr;
+    shared_ptr<string> msg_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The character string that is concatenated based on the request parameters and is used to locate causes when data is not found.
-    std::shared_ptr<string> uuidStr_ = nullptr;
+    shared_ptr<string> uuidStr_ {};
   };
 
   } // namespace Models

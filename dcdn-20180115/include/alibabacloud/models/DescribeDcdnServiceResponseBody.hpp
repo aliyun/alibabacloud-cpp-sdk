@@ -2,7 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_DESCRIBEDCDNSERVICERESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_DESCRIBEDCDNSERVICERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/DescribeDcdnServiceResponseBodyOperationLocks.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -48,84 +48,149 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->changingAffectTime_ != nullptr
-        && this->changingChargeType_ != nullptr && this->instanceId_ != nullptr && this->internetChargeType_ != nullptr && this->openingTime_ != nullptr && this->operationLocks_ != nullptr
-        && this->requestId_ != nullptr && this->websocketChangingTime_ != nullptr && this->websocketChangingType_ != nullptr && this->websocketType_ != nullptr; };
+    class OperationLocks : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const OperationLocks& obj) { 
+        DARABONBA_PTR_TO_JSON(LockReason, lockReason_);
+      };
+      friend void from_json(const Darabonba::Json& j, OperationLocks& obj) { 
+        DARABONBA_PTR_FROM_JSON(LockReason, lockReason_);
+      };
+      OperationLocks() = default ;
+      OperationLocks(const OperationLocks &) = default ;
+      OperationLocks(OperationLocks &&) = default ;
+      OperationLocks(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~OperationLocks() = default ;
+      OperationLocks& operator=(const OperationLocks &) = default ;
+      OperationLocks& operator=(OperationLocks &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class LockReason : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const LockReason& obj) { 
+          DARABONBA_PTR_TO_JSON(LockReason, lockReason_);
+        };
+        friend void from_json(const Darabonba::Json& j, LockReason& obj) { 
+          DARABONBA_PTR_FROM_JSON(LockReason, lockReason_);
+        };
+        LockReason() = default ;
+        LockReason(const LockReason &) = default ;
+        LockReason(LockReason &&) = default ;
+        LockReason(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~LockReason() = default ;
+        LockReason& operator=(const LockReason &) = default ;
+        LockReason& operator=(LockReason &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->lockReason_ == nullptr; };
+        // lockReason Field Functions 
+        bool hasLockReason() const { return this->lockReason_ != nullptr;};
+        void deleteLockReason() { this->lockReason_ = nullptr;};
+        inline string getLockReason() const { DARABONBA_PTR_GET_DEFAULT(lockReason_, "") };
+        inline LockReason& setLockReason(string lockReason) { DARABONBA_PTR_SET_VALUE(lockReason_, lockReason) };
+
+
+      protected:
+        // The reason why secure DCDN was locked. For example, a value of financial indicates that an overdue payment exists.
+        shared_ptr<string> lockReason_ {};
+      };
+
+      virtual bool empty() const override { return this->lockReason_ == nullptr; };
+      // lockReason Field Functions 
+      bool hasLockReason() const { return this->lockReason_ != nullptr;};
+      void deleteLockReason() { this->lockReason_ = nullptr;};
+      inline const vector<OperationLocks::LockReason> & getLockReason() const { DARABONBA_PTR_GET_CONST(lockReason_, vector<OperationLocks::LockReason>) };
+      inline vector<OperationLocks::LockReason> getLockReason() { DARABONBA_PTR_GET(lockReason_, vector<OperationLocks::LockReason>) };
+      inline OperationLocks& setLockReason(const vector<OperationLocks::LockReason> & lockReason) { DARABONBA_PTR_SET_VALUE(lockReason_, lockReason) };
+      inline OperationLocks& setLockReason(vector<OperationLocks::LockReason> && lockReason) { DARABONBA_PTR_SET_RVALUE(lockReason_, lockReason) };
+
+
+    protected:
+      shared_ptr<vector<OperationLocks::LockReason>> lockReason_ {};
+    };
+
+    virtual bool empty() const override { return this->changingAffectTime_ == nullptr
+        && this->changingChargeType_ == nullptr && this->instanceId_ == nullptr && this->internetChargeType_ == nullptr && this->openingTime_ == nullptr && this->operationLocks_ == nullptr
+        && this->requestId_ == nullptr && this->websocketChangingTime_ == nullptr && this->websocketChangingType_ == nullptr && this->websocketType_ == nullptr; };
     // changingAffectTime Field Functions 
     bool hasChangingAffectTime() const { return this->changingAffectTime_ != nullptr;};
     void deleteChangingAffectTime() { this->changingAffectTime_ = nullptr;};
-    inline string changingAffectTime() const { DARABONBA_PTR_GET_DEFAULT(changingAffectTime_, "") };
+    inline string getChangingAffectTime() const { DARABONBA_PTR_GET_DEFAULT(changingAffectTime_, "") };
     inline DescribeDcdnServiceResponseBody& setChangingAffectTime(string changingAffectTime) { DARABONBA_PTR_SET_VALUE(changingAffectTime_, changingAffectTime) };
 
 
     // changingChargeType Field Functions 
     bool hasChangingChargeType() const { return this->changingChargeType_ != nullptr;};
     void deleteChangingChargeType() { this->changingChargeType_ = nullptr;};
-    inline string changingChargeType() const { DARABONBA_PTR_GET_DEFAULT(changingChargeType_, "") };
+    inline string getChangingChargeType() const { DARABONBA_PTR_GET_DEFAULT(changingChargeType_, "") };
     inline DescribeDcdnServiceResponseBody& setChangingChargeType(string changingChargeType) { DARABONBA_PTR_SET_VALUE(changingChargeType_, changingChargeType) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DescribeDcdnServiceResponseBody& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // internetChargeType Field Functions 
     bool hasInternetChargeType() const { return this->internetChargeType_ != nullptr;};
     void deleteInternetChargeType() { this->internetChargeType_ = nullptr;};
-    inline string internetChargeType() const { DARABONBA_PTR_GET_DEFAULT(internetChargeType_, "") };
+    inline string getInternetChargeType() const { DARABONBA_PTR_GET_DEFAULT(internetChargeType_, "") };
     inline DescribeDcdnServiceResponseBody& setInternetChargeType(string internetChargeType) { DARABONBA_PTR_SET_VALUE(internetChargeType_, internetChargeType) };
 
 
     // openingTime Field Functions 
     bool hasOpeningTime() const { return this->openingTime_ != nullptr;};
     void deleteOpeningTime() { this->openingTime_ = nullptr;};
-    inline string openingTime() const { DARABONBA_PTR_GET_DEFAULT(openingTime_, "") };
+    inline string getOpeningTime() const { DARABONBA_PTR_GET_DEFAULT(openingTime_, "") };
     inline DescribeDcdnServiceResponseBody& setOpeningTime(string openingTime) { DARABONBA_PTR_SET_VALUE(openingTime_, openingTime) };
 
 
     // operationLocks Field Functions 
     bool hasOperationLocks() const { return this->operationLocks_ != nullptr;};
     void deleteOperationLocks() { this->operationLocks_ = nullptr;};
-    inline const DescribeDcdnServiceResponseBodyOperationLocks & operationLocks() const { DARABONBA_PTR_GET_CONST(operationLocks_, DescribeDcdnServiceResponseBodyOperationLocks) };
-    inline DescribeDcdnServiceResponseBodyOperationLocks operationLocks() { DARABONBA_PTR_GET(operationLocks_, DescribeDcdnServiceResponseBodyOperationLocks) };
-    inline DescribeDcdnServiceResponseBody& setOperationLocks(const DescribeDcdnServiceResponseBodyOperationLocks & operationLocks) { DARABONBA_PTR_SET_VALUE(operationLocks_, operationLocks) };
-    inline DescribeDcdnServiceResponseBody& setOperationLocks(DescribeDcdnServiceResponseBodyOperationLocks && operationLocks) { DARABONBA_PTR_SET_RVALUE(operationLocks_, operationLocks) };
+    inline const DescribeDcdnServiceResponseBody::OperationLocks & getOperationLocks() const { DARABONBA_PTR_GET_CONST(operationLocks_, DescribeDcdnServiceResponseBody::OperationLocks) };
+    inline DescribeDcdnServiceResponseBody::OperationLocks getOperationLocks() { DARABONBA_PTR_GET(operationLocks_, DescribeDcdnServiceResponseBody::OperationLocks) };
+    inline DescribeDcdnServiceResponseBody& setOperationLocks(const DescribeDcdnServiceResponseBody::OperationLocks & operationLocks) { DARABONBA_PTR_SET_VALUE(operationLocks_, operationLocks) };
+    inline DescribeDcdnServiceResponseBody& setOperationLocks(DescribeDcdnServiceResponseBody::OperationLocks && operationLocks) { DARABONBA_PTR_SET_RVALUE(operationLocks_, operationLocks) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeDcdnServiceResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // websocketChangingTime Field Functions 
     bool hasWebsocketChangingTime() const { return this->websocketChangingTime_ != nullptr;};
     void deleteWebsocketChangingTime() { this->websocketChangingTime_ = nullptr;};
-    inline string websocketChangingTime() const { DARABONBA_PTR_GET_DEFAULT(websocketChangingTime_, "") };
+    inline string getWebsocketChangingTime() const { DARABONBA_PTR_GET_DEFAULT(websocketChangingTime_, "") };
     inline DescribeDcdnServiceResponseBody& setWebsocketChangingTime(string websocketChangingTime) { DARABONBA_PTR_SET_VALUE(websocketChangingTime_, websocketChangingTime) };
 
 
     // websocketChangingType Field Functions 
     bool hasWebsocketChangingType() const { return this->websocketChangingType_ != nullptr;};
     void deleteWebsocketChangingType() { this->websocketChangingType_ = nullptr;};
-    inline string websocketChangingType() const { DARABONBA_PTR_GET_DEFAULT(websocketChangingType_, "") };
+    inline string getWebsocketChangingType() const { DARABONBA_PTR_GET_DEFAULT(websocketChangingType_, "") };
     inline DescribeDcdnServiceResponseBody& setWebsocketChangingType(string websocketChangingType) { DARABONBA_PTR_SET_VALUE(websocketChangingType_, websocketChangingType) };
 
 
     // websocketType Field Functions 
     bool hasWebsocketType() const { return this->websocketType_ != nullptr;};
     void deleteWebsocketType() { this->websocketType_ = nullptr;};
-    inline string websocketType() const { DARABONBA_PTR_GET_DEFAULT(websocketType_, "") };
+    inline string getWebsocketType() const { DARABONBA_PTR_GET_DEFAULT(websocketType_, "") };
     inline DescribeDcdnServiceResponseBody& setWebsocketType(string websocketType) { DARABONBA_PTR_SET_VALUE(websocketType_, websocketType) };
 
 
   protected:
     // The time when the renewed secure DCDN takes effect. The time is displayed in UTC.
-    std::shared_ptr<string> changingAffectTime_ = nullptr;
+    shared_ptr<string> changingAffectTime_ {};
     // The new metering method for the renewed secure DCDN. Valid values:
     // 
     // *   **PayByTraffic**: pay by data transfer
@@ -135,9 +200,9 @@ namespace Models
     // *   **PayByBandwidth_month4th**: pay by fourth peak bandwidth per month
     // *   **PayByBandwidth_monthday95avg**: pay by monthly average 95th percentile bandwidth
     // *   **PayByBandwidth_nighthalf95**: pay by 95th percentile bandwidth (50% off during nighttime)
-    std::shared_ptr<string> changingChargeType_ = nullptr;
+    shared_ptr<string> changingChargeType_ {};
     // The ID of the instance.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The current metering method. Valid values:
     // 
     // *   **PayByTraffic**: pay by data transfer
@@ -147,19 +212,19 @@ namespace Models
     // *   **PayByBandwidth_month4th**: pay by fourth peak bandwidth per month
     // *   **PayByBandwidth_monthday95avg**: pay by monthly average 95th percentile bandwidth
     // *   **PayByBandwidth_nighthalf95**: pay by 95th percentile bandwidth (50% off during nighttime)
-    std::shared_ptr<string> internetChargeType_ = nullptr;
+    shared_ptr<string> internetChargeType_ {};
     // The time when the DCDN service was activated. The time follows the ISO 8601 standard.
-    std::shared_ptr<string> openingTime_ = nullptr;
+    shared_ptr<string> openingTime_ {};
     // The lock status of DCDN.
-    std::shared_ptr<DescribeDcdnServiceResponseBodyOperationLocks> operationLocks_ = nullptr;
+    shared_ptr<DescribeDcdnServiceResponseBody::OperationLocks> operationLocks_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The time when the changes of the WebSocket configuration take effect. The value is the same as that of the ChangingAffectTime parameter. This parameter can be displayed in the console only if the specified time is later than the current time.
-    std::shared_ptr<string> websocketChangingTime_ = nullptr;
+    shared_ptr<string> websocketChangingTime_ {};
     // The next effective billing method of WebSocket. Valid values: **websockettraffic** and **websocketbps**. A value of websockettraffic indicates that you are billed based on the traffic volume. A value of websocketbps indicates that you are billed based on the bandwidth.
-    std::shared_ptr<string> websocketChangingType_ = nullptr;
+    shared_ptr<string> websocketChangingType_ {};
     // The current billing method of WebSocket. Valid values: **websockettraffic** and **websocketbps**. A value of websockettraffic indicates that you are billed based on the traffic volume. A value of websocketbps indicates that you are billed based on the bandwidth.
-    std::shared_ptr<string> websocketType_ = nullptr;
+    shared_ptr<string> websocketType_ {};
   };
 
   } // namespace Models

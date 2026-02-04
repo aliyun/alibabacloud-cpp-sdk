@@ -35,45 +35,45 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->commonName_ != nullptr
-        && this->csr_ != nullptr && this->pubMd5_ != nullptr && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->commonName_ == nullptr
+        && this->csr_ == nullptr && this->pubMd5_ == nullptr && this->requestId_ == nullptr; };
     // commonName Field Functions 
     bool hasCommonName() const { return this->commonName_ != nullptr;};
     void deleteCommonName() { this->commonName_ = nullptr;};
-    inline string commonName() const { DARABONBA_PTR_GET_DEFAULT(commonName_, "") };
+    inline string getCommonName() const { DARABONBA_PTR_GET_DEFAULT(commonName_, "") };
     inline CreateDcdnCertificateSigningRequestResponseBody& setCommonName(string commonName) { DARABONBA_PTR_SET_VALUE(commonName_, commonName) };
 
 
     // csr Field Functions 
     bool hasCsr() const { return this->csr_ != nullptr;};
     void deleteCsr() { this->csr_ = nullptr;};
-    inline string csr() const { DARABONBA_PTR_GET_DEFAULT(csr_, "") };
+    inline string getCsr() const { DARABONBA_PTR_GET_DEFAULT(csr_, "") };
     inline CreateDcdnCertificateSigningRequestResponseBody& setCsr(string csr) { DARABONBA_PTR_SET_VALUE(csr_, csr) };
 
 
     // pubMd5 Field Functions 
     bool hasPubMd5() const { return this->pubMd5_ != nullptr;};
     void deletePubMd5() { this->pubMd5_ = nullptr;};
-    inline string pubMd5() const { DARABONBA_PTR_GET_DEFAULT(pubMd5_, "") };
+    inline string getPubMd5() const { DARABONBA_PTR_GET_DEFAULT(pubMd5_, "") };
     inline CreateDcdnCertificateSigningRequestResponseBody& setPubMd5(string pubMd5) { DARABONBA_PTR_SET_VALUE(pubMd5_, pubMd5) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateDcdnCertificateSigningRequestResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The Common Name of the certificate.
-    std::shared_ptr<string> commonName_ = nullptr;
+    shared_ptr<string> commonName_ {};
     // The content of the CSR file.
-    std::shared_ptr<string> csr_ = nullptr;
+    shared_ptr<string> csr_ {};
     // The MD5 hash value of the certificate public key.
-    std::shared_ptr<string> pubMd5_ = nullptr;
+    shared_ptr<string> pubMd5_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

@@ -31,19 +31,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->name_ != nullptr
-        && this->selectCodeRevision_ != nullptr; };
+    virtual bool empty() const override { return this->name_ == nullptr
+        && this->selectCodeRevision_ == nullptr; };
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline DescribeRoutineCodeRevisionRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // selectCodeRevision Field Functions 
     bool hasSelectCodeRevision() const { return this->selectCodeRevision_ != nullptr;};
     void deleteSelectCodeRevision() { this->selectCodeRevision_ = nullptr;};
-    inline string selectCodeRevision() const { DARABONBA_PTR_GET_DEFAULT(selectCodeRevision_, "") };
+    inline string getSelectCodeRevision() const { DARABONBA_PTR_GET_DEFAULT(selectCodeRevision_, "") };
     inline DescribeRoutineCodeRevisionRequest& setSelectCodeRevision(string selectCodeRevision) { DARABONBA_PTR_SET_VALUE(selectCodeRevision_, selectCodeRevision) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The name of the routine. The name must be unique among the routines that belong to the same Alibaba Cloud account.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The version of the JavaScript code that you want to query.
     // 
     // This parameter is required.
-    std::shared_ptr<string> selectCodeRevision_ = nullptr;
+    shared_ptr<string> selectCodeRevision_ {};
   };
 
   } // namespace Models

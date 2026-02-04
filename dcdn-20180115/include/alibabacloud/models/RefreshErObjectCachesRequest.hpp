@@ -37,40 +37,40 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->force_ != nullptr
-        && this->mergeDomainName_ != nullptr && this->objectPath_ != nullptr && this->objectType_ != nullptr && this->routineId_ != nullptr; };
+    virtual bool empty() const override { return this->force_ == nullptr
+        && this->mergeDomainName_ == nullptr && this->objectPath_ == nullptr && this->objectType_ == nullptr && this->routineId_ == nullptr; };
     // force Field Functions 
     bool hasForce() const { return this->force_ != nullptr;};
     void deleteForce() { this->force_ = nullptr;};
-    inline bool force() const { DARABONBA_PTR_GET_DEFAULT(force_, false) };
+    inline bool getForce() const { DARABONBA_PTR_GET_DEFAULT(force_, false) };
     inline RefreshErObjectCachesRequest& setForce(bool force) { DARABONBA_PTR_SET_VALUE(force_, force) };
 
 
     // mergeDomainName Field Functions 
     bool hasMergeDomainName() const { return this->mergeDomainName_ != nullptr;};
     void deleteMergeDomainName() { this->mergeDomainName_ = nullptr;};
-    inline string mergeDomainName() const { DARABONBA_PTR_GET_DEFAULT(mergeDomainName_, "") };
+    inline string getMergeDomainName() const { DARABONBA_PTR_GET_DEFAULT(mergeDomainName_, "") };
     inline RefreshErObjectCachesRequest& setMergeDomainName(string mergeDomainName) { DARABONBA_PTR_SET_VALUE(mergeDomainName_, mergeDomainName) };
 
 
     // objectPath Field Functions 
     bool hasObjectPath() const { return this->objectPath_ != nullptr;};
     void deleteObjectPath() { this->objectPath_ = nullptr;};
-    inline string objectPath() const { DARABONBA_PTR_GET_DEFAULT(objectPath_, "") };
+    inline string getObjectPath() const { DARABONBA_PTR_GET_DEFAULT(objectPath_, "") };
     inline RefreshErObjectCachesRequest& setObjectPath(string objectPath) { DARABONBA_PTR_SET_VALUE(objectPath_, objectPath) };
 
 
     // objectType Field Functions 
     bool hasObjectType() const { return this->objectType_ != nullptr;};
     void deleteObjectType() { this->objectType_ = nullptr;};
-    inline string objectType() const { DARABONBA_PTR_GET_DEFAULT(objectType_, "") };
+    inline string getObjectType() const { DARABONBA_PTR_GET_DEFAULT(objectType_, "") };
     inline RefreshErObjectCachesRequest& setObjectType(string objectType) { DARABONBA_PTR_SET_VALUE(objectType_, objectType) };
 
 
     // routineId Field Functions 
     bool hasRoutineId() const { return this->routineId_ != nullptr;};
     void deleteRoutineId() { this->routineId_ = nullptr;};
-    inline string routineId() const { DARABONBA_PTR_GET_DEFAULT(routineId_, "") };
+    inline string getRoutineId() const { DARABONBA_PTR_GET_DEFAULT(routineId_, "") };
     inline RefreshErObjectCachesRequest& setRoutineId(string routineId) { DARABONBA_PTR_SET_VALUE(routineId_, routineId) };
 
 
@@ -79,11 +79,11 @@ namespace Models
     // 
     // *   **true**: refreshes all resources in the directory.
     // *   **false**: refreshes the changed resources in the directory.
-    std::shared_ptr<bool> force_ = nullptr;
+    shared_ptr<bool> force_ {};
     // The domain names that are merged for refreshing. POPs that provide services for the domain names are refreshed.
     // 
     // >  Separate multiple domain names with commas (,).
-    std::shared_ptr<string> mergeDomainName_ = nullptr;
+    shared_ptr<string> mergeDomainName_ {};
     // The URL that you want to refresh.
     // 
     // > *   Separate URLs with line feeds (\\n or \\r\\n). Each object path can be up to 1,024 characters in length.
@@ -91,7 +91,7 @@ namespace Models
     // >*   You can refresh up to 1,000 URLs in each request.
     // 
     // This parameter is required.
-    std::shared_ptr<string> objectPath_ = nullptr;
+    shared_ptr<string> objectPath_ {};
     // The refresh type. Valid values:
     // 
     // *   **File** (default): refreshes content based on URLs.
@@ -102,9 +102,9 @@ namespace Models
     // >  If you refresh the files in one or more directories, the resources in the directory that you want to refresh are marked as expired. You cannot delete the directory. If clients request resources on POPs that are marked as expired, Dynamic Content Delivery Network (DCDN) checks whether the resources on your origin server are updated. If resources are updated, DCDN retrieves the latest version of the resources and returns the resources to the clients. Otherwise, the origin server returns the 304 status code.
     // 
     // This parameter is required.
-    std::shared_ptr<string> objectType_ = nullptr;
+    shared_ptr<string> objectType_ {};
     // The ID of the routine, which is in the format of "Name.Subdomain" and is the unique identifier of a custom routine.
-    std::shared_ptr<string> routineId_ = nullptr;
+    shared_ptr<string> routineId_ {};
   };
 
   } // namespace Models

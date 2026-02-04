@@ -35,41 +35,41 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->baseConfigID_ != nullptr
-        && this->domainNames_ != nullptr && this->sampleRate_ != nullptr && this->sinkID_ != nullptr; };
+    virtual bool empty() const override { return this->baseConfigID_ == nullptr
+        && this->domainNames_ == nullptr && this->sampleRate_ == nullptr && this->sinkID_ == nullptr; };
     // baseConfigID Field Functions 
     bool hasBaseConfigID() const { return this->baseConfigID_ != nullptr;};
     void deleteBaseConfigID() { this->baseConfigID_ = nullptr;};
-    inline string baseConfigID() const { DARABONBA_PTR_GET_DEFAULT(baseConfigID_, "") };
+    inline string getBaseConfigID() const { DARABONBA_PTR_GET_DEFAULT(baseConfigID_, "") };
     inline ModifyCustomDomainSampleRateRequest& setBaseConfigID(string baseConfigID) { DARABONBA_PTR_SET_VALUE(baseConfigID_, baseConfigID) };
 
 
     // domainNames Field Functions 
     bool hasDomainNames() const { return this->domainNames_ != nullptr;};
     void deleteDomainNames() { this->domainNames_ = nullptr;};
-    inline string domainNames() const { DARABONBA_PTR_GET_DEFAULT(domainNames_, "") };
+    inline string getDomainNames() const { DARABONBA_PTR_GET_DEFAULT(domainNames_, "") };
     inline ModifyCustomDomainSampleRateRequest& setDomainNames(string domainNames) { DARABONBA_PTR_SET_VALUE(domainNames_, domainNames) };
 
 
     // sampleRate Field Functions 
     bool hasSampleRate() const { return this->sampleRate_ != nullptr;};
     void deleteSampleRate() { this->sampleRate_ = nullptr;};
-    inline float sampleRate() const { DARABONBA_PTR_GET_DEFAULT(sampleRate_, 0.0) };
+    inline float getSampleRate() const { DARABONBA_PTR_GET_DEFAULT(sampleRate_, 0.0) };
     inline ModifyCustomDomainSampleRateRequest& setSampleRate(float sampleRate) { DARABONBA_PTR_SET_VALUE(sampleRate_, sampleRate) };
 
 
     // sinkID Field Functions 
     bool hasSinkID() const { return this->sinkID_ != nullptr;};
     void deleteSinkID() { this->sinkID_ = nullptr;};
-    inline int64_t sinkID() const { DARABONBA_PTR_GET_DEFAULT(sinkID_, 0L) };
+    inline int64_t getSinkID() const { DARABONBA_PTR_GET_DEFAULT(sinkID_, 0L) };
     inline ModifyCustomDomainSampleRateRequest& setSinkID(int64_t sinkID) { DARABONBA_PTR_SET_VALUE(sinkID_, sinkID) };
 
 
   protected:
-    std::shared_ptr<string> baseConfigID_ = nullptr;
-    std::shared_ptr<string> domainNames_ = nullptr;
-    std::shared_ptr<float> sampleRate_ = nullptr;
-    std::shared_ptr<int64_t> sinkID_ = nullptr;
+    shared_ptr<string> baseConfigID_ {};
+    shared_ptr<string> domainNames_ {};
+    shared_ptr<float> sampleRate_ {};
+    shared_ptr<int64_t> sinkID_ {};
   };
 
   } // namespace Models

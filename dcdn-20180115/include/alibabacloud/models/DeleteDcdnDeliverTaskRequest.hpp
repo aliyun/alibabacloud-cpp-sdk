@@ -29,11 +29,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->deliverId_ != nullptr; };
+    virtual bool empty() const override { return this->deliverId_ == nullptr; };
     // deliverId Field Functions 
     bool hasDeliverId() const { return this->deliverId_ != nullptr;};
     void deleteDeliverId() { this->deliverId_ = nullptr;};
-    inline int64_t deliverId() const { DARABONBA_PTR_GET_DEFAULT(deliverId_, 0L) };
+    inline int64_t getDeliverId() const { DARABONBA_PTR_GET_DEFAULT(deliverId_, 0L) };
     inline DeleteDcdnDeliverTaskRequest& setDeliverId(int64_t deliverId) { DARABONBA_PTR_SET_VALUE(deliverId_, deliverId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The IDs of the tracking tasks that you want to delete. You can call the [DescribeCdnDeliverList](https://help.aliyun.com/document_detail/270043.html) operation to query task IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> deliverId_ = nullptr;
+    shared_ptr<int64_t> deliverId_ {};
   };
 
   } // namespace Models

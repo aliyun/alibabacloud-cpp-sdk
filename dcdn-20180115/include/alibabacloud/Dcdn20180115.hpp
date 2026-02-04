@@ -5,9 +5,9 @@
 #include <alibabacloud/Dcdn20180115Model.hpp>
 #include <alibabacloud/Openapi.hpp>
 #include <alibabacloud/Utils.hpp>
+#include <darabonba/Runtime.hpp>
 #include <map>
 #include <alibabacloud/Dcdn20180115.hpp>
-#include <darabonba/Runtime.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -19,7 +19,7 @@ namespace Dcdn20180115
 
       Client(AlibabaCloud::OpenApi::Utils::Models::Config &config);
 
-      Darabonba::Json _postOSSObject(const string &bucketName, const Darabonba::Json &form);
+      Darabonba::Json _postOSSObject(const string &bucketName, const Darabonba::Json &form, const Darabonba::RuntimeOptions &runtime);
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
@@ -1651,6 +1651,8 @@ namespace Dcdn20180115
       Models::DescribeDcdnDomainLogResponse describeDcdnDomainLog(const Models::DescribeDcdnDomainLogRequest &request);
 
       /**
+       * @summary DescribeDcdnDomainLogExTtl
+       *
        * @param request DescribeDcdnDomainLogExTtlRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeDcdnDomainLogExTtlResponse
@@ -1658,6 +1660,8 @@ namespace Dcdn20180115
       Models::DescribeDcdnDomainLogExTtlResponse describeDcdnDomainLogExTtlWithOptions(const Models::DescribeDcdnDomainLogExTtlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary DescribeDcdnDomainLogExTtl
+       *
        * @param request DescribeDcdnDomainLogExTtlRequest
        * @return DescribeDcdnDomainLogExTtlResponse
        */
@@ -4848,6 +4852,23 @@ namespace Dcdn20180115
        * @return RefreshErObjectCachesResponse
        */
       Models::RefreshErObjectCachesResponse refreshErObjectCaches(const Models::RefreshErObjectCachesRequest &request);
+
+      /**
+       * @summary ER场景下的cache tag粒度的刷新接口
+       *
+       * @param request RefreshErObjectCachesByCacheTagRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RefreshErObjectCachesByCacheTagResponse
+       */
+      Models::RefreshErObjectCachesByCacheTagResponse refreshErObjectCachesByCacheTagWithOptions(const Models::RefreshErObjectCachesByCacheTagRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary ER场景下的cache tag粒度的刷新接口
+       *
+       * @param request RefreshErObjectCachesByCacheTagRequest
+       * @return RefreshErObjectCachesByCacheTagResponse
+       */
+      Models::RefreshErObjectCachesByCacheTagResponse refreshErObjectCachesByCacheTag(const Models::RefreshErObjectCachesByCacheTagRequest &request);
 
       /**
        * @summary Rolls back the configurations of an accelerated domain name from the staging environment to the production environment.

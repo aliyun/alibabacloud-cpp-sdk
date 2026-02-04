@@ -31,27 +31,27 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->preloadTaskId_ != nullptr
-        && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->preloadTaskId_ == nullptr
+        && this->requestId_ == nullptr; };
     // preloadTaskId Field Functions 
     bool hasPreloadTaskId() const { return this->preloadTaskId_ != nullptr;};
     void deletePreloadTaskId() { this->preloadTaskId_ = nullptr;};
-    inline string preloadTaskId() const { DARABONBA_PTR_GET_DEFAULT(preloadTaskId_, "") };
+    inline string getPreloadTaskId() const { DARABONBA_PTR_GET_DEFAULT(preloadTaskId_, "") };
     inline PreloadDcdnObjectCachesResponseBody& setPreloadTaskId(string preloadTaskId) { DARABONBA_PTR_SET_VALUE(preloadTaskId_, preloadTaskId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline PreloadDcdnObjectCachesResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The ID of the prefetch task. Multiple IDs are separated by commas (,).
-    std::shared_ptr<string> preloadTaskId_ = nullptr;
+    shared_ptr<string> preloadTaskId_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

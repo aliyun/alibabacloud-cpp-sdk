@@ -29,11 +29,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ruleIds_ != nullptr; };
+    virtual bool empty() const override { return this->ruleIds_ == nullptr; };
     // ruleIds Field Functions 
     bool hasRuleIds() const { return this->ruleIds_ != nullptr;};
     void deleteRuleIds() { this->ruleIds_ = nullptr;};
-    inline string ruleIds() const { DARABONBA_PTR_GET_DEFAULT(ruleIds_, "") };
+    inline string getRuleIds() const { DARABONBA_PTR_GET_DEFAULT(ruleIds_, "") };
     inline BatchDeleteDcdnWafRulesRequest& setRuleIds(string ruleIds) { DARABONBA_PTR_SET_VALUE(ruleIds_, ruleIds) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The IDs of the protection rules that you want to delete. Separate multiple IDs with commas (,).
     // 
     // This parameter is required.
-    std::shared_ptr<string> ruleIds_ = nullptr;
+    shared_ptr<string> ruleIds_ {};
   };
 
   } // namespace Models

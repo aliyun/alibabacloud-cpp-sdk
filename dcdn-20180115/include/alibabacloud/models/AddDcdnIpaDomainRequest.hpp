@@ -47,90 +47,90 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->checkUrl_ != nullptr
-        && this->domainName_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->protocol_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->scope_ != nullptr && this->securityToken_ != nullptr && this->sources_ != nullptr && this->topLevelDomain_ != nullptr; };
+    virtual bool empty() const override { return this->checkUrl_ == nullptr
+        && this->domainName_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->protocol_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->scope_ == nullptr && this->securityToken_ == nullptr && this->sources_ == nullptr && this->topLevelDomain_ == nullptr; };
     // checkUrl Field Functions 
     bool hasCheckUrl() const { return this->checkUrl_ != nullptr;};
     void deleteCheckUrl() { this->checkUrl_ = nullptr;};
-    inline string checkUrl() const { DARABONBA_PTR_GET_DEFAULT(checkUrl_, "") };
+    inline string getCheckUrl() const { DARABONBA_PTR_GET_DEFAULT(checkUrl_, "") };
     inline AddDcdnIpaDomainRequest& setCheckUrl(string checkUrl) { DARABONBA_PTR_SET_VALUE(checkUrl_, checkUrl) };
 
 
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
-    inline string domainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
+    inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline AddDcdnIpaDomainRequest& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
 
 
     // ownerAccount Field Functions 
     bool hasOwnerAccount() const { return this->ownerAccount_ != nullptr;};
     void deleteOwnerAccount() { this->ownerAccount_ = nullptr;};
-    inline string ownerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
+    inline string getOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
     inline AddDcdnIpaDomainRequest& setOwnerAccount(string ownerAccount) { DARABONBA_PTR_SET_VALUE(ownerAccount_, ownerAccount) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline AddDcdnIpaDomainRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // protocol Field Functions 
     bool hasProtocol() const { return this->protocol_ != nullptr;};
     void deleteProtocol() { this->protocol_ = nullptr;};
-    inline string protocol() const { DARABONBA_PTR_GET_DEFAULT(protocol_, "") };
+    inline string getProtocol() const { DARABONBA_PTR_GET_DEFAULT(protocol_, "") };
     inline AddDcdnIpaDomainRequest& setProtocol(string protocol) { DARABONBA_PTR_SET_VALUE(protocol_, protocol) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline AddDcdnIpaDomainRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // scope Field Functions 
     bool hasScope() const { return this->scope_ != nullptr;};
     void deleteScope() { this->scope_ = nullptr;};
-    inline string scope() const { DARABONBA_PTR_GET_DEFAULT(scope_, "") };
+    inline string getScope() const { DARABONBA_PTR_GET_DEFAULT(scope_, "") };
     inline AddDcdnIpaDomainRequest& setScope(string scope) { DARABONBA_PTR_SET_VALUE(scope_, scope) };
 
 
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
-    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
     inline AddDcdnIpaDomainRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
     // sources Field Functions 
     bool hasSources() const { return this->sources_ != nullptr;};
     void deleteSources() { this->sources_ = nullptr;};
-    inline string sources() const { DARABONBA_PTR_GET_DEFAULT(sources_, "") };
+    inline string getSources() const { DARABONBA_PTR_GET_DEFAULT(sources_, "") };
     inline AddDcdnIpaDomainRequest& setSources(string sources) { DARABONBA_PTR_SET_VALUE(sources_, sources) };
 
 
     // topLevelDomain Field Functions 
     bool hasTopLevelDomain() const { return this->topLevelDomain_ != nullptr;};
     void deleteTopLevelDomain() { this->topLevelDomain_ = nullptr;};
-    inline string topLevelDomain() const { DARABONBA_PTR_GET_DEFAULT(topLevelDomain_, "") };
+    inline string getTopLevelDomain() const { DARABONBA_PTR_GET_DEFAULT(topLevelDomain_, "") };
     inline AddDcdnIpaDomainRequest& setTopLevelDomain(string topLevelDomain) { DARABONBA_PTR_SET_VALUE(topLevelDomain_, topLevelDomain) };
 
 
   protected:
     // The URL that is used for health checks.
-    std::shared_ptr<string> checkUrl_ = nullptr;
+    shared_ptr<string> checkUrl_ {};
     // The domain name to be added to IPA.
     // 
     // A wildcard domain that starts with a period (.) is supported, such as .example.com.
     // 
     // This parameter is required.
-    std::shared_ptr<string> domainName_ = nullptr;
-    std::shared_ptr<string> ownerAccount_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<string> domainName_ {};
+    shared_ptr<string> ownerAccount_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // The protocol. Valid values:
     // 
     // *   **udp**
@@ -139,22 +139,22 @@ namespace Models
     // **
     // 
     // **Description** For example: `{"protocol":"udp"}`.
-    std::shared_ptr<string> protocol_ = nullptr;
+    shared_ptr<string> protocol_ {};
     // The ID of the resource group. If you do not specify a value for this parameter, the system automatically assigns the ID of the default resource group.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // The acceleration region. Default value: domestic. Valid values:
     // 
     // *   **domestic**: Chinese mainland
     // *   **overseas**: outside the Chinese mainland
     // *   **global**: global
-    std::shared_ptr<string> scope_ = nullptr;
-    std::shared_ptr<string> securityToken_ = nullptr;
+    shared_ptr<string> scope_ {};
+    shared_ptr<string> securityToken_ {};
     // The information about the addresses of origin servers.
     // 
     // This parameter is required.
-    std::shared_ptr<string> sources_ = nullptr;
+    shared_ptr<string> sources_ {};
     // The top-level domain.
-    std::shared_ptr<string> topLevelDomain_ = nullptr;
+    shared_ptr<string> topLevelDomain_ {};
   };
 
   } // namespace Models

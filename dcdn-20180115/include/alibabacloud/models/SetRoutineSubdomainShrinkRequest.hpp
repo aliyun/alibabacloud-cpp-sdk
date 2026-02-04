@@ -29,11 +29,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->subdomainsShrink_ != nullptr; };
+    virtual bool empty() const override { return this->subdomainsShrink_ == nullptr; };
     // subdomainsShrink Field Functions 
     bool hasSubdomainsShrink() const { return this->subdomainsShrink_ != nullptr;};
     void deleteSubdomainsShrink() { this->subdomainsShrink_ = nullptr;};
-    inline string subdomainsShrink() const { DARABONBA_PTR_GET_DEFAULT(subdomainsShrink_, "") };
+    inline string getSubdomainsShrink() const { DARABONBA_PTR_GET_DEFAULT(subdomainsShrink_, "") };
     inline SetRoutineSubdomainShrinkRequest& setSubdomainsShrink(string subdomainsShrink) { DARABONBA_PTR_SET_VALUE(subdomainsShrink_, subdomainsShrink) };
 
 
@@ -47,7 +47,7 @@ namespace Models
     //     ]
     // 
     // This parameter is required.
-    std::shared_ptr<string> subdomainsShrink_ = nullptr;
+    shared_ptr<string> subdomainsShrink_ {};
   };
 
   } // namespace Models

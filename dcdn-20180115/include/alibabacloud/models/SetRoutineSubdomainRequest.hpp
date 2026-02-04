@@ -29,14 +29,14 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->subdomains_ != nullptr; };
+    virtual bool empty() const override { return this->subdomains_ == nullptr; };
     // subdomains Field Functions 
     bool hasSubdomains() const { return this->subdomains_ != nullptr;};
     void deleteSubdomains() { this->subdomains_ = nullptr;};
-    inline     const Darabonba::Json & subdomains() const { DARABONBA_GET(subdomains_) };
-    Darabonba::Json & subdomains() { DARABONBA_GET(subdomains_) };
+    inline     const Darabonba::Json & getSubdomains() const { DARABONBA_GET(subdomains_) };
+    Darabonba::Json & getSubdomains() { DARABONBA_GET(subdomains_) };
     inline SetRoutineSubdomainRequest& setSubdomains(const Darabonba::Json & subdomains) { DARABONBA_SET_VALUE(subdomains_, subdomains) };
-    inline SetRoutineSubdomainRequest& setSubdomains(Darabonba::Json & subdomains) { DARABONBA_SET_RVALUE(subdomains_, subdomains) };
+    inline SetRoutineSubdomainRequest& setSubdomains(Darabonba::Json && subdomains) { DARABONBA_SET_RVALUE(subdomains_, subdomains) };
 
 
   protected:
@@ -49,7 +49,7 @@ namespace Models
     //     ]
     // 
     // This parameter is required.
-    Darabonba::Json subdomains_ = nullptr;
+    Darabonba::Json subdomains_ {};
   };
 
   } // namespace Models

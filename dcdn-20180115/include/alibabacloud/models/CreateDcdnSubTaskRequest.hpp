@@ -31,19 +31,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->domainName_ != nullptr
-        && this->reportIds_ != nullptr; };
+    virtual bool empty() const override { return this->domainName_ == nullptr
+        && this->reportIds_ == nullptr; };
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
-    inline string domainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
+    inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline CreateDcdnSubTaskRequest& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
 
 
     // reportIds Field Functions 
     bool hasReportIds() const { return this->reportIds_ != nullptr;};
     void deleteReportIds() { this->reportIds_ = nullptr;};
-    inline string reportIds() const { DARABONBA_PTR_GET_DEFAULT(reportIds_, "") };
+    inline string getReportIds() const { DARABONBA_PTR_GET_DEFAULT(reportIds_, "") };
     inline CreateDcdnSubTaskRequest& setReportIds(string reportIds) { DARABONBA_PTR_SET_VALUE(reportIds_, reportIds) };
 
 
@@ -51,7 +51,7 @@ namespace Models
     // The domain names to be tracked. Separate multiple domain names with commas (,). You can specify up to 500 domain names. If you want to specify more than 500 domain names, [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.2020520001.aliyun_topbar.18.dbd44bd3e4f845#/ticket/createIndex).
     // 
     // > If you do not specify a domain name, the tracking task is created for all domain names that belong to your Alibaba Cloud account.
-    std::shared_ptr<string> domainName_ = nullptr;
+    shared_ptr<string> domainName_ {};
     // The IDs of the metrics that you want to include in the report. Separate multiple IDs with commas (,). Valid values:
     // 
     // *   **2**: Popular URLs by Request
@@ -70,7 +70,7 @@ namespace Models
     // *   **27**: Back-to-origin bandwidth
     // 
     // This parameter is required.
-    std::shared_ptr<string> reportIds_ = nullptr;
+    shared_ptr<string> reportIds_ {};
   };
 
   } // namespace Models

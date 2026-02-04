@@ -31,19 +31,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->policyId_ != nullptr
-        && this->ruleConfigs_ != nullptr; };
+    virtual bool empty() const override { return this->policyId_ == nullptr
+        && this->ruleConfigs_ == nullptr; };
     // policyId Field Functions 
     bool hasPolicyId() const { return this->policyId_ != nullptr;};
     void deletePolicyId() { this->policyId_ = nullptr;};
-    inline int64_t policyId() const { DARABONBA_PTR_GET_DEFAULT(policyId_, 0L) };
+    inline int64_t getPolicyId() const { DARABONBA_PTR_GET_DEFAULT(policyId_, 0L) };
     inline BatchCreateDcdnWafRulesRequest& setPolicyId(int64_t policyId) { DARABONBA_PTR_SET_VALUE(policyId_, policyId) };
 
 
     // ruleConfigs Field Functions 
     bool hasRuleConfigs() const { return this->ruleConfigs_ != nullptr;};
     void deleteRuleConfigs() { this->ruleConfigs_ = nullptr;};
-    inline string ruleConfigs() const { DARABONBA_PTR_GET_DEFAULT(ruleConfigs_, "") };
+    inline string getRuleConfigs() const { DARABONBA_PTR_GET_DEFAULT(ruleConfigs_, "") };
     inline BatchCreateDcdnWafRulesRequest& setRuleConfigs(string ruleConfigs) { DARABONBA_PTR_SET_VALUE(ruleConfigs_, ruleConfigs) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The ID of the protection policy.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> policyId_ = nullptr;
+    shared_ptr<int64_t> policyId_ {};
     // The configuration of the protection rule.
     // 
     // This parameter is required.
-    std::shared_ptr<string> ruleConfigs_ = nullptr;
+    shared_ptr<string> ruleConfigs_ {};
   };
 
   } // namespace Models
