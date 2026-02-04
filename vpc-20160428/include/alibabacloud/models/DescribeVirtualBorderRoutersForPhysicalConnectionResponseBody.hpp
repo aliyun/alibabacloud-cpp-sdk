@@ -81,6 +81,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(TerminationTime, terminationTime_);
           DARABONBA_PTR_TO_JSON(Type, type_);
           DARABONBA_PTR_TO_JSON(VbrId, vbrId_);
+          DARABONBA_PTR_TO_JSON(VbrName, vbrName_);
           DARABONBA_PTR_TO_JSON(VbrOwnerUid, vbrOwnerUid_);
           DARABONBA_PTR_TO_JSON(VlanId, vlanId_);
         };
@@ -106,6 +107,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(TerminationTime, terminationTime_);
           DARABONBA_PTR_FROM_JSON(Type, type_);
           DARABONBA_PTR_FROM_JSON(VbrId, vbrId_);
+          DARABONBA_PTR_FROM_JSON(VbrName, vbrName_);
           DARABONBA_PTR_FROM_JSON(VbrOwnerUid, vbrOwnerUid_);
           DARABONBA_PTR_FROM_JSON(VlanId, vlanId_);
         };
@@ -125,7 +127,7 @@ namespace Models
         && this->enableIpv6_ == nullptr && this->localGatewayIp_ == nullptr && this->localIpv6GatewayIp_ == nullptr && this->PConnVbrBussinessStatus_ == nullptr && this->PConnVbrChargeType_ == nullptr
         && this->PConnVbrExpireTime_ == nullptr && this->peerGatewayIp_ == nullptr && this->peerIpv6GatewayIp_ == nullptr && this->peeringIpv6SubnetMask_ == nullptr && this->peeringSubnetMask_ == nullptr
         && this->recoveryTime_ == nullptr && this->status_ == nullptr && this->terminationTime_ == nullptr && this->type_ == nullptr && this->vbrId_ == nullptr
-        && this->vbrOwnerUid_ == nullptr && this->vlanId_ == nullptr; };
+        && this->vbrName_ == nullptr && this->vbrOwnerUid_ == nullptr && this->vlanId_ == nullptr; };
         // activationTime Field Functions 
         bool hasActivationTime() const { return this->activationTime_ != nullptr;};
         void deleteActivationTime() { this->activationTime_ = nullptr;};
@@ -273,6 +275,13 @@ namespace Models
         inline VirtualBorderRouterForPhysicalConnectionType& setVbrId(string vbrId) { DARABONBA_PTR_SET_VALUE(vbrId_, vbrId) };
 
 
+        // vbrName Field Functions 
+        bool hasVbrName() const { return this->vbrName_ != nullptr;};
+        void deleteVbrName() { this->vbrName_ = nullptr;};
+        inline string getVbrName() const { DARABONBA_PTR_GET_DEFAULT(vbrName_, "") };
+        inline VirtualBorderRouterForPhysicalConnectionType& setVbrName(string vbrName) { DARABONBA_PTR_SET_VALUE(vbrName_, vbrName) };
+
+
         // vbrOwnerUid Field Functions 
         bool hasVbrOwnerUid() const { return this->vbrOwnerUid_ != nullptr;};
         void deleteVbrOwnerUid() { this->vbrOwnerUid_ = nullptr;};
@@ -355,6 +364,7 @@ namespace Models
         shared_ptr<string> type_ {};
         // The VBR ID.
         shared_ptr<string> vbrId_ {};
+        shared_ptr<string> vbrName_ {};
         // The ID of the Alibaba Cloud account to which the VBR belongs.
         // 
         // If the owner of the VBR is the same as that of the Express Connect circuit, this parameter is empty.

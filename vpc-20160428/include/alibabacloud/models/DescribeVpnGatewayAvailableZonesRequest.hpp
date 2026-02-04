@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DescribeVpnGatewayAvailableZonesRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AcceptLanguage, acceptLanguage_);
+      DARABONBA_PTR_TO_JSON(GatewayType, gatewayType_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
@@ -23,6 +24,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, DescribeVpnGatewayAvailableZonesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AcceptLanguage, acceptLanguage_);
+      DARABONBA_PTR_FROM_JSON(GatewayType, gatewayType_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -42,13 +44,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->acceptLanguage_ == nullptr
-        && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr
-        && this->spec_ == nullptr; };
+        && this->gatewayType_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr
+        && this->resourceOwnerId_ == nullptr && this->spec_ == nullptr; };
     // acceptLanguage Field Functions 
     bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
     void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};
     inline string getAcceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
     inline DescribeVpnGatewayAvailableZonesRequest& setAcceptLanguage(string acceptLanguage) { DARABONBA_PTR_SET_VALUE(acceptLanguage_, acceptLanguage) };
+
+
+    // gatewayType Field Functions 
+    bool hasGatewayType() const { return this->gatewayType_ != nullptr;};
+    void deleteGatewayType() { this->gatewayType_ = nullptr;};
+    inline string getGatewayType() const { DARABONBA_PTR_GET_DEFAULT(gatewayType_, "") };
+    inline DescribeVpnGatewayAvailableZonesRequest& setGatewayType(string gatewayType) { DARABONBA_PTR_SET_VALUE(gatewayType_, gatewayType) };
 
 
     // ownerAccount Field Functions 
@@ -99,6 +108,7 @@ namespace Models
     // *   **zh-CN**: Chinese
     // *   **en-US** (default): English
     shared_ptr<string> acceptLanguage_ {};
+    shared_ptr<string> gatewayType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The region ID.

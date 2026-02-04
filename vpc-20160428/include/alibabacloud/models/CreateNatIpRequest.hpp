@@ -83,8 +83,8 @@ namespace Models
     // ipv4PrefixCount Field Functions 
     bool hasIpv4PrefixCount() const { return this->ipv4PrefixCount_ != nullptr;};
     void deleteIpv4PrefixCount() { this->ipv4PrefixCount_ = nullptr;};
-    inline int64_t getIpv4PrefixCount() const { DARABONBA_PTR_GET_DEFAULT(ipv4PrefixCount_, 0L) };
-    inline CreateNatIpRequest& setIpv4PrefixCount(int64_t ipv4PrefixCount) { DARABONBA_PTR_SET_VALUE(ipv4PrefixCount_, ipv4PrefixCount) };
+    inline int32_t getIpv4PrefixCount() const { DARABONBA_PTR_GET_DEFAULT(ipv4PrefixCount_, 0) };
+    inline CreateNatIpRequest& setIpv4PrefixCount(int32_t ipv4PrefixCount) { DARABONBA_PTR_SET_VALUE(ipv4PrefixCount_, ipv4PrefixCount) };
 
 
     // natGatewayId Field Functions 
@@ -172,7 +172,7 @@ namespace Models
     // The created IP prefix address segment must be within the reserved network segment of the switch where the NAT is located, and the reserved network segment cannot be occupied. The IP prefix mask must be /28.
     shared_ptr<string> ipv4Prefix_ {};
     // The number of automatically assigned IP prefixes. These are randomly allocated from the unassigned reserved segments of the switch where the NAT is located. Value range: 1 to 10.
-    shared_ptr<int64_t> ipv4PrefixCount_ {};
+    shared_ptr<int32_t> ipv4PrefixCount_ {};
     // The ID of the Virtual Private Cloud (VPC) NAT gateway for which you want to create the NAT IP address.
     // 
     // This parameter is required.

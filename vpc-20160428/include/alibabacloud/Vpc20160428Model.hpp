@@ -110,9 +110,6 @@
 #include <alibabacloud/models/ConnectRouterInterfaceRequest.hpp>
 #include <alibabacloud/models/ConnectRouterInterfaceResponseBody.hpp>
 #include <alibabacloud/models/ConnectRouterInterfaceResponse.hpp>
-#include <alibabacloud/models/ConvertBandwidthPackageRequest.hpp>
-#include <alibabacloud/models/ConvertBandwidthPackageResponseBody.hpp>
-#include <alibabacloud/models/ConvertBandwidthPackageResponse.hpp>
 #include <alibabacloud/models/CopyNetworkAclEntriesRequest.hpp>
 #include <alibabacloud/models/CopyNetworkAclEntriesResponseBody.hpp>
 #include <alibabacloud/models/CopyNetworkAclEntriesResponse.hpp>
@@ -708,9 +705,6 @@
 #include <alibabacloud/models/DiagnoseVpnGatewayRequest.hpp>
 #include <alibabacloud/models/DiagnoseVpnGatewayResponseBody.hpp>
 #include <alibabacloud/models/DiagnoseVpnGatewayResponse.hpp>
-#include <alibabacloud/models/DisableNatGatewayEcsMetricRequest.hpp>
-#include <alibabacloud/models/DisableNatGatewayEcsMetricResponseBody.hpp>
-#include <alibabacloud/models/DisableNatGatewayEcsMetricResponse.hpp>
 #include <alibabacloud/models/DisableVpcClassicLinkRequest.hpp>
 #include <alibabacloud/models/DisableVpcClassicLinkResponseBody.hpp>
 #include <alibabacloud/models/DisableVpcClassicLinkResponse.hpp>
@@ -726,9 +720,6 @@
 #include <alibabacloud/models/DownloadVpnConnectionConfigRequest.hpp>
 #include <alibabacloud/models/DownloadVpnConnectionConfigResponseBody.hpp>
 #include <alibabacloud/models/DownloadVpnConnectionConfigResponse.hpp>
-#include <alibabacloud/models/EnableNatGatewayEcsMetricRequest.hpp>
-#include <alibabacloud/models/EnableNatGatewayEcsMetricResponseBody.hpp>
-#include <alibabacloud/models/EnableNatGatewayEcsMetricResponse.hpp>
 #include <alibabacloud/models/EnablePhysicalConnectionRequest.hpp>
 #include <alibabacloud/models/EnablePhysicalConnectionResponseBody.hpp>
 #include <alibabacloud/models/EnablePhysicalConnectionResponse.hpp>
@@ -750,12 +741,6 @@
 #include <alibabacloud/models/GetNatGatewayAttributeRequest.hpp>
 #include <alibabacloud/models/GetNatGatewayAttributeResponseBody.hpp>
 #include <alibabacloud/models/GetNatGatewayAttributeResponse.hpp>
-#include <alibabacloud/models/GetNatIpAttributeRequest.hpp>
-#include <alibabacloud/models/GetNatIpAttributeResponseBody.hpp>
-#include <alibabacloud/models/GetNatIpAttributeResponse.hpp>
-#include <alibabacloud/models/GetNatIpCidrAttributeRequest.hpp>
-#include <alibabacloud/models/GetNatIpCidrAttributeResponseBody.hpp>
-#include <alibabacloud/models/GetNatIpCidrAttributeResponse.hpp>
 #include <alibabacloud/models/GetPhysicalConnectionServiceStatusRequest.hpp>
 #include <alibabacloud/models/GetPhysicalConnectionServiceStatusResponseBody.hpp>
 #include <alibabacloud/models/GetPhysicalConnectionServiceStatusResponse.hpp>

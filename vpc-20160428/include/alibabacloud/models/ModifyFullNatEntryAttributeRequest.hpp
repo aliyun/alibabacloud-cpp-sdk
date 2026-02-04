@@ -13,6 +13,7 @@ namespace Models
   class ModifyFullNatEntryAttributeRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ModifyFullNatEntryAttributeRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AccessDomain, accessDomain_);
       DARABONBA_PTR_TO_JSON(AccessIp, accessIp_);
       DARABONBA_PTR_TO_JSON(AccessPort, accessPort_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
@@ -32,6 +33,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyFullNatEntryAttributeRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AccessDomain, accessDomain_);
       DARABONBA_PTR_FROM_JSON(AccessIp, accessIp_);
       DARABONBA_PTR_FROM_JSON(AccessPort, accessPort_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
@@ -61,11 +63,18 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->accessIp_ == nullptr
-        && this->accessPort_ == nullptr && this->clientToken_ == nullptr && this->dryRun_ == nullptr && this->fullNatEntryDescription_ == nullptr && this->fullNatEntryId_ == nullptr
-        && this->fullNatEntryName_ == nullptr && this->fullNatTableId_ == nullptr && this->ipProtocol_ == nullptr && this->natIp_ == nullptr && this->natIpPort_ == nullptr
-        && this->networkInterfaceId_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr
-        && this->resourceOwnerId_ == nullptr; };
+    virtual bool empty() const override { return this->accessDomain_ == nullptr
+        && this->accessIp_ == nullptr && this->accessPort_ == nullptr && this->clientToken_ == nullptr && this->dryRun_ == nullptr && this->fullNatEntryDescription_ == nullptr
+        && this->fullNatEntryId_ == nullptr && this->fullNatEntryName_ == nullptr && this->fullNatTableId_ == nullptr && this->ipProtocol_ == nullptr && this->natIp_ == nullptr
+        && this->natIpPort_ == nullptr && this->networkInterfaceId_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->regionId_ == nullptr
+        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr; };
+    // accessDomain Field Functions 
+    bool hasAccessDomain() const { return this->accessDomain_ != nullptr;};
+    void deleteAccessDomain() { this->accessDomain_ = nullptr;};
+    inline string getAccessDomain() const { DARABONBA_PTR_GET_DEFAULT(accessDomain_, "") };
+    inline ModifyFullNatEntryAttributeRequest& setAccessDomain(string accessDomain) { DARABONBA_PTR_SET_VALUE(accessDomain_, accessDomain) };
+
+
     // accessIp Field Functions 
     bool hasAccessIp() const { return this->accessIp_ != nullptr;};
     void deleteAccessIp() { this->accessIp_ = nullptr;};
@@ -186,6 +195,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> accessDomain_ {};
     // The backend IP address to be modified in FULLNAT address translation.
     shared_ptr<string> accessIp_ {};
     // The backend port to be modified in FULLNAT port mapping. Valid values: **1** to **65535**.

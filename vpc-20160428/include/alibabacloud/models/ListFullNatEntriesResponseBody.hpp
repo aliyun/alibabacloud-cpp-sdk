@@ -45,9 +45,11 @@ namespace Models
     class FullNatEntries : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const FullNatEntries& obj) { 
+        DARABONBA_PTR_TO_JSON(AccessDomain, accessDomain_);
         DARABONBA_PTR_TO_JSON(AccessIp, accessIp_);
         DARABONBA_PTR_TO_JSON(AccessPort, accessPort_);
         DARABONBA_PTR_TO_JSON(CreationTime, creationTime_);
+        DARABONBA_PTR_TO_JSON(DomainResolve, domainResolve_);
         DARABONBA_PTR_TO_JSON(FullNatEntryDescription, fullNatEntryDescription_);
         DARABONBA_PTR_TO_JSON(FullNatEntryId, fullNatEntryId_);
         DARABONBA_PTR_TO_JSON(FullNatEntryName, fullNatEntryName_);
@@ -60,9 +62,11 @@ namespace Models
         DARABONBA_PTR_TO_JSON(NetworkInterfaceType, networkInterfaceType_);
       };
       friend void from_json(const Darabonba::Json& j, FullNatEntries& obj) { 
+        DARABONBA_PTR_FROM_JSON(AccessDomain, accessDomain_);
         DARABONBA_PTR_FROM_JSON(AccessIp, accessIp_);
         DARABONBA_PTR_FROM_JSON(AccessPort, accessPort_);
         DARABONBA_PTR_FROM_JSON(CreationTime, creationTime_);
+        DARABONBA_PTR_FROM_JSON(DomainResolve, domainResolve_);
         DARABONBA_PTR_FROM_JSON(FullNatEntryDescription, fullNatEntryDescription_);
         DARABONBA_PTR_FROM_JSON(FullNatEntryId, fullNatEntryId_);
         DARABONBA_PTR_FROM_JSON(FullNatEntryName, fullNatEntryName_);
@@ -85,10 +89,17 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->accessIp_ == nullptr
-        && this->accessPort_ == nullptr && this->creationTime_ == nullptr && this->fullNatEntryDescription_ == nullptr && this->fullNatEntryId_ == nullptr && this->fullNatEntryName_ == nullptr
-        && this->fullNatEntryStatus_ == nullptr && this->fullNatTableId_ == nullptr && this->ipProtocol_ == nullptr && this->natIp_ == nullptr && this->natIpPort_ == nullptr
-        && this->networkInterfaceId_ == nullptr && this->networkInterfaceType_ == nullptr; };
+      virtual bool empty() const override { return this->accessDomain_ == nullptr
+        && this->accessIp_ == nullptr && this->accessPort_ == nullptr && this->creationTime_ == nullptr && this->domainResolve_ == nullptr && this->fullNatEntryDescription_ == nullptr
+        && this->fullNatEntryId_ == nullptr && this->fullNatEntryName_ == nullptr && this->fullNatEntryStatus_ == nullptr && this->fullNatTableId_ == nullptr && this->ipProtocol_ == nullptr
+        && this->natIp_ == nullptr && this->natIpPort_ == nullptr && this->networkInterfaceId_ == nullptr && this->networkInterfaceType_ == nullptr; };
+      // accessDomain Field Functions 
+      bool hasAccessDomain() const { return this->accessDomain_ != nullptr;};
+      void deleteAccessDomain() { this->accessDomain_ = nullptr;};
+      inline string getAccessDomain() const { DARABONBA_PTR_GET_DEFAULT(accessDomain_, "") };
+      inline FullNatEntries& setAccessDomain(string accessDomain) { DARABONBA_PTR_SET_VALUE(accessDomain_, accessDomain) };
+
+
       // accessIp Field Functions 
       bool hasAccessIp() const { return this->accessIp_ != nullptr;};
       void deleteAccessIp() { this->accessIp_ = nullptr;};
@@ -108,6 +119,13 @@ namespace Models
       void deleteCreationTime() { this->creationTime_ = nullptr;};
       inline string getCreationTime() const { DARABONBA_PTR_GET_DEFAULT(creationTime_, "") };
       inline FullNatEntries& setCreationTime(string creationTime) { DARABONBA_PTR_SET_VALUE(creationTime_, creationTime) };
+
+
+      // domainResolve Field Functions 
+      bool hasDomainResolve() const { return this->domainResolve_ != nullptr;};
+      void deleteDomainResolve() { this->domainResolve_ = nullptr;};
+      inline string getDomainResolve() const { DARABONBA_PTR_GET_DEFAULT(domainResolve_, "") };
+      inline FullNatEntries& setDomainResolve(string domainResolve) { DARABONBA_PTR_SET_VALUE(domainResolve_, domainResolve) };
 
 
       // fullNatEntryDescription Field Functions 
@@ -181,12 +199,14 @@ namespace Models
 
 
     protected:
+      shared_ptr<string> accessDomain_ {};
       // The backend IP address that is used for FULLNAT address translation in FULLNAT entries.
       shared_ptr<string> accessIp_ {};
       // The backend port that is used for port mapping in FULLNAT entries. Valid values: **1** to **65535**.
       shared_ptr<string> accessPort_ {};
       // The time when the FULLNAT entry was created.
       shared_ptr<string> creationTime_ {};
+      shared_ptr<string> domainResolve_ {};
       // The description of the FULLNAT entry.
       // 
       // The name must be 2 to 128 characters in length. It must start with a letter but cannot start with `http://` or `https://`.

@@ -911,37 +911,6 @@ namespace Vpc20160428
       Models::ConnectRouterInterfaceResponse connectRouterInterface(const Models::ConnectRouterInterfaceRequest &request);
 
       /**
-       * @deprecated OpenAPI ConvertBandwidthPackage is deprecated
-       *
-       * @summary Converts a NAT service plan to an Internet Shared Bandwidth instance.
-       *
-       * @description Before you convert a NAT service plan to an Internet Shared Bandwidth instance, take note of the following limits:
-       * *   You are not charged for the conversion.
-       * *   When you convert a NAT service plan to an Internet Shared Bandwidth instance, you can continue to use the SNAT and DNAT features of the NAT gateway, and your workloads are not affected. However, we recommend that you convert your NAT service plan during off-peak hours.
-       * *   After the NAT service plan is converted to an Internet Shared Bandwidth instance, the public IP addresses in the NAT service plan are converted to elastic IP addresses (EIPs). The maximum bandwidth and billing method of the Internet Shared Bandwidth instance are the same as those of the NAT service plan.
-       *
-       * @param request ConvertBandwidthPackageRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ConvertBandwidthPackageResponse
-       */
-      Models::ConvertBandwidthPackageResponse convertBandwidthPackageWithOptions(const Models::ConvertBandwidthPackageRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @deprecated OpenAPI ConvertBandwidthPackage is deprecated
-       *
-       * @summary Converts a NAT service plan to an Internet Shared Bandwidth instance.
-       *
-       * @description Before you convert a NAT service plan to an Internet Shared Bandwidth instance, take note of the following limits:
-       * *   You are not charged for the conversion.
-       * *   When you convert a NAT service plan to an Internet Shared Bandwidth instance, you can continue to use the SNAT and DNAT features of the NAT gateway, and your workloads are not affected. However, we recommend that you convert your NAT service plan during off-peak hours.
-       * *   After the NAT service plan is converted to an Internet Shared Bandwidth instance, the public IP addresses in the NAT service plan are converted to elastic IP addresses (EIPs). The maximum bandwidth and billing method of the Internet Shared Bandwidth instance are the same as those of the NAT service plan.
-       *
-       * @param request ConvertBandwidthPackageRequest
-       * @return ConvertBandwidthPackageResponse
-       */
-      Models::ConvertBandwidthPackageResponse convertBandwidthPackage(const Models::ConvertBandwidthPackageRequest &request);
-
-      /**
        * @summary Copies rules of a network access control list (ACL).
        *
        * @description ## [](#)Description
@@ -5518,27 +5487,6 @@ namespace Vpc20160428
       Models::DiagnoseVpnGatewayResponse diagnoseVpnGateway(const Models::DiagnoseVpnGatewayRequest &request);
 
       /**
-       * @deprecated OpenAPI DisableNatGatewayEcsMetric is deprecated
-       *
-       * @summary Disables traffic monitoring for an Elastic Compute Service (ECS) instance.
-       *
-       * @param request DisableNatGatewayEcsMetricRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DisableNatGatewayEcsMetricResponse
-       */
-      Models::DisableNatGatewayEcsMetricResponse disableNatGatewayEcsMetricWithOptions(const Models::DisableNatGatewayEcsMetricRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @deprecated OpenAPI DisableNatGatewayEcsMetric is deprecated
-       *
-       * @summary Disables traffic monitoring for an Elastic Compute Service (ECS) instance.
-       *
-       * @param request DisableNatGatewayEcsMetricRequest
-       * @return DisableNatGatewayEcsMetricResponse
-       */
-      Models::DisableNatGatewayEcsMetricResponse disableNatGatewayEcsMetric(const Models::DisableNatGatewayEcsMetricRequest &request);
-
-      /**
        * @summary Disables ClassicLink for a virtual private cloud (VPC).
        *
        * @param request DisableVpcClassicLinkRequest
@@ -5632,27 +5580,6 @@ namespace Vpc20160428
        * @return DownloadVpnConnectionConfigResponse
        */
       Models::DownloadVpnConnectionConfigResponse downloadVpnConnectionConfig(const Models::DownloadVpnConnectionConfigRequest &request);
-
-      /**
-       * @deprecated OpenAPI EnableNatGatewayEcsMetric is deprecated
-       *
-       * @summary Enables Elastic Compute Service (ECS) traffic monitoring.
-       *
-       * @param request EnableNatGatewayEcsMetricRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return EnableNatGatewayEcsMetricResponse
-       */
-      Models::EnableNatGatewayEcsMetricResponse enableNatGatewayEcsMetricWithOptions(const Models::EnableNatGatewayEcsMetricRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @deprecated OpenAPI EnableNatGatewayEcsMetric is deprecated
-       *
-       * @summary Enables Elastic Compute Service (ECS) traffic monitoring.
-       *
-       * @param request EnableNatGatewayEcsMetricRequest
-       * @return EnableNatGatewayEcsMetricResponse
-       */
-      Models::EnableNatGatewayEcsMetricResponse enableNatGatewayEcsMetric(const Models::EnableNatGatewayEcsMetricRequest &request);
 
       /**
        * @summary Enables an Express Connect circuit that is in the Confirmed state. After you perform this operation, the Express Connect circuit enters the Enabled state.
@@ -5800,40 +5727,6 @@ namespace Vpc20160428
        * @return GetNatGatewayAttributeResponse
        */
       Models::GetNatGatewayAttributeResponse getNatGatewayAttribute(const Models::GetNatGatewayAttributeRequest &request);
-
-      /**
-       * @summary Call GetNatIpAttribute to query the VPC NAT network to obtain information on each NAT IP address.
-       *
-       * @param request GetNatIpAttributeRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetNatIpAttributeResponse
-       */
-      Models::GetNatIpAttributeResponse getNatIpAttributeWithOptions(const Models::GetNatIpAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Call GetNatIpAttribute to query the VPC NAT network to obtain information on each NAT IP address.
-       *
-       * @param request GetNatIpAttributeRequest
-       * @return GetNatIpAttributeResponse
-       */
-      Models::GetNatIpAttributeResponse getNatIpAttribute(const Models::GetNatIpAttributeRequest &request);
-
-      /**
-       * @summary Call GetNatIpCidrAttribute to query the VPC NAT network to obtain information on each NAT IP cidr address.
-       *
-       * @param request GetNatIpCidrAttributeRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetNatIpCidrAttributeResponse
-       */
-      Models::GetNatIpCidrAttributeResponse getNatIpCidrAttributeWithOptions(const Models::GetNatIpCidrAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Call GetNatIpCidrAttribute to query the VPC NAT network to obtain information on each NAT IP cidr address.
-       *
-       * @param request GetNatIpCidrAttributeRequest
-       * @return GetNatIpCidrAttributeResponse
-       */
-      Models::GetNatIpCidrAttributeResponse getNatIpCidrAttribute(const Models::GetNatIpCidrAttributeRequest &request);
 
       /**
        * @summary 查询是否开通了出云流量服务

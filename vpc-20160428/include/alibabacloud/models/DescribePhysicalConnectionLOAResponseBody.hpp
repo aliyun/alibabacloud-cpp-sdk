@@ -38,6 +38,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(CompanyLocalizedName, companyLocalizedName_);
         DARABONBA_PTR_TO_JSON(CompanyName, companyName_);
         DARABONBA_PTR_TO_JSON(ConstructionTime, constructionTime_);
+        DARABONBA_PTR_TO_JSON(Description, description_);
         DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_TO_JSON(LineCode, lineCode_);
         DARABONBA_PTR_TO_JSON(LineLabel, lineLabel_);
@@ -53,6 +54,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(CompanyLocalizedName, companyLocalizedName_);
         DARABONBA_PTR_FROM_JSON(CompanyName, companyName_);
         DARABONBA_PTR_FROM_JSON(ConstructionTime, constructionTime_);
+        DARABONBA_PTR_FROM_JSON(Description, description_);
         DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_FROM_JSON(LineCode, lineCode_);
         DARABONBA_PTR_FROM_JSON(LineLabel, lineLabel_);
@@ -193,9 +195,9 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->companyLocalizedName_ == nullptr
-        && this->companyName_ == nullptr && this->constructionTime_ == nullptr && this->instanceId_ == nullptr && this->lineCode_ == nullptr && this->lineLabel_ == nullptr
-        && this->lineSPContactInfo_ == nullptr && this->lineServiceProvider_ == nullptr && this->lineType_ == nullptr && this->loaUrl_ == nullptr && this->PMInfo_ == nullptr
-        && this->SI_ == nullptr && this->status_ == nullptr; };
+        && this->companyName_ == nullptr && this->constructionTime_ == nullptr && this->description_ == nullptr && this->instanceId_ == nullptr && this->lineCode_ == nullptr
+        && this->lineLabel_ == nullptr && this->lineSPContactInfo_ == nullptr && this->lineServiceProvider_ == nullptr && this->lineType_ == nullptr && this->loaUrl_ == nullptr
+        && this->PMInfo_ == nullptr && this->SI_ == nullptr && this->status_ == nullptr; };
       // companyLocalizedName Field Functions 
       bool hasCompanyLocalizedName() const { return this->companyLocalizedName_ != nullptr;};
       void deleteCompanyLocalizedName() { this->companyLocalizedName_ = nullptr;};
@@ -215,6 +217,13 @@ namespace Models
       void deleteConstructionTime() { this->constructionTime_ = nullptr;};
       inline string getConstructionTime() const { DARABONBA_PTR_GET_DEFAULT(constructionTime_, "") };
       inline PhysicalConnectionLOAType& setConstructionTime(string constructionTime) { DARABONBA_PTR_SET_VALUE(constructionTime_, constructionTime) };
+
+
+      // description Field Functions 
+      bool hasDescription() const { return this->description_ != nullptr;};
+      void deleteDescription() { this->description_ = nullptr;};
+      inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+      inline PhysicalConnectionLOAType& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
       // instanceId Field Functions 
@@ -296,6 +305,7 @@ namespace Models
       shared_ptr<string> companyName_ {};
       // The time when construction starts.
       shared_ptr<string> constructionTime_ {};
+      shared_ptr<string> description_ {};
       // The ID of the Express Connect circuit.
       shared_ptr<string> instanceId_ {};
       // The circuit code provided by the connectivity provider.

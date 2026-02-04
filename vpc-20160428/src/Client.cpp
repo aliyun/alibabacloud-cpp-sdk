@@ -3160,86 +3160,6 @@ ConnectRouterInterfaceResponse Client::connectRouterInterface(const ConnectRoute
 }
 
 /**
- * @deprecated OpenAPI ConvertBandwidthPackage is deprecated
- *
- * @summary Converts a NAT service plan to an Internet Shared Bandwidth instance.
- *
- * @description Before you convert a NAT service plan to an Internet Shared Bandwidth instance, take note of the following limits:
- * *   You are not charged for the conversion.
- * *   When you convert a NAT service plan to an Internet Shared Bandwidth instance, you can continue to use the SNAT and DNAT features of the NAT gateway, and your workloads are not affected. However, we recommend that you convert your NAT service plan during off-peak hours.
- * *   After the NAT service plan is converted to an Internet Shared Bandwidth instance, the public IP addresses in the NAT service plan are converted to elastic IP addresses (EIPs). The maximum bandwidth and billing method of the Internet Shared Bandwidth instance are the same as those of the NAT service plan.
- *
- * @param request ConvertBandwidthPackageRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return ConvertBandwidthPackageResponse
- */
-ConvertBandwidthPackageResponse Client::convertBandwidthPackageWithOptions(const ConvertBandwidthPackageRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json query = {};
-  if (!!request.hasBandwidthPackageId()) {
-    query["BandwidthPackageId"] = request.getBandwidthPackageId();
-  }
-
-  if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.getClientToken();
-  }
-
-  if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.getOwnerId();
-  }
-
-  if (!!request.hasRegionId()) {
-    query["RegionId"] = request.getRegionId();
-  }
-
-  if (!!request.hasRegionId()) {
-    query["RegionId"] = request.getRegionId();
-  }
-
-  if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
-  }
-
-  if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.getResourceOwnerId();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
-  Params params = Params(json({
-    {"action" , "ConvertBandwidthPackage"},
-    {"version" , "2016-04-28"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<ConvertBandwidthPackageResponse>();
-}
-
-/**
- * @deprecated OpenAPI ConvertBandwidthPackage is deprecated
- *
- * @summary Converts a NAT service plan to an Internet Shared Bandwidth instance.
- *
- * @description Before you convert a NAT service plan to an Internet Shared Bandwidth instance, take note of the following limits:
- * *   You are not charged for the conversion.
- * *   When you convert a NAT service plan to an Internet Shared Bandwidth instance, you can continue to use the SNAT and DNAT features of the NAT gateway, and your workloads are not affected. However, we recommend that you convert your NAT service plan during off-peak hours.
- * *   After the NAT service plan is converted to an Internet Shared Bandwidth instance, the public IP addresses in the NAT service plan are converted to elastic IP addresses (EIPs). The maximum bandwidth and billing method of the Internet Shared Bandwidth instance are the same as those of the NAT service plan.
- *
- * @param request ConvertBandwidthPackageRequest
- * @return ConvertBandwidthPackageResponse
- */
-ConvertBandwidthPackageResponse Client::convertBandwidthPackage(const ConvertBandwidthPackageRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return convertBandwidthPackageWithOptions(request, runtime);
-}
-
-/**
  * @summary Copies rules of a network access control list (ACL).
  *
  * @description ## [](#)Description
@@ -4756,6 +4676,10 @@ CreateForwardEntryResponse Client::createForwardEntry(const CreateForwardEntryRe
 CreateFullNatEntryResponse Client::createFullNatEntryWithOptions(const CreateFullNatEntryRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAccessDomain()) {
+    query["AccessDomain"] = request.getAccessDomain();
+  }
+
   if (!!request.hasAccessIp()) {
     query["AccessIp"] = request.getAccessIp();
   }
@@ -20596,64 +20520,6 @@ DiagnoseVpnGatewayResponse Client::diagnoseVpnGateway(const DiagnoseVpnGatewayRe
 }
 
 /**
- * @deprecated OpenAPI DisableNatGatewayEcsMetric is deprecated
- *
- * @summary Disables traffic monitoring for an Elastic Compute Service (ECS) instance.
- *
- * @param request DisableNatGatewayEcsMetricRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return DisableNatGatewayEcsMetricResponse
- */
-DisableNatGatewayEcsMetricResponse Client::disableNatGatewayEcsMetricWithOptions(const DisableNatGatewayEcsMetricRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json query = {};
-  if (!!request.hasDryRun()) {
-    query["DryRun"] = request.getDryRun();
-  }
-
-  if (!!request.hasNatGatewayId()) {
-    query["NatGatewayId"] = request.getNatGatewayId();
-  }
-
-  if (!!request.hasRegionId()) {
-    query["RegionId"] = request.getRegionId();
-  }
-
-  if (!!request.hasRegionId()) {
-    query["RegionId"] = request.getRegionId();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
-  Params params = Params(json({
-    {"action" , "DisableNatGatewayEcsMetric"},
-    {"version" , "2016-04-28"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<DisableNatGatewayEcsMetricResponse>();
-}
-
-/**
- * @deprecated OpenAPI DisableNatGatewayEcsMetric is deprecated
- *
- * @summary Disables traffic monitoring for an Elastic Compute Service (ECS) instance.
- *
- * @param request DisableNatGatewayEcsMetricRequest
- * @return DisableNatGatewayEcsMetricResponse
- */
-DisableNatGatewayEcsMetricResponse Client::disableNatGatewayEcsMetric(const DisableNatGatewayEcsMetricRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return disableNatGatewayEcsMetricWithOptions(request, runtime);
-}
-
-/**
  * @summary Disables ClassicLink for a virtual private cloud (VPC).
  *
  * @param request DisableVpcClassicLinkRequest
@@ -21007,64 +20873,6 @@ DownloadVpnConnectionConfigResponse Client::downloadVpnConnectionConfigWithOptio
 DownloadVpnConnectionConfigResponse Client::downloadVpnConnectionConfig(const DownloadVpnConnectionConfigRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return downloadVpnConnectionConfigWithOptions(request, runtime);
-}
-
-/**
- * @deprecated OpenAPI EnableNatGatewayEcsMetric is deprecated
- *
- * @summary Enables Elastic Compute Service (ECS) traffic monitoring.
- *
- * @param request EnableNatGatewayEcsMetricRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return EnableNatGatewayEcsMetricResponse
- */
-EnableNatGatewayEcsMetricResponse Client::enableNatGatewayEcsMetricWithOptions(const EnableNatGatewayEcsMetricRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json query = {};
-  if (!!request.hasDryRun()) {
-    query["DryRun"] = request.getDryRun();
-  }
-
-  if (!!request.hasNatGatewayId()) {
-    query["NatGatewayId"] = request.getNatGatewayId();
-  }
-
-  if (!!request.hasRegionId()) {
-    query["RegionId"] = request.getRegionId();
-  }
-
-  if (!!request.hasRegionId()) {
-    query["RegionId"] = request.getRegionId();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
-  Params params = Params(json({
-    {"action" , "EnableNatGatewayEcsMetric"},
-    {"version" , "2016-04-28"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<EnableNatGatewayEcsMetricResponse>();
-}
-
-/**
- * @deprecated OpenAPI EnableNatGatewayEcsMetric is deprecated
- *
- * @summary Enables Elastic Compute Service (ECS) traffic monitoring.
- *
- * @param request EnableNatGatewayEcsMetricRequest
- * @return EnableNatGatewayEcsMetricResponse
- */
-EnableNatGatewayEcsMetricResponse Client::enableNatGatewayEcsMetric(const EnableNatGatewayEcsMetricRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return enableNatGatewayEcsMetricWithOptions(request, runtime);
 }
 
 /**
@@ -21567,158 +21375,6 @@ GetNatGatewayAttributeResponse Client::getNatGatewayAttributeWithOptions(const G
 GetNatGatewayAttributeResponse Client::getNatGatewayAttribute(const GetNatGatewayAttributeRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getNatGatewayAttributeWithOptions(request, runtime);
-}
-
-/**
- * @summary Call GetNatIpAttribute to query the VPC NAT network to obtain information on each NAT IP address.
- *
- * @param request GetNatIpAttributeRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return GetNatIpAttributeResponse
- */
-GetNatIpAttributeResponse Client::getNatIpAttributeWithOptions(const GetNatIpAttributeRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json query = {};
-  if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.getClientToken();
-  }
-
-  if (!!request.hasDryRun()) {
-    query["DryRun"] = request.getDryRun();
-  }
-
-  if (!!request.hasNatIpId()) {
-    query["NatIpId"] = request.getNatIpId();
-  }
-
-  if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.getOwnerAccount();
-  }
-
-  if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.getOwnerId();
-  }
-
-  if (!!request.hasRegionId()) {
-    query["RegionId"] = request.getRegionId();
-  }
-
-  if (!!request.hasRegionId()) {
-    query["RegionId"] = request.getRegionId();
-  }
-
-  if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
-  }
-
-  if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.getResourceOwnerId();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
-  Params params = Params(json({
-    {"action" , "GetNatIpAttribute"},
-    {"version" , "2016-04-28"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<GetNatIpAttributeResponse>();
-}
-
-/**
- * @summary Call GetNatIpAttribute to query the VPC NAT network to obtain information on each NAT IP address.
- *
- * @param request GetNatIpAttributeRequest
- * @return GetNatIpAttributeResponse
- */
-GetNatIpAttributeResponse Client::getNatIpAttribute(const GetNatIpAttributeRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return getNatIpAttributeWithOptions(request, runtime);
-}
-
-/**
- * @summary Call GetNatIpCidrAttribute to query the VPC NAT network to obtain information on each NAT IP cidr address.
- *
- * @param request GetNatIpCidrAttributeRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return GetNatIpCidrAttributeResponse
- */
-GetNatIpCidrAttributeResponse Client::getNatIpCidrAttributeWithOptions(const GetNatIpCidrAttributeRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json query = {};
-  if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.getClientToken();
-  }
-
-  if (!!request.hasDryRun()) {
-    query["DryRun"] = request.getDryRun();
-  }
-
-  if (!!request.hasNatGatewayId()) {
-    query["NatGatewayId"] = request.getNatGatewayId();
-  }
-
-  if (!!request.hasNatIpCidr()) {
-    query["NatIpCidr"] = request.getNatIpCidr();
-  }
-
-  if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.getOwnerAccount();
-  }
-
-  if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.getOwnerId();
-  }
-
-  if (!!request.hasRegionId()) {
-    query["RegionId"] = request.getRegionId();
-  }
-
-  if (!!request.hasRegionId()) {
-    query["RegionId"] = request.getRegionId();
-  }
-
-  if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
-  }
-
-  if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.getResourceOwnerId();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
-  Params params = Params(json({
-    {"action" , "GetNatIpCidrAttribute"},
-    {"version" , "2016-04-28"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<GetNatIpCidrAttributeResponse>();
-}
-
-/**
- * @summary Call GetNatIpCidrAttribute to query the VPC NAT network to obtain information on each NAT IP cidr address.
- *
- * @param request GetNatIpCidrAttributeRequest
- * @return GetNatIpCidrAttributeResponse
- */
-GetNatIpCidrAttributeResponse Client::getNatIpCidrAttribute(const GetNatIpCidrAttributeRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return getNatIpCidrAttributeWithOptions(request, runtime);
 }
 
 /**
@@ -25978,6 +25634,10 @@ ModifyForwardEntryResponse Client::modifyForwardEntry(const ModifyForwardEntryRe
 ModifyFullNatEntryAttributeResponse Client::modifyFullNatEntryAttributeWithOptions(const ModifyFullNatEntryAttributeRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAccessDomain()) {
+    query["AccessDomain"] = request.getAccessDomain();
+  }
+
   if (!!request.hasAccessIp()) {
     query["AccessIp"] = request.getAccessIp();
   }
