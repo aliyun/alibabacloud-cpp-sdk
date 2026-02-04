@@ -293,6 +293,57 @@ namespace Eiam20211201
       Models::BindUserAuthnSourceMappingResponse bindUserAuthnSourceMapping(const Models::BindUserAuthnSourceMappingRequest &request);
 
       /**
+       * @summary 检查应用同步主组织是否在应用同步范围
+       *
+       * @param request CheckApplicationProvisioningUserPrimaryOrganizationalUnitRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CheckApplicationProvisioningUserPrimaryOrganizationalUnitResponse
+       */
+      Models::CheckApplicationProvisioningUserPrimaryOrganizationalUnitResponse checkApplicationProvisioningUserPrimaryOrganizationalUnitWithOptions(const Models::CheckApplicationProvisioningUserPrimaryOrganizationalUnitRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 检查应用同步主组织是否在应用同步范围
+       *
+       * @param request CheckApplicationProvisioningUserPrimaryOrganizationalUnitRequest
+       * @return CheckApplicationProvisioningUserPrimaryOrganizationalUnitResponse
+       */
+      Models::CheckApplicationProvisioningUserPrimaryOrganizationalUnitResponse checkApplicationProvisioningUserPrimaryOrganizationalUnit(const Models::CheckApplicationProvisioningUserPrimaryOrganizationalUnitRequest &request);
+
+      /**
+       * @summary 实例删除检查
+       *
+       * @param request CheckInstanceForDeleteRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CheckInstanceForDeleteResponse
+       */
+      Models::CheckInstanceForDeleteResponse checkInstanceForDeleteWithOptions(const Models::CheckInstanceForDeleteRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 实例删除检查
+       *
+       * @param request CheckInstanceForDeleteRequest
+       * @return CheckInstanceForDeleteResponse
+       */
+      Models::CheckInstanceForDeleteResponse checkInstanceForDelete(const Models::CheckInstanceForDeleteRequest &request);
+
+      /**
+       * @summary 判断实例是否具有某个模块的功能
+       *
+       * @param request CheckInstanceModuleStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CheckInstanceModuleStatusResponse
+       */
+      Models::CheckInstanceModuleStatusResponse checkInstanceModuleStatusWithOptions(const Models::CheckInstanceModuleStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 判断实例是否具有某个模块的功能
+       *
+       * @param request CheckInstanceModuleStatusRequest
+       * @return CheckInstanceModuleStatusResponse
+       */
+      Models::CheckInstanceModuleStatusResponse checkInstanceModuleStatus(const Models::CheckInstanceModuleStatusRequest &request);
+
+      /**
        * @summary Adds an application to an Enterprise Identity Access Management (EIAM) instance of Identity as a Service (IDaaS).
        *
        * @description IDaaS EIAM supports the following two standard single sign-on (SSO) protocols for adding applications: SAML 2.0 and OIDC. You can select an SSO protocol based on your business requirements when you add an application. You cannot change the SSO protocol that you selected after the application is added.
@@ -505,6 +556,23 @@ namespace Eiam20211201
       Models::CreateConditionalAccessPolicyResponse createConditionalAccessPolicy(const Models::CreateConditionalAccessPolicyRequest &request);
 
       /**
+       * @summary 创建扩展字段
+       *
+       * @param request CreateCustomFieldRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateCustomFieldResponse
+       */
+      Models::CreateCustomFieldResponse createCustomFieldWithOptions(const Models::CreateCustomFieldRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建扩展字段
+       *
+       * @param request CreateCustomFieldRequest
+       * @return CreateCustomFieldResponse
+       */
+      Models::CreateCustomFieldResponse createCustomField(const Models::CreateCustomFieldRequest &request);
+
+      /**
        * @summary 创建自定义条款
        *
        * @param request CreateCustomPrivacyPolicyRequest
@@ -639,6 +707,23 @@ namespace Eiam20211201
        * @return CreateInstanceResponse
        */
       Models::CreateInstanceResponse createInstance(const Models::CreateInstanceRequest &request);
+
+      /**
+       * @summary 为实例创建试用版 License
+       *
+       * @param request CreateInstanceTrialLicenseRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateInstanceTrialLicenseResponse
+       */
+      Models::CreateInstanceTrialLicenseResponse createInstanceTrialLicenseWithOptions(const Models::CreateInstanceTrialLicenseRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 为实例创建试用版 License
+       *
+       * @param request CreateInstanceTrialLicenseRequest
+       * @return CreateInstanceTrialLicenseResponse
+       */
+      Models::CreateInstanceTrialLicenseResponse createInstanceTrialLicense(const Models::CreateInstanceTrialLicenseRequest &request);
 
       /**
        * @summary Creates a dedicated endpoint.
@@ -936,6 +1021,23 @@ namespace Eiam20211201
        * @return DeleteConditionalAccessPolicyResponse
        */
       Models::DeleteConditionalAccessPolicyResponse deleteConditionalAccessPolicy(const Models::DeleteConditionalAccessPolicyRequest &request);
+
+      /**
+       * @summary 删除扩展字段
+       *
+       * @param request DeleteCustomFieldRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteCustomFieldResponse
+       */
+      Models::DeleteCustomFieldResponse deleteCustomFieldWithOptions(const Models::DeleteCustomFieldRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除扩展字段
+       *
+       * @param request DeleteCustomFieldRequest
+       * @return DeleteCustomFieldResponse
+       */
+      Models::DeleteCustomFieldResponse deleteCustomField(const Models::DeleteCustomFieldRequest &request);
 
       /**
        * @summary 删除自定义条款
@@ -1443,6 +1545,23 @@ namespace Eiam20211201
       Models::DisableConditionalAccessPolicyResponse disableConditionalAccessPolicy(const Models::DisableConditionalAccessPolicyRequest &request);
 
       /**
+       * @summary 禁用字段
+       *
+       * @param request DisableCustomFieldRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DisableCustomFieldResponse
+       */
+      Models::DisableCustomFieldResponse disableCustomFieldWithOptions(const Models::DisableCustomFieldRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 禁用字段
+       *
+       * @param request DisableCustomFieldRequest
+       * @return DisableCustomFieldResponse
+       */
+      Models::DisableCustomFieldResponse disableCustomField(const Models::DisableCustomFieldRequest &request);
+
+      /**
        * @summary 禁用自定义条款
        *
        * @param request DisableCustomPrivacyPolicyRequest
@@ -1855,6 +1974,23 @@ namespace Eiam20211201
       Models::EnableConditionalAccessPolicyResponse enableConditionalAccessPolicy(const Models::EnableConditionalAccessPolicyRequest &request);
 
       /**
+       * @summary 启用字段
+       *
+       * @param request EnableCustomFieldRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return EnableCustomFieldResponse
+       */
+      Models::EnableCustomFieldResponse enableCustomFieldWithOptions(const Models::EnableCustomFieldRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 启用字段
+       *
+       * @param request EnableCustomFieldRequest
+       * @return EnableCustomFieldResponse
+       */
+      Models::EnableCustomFieldResponse enableCustomField(const Models::EnableCustomFieldRequest &request);
+
+      /**
        * @summary 启用自定义条款
        *
        * @param request EnableCustomPrivacyPolicyRequest
@@ -2178,6 +2314,23 @@ namespace Eiam20211201
       Models::GetApplicationProvisioningScopeResponse getApplicationProvisioningScope(const Models::GetApplicationProvisioningScopeRequest &request);
 
       /**
+       * @summary 查询指定应用同步配置
+       *
+       * @param request GetApplicationProvisioningUserPrimaryOrganizationalUnitRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetApplicationProvisioningUserPrimaryOrganizationalUnitResponse
+       */
+      Models::GetApplicationProvisioningUserPrimaryOrganizationalUnitResponse getApplicationProvisioningUserPrimaryOrganizationalUnitWithOptions(const Models::GetApplicationProvisioningUserPrimaryOrganizationalUnitRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询指定应用同步配置
+       *
+       * @param request GetApplicationProvisioningUserPrimaryOrganizationalUnitRequest
+       * @return GetApplicationProvisioningUserPrimaryOrganizationalUnitResponse
+       */
+      Models::GetApplicationProvisioningUserPrimaryOrganizationalUnitResponse getApplicationProvisioningUserPrimaryOrganizationalUnit(const Models::GetApplicationProvisioningUserPrimaryOrganizationalUnitRequest &request);
+
+      /**
        * @summary 获取角色信息
        *
        * @param request GetApplicationRoleRequest
@@ -2352,6 +2505,23 @@ namespace Eiam20211201
       Models::GetConditionalAccessPolicyResponse getConditionalAccessPolicy(const Models::GetConditionalAccessPolicyRequest &request);
 
       /**
+       * @summary 获取扩展字段信息
+       *
+       * @param request GetCustomFieldRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetCustomFieldResponse
+       */
+      Models::GetCustomFieldResponse getCustomFieldWithOptions(const Models::GetCustomFieldRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取扩展字段信息
+       *
+       * @param request GetCustomFieldRequest
+       * @return GetCustomFieldResponse
+       */
+      Models::GetCustomFieldResponse getCustomField(const Models::GetCustomFieldRequest &request);
+
+      /**
        * @summary 获取自定义条款
        *
        * @param request GetCustomPrivacyPolicyRequest
@@ -2471,6 +2641,40 @@ namespace Eiam20211201
       Models::GetIdentityProviderResponse getIdentityProvider(const Models::GetIdentityProviderRequest &request);
 
       /**
+       * @summary 获取高级配置信息
+       *
+       * @param request GetIdentityProviderAdvancedConfigurationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetIdentityProviderAdvancedConfigurationResponse
+       */
+      Models::GetIdentityProviderAdvancedConfigurationResponse getIdentityProviderAdvancedConfigurationWithOptions(const Models::GetIdentityProviderAdvancedConfigurationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取高级配置信息
+       *
+       * @param request GetIdentityProviderAdvancedConfigurationRequest
+       * @return GetIdentityProviderAdvancedConfigurationResponse
+       */
+      Models::GetIdentityProviderAdvancedConfigurationResponse getIdentityProviderAdvancedConfiguration(const Models::GetIdentityProviderAdvancedConfigurationRequest &request);
+
+      /**
+       * @summary 获取IdP检查任务
+       *
+       * @param request GetIdentityProviderStatusCheckJobRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetIdentityProviderStatusCheckJobResponse
+       */
+      Models::GetIdentityProviderStatusCheckJobResponse getIdentityProviderStatusCheckJobWithOptions(const Models::GetIdentityProviderStatusCheckJobRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取IdP检查任务
+       *
+       * @param request GetIdentityProviderStatusCheckJobRequest
+       * @return GetIdentityProviderStatusCheckJobResponse
+       */
+      Models::GetIdentityProviderStatusCheckJobResponse getIdentityProviderStatusCheckJob(const Models::GetIdentityProviderStatusCheckJobRequest &request);
+
+      /**
        * @summary Get IdP Inbound Synchronization Configuration Information
        *
        * @param request GetIdentityProviderUdPullConfigurationRequest
@@ -2488,6 +2692,23 @@ namespace Eiam20211201
       Models::GetIdentityProviderUdPullConfigurationResponse getIdentityProviderUdPullConfiguration(const Models::GetIdentityProviderUdPullConfigurationRequest &request);
 
       /**
+       * @summary 获取IdP同步出配置
+       *
+       * @param request GetIdentityProviderUdPushConfigurationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetIdentityProviderUdPushConfigurationResponse
+       */
+      Models::GetIdentityProviderUdPushConfigurationResponse getIdentityProviderUdPushConfigurationWithOptions(const Models::GetIdentityProviderUdPushConfigurationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取IdP同步出配置
+       *
+       * @param request GetIdentityProviderUdPushConfigurationRequest
+       * @return GetIdentityProviderUdPushConfigurationResponse
+       */
+      Models::GetIdentityProviderUdPushConfigurationResponse getIdentityProviderUdPushConfiguration(const Models::GetIdentityProviderUdPushConfigurationRequest &request);
+
+      /**
        * @summary Queries the information of an Enterprise Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
        *
        * @param request GetInstanceRequest
@@ -2503,6 +2724,40 @@ namespace Eiam20211201
        * @return GetInstanceResponse
        */
       Models::GetInstanceResponse getInstance(const Models::GetInstanceRequest &request);
+
+      /**
+       * @summary 查询实例控制项
+       *
+       * @param request GetInstanceControlConfigurationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetInstanceControlConfigurationResponse
+       */
+      Models::GetInstanceControlConfigurationResponse getInstanceControlConfigurationWithOptions(const Models::GetInstanceControlConfigurationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询实例控制项
+       *
+       * @param request GetInstanceControlConfigurationRequest
+       * @return GetInstanceControlConfigurationResponse
+       */
+      Models::GetInstanceControlConfigurationResponse getInstanceControlConfiguration(const Models::GetInstanceControlConfigurationRequest &request);
+
+      /**
+       * @summary 获取实例语言、时区信息
+       *
+       * @param request GetInstanceGlobalizationConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetInstanceGlobalizationConfigResponse
+       */
+      Models::GetInstanceGlobalizationConfigResponse getInstanceGlobalizationConfigWithOptions(const Models::GetInstanceGlobalizationConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取实例语言、时区信息
+       *
+       * @param request GetInstanceGlobalizationConfigRequest
+       * @return GetInstanceGlobalizationConfigResponse
+       */
+      Models::GetInstanceGlobalizationConfigResponse getInstanceGlobalizationConfig(const Models::GetInstanceGlobalizationConfigRequest &request);
 
       /**
        * @summary Query the currently effective License information of the instance
@@ -2524,6 +2779,57 @@ namespace Eiam20211201
        * @return GetInstanceLicenseResponse
        */
       Models::GetInstanceLicenseResponse getInstanceLicense(const Models::GetInstanceLicenseRequest &request);
+
+      /**
+       * @summary 获取一级模块下，所有模块信息
+       *
+       * @param request GetInstanceModuleInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetInstanceModuleInfoResponse
+       */
+      Models::GetInstanceModuleInfoResponse getInstanceModuleInfoWithOptions(const Models::GetInstanceModuleInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取一级模块下，所有模块信息
+       *
+       * @param request GetInstanceModuleInfoRequest
+       * @return GetInstanceModuleInfoResponse
+       */
+      Models::GetInstanceModuleInfoResponse getInstanceModuleInfo(const Models::GetInstanceModuleInfoRequest &request);
+
+      /**
+       * @summary 获取实例单一类型的Quota
+       *
+       * @param request GetInstanceQuotaRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetInstanceQuotaResponse
+       */
+      Models::GetInstanceQuotaResponse getInstanceQuotaWithOptions(const Models::GetInstanceQuotaRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取实例单一类型的Quota
+       *
+       * @param request GetInstanceQuotaRequest
+       * @return GetInstanceQuotaResponse
+       */
+      Models::GetInstanceQuotaResponse getInstanceQuota(const Models::GetInstanceQuotaRequest &request);
+
+      /**
+       * @summary 获取实例的试用状态
+       *
+       * @param request GetInstanceTrialStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetInstanceTrialStatusResponse
+       */
+      Models::GetInstanceTrialStatusResponse getInstanceTrialStatusWithOptions(const Models::GetInstanceTrialStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取实例的试用状态
+       *
+       * @param request GetInstanceTrialStatusRequest
+       * @return GetInstanceTrialStatusResponse
+       */
+      Models::GetInstanceTrialStatusResponse getInstanceTrialStatus(const Models::GetInstanceTrialStatusRequest &request);
 
       /**
        * @summary 获取品牌登录后跳转应用
