@@ -186,6 +186,55 @@ CreateBackgroundPicResponse Client::createBackgroundPic(const CreateBackgroundPi
 }
 
 /**
+ * @summary 创建播报音频
+ *
+ * @param request CreateBroadcastAudioRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateBroadcastAudioResponse
+ */
+CreateBroadcastAudioResponse Client::createBroadcastAudioWithOptions(const CreateBroadcastAudioRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasFileName()) {
+    body["fileName"] = request.getFileName();
+  }
+
+  if (!!request.hasOssKey()) {
+    body["ossKey"] = request.getOssKey();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateBroadcastAudio"},
+    {"version" , "2025-05-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/customer/broadcast/material/audio/create")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateBroadcastAudioResponse>();
+}
+
+/**
+ * @summary 创建播报音频
+ *
+ * @param request CreateBroadcastAudioRequest
+ * @return CreateBroadcastAudioResponse
+ */
+CreateBroadcastAudioResponse Client::createBroadcastAudio(const CreateBroadcastAudioRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createBroadcastAudioWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 创建播报贴图
  *
  * @param request CreateBroadcastStickerRequest
@@ -770,6 +819,57 @@ GetUploadPolicyResponse Client::getUploadPolicy(const GetUploadPolicyRequest &re
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getUploadPolicyWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 根据音频id批量查询播报音频（最多查询100个）
+ *
+ * @param tmpReq ListBroadcastAudiosByIdRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListBroadcastAudiosByIdResponse
+ */
+ListBroadcastAudiosByIdResponse Client::listBroadcastAudiosByIdWithOptions(const ListBroadcastAudiosByIdRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListBroadcastAudiosByIdShrinkRequest request = ListBroadcastAudiosByIdShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAudioIds()) {
+    request.setAudioIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAudioIds(), "audioIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAudioIdsShrink()) {
+    query["audioIds"] = request.getAudioIdsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListBroadcastAudiosById"},
+    {"version" , "2025-05-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/customer/broadcast/material/audio/batchQuery")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListBroadcastAudiosByIdResponse>();
+}
+
+/**
+ * @summary 根据音频id批量查询播报音频（最多查询100个）
+ *
+ * @param request ListBroadcastAudiosByIdRequest
+ * @return ListBroadcastAudiosByIdResponse
+ */
+ListBroadcastAudiosByIdResponse Client::listBroadcastAudiosById(const ListBroadcastAudiosByIdRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listBroadcastAudiosByIdWithOptions(request, headers, runtime);
 }
 
 /**

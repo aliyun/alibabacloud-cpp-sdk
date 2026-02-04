@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_LINGMOU20250527MODEL_HPP_
 #define ALIBABACLOUD_LINGMOU20250527MODEL_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/BroadcastAudio.hpp>
 #include <alibabacloud/models/TemplateVariable.hpp>
 #include <alibabacloud/models/BroadcastTemplate.hpp>
 #include <alibabacloud/models/BroadcastVideo.hpp>
@@ -16,6 +17,9 @@
 #include <alibabacloud/models/CreateBackgroundPicRequest.hpp>
 #include <alibabacloud/models/CreateBackgroundPicResponseBody.hpp>
 #include <alibabacloud/models/CreateBackgroundPicResponse.hpp>
+#include <alibabacloud/models/CreateBroadcastAudioRequest.hpp>
+#include <alibabacloud/models/CreateBroadcastAudioResponseBody.hpp>
+#include <alibabacloud/models/CreateBroadcastAudioResponse.hpp>
 #include <alibabacloud/models/CreateBroadcastStickerRequest.hpp>
 #include <alibabacloud/models/CreateBroadcastStickerResponseBody.hpp>
 #include <alibabacloud/models/CreateBroadcastStickerResponse.hpp>
@@ -49,6 +53,10 @@
 #include <alibabacloud/models/GetUploadPolicyRequest.hpp>
 #include <alibabacloud/models/GetUploadPolicyResponseBody.hpp>
 #include <alibabacloud/models/GetUploadPolicyResponse.hpp>
+#include <alibabacloud/models/ListBroadcastAudiosByIdRequest.hpp>
+#include <alibabacloud/models/ListBroadcastAudiosByIdShrinkRequest.hpp>
+#include <alibabacloud/models/ListBroadcastAudiosByIdResponseBody.hpp>
+#include <alibabacloud/models/ListBroadcastAudiosByIdResponse.hpp>
 #include <alibabacloud/models/ListBroadcastTemplatesRequest.hpp>
 #include <alibabacloud/models/ListBroadcastTemplatesResponseBody.hpp>
 #include <alibabacloud/models/ListBroadcastTemplatesResponse.hpp>

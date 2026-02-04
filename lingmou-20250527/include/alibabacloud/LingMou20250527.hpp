@@ -75,6 +75,24 @@ namespace LingMou20250527
       Models::CreateBackgroundPicResponse createBackgroundPic(const Models::CreateBackgroundPicRequest &request);
 
       /**
+       * @summary 创建播报音频
+       *
+       * @param request CreateBroadcastAudioRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateBroadcastAudioResponse
+       */
+      Models::CreateBroadcastAudioResponse createBroadcastAudioWithOptions(const Models::CreateBroadcastAudioRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建播报音频
+       *
+       * @param request CreateBroadcastAudioRequest
+       * @return CreateBroadcastAudioResponse
+       */
+      Models::CreateBroadcastAudioResponse createBroadcastAudio(const Models::CreateBroadcastAudioRequest &request);
+
+      /**
        * @summary 创建播报贴图
        *
        * @param request CreateBroadcastStickerRequest
@@ -271,6 +289,24 @@ namespace LingMou20250527
        * @return GetUploadPolicyResponse
        */
       Models::GetUploadPolicyResponse getUploadPolicy(const Models::GetUploadPolicyRequest &request);
+
+      /**
+       * @summary 根据音频id批量查询播报音频（最多查询100个）
+       *
+       * @param tmpReq ListBroadcastAudiosByIdRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListBroadcastAudiosByIdResponse
+       */
+      Models::ListBroadcastAudiosByIdResponse listBroadcastAudiosByIdWithOptions(const Models::ListBroadcastAudiosByIdRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 根据音频id批量查询播报音频（最多查询100个）
+       *
+       * @param request ListBroadcastAudiosByIdRequest
+       * @return ListBroadcastAudiosByIdResponse
+       */
+      Models::ListBroadcastAudiosByIdResponse listBroadcastAudiosById(const Models::ListBroadcastAudiosByIdRequest &request);
 
       /**
        * @summary 列举播报模板
