@@ -1,0 +1,104 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_DESCRIBEREGIONSREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_DESCRIBEREGIONSREQUEST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace RKvstore20150101
+{
+namespace Models
+{
+  class DescribeRegionsRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const DescribeRegionsRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AcceptLanguage, acceptLanguage_);
+      DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
+      DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
+      DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
+      DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
+      DARABONBA_PTR_TO_JSON(SecurityToken, securityToken_);
+    };
+    friend void from_json(const Darabonba::Json& j, DescribeRegionsRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AcceptLanguage, acceptLanguage_);
+      DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
+      DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
+      DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
+      DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
+      DARABONBA_PTR_FROM_JSON(SecurityToken, securityToken_);
+    };
+    DescribeRegionsRequest() = default ;
+    DescribeRegionsRequest(const DescribeRegionsRequest &) = default ;
+    DescribeRegionsRequest(DescribeRegionsRequest &&) = default ;
+    DescribeRegionsRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~DescribeRegionsRequest() = default ;
+    DescribeRegionsRequest& operator=(const DescribeRegionsRequest &) = default ;
+    DescribeRegionsRequest& operator=(DescribeRegionsRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->acceptLanguage_ == nullptr
+        && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->securityToken_ == nullptr; };
+    // acceptLanguage Field Functions 
+    bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
+    void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};
+    inline string getAcceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
+    inline DescribeRegionsRequest& setAcceptLanguage(string acceptLanguage) { DARABONBA_PTR_SET_VALUE(acceptLanguage_, acceptLanguage) };
+
+
+    // ownerAccount Field Functions 
+    bool hasOwnerAccount() const { return this->ownerAccount_ != nullptr;};
+    void deleteOwnerAccount() { this->ownerAccount_ = nullptr;};
+    inline string getOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
+    inline DescribeRegionsRequest& setOwnerAccount(string ownerAccount) { DARABONBA_PTR_SET_VALUE(ownerAccount_, ownerAccount) };
+
+
+    // ownerId Field Functions 
+    bool hasOwnerId() const { return this->ownerId_ != nullptr;};
+    void deleteOwnerId() { this->ownerId_ = nullptr;};
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline DescribeRegionsRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
+
+
+    // resourceOwnerAccount Field Functions 
+    bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
+    void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline DescribeRegionsRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
+
+
+    // resourceOwnerId Field Functions 
+    bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
+    void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline DescribeRegionsRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
+
+
+    // securityToken Field Functions 
+    bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
+    void deleteSecurityToken() { this->securityToken_ = nullptr;};
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline DescribeRegionsRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
+
+
+  protected:
+    // The display language of the **LocalName** parameter value. Valid values:
+    // 
+    // *   **zh-CN**: Chinese
+    // *   **en-US**: English
+    // 
+    // > The default value is **zh-CN**.
+    shared_ptr<string> acceptLanguage_ {};
+    shared_ptr<string> ownerAccount_ {};
+    shared_ptr<int64_t> ownerId_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
+    shared_ptr<string> securityToken_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace RKvstore20150101
+#endif

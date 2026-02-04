@@ -1,3 +1,59 @@
+2026-02-04 Version: 6.0.0
+- Support API CreateTairKVCacheVNode.
+- Support API DeleteBackup.
+- Support API DescribeActiveOperationMaintenanceConfig.
+- Support API DescribeActiveOperationTaskCount.
+- Support API DescribeDBInstanceMonitor.
+- Support API DescribeDbInstanceConnectivity.
+- Support API DescribeHistoryEvents.
+- Support API DescribeHistoryEventsStat.
+- Support API DescribeHistoryTasksStat.
+- Support API DescribeServiceLinkedRoleExists.
+- Support API DescribeTags.
+- Support API DestroyInstance.
+- Support API ModifyActiveOperationMaintainConfig.
+- Support API ModifyBackupExpireTime.
+- Support API ModifyDBInstanceMonitor.
+- Support API ModifyEventInfo.
+- Support API RebootProxy.
+- Support API TransformToEcs.
+- Support API UpgradeProxy.
+- Delete API DescribeTasks.
+- Update API CreateAccount: add response parameters Body.AccountName.
+- Update API CreateBackup: add request parameters BackupRetentionPeriod.
+- Update API CreateGlobalDistributeCache: add response parameters Body.GlobalInstanceId.
+- Update API CreateGlobalDistributeCache: add response parameters Body.InstanceId.
+- Update API DescribeBackups: add response parameters Body.Backups.$.ExpectExpireTime.
+- Update API DescribeClusterBackupList: add response parameters Body.ClusterBackups.$.ExpectExpireTime.
+- Update API DescribeDBInstanceNetInfo: add request parameters NetType.
+- Update API DescribeGlobalSecurityIPGroup: add request parameters Engine.
+- Update API DescribeHistoryMonitorValues: add request parameters Type.
+- Update API DescribeInstanceAttribute: add response parameters Body.Instances.$.ComputingType.
+- Update API DescribeInstances: add request parameters NodeType.
+- Update API DescribeIntranetAttribute: add response parameters Body.IntranetBandWidthBurst.
+- Update API DescribePrice: add request parameters SecondaryZoneId.
+- Update API DescribeTairKVCacheInferInstanceAttribute: add response parameters Body.Instances.$.ComputeUnitNum.
+- Update API DescribeTairKVCacheInferInstanceAttribute: add response parameters Body.Instances.$.Model.
+- Update API DescribeTairKVCacheInferInstanceAttribute: add response parameters Body.Instances.$.ModelServiceNum.
+- Update API DescribeTairKVCacheInferInstanceAttribute: add response parameters Body.Instances.$.ReplicaNum.
+- Update API DescribeTairKVCacheInferInstanceAttribute: delete response parameters Body.Instances.$.ReserveGpuNum.
+- Update API DescribeTairKVCacheInferInstanceAttribute: delete response parameters Body.Instances.$.SecurityGroupId.
+- Update API DescribeTairKVCacheInferInstances: add response parameters Body.Instances.$.AckId.
+- Update API DescribeTairKVCacheInferInstances: add response parameters Body.Instances.$.ComputeUnitNum.
+- Update API DescribeTairKVCacheInferInstances: add response parameters Body.Instances.$.ElasticVNodeCount.
+- Update API DescribeTairKVCacheInferInstances: add response parameters Body.Instances.$.FixedVNodeCount.
+- Update API DescribeTairKVCacheInferInstances: add response parameters Body.Instances.$.Model.
+- Update API DescribeTairKVCacheInferInstances: add response parameters Body.Instances.$.ModelServiceNum.
+- Update API DescribeTairKVCacheInferInstances: add response parameters Body.Instances.$.VNodeCount.
+- Update API DescribeTairKVCacheInferInstances: add response parameters Body.Instances.$.VNodeName.
+- Update API DescribeTairKVCacheInferInstances: delete response parameters Body.Instances.$.ModuleName.
+- Update API DescribeTairKVCacheInferInstances: delete response parameters Body.Instances.$.ReserveGpuNum.
+- Update API DescribeTairKVCacheInferInstances: delete response parameters Body.Instances.$.UsedGpuNum.
+- Update API EnableAdditionalBandwidth: add request parameters BandWidthBurst.
+- Update API TransformInstanceChargeType: add request parameters CouponNo.
+- Update API TransformToPrePaid: add request parameters CouponNo.
+
+
 2025-04-01 Version: 5.0.0
 - Support API DescribeTairKVCacheInferInstanceAttribute.
 - Support API DescribeTairKVCacheInferInstances.

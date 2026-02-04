@@ -1,0 +1,243 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_DESCRIBEACTIVEOPERATIONTASKSREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_DESCRIBEACTIVEOPERATIONTASKSREQUEST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace RKvstore20150101
+{
+namespace Models
+{
+  class DescribeActiveOperationTasksRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const DescribeActiveOperationTasksRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AllowCancel, allowCancel_);
+      DARABONBA_PTR_TO_JSON(AllowChange, allowChange_);
+      DARABONBA_PTR_TO_JSON(ChangeLevel, changeLevel_);
+      DARABONBA_PTR_TO_JSON(DbType, dbType_);
+      DARABONBA_PTR_TO_JSON(InsName, insName_);
+      DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
+      DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
+      DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
+      DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(ProductId, productId_);
+      DARABONBA_PTR_TO_JSON(Region, region_);
+      DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
+      DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
+      DARABONBA_PTR_TO_JSON(SecurityToken, securityToken_);
+      DARABONBA_PTR_TO_JSON(Status, status_);
+      DARABONBA_PTR_TO_JSON(TaskType, taskType_);
+    };
+    friend void from_json(const Darabonba::Json& j, DescribeActiveOperationTasksRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AllowCancel, allowCancel_);
+      DARABONBA_PTR_FROM_JSON(AllowChange, allowChange_);
+      DARABONBA_PTR_FROM_JSON(ChangeLevel, changeLevel_);
+      DARABONBA_PTR_FROM_JSON(DbType, dbType_);
+      DARABONBA_PTR_FROM_JSON(InsName, insName_);
+      DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
+      DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
+      DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
+      DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(ProductId, productId_);
+      DARABONBA_PTR_FROM_JSON(Region, region_);
+      DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
+      DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
+      DARABONBA_PTR_FROM_JSON(SecurityToken, securityToken_);
+      DARABONBA_PTR_FROM_JSON(Status, status_);
+      DARABONBA_PTR_FROM_JSON(TaskType, taskType_);
+    };
+    DescribeActiveOperationTasksRequest() = default ;
+    DescribeActiveOperationTasksRequest(const DescribeActiveOperationTasksRequest &) = default ;
+    DescribeActiveOperationTasksRequest(DescribeActiveOperationTasksRequest &&) = default ;
+    DescribeActiveOperationTasksRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~DescribeActiveOperationTasksRequest() = default ;
+    DescribeActiveOperationTasksRequest& operator=(const DescribeActiveOperationTasksRequest &) = default ;
+    DescribeActiveOperationTasksRequest& operator=(DescribeActiveOperationTasksRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->allowCancel_ == nullptr
+        && this->allowChange_ == nullptr && this->changeLevel_ == nullptr && this->dbType_ == nullptr && this->insName_ == nullptr && this->ownerAccount_ == nullptr
+        && this->ownerId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->productId_ == nullptr && this->region_ == nullptr
+        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->securityToken_ == nullptr && this->status_ == nullptr && this->taskType_ == nullptr; };
+    // allowCancel Field Functions 
+    bool hasAllowCancel() const { return this->allowCancel_ != nullptr;};
+    void deleteAllowCancel() { this->allowCancel_ = nullptr;};
+    inline int32_t getAllowCancel() const { DARABONBA_PTR_GET_DEFAULT(allowCancel_, 0) };
+    inline DescribeActiveOperationTasksRequest& setAllowCancel(int32_t allowCancel) { DARABONBA_PTR_SET_VALUE(allowCancel_, allowCancel) };
+
+
+    // allowChange Field Functions 
+    bool hasAllowChange() const { return this->allowChange_ != nullptr;};
+    void deleteAllowChange() { this->allowChange_ = nullptr;};
+    inline int32_t getAllowChange() const { DARABONBA_PTR_GET_DEFAULT(allowChange_, 0) };
+    inline DescribeActiveOperationTasksRequest& setAllowChange(int32_t allowChange) { DARABONBA_PTR_SET_VALUE(allowChange_, allowChange) };
+
+
+    // changeLevel Field Functions 
+    bool hasChangeLevel() const { return this->changeLevel_ != nullptr;};
+    void deleteChangeLevel() { this->changeLevel_ = nullptr;};
+    inline string getChangeLevel() const { DARABONBA_PTR_GET_DEFAULT(changeLevel_, "") };
+    inline DescribeActiveOperationTasksRequest& setChangeLevel(string changeLevel) { DARABONBA_PTR_SET_VALUE(changeLevel_, changeLevel) };
+
+
+    // dbType Field Functions 
+    bool hasDbType() const { return this->dbType_ != nullptr;};
+    void deleteDbType() { this->dbType_ = nullptr;};
+    inline string getDbType() const { DARABONBA_PTR_GET_DEFAULT(dbType_, "") };
+    inline DescribeActiveOperationTasksRequest& setDbType(string dbType) { DARABONBA_PTR_SET_VALUE(dbType_, dbType) };
+
+
+    // insName Field Functions 
+    bool hasInsName() const { return this->insName_ != nullptr;};
+    void deleteInsName() { this->insName_ = nullptr;};
+    inline string getInsName() const { DARABONBA_PTR_GET_DEFAULT(insName_, "") };
+    inline DescribeActiveOperationTasksRequest& setInsName(string insName) { DARABONBA_PTR_SET_VALUE(insName_, insName) };
+
+
+    // ownerAccount Field Functions 
+    bool hasOwnerAccount() const { return this->ownerAccount_ != nullptr;};
+    void deleteOwnerAccount() { this->ownerAccount_ = nullptr;};
+    inline string getOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
+    inline DescribeActiveOperationTasksRequest& setOwnerAccount(string ownerAccount) { DARABONBA_PTR_SET_VALUE(ownerAccount_, ownerAccount) };
+
+
+    // ownerId Field Functions 
+    bool hasOwnerId() const { return this->ownerId_ != nullptr;};
+    void deleteOwnerId() { this->ownerId_ = nullptr;};
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline DescribeActiveOperationTasksRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
+
+
+    // pageNumber Field Functions 
+    bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
+    void deletePageNumber() { this->pageNumber_ = nullptr;};
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline DescribeActiveOperationTasksRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
+
+
+    // pageSize Field Functions 
+    bool hasPageSize() const { return this->pageSize_ != nullptr;};
+    void deletePageSize() { this->pageSize_ = nullptr;};
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline DescribeActiveOperationTasksRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
+
+
+    // productId Field Functions 
+    bool hasProductId() const { return this->productId_ != nullptr;};
+    void deleteProductId() { this->productId_ = nullptr;};
+    inline string getProductId() const { DARABONBA_PTR_GET_DEFAULT(productId_, "") };
+    inline DescribeActiveOperationTasksRequest& setProductId(string productId) { DARABONBA_PTR_SET_VALUE(productId_, productId) };
+
+
+    // region Field Functions 
+    bool hasRegion() const { return this->region_ != nullptr;};
+    void deleteRegion() { this->region_ = nullptr;};
+    inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
+    inline DescribeActiveOperationTasksRequest& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
+
+
+    // resourceOwnerAccount Field Functions 
+    bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
+    void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline DescribeActiveOperationTasksRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
+
+
+    // resourceOwnerId Field Functions 
+    bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
+    void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline DescribeActiveOperationTasksRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
+
+
+    // securityToken Field Functions 
+    bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
+    void deleteSecurityToken() { this->securityToken_ = nullptr;};
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline DescribeActiveOperationTasksRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
+
+
+    // status Field Functions 
+    bool hasStatus() const { return this->status_ != nullptr;};
+    void deleteStatus() { this->status_ = nullptr;};
+    inline int32_t getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
+    inline DescribeActiveOperationTasksRequest& setStatus(int32_t status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+    // taskType Field Functions 
+    bool hasTaskType() const { return this->taskType_ != nullptr;};
+    void deleteTaskType() { this->taskType_ = nullptr;};
+    inline string getTaskType() const { DARABONBA_PTR_GET_DEFAULT(taskType_, "") };
+    inline DescribeActiveOperationTasksRequest& setTaskType(string taskType) { DARABONBA_PTR_SET_VALUE(taskType_, taskType) };
+
+
+  protected:
+    // The filter condition that is used to return events based on the settings of event cancellation. Default value: -1. Valid values:
+    // 
+    // *   **-1**: returns all events.
+    // *   **0**: returns only O\\&M events that cannot be canceled.
+    // *   **1**: returns only O\\&M events that can be canceled.
+    shared_ptr<int32_t> allowCancel_ {};
+    // The filter condition that is used to return events based on the settings of the switching time. Default value: -1. Valid values:
+    // 
+    // *   **-1**: returns all events.
+    // *   **0**: returns only O\\&M events for which the switching time cannot be changed.
+    // *   **-1**: returns only O\\&M events for which the switching time can be changed.
+    shared_ptr<int32_t> allowChange_ {};
+    // The type of task configuration change. Valid values:
+    // 
+    // *   **all** (default): The configurations of all O\\&M tasks are changed.
+    // *   **S0**: The configurations of tasks initiated to fix exceptions are changed.
+    // *   **S1**: The configurations of system O\\&M tasks are changed.
+    shared_ptr<string> changeLevel_ {};
+    // The database type. Valid values: **redis**
+    shared_ptr<string> dbType_ {};
+    // The name of the instance. You can leave this parameter empty. If you configure this parameter, you can specify the name only of one instance.
+    shared_ptr<string> insName_ {};
+    shared_ptr<string> ownerAccount_ {};
+    shared_ptr<int64_t> ownerId_ {};
+    // The page number. Pages start from page 1. Default value: 1.
+    shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Default value: 25. Maximum value: 100.
+    shared_ptr<int32_t> pageSize_ {};
+    // The name of the service. Valid values: RDS, POLARDB, MongoDB, and Redis. For Redis instances, set the value to Redis.
+    shared_ptr<string> productId_ {};
+    // The region ID of the O&M task. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) operation to query the most recent region list.
+    // 
+    // > A value of **all** indicates all region IDs.
+    shared_ptr<string> region_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
+    shared_ptr<string> securityToken_ {};
+    // The status of an O\\&M event. This parameter is used to filter returned tasks. Valid values:
+    // 
+    // *   **-1**: filters all events.
+    // *   **3**: filters pending events.
+    // *   **4**: filters in-progress events.
+    // *   **5**: filters successful events.
+    // *   **6**: filters failed events.
+    // *   **7**: filters canceled events.
+    shared_ptr<int32_t> status_ {};
+    // The type of the O\\&M event. If this parameter is not specified, all types of O\\&M events are queried.
+    // 
+    // Valid values:
+    // 
+    // *   rds_apsradb_upgrade: minor version update
+    // *   rds_apsaradb_ha: primary/secondary switchover
+    // *   rds_apsaradb_ssl_update: SSL certificate update
+    // *   rds_apsaradb_major_upgrade: major version upgrade
+    // *   rds_apsradb_transfer: instance migration
+    // *   rds_apsaradb_modify_config: network upgrade
+    // *   rds_apsaradb_modify_config: instance parameter adjustment
+    // *   rds_apsaradb_maxscale: proxy minor version update
+    shared_ptr<string> taskType_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace RKvstore20150101
+#endif
