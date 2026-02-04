@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Module, module_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(PreciseSort, preciseSort_);
       DARABONBA_PTR_TO_JSON(QueryCondition, queryCondition_);
       DARABONBA_PTR_TO_JSON(RecursionProtocolType, recursionProtocolType_);
       DARABONBA_PTR_TO_JSON(StartTimestamp, startTimestamp_);
@@ -32,6 +33,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Module, module_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(PreciseSort, preciseSort_);
       DARABONBA_PTR_FROM_JSON(QueryCondition, queryCondition_);
       DARABONBA_PTR_FROM_JSON(RecursionProtocolType, recursionProtocolType_);
       DARABONBA_PTR_FROM_JSON(StartTimestamp, startTimestamp_);
@@ -49,7 +51,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountId_ == nullptr
         && this->domainName_ == nullptr && this->endTimestamp_ == nullptr && this->lang_ == nullptr && this->module_ == nullptr && this->pageNumber_ == nullptr
-        && this->pageSize_ == nullptr && this->queryCondition_ == nullptr && this->recursionProtocolType_ == nullptr && this->startTimestamp_ == nullptr; };
+        && this->pageSize_ == nullptr && this->preciseSort_ == nullptr && this->queryCondition_ == nullptr && this->recursionProtocolType_ == nullptr && this->startTimestamp_ == nullptr; };
     // accountId Field Functions 
     bool hasAccountId() const { return this->accountId_ != nullptr;};
     void deleteAccountId() { this->accountId_ = nullptr;};
@@ -99,6 +101,13 @@ namespace Models
     inline DescribeInternetDnsLogsRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+    // preciseSort Field Functions 
+    bool hasPreciseSort() const { return this->preciseSort_ != nullptr;};
+    void deletePreciseSort() { this->preciseSort_ = nullptr;};
+    inline bool getPreciseSort() const { DARABONBA_PTR_GET_DEFAULT(preciseSort_, false) };
+    inline DescribeInternetDnsLogsRequest& setPreciseSort(bool preciseSort) { DARABONBA_PTR_SET_VALUE(preciseSort_, preciseSort) };
+
+
     // queryCondition Field Functions 
     bool hasQueryCondition() const { return this->queryCondition_ != nullptr;};
     void deleteQueryCondition() { this->queryCondition_ = nullptr;};
@@ -141,6 +150,7 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // Page size for query.
     shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<bool> preciseSort_ {};
     // Query parameters 
     // - sourceIp: Source IP address 
     // - queryNameFuzzy: Domain name (fuzzy value) 

@@ -6232,6 +6232,10 @@ DescribeInternetDnsLogsResponse Client::describeInternetDnsLogsWithOptions(const
     query["PageSize"] = request.getPageSize();
   }
 
+  if (!!request.hasPreciseSort()) {
+    query["PreciseSort"] = request.getPreciseSort();
+  }
+
   if (!!request.hasQueryCondition()) {
     query["QueryCondition"] = request.getQueryCondition();
   }
