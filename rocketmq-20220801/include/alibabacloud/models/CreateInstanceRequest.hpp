@@ -14,6 +14,7 @@ namespace Models
   class CreateInstanceRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateInstanceRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(aclInfo, aclInfo_);
       DARABONBA_PTR_TO_JSON(autoRenew, autoRenew_);
       DARABONBA_PTR_TO_JSON(autoRenewPeriod, autoRenewPeriod_);
       DARABONBA_PTR_TO_JSON(commodityCode, commodityCode_);
@@ -32,6 +33,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(clientToken, clientToken_);
     };
     friend void from_json(const Darabonba::Json& j, CreateInstanceRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(aclInfo, aclInfo_);
       DARABONBA_PTR_FROM_JSON(autoRenew, autoRenew_);
       DARABONBA_PTR_FROM_JSON(autoRenewPeriod, autoRenewPeriod_);
       DARABONBA_PTR_FROM_JSON(commodityCode, commodityCode_);
@@ -496,10 +498,51 @@ namespace Models
       shared_ptr<NetworkInfo::VpcInfo> vpcInfo_ {};
     };
 
-    virtual bool empty() const override { return this->autoRenew_ == nullptr
-        && this->autoRenewPeriod_ == nullptr && this->commodityCode_ == nullptr && this->instanceName_ == nullptr && this->networkInfo_ == nullptr && this->paymentType_ == nullptr
-        && this->period_ == nullptr && this->periodUnit_ == nullptr && this->productInfo_ == nullptr && this->remark_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->seriesCode_ == nullptr && this->serviceCode_ == nullptr && this->subSeriesCode_ == nullptr && this->tags_ == nullptr && this->clientToken_ == nullptr; };
+    class AclInfo : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const AclInfo& obj) { 
+        DARABONBA_PTR_TO_JSON(defaultVpcAuthFree, defaultVpcAuthFree_);
+      };
+      friend void from_json(const Darabonba::Json& j, AclInfo& obj) { 
+        DARABONBA_PTR_FROM_JSON(defaultVpcAuthFree, defaultVpcAuthFree_);
+      };
+      AclInfo() = default ;
+      AclInfo(const AclInfo &) = default ;
+      AclInfo(AclInfo &&) = default ;
+      AclInfo(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~AclInfo() = default ;
+      AclInfo& operator=(const AclInfo &) = default ;
+      AclInfo& operator=(AclInfo &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->defaultVpcAuthFree_ == nullptr; };
+      // defaultVpcAuthFree Field Functions 
+      bool hasDefaultVpcAuthFree() const { return this->defaultVpcAuthFree_ != nullptr;};
+      void deleteDefaultVpcAuthFree() { this->defaultVpcAuthFree_ = nullptr;};
+      inline bool getDefaultVpcAuthFree() const { DARABONBA_PTR_GET_DEFAULT(defaultVpcAuthFree_, false) };
+      inline AclInfo& setDefaultVpcAuthFree(bool defaultVpcAuthFree) { DARABONBA_PTR_SET_VALUE(defaultVpcAuthFree_, defaultVpcAuthFree) };
+
+
+    protected:
+      shared_ptr<bool> defaultVpcAuthFree_ {};
+    };
+
+    virtual bool empty() const override { return this->aclInfo_ == nullptr
+        && this->autoRenew_ == nullptr && this->autoRenewPeriod_ == nullptr && this->commodityCode_ == nullptr && this->instanceName_ == nullptr && this->networkInfo_ == nullptr
+        && this->paymentType_ == nullptr && this->period_ == nullptr && this->periodUnit_ == nullptr && this->productInfo_ == nullptr && this->remark_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->seriesCode_ == nullptr && this->serviceCode_ == nullptr && this->subSeriesCode_ == nullptr && this->tags_ == nullptr
+        && this->clientToken_ == nullptr; };
+    // aclInfo Field Functions 
+    bool hasAclInfo() const { return this->aclInfo_ != nullptr;};
+    void deleteAclInfo() { this->aclInfo_ = nullptr;};
+    inline const CreateInstanceRequest::AclInfo & getAclInfo() const { DARABONBA_PTR_GET_CONST(aclInfo_, CreateInstanceRequest::AclInfo) };
+    inline CreateInstanceRequest::AclInfo getAclInfo() { DARABONBA_PTR_GET(aclInfo_, CreateInstanceRequest::AclInfo) };
+    inline CreateInstanceRequest& setAclInfo(const CreateInstanceRequest::AclInfo & aclInfo) { DARABONBA_PTR_SET_VALUE(aclInfo_, aclInfo) };
+    inline CreateInstanceRequest& setAclInfo(CreateInstanceRequest::AclInfo && aclInfo) { DARABONBA_PTR_SET_RVALUE(aclInfo_, aclInfo) };
+
+
     // autoRenew Field Functions 
     bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
     void deleteAutoRenew() { this->autoRenew_ = nullptr;};
@@ -619,6 +662,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<CreateInstanceRequest::AclInfo> aclInfo_ {};
     // Specifies whether to enable auto-renewal for the instance. This parameter takes effect only if you set paymentType to Subscription. Valid values:
     // 
     // *   true

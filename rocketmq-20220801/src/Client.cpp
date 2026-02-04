@@ -298,6 +298,10 @@ CreateInstanceResponse Client::createInstanceWithOptions(const CreateInstanceReq
   }
 
   json body = {};
+  if (!!request.hasAclInfo()) {
+    body["aclInfo"] = request.getAclInfo();
+  }
+
   if (!!request.hasAutoRenew()) {
     body["autoRenew"] = request.getAutoRenew();
   }
