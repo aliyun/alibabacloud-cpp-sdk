@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->newDescription_ == nullptr
-        && return this->newPolicyDocument_ == nullptr && return this->newPolicyName_ == nullptr && return this->policyId_ == nullptr; };
+        && this->newPolicyDocument_ == nullptr && this->newPolicyName_ == nullptr && this->policyId_ == nullptr; };
     // newDescription Field Functions 
     bool hasNewDescription() const { return this->newDescription_ != nullptr;};
     void deleteNewDescription() { this->newDescription_ = nullptr;};
-    inline string newDescription() const { DARABONBA_PTR_GET_DEFAULT(newDescription_, "") };
+    inline string getNewDescription() const { DARABONBA_PTR_GET_DEFAULT(newDescription_, "") };
     inline UpdateControlPolicyRequest& setNewDescription(string newDescription) { DARABONBA_PTR_SET_VALUE(newDescription_, newDescription) };
 
 
     // newPolicyDocument Field Functions 
     bool hasNewPolicyDocument() const { return this->newPolicyDocument_ != nullptr;};
     void deleteNewPolicyDocument() { this->newPolicyDocument_ = nullptr;};
-    inline string newPolicyDocument() const { DARABONBA_PTR_GET_DEFAULT(newPolicyDocument_, "") };
+    inline string getNewPolicyDocument() const { DARABONBA_PTR_GET_DEFAULT(newPolicyDocument_, "") };
     inline UpdateControlPolicyRequest& setNewPolicyDocument(string newPolicyDocument) { DARABONBA_PTR_SET_VALUE(newPolicyDocument_, newPolicyDocument) };
 
 
     // newPolicyName Field Functions 
     bool hasNewPolicyName() const { return this->newPolicyName_ != nullptr;};
     void deleteNewPolicyName() { this->newPolicyName_ = nullptr;};
-    inline string newPolicyName() const { DARABONBA_PTR_GET_DEFAULT(newPolicyName_, "") };
+    inline string getNewPolicyName() const { DARABONBA_PTR_GET_DEFAULT(newPolicyName_, "") };
     inline UpdateControlPolicyRequest& setNewPolicyName(string newPolicyName) { DARABONBA_PTR_SET_VALUE(newPolicyName_, newPolicyName) };
 
 
     // policyId Field Functions 
     bool hasPolicyId() const { return this->policyId_ != nullptr;};
     void deletePolicyId() { this->policyId_ = nullptr;};
-    inline string policyId() const { DARABONBA_PTR_GET_DEFAULT(policyId_, "") };
+    inline string getPolicyId() const { DARABONBA_PTR_GET_DEFAULT(policyId_, "") };
     inline UpdateControlPolicyRequest& setPolicyId(string policyId) { DARABONBA_PTR_SET_VALUE(policyId_, policyId) };
 
 
@@ -69,7 +69,7 @@ namespace Models
     // The new description of the access control policy.
     // 
     // The description must be 1 to 1,024 characters in length. The description can contain letters, digits, underscores (_), and hyphens (-) and must start with a letter.
-    std::shared_ptr<string> newDescription_ = nullptr;
+    shared_ptr<string> newDescription_ {};
     // The new document of the access control policy.
     // 
     // The document can be a maximum of 4,096 characters in length.
@@ -77,15 +77,15 @@ namespace Models
     // For more information about the languages of access control policies, see [Languages of access control policies](https://help.aliyun.com/document_detail/179096.html).
     // 
     // For more information about the examples of access control policies, see [Examples of custom access control policies](https://help.aliyun.com/document_detail/181474.html).
-    std::shared_ptr<string> newPolicyDocument_ = nullptr;
+    shared_ptr<string> newPolicyDocument_ {};
     // The new name of the access control policy.
     // 
     // The name must be 1 to 128 characters in length. The name can contain letters, digits, and hyphens (-) and must start with a letter.
-    std::shared_ptr<string> newPolicyName_ = nullptr;
+    shared_ptr<string> newPolicyName_ {};
     // The ID of the access control policy.
     // 
     // This parameter is required.
-    std::shared_ptr<string> policyId_ = nullptr;
+    shared_ptr<string> policyId_ {};
   };
 
   } // namespace Models

@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountId_ == nullptr
-        && return this->includeTags_ == nullptr; };
+        && this->includeTags_ == nullptr; };
     // accountId Field Functions 
     bool hasAccountId() const { return this->accountId_ != nullptr;};
     void deleteAccountId() { this->accountId_ = nullptr;};
-    inline string accountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, "") };
+    inline string getAccountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, "") };
     inline GetAccountRequest& setAccountId(string accountId) { DARABONBA_PTR_SET_VALUE(accountId_, accountId) };
 
 
     // includeTags Field Functions 
     bool hasIncludeTags() const { return this->includeTags_ != nullptr;};
     void deleteIncludeTags() { this->includeTags_ = nullptr;};
-    inline bool includeTags() const { DARABONBA_PTR_GET_DEFAULT(includeTags_, false) };
+    inline bool getIncludeTags() const { DARABONBA_PTR_GET_DEFAULT(includeTags_, false) };
     inline GetAccountRequest& setIncludeTags(bool includeTags) { DARABONBA_PTR_SET_VALUE(includeTags_, includeTags) };
 
 
@@ -51,12 +51,12 @@ namespace Models
     // The Alibaba Cloud account ID of the member.
     // 
     // This parameter is required.
-    std::shared_ptr<string> accountId_ = nullptr;
+    shared_ptr<string> accountId_ {};
     // Specifies whether to return the information of tags. Valid values:
     // 
     // *   false (default value)
     // *   true
-    std::shared_ptr<bool> includeTags_ = nullptr;
+    shared_ptr<bool> includeTags_ {};
   };
 
   } // namespace Models

@@ -48,7 +48,7 @@ AcceptHandshakeResponse Client::acceptHandshakeWithOptions(const AcceptHandshake
   request.validate();
   json query = {};
   if (!!request.hasHandshakeId()) {
-    query["HandshakeId"] = request.handshakeId();
+    query["HandshakeId"] = request.getHandshakeId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -92,23 +92,23 @@ AddMessageContactResponse Client::addMessageContactWithOptions(const AddMessageC
   request.validate();
   json query = {};
   if (!!request.hasEmailAddress()) {
-    query["EmailAddress"] = request.emailAddress();
+    query["EmailAddress"] = request.getEmailAddress();
   }
 
   if (!!request.hasMessageTypes()) {
-    query["MessageTypes"] = request.messageTypes();
+    query["MessageTypes"] = request.getMessageTypes();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasPhoneNumber()) {
-    query["PhoneNumber"] = request.phoneNumber();
+    query["PhoneNumber"] = request.getPhoneNumber();
   }
 
   if (!!request.hasTitle()) {
-    query["Title"] = request.title();
+    query["Title"] = request.getTitle();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -150,11 +150,11 @@ AssociateMembersResponse Client::associateMembersWithOptions(const AssociateMemb
   request.validate();
   json query = {};
   if (!!request.hasContactId()) {
-    query["ContactId"] = request.contactId();
+    query["ContactId"] = request.getContactId();
   }
 
   if (!!request.hasMembers()) {
-    query["Members"] = request.members();
+    query["Members"] = request.getMembers();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -201,11 +201,11 @@ AttachControlPolicyResponse Client::attachControlPolicyWithOptions(const AttachC
   request.validate();
   json query = {};
   if (!!request.hasPolicyId()) {
-    query["PolicyId"] = request.policyId();
+    query["PolicyId"] = request.getPolicyId();
   }
 
   if (!!request.hasTargetId()) {
-    query["TargetId"] = request.targetId();
+    query["TargetId"] = request.getTargetId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -255,15 +255,15 @@ BindSecureMobilePhoneResponse Client::bindSecureMobilePhoneWithOptions(const Bin
   request.validate();
   json query = {};
   if (!!request.hasAccountId()) {
-    query["AccountId"] = request.accountId();
+    query["AccountId"] = request.getAccountId();
   }
 
   if (!!request.hasSecureMobilePhone()) {
-    query["SecureMobilePhone"] = request.secureMobilePhone();
+    query["SecureMobilePhone"] = request.getSecureMobilePhone();
   }
 
   if (!!request.hasVerificationCode()) {
-    query["VerificationCode"] = request.verificationCode();
+    query["VerificationCode"] = request.getVerificationCode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -308,7 +308,7 @@ CancelChangeAccountEmailResponse Client::cancelChangeAccountEmailWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasAccountId()) {
-    query["AccountId"] = request.accountId();
+    query["AccountId"] = request.getAccountId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -350,7 +350,7 @@ CancelHandshakeResponse Client::cancelHandshakeWithOptions(const CancelHandshake
   request.validate();
   json query = {};
   if (!!request.hasHandshakeId()) {
-    query["HandshakeId"] = request.handshakeId();
+    query["HandshakeId"] = request.getHandshakeId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -392,15 +392,15 @@ CancelMessageContactUpdateResponse Client::cancelMessageContactUpdateWithOptions
   request.validate();
   json query = {};
   if (!!request.hasContactId()) {
-    query["ContactId"] = request.contactId();
+    query["ContactId"] = request.getContactId();
   }
 
   if (!!request.hasEmailAddress()) {
-    query["EmailAddress"] = request.emailAddress();
+    query["EmailAddress"] = request.getEmailAddress();
   }
 
   if (!!request.hasPhoneNumber()) {
-    query["PhoneNumber"] = request.phoneNumber();
+    query["PhoneNumber"] = request.getPhoneNumber();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -442,11 +442,11 @@ ChangeAccountEmailResponse Client::changeAccountEmailWithOptions(const ChangeAcc
   request.validate();
   json query = {};
   if (!!request.hasAccountId()) {
-    query["AccountId"] = request.accountId();
+    query["AccountId"] = request.getAccountId();
   }
 
   if (!!request.hasEmail()) {
-    query["Email"] = request.email();
+    query["Email"] = request.getEmail();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -490,7 +490,7 @@ CheckAccountDeleteResponse Client::checkAccountDeleteWithOptions(const CheckAcco
   request.validate();
   json query = {};
   if (!!request.hasAccountId()) {
-    query["AccountId"] = request.accountId();
+    query["AccountId"] = request.getAccountId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -534,23 +534,23 @@ CreateControlPolicyResponse Client::createControlPolicyWithOptions(const CreateC
   request.validate();
   json query = {};
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasEffectScope()) {
-    query["EffectScope"] = request.effectScope();
+    query["EffectScope"] = request.getEffectScope();
   }
 
   if (!!request.hasPolicyDocument()) {
-    query["PolicyDocument"] = request.policyDocument();
+    query["PolicyDocument"] = request.getPolicyDocument();
   }
 
   if (!!request.hasPolicyName()) {
-    query["PolicyName"] = request.policyName();
+    query["PolicyName"] = request.getPolicyName();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -594,15 +594,15 @@ CreateFolderResponse Client::createFolderWithOptions(const CreateFolderRequest &
   request.validate();
   json query = {};
   if (!!request.hasFolderName()) {
-    query["FolderName"] = request.folderName();
+    query["FolderName"] = request.getFolderName();
   }
 
   if (!!request.hasParentFolderId()) {
-    query["ParentFolderId"] = request.parentFolderId();
+    query["ParentFolderId"] = request.getParentFolderId();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -649,31 +649,31 @@ CreateResourceAccountResponse Client::createResourceAccountWithOptions(const Cre
   request.validate();
   json query = {};
   if (!!request.hasAccountNamePrefix()) {
-    query["AccountNamePrefix"] = request.accountNamePrefix();
+    query["AccountNamePrefix"] = request.getAccountNamePrefix();
   }
 
   if (!!request.hasDisplayName()) {
-    query["DisplayName"] = request.displayName();
+    query["DisplayName"] = request.getDisplayName();
   }
 
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasParentFolderId()) {
-    query["ParentFolderId"] = request.parentFolderId();
+    query["ParentFolderId"] = request.getParentFolderId();
   }
 
   if (!!request.hasPayerAccountId()) {
-    query["PayerAccountId"] = request.payerAccountId();
+    query["PayerAccountId"] = request.getPayerAccountId();
   }
 
   if (!!request.hasResellAccountType()) {
-    query["ResellAccountType"] = request.resellAccountType();
+    query["ResellAccountType"] = request.getResellAccountType();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -718,7 +718,7 @@ DeclineHandshakeResponse Client::declineHandshakeWithOptions(const DeclineHandsh
   request.validate();
   json query = {};
   if (!!request.hasHandshakeId()) {
-    query["HandshakeId"] = request.handshakeId();
+    query["HandshakeId"] = request.getHandshakeId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -764,16 +764,16 @@ DeleteAccountResponse Client::deleteAccountWithOptions(const DeleteAccountReques
   DeleteAccountShrinkRequest request = DeleteAccountShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasAbandonableCheckId()) {
-    request.setAbandonableCheckIdShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.abandonableCheckId(), "AbandonableCheckId", "json"));
+    request.setAbandonableCheckIdShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAbandonableCheckId(), "AbandonableCheckId", "json"));
   }
 
   json query = {};
   if (!!request.hasAbandonableCheckIdShrink()) {
-    query["AbandonableCheckId"] = request.abandonableCheckIdShrink();
+    query["AbandonableCheckId"] = request.getAbandonableCheckIdShrink();
   }
 
   if (!!request.hasAccountId()) {
-    query["AccountId"] = request.accountId();
+    query["AccountId"] = request.getAccountId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -820,7 +820,7 @@ DeleteControlPolicyResponse Client::deleteControlPolicyWithOptions(const DeleteC
   request.validate();
   json query = {};
   if (!!request.hasPolicyId()) {
-    query["PolicyId"] = request.policyId();
+    query["PolicyId"] = request.getPolicyId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -866,7 +866,7 @@ DeleteFolderResponse Client::deleteFolderWithOptions(const DeleteFolderRequest &
   request.validate();
   json query = {};
   if (!!request.hasFolderId()) {
-    query["FolderId"] = request.folderId();
+    query["FolderId"] = request.getFolderId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -910,11 +910,11 @@ DeleteMessageContactResponse Client::deleteMessageContactWithOptions(const Delet
   request.validate();
   json query = {};
   if (!!request.hasContactId()) {
-    query["ContactId"] = request.contactId();
+    query["ContactId"] = request.getContactId();
   }
 
   if (!!request.hasRetainContactInMembers()) {
-    query["RetainContactInMembers"] = request.retainContactInMembers();
+    query["RetainContactInMembers"] = request.getRetainContactInMembers();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -958,11 +958,11 @@ DeregisterDelegatedAdministratorResponse Client::deregisterDelegatedAdministrato
   request.validate();
   json query = {};
   if (!!request.hasAccountId()) {
-    query["AccountId"] = request.accountId();
+    query["AccountId"] = request.getAccountId();
   }
 
   if (!!request.hasServicePrincipal()) {
-    query["ServicePrincipal"] = request.servicePrincipal();
+    query["ServicePrincipal"] = request.getServicePrincipal();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1050,11 +1050,11 @@ DetachControlPolicyResponse Client::detachControlPolicyWithOptions(const DetachC
   request.validate();
   json query = {};
   if (!!request.hasPolicyId()) {
-    query["PolicyId"] = request.policyId();
+    query["PolicyId"] = request.getPolicyId();
   }
 
   if (!!request.hasTargetId()) {
-    query["TargetId"] = request.targetId();
+    query["TargetId"] = request.getTargetId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1138,11 +1138,11 @@ DisassociateMembersResponse Client::disassociateMembersWithOptions(const Disasso
   request.validate();
   json query = {};
   if (!!request.hasContactId()) {
-    query["ContactId"] = request.contactId();
+    query["ContactId"] = request.getContactId();
   }
 
   if (!!request.hasMembers()) {
-    query["Members"] = request.members();
+    query["Members"] = request.getMembers();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1223,23 +1223,23 @@ EnableResourceDirectoryResponse Client::enableResourceDirectoryWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasEnableMode()) {
-    query["EnableMode"] = request.enableMode();
+    query["EnableMode"] = request.getEnableMode();
   }
 
   if (!!request.hasMAName()) {
-    query["MAName"] = request.MAName();
+    query["MAName"] = request.getMAName();
   }
 
   if (!!request.hasMASecureMobilePhone()) {
-    query["MASecureMobilePhone"] = request.MASecureMobilePhone();
+    query["MASecureMobilePhone"] = request.getMASecureMobilePhone();
   }
 
   if (!!request.hasVerificationCode()) {
-    query["VerificationCode"] = request.verificationCode();
+    query["VerificationCode"] = request.getVerificationCode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1283,11 +1283,11 @@ GetAccountResponse Client::getAccountWithOptions(const GetAccountRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasAccountId()) {
-    query["AccountId"] = request.accountId();
+    query["AccountId"] = request.getAccountId();
   }
 
   if (!!request.hasIncludeTags()) {
-    query["IncludeTags"] = request.includeTags();
+    query["IncludeTags"] = request.getIncludeTags();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1331,7 +1331,7 @@ GetAccountDeletionCheckResultResponse Client::getAccountDeletionCheckResultWithO
   request.validate();
   json query = {};
   if (!!request.hasAccountId()) {
-    query["AccountId"] = request.accountId();
+    query["AccountId"] = request.getAccountId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1375,7 +1375,7 @@ GetAccountDeletionStatusResponse Client::getAccountDeletionStatusWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasAccountId()) {
-    query["AccountId"] = request.accountId();
+    query["AccountId"] = request.getAccountId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1417,11 +1417,11 @@ GetControlPolicyResponse Client::getControlPolicyWithOptions(const GetControlPol
   request.validate();
   json query = {};
   if (!!request.hasLanguage()) {
-    query["Language"] = request.language();
+    query["Language"] = request.getLanguage();
   }
 
   if (!!request.hasPolicyId()) {
-    query["PolicyId"] = request.policyId();
+    query["PolicyId"] = request.getPolicyId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1496,7 +1496,7 @@ GetFolderResponse Client::getFolderWithOptions(const GetFolderRequest &request, 
   request.validate();
   json query = {};
   if (!!request.hasFolderId()) {
-    query["FolderId"] = request.folderId();
+    query["FolderId"] = request.getFolderId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1538,7 +1538,7 @@ GetHandshakeResponse Client::getHandshakeWithOptions(const GetHandshakeRequest &
   request.validate();
   json query = {};
   if (!!request.hasHandshakeId()) {
-    query["HandshakeId"] = request.handshakeId();
+    query["HandshakeId"] = request.getHandshakeId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1580,7 +1580,7 @@ GetMessageContactResponse Client::getMessageContactWithOptions(const GetMessageC
   request.validate();
   json query = {};
   if (!!request.hasContactId()) {
-    query["ContactId"] = request.contactId();
+    query["ContactId"] = request.getContactId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1622,7 +1622,7 @@ GetMessageContactDeletionStatusResponse Client::getMessageContactDeletionStatusW
   request.validate();
   json query = {};
   if (!!request.hasContactId()) {
-    query["ContactId"] = request.contactId();
+    query["ContactId"] = request.getContactId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1664,7 +1664,7 @@ GetPayerForAccountResponse Client::getPayerForAccountWithOptions(const GetPayerF
   request.validate();
   json query = {};
   if (!!request.hasAccountId()) {
-    query["AccountId"] = request.accountId();
+    query["AccountId"] = request.getAccountId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1739,23 +1739,23 @@ InviteAccountToResourceDirectoryResponse Client::inviteAccountToResourceDirector
   request.validate();
   json query = {};
   if (!!request.hasNote()) {
-    query["Note"] = request.note();
+    query["Note"] = request.getNote();
   }
 
   if (!!request.hasParentFolderId()) {
-    query["ParentFolderId"] = request.parentFolderId();
+    query["ParentFolderId"] = request.getParentFolderId();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   if (!!request.hasTargetEntity()) {
-    query["TargetEntity"] = request.targetEntity();
+    query["TargetEntity"] = request.getTargetEntity();
   }
 
   if (!!request.hasTargetType()) {
-    query["TargetType"] = request.targetType();
+    query["TargetType"] = request.getTargetType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1799,31 +1799,31 @@ ListAccountsResponse Client::listAccountsWithOptions(const ListAccountsRequest &
   request.validate();
   json query = {};
   if (!!request.hasIncludeTags()) {
-    query["IncludeTags"] = request.includeTags();
+    query["IncludeTags"] = request.getIncludeTags();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasQueryKeyword()) {
-    query["QueryKeyword"] = request.queryKeyword();
+    query["QueryKeyword"] = request.getQueryKeyword();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1867,27 +1867,27 @@ ListAccountsForParentResponse Client::listAccountsForParentWithOptions(const Lis
   request.validate();
   json query = {};
   if (!!request.hasIncludeTags()) {
-    query["IncludeTags"] = request.includeTags();
+    query["IncludeTags"] = request.getIncludeTags();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasParentFolderId()) {
-    query["ParentFolderId"] = request.parentFolderId();
+    query["ParentFolderId"] = request.getParentFolderId();
   }
 
   if (!!request.hasQueryKeyword()) {
-    query["QueryKeyword"] = request.queryKeyword();
+    query["QueryKeyword"] = request.getQueryKeyword();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1929,7 +1929,7 @@ ListAncestorsResponse Client::listAncestorsWithOptions(const ListAncestorsReques
   request.validate();
   json query = {};
   if (!!request.hasChildId()) {
-    query["ChildId"] = request.childId();
+    query["ChildId"] = request.getChildId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1973,11 +1973,11 @@ ListAuthorizedAccountsResponse Client::listAuthorizedAccountsWithOptions(const L
   request.validate();
   json query = {};
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2023,11 +2023,11 @@ ListAuthorizedFoldersResponse Client::listAuthorizedFoldersWithOptions(const Lis
   request.validate();
   json query = {};
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2071,23 +2071,23 @@ ListControlPoliciesResponse Client::listControlPoliciesWithOptions(const ListCon
   request.validate();
   json query = {};
   if (!!request.hasLanguage()) {
-    query["Language"] = request.language();
+    query["Language"] = request.getLanguage();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasPolicyType()) {
-    query["PolicyType"] = request.policyType();
+    query["PolicyType"] = request.getPolicyType();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2129,11 +2129,11 @@ ListControlPolicyAttachmentsForTargetResponse Client::listControlPolicyAttachmen
   request.validate();
   json query = {};
   if (!!request.hasLanguage()) {
-    query["Language"] = request.language();
+    query["Language"] = request.getLanguage();
   }
 
   if (!!request.hasTargetId()) {
-    query["TargetId"] = request.targetId();
+    query["TargetId"] = request.getTargetId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2175,15 +2175,15 @@ ListDelegatedAdministratorsResponse Client::listDelegatedAdministratorsWithOptio
   request.validate();
   json query = {};
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasServicePrincipal()) {
-    query["ServicePrincipal"] = request.servicePrincipal();
+    query["ServicePrincipal"] = request.getServicePrincipal();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2225,7 +2225,15 @@ ListDelegatedServicesForAccountResponse Client::listDelegatedServicesForAccountW
   request.validate();
   json query = {};
   if (!!request.hasAccountId()) {
-    query["AccountId"] = request.accountId();
+    query["AccountId"] = request.getAccountId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2269,23 +2277,23 @@ ListFoldersForParentResponse Client::listFoldersForParentWithOptions(const ListF
   request.validate();
   json query = {};
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasParentFolderId()) {
-    query["ParentFolderId"] = request.parentFolderId();
+    query["ParentFolderId"] = request.getParentFolderId();
   }
 
   if (!!request.hasQueryKeyword()) {
-    query["QueryKeyword"] = request.queryKeyword();
+    query["QueryKeyword"] = request.getQueryKeyword();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2329,11 +2337,11 @@ ListHandshakesForAccountResponse Client::listHandshakesForAccountWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2375,11 +2383,11 @@ ListHandshakesForResourceDirectoryResponse Client::listHandshakesForResourceDire
   request.validate();
   json query = {};
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2421,15 +2429,15 @@ ListMessageContactVerificationsResponse Client::listMessageContactVerificationsW
   request.validate();
   json query = {};
   if (!!request.hasContactId()) {
-    query["ContactId"] = request.contactId();
+    query["ContactId"] = request.getContactId();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2471,19 +2479,19 @@ ListMessageContactsResponse Client::listMessageContactsWithOptions(const ListMes
   request.validate();
   json query = {};
   if (!!request.hasContactId()) {
-    query["ContactId"] = request.contactId();
+    query["ContactId"] = request.getContactId();
   }
 
   if (!!request.hasMember()) {
-    query["Member"] = request.member();
+    query["Member"] = request.getMember();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2525,19 +2533,19 @@ ListTagKeysResponse Client::listTagKeysWithOptions(const ListTagKeysRequest &req
   request.validate();
   json query = {};
   if (!!request.hasKeyFilter()) {
-    query["KeyFilter"] = request.keyFilter();
+    query["KeyFilter"] = request.getKeyFilter();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2579,23 +2587,23 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
   request.validate();
   json query = {};
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasResourceId()) {
-    query["ResourceId"] = request.resourceId();
+    query["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2637,23 +2645,23 @@ ListTagValuesResponse Client::listTagValuesWithOptions(const ListTagValuesReques
   request.validate();
   json query = {};
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTagKey()) {
-    query["TagKey"] = request.tagKey();
+    query["TagKey"] = request.getTagKey();
   }
 
   if (!!request.hasValueFilter()) {
-    query["ValueFilter"] = request.valueFilter();
+    query["ValueFilter"] = request.getValueFilter();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2695,15 +2703,15 @@ ListTargetAttachmentsForControlPolicyResponse Client::listTargetAttachmentsForCo
   request.validate();
   json query = {};
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasPolicyId()) {
-    query["PolicyId"] = request.policyId();
+    query["PolicyId"] = request.getPolicyId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2747,15 +2755,15 @@ ListTrustedServiceStatusResponse Client::listTrustedServiceStatusWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasAdminAccountId()) {
-    query["AdminAccountId"] = request.adminAccountId();
+    query["AdminAccountId"] = request.getAdminAccountId();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2799,11 +2807,11 @@ MoveAccountResponse Client::moveAccountWithOptions(const MoveAccountRequest &req
   request.validate();
   json query = {};
   if (!!request.hasAccountId()) {
-    query["AccountId"] = request.accountId();
+    query["AccountId"] = request.getAccountId();
   }
 
   if (!!request.hasDestinationFolderId()) {
-    query["DestinationFolderId"] = request.destinationFolderId();
+    query["DestinationFolderId"] = request.getDestinationFolderId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2845,7 +2853,7 @@ PrecheckForConsolidatedBillingAccountResponse Client::precheckForConsolidatedBil
   request.validate();
   json query = {};
   if (!!request.hasBillingAccountId()) {
-    query["BillingAccountId"] = request.billingAccountId();
+    query["BillingAccountId"] = request.getBillingAccountId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2892,11 +2900,11 @@ RegisterDelegatedAdministratorResponse Client::registerDelegatedAdministratorWit
   request.validate();
   json query = {};
   if (!!request.hasAccountId()) {
-    query["AccountId"] = request.accountId();
+    query["AccountId"] = request.getAccountId();
   }
 
   if (!!request.hasServicePrincipal()) {
-    query["ServicePrincipal"] = request.servicePrincipal();
+    query["ServicePrincipal"] = request.getServicePrincipal();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2943,7 +2951,7 @@ RemoveCloudAccountResponse Client::removeCloudAccountWithOptions(const RemoveClo
   request.validate();
   json query = {};
   if (!!request.hasAccountId()) {
-    query["AccountId"] = request.accountId();
+    query["AccountId"] = request.getAccountId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2985,7 +2993,7 @@ RetryChangeAccountEmailResponse Client::retryChangeAccountEmailWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasAccountId()) {
-    query["AccountId"] = request.accountId();
+    query["AccountId"] = request.getAccountId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3027,11 +3035,11 @@ SendEmailVerificationForMessageContactResponse Client::sendEmailVerificationForM
   request.validate();
   json query = {};
   if (!!request.hasContactId()) {
-    query["ContactId"] = request.contactId();
+    query["ContactId"] = request.getContactId();
   }
 
   if (!!request.hasEmailAddress()) {
-    query["EmailAddress"] = request.emailAddress();
+    query["EmailAddress"] = request.getEmailAddress();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3073,11 +3081,11 @@ SendPhoneVerificationForMessageContactResponse Client::sendPhoneVerificationForM
   request.validate();
   json query = {};
   if (!!request.hasContactId()) {
-    query["ContactId"] = request.contactId();
+    query["ContactId"] = request.getContactId();
   }
 
   if (!!request.hasPhoneNumber()) {
-    query["PhoneNumber"] = request.phoneNumber();
+    query["PhoneNumber"] = request.getPhoneNumber();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3121,11 +3129,11 @@ SendVerificationCodeForBindSecureMobilePhoneResponse Client::sendVerificationCod
   request.validate();
   json query = {};
   if (!!request.hasAccountId()) {
-    query["AccountId"] = request.accountId();
+    query["AccountId"] = request.getAccountId();
   }
 
   if (!!request.hasSecureMobilePhone()) {
-    query["SecureMobilePhone"] = request.secureMobilePhone();
+    query["SecureMobilePhone"] = request.getSecureMobilePhone();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3171,7 +3179,7 @@ SendVerificationCodeForEnableRDResponse Client::sendVerificationCodeForEnableRDW
   request.validate();
   json query = {};
   if (!!request.hasSecureMobilePhone()) {
-    query["SecureMobilePhone"] = request.secureMobilePhone();
+    query["SecureMobilePhone"] = request.getSecureMobilePhone();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3217,7 +3225,7 @@ SetMemberDeletionPermissionResponse Client::setMemberDeletionPermissionWithOptio
   request.validate();
   json query = {};
   if (!!request.hasStatus()) {
-    query["Status"] = request.status();
+    query["Status"] = request.getStatus();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3261,7 +3269,7 @@ SetMemberDisplayNameSyncStatusResponse Client::setMemberDisplayNameSyncStatusWit
   request.validate();
   json query = {};
   if (!!request.hasStatus()) {
-    query["Status"] = request.status();
+    query["Status"] = request.getStatus();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3303,15 +3311,15 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
   request.validate();
   json query = {};
   if (!!request.hasResourceId()) {
-    query["ResourceId"] = request.resourceId();
+    query["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3353,19 +3361,19 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
   request.validate();
   json query = {};
   if (!!request.hasAll()) {
-    query["All"] = request.all();
+    query["All"] = request.getAll();
   }
 
   if (!!request.hasResourceId()) {
-    query["ResourceId"] = request.resourceId();
+    query["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTagKey()) {
-    query["TagKey"] = request.tagKey();
+    query["TagKey"] = request.getTagKey();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3411,19 +3419,19 @@ UpdateAccountResponse Client::updateAccountWithOptions(const UpdateAccountReques
   request.validate();
   json query = {};
   if (!!request.hasAccountId()) {
-    query["AccountId"] = request.accountId();
+    query["AccountId"] = request.getAccountId();
   }
 
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasNewAccountType()) {
-    query["NewAccountType"] = request.newAccountType();
+    query["NewAccountType"] = request.getNewAccountType();
   }
 
   if (!!request.hasNewDisplayName()) {
-    query["NewDisplayName"] = request.newDisplayName();
+    query["NewDisplayName"] = request.getNewDisplayName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3469,19 +3477,19 @@ UpdateControlPolicyResponse Client::updateControlPolicyWithOptions(const UpdateC
   request.validate();
   json query = {};
   if (!!request.hasNewDescription()) {
-    query["NewDescription"] = request.newDescription();
+    query["NewDescription"] = request.getNewDescription();
   }
 
   if (!!request.hasNewPolicyDocument()) {
-    query["NewPolicyDocument"] = request.newPolicyDocument();
+    query["NewPolicyDocument"] = request.getNewPolicyDocument();
   }
 
   if (!!request.hasNewPolicyName()) {
-    query["NewPolicyName"] = request.newPolicyName();
+    query["NewPolicyName"] = request.getNewPolicyName();
   }
 
   if (!!request.hasPolicyId()) {
-    query["PolicyId"] = request.policyId();
+    query["PolicyId"] = request.getPolicyId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3523,11 +3531,11 @@ UpdateFolderResponse Client::updateFolderWithOptions(const UpdateFolderRequest &
   request.validate();
   json query = {};
   if (!!request.hasFolderId()) {
-    query["FolderId"] = request.folderId();
+    query["FolderId"] = request.getFolderId();
   }
 
   if (!!request.hasNewFolderName()) {
-    query["NewFolderName"] = request.newFolderName();
+    query["NewFolderName"] = request.getNewFolderName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3569,27 +3577,27 @@ UpdateMessageContactResponse Client::updateMessageContactWithOptions(const Updat
   request.validate();
   json query = {};
   if (!!request.hasContactId()) {
-    query["ContactId"] = request.contactId();
+    query["ContactId"] = request.getContactId();
   }
 
   if (!!request.hasEmailAddress()) {
-    query["EmailAddress"] = request.emailAddress();
+    query["EmailAddress"] = request.getEmailAddress();
   }
 
   if (!!request.hasMessageTypes()) {
-    query["MessageTypes"] = request.messageTypes();
+    query["MessageTypes"] = request.getMessageTypes();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasPhoneNumber()) {
-    query["PhoneNumber"] = request.phoneNumber();
+    query["PhoneNumber"] = request.getPhoneNumber();
   }
 
   if (!!request.hasTitle()) {
-    query["Title"] = request.title();
+    query["Title"] = request.getTitle();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3631,11 +3639,11 @@ UpdatePayerForAccountResponse Client::updatePayerForAccountWithOptions(const Upd
   request.validate();
   json query = {};
   if (!!request.hasAccountId()) {
-    query["AccountId"] = request.accountId();
+    query["AccountId"] = request.getAccountId();
   }
 
   if (!!request.hasPayerAccountId()) {
-    query["PayerAccountId"] = request.payerAccountId();
+    query["PayerAccountId"] = request.getPayerAccountId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

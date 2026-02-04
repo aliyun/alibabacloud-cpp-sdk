@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_DISASSOCIATEMEMBERSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/DisassociateMembersResponseBodyMembers.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -33,29 +32,88 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Members : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Members& obj) { 
+        DARABONBA_PTR_TO_JSON(ContactId, contactId_);
+        DARABONBA_PTR_TO_JSON(MemberId, memberId_);
+        DARABONBA_PTR_TO_JSON(ModifyDate, modifyDate_);
+      };
+      friend void from_json(const Darabonba::Json& j, Members& obj) { 
+        DARABONBA_PTR_FROM_JSON(ContactId, contactId_);
+        DARABONBA_PTR_FROM_JSON(MemberId, memberId_);
+        DARABONBA_PTR_FROM_JSON(ModifyDate, modifyDate_);
+      };
+      Members() = default ;
+      Members(const Members &) = default ;
+      Members(Members &&) = default ;
+      Members(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Members() = default ;
+      Members& operator=(const Members &) = default ;
+      Members& operator=(Members &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->contactId_ == nullptr
+        && this->memberId_ == nullptr && this->modifyDate_ == nullptr; };
+      // contactId Field Functions 
+      bool hasContactId() const { return this->contactId_ != nullptr;};
+      void deleteContactId() { this->contactId_ = nullptr;};
+      inline string getContactId() const { DARABONBA_PTR_GET_DEFAULT(contactId_, "") };
+      inline Members& setContactId(string contactId) { DARABONBA_PTR_SET_VALUE(contactId_, contactId) };
+
+
+      // memberId Field Functions 
+      bool hasMemberId() const { return this->memberId_ != nullptr;};
+      void deleteMemberId() { this->memberId_ = nullptr;};
+      inline string getMemberId() const { DARABONBA_PTR_GET_DEFAULT(memberId_, "") };
+      inline Members& setMemberId(string memberId) { DARABONBA_PTR_SET_VALUE(memberId_, memberId) };
+
+
+      // modifyDate Field Functions 
+      bool hasModifyDate() const { return this->modifyDate_ != nullptr;};
+      void deleteModifyDate() { this->modifyDate_ = nullptr;};
+      inline string getModifyDate() const { DARABONBA_PTR_GET_DEFAULT(modifyDate_, "") };
+      inline Members& setModifyDate(string modifyDate) { DARABONBA_PTR_SET_VALUE(modifyDate_, modifyDate) };
+
+
+    protected:
+      // The ID of the contact.
+      shared_ptr<string> contactId_ {};
+      // The ID of the object. Valid values:
+      // 
+      // - ID of the resource directory
+      // - ID of the folder
+      // - ID of the member
+      shared_ptr<string> memberId_ {};
+      // The time when the contact was unbound from the object.
+      shared_ptr<string> modifyDate_ {};
+    };
+
     virtual bool empty() const override { return this->members_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // members Field Functions 
     bool hasMembers() const { return this->members_ != nullptr;};
     void deleteMembers() { this->members_ = nullptr;};
-    inline const vector<DisassociateMembersResponseBodyMembers> & members() const { DARABONBA_PTR_GET_CONST(members_, vector<DisassociateMembersResponseBodyMembers>) };
-    inline vector<DisassociateMembersResponseBodyMembers> members() { DARABONBA_PTR_GET(members_, vector<DisassociateMembersResponseBodyMembers>) };
-    inline DisassociateMembersResponseBody& setMembers(const vector<DisassociateMembersResponseBodyMembers> & members) { DARABONBA_PTR_SET_VALUE(members_, members) };
-    inline DisassociateMembersResponseBody& setMembers(vector<DisassociateMembersResponseBodyMembers> && members) { DARABONBA_PTR_SET_RVALUE(members_, members) };
+    inline const vector<DisassociateMembersResponseBody::Members> & getMembers() const { DARABONBA_PTR_GET_CONST(members_, vector<DisassociateMembersResponseBody::Members>) };
+    inline vector<DisassociateMembersResponseBody::Members> getMembers() { DARABONBA_PTR_GET(members_, vector<DisassociateMembersResponseBody::Members>) };
+    inline DisassociateMembersResponseBody& setMembers(const vector<DisassociateMembersResponseBody::Members> & members) { DARABONBA_PTR_SET_VALUE(members_, members) };
+    inline DisassociateMembersResponseBody& setMembers(vector<DisassociateMembersResponseBody::Members> && members) { DARABONBA_PTR_SET_RVALUE(members_, members) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DisassociateMembersResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The time when the contact was unbound from the object.
-    std::shared_ptr<vector<DisassociateMembersResponseBodyMembers>> members_ = nullptr;
+    shared_ptr<vector<DisassociateMembersResponseBody::Members>> members_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

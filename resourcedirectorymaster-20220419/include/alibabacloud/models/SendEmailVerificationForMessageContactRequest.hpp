@@ -32,28 +32,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->contactId_ == nullptr
-        && return this->emailAddress_ == nullptr; };
+        && this->emailAddress_ == nullptr; };
     // contactId Field Functions 
     bool hasContactId() const { return this->contactId_ != nullptr;};
     void deleteContactId() { this->contactId_ = nullptr;};
-    inline string contactId() const { DARABONBA_PTR_GET_DEFAULT(contactId_, "") };
+    inline string getContactId() const { DARABONBA_PTR_GET_DEFAULT(contactId_, "") };
     inline SendEmailVerificationForMessageContactRequest& setContactId(string contactId) { DARABONBA_PTR_SET_VALUE(contactId_, contactId) };
 
 
     // emailAddress Field Functions 
     bool hasEmailAddress() const { return this->emailAddress_ != nullptr;};
     void deleteEmailAddress() { this->emailAddress_ = nullptr;};
-    inline string emailAddress() const { DARABONBA_PTR_GET_DEFAULT(emailAddress_, "") };
+    inline string getEmailAddress() const { DARABONBA_PTR_GET_DEFAULT(emailAddress_, "") };
     inline SendEmailVerificationForMessageContactRequest& setEmailAddress(string emailAddress) { DARABONBA_PTR_SET_VALUE(emailAddress_, emailAddress) };
 
 
   protected:
     // The ID of the contact.
-    std::shared_ptr<string> contactId_ = nullptr;
+    shared_ptr<string> contactId_ {};
     // The email address of the contact.
     // 
     // The specified email address must be the one you specify when you call [AddMessageContact](~~AddMessageContact~~).
-    std::shared_ptr<string> emailAddress_ = nullptr;
+    shared_ptr<string> emailAddress_ {};
   };
 
   } // namespace Models

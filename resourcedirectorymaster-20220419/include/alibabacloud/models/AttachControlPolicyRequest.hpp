@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->policyId_ == nullptr
-        && return this->targetId_ == nullptr; };
+        && this->targetId_ == nullptr; };
     // policyId Field Functions 
     bool hasPolicyId() const { return this->policyId_ != nullptr;};
     void deletePolicyId() { this->policyId_ = nullptr;};
-    inline string policyId() const { DARABONBA_PTR_GET_DEFAULT(policyId_, "") };
+    inline string getPolicyId() const { DARABONBA_PTR_GET_DEFAULT(policyId_, "") };
     inline AttachControlPolicyRequest& setPolicyId(string policyId) { DARABONBA_PTR_SET_VALUE(policyId_, policyId) };
 
 
     // targetId Field Functions 
     bool hasTargetId() const { return this->targetId_ != nullptr;};
     void deleteTargetId() { this->targetId_ = nullptr;};
-    inline string targetId() const { DARABONBA_PTR_GET_DEFAULT(targetId_, "") };
+    inline string getTargetId() const { DARABONBA_PTR_GET_DEFAULT(targetId_, "") };
     inline AttachControlPolicyRequest& setTargetId(string targetId) { DARABONBA_PTR_SET_VALUE(targetId_, targetId) };
 
 
@@ -51,7 +51,7 @@ namespace Models
     // The ID of the access control policy.
     // 
     // This parameter is required.
-    std::shared_ptr<string> policyId_ = nullptr;
+    shared_ptr<string> policyId_ {};
     // The ID of the object to which you want to attach the access control policy. Access control policies can be attached to the following objects:
     // 
     // *   Root folder
@@ -59,7 +59,7 @@ namespace Models
     // *   Members
     // 
     // This parameter is required.
-    std::shared_ptr<string> targetId_ = nullptr;
+    shared_ptr<string> targetId_ {};
   };
 
   } // namespace Models

@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->payerAccountId_ == nullptr
-        && return this->payerAccountName_ == nullptr && return this->requestId_ == nullptr; };
+        && this->payerAccountName_ == nullptr && this->requestId_ == nullptr; };
     // payerAccountId Field Functions 
     bool hasPayerAccountId() const { return this->payerAccountId_ != nullptr;};
     void deletePayerAccountId() { this->payerAccountId_ = nullptr;};
-    inline string payerAccountId() const { DARABONBA_PTR_GET_DEFAULT(payerAccountId_, "") };
+    inline string getPayerAccountId() const { DARABONBA_PTR_GET_DEFAULT(payerAccountId_, "") };
     inline GetPayerForAccountResponseBody& setPayerAccountId(string payerAccountId) { DARABONBA_PTR_SET_VALUE(payerAccountId_, payerAccountId) };
 
 
     // payerAccountName Field Functions 
     bool hasPayerAccountName() const { return this->payerAccountName_ != nullptr;};
     void deletePayerAccountName() { this->payerAccountName_ = nullptr;};
-    inline string payerAccountName() const { DARABONBA_PTR_GET_DEFAULT(payerAccountName_, "") };
+    inline string getPayerAccountName() const { DARABONBA_PTR_GET_DEFAULT(payerAccountName_, "") };
     inline GetPayerForAccountResponseBody& setPayerAccountName(string payerAccountName) { DARABONBA_PTR_SET_VALUE(payerAccountName_, payerAccountName) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetPayerForAccountResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The ID of the billing account.
-    std::shared_ptr<string> payerAccountId_ = nullptr;
+    shared_ptr<string> payerAccountId_ {};
     // The name of the billing account.
-    std::shared_ptr<string> payerAccountName_ = nullptr;
+    shared_ptr<string> payerAccountName_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

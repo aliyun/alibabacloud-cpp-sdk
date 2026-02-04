@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountId_ == nullptr
-        && return this->secureMobilePhone_ == nullptr; };
+        && this->secureMobilePhone_ == nullptr; };
     // accountId Field Functions 
     bool hasAccountId() const { return this->accountId_ != nullptr;};
     void deleteAccountId() { this->accountId_ = nullptr;};
-    inline string accountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, "") };
+    inline string getAccountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, "") };
     inline SendVerificationCodeForBindSecureMobilePhoneRequest& setAccountId(string accountId) { DARABONBA_PTR_SET_VALUE(accountId_, accountId) };
 
 
     // secureMobilePhone Field Functions 
     bool hasSecureMobilePhone() const { return this->secureMobilePhone_ != nullptr;};
     void deleteSecureMobilePhone() { this->secureMobilePhone_ = nullptr;};
-    inline string secureMobilePhone() const { DARABONBA_PTR_GET_DEFAULT(secureMobilePhone_, "") };
+    inline string getSecureMobilePhone() const { DARABONBA_PTR_GET_DEFAULT(secureMobilePhone_, "") };
     inline SendVerificationCodeForBindSecureMobilePhoneRequest& setSecureMobilePhone(string secureMobilePhone) { DARABONBA_PTR_SET_VALUE(secureMobilePhone_, secureMobilePhone) };
 
 
@@ -51,7 +51,7 @@ namespace Models
     // The Alibaba Cloud account ID of the member.
     // 
     // This parameter is required.
-    std::shared_ptr<string> accountId_ = nullptr;
+    shared_ptr<string> accountId_ {};
     // The mobile phone number that you want to bind to the member for security purposes.
     // 
     // Specify the mobile phone number in the \\<Country code>-\\<Mobile phone number> format.
@@ -59,7 +59,7 @@ namespace Models
     // > Mobile phone numbers in the `86-<Mobile phone number>` format in the Chinese mainland are not supported.
     // 
     // This parameter is required.
-    std::shared_ptr<string> secureMobilePhone_ = nullptr;
+    shared_ptr<string> secureMobilePhone_ {};
   };
 
   } // namespace Models

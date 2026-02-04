@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountId_ == nullptr
-        && return this->servicePrincipal_ == nullptr; };
+        && this->servicePrincipal_ == nullptr; };
     // accountId Field Functions 
     bool hasAccountId() const { return this->accountId_ != nullptr;};
     void deleteAccountId() { this->accountId_ = nullptr;};
-    inline string accountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, "") };
+    inline string getAccountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, "") };
     inline DeregisterDelegatedAdministratorRequest& setAccountId(string accountId) { DARABONBA_PTR_SET_VALUE(accountId_, accountId) };
 
 
     // servicePrincipal Field Functions 
     bool hasServicePrincipal() const { return this->servicePrincipal_ != nullptr;};
     void deleteServicePrincipal() { this->servicePrincipal_ = nullptr;};
-    inline string servicePrincipal() const { DARABONBA_PTR_GET_DEFAULT(servicePrincipal_, "") };
+    inline string getServicePrincipal() const { DARABONBA_PTR_GET_DEFAULT(servicePrincipal_, "") };
     inline DeregisterDelegatedAdministratorRequest& setServicePrincipal(string servicePrincipal) { DARABONBA_PTR_SET_VALUE(servicePrincipal_, servicePrincipal) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The Alibaba Cloud account ID of the member in the resource directory.
     // 
     // This parameter is required.
-    std::shared_ptr<string> accountId_ = nullptr;
+    shared_ptr<string> accountId_ {};
     // The identifier of the trusted service.
     // 
     // This parameter is required.
-    std::shared_ptr<string> servicePrincipal_ = nullptr;
+    shared_ptr<string> servicePrincipal_ {};
   };
 
   } // namespace Models

@@ -33,7 +33,7 @@ namespace Models
     // secureMobilePhone Field Functions 
     bool hasSecureMobilePhone() const { return this->secureMobilePhone_ != nullptr;};
     void deleteSecureMobilePhone() { this->secureMobilePhone_ = nullptr;};
-    inline string secureMobilePhone() const { DARABONBA_PTR_GET_DEFAULT(secureMobilePhone_, "") };
+    inline string getSecureMobilePhone() const { DARABONBA_PTR_GET_DEFAULT(secureMobilePhone_, "") };
     inline SendVerificationCodeForEnableRDRequest& setSecureMobilePhone(string secureMobilePhone) { DARABONBA_PTR_SET_VALUE(secureMobilePhone_, secureMobilePhone) };
 
 
@@ -43,7 +43,7 @@ namespace Models
     // Specify the mobile phone number in the `<Country code>-<Mobile phone number>` format.
     // 
     // > Mobile phone numbers in the `86-<Mobile phone number>` format in the Chinese mainland are not supported.
-    std::shared_ptr<string> secureMobilePhone_ = nullptr;
+    shared_ptr<string> secureMobilePhone_ {};
   };
 
   } // namespace Models

@@ -33,7 +33,7 @@ namespace Models
     // billingAccountId Field Functions 
     bool hasBillingAccountId() const { return this->billingAccountId_ != nullptr;};
     void deleteBillingAccountId() { this->billingAccountId_ = nullptr;};
-    inline string billingAccountId() const { DARABONBA_PTR_GET_DEFAULT(billingAccountId_, "") };
+    inline string getBillingAccountId() const { DARABONBA_PTR_GET_DEFAULT(billingAccountId_, "") };
     inline PrecheckForConsolidatedBillingAccountRequest& setBillingAccountId(string billingAccountId) { DARABONBA_PTR_SET_VALUE(billingAccountId_, billingAccountId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the management account or member to be used as a main financial account.
     // 
     // This parameter is required.
-    std::shared_ptr<string> billingAccountId_ = nullptr;
+    shared_ptr<string> billingAccountId_ {};
   };
 
   } // namespace Models

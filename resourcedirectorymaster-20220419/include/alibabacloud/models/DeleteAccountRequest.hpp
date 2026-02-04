@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->abandonableCheckId_ == nullptr
-        && return this->accountId_ == nullptr; };
+        && this->accountId_ == nullptr; };
     // abandonableCheckId Field Functions 
     bool hasAbandonableCheckId() const { return this->abandonableCheckId_ != nullptr;};
     void deleteAbandonableCheckId() { this->abandonableCheckId_ = nullptr;};
-    inline const vector<string> & abandonableCheckId() const { DARABONBA_PTR_GET_CONST(abandonableCheckId_, vector<string>) };
-    inline vector<string> abandonableCheckId() { DARABONBA_PTR_GET(abandonableCheckId_, vector<string>) };
+    inline const vector<string> & getAbandonableCheckId() const { DARABONBA_PTR_GET_CONST(abandonableCheckId_, vector<string>) };
+    inline vector<string> getAbandonableCheckId() { DARABONBA_PTR_GET(abandonableCheckId_, vector<string>) };
     inline DeleteAccountRequest& setAbandonableCheckId(const vector<string> & abandonableCheckId) { DARABONBA_PTR_SET_VALUE(abandonableCheckId_, abandonableCheckId) };
     inline DeleteAccountRequest& setAbandonableCheckId(vector<string> && abandonableCheckId) { DARABONBA_PTR_SET_RVALUE(abandonableCheckId_, abandonableCheckId) };
 
@@ -46,7 +46,7 @@ namespace Models
     // accountId Field Functions 
     bool hasAccountId() const { return this->accountId_ != nullptr;};
     void deleteAccountId() { this->accountId_ = nullptr;};
-    inline string accountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, "") };
+    inline string getAccountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, "") };
     inline DeleteAccountRequest& setAccountId(string accountId) { DARABONBA_PTR_SET_VALUE(accountId_, accountId) };
 
 
@@ -54,11 +54,11 @@ namespace Models
     // The IDs of the check items that you can choose to ignore for the member deletion.
     // 
     // You can obtain the IDs from the response of the [GetAccountDeletionCheckResult](~~GetAccountDeletionCheckResult~~) operation.
-    std::shared_ptr<vector<string>> abandonableCheckId_ = nullptr;
+    shared_ptr<vector<string>> abandonableCheckId_ {};
     // The Alibaba Cloud account ID of the member that you want to delete.
     // 
     // This parameter is required.
-    std::shared_ptr<string> accountId_ = nullptr;
+    shared_ptr<string> accountId_ {};
   };
 
   } // namespace Models

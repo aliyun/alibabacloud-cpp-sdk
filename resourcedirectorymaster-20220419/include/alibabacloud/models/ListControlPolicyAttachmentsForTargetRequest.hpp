@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->language_ == nullptr
-        && return this->targetId_ == nullptr; };
+        && this->targetId_ == nullptr; };
     // language Field Functions 
     bool hasLanguage() const { return this->language_ != nullptr;};
     void deleteLanguage() { this->language_ = nullptr;};
-    inline string language() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
+    inline string getLanguage() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
     inline ListControlPolicyAttachmentsForTargetRequest& setLanguage(string language) { DARABONBA_PTR_SET_VALUE(language_, language) };
 
 
     // targetId Field Functions 
     bool hasTargetId() const { return this->targetId_ != nullptr;};
     void deleteTargetId() { this->targetId_ = nullptr;};
-    inline string targetId() const { DARABONBA_PTR_GET_DEFAULT(targetId_, "") };
+    inline string getTargetId() const { DARABONBA_PTR_GET_DEFAULT(targetId_, "") };
     inline ListControlPolicyAttachmentsForTargetRequest& setTargetId(string targetId) { DARABONBA_PTR_SET_VALUE(targetId_, targetId) };
 
 
@@ -55,7 +55,7 @@ namespace Models
     // *   ja: Japanese
     // 
     // > This parameter is valid only for system access control policies.
-    std::shared_ptr<string> language_ = nullptr;
+    shared_ptr<string> language_ {};
     // The ID of the object whose access control policies you want to query. Access control policies can be attached to the following objects:
     // 
     // *   Root folder
@@ -63,7 +63,7 @@ namespace Models
     // *   Members
     // 
     // This parameter is required.
-    std::shared_ptr<string> targetId_ = nullptr;
+    shared_ptr<string> targetId_ {};
   };
 
   } // namespace Models

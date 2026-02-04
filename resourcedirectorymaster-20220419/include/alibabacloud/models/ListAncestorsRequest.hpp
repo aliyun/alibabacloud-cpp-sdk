@@ -33,7 +33,7 @@ namespace Models
     // childId Field Functions 
     bool hasChildId() const { return this->childId_ != nullptr;};
     void deleteChildId() { this->childId_ = nullptr;};
-    inline string childId() const { DARABONBA_PTR_GET_DEFAULT(childId_, "") };
+    inline string getChildId() const { DARABONBA_PTR_GET_DEFAULT(childId_, "") };
     inline ListAncestorsRequest& setChildId(string childId) { DARABONBA_PTR_SET_VALUE(childId_, childId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the subfolder.
     // 
     // This parameter is required.
-    std::shared_ptr<string> childId_ = nullptr;
+    shared_ptr<string> childId_ {};
   };
 
   } // namespace Models

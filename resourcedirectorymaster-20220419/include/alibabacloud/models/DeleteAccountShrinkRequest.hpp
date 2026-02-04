@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->abandonableCheckIdShrink_ == nullptr
-        && return this->accountId_ == nullptr; };
+        && this->accountId_ == nullptr; };
     // abandonableCheckIdShrink Field Functions 
     bool hasAbandonableCheckIdShrink() const { return this->abandonableCheckIdShrink_ != nullptr;};
     void deleteAbandonableCheckIdShrink() { this->abandonableCheckIdShrink_ = nullptr;};
-    inline string abandonableCheckIdShrink() const { DARABONBA_PTR_GET_DEFAULT(abandonableCheckIdShrink_, "") };
+    inline string getAbandonableCheckIdShrink() const { DARABONBA_PTR_GET_DEFAULT(abandonableCheckIdShrink_, "") };
     inline DeleteAccountShrinkRequest& setAbandonableCheckIdShrink(string abandonableCheckIdShrink) { DARABONBA_PTR_SET_VALUE(abandonableCheckIdShrink_, abandonableCheckIdShrink) };
 
 
     // accountId Field Functions 
     bool hasAccountId() const { return this->accountId_ != nullptr;};
     void deleteAccountId() { this->accountId_ = nullptr;};
-    inline string accountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, "") };
+    inline string getAccountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, "") };
     inline DeleteAccountShrinkRequest& setAccountId(string accountId) { DARABONBA_PTR_SET_VALUE(accountId_, accountId) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The IDs of the check items that you can choose to ignore for the member deletion.
     // 
     // You can obtain the IDs from the response of the [GetAccountDeletionCheckResult](~~GetAccountDeletionCheckResult~~) operation.
-    std::shared_ptr<string> abandonableCheckIdShrink_ = nullptr;
+    shared_ptr<string> abandonableCheckIdShrink_ {};
     // The Alibaba Cloud account ID of the member that you want to delete.
     // 
     // This parameter is required.
-    std::shared_ptr<string> accountId_ = nullptr;
+    shared_ptr<string> accountId_ {};
   };
 
   } // namespace Models

@@ -36,50 +36,50 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->keyFilter_ == nullptr
-        && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->resourceType_ == nullptr; };
+        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->resourceType_ == nullptr; };
     // keyFilter Field Functions 
     bool hasKeyFilter() const { return this->keyFilter_ != nullptr;};
     void deleteKeyFilter() { this->keyFilter_ = nullptr;};
-    inline string keyFilter() const { DARABONBA_PTR_GET_DEFAULT(keyFilter_, "") };
+    inline string getKeyFilter() const { DARABONBA_PTR_GET_DEFAULT(keyFilter_, "") };
     inline ListTagKeysRequest& setKeyFilter(string keyFilter) { DARABONBA_PTR_SET_VALUE(keyFilter_, keyFilter) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListTagKeysRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListTagKeysRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // resourceType Field Functions 
     bool hasResourceType() const { return this->resourceType_ != nullptr;};
     void deleteResourceType() { this->resourceType_ = nullptr;};
-    inline string resourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
+    inline string getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
     inline ListTagKeysRequest& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
 
 
   protected:
     // The tag key for a fuzzy query.
-    std::shared_ptr<string> keyFilter_ = nullptr;
+    shared_ptr<string> keyFilter_ {};
     // The maximum number of entries to return for a single request.
     // 
     // Valid values: 1 to 100. Default value: 10.
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
     // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The resource type.
     // 
     // The value Account indicates the members of the resource directory.
     // 
     // This parameter is required.
-    std::shared_ptr<string> resourceType_ = nullptr;
+    shared_ptr<string> resourceType_ {};
   };
 
   } // namespace Models

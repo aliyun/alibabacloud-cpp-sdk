@@ -33,13 +33,13 @@ namespace Models
     // contactId Field Functions 
     bool hasContactId() const { return this->contactId_ != nullptr;};
     void deleteContactId() { this->contactId_ = nullptr;};
-    inline string contactId() const { DARABONBA_PTR_GET_DEFAULT(contactId_, "") };
+    inline string getContactId() const { DARABONBA_PTR_GET_DEFAULT(contactId_, "") };
     inline GetMessageContactDeletionStatusRequest& setContactId(string contactId) { DARABONBA_PTR_SET_VALUE(contactId_, contactId) };
 
 
   protected:
     // The ID of the contact.
-    std::shared_ptr<string> contactId_ = nullptr;
+    shared_ptr<string> contactId_ {};
   };
 
   } // namespace Models
