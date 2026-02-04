@@ -45,10 +45,15 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
         DARABONBA_PTR_TO_JSON(AgentId, agentId_);
         DARABONBA_PTR_TO_JSON(AgentName, agentName_);
+        DARABONBA_PTR_TO_JSON(ApplicationCode, applicationCode_);
+        DARABONBA_PTR_TO_JSON(ApplicationName, applicationName_);
         DARABONBA_PTR_TO_JSON(CallDays, callDays_);
         DARABONBA_PTR_TO_JSON(CallTimes, callTimes_);
         DARABONBA_PTR_TO_JSON(CallerNumber, callerNumber_);
         DARABONBA_PTR_TO_JSON(ConcurrentCount, concurrentCount_);
+        DARABONBA_PTR_TO_JSON(LineEncoding, lineEncoding_);
+        DARABONBA_PTR_TO_JSON(LinePhoneNum, linePhoneNum_);
+        DARABONBA_PTR_TO_JSON(PhoneType, phoneType_);
         DARABONBA_PTR_TO_JSON(RealStartTime, realStartTime_);
         DARABONBA_PTR_TO_JSON(RetryCount, retryCount_);
         DARABONBA_PTR_TO_JSON(RetryEnable, retryEnable_);
@@ -62,10 +67,15 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(AgentId, agentId_);
         DARABONBA_PTR_FROM_JSON(AgentName, agentName_);
+        DARABONBA_PTR_FROM_JSON(ApplicationCode, applicationCode_);
+        DARABONBA_PTR_FROM_JSON(ApplicationName, applicationName_);
         DARABONBA_PTR_FROM_JSON(CallDays, callDays_);
         DARABONBA_PTR_FROM_JSON(CallTimes, callTimes_);
         DARABONBA_PTR_FROM_JSON(CallerNumber, callerNumber_);
         DARABONBA_PTR_FROM_JSON(ConcurrentCount, concurrentCount_);
+        DARABONBA_PTR_FROM_JSON(LineEncoding, lineEncoding_);
+        DARABONBA_PTR_FROM_JSON(LinePhoneNum, linePhoneNum_);
+        DARABONBA_PTR_FROM_JSON(PhoneType, phoneType_);
         DARABONBA_PTR_FROM_JSON(RealStartTime, realStartTime_);
         DARABONBA_PTR_FROM_JSON(RetryCount, retryCount_);
         DARABONBA_PTR_FROM_JSON(RetryEnable, retryEnable_);
@@ -130,7 +140,8 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->agentId_ == nullptr
-        && this->agentName_ == nullptr && this->callDays_ == nullptr && this->callTimes_ == nullptr && this->callerNumber_ == nullptr && this->concurrentCount_ == nullptr
+        && this->agentName_ == nullptr && this->applicationCode_ == nullptr && this->applicationName_ == nullptr && this->callDays_ == nullptr && this->callTimes_ == nullptr
+        && this->callerNumber_ == nullptr && this->concurrentCount_ == nullptr && this->lineEncoding_ == nullptr && this->linePhoneNum_ == nullptr && this->phoneType_ == nullptr
         && this->realStartTime_ == nullptr && this->retryCount_ == nullptr && this->retryEnable_ == nullptr && this->retryInterval_ == nullptr && this->retryReasons_ == nullptr
         && this->startTime_ == nullptr && this->startType_ == nullptr && this->taskId_ == nullptr && this->taskName_ == nullptr; };
       // agentId Field Functions 
@@ -145,6 +156,20 @@ namespace Models
       void deleteAgentName() { this->agentName_ = nullptr;};
       inline string getAgentName() const { DARABONBA_PTR_GET_DEFAULT(agentName_, "") };
       inline Data& setAgentName(string agentName) { DARABONBA_PTR_SET_VALUE(agentName_, agentName) };
+
+
+      // applicationCode Field Functions 
+      bool hasApplicationCode() const { return this->applicationCode_ != nullptr;};
+      void deleteApplicationCode() { this->applicationCode_ = nullptr;};
+      inline string getApplicationCode() const { DARABONBA_PTR_GET_DEFAULT(applicationCode_, "") };
+      inline Data& setApplicationCode(string applicationCode) { DARABONBA_PTR_SET_VALUE(applicationCode_, applicationCode) };
+
+
+      // applicationName Field Functions 
+      bool hasApplicationName() const { return this->applicationName_ != nullptr;};
+      void deleteApplicationName() { this->applicationName_ = nullptr;};
+      inline string getApplicationName() const { DARABONBA_PTR_GET_DEFAULT(applicationName_, "") };
+      inline Data& setApplicationName(string applicationName) { DARABONBA_PTR_SET_VALUE(applicationName_, applicationName) };
 
 
       // callDays Field Functions 
@@ -177,6 +202,27 @@ namespace Models
       void deleteConcurrentCount() { this->concurrentCount_ = nullptr;};
       inline int64_t getConcurrentCount() const { DARABONBA_PTR_GET_DEFAULT(concurrentCount_, 0L) };
       inline Data& setConcurrentCount(int64_t concurrentCount) { DARABONBA_PTR_SET_VALUE(concurrentCount_, concurrentCount) };
+
+
+      // lineEncoding Field Functions 
+      bool hasLineEncoding() const { return this->lineEncoding_ != nullptr;};
+      void deleteLineEncoding() { this->lineEncoding_ = nullptr;};
+      inline string getLineEncoding() const { DARABONBA_PTR_GET_DEFAULT(lineEncoding_, "") };
+      inline Data& setLineEncoding(string lineEncoding) { DARABONBA_PTR_SET_VALUE(lineEncoding_, lineEncoding) };
+
+
+      // linePhoneNum Field Functions 
+      bool hasLinePhoneNum() const { return this->linePhoneNum_ != nullptr;};
+      void deleteLinePhoneNum() { this->linePhoneNum_ = nullptr;};
+      inline string getLinePhoneNum() const { DARABONBA_PTR_GET_DEFAULT(linePhoneNum_, "") };
+      inline Data& setLinePhoneNum(string linePhoneNum) { DARABONBA_PTR_SET_VALUE(linePhoneNum_, linePhoneNum) };
+
+
+      // phoneType Field Functions 
+      bool hasPhoneType() const { return this->phoneType_ != nullptr;};
+      void deletePhoneType() { this->phoneType_ = nullptr;};
+      inline int64_t getPhoneType() const { DARABONBA_PTR_GET_DEFAULT(phoneType_, 0L) };
+      inline Data& setPhoneType(int64_t phoneType) { DARABONBA_PTR_SET_VALUE(phoneType_, phoneType) };
 
 
       // realStartTime Field Functions 
@@ -247,10 +293,15 @@ namespace Models
     protected:
       shared_ptr<string> agentId_ {};
       shared_ptr<string> agentName_ {};
+      shared_ptr<string> applicationCode_ {};
+      shared_ptr<string> applicationName_ {};
       shared_ptr<vector<string>> callDays_ {};
       shared_ptr<vector<Data::CallTimes>> callTimes_ {};
       shared_ptr<string> callerNumber_ {};
       shared_ptr<int64_t> concurrentCount_ {};
+      shared_ptr<string> lineEncoding_ {};
+      shared_ptr<string> linePhoneNum_ {};
+      shared_ptr<int64_t> phoneType_ {};
       shared_ptr<int64_t> realStartTime_ {};
       shared_ptr<int64_t> retryCount_ {};
       shared_ptr<bool> retryEnable_ {};

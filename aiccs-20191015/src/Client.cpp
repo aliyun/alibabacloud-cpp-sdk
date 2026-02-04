@@ -621,6 +621,10 @@ CancelAiCallDetailsResponse Client::cancelAiCallDetailsWithOptions(const CancelA
     query["DetailIdList"] = request.getDetailIdListShrink();
   }
 
+  if (!!request.hasEncryptionType()) {
+    query["EncryptionType"] = request.getEncryptionType();
+  }
+
   if (!!request.hasOwnerId()) {
     query["OwnerId"] = request.getOwnerId();
   }
@@ -913,6 +917,14 @@ CreateAiCallTaskResponse Client::createAiCallTaskWithOptions(const CreateAiCallT
     query["AgentId"] = request.getAgentId();
   }
 
+  if (!!request.hasApplicationCode()) {
+    query["ApplicationCode"] = request.getApplicationCode();
+  }
+
+  if (!!request.hasApplicationName()) {
+    query["ApplicationName"] = request.getApplicationName();
+  }
+
   if (!!request.hasCallDayShrink()) {
     query["CallDay"] = request.getCallDayShrink();
   }
@@ -933,6 +945,14 @@ CreateAiCallTaskResponse Client::createAiCallTaskWithOptions(const CreateAiCallT
     query["CallTime"] = request.getCallTimeShrink();
   }
 
+  if (!!request.hasLineEncoding()) {
+    query["LineEncoding"] = request.getLineEncoding();
+  }
+
+  if (!!request.hasLinePhoneNum()) {
+    query["LinePhoneNum"] = request.getLinePhoneNum();
+  }
+
   if (!!request.hasMissCallRetry()) {
     query["MissCallRetry"] = request.getMissCallRetry();
   }
@@ -941,12 +961,20 @@ CreateAiCallTaskResponse Client::createAiCallTaskWithOptions(const CreateAiCallT
     query["OwnerId"] = request.getOwnerId();
   }
 
+  if (!!request.hasPhoneType()) {
+    query["PhoneType"] = request.getPhoneType();
+  }
+
   if (!!request.hasResourceOwnerAccount()) {
     query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
     query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasSource()) {
+    query["Source"] = request.getSource();
   }
 
   if (!!request.hasStartType()) {
@@ -5319,6 +5347,10 @@ ImportOneTaskPhoneNumberResponse Client::importOneTaskPhoneNumberWithOptions(con
   }
 
   json query = {};
+  if (!!request.hasEncryptionType()) {
+    query["EncryptionType"] = request.getEncryptionType();
+  }
+
   if (!!request.hasOutId()) {
     query["OutId"] = request.getOutId();
   }
@@ -5393,6 +5425,10 @@ ImportTaskNumberDatasResponse Client::importTaskNumberDatasWithOptions(const Imp
   json query = {};
   if (!!request.hasDataType()) {
     query["DataType"] = request.getDataType();
+  }
+
+  if (!!request.hasEncryptionType()) {
+    query["EncryptionType"] = request.getEncryptionType();
   }
 
   if (!!request.hasOssFileName()) {
@@ -6761,6 +6797,10 @@ QueryAiCallDetailPageResponse Client::queryAiCallDetailPageWithOptions(const Que
     query["DetailIds"] = request.getDetailIdsShrink();
   }
 
+  if (!!request.hasEncryptionType()) {
+    query["EncryptionType"] = request.getEncryptionType();
+  }
+
   if (!!request.hasEndCallingTime()) {
     query["EndCallingTime"] = request.getEndCallingTime();
   }
@@ -6917,6 +6957,10 @@ QueryAiCallTaskPageResponse Client::queryAiCallTaskPageWithOptions(const QueryAi
     query["AgentName"] = request.getAgentName();
   }
 
+  if (!!request.hasApplicationCode()) {
+    query["ApplicationCode"] = request.getApplicationCode();
+  }
+
   if (!!request.hasOwnerId()) {
     query["OwnerId"] = request.getOwnerId();
   }
@@ -6935,6 +6979,10 @@ QueryAiCallTaskPageResponse Client::queryAiCallTaskPageWithOptions(const QueryAi
 
   if (!!request.hasResourceOwnerId()) {
     query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasSource()) {
+    query["Source"] = request.getSource();
   }
 
   if (!!request.hasStatus()) {
@@ -9231,6 +9279,14 @@ UpdateAiCallTaskResponse Client::updateAiCallTaskWithOptions(const UpdateAiCallT
     query["CallTime"] = request.getCallTimeShrink();
   }
 
+  if (!!request.hasLineEncoding()) {
+    query["LineEncoding"] = request.getLineEncoding();
+  }
+
+  if (!!request.hasLinePhoneNum()) {
+    query["LinePhoneNum"] = request.getLinePhoneNum();
+  }
+
   if (!!request.hasMissCallRetry()) {
     query["MissCallRetry"] = request.getMissCallRetry();
   }
@@ -9239,12 +9295,20 @@ UpdateAiCallTaskResponse Client::updateAiCallTaskWithOptions(const UpdateAiCallT
     query["OwnerId"] = request.getOwnerId();
   }
 
+  if (!!request.hasPhoneType()) {
+    query["PhoneType"] = request.getPhoneType();
+  }
+
   if (!!request.hasResourceOwnerAccount()) {
     query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
     query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasSource()) {
+    query["Source"] = request.getSource();
   }
 
   if (!!request.hasStartType()) {

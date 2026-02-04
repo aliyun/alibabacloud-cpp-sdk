@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CallResult, callResult_);
       DARABONBA_PTR_TO_JSON(CalledNumber, calledNumber_);
       DARABONBA_PTR_TO_JSON(DetailIds, detailIdsShrink_);
+      DARABONBA_PTR_TO_JSON(EncryptionType, encryptionType_);
       DARABONBA_PTR_TO_JSON(EndCallingTime, endCallingTime_);
       DARABONBA_PTR_TO_JSON(EndImportedTime, endImportedTime_);
       DARABONBA_PTR_TO_JSON(MajorIntent, majorIntent_);
@@ -38,6 +39,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CallResult, callResult_);
       DARABONBA_PTR_FROM_JSON(CalledNumber, calledNumber_);
       DARABONBA_PTR_FROM_JSON(DetailIds, detailIdsShrink_);
+      DARABONBA_PTR_FROM_JSON(EncryptionType, encryptionType_);
       DARABONBA_PTR_FROM_JSON(EndCallingTime, endCallingTime_);
       DARABONBA_PTR_FROM_JSON(EndImportedTime, endImportedTime_);
       DARABONBA_PTR_FROM_JSON(MajorIntent, majorIntent_);
@@ -66,10 +68,10 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->batchId_ == nullptr
-        && this->callResult_ == nullptr && this->calledNumber_ == nullptr && this->detailIdsShrink_ == nullptr && this->endCallingTime_ == nullptr && this->endImportedTime_ == nullptr
-        && this->majorIntent_ == nullptr && this->maxConversationDuration_ == nullptr && this->minConversationDuration_ == nullptr && this->outId_ == nullptr && this->ownerId_ == nullptr
-        && this->pageNo_ == nullptr && this->pageSize_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->startCallingTime_ == nullptr
-        && this->startImportedTime_ == nullptr && this->status_ == nullptr && this->taskId_ == nullptr; };
+        && this->callResult_ == nullptr && this->calledNumber_ == nullptr && this->detailIdsShrink_ == nullptr && this->encryptionType_ == nullptr && this->endCallingTime_ == nullptr
+        && this->endImportedTime_ == nullptr && this->majorIntent_ == nullptr && this->maxConversationDuration_ == nullptr && this->minConversationDuration_ == nullptr && this->outId_ == nullptr
+        && this->ownerId_ == nullptr && this->pageNo_ == nullptr && this->pageSize_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr
+        && this->startCallingTime_ == nullptr && this->startImportedTime_ == nullptr && this->status_ == nullptr && this->taskId_ == nullptr; };
     // batchId Field Functions 
     bool hasBatchId() const { return this->batchId_ != nullptr;};
     void deleteBatchId() { this->batchId_ = nullptr;};
@@ -96,6 +98,13 @@ namespace Models
     void deleteDetailIdsShrink() { this->detailIdsShrink_ = nullptr;};
     inline string getDetailIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(detailIdsShrink_, "") };
     inline QueryAiCallDetailPageShrinkRequest& setDetailIdsShrink(string detailIdsShrink) { DARABONBA_PTR_SET_VALUE(detailIdsShrink_, detailIdsShrink) };
+
+
+    // encryptionType Field Functions 
+    bool hasEncryptionType() const { return this->encryptionType_ != nullptr;};
+    void deleteEncryptionType() { this->encryptionType_ = nullptr;};
+    inline int64_t getEncryptionType() const { DARABONBA_PTR_GET_DEFAULT(encryptionType_, 0L) };
+    inline QueryAiCallDetailPageShrinkRequest& setEncryptionType(int64_t encryptionType) { DARABONBA_PTR_SET_VALUE(encryptionType_, encryptionType) };
 
 
     // endCallingTime Field Functions 
@@ -208,6 +217,7 @@ namespace Models
     shared_ptr<string> callResult_ {};
     shared_ptr<string> calledNumber_ {};
     shared_ptr<string> detailIdsShrink_ {};
+    shared_ptr<int64_t> encryptionType_ {};
     shared_ptr<int64_t> endCallingTime_ {};
     shared_ptr<int64_t> endImportedTime_ {};
     shared_ptr<string> majorIntent_ {};

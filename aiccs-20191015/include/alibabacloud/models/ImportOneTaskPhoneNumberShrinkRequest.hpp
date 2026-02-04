@@ -13,6 +13,7 @@ namespace Models
   class ImportOneTaskPhoneNumberShrinkRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ImportOneTaskPhoneNumberShrinkRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(EncryptionType, encryptionType_);
       DARABONBA_PTR_TO_JSON(OutId, outId_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(PhoneNumber, phoneNumber_);
@@ -22,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Variables, variablesShrink_);
     };
     friend void from_json(const Darabonba::Json& j, ImportOneTaskPhoneNumberShrinkRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(EncryptionType, encryptionType_);
       DARABONBA_PTR_FROM_JSON(OutId, outId_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(PhoneNumber, phoneNumber_);
@@ -41,9 +43,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->outId_ == nullptr
-        && this->ownerId_ == nullptr && this->phoneNumber_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->taskId_ == nullptr
-        && this->variablesShrink_ == nullptr; };
+    virtual bool empty() const override { return this->encryptionType_ == nullptr
+        && this->outId_ == nullptr && this->ownerId_ == nullptr && this->phoneNumber_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr
+        && this->taskId_ == nullptr && this->variablesShrink_ == nullptr; };
+    // encryptionType Field Functions 
+    bool hasEncryptionType() const { return this->encryptionType_ != nullptr;};
+    void deleteEncryptionType() { this->encryptionType_ = nullptr;};
+    inline int64_t getEncryptionType() const { DARABONBA_PTR_GET_DEFAULT(encryptionType_, 0L) };
+    inline ImportOneTaskPhoneNumberShrinkRequest& setEncryptionType(int64_t encryptionType) { DARABONBA_PTR_SET_VALUE(encryptionType_, encryptionType) };
+
+
     // outId Field Functions 
     bool hasOutId() const { return this->outId_ != nullptr;};
     void deleteOutId() { this->outId_ = nullptr;};
@@ -94,6 +103,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<int64_t> encryptionType_ {};
     shared_ptr<string> outId_ {};
     shared_ptr<int64_t> ownerId_ {};
     // This parameter is required.

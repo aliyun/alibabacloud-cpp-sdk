@@ -19,10 +19,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CallRetryReason, callRetryReason_);
       DARABONBA_PTR_TO_JSON(CallRetryTimes, callRetryTimes_);
       DARABONBA_PTR_TO_JSON(CallTime, callTime_);
+      DARABONBA_PTR_TO_JSON(LineEncoding, lineEncoding_);
+      DARABONBA_PTR_TO_JSON(LinePhoneNum, linePhoneNum_);
       DARABONBA_PTR_TO_JSON(MissCallRetry, missCallRetry_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
+      DARABONBA_PTR_TO_JSON(PhoneType, phoneType_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
+      DARABONBA_PTR_TO_JSON(Source, source_);
       DARABONBA_PTR_TO_JSON(StartType, startType_);
       DARABONBA_PTR_TO_JSON(TaskCps, taskCps_);
       DARABONBA_PTR_TO_JSON(TaskId, taskId_);
@@ -36,10 +40,14 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CallRetryReason, callRetryReason_);
       DARABONBA_PTR_FROM_JSON(CallRetryTimes, callRetryTimes_);
       DARABONBA_PTR_FROM_JSON(CallTime, callTime_);
+      DARABONBA_PTR_FROM_JSON(LineEncoding, lineEncoding_);
+      DARABONBA_PTR_FROM_JSON(LinePhoneNum, linePhoneNum_);
       DARABONBA_PTR_FROM_JSON(MissCallRetry, missCallRetry_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
+      DARABONBA_PTR_FROM_JSON(PhoneType, phoneType_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
+      DARABONBA_PTR_FROM_JSON(Source, source_);
       DARABONBA_PTR_FROM_JSON(StartType, startType_);
       DARABONBA_PTR_FROM_JSON(TaskCps, taskCps_);
       DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
@@ -59,9 +67,10 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->callDay_ == nullptr
-        && this->callRetryInterval_ == nullptr && this->callRetryReason_ == nullptr && this->callRetryTimes_ == nullptr && this->callTime_ == nullptr && this->missCallRetry_ == nullptr
-        && this->ownerId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->startType_ == nullptr && this->taskCps_ == nullptr
-        && this->taskId_ == nullptr && this->taskName_ == nullptr && this->taskStartTime_ == nullptr && this->virtualNumber_ == nullptr; };
+        && this->callRetryInterval_ == nullptr && this->callRetryReason_ == nullptr && this->callRetryTimes_ == nullptr && this->callTime_ == nullptr && this->lineEncoding_ == nullptr
+        && this->linePhoneNum_ == nullptr && this->missCallRetry_ == nullptr && this->ownerId_ == nullptr && this->phoneType_ == nullptr && this->resourceOwnerAccount_ == nullptr
+        && this->resourceOwnerId_ == nullptr && this->source_ == nullptr && this->startType_ == nullptr && this->taskCps_ == nullptr && this->taskId_ == nullptr
+        && this->taskName_ == nullptr && this->taskStartTime_ == nullptr && this->virtualNumber_ == nullptr; };
     // callDay Field Functions 
     bool hasCallDay() const { return this->callDay_ != nullptr;};
     void deleteCallDay() { this->callDay_ = nullptr;};
@@ -103,6 +112,20 @@ namespace Models
     inline UpdateAiCallTaskRequest& setCallTime(vector<string> && callTime) { DARABONBA_PTR_SET_RVALUE(callTime_, callTime) };
 
 
+    // lineEncoding Field Functions 
+    bool hasLineEncoding() const { return this->lineEncoding_ != nullptr;};
+    void deleteLineEncoding() { this->lineEncoding_ = nullptr;};
+    inline string getLineEncoding() const { DARABONBA_PTR_GET_DEFAULT(lineEncoding_, "") };
+    inline UpdateAiCallTaskRequest& setLineEncoding(string lineEncoding) { DARABONBA_PTR_SET_VALUE(lineEncoding_, lineEncoding) };
+
+
+    // linePhoneNum Field Functions 
+    bool hasLinePhoneNum() const { return this->linePhoneNum_ != nullptr;};
+    void deleteLinePhoneNum() { this->linePhoneNum_ = nullptr;};
+    inline string getLinePhoneNum() const { DARABONBA_PTR_GET_DEFAULT(linePhoneNum_, "") };
+    inline UpdateAiCallTaskRequest& setLinePhoneNum(string linePhoneNum) { DARABONBA_PTR_SET_VALUE(linePhoneNum_, linePhoneNum) };
+
+
     // missCallRetry Field Functions 
     bool hasMissCallRetry() const { return this->missCallRetry_ != nullptr;};
     void deleteMissCallRetry() { this->missCallRetry_ = nullptr;};
@@ -117,6 +140,13 @@ namespace Models
     inline UpdateAiCallTaskRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
+    // phoneType Field Functions 
+    bool hasPhoneType() const { return this->phoneType_ != nullptr;};
+    void deletePhoneType() { this->phoneType_ = nullptr;};
+    inline int64_t getPhoneType() const { DARABONBA_PTR_GET_DEFAULT(phoneType_, 0L) };
+    inline UpdateAiCallTaskRequest& setPhoneType(int64_t phoneType) { DARABONBA_PTR_SET_VALUE(phoneType_, phoneType) };
+
+
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
@@ -129,6 +159,13 @@ namespace Models
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
     inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline UpdateAiCallTaskRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
+
+
+    // source Field Functions 
+    bool hasSource() const { return this->source_ != nullptr;};
+    void deleteSource() { this->source_ = nullptr;};
+    inline int64_t getSource() const { DARABONBA_PTR_GET_DEFAULT(source_, 0L) };
+    inline UpdateAiCallTaskRequest& setSource(int64_t source) { DARABONBA_PTR_SET_VALUE(source_, source) };
 
 
     // startType Field Functions 
@@ -181,10 +218,14 @@ namespace Models
     shared_ptr<int64_t> callRetryTimes_ {};
     // This parameter is required.
     shared_ptr<vector<string>> callTime_ {};
+    shared_ptr<string> lineEncoding_ {};
+    shared_ptr<string> linePhoneNum_ {};
     shared_ptr<bool> missCallRetry_ {};
     shared_ptr<int64_t> ownerId_ {};
+    shared_ptr<int64_t> phoneType_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    shared_ptr<int64_t> source_ {};
     // This parameter is required.
     shared_ptr<string> startType_ {};
     // This parameter is required.
@@ -194,7 +235,6 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> taskName_ {};
     shared_ptr<int64_t> taskStartTime_ {};
-    // This parameter is required.
     shared_ptr<string> virtualNumber_ {};
   };
 

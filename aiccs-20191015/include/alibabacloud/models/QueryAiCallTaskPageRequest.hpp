@@ -14,22 +14,26 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const QueryAiCallTaskPageRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AgentName, agentName_);
+      DARABONBA_PTR_TO_JSON(ApplicationCode, applicationCode_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(PageNo, pageNo_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
+      DARABONBA_PTR_TO_JSON(Source, source_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(TaskId, taskId_);
       DARABONBA_PTR_TO_JSON(TaskName, taskName_);
     };
     friend void from_json(const Darabonba::Json& j, QueryAiCallTaskPageRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AgentName, agentName_);
+      DARABONBA_PTR_FROM_JSON(ApplicationCode, applicationCode_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(PageNo, pageNo_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
+      DARABONBA_PTR_FROM_JSON(Source, source_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
       DARABONBA_PTR_FROM_JSON(TaskName, taskName_);
@@ -46,13 +50,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentName_ == nullptr
-        && this->ownerId_ == nullptr && this->pageNo_ == nullptr && this->pageSize_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr
-        && this->status_ == nullptr && this->taskId_ == nullptr && this->taskName_ == nullptr; };
+        && this->applicationCode_ == nullptr && this->ownerId_ == nullptr && this->pageNo_ == nullptr && this->pageSize_ == nullptr && this->resourceOwnerAccount_ == nullptr
+        && this->resourceOwnerId_ == nullptr && this->source_ == nullptr && this->status_ == nullptr && this->taskId_ == nullptr && this->taskName_ == nullptr; };
     // agentName Field Functions 
     bool hasAgentName() const { return this->agentName_ != nullptr;};
     void deleteAgentName() { this->agentName_ = nullptr;};
     inline string getAgentName() const { DARABONBA_PTR_GET_DEFAULT(agentName_, "") };
     inline QueryAiCallTaskPageRequest& setAgentName(string agentName) { DARABONBA_PTR_SET_VALUE(agentName_, agentName) };
+
+
+    // applicationCode Field Functions 
+    bool hasApplicationCode() const { return this->applicationCode_ != nullptr;};
+    void deleteApplicationCode() { this->applicationCode_ = nullptr;};
+    inline string getApplicationCode() const { DARABONBA_PTR_GET_DEFAULT(applicationCode_, "") };
+    inline QueryAiCallTaskPageRequest& setApplicationCode(string applicationCode) { DARABONBA_PTR_SET_VALUE(applicationCode_, applicationCode) };
 
 
     // ownerId Field Functions 
@@ -90,6 +101,13 @@ namespace Models
     inline QueryAiCallTaskPageRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
+    // source Field Functions 
+    bool hasSource() const { return this->source_ != nullptr;};
+    void deleteSource() { this->source_ = nullptr;};
+    inline int64_t getSource() const { DARABONBA_PTR_GET_DEFAULT(source_, 0L) };
+    inline QueryAiCallTaskPageRequest& setSource(int64_t source) { DARABONBA_PTR_SET_VALUE(source_, source) };
+
+
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
@@ -113,11 +131,13 @@ namespace Models
 
   protected:
     shared_ptr<string> agentName_ {};
+    shared_ptr<string> applicationCode_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<int64_t> pageNo_ {};
     shared_ptr<int64_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    shared_ptr<int64_t> source_ {};
     shared_ptr<string> status_ {};
     shared_ptr<string> taskId_ {};
     shared_ptr<string> taskName_ {};

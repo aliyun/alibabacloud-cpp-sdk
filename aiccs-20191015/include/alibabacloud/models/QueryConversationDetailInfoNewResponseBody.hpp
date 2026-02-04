@@ -52,6 +52,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ConversationTurnCount, conversationTurnCount_);
         DARABONBA_PTR_TO_JSON(DetailId, detailId_);
         DARABONBA_PTR_TO_JSON(Duration, duration_);
+        DARABONBA_PTR_TO_JSON(EncryptionType, encryptionType_);
         DARABONBA_PTR_TO_JSON(FailedReason, failedReason_);
         DARABONBA_PTR_TO_JSON(HangupDirection, hangupDirection_);
         DARABONBA_PTR_TO_JSON(ImportedTime, importedTime_);
@@ -79,6 +80,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ConversationTurnCount, conversationTurnCount_);
         DARABONBA_PTR_FROM_JSON(DetailId, detailId_);
         DARABONBA_PTR_FROM_JSON(Duration, duration_);
+        DARABONBA_PTR_FROM_JSON(EncryptionType, encryptionType_);
         DARABONBA_PTR_FROM_JSON(FailedReason, failedReason_);
         DARABONBA_PTR_FROM_JSON(HangupDirection, hangupDirection_);
         DARABONBA_PTR_FROM_JSON(ImportedTime, importedTime_);
@@ -253,10 +255,10 @@ namespace Models
 
       virtual bool empty() const override { return this->batchId_ == nullptr
         && this->callId_ == nullptr && this->callResult_ == nullptr && this->calledPhone_ == nullptr && this->callerPhone_ == nullptr && this->conversationRecord_ == nullptr
-        && this->conversationTurnCount_ == nullptr && this->detailId_ == nullptr && this->duration_ == nullptr && this->failedReason_ == nullptr && this->hangupDirection_ == nullptr
-        && this->importedTime_ == nullptr && this->majorIntent_ == nullptr && this->options_ == nullptr && this->outId_ == nullptr && this->outputTags_ == nullptr
-        && this->pickUpTime_ == nullptr && this->recordingFileDownloadUrl_ == nullptr && this->releaseTime_ == nullptr && this->startCallTime_ == nullptr && this->status_ == nullptr
-        && this->statusCode_ == nullptr && this->statusMsg_ == nullptr && this->taskId_ == nullptr && this->variables_ == nullptr; };
+        && this->conversationTurnCount_ == nullptr && this->detailId_ == nullptr && this->duration_ == nullptr && this->encryptionType_ == nullptr && this->failedReason_ == nullptr
+        && this->hangupDirection_ == nullptr && this->importedTime_ == nullptr && this->majorIntent_ == nullptr && this->options_ == nullptr && this->outId_ == nullptr
+        && this->outputTags_ == nullptr && this->pickUpTime_ == nullptr && this->recordingFileDownloadUrl_ == nullptr && this->releaseTime_ == nullptr && this->startCallTime_ == nullptr
+        && this->status_ == nullptr && this->statusCode_ == nullptr && this->statusMsg_ == nullptr && this->taskId_ == nullptr && this->variables_ == nullptr; };
       // batchId Field Functions 
       bool hasBatchId() const { return this->batchId_ != nullptr;};
       void deleteBatchId() { this->batchId_ = nullptr;};
@@ -318,6 +320,13 @@ namespace Models
       void deleteDuration() { this->duration_ = nullptr;};
       inline int64_t getDuration() const { DARABONBA_PTR_GET_DEFAULT(duration_, 0L) };
       inline Data& setDuration(int64_t duration) { DARABONBA_PTR_SET_VALUE(duration_, duration) };
+
+
+      // encryptionType Field Functions 
+      bool hasEncryptionType() const { return this->encryptionType_ != nullptr;};
+      void deleteEncryptionType() { this->encryptionType_ = nullptr;};
+      inline int64_t getEncryptionType() const { DARABONBA_PTR_GET_DEFAULT(encryptionType_, 0L) };
+      inline Data& setEncryptionType(int64_t encryptionType) { DARABONBA_PTR_SET_VALUE(encryptionType_, encryptionType) };
 
 
       // failedReason Field Functions 
@@ -446,6 +455,7 @@ namespace Models
       shared_ptr<int64_t> conversationTurnCount_ {};
       shared_ptr<string> detailId_ {};
       shared_ptr<int64_t> duration_ {};
+      shared_ptr<int64_t> encryptionType_ {};
       shared_ptr<string> failedReason_ {};
       shared_ptr<string> hangupDirection_ {};
       shared_ptr<int64_t> importedTime_ {};

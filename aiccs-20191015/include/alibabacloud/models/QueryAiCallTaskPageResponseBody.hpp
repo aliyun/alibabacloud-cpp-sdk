@@ -70,6 +70,8 @@ namespace Models
         friend void to_json(Darabonba::Json& j, const List& obj) { 
           DARABONBA_PTR_TO_JSON(AgentId, agentId_);
           DARABONBA_PTR_TO_JSON(AgentName, agentName_);
+          DARABONBA_PTR_TO_JSON(ApplicationCode, applicationCode_);
+          DARABONBA_PTR_TO_JSON(ApplicationName, applicationName_);
           DARABONBA_PTR_TO_JSON(CallingCount, callingCount_);
           DARABONBA_PTR_TO_JSON(CompleteRate, completeRate_);
           DARABONBA_PTR_TO_JSON(ConcurrentCount, concurrentCount_);
@@ -92,6 +94,8 @@ namespace Models
         friend void from_json(const Darabonba::Json& j, List& obj) { 
           DARABONBA_PTR_FROM_JSON(AgentId, agentId_);
           DARABONBA_PTR_FROM_JSON(AgentName, agentName_);
+          DARABONBA_PTR_FROM_JSON(ApplicationCode, applicationCode_);
+          DARABONBA_PTR_FROM_JSON(ApplicationName, applicationName_);
           DARABONBA_PTR_FROM_JSON(CallingCount, callingCount_);
           DARABONBA_PTR_FROM_JSON(CompleteRate, completeRate_);
           DARABONBA_PTR_FROM_JSON(ConcurrentCount, concurrentCount_);
@@ -123,10 +127,11 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->agentId_ == nullptr
-        && this->agentName_ == nullptr && this->callingCount_ == nullptr && this->completeRate_ == nullptr && this->concurrentCount_ == nullptr && this->createTime_ == nullptr
-        && this->dayCallCount_ == nullptr && this->dayConnectRate_ == nullptr && this->dayImportCount_ == nullptr && this->failedCount_ == nullptr && this->historyConnectRate_ == nullptr
-        && this->realStartTime_ == nullptr && this->startFailedReason_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr && this->succeedCount_ == nullptr
-        && this->taskId_ == nullptr && this->taskName_ == nullptr && this->totalCallCount_ == nullptr && this->totalCount_ == nullptr; };
+        && this->agentName_ == nullptr && this->applicationCode_ == nullptr && this->applicationName_ == nullptr && this->callingCount_ == nullptr && this->completeRate_ == nullptr
+        && this->concurrentCount_ == nullptr && this->createTime_ == nullptr && this->dayCallCount_ == nullptr && this->dayConnectRate_ == nullptr && this->dayImportCount_ == nullptr
+        && this->failedCount_ == nullptr && this->historyConnectRate_ == nullptr && this->realStartTime_ == nullptr && this->startFailedReason_ == nullptr && this->startTime_ == nullptr
+        && this->status_ == nullptr && this->succeedCount_ == nullptr && this->taskId_ == nullptr && this->taskName_ == nullptr && this->totalCallCount_ == nullptr
+        && this->totalCount_ == nullptr; };
         // agentId Field Functions 
         bool hasAgentId() const { return this->agentId_ != nullptr;};
         void deleteAgentId() { this->agentId_ = nullptr;};
@@ -139,6 +144,20 @@ namespace Models
         void deleteAgentName() { this->agentName_ = nullptr;};
         inline string getAgentName() const { DARABONBA_PTR_GET_DEFAULT(agentName_, "") };
         inline List& setAgentName(string agentName) { DARABONBA_PTR_SET_VALUE(agentName_, agentName) };
+
+
+        // applicationCode Field Functions 
+        bool hasApplicationCode() const { return this->applicationCode_ != nullptr;};
+        void deleteApplicationCode() { this->applicationCode_ = nullptr;};
+        inline string getApplicationCode() const { DARABONBA_PTR_GET_DEFAULT(applicationCode_, "") };
+        inline List& setApplicationCode(string applicationCode) { DARABONBA_PTR_SET_VALUE(applicationCode_, applicationCode) };
+
+
+        // applicationName Field Functions 
+        bool hasApplicationName() const { return this->applicationName_ != nullptr;};
+        void deleteApplicationName() { this->applicationName_ = nullptr;};
+        inline string getApplicationName() const { DARABONBA_PTR_GET_DEFAULT(applicationName_, "") };
+        inline List& setApplicationName(string applicationName) { DARABONBA_PTR_SET_VALUE(applicationName_, applicationName) };
 
 
         // callingCount Field Functions 
@@ -270,6 +289,8 @@ namespace Models
       protected:
         shared_ptr<string> agentId_ {};
         shared_ptr<string> agentName_ {};
+        shared_ptr<string> applicationCode_ {};
+        shared_ptr<string> applicationName_ {};
         shared_ptr<int64_t> callingCount_ {};
         shared_ptr<string> completeRate_ {};
         shared_ptr<int64_t> concurrentCount_ {};

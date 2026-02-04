@@ -16,6 +16,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CancelAiCallDetailsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(BatchId, batchId_);
       DARABONBA_PTR_TO_JSON(DetailIdList, detailIdList_);
+      DARABONBA_PTR_TO_JSON(EncryptionType, encryptionType_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(PhoneNumbers, phoneNumbers_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
@@ -25,6 +26,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, CancelAiCallDetailsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BatchId, batchId_);
       DARABONBA_PTR_FROM_JSON(DetailIdList, detailIdList_);
+      DARABONBA_PTR_FROM_JSON(EncryptionType, encryptionType_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(PhoneNumbers, phoneNumbers_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
@@ -43,8 +45,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->batchId_ == nullptr
-        && this->detailIdList_ == nullptr && this->ownerId_ == nullptr && this->phoneNumbers_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr
-        && this->taskId_ == nullptr; };
+        && this->detailIdList_ == nullptr && this->encryptionType_ == nullptr && this->ownerId_ == nullptr && this->phoneNumbers_ == nullptr && this->resourceOwnerAccount_ == nullptr
+        && this->resourceOwnerId_ == nullptr && this->taskId_ == nullptr; };
     // batchId Field Functions 
     bool hasBatchId() const { return this->batchId_ != nullptr;};
     void deleteBatchId() { this->batchId_ = nullptr;};
@@ -59,6 +61,13 @@ namespace Models
     inline vector<string> getDetailIdList() { DARABONBA_PTR_GET(detailIdList_, vector<string>) };
     inline CancelAiCallDetailsRequest& setDetailIdList(const vector<string> & detailIdList) { DARABONBA_PTR_SET_VALUE(detailIdList_, detailIdList) };
     inline CancelAiCallDetailsRequest& setDetailIdList(vector<string> && detailIdList) { DARABONBA_PTR_SET_RVALUE(detailIdList_, detailIdList) };
+
+
+    // encryptionType Field Functions 
+    bool hasEncryptionType() const { return this->encryptionType_ != nullptr;};
+    void deleteEncryptionType() { this->encryptionType_ = nullptr;};
+    inline int64_t getEncryptionType() const { DARABONBA_PTR_GET_DEFAULT(encryptionType_, 0L) };
+    inline CancelAiCallDetailsRequest& setEncryptionType(int64_t encryptionType) { DARABONBA_PTR_SET_VALUE(encryptionType_, encryptionType) };
 
 
     // ownerId Field Functions 
@@ -101,6 +110,7 @@ namespace Models
   protected:
     shared_ptr<string> batchId_ {};
     shared_ptr<vector<string>> detailIdList_ {};
+    shared_ptr<int64_t> encryptionType_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<vector<string>> phoneNumbers_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

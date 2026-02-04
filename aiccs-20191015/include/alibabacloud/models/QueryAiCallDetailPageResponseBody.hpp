@@ -69,6 +69,8 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const List& obj) { 
           DARABONBA_PTR_TO_JSON(BatchId, batchId_);
+          DARABONBA_PTR_TO_JSON(BranchId, branchId_);
+          DARABONBA_PTR_TO_JSON(BranchVersionId, branchVersionId_);
           DARABONBA_PTR_TO_JSON(CallResult, callResult_);
           DARABONBA_PTR_TO_JSON(CalledNumber, calledNumber_);
           DARABONBA_PTR_TO_JSON(CallingTime, callingTime_);
@@ -76,6 +78,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(ConversationRecord, conversationRecord_);
           DARABONBA_PTR_TO_JSON(ConversationTurnCount, conversationTurnCount_);
           DARABONBA_PTR_TO_JSON(DetailId, detailId_);
+          DARABONBA_PTR_TO_JSON(EncryptionType, encryptionType_);
           DARABONBA_PTR_TO_JSON(FailedReason, failedReason_);
           DARABONBA_PTR_TO_JSON(ImportedTime, importedTime_);
           DARABONBA_PTR_TO_JSON(MajorIntent, majorIntent_);
@@ -87,6 +90,8 @@ namespace Models
         };
         friend void from_json(const Darabonba::Json& j, List& obj) { 
           DARABONBA_PTR_FROM_JSON(BatchId, batchId_);
+          DARABONBA_PTR_FROM_JSON(BranchId, branchId_);
+          DARABONBA_PTR_FROM_JSON(BranchVersionId, branchVersionId_);
           DARABONBA_PTR_FROM_JSON(CallResult, callResult_);
           DARABONBA_PTR_FROM_JSON(CalledNumber, calledNumber_);
           DARABONBA_PTR_FROM_JSON(CallingTime, callingTime_);
@@ -94,6 +99,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(ConversationRecord, conversationRecord_);
           DARABONBA_PTR_FROM_JSON(ConversationTurnCount, conversationTurnCount_);
           DARABONBA_PTR_FROM_JSON(DetailId, detailId_);
+          DARABONBA_PTR_FROM_JSON(EncryptionType, encryptionType_);
           DARABONBA_PTR_FROM_JSON(FailedReason, failedReason_);
           DARABONBA_PTR_FROM_JSON(ImportedTime, importedTime_);
           DARABONBA_PTR_FROM_JSON(MajorIntent, majorIntent_);
@@ -115,14 +121,29 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->batchId_ == nullptr
-        && this->callResult_ == nullptr && this->calledNumber_ == nullptr && this->callingTime_ == nullptr && this->conversationDuration_ == nullptr && this->conversationRecord_ == nullptr
-        && this->conversationTurnCount_ == nullptr && this->detailId_ == nullptr && this->failedReason_ == nullptr && this->importedTime_ == nullptr && this->majorIntent_ == nullptr
-        && this->options_ == nullptr && this->outId_ == nullptr && this->recordingFilePath_ == nullptr && this->status_ == nullptr && this->taskId_ == nullptr; };
+        && this->branchId_ == nullptr && this->branchVersionId_ == nullptr && this->callResult_ == nullptr && this->calledNumber_ == nullptr && this->callingTime_ == nullptr
+        && this->conversationDuration_ == nullptr && this->conversationRecord_ == nullptr && this->conversationTurnCount_ == nullptr && this->detailId_ == nullptr && this->encryptionType_ == nullptr
+        && this->failedReason_ == nullptr && this->importedTime_ == nullptr && this->majorIntent_ == nullptr && this->options_ == nullptr && this->outId_ == nullptr
+        && this->recordingFilePath_ == nullptr && this->status_ == nullptr && this->taskId_ == nullptr; };
         // batchId Field Functions 
         bool hasBatchId() const { return this->batchId_ != nullptr;};
         void deleteBatchId() { this->batchId_ = nullptr;};
         inline string getBatchId() const { DARABONBA_PTR_GET_DEFAULT(batchId_, "") };
         inline List& setBatchId(string batchId) { DARABONBA_PTR_SET_VALUE(batchId_, batchId) };
+
+
+        // branchId Field Functions 
+        bool hasBranchId() const { return this->branchId_ != nullptr;};
+        void deleteBranchId() { this->branchId_ = nullptr;};
+        inline int64_t getBranchId() const { DARABONBA_PTR_GET_DEFAULT(branchId_, 0L) };
+        inline List& setBranchId(int64_t branchId) { DARABONBA_PTR_SET_VALUE(branchId_, branchId) };
+
+
+        // branchVersionId Field Functions 
+        bool hasBranchVersionId() const { return this->branchVersionId_ != nullptr;};
+        void deleteBranchVersionId() { this->branchVersionId_ = nullptr;};
+        inline int64_t getBranchVersionId() const { DARABONBA_PTR_GET_DEFAULT(branchVersionId_, 0L) };
+        inline List& setBranchVersionId(int64_t branchVersionId) { DARABONBA_PTR_SET_VALUE(branchVersionId_, branchVersionId) };
 
 
         // callResult Field Functions 
@@ -172,6 +193,13 @@ namespace Models
         void deleteDetailId() { this->detailId_ = nullptr;};
         inline string getDetailId() const { DARABONBA_PTR_GET_DEFAULT(detailId_, "") };
         inline List& setDetailId(string detailId) { DARABONBA_PTR_SET_VALUE(detailId_, detailId) };
+
+
+        // encryptionType Field Functions 
+        bool hasEncryptionType() const { return this->encryptionType_ != nullptr;};
+        void deleteEncryptionType() { this->encryptionType_ = nullptr;};
+        inline int64_t getEncryptionType() const { DARABONBA_PTR_GET_DEFAULT(encryptionType_, 0L) };
+        inline List& setEncryptionType(int64_t encryptionType) { DARABONBA_PTR_SET_VALUE(encryptionType_, encryptionType) };
 
 
         // failedReason Field Functions 
@@ -232,6 +260,8 @@ namespace Models
 
       protected:
         shared_ptr<string> batchId_ {};
+        shared_ptr<int64_t> branchId_ {};
+        shared_ptr<int64_t> branchVersionId_ {};
         shared_ptr<string> callResult_ {};
         shared_ptr<string> calledNumber_ {};
         shared_ptr<int64_t> callingTime_ {};
@@ -239,6 +269,7 @@ namespace Models
         shared_ptr<string> conversationRecord_ {};
         shared_ptr<int64_t> conversationTurnCount_ {};
         shared_ptr<string> detailId_ {};
+        shared_ptr<int64_t> encryptionType_ {};
         shared_ptr<string> failedReason_ {};
         shared_ptr<int64_t> importedTime_ {};
         shared_ptr<string> majorIntent_ {};
