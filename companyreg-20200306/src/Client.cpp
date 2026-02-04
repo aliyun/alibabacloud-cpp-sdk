@@ -862,6 +862,80 @@ ListUserSolutionsResponse Client::listUserSolutions(const ListUserSolutionsReque
 }
 
 /**
+ * @summary 玄坛发起智能外呼
+ *
+ * @param request LlmSmartCallRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return LlmSmartCallResponse
+ */
+LlmSmartCallResponse Client::llmSmartCallWithOptions(const LlmSmartCallRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasBizType()) {
+    query["BizType"] = request.getBizType();
+  }
+
+  if (!!request.hasCallerNumber()) {
+    query["CallerNumber"] = request.getCallerNumber();
+  }
+
+  if (!!request.hasProductCode()) {
+    query["ProductCode"] = request.getProductCode();
+  }
+
+  if (!!request.hasPromptParam()) {
+    query["PromptParam"] = request.getPromptParam();
+  }
+
+  if (!!request.hasScenesCode()) {
+    query["ScenesCode"] = request.getScenesCode();
+  }
+
+  if (!!request.hasSkillType()) {
+    query["SkillType"] = request.getSkillType();
+  }
+
+  if (!!request.hasStartWordParam()) {
+    query["StartWordParam"] = request.getStartWordParam();
+  }
+
+  if (!!request.hasTenantCode()) {
+    query["TenantCode"] = request.getTenantCode();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "LlmSmartCall"},
+    {"version" , "2020-03-06"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<LlmSmartCallResponse>();
+}
+
+/**
+ * @summary 玄坛发起智能外呼
+ *
+ * @param request LlmSmartCallRequest
+ * @return LlmSmartCallResponse
+ */
+LlmSmartCallResponse Client::llmSmartCall(const LlmSmartCallRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return llmSmartCallWithOptions(request, runtime);
+}
+
+/**
  * @summary 服务商玄坛呼叫中心操作
  *
  * @param request OperateCallCenterForPartnerRequest

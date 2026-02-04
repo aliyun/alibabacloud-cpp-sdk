@@ -232,6 +232,23 @@ namespace Companyreg20200306
       Models::ListUserSolutionsResponse listUserSolutions(const Models::ListUserSolutionsRequest &request);
 
       /**
+       * @summary 玄坛发起智能外呼
+       *
+       * @param request LlmSmartCallRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return LlmSmartCallResponse
+       */
+      Models::LlmSmartCallResponse llmSmartCallWithOptions(const Models::LlmSmartCallRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 玄坛发起智能外呼
+       *
+       * @param request LlmSmartCallRequest
+       * @return LlmSmartCallResponse
+       */
+      Models::LlmSmartCallResponse llmSmartCall(const Models::LlmSmartCallRequest &request);
+
+      /**
        * @summary 服务商玄坛呼叫中心操作
        *
        * @param request OperateCallCenterForPartnerRequest

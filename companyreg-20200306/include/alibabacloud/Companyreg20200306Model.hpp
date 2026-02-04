@@ -48,6 +48,9 @@
 #include <alibabacloud/models/ListUserSolutionsShrinkRequest.hpp>
 #include <alibabacloud/models/ListUserSolutionsResponseBody.hpp>
 #include <alibabacloud/models/ListUserSolutionsResponse.hpp>
+#include <alibabacloud/models/LlmSmartCallRequest.hpp>
+#include <alibabacloud/models/LlmSmartCallResponseBody.hpp>
+#include <alibabacloud/models/LlmSmartCallResponse.hpp>
 #include <alibabacloud/models/OperateCallCenterForPartnerRequest.hpp>
 #include <alibabacloud/models/OperateCallCenterForPartnerResponseBody.hpp>
 #include <alibabacloud/models/OperateCallCenterForPartnerResponse.hpp>
