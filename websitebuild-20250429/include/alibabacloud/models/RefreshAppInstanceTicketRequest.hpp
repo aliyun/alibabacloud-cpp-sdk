@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Business ID of the application instance
     shared_ptr<string> bizId_ {};
+    // Updated token information
     shared_ptr<string> token_ {};
+    // The UUID of the server.
     shared_ptr<string> uuid_ {};
   };
 

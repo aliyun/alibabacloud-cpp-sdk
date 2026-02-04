@@ -140,17 +140,31 @@ namespace Models
 
 
   protected:
+    // Business ID
     shared_ptr<string> bizId_ {};
+    // End time start
     shared_ptr<string> endTimeBegin_ {};
+    // End time end
     shared_ptr<string> endTimeEnd_ {};
+    // Extended information
     shared_ptr<string> extend_ {};
+    // Number of results per query.
+    // 
+    // Range: 10~100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
+    // Token for the next query. It will be empty if there is no next query.
     shared_ptr<string> nextToken_ {};
+    // Order column
     shared_ptr<string> orderColumn_ {};
+    // Order type ASC|DESC
     shared_ptr<string> orderType_ {};
+    // Page number, default is 1
     shared_ptr<int32_t> pageNum_ {};
+    // Page size, default is 10
     shared_ptr<int32_t> pageSize_ {};
+    // Query parameter
     shared_ptr<string> query_ {};
+    // Status range
     shared_ptr<string> statusListShrink_ {};
   };
 

@@ -36,7 +36,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 绑定应用域名
+ * @summary Bind Application Domain
  *
  * @param request BindAppDomainRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -79,7 +79,7 @@ BindAppDomainResponse Client::bindAppDomainWithOptions(const BindAppDomainReques
 }
 
 /**
- * @summary 绑定应用域名
+ * @summary Bind Application Domain
  *
  * @param request BindAppDomainRequest
  * @return BindAppDomainResponse
@@ -184,7 +184,7 @@ CreateAppInstanceResponse Client::createAppInstance(const CreateAppInstanceReque
 }
 
 /**
- * @summary 免登ticket
+ * @summary SSO ticket
  *
  * @param request CreateAppInstanceTicketRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -219,7 +219,7 @@ CreateAppInstanceTicketResponse Client::createAppInstanceTicketWithOptions(const
 }
 
 /**
- * @summary 免登ticket
+ * @summary SSO ticket
  *
  * @param request CreateAppInstanceTicketRequest
  * @return CreateAppInstanceTicketResponse
@@ -284,7 +284,7 @@ CreateLogoTaskResponse Client::createLogoTask(const CreateLogoTaskRequest &reque
 }
 
 /**
- * @summary 删除域名的SSL证书
+ * @summary Delete the SSL certificate of a domain
  *
  * @param request DeleteAppDomainCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -319,7 +319,7 @@ DeleteAppDomainCertificateResponse Client::deleteAppDomainCertificateWithOptions
 }
 
 /**
- * @summary 删除域名的SSL证书
+ * @summary Delete the SSL certificate of a domain
  *
  * @param request DeleteAppDomainCertificateRequest
  * @return DeleteAppDomainCertificateResponse
@@ -330,7 +330,7 @@ DeleteAppDomainCertificateResponse Client::deleteAppDomainCertificate(const Dele
 }
 
 /**
- * @summary 删除域名的跳转规则
+ * @summary Delete the domain redirection rules
  *
  * @param request DeleteAppDomainRedirectRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -365,7 +365,7 @@ DeleteAppDomainRedirectResponse Client::deleteAppDomainRedirectWithOptions(const
 }
 
 /**
- * @summary 删除域名的跳转规则
+ * @summary Delete the domain redirection rules
  *
  * @param request DeleteAppDomainRedirectRequest
  * @return DeleteAppDomainRedirectResponse
@@ -376,7 +376,7 @@ DeleteAppDomainRedirectResponse Client::deleteAppDomainRedirect(const DeleteAppD
 }
 
 /**
- * @summary 查询域名的DNS解析记录
+ * @summary Query the DNS resolution records of a domain
  *
  * @param request DescribeAppDomainDnsRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -415,7 +415,7 @@ DescribeAppDomainDnsRecordResponse Client::describeAppDomainDnsRecordWithOptions
 }
 
 /**
- * @summary 查询域名的DNS解析记录
+ * @summary Query the DNS resolution records of a domain
  *
  * @param request DescribeAppDomainDnsRecordRequest
  * @return DescribeAppDomainDnsRecordResponse
@@ -484,7 +484,7 @@ DispatchConsoleAPIForPartnerResponse Client::dispatchConsoleAPIForPartner(const 
 }
 
 /**
- * @summary 查询应用实例详情
+ * @summary Query Application Instance Details
  *
  * @param request GetAppInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -515,7 +515,7 @@ GetAppInstanceResponse Client::getAppInstanceWithOptions(const GetAppInstanceReq
 }
 
 /**
- * @summary 查询应用实例详情
+ * @summary Query Application Instance Details
  *
  * @param request GetAppInstanceRequest
  * @return GetAppInstanceResponse
@@ -768,7 +768,53 @@ GetUserTmpIdentityForPartnerResponse Client::getUserTmpIdentityForPartner(const 
 }
 
 /**
- * @summary 查询域名的跳转规则列表
+ * @summary 检查AccessToken
+ *
+ * @param request IntrospectAppInstanceTicketForPreviewRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return IntrospectAppInstanceTicketForPreviewResponse
+ */
+IntrospectAppInstanceTicketForPreviewResponse Client::introspectAppInstanceTicketForPreviewWithOptions(const IntrospectAppInstanceTicketForPreviewRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasToken()) {
+    query["Token"] = request.getToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "IntrospectAppInstanceTicketForPreview"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<IntrospectAppInstanceTicketForPreviewResponse>();
+}
+
+/**
+ * @summary 检查AccessToken
+ *
+ * @param request IntrospectAppInstanceTicketForPreviewRequest
+ * @return IntrospectAppInstanceTicketForPreviewResponse
+ */
+IntrospectAppInstanceTicketForPreviewResponse Client::introspectAppInstanceTicketForPreview(const IntrospectAppInstanceTicketForPreviewRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return introspectAppInstanceTicketForPreviewWithOptions(request, runtime);
+}
+
+/**
+ * @summary Query the list of domain redirection rules
  *
  * @param request ListAppDomainRedirectRecordsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -807,7 +853,7 @@ ListAppDomainRedirectRecordsResponse Client::listAppDomainRedirectRecordsWithOpt
 }
 
 /**
- * @summary 查询域名的跳转规则列表
+ * @summary Query the list of domain redirection rules
  *
  * @param request ListAppDomainRedirectRecordsRequest
  * @return ListAppDomainRedirectRecordsResponse
@@ -818,7 +864,7 @@ ListAppDomainRedirectRecordsResponse Client::listAppDomainRedirectRecords(const 
 }
 
 /**
- * @summary 查询应用实例下的所有域名列表
+ * @summary List all domain names under the application instance
  *
  * @param request ListAppInstanceDomainsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -873,7 +919,7 @@ ListAppInstanceDomainsResponse Client::listAppInstanceDomainsWithOptions(const L
 }
 
 /**
- * @summary 查询应用实例下的所有域名列表
+ * @summary List all domain names under the application instance
  *
  * @param request ListAppInstanceDomainsRequest
  * @return ListAppInstanceDomainsResponse
@@ -884,7 +930,7 @@ ListAppInstanceDomainsResponse Client::listAppInstanceDomains(const ListAppInsta
 }
 
 /**
- * @summary 建站实例列表查询
+ * @summary Website Instance List Query
  *
  * @param tmpReq ListAppInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -965,7 +1011,7 @@ ListAppInstancesResponse Client::listAppInstancesWithOptions(const ListAppInstan
 }
 
 /**
- * @summary 建站实例列表查询
+ * @summary Website Instance List Query
  *
  * @param request ListAppInstancesRequest
  * @return ListAppInstancesResponse
@@ -976,7 +1022,7 @@ ListAppInstancesResponse Client::listAppInstances(const ListAppInstancesRequest 
 }
 
 /**
- * @summary 建站实例变配
+ * @summary Modify the configuration of a building instance
  *
  * @param request ModifyAppInstanceSpecRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1031,7 +1077,7 @@ ModifyAppInstanceSpecResponse Client::modifyAppInstanceSpecWithOptions(const Mod
 }
 
 /**
- * @summary 建站实例变配
+ * @summary Modify the configuration of a building instance
  *
  * @param request ModifyAppInstanceSpecRequest
  * @return ModifyAppInstanceSpecResponse
@@ -1142,7 +1188,7 @@ OperateAppServiceForPartnerResponse Client::operateAppServiceForPartner(const Op
 }
 
 /**
- * @summary 刷新ticket
+ * @summary Refresh ticket
  *
  * @param request RefreshAppInstanceTicketRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1181,7 +1227,7 @@ RefreshAppInstanceTicketResponse Client::refreshAppInstanceTicketWithOptions(con
 }
 
 /**
- * @summary 刷新ticket
+ * @summary Refresh ticket
  *
  * @param request RefreshAppInstanceTicketRequest
  * @return RefreshAppInstanceTicketResponse
@@ -1246,7 +1292,7 @@ RefundAppInstanceForPartnerResponse Client::refundAppInstanceForPartner(const Re
 }
 
 /**
- * @summary 建站实例续费
+ * @summary Renewal of website building instance
  *
  * @param request RenewAppInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1297,7 +1343,7 @@ RenewAppInstanceResponse Client::renewAppInstanceWithOptions(const RenewAppInsta
 }
 
 /**
- * @summary 建站实例续费
+ * @summary Renewal of website building instance
  *
  * @param request RenewAppInstanceRequest
  * @return RenewAppInstanceResponse
@@ -1412,7 +1458,7 @@ SearchImageResponse Client::searchImage(const SearchImageRequest &request) {
 }
 
 /**
- * @summary 设置域名的SSL证书
+ * @summary Set the SSL certificate for a domain
  *
  * @param request SetAppDomainCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1463,7 +1509,7 @@ SetAppDomainCertificateResponse Client::setAppDomainCertificateWithOptions(const
 }
 
 /**
- * @summary 设置域名的SSL证书
+ * @summary Set the SSL certificate for a domain
  *
  * @param request SetAppDomainCertificateRequest
  * @return SetAppDomainCertificateResponse
@@ -1538,7 +1584,7 @@ SyncAppInstanceForPartnerResponse Client::syncAppInstanceForPartner(const SyncAp
 }
 
 /**
- * @summary 解绑应用域名
+ * @summary Unbind Application Domain
  *
  * @param request UnbindAppDomainRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1573,7 +1619,7 @@ UnbindAppDomainResponse Client::unbindAppDomainWithOptions(const UnbindAppDomain
 }
 
 /**
- * @summary 解绑应用域名
+ * @summary Unbind Application Domain
  *
  * @param request UnbindAppDomainRequest
  * @return UnbindAppDomainResponse

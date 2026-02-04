@@ -21,7 +21,7 @@ namespace WebsiteBuild20250429
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 绑定应用域名
+       * @summary Bind Application Domain
        *
        * @param request BindAppDomainRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +30,7 @@ namespace WebsiteBuild20250429
       Models::BindAppDomainResponse bindAppDomainWithOptions(const Models::BindAppDomainRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 绑定应用域名
+       * @summary Bind Application Domain
        *
        * @param request BindAppDomainRequest
        * @return BindAppDomainResponse
@@ -55,7 +55,7 @@ namespace WebsiteBuild20250429
       Models::CreateAppInstanceResponse createAppInstance(const Models::CreateAppInstanceRequest &request);
 
       /**
-       * @summary 免登ticket
+       * @summary SSO ticket
        *
        * @param request CreateAppInstanceTicketRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -64,7 +64,7 @@ namespace WebsiteBuild20250429
       Models::CreateAppInstanceTicketResponse createAppInstanceTicketWithOptions(const Models::CreateAppInstanceTicketRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 免登ticket
+       * @summary SSO ticket
        *
        * @param request CreateAppInstanceTicketRequest
        * @return CreateAppInstanceTicketResponse
@@ -89,7 +89,7 @@ namespace WebsiteBuild20250429
       Models::CreateLogoTaskResponse createLogoTask(const Models::CreateLogoTaskRequest &request);
 
       /**
-       * @summary 删除域名的SSL证书
+       * @summary Delete the SSL certificate of a domain
        *
        * @param request DeleteAppDomainCertificateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -98,7 +98,7 @@ namespace WebsiteBuild20250429
       Models::DeleteAppDomainCertificateResponse deleteAppDomainCertificateWithOptions(const Models::DeleteAppDomainCertificateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除域名的SSL证书
+       * @summary Delete the SSL certificate of a domain
        *
        * @param request DeleteAppDomainCertificateRequest
        * @return DeleteAppDomainCertificateResponse
@@ -106,7 +106,7 @@ namespace WebsiteBuild20250429
       Models::DeleteAppDomainCertificateResponse deleteAppDomainCertificate(const Models::DeleteAppDomainCertificateRequest &request);
 
       /**
-       * @summary 删除域名的跳转规则
+       * @summary Delete the domain redirection rules
        *
        * @param request DeleteAppDomainRedirectRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -115,7 +115,7 @@ namespace WebsiteBuild20250429
       Models::DeleteAppDomainRedirectResponse deleteAppDomainRedirectWithOptions(const Models::DeleteAppDomainRedirectRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除域名的跳转规则
+       * @summary Delete the domain redirection rules
        *
        * @param request DeleteAppDomainRedirectRequest
        * @return DeleteAppDomainRedirectResponse
@@ -123,7 +123,7 @@ namespace WebsiteBuild20250429
       Models::DeleteAppDomainRedirectResponse deleteAppDomainRedirect(const Models::DeleteAppDomainRedirectRequest &request);
 
       /**
-       * @summary 查询域名的DNS解析记录
+       * @summary Query the DNS resolution records of a domain
        *
        * @param request DescribeAppDomainDnsRecordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -132,7 +132,7 @@ namespace WebsiteBuild20250429
       Models::DescribeAppDomainDnsRecordResponse describeAppDomainDnsRecordWithOptions(const Models::DescribeAppDomainDnsRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询域名的DNS解析记录
+       * @summary Query the DNS resolution records of a domain
        *
        * @param request DescribeAppDomainDnsRecordRequest
        * @return DescribeAppDomainDnsRecordResponse
@@ -157,7 +157,7 @@ namespace WebsiteBuild20250429
       Models::DispatchConsoleAPIForPartnerResponse dispatchConsoleAPIForPartner(const Models::DispatchConsoleAPIForPartnerRequest &request);
 
       /**
-       * @summary 查询应用实例详情
+       * @summary Query Application Instance Details
        *
        * @param request GetAppInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -166,7 +166,7 @@ namespace WebsiteBuild20250429
       Models::GetAppInstanceResponse getAppInstanceWithOptions(const Models::GetAppInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询应用实例详情
+       * @summary Query Application Instance Details
        *
        * @param request GetAppInstanceRequest
        * @return GetAppInstanceResponse
@@ -259,7 +259,24 @@ namespace WebsiteBuild20250429
       Models::GetUserTmpIdentityForPartnerResponse getUserTmpIdentityForPartner(const Models::GetUserTmpIdentityForPartnerRequest &request);
 
       /**
-       * @summary 查询域名的跳转规则列表
+       * @summary 检查AccessToken
+       *
+       * @param request IntrospectAppInstanceTicketForPreviewRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return IntrospectAppInstanceTicketForPreviewResponse
+       */
+      Models::IntrospectAppInstanceTicketForPreviewResponse introspectAppInstanceTicketForPreviewWithOptions(const Models::IntrospectAppInstanceTicketForPreviewRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 检查AccessToken
+       *
+       * @param request IntrospectAppInstanceTicketForPreviewRequest
+       * @return IntrospectAppInstanceTicketForPreviewResponse
+       */
+      Models::IntrospectAppInstanceTicketForPreviewResponse introspectAppInstanceTicketForPreview(const Models::IntrospectAppInstanceTicketForPreviewRequest &request);
+
+      /**
+       * @summary Query the list of domain redirection rules
        *
        * @param request ListAppDomainRedirectRecordsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -268,7 +285,7 @@ namespace WebsiteBuild20250429
       Models::ListAppDomainRedirectRecordsResponse listAppDomainRedirectRecordsWithOptions(const Models::ListAppDomainRedirectRecordsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询域名的跳转规则列表
+       * @summary Query the list of domain redirection rules
        *
        * @param request ListAppDomainRedirectRecordsRequest
        * @return ListAppDomainRedirectRecordsResponse
@@ -276,7 +293,7 @@ namespace WebsiteBuild20250429
       Models::ListAppDomainRedirectRecordsResponse listAppDomainRedirectRecords(const Models::ListAppDomainRedirectRecordsRequest &request);
 
       /**
-       * @summary 查询应用实例下的所有域名列表
+       * @summary List all domain names under the application instance
        *
        * @param request ListAppInstanceDomainsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -285,7 +302,7 @@ namespace WebsiteBuild20250429
       Models::ListAppInstanceDomainsResponse listAppInstanceDomainsWithOptions(const Models::ListAppInstanceDomainsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询应用实例下的所有域名列表
+       * @summary List all domain names under the application instance
        *
        * @param request ListAppInstanceDomainsRequest
        * @return ListAppInstanceDomainsResponse
@@ -293,7 +310,7 @@ namespace WebsiteBuild20250429
       Models::ListAppInstanceDomainsResponse listAppInstanceDomains(const Models::ListAppInstanceDomainsRequest &request);
 
       /**
-       * @summary 建站实例列表查询
+       * @summary Website Instance List Query
        *
        * @param tmpReq ListAppInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -302,7 +319,7 @@ namespace WebsiteBuild20250429
       Models::ListAppInstancesResponse listAppInstancesWithOptions(const Models::ListAppInstancesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 建站实例列表查询
+       * @summary Website Instance List Query
        *
        * @param request ListAppInstancesRequest
        * @return ListAppInstancesResponse
@@ -310,7 +327,7 @@ namespace WebsiteBuild20250429
       Models::ListAppInstancesResponse listAppInstances(const Models::ListAppInstancesRequest &request);
 
       /**
-       * @summary 建站实例变配
+       * @summary Modify the configuration of a building instance
        *
        * @param request ModifyAppInstanceSpecRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -319,7 +336,7 @@ namespace WebsiteBuild20250429
       Models::ModifyAppInstanceSpecResponse modifyAppInstanceSpecWithOptions(const Models::ModifyAppInstanceSpecRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 建站实例变配
+       * @summary Modify the configuration of a building instance
        *
        * @param request ModifyAppInstanceSpecRequest
        * @return ModifyAppInstanceSpecResponse
@@ -361,7 +378,7 @@ namespace WebsiteBuild20250429
       Models::OperateAppServiceForPartnerResponse operateAppServiceForPartner(const Models::OperateAppServiceForPartnerRequest &request);
 
       /**
-       * @summary 刷新ticket
+       * @summary Refresh ticket
        *
        * @param request RefreshAppInstanceTicketRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -370,7 +387,7 @@ namespace WebsiteBuild20250429
       Models::RefreshAppInstanceTicketResponse refreshAppInstanceTicketWithOptions(const Models::RefreshAppInstanceTicketRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 刷新ticket
+       * @summary Refresh ticket
        *
        * @param request RefreshAppInstanceTicketRequest
        * @return RefreshAppInstanceTicketResponse
@@ -395,7 +412,7 @@ namespace WebsiteBuild20250429
       Models::RefundAppInstanceForPartnerResponse refundAppInstanceForPartner(const Models::RefundAppInstanceForPartnerRequest &request);
 
       /**
-       * @summary 建站实例续费
+       * @summary Renewal of website building instance
        *
        * @param request RenewAppInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -404,7 +421,7 @@ namespace WebsiteBuild20250429
       Models::RenewAppInstanceResponse renewAppInstanceWithOptions(const Models::RenewAppInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 建站实例续费
+       * @summary Renewal of website building instance
        *
        * @param request RenewAppInstanceRequest
        * @return RenewAppInstanceResponse
@@ -429,7 +446,7 @@ namespace WebsiteBuild20250429
       Models::SearchImageResponse searchImage(const Models::SearchImageRequest &request);
 
       /**
-       * @summary 设置域名的SSL证书
+       * @summary Set the SSL certificate for a domain
        *
        * @param request SetAppDomainCertificateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -438,7 +455,7 @@ namespace WebsiteBuild20250429
       Models::SetAppDomainCertificateResponse setAppDomainCertificateWithOptions(const Models::SetAppDomainCertificateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 设置域名的SSL证书
+       * @summary Set the SSL certificate for a domain
        *
        * @param request SetAppDomainCertificateRequest
        * @return SetAppDomainCertificateResponse
@@ -463,7 +480,7 @@ namespace WebsiteBuild20250429
       Models::SyncAppInstanceForPartnerResponse syncAppInstanceForPartner(const Models::SyncAppInstanceForPartnerRequest &request);
 
       /**
-       * @summary 解绑应用域名
+       * @summary Unbind Application Domain
        *
        * @param request UnbindAppDomainRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -472,7 +489,7 @@ namespace WebsiteBuild20250429
       Models::UnbindAppDomainResponse unbindAppDomainWithOptions(const Models::UnbindAppDomainRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 解绑应用域名
+       * @summary Unbind Application Domain
        *
        * @param request UnbindAppDomainRequest
        * @return UnbindAppDomainResponse

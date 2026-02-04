@@ -210,25 +210,45 @@ namespace Models
 
 
   protected:
+    // Detailed reason for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // Whether retry is allowed
     shared_ptr<bool> allowRetry_ {};
+    // App name.
     shared_ptr<string> appName_ {};
+    // Current page number.
     shared_ptr<int32_t> currentPageNum_ {};
+    // Query result.
     shared_ptr<vector<AppInstanceAggregate>> data_ {};
+    // Dynamic error code.
     shared_ptr<string> dynamicCode_ {};
+    // Dynamic message, not in use, please ignore
     shared_ptr<string> dynamicMessage_ {};
+    // 返回错误参数
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
+    // The number of results per query.
+    // 
+    // Value range: 10~100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
+    // Whether there is a next page.
     shared_ptr<bool> nextPage_ {};
+    // The token for the next query. It is empty when there is no next query.
     shared_ptr<string> nextToken_ {};
+    // Page size.
     shared_ptr<int32_t> pageSize_ {};
+    // Whether there is a previous page
     shared_ptr<bool> prePage_ {};
-    // Id of the request
+    // ID of the request
     shared_ptr<string> requestId_ {};
+    // For the current query, apart from pagination limits, the server processes up to the most recent 1000 records. If the result exceeds 1000 records, **ResultLimit** is **true**, please narrow down the time range and search again; otherwise, **ResultLimit** is **false**.
     shared_ptr<bool> resultLimit_ {};
+    // Error code
     shared_ptr<string> rootErrorCode_ {};
+    // Error message
     shared_ptr<string> rootErrorMsg_ {};
+    // Reserved parameter.
     shared_ptr<bool> synchro_ {};
+    // Total number of pages.
     shared_ptr<int32_t> totalPageNum_ {};
   };
 

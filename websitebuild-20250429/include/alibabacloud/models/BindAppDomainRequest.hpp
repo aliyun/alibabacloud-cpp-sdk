@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // Business ID
     shared_ptr<string> bizId_ {};
+    // Domain Name
     shared_ptr<string> domainName_ {};
+    // Extended Information (OverwriteExistingRecord)
     shared_ptr<string> extend_ {};
+    // Domain Binding - Operation Type
     shared_ptr<string> operateType_ {};
   };
 

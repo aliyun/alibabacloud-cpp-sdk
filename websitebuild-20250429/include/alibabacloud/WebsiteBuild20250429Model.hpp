@@ -55,6 +55,9 @@
 #include <alibabacloud/models/GetUserTmpIdentityForPartnerRequest.hpp>
 #include <alibabacloud/models/GetUserTmpIdentityForPartnerResponseBody.hpp>
 #include <alibabacloud/models/GetUserTmpIdentityForPartnerResponse.hpp>
+#include <alibabacloud/models/IntrospectAppInstanceTicketForPreviewRequest.hpp>
+#include <alibabacloud/models/IntrospectAppInstanceTicketForPreviewResponseBody.hpp>
+#include <alibabacloud/models/IntrospectAppInstanceTicketForPreviewResponse.hpp>
 #include <alibabacloud/models/ListAppDomainRedirectRecordsRequest.hpp>
 #include <alibabacloud/models/ListAppDomainRedirectRecordsResponseBody.hpp>
 #include <alibabacloud/models/ListAppDomainRedirectRecordsResponse.hpp>

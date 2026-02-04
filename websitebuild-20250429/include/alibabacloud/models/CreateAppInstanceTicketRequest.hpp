@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Customer business ID
     shared_ptr<string> bizId_ {};
+    // Client ID of the device that needs to revoke the access token.
     shared_ptr<string> clientId_ {};
   };
 

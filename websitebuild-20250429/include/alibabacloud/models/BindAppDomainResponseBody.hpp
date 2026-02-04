@@ -78,6 +78,7 @@ namespace Models
 
 
     protected:
+      // Indicator of whether the request was successful.
       shared_ptr<bool> success_ {};
     };
 
@@ -166,17 +167,34 @@ namespace Models
 
 
   protected:
+    // Detailed reason for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // Whether retry is allowed
     shared_ptr<bool> allowRetry_ {};
+    // App Name.
     shared_ptr<string> appName_ {};
+    // Error Code
     shared_ptr<string> dynamicCode_ {};
+    // Dynamic error message, used to replace the **%s** in the error message of the returned parameter **ErrMessage**.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid**, and **DynamicMessage** returns **DtsJobId**, it indicates that the input request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
+    // Returned error parameters
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
+    // Data table module.
+    // 
+    // - ABTest: Experiment data table
+    // 
+    // - ExperimentTool: Experiment tool table
+    // 
+    // - DataDiagnosis: Data diagnosis
     shared_ptr<BindAppDomainResponseBody::Module> module_ {};
-    // Id of the request
+    // ID of the request
     shared_ptr<string> requestId_ {};
+    // Error Code
     shared_ptr<string> rootErrorCode_ {};
+    // Exception Message
     shared_ptr<string> rootErrorMsg_ {};
+    // Whether to process synchronously
     shared_ptr<bool> synchro_ {};
   };
 

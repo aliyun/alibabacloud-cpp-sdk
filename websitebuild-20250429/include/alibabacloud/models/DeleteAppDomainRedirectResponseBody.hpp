@@ -78,6 +78,7 @@ namespace Models
 
 
     protected:
+      // Whether the operation was successful
       shared_ptr<bool> success_ {};
     };
 
@@ -166,17 +167,27 @@ namespace Models
 
 
   protected:
+    // Detailed reason for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // Whether retry is allowed
     shared_ptr<bool> allowRetry_ {};
+    // Application name, to query this named application
     shared_ptr<string> appName_ {};
+    // Dynamic error code.
     shared_ptr<string> dynamicCode_ {};
+    // Dynamic message.
     shared_ptr<string> dynamicMessage_ {};
+    // Returned error parameters
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
+    // Response data
     shared_ptr<DeleteAppDomainRedirectResponseBody::Module> module_ {};
-    // Id of the request
+    // ID of the request
     shared_ptr<string> requestId_ {};
+    // Error code
     shared_ptr<string> rootErrorCode_ {};
+    // Exception message
     shared_ptr<string> rootErrorMsg_ {};
+    // Whether it is processed synchronously
     shared_ptr<bool> synchro_ {};
   };
 

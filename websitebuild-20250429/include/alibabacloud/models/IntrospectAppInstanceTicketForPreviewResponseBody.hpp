@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_REFRESHAPPINSTANCETICKETRESPONSEBODY_HPP_
-#define ALIBABACLOUD_MODELS_REFRESHAPPINSTANCETICKETRESPONSEBODY_HPP_
+#ifndef ALIBABACLOUD_MODELS_INTROSPECTAPPINSTANCETICKETFORPREVIEWRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_INTROSPECTAPPINSTANCETICKETFORPREVIEWRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
 using namespace std;
@@ -11,9 +11,9 @@ namespace WebsiteBuild20250429
 {
 namespace Models
 {
-  class RefreshAppInstanceTicketResponseBody : public Darabonba::Model {
+  class IntrospectAppInstanceTicketForPreviewResponseBody : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const RefreshAppInstanceTicketResponseBody& obj) { 
+    friend void to_json(Darabonba::Json& j, const IntrospectAppInstanceTicketForPreviewResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(AccessDeniedDetail, accessDeniedDetail_);
       DARABONBA_PTR_TO_JSON(AllowRetry, allowRetry_);
       DARABONBA_PTR_TO_JSON(AppName, appName_);
@@ -26,7 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RootErrorMsg, rootErrorMsg_);
       DARABONBA_PTR_TO_JSON(Synchro, synchro_);
     };
-    friend void from_json(const Darabonba::Json& j, RefreshAppInstanceTicketResponseBody& obj) { 
+    friend void from_json(const Darabonba::Json& j, IntrospectAppInstanceTicketForPreviewResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(AccessDeniedDetail, accessDeniedDetail_);
       DARABONBA_PTR_FROM_JSON(AllowRetry, allowRetry_);
       DARABONBA_PTR_FROM_JSON(AppName, appName_);
@@ -39,13 +39,13 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RootErrorMsg, rootErrorMsg_);
       DARABONBA_PTR_FROM_JSON(Synchro, synchro_);
     };
-    RefreshAppInstanceTicketResponseBody() = default ;
-    RefreshAppInstanceTicketResponseBody(const RefreshAppInstanceTicketResponseBody &) = default ;
-    RefreshAppInstanceTicketResponseBody(RefreshAppInstanceTicketResponseBody &&) = default ;
-    RefreshAppInstanceTicketResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~RefreshAppInstanceTicketResponseBody() = default ;
-    RefreshAppInstanceTicketResponseBody& operator=(const RefreshAppInstanceTicketResponseBody &) = default ;
-    RefreshAppInstanceTicketResponseBody& operator=(RefreshAppInstanceTicketResponseBody &&) = default ;
+    IntrospectAppInstanceTicketForPreviewResponseBody() = default ;
+    IntrospectAppInstanceTicketForPreviewResponseBody(const IntrospectAppInstanceTicketForPreviewResponseBody &) = default ;
+    IntrospectAppInstanceTicketForPreviewResponseBody(IntrospectAppInstanceTicketForPreviewResponseBody &&) = default ;
+    IntrospectAppInstanceTicketForPreviewResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~IntrospectAppInstanceTicketForPreviewResponseBody() = default ;
+    IntrospectAppInstanceTicketForPreviewResponseBody& operator=(const IntrospectAppInstanceTicketForPreviewResponseBody &) = default ;
+    IntrospectAppInstanceTicketForPreviewResponseBody& operator=(IntrospectAppInstanceTicketForPreviewResponseBody &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -180,29 +180,19 @@ namespace Models
 
 
     protected:
-      // Access token expiration time
       shared_ptr<string> accessTokenExpiresAt_ {};
-      // Access token issuance time
       shared_ptr<string> accessTokenIssuedAt_ {};
-      // Access token value
       shared_ptr<string> accessTokenValue_ {};
-      // User ID
+      // aliyunPk
       shared_ptr<string> aliyunPk_ {};
-      // Extended attributes
       shared_ptr<string> attributes_ {};
-      // Authorization grant type
       shared_ptr<string> authorizationGrantType_ {};
-      // business id for user
+      // bid
       shared_ptr<string> bid_ {};
-      // User ID
       shared_ptr<string> parentPk_ {};
-      // 刷新token过期时间
       shared_ptr<string> refreshTokenExpiresAt_ {};
-      // 刷新token颁发时间
       shared_ptr<string> refreshTokenIssuedAt_ {};
-      // 刷新token值
       shared_ptr<string> refreshTokenValue_ {};
-      // Unique identifier externally
       shared_ptr<string> uuid_ {};
     };
 
@@ -213,35 +203,35 @@ namespace Models
     bool hasAccessDeniedDetail() const { return this->accessDeniedDetail_ != nullptr;};
     void deleteAccessDeniedDetail() { this->accessDeniedDetail_ = nullptr;};
     inline string getAccessDeniedDetail() const { DARABONBA_PTR_GET_DEFAULT(accessDeniedDetail_, "") };
-    inline RefreshAppInstanceTicketResponseBody& setAccessDeniedDetail(string accessDeniedDetail) { DARABONBA_PTR_SET_VALUE(accessDeniedDetail_, accessDeniedDetail) };
+    inline IntrospectAppInstanceTicketForPreviewResponseBody& setAccessDeniedDetail(string accessDeniedDetail) { DARABONBA_PTR_SET_VALUE(accessDeniedDetail_, accessDeniedDetail) };
 
 
     // allowRetry Field Functions 
     bool hasAllowRetry() const { return this->allowRetry_ != nullptr;};
     void deleteAllowRetry() { this->allowRetry_ = nullptr;};
     inline bool getAllowRetry() const { DARABONBA_PTR_GET_DEFAULT(allowRetry_, false) };
-    inline RefreshAppInstanceTicketResponseBody& setAllowRetry(bool allowRetry) { DARABONBA_PTR_SET_VALUE(allowRetry_, allowRetry) };
+    inline IntrospectAppInstanceTicketForPreviewResponseBody& setAllowRetry(bool allowRetry) { DARABONBA_PTR_SET_VALUE(allowRetry_, allowRetry) };
 
 
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
     inline string getAppName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
-    inline RefreshAppInstanceTicketResponseBody& setAppName(string appName) { DARABONBA_PTR_SET_VALUE(appName_, appName) };
+    inline IntrospectAppInstanceTicketForPreviewResponseBody& setAppName(string appName) { DARABONBA_PTR_SET_VALUE(appName_, appName) };
 
 
     // dynamicCode Field Functions 
     bool hasDynamicCode() const { return this->dynamicCode_ != nullptr;};
     void deleteDynamicCode() { this->dynamicCode_ = nullptr;};
     inline string getDynamicCode() const { DARABONBA_PTR_GET_DEFAULT(dynamicCode_, "") };
-    inline RefreshAppInstanceTicketResponseBody& setDynamicCode(string dynamicCode) { DARABONBA_PTR_SET_VALUE(dynamicCode_, dynamicCode) };
+    inline IntrospectAppInstanceTicketForPreviewResponseBody& setDynamicCode(string dynamicCode) { DARABONBA_PTR_SET_VALUE(dynamicCode_, dynamicCode) };
 
 
     // dynamicMessage Field Functions 
     bool hasDynamicMessage() const { return this->dynamicMessage_ != nullptr;};
     void deleteDynamicMessage() { this->dynamicMessage_ = nullptr;};
     inline string getDynamicMessage() const { DARABONBA_PTR_GET_DEFAULT(dynamicMessage_, "") };
-    inline RefreshAppInstanceTicketResponseBody& setDynamicMessage(string dynamicMessage) { DARABONBA_PTR_SET_VALUE(dynamicMessage_, dynamicMessage) };
+    inline IntrospectAppInstanceTicketForPreviewResponseBody& setDynamicMessage(string dynamicMessage) { DARABONBA_PTR_SET_VALUE(dynamicMessage_, dynamicMessage) };
 
 
     // errorArgs Field Functions 
@@ -249,70 +239,59 @@ namespace Models
     void deleteErrorArgs() { this->errorArgs_ = nullptr;};
     inline const vector<Darabonba::Json> & getErrorArgs() const { DARABONBA_PTR_GET_CONST(errorArgs_, vector<Darabonba::Json>) };
     inline vector<Darabonba::Json> getErrorArgs() { DARABONBA_PTR_GET(errorArgs_, vector<Darabonba::Json>) };
-    inline RefreshAppInstanceTicketResponseBody& setErrorArgs(const vector<Darabonba::Json> & errorArgs) { DARABONBA_PTR_SET_VALUE(errorArgs_, errorArgs) };
-    inline RefreshAppInstanceTicketResponseBody& setErrorArgs(vector<Darabonba::Json> && errorArgs) { DARABONBA_PTR_SET_RVALUE(errorArgs_, errorArgs) };
+    inline IntrospectAppInstanceTicketForPreviewResponseBody& setErrorArgs(const vector<Darabonba::Json> & errorArgs) { DARABONBA_PTR_SET_VALUE(errorArgs_, errorArgs) };
+    inline IntrospectAppInstanceTicketForPreviewResponseBody& setErrorArgs(vector<Darabonba::Json> && errorArgs) { DARABONBA_PTR_SET_RVALUE(errorArgs_, errorArgs) };
 
 
     // module Field Functions 
     bool hasModule() const { return this->module_ != nullptr;};
     void deleteModule() { this->module_ = nullptr;};
-    inline const RefreshAppInstanceTicketResponseBody::Module & getModule() const { DARABONBA_PTR_GET_CONST(module_, RefreshAppInstanceTicketResponseBody::Module) };
-    inline RefreshAppInstanceTicketResponseBody::Module getModule() { DARABONBA_PTR_GET(module_, RefreshAppInstanceTicketResponseBody::Module) };
-    inline RefreshAppInstanceTicketResponseBody& setModule(const RefreshAppInstanceTicketResponseBody::Module & module) { DARABONBA_PTR_SET_VALUE(module_, module) };
-    inline RefreshAppInstanceTicketResponseBody& setModule(RefreshAppInstanceTicketResponseBody::Module && module) { DARABONBA_PTR_SET_RVALUE(module_, module) };
+    inline const IntrospectAppInstanceTicketForPreviewResponseBody::Module & getModule() const { DARABONBA_PTR_GET_CONST(module_, IntrospectAppInstanceTicketForPreviewResponseBody::Module) };
+    inline IntrospectAppInstanceTicketForPreviewResponseBody::Module getModule() { DARABONBA_PTR_GET(module_, IntrospectAppInstanceTicketForPreviewResponseBody::Module) };
+    inline IntrospectAppInstanceTicketForPreviewResponseBody& setModule(const IntrospectAppInstanceTicketForPreviewResponseBody::Module & module) { DARABONBA_PTR_SET_VALUE(module_, module) };
+    inline IntrospectAppInstanceTicketForPreviewResponseBody& setModule(IntrospectAppInstanceTicketForPreviewResponseBody::Module && module) { DARABONBA_PTR_SET_RVALUE(module_, module) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
-    inline RefreshAppInstanceTicketResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+    inline IntrospectAppInstanceTicketForPreviewResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // rootErrorCode Field Functions 
     bool hasRootErrorCode() const { return this->rootErrorCode_ != nullptr;};
     void deleteRootErrorCode() { this->rootErrorCode_ = nullptr;};
     inline string getRootErrorCode() const { DARABONBA_PTR_GET_DEFAULT(rootErrorCode_, "") };
-    inline RefreshAppInstanceTicketResponseBody& setRootErrorCode(string rootErrorCode) { DARABONBA_PTR_SET_VALUE(rootErrorCode_, rootErrorCode) };
+    inline IntrospectAppInstanceTicketForPreviewResponseBody& setRootErrorCode(string rootErrorCode) { DARABONBA_PTR_SET_VALUE(rootErrorCode_, rootErrorCode) };
 
 
     // rootErrorMsg Field Functions 
     bool hasRootErrorMsg() const { return this->rootErrorMsg_ != nullptr;};
     void deleteRootErrorMsg() { this->rootErrorMsg_ = nullptr;};
     inline string getRootErrorMsg() const { DARABONBA_PTR_GET_DEFAULT(rootErrorMsg_, "") };
-    inline RefreshAppInstanceTicketResponseBody& setRootErrorMsg(string rootErrorMsg) { DARABONBA_PTR_SET_VALUE(rootErrorMsg_, rootErrorMsg) };
+    inline IntrospectAppInstanceTicketForPreviewResponseBody& setRootErrorMsg(string rootErrorMsg) { DARABONBA_PTR_SET_VALUE(rootErrorMsg_, rootErrorMsg) };
 
 
     // synchro Field Functions 
     bool hasSynchro() const { return this->synchro_ != nullptr;};
     void deleteSynchro() { this->synchro_ = nullptr;};
     inline bool getSynchro() const { DARABONBA_PTR_GET_DEFAULT(synchro_, false) };
-    inline RefreshAppInstanceTicketResponseBody& setSynchro(bool synchro) { DARABONBA_PTR_SET_VALUE(synchro_, synchro) };
+    inline IntrospectAppInstanceTicketForPreviewResponseBody& setSynchro(bool synchro) { DARABONBA_PTR_SET_VALUE(synchro_, synchro) };
 
 
   protected:
-    // Detailed reason for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Whether to allow retry
     shared_ptr<bool> allowRetry_ {};
-    // App name.
     shared_ptr<string> appName_ {};
-    // Dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // Dynamic error message, used to replace the `%s` in the **ErrMessage** error message.
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid**, and **DynamicMessage** returns **DtsJobId**, it indicates that the input request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // Returned error parameters
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // Application module
-    shared_ptr<RefreshAppInstanceTicketResponseBody::Module> module_ {};
-    // ID of the request
+    shared_ptr<IntrospectAppInstanceTicketForPreviewResponseBody::Module> module_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Error code
     shared_ptr<string> rootErrorCode_ {};
-    // Exception message
     shared_ptr<string> rootErrorMsg_ {};
-    // Reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

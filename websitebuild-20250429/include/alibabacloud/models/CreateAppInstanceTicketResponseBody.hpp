@@ -180,18 +180,29 @@ namespace Models
 
 
     protected:
+      // Access token expiration time
       shared_ptr<string> accessTokenExpiresAt_ {};
+      // Access token issuance time
       shared_ptr<string> accessTokenIssuedAt_ {};
+      // Access token value
       shared_ptr<string> accessTokenValue_ {};
+      // User ID
       shared_ptr<string> aliyunPk_ {};
+      // Extended attributes
       shared_ptr<string> attributes_ {};
+      // Authorization grant type
       shared_ptr<string> authorizationGrantType_ {};
       // bid
       shared_ptr<string> bid_ {};
+      // User ID
       shared_ptr<string> parentPk_ {};
+      // Refresh token expiration time
       shared_ptr<string> refreshTokenExpiresAt_ {};
+      // Refresh token issuance time
       shared_ptr<string> refreshTokenIssuedAt_ {};
+      // Refresh token value
       shared_ptr<string> refreshTokenValue_ {};
+      // Unique identifier externally
       shared_ptr<string> uuid_ {};
     };
 
@@ -280,17 +291,28 @@ namespace Models
 
 
   protected:
+    // Detailed reason for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // Whether to allow retry
     shared_ptr<bool> allowRetry_ {};
+    // App name.
     shared_ptr<string> appName_ {};
+    // Dynamic error code.
     shared_ptr<string> dynamicCode_ {};
+    // Dynamic error message, used to replace the `%s` in the **ErrMessage** error message.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid**, and **DynamicMessage** returns **DtsJobId**, it means that the input request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
+    // Returned error parameters
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
+    // Response data
     shared_ptr<CreateAppInstanceTicketResponseBody::Module> module_ {};
-    // Id of the request
+    // ID of the request
     shared_ptr<string> requestId_ {};
+    // Error code
     shared_ptr<string> rootErrorCode_ {};
+    // Exception message
     shared_ptr<string> rootErrorMsg_ {};
+    // Reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

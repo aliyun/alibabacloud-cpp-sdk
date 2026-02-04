@@ -190,8 +190,11 @@ namespace Models
 
 
           protected:
+            // Host record
             shared_ptr<string> host_ {};
+            // Record type
             shared_ptr<string> recordType_ {};
+            // Record value
             shared_ptr<string> value_ {};
           };
 
@@ -221,8 +224,11 @@ namespace Models
 
 
         protected:
+          // Guide for DNS records that the user needs to configure.
           shared_ptr<Verification::DnsRecord> dnsRecord_ {};
+          // Error message.
           shared_ptr<string> errorMsg_ {};
+          // Ownership verification status.
           shared_ptr<string> verificationStatus_ {};
         };
 
@@ -296,8 +302,11 @@ namespace Models
 
 
           protected:
+            // Host record
             shared_ptr<string> host_ {};
+            // Record type
             shared_ptr<string> recordType_ {};
+            // Record value
             shared_ptr<string> value_ {};
           };
 
@@ -327,8 +336,11 @@ namespace Models
 
 
         protected:
+          // DNS record information
           shared_ptr<Resolution::DnsRecord> dnsRecord_ {};
+          // Error message
           shared_ptr<string> errorMsg_ {};
+          // Domain resolution status
           shared_ptr<string> resolutionStatus_ {};
         };
 
@@ -370,7 +382,9 @@ namespace Models
 
 
         protected:
+          // Account owner type: CURRENT OTHER
           shared_ptr<string> account_ {};
+          // Registrar type: ALIYUN OTHER
           shared_ptr<string> provider_ {};
         };
 
@@ -430,9 +444,13 @@ namespace Models
 
 
         protected:
+          // Certificate name.
           shared_ptr<string> certificateName_ {};
+          // Certificate status
           shared_ptr<string> certificateStatus_ {};
+          // Certificate type
           shared_ptr<string> certificateType_ {};
+          // 证书的到期日期
           shared_ptr<string> endTime_ {};
         };
 
@@ -497,12 +515,19 @@ namespace Models
 
 
       protected:
+        // Domain SSL certificate information
         shared_ptr<Next::Certificate> certificate_ {};
+        // Instance creation time (required, format: yyyy-MM-dd HH:mm:ss)
         shared_ptr<string> createTime_ {};
+        // Domain name
         shared_ptr<string> domainName_ {};
+        // Binding overall status
         shared_ptr<string> overallStatus_ {};
+        // Domain ownership information
         shared_ptr<Next::Ownership> ownership_ {};
+        // Domain resolution information
         shared_ptr<Next::Resolution> resolution_ {};
+        // Domain verification information
         shared_ptr<Next::Verification> verification_ {};
       };
 
@@ -609,8 +634,11 @@ namespace Models
 
 
           protected:
+            // Host record
             shared_ptr<string> host_ {};
+            // Record type
             shared_ptr<string> recordType_ {};
+            // Record value
             shared_ptr<string> value_ {};
           };
 
@@ -647,9 +675,13 @@ namespace Models
 
 
         protected:
+          // DNS record guide that the user needs to configure.
           shared_ptr<Verification::DnsRecord> dnsRecord_ {};
+          // Error message.
           shared_ptr<string> errorMsg_ {};
+          // Ownership verification status.
           shared_ptr<string> verificationStatus_ {};
+          // Ownership verification status
           shared_ptr<string> verificationStatusCode_ {};
         };
 
@@ -723,8 +755,11 @@ namespace Models
 
 
           protected:
+            // Host record
             shared_ptr<string> host_ {};
+            // Record type
             shared_ptr<string> recordType_ {};
+            // Record value
             shared_ptr<string> value_ {};
           };
 
@@ -754,8 +789,11 @@ namespace Models
 
 
         protected:
+          // DNS record information
           shared_ptr<Resolution::DnsRecord> dnsRecord_ {};
+          // Error message
           shared_ptr<string> errorMsg_ {};
+          // Domain resolution status
           shared_ptr<string> resolutionStatus_ {};
         };
 
@@ -806,8 +844,11 @@ namespace Models
 
 
         protected:
+          // Account owner type: CURRENT OTHER
           shared_ptr<string> account_ {};
+          // Registrar type: ALIYUN OTHER
           shared_ptr<string> provider_ {};
+          // The root domain name of the domain.
           shared_ptr<string> rootDomain_ {};
         };
 
@@ -867,9 +908,13 @@ namespace Models
 
 
         protected:
+          // Certificate name.
           shared_ptr<string> certificateName_ {};
+          // Certificate status
           shared_ptr<string> certificateStatus_ {};
+          // Certificate type
           shared_ptr<string> certificateType_ {};
+          // Certificate expiration date
           shared_ptr<string> endTime_ {};
         };
 
@@ -934,12 +979,19 @@ namespace Models
 
 
       protected:
+        // Domain SSL certificate information
         shared_ptr<Data::Certificate> certificate_ {};
+        // Instance creation time (required, format: yyyy-MM-dd HH:mm:ss)
         shared_ptr<string> createTime_ {};
+        // Domain name
         shared_ptr<string> domainName_ {};
+        // Binding overall status
         shared_ptr<string> overallStatus_ {};
+        // Domain ownership information
         shared_ptr<Data::Ownership> ownership_ {};
+        // Domain resolution information
         shared_ptr<Data::Resolution> resolution_ {};
+        // Domain verification information
         shared_ptr<Data::Verification> verification_ {};
       };
 
@@ -1014,14 +1066,23 @@ namespace Models
 
 
     protected:
+      // Current page number.
       shared_ptr<int32_t> currentPageNum_ {};
+      // Query result.
       shared_ptr<vector<Module::Data>> data_ {};
+      // Decision weight
       shared_ptr<Module::Next> next_ {};
+      // Whether there is a next page.
       shared_ptr<bool> nextPage_ {};
+      // Page size.
       shared_ptr<int32_t> pageSize_ {};
+      // Whether there is a previous page
       shared_ptr<bool> prePage_ {};
+      // Apart from pagination limits, the server can process up to the most recent 1000 records. If the result exceeds 1000 records, **ResultLimit** will be **true**, please narrow down the time range and search again; otherwise, **ResultLimit** will be **false**.
       shared_ptr<bool> resultLimit_ {};
+      // Total number of items.
       shared_ptr<int32_t> totalItemNum_ {};
+      // Total number of pages.
       shared_ptr<int32_t> totalPageNum_ {};
     };
 
@@ -1125,19 +1186,34 @@ namespace Models
 
 
   protected:
+    // Detailed reason for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // Whether retry is allowed
     shared_ptr<bool> allowRetry_ {};
+    // App name.
     shared_ptr<string> appName_ {};
+    // Dynamic error code.
     shared_ptr<string> dynamicCode_ {};
+    // Dynamic error message, used to replace `%s` in the error message of the returned parameter **ErrMessage**.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid**, and **DynamicMessage** returns **DtsJobId**, it means that the input request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
+    // Returned error parameters
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
+    // Number of results per query.
+    // 
+    // Range: 10~100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
+    // Response data
     shared_ptr<ListAppInstanceDomainsResponseBody::Module> module_ {};
+    // 下一个查询开始的Token。没有下一个查询时为空。
     shared_ptr<string> nextToken_ {};
-    // Id of the request
+    // ID of the request
     shared_ptr<string> requestId_ {};
+    // Error code
     shared_ptr<string> rootErrorCode_ {};
+    // Exception message
     shared_ptr<string> rootErrorMsg_ {};
+    // Reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

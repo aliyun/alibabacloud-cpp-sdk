@@ -97,8 +97,11 @@ namespace Models
 
 
     protected:
+      // Host record
       shared_ptr<string> host_ {};
+      // Record type
       shared_ptr<string> recordType_ {};
+      // Record value
       shared_ptr<string> value_ {};
     };
 
@@ -187,17 +190,27 @@ namespace Models
 
 
   protected:
+    // Details of access denial; this field is returned only when RAM verification fails.
     shared_ptr<string> accessDeniedDetail_ {};
+    // Whether retry is allowed
     shared_ptr<bool> allowRetry_ {};
+    // 应用名称，查询此名称的应用
     shared_ptr<string> appName_ {};
+    // Dynamic error code.
     shared_ptr<string> dynamicCode_ {};
+    // Dynamic message.
     shared_ptr<string> dynamicMessage_ {};
+    // 返回错误参数
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
+    // Application module
     shared_ptr<DescribeAppDomainDnsRecordResponseBody::Module> module_ {};
-    // Id of the request
+    // ID of the request
     shared_ptr<string> requestId_ {};
+    // Error code
     shared_ptr<string> rootErrorCode_ {};
+    // Exception message
     shared_ptr<string> rootErrorMsg_ {};
+    // Backup parameter.
     shared_ptr<bool> synchro_ {};
   };
 

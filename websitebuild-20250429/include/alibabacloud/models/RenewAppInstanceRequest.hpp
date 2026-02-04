@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // Business ID
     shared_ptr<string> bizId_ {};
+    // Ensures idempotence of requests. Generate a unique value from your client to ensure it is unique across different requests. ClientToken only supports ASCII characters and cannot exceed 64 characters.
     shared_ptr<string> clientToken_ {};
+    // Required. The number of subscription periods.
     shared_ptr<int32_t> duration_ {};
+    // Extended information
     shared_ptr<string> extend_ {};
+    // Payment type
     shared_ptr<string> paymentType_ {};
+    // Required. The unit of the subscription period, Year: Year, Month: Month, Day: Day, Hour: Hour.
     shared_ptr<string> pricingCycle_ {};
   };
 

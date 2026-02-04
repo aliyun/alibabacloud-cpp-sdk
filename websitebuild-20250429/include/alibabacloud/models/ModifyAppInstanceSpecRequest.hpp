@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // Application type
     shared_ptr<string> applicationType_ {};
+    // Business ID
     shared_ptr<string> bizId_ {};
+    // Ensures idempotence of requests. Generate a unique value from your client to ensure it is unique across different requests. ClientToken supports only ASCII characters and cannot exceed 64 characters.
     shared_ptr<string> clientToken_ {};
+    // Deployment area
     shared_ptr<string> deployArea_ {};
+    // Extended information
     shared_ptr<string> extend_ {};
+    // Payment type
     shared_ptr<string> paymentType_ {};
+    // Site version
     shared_ptr<string> siteVersion_ {};
   };
 

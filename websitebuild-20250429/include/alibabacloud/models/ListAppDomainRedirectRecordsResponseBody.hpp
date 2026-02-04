@@ -136,8 +136,11 @@ namespace Models
 
 
       protected:
+        // Redirect record ID
         shared_ptr<string> recordId_ {};
+        // Source domain
         shared_ptr<string> sourceDomain_ {};
+        // Target domain
         shared_ptr<string> targetDomain_ {};
       };
 
@@ -188,8 +191,11 @@ namespace Models
 
 
       protected:
+        // Redirect record ID
         shared_ptr<string> recordId_ {};
+        // Source domain
         shared_ptr<string> sourceDomain_ {};
+        // 目标域名
         shared_ptr<string> targetDomain_ {};
       };
 
@@ -264,14 +270,23 @@ namespace Models
 
 
     protected:
+      // Current page number.
       shared_ptr<int32_t> currentPageNum_ {};
+      // Member name.
       shared_ptr<vector<Module::Data>> data_ {};
+      // Next feature ID
       shared_ptr<Module::Next> next_ {};
+      // Whether there is a next page
       shared_ptr<bool> nextPage_ {};
+      // Page size.
       shared_ptr<int32_t> pageSize_ {};
+      // Whether there is a previous page.
       shared_ptr<bool> prePage_ {};
+      // Apart from pagination limits, the server processes up to the most recent 1000 records. If the result exceeds 1000, **ResultLimit** is **true**, please narrow down the time range and search again; otherwise, **ResultLimit** is **false**.
       shared_ptr<bool> resultLimit_ {};
+      // Total number of items.
       shared_ptr<int32_t> totalItemNum_ {};
+      // Total number of pages.
       shared_ptr<int32_t> totalPageNum_ {};
     };
 
@@ -375,19 +390,33 @@ namespace Models
 
 
   protected:
+    // Detailed reason for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // Whether retry is allowed
     shared_ptr<bool> allowRetry_ {};
+    // Frontend application name.
     shared_ptr<string> appName_ {};
+    // Dynamic error code.
     shared_ptr<string> dynamicCode_ {};
+    // Dynamic message, currently unused, please ignore
     shared_ptr<string> dynamicMessage_ {};
+    // Error parameters
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
+    // Number of results per query.
+    // 
+    // Range: 10~100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
+    // Returned object.
     shared_ptr<ListAppDomainRedirectRecordsResponseBody::Module> module_ {};
+    // 下一个查询开始的Token。没有下一个查询时为空。
     shared_ptr<string> nextToken_ {};
-    // Id of the request
+    // ID of the request
     shared_ptr<string> requestId_ {};
+    // Error code
     shared_ptr<string> rootErrorCode_ {};
+    // Exception message
     shared_ptr<string> rootErrorMsg_ {};
+    // Whether it is processed synchronously
     shared_ptr<bool> synchro_ {};
   };
 
