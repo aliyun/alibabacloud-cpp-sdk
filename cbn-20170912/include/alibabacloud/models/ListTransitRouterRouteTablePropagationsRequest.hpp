@@ -49,116 +49,116 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->maxResults_ != nullptr
-        && this->nextToken_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr
-        && this->status_ != nullptr && this->transitRouterAttachmentId_ != nullptr && this->transitRouterAttachmentResourceId_ != nullptr && this->transitRouterAttachmentResourceType_ != nullptr && this->transitRouterRouteTableId_ != nullptr; };
+    virtual bool empty() const override { return this->maxResults_ == nullptr
+        && this->nextToken_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr
+        && this->status_ == nullptr && this->transitRouterAttachmentId_ == nullptr && this->transitRouterAttachmentResourceId_ == nullptr && this->transitRouterAttachmentResourceType_ == nullptr && this->transitRouterRouteTableId_ == nullptr; };
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListTransitRouterRouteTablePropagationsRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListTransitRouterRouteTablePropagationsRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // ownerAccount Field Functions 
     bool hasOwnerAccount() const { return this->ownerAccount_ != nullptr;};
     void deleteOwnerAccount() { this->ownerAccount_ = nullptr;};
-    inline string ownerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
+    inline string getOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
     inline ListTransitRouterRouteTablePropagationsRequest& setOwnerAccount(string ownerAccount) { DARABONBA_PTR_SET_VALUE(ownerAccount_, ownerAccount) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline ListTransitRouterRouteTablePropagationsRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline ListTransitRouterRouteTablePropagationsRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline ListTransitRouterRouteTablePropagationsRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline ListTransitRouterRouteTablePropagationsRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // transitRouterAttachmentId Field Functions 
     bool hasTransitRouterAttachmentId() const { return this->transitRouterAttachmentId_ != nullptr;};
     void deleteTransitRouterAttachmentId() { this->transitRouterAttachmentId_ = nullptr;};
-    inline string transitRouterAttachmentId() const { DARABONBA_PTR_GET_DEFAULT(transitRouterAttachmentId_, "") };
+    inline string getTransitRouterAttachmentId() const { DARABONBA_PTR_GET_DEFAULT(transitRouterAttachmentId_, "") };
     inline ListTransitRouterRouteTablePropagationsRequest& setTransitRouterAttachmentId(string transitRouterAttachmentId) { DARABONBA_PTR_SET_VALUE(transitRouterAttachmentId_, transitRouterAttachmentId) };
 
 
     // transitRouterAttachmentResourceId Field Functions 
     bool hasTransitRouterAttachmentResourceId() const { return this->transitRouterAttachmentResourceId_ != nullptr;};
     void deleteTransitRouterAttachmentResourceId() { this->transitRouterAttachmentResourceId_ = nullptr;};
-    inline string transitRouterAttachmentResourceId() const { DARABONBA_PTR_GET_DEFAULT(transitRouterAttachmentResourceId_, "") };
+    inline string getTransitRouterAttachmentResourceId() const { DARABONBA_PTR_GET_DEFAULT(transitRouterAttachmentResourceId_, "") };
     inline ListTransitRouterRouteTablePropagationsRequest& setTransitRouterAttachmentResourceId(string transitRouterAttachmentResourceId) { DARABONBA_PTR_SET_VALUE(transitRouterAttachmentResourceId_, transitRouterAttachmentResourceId) };
 
 
     // transitRouterAttachmentResourceType Field Functions 
     bool hasTransitRouterAttachmentResourceType() const { return this->transitRouterAttachmentResourceType_ != nullptr;};
     void deleteTransitRouterAttachmentResourceType() { this->transitRouterAttachmentResourceType_ = nullptr;};
-    inline string transitRouterAttachmentResourceType() const { DARABONBA_PTR_GET_DEFAULT(transitRouterAttachmentResourceType_, "") };
+    inline string getTransitRouterAttachmentResourceType() const { DARABONBA_PTR_GET_DEFAULT(transitRouterAttachmentResourceType_, "") };
     inline ListTransitRouterRouteTablePropagationsRequest& setTransitRouterAttachmentResourceType(string transitRouterAttachmentResourceType) { DARABONBA_PTR_SET_VALUE(transitRouterAttachmentResourceType_, transitRouterAttachmentResourceType) };
 
 
     // transitRouterRouteTableId Field Functions 
     bool hasTransitRouterRouteTableId() const { return this->transitRouterRouteTableId_ != nullptr;};
     void deleteTransitRouterRouteTableId() { this->transitRouterRouteTableId_ = nullptr;};
-    inline string transitRouterRouteTableId() const { DARABONBA_PTR_GET_DEFAULT(transitRouterRouteTableId_, "") };
+    inline string getTransitRouterRouteTableId() const { DARABONBA_PTR_GET_DEFAULT(transitRouterRouteTableId_, "") };
     inline ListTransitRouterRouteTablePropagationsRequest& setTransitRouterRouteTableId(string transitRouterRouteTableId) { DARABONBA_PTR_SET_VALUE(transitRouterRouteTableId_, transitRouterRouteTableId) };
 
 
   protected:
     // The number of entries to return on each page. Default value: **50**.
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
     // The token that determines the start point of the query.
-    std::shared_ptr<string> nextToken_ = nullptr;
-    std::shared_ptr<string> ownerAccount_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> nextToken_ {};
+    shared_ptr<string> ownerAccount_ {};
+    shared_ptr<int64_t> ownerId_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
     // The status of the route learning correlation. Valid values:
     // 
     // *   **Active**: available
     // *   **Enabling**: being enabled
     // *   **Disabling**: being disabled
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
     // The ID of the network instance connection.
-    std::shared_ptr<string> transitRouterAttachmentId_ = nullptr;
+    shared_ptr<string> transitRouterAttachmentId_ {};
     // The ID of the network instance.
-    std::shared_ptr<string> transitRouterAttachmentResourceId_ = nullptr;
+    shared_ptr<string> transitRouterAttachmentResourceId_ {};
     // The type of the network instance. Valid values:
     // 
     // *   **VPC**: virtual private cloud (VPC)
     // *   **VBR**: virtual border router (VBR)
     // *   **TR**: transit router
     // *   **VPN**: VPN connection
-    std::shared_ptr<string> transitRouterAttachmentResourceType_ = nullptr;
+    shared_ptr<string> transitRouterAttachmentResourceType_ {};
     // The ID of the route table of the Enterprise Edition transit router.
     // 
     // This parameter is required.
-    std::shared_ptr<string> transitRouterRouteTableId_ = nullptr;
+    shared_ptr<string> transitRouterRouteTableId_ {};
   };
 
   } // namespace Models

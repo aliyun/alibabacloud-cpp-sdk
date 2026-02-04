@@ -31,27 +31,27 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->requestId_ != nullptr
-        && this->transitRouterId_ != nullptr; };
+    virtual bool empty() const override { return this->requestId_ == nullptr
+        && this->transitRouterId_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateTransitRouterResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // transitRouterId Field Functions 
     bool hasTransitRouterId() const { return this->transitRouterId_ != nullptr;};
     void deleteTransitRouterId() { this->transitRouterId_ = nullptr;};
-    inline string transitRouterId() const { DARABONBA_PTR_GET_DEFAULT(transitRouterId_, "") };
+    inline string getTransitRouterId() const { DARABONBA_PTR_GET_DEFAULT(transitRouterId_, "") };
     inline CreateTransitRouterResponseBody& setTransitRouterId(string transitRouterId) { DARABONBA_PTR_SET_VALUE(transitRouterId_, transitRouterId) };
 
 
   protected:
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The ID of the Enterprise Edition transit router.
-    std::shared_ptr<string> transitRouterId_ = nullptr;
+    shared_ptr<string> transitRouterId_ {};
   };
 
   } // namespace Models

@@ -45,69 +45,69 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientToken_ != nullptr
-        && this->dryRun_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr
-        && this->trafficQosPolicyDescription_ != nullptr && this->trafficQosPolicyId_ != nullptr && this->trafficQosPolicyName_ != nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && this->dryRun_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr
+        && this->trafficQosPolicyDescription_ == nullptr && this->trafficQosPolicyId_ == nullptr && this->trafficQosPolicyName_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline UpdateCenInterRegionTrafficQosPolicyAttributeRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // dryRun Field Functions 
     bool hasDryRun() const { return this->dryRun_ != nullptr;};
     void deleteDryRun() { this->dryRun_ = nullptr;};
-    inline bool dryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
     inline UpdateCenInterRegionTrafficQosPolicyAttributeRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // ownerAccount Field Functions 
     bool hasOwnerAccount() const { return this->ownerAccount_ != nullptr;};
     void deleteOwnerAccount() { this->ownerAccount_ = nullptr;};
-    inline string ownerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
+    inline string getOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
     inline UpdateCenInterRegionTrafficQosPolicyAttributeRequest& setOwnerAccount(string ownerAccount) { DARABONBA_PTR_SET_VALUE(ownerAccount_, ownerAccount) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline UpdateCenInterRegionTrafficQosPolicyAttributeRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline UpdateCenInterRegionTrafficQosPolicyAttributeRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline UpdateCenInterRegionTrafficQosPolicyAttributeRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // trafficQosPolicyDescription Field Functions 
     bool hasTrafficQosPolicyDescription() const { return this->trafficQosPolicyDescription_ != nullptr;};
     void deleteTrafficQosPolicyDescription() { this->trafficQosPolicyDescription_ = nullptr;};
-    inline string trafficQosPolicyDescription() const { DARABONBA_PTR_GET_DEFAULT(trafficQosPolicyDescription_, "") };
+    inline string getTrafficQosPolicyDescription() const { DARABONBA_PTR_GET_DEFAULT(trafficQosPolicyDescription_, "") };
     inline UpdateCenInterRegionTrafficQosPolicyAttributeRequest& setTrafficQosPolicyDescription(string trafficQosPolicyDescription) { DARABONBA_PTR_SET_VALUE(trafficQosPolicyDescription_, trafficQosPolicyDescription) };
 
 
     // trafficQosPolicyId Field Functions 
     bool hasTrafficQosPolicyId() const { return this->trafficQosPolicyId_ != nullptr;};
     void deleteTrafficQosPolicyId() { this->trafficQosPolicyId_ = nullptr;};
-    inline string trafficQosPolicyId() const { DARABONBA_PTR_GET_DEFAULT(trafficQosPolicyId_, "") };
+    inline string getTrafficQosPolicyId() const { DARABONBA_PTR_GET_DEFAULT(trafficQosPolicyId_, "") };
     inline UpdateCenInterRegionTrafficQosPolicyAttributeRequest& setTrafficQosPolicyId(string trafficQosPolicyId) { DARABONBA_PTR_SET_VALUE(trafficQosPolicyId_, trafficQosPolicyId) };
 
 
     // trafficQosPolicyName Field Functions 
     bool hasTrafficQosPolicyName() const { return this->trafficQosPolicyName_ != nullptr;};
     void deleteTrafficQosPolicyName() { this->trafficQosPolicyName_ = nullptr;};
-    inline string trafficQosPolicyName() const { DARABONBA_PTR_GET_DEFAULT(trafficQosPolicyName_, "") };
+    inline string getTrafficQosPolicyName() const { DARABONBA_PTR_GET_DEFAULT(trafficQosPolicyName_, "") };
     inline UpdateCenInterRegionTrafficQosPolicyAttributeRequest& setTrafficQosPolicyName(string trafficQosPolicyName) { DARABONBA_PTR_SET_VALUE(trafficQosPolicyName_, trafficQosPolicyName) };
 
 
@@ -115,28 +115,28 @@ namespace Models
     // The client token that is used to ensure the idempotence of the request.
     // 
     // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // Specifies whether to perform a dry run. Valid values:
     // 
     // *   **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
     // *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, the operation is performed.
-    std::shared_ptr<bool> dryRun_ = nullptr;
-    std::shared_ptr<string> ownerAccount_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<bool> dryRun_ {};
+    shared_ptr<string> ownerAccount_ {};
+    shared_ptr<int64_t> ownerId_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
     // The new description of the QoS policy.
     // 
     // The description must be 1 to 256 characters in length, and cannot start with http:// or https://. You can also leave this parameter empty.
-    std::shared_ptr<string> trafficQosPolicyDescription_ = nullptr;
+    shared_ptr<string> trafficQosPolicyDescription_ {};
     // The ID of the QoS policy.
     // 
     // This parameter is required.
-    std::shared_ptr<string> trafficQosPolicyId_ = nullptr;
+    shared_ptr<string> trafficQosPolicyId_ {};
     // The new name of the QoS policy.
     // 
     // The name must be 1 to 128 characters in length, and cannot start with http:// or https://. You can also leave this parameter empty.
-    std::shared_ptr<string> trafficQosPolicyName_ = nullptr;
+    shared_ptr<string> trafficQosPolicyName_ {};
   };
 
   } // namespace Models

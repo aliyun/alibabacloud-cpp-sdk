@@ -33,36 +33,36 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cenBandwidthPackageId_ != nullptr
-        && this->cenBandwidthPackageOrderId_ != nullptr && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->cenBandwidthPackageId_ == nullptr
+        && this->cenBandwidthPackageOrderId_ == nullptr && this->requestId_ == nullptr; };
     // cenBandwidthPackageId Field Functions 
     bool hasCenBandwidthPackageId() const { return this->cenBandwidthPackageId_ != nullptr;};
     void deleteCenBandwidthPackageId() { this->cenBandwidthPackageId_ = nullptr;};
-    inline string cenBandwidthPackageId() const { DARABONBA_PTR_GET_DEFAULT(cenBandwidthPackageId_, "") };
+    inline string getCenBandwidthPackageId() const { DARABONBA_PTR_GET_DEFAULT(cenBandwidthPackageId_, "") };
     inline CreateCenBandwidthPackageResponseBody& setCenBandwidthPackageId(string cenBandwidthPackageId) { DARABONBA_PTR_SET_VALUE(cenBandwidthPackageId_, cenBandwidthPackageId) };
 
 
     // cenBandwidthPackageOrderId Field Functions 
     bool hasCenBandwidthPackageOrderId() const { return this->cenBandwidthPackageOrderId_ != nullptr;};
     void deleteCenBandwidthPackageOrderId() { this->cenBandwidthPackageOrderId_ = nullptr;};
-    inline string cenBandwidthPackageOrderId() const { DARABONBA_PTR_GET_DEFAULT(cenBandwidthPackageOrderId_, "") };
+    inline string getCenBandwidthPackageOrderId() const { DARABONBA_PTR_GET_DEFAULT(cenBandwidthPackageOrderId_, "") };
     inline CreateCenBandwidthPackageResponseBody& setCenBandwidthPackageOrderId(string cenBandwidthPackageOrderId) { DARABONBA_PTR_SET_VALUE(cenBandwidthPackageOrderId_, cenBandwidthPackageOrderId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateCenBandwidthPackageResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The ID of the bandwidth plan.
-    std::shared_ptr<string> cenBandwidthPackageId_ = nullptr;
+    shared_ptr<string> cenBandwidthPackageId_ {};
     // The ID of the order for the bandwidth plan.
-    std::shared_ptr<string> cenBandwidthPackageOrderId_ = nullptr;
+    shared_ptr<string> cenBandwidthPackageOrderId_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

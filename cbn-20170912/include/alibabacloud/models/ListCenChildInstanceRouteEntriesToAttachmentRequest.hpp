@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_LISTCENCHILDINSTANCEROUTEENTRIESTOATTACHMENTREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/ListCenChildInstanceRouteEntriesToAttachmentRequestRouteFilter.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -51,114 +50,162 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cenId_ != nullptr
-        && this->childInstanceRouteTableId_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr
-        && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->routeFilter_ != nullptr && this->serviceType_ != nullptr && this->transitRouterAttachmentId_ != nullptr; };
+    class RouteFilter : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const RouteFilter& obj) { 
+        DARABONBA_PTR_TO_JSON(Key, key_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, RouteFilter& obj) { 
+        DARABONBA_PTR_FROM_JSON(Key, key_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
+      };
+      RouteFilter() = default ;
+      RouteFilter(const RouteFilter &) = default ;
+      RouteFilter(RouteFilter &&) = default ;
+      RouteFilter(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~RouteFilter() = default ;
+      RouteFilter& operator=(const RouteFilter &) = default ;
+      RouteFilter& operator=(RouteFilter &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline RouteFilter& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline const vector<string> & getValue() const { DARABONBA_PTR_GET_CONST(value_, vector<string>) };
+      inline vector<string> getValue() { DARABONBA_PTR_GET(value_, vector<string>) };
+      inline RouteFilter& setValue(const vector<string> & value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+      inline RouteFilter& setValue(vector<string> && value) { DARABONBA_PTR_SET_RVALUE(value_, value) };
+
+
+    protected:
+      // The match mode of the route.
+      // 
+      // *   **prefix-exact-match**: exact match.
+      shared_ptr<string> key_ {};
+      // The destination CIDR blocks.
+      shared_ptr<vector<string>> value_ {};
+    };
+
+    virtual bool empty() const override { return this->cenId_ == nullptr
+        && this->childInstanceRouteTableId_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr
+        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->routeFilter_ == nullptr && this->serviceType_ == nullptr && this->transitRouterAttachmentId_ == nullptr; };
     // cenId Field Functions 
     bool hasCenId() const { return this->cenId_ != nullptr;};
     void deleteCenId() { this->cenId_ = nullptr;};
-    inline string cenId() const { DARABONBA_PTR_GET_DEFAULT(cenId_, "") };
+    inline string getCenId() const { DARABONBA_PTR_GET_DEFAULT(cenId_, "") };
     inline ListCenChildInstanceRouteEntriesToAttachmentRequest& setCenId(string cenId) { DARABONBA_PTR_SET_VALUE(cenId_, cenId) };
 
 
     // childInstanceRouteTableId Field Functions 
     bool hasChildInstanceRouteTableId() const { return this->childInstanceRouteTableId_ != nullptr;};
     void deleteChildInstanceRouteTableId() { this->childInstanceRouteTableId_ = nullptr;};
-    inline string childInstanceRouteTableId() const { DARABONBA_PTR_GET_DEFAULT(childInstanceRouteTableId_, "") };
+    inline string getChildInstanceRouteTableId() const { DARABONBA_PTR_GET_DEFAULT(childInstanceRouteTableId_, "") };
     inline ListCenChildInstanceRouteEntriesToAttachmentRequest& setChildInstanceRouteTableId(string childInstanceRouteTableId) { DARABONBA_PTR_SET_VALUE(childInstanceRouteTableId_, childInstanceRouteTableId) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListCenChildInstanceRouteEntriesToAttachmentRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListCenChildInstanceRouteEntriesToAttachmentRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // ownerAccount Field Functions 
     bool hasOwnerAccount() const { return this->ownerAccount_ != nullptr;};
     void deleteOwnerAccount() { this->ownerAccount_ = nullptr;};
-    inline string ownerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
+    inline string getOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
     inline ListCenChildInstanceRouteEntriesToAttachmentRequest& setOwnerAccount(string ownerAccount) { DARABONBA_PTR_SET_VALUE(ownerAccount_, ownerAccount) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline ListCenChildInstanceRouteEntriesToAttachmentRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline ListCenChildInstanceRouteEntriesToAttachmentRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline ListCenChildInstanceRouteEntriesToAttachmentRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // routeFilter Field Functions 
     bool hasRouteFilter() const { return this->routeFilter_ != nullptr;};
     void deleteRouteFilter() { this->routeFilter_ = nullptr;};
-    inline const vector<ListCenChildInstanceRouteEntriesToAttachmentRequestRouteFilter> & routeFilter() const { DARABONBA_PTR_GET_CONST(routeFilter_, vector<ListCenChildInstanceRouteEntriesToAttachmentRequestRouteFilter>) };
-    inline vector<ListCenChildInstanceRouteEntriesToAttachmentRequestRouteFilter> routeFilter() { DARABONBA_PTR_GET(routeFilter_, vector<ListCenChildInstanceRouteEntriesToAttachmentRequestRouteFilter>) };
-    inline ListCenChildInstanceRouteEntriesToAttachmentRequest& setRouteFilter(const vector<ListCenChildInstanceRouteEntriesToAttachmentRequestRouteFilter> & routeFilter) { DARABONBA_PTR_SET_VALUE(routeFilter_, routeFilter) };
-    inline ListCenChildInstanceRouteEntriesToAttachmentRequest& setRouteFilter(vector<ListCenChildInstanceRouteEntriesToAttachmentRequestRouteFilter> && routeFilter) { DARABONBA_PTR_SET_RVALUE(routeFilter_, routeFilter) };
+    inline const vector<ListCenChildInstanceRouteEntriesToAttachmentRequest::RouteFilter> & getRouteFilter() const { DARABONBA_PTR_GET_CONST(routeFilter_, vector<ListCenChildInstanceRouteEntriesToAttachmentRequest::RouteFilter>) };
+    inline vector<ListCenChildInstanceRouteEntriesToAttachmentRequest::RouteFilter> getRouteFilter() { DARABONBA_PTR_GET(routeFilter_, vector<ListCenChildInstanceRouteEntriesToAttachmentRequest::RouteFilter>) };
+    inline ListCenChildInstanceRouteEntriesToAttachmentRequest& setRouteFilter(const vector<ListCenChildInstanceRouteEntriesToAttachmentRequest::RouteFilter> & routeFilter) { DARABONBA_PTR_SET_VALUE(routeFilter_, routeFilter) };
+    inline ListCenChildInstanceRouteEntriesToAttachmentRequest& setRouteFilter(vector<ListCenChildInstanceRouteEntriesToAttachmentRequest::RouteFilter> && routeFilter) { DARABONBA_PTR_SET_RVALUE(routeFilter_, routeFilter) };
 
 
     // serviceType Field Functions 
     bool hasServiceType() const { return this->serviceType_ != nullptr;};
     void deleteServiceType() { this->serviceType_ = nullptr;};
-    inline string serviceType() const { DARABONBA_PTR_GET_DEFAULT(serviceType_, "") };
+    inline string getServiceType() const { DARABONBA_PTR_GET_DEFAULT(serviceType_, "") };
     inline ListCenChildInstanceRouteEntriesToAttachmentRequest& setServiceType(string serviceType) { DARABONBA_PTR_SET_VALUE(serviceType_, serviceType) };
 
 
     // transitRouterAttachmentId Field Functions 
     bool hasTransitRouterAttachmentId() const { return this->transitRouterAttachmentId_ != nullptr;};
     void deleteTransitRouterAttachmentId() { this->transitRouterAttachmentId_ = nullptr;};
-    inline string transitRouterAttachmentId() const { DARABONBA_PTR_GET_DEFAULT(transitRouterAttachmentId_, "") };
+    inline string getTransitRouterAttachmentId() const { DARABONBA_PTR_GET_DEFAULT(transitRouterAttachmentId_, "") };
     inline ListCenChildInstanceRouteEntriesToAttachmentRequest& setTransitRouterAttachmentId(string transitRouterAttachmentId) { DARABONBA_PTR_SET_VALUE(transitRouterAttachmentId_, transitRouterAttachmentId) };
 
 
   protected:
     // The ID of the CEN instance.
-    std::shared_ptr<string> cenId_ = nullptr;
+    shared_ptr<string> cenId_ {};
     // The ID of the route table configured on the network instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> childInstanceRouteTableId_ = nullptr;
+    shared_ptr<string> childInstanceRouteTableId_ {};
     // The number of entries to return on each page. Default value: **20**.
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
     // The token that determines the start point of the query. Valid values:
     // 
     // *   If this is your first query and no subsequent queries are to be sent, ignore this parameter.
     // *   If a subsequent query is to be sent, set the parameter to the value of NextToken that is returned from the last call.
-    std::shared_ptr<string> nextToken_ = nullptr;
-    std::shared_ptr<string> ownerAccount_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> nextToken_ {};
+    shared_ptr<string> ownerAccount_ {};
+    shared_ptr<int64_t> ownerId_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
     // The filter condition for the destination CIDR block.
-    std::shared_ptr<vector<ListCenChildInstanceRouteEntriesToAttachmentRequestRouteFilter>> routeFilter_ = nullptr;
+    shared_ptr<vector<ListCenChildInstanceRouteEntriesToAttachmentRequest::RouteFilter>> routeFilter_ {};
     // Specifies whether to host the route. If you leave the parameter empty, the route is not hosted. A value of TR specifies that the route is hosted on a transit router.
-    std::shared_ptr<string> serviceType_ = nullptr;
+    shared_ptr<string> serviceType_ {};
     // The ID of the network instance connection.
     // 
     // This parameter is required.
-    std::shared_ptr<string> transitRouterAttachmentId_ = nullptr;
+    shared_ptr<string> transitRouterAttachmentId_ {};
   };
 
   } // namespace Models

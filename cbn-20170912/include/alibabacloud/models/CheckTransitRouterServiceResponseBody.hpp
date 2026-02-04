@@ -31,19 +31,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->enabled_ != nullptr
-        && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->enabled_ == nullptr
+        && this->requestId_ == nullptr; };
     // enabled Field Functions 
     bool hasEnabled() const { return this->enabled_ != nullptr;};
     void deleteEnabled() { this->enabled_ = nullptr;};
-    inline string enabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, "") };
+    inline string getEnabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, "") };
     inline CheckTransitRouterServiceResponseBody& setEnabled(string enabled) { DARABONBA_PTR_SET_VALUE(enabled_, enabled) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CheckTransitRouterServiceResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
@@ -52,9 +52,9 @@ namespace Models
     // 
     // *   **true**: activated
     // *   If this value is not returned, the system prompts that the current account does not have the transit router feature activated.
-    std::shared_ptr<string> enabled_ = nullptr;
+    shared_ptr<string> enabled_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

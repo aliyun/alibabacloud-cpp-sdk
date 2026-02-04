@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_LISTCENINTERREGIONTRAFFICQOSQUEUESREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_LISTCENINTERREGIONTRAFFICQOSQUEUESREQUEST_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/ListCenInterRegionTrafficQosQueuesRequestEffectiveBandwidthFilter.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -54,133 +53,177 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->effectiveBandwidthFilter_ != nullptr
-        && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->resourceOwnerAccount_ != nullptr
-        && this->resourceOwnerId_ != nullptr && this->trafficQosPolicyId_ != nullptr && this->trafficQosQueueDescription_ != nullptr && this->trafficQosQueueId_ != nullptr && this->trafficQosQueueName_ != nullptr
-        && this->transitRouterAttachmentId_ != nullptr && this->transitRouterId_ != nullptr; };
+    class EffectiveBandwidthFilter : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const EffectiveBandwidthFilter& obj) { 
+        DARABONBA_PTR_TO_JSON(Gte, gte_);
+        DARABONBA_PTR_TO_JSON(Lte, lte_);
+      };
+      friend void from_json(const Darabonba::Json& j, EffectiveBandwidthFilter& obj) { 
+        DARABONBA_PTR_FROM_JSON(Gte, gte_);
+        DARABONBA_PTR_FROM_JSON(Lte, lte_);
+      };
+      EffectiveBandwidthFilter() = default ;
+      EffectiveBandwidthFilter(const EffectiveBandwidthFilter &) = default ;
+      EffectiveBandwidthFilter(EffectiveBandwidthFilter &&) = default ;
+      EffectiveBandwidthFilter(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~EffectiveBandwidthFilter() = default ;
+      EffectiveBandwidthFilter& operator=(const EffectiveBandwidthFilter &) = default ;
+      EffectiveBandwidthFilter& operator=(EffectiveBandwidthFilter &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->gte_ == nullptr
+        && this->lte_ == nullptr; };
+      // gte Field Functions 
+      bool hasGte() const { return this->gte_ != nullptr;};
+      void deleteGte() { this->gte_ = nullptr;};
+      inline int64_t getGte() const { DARABONBA_PTR_GET_DEFAULT(gte_, 0L) };
+      inline EffectiveBandwidthFilter& setGte(int64_t gte) { DARABONBA_PTR_SET_VALUE(gte_, gte) };
+
+
+      // lte Field Functions 
+      bool hasLte() const { return this->lte_ != nullptr;};
+      void deleteLte() { this->lte_ = nullptr;};
+      inline int64_t getLte() const { DARABONBA_PTR_GET_DEFAULT(lte_, 0L) };
+      inline EffectiveBandwidthFilter& setLte(int64_t lte) { DARABONBA_PTR_SET_VALUE(lte_, lte) };
+
+
+    protected:
+      // The actual bandwidth is equal to or larger than the specified value.
+      shared_ptr<int64_t> gte_ {};
+      // The actual bandwidth is equal to or smaller than the specified value.
+      shared_ptr<int64_t> lte_ {};
+    };
+
+    virtual bool empty() const override { return this->effectiveBandwidthFilter_ == nullptr
+        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->resourceOwnerAccount_ == nullptr
+        && this->resourceOwnerId_ == nullptr && this->trafficQosPolicyId_ == nullptr && this->trafficQosQueueDescription_ == nullptr && this->trafficQosQueueId_ == nullptr && this->trafficQosQueueName_ == nullptr
+        && this->transitRouterAttachmentId_ == nullptr && this->transitRouterId_ == nullptr; };
     // effectiveBandwidthFilter Field Functions 
     bool hasEffectiveBandwidthFilter() const { return this->effectiveBandwidthFilter_ != nullptr;};
     void deleteEffectiveBandwidthFilter() { this->effectiveBandwidthFilter_ = nullptr;};
-    inline const ListCenInterRegionTrafficQosQueuesRequestEffectiveBandwidthFilter & effectiveBandwidthFilter() const { DARABONBA_PTR_GET_CONST(effectiveBandwidthFilter_, ListCenInterRegionTrafficQosQueuesRequestEffectiveBandwidthFilter) };
-    inline ListCenInterRegionTrafficQosQueuesRequestEffectiveBandwidthFilter effectiveBandwidthFilter() { DARABONBA_PTR_GET(effectiveBandwidthFilter_, ListCenInterRegionTrafficQosQueuesRequestEffectiveBandwidthFilter) };
-    inline ListCenInterRegionTrafficQosQueuesRequest& setEffectiveBandwidthFilter(const ListCenInterRegionTrafficQosQueuesRequestEffectiveBandwidthFilter & effectiveBandwidthFilter) { DARABONBA_PTR_SET_VALUE(effectiveBandwidthFilter_, effectiveBandwidthFilter) };
-    inline ListCenInterRegionTrafficQosQueuesRequest& setEffectiveBandwidthFilter(ListCenInterRegionTrafficQosQueuesRequestEffectiveBandwidthFilter && effectiveBandwidthFilter) { DARABONBA_PTR_SET_RVALUE(effectiveBandwidthFilter_, effectiveBandwidthFilter) };
+    inline const ListCenInterRegionTrafficQosQueuesRequest::EffectiveBandwidthFilter & getEffectiveBandwidthFilter() const { DARABONBA_PTR_GET_CONST(effectiveBandwidthFilter_, ListCenInterRegionTrafficQosQueuesRequest::EffectiveBandwidthFilter) };
+    inline ListCenInterRegionTrafficQosQueuesRequest::EffectiveBandwidthFilter getEffectiveBandwidthFilter() { DARABONBA_PTR_GET(effectiveBandwidthFilter_, ListCenInterRegionTrafficQosQueuesRequest::EffectiveBandwidthFilter) };
+    inline ListCenInterRegionTrafficQosQueuesRequest& setEffectiveBandwidthFilter(const ListCenInterRegionTrafficQosQueuesRequest::EffectiveBandwidthFilter & effectiveBandwidthFilter) { DARABONBA_PTR_SET_VALUE(effectiveBandwidthFilter_, effectiveBandwidthFilter) };
+    inline ListCenInterRegionTrafficQosQueuesRequest& setEffectiveBandwidthFilter(ListCenInterRegionTrafficQosQueuesRequest::EffectiveBandwidthFilter && effectiveBandwidthFilter) { DARABONBA_PTR_SET_RVALUE(effectiveBandwidthFilter_, effectiveBandwidthFilter) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListCenInterRegionTrafficQosQueuesRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListCenInterRegionTrafficQosQueuesRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // ownerAccount Field Functions 
     bool hasOwnerAccount() const { return this->ownerAccount_ != nullptr;};
     void deleteOwnerAccount() { this->ownerAccount_ = nullptr;};
-    inline string ownerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
+    inline string getOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
     inline ListCenInterRegionTrafficQosQueuesRequest& setOwnerAccount(string ownerAccount) { DARABONBA_PTR_SET_VALUE(ownerAccount_, ownerAccount) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline ListCenInterRegionTrafficQosQueuesRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline ListCenInterRegionTrafficQosQueuesRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline ListCenInterRegionTrafficQosQueuesRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // trafficQosPolicyId Field Functions 
     bool hasTrafficQosPolicyId() const { return this->trafficQosPolicyId_ != nullptr;};
     void deleteTrafficQosPolicyId() { this->trafficQosPolicyId_ = nullptr;};
-    inline string trafficQosPolicyId() const { DARABONBA_PTR_GET_DEFAULT(trafficQosPolicyId_, "") };
+    inline string getTrafficQosPolicyId() const { DARABONBA_PTR_GET_DEFAULT(trafficQosPolicyId_, "") };
     inline ListCenInterRegionTrafficQosQueuesRequest& setTrafficQosPolicyId(string trafficQosPolicyId) { DARABONBA_PTR_SET_VALUE(trafficQosPolicyId_, trafficQosPolicyId) };
 
 
     // trafficQosQueueDescription Field Functions 
     bool hasTrafficQosQueueDescription() const { return this->trafficQosQueueDescription_ != nullptr;};
     void deleteTrafficQosQueueDescription() { this->trafficQosQueueDescription_ = nullptr;};
-    inline string trafficQosQueueDescription() const { DARABONBA_PTR_GET_DEFAULT(trafficQosQueueDescription_, "") };
+    inline string getTrafficQosQueueDescription() const { DARABONBA_PTR_GET_DEFAULT(trafficQosQueueDescription_, "") };
     inline ListCenInterRegionTrafficQosQueuesRequest& setTrafficQosQueueDescription(string trafficQosQueueDescription) { DARABONBA_PTR_SET_VALUE(trafficQosQueueDescription_, trafficQosQueueDescription) };
 
 
     // trafficQosQueueId Field Functions 
     bool hasTrafficQosQueueId() const { return this->trafficQosQueueId_ != nullptr;};
     void deleteTrafficQosQueueId() { this->trafficQosQueueId_ = nullptr;};
-    inline string trafficQosQueueId() const { DARABONBA_PTR_GET_DEFAULT(trafficQosQueueId_, "") };
+    inline string getTrafficQosQueueId() const { DARABONBA_PTR_GET_DEFAULT(trafficQosQueueId_, "") };
     inline ListCenInterRegionTrafficQosQueuesRequest& setTrafficQosQueueId(string trafficQosQueueId) { DARABONBA_PTR_SET_VALUE(trafficQosQueueId_, trafficQosQueueId) };
 
 
     // trafficQosQueueName Field Functions 
     bool hasTrafficQosQueueName() const { return this->trafficQosQueueName_ != nullptr;};
     void deleteTrafficQosQueueName() { this->trafficQosQueueName_ = nullptr;};
-    inline string trafficQosQueueName() const { DARABONBA_PTR_GET_DEFAULT(trafficQosQueueName_, "") };
+    inline string getTrafficQosQueueName() const { DARABONBA_PTR_GET_DEFAULT(trafficQosQueueName_, "") };
     inline ListCenInterRegionTrafficQosQueuesRequest& setTrafficQosQueueName(string trafficQosQueueName) { DARABONBA_PTR_SET_VALUE(trafficQosQueueName_, trafficQosQueueName) };
 
 
     // transitRouterAttachmentId Field Functions 
     bool hasTransitRouterAttachmentId() const { return this->transitRouterAttachmentId_ != nullptr;};
     void deleteTransitRouterAttachmentId() { this->transitRouterAttachmentId_ = nullptr;};
-    inline string transitRouterAttachmentId() const { DARABONBA_PTR_GET_DEFAULT(transitRouterAttachmentId_, "") };
+    inline string getTransitRouterAttachmentId() const { DARABONBA_PTR_GET_DEFAULT(transitRouterAttachmentId_, "") };
     inline ListCenInterRegionTrafficQosQueuesRequest& setTransitRouterAttachmentId(string transitRouterAttachmentId) { DARABONBA_PTR_SET_VALUE(transitRouterAttachmentId_, transitRouterAttachmentId) };
 
 
     // transitRouterId Field Functions 
     bool hasTransitRouterId() const { return this->transitRouterId_ != nullptr;};
     void deleteTransitRouterId() { this->transitRouterId_ = nullptr;};
-    inline string transitRouterId() const { DARABONBA_PTR_GET_DEFAULT(transitRouterId_, "") };
+    inline string getTransitRouterId() const { DARABONBA_PTR_GET_DEFAULT(transitRouterId_, "") };
     inline ListCenInterRegionTrafficQosQueuesRequest& setTransitRouterId(string transitRouterId) { DARABONBA_PTR_SET_VALUE(transitRouterId_, transitRouterId) };
 
 
   protected:
     // The filter works based on the actual bandwidth. Enter a positive integer. Unit: Mbit/s.
-    std::shared_ptr<ListCenInterRegionTrafficQosQueuesRequestEffectiveBandwidthFilter> effectiveBandwidthFilter_ = nullptr;
+    shared_ptr<ListCenInterRegionTrafficQosQueuesRequest::EffectiveBandwidthFilter> effectiveBandwidthFilter_ {};
     // The number of entries to return on each page. Valid values: **1** to **100**. Default value: **20**.
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
     // The pagination token that is used in the next request to retrieve a new page of results.
     // 
     // *   If **NextToken** is empty, no next page exists.
     // *   If a value of **NextToken** is returned, the value indicates the token that is used for the next query.
-    std::shared_ptr<string> nextToken_ = nullptr;
-    std::shared_ptr<string> ownerAccount_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> nextToken_ {};
+    shared_ptr<string> ownerAccount_ {};
+    shared_ptr<int64_t> ownerId_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
     // The ID of the QoS policy.
-    std::shared_ptr<string> trafficQosPolicyId_ = nullptr;
+    shared_ptr<string> trafficQosPolicyId_ {};
     // The description of the QoS queue.
     // 
     // This parameter is optional. If you enter a description, it must be 1 to 256 characters in length and cannot start with http:// or https://.
-    std::shared_ptr<string> trafficQosQueueDescription_ = nullptr;
+    shared_ptr<string> trafficQosQueueDescription_ {};
     // The ID of the queue.
-    std::shared_ptr<string> trafficQosQueueId_ = nullptr;
+    shared_ptr<string> trafficQosQueueId_ {};
     // The name of the QoS queue.
     // 
     // The name must be 1 to 128 characters in length, and cannot start with http:// or https://.
-    std::shared_ptr<string> trafficQosQueueName_ = nullptr;
+    shared_ptr<string> trafficQosQueueName_ {};
     // The ID of the inter-region connection.
-    std::shared_ptr<string> transitRouterAttachmentId_ = nullptr;
+    shared_ptr<string> transitRouterAttachmentId_ {};
     // The ID of the transit router.
-    std::shared_ptr<string> transitRouterId_ = nullptr;
+    shared_ptr<string> transitRouterId_ {};
   };
 
   } // namespace Models

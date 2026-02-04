@@ -51,91 +51,91 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cenId_ != nullptr
-        && this->childInstanceId_ != nullptr && this->childInstanceRegionId_ != nullptr && this->childInstanceRouteTableId_ != nullptr && this->childInstanceType_ != nullptr && this->ownerAccount_ != nullptr
-        && this->ownerId_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr
-        && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->cenId_ == nullptr
+        && this->childInstanceId_ == nullptr && this->childInstanceRegionId_ == nullptr && this->childInstanceRouteTableId_ == nullptr && this->childInstanceType_ == nullptr && this->ownerAccount_ == nullptr
+        && this->ownerId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr
+        && this->status_ == nullptr; };
     // cenId Field Functions 
     bool hasCenId() const { return this->cenId_ != nullptr;};
     void deleteCenId() { this->cenId_ = nullptr;};
-    inline string cenId() const { DARABONBA_PTR_GET_DEFAULT(cenId_, "") };
+    inline string getCenId() const { DARABONBA_PTR_GET_DEFAULT(cenId_, "") };
     inline DescribeCenChildInstanceRouteEntriesRequest& setCenId(string cenId) { DARABONBA_PTR_SET_VALUE(cenId_, cenId) };
 
 
     // childInstanceId Field Functions 
     bool hasChildInstanceId() const { return this->childInstanceId_ != nullptr;};
     void deleteChildInstanceId() { this->childInstanceId_ = nullptr;};
-    inline string childInstanceId() const { DARABONBA_PTR_GET_DEFAULT(childInstanceId_, "") };
+    inline string getChildInstanceId() const { DARABONBA_PTR_GET_DEFAULT(childInstanceId_, "") };
     inline DescribeCenChildInstanceRouteEntriesRequest& setChildInstanceId(string childInstanceId) { DARABONBA_PTR_SET_VALUE(childInstanceId_, childInstanceId) };
 
 
     // childInstanceRegionId Field Functions 
     bool hasChildInstanceRegionId() const { return this->childInstanceRegionId_ != nullptr;};
     void deleteChildInstanceRegionId() { this->childInstanceRegionId_ = nullptr;};
-    inline string childInstanceRegionId() const { DARABONBA_PTR_GET_DEFAULT(childInstanceRegionId_, "") };
+    inline string getChildInstanceRegionId() const { DARABONBA_PTR_GET_DEFAULT(childInstanceRegionId_, "") };
     inline DescribeCenChildInstanceRouteEntriesRequest& setChildInstanceRegionId(string childInstanceRegionId) { DARABONBA_PTR_SET_VALUE(childInstanceRegionId_, childInstanceRegionId) };
 
 
     // childInstanceRouteTableId Field Functions 
     bool hasChildInstanceRouteTableId() const { return this->childInstanceRouteTableId_ != nullptr;};
     void deleteChildInstanceRouteTableId() { this->childInstanceRouteTableId_ = nullptr;};
-    inline string childInstanceRouteTableId() const { DARABONBA_PTR_GET_DEFAULT(childInstanceRouteTableId_, "") };
+    inline string getChildInstanceRouteTableId() const { DARABONBA_PTR_GET_DEFAULT(childInstanceRouteTableId_, "") };
     inline DescribeCenChildInstanceRouteEntriesRequest& setChildInstanceRouteTableId(string childInstanceRouteTableId) { DARABONBA_PTR_SET_VALUE(childInstanceRouteTableId_, childInstanceRouteTableId) };
 
 
     // childInstanceType Field Functions 
     bool hasChildInstanceType() const { return this->childInstanceType_ != nullptr;};
     void deleteChildInstanceType() { this->childInstanceType_ = nullptr;};
-    inline string childInstanceType() const { DARABONBA_PTR_GET_DEFAULT(childInstanceType_, "") };
+    inline string getChildInstanceType() const { DARABONBA_PTR_GET_DEFAULT(childInstanceType_, "") };
     inline DescribeCenChildInstanceRouteEntriesRequest& setChildInstanceType(string childInstanceType) { DARABONBA_PTR_SET_VALUE(childInstanceType_, childInstanceType) };
 
 
     // ownerAccount Field Functions 
     bool hasOwnerAccount() const { return this->ownerAccount_ != nullptr;};
     void deleteOwnerAccount() { this->ownerAccount_ = nullptr;};
-    inline string ownerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
+    inline string getOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
     inline DescribeCenChildInstanceRouteEntriesRequest& setOwnerAccount(string ownerAccount) { DARABONBA_PTR_SET_VALUE(ownerAccount_, ownerAccount) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline DescribeCenChildInstanceRouteEntriesRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline DescribeCenChildInstanceRouteEntriesRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DescribeCenChildInstanceRouteEntriesRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline DescribeCenChildInstanceRouteEntriesRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline DescribeCenChildInstanceRouteEntriesRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline DescribeCenChildInstanceRouteEntriesRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
@@ -143,17 +143,17 @@ namespace Models
     // The ID of the CEN instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> cenId_ = nullptr;
+    shared_ptr<string> cenId_ {};
     // The ID of the network instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> childInstanceId_ = nullptr;
+    shared_ptr<string> childInstanceId_ {};
     // The ID of the region where the network instance is deployed.
     // 
     // You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the most recent region list.
-    std::shared_ptr<string> childInstanceRegionId_ = nullptr;
+    shared_ptr<string> childInstanceRegionId_ {};
     // The ID of the route table of the network instance. If you do not specify a route table ID, the system queries the routes in the system route tables of the VPCs by default.
-    std::shared_ptr<string> childInstanceRouteTableId_ = nullptr;
+    shared_ptr<string> childInstanceRouteTableId_ {};
     // The type of the network instance. Valid values:
     // 
     // *   **VPC**: virtual private cloud (VPC)
@@ -162,15 +162,15 @@ namespace Models
     // *   **ECR**: Express Connect Router (ECR)
     // 
     // This parameter is required.
-    std::shared_ptr<string> childInstanceType_ = nullptr;
-    std::shared_ptr<string> ownerAccount_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<string> childInstanceType_ {};
+    shared_ptr<string> ownerAccount_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // The number of the page to return. Default value: **1**.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Valid values: **1** to **500**. Default value: **10**.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
     // The status of the route. Valid values:
     // 
     // *   **Active**: available
@@ -178,7 +178,7 @@ namespace Models
     // *   **Rejected**: rejected
     // *   **Prohibited**: prohibited
     // *   **All** (default): all routes
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models

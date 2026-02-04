@@ -38,13 +38,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->availableZones_ != nullptr
-        && this->masterZones_ != nullptr && this->requestId_ != nullptr && this->slaveZones_ != nullptr && this->supportMulticast_ != nullptr; };
+    virtual bool empty() const override { return this->availableZones_ == nullptr
+        && this->masterZones_ == nullptr && this->requestId_ == nullptr && this->slaveZones_ == nullptr && this->supportMulticast_ == nullptr; };
     // availableZones Field Functions 
     bool hasAvailableZones() const { return this->availableZones_ != nullptr;};
     void deleteAvailableZones() { this->availableZones_ = nullptr;};
-    inline const vector<string> & availableZones() const { DARABONBA_PTR_GET_CONST(availableZones_, vector<string>) };
-    inline vector<string> availableZones() { DARABONBA_PTR_GET(availableZones_, vector<string>) };
+    inline const vector<string> & getAvailableZones() const { DARABONBA_PTR_GET_CONST(availableZones_, vector<string>) };
+    inline vector<string> getAvailableZones() { DARABONBA_PTR_GET(availableZones_, vector<string>) };
     inline ListTransitRouterAvailableResourceResponseBody& setAvailableZones(const vector<string> & availableZones) { DARABONBA_PTR_SET_VALUE(availableZones_, availableZones) };
     inline ListTransitRouterAvailableResourceResponseBody& setAvailableZones(vector<string> && availableZones) { DARABONBA_PTR_SET_RVALUE(availableZones_, availableZones) };
 
@@ -52,8 +52,8 @@ namespace Models
     // masterZones Field Functions 
     bool hasMasterZones() const { return this->masterZones_ != nullptr;};
     void deleteMasterZones() { this->masterZones_ = nullptr;};
-    inline const vector<string> & masterZones() const { DARABONBA_PTR_GET_CONST(masterZones_, vector<string>) };
-    inline vector<string> masterZones() { DARABONBA_PTR_GET(masterZones_, vector<string>) };
+    inline const vector<string> & getMasterZones() const { DARABONBA_PTR_GET_CONST(masterZones_, vector<string>) };
+    inline vector<string> getMasterZones() { DARABONBA_PTR_GET(masterZones_, vector<string>) };
     inline ListTransitRouterAvailableResourceResponseBody& setMasterZones(const vector<string> & masterZones) { DARABONBA_PTR_SET_VALUE(masterZones_, masterZones) };
     inline ListTransitRouterAvailableResourceResponseBody& setMasterZones(vector<string> && masterZones) { DARABONBA_PTR_SET_RVALUE(masterZones_, masterZones) };
 
@@ -61,15 +61,15 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListTransitRouterAvailableResourceResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // slaveZones Field Functions 
     bool hasSlaveZones() const { return this->slaveZones_ != nullptr;};
     void deleteSlaveZones() { this->slaveZones_ = nullptr;};
-    inline const vector<string> & slaveZones() const { DARABONBA_PTR_GET_CONST(slaveZones_, vector<string>) };
-    inline vector<string> slaveZones() { DARABONBA_PTR_GET(slaveZones_, vector<string>) };
+    inline const vector<string> & getSlaveZones() const { DARABONBA_PTR_GET_CONST(slaveZones_, vector<string>) };
+    inline vector<string> getSlaveZones() { DARABONBA_PTR_GET(slaveZones_, vector<string>) };
     inline ListTransitRouterAvailableResourceResponseBody& setSlaveZones(const vector<string> & slaveZones) { DARABONBA_PTR_SET_VALUE(slaveZones_, slaveZones) };
     inline ListTransitRouterAvailableResourceResponseBody& setSlaveZones(vector<string> && slaveZones) { DARABONBA_PTR_SET_RVALUE(slaveZones_, slaveZones) };
 
@@ -77,21 +77,21 @@ namespace Models
     // supportMulticast Field Functions 
     bool hasSupportMulticast() const { return this->supportMulticast_ != nullptr;};
     void deleteSupportMulticast() { this->supportMulticast_ = nullptr;};
-    inline bool supportMulticast() const { DARABONBA_PTR_GET_DEFAULT(supportMulticast_, false) };
+    inline bool getSupportMulticast() const { DARABONBA_PTR_GET_DEFAULT(supportMulticast_, false) };
     inline ListTransitRouterAvailableResourceResponseBody& setSupportMulticast(bool supportMulticast) { DARABONBA_PTR_SET_VALUE(supportMulticast_, supportMulticast) };
 
 
   protected:
     // A list of zone IDs.
-    std::shared_ptr<vector<string>> availableZones_ = nullptr;
+    shared_ptr<vector<string>> availableZones_ {};
     // A list of primary zones.
-    std::shared_ptr<vector<string>> masterZones_ = nullptr;
+    shared_ptr<vector<string>> masterZones_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // A list of secondary zone IDs.
-    std::shared_ptr<vector<string>> slaveZones_ = nullptr;
+    shared_ptr<vector<string>> slaveZones_ {};
     // Indicates whether the zone supports the multicast feature.
-    std::shared_ptr<bool> supportMulticast_ = nullptr;
+    shared_ptr<bool> supportMulticast_ {};
   };
 
   } // namespace Models

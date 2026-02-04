@@ -31,27 +31,27 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->requestId_ != nullptr
-        && this->transitRouterRouteTableId_ != nullptr; };
+    virtual bool empty() const override { return this->requestId_ == nullptr
+        && this->transitRouterRouteTableId_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateTransitRouterRouteTableResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // transitRouterRouteTableId Field Functions 
     bool hasTransitRouterRouteTableId() const { return this->transitRouterRouteTableId_ != nullptr;};
     void deleteTransitRouterRouteTableId() { this->transitRouterRouteTableId_ = nullptr;};
-    inline string transitRouterRouteTableId() const { DARABONBA_PTR_GET_DEFAULT(transitRouterRouteTableId_, "") };
+    inline string getTransitRouterRouteTableId() const { DARABONBA_PTR_GET_DEFAULT(transitRouterRouteTableId_, "") };
     inline CreateTransitRouterRouteTableResponseBody& setTransitRouterRouteTableId(string transitRouterRouteTableId) { DARABONBA_PTR_SET_VALUE(transitRouterRouteTableId_, transitRouterRouteTableId) };
 
 
   protected:
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The ID of the custom route table.
-    std::shared_ptr<string> transitRouterRouteTableId_ = nullptr;
+    shared_ptr<string> transitRouterRouteTableId_ {};
   };
 
   } // namespace Models

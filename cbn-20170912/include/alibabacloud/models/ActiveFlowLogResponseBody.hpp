@@ -31,30 +31,30 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->requestId_ != nullptr
-        && this->success_ != nullptr; };
+    virtual bool empty() const override { return this->requestId_ == nullptr
+        && this->success_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ActiveFlowLogResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline string success() const { DARABONBA_PTR_GET_DEFAULT(success_, "") };
+    inline string getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, "") };
     inline ActiveFlowLogResponseBody& setSuccess(string success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Indicates whether the call is successful.
     // 
     // *   **true**: yes
     // *   **false**: no
-    std::shared_ptr<string> success_ = nullptr;
+    shared_ptr<string> success_ {};
   };
 
   } // namespace Models
