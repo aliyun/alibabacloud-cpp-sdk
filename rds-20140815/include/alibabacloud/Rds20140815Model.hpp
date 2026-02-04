@@ -363,6 +363,9 @@
 #include <alibabacloud/models/DescribeDBInstanceByTagsRequest.hpp>
 #include <alibabacloud/models/DescribeDBInstanceByTagsResponseBody.hpp>
 #include <alibabacloud/models/DescribeDBInstanceByTagsResponse.hpp>
+#include <alibabacloud/models/DescribeDBInstanceCLSRequest.hpp>
+#include <alibabacloud/models/DescribeDBInstanceCLSResponseBody.hpp>
+#include <alibabacloud/models/DescribeDBInstanceCLSResponse.hpp>
 #include <alibabacloud/models/DescribeDBInstanceConnectivityRequest.hpp>
 #include <alibabacloud/models/DescribeDBInstanceConnectivityResponseBody.hpp>
 #include <alibabacloud/models/DescribeDBInstanceConnectivityResponse.hpp>
@@ -838,6 +841,9 @@
 #include <alibabacloud/models/ModifyDBInstanceAutoUpgradeMinorVersionRequest.hpp>
 #include <alibabacloud/models/ModifyDBInstanceAutoUpgradeMinorVersionResponseBody.hpp>
 #include <alibabacloud/models/ModifyDBInstanceAutoUpgradeMinorVersionResponse.hpp>
+#include <alibabacloud/models/ModifyDBInstanceCLSRequest.hpp>
+#include <alibabacloud/models/ModifyDBInstanceCLSResponseBody.hpp>
+#include <alibabacloud/models/ModifyDBInstanceCLSResponse.hpp>
 #include <alibabacloud/models/ModifyDBInstanceConfigRequest.hpp>
 #include <alibabacloud/models/ModifyDBInstanceConfigResponseBody.hpp>
 #include <alibabacloud/models/ModifyDBInstanceConfigResponse.hpp>
@@ -961,6 +967,9 @@
 #include <alibabacloud/models/ModifyParameterGroupRequest.hpp>
 #include <alibabacloud/models/ModifyParameterGroupResponseBody.hpp>
 #include <alibabacloud/models/ModifyParameterGroupResponse.hpp>
+#include <alibabacloud/models/ModifyParameterTimedScheduleTaskRequest.hpp>
+#include <alibabacloud/models/ModifyParameterTimedScheduleTaskResponseBody.hpp>
+#include <alibabacloud/models/ModifyParameterTimedScheduleTaskResponse.hpp>
 #include <alibabacloud/models/ModifyRCDiskAttributeRequest.hpp>
 #include <alibabacloud/models/ModifyRCDiskAttributeResponseBody.hpp>
 #include <alibabacloud/models/ModifyRCDiskAttributeResponse.hpp>

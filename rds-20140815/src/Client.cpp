@@ -10071,6 +10071,64 @@ DescribeDBInstanceByTagsResponse Client::describeDBInstanceByTags(const Describe
 }
 
 /**
+ * @summary 查询RDS实例的列加密（CLS）配置信息
+ *
+ * @param request DescribeDBInstanceCLSRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeDBInstanceCLSResponse
+ */
+DescribeDBInstanceCLSResponse Client::describeDBInstanceCLSWithOptions(const DescribeDBInstanceCLSRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.getDBInstanceId();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.getOwnerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeDBInstanceCLS"},
+    {"version" , "2014-08-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeDBInstanceCLSResponse>();
+}
+
+/**
+ * @summary 查询RDS实例的列加密（CLS）配置信息
+ *
+ * @param request DescribeDBInstanceCLSRequest
+ * @return DescribeDBInstanceCLSResponse
+ */
+DescribeDBInstanceCLSResponse Client::describeDBInstanceCLS(const DescribeDBInstanceCLSRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeDBInstanceCLSWithOptions(request, runtime);
+}
+
+/**
  * @summary 获取实例链路诊断信息
  *
  * @param request DescribeDBInstanceConnectivityRequest
@@ -22183,6 +22241,92 @@ ModifyDBInstanceAutoUpgradeMinorVersionResponse Client::modifyDBInstanceAutoUpgr
 }
 
 /**
+ * @summary 设置RDS实例开启/修改/关闭列加密状态
+ *
+ * @param request ModifyDBInstanceCLSRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyDBInstanceCLSResponse
+ */
+ModifyDBInstanceCLSResponse Client::modifyDBInstanceCLSWithOptions(const ModifyDBInstanceCLSRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.getDBInstanceId();
+  }
+
+  if (!!request.hasEncryptionAlgorithm()) {
+    query["EncryptionAlgorithm"] = request.getEncryptionAlgorithm();
+  }
+
+  if (!!request.hasEncryptionKey()) {
+    query["EncryptionKey"] = request.getEncryptionKey();
+  }
+
+  if (!!request.hasEncryptionKeyMode()) {
+    query["EncryptionKeyMode"] = request.getEncryptionKeyMode();
+  }
+
+  if (!!request.hasEncryptionStatus()) {
+    query["EncryptionStatus"] = request.getEncryptionStatus();
+  }
+
+  if (!!request.hasIsRotate()) {
+    query["IsRotate"] = request.getIsRotate();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.getOwnerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasRoleArn()) {
+    query["RoleArn"] = request.getRoleArn();
+  }
+
+  if (!!request.hasWhiteListMode()) {
+    query["WhiteListMode"] = request.getWhiteListMode();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyDBInstanceCLS"},
+    {"version" , "2014-08-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyDBInstanceCLSResponse>();
+}
+
+/**
+ * @summary 设置RDS实例开启/修改/关闭列加密状态
+ *
+ * @param request ModifyDBInstanceCLSRequest
+ * @return ModifyDBInstanceCLSResponse
+ */
+ModifyDBInstanceCLSResponse Client::modifyDBInstanceCLS(const ModifyDBInstanceCLSRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyDBInstanceCLSWithOptions(request, runtime);
+}
+
+/**
  * @summary Modifies the configuration item of an instance.
  *
  * @description ### [](#)Supported database engines
@@ -25778,6 +25922,56 @@ ModifyParameterGroupResponse Client::modifyParameterGroupWithOptions(const Modif
 ModifyParameterGroupResponse Client::modifyParameterGroup(const ModifyParameterGroupRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifyParameterGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary RDS MySQL修改参数定时任务
+ *
+ * @param request ModifyParameterTimedScheduleTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyParameterTimedScheduleTaskResponse
+ */
+ModifyParameterTimedScheduleTaskResponse Client::modifyParameterTimedScheduleTaskWithOptions(const ModifyParameterTimedScheduleTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasSwitchTime()) {
+    query["SwitchTime"] = request.getSwitchTime();
+  }
+
+  if (!!request.hasTaskId()) {
+    query["TaskId"] = request.getTaskId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyParameterTimedScheduleTask"},
+    {"version" , "2014-08-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyParameterTimedScheduleTaskResponse>();
+}
+
+/**
+ * @summary RDS MySQL修改参数定时任务
+ *
+ * @param request ModifyParameterTimedScheduleTaskRequest
+ * @return ModifyParameterTimedScheduleTaskResponse
+ */
+ModifyParameterTimedScheduleTaskResponse Client::modifyParameterTimedScheduleTask(const ModifyParameterTimedScheduleTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyParameterTimedScheduleTaskWithOptions(request, runtime);
 }
 
 /**

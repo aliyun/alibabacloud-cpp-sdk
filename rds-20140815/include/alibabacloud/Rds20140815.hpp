@@ -3381,6 +3381,23 @@ namespace Rds20140815
       Models::DescribeDBInstanceByTagsResponse describeDBInstanceByTags(const Models::DescribeDBInstanceByTagsRequest &request);
 
       /**
+       * @summary 查询RDS实例的列加密（CLS）配置信息
+       *
+       * @param request DescribeDBInstanceCLSRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeDBInstanceCLSResponse
+       */
+      Models::DescribeDBInstanceCLSResponse describeDBInstanceCLSWithOptions(const Models::DescribeDBInstanceCLSRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询RDS实例的列加密（CLS）配置信息
+       *
+       * @param request DescribeDBInstanceCLSRequest
+       * @return DescribeDBInstanceCLSResponse
+       */
+      Models::DescribeDBInstanceCLSResponse describeDBInstanceCLS(const Models::DescribeDBInstanceCLSRequest &request);
+
+      /**
        * @summary 获取实例链路诊断信息
        *
        * @param request DescribeDBInstanceConnectivityRequest
@@ -7429,6 +7446,23 @@ namespace Rds20140815
       Models::ModifyDBInstanceAutoUpgradeMinorVersionResponse modifyDBInstanceAutoUpgradeMinorVersion(const Models::ModifyDBInstanceAutoUpgradeMinorVersionRequest &request);
 
       /**
+       * @summary 设置RDS实例开启/修改/关闭列加密状态
+       *
+       * @param request ModifyDBInstanceCLSRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyDBInstanceCLSResponse
+       */
+      Models::ModifyDBInstanceCLSResponse modifyDBInstanceCLSWithOptions(const Models::ModifyDBInstanceCLSRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 设置RDS实例开启/修改/关闭列加密状态
+       *
+       * @param request ModifyDBInstanceCLSRequest
+       * @return ModifyDBInstanceCLSResponse
+       */
+      Models::ModifyDBInstanceCLSResponse modifyDBInstanceCLS(const Models::ModifyDBInstanceCLSRequest &request);
+
+      /**
        * @summary Modifies the configuration item of an instance.
        *
        * @description ### [](#)Supported database engines
@@ -8646,6 +8680,23 @@ namespace Rds20140815
        * @return ModifyParameterGroupResponse
        */
       Models::ModifyParameterGroupResponse modifyParameterGroup(const Models::ModifyParameterGroupRequest &request);
+
+      /**
+       * @summary RDS MySQL修改参数定时任务
+       *
+       * @param request ModifyParameterTimedScheduleTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyParameterTimedScheduleTaskResponse
+       */
+      Models::ModifyParameterTimedScheduleTaskResponse modifyParameterTimedScheduleTaskWithOptions(const Models::ModifyParameterTimedScheduleTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary RDS MySQL修改参数定时任务
+       *
+       * @param request ModifyParameterTimedScheduleTaskRequest
+       * @return ModifyParameterTimedScheduleTaskResponse
+       */
+      Models::ModifyParameterTimedScheduleTaskResponse modifyParameterTimedScheduleTask(const Models::ModifyParameterTimedScheduleTaskRequest &request);
 
       /**
        * @summary 修改块存储属性
