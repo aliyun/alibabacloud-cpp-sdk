@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ArchVersion, archVersion_);
       DARABONBA_PTR_TO_JSON(ArchiveStorage, archiveStorage_);
       DARABONBA_PTR_TO_JSON(AutoRenew, autoRenew_);
+      DARABONBA_PTR_TO_JSON(BackupInstance, backupInstance_);
       DARABONBA_PTR_TO_JSON(ColdStorage, coldStorage_);
       DARABONBA_PTR_TO_JSON(CoreDiskCategory, coreDiskCategory_);
       DARABONBA_PTR_TO_JSON(CoreNum, coreNum_);
@@ -79,6 +80,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ArchVersion, archVersion_);
       DARABONBA_PTR_FROM_JSON(ArchiveStorage, archiveStorage_);
       DARABONBA_PTR_FROM_JSON(AutoRenew, autoRenew_);
+      DARABONBA_PTR_FROM_JSON(BackupInstance, backupInstance_);
       DARABONBA_PTR_FROM_JSON(ColdStorage, coldStorage_);
       DARABONBA_PTR_FROM_JSON(CoreDiskCategory, coreDiskCategory_);
       DARABONBA_PTR_FROM_JSON(CoreNum, coreNum_);
@@ -295,17 +297,17 @@ namespace Models
 
     virtual bool empty() const override { return this->aliUid_ == nullptr
         && this->arbiterVSwitchId_ == nullptr && this->arbiterZoneId_ == nullptr && this->archVersion_ == nullptr && this->archiveStorage_ == nullptr && this->autoRenew_ == nullptr
-        && this->coldStorage_ == nullptr && this->coreDiskCategory_ == nullptr && this->coreNum_ == nullptr && this->coreSingleStorage_ == nullptr && this->coreSpec_ == nullptr
-        && this->createMilliseconds_ == nullptr && this->createTime_ == nullptr && this->deletionProtection_ == nullptr && this->diskCategory_ == nullptr && this->diskThreshold_ == nullptr
-        && this->diskUsage_ == nullptr && this->enableBlob_ == nullptr && this->enableCdc_ == nullptr && this->enableCompute_ == nullptr && this->enableKms_ == nullptr
-        && this->enableLProxy_ == nullptr && this->enableLTS_ == nullptr && this->enableLsqlVersionV3_ == nullptr && this->enableMLCtrl_ == nullptr && this->enableSSL_ == nullptr
-        && this->enableShs_ == nullptr && this->enableStoreTDE_ == nullptr && this->enableStream_ == nullptr && this->engineList_ == nullptr && this->engineType_ == nullptr
-        && this->expireTime_ == nullptr && this->expiredMilliseconds_ == nullptr && this->instanceAlias_ == nullptr && this->instanceId_ == nullptr && this->instanceStatus_ == nullptr
-        && this->instanceStorage_ == nullptr && this->logDiskCategory_ == nullptr && this->logNum_ == nullptr && this->logSingleStorage_ == nullptr && this->logSpec_ == nullptr
-        && this->maintainEndTime_ == nullptr && this->maintainStartTime_ == nullptr && this->multiZoneCombination_ == nullptr && this->networkType_ == nullptr && this->payType_ == nullptr
-        && this->primaryVSwitchId_ == nullptr && this->primaryZoneId_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->serviceType_ == nullptr && this->standbyVSwitchId_ == nullptr && this->standbyZoneId_ == nullptr && this->vpcId_ == nullptr && this->vswitchId_ == nullptr
-        && this->zoneId_ == nullptr; };
+        && this->backupInstance_ == nullptr && this->coldStorage_ == nullptr && this->coreDiskCategory_ == nullptr && this->coreNum_ == nullptr && this->coreSingleStorage_ == nullptr
+        && this->coreSpec_ == nullptr && this->createMilliseconds_ == nullptr && this->createTime_ == nullptr && this->deletionProtection_ == nullptr && this->diskCategory_ == nullptr
+        && this->diskThreshold_ == nullptr && this->diskUsage_ == nullptr && this->enableBlob_ == nullptr && this->enableCdc_ == nullptr && this->enableCompute_ == nullptr
+        && this->enableKms_ == nullptr && this->enableLProxy_ == nullptr && this->enableLTS_ == nullptr && this->enableLsqlVersionV3_ == nullptr && this->enableMLCtrl_ == nullptr
+        && this->enableSSL_ == nullptr && this->enableShs_ == nullptr && this->enableStoreTDE_ == nullptr && this->enableStream_ == nullptr && this->engineList_ == nullptr
+        && this->engineType_ == nullptr && this->expireTime_ == nullptr && this->expiredMilliseconds_ == nullptr && this->instanceAlias_ == nullptr && this->instanceId_ == nullptr
+        && this->instanceStatus_ == nullptr && this->instanceStorage_ == nullptr && this->logDiskCategory_ == nullptr && this->logNum_ == nullptr && this->logSingleStorage_ == nullptr
+        && this->logSpec_ == nullptr && this->maintainEndTime_ == nullptr && this->maintainStartTime_ == nullptr && this->multiZoneCombination_ == nullptr && this->networkType_ == nullptr
+        && this->payType_ == nullptr && this->primaryVSwitchId_ == nullptr && this->primaryZoneId_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->serviceType_ == nullptr && this->standbyVSwitchId_ == nullptr && this->standbyZoneId_ == nullptr && this->vpcId_ == nullptr
+        && this->vswitchId_ == nullptr && this->zoneId_ == nullptr; };
     // aliUid Field Functions 
     bool hasAliUid() const { return this->aliUid_ != nullptr;};
     void deleteAliUid() { this->aliUid_ = nullptr;};
@@ -346,6 +348,13 @@ namespace Models
     void deleteAutoRenew() { this->autoRenew_ = nullptr;};
     inline bool getAutoRenew() const { DARABONBA_PTR_GET_DEFAULT(autoRenew_, false) };
     inline GetLindormInstanceResponseBody& setAutoRenew(bool autoRenew) { DARABONBA_PTR_SET_VALUE(autoRenew_, autoRenew) };
+
+
+    // backupInstance Field Functions 
+    bool hasBackupInstance() const { return this->backupInstance_ != nullptr;};
+    void deleteBackupInstance() { this->backupInstance_ = nullptr;};
+    inline string getBackupInstance() const { DARABONBA_PTR_GET_DEFAULT(backupInstance_, "") };
+    inline GetLindormInstanceResponseBody& setBackupInstance(string backupInstance) { DARABONBA_PTR_SET_VALUE(backupInstance_, backupInstance) };
 
 
     // coldStorage Field Functions 
@@ -726,6 +735,7 @@ namespace Models
     // - **false**: Disabled.
     // > This parameter is returned when the instance\\"s payment type is prepaid.
     shared_ptr<bool> autoRenew_ {};
+    shared_ptr<string> backupInstance_ {};
     // The Capacity storage size of the instance.
     shared_ptr<int32_t> coldStorage_ {};
     // The disk type of the core nodes. This parameter is returned only for multi-zone instances. Valid values:
