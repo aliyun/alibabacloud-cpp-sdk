@@ -201,10 +201,10 @@ namespace Models
     // fields Field Functions 
     bool hasFields() const { return this->fields_ != nullptr;};
     void deleteFields() { this->fields_ = nullptr;};
-    inline const GetRecallManagementTableResponseBody::Fields & getFields() const { DARABONBA_PTR_GET_CONST(fields_, GetRecallManagementTableResponseBody::Fields) };
-    inline GetRecallManagementTableResponseBody::Fields getFields() { DARABONBA_PTR_GET(fields_, GetRecallManagementTableResponseBody::Fields) };
-    inline GetRecallManagementTableResponseBody& setFields(const GetRecallManagementTableResponseBody::Fields & fields) { DARABONBA_PTR_SET_VALUE(fields_, fields) };
-    inline GetRecallManagementTableResponseBody& setFields(GetRecallManagementTableResponseBody::Fields && fields) { DARABONBA_PTR_SET_RVALUE(fields_, fields) };
+    inline const vector<GetRecallManagementTableResponseBody::Fields> & getFields() const { DARABONBA_PTR_GET_CONST(fields_, vector<GetRecallManagementTableResponseBody::Fields>) };
+    inline vector<GetRecallManagementTableResponseBody::Fields> getFields() { DARABONBA_PTR_GET(fields_, vector<GetRecallManagementTableResponseBody::Fields>) };
+    inline GetRecallManagementTableResponseBody& setFields(const vector<GetRecallManagementTableResponseBody::Fields> & fields) { DARABONBA_PTR_SET_VALUE(fields_, fields) };
+    inline GetRecallManagementTableResponseBody& setFields(vector<GetRecallManagementTableResponseBody::Fields> && fields) { DARABONBA_PTR_SET_RVALUE(fields_, fields) };
 
 
     // gmtCreateTime Field Functions 
@@ -333,7 +333,7 @@ namespace Models
     shared_ptr<string> description_ {};
     shared_ptr<bool> enableDataSizeFluctuationThreshold_ {};
     shared_ptr<bool> enableRowCountFluctuationThreshold_ {};
-    shared_ptr<GetRecallManagementTableResponseBody::Fields> fields_ {};
+    shared_ptr<vector<GetRecallManagementTableResponseBody::Fields>> fields_ {};
     shared_ptr<string> gmtCreateTime_ {};
     shared_ptr<string> gmtModifiedTime_ {};
     shared_ptr<string> indexEffectiveTime_ {};
