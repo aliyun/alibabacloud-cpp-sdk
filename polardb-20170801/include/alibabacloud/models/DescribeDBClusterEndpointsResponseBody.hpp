@@ -48,6 +48,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(PolarSccWaitTimeout, polarSccWaitTimeout_);
         DARABONBA_PTR_TO_JSON(ReadWriteMode, readWriteMode_);
         DARABONBA_PTR_TO_JSON(SccMode, sccMode_);
+        DARABONBA_PTR_TO_JSON(ServiceName, serviceName_);
       };
       friend void from_json(const Darabonba::Json& j, Items& obj) { 
         DARABONBA_PTR_FROM_JSON(AddressItems, addressItems_);
@@ -63,6 +64,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(PolarSccWaitTimeout, polarSccWaitTimeout_);
         DARABONBA_PTR_FROM_JSON(ReadWriteMode, readWriteMode_);
         DARABONBA_PTR_FROM_JSON(SccMode, sccMode_);
+        DARABONBA_PTR_FROM_JSON(ServiceName, serviceName_);
       };
       Items() = default ;
       Items(const Items &) = default ;
@@ -208,7 +210,7 @@ namespace Models
       virtual bool empty() const override { return this->addressItems_ == nullptr
         && this->autoAddNewNodes_ == nullptr && this->DBClusterId_ == nullptr && this->DBEndpointDescription_ == nullptr && this->DBEndpointId_ == nullptr && this->endpointConfig_ == nullptr
         && this->endpointType_ == nullptr && this->nodeWithRoles_ == nullptr && this->nodes_ == nullptr && this->polarSccTimeoutAction_ == nullptr && this->polarSccWaitTimeout_ == nullptr
-        && this->readWriteMode_ == nullptr && this->sccMode_ == nullptr; };
+        && this->readWriteMode_ == nullptr && this->sccMode_ == nullptr && this->serviceName_ == nullptr; };
       // addressItems Field Functions 
       bool hasAddressItems() const { return this->addressItems_ != nullptr;};
       void deleteAddressItems() { this->addressItems_ = nullptr;};
@@ -302,6 +304,13 @@ namespace Models
       inline Items& setSccMode(string sccMode) { DARABONBA_PTR_SET_VALUE(sccMode_, sccMode) };
 
 
+      // serviceName Field Functions 
+      bool hasServiceName() const { return this->serviceName_ != nullptr;};
+      void deleteServiceName() { this->serviceName_ = nullptr;};
+      inline string getServiceName() const { DARABONBA_PTR_GET_DEFAULT(serviceName_, "") };
+      inline Items& setServiceName(string serviceName) { DARABONBA_PTR_SET_VALUE(serviceName_, serviceName) };
+
+
     protected:
       // The details of the endpoint.
       shared_ptr<vector<Items::AddressItems>> addressItems_ {};
@@ -365,6 +374,7 @@ namespace Models
       // *   **on**: enabled.
       // *   **off**: disabled
       shared_ptr<string> sccMode_ {};
+      shared_ptr<string> serviceName_ {};
     };
 
     virtual bool empty() const override { return this->items_ == nullptr
