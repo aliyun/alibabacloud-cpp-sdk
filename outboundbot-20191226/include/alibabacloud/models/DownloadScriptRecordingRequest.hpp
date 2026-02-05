@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->scriptId_ == nullptr && return this->uuid_ == nullptr; };
+        && this->scriptId_ == nullptr && this->uuid_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DownloadScriptRecordingRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // scriptId Field Functions 
     bool hasScriptId() const { return this->scriptId_ != nullptr;};
     void deleteScriptId() { this->scriptId_ = nullptr;};
-    inline string scriptId() const { DARABONBA_PTR_GET_DEFAULT(scriptId_, "") };
+    inline string getScriptId() const { DARABONBA_PTR_GET_DEFAULT(scriptId_, "") };
     inline DownloadScriptRecordingRequest& setScriptId(string scriptId) { DARABONBA_PTR_SET_VALUE(scriptId_, scriptId) };
 
 
     // uuid Field Functions 
     bool hasUuid() const { return this->uuid_ != nullptr;};
     void deleteUuid() { this->uuid_ = nullptr;};
-    inline string uuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
+    inline string getUuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
     inline DownloadScriptRecordingRequest& setUuid(string uuid) { DARABONBA_PTR_SET_VALUE(uuid_, uuid) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> scriptId_ = nullptr;
+    shared_ptr<string> scriptId_ {};
     // This parameter is required.
-    std::shared_ptr<string> uuid_ = nullptr;
+    shared_ptr<string> uuid_ {};
   };
 
   } // namespace Models

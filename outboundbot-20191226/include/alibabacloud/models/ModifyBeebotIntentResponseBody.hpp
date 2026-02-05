@@ -42,65 +42,65 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->beebotRequestId_ == nullptr
-        && return this->code_ == nullptr && return this->httpStatusCode_ == nullptr && return this->intentId_ == nullptr && return this->message_ == nullptr && return this->requestId_ == nullptr
-        && return this->success_ == nullptr; };
+        && this->code_ == nullptr && this->httpStatusCode_ == nullptr && this->intentId_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr
+        && this->success_ == nullptr; };
     // beebotRequestId Field Functions 
     bool hasBeebotRequestId() const { return this->beebotRequestId_ != nullptr;};
     void deleteBeebotRequestId() { this->beebotRequestId_ = nullptr;};
-    inline string beebotRequestId() const { DARABONBA_PTR_GET_DEFAULT(beebotRequestId_, "") };
+    inline string getBeebotRequestId() const { DARABONBA_PTR_GET_DEFAULT(beebotRequestId_, "") };
     inline ModifyBeebotIntentResponseBody& setBeebotRequestId(string beebotRequestId) { DARABONBA_PTR_SET_VALUE(beebotRequestId_, beebotRequestId) };
 
 
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline ModifyBeebotIntentResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // httpStatusCode Field Functions 
     bool hasHttpStatusCode() const { return this->httpStatusCode_ != nullptr;};
     void deleteHttpStatusCode() { this->httpStatusCode_ = nullptr;};
-    inline int32_t httpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
+    inline int32_t getHttpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
     inline ModifyBeebotIntentResponseBody& setHttpStatusCode(int32_t httpStatusCode) { DARABONBA_PTR_SET_VALUE(httpStatusCode_, httpStatusCode) };
 
 
     // intentId Field Functions 
     bool hasIntentId() const { return this->intentId_ != nullptr;};
     void deleteIntentId() { this->intentId_ = nullptr;};
-    inline int64_t intentId() const { DARABONBA_PTR_GET_DEFAULT(intentId_, 0L) };
+    inline int64_t getIntentId() const { DARABONBA_PTR_GET_DEFAULT(intentId_, 0L) };
     inline ModifyBeebotIntentResponseBody& setIntentId(int64_t intentId) { DARABONBA_PTR_SET_VALUE(intentId_, intentId) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline ModifyBeebotIntentResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ModifyBeebotIntentResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline ModifyBeebotIntentResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
-    std::shared_ptr<string> beebotRequestId_ = nullptr;
-    std::shared_ptr<string> code_ = nullptr;
-    std::shared_ptr<int32_t> httpStatusCode_ = nullptr;
-    std::shared_ptr<int64_t> intentId_ = nullptr;
-    std::shared_ptr<string> message_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<string> beebotRequestId_ {};
+    shared_ptr<string> code_ {};
+    shared_ptr<int32_t> httpStatusCode_ {};
+    shared_ptr<int64_t> intentId_ {};
+    shared_ptr<string> message_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

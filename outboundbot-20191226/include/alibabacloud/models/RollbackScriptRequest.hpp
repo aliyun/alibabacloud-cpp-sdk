@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->rollbackVersion_ == nullptr && return this->scriptId_ == nullptr; };
+        && this->rollbackVersion_ == nullptr && this->scriptId_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline RollbackScriptRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // rollbackVersion Field Functions 
     bool hasRollbackVersion() const { return this->rollbackVersion_ != nullptr;};
     void deleteRollbackVersion() { this->rollbackVersion_ = nullptr;};
-    inline string rollbackVersion() const { DARABONBA_PTR_GET_DEFAULT(rollbackVersion_, "") };
+    inline string getRollbackVersion() const { DARABONBA_PTR_GET_DEFAULT(rollbackVersion_, "") };
     inline RollbackScriptRequest& setRollbackVersion(string rollbackVersion) { DARABONBA_PTR_SET_VALUE(rollbackVersion_, rollbackVersion) };
 
 
     // scriptId Field Functions 
     bool hasScriptId() const { return this->scriptId_ != nullptr;};
     void deleteScriptId() { this->scriptId_ = nullptr;};
-    inline string scriptId() const { DARABONBA_PTR_GET_DEFAULT(scriptId_, "") };
+    inline string getScriptId() const { DARABONBA_PTR_GET_DEFAULT(scriptId_, "") };
     inline RollbackScriptRequest& setScriptId(string scriptId) { DARABONBA_PTR_SET_VALUE(scriptId_, scriptId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> rollbackVersion_ = nullptr;
+    shared_ptr<string> rollbackVersion_ {};
     // This parameter is required.
-    std::shared_ptr<string> scriptId_ = nullptr;
+    shared_ptr<string> scriptId_ {};
   };
 
   } // namespace Models

@@ -33,12 +33,12 @@ namespace Models
     // number Field Functions 
     bool hasNumber() const { return this->number_ != nullptr;};
     void deleteNumber() { this->number_ = nullptr;};
-    inline string number() const { DARABONBA_PTR_GET_DEFAULT(number_, "") };
+    inline string getNumber() const { DARABONBA_PTR_GET_DEFAULT(number_, "") };
     inline DescribeTenantBindNumberRequest& setNumber(string number) { DARABONBA_PTR_SET_VALUE(number_, number) };
 
 
   protected:
-    std::shared_ptr<string> number_ = nullptr;
+    shared_ptr<string> number_ {};
   };
 
   } // namespace Models

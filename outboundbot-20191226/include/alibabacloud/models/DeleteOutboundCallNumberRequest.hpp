@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->outboundCallNumberId_ == nullptr; };
+        && this->outboundCallNumberId_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DeleteOutboundCallNumberRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // outboundCallNumberId Field Functions 
     bool hasOutboundCallNumberId() const { return this->outboundCallNumberId_ != nullptr;};
     void deleteOutboundCallNumberId() { this->outboundCallNumberId_ = nullptr;};
-    inline string outboundCallNumberId() const { DARABONBA_PTR_GET_DEFAULT(outboundCallNumberId_, "") };
+    inline string getOutboundCallNumberId() const { DARABONBA_PTR_GET_DEFAULT(outboundCallNumberId_, "") };
     inline DeleteOutboundCallNumberRequest& setOutboundCallNumberId(string outboundCallNumberId) { DARABONBA_PTR_SET_VALUE(outboundCallNumberId_, outboundCallNumberId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> outboundCallNumberId_ = nullptr;
+    shared_ptr<string> outboundCallNumberId_ {};
   };
 
   } // namespace Models

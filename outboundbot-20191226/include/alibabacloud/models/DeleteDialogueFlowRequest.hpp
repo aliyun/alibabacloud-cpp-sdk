@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dialogueFlowId_ == nullptr
-        && return this->instanceId_ == nullptr && return this->scriptId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->scriptId_ == nullptr; };
     // dialogueFlowId Field Functions 
     bool hasDialogueFlowId() const { return this->dialogueFlowId_ != nullptr;};
     void deleteDialogueFlowId() { this->dialogueFlowId_ = nullptr;};
-    inline string dialogueFlowId() const { DARABONBA_PTR_GET_DEFAULT(dialogueFlowId_, "") };
+    inline string getDialogueFlowId() const { DARABONBA_PTR_GET_DEFAULT(dialogueFlowId_, "") };
     inline DeleteDialogueFlowRequest& setDialogueFlowId(string dialogueFlowId) { DARABONBA_PTR_SET_VALUE(dialogueFlowId_, dialogueFlowId) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DeleteDialogueFlowRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // scriptId Field Functions 
     bool hasScriptId() const { return this->scriptId_ != nullptr;};
     void deleteScriptId() { this->scriptId_ = nullptr;};
-    inline string scriptId() const { DARABONBA_PTR_GET_DEFAULT(scriptId_, "") };
+    inline string getScriptId() const { DARABONBA_PTR_GET_DEFAULT(scriptId_, "") };
     inline DeleteDialogueFlowRequest& setScriptId(string scriptId) { DARABONBA_PTR_SET_VALUE(scriptId_, scriptId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> dialogueFlowId_ = nullptr;
+    shared_ptr<string> dialogueFlowId_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> scriptId_ = nullptr;
+    shared_ptr<string> scriptId_ {};
   };
 
   } // namespace Models

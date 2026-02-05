@@ -34,14 +34,14 @@ namespace Models
     // instanceIdList Field Functions 
     bool hasInstanceIdList() const { return this->instanceIdList_ != nullptr;};
     void deleteInstanceIdList() { this->instanceIdList_ = nullptr;};
-    inline const vector<string> & instanceIdList() const { DARABONBA_PTR_GET_CONST(instanceIdList_, vector<string>) };
-    inline vector<string> instanceIdList() { DARABONBA_PTR_GET(instanceIdList_, vector<string>) };
+    inline const vector<string> & getInstanceIdList() const { DARABONBA_PTR_GET_CONST(instanceIdList_, vector<string>) };
+    inline vector<string> getInstanceIdList() { DARABONBA_PTR_GET(instanceIdList_, vector<string>) };
     inline GetSummaryInfoRequest& setInstanceIdList(const vector<string> & instanceIdList) { DARABONBA_PTR_SET_VALUE(instanceIdList_, instanceIdList) };
     inline GetSummaryInfoRequest& setInstanceIdList(vector<string> && instanceIdList) { DARABONBA_PTR_SET_RVALUE(instanceIdList_, instanceIdList) };
 
 
   protected:
-    std::shared_ptr<vector<string>> instanceIdList_ = nullptr;
+    shared_ptr<vector<string>> instanceIdList_ {};
   };
 
   } // namespace Models

@@ -36,43 +36,43 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->mergedRecording_ == nullptr && return this->resourceRecording_ == nullptr && return this->taskId_ == nullptr; };
+        && this->mergedRecording_ == nullptr && this->resourceRecording_ == nullptr && this->taskId_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline SubmitRecordingRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // mergedRecording Field Functions 
     bool hasMergedRecording() const { return this->mergedRecording_ != nullptr;};
     void deleteMergedRecording() { this->mergedRecording_ = nullptr;};
-    inline string mergedRecording() const { DARABONBA_PTR_GET_DEFAULT(mergedRecording_, "") };
+    inline string getMergedRecording() const { DARABONBA_PTR_GET_DEFAULT(mergedRecording_, "") };
     inline SubmitRecordingRequest& setMergedRecording(string mergedRecording) { DARABONBA_PTR_SET_VALUE(mergedRecording_, mergedRecording) };
 
 
     // resourceRecording Field Functions 
     bool hasResourceRecording() const { return this->resourceRecording_ != nullptr;};
     void deleteResourceRecording() { this->resourceRecording_ = nullptr;};
-    inline string resourceRecording() const { DARABONBA_PTR_GET_DEFAULT(resourceRecording_, "") };
+    inline string getResourceRecording() const { DARABONBA_PTR_GET_DEFAULT(resourceRecording_, "") };
     inline SubmitRecordingRequest& setResourceRecording(string resourceRecording) { DARABONBA_PTR_SET_VALUE(resourceRecording_, resourceRecording) };
 
 
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline string taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+    inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
     inline SubmitRecordingRequest& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> mergedRecording_ = nullptr;
-    std::shared_ptr<string> resourceRecording_ = nullptr;
+    shared_ptr<string> mergedRecording_ {};
+    shared_ptr<string> resourceRecording_ {};
     // This parameter is required.
-    std::shared_ptr<string> taskId_ = nullptr;
+    shared_ptr<string> taskId_ {};
   };
 
   } // namespace Models

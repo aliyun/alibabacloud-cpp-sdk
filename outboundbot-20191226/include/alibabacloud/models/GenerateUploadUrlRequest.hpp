@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fileName_ == nullptr
-        && return this->key_ == nullptr; };
+        && this->key_ == nullptr; };
     // fileName Field Functions 
     bool hasFileName() const { return this->fileName_ != nullptr;};
     void deleteFileName() { this->fileName_ = nullptr;};
-    inline string fileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
+    inline string getFileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
     inline GenerateUploadUrlRequest& setFileName(string fileName) { DARABONBA_PTR_SET_VALUE(fileName_, fileName) };
 
 
     // key Field Functions 
     bool hasKey() const { return this->key_ != nullptr;};
     void deleteKey() { this->key_ = nullptr;};
-    inline string key() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+    inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
     inline GenerateUploadUrlRequest& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
 
 
   protected:
-    std::shared_ptr<string> fileName_ = nullptr;
-    std::shared_ptr<string> key_ = nullptr;
+    shared_ptr<string> fileName_ {};
+    shared_ptr<string> key_ {};
   };
 
   } // namespace Models

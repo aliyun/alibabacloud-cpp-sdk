@@ -34,34 +34,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->instanceOwnerId_ == nullptr && return this->jobId_ == nullptr; };
+        && this->instanceOwnerId_ == nullptr && this->jobId_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline TaskPreparingRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // instanceOwnerId Field Functions 
     bool hasInstanceOwnerId() const { return this->instanceOwnerId_ != nullptr;};
     void deleteInstanceOwnerId() { this->instanceOwnerId_ = nullptr;};
-    inline int64_t instanceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(instanceOwnerId_, 0L) };
+    inline int64_t getInstanceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(instanceOwnerId_, 0L) };
     inline TaskPreparingRequest& setInstanceOwnerId(int64_t instanceOwnerId) { DARABONBA_PTR_SET_VALUE(instanceOwnerId_, instanceOwnerId) };
 
 
     // jobId Field Functions 
     bool hasJobId() const { return this->jobId_ != nullptr;};
     void deleteJobId() { this->jobId_ = nullptr;};
-    inline string jobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
+    inline string getJobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
     inline TaskPreparingRequest& setJobId(string jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<int64_t> instanceOwnerId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<int64_t> instanceOwnerId_ {};
     // This parameter is required.
-    std::shared_ptr<string> jobId_ = nullptr;
+    shared_ptr<string> jobId_ {};
   };
 
   } // namespace Models

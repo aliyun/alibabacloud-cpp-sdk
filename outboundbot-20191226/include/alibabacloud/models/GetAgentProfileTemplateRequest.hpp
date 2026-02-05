@@ -32,25 +32,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentProfileTemplateId_ == nullptr
-        && return this->appIp_ == nullptr; };
+        && this->appIp_ == nullptr; };
     // agentProfileTemplateId Field Functions 
     bool hasAgentProfileTemplateId() const { return this->agentProfileTemplateId_ != nullptr;};
     void deleteAgentProfileTemplateId() { this->agentProfileTemplateId_ = nullptr;};
-    inline string agentProfileTemplateId() const { DARABONBA_PTR_GET_DEFAULT(agentProfileTemplateId_, "") };
+    inline string getAgentProfileTemplateId() const { DARABONBA_PTR_GET_DEFAULT(agentProfileTemplateId_, "") };
     inline GetAgentProfileTemplateRequest& setAgentProfileTemplateId(string agentProfileTemplateId) { DARABONBA_PTR_SET_VALUE(agentProfileTemplateId_, agentProfileTemplateId) };
 
 
     // appIp Field Functions 
     bool hasAppIp() const { return this->appIp_ != nullptr;};
     void deleteAppIp() { this->appIp_ = nullptr;};
-    inline string appIp() const { DARABONBA_PTR_GET_DEFAULT(appIp_, "") };
+    inline string getAppIp() const { DARABONBA_PTR_GET_DEFAULT(appIp_, "") };
     inline GetAgentProfileTemplateRequest& setAppIp(string appIp) { DARABONBA_PTR_SET_VALUE(appIp_, appIp) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> agentProfileTemplateId_ = nullptr;
-    std::shared_ptr<string> appIp_ = nullptr;
+    shared_ptr<string> agentProfileTemplateId_ {};
+    shared_ptr<string> appIp_ {};
   };
 
   } // namespace Models

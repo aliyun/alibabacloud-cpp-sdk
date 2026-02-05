@@ -56,126 +56,126 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentProfileTemplateId_ == nullptr
-        && return this->appIp_ == nullptr && return this->description_ == nullptr && return this->faqCategoryIds_ == nullptr && return this->instanceId_ == nullptr && return this->instructionJson_ == nullptr
-        && return this->labelsJson_ == nullptr && return this->model_ == nullptr && return this->modelConfig_ == nullptr && return this->prompt_ == nullptr && return this->promptJson_ == nullptr
-        && return this->scenario_ == nullptr && return this->scriptId_ == nullptr && return this->variablesJson_ == nullptr; };
+        && this->appIp_ == nullptr && this->description_ == nullptr && this->faqCategoryIds_ == nullptr && this->instanceId_ == nullptr && this->instructionJson_ == nullptr
+        && this->labelsJson_ == nullptr && this->model_ == nullptr && this->modelConfig_ == nullptr && this->prompt_ == nullptr && this->promptJson_ == nullptr
+        && this->scenario_ == nullptr && this->scriptId_ == nullptr && this->variablesJson_ == nullptr; };
     // agentProfileTemplateId Field Functions 
     bool hasAgentProfileTemplateId() const { return this->agentProfileTemplateId_ != nullptr;};
     void deleteAgentProfileTemplateId() { this->agentProfileTemplateId_ = nullptr;};
-    inline string agentProfileTemplateId() const { DARABONBA_PTR_GET_DEFAULT(agentProfileTemplateId_, "") };
+    inline string getAgentProfileTemplateId() const { DARABONBA_PTR_GET_DEFAULT(agentProfileTemplateId_, "") };
     inline CreateAgentProfileRequest& setAgentProfileTemplateId(string agentProfileTemplateId) { DARABONBA_PTR_SET_VALUE(agentProfileTemplateId_, agentProfileTemplateId) };
 
 
     // appIp Field Functions 
     bool hasAppIp() const { return this->appIp_ != nullptr;};
     void deleteAppIp() { this->appIp_ = nullptr;};
-    inline string appIp() const { DARABONBA_PTR_GET_DEFAULT(appIp_, "") };
+    inline string getAppIp() const { DARABONBA_PTR_GET_DEFAULT(appIp_, "") };
     inline CreateAgentProfileRequest& setAppIp(string appIp) { DARABONBA_PTR_SET_VALUE(appIp_, appIp) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateAgentProfileRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // faqCategoryIds Field Functions 
     bool hasFaqCategoryIds() const { return this->faqCategoryIds_ != nullptr;};
     void deleteFaqCategoryIds() { this->faqCategoryIds_ = nullptr;};
-    inline string faqCategoryIds() const { DARABONBA_PTR_GET_DEFAULT(faqCategoryIds_, "") };
+    inline string getFaqCategoryIds() const { DARABONBA_PTR_GET_DEFAULT(faqCategoryIds_, "") };
     inline CreateAgentProfileRequest& setFaqCategoryIds(string faqCategoryIds) { DARABONBA_PTR_SET_VALUE(faqCategoryIds_, faqCategoryIds) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline CreateAgentProfileRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // instructionJson Field Functions 
     bool hasInstructionJson() const { return this->instructionJson_ != nullptr;};
     void deleteInstructionJson() { this->instructionJson_ = nullptr;};
-    inline string instructionJson() const { DARABONBA_PTR_GET_DEFAULT(instructionJson_, "") };
+    inline string getInstructionJson() const { DARABONBA_PTR_GET_DEFAULT(instructionJson_, "") };
     inline CreateAgentProfileRequest& setInstructionJson(string instructionJson) { DARABONBA_PTR_SET_VALUE(instructionJson_, instructionJson) };
 
 
     // labelsJson Field Functions 
     bool hasLabelsJson() const { return this->labelsJson_ != nullptr;};
     void deleteLabelsJson() { this->labelsJson_ = nullptr;};
-    inline string labelsJson() const { DARABONBA_PTR_GET_DEFAULT(labelsJson_, "") };
+    inline string getLabelsJson() const { DARABONBA_PTR_GET_DEFAULT(labelsJson_, "") };
     inline CreateAgentProfileRequest& setLabelsJson(string labelsJson) { DARABONBA_PTR_SET_VALUE(labelsJson_, labelsJson) };
 
 
     // model Field Functions 
     bool hasModel() const { return this->model_ != nullptr;};
     void deleteModel() { this->model_ = nullptr;};
-    inline string model() const { DARABONBA_PTR_GET_DEFAULT(model_, "") };
+    inline string getModel() const { DARABONBA_PTR_GET_DEFAULT(model_, "") };
     inline CreateAgentProfileRequest& setModel(string model) { DARABONBA_PTR_SET_VALUE(model_, model) };
 
 
     // modelConfig Field Functions 
     bool hasModelConfig() const { return this->modelConfig_ != nullptr;};
     void deleteModelConfig() { this->modelConfig_ = nullptr;};
-    inline string modelConfig() const { DARABONBA_PTR_GET_DEFAULT(modelConfig_, "") };
+    inline string getModelConfig() const { DARABONBA_PTR_GET_DEFAULT(modelConfig_, "") };
     inline CreateAgentProfileRequest& setModelConfig(string modelConfig) { DARABONBA_PTR_SET_VALUE(modelConfig_, modelConfig) };
 
 
     // prompt Field Functions 
     bool hasPrompt() const { return this->prompt_ != nullptr;};
     void deletePrompt() { this->prompt_ = nullptr;};
-    inline string prompt() const { DARABONBA_PTR_GET_DEFAULT(prompt_, "") };
+    inline string getPrompt() const { DARABONBA_PTR_GET_DEFAULT(prompt_, "") };
     inline CreateAgentProfileRequest& setPrompt(string prompt) { DARABONBA_PTR_SET_VALUE(prompt_, prompt) };
 
 
     // promptJson Field Functions 
     bool hasPromptJson() const { return this->promptJson_ != nullptr;};
     void deletePromptJson() { this->promptJson_ = nullptr;};
-    inline string promptJson() const { DARABONBA_PTR_GET_DEFAULT(promptJson_, "") };
+    inline string getPromptJson() const { DARABONBA_PTR_GET_DEFAULT(promptJson_, "") };
     inline CreateAgentProfileRequest& setPromptJson(string promptJson) { DARABONBA_PTR_SET_VALUE(promptJson_, promptJson) };
 
 
     // scenario Field Functions 
     bool hasScenario() const { return this->scenario_ != nullptr;};
     void deleteScenario() { this->scenario_ = nullptr;};
-    inline string scenario() const { DARABONBA_PTR_GET_DEFAULT(scenario_, "") };
+    inline string getScenario() const { DARABONBA_PTR_GET_DEFAULT(scenario_, "") };
     inline CreateAgentProfileRequest& setScenario(string scenario) { DARABONBA_PTR_SET_VALUE(scenario_, scenario) };
 
 
     // scriptId Field Functions 
     bool hasScriptId() const { return this->scriptId_ != nullptr;};
     void deleteScriptId() { this->scriptId_ = nullptr;};
-    inline string scriptId() const { DARABONBA_PTR_GET_DEFAULT(scriptId_, "") };
+    inline string getScriptId() const { DARABONBA_PTR_GET_DEFAULT(scriptId_, "") };
     inline CreateAgentProfileRequest& setScriptId(string scriptId) { DARABONBA_PTR_SET_VALUE(scriptId_, scriptId) };
 
 
     // variablesJson Field Functions 
     bool hasVariablesJson() const { return this->variablesJson_ != nullptr;};
     void deleteVariablesJson() { this->variablesJson_ = nullptr;};
-    inline string variablesJson() const { DARABONBA_PTR_GET_DEFAULT(variablesJson_, "") };
+    inline string getVariablesJson() const { DARABONBA_PTR_GET_DEFAULT(variablesJson_, "") };
     inline CreateAgentProfileRequest& setVariablesJson(string variablesJson) { DARABONBA_PTR_SET_VALUE(variablesJson_, variablesJson) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> agentProfileTemplateId_ = nullptr;
-    std::shared_ptr<string> appIp_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<string> faqCategoryIds_ = nullptr;
+    shared_ptr<string> agentProfileTemplateId_ {};
+    shared_ptr<string> appIp_ {};
+    shared_ptr<string> description_ {};
+    shared_ptr<string> faqCategoryIds_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> instructionJson_ = nullptr;
-    std::shared_ptr<string> labelsJson_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> instructionJson_ {};
+    shared_ptr<string> labelsJson_ {};
     // This parameter is required.
-    std::shared_ptr<string> model_ = nullptr;
-    std::shared_ptr<string> modelConfig_ = nullptr;
-    std::shared_ptr<string> prompt_ = nullptr;
-    std::shared_ptr<string> promptJson_ = nullptr;
-    std::shared_ptr<string> scenario_ = nullptr;
+    shared_ptr<string> model_ {};
+    shared_ptr<string> modelConfig_ {};
+    shared_ptr<string> prompt_ {};
+    shared_ptr<string> promptJson_ {};
+    shared_ptr<string> scenario_ {};
     // This parameter is required.
-    std::shared_ptr<string> scriptId_ = nullptr;
-    std::shared_ptr<string> variablesJson_ = nullptr;
+    shared_ptr<string> scriptId_ {};
+    shared_ptr<string> variablesJson_ {};
   };
 
   } // namespace Models

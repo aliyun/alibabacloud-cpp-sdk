@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->lgfDefinitionShrink_ == nullptr && return this->lgfId_ == nullptr && return this->scriptId_ == nullptr; };
+        && this->lgfDefinitionShrink_ == nullptr && this->lgfId_ == nullptr && this->scriptId_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ModifyBeebotIntentLgfShrinkRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // lgfDefinitionShrink Field Functions 
     bool hasLgfDefinitionShrink() const { return this->lgfDefinitionShrink_ != nullptr;};
     void deleteLgfDefinitionShrink() { this->lgfDefinitionShrink_ = nullptr;};
-    inline string lgfDefinitionShrink() const { DARABONBA_PTR_GET_DEFAULT(lgfDefinitionShrink_, "") };
+    inline string getLgfDefinitionShrink() const { DARABONBA_PTR_GET_DEFAULT(lgfDefinitionShrink_, "") };
     inline ModifyBeebotIntentLgfShrinkRequest& setLgfDefinitionShrink(string lgfDefinitionShrink) { DARABONBA_PTR_SET_VALUE(lgfDefinitionShrink_, lgfDefinitionShrink) };
 
 
     // lgfId Field Functions 
     bool hasLgfId() const { return this->lgfId_ != nullptr;};
     void deleteLgfId() { this->lgfId_ = nullptr;};
-    inline int64_t lgfId() const { DARABONBA_PTR_GET_DEFAULT(lgfId_, 0L) };
+    inline int64_t getLgfId() const { DARABONBA_PTR_GET_DEFAULT(lgfId_, 0L) };
     inline ModifyBeebotIntentLgfShrinkRequest& setLgfId(int64_t lgfId) { DARABONBA_PTR_SET_VALUE(lgfId_, lgfId) };
 
 
     // scriptId Field Functions 
     bool hasScriptId() const { return this->scriptId_ != nullptr;};
     void deleteScriptId() { this->scriptId_ = nullptr;};
-    inline string scriptId() const { DARABONBA_PTR_GET_DEFAULT(scriptId_, "") };
+    inline string getScriptId() const { DARABONBA_PTR_GET_DEFAULT(scriptId_, "") };
     inline ModifyBeebotIntentLgfShrinkRequest& setScriptId(string scriptId) { DARABONBA_PTR_SET_VALUE(scriptId_, scriptId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> lgfDefinitionShrink_ = nullptr;
+    shared_ptr<string> lgfDefinitionShrink_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> lgfId_ = nullptr;
+    shared_ptr<int64_t> lgfId_ {};
     // This parameter is required.
-    std::shared_ptr<string> scriptId_ = nullptr;
+    shared_ptr<string> scriptId_ {};
   };
 
   } // namespace Models

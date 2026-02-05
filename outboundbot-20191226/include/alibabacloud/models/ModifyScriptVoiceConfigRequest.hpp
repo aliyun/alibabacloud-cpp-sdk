@@ -38,52 +38,52 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->scriptId_ == nullptr && return this->scriptVoiceConfigId_ == nullptr && return this->scriptWaveformRelation_ == nullptr && return this->type_ == nullptr; };
+        && this->scriptId_ == nullptr && this->scriptVoiceConfigId_ == nullptr && this->scriptWaveformRelation_ == nullptr && this->type_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ModifyScriptVoiceConfigRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // scriptId Field Functions 
     bool hasScriptId() const { return this->scriptId_ != nullptr;};
     void deleteScriptId() { this->scriptId_ = nullptr;};
-    inline string scriptId() const { DARABONBA_PTR_GET_DEFAULT(scriptId_, "") };
+    inline string getScriptId() const { DARABONBA_PTR_GET_DEFAULT(scriptId_, "") };
     inline ModifyScriptVoiceConfigRequest& setScriptId(string scriptId) { DARABONBA_PTR_SET_VALUE(scriptId_, scriptId) };
 
 
     // scriptVoiceConfigId Field Functions 
     bool hasScriptVoiceConfigId() const { return this->scriptVoiceConfigId_ != nullptr;};
     void deleteScriptVoiceConfigId() { this->scriptVoiceConfigId_ = nullptr;};
-    inline string scriptVoiceConfigId() const { DARABONBA_PTR_GET_DEFAULT(scriptVoiceConfigId_, "") };
+    inline string getScriptVoiceConfigId() const { DARABONBA_PTR_GET_DEFAULT(scriptVoiceConfigId_, "") };
     inline ModifyScriptVoiceConfigRequest& setScriptVoiceConfigId(string scriptVoiceConfigId) { DARABONBA_PTR_SET_VALUE(scriptVoiceConfigId_, scriptVoiceConfigId) };
 
 
     // scriptWaveformRelation Field Functions 
     bool hasScriptWaveformRelation() const { return this->scriptWaveformRelation_ != nullptr;};
     void deleteScriptWaveformRelation() { this->scriptWaveformRelation_ = nullptr;};
-    inline string scriptWaveformRelation() const { DARABONBA_PTR_GET_DEFAULT(scriptWaveformRelation_, "") };
+    inline string getScriptWaveformRelation() const { DARABONBA_PTR_GET_DEFAULT(scriptWaveformRelation_, "") };
     inline ModifyScriptVoiceConfigRequest& setScriptWaveformRelation(string scriptWaveformRelation) { DARABONBA_PTR_SET_VALUE(scriptWaveformRelation_, scriptWaveformRelation) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline ModifyScriptVoiceConfigRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> scriptId_ = nullptr;
+    shared_ptr<string> scriptId_ {};
     // This parameter is required.
-    std::shared_ptr<string> scriptVoiceConfigId_ = nullptr;
-    std::shared_ptr<string> scriptWaveformRelation_ = nullptr;
+    shared_ptr<string> scriptVoiceConfigId_ {};
+    shared_ptr<string> scriptWaveformRelation_ {};
     // This parameter is required.
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

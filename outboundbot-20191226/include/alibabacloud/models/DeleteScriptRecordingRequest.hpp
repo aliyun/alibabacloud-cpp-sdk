@@ -34,34 +34,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->scriptId_ == nullptr && return this->uuidsJson_ == nullptr; };
+        && this->scriptId_ == nullptr && this->uuidsJson_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DeleteScriptRecordingRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // scriptId Field Functions 
     bool hasScriptId() const { return this->scriptId_ != nullptr;};
     void deleteScriptId() { this->scriptId_ = nullptr;};
-    inline string scriptId() const { DARABONBA_PTR_GET_DEFAULT(scriptId_, "") };
+    inline string getScriptId() const { DARABONBA_PTR_GET_DEFAULT(scriptId_, "") };
     inline DeleteScriptRecordingRequest& setScriptId(string scriptId) { DARABONBA_PTR_SET_VALUE(scriptId_, scriptId) };
 
 
     // uuidsJson Field Functions 
     bool hasUuidsJson() const { return this->uuidsJson_ != nullptr;};
     void deleteUuidsJson() { this->uuidsJson_ = nullptr;};
-    inline string uuidsJson() const { DARABONBA_PTR_GET_DEFAULT(uuidsJson_, "") };
+    inline string getUuidsJson() const { DARABONBA_PTR_GET_DEFAULT(uuidsJson_, "") };
     inline DeleteScriptRecordingRequest& setUuidsJson(string uuidsJson) { DARABONBA_PTR_SET_VALUE(uuidsJson_, uuidsJson) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> scriptId_ = nullptr;
-    std::shared_ptr<string> uuidsJson_ = nullptr;
+    shared_ptr<string> scriptId_ {};
+    shared_ptr<string> uuidsJson_ {};
   };
 
   } // namespace Models

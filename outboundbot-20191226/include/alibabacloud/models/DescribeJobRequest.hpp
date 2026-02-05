@@ -34,34 +34,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->jobId_ == nullptr && return this->withScript_ == nullptr; };
+        && this->jobId_ == nullptr && this->withScript_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DescribeJobRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // jobId Field Functions 
     bool hasJobId() const { return this->jobId_ != nullptr;};
     void deleteJobId() { this->jobId_ = nullptr;};
-    inline string jobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
+    inline string getJobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
     inline DescribeJobRequest& setJobId(string jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
 
 
     // withScript Field Functions 
     bool hasWithScript() const { return this->withScript_ != nullptr;};
     void deleteWithScript() { this->withScript_ = nullptr;};
-    inline bool withScript() const { DARABONBA_PTR_GET_DEFAULT(withScript_, false) };
+    inline bool getWithScript() const { DARABONBA_PTR_GET_DEFAULT(withScript_, false) };
     inline DescribeJobRequest& setWithScript(bool withScript) { DARABONBA_PTR_SET_VALUE(withScript_, withScript) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> jobId_ = nullptr;
-    std::shared_ptr<bool> withScript_ = nullptr;
+    shared_ptr<string> jobId_ {};
+    shared_ptr<bool> withScript_ {};
   };
 
   } // namespace Models

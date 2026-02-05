@@ -34,33 +34,33 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->emptyNumberNoMoreCalls_ == nullptr
-        && return this->entryId_ == nullptr && return this->strategyLevel_ == nullptr; };
+        && this->entryId_ == nullptr && this->strategyLevel_ == nullptr; };
     // emptyNumberNoMoreCalls Field Functions 
     bool hasEmptyNumberNoMoreCalls() const { return this->emptyNumberNoMoreCalls_ != nullptr;};
     void deleteEmptyNumberNoMoreCalls() { this->emptyNumberNoMoreCalls_ = nullptr;};
-    inline bool emptyNumberNoMoreCalls() const { DARABONBA_PTR_GET_DEFAULT(emptyNumberNoMoreCalls_, false) };
+    inline bool getEmptyNumberNoMoreCalls() const { DARABONBA_PTR_GET_DEFAULT(emptyNumberNoMoreCalls_, false) };
     inline ModifyEmptyNumberNoMoreCallsInfoRequest& setEmptyNumberNoMoreCalls(bool emptyNumberNoMoreCalls) { DARABONBA_PTR_SET_VALUE(emptyNumberNoMoreCalls_, emptyNumberNoMoreCalls) };
 
 
     // entryId Field Functions 
     bool hasEntryId() const { return this->entryId_ != nullptr;};
     void deleteEntryId() { this->entryId_ = nullptr;};
-    inline string entryId() const { DARABONBA_PTR_GET_DEFAULT(entryId_, "") };
+    inline string getEntryId() const { DARABONBA_PTR_GET_DEFAULT(entryId_, "") };
     inline ModifyEmptyNumberNoMoreCallsInfoRequest& setEntryId(string entryId) { DARABONBA_PTR_SET_VALUE(entryId_, entryId) };
 
 
     // strategyLevel Field Functions 
     bool hasStrategyLevel() const { return this->strategyLevel_ != nullptr;};
     void deleteStrategyLevel() { this->strategyLevel_ = nullptr;};
-    inline int32_t strategyLevel() const { DARABONBA_PTR_GET_DEFAULT(strategyLevel_, 0) };
+    inline int32_t getStrategyLevel() const { DARABONBA_PTR_GET_DEFAULT(strategyLevel_, 0) };
     inline ModifyEmptyNumberNoMoreCallsInfoRequest& setStrategyLevel(int32_t strategyLevel) { DARABONBA_PTR_SET_VALUE(strategyLevel_, strategyLevel) };
 
 
   protected:
-    std::shared_ptr<bool> emptyNumberNoMoreCalls_ = nullptr;
+    shared_ptr<bool> emptyNumberNoMoreCalls_ {};
     // This parameter is required.
-    std::shared_ptr<string> entryId_ = nullptr;
-    std::shared_ptr<int32_t> strategyLevel_ = nullptr;
+    shared_ptr<string> entryId_ {};
+    shared_ptr<int32_t> strategyLevel_ {};
   };
 
   } // namespace Models

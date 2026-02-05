@@ -57,70 +57,70 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->endActualTimeFilter_ == nullptr
-        && return this->hasAnsweredFilter_ == nullptr && return this->hasHangUpByRejectionFilter_ == nullptr && return this->hasReachedEndOfFlowFilter_ == nullptr && return this->instanceId_ == nullptr && return this->jobFailureReasonsFilter_ == nullptr
-        && return this->jobGroupId_ == nullptr && return this->jobStatusFilter_ == nullptr && return this->labelsJson_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr
-        && return this->queryText_ == nullptr && return this->startActualTimeFilter_ == nullptr && return this->taskStatusFilter_ == nullptr; };
+        && this->hasAnsweredFilter_ == nullptr && this->hasHangUpByRejectionFilter_ == nullptr && this->hasReachedEndOfFlowFilter_ == nullptr && this->instanceId_ == nullptr && this->jobFailureReasonsFilter_ == nullptr
+        && this->jobGroupId_ == nullptr && this->jobStatusFilter_ == nullptr && this->labelsJson_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
+        && this->queryText_ == nullptr && this->startActualTimeFilter_ == nullptr && this->taskStatusFilter_ == nullptr; };
     // endActualTimeFilter Field Functions 
     bool hasEndActualTimeFilter() const { return this->endActualTimeFilter_ != nullptr;};
     void deleteEndActualTimeFilter() { this->endActualTimeFilter_ = nullptr;};
-    inline int64_t endActualTimeFilter() const { DARABONBA_PTR_GET_DEFAULT(endActualTimeFilter_, 0L) };
+    inline int64_t getEndActualTimeFilter() const { DARABONBA_PTR_GET_DEFAULT(endActualTimeFilter_, 0L) };
     inline QueryJobsWithResultRequest& setEndActualTimeFilter(int64_t endActualTimeFilter) { DARABONBA_PTR_SET_VALUE(endActualTimeFilter_, endActualTimeFilter) };
 
 
     // hasAnsweredFilter Field Functions 
     bool hasHasAnsweredFilter() const { return this->hasAnsweredFilter_ != nullptr;};
     void deleteHasAnsweredFilter() { this->hasAnsweredFilter_ = nullptr;};
-    inline bool hasAnsweredFilter() const { DARABONBA_PTR_GET_DEFAULT(hasAnsweredFilter_, false) };
+    inline bool getHasAnsweredFilter() const { DARABONBA_PTR_GET_DEFAULT(hasAnsweredFilter_, false) };
     inline QueryJobsWithResultRequest& setHasAnsweredFilter(bool hasAnsweredFilter) { DARABONBA_PTR_SET_VALUE(hasAnsweredFilter_, hasAnsweredFilter) };
 
 
     // hasHangUpByRejectionFilter Field Functions 
     bool hasHasHangUpByRejectionFilter() const { return this->hasHangUpByRejectionFilter_ != nullptr;};
     void deleteHasHangUpByRejectionFilter() { this->hasHangUpByRejectionFilter_ = nullptr;};
-    inline bool hasHangUpByRejectionFilter() const { DARABONBA_PTR_GET_DEFAULT(hasHangUpByRejectionFilter_, false) };
+    inline bool getHasHangUpByRejectionFilter() const { DARABONBA_PTR_GET_DEFAULT(hasHangUpByRejectionFilter_, false) };
     inline QueryJobsWithResultRequest& setHasHangUpByRejectionFilter(bool hasHangUpByRejectionFilter) { DARABONBA_PTR_SET_VALUE(hasHangUpByRejectionFilter_, hasHangUpByRejectionFilter) };
 
 
     // hasReachedEndOfFlowFilter Field Functions 
     bool hasHasReachedEndOfFlowFilter() const { return this->hasReachedEndOfFlowFilter_ != nullptr;};
     void deleteHasReachedEndOfFlowFilter() { this->hasReachedEndOfFlowFilter_ = nullptr;};
-    inline bool hasReachedEndOfFlowFilter() const { DARABONBA_PTR_GET_DEFAULT(hasReachedEndOfFlowFilter_, false) };
+    inline bool getHasReachedEndOfFlowFilter() const { DARABONBA_PTR_GET_DEFAULT(hasReachedEndOfFlowFilter_, false) };
     inline QueryJobsWithResultRequest& setHasReachedEndOfFlowFilter(bool hasReachedEndOfFlowFilter) { DARABONBA_PTR_SET_VALUE(hasReachedEndOfFlowFilter_, hasReachedEndOfFlowFilter) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline QueryJobsWithResultRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // jobFailureReasonsFilter Field Functions 
     bool hasJobFailureReasonsFilter() const { return this->jobFailureReasonsFilter_ != nullptr;};
     void deleteJobFailureReasonsFilter() { this->jobFailureReasonsFilter_ = nullptr;};
-    inline string jobFailureReasonsFilter() const { DARABONBA_PTR_GET_DEFAULT(jobFailureReasonsFilter_, "") };
+    inline string getJobFailureReasonsFilter() const { DARABONBA_PTR_GET_DEFAULT(jobFailureReasonsFilter_, "") };
     inline QueryJobsWithResultRequest& setJobFailureReasonsFilter(string jobFailureReasonsFilter) { DARABONBA_PTR_SET_VALUE(jobFailureReasonsFilter_, jobFailureReasonsFilter) };
 
 
     // jobGroupId Field Functions 
     bool hasJobGroupId() const { return this->jobGroupId_ != nullptr;};
     void deleteJobGroupId() { this->jobGroupId_ = nullptr;};
-    inline string jobGroupId() const { DARABONBA_PTR_GET_DEFAULT(jobGroupId_, "") };
+    inline string getJobGroupId() const { DARABONBA_PTR_GET_DEFAULT(jobGroupId_, "") };
     inline QueryJobsWithResultRequest& setJobGroupId(string jobGroupId) { DARABONBA_PTR_SET_VALUE(jobGroupId_, jobGroupId) };
 
 
     // jobStatusFilter Field Functions 
     bool hasJobStatusFilter() const { return this->jobStatusFilter_ != nullptr;};
     void deleteJobStatusFilter() { this->jobStatusFilter_ = nullptr;};
-    inline string jobStatusFilter() const { DARABONBA_PTR_GET_DEFAULT(jobStatusFilter_, "") };
+    inline string getJobStatusFilter() const { DARABONBA_PTR_GET_DEFAULT(jobStatusFilter_, "") };
     inline QueryJobsWithResultRequest& setJobStatusFilter(string jobStatusFilter) { DARABONBA_PTR_SET_VALUE(jobStatusFilter_, jobStatusFilter) };
 
 
     // labelsJson Field Functions 
     bool hasLabelsJson() const { return this->labelsJson_ != nullptr;};
     void deleteLabelsJson() { this->labelsJson_ = nullptr;};
-    inline const vector<string> & labelsJson() const { DARABONBA_PTR_GET_CONST(labelsJson_, vector<string>) };
-    inline vector<string> labelsJson() { DARABONBA_PTR_GET(labelsJson_, vector<string>) };
+    inline const vector<string> & getLabelsJson() const { DARABONBA_PTR_GET_CONST(labelsJson_, vector<string>) };
+    inline vector<string> getLabelsJson() { DARABONBA_PTR_GET(labelsJson_, vector<string>) };
     inline QueryJobsWithResultRequest& setLabelsJson(const vector<string> & labelsJson) { DARABONBA_PTR_SET_VALUE(labelsJson_, labelsJson) };
     inline QueryJobsWithResultRequest& setLabelsJson(vector<string> && labelsJson) { DARABONBA_PTR_SET_RVALUE(labelsJson_, labelsJson) };
 
@@ -128,55 +128,55 @@ namespace Models
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline QueryJobsWithResultRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline QueryJobsWithResultRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // queryText Field Functions 
     bool hasQueryText() const { return this->queryText_ != nullptr;};
     void deleteQueryText() { this->queryText_ = nullptr;};
-    inline string queryText() const { DARABONBA_PTR_GET_DEFAULT(queryText_, "") };
+    inline string getQueryText() const { DARABONBA_PTR_GET_DEFAULT(queryText_, "") };
     inline QueryJobsWithResultRequest& setQueryText(string queryText) { DARABONBA_PTR_SET_VALUE(queryText_, queryText) };
 
 
     // startActualTimeFilter Field Functions 
     bool hasStartActualTimeFilter() const { return this->startActualTimeFilter_ != nullptr;};
     void deleteStartActualTimeFilter() { this->startActualTimeFilter_ = nullptr;};
-    inline int64_t startActualTimeFilter() const { DARABONBA_PTR_GET_DEFAULT(startActualTimeFilter_, 0L) };
+    inline int64_t getStartActualTimeFilter() const { DARABONBA_PTR_GET_DEFAULT(startActualTimeFilter_, 0L) };
     inline QueryJobsWithResultRequest& setStartActualTimeFilter(int64_t startActualTimeFilter) { DARABONBA_PTR_SET_VALUE(startActualTimeFilter_, startActualTimeFilter) };
 
 
     // taskStatusFilter Field Functions 
     bool hasTaskStatusFilter() const { return this->taskStatusFilter_ != nullptr;};
     void deleteTaskStatusFilter() { this->taskStatusFilter_ = nullptr;};
-    inline string taskStatusFilter() const { DARABONBA_PTR_GET_DEFAULT(taskStatusFilter_, "") };
+    inline string getTaskStatusFilter() const { DARABONBA_PTR_GET_DEFAULT(taskStatusFilter_, "") };
     inline QueryJobsWithResultRequest& setTaskStatusFilter(string taskStatusFilter) { DARABONBA_PTR_SET_VALUE(taskStatusFilter_, taskStatusFilter) };
 
 
   protected:
-    std::shared_ptr<int64_t> endActualTimeFilter_ = nullptr;
-    std::shared_ptr<bool> hasAnsweredFilter_ = nullptr;
-    std::shared_ptr<bool> hasHangUpByRejectionFilter_ = nullptr;
-    std::shared_ptr<bool> hasReachedEndOfFlowFilter_ = nullptr;
+    shared_ptr<int64_t> endActualTimeFilter_ {};
+    shared_ptr<bool> hasAnsweredFilter_ {};
+    shared_ptr<bool> hasHangUpByRejectionFilter_ {};
+    shared_ptr<bool> hasReachedEndOfFlowFilter_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> jobFailureReasonsFilter_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> jobFailureReasonsFilter_ {};
     // This parameter is required.
-    std::shared_ptr<string> jobGroupId_ = nullptr;
-    std::shared_ptr<string> jobStatusFilter_ = nullptr;
-    std::shared_ptr<vector<string>> labelsJson_ = nullptr;
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    std::shared_ptr<string> queryText_ = nullptr;
-    std::shared_ptr<int64_t> startActualTimeFilter_ = nullptr;
-    std::shared_ptr<string> taskStatusFilter_ = nullptr;
+    shared_ptr<string> jobGroupId_ {};
+    shared_ptr<string> jobStatusFilter_ {};
+    shared_ptr<vector<string>> labelsJson_ {};
+    shared_ptr<int32_t> pageNumber_ {};
+    shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<string> queryText_ {};
+    shared_ptr<int64_t> startActualTimeFilter_ {};
+    shared_ptr<string> taskStatusFilter_ {};
   };
 
   } // namespace Models

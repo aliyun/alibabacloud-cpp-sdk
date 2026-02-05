@@ -34,34 +34,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentProfileId_ == nullptr
-        && return this->appIp_ == nullptr && return this->instanceId_ == nullptr; };
+        && this->appIp_ == nullptr && this->instanceId_ == nullptr; };
     // agentProfileId Field Functions 
     bool hasAgentProfileId() const { return this->agentProfileId_ != nullptr;};
     void deleteAgentProfileId() { this->agentProfileId_ = nullptr;};
-    inline string agentProfileId() const { DARABONBA_PTR_GET_DEFAULT(agentProfileId_, "") };
+    inline string getAgentProfileId() const { DARABONBA_PTR_GET_DEFAULT(agentProfileId_, "") };
     inline GetAgentProfileRequest& setAgentProfileId(string agentProfileId) { DARABONBA_PTR_SET_VALUE(agentProfileId_, agentProfileId) };
 
 
     // appIp Field Functions 
     bool hasAppIp() const { return this->appIp_ != nullptr;};
     void deleteAppIp() { this->appIp_ = nullptr;};
-    inline string appIp() const { DARABONBA_PTR_GET_DEFAULT(appIp_, "") };
+    inline string getAppIp() const { DARABONBA_PTR_GET_DEFAULT(appIp_, "") };
     inline GetAgentProfileRequest& setAppIp(string appIp) { DARABONBA_PTR_SET_VALUE(appIp_, appIp) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline GetAgentProfileRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> agentProfileId_ = nullptr;
-    std::shared_ptr<string> appIp_ = nullptr;
+    shared_ptr<string> agentProfileId_ {};
+    shared_ptr<string> appIp_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
   };
 
   } // namespace Models

@@ -42,70 +42,70 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->intentDescription_ == nullptr && return this->intentId_ == nullptr && return this->intentName_ == nullptr && return this->keywords_ == nullptr && return this->scriptId_ == nullptr
-        && return this->utterances_ == nullptr; };
+        && this->intentDescription_ == nullptr && this->intentId_ == nullptr && this->intentName_ == nullptr && this->keywords_ == nullptr && this->scriptId_ == nullptr
+        && this->utterances_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ModifyIntentRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // intentDescription Field Functions 
     bool hasIntentDescription() const { return this->intentDescription_ != nullptr;};
     void deleteIntentDescription() { this->intentDescription_ = nullptr;};
-    inline string intentDescription() const { DARABONBA_PTR_GET_DEFAULT(intentDescription_, "") };
+    inline string getIntentDescription() const { DARABONBA_PTR_GET_DEFAULT(intentDescription_, "") };
     inline ModifyIntentRequest& setIntentDescription(string intentDescription) { DARABONBA_PTR_SET_VALUE(intentDescription_, intentDescription) };
 
 
     // intentId Field Functions 
     bool hasIntentId() const { return this->intentId_ != nullptr;};
     void deleteIntentId() { this->intentId_ = nullptr;};
-    inline string intentId() const { DARABONBA_PTR_GET_DEFAULT(intentId_, "") };
+    inline string getIntentId() const { DARABONBA_PTR_GET_DEFAULT(intentId_, "") };
     inline ModifyIntentRequest& setIntentId(string intentId) { DARABONBA_PTR_SET_VALUE(intentId_, intentId) };
 
 
     // intentName Field Functions 
     bool hasIntentName() const { return this->intentName_ != nullptr;};
     void deleteIntentName() { this->intentName_ = nullptr;};
-    inline string intentName() const { DARABONBA_PTR_GET_DEFAULT(intentName_, "") };
+    inline string getIntentName() const { DARABONBA_PTR_GET_DEFAULT(intentName_, "") };
     inline ModifyIntentRequest& setIntentName(string intentName) { DARABONBA_PTR_SET_VALUE(intentName_, intentName) };
 
 
     // keywords Field Functions 
     bool hasKeywords() const { return this->keywords_ != nullptr;};
     void deleteKeywords() { this->keywords_ = nullptr;};
-    inline string keywords() const { DARABONBA_PTR_GET_DEFAULT(keywords_, "") };
+    inline string getKeywords() const { DARABONBA_PTR_GET_DEFAULT(keywords_, "") };
     inline ModifyIntentRequest& setKeywords(string keywords) { DARABONBA_PTR_SET_VALUE(keywords_, keywords) };
 
 
     // scriptId Field Functions 
     bool hasScriptId() const { return this->scriptId_ != nullptr;};
     void deleteScriptId() { this->scriptId_ = nullptr;};
-    inline string scriptId() const { DARABONBA_PTR_GET_DEFAULT(scriptId_, "") };
+    inline string getScriptId() const { DARABONBA_PTR_GET_DEFAULT(scriptId_, "") };
     inline ModifyIntentRequest& setScriptId(string scriptId) { DARABONBA_PTR_SET_VALUE(scriptId_, scriptId) };
 
 
     // utterances Field Functions 
     bool hasUtterances() const { return this->utterances_ != nullptr;};
     void deleteUtterances() { this->utterances_ = nullptr;};
-    inline string utterances() const { DARABONBA_PTR_GET_DEFAULT(utterances_, "") };
+    inline string getUtterances() const { DARABONBA_PTR_GET_DEFAULT(utterances_, "") };
     inline ModifyIntentRequest& setUtterances(string utterances) { DARABONBA_PTR_SET_VALUE(utterances_, utterances) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> intentDescription_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> intentDescription_ {};
     // This parameter is required.
-    std::shared_ptr<string> intentId_ = nullptr;
+    shared_ptr<string> intentId_ {};
     // This parameter is required.
-    std::shared_ptr<string> intentName_ = nullptr;
-    std::shared_ptr<string> keywords_ = nullptr;
+    shared_ptr<string> intentName_ {};
+    shared_ptr<string> keywords_ {};
     // This parameter is required.
-    std::shared_ptr<string> scriptId_ = nullptr;
+    shared_ptr<string> scriptId_ {};
     // This parameter is required.
-    std::shared_ptr<string> utterances_ = nullptr;
+    shared_ptr<string> utterances_ {};
   };
 
   } // namespace Models

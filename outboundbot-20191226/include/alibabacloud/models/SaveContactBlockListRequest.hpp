@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->contactBlockListList_ == nullptr
-        && return this->contactBlockListsJson_ == nullptr && return this->instanceId_ == nullptr; };
+        && this->contactBlockListsJson_ == nullptr && this->instanceId_ == nullptr; };
     // contactBlockListList Field Functions 
     bool hasContactBlockListList() const { return this->contactBlockListList_ != nullptr;};
     void deleteContactBlockListList() { this->contactBlockListList_ = nullptr;};
-    inline const vector<string> & contactBlockListList() const { DARABONBA_PTR_GET_CONST(contactBlockListList_, vector<string>) };
-    inline vector<string> contactBlockListList() { DARABONBA_PTR_GET(contactBlockListList_, vector<string>) };
+    inline const vector<string> & getContactBlockListList() const { DARABONBA_PTR_GET_CONST(contactBlockListList_, vector<string>) };
+    inline vector<string> getContactBlockListList() { DARABONBA_PTR_GET(contactBlockListList_, vector<string>) };
     inline SaveContactBlockListRequest& setContactBlockListList(const vector<string> & contactBlockListList) { DARABONBA_PTR_SET_VALUE(contactBlockListList_, contactBlockListList) };
     inline SaveContactBlockListRequest& setContactBlockListList(vector<string> && contactBlockListList) { DARABONBA_PTR_SET_RVALUE(contactBlockListList_, contactBlockListList) };
 
@@ -48,21 +48,21 @@ namespace Models
     // contactBlockListsJson Field Functions 
     bool hasContactBlockListsJson() const { return this->contactBlockListsJson_ != nullptr;};
     void deleteContactBlockListsJson() { this->contactBlockListsJson_ = nullptr;};
-    inline string contactBlockListsJson() const { DARABONBA_PTR_GET_DEFAULT(contactBlockListsJson_, "") };
+    inline string getContactBlockListsJson() const { DARABONBA_PTR_GET_DEFAULT(contactBlockListsJson_, "") };
     inline SaveContactBlockListRequest& setContactBlockListsJson(string contactBlockListsJson) { DARABONBA_PTR_SET_VALUE(contactBlockListsJson_, contactBlockListsJson) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline SaveContactBlockListRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
   protected:
-    std::shared_ptr<vector<string>> contactBlockListList_ = nullptr;
-    std::shared_ptr<string> contactBlockListsJson_ = nullptr;
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<vector<string>> contactBlockListList_ {};
+    shared_ptr<string> contactBlockListsJson_ {};
+    shared_ptr<string> instanceId_ {};
   };
 
   } // namespace Models

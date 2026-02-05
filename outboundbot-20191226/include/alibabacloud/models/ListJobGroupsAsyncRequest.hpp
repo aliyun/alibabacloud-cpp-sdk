@@ -33,13 +33,13 @@ namespace Models
     // asyncTaskId Field Functions 
     bool hasAsyncTaskId() const { return this->asyncTaskId_ != nullptr;};
     void deleteAsyncTaskId() { this->asyncTaskId_ = nullptr;};
-    inline string asyncTaskId() const { DARABONBA_PTR_GET_DEFAULT(asyncTaskId_, "") };
+    inline string getAsyncTaskId() const { DARABONBA_PTR_GET_DEFAULT(asyncTaskId_, "") };
     inline ListJobGroupsAsyncRequest& setAsyncTaskId(string asyncTaskId) { DARABONBA_PTR_SET_VALUE(asyncTaskId_, asyncTaskId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> asyncTaskId_ = nullptr;
+    shared_ptr<string> asyncTaskId_ {};
   };
 
   } // namespace Models

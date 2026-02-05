@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->briefTypes_ == nullptr
-        && return this->instanceId_ == nullptr && return this->jobGroupId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->jobGroupId_ == nullptr; };
     // briefTypes Field Functions 
     bool hasBriefTypes() const { return this->briefTypes_ != nullptr;};
     void deleteBriefTypes() { this->briefTypes_ = nullptr;};
-    inline const vector<string> & briefTypes() const { DARABONBA_PTR_GET_CONST(briefTypes_, vector<string>) };
-    inline vector<string> briefTypes() { DARABONBA_PTR_GET(briefTypes_, vector<string>) };
+    inline const vector<string> & getBriefTypes() const { DARABONBA_PTR_GET_CONST(briefTypes_, vector<string>) };
+    inline vector<string> getBriefTypes() { DARABONBA_PTR_GET(briefTypes_, vector<string>) };
     inline DescribeJobGroupRequest& setBriefTypes(const vector<string> & briefTypes) { DARABONBA_PTR_SET_VALUE(briefTypes_, briefTypes) };
     inline DescribeJobGroupRequest& setBriefTypes(vector<string> && briefTypes) { DARABONBA_PTR_SET_RVALUE(briefTypes_, briefTypes) };
 
@@ -48,23 +48,23 @@ namespace Models
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DescribeJobGroupRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // jobGroupId Field Functions 
     bool hasJobGroupId() const { return this->jobGroupId_ != nullptr;};
     void deleteJobGroupId() { this->jobGroupId_ = nullptr;};
-    inline string jobGroupId() const { DARABONBA_PTR_GET_DEFAULT(jobGroupId_, "") };
+    inline string getJobGroupId() const { DARABONBA_PTR_GET_DEFAULT(jobGroupId_, "") };
     inline DescribeJobGroupRequest& setJobGroupId(string jobGroupId) { DARABONBA_PTR_SET_VALUE(jobGroupId_, jobGroupId) };
 
 
   protected:
-    std::shared_ptr<vector<string>> briefTypes_ = nullptr;
+    shared_ptr<vector<string>> briefTypes_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> jobGroupId_ = nullptr;
+    shared_ptr<string> jobGroupId_ {};
   };
 
   } // namespace Models

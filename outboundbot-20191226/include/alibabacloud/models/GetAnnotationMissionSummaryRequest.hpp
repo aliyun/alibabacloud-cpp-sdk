@@ -33,12 +33,12 @@ namespace Models
     // annotationMissionId Field Functions 
     bool hasAnnotationMissionId() const { return this->annotationMissionId_ != nullptr;};
     void deleteAnnotationMissionId() { this->annotationMissionId_ = nullptr;};
-    inline string annotationMissionId() const { DARABONBA_PTR_GET_DEFAULT(annotationMissionId_, "") };
+    inline string getAnnotationMissionId() const { DARABONBA_PTR_GET_DEFAULT(annotationMissionId_, "") };
     inline GetAnnotationMissionSummaryRequest& setAnnotationMissionId(string annotationMissionId) { DARABONBA_PTR_SET_VALUE(annotationMissionId_, annotationMissionId) };
 
 
   protected:
-    std::shared_ptr<string> annotationMissionId_ = nullptr;
+    shared_ptr<string> annotationMissionId_ {};
   };
 
   } // namespace Models

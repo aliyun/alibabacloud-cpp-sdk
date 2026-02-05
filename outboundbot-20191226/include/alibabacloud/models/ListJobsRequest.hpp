@@ -33,28 +33,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->jobId_ == nullptr; };
+        && this->jobId_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ListJobsRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // jobId Field Functions 
     bool hasJobId() const { return this->jobId_ != nullptr;};
     void deleteJobId() { this->jobId_ = nullptr;};
-    inline const vector<string> & jobId() const { DARABONBA_PTR_GET_CONST(jobId_, vector<string>) };
-    inline vector<string> jobId() { DARABONBA_PTR_GET(jobId_, vector<string>) };
+    inline const vector<string> & getJobId() const { DARABONBA_PTR_GET_CONST(jobId_, vector<string>) };
+    inline vector<string> getJobId() { DARABONBA_PTR_GET(jobId_, vector<string>) };
     inline ListJobsRequest& setJobId(const vector<string> & jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
     inline ListJobsRequest& setJobId(vector<string> && jobId) { DARABONBA_PTR_SET_RVALUE(jobId_, jobId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<vector<string>> jobId_ = nullptr;
+    shared_ptr<vector<string>> jobId_ {};
   };
 
   } // namespace Models

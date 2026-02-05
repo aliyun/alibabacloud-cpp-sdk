@@ -34,34 +34,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->contactWhiteListId_ == nullptr
-        && return this->instanceId_ == nullptr && return this->operator_ == nullptr; };
+        && this->instanceId_ == nullptr && this->operator_ == nullptr; };
     // contactWhiteListId Field Functions 
     bool hasContactWhiteListId() const { return this->contactWhiteListId_ != nullptr;};
     void deleteContactWhiteListId() { this->contactWhiteListId_ = nullptr;};
-    inline string contactWhiteListId() const { DARABONBA_PTR_GET_DEFAULT(contactWhiteListId_, "") };
+    inline string getContactWhiteListId() const { DARABONBA_PTR_GET_DEFAULT(contactWhiteListId_, "") };
     inline DeleteContactWhiteListRequest& setContactWhiteListId(string contactWhiteListId) { DARABONBA_PTR_SET_VALUE(contactWhiteListId_, contactWhiteListId) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DeleteContactWhiteListRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // operator Field Functions 
     bool hasOperator() const { return this->operator_ != nullptr;};
     void deleteOperator() { this->operator_ = nullptr;};
-    inline string _operator() const { DARABONBA_PTR_GET_DEFAULT(operator_, "") };
+    inline string getOperator() const { DARABONBA_PTR_GET_DEFAULT(operator_, "") };
     inline DeleteContactWhiteListRequest& setOperator(string _operator) { DARABONBA_PTR_SET_VALUE(operator_, _operator) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> contactWhiteListId_ = nullptr;
+    shared_ptr<string> contactWhiteListId_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> operator_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> operator_ {};
   };
 
   } // namespace Models

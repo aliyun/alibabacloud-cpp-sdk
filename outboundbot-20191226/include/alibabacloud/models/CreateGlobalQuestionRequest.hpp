@@ -40,62 +40,62 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->answers_ == nullptr
-        && return this->globalQuestionName_ == nullptr && return this->globalQuestionType_ == nullptr && return this->instanceId_ == nullptr && return this->questions_ == nullptr && return this->scriptId_ == nullptr; };
+        && this->globalQuestionName_ == nullptr && this->globalQuestionType_ == nullptr && this->instanceId_ == nullptr && this->questions_ == nullptr && this->scriptId_ == nullptr; };
     // answers Field Functions 
     bool hasAnswers() const { return this->answers_ != nullptr;};
     void deleteAnswers() { this->answers_ = nullptr;};
-    inline string answers() const { DARABONBA_PTR_GET_DEFAULT(answers_, "") };
+    inline string getAnswers() const { DARABONBA_PTR_GET_DEFAULT(answers_, "") };
     inline CreateGlobalQuestionRequest& setAnswers(string answers) { DARABONBA_PTR_SET_VALUE(answers_, answers) };
 
 
     // globalQuestionName Field Functions 
     bool hasGlobalQuestionName() const { return this->globalQuestionName_ != nullptr;};
     void deleteGlobalQuestionName() { this->globalQuestionName_ = nullptr;};
-    inline string globalQuestionName() const { DARABONBA_PTR_GET_DEFAULT(globalQuestionName_, "") };
+    inline string getGlobalQuestionName() const { DARABONBA_PTR_GET_DEFAULT(globalQuestionName_, "") };
     inline CreateGlobalQuestionRequest& setGlobalQuestionName(string globalQuestionName) { DARABONBA_PTR_SET_VALUE(globalQuestionName_, globalQuestionName) };
 
 
     // globalQuestionType Field Functions 
     bool hasGlobalQuestionType() const { return this->globalQuestionType_ != nullptr;};
     void deleteGlobalQuestionType() { this->globalQuestionType_ = nullptr;};
-    inline string globalQuestionType() const { DARABONBA_PTR_GET_DEFAULT(globalQuestionType_, "") };
+    inline string getGlobalQuestionType() const { DARABONBA_PTR_GET_DEFAULT(globalQuestionType_, "") };
     inline CreateGlobalQuestionRequest& setGlobalQuestionType(string globalQuestionType) { DARABONBA_PTR_SET_VALUE(globalQuestionType_, globalQuestionType) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline CreateGlobalQuestionRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // questions Field Functions 
     bool hasQuestions() const { return this->questions_ != nullptr;};
     void deleteQuestions() { this->questions_ = nullptr;};
-    inline string questions() const { DARABONBA_PTR_GET_DEFAULT(questions_, "") };
+    inline string getQuestions() const { DARABONBA_PTR_GET_DEFAULT(questions_, "") };
     inline CreateGlobalQuestionRequest& setQuestions(string questions) { DARABONBA_PTR_SET_VALUE(questions_, questions) };
 
 
     // scriptId Field Functions 
     bool hasScriptId() const { return this->scriptId_ != nullptr;};
     void deleteScriptId() { this->scriptId_ = nullptr;};
-    inline string scriptId() const { DARABONBA_PTR_GET_DEFAULT(scriptId_, "") };
+    inline string getScriptId() const { DARABONBA_PTR_GET_DEFAULT(scriptId_, "") };
     inline CreateGlobalQuestionRequest& setScriptId(string scriptId) { DARABONBA_PTR_SET_VALUE(scriptId_, scriptId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> answers_ = nullptr;
+    shared_ptr<string> answers_ {};
     // This parameter is required.
-    std::shared_ptr<string> globalQuestionName_ = nullptr;
+    shared_ptr<string> globalQuestionName_ {};
     // This parameter is required.
-    std::shared_ptr<string> globalQuestionType_ = nullptr;
+    shared_ptr<string> globalQuestionType_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> questions_ = nullptr;
+    shared_ptr<string> questions_ {};
     // This parameter is required.
-    std::shared_ptr<string> scriptId_ = nullptr;
+    shared_ptr<string> scriptId_ {};
   };
 
   } // namespace Models

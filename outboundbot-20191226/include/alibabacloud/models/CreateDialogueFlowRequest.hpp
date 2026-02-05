@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dialogueFlowType_ == nullptr
-        && return this->dialogueName_ == nullptr && return this->instanceId_ == nullptr && return this->scriptId_ == nullptr; };
+        && this->dialogueName_ == nullptr && this->instanceId_ == nullptr && this->scriptId_ == nullptr; };
     // dialogueFlowType Field Functions 
     bool hasDialogueFlowType() const { return this->dialogueFlowType_ != nullptr;};
     void deleteDialogueFlowType() { this->dialogueFlowType_ = nullptr;};
-    inline string dialogueFlowType() const { DARABONBA_PTR_GET_DEFAULT(dialogueFlowType_, "") };
+    inline string getDialogueFlowType() const { DARABONBA_PTR_GET_DEFAULT(dialogueFlowType_, "") };
     inline CreateDialogueFlowRequest& setDialogueFlowType(string dialogueFlowType) { DARABONBA_PTR_SET_VALUE(dialogueFlowType_, dialogueFlowType) };
 
 
     // dialogueName Field Functions 
     bool hasDialogueName() const { return this->dialogueName_ != nullptr;};
     void deleteDialogueName() { this->dialogueName_ = nullptr;};
-    inline string dialogueName() const { DARABONBA_PTR_GET_DEFAULT(dialogueName_, "") };
+    inline string getDialogueName() const { DARABONBA_PTR_GET_DEFAULT(dialogueName_, "") };
     inline CreateDialogueFlowRequest& setDialogueName(string dialogueName) { DARABONBA_PTR_SET_VALUE(dialogueName_, dialogueName) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline CreateDialogueFlowRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // scriptId Field Functions 
     bool hasScriptId() const { return this->scriptId_ != nullptr;};
     void deleteScriptId() { this->scriptId_ = nullptr;};
-    inline string scriptId() const { DARABONBA_PTR_GET_DEFAULT(scriptId_, "") };
+    inline string getScriptId() const { DARABONBA_PTR_GET_DEFAULT(scriptId_, "") };
     inline CreateDialogueFlowRequest& setScriptId(string scriptId) { DARABONBA_PTR_SET_VALUE(scriptId_, scriptId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> dialogueFlowType_ = nullptr;
+    shared_ptr<string> dialogueFlowType_ {};
     // This parameter is required.
-    std::shared_ptr<string> dialogueName_ = nullptr;
+    shared_ptr<string> dialogueName_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> scriptId_ = nullptr;
+    shared_ptr<string> scriptId_ {};
   };
 
   } // namespace Models

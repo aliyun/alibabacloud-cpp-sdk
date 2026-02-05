@@ -44,77 +44,77 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->refIdsJson_ == nullptr && return this->scriptId_ == nullptr && return this->search_ == nullptr
-        && return this->statesJson_ == nullptr && return this->uuidsJson_ == nullptr; };
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->refIdsJson_ == nullptr && this->scriptId_ == nullptr && this->search_ == nullptr
+        && this->statesJson_ == nullptr && this->uuidsJson_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ListScriptRecordingRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline ListScriptRecordingRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListScriptRecordingRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // refIdsJson Field Functions 
     bool hasRefIdsJson() const { return this->refIdsJson_ != nullptr;};
     void deleteRefIdsJson() { this->refIdsJson_ = nullptr;};
-    inline string refIdsJson() const { DARABONBA_PTR_GET_DEFAULT(refIdsJson_, "") };
+    inline string getRefIdsJson() const { DARABONBA_PTR_GET_DEFAULT(refIdsJson_, "") };
     inline ListScriptRecordingRequest& setRefIdsJson(string refIdsJson) { DARABONBA_PTR_SET_VALUE(refIdsJson_, refIdsJson) };
 
 
     // scriptId Field Functions 
     bool hasScriptId() const { return this->scriptId_ != nullptr;};
     void deleteScriptId() { this->scriptId_ = nullptr;};
-    inline string scriptId() const { DARABONBA_PTR_GET_DEFAULT(scriptId_, "") };
+    inline string getScriptId() const { DARABONBA_PTR_GET_DEFAULT(scriptId_, "") };
     inline ListScriptRecordingRequest& setScriptId(string scriptId) { DARABONBA_PTR_SET_VALUE(scriptId_, scriptId) };
 
 
     // search Field Functions 
     bool hasSearch() const { return this->search_ != nullptr;};
     void deleteSearch() { this->search_ = nullptr;};
-    inline string search() const { DARABONBA_PTR_GET_DEFAULT(search_, "") };
+    inline string getSearch() const { DARABONBA_PTR_GET_DEFAULT(search_, "") };
     inline ListScriptRecordingRequest& setSearch(string search) { DARABONBA_PTR_SET_VALUE(search_, search) };
 
 
     // statesJson Field Functions 
     bool hasStatesJson() const { return this->statesJson_ != nullptr;};
     void deleteStatesJson() { this->statesJson_ = nullptr;};
-    inline string statesJson() const { DARABONBA_PTR_GET_DEFAULT(statesJson_, "") };
+    inline string getStatesJson() const { DARABONBA_PTR_GET_DEFAULT(statesJson_, "") };
     inline ListScriptRecordingRequest& setStatesJson(string statesJson) { DARABONBA_PTR_SET_VALUE(statesJson_, statesJson) };
 
 
     // uuidsJson Field Functions 
     bool hasUuidsJson() const { return this->uuidsJson_ != nullptr;};
     void deleteUuidsJson() { this->uuidsJson_ = nullptr;};
-    inline string uuidsJson() const { DARABONBA_PTR_GET_DEFAULT(uuidsJson_, "") };
+    inline string getUuidsJson() const { DARABONBA_PTR_GET_DEFAULT(uuidsJson_, "") };
     inline ListScriptRecordingRequest& setUuidsJson(string uuidsJson) { DARABONBA_PTR_SET_VALUE(uuidsJson_, uuidsJson) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    std::shared_ptr<string> refIdsJson_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<string> refIdsJson_ {};
     // This parameter is required.
-    std::shared_ptr<string> scriptId_ = nullptr;
-    std::shared_ptr<string> search_ = nullptr;
-    std::shared_ptr<string> statesJson_ = nullptr;
-    std::shared_ptr<string> uuidsJson_ = nullptr;
+    shared_ptr<string> scriptId_ {};
+    shared_ptr<string> search_ {};
+    shared_ptr<string> statesJson_ {};
+    shared_ptr<string> uuidsJson_ {};
   };
 
   } // namespace Models

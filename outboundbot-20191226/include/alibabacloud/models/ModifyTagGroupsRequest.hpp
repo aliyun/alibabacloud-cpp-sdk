@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->scriptId_ == nullptr && return this->tagGroups_ == nullptr && return this->tags_ == nullptr; };
+        && this->scriptId_ == nullptr && this->tagGroups_ == nullptr && this->tags_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ModifyTagGroupsRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // scriptId Field Functions 
     bool hasScriptId() const { return this->scriptId_ != nullptr;};
     void deleteScriptId() { this->scriptId_ = nullptr;};
-    inline string scriptId() const { DARABONBA_PTR_GET_DEFAULT(scriptId_, "") };
+    inline string getScriptId() const { DARABONBA_PTR_GET_DEFAULT(scriptId_, "") };
     inline ModifyTagGroupsRequest& setScriptId(string scriptId) { DARABONBA_PTR_SET_VALUE(scriptId_, scriptId) };
 
 
     // tagGroups Field Functions 
     bool hasTagGroups() const { return this->tagGroups_ != nullptr;};
     void deleteTagGroups() { this->tagGroups_ = nullptr;};
-    inline string tagGroups() const { DARABONBA_PTR_GET_DEFAULT(tagGroups_, "") };
+    inline string getTagGroups() const { DARABONBA_PTR_GET_DEFAULT(tagGroups_, "") };
     inline ModifyTagGroupsRequest& setTagGroups(string tagGroups) { DARABONBA_PTR_SET_VALUE(tagGroups_, tagGroups) };
 
 
     // tags Field Functions 
     bool hasTags() const { return this->tags_ != nullptr;};
     void deleteTags() { this->tags_ = nullptr;};
-    inline string tags() const { DARABONBA_PTR_GET_DEFAULT(tags_, "") };
+    inline string getTags() const { DARABONBA_PTR_GET_DEFAULT(tags_, "") };
     inline ModifyTagGroupsRequest& setTags(string tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> scriptId_ = nullptr;
+    shared_ptr<string> scriptId_ {};
     // This parameter is required.
-    std::shared_ptr<string> tagGroups_ = nullptr;
+    shared_ptr<string> tagGroups_ {};
     // This parameter is required.
-    std::shared_ptr<string> tags_ = nullptr;
+    shared_ptr<string> tags_ {};
   };
 
   } // namespace Models

@@ -38,50 +38,50 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->busiType_ == nullptr
-        && return this->fileName_ == nullptr && return this->instanceId_ == nullptr && return this->path_ == nullptr && return this->uniqueId_ == nullptr; };
+        && this->fileName_ == nullptr && this->instanceId_ == nullptr && this->path_ == nullptr && this->uniqueId_ == nullptr; };
     // busiType Field Functions 
     bool hasBusiType() const { return this->busiType_ != nullptr;};
     void deleteBusiType() { this->busiType_ = nullptr;};
-    inline string busiType() const { DARABONBA_PTR_GET_DEFAULT(busiType_, "") };
+    inline string getBusiType() const { DARABONBA_PTR_GET_DEFAULT(busiType_, "") };
     inline GetJobDataUploadParamsRequest& setBusiType(string busiType) { DARABONBA_PTR_SET_VALUE(busiType_, busiType) };
 
 
     // fileName Field Functions 
     bool hasFileName() const { return this->fileName_ != nullptr;};
     void deleteFileName() { this->fileName_ = nullptr;};
-    inline string fileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
+    inline string getFileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
     inline GetJobDataUploadParamsRequest& setFileName(string fileName) { DARABONBA_PTR_SET_VALUE(fileName_, fileName) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline GetJobDataUploadParamsRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // path Field Functions 
     bool hasPath() const { return this->path_ != nullptr;};
     void deletePath() { this->path_ = nullptr;};
-    inline string path() const { DARABONBA_PTR_GET_DEFAULT(path_, "") };
+    inline string getPath() const { DARABONBA_PTR_GET_DEFAULT(path_, "") };
     inline GetJobDataUploadParamsRequest& setPath(string path) { DARABONBA_PTR_SET_VALUE(path_, path) };
 
 
     // uniqueId Field Functions 
     bool hasUniqueId() const { return this->uniqueId_ != nullptr;};
     void deleteUniqueId() { this->uniqueId_ = nullptr;};
-    inline string uniqueId() const { DARABONBA_PTR_GET_DEFAULT(uniqueId_, "") };
+    inline string getUniqueId() const { DARABONBA_PTR_GET_DEFAULT(uniqueId_, "") };
     inline GetJobDataUploadParamsRequest& setUniqueId(string uniqueId) { DARABONBA_PTR_SET_VALUE(uniqueId_, uniqueId) };
 
 
   protected:
-    std::shared_ptr<string> busiType_ = nullptr;
+    shared_ptr<string> busiType_ {};
     // This parameter is required.
-    std::shared_ptr<string> fileName_ = nullptr;
+    shared_ptr<string> fileName_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> path_ = nullptr;
-    std::shared_ptr<string> uniqueId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> path_ {};
+    shared_ptr<string> uniqueId_ {};
   };
 
   } // namespace Models

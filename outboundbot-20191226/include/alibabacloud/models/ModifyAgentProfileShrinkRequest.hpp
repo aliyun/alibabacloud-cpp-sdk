@@ -54,116 +54,116 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentProfileId_ == nullptr
-        && return this->apiPluginJson_ == nullptr && return this->description_ == nullptr && return this->faqCategoryIdsShrink_ == nullptr && return this->instanceId_ == nullptr && return this->instructionJson_ == nullptr
-        && return this->labelsJson_ == nullptr && return this->model_ == nullptr && return this->modelConfig_ == nullptr && return this->prompt_ == nullptr && return this->promptJson_ == nullptr
-        && return this->scenario_ == nullptr && return this->variablesJson_ == nullptr; };
+        && this->apiPluginJson_ == nullptr && this->description_ == nullptr && this->faqCategoryIdsShrink_ == nullptr && this->instanceId_ == nullptr && this->instructionJson_ == nullptr
+        && this->labelsJson_ == nullptr && this->model_ == nullptr && this->modelConfig_ == nullptr && this->prompt_ == nullptr && this->promptJson_ == nullptr
+        && this->scenario_ == nullptr && this->variablesJson_ == nullptr; };
     // agentProfileId Field Functions 
     bool hasAgentProfileId() const { return this->agentProfileId_ != nullptr;};
     void deleteAgentProfileId() { this->agentProfileId_ = nullptr;};
-    inline string agentProfileId() const { DARABONBA_PTR_GET_DEFAULT(agentProfileId_, "") };
+    inline string getAgentProfileId() const { DARABONBA_PTR_GET_DEFAULT(agentProfileId_, "") };
     inline ModifyAgentProfileShrinkRequest& setAgentProfileId(string agentProfileId) { DARABONBA_PTR_SET_VALUE(agentProfileId_, agentProfileId) };
 
 
     // apiPluginJson Field Functions 
     bool hasApiPluginJson() const { return this->apiPluginJson_ != nullptr;};
     void deleteApiPluginJson() { this->apiPluginJson_ = nullptr;};
-    inline string apiPluginJson() const { DARABONBA_PTR_GET_DEFAULT(apiPluginJson_, "") };
+    inline string getApiPluginJson() const { DARABONBA_PTR_GET_DEFAULT(apiPluginJson_, "") };
     inline ModifyAgentProfileShrinkRequest& setApiPluginJson(string apiPluginJson) { DARABONBA_PTR_SET_VALUE(apiPluginJson_, apiPluginJson) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline ModifyAgentProfileShrinkRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // faqCategoryIdsShrink Field Functions 
     bool hasFaqCategoryIdsShrink() const { return this->faqCategoryIdsShrink_ != nullptr;};
     void deleteFaqCategoryIdsShrink() { this->faqCategoryIdsShrink_ = nullptr;};
-    inline string faqCategoryIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(faqCategoryIdsShrink_, "") };
+    inline string getFaqCategoryIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(faqCategoryIdsShrink_, "") };
     inline ModifyAgentProfileShrinkRequest& setFaqCategoryIdsShrink(string faqCategoryIdsShrink) { DARABONBA_PTR_SET_VALUE(faqCategoryIdsShrink_, faqCategoryIdsShrink) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ModifyAgentProfileShrinkRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // instructionJson Field Functions 
     bool hasInstructionJson() const { return this->instructionJson_ != nullptr;};
     void deleteInstructionJson() { this->instructionJson_ = nullptr;};
-    inline string instructionJson() const { DARABONBA_PTR_GET_DEFAULT(instructionJson_, "") };
+    inline string getInstructionJson() const { DARABONBA_PTR_GET_DEFAULT(instructionJson_, "") };
     inline ModifyAgentProfileShrinkRequest& setInstructionJson(string instructionJson) { DARABONBA_PTR_SET_VALUE(instructionJson_, instructionJson) };
 
 
     // labelsJson Field Functions 
     bool hasLabelsJson() const { return this->labelsJson_ != nullptr;};
     void deleteLabelsJson() { this->labelsJson_ = nullptr;};
-    inline string labelsJson() const { DARABONBA_PTR_GET_DEFAULT(labelsJson_, "") };
+    inline string getLabelsJson() const { DARABONBA_PTR_GET_DEFAULT(labelsJson_, "") };
     inline ModifyAgentProfileShrinkRequest& setLabelsJson(string labelsJson) { DARABONBA_PTR_SET_VALUE(labelsJson_, labelsJson) };
 
 
     // model Field Functions 
     bool hasModel() const { return this->model_ != nullptr;};
     void deleteModel() { this->model_ = nullptr;};
-    inline string model() const { DARABONBA_PTR_GET_DEFAULT(model_, "") };
+    inline string getModel() const { DARABONBA_PTR_GET_DEFAULT(model_, "") };
     inline ModifyAgentProfileShrinkRequest& setModel(string model) { DARABONBA_PTR_SET_VALUE(model_, model) };
 
 
     // modelConfig Field Functions 
     bool hasModelConfig() const { return this->modelConfig_ != nullptr;};
     void deleteModelConfig() { this->modelConfig_ = nullptr;};
-    inline string modelConfig() const { DARABONBA_PTR_GET_DEFAULT(modelConfig_, "") };
+    inline string getModelConfig() const { DARABONBA_PTR_GET_DEFAULT(modelConfig_, "") };
     inline ModifyAgentProfileShrinkRequest& setModelConfig(string modelConfig) { DARABONBA_PTR_SET_VALUE(modelConfig_, modelConfig) };
 
 
     // prompt Field Functions 
     bool hasPrompt() const { return this->prompt_ != nullptr;};
     void deletePrompt() { this->prompt_ = nullptr;};
-    inline string prompt() const { DARABONBA_PTR_GET_DEFAULT(prompt_, "") };
+    inline string getPrompt() const { DARABONBA_PTR_GET_DEFAULT(prompt_, "") };
     inline ModifyAgentProfileShrinkRequest& setPrompt(string prompt) { DARABONBA_PTR_SET_VALUE(prompt_, prompt) };
 
 
     // promptJson Field Functions 
     bool hasPromptJson() const { return this->promptJson_ != nullptr;};
     void deletePromptJson() { this->promptJson_ = nullptr;};
-    inline string promptJson() const { DARABONBA_PTR_GET_DEFAULT(promptJson_, "") };
+    inline string getPromptJson() const { DARABONBA_PTR_GET_DEFAULT(promptJson_, "") };
     inline ModifyAgentProfileShrinkRequest& setPromptJson(string promptJson) { DARABONBA_PTR_SET_VALUE(promptJson_, promptJson) };
 
 
     // scenario Field Functions 
     bool hasScenario() const { return this->scenario_ != nullptr;};
     void deleteScenario() { this->scenario_ = nullptr;};
-    inline string scenario() const { DARABONBA_PTR_GET_DEFAULT(scenario_, "") };
+    inline string getScenario() const { DARABONBA_PTR_GET_DEFAULT(scenario_, "") };
     inline ModifyAgentProfileShrinkRequest& setScenario(string scenario) { DARABONBA_PTR_SET_VALUE(scenario_, scenario) };
 
 
     // variablesJson Field Functions 
     bool hasVariablesJson() const { return this->variablesJson_ != nullptr;};
     void deleteVariablesJson() { this->variablesJson_ = nullptr;};
-    inline string variablesJson() const { DARABONBA_PTR_GET_DEFAULT(variablesJson_, "") };
+    inline string getVariablesJson() const { DARABONBA_PTR_GET_DEFAULT(variablesJson_, "") };
     inline ModifyAgentProfileShrinkRequest& setVariablesJson(string variablesJson) { DARABONBA_PTR_SET_VALUE(variablesJson_, variablesJson) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> agentProfileId_ = nullptr;
-    std::shared_ptr<string> apiPluginJson_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<string> faqCategoryIdsShrink_ = nullptr;
+    shared_ptr<string> agentProfileId_ {};
+    shared_ptr<string> apiPluginJson_ {};
+    shared_ptr<string> description_ {};
+    shared_ptr<string> faqCategoryIdsShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> instructionJson_ = nullptr;
-    std::shared_ptr<string> labelsJson_ = nullptr;
-    std::shared_ptr<string> model_ = nullptr;
-    std::shared_ptr<string> modelConfig_ = nullptr;
-    std::shared_ptr<string> prompt_ = nullptr;
-    std::shared_ptr<string> promptJson_ = nullptr;
-    std::shared_ptr<string> scenario_ = nullptr;
-    std::shared_ptr<string> variablesJson_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> instructionJson_ {};
+    shared_ptr<string> labelsJson_ {};
+    shared_ptr<string> model_ {};
+    shared_ptr<string> modelConfig_ {};
+    shared_ptr<string> prompt_ {};
+    shared_ptr<string> promptJson_ {};
+    shared_ptr<string> scenario_ {};
+    shared_ptr<string> variablesJson_ {};
   };
 
   } // namespace Models

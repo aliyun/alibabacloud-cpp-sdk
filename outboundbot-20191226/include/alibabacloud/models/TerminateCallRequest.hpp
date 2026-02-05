@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->callId_ == nullptr
-        && return this->instanceId_ == nullptr; };
+        && this->instanceId_ == nullptr; };
     // callId Field Functions 
     bool hasCallId() const { return this->callId_ != nullptr;};
     void deleteCallId() { this->callId_ = nullptr;};
-    inline string callId() const { DARABONBA_PTR_GET_DEFAULT(callId_, "") };
+    inline string getCallId() const { DARABONBA_PTR_GET_DEFAULT(callId_, "") };
     inline TerminateCallRequest& setCallId(string callId) { DARABONBA_PTR_SET_VALUE(callId_, callId) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline TerminateCallRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> callId_ = nullptr;
+    shared_ptr<string> callId_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
   };
 
   } // namespace Models

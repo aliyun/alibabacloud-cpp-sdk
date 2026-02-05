@@ -672,6 +672,8 @@ namespace OutboundBot20191226
       Models::DescribeGlobalQuestionResponse describeGlobalQuestion(const Models::DescribeGlobalQuestionRequest &request);
 
       /**
+       * @summary 任务组数据统计
+       *
        * @param request DescribeGroupExecutingInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeGroupExecutingInfoResponse
@@ -679,6 +681,8 @@ namespace OutboundBot20191226
       Models::DescribeGroupExecutingInfoResponse describeGroupExecutingInfoWithOptions(const Models::DescribeGroupExecutingInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 任务组数据统计
+       *
        * @param request DescribeGroupExecutingInfoRequest
        * @return DescribeGroupExecutingInfoResponse
        */

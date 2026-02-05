@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_GETSUMMARYINFORESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/GetSummaryInfoResponseBodyAgentBotInstanceSummaryList.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -41,59 +40,121 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class AgentBotInstanceSummaryList : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const AgentBotInstanceSummaryList& obj) { 
+        DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+        DARABONBA_PTR_TO_JSON(TotalCallCount, totalCallCount_);
+        DARABONBA_PTR_TO_JSON(TotalCallTime, totalCallTime_);
+        DARABONBA_PTR_TO_JSON(UsedRecordingStorageSpace, usedRecordingStorageSpace_);
+      };
+      friend void from_json(const Darabonba::Json& j, AgentBotInstanceSummaryList& obj) { 
+        DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+        DARABONBA_PTR_FROM_JSON(TotalCallCount, totalCallCount_);
+        DARABONBA_PTR_FROM_JSON(TotalCallTime, totalCallTime_);
+        DARABONBA_PTR_FROM_JSON(UsedRecordingStorageSpace, usedRecordingStorageSpace_);
+      };
+      AgentBotInstanceSummaryList() = default ;
+      AgentBotInstanceSummaryList(const AgentBotInstanceSummaryList &) = default ;
+      AgentBotInstanceSummaryList(AgentBotInstanceSummaryList &&) = default ;
+      AgentBotInstanceSummaryList(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~AgentBotInstanceSummaryList() = default ;
+      AgentBotInstanceSummaryList& operator=(const AgentBotInstanceSummaryList &) = default ;
+      AgentBotInstanceSummaryList& operator=(AgentBotInstanceSummaryList &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->instanceId_ == nullptr
+        && this->totalCallCount_ == nullptr && this->totalCallTime_ == nullptr && this->usedRecordingStorageSpace_ == nullptr; };
+      // instanceId Field Functions 
+      bool hasInstanceId() const { return this->instanceId_ != nullptr;};
+      void deleteInstanceId() { this->instanceId_ = nullptr;};
+      inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+      inline AgentBotInstanceSummaryList& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+      // totalCallCount Field Functions 
+      bool hasTotalCallCount() const { return this->totalCallCount_ != nullptr;};
+      void deleteTotalCallCount() { this->totalCallCount_ = nullptr;};
+      inline int64_t getTotalCallCount() const { DARABONBA_PTR_GET_DEFAULT(totalCallCount_, 0L) };
+      inline AgentBotInstanceSummaryList& setTotalCallCount(int64_t totalCallCount) { DARABONBA_PTR_SET_VALUE(totalCallCount_, totalCallCount) };
+
+
+      // totalCallTime Field Functions 
+      bool hasTotalCallTime() const { return this->totalCallTime_ != nullptr;};
+      void deleteTotalCallTime() { this->totalCallTime_ = nullptr;};
+      inline int64_t getTotalCallTime() const { DARABONBA_PTR_GET_DEFAULT(totalCallTime_, 0L) };
+      inline AgentBotInstanceSummaryList& setTotalCallTime(int64_t totalCallTime) { DARABONBA_PTR_SET_VALUE(totalCallTime_, totalCallTime) };
+
+
+      // usedRecordingStorageSpace Field Functions 
+      bool hasUsedRecordingStorageSpace() const { return this->usedRecordingStorageSpace_ != nullptr;};
+      void deleteUsedRecordingStorageSpace() { this->usedRecordingStorageSpace_ = nullptr;};
+      inline int32_t getUsedRecordingStorageSpace() const { DARABONBA_PTR_GET_DEFAULT(usedRecordingStorageSpace_, 0) };
+      inline AgentBotInstanceSummaryList& setUsedRecordingStorageSpace(int32_t usedRecordingStorageSpace) { DARABONBA_PTR_SET_VALUE(usedRecordingStorageSpace_, usedRecordingStorageSpace) };
+
+
+    protected:
+      shared_ptr<string> instanceId_ {};
+      shared_ptr<int64_t> totalCallCount_ {};
+      shared_ptr<int64_t> totalCallTime_ {};
+      shared_ptr<int32_t> usedRecordingStorageSpace_ {};
+    };
+
     virtual bool empty() const override { return this->agentBotInstanceSummaryList_ == nullptr
-        && return this->code_ == nullptr && return this->httpStatusCode_ == nullptr && return this->message_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr; };
+        && this->code_ == nullptr && this->httpStatusCode_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
     // agentBotInstanceSummaryList Field Functions 
     bool hasAgentBotInstanceSummaryList() const { return this->agentBotInstanceSummaryList_ != nullptr;};
     void deleteAgentBotInstanceSummaryList() { this->agentBotInstanceSummaryList_ = nullptr;};
-    inline const vector<GetSummaryInfoResponseBodyAgentBotInstanceSummaryList> & agentBotInstanceSummaryList() const { DARABONBA_PTR_GET_CONST(agentBotInstanceSummaryList_, vector<GetSummaryInfoResponseBodyAgentBotInstanceSummaryList>) };
-    inline vector<GetSummaryInfoResponseBodyAgentBotInstanceSummaryList> agentBotInstanceSummaryList() { DARABONBA_PTR_GET(agentBotInstanceSummaryList_, vector<GetSummaryInfoResponseBodyAgentBotInstanceSummaryList>) };
-    inline GetSummaryInfoResponseBody& setAgentBotInstanceSummaryList(const vector<GetSummaryInfoResponseBodyAgentBotInstanceSummaryList> & agentBotInstanceSummaryList) { DARABONBA_PTR_SET_VALUE(agentBotInstanceSummaryList_, agentBotInstanceSummaryList) };
-    inline GetSummaryInfoResponseBody& setAgentBotInstanceSummaryList(vector<GetSummaryInfoResponseBodyAgentBotInstanceSummaryList> && agentBotInstanceSummaryList) { DARABONBA_PTR_SET_RVALUE(agentBotInstanceSummaryList_, agentBotInstanceSummaryList) };
+    inline const vector<GetSummaryInfoResponseBody::AgentBotInstanceSummaryList> & getAgentBotInstanceSummaryList() const { DARABONBA_PTR_GET_CONST(agentBotInstanceSummaryList_, vector<GetSummaryInfoResponseBody::AgentBotInstanceSummaryList>) };
+    inline vector<GetSummaryInfoResponseBody::AgentBotInstanceSummaryList> getAgentBotInstanceSummaryList() { DARABONBA_PTR_GET(agentBotInstanceSummaryList_, vector<GetSummaryInfoResponseBody::AgentBotInstanceSummaryList>) };
+    inline GetSummaryInfoResponseBody& setAgentBotInstanceSummaryList(const vector<GetSummaryInfoResponseBody::AgentBotInstanceSummaryList> & agentBotInstanceSummaryList) { DARABONBA_PTR_SET_VALUE(agentBotInstanceSummaryList_, agentBotInstanceSummaryList) };
+    inline GetSummaryInfoResponseBody& setAgentBotInstanceSummaryList(vector<GetSummaryInfoResponseBody::AgentBotInstanceSummaryList> && agentBotInstanceSummaryList) { DARABONBA_PTR_SET_RVALUE(agentBotInstanceSummaryList_, agentBotInstanceSummaryList) };
 
 
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline GetSummaryInfoResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // httpStatusCode Field Functions 
     bool hasHttpStatusCode() const { return this->httpStatusCode_ != nullptr;};
     void deleteHttpStatusCode() { this->httpStatusCode_ = nullptr;};
-    inline int32_t httpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
+    inline int32_t getHttpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
     inline GetSummaryInfoResponseBody& setHttpStatusCode(int32_t httpStatusCode) { DARABONBA_PTR_SET_VALUE(httpStatusCode_, httpStatusCode) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline GetSummaryInfoResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetSummaryInfoResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline GetSummaryInfoResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
-    std::shared_ptr<vector<GetSummaryInfoResponseBodyAgentBotInstanceSummaryList>> agentBotInstanceSummaryList_ = nullptr;
-    std::shared_ptr<string> code_ = nullptr;
-    std::shared_ptr<int32_t> httpStatusCode_ = nullptr;
-    std::shared_ptr<string> message_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<vector<GetSummaryInfoResponseBody::AgentBotInstanceSummaryList>> agentBotInstanceSummaryList_ {};
+    shared_ptr<string> code_ {};
+    shared_ptr<int32_t> httpStatusCode_ {};
+    shared_ptr<string> message_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

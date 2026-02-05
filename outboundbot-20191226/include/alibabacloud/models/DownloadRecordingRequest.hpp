@@ -34,34 +34,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->needVoiceSliceRecording_ == nullptr && return this->taskId_ == nullptr; };
+        && this->needVoiceSliceRecording_ == nullptr && this->taskId_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DownloadRecordingRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // needVoiceSliceRecording Field Functions 
     bool hasNeedVoiceSliceRecording() const { return this->needVoiceSliceRecording_ != nullptr;};
     void deleteNeedVoiceSliceRecording() { this->needVoiceSliceRecording_ = nullptr;};
-    inline bool needVoiceSliceRecording() const { DARABONBA_PTR_GET_DEFAULT(needVoiceSliceRecording_, false) };
+    inline bool getNeedVoiceSliceRecording() const { DARABONBA_PTR_GET_DEFAULT(needVoiceSliceRecording_, false) };
     inline DownloadRecordingRequest& setNeedVoiceSliceRecording(bool needVoiceSliceRecording) { DARABONBA_PTR_SET_VALUE(needVoiceSliceRecording_, needVoiceSliceRecording) };
 
 
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline string taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+    inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
     inline DownloadRecordingRequest& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<bool> needVoiceSliceRecording_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<bool> needVoiceSliceRecording_ {};
     // This parameter is required.
-    std::shared_ptr<string> taskId_ = nullptr;
+    shared_ptr<string> taskId_ {};
   };
 
   } // namespace Models

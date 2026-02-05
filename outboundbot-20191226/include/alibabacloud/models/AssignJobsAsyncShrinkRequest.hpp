@@ -38,50 +38,50 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->callingNumberShrink_ == nullptr
-        && return this->instanceId_ == nullptr && return this->jobGroupId_ == nullptr && return this->jobsJsonShrink_ == nullptr && return this->strategyJson_ == nullptr; };
+        && this->instanceId_ == nullptr && this->jobGroupId_ == nullptr && this->jobsJsonShrink_ == nullptr && this->strategyJson_ == nullptr; };
     // callingNumberShrink Field Functions 
     bool hasCallingNumberShrink() const { return this->callingNumberShrink_ != nullptr;};
     void deleteCallingNumberShrink() { this->callingNumberShrink_ = nullptr;};
-    inline string callingNumberShrink() const { DARABONBA_PTR_GET_DEFAULT(callingNumberShrink_, "") };
+    inline string getCallingNumberShrink() const { DARABONBA_PTR_GET_DEFAULT(callingNumberShrink_, "") };
     inline AssignJobsAsyncShrinkRequest& setCallingNumberShrink(string callingNumberShrink) { DARABONBA_PTR_SET_VALUE(callingNumberShrink_, callingNumberShrink) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline AssignJobsAsyncShrinkRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // jobGroupId Field Functions 
     bool hasJobGroupId() const { return this->jobGroupId_ != nullptr;};
     void deleteJobGroupId() { this->jobGroupId_ = nullptr;};
-    inline string jobGroupId() const { DARABONBA_PTR_GET_DEFAULT(jobGroupId_, "") };
+    inline string getJobGroupId() const { DARABONBA_PTR_GET_DEFAULT(jobGroupId_, "") };
     inline AssignJobsAsyncShrinkRequest& setJobGroupId(string jobGroupId) { DARABONBA_PTR_SET_VALUE(jobGroupId_, jobGroupId) };
 
 
     // jobsJsonShrink Field Functions 
     bool hasJobsJsonShrink() const { return this->jobsJsonShrink_ != nullptr;};
     void deleteJobsJsonShrink() { this->jobsJsonShrink_ = nullptr;};
-    inline string jobsJsonShrink() const { DARABONBA_PTR_GET_DEFAULT(jobsJsonShrink_, "") };
+    inline string getJobsJsonShrink() const { DARABONBA_PTR_GET_DEFAULT(jobsJsonShrink_, "") };
     inline AssignJobsAsyncShrinkRequest& setJobsJsonShrink(string jobsJsonShrink) { DARABONBA_PTR_SET_VALUE(jobsJsonShrink_, jobsJsonShrink) };
 
 
     // strategyJson Field Functions 
     bool hasStrategyJson() const { return this->strategyJson_ != nullptr;};
     void deleteStrategyJson() { this->strategyJson_ = nullptr;};
-    inline string strategyJson() const { DARABONBA_PTR_GET_DEFAULT(strategyJson_, "") };
+    inline string getStrategyJson() const { DARABONBA_PTR_GET_DEFAULT(strategyJson_, "") };
     inline AssignJobsAsyncShrinkRequest& setStrategyJson(string strategyJson) { DARABONBA_PTR_SET_VALUE(strategyJson_, strategyJson) };
 
 
   protected:
-    std::shared_ptr<string> callingNumberShrink_ = nullptr;
+    shared_ptr<string> callingNumberShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> jobGroupId_ = nullptr;
-    std::shared_ptr<string> jobsJsonShrink_ = nullptr;
-    std::shared_ptr<string> strategyJson_ = nullptr;
+    shared_ptr<string> jobGroupId_ {};
+    shared_ptr<string> jobsJsonShrink_ {};
+    shared_ptr<string> strategyJson_ {};
   };
 
   } // namespace Models

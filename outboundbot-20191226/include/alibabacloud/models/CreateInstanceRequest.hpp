@@ -41,12 +41,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->callingNumber_ == nullptr
-        && return this->instanceDescription_ == nullptr && return this->instanceName_ == nullptr && return this->maxConcurrentConversation_ == nullptr && return this->nluServiceType_ == nullptr && return this->resourceGroupId_ == nullptr; };
+        && this->instanceDescription_ == nullptr && this->instanceName_ == nullptr && this->maxConcurrentConversation_ == nullptr && this->nluServiceType_ == nullptr && this->resourceGroupId_ == nullptr; };
     // callingNumber Field Functions 
     bool hasCallingNumber() const { return this->callingNumber_ != nullptr;};
     void deleteCallingNumber() { this->callingNumber_ = nullptr;};
-    inline const vector<string> & callingNumber() const { DARABONBA_PTR_GET_CONST(callingNumber_, vector<string>) };
-    inline vector<string> callingNumber() { DARABONBA_PTR_GET(callingNumber_, vector<string>) };
+    inline const vector<string> & getCallingNumber() const { DARABONBA_PTR_GET_CONST(callingNumber_, vector<string>) };
+    inline vector<string> getCallingNumber() { DARABONBA_PTR_GET(callingNumber_, vector<string>) };
     inline CreateInstanceRequest& setCallingNumber(const vector<string> & callingNumber) { DARABONBA_PTR_SET_VALUE(callingNumber_, callingNumber) };
     inline CreateInstanceRequest& setCallingNumber(vector<string> && callingNumber) { DARABONBA_PTR_SET_RVALUE(callingNumber_, callingNumber) };
 
@@ -54,47 +54,47 @@ namespace Models
     // instanceDescription Field Functions 
     bool hasInstanceDescription() const { return this->instanceDescription_ != nullptr;};
     void deleteInstanceDescription() { this->instanceDescription_ = nullptr;};
-    inline string instanceDescription() const { DARABONBA_PTR_GET_DEFAULT(instanceDescription_, "") };
+    inline string getInstanceDescription() const { DARABONBA_PTR_GET_DEFAULT(instanceDescription_, "") };
     inline CreateInstanceRequest& setInstanceDescription(string instanceDescription) { DARABONBA_PTR_SET_VALUE(instanceDescription_, instanceDescription) };
 
 
     // instanceName Field Functions 
     bool hasInstanceName() const { return this->instanceName_ != nullptr;};
     void deleteInstanceName() { this->instanceName_ = nullptr;};
-    inline string instanceName() const { DARABONBA_PTR_GET_DEFAULT(instanceName_, "") };
+    inline string getInstanceName() const { DARABONBA_PTR_GET_DEFAULT(instanceName_, "") };
     inline CreateInstanceRequest& setInstanceName(string instanceName) { DARABONBA_PTR_SET_VALUE(instanceName_, instanceName) };
 
 
     // maxConcurrentConversation Field Functions 
     bool hasMaxConcurrentConversation() const { return this->maxConcurrentConversation_ != nullptr;};
     void deleteMaxConcurrentConversation() { this->maxConcurrentConversation_ = nullptr;};
-    inline int32_t maxConcurrentConversation() const { DARABONBA_PTR_GET_DEFAULT(maxConcurrentConversation_, 0) };
+    inline int32_t getMaxConcurrentConversation() const { DARABONBA_PTR_GET_DEFAULT(maxConcurrentConversation_, 0) };
     inline CreateInstanceRequest& setMaxConcurrentConversation(int32_t maxConcurrentConversation) { DARABONBA_PTR_SET_VALUE(maxConcurrentConversation_, maxConcurrentConversation) };
 
 
     // nluServiceType Field Functions 
     bool hasNluServiceType() const { return this->nluServiceType_ != nullptr;};
     void deleteNluServiceType() { this->nluServiceType_ = nullptr;};
-    inline string nluServiceType() const { DARABONBA_PTR_GET_DEFAULT(nluServiceType_, "") };
+    inline string getNluServiceType() const { DARABONBA_PTR_GET_DEFAULT(nluServiceType_, "") };
     inline CreateInstanceRequest& setNluServiceType(string nluServiceType) { DARABONBA_PTR_SET_VALUE(nluServiceType_, nluServiceType) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline CreateInstanceRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
   protected:
-    std::shared_ptr<vector<string>> callingNumber_ = nullptr;
-    std::shared_ptr<string> instanceDescription_ = nullptr;
+    shared_ptr<vector<string>> callingNumber_ {};
+    shared_ptr<string> instanceDescription_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceName_ = nullptr;
+    shared_ptr<string> instanceName_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> maxConcurrentConversation_ = nullptr;
-    std::shared_ptr<string> nluServiceType_ = nullptr;
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<int32_t> maxConcurrentConversation_ {};
+    shared_ptr<string> nluServiceType_ {};
+    shared_ptr<string> resourceGroupId_ {};
   };
 
   } // namespace Models

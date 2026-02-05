@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->intentId_ == nullptr && return this->scriptId_ == nullptr && return this->userSayId_ == nullptr; };
+        && this->intentId_ == nullptr && this->scriptId_ == nullptr && this->userSayId_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DeleteBeebotIntentUserSayRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // intentId Field Functions 
     bool hasIntentId() const { return this->intentId_ != nullptr;};
     void deleteIntentId() { this->intentId_ = nullptr;};
-    inline string intentId() const { DARABONBA_PTR_GET_DEFAULT(intentId_, "") };
+    inline string getIntentId() const { DARABONBA_PTR_GET_DEFAULT(intentId_, "") };
     inline DeleteBeebotIntentUserSayRequest& setIntentId(string intentId) { DARABONBA_PTR_SET_VALUE(intentId_, intentId) };
 
 
     // scriptId Field Functions 
     bool hasScriptId() const { return this->scriptId_ != nullptr;};
     void deleteScriptId() { this->scriptId_ = nullptr;};
-    inline string scriptId() const { DARABONBA_PTR_GET_DEFAULT(scriptId_, "") };
+    inline string getScriptId() const { DARABONBA_PTR_GET_DEFAULT(scriptId_, "") };
     inline DeleteBeebotIntentUserSayRequest& setScriptId(string scriptId) { DARABONBA_PTR_SET_VALUE(scriptId_, scriptId) };
 
 
     // userSayId Field Functions 
     bool hasUserSayId() const { return this->userSayId_ != nullptr;};
     void deleteUserSayId() { this->userSayId_ = nullptr;};
-    inline string userSayId() const { DARABONBA_PTR_GET_DEFAULT(userSayId_, "") };
+    inline string getUserSayId() const { DARABONBA_PTR_GET_DEFAULT(userSayId_, "") };
     inline DeleteBeebotIntentUserSayRequest& setUserSayId(string userSayId) { DARABONBA_PTR_SET_VALUE(userSayId_, userSayId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> intentId_ = nullptr;
+    shared_ptr<string> intentId_ {};
     // This parameter is required.
-    std::shared_ptr<string> scriptId_ = nullptr;
+    shared_ptr<string> scriptId_ {};
     // This parameter is required.
-    std::shared_ptr<string> userSayId_ = nullptr;
+    shared_ptr<string> userSayId_ {};
   };
 
   } // namespace Models

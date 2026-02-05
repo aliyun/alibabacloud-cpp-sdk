@@ -34,34 +34,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->nluEngine_ == nullptr && return this->signatureUrl_ == nullptr; };
+        && this->nluEngine_ == nullptr && this->signatureUrl_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ImportScriptRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // nluEngine Field Functions 
     bool hasNluEngine() const { return this->nluEngine_ != nullptr;};
     void deleteNluEngine() { this->nluEngine_ = nullptr;};
-    inline string nluEngine() const { DARABONBA_PTR_GET_DEFAULT(nluEngine_, "") };
+    inline string getNluEngine() const { DARABONBA_PTR_GET_DEFAULT(nluEngine_, "") };
     inline ImportScriptRequest& setNluEngine(string nluEngine) { DARABONBA_PTR_SET_VALUE(nluEngine_, nluEngine) };
 
 
     // signatureUrl Field Functions 
     bool hasSignatureUrl() const { return this->signatureUrl_ != nullptr;};
     void deleteSignatureUrl() { this->signatureUrl_ = nullptr;};
-    inline string signatureUrl() const { DARABONBA_PTR_GET_DEFAULT(signatureUrl_, "") };
+    inline string getSignatureUrl() const { DARABONBA_PTR_GET_DEFAULT(signatureUrl_, "") };
     inline ImportScriptRequest& setSignatureUrl(string signatureUrl) { DARABONBA_PTR_SET_VALUE(signatureUrl_, signatureUrl) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> nluEngine_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> nluEngine_ {};
     // This parameter is required.
-    std::shared_ptr<string> signatureUrl_ = nullptr;
+    shared_ptr<string> signatureUrl_ {};
   };
 
   } // namespace Models
