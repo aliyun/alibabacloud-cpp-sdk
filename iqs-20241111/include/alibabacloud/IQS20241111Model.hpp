@@ -17,6 +17,11 @@
 #include <alibabacloud/models/GlobalSearchInformation.hpp>
 #include <alibabacloud/models/GlobalSearchResult.hpp>
 #include <alibabacloud/models/LocationInfo.hpp>
+#include <alibabacloud/models/MultimodalOriginalQuery.hpp>
+#include <alibabacloud/models/MultimodalQueryContext.hpp>
+#include <alibabacloud/models/MultimodalSearchBody.hpp>
+#include <alibabacloud/models/UnifiedImageItem.hpp>
+#include <alibabacloud/models/MultimodalSearchOutput.hpp>
 #include <alibabacloud/models/ReadPageBody.hpp>
 #include <alibabacloud/models/ReadPageItem.hpp>
 #include <alibabacloud/models/ReadPageScrapeBody.hpp>
@@ -44,6 +49,8 @@
 #include <alibabacloud/models/GetIqsUsageResponse.hpp>
 #include <alibabacloud/models/GlobalSearchRequest.hpp>
 #include <alibabacloud/models/GlobalSearchResponse.hpp>
+#include <alibabacloud/models/MultimodalSearchRequest.hpp>
+#include <alibabacloud/models/MultimodalSearchResponse.hpp>
 #include <alibabacloud/models/ReadPageBasicRequest.hpp>
 #include <alibabacloud/models/ReadPageBasicResponseBody.hpp>
 #include <alibabacloud/models/ReadPageBasicResponse.hpp>

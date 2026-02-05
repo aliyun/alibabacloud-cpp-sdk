@@ -21,7 +21,7 @@ namespace IQS20241111
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary AI搜索流式接口
+       * @summary AI搜索流式接口(废弃)
        *
        * @param request AiSearchRequest
        * @param headers map
@@ -31,7 +31,7 @@ namespace IQS20241111
       FutureGenerator<Models::AiSearchResponse> aiSearchWithSSE(const Models::AiSearchRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary AI搜索流式接口
+       * @summary AI搜索流式接口(废弃)
        *
        * @param request AiSearchRequest
        * @param headers map
@@ -41,7 +41,7 @@ namespace IQS20241111
       Models::AiSearchResponse aiSearchWithOptions(const Models::AiSearchRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary AI搜索流式接口
+       * @summary AI搜索流式接口(废弃)
        *
        * @param request AiSearchRequest
        * @return AiSearchResponse
@@ -119,6 +119,24 @@ namespace IQS20241111
        * @return GlobalSearchResponse
        */
       Models::GlobalSearchResponse globalSearch(const Models::GlobalSearchRequest &request);
+
+      /**
+       * @summary 多模态搜索
+       *
+       * @param request MultimodalSearchRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return MultimodalSearchResponse
+       */
+      Models::MultimodalSearchResponse multimodalSearchWithOptions(const Models::MultimodalSearchRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 多模态搜索
+       *
+       * @param request MultimodalSearchRequest
+       * @return MultimodalSearchResponse
+       */
+      Models::MultimodalSearchResponse multimodalSearch(const Models::MultimodalSearchRequest &request);
 
       /**
        * @summary 页面读取

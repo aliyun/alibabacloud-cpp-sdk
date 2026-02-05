@@ -37,7 +37,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary AI搜索流式接口
+ * @summary AI搜索流式接口(废弃)
  *
  * @param request AiSearchRequest
  * @param headers map
@@ -98,7 +98,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary AI搜索流式接口
+ * @summary AI搜索流式接口(废弃)
  *
  * @param request AiSearchRequest
  * @param headers map
@@ -147,7 +147,7 @@ AiSearchResponse Client::aiSearchWithOptions(const AiSearchRequest &request, con
 }
 
 /**
- * @summary AI搜索流式接口
+ * @summary AI搜索流式接口(废弃)
  *
  * @param request AiSearchRequest
  * @return AiSearchResponse
@@ -414,6 +414,46 @@ GlobalSearchResponse Client::globalSearch(const GlobalSearchRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return globalSearchWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 多模态搜索
+ *
+ * @param request MultimodalSearchRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return MultimodalSearchResponse
+ */
+MultimodalSearchResponse Client::multimodalSearchWithOptions(const MultimodalSearchRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
+  }));
+  Params params = Params(json({
+    {"action" , "MultimodalSearch"},
+    {"version" , "2024-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/linked-retrieval/linked-retrieval-entry/v1/iqs/multimodal/unified")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<MultimodalSearchResponse>();
+}
+
+/**
+ * @summary 多模态搜索
+ *
+ * @param request MultimodalSearchRequest
+ * @return MultimodalSearchResponse
+ */
+MultimodalSearchResponse Client::multimodalSearch(const MultimodalSearchRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return multimodalSearchWithOptions(request, headers, runtime);
 }
 
 /**
