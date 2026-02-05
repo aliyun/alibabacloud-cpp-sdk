@@ -62,11 +62,13 @@ namespace Models
         DARABONBA_PTR_TO_JSON(RegionBusinessStatus, regionBusinessStatus_);
         DARABONBA_PTR_TO_JSON(RegionServiceStatus, regionServiceStatus_);
         DARABONBA_PTR_TO_JSON(ServiceRegionId, serviceRegionId_);
+        DARABONBA_PTR_TO_JSON(SupportedRegionId, supportedRegionId_);
       };
       friend void from_json(const Darabonba::Json& j, SupportedRegionSet& obj) { 
         DARABONBA_PTR_FROM_JSON(RegionBusinessStatus, regionBusinessStatus_);
         DARABONBA_PTR_FROM_JSON(RegionServiceStatus, regionServiceStatus_);
         DARABONBA_PTR_FROM_JSON(ServiceRegionId, serviceRegionId_);
+        DARABONBA_PTR_FROM_JSON(SupportedRegionId, supportedRegionId_);
       };
       SupportedRegionSet() = default ;
       SupportedRegionSet(const SupportedRegionSet &) = default ;
@@ -80,7 +82,7 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->regionBusinessStatus_ == nullptr
-        && this->regionServiceStatus_ == nullptr && this->serviceRegionId_ == nullptr; };
+        && this->regionServiceStatus_ == nullptr && this->serviceRegionId_ == nullptr && this->supportedRegionId_ == nullptr; };
       // regionBusinessStatus Field Functions 
       bool hasRegionBusinessStatus() const { return this->regionBusinessStatus_ != nullptr;};
       void deleteRegionBusinessStatus() { this->regionBusinessStatus_ = nullptr;};
@@ -102,10 +104,18 @@ namespace Models
       inline SupportedRegionSet& setServiceRegionId(string serviceRegionId) { DARABONBA_PTR_SET_VALUE(serviceRegionId_, serviceRegionId) };
 
 
+      // supportedRegionId Field Functions 
+      bool hasSupportedRegionId() const { return this->supportedRegionId_ != nullptr;};
+      void deleteSupportedRegionId() { this->supportedRegionId_ = nullptr;};
+      inline string getSupportedRegionId() const { DARABONBA_PTR_GET_DEFAULT(supportedRegionId_, "") };
+      inline SupportedRegionSet& setSupportedRegionId(string supportedRegionId) { DARABONBA_PTR_SET_VALUE(supportedRegionId_, supportedRegionId) };
+
+
     protected:
       shared_ptr<string> regionBusinessStatus_ {};
       shared_ptr<string> regionServiceStatus_ {};
       shared_ptr<string> serviceRegionId_ {};
+      shared_ptr<string> supportedRegionId_ {};
     };
 
     virtual bool empty() const override { return this->addressIpVersion_ == nullptr
