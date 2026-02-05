@@ -34,6 +34,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SessionId, sessionId_);
       DARABONBA_PTR_TO_JSON(TenantId, tenantId_);
       DARABONBA_PTR_TO_JSON(WindowDisplayMode, windowDisplayMode_);
+      DARABONBA_PTR_TO_JSON(WyId, wyId_);
     };
     friend void from_json(const Darabonba::Json& j, GetLoginTokenResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(Email, email_);
@@ -55,6 +56,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SessionId, sessionId_);
       DARABONBA_PTR_FROM_JSON(TenantId, tenantId_);
       DARABONBA_PTR_FROM_JSON(WindowDisplayMode, windowDisplayMode_);
+      DARABONBA_PTR_FROM_JSON(WyId, wyId_);
     };
     GetLoginTokenResponseBody() = default ;
     GetLoginTokenResponseBody(const GetLoginTokenResponseBody &) = default ;
@@ -183,7 +185,7 @@ namespace Models
         && this->endUserId_ == nullptr && this->industry_ == nullptr && this->keepAliveToken_ == nullptr && this->label_ == nullptr && this->loginToken_ == nullptr
         && this->nextStage_ == nullptr && this->nickName_ == nullptr && this->passwordStrategy_ == nullptr && this->phone_ == nullptr && this->props_ == nullptr
         && this->qrCodePng_ == nullptr && this->reason_ == nullptr && this->requestId_ == nullptr && this->riskVerifyInfo_ == nullptr && this->secret_ == nullptr
-        && this->sessionId_ == nullptr && this->tenantId_ == nullptr && this->windowDisplayMode_ == nullptr; };
+        && this->sessionId_ == nullptr && this->tenantId_ == nullptr && this->windowDisplayMode_ == nullptr && this->wyId_ == nullptr; };
     // email Field Functions 
     bool hasEmail() const { return this->email_ != nullptr;};
     void deleteEmail() { this->email_ = nullptr;};
@@ -323,6 +325,13 @@ namespace Models
     inline GetLoginTokenResponseBody& setWindowDisplayMode(string windowDisplayMode) { DARABONBA_PTR_SET_VALUE(windowDisplayMode_, windowDisplayMode) };
 
 
+    // wyId Field Functions 
+    bool hasWyId() const { return this->wyId_ != nullptr;};
+    void deleteWyId() { this->wyId_ = nullptr;};
+    inline string getWyId() const { DARABONBA_PTR_GET_DEFAULT(wyId_, "") };
+    inline GetLoginTokenResponseBody& setWyId(string wyId) { DARABONBA_PTR_SET_VALUE(wyId_, wyId) };
+
+
   protected:
     // The email address of the user. The system returns the email address in the return value of the LoginToken parameter after the user logs on to the client.
     // 
@@ -372,6 +381,7 @@ namespace Models
     shared_ptr<int64_t> tenantId_ {};
     // > This is a parameter only for internal use.
     shared_ptr<string> windowDisplayMode_ {};
+    shared_ptr<string> wyId_ {};
   };
 
   } // namespace Models
