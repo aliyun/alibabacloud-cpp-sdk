@@ -2606,6 +2606,23 @@ namespace Rds20140815
       Models::DescribeActionEventPolicyResponse describeActionEventPolicy(const Models::DescribeActionEventPolicyRequest &request);
 
       /**
+       * @summary 查询主动操作维护配置
+       *
+       * @param request DescribeActiveOperationMaintainConfRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeActiveOperationMaintainConfResponse
+       */
+      Models::DescribeActiveOperationMaintainConfResponse describeActiveOperationMaintainConfWithOptions(const Models::DescribeActiveOperationMaintainConfRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询主动操作维护配置
+       *
+       * @param request DescribeActiveOperationMaintainConfRequest
+       * @return DescribeActiveOperationMaintainConfResponse
+       */
+      Models::DescribeActiveOperationMaintainConfResponse describeActiveOperationMaintainConf(const Models::DescribeActiveOperationMaintainConfRequest &request);
+
+      /**
        * @summary Queries the details about scheduled O\\\\\\\\\\\\\\\\\\\\&M tasks for an instance.
        *
        * @description ### [](#)Supported database engines
@@ -6068,6 +6085,23 @@ namespace Rds20140815
        * @return DescribeSQLLogReportListResponse
        */
       Models::DescribeSQLLogReportListResponse describeSQLLogReportList(const Models::DescribeSQLLogReportListRequest &request);
+
+      /**
+       * @summary 查询SQLServer升级版本
+       *
+       * @param request DescribeSQLServerUpgradeVersionsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeSQLServerUpgradeVersionsResponse
+       */
+      Models::DescribeSQLServerUpgradeVersionsResponse describeSQLServerUpgradeVersionsWithOptions(const Models::DescribeSQLServerUpgradeVersionsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询SQLServer升级版本
+       *
+       * @param request DescribeSQLServerUpgradeVersionsRequest
+       * @return DescribeSQLServerUpgradeVersionsResponse
+       */
+      Models::DescribeSQLServerUpgradeVersionsResponse describeSQLServerUpgradeVersions(const Models::DescribeSQLServerUpgradeVersionsRequest &request);
 
       /**
        * @summary Queries the credential of a user who uses the Data API feature.

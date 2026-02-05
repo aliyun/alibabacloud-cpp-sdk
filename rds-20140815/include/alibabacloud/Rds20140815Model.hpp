@@ -282,6 +282,9 @@
 #include <alibabacloud/models/DescribeActionEventPolicyRequest.hpp>
 #include <alibabacloud/models/DescribeActionEventPolicyResponseBody.hpp>
 #include <alibabacloud/models/DescribeActionEventPolicyResponse.hpp>
+#include <alibabacloud/models/DescribeActiveOperationMaintainConfRequest.hpp>
+#include <alibabacloud/models/DescribeActiveOperationMaintainConfResponseBody.hpp>
+#include <alibabacloud/models/DescribeActiveOperationMaintainConfResponse.hpp>
 #include <alibabacloud/models/DescribeActiveOperationTasksRequest.hpp>
 #include <alibabacloud/models/DescribeActiveOperationTasksResponseBody.hpp>
 #include <alibabacloud/models/DescribeActiveOperationTasksResponse.hpp>
@@ -689,6 +692,9 @@
 #include <alibabacloud/models/DescribeSQLLogReportListRequest.hpp>
 #include <alibabacloud/models/DescribeSQLLogReportListResponseBody.hpp>
 #include <alibabacloud/models/DescribeSQLLogReportListResponse.hpp>
+#include <alibabacloud/models/DescribeSQLServerUpgradeVersionsRequest.hpp>
+#include <alibabacloud/models/DescribeSQLServerUpgradeVersionsResponseBody.hpp>
+#include <alibabacloud/models/DescribeSQLServerUpgradeVersionsResponse.hpp>
 #include <alibabacloud/models/DescribeSecretsRequest.hpp>
 #include <alibabacloud/models/DescribeSecretsResponseBody.hpp>
 #include <alibabacloud/models/DescribeSecretsResponse.hpp>

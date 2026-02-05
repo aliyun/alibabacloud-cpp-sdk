@@ -7877,6 +7877,64 @@ DescribeActionEventPolicyResponse Client::describeActionEventPolicy(const Descri
 }
 
 /**
+ * @summary 查询主动操作维护配置
+ *
+ * @param request DescribeActiveOperationMaintainConfRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeActiveOperationMaintainConfResponse
+ */
+DescribeActiveOperationMaintainConfResponse Client::describeActiveOperationMaintainConfWithOptions(const DescribeActiveOperationMaintainConfRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.getOwnerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasSecurityToken()) {
+    query["SecurityToken"] = request.getSecurityToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeActiveOperationMaintainConf"},
+    {"version" , "2014-08-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeActiveOperationMaintainConfResponse>();
+}
+
+/**
+ * @summary 查询主动操作维护配置
+ *
+ * @param request DescribeActiveOperationMaintainConfRequest
+ * @return DescribeActiveOperationMaintainConfResponse
+ */
+DescribeActiveOperationMaintainConfResponse Client::describeActiveOperationMaintainConf(const DescribeActiveOperationMaintainConfRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeActiveOperationMaintainConfWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the details about scheduled O\\\\\\\\\\\\\\\\\\\\&M tasks for an instance.
  *
  * @description ### [](#)Supported database engines
@@ -18210,6 +18268,68 @@ DescribeSQLLogReportListResponse Client::describeSQLLogReportListWithOptions(con
 DescribeSQLLogReportListResponse Client::describeSQLLogReportList(const DescribeSQLLogReportListRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeSQLLogReportListWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询SQLServer升级版本
+ *
+ * @param request DescribeSQLServerUpgradeVersionsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeSQLServerUpgradeVersionsResponse
+ */
+DescribeSQLServerUpgradeVersionsResponse Client::describeSQLServerUpgradeVersionsWithOptions(const DescribeSQLServerUpgradeVersionsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.getDBInstanceId();
+  }
+
+  if (!!request.hasEngineVersion()) {
+    query["EngineVersion"] = request.getEngineVersion();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeSQLServerUpgradeVersions"},
+    {"version" , "2014-08-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeSQLServerUpgradeVersionsResponse>();
+}
+
+/**
+ * @summary 查询SQLServer升级版本
+ *
+ * @param request DescribeSQLServerUpgradeVersionsRequest
+ * @return DescribeSQLServerUpgradeVersionsResponse
+ */
+DescribeSQLServerUpgradeVersionsResponse Client::describeSQLServerUpgradeVersions(const DescribeSQLServerUpgradeVersionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeSQLServerUpgradeVersionsWithOptions(request, runtime);
 }
 
 /**
