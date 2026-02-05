@@ -16,10 +16,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AppName, appName_);
       DARABONBA_PTR_TO_JSON(AppType, appType_);
       DARABONBA_PTR_TO_JSON(DBInstanceName, DBInstanceName_);
+      DARABONBA_PTR_TO_JSON(EipId, eipId_);
       DARABONBA_PTR_TO_JSON(EipStatus, eipStatus_);
       DARABONBA_PTR_TO_JSON(InstanceClass, instanceClass_);
       DARABONBA_PTR_TO_JSON(InstanceMinorVersion, instanceMinorVersion_);
       DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
+      DARABONBA_PTR_TO_JSON(NatCreatedBy, natCreatedBy_);
+      DARABONBA_PTR_TO_JSON(NatGatewayId, natGatewayId_);
       DARABONBA_PTR_TO_JSON(NatStatus, natStatus_);
       DARABONBA_PTR_TO_JSON(PublicConnectionString, publicConnectionString_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
@@ -33,10 +36,13 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AppName, appName_);
       DARABONBA_PTR_FROM_JSON(AppType, appType_);
       DARABONBA_PTR_FROM_JSON(DBInstanceName, DBInstanceName_);
+      DARABONBA_PTR_FROM_JSON(EipId, eipId_);
       DARABONBA_PTR_FROM_JSON(EipStatus, eipStatus_);
       DARABONBA_PTR_FROM_JSON(InstanceClass, instanceClass_);
       DARABONBA_PTR_FROM_JSON(InstanceMinorVersion, instanceMinorVersion_);
       DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
+      DARABONBA_PTR_FROM_JSON(NatCreatedBy, natCreatedBy_);
+      DARABONBA_PTR_FROM_JSON(NatGatewayId, natGatewayId_);
       DARABONBA_PTR_FROM_JSON(NatStatus, natStatus_);
       DARABONBA_PTR_FROM_JSON(PublicConnectionString, publicConnectionString_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -58,9 +64,10 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appName_ == nullptr
-        && this->appType_ == nullptr && this->DBInstanceName_ == nullptr && this->eipStatus_ == nullptr && this->instanceClass_ == nullptr && this->instanceMinorVersion_ == nullptr
-        && this->instanceName_ == nullptr && this->natStatus_ == nullptr && this->publicConnectionString_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr
-        && this->status_ == nullptr && this->vSwitchId_ == nullptr && this->vpcConnectionString_ == nullptr && this->zoneId_ == nullptr; };
+        && this->appType_ == nullptr && this->DBInstanceName_ == nullptr && this->eipId_ == nullptr && this->eipStatus_ == nullptr && this->instanceClass_ == nullptr
+        && this->instanceMinorVersion_ == nullptr && this->instanceName_ == nullptr && this->natCreatedBy_ == nullptr && this->natGatewayId_ == nullptr && this->natStatus_ == nullptr
+        && this->publicConnectionString_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr && this->status_ == nullptr && this->vSwitchId_ == nullptr
+        && this->vpcConnectionString_ == nullptr && this->zoneId_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
@@ -80,6 +87,13 @@ namespace Models
     void deleteDBInstanceName() { this->DBInstanceName_ = nullptr;};
     inline string getDBInstanceName() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceName_, "") };
     inline DescribeAppInstanceAttributeResponseBody& setDBInstanceName(string DBInstanceName) { DARABONBA_PTR_SET_VALUE(DBInstanceName_, DBInstanceName) };
+
+
+    // eipId Field Functions 
+    bool hasEipId() const { return this->eipId_ != nullptr;};
+    void deleteEipId() { this->eipId_ = nullptr;};
+    inline string getEipId() const { DARABONBA_PTR_GET_DEFAULT(eipId_, "") };
+    inline DescribeAppInstanceAttributeResponseBody& setEipId(string eipId) { DARABONBA_PTR_SET_VALUE(eipId_, eipId) };
 
 
     // eipStatus Field Functions 
@@ -108,6 +122,20 @@ namespace Models
     void deleteInstanceName() { this->instanceName_ = nullptr;};
     inline string getInstanceName() const { DARABONBA_PTR_GET_DEFAULT(instanceName_, "") };
     inline DescribeAppInstanceAttributeResponseBody& setInstanceName(string instanceName) { DARABONBA_PTR_SET_VALUE(instanceName_, instanceName) };
+
+
+    // natCreatedBy Field Functions 
+    bool hasNatCreatedBy() const { return this->natCreatedBy_ != nullptr;};
+    void deleteNatCreatedBy() { this->natCreatedBy_ = nullptr;};
+    inline string getNatCreatedBy() const { DARABONBA_PTR_GET_DEFAULT(natCreatedBy_, "") };
+    inline DescribeAppInstanceAttributeResponseBody& setNatCreatedBy(string natCreatedBy) { DARABONBA_PTR_SET_VALUE(natCreatedBy_, natCreatedBy) };
+
+
+    // natGatewayId Field Functions 
+    bool hasNatGatewayId() const { return this->natGatewayId_ != nullptr;};
+    void deleteNatGatewayId() { this->natGatewayId_ = nullptr;};
+    inline string getNatGatewayId() const { DARABONBA_PTR_GET_DEFAULT(natGatewayId_, "") };
+    inline DescribeAppInstanceAttributeResponseBody& setNatGatewayId(string natGatewayId) { DARABONBA_PTR_SET_VALUE(natGatewayId_, natGatewayId) };
 
 
     // natStatus Field Functions 
@@ -173,6 +201,7 @@ namespace Models
     shared_ptr<string> appType_ {};
     // The ID of the RDS for PostgreSQL instance with which the RDS Supabase instances are associated.
     shared_ptr<string> DBInstanceName_ {};
+    shared_ptr<string> eipId_ {};
     shared_ptr<string> eipStatus_ {};
     // The instance type of the RDS Supabase instance.
     shared_ptr<string> instanceClass_ {};
@@ -180,6 +209,8 @@ namespace Models
     shared_ptr<string> instanceMinorVersion_ {};
     // The ID of the RDS Supabase instance.
     shared_ptr<string> instanceName_ {};
+    shared_ptr<string> natCreatedBy_ {};
+    shared_ptr<string> natGatewayId_ {};
     shared_ptr<string> natStatus_ {};
     // The public endpoint of the AI application.
     shared_ptr<string> publicConnectionString_ {};

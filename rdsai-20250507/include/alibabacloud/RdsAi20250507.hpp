@@ -110,6 +110,40 @@ namespace RdsAi20250507
       Models::CreateCustomAgentResponse createCustomAgent(const Models::CreateCustomAgentRequest &request);
 
       /**
+       * @summary 创建一个批量实例巡检任务
+       *
+       * @param request CreateInspectionTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateInspectionTaskResponse
+       */
+      Models::CreateInspectionTaskResponse createInspectionTaskWithOptions(const Models::CreateInspectionTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建一个批量实例巡检任务
+       *
+       * @param request CreateInspectionTaskRequest
+       * @return CreateInspectionTaskResponse
+       */
+      Models::CreateInspectionTaskResponse createInspectionTask(const Models::CreateInspectionTaskRequest &request);
+
+      /**
+       * @summary 创建一个新的批量实例巡检任务
+       *
+       * @param request CreateScheduledTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateScheduledTaskResponse
+       */
+      Models::CreateScheduledTaskResponse createScheduledTaskWithOptions(const Models::CreateScheduledTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建一个新的批量实例巡检任务
+       *
+       * @param request CreateScheduledTaskRequest
+       * @return CreateScheduledTaskResponse
+       */
+      Models::CreateScheduledTaskResponse createScheduledTask(const Models::CreateScheduledTaskRequest &request);
+
+      /**
        * @summary Deletes an RDS Supabase instance.
        *
        * @description ### [](#)Supported database engine
@@ -156,6 +190,23 @@ namespace RdsAi20250507
        * @return DeleteCustomAgentResponse
        */
       Models::DeleteCustomAgentResponse deleteCustomAgent(const Models::DeleteCustomAgentRequest &request);
+
+      /**
+       * @summary 删除指定的巡检任务
+       *
+       * @param request DeleteScheduledTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteScheduledTaskResponse
+       */
+      Models::DeleteScheduledTaskResponse deleteScheduledTaskWithOptions(const Models::DeleteScheduledTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除指定的巡检任务
+       *
+       * @param request DeleteScheduledTaskRequest
+       * @return DeleteScheduledTaskResponse
+       */
+      Models::DeleteScheduledTaskResponse deleteScheduledTask(const Models::DeleteScheduledTaskRequest &request);
 
       /**
        * @summary Queries the details of an RDS Supabase instance.
@@ -417,6 +468,23 @@ namespace RdsAi20250507
       Models::GetCustomAgentResponse getCustomAgent(const Models::GetCustomAgentRequest &request);
 
       /**
+       * @summary 获取巡检任务报告结果
+       *
+       * @param request GetInspectionReportRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetInspectionReportResponse
+       */
+      Models::GetInspectionReportResponse getInspectionReportWithOptions(const Models::GetInspectionReportRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取巡检任务报告结果
+       *
+       * @param request GetInspectionReportRequest
+       * @return GetInspectionReportResponse
+       */
+      Models::GetInspectionReportResponse getInspectionReport(const Models::GetInspectionReportRequest &request);
+
+      /**
        * @summary Queries specific conversation messages.
        *
        * @param request GetMessagesRequest
@@ -432,6 +500,57 @@ namespace RdsAi20250507
        * @return GetMessagesResponse
        */
       Models::GetMessagesResponse getMessages(const Models::GetMessagesRequest &request);
+
+      /**
+       * @summary 查询指定定时任务配置中包含的所有实例ID列表，支持分页
+       *
+       * @param request GetScheduledInstancesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetScheduledInstancesResponse
+       */
+      Models::GetScheduledInstancesResponse getScheduledInstancesWithOptions(const Models::GetScheduledInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询指定定时任务配置中包含的所有实例ID列表，支持分页
+       *
+       * @param request GetScheduledInstancesRequest
+       * @return GetScheduledInstancesResponse
+       */
+      Models::GetScheduledInstancesResponse getScheduledInstances(const Models::GetScheduledInstancesRequest &request);
+
+      /**
+       * @summary 获取定时任务的所有巡检报告，支持分页
+       *
+       * @param request GetScheduledReportsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetScheduledReportsResponse
+       */
+      Models::GetScheduledReportsResponse getScheduledReportsWithOptions(const Models::GetScheduledReportsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取定时任务的所有巡检报告，支持分页
+       *
+       * @param request GetScheduledReportsRequest
+       * @return GetScheduledReportsResponse
+       */
+      Models::GetScheduledReportsResponse getScheduledReports(const Models::GetScheduledReportsRequest &request);
+
+      /**
+       * @summary 查询指定用户下所有非定时任务的单独巡检报告列表，支持分页
+       *
+       * @param request GetStandAloneReportsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetStandAloneReportsResponse
+       */
+      Models::GetStandAloneReportsResponse getStandAloneReportsWithOptions(const Models::GetStandAloneReportsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询指定用户下所有非定时任务的单独巡检报告列表，支持分页
+       *
+       * @param request GetStandAloneReportsRequest
+       * @return GetStandAloneReportsResponse
+       */
+      Models::GetStandAloneReportsResponse getStandAloneReports(const Models::GetStandAloneReportsRequest &request);
 
       /**
        * @summary Queries the dedicated agents created by a user.
@@ -465,6 +584,23 @@ namespace RdsAi20250507
        * @return ListCustomAgentToolsResponse
        */
       Models::ListCustomAgentToolsResponse listCustomAgentTools();
+
+      /**
+       * @summary 查询指定用户UID下所有巡检任务的基本信息列表
+       *
+       * @param request ListScheduledTasksRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListScheduledTasksResponse
+       */
+      Models::ListScheduledTasksResponse listScheduledTasksWithOptions(const Models::ListScheduledTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询指定用户UID下所有巡检任务的基本信息列表
+       *
+       * @param request ListScheduledTasksRequest
+       * @return ListScheduledTasksResponse
+       */
+      Models::ListScheduledTasksResponse listScheduledTasks(const Models::ListScheduledTasksRequest &request);
 
       /**
        * @summary Modifies the authentication configurations of an RDS Supabase instance.
@@ -653,6 +789,23 @@ namespace RdsAi20250507
        * @return ModifyMessagesFeedbacksResponse
        */
       Models::ModifyMessagesFeedbacksResponse modifyMessagesFeedbacks(const Models::ModifyMessagesFeedbacksRequest &request);
+
+      /**
+       * @summary 修改已存在的巡检任务信息
+       *
+       * @param request ModifyScheduledTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyScheduledTaskResponse
+       */
+      Models::ModifyScheduledTaskResponse modifyScheduledTaskWithOptions(const Models::ModifyScheduledTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改已存在的巡检任务信息
+       *
+       * @param request ModifyScheduledTaskRequest
+       * @return ModifyScheduledTaskResponse
+       */
+      Models::ModifyScheduledTaskResponse modifyScheduledTask(const Models::ModifyScheduledTaskRequest &request);
 
       /**
        * @summary Resets the logon password of the RDS Supabase instance and the access password of the database.

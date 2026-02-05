@@ -392,6 +392,122 @@ CreateCustomAgentResponse Client::createCustomAgent(const CreateCustomAgentReque
 }
 
 /**
+ * @summary 创建一个批量实例巡检任务
+ *
+ * @param request CreateInspectionTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateInspectionTaskResponse
+ */
+CreateInspectionTaskResponse Client::createInspectionTaskWithOptions(const CreateInspectionTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasInspectionItems()) {
+    query["InspectionItems"] = request.getInspectionItems();
+  }
+
+  if (!!request.hasInstanceIds()) {
+    query["InstanceIds"] = request.getInstanceIds();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateInspectionTask"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateInspectionTaskResponse>();
+}
+
+/**
+ * @summary 创建一个批量实例巡检任务
+ *
+ * @param request CreateInspectionTaskRequest
+ * @return CreateInspectionTaskResponse
+ */
+CreateInspectionTaskResponse Client::createInspectionTask(const CreateInspectionTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createInspectionTaskWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建一个新的批量实例巡检任务
+ *
+ * @param request CreateScheduledTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateScheduledTaskResponse
+ */
+CreateScheduledTaskResponse Client::createScheduledTaskWithOptions(const CreateScheduledTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasFrequency()) {
+    query["Frequency"] = request.getFrequency();
+  }
+
+  if (!!request.hasInstanceIds()) {
+    query["InstanceIds"] = request.getInstanceIds();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasTimeRange()) {
+    query["TimeRange"] = request.getTimeRange();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateScheduledTask"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateScheduledTaskResponse>();
+}
+
+/**
+ * @summary 创建一个新的批量实例巡检任务
+ *
+ * @param request CreateScheduledTaskRequest
+ * @return CreateScheduledTaskResponse
+ */
+CreateScheduledTaskResponse Client::createScheduledTask(const CreateScheduledTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createScheduledTaskWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes an RDS Supabase instance.
  *
  * @description ### [](#)Supported database engine
@@ -495,6 +611,48 @@ DeleteCustomAgentResponse Client::deleteCustomAgentWithOptions(const DeleteCusto
 DeleteCustomAgentResponse Client::deleteCustomAgent(const DeleteCustomAgentRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteCustomAgentWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除指定的巡检任务
+ *
+ * @param request DeleteScheduledTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteScheduledTaskResponse
+ */
+DeleteScheduledTaskResponse Client::deleteScheduledTaskWithOptions(const DeleteScheduledTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasScheduledId()) {
+    query["ScheduledId"] = request.getScheduledId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteScheduledTask"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteScheduledTaskResponse>();
+}
+
+/**
+ * @summary 删除指定的巡检任务
+ *
+ * @param request DeleteScheduledTaskRequest
+ * @return DeleteScheduledTaskResponse
+ */
+DeleteScheduledTaskResponse Client::deleteScheduledTask(const DeleteScheduledTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteScheduledTaskWithOptions(request, runtime);
 }
 
 /**
@@ -1112,6 +1270,52 @@ GetCustomAgentResponse Client::getCustomAgent(const GetCustomAgentRequest &reque
 }
 
 /**
+ * @summary 获取巡检任务报告结果
+ *
+ * @param request GetInspectionReportRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetInspectionReportResponse
+ */
+GetInspectionReportResponse Client::getInspectionReportWithOptions(const GetInspectionReportRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasTaskId()) {
+    query["TaskId"] = request.getTaskId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetInspectionReport"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetInspectionReportResponse>();
+}
+
+/**
+ * @summary 获取巡检任务报告结果
+ *
+ * @param request GetInspectionReportRequest
+ * @return GetInspectionReportResponse
+ */
+GetInspectionReportResponse Client::getInspectionReport(const GetInspectionReportRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getInspectionReportWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries specific conversation messages.
  *
  * @param request GetMessagesRequest
@@ -1163,6 +1367,168 @@ GetMessagesResponse Client::getMessagesWithOptions(const GetMessagesRequest &req
 GetMessagesResponse Client::getMessages(const GetMessagesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getMessagesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询指定定时任务配置中包含的所有实例ID列表，支持分页
+ *
+ * @param request GetScheduledInstancesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetScheduledInstancesResponse
+ */
+GetScheduledInstancesResponse Client::getScheduledInstancesWithOptions(const GetScheduledInstancesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasScheduledId()) {
+    query["ScheduledId"] = request.getScheduledId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetScheduledInstances"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetScheduledInstancesResponse>();
+}
+
+/**
+ * @summary 查询指定定时任务配置中包含的所有实例ID列表，支持分页
+ *
+ * @param request GetScheduledInstancesRequest
+ * @return GetScheduledInstancesResponse
+ */
+GetScheduledInstancesResponse Client::getScheduledInstances(const GetScheduledInstancesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getScheduledInstancesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取定时任务的所有巡检报告，支持分页
+ *
+ * @param request GetScheduledReportsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetScheduledReportsResponse
+ */
+GetScheduledReportsResponse Client::getScheduledReportsWithOptions(const GetScheduledReportsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasScheduledId()) {
+    query["ScheduledId"] = request.getScheduledId();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetScheduledReports"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetScheduledReportsResponse>();
+}
+
+/**
+ * @summary 获取定时任务的所有巡检报告，支持分页
+ *
+ * @param request GetScheduledReportsRequest
+ * @return GetScheduledReportsResponse
+ */
+GetScheduledReportsResponse Client::getScheduledReports(const GetScheduledReportsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getScheduledReportsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询指定用户下所有非定时任务的单独巡检报告列表，支持分页
+ *
+ * @param request GetStandAloneReportsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetStandAloneReportsResponse
+ */
+GetStandAloneReportsResponse Client::getStandAloneReportsWithOptions(const GetStandAloneReportsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetStandAloneReports"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetStandAloneReportsResponse>();
+}
+
+/**
+ * @summary 查询指定用户下所有非定时任务的单独巡检报告列表，支持分页
+ *
+ * @param request GetStandAloneReportsRequest
+ * @return GetStandAloneReportsResponse
+ */
+GetStandAloneReportsResponse Client::getStandAloneReports(const GetStandAloneReportsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getStandAloneReportsWithOptions(request, runtime);
 }
 
 /**
@@ -1242,6 +1608,56 @@ ListCustomAgentToolsResponse Client::listCustomAgentToolsWithOptions(const Darab
 ListCustomAgentToolsResponse Client::listCustomAgentTools() {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listCustomAgentToolsWithOptions(runtime);
+}
+
+/**
+ * @summary 查询指定用户UID下所有巡检任务的基本信息列表
+ *
+ * @param request ListScheduledTasksRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListScheduledTasksResponse
+ */
+ListScheduledTasksResponse Client::listScheduledTasksWithOptions(const ListScheduledTasksRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasScheduledId()) {
+    query["ScheduledId"] = request.getScheduledId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListScheduledTasks"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListScheduledTasksResponse>();
+}
+
+/**
+ * @summary 查询指定用户UID下所有巡检任务的基本信息列表
+ *
+ * @param request ListScheduledTasksRequest
+ * @return ListScheduledTasksResponse
+ */
+ListScheduledTasksResponse Client::listScheduledTasks(const ListScheduledTasksRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listScheduledTasksWithOptions(request, runtime);
 }
 
 /**
@@ -1774,6 +2190,72 @@ ModifyMessagesFeedbacksResponse Client::modifyMessagesFeedbacksWithOptions(const
 ModifyMessagesFeedbacksResponse Client::modifyMessagesFeedbacks(const ModifyMessagesFeedbacksRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifyMessagesFeedbacksWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改已存在的巡检任务信息
+ *
+ * @param request ModifyScheduledTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyScheduledTaskResponse
+ */
+ModifyScheduledTaskResponse Client::modifyScheduledTaskWithOptions(const ModifyScheduledTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasFrequency()) {
+    query["Frequency"] = request.getFrequency();
+  }
+
+  if (!!request.hasInstanceIds()) {
+    query["InstanceIds"] = request.getInstanceIds();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasScheduledId()) {
+    query["ScheduledId"] = request.getScheduledId();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasTimeRange()) {
+    query["TimeRange"] = request.getTimeRange();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyScheduledTask"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyScheduledTaskResponse>();
+}
+
+/**
+ * @summary 修改已存在的巡检任务信息
+ *
+ * @param request ModifyScheduledTaskRequest
+ * @return ModifyScheduledTaskResponse
+ */
+ModifyScheduledTaskResponse Client::modifyScheduledTask(const ModifyScheduledTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyScheduledTaskWithOptions(request, runtime);
 }
 
 /**
