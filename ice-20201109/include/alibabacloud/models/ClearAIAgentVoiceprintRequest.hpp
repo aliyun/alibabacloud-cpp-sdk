@@ -13,9 +13,11 @@ namespace Models
   class ClearAIAgentVoiceprintRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ClearAIAgentVoiceprintRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(RegistrationMode, registrationMode_);
       DARABONBA_PTR_TO_JSON(VoiceprintId, voiceprintId_);
     };
     friend void from_json(const Darabonba::Json& j, ClearAIAgentVoiceprintRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(RegistrationMode, registrationMode_);
       DARABONBA_PTR_FROM_JSON(VoiceprintId, voiceprintId_);
     };
     ClearAIAgentVoiceprintRequest() = default ;
@@ -29,7 +31,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->voiceprintId_ == nullptr; };
+    virtual bool empty() const override { return this->registrationMode_ == nullptr
+        && this->voiceprintId_ == nullptr; };
+    // registrationMode Field Functions 
+    bool hasRegistrationMode() const { return this->registrationMode_ != nullptr;};
+    void deleteRegistrationMode() { this->registrationMode_ = nullptr;};
+    inline string getRegistrationMode() const { DARABONBA_PTR_GET_DEFAULT(registrationMode_, "") };
+    inline ClearAIAgentVoiceprintRequest& setRegistrationMode(string registrationMode) { DARABONBA_PTR_SET_VALUE(registrationMode_, registrationMode) };
+
+
     // voiceprintId Field Functions 
     bool hasVoiceprintId() const { return this->voiceprintId_ != nullptr;};
     void deleteVoiceprintId() { this->voiceprintId_ = nullptr;};
@@ -38,6 +48,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> registrationMode_ {};
     // The unique identifier for the voiceprint.
     shared_ptr<string> voiceprintId_ {};
   };

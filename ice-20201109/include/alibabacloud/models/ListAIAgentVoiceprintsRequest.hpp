@@ -15,11 +15,13 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ListAIAgentVoiceprintsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(RegistrationMode, registrationMode_);
       DARABONBA_PTR_TO_JSON(VoiceprintId, voiceprintId_);
     };
     friend void from_json(const Darabonba::Json& j, ListAIAgentVoiceprintsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(RegistrationMode, registrationMode_);
       DARABONBA_PTR_FROM_JSON(VoiceprintId, voiceprintId_);
     };
     ListAIAgentVoiceprintsRequest() = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->pageNumber_ == nullptr
-        && this->pageSize_ == nullptr && this->voiceprintId_ == nullptr; };
+        && this->pageSize_ == nullptr && this->registrationMode_ == nullptr && this->voiceprintId_ == nullptr; };
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
@@ -49,6 +51,13 @@ namespace Models
     inline ListAIAgentVoiceprintsRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+    // registrationMode Field Functions 
+    bool hasRegistrationMode() const { return this->registrationMode_ != nullptr;};
+    void deleteRegistrationMode() { this->registrationMode_ = nullptr;};
+    inline string getRegistrationMode() const { DARABONBA_PTR_GET_DEFAULT(registrationMode_, "") };
+    inline ListAIAgentVoiceprintsRequest& setRegistrationMode(string registrationMode) { DARABONBA_PTR_SET_VALUE(registrationMode_, registrationMode) };
+
+
     // voiceprintId Field Functions 
     bool hasVoiceprintId() const { return this->voiceprintId_ != nullptr;};
     void deleteVoiceprintId() { this->voiceprintId_ = nullptr;};
@@ -61,6 +70,7 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Value values: [1,100].
     shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<string> registrationMode_ {};
     // A unique identifier for the voiceprint. This parameter is optional. If provided, only the information for that ID is returned. If not specified, all voiceprints under the account are returned.
     shared_ptr<string> voiceprintId_ {};
   };

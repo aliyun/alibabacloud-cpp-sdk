@@ -49,6 +49,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Color, color_);
         DARABONBA_PTR_TO_JSON(Detail, detail_);
         DARABONBA_PTR_TO_JSON(Noise, noise_);
+        DARABONBA_PTR_TO_JSON(Score, score_);
         DARABONBA_PTR_TO_JSON(Sharp, sharp_);
       };
       friend void from_json(const Darabonba::Json& j, ScoreResult& obj) { 
@@ -56,6 +57,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Color, color_);
         DARABONBA_PTR_FROM_JSON(Detail, detail_);
         DARABONBA_PTR_FROM_JSON(Noise, noise_);
+        DARABONBA_PTR_FROM_JSON(Score, score_);
         DARABONBA_PTR_FROM_JSON(Sharp, sharp_);
       };
       ScoreResult() = default ;
@@ -280,7 +282,7 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->block_ == nullptr
-        && this->color_ == nullptr && this->detail_ == nullptr && this->noise_ == nullptr && this->sharp_ == nullptr; };
+        && this->color_ == nullptr && this->detail_ == nullptr && this->noise_ == nullptr && this->score_ == nullptr && this->sharp_ == nullptr; };
       // block Field Functions 
       bool hasBlock() const { return this->block_ != nullptr;};
       void deleteBlock() { this->block_ = nullptr;};
@@ -317,6 +319,13 @@ namespace Models
       inline ScoreResult& setNoise(ScoreResult::Noise && noise) { DARABONBA_PTR_SET_RVALUE(noise_, noise) };
 
 
+      // score Field Functions 
+      bool hasScore() const { return this->score_ != nullptr;};
+      void deleteScore() { this->score_ = nullptr;};
+      inline double getScore() const { DARABONBA_PTR_GET_DEFAULT(score_, 0.0) };
+      inline ScoreResult& setScore(double score) { DARABONBA_PTR_SET_VALUE(score_, score) };
+
+
       // sharp Field Functions 
       bool hasSharp() const { return this->sharp_ != nullptr;};
       void deleteSharp() { this->sharp_ = nullptr;};
@@ -331,6 +340,7 @@ namespace Models
       shared_ptr<ScoreResult::Color> color_ {};
       shared_ptr<ScoreResult::Detail> detail_ {};
       shared_ptr<ScoreResult::Noise> noise_ {};
+      shared_ptr<double> score_ {};
       shared_ptr<ScoreResult::Sharp> sharp_ {};
     };
 

@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AvatarUrl, avatarUrl_);
       DARABONBA_PTR_TO_JSON(AvatarUrlType, avatarUrlType_);
       DARABONBA_PTR_TO_JSON(BackChannelingConfig, backChannelingConfig_);
+      DARABONBA_PTR_TO_JSON(BackChannelingConfigs, backChannelingConfigs_);
       DARABONBA_PTR_TO_JSON(EnableIntelligentSegment, enableIntelligentSegment_);
       DARABONBA_PTR_TO_JSON(EnablePushToTalk, enablePushToTalk_);
       DARABONBA_PTR_TO_JSON(ExperimentalConfig, experimentalConfig_);
@@ -47,6 +48,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AvatarUrl, avatarUrl_);
       DARABONBA_PTR_FROM_JSON(AvatarUrlType, avatarUrlType_);
       DARABONBA_PTR_FROM_JSON(BackChannelingConfig, backChannelingConfig_);
+      DARABONBA_PTR_FROM_JSON(BackChannelingConfigs, backChannelingConfigs_);
       DARABONBA_PTR_FROM_JSON(EnableIntelligentSegment, enableIntelligentSegment_);
       DARABONBA_PTR_FROM_JSON(EnablePushToTalk, enablePushToTalk_);
       DARABONBA_PTR_FROM_JSON(ExperimentalConfig, experimentalConfig_);
@@ -79,10 +81,12 @@ namespace Models
     class VoiceprintConfig : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const VoiceprintConfig& obj) { 
+        DARABONBA_PTR_TO_JSON(RegistrationMode, registrationMode_);
         DARABONBA_PTR_TO_JSON(UseVoiceprint, useVoiceprint_);
         DARABONBA_PTR_TO_JSON(VoiceprintId, voiceprintId_);
       };
       friend void from_json(const Darabonba::Json& j, VoiceprintConfig& obj) { 
+        DARABONBA_PTR_FROM_JSON(RegistrationMode, registrationMode_);
         DARABONBA_PTR_FROM_JSON(UseVoiceprint, useVoiceprint_);
         DARABONBA_PTR_FROM_JSON(VoiceprintId, voiceprintId_);
       };
@@ -97,8 +101,15 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->useVoiceprint_ == nullptr
-        && this->voiceprintId_ == nullptr; };
+      virtual bool empty() const override { return this->registrationMode_ == nullptr
+        && this->useVoiceprint_ == nullptr && this->voiceprintId_ == nullptr; };
+      // registrationMode Field Functions 
+      bool hasRegistrationMode() const { return this->registrationMode_ != nullptr;};
+      void deleteRegistrationMode() { this->registrationMode_ = nullptr;};
+      inline string getRegistrationMode() const { DARABONBA_PTR_GET_DEFAULT(registrationMode_, "") };
+      inline VoiceprintConfig& setRegistrationMode(string registrationMode) { DARABONBA_PTR_SET_VALUE(registrationMode_, registrationMode) };
+
+
       // useVoiceprint Field Functions 
       bool hasUseVoiceprint() const { return this->useVoiceprint_ != nullptr;};
       void deleteUseVoiceprint() { this->useVoiceprint_ = nullptr;};
@@ -114,6 +125,7 @@ namespace Models
 
 
     protected:
+      shared_ptr<string> registrationMode_ {};
       shared_ptr<bool> useVoiceprint_ {};
       shared_ptr<string> voiceprintId_ {};
     };
@@ -898,6 +910,112 @@ namespace Models
       shared_ptr<string> noInterruptMode_ {};
     };
 
+    class BackChannelingConfigs : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const BackChannelingConfigs& obj) { 
+        DARABONBA_PTR_TO_JSON(Enabled, enabled_);
+        DARABONBA_PTR_TO_JSON(Probability, probability_);
+        DARABONBA_PTR_TO_JSON(TriggerStage, triggerStage_);
+        DARABONBA_PTR_TO_JSON(Words, words_);
+      };
+      friend void from_json(const Darabonba::Json& j, BackChannelingConfigs& obj) { 
+        DARABONBA_PTR_FROM_JSON(Enabled, enabled_);
+        DARABONBA_PTR_FROM_JSON(Probability, probability_);
+        DARABONBA_PTR_FROM_JSON(TriggerStage, triggerStage_);
+        DARABONBA_PTR_FROM_JSON(Words, words_);
+      };
+      BackChannelingConfigs() = default ;
+      BackChannelingConfigs(const BackChannelingConfigs &) = default ;
+      BackChannelingConfigs(BackChannelingConfigs &&) = default ;
+      BackChannelingConfigs(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~BackChannelingConfigs() = default ;
+      BackChannelingConfigs& operator=(const BackChannelingConfigs &) = default ;
+      BackChannelingConfigs& operator=(BackChannelingConfigs &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Words : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Words& obj) { 
+          DARABONBA_PTR_TO_JSON(Probability, probability_);
+          DARABONBA_PTR_TO_JSON(Text, text_);
+        };
+        friend void from_json(const Darabonba::Json& j, Words& obj) { 
+          DARABONBA_PTR_FROM_JSON(Probability, probability_);
+          DARABONBA_PTR_FROM_JSON(Text, text_);
+        };
+        Words() = default ;
+        Words(const Words &) = default ;
+        Words(Words &&) = default ;
+        Words(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Words() = default ;
+        Words& operator=(const Words &) = default ;
+        Words& operator=(Words &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->probability_ == nullptr
+        && this->text_ == nullptr; };
+        // probability Field Functions 
+        bool hasProbability() const { return this->probability_ != nullptr;};
+        void deleteProbability() { this->probability_ = nullptr;};
+        inline double getProbability() const { DARABONBA_PTR_GET_DEFAULT(probability_, 0.0) };
+        inline Words& setProbability(double probability) { DARABONBA_PTR_SET_VALUE(probability_, probability) };
+
+
+        // text Field Functions 
+        bool hasText() const { return this->text_ != nullptr;};
+        void deleteText() { this->text_ = nullptr;};
+        inline string getText() const { DARABONBA_PTR_GET_DEFAULT(text_, "") };
+        inline Words& setText(string text) { DARABONBA_PTR_SET_VALUE(text_, text) };
+
+
+      protected:
+        shared_ptr<double> probability_ {};
+        shared_ptr<string> text_ {};
+      };
+
+      virtual bool empty() const override { return this->enabled_ == nullptr
+        && this->probability_ == nullptr && this->triggerStage_ == nullptr && this->words_ == nullptr; };
+      // enabled Field Functions 
+      bool hasEnabled() const { return this->enabled_ != nullptr;};
+      void deleteEnabled() { this->enabled_ = nullptr;};
+      inline bool getEnabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
+      inline BackChannelingConfigs& setEnabled(bool enabled) { DARABONBA_PTR_SET_VALUE(enabled_, enabled) };
+
+
+      // probability Field Functions 
+      bool hasProbability() const { return this->probability_ != nullptr;};
+      void deleteProbability() { this->probability_ = nullptr;};
+      inline double getProbability() const { DARABONBA_PTR_GET_DEFAULT(probability_, 0.0) };
+      inline BackChannelingConfigs& setProbability(double probability) { DARABONBA_PTR_SET_VALUE(probability_, probability) };
+
+
+      // triggerStage Field Functions 
+      bool hasTriggerStage() const { return this->triggerStage_ != nullptr;};
+      void deleteTriggerStage() { this->triggerStage_ = nullptr;};
+      inline string getTriggerStage() const { DARABONBA_PTR_GET_DEFAULT(triggerStage_, "") };
+      inline BackChannelingConfigs& setTriggerStage(string triggerStage) { DARABONBA_PTR_SET_VALUE(triggerStage_, triggerStage) };
+
+
+      // words Field Functions 
+      bool hasWords() const { return this->words_ != nullptr;};
+      void deleteWords() { this->words_ = nullptr;};
+      inline const vector<BackChannelingConfigs::Words> & getWords() const { DARABONBA_PTR_GET_CONST(words_, vector<BackChannelingConfigs::Words>) };
+      inline vector<BackChannelingConfigs::Words> getWords() { DARABONBA_PTR_GET(words_, vector<BackChannelingConfigs::Words>) };
+      inline BackChannelingConfigs& setWords(const vector<BackChannelingConfigs::Words> & words) { DARABONBA_PTR_SET_VALUE(words_, words) };
+      inline BackChannelingConfigs& setWords(vector<BackChannelingConfigs::Words> && words) { DARABONBA_PTR_SET_RVALUE(words_, words) };
+
+
+    protected:
+      shared_ptr<bool> enabled_ {};
+      shared_ptr<double> probability_ {};
+      shared_ptr<string> triggerStage_ {};
+      shared_ptr<vector<BackChannelingConfigs::Words>> words_ {};
+    };
+
     class BackChannelingConfig : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const BackChannelingConfig& obj) { 
@@ -1391,10 +1509,10 @@ namespace Models
 
     virtual bool empty() const override { return this->ambientSoundConfig_ == nullptr
         && this->asrConfig_ == nullptr && this->autoSpeechConfig_ == nullptr && this->avatarConfig_ == nullptr && this->avatarUrl_ == nullptr && this->avatarUrlType_ == nullptr
-        && this->backChannelingConfig_ == nullptr && this->enableIntelligentSegment_ == nullptr && this->enablePushToTalk_ == nullptr && this->experimentalConfig_ == nullptr && this->gracefulShutdown_ == nullptr
-        && this->greeting_ == nullptr && this->interruptConfig_ == nullptr && this->llmConfig_ == nullptr && this->maxIdleTime_ == nullptr && this->ttsConfig_ == nullptr
-        && this->turnDetectionConfig_ == nullptr && this->userOfflineTimeout_ == nullptr && this->userOnlineTimeout_ == nullptr && this->vcrConfig_ == nullptr && this->voiceprintConfig_ == nullptr
-        && this->volume_ == nullptr && this->wakeUpQuery_ == nullptr && this->workflowOverrideParams_ == nullptr; };
+        && this->backChannelingConfig_ == nullptr && this->backChannelingConfigs_ == nullptr && this->enableIntelligentSegment_ == nullptr && this->enablePushToTalk_ == nullptr && this->experimentalConfig_ == nullptr
+        && this->gracefulShutdown_ == nullptr && this->greeting_ == nullptr && this->interruptConfig_ == nullptr && this->llmConfig_ == nullptr && this->maxIdleTime_ == nullptr
+        && this->ttsConfig_ == nullptr && this->turnDetectionConfig_ == nullptr && this->userOfflineTimeout_ == nullptr && this->userOnlineTimeout_ == nullptr && this->vcrConfig_ == nullptr
+        && this->voiceprintConfig_ == nullptr && this->volume_ == nullptr && this->wakeUpQuery_ == nullptr && this->workflowOverrideParams_ == nullptr; };
     // ambientSoundConfig Field Functions 
     bool hasAmbientSoundConfig() const { return this->ambientSoundConfig_ != nullptr;};
     void deleteAmbientSoundConfig() { this->ambientSoundConfig_ = nullptr;};
@@ -1452,6 +1570,15 @@ namespace Models
     inline vector<AIAgentConfig::BackChannelingConfig> getBackChannelingConfig() { DARABONBA_PTR_GET(backChannelingConfig_, vector<AIAgentConfig::BackChannelingConfig>) };
     inline AIAgentConfig& setBackChannelingConfig(const vector<AIAgentConfig::BackChannelingConfig> & backChannelingConfig) { DARABONBA_PTR_SET_VALUE(backChannelingConfig_, backChannelingConfig) };
     inline AIAgentConfig& setBackChannelingConfig(vector<AIAgentConfig::BackChannelingConfig> && backChannelingConfig) { DARABONBA_PTR_SET_RVALUE(backChannelingConfig_, backChannelingConfig) };
+
+
+    // backChannelingConfigs Field Functions 
+    bool hasBackChannelingConfigs() const { return this->backChannelingConfigs_ != nullptr;};
+    void deleteBackChannelingConfigs() { this->backChannelingConfigs_ = nullptr;};
+    inline const vector<AIAgentConfig::BackChannelingConfigs> & getBackChannelingConfigs() const { DARABONBA_PTR_GET_CONST(backChannelingConfigs_, vector<AIAgentConfig::BackChannelingConfigs>) };
+    inline vector<AIAgentConfig::BackChannelingConfigs> getBackChannelingConfigs() { DARABONBA_PTR_GET(backChannelingConfigs_, vector<AIAgentConfig::BackChannelingConfigs>) };
+    inline AIAgentConfig& setBackChannelingConfigs(const vector<AIAgentConfig::BackChannelingConfigs> & backChannelingConfigs) { DARABONBA_PTR_SET_VALUE(backChannelingConfigs_, backChannelingConfigs) };
+    inline AIAgentConfig& setBackChannelingConfigs(vector<AIAgentConfig::BackChannelingConfigs> && backChannelingConfigs) { DARABONBA_PTR_SET_RVALUE(backChannelingConfigs_, backChannelingConfigs) };
 
 
     // enableIntelligentSegment Field Functions 
@@ -1593,6 +1720,7 @@ namespace Models
     shared_ptr<string> avatarUrl_ {};
     shared_ptr<string> avatarUrlType_ {};
     shared_ptr<vector<AIAgentConfig::BackChannelingConfig>> backChannelingConfig_ {};
+    shared_ptr<vector<AIAgentConfig::BackChannelingConfigs>> backChannelingConfigs_ {};
     shared_ptr<bool> enableIntelligentSegment_ {};
     shared_ptr<bool> enablePushToTalk_ {};
     shared_ptr<string> experimentalConfig_ {};

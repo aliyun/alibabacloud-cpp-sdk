@@ -1122,6 +1122,10 @@ CancelIProductionJobResponse Client::cancelIProductionJob(const CancelIProductio
 ClearAIAgentVoiceprintResponse Client::clearAIAgentVoiceprintWithOptions(const ClearAIAgentVoiceprintRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasRegistrationMode()) {
+    query["RegistrationMode"] = request.getRegistrationMode();
+  }
+
   if (!!request.hasVoiceprintId()) {
     query["VoiceprintId"] = request.getVoiceprintId();
   }
@@ -9992,6 +9996,10 @@ ListAIAgentVoiceprintsResponse Client::listAIAgentVoiceprintsWithOptions(const L
 
   if (!!request.hasPageSize()) {
     query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegistrationMode()) {
+    query["RegistrationMode"] = request.getRegistrationMode();
   }
 
   if (!!request.hasVoiceprintId()) {
