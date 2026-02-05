@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(nasConfig, nasConfig_);
       DARABONBA_PTR_TO_JSON(ossMountConfig, ossMountConfig_);
       DARABONBA_PTR_TO_JSON(sandboxId, sandboxId_);
+      DARABONBA_PTR_TO_JSON(sandboxIdleTimeoutInSeconds, sandboxIdleTimeoutInSeconds_);
       DARABONBA_PTR_TO_JSON(sandboxIdleTimeoutSeconds, sandboxIdleTimeoutSeconds_);
       DARABONBA_PTR_TO_JSON(templateName, templateName_);
     };
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(nasConfig, nasConfig_);
       DARABONBA_PTR_FROM_JSON(ossMountConfig, ossMountConfig_);
       DARABONBA_PTR_FROM_JSON(sandboxId, sandboxId_);
+      DARABONBA_PTR_FROM_JSON(sandboxIdleTimeoutInSeconds, sandboxIdleTimeoutInSeconds_);
       DARABONBA_PTR_FROM_JSON(sandboxIdleTimeoutSeconds, sandboxIdleTimeoutSeconds_);
       DARABONBA_PTR_FROM_JSON(templateName, templateName_);
     };
@@ -40,7 +42,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->nasConfig_ == nullptr
-        && this->ossMountConfig_ == nullptr && this->sandboxId_ == nullptr && this->sandboxIdleTimeoutSeconds_ == nullptr && this->templateName_ == nullptr; };
+        && this->ossMountConfig_ == nullptr && this->sandboxId_ == nullptr && this->sandboxIdleTimeoutInSeconds_ == nullptr && this->sandboxIdleTimeoutSeconds_ == nullptr && this->templateName_ == nullptr; };
     // nasConfig Field Functions 
     bool hasNasConfig() const { return this->nasConfig_ != nullptr;};
     void deleteNasConfig() { this->nasConfig_ = nullptr;};
@@ -66,6 +68,13 @@ namespace Models
     inline CreateSandboxInput& setSandboxId(string sandboxId) { DARABONBA_PTR_SET_VALUE(sandboxId_, sandboxId) };
 
 
+    // sandboxIdleTimeoutInSeconds Field Functions 
+    bool hasSandboxIdleTimeoutInSeconds() const { return this->sandboxIdleTimeoutInSeconds_ != nullptr;};
+    void deleteSandboxIdleTimeoutInSeconds() { this->sandboxIdleTimeoutInSeconds_ = nullptr;};
+    inline int32_t getSandboxIdleTimeoutInSeconds() const { DARABONBA_PTR_GET_DEFAULT(sandboxIdleTimeoutInSeconds_, 0) };
+    inline CreateSandboxInput& setSandboxIdleTimeoutInSeconds(int32_t sandboxIdleTimeoutInSeconds) { DARABONBA_PTR_SET_VALUE(sandboxIdleTimeoutInSeconds_, sandboxIdleTimeoutInSeconds) };
+
+
     // sandboxIdleTimeoutSeconds Field Functions 
     bool hasSandboxIdleTimeoutSeconds() const { return this->sandboxIdleTimeoutSeconds_ != nullptr;};
     void deleteSandboxIdleTimeoutSeconds() { this->sandboxIdleTimeoutSeconds_ = nullptr;};
@@ -84,6 +93,7 @@ namespace Models
     shared_ptr<NASConfig> nasConfig_ {};
     shared_ptr<OSSMountConfig> ossMountConfig_ {};
     shared_ptr<string> sandboxId_ {};
+    shared_ptr<int32_t> sandboxIdleTimeoutInSeconds_ {};
     // 沙箱空闲超时时间（秒）
     shared_ptr<int32_t> sandboxIdleTimeoutSeconds_ {};
     // 模板名称（系统内部通过 templateName 查询 template_id）
