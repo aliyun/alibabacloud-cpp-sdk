@@ -16,12 +16,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(SearchKey, searchKey_);
       DARABONBA_PTR_TO_JSON(Tid, tid_);
     };
     friend void from_json(const Darabonba::Json& j, ListDatabasesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(SearchKey, searchKey_);
       DARABONBA_PTR_FROM_JSON(Tid, tid_);
     };
     ListDatabasesRequest() = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->tid_ == nullptr; };
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->searchKey_ == nullptr && this->tid_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
@@ -58,6 +60,13 @@ namespace Models
     inline ListDatabasesRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+    // searchKey Field Functions 
+    bool hasSearchKey() const { return this->searchKey_ != nullptr;};
+    void deleteSearchKey() { this->searchKey_ = nullptr;};
+    inline string getSearchKey() const { DARABONBA_PTR_GET_DEFAULT(searchKey_, "") };
+    inline ListDatabasesRequest& setSearchKey(string searchKey) { DARABONBA_PTR_SET_VALUE(searchKey_, searchKey) };
+
+
     // tid Field Functions 
     bool hasTid() const { return this->tid_ != nullptr;};
     void deleteTid() { this->tid_ = nullptr;};
@@ -74,6 +83,7 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries to return per page.
     shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<string> searchKey_ {};
     // The ID of the tenant.
     // 
     // > : To view the ID of the tenant, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see [Manage DMS tenants](https://help.aliyun.com/document_detail/181330.html).

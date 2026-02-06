@@ -11891,6 +11891,10 @@ ListDatabasesResponse Client::listDatabasesWithOptions(const ListDatabasesReques
     query["PageSize"] = request.getPageSize();
   }
 
+  if (!!request.hasSearchKey()) {
+    query["SearchKey"] = request.getSearchKey();
+  }
+
   if (!!request.hasTid()) {
     query["Tid"] = request.getTid();
   }
