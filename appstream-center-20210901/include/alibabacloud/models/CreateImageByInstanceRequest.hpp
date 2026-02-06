@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_CREATEIMAGEBYINSTANCEREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_CREATEIMAGEBYINSTANCEREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -22,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InstanceType, instanceType_);
       DARABONBA_PTR_TO_JSON(ProductType, productType_);
       DARABONBA_PTR_TO_JSON(SubInstanceId, subInstanceId_);
+      DARABONBA_PTR_TO_JSON(TagList, tagList_);
     };
     friend void from_json(const Darabonba::Json& j, CreateImageByInstanceRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AutoCleanUserdata, autoCleanUserdata_);
@@ -33,6 +35,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(InstanceType, instanceType_);
       DARABONBA_PTR_FROM_JSON(ProductType, productType_);
       DARABONBA_PTR_FROM_JSON(SubInstanceId, subInstanceId_);
+      DARABONBA_PTR_FROM_JSON(TagList, tagList_);
     };
     CreateImageByInstanceRequest() = default ;
     CreateImageByInstanceRequest(const CreateImageByInstanceRequest &) = default ;
@@ -45,9 +48,51 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class TagList : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const TagList& obj) { 
+        DARABONBA_PTR_TO_JSON(Key, key_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, TagList& obj) { 
+        DARABONBA_PTR_FROM_JSON(Key, key_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
+      };
+      TagList() = default ;
+      TagList(const TagList &) = default ;
+      TagList(TagList &&) = default ;
+      TagList(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~TagList() = default ;
+      TagList& operator=(const TagList &) = default ;
+      TagList& operator=(TagList &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline TagList& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline TagList& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      shared_ptr<string> key_ {};
+      shared_ptr<string> value_ {};
+    };
+
     virtual bool empty() const override { return this->autoCleanUserdata_ == nullptr
         && this->bizType_ == nullptr && this->description_ == nullptr && this->diskType_ == nullptr && this->imageName_ == nullptr && this->instanceId_ == nullptr
-        && this->instanceType_ == nullptr && this->productType_ == nullptr && this->subInstanceId_ == nullptr; };
+        && this->instanceType_ == nullptr && this->productType_ == nullptr && this->subInstanceId_ == nullptr && this->tagList_ == nullptr; };
     // autoCleanUserdata Field Functions 
     bool hasAutoCleanUserdata() const { return this->autoCleanUserdata_ != nullptr;};
     void deleteAutoCleanUserdata() { this->autoCleanUserdata_ = nullptr;};
@@ -111,6 +156,15 @@ namespace Models
     inline CreateImageByInstanceRequest& setSubInstanceId(string subInstanceId) { DARABONBA_PTR_SET_VALUE(subInstanceId_, subInstanceId) };
 
 
+    // tagList Field Functions 
+    bool hasTagList() const { return this->tagList_ != nullptr;};
+    void deleteTagList() { this->tagList_ = nullptr;};
+    inline const vector<CreateImageByInstanceRequest::TagList> & getTagList() const { DARABONBA_PTR_GET_CONST(tagList_, vector<CreateImageByInstanceRequest::TagList>) };
+    inline vector<CreateImageByInstanceRequest::TagList> getTagList() { DARABONBA_PTR_GET(tagList_, vector<CreateImageByInstanceRequest::TagList>) };
+    inline CreateImageByInstanceRequest& setTagList(const vector<CreateImageByInstanceRequest::TagList> & tagList) { DARABONBA_PTR_SET_VALUE(tagList_, tagList) };
+    inline CreateImageByInstanceRequest& setTagList(vector<CreateImageByInstanceRequest::TagList> && tagList) { DARABONBA_PTR_SET_RVALUE(tagList_, tagList) };
+
+
   protected:
     // This parameter is applicable only to scenarios in which the instance type is Cloud Desktop. Specifies whether to clear private data of users. If this parameter is set to true, the created image clears data in directories other than Administrator and Public in the C:\\Users directory.
     // 
@@ -145,6 +199,7 @@ namespace Models
     shared_ptr<string> productType_ {};
     // The ID of the child instance. This parameter is not used in cloud computing scenarios. Workstation scenarios, you need to specify a persistent session ID to ensure that a specific instance is located.
     shared_ptr<string> subInstanceId_ {};
+    shared_ptr<vector<CreateImageByInstanceRequest::TagList>> tagList_ {};
   };
 
   } // namespace Models

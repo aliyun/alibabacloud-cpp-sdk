@@ -378,6 +378,11 @@ CreateAppInstanceGroupResponse Client::createAppInstanceGroup(const CreateAppIns
  */
 CreateImageByInstanceResponse Client::createImageByInstanceWithOptions(const CreateImageByInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasTagList()) {
+    query["TagList"] = request.getTagList();
+  }
+
   json body = {};
   if (!!request.hasAutoCleanUserdata()) {
     body["AutoCleanUserdata"] = request.getAutoCleanUserdata();
@@ -416,8 +421,9 @@ CreateImageByInstanceResponse Client::createImageByInstanceWithOptions(const Cre
   }
 
   OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
+  }));
   Params params = Params(json({
     {"action" , "CreateImageByInstance"},
     {"version" , "2021-09-01"},
