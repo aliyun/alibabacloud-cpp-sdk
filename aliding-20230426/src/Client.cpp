@@ -1108,6 +1108,10 @@ AuthorizeSkillResponse Client::authorizeSkillWithOptions(const AuthorizeSkillReq
     body["PermissionCodes"] = request.getPermissionCodesShrink();
   }
 
+  if (!!request.hasSourceIdOfAssistantId()) {
+    body["SourceIdOfAssistantId"] = request.getSourceIdOfAssistantId();
+  }
+
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
     realHeaders = headers.getCommonHeaders();
@@ -11877,6 +11881,152 @@ GetSheetContentJobIdResponse Client::getSheetContentJobId(const GetSheetContentJ
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   GetSheetContentJobIdHeaders headers = GetSheetContentJobIdHeaders();
   return getSheetContentJobIdWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 获取技能详情
+ *
+ * @param request GetSkillDetailRequest
+ * @param tmpHeader GetSkillDetailHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetSkillDetailResponse
+ */
+GetSkillDetailResponse Client::getSkillDetailWithOptions(const GetSkillDetailRequest &request, const GetSkillDetailHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  GetSkillDetailShrinkHeaders headers = GetSkillDetailShrinkHeaders();
+  Utils::Utils::convert(tmpHeader, headers);
+  if (!!tmpHeader.hasAccountContext()) {
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasGroupId()) {
+    body["GroupId"] = request.getGroupId();
+  }
+
+  if (!!request.hasSkillId()) {
+    body["SkillId"] = request.getSkillId();
+  }
+
+  if (!!request.hasSourceIdOfAssistantId()) {
+    body["SourceIdOfAssistantId"] = request.getSourceIdOfAssistantId();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasAccountContextShrink()) {
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetSkillDetail"},
+    {"version" , "2023-04-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/ai/v1/skill/getSkillDetail")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetSkillDetailResponse>();
+}
+
+/**
+ * @summary 获取技能详情
+ *
+ * @param request GetSkillDetailRequest
+ * @return GetSkillDetailResponse
+ */
+GetSkillDetailResponse Client::getSkillDetail(const GetSkillDetailRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  GetSkillDetailHeaders headers = GetSkillDetailHeaders();
+  return getSkillDetailWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 获取技能列表
+ *
+ * @param tmpReq GetSkillsRequest
+ * @param tmpHeader GetSkillsHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetSkillsResponse
+ */
+GetSkillsResponse Client::getSkillsWithOptions(const GetSkillsRequest &tmpReq, const GetSkillsHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GetSkillsShrinkRequest request = GetSkillsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  GetSkillsShrinkHeaders headers = GetSkillsShrinkHeaders();
+  Utils::Utils::convert(tmpHeader, headers);
+  if (!!tmpHeader.hasAccountContext()) {
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
+  }
+
+  if (!!tmpReq.hasGroupIds()) {
+    request.setGroupIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getGroupIds(), "GroupIds", "json"));
+  }
+
+  if (!!tmpReq.hasSkillIds()) {
+    request.setSkillIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSkillIds(), "SkillIds", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasGroupIdsShrink()) {
+    body["GroupIds"] = request.getGroupIdsShrink();
+  }
+
+  if (!!request.hasSkillIdsShrink()) {
+    body["SkillIds"] = request.getSkillIdsShrink();
+  }
+
+  if (!!request.hasSourceIdOfAssistantId()) {
+    body["SourceIdOfAssistantId"] = request.getSourceIdOfAssistantId();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasAccountContextShrink()) {
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetSkills"},
+    {"version" , "2023-04-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/ai/v1/skill/getSkills")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetSkillsResponse>();
+}
+
+/**
+ * @summary 获取技能列表
+ *
+ * @param request GetSkillsRequest
+ * @return GetSkillsResponse
+ */
+GetSkillsResponse Client::getSkills(const GetSkillsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  GetSkillsHeaders headers = GetSkillsHeaders();
+  return getSkillsWithOptions(request, headers, runtime);
 }
 
 /**

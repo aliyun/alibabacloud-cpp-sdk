@@ -823,6 +823,17 @@
 #include <alibabacloud/models/GetSheetContentJobIdShrinkRequest.hpp>
 #include <alibabacloud/models/GetSheetContentJobIdResponseBody.hpp>
 #include <alibabacloud/models/GetSheetContentJobIdResponse.hpp>
+#include <alibabacloud/models/GetSkillDetailHeaders.hpp>
+#include <alibabacloud/models/GetSkillDetailShrinkHeaders.hpp>
+#include <alibabacloud/models/GetSkillDetailRequest.hpp>
+#include <alibabacloud/models/GetSkillDetailResponseBody.hpp>
+#include <alibabacloud/models/GetSkillDetailResponse.hpp>
+#include <alibabacloud/models/GetSkillsHeaders.hpp>
+#include <alibabacloud/models/GetSkillsShrinkHeaders.hpp>
+#include <alibabacloud/models/GetSkillsRequest.hpp>
+#include <alibabacloud/models/GetSkillsShrinkRequest.hpp>
+#include <alibabacloud/models/GetSkillsResponseBody.hpp>
+#include <alibabacloud/models/GetSkillsResponse.hpp>
 #include <alibabacloud/models/GetSpaceDirectoriesHeaders.hpp>
 #include <alibabacloud/models/GetSpaceDirectoriesShrinkHeaders.hpp>
 #include <alibabacloud/models/GetSpaceDirectoriesRequest.hpp>

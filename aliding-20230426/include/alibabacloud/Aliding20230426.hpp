@@ -2581,6 +2581,42 @@ namespace Aliding20230426
       Models::GetSheetContentJobIdResponse getSheetContentJobId(const Models::GetSheetContentJobIdRequest &request);
 
       /**
+       * @summary 获取技能详情
+       *
+       * @param request GetSkillDetailRequest
+       * @param tmpHeader GetSkillDetailHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetSkillDetailResponse
+       */
+      Models::GetSkillDetailResponse getSkillDetailWithOptions(const Models::GetSkillDetailRequest &request, const Models::GetSkillDetailHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取技能详情
+       *
+       * @param request GetSkillDetailRequest
+       * @return GetSkillDetailResponse
+       */
+      Models::GetSkillDetailResponse getSkillDetail(const Models::GetSkillDetailRequest &request);
+
+      /**
+       * @summary 获取技能列表
+       *
+       * @param tmpReq GetSkillsRequest
+       * @param tmpHeader GetSkillsHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetSkillsResponse
+       */
+      Models::GetSkillsResponse getSkillsWithOptions(const Models::GetSkillsRequest &tmpReq, const Models::GetSkillsHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取技能列表
+       *
+       * @param request GetSkillsRequest
+       * @return GetSkillsResponse
+       */
+      Models::GetSkillsResponse getSkills(const Models::GetSkillsRequest &request);
+
+      /**
        * @summary 查询知识库下的目录结构
        *
        * @param tmpReq GetSpaceDirectoriesRequest

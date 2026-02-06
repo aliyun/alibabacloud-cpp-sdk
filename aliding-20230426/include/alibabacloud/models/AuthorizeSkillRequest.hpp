@@ -15,9 +15,11 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const AuthorizeSkillRequest& obj) { 
       DARABONBA_PTR_TO_JSON(PermissionCodes, permissionCodes_);
+      DARABONBA_PTR_TO_JSON(SourceIdOfAssistantId, sourceIdOfAssistantId_);
     };
     friend void from_json(const Darabonba::Json& j, AuthorizeSkillRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(PermissionCodes, permissionCodes_);
+      DARABONBA_PTR_FROM_JSON(SourceIdOfAssistantId, sourceIdOfAssistantId_);
     };
     AuthorizeSkillRequest() = default ;
     AuthorizeSkillRequest(const AuthorizeSkillRequest &) = default ;
@@ -30,7 +32,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->permissionCodes_ == nullptr; };
+    virtual bool empty() const override { return this->permissionCodes_ == nullptr
+        && this->sourceIdOfAssistantId_ == nullptr; };
     // permissionCodes Field Functions 
     bool hasPermissionCodes() const { return this->permissionCodes_ != nullptr;};
     void deletePermissionCodes() { this->permissionCodes_ = nullptr;};
@@ -40,8 +43,16 @@ namespace Models
     inline AuthorizeSkillRequest& setPermissionCodes(vector<string> && permissionCodes) { DARABONBA_PTR_SET_RVALUE(permissionCodes_, permissionCodes) };
 
 
+    // sourceIdOfAssistantId Field Functions 
+    bool hasSourceIdOfAssistantId() const { return this->sourceIdOfAssistantId_ != nullptr;};
+    void deleteSourceIdOfAssistantId() { this->sourceIdOfAssistantId_ = nullptr;};
+    inline string getSourceIdOfAssistantId() const { DARABONBA_PTR_GET_DEFAULT(sourceIdOfAssistantId_, "") };
+    inline AuthorizeSkillRequest& setSourceIdOfAssistantId(string sourceIdOfAssistantId) { DARABONBA_PTR_SET_VALUE(sourceIdOfAssistantId_, sourceIdOfAssistantId) };
+
+
   protected:
     shared_ptr<vector<string>> permissionCodes_ {};
+    shared_ptr<string> sourceIdOfAssistantId_ {};
   };
 
   } // namespace Models
