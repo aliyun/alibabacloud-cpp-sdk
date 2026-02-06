@@ -1,0 +1,60 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_CREATECUSTOMRESPONSECODERULERESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_CREATECUSTOMRESPONSECODERULERESPONSEBODY_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace ESA20240910
+{
+namespace Models
+{
+  class CreateCustomResponseCodeRuleResponseBody : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const CreateCustomResponseCodeRuleResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(ConfigId, configId_);
+      DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+    };
+    friend void from_json(const Darabonba::Json& j, CreateCustomResponseCodeRuleResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(ConfigId, configId_);
+      DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+    };
+    CreateCustomResponseCodeRuleResponseBody() = default ;
+    CreateCustomResponseCodeRuleResponseBody(const CreateCustomResponseCodeRuleResponseBody &) = default ;
+    CreateCustomResponseCodeRuleResponseBody(CreateCustomResponseCodeRuleResponseBody &&) = default ;
+    CreateCustomResponseCodeRuleResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~CreateCustomResponseCodeRuleResponseBody() = default ;
+    CreateCustomResponseCodeRuleResponseBody& operator=(const CreateCustomResponseCodeRuleResponseBody &) = default ;
+    CreateCustomResponseCodeRuleResponseBody& operator=(CreateCustomResponseCodeRuleResponseBody &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->configId_ == nullptr
+        && this->requestId_ == nullptr; };
+    // configId Field Functions 
+    bool hasConfigId() const { return this->configId_ != nullptr;};
+    void deleteConfigId() { this->configId_ = nullptr;};
+    inline int64_t getConfigId() const { DARABONBA_PTR_GET_DEFAULT(configId_, 0L) };
+    inline CreateCustomResponseCodeRuleResponseBody& setConfigId(int64_t configId) { DARABONBA_PTR_SET_VALUE(configId_, configId) };
+
+
+    // requestId Field Functions 
+    bool hasRequestId() const { return this->requestId_ != nullptr;};
+    void deleteRequestId() { this->requestId_ = nullptr;};
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline CreateCustomResponseCodeRuleResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+
+
+  protected:
+    // The configuration ID.
+    shared_ptr<int64_t> configId_ {};
+    // The request ID.
+    shared_ptr<string> requestId_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace ESA20240910
+#endif

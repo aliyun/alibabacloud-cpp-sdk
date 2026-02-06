@@ -90,6 +90,9 @@
 #include <alibabacloud/models/CreateCustomHostnameRequest.hpp>
 #include <alibabacloud/models/CreateCustomHostnameResponseBody.hpp>
 #include <alibabacloud/models/CreateCustomHostnameResponse.hpp>
+#include <alibabacloud/models/CreateCustomResponseCodeRuleRequest.hpp>
+#include <alibabacloud/models/CreateCustomResponseCodeRuleResponseBody.hpp>
+#include <alibabacloud/models/CreateCustomResponseCodeRuleResponse.hpp>
 #include <alibabacloud/models/CreateCustomScenePolicyRequest.hpp>
 #include <alibabacloud/models/CreateCustomScenePolicyResponseBody.hpp>
 #include <alibabacloud/models/CreateCustomScenePolicyResponse.hpp>
@@ -261,6 +264,9 @@
 #include <alibabacloud/models/DeleteCustomHostnameRequest.hpp>
 #include <alibabacloud/models/DeleteCustomHostnameResponseBody.hpp>
 #include <alibabacloud/models/DeleteCustomHostnameResponse.hpp>
+#include <alibabacloud/models/DeleteCustomResponseCodeRuleRequest.hpp>
+#include <alibabacloud/models/DeleteCustomResponseCodeRuleResponseBody.hpp>
+#include <alibabacloud/models/DeleteCustomResponseCodeRuleResponse.hpp>
 #include <alibabacloud/models/DeleteCustomScenePolicyRequest.hpp>
 #include <alibabacloud/models/DeleteCustomScenePolicyResponseBody.hpp>
 #include <alibabacloud/models/DeleteCustomScenePolicyResponse.hpp>
@@ -508,6 +514,9 @@
 #include <alibabacloud/models/GetCustomHostnameRequest.hpp>
 #include <alibabacloud/models/GetCustomHostnameResponseBody.hpp>
 #include <alibabacloud/models/GetCustomHostnameResponse.hpp>
+#include <alibabacloud/models/GetCustomResponseCodeRuleRequest.hpp>
+#include <alibabacloud/models/GetCustomResponseCodeRuleResponseBody.hpp>
+#include <alibabacloud/models/GetCustomResponseCodeRuleResponse.hpp>
 #include <alibabacloud/models/GetDevelopmentModeRequest.hpp>
 #include <alibabacloud/models/GetDevelopmentModeResponseBody.hpp>
 #include <alibabacloud/models/GetDevelopmentModeResponse.hpp>
@@ -744,6 +753,9 @@
 #include <alibabacloud/models/ListCustomHostnamesRequest.hpp>
 #include <alibabacloud/models/ListCustomHostnamesResponseBody.hpp>
 #include <alibabacloud/models/ListCustomHostnamesResponse.hpp>
+#include <alibabacloud/models/ListCustomResponseCodeRulesRequest.hpp>
+#include <alibabacloud/models/ListCustomResponseCodeRulesResponseBody.hpp>
+#include <alibabacloud/models/ListCustomResponseCodeRulesResponse.hpp>
 #include <alibabacloud/models/ListESAIPInfoRequest.hpp>
 #include <alibabacloud/models/ListESAIPInfoResponseBody.hpp>
 #include <alibabacloud/models/ListESAIPInfoResponse.hpp>
@@ -1032,6 +1044,9 @@
 #include <alibabacloud/models/UpdateCustomHostnameRequest.hpp>
 #include <alibabacloud/models/UpdateCustomHostnameResponseBody.hpp>
 #include <alibabacloud/models/UpdateCustomHostnameResponse.hpp>
+#include <alibabacloud/models/UpdateCustomResponseCodeRuleRequest.hpp>
+#include <alibabacloud/models/UpdateCustomResponseCodeRuleResponseBody.hpp>
+#include <alibabacloud/models/UpdateCustomResponseCodeRuleResponse.hpp>
 #include <alibabacloud/models/UpdateCustomScenePolicyRequest.hpp>
 #include <alibabacloud/models/UpdateCustomScenePolicyResponseBody.hpp>
 #include <alibabacloud/models/UpdateCustomScenePolicyResponse.hpp>

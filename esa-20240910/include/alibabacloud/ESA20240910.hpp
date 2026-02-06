@@ -566,6 +566,23 @@ namespace ESA20240910
       Models::CreateCustomHostnameResponse createCustomHostname(const Models::CreateCustomHostnameRequest &request);
 
       /**
+       * @summary Add configurations for modifying the response code.
+       *
+       * @param request CreateCustomResponseCodeRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateCustomResponseCodeRuleResponse
+       */
+      Models::CreateCustomResponseCodeRuleResponse createCustomResponseCodeRuleWithOptions(const Models::CreateCustomResponseCodeRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Add configurations for modifying the response code.
+       *
+       * @param request CreateCustomResponseCodeRuleRequest
+       * @return CreateCustomResponseCodeRuleResponse
+       */
+      Models::CreateCustomResponseCodeRuleResponse createCustomResponseCodeRule(const Models::CreateCustomResponseCodeRuleRequest &request);
+
+      /**
        * @summary Creates an account-level custom scenario policy. You can execute a policy after you associate the policy with a website.
        *
        * @param request CreateCustomScenePolicyRequest
@@ -1504,6 +1521,23 @@ namespace ESA20240910
        * @return DeleteCustomHostnameResponse
        */
       Models::DeleteCustomHostnameResponse deleteCustomHostname(const Models::DeleteCustomHostnameRequest &request);
+
+      /**
+       * @summary Deletes the configuration of response code modification for a website.
+       *
+       * @param request DeleteCustomResponseCodeRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteCustomResponseCodeRuleResponse
+       */
+      Models::DeleteCustomResponseCodeRuleResponse deleteCustomResponseCodeRuleWithOptions(const Models::DeleteCustomResponseCodeRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes the configuration of response code modification for a website.
+       *
+       * @param request DeleteCustomResponseCodeRuleRequest
+       * @return DeleteCustomResponseCodeRuleResponse
+       */
+      Models::DeleteCustomResponseCodeRuleResponse deleteCustomResponseCodeRule(const Models::DeleteCustomResponseCodeRuleRequest &request);
 
       /**
        * @summary Deletes a scenario-specific custom policy.
@@ -2958,6 +2992,23 @@ namespace ESA20240910
       Models::GetCustomHostnameResponse getCustomHostname(const Models::GetCustomHostnameRequest &request);
 
       /**
+       * @summary 查询修改响应码规则详情
+       *
+       * @param request GetCustomResponseCodeRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetCustomResponseCodeRuleResponse
+       */
+      Models::GetCustomResponseCodeRuleResponse getCustomResponseCodeRuleWithOptions(const Models::GetCustomResponseCodeRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询修改响应码规则详情
+       *
+       * @param request GetCustomResponseCodeRuleRequest
+       * @return GetCustomResponseCodeRuleResponse
+       */
+      Models::GetCustomResponseCodeRuleResponse getCustomResponseCodeRule(const Models::GetCustomResponseCodeRuleRequest &request);
+
+      /**
        * @summary Query Site Developer Mode Configuration
        *
        * @param request GetDevelopmentModeRequest
@@ -4358,6 +4409,23 @@ namespace ESA20240910
        * @return ListCustomHostnamesResponse
        */
       Models::ListCustomHostnamesResponse listCustomHostnames(const Models::ListCustomHostnamesRequest &request);
+
+      /**
+       * @summary Queries the configuration list of an HTTP response header modification rule for a website.
+       *
+       * @param request ListCustomResponseCodeRulesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListCustomResponseCodeRulesResponse
+       */
+      Models::ListCustomResponseCodeRulesResponse listCustomResponseCodeRulesWithOptions(const Models::ListCustomResponseCodeRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the configuration list of an HTTP response header modification rule for a website.
+       *
+       * @param request ListCustomResponseCodeRulesRequest
+       * @return ListCustomResponseCodeRulesResponse
+       */
+      Models::ListCustomResponseCodeRulesResponse listCustomResponseCodeRules(const Models::ListCustomResponseCodeRulesRequest &request);
 
       /**
        * @summary Batch query whether the IP address is included in the ESA resolution result.
@@ -6058,6 +6126,23 @@ namespace ESA20240910
        * @return UpdateCustomHostnameResponse
        */
       Models::UpdateCustomHostnameResponse updateCustomHostname(const Models::UpdateCustomHostnameRequest &request);
+
+      /**
+       * @summary Modify the response code configurations for a website.
+       *
+       * @param request UpdateCustomResponseCodeRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateCustomResponseCodeRuleResponse
+       */
+      Models::UpdateCustomResponseCodeRuleResponse updateCustomResponseCodeRuleWithOptions(const Models::UpdateCustomResponseCodeRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modify the response code configurations for a website.
+       *
+       * @param request UpdateCustomResponseCodeRuleRequest
+       * @return UpdateCustomResponseCodeRuleResponse
+       */
+      Models::UpdateCustomResponseCodeRuleResponse updateCustomResponseCodeRule(const Models::UpdateCustomResponseCodeRuleRequest &request);
 
       /**
        * @summary Modifies the configurations of a custom scenario-specific policy.

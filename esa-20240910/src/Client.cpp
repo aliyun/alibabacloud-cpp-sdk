@@ -1730,6 +1730,76 @@ CreateCustomHostnameResponse Client::createCustomHostname(const CreateCustomHost
 }
 
 /**
+ * @summary Add configurations for modifying the response code.
+ *
+ * @param request CreateCustomResponseCodeRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateCustomResponseCodeRuleResponse
+ */
+CreateCustomResponseCodeRuleResponse Client::createCustomResponseCodeRuleWithOptions(const CreateCustomResponseCodeRuleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPageId()) {
+    query["PageId"] = request.getPageId();
+  }
+
+  if (!!request.hasReturnCode()) {
+    query["ReturnCode"] = request.getReturnCode();
+  }
+
+  if (!!request.hasRule()) {
+    query["Rule"] = request.getRule();
+  }
+
+  if (!!request.hasRuleEnable()) {
+    query["RuleEnable"] = request.getRuleEnable();
+  }
+
+  if (!!request.hasRuleName()) {
+    query["RuleName"] = request.getRuleName();
+  }
+
+  if (!!request.hasSequence()) {
+    query["Sequence"] = request.getSequence();
+  }
+
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.getSiteId();
+  }
+
+  if (!!request.hasSiteVersion()) {
+    query["SiteVersion"] = request.getSiteVersion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateCustomResponseCodeRule"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateCustomResponseCodeRuleResponse>();
+}
+
+/**
+ * @summary Add configurations for modifying the response code.
+ *
+ * @param request CreateCustomResponseCodeRuleRequest
+ * @return CreateCustomResponseCodeRuleResponse
+ */
+CreateCustomResponseCodeRuleResponse Client::createCustomResponseCodeRule(const CreateCustomResponseCodeRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createCustomResponseCodeRuleWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates an account-level custom scenario policy. You can execute a policy after you associate the policy with a website.
  *
  * @param request CreateCustomScenePolicyRequest
@@ -5308,6 +5378,52 @@ DeleteCustomHostnameResponse Client::deleteCustomHostnameWithOptions(const Delet
 DeleteCustomHostnameResponse Client::deleteCustomHostname(const DeleteCustomHostnameRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteCustomHostnameWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes the configuration of response code modification for a website.
+ *
+ * @param request DeleteCustomResponseCodeRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteCustomResponseCodeRuleResponse
+ */
+DeleteCustomResponseCodeRuleResponse Client::deleteCustomResponseCodeRuleWithOptions(const DeleteCustomResponseCodeRuleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasConfigId()) {
+    query["ConfigId"] = request.getConfigId();
+  }
+
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.getSiteId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteCustomResponseCodeRule"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteCustomResponseCodeRuleResponse>();
+}
+
+/**
+ * @summary Deletes the configuration of response code modification for a website.
+ *
+ * @param request DeleteCustomResponseCodeRuleRequest
+ * @return DeleteCustomResponseCodeRuleResponse
+ */
+DeleteCustomResponseCodeRuleResponse Client::deleteCustomResponseCodeRule(const DeleteCustomResponseCodeRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteCustomResponseCodeRuleWithOptions(request, runtime);
 }
 
 /**
@@ -9069,6 +9185,52 @@ GetCustomHostnameResponse Client::getCustomHostname(const GetCustomHostnameReque
 }
 
 /**
+ * @summary 查询修改响应码规则详情
+ *
+ * @param request GetCustomResponseCodeRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetCustomResponseCodeRuleResponse
+ */
+GetCustomResponseCodeRuleResponse Client::getCustomResponseCodeRuleWithOptions(const GetCustomResponseCodeRuleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasConfigId()) {
+    query["ConfigId"] = request.getConfigId();
+  }
+
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.getSiteId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetCustomResponseCodeRule"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetCustomResponseCodeRuleResponse>();
+}
+
+/**
+ * @summary 查询修改响应码规则详情
+ *
+ * @param request GetCustomResponseCodeRuleRequest
+ * @return GetCustomResponseCodeRuleResponse
+ */
+GetCustomResponseCodeRuleResponse Client::getCustomResponseCodeRule(const GetCustomResponseCodeRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getCustomResponseCodeRuleWithOptions(request, runtime);
+}
+
+/**
  * @summary Query Site Developer Mode Configuration
  *
  * @param request GetDevelopmentModeRequest
@@ -12340,6 +12502,72 @@ ListCustomHostnamesResponse Client::listCustomHostnamesWithOptions(const ListCus
 ListCustomHostnamesResponse Client::listCustomHostnames(const ListCustomHostnamesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listCustomHostnamesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the configuration list of an HTTP response header modification rule for a website.
+ *
+ * @param request ListCustomResponseCodeRulesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListCustomResponseCodeRulesResponse
+ */
+ListCustomResponseCodeRulesResponse Client::listCustomResponseCodeRulesWithOptions(const ListCustomResponseCodeRulesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasConfigId()) {
+    query["ConfigId"] = request.getConfigId();
+  }
+
+  if (!!request.hasConfigType()) {
+    query["ConfigType"] = request.getConfigType();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRuleName()) {
+    query["RuleName"] = request.getRuleName();
+  }
+
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.getSiteId();
+  }
+
+  if (!!request.hasSiteVersion()) {
+    query["SiteVersion"] = request.getSiteVersion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListCustomResponseCodeRules"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListCustomResponseCodeRulesResponse>();
+}
+
+/**
+ * @summary Queries the configuration list of an HTTP response header modification rule for a website.
+ *
+ * @param request ListCustomResponseCodeRulesRequest
+ * @return ListCustomResponseCodeRulesResponse
+ */
+ListCustomResponseCodeRulesResponse Client::listCustomResponseCodeRules(const ListCustomResponseCodeRulesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listCustomResponseCodeRulesWithOptions(request, runtime);
 }
 
 /**
@@ -17140,6 +17368,76 @@ UpdateCustomHostnameResponse Client::updateCustomHostnameWithOptions(const Updat
 UpdateCustomHostnameResponse Client::updateCustomHostname(const UpdateCustomHostnameRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateCustomHostnameWithOptions(request, runtime);
+}
+
+/**
+ * @summary Modify the response code configurations for a website.
+ *
+ * @param request UpdateCustomResponseCodeRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateCustomResponseCodeRuleResponse
+ */
+UpdateCustomResponseCodeRuleResponse Client::updateCustomResponseCodeRuleWithOptions(const UpdateCustomResponseCodeRuleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasConfigId()) {
+    query["ConfigId"] = request.getConfigId();
+  }
+
+  if (!!request.hasPageId()) {
+    query["PageId"] = request.getPageId();
+  }
+
+  if (!!request.hasReturnCode()) {
+    query["ReturnCode"] = request.getReturnCode();
+  }
+
+  if (!!request.hasRule()) {
+    query["Rule"] = request.getRule();
+  }
+
+  if (!!request.hasRuleEnable()) {
+    query["RuleEnable"] = request.getRuleEnable();
+  }
+
+  if (!!request.hasRuleName()) {
+    query["RuleName"] = request.getRuleName();
+  }
+
+  if (!!request.hasSequence()) {
+    query["Sequence"] = request.getSequence();
+  }
+
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.getSiteId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateCustomResponseCodeRule"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateCustomResponseCodeRuleResponse>();
+}
+
+/**
+ * @summary Modify the response code configurations for a website.
+ *
+ * @param request UpdateCustomResponseCodeRuleRequest
+ * @return UpdateCustomResponseCodeRuleResponse
+ */
+UpdateCustomResponseCodeRuleResponse Client::updateCustomResponseCodeRule(const UpdateCustomResponseCodeRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateCustomResponseCodeRuleWithOptions(request, runtime);
 }
 
 /**
