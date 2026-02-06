@@ -2198,6 +2198,23 @@ namespace Rds20140815
       Models::DeleteParameterGroupResponse deleteParameterGroup(const Models::DeleteParameterGroupRequest &request);
 
       /**
+       * @summary RDS MySQL删除修改参数运行任务
+       *
+       * @param request DeleteParameterTimedScheduleTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteParameterTimedScheduleTaskResponse
+       */
+      Models::DeleteParameterTimedScheduleTaskResponse deleteParameterTimedScheduleTaskWithOptions(const Models::DeleteParameterTimedScheduleTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary RDS MySQL删除修改参数运行任务
+       *
+       * @param request DeleteParameterTimedScheduleTaskRequest
+       * @return DeleteParameterTimedScheduleTaskResponse
+       */
+      Models::DeleteParameterTimedScheduleTaskResponse deleteParameterTimedScheduleTask(const Models::DeleteParameterTimedScheduleTaskRequest &request);
+
+      /**
        * @summary Deletes an extension from a database.
        *
        * @description ### Supported database engines
@@ -5145,6 +5162,23 @@ namespace Rds20140815
        * @return DescribeParameterTemplatesResponse
        */
       Models::DescribeParameterTemplatesResponse describeParameterTemplates(const Models::DescribeParameterTemplatesRequest &request);
+
+      /**
+       * @summary RDS MySQL查询修改参数运行时间列表
+       *
+       * @param request DescribeParameterTimedScheduleTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeParameterTimedScheduleTaskResponse
+       */
+      Models::DescribeParameterTimedScheduleTaskResponse describeParameterTimedScheduleTaskWithOptions(const Models::DescribeParameterTimedScheduleTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary RDS MySQL查询修改参数运行时间列表
+       *
+       * @param request DescribeParameterTimedScheduleTaskRequest
+       * @return DescribeParameterTimedScheduleTaskResponse
+       */
+      Models::DescribeParameterTimedScheduleTaskResponse describeParameterTimedScheduleTask(const Models::DescribeParameterTimedScheduleTaskRequest &request);
 
       /**
        * @summary Queries the parameter settings of an instance.

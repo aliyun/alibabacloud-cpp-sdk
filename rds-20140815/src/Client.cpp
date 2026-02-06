@@ -6683,6 +6683,52 @@ DeleteParameterGroupResponse Client::deleteParameterGroup(const DeleteParameterG
 }
 
 /**
+ * @summary RDS MySQL删除修改参数运行任务
+ *
+ * @param request DeleteParameterTimedScheduleTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteParameterTimedScheduleTaskResponse
+ */
+DeleteParameterTimedScheduleTaskResponse Client::deleteParameterTimedScheduleTaskWithOptions(const DeleteParameterTimedScheduleTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasTaskId()) {
+    query["TaskId"] = request.getTaskId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteParameterTimedScheduleTask"},
+    {"version" , "2014-08-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteParameterTimedScheduleTaskResponse>();
+}
+
+/**
+ * @summary RDS MySQL删除修改参数运行任务
+ *
+ * @param request DeleteParameterTimedScheduleTaskRequest
+ * @return DeleteParameterTimedScheduleTaskResponse
+ */
+DeleteParameterTimedScheduleTaskResponse Client::deleteParameterTimedScheduleTask(const DeleteParameterTimedScheduleTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteParameterTimedScheduleTaskWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes an extension from a database.
  *
  * @description ### Supported database engines
@@ -15336,6 +15382,44 @@ DescribeParameterTemplatesResponse Client::describeParameterTemplatesWithOptions
 DescribeParameterTemplatesResponse Client::describeParameterTemplates(const DescribeParameterTemplatesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeParameterTemplatesWithOptions(request, runtime);
+}
+
+/**
+ * @summary RDS MySQL查询修改参数运行时间列表
+ *
+ * @param request DescribeParameterTimedScheduleTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeParameterTimedScheduleTaskResponse
+ */
+DescribeParameterTimedScheduleTaskResponse Client::describeParameterTimedScheduleTaskWithOptions(const DescribeParameterTimedScheduleTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeParameterTimedScheduleTask"},
+    {"version" , "2014-08-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeParameterTimedScheduleTaskResponse>();
+}
+
+/**
+ * @summary RDS MySQL查询修改参数运行时间列表
+ *
+ * @param request DescribeParameterTimedScheduleTaskRequest
+ * @return DescribeParameterTimedScheduleTaskResponse
+ */
+DescribeParameterTimedScheduleTaskResponse Client::describeParameterTimedScheduleTask(const DescribeParameterTimedScheduleTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeParameterTimedScheduleTaskWithOptions(request, runtime);
 }
 
 /**

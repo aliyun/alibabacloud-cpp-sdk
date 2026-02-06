@@ -226,6 +226,9 @@
 #include <alibabacloud/models/DeleteParameterGroupRequest.hpp>
 #include <alibabacloud/models/DeleteParameterGroupResponseBody.hpp>
 #include <alibabacloud/models/DeleteParameterGroupResponse.hpp>
+#include <alibabacloud/models/DeleteParameterTimedScheduleTaskRequest.hpp>
+#include <alibabacloud/models/DeleteParameterTimedScheduleTaskResponseBody.hpp>
+#include <alibabacloud/models/DeleteParameterTimedScheduleTaskResponse.hpp>
 #include <alibabacloud/models/DeletePostgresExtensionsRequest.hpp>
 #include <alibabacloud/models/DeletePostgresExtensionsResponseBody.hpp>
 #include <alibabacloud/models/DeletePostgresExtensionsResponse.hpp>
@@ -561,6 +564,9 @@
 #include <alibabacloud/models/DescribeParameterTemplatesRequest.hpp>
 #include <alibabacloud/models/DescribeParameterTemplatesResponseBody.hpp>
 #include <alibabacloud/models/DescribeParameterTemplatesResponse.hpp>
+#include <alibabacloud/models/DescribeParameterTimedScheduleTaskRequest.hpp>
+#include <alibabacloud/models/DescribeParameterTimedScheduleTaskResponseBody.hpp>
+#include <alibabacloud/models/DescribeParameterTimedScheduleTaskResponse.hpp>
 #include <alibabacloud/models/DescribeParametersRequest.hpp>
 #include <alibabacloud/models/DescribeParametersResponseBody.hpp>
 #include <alibabacloud/models/DescribeParametersResponse.hpp>
