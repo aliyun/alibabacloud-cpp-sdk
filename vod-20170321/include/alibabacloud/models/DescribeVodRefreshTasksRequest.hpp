@@ -50,92 +50,92 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->domainName_ == nullptr
-        && return this->endTime_ == nullptr && return this->objectPath_ == nullptr && return this->objectType_ == nullptr && return this->ownerId_ == nullptr && return this->pageNumber_ == nullptr
-        && return this->pageSize_ == nullptr && return this->securityToken_ == nullptr && return this->startTime_ == nullptr && return this->status_ == nullptr && return this->taskId_ == nullptr; };
+        && this->endTime_ == nullptr && this->objectPath_ == nullptr && this->objectType_ == nullptr && this->ownerId_ == nullptr && this->pageNumber_ == nullptr
+        && this->pageSize_ == nullptr && this->securityToken_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr && this->taskId_ == nullptr; };
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
-    inline string domainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
+    inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline DescribeVodRefreshTasksRequest& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline DescribeVodRefreshTasksRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // objectPath Field Functions 
     bool hasObjectPath() const { return this->objectPath_ != nullptr;};
     void deleteObjectPath() { this->objectPath_ = nullptr;};
-    inline string objectPath() const { DARABONBA_PTR_GET_DEFAULT(objectPath_, "") };
+    inline string getObjectPath() const { DARABONBA_PTR_GET_DEFAULT(objectPath_, "") };
     inline DescribeVodRefreshTasksRequest& setObjectPath(string objectPath) { DARABONBA_PTR_SET_VALUE(objectPath_, objectPath) };
 
 
     // objectType Field Functions 
     bool hasObjectType() const { return this->objectType_ != nullptr;};
     void deleteObjectType() { this->objectType_ = nullptr;};
-    inline string objectType() const { DARABONBA_PTR_GET_DEFAULT(objectType_, "") };
+    inline string getObjectType() const { DARABONBA_PTR_GET_DEFAULT(objectType_, "") };
     inline DescribeVodRefreshTasksRequest& setObjectType(string objectType) { DARABONBA_PTR_SET_VALUE(objectType_, objectType) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline DescribeVodRefreshTasksRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline DescribeVodRefreshTasksRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DescribeVodRefreshTasksRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
-    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
     inline DescribeVodRefreshTasksRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline DescribeVodRefreshTasksRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline DescribeVodRefreshTasksRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline string taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+    inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
     inline DescribeVodRefreshTasksRequest& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
   protected:
     // The domain name.
-    std::shared_ptr<string> domainName_ = nullptr;
+    shared_ptr<string> domainName_ {};
     // The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
-    std::shared_ptr<string> endTime_ = nullptr;
+    shared_ptr<string> endTime_ {};
     // The path of the object. The path is used as a condition for exact matching.
-    std::shared_ptr<string> objectPath_ = nullptr;
+    shared_ptr<string> objectPath_ {};
     // The type of the task. Valid values:
     // 
     // *   **file**: refreshes one or more files.
@@ -143,25 +143,25 @@ namespace Models
     // *   **preload**: prefetches one or more files.
     // 
     // > If you specify the DomainName or Status parameter, you must also specify the ObjectType parameter.
-    std::shared_ptr<string> objectType_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<string> objectType_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // The page number.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // The number of entries to return on each page. Default value: **20**. Maximum value: **50**.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    std::shared_ptr<string> securityToken_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<string> securityToken_ {};
     // The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
     // 
     // > You can query data that is collected in the last three days.
-    std::shared_ptr<string> startTime_ = nullptr;
+    shared_ptr<string> startTime_ {};
     // The status of the task. Valid values:
     // 
     // *   **Complete**: The task is complete.
     // *   **Refreshing**: The task is in progress.
     // *   **Failed**: The task failed.
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
     // The ID of the task that you want to query.
-    std::shared_ptr<string> taskId_ = nullptr;
+    shared_ptr<string> taskId_ {};
   };
 
   } // namespace Models

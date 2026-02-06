@@ -46,68 +46,68 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->encryptConfig_ == nullptr
-        && return this->overrideParams_ == nullptr && return this->pipelineId_ == nullptr && return this->priority_ == nullptr && return this->referenceId_ == nullptr && return this->sessionId_ == nullptr
-        && return this->templateGroupId_ == nullptr && return this->userData_ == nullptr && return this->videoId_ == nullptr; };
+        && this->overrideParams_ == nullptr && this->pipelineId_ == nullptr && this->priority_ == nullptr && this->referenceId_ == nullptr && this->sessionId_ == nullptr
+        && this->templateGroupId_ == nullptr && this->userData_ == nullptr && this->videoId_ == nullptr; };
     // encryptConfig Field Functions 
     bool hasEncryptConfig() const { return this->encryptConfig_ != nullptr;};
     void deleteEncryptConfig() { this->encryptConfig_ = nullptr;};
-    inline string encryptConfig() const { DARABONBA_PTR_GET_DEFAULT(encryptConfig_, "") };
+    inline string getEncryptConfig() const { DARABONBA_PTR_GET_DEFAULT(encryptConfig_, "") };
     inline SubmitTranscodeJobsRequest& setEncryptConfig(string encryptConfig) { DARABONBA_PTR_SET_VALUE(encryptConfig_, encryptConfig) };
 
 
     // overrideParams Field Functions 
     bool hasOverrideParams() const { return this->overrideParams_ != nullptr;};
     void deleteOverrideParams() { this->overrideParams_ = nullptr;};
-    inline string overrideParams() const { DARABONBA_PTR_GET_DEFAULT(overrideParams_, "") };
+    inline string getOverrideParams() const { DARABONBA_PTR_GET_DEFAULT(overrideParams_, "") };
     inline SubmitTranscodeJobsRequest& setOverrideParams(string overrideParams) { DARABONBA_PTR_SET_VALUE(overrideParams_, overrideParams) };
 
 
     // pipelineId Field Functions 
     bool hasPipelineId() const { return this->pipelineId_ != nullptr;};
     void deletePipelineId() { this->pipelineId_ = nullptr;};
-    inline string pipelineId() const { DARABONBA_PTR_GET_DEFAULT(pipelineId_, "") };
+    inline string getPipelineId() const { DARABONBA_PTR_GET_DEFAULT(pipelineId_, "") };
     inline SubmitTranscodeJobsRequest& setPipelineId(string pipelineId) { DARABONBA_PTR_SET_VALUE(pipelineId_, pipelineId) };
 
 
     // priority Field Functions 
     bool hasPriority() const { return this->priority_ != nullptr;};
     void deletePriority() { this->priority_ = nullptr;};
-    inline string priority() const { DARABONBA_PTR_GET_DEFAULT(priority_, "") };
+    inline string getPriority() const { DARABONBA_PTR_GET_DEFAULT(priority_, "") };
     inline SubmitTranscodeJobsRequest& setPriority(string priority) { DARABONBA_PTR_SET_VALUE(priority_, priority) };
 
 
     // referenceId Field Functions 
     bool hasReferenceId() const { return this->referenceId_ != nullptr;};
     void deleteReferenceId() { this->referenceId_ = nullptr;};
-    inline string referenceId() const { DARABONBA_PTR_GET_DEFAULT(referenceId_, "") };
+    inline string getReferenceId() const { DARABONBA_PTR_GET_DEFAULT(referenceId_, "") };
     inline SubmitTranscodeJobsRequest& setReferenceId(string referenceId) { DARABONBA_PTR_SET_VALUE(referenceId_, referenceId) };
 
 
     // sessionId Field Functions 
     bool hasSessionId() const { return this->sessionId_ != nullptr;};
     void deleteSessionId() { this->sessionId_ = nullptr;};
-    inline string sessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
+    inline string getSessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
     inline SubmitTranscodeJobsRequest& setSessionId(string sessionId) { DARABONBA_PTR_SET_VALUE(sessionId_, sessionId) };
 
 
     // templateGroupId Field Functions 
     bool hasTemplateGroupId() const { return this->templateGroupId_ != nullptr;};
     void deleteTemplateGroupId() { this->templateGroupId_ = nullptr;};
-    inline string templateGroupId() const { DARABONBA_PTR_GET_DEFAULT(templateGroupId_, "") };
+    inline string getTemplateGroupId() const { DARABONBA_PTR_GET_DEFAULT(templateGroupId_, "") };
     inline SubmitTranscodeJobsRequest& setTemplateGroupId(string templateGroupId) { DARABONBA_PTR_SET_VALUE(templateGroupId_, templateGroupId) };
 
 
     // userData Field Functions 
     bool hasUserData() const { return this->userData_ != nullptr;};
     void deleteUserData() { this->userData_ = nullptr;};
-    inline string userData() const { DARABONBA_PTR_GET_DEFAULT(userData_, "") };
+    inline string getUserData() const { DARABONBA_PTR_GET_DEFAULT(userData_, "") };
     inline SubmitTranscodeJobsRequest& setUserData(string userData) { DARABONBA_PTR_SET_VALUE(userData_, userData) };
 
 
     // videoId Field Functions 
     bool hasVideoId() const { return this->videoId_ != nullptr;};
     void deleteVideoId() { this->videoId_ = nullptr;};
-    inline string videoId() const { DARABONBA_PTR_GET_DEFAULT(videoId_, "") };
+    inline string getVideoId() const { DARABONBA_PTR_GET_DEFAULT(videoId_, "") };
     inline SubmitTranscodeJobsRequest& setVideoId(string videoId) { DARABONBA_PTR_SET_VALUE(videoId_, videoId) };
 
 
@@ -119,11 +119,11 @@ namespace Models
     // *   You must set **CipherText** in [EncrptConfig](https://help.aliyun.com/document_detail/86952.html) to the AES_128 cipher text that is obtained from the response to the [GenerateKMSDataKey](https://help.aliyun.com/document_detail/455051.html) operation. Otherwise, the HLS encryption fails. For more information about how to use HLS encryption, see [HLS encryption](https://help.aliyun.com/document_detail/68612.html).
     // 
     // *   You must select HLS encryption for the template specified by **TemplateGroupId** no matter you use HLS encryption or Alibaba Cloud proprietary cryptography. Otherwise, the transcoded file is not encrypted.
-    std::shared_ptr<string> encryptConfig_ = nullptr;
+    shared_ptr<string> encryptConfig_ {};
     // The override parameter. The value must be a JSON string. You can use this parameter to override the image watermark, text watermark, or subtitle file specified in the transcoding template, or override the encoding format of the subtitle file. For more information about the data structure, see [OverrideParams](https://help.aliyun.com/document_detail/98618.html).
-    std::shared_ptr<string> overrideParams_ = nullptr;
+    shared_ptr<string> overrideParams_ {};
     // The ID of the queue that you want to use to run the job.
-    std::shared_ptr<string> pipelineId_ = nullptr;
+    shared_ptr<string> pipelineId_ {};
     // The priority of the transcoding job in all queued jobs.
     // 
     // *   Valid values: **1** to **10**.
@@ -131,24 +131,24 @@ namespace Models
     // *   Default value: **6**.
     // 
     // >  This parameter takes effect only on the queued transcoding jobs. The priorities of the in-progress transcoding jobs are not affected.
-    std::shared_ptr<string> priority_ = nullptr;
-    std::shared_ptr<string> referenceId_ = nullptr;
+    shared_ptr<string> priority_ {};
+    shared_ptr<string> referenceId_ {};
     // The custom identifier for deduplication. If you send a request, an error is returned if a request with the same identifier was sent in the last 7 days. A custom identifier can be up to 50 characters in length and can contain letters, digits, hyphens (-), and underscores (_). If you do not specify this parameter or leave this parameter empty, duplicate requests are not filtered.
-    std::shared_ptr<string> sessionId_ = nullptr;
+    shared_ptr<string> sessionId_ {};
     // The ID of the transcoding template group that you want to use. To view the template group ID, perform the following operations: Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com). In the left-side navigation pane, choose **Configuration Management** > **Media Processing** > **Transcoding Template Groups**.
     // 
     // This parameter is required.
-    std::shared_ptr<string> templateGroupId_ = nullptr;
+    shared_ptr<string> templateGroupId_ {};
     // The custom settings. The value must be a JSON string. You can configure settings such as message callbacks. For more information, see [UserData](https://help.aliyun.com/document_detail/86952.html).
     // 
     // >  To use the callback configurations specified by this parameter, you must configure an HTTP callback URL and specify the types of the callback events in the ApsaraVideo VOD console. Otherwise, the callback configurations do not take effect.
-    std::shared_ptr<string> userData_ = nullptr;
+    shared_ptr<string> userData_ {};
     // The ID of the video file. You can use one of the following methods to obtain the video ID:
     // 
     // *   Log on to the [ApsaraVideo VOD](https://vod.console.aliyun.com) console. In the left-side navigation pane, choose **Media Files** > **Audio/Video**. On the Video and Audio page, view the ID of the video file. This method is applicable to files that are uploaded by using the ApsaraVideo VOD console.
     // *   Obtain the value of VideoId from the response to the [CreateUploadVideo](https://help.aliyun.com/document_detail/55407.html) operation that you call to upload the video.
     // *   Obtain the value of VideoId from the response to the [SearchMedia](https://help.aliyun.com/document_detail/86044.html) operation after you upload the video.
-    std::shared_ptr<string> videoId_ = nullptr;
+    shared_ptr<string> videoId_ {};
   };
 
   } // namespace Models

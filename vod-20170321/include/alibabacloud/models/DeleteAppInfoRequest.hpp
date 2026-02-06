@@ -33,7 +33,7 @@ namespace Models
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline DeleteAppInfoRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the application. Default value: **app-1000000**. For more information, see [Overview](https://help.aliyun.com/document_detail/113600.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
   };
 
   } // namespace Models

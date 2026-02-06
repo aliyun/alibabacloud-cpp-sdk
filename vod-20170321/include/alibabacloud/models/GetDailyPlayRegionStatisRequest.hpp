@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->date_ == nullptr
-        && return this->mediaRegion_ == nullptr; };
+        && this->mediaRegion_ == nullptr; };
     // date Field Functions 
     bool hasDate() const { return this->date_ != nullptr;};
     void deleteDate() { this->date_ = nullptr;};
-    inline string date() const { DARABONBA_PTR_GET_DEFAULT(date_, "") };
+    inline string getDate() const { DARABONBA_PTR_GET_DEFAULT(date_, "") };
     inline GetDailyPlayRegionStatisRequest& setDate(string date) { DARABONBA_PTR_SET_VALUE(date_, date) };
 
 
     // mediaRegion Field Functions 
     bool hasMediaRegion() const { return this->mediaRegion_ != nullptr;};
     void deleteMediaRegion() { this->mediaRegion_ = nullptr;};
-    inline string mediaRegion() const { DARABONBA_PTR_GET_DEFAULT(mediaRegion_, "") };
+    inline string getMediaRegion() const { DARABONBA_PTR_GET_DEFAULT(mediaRegion_, "") };
     inline GetDailyPlayRegionStatisRequest& setMediaRegion(string mediaRegion) { DARABONBA_PTR_SET_VALUE(mediaRegion_, mediaRegion) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> date_ = nullptr;
+    shared_ptr<string> date_ {};
     // This parameter is required.
-    std::shared_ptr<string> mediaRegion_ = nullptr;
+    shared_ptr<string> mediaRegion_ {};
   };
 
   } // namespace Models

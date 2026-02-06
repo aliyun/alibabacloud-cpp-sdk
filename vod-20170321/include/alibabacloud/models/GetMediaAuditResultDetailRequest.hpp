@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->mediaId_ == nullptr
-        && return this->pageNo_ == nullptr; };
+        && this->pageNo_ == nullptr; };
     // mediaId Field Functions 
     bool hasMediaId() const { return this->mediaId_ != nullptr;};
     void deleteMediaId() { this->mediaId_ = nullptr;};
-    inline string mediaId() const { DARABONBA_PTR_GET_DEFAULT(mediaId_, "") };
+    inline string getMediaId() const { DARABONBA_PTR_GET_DEFAULT(mediaId_, "") };
     inline GetMediaAuditResultDetailRequest& setMediaId(string mediaId) { DARABONBA_PTR_SET_VALUE(mediaId_, mediaId) };
 
 
     // pageNo Field Functions 
     bool hasPageNo() const { return this->pageNo_ != nullptr;};
     void deletePageNo() { this->pageNo_ = nullptr;};
-    inline int32_t pageNo() const { DARABONBA_PTR_GET_DEFAULT(pageNo_, 0) };
+    inline int32_t getPageNo() const { DARABONBA_PTR_GET_DEFAULT(pageNo_, 0) };
     inline GetMediaAuditResultDetailRequest& setPageNo(int32_t pageNo) { DARABONBA_PTR_SET_VALUE(pageNo_, pageNo) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The ID of the video.
     // 
     // This parameter is required.
-    std::shared_ptr<string> mediaId_ = nullptr;
+    shared_ptr<string> mediaId_ {};
     // The page number. The default value is **1**. A maximum of **20** records can be returned on each page.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> pageNo_ = nullptr;
+    shared_ptr<int32_t> pageNo_ {};
   };
 
   } // namespace Models

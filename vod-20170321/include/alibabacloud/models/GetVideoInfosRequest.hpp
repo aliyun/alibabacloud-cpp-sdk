@@ -32,25 +32,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->referenceIds_ == nullptr
-        && return this->videoIds_ == nullptr; };
+        && this->videoIds_ == nullptr; };
     // referenceIds Field Functions 
     bool hasReferenceIds() const { return this->referenceIds_ != nullptr;};
     void deleteReferenceIds() { this->referenceIds_ = nullptr;};
-    inline string referenceIds() const { DARABONBA_PTR_GET_DEFAULT(referenceIds_, "") };
+    inline string getReferenceIds() const { DARABONBA_PTR_GET_DEFAULT(referenceIds_, "") };
     inline GetVideoInfosRequest& setReferenceIds(string referenceIds) { DARABONBA_PTR_SET_VALUE(referenceIds_, referenceIds) };
 
 
     // videoIds Field Functions 
     bool hasVideoIds() const { return this->videoIds_ != nullptr;};
     void deleteVideoIds() { this->videoIds_ = nullptr;};
-    inline string videoIds() const { DARABONBA_PTR_GET_DEFAULT(videoIds_, "") };
+    inline string getVideoIds() const { DARABONBA_PTR_GET_DEFAULT(videoIds_, "") };
     inline GetVideoInfosRequest& setVideoIds(string videoIds) { DARABONBA_PTR_SET_VALUE(videoIds_, videoIds) };
 
 
   protected:
-    std::shared_ptr<string> referenceIds_ = nullptr;
+    shared_ptr<string> referenceIds_ {};
     // The list of video IDs. Separate multiple IDs with commas (,). A maximum of 20 IDs can be specified.
-    std::shared_ptr<string> videoIds_ = nullptr;
+    shared_ptr<string> videoIds_ {};
   };
 
   } // namespace Models

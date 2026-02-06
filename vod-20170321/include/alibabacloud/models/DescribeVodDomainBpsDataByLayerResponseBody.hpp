@@ -2,7 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_DESCRIBEVODDOMAINBPSDATABYLAYERRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_DESCRIBEVODDOMAINBPSDATABYLAYERRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/DescribeVodDomainBpsDataByLayerResponseBodyBpsDataInterval.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -34,38 +34,126 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class BpsDataInterval : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const BpsDataInterval& obj) { 
+        DARABONBA_PTR_TO_JSON(DataModule, dataModule_);
+      };
+      friend void from_json(const Darabonba::Json& j, BpsDataInterval& obj) { 
+        DARABONBA_PTR_FROM_JSON(DataModule, dataModule_);
+      };
+      BpsDataInterval() = default ;
+      BpsDataInterval(const BpsDataInterval &) = default ;
+      BpsDataInterval(BpsDataInterval &&) = default ;
+      BpsDataInterval(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~BpsDataInterval() = default ;
+      BpsDataInterval& operator=(const BpsDataInterval &) = default ;
+      BpsDataInterval& operator=(BpsDataInterval &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class DataModule : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const DataModule& obj) { 
+          DARABONBA_PTR_TO_JSON(TimeStamp, timeStamp_);
+          DARABONBA_PTR_TO_JSON(TrafficValue, trafficValue_);
+          DARABONBA_PTR_TO_JSON(Value, value_);
+        };
+        friend void from_json(const Darabonba::Json& j, DataModule& obj) { 
+          DARABONBA_PTR_FROM_JSON(TimeStamp, timeStamp_);
+          DARABONBA_PTR_FROM_JSON(TrafficValue, trafficValue_);
+          DARABONBA_PTR_FROM_JSON(Value, value_);
+        };
+        DataModule() = default ;
+        DataModule(const DataModule &) = default ;
+        DataModule(DataModule &&) = default ;
+        DataModule(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~DataModule() = default ;
+        DataModule& operator=(const DataModule &) = default ;
+        DataModule& operator=(DataModule &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->timeStamp_ == nullptr
+        && this->trafficValue_ == nullptr && this->value_ == nullptr; };
+        // timeStamp Field Functions 
+        bool hasTimeStamp() const { return this->timeStamp_ != nullptr;};
+        void deleteTimeStamp() { this->timeStamp_ = nullptr;};
+        inline string getTimeStamp() const { DARABONBA_PTR_GET_DEFAULT(timeStamp_, "") };
+        inline DataModule& setTimeStamp(string timeStamp) { DARABONBA_PTR_SET_VALUE(timeStamp_, timeStamp) };
+
+
+        // trafficValue Field Functions 
+        bool hasTrafficValue() const { return this->trafficValue_ != nullptr;};
+        void deleteTrafficValue() { this->trafficValue_ = nullptr;};
+        inline int64_t getTrafficValue() const { DARABONBA_PTR_GET_DEFAULT(trafficValue_, 0L) };
+        inline DataModule& setTrafficValue(int64_t trafficValue) { DARABONBA_PTR_SET_VALUE(trafficValue_, trafficValue) };
+
+
+        // value Field Functions 
+        bool hasValue() const { return this->value_ != nullptr;};
+        void deleteValue() { this->value_ = nullptr;};
+        inline double getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, 0.0) };
+        inline DataModule& setValue(double value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+      protected:
+        // The timestamp of the data returned. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
+        shared_ptr<string> timeStamp_ {};
+        // The total traffic. Unit: bytes.
+        shared_ptr<int64_t> trafficValue_ {};
+        // The peak bandwidth. Unit: bit/s.
+        shared_ptr<double> value_ {};
+      };
+
+      virtual bool empty() const override { return this->dataModule_ == nullptr; };
+      // dataModule Field Functions 
+      bool hasDataModule() const { return this->dataModule_ != nullptr;};
+      void deleteDataModule() { this->dataModule_ = nullptr;};
+      inline const vector<BpsDataInterval::DataModule> & getDataModule() const { DARABONBA_PTR_GET_CONST(dataModule_, vector<BpsDataInterval::DataModule>) };
+      inline vector<BpsDataInterval::DataModule> getDataModule() { DARABONBA_PTR_GET(dataModule_, vector<BpsDataInterval::DataModule>) };
+      inline BpsDataInterval& setDataModule(const vector<BpsDataInterval::DataModule> & dataModule) { DARABONBA_PTR_SET_VALUE(dataModule_, dataModule) };
+      inline BpsDataInterval& setDataModule(vector<BpsDataInterval::DataModule> && dataModule) { DARABONBA_PTR_SET_RVALUE(dataModule_, dataModule) };
+
+
+    protected:
+      shared_ptr<vector<BpsDataInterval::DataModule>> dataModule_ {};
+    };
+
     virtual bool empty() const override { return this->bpsDataInterval_ == nullptr
-        && return this->dataInterval_ == nullptr && return this->requestId_ == nullptr; };
+        && this->dataInterval_ == nullptr && this->requestId_ == nullptr; };
     // bpsDataInterval Field Functions 
     bool hasBpsDataInterval() const { return this->bpsDataInterval_ != nullptr;};
     void deleteBpsDataInterval() { this->bpsDataInterval_ = nullptr;};
-    inline const DescribeVodDomainBpsDataByLayerResponseBodyBpsDataInterval & bpsDataInterval() const { DARABONBA_PTR_GET_CONST(bpsDataInterval_, DescribeVodDomainBpsDataByLayerResponseBodyBpsDataInterval) };
-    inline DescribeVodDomainBpsDataByLayerResponseBodyBpsDataInterval bpsDataInterval() { DARABONBA_PTR_GET(bpsDataInterval_, DescribeVodDomainBpsDataByLayerResponseBodyBpsDataInterval) };
-    inline DescribeVodDomainBpsDataByLayerResponseBody& setBpsDataInterval(const DescribeVodDomainBpsDataByLayerResponseBodyBpsDataInterval & bpsDataInterval) { DARABONBA_PTR_SET_VALUE(bpsDataInterval_, bpsDataInterval) };
-    inline DescribeVodDomainBpsDataByLayerResponseBody& setBpsDataInterval(DescribeVodDomainBpsDataByLayerResponseBodyBpsDataInterval && bpsDataInterval) { DARABONBA_PTR_SET_RVALUE(bpsDataInterval_, bpsDataInterval) };
+    inline const DescribeVodDomainBpsDataByLayerResponseBody::BpsDataInterval & getBpsDataInterval() const { DARABONBA_PTR_GET_CONST(bpsDataInterval_, DescribeVodDomainBpsDataByLayerResponseBody::BpsDataInterval) };
+    inline DescribeVodDomainBpsDataByLayerResponseBody::BpsDataInterval getBpsDataInterval() { DARABONBA_PTR_GET(bpsDataInterval_, DescribeVodDomainBpsDataByLayerResponseBody::BpsDataInterval) };
+    inline DescribeVodDomainBpsDataByLayerResponseBody& setBpsDataInterval(const DescribeVodDomainBpsDataByLayerResponseBody::BpsDataInterval & bpsDataInterval) { DARABONBA_PTR_SET_VALUE(bpsDataInterval_, bpsDataInterval) };
+    inline DescribeVodDomainBpsDataByLayerResponseBody& setBpsDataInterval(DescribeVodDomainBpsDataByLayerResponseBody::BpsDataInterval && bpsDataInterval) { DARABONBA_PTR_SET_RVALUE(bpsDataInterval_, bpsDataInterval) };
 
 
     // dataInterval Field Functions 
     bool hasDataInterval() const { return this->dataInterval_ != nullptr;};
     void deleteDataInterval() { this->dataInterval_ = nullptr;};
-    inline int32_t dataInterval() const { DARABONBA_PTR_GET_DEFAULT(dataInterval_, 0) };
+    inline int32_t getDataInterval() const { DARABONBA_PTR_GET_DEFAULT(dataInterval_, 0) };
     inline DescribeVodDomainBpsDataByLayerResponseBody& setDataInterval(int32_t dataInterval) { DARABONBA_PTR_SET_VALUE(dataInterval_, dataInterval) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeVodDomainBpsDataByLayerResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The bandwidth returned at each time interval. Unit: bit/s.
-    std::shared_ptr<DescribeVodDomainBpsDataByLayerResponseBodyBpsDataInterval> bpsDataInterval_ = nullptr;
+    shared_ptr<DescribeVodDomainBpsDataByLayerResponseBody::BpsDataInterval> bpsDataInterval_ {};
     // The time interval between the entries returned. Unit: seconds.
-    std::shared_ptr<int32_t> dataInterval_ = nullptr;
+    shared_ptr<int32_t> dataInterval_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

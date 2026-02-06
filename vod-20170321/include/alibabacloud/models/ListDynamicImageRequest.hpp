@@ -33,7 +33,7 @@ namespace Models
     // videoId Field Functions 
     bool hasVideoId() const { return this->videoId_ != nullptr;};
     void deleteVideoId() { this->videoId_ = nullptr;};
-    inline string videoId() const { DARABONBA_PTR_GET_DEFAULT(videoId_, "") };
+    inline string getVideoId() const { DARABONBA_PTR_GET_DEFAULT(videoId_, "") };
     inline ListDynamicImageRequest& setVideoId(string videoId) { DARABONBA_PTR_SET_VALUE(videoId_, videoId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the video.
     // 
     // This parameter is required.
-    std::shared_ptr<string> videoId_ = nullptr;
+    shared_ptr<string> videoId_ {};
   };
 
   } // namespace Models

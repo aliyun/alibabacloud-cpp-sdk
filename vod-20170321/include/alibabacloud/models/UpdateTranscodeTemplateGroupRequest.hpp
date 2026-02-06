@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->locked_ == nullptr
-        && return this->name_ == nullptr && return this->transcodeTemplateGroupId_ == nullptr && return this->transcodeTemplateList_ == nullptr; };
+        && this->name_ == nullptr && this->transcodeTemplateGroupId_ == nullptr && this->transcodeTemplateList_ == nullptr; };
     // locked Field Functions 
     bool hasLocked() const { return this->locked_ != nullptr;};
     void deleteLocked() { this->locked_ = nullptr;};
-    inline string locked() const { DARABONBA_PTR_GET_DEFAULT(locked_, "") };
+    inline string getLocked() const { DARABONBA_PTR_GET_DEFAULT(locked_, "") };
     inline UpdateTranscodeTemplateGroupRequest& setLocked(string locked) { DARABONBA_PTR_SET_VALUE(locked_, locked) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline UpdateTranscodeTemplateGroupRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // transcodeTemplateGroupId Field Functions 
     bool hasTranscodeTemplateGroupId() const { return this->transcodeTemplateGroupId_ != nullptr;};
     void deleteTranscodeTemplateGroupId() { this->transcodeTemplateGroupId_ = nullptr;};
-    inline string transcodeTemplateGroupId() const { DARABONBA_PTR_GET_DEFAULT(transcodeTemplateGroupId_, "") };
+    inline string getTranscodeTemplateGroupId() const { DARABONBA_PTR_GET_DEFAULT(transcodeTemplateGroupId_, "") };
     inline UpdateTranscodeTemplateGroupRequest& setTranscodeTemplateGroupId(string transcodeTemplateGroupId) { DARABONBA_PTR_SET_VALUE(transcodeTemplateGroupId_, transcodeTemplateGroupId) };
 
 
     // transcodeTemplateList Field Functions 
     bool hasTranscodeTemplateList() const { return this->transcodeTemplateList_ != nullptr;};
     void deleteTranscodeTemplateList() { this->transcodeTemplateList_ = nullptr;};
-    inline string transcodeTemplateList() const { DARABONBA_PTR_GET_DEFAULT(transcodeTemplateList_, "") };
+    inline string getTranscodeTemplateList() const { DARABONBA_PTR_GET_DEFAULT(transcodeTemplateList_, "") };
     inline UpdateTranscodeTemplateGroupRequest& setTranscodeTemplateList(string transcodeTemplateList) { DARABONBA_PTR_SET_VALUE(transcodeTemplateList_, transcodeTemplateList) };
 
 
@@ -70,18 +70,18 @@ namespace Models
     // 
     // *   **Enabled**: The transcoding template group is locked and cannot be modified.
     // *   **Disabled** (default): The transcoding template group is not locked.
-    std::shared_ptr<string> locked_ = nullptr;
+    shared_ptr<string> locked_ {};
     // The name of the transcoding template group.
     // 
     // *   The name cannot exceed 128 bytes.
     // *   The value must be encoded in UTF-8.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The ID of the transcoding template group.
     // 
     // This parameter is required.
-    std::shared_ptr<string> transcodeTemplateGroupId_ = nullptr;
+    shared_ptr<string> transcodeTemplateGroupId_ {};
     // The configurations of the transcoding template. The value must be a JSON string. For more information about the data structure, see [TranscodeTemplate](~~52839#title-9mb-8o2-uu6~~).
-    std::shared_ptr<string> transcodeTemplateList_ = nullptr;
+    shared_ptr<string> transcodeTemplateList_ {};
   };
 
   } // namespace Models

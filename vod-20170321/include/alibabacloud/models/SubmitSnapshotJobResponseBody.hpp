@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_SUBMITSNAPSHOTJOBRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_SUBMITSNAPSHOTJOBRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/SubmitSnapshotJobResponseBodySnapshotJob.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -32,29 +31,61 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class SnapshotJob : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const SnapshotJob& obj) { 
+        DARABONBA_PTR_TO_JSON(JobId, jobId_);
+      };
+      friend void from_json(const Darabonba::Json& j, SnapshotJob& obj) { 
+        DARABONBA_PTR_FROM_JSON(JobId, jobId_);
+      };
+      SnapshotJob() = default ;
+      SnapshotJob(const SnapshotJob &) = default ;
+      SnapshotJob(SnapshotJob &&) = default ;
+      SnapshotJob(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~SnapshotJob() = default ;
+      SnapshotJob& operator=(const SnapshotJob &) = default ;
+      SnapshotJob& operator=(SnapshotJob &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->jobId_ == nullptr; };
+      // jobId Field Functions 
+      bool hasJobId() const { return this->jobId_ != nullptr;};
+      void deleteJobId() { this->jobId_ = nullptr;};
+      inline string getJobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
+      inline SnapshotJob& setJobId(string jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
+
+
+    protected:
+      // The ID of the snapshot job.
+      shared_ptr<string> jobId_ {};
+    };
+
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->snapshotJob_ == nullptr; };
+        && this->snapshotJob_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline SubmitSnapshotJobResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // snapshotJob Field Functions 
     bool hasSnapshotJob() const { return this->snapshotJob_ != nullptr;};
     void deleteSnapshotJob() { this->snapshotJob_ = nullptr;};
-    inline const SubmitSnapshotJobResponseBodySnapshotJob & snapshotJob() const { DARABONBA_PTR_GET_CONST(snapshotJob_, SubmitSnapshotJobResponseBodySnapshotJob) };
-    inline SubmitSnapshotJobResponseBodySnapshotJob snapshotJob() { DARABONBA_PTR_GET(snapshotJob_, SubmitSnapshotJobResponseBodySnapshotJob) };
-    inline SubmitSnapshotJobResponseBody& setSnapshotJob(const SubmitSnapshotJobResponseBodySnapshotJob & snapshotJob) { DARABONBA_PTR_SET_VALUE(snapshotJob_, snapshotJob) };
-    inline SubmitSnapshotJobResponseBody& setSnapshotJob(SubmitSnapshotJobResponseBodySnapshotJob && snapshotJob) { DARABONBA_PTR_SET_RVALUE(snapshotJob_, snapshotJob) };
+    inline const SubmitSnapshotJobResponseBody::SnapshotJob & getSnapshotJob() const { DARABONBA_PTR_GET_CONST(snapshotJob_, SubmitSnapshotJobResponseBody::SnapshotJob) };
+    inline SubmitSnapshotJobResponseBody::SnapshotJob getSnapshotJob() { DARABONBA_PTR_GET(snapshotJob_, SubmitSnapshotJobResponseBody::SnapshotJob) };
+    inline SubmitSnapshotJobResponseBody& setSnapshotJob(const SubmitSnapshotJobResponseBody::SnapshotJob & snapshotJob) { DARABONBA_PTR_SET_VALUE(snapshotJob_, snapshotJob) };
+    inline SubmitSnapshotJobResponseBody& setSnapshotJob(SubmitSnapshotJobResponseBody::SnapshotJob && snapshotJob) { DARABONBA_PTR_SET_RVALUE(snapshotJob_, snapshotJob) };
 
 
   protected:
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The information about the snapshot job.
-    std::shared_ptr<SubmitSnapshotJobResponseBodySnapshotJob> snapshotJob_ = nullptr;
+    shared_ptr<SubmitSnapshotJobResponseBody::SnapshotJob> snapshotJob_ {};
   };
 
   } // namespace Models

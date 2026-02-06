@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dynamicImageIds_ == nullptr
-        && return this->videoId_ == nullptr; };
+        && this->videoId_ == nullptr; };
     // dynamicImageIds Field Functions 
     bool hasDynamicImageIds() const { return this->dynamicImageIds_ != nullptr;};
     void deleteDynamicImageIds() { this->dynamicImageIds_ = nullptr;};
-    inline string dynamicImageIds() const { DARABONBA_PTR_GET_DEFAULT(dynamicImageIds_, "") };
+    inline string getDynamicImageIds() const { DARABONBA_PTR_GET_DEFAULT(dynamicImageIds_, "") };
     inline DeleteDynamicImageRequest& setDynamicImageIds(string dynamicImageIds) { DARABONBA_PTR_SET_VALUE(dynamicImageIds_, dynamicImageIds) };
 
 
     // videoId Field Functions 
     bool hasVideoId() const { return this->videoId_ != nullptr;};
     void deleteVideoId() { this->videoId_ = nullptr;};
-    inline string videoId() const { DARABONBA_PTR_GET_DEFAULT(videoId_, "") };
+    inline string getVideoId() const { DARABONBA_PTR_GET_DEFAULT(videoId_, "") };
     inline DeleteDynamicImageRequest& setVideoId(string videoId) { DARABONBA_PTR_SET_VALUE(videoId_, videoId) };
 
 
@@ -52,11 +52,11 @@ namespace Models
     // 
     // - Separate multiple IDs with commas (,). You can specify a maximum of 10 IDs.
     // - If you do not set this parameter, the system finds the video specified by the VideoId parameter and deletes the information about the animated stickers associated with the video. If more than 10 animated stickers are associated with the video specified by the VideoId parameter, the deletion request is denied.
-    std::shared_ptr<string> dynamicImageIds_ = nullptr;
+    shared_ptr<string> dynamicImageIds_ {};
     // The ID of the video associated with the animated stickers whose information you want to delete.
     // 
     // This parameter is required.
-    std::shared_ptr<string> videoId_ = nullptr;
+    shared_ptr<string> videoId_ {};
   };
 
   } // namespace Models

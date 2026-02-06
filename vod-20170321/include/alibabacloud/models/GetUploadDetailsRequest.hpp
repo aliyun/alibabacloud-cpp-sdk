@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->mediaIds_ == nullptr
-        && return this->mediaType_ == nullptr; };
+        && this->mediaType_ == nullptr; };
     // mediaIds Field Functions 
     bool hasMediaIds() const { return this->mediaIds_ != nullptr;};
     void deleteMediaIds() { this->mediaIds_ = nullptr;};
-    inline string mediaIds() const { DARABONBA_PTR_GET_DEFAULT(mediaIds_, "") };
+    inline string getMediaIds() const { DARABONBA_PTR_GET_DEFAULT(mediaIds_, "") };
     inline GetUploadDetailsRequest& setMediaIds(string mediaIds) { DARABONBA_PTR_SET_VALUE(mediaIds_, mediaIds) };
 
 
     // mediaType Field Functions 
     bool hasMediaType() const { return this->mediaType_ != nullptr;};
     void deleteMediaType() { this->mediaType_ = nullptr;};
-    inline string mediaType() const { DARABONBA_PTR_GET_DEFAULT(mediaType_, "") };
+    inline string getMediaType() const { DARABONBA_PTR_GET_DEFAULT(mediaType_, "") };
     inline GetUploadDetailsRequest& setMediaType(string mediaType) { DARABONBA_PTR_SET_VALUE(mediaType_, mediaType) };
 
 
@@ -54,9 +54,9 @@ namespace Models
     // *   View the value of the VideoId parameter returned by the [SearchMedia](https://help.aliyun.com/document_detail/86044.html) operation that you called to query media information after the audio or video file is uploaded.
     // 
     // This parameter is required.
-    std::shared_ptr<string> mediaIds_ = nullptr;
+    shared_ptr<string> mediaIds_ {};
     // The type of the media file. Set the value to **video**, which indicates audio and video files.
-    std::shared_ptr<string> mediaType_ = nullptr;
+    shared_ptr<string> mediaType_ {};
   };
 
   } // namespace Models

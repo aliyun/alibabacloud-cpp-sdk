@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->mediaIds_ == nullptr
-        && return this->referenceIds_ == nullptr; };
+        && this->referenceIds_ == nullptr; };
     // mediaIds Field Functions 
     bool hasMediaIds() const { return this->mediaIds_ != nullptr;};
     void deleteMediaIds() { this->mediaIds_ = nullptr;};
-    inline string mediaIds() const { DARABONBA_PTR_GET_DEFAULT(mediaIds_, "") };
+    inline string getMediaIds() const { DARABONBA_PTR_GET_DEFAULT(mediaIds_, "") };
     inline BatchGetMediaInfosRequest& setMediaIds(string mediaIds) { DARABONBA_PTR_SET_VALUE(mediaIds_, mediaIds) };
 
 
     // referenceIds Field Functions 
     bool hasReferenceIds() const { return this->referenceIds_ != nullptr;};
     void deleteReferenceIds() { this->referenceIds_ = nullptr;};
-    inline string referenceIds() const { DARABONBA_PTR_GET_DEFAULT(referenceIds_, "") };
+    inline string getReferenceIds() const { DARABONBA_PTR_GET_DEFAULT(referenceIds_, "") };
     inline BatchGetMediaInfosRequest& setReferenceIds(string referenceIds) { DARABONBA_PTR_SET_VALUE(referenceIds_, referenceIds) };
 
 
@@ -55,8 +55,8 @@ namespace Models
     // *   Obtain the value of VideoId from the response to the SearchMedia operation that you call to query the media ID after the media asset is uploaded.
     // 
     // This parameter is required.
-    std::shared_ptr<string> mediaIds_ = nullptr;
-    std::shared_ptr<string> referenceIds_ = nullptr;
+    shared_ptr<string> mediaIds_ {};
+    shared_ptr<string> referenceIds_ {};
   };
 
   } // namespace Models

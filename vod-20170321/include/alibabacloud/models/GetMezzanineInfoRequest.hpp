@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->additionType_ == nullptr
-        && return this->authTimeout_ == nullptr && return this->outputType_ == nullptr && return this->referenceId_ == nullptr && return this->videoId_ == nullptr; };
+        && this->authTimeout_ == nullptr && this->outputType_ == nullptr && this->referenceId_ == nullptr && this->videoId_ == nullptr; };
     // additionType Field Functions 
     bool hasAdditionType() const { return this->additionType_ != nullptr;};
     void deleteAdditionType() { this->additionType_ = nullptr;};
-    inline string additionType() const { DARABONBA_PTR_GET_DEFAULT(additionType_, "") };
+    inline string getAdditionType() const { DARABONBA_PTR_GET_DEFAULT(additionType_, "") };
     inline GetMezzanineInfoRequest& setAdditionType(string additionType) { DARABONBA_PTR_SET_VALUE(additionType_, additionType) };
 
 
     // authTimeout Field Functions 
     bool hasAuthTimeout() const { return this->authTimeout_ != nullptr;};
     void deleteAuthTimeout() { this->authTimeout_ = nullptr;};
-    inline int64_t authTimeout() const { DARABONBA_PTR_GET_DEFAULT(authTimeout_, 0L) };
+    inline int64_t getAuthTimeout() const { DARABONBA_PTR_GET_DEFAULT(authTimeout_, 0L) };
     inline GetMezzanineInfoRequest& setAuthTimeout(int64_t authTimeout) { DARABONBA_PTR_SET_VALUE(authTimeout_, authTimeout) };
 
 
     // outputType Field Functions 
     bool hasOutputType() const { return this->outputType_ != nullptr;};
     void deleteOutputType() { this->outputType_ = nullptr;};
-    inline string outputType() const { DARABONBA_PTR_GET_DEFAULT(outputType_, "") };
+    inline string getOutputType() const { DARABONBA_PTR_GET_DEFAULT(outputType_, "") };
     inline GetMezzanineInfoRequest& setOutputType(string outputType) { DARABONBA_PTR_SET_VALUE(outputType_, outputType) };
 
 
     // referenceId Field Functions 
     bool hasReferenceId() const { return this->referenceId_ != nullptr;};
     void deleteReferenceId() { this->referenceId_ = nullptr;};
-    inline string referenceId() const { DARABONBA_PTR_GET_DEFAULT(referenceId_, "") };
+    inline string getReferenceId() const { DARABONBA_PTR_GET_DEFAULT(referenceId_, "") };
     inline GetMezzanineInfoRequest& setReferenceId(string referenceId) { DARABONBA_PTR_SET_VALUE(referenceId_, referenceId) };
 
 
     // videoId Field Functions 
     bool hasVideoId() const { return this->videoId_ != nullptr;};
     void deleteVideoId() { this->videoId_ = nullptr;};
-    inline string videoId() const { DARABONBA_PTR_GET_DEFAULT(videoId_, "") };
+    inline string getVideoId() const { DARABONBA_PTR_GET_DEFAULT(videoId_, "") };
     inline GetMezzanineInfoRequest& setVideoId(string videoId) { DARABONBA_PTR_SET_VALUE(videoId_, videoId) };
 
 
@@ -79,7 +79,7 @@ namespace Models
     // 
     // *   **video**: video stream information
     // *   **audio**: audio stream information
-    std::shared_ptr<string> additionType_ = nullptr;
+    shared_ptr<string> additionType_ {};
     // The validity period of the mezzanine file URL. Unit: seconds. Default value: **1800**. Minimum value: **1**.
     // 
     // *   If the OutputType parameter is set to **cdn**:
@@ -97,17 +97,17 @@ namespace Models
     //     *   Minimum value: **1**.
     //     *   Maximum value: **2592000** (30 days). The maximum value is limited to reduce security risks of the origin.
     //     *   Default value: If you do not set this parameter, the default value is **3600**.
-    std::shared_ptr<int64_t> authTimeout_ = nullptr;
+    shared_ptr<int64_t> authTimeout_ {};
     // The type of the mezzanine file URL. Valid values:
     // 
     // - **oss**: OSS URL
     // - **cdn** (default): Content Delivery Network (CDN) URL
     // 
     // > If the mezzanine file is stored in a bucket of the in type, only an OSS URL is returned.
-    std::shared_ptr<string> outputType_ = nullptr;
-    std::shared_ptr<string> referenceId_ = nullptr;
+    shared_ptr<string> outputType_ {};
+    shared_ptr<string> referenceId_ {};
     // The ID of the video.
-    std::shared_ptr<string> videoId_ = nullptr;
+    shared_ptr<string> videoId_ {};
   };
 
   } // namespace Models

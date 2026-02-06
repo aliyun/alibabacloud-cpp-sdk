@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->authTimeout_ == nullptr
-        && return this->pageNo_ == nullptr && return this->pageSize_ == nullptr && return this->snapshotType_ == nullptr && return this->videoId_ == nullptr; };
+        && this->pageNo_ == nullptr && this->pageSize_ == nullptr && this->snapshotType_ == nullptr && this->videoId_ == nullptr; };
     // authTimeout Field Functions 
     bool hasAuthTimeout() const { return this->authTimeout_ != nullptr;};
     void deleteAuthTimeout() { this->authTimeout_ = nullptr;};
-    inline string authTimeout() const { DARABONBA_PTR_GET_DEFAULT(authTimeout_, "") };
+    inline string getAuthTimeout() const { DARABONBA_PTR_GET_DEFAULT(authTimeout_, "") };
     inline ListSnapshotsRequest& setAuthTimeout(string authTimeout) { DARABONBA_PTR_SET_VALUE(authTimeout_, authTimeout) };
 
 
     // pageNo Field Functions 
     bool hasPageNo() const { return this->pageNo_ != nullptr;};
     void deletePageNo() { this->pageNo_ = nullptr;};
-    inline string pageNo() const { DARABONBA_PTR_GET_DEFAULT(pageNo_, "") };
+    inline string getPageNo() const { DARABONBA_PTR_GET_DEFAULT(pageNo_, "") };
     inline ListSnapshotsRequest& setPageNo(string pageNo) { DARABONBA_PTR_SET_VALUE(pageNo_, pageNo) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline string pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
+    inline string getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
     inline ListSnapshotsRequest& setPageSize(string pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // snapshotType Field Functions 
     bool hasSnapshotType() const { return this->snapshotType_ != nullptr;};
     void deleteSnapshotType() { this->snapshotType_ = nullptr;};
-    inline string snapshotType() const { DARABONBA_PTR_GET_DEFAULT(snapshotType_, "") };
+    inline string getSnapshotType() const { DARABONBA_PTR_GET_DEFAULT(snapshotType_, "") };
     inline ListSnapshotsRequest& setSnapshotType(string snapshotType) { DARABONBA_PTR_SET_VALUE(snapshotType_, snapshotType) };
 
 
     // videoId Field Functions 
     bool hasVideoId() const { return this->videoId_ != nullptr;};
     void deleteVideoId() { this->videoId_ = nullptr;};
-    inline string videoId() const { DARABONBA_PTR_GET_DEFAULT(videoId_, "") };
+    inline string getVideoId() const { DARABONBA_PTR_GET_DEFAULT(videoId_, "") };
     inline ListSnapshotsRequest& setVideoId(string videoId) { DARABONBA_PTR_SET_VALUE(videoId_, videoId) };
 
 
@@ -80,11 +80,11 @@ namespace Models
     // *   This parameter takes effect only when you enable URL signing. For more information, see [Configure URL signing](https://help.aliyun.com/document_detail/57007.html).
     // *   If you specify a value smaller than **3,600 seconds**, **3600** is used by default.
     // *   If the snapshot URL is an Object Storage Service (OSS) URL, the maximum value for this parameter is **2592000** (30 days). This reduces risks on the origin.
-    std::shared_ptr<string> authTimeout_ = nullptr;
+    shared_ptr<string> authTimeout_ {};
     // The page number. Default value: **1**.
-    std::shared_ptr<string> pageNo_ = nullptr;
+    shared_ptr<string> pageNo_ {};
     // The number of entries per page. Default value: **20**. Maximum value: **100**.
-    std::shared_ptr<string> pageSize_ = nullptr;
+    shared_ptr<string> pageSize_ {};
     // The type of snapshots to return. Valid values:
     // 
     // *   **CoverSnapshot**: thumbnail snapshot
@@ -92,7 +92,7 @@ namespace Models
     // *   **SpriteSnapshot**: sprite snapshot
     // *   **SpriteOriginSnapshot**: sprite source snapshot
     // *   **WebVttSnapshot**: WebVTT snapshot
-    std::shared_ptr<string> snapshotType_ = nullptr;
+    shared_ptr<string> snapshotType_ {};
     // The ID of the video. You can use one of the following methods to obtain the ID:
     // 
     // *   Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com). In the left-side navigation pane, choose **Media Files** > **Audio/Video** to view the video ID.
@@ -100,7 +100,7 @@ namespace Models
     // *   Obtain the video ID from the response to the [SearchMedia](~~SearchMedia~~) operation that you call to query videos.
     // 
     // This parameter is required.
-    std::shared_ptr<string> videoId_ = nullptr;
+    shared_ptr<string> videoId_ {};
   };
 
   } // namespace Models

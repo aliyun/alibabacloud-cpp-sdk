@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->transcodeTemplateGroupId_ == nullptr; };
+        && this->transcodeTemplateGroupId_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline AddTranscodeTemplateGroupResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // transcodeTemplateGroupId Field Functions 
     bool hasTranscodeTemplateGroupId() const { return this->transcodeTemplateGroupId_ != nullptr;};
     void deleteTranscodeTemplateGroupId() { this->transcodeTemplateGroupId_ = nullptr;};
-    inline string transcodeTemplateGroupId() const { DARABONBA_PTR_GET_DEFAULT(transcodeTemplateGroupId_, "") };
+    inline string getTranscodeTemplateGroupId() const { DARABONBA_PTR_GET_DEFAULT(transcodeTemplateGroupId_, "") };
     inline AddTranscodeTemplateGroupResponseBody& setTranscodeTemplateGroupId(string transcodeTemplateGroupId) { DARABONBA_PTR_SET_VALUE(transcodeTemplateGroupId_, transcodeTemplateGroupId) };
 
 
   protected:
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The ID of the transcoding template group.
-    std::shared_ptr<string> transcodeTemplateGroupId_ = nullptr;
+    shared_ptr<string> transcodeTemplateGroupId_ {};
   };
 
   } // namespace Models

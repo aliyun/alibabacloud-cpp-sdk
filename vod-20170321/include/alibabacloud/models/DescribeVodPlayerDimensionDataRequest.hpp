@@ -38,50 +38,50 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->dimension_ == nullptr && return this->endTime_ == nullptr && return this->region_ == nullptr && return this->startTime_ == nullptr; };
+        && this->dimension_ == nullptr && this->endTime_ == nullptr && this->region_ == nullptr && this->startTime_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline DescribeVodPlayerDimensionDataRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // dimension Field Functions 
     bool hasDimension() const { return this->dimension_ != nullptr;};
     void deleteDimension() { this->dimension_ = nullptr;};
-    inline string dimension() const { DARABONBA_PTR_GET_DEFAULT(dimension_, "") };
+    inline string getDimension() const { DARABONBA_PTR_GET_DEFAULT(dimension_, "") };
     inline DescribeVodPlayerDimensionDataRequest& setDimension(string dimension) { DARABONBA_PTR_SET_VALUE(dimension_, dimension) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline DescribeVodPlayerDimensionDataRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // region Field Functions 
     bool hasRegion() const { return this->region_ != nullptr;};
     void deleteRegion() { this->region_ = nullptr;};
-    inline string region() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
+    inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
     inline DescribeVodPlayerDimensionDataRequest& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline DescribeVodPlayerDimensionDataRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // This parameter is required.
-    std::shared_ptr<string> dimension_ = nullptr;
-    std::shared_ptr<string> endTime_ = nullptr;
-    std::shared_ptr<string> region_ = nullptr;
-    std::shared_ptr<string> startTime_ = nullptr;
+    shared_ptr<string> dimension_ {};
+    shared_ptr<string> endTime_ {};
+    shared_ptr<string> region_ {};
+    shared_ptr<string> startTime_ {};
   };
 
   } // namespace Models

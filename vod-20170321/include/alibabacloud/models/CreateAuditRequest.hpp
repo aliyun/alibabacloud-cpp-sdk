@@ -33,7 +33,7 @@ namespace Models
     // auditContent Field Functions 
     bool hasAuditContent() const { return this->auditContent_ != nullptr;};
     void deleteAuditContent() { this->auditContent_ = nullptr;};
-    inline string auditContent() const { DARABONBA_PTR_GET_DEFAULT(auditContent_, "") };
+    inline string getAuditContent() const { DARABONBA_PTR_GET_DEFAULT(auditContent_, "") };
     inline CreateAuditRequest& setAuditContent(string auditContent) { DARABONBA_PTR_SET_VALUE(auditContent_, auditContent) };
 
 
@@ -42,7 +42,7 @@ namespace Models
     // For more information about this parameter, see the **AuditContent** section of this topic.
     // 
     // This parameter is required.
-    std::shared_ptr<string> auditContent_ = nullptr;
+    shared_ptr<string> auditContent_ {};
   };
 
   } // namespace Models

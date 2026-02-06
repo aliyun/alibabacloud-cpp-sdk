@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->jobType_ == nullptr
-        && return this->mediaId_ == nullptr; };
+        && this->mediaId_ == nullptr; };
     // jobType Field Functions 
     bool hasJobType() const { return this->jobType_ != nullptr;};
     void deleteJobType() { this->jobType_ = nullptr;};
-    inline string jobType() const { DARABONBA_PTR_GET_DEFAULT(jobType_, "") };
+    inline string getJobType() const { DARABONBA_PTR_GET_DEFAULT(jobType_, "") };
     inline ListJobInfoRequest& setJobType(string jobType) { DARABONBA_PTR_SET_VALUE(jobType_, jobType) };
 
 
     // mediaId Field Functions 
     bool hasMediaId() const { return this->mediaId_ != nullptr;};
     void deleteMediaId() { this->mediaId_ = nullptr;};
-    inline string mediaId() const { DARABONBA_PTR_GET_DEFAULT(mediaId_, "") };
+    inline string getMediaId() const { DARABONBA_PTR_GET_DEFAULT(mediaId_, "") };
     inline ListJobInfoRequest& setMediaId(string mediaId) { DARABONBA_PTR_SET_VALUE(mediaId_, mediaId) };
 
 
@@ -55,11 +55,11 @@ namespace Models
     // *   ai
     // 
     // This parameter is required.
-    std::shared_ptr<string> jobType_ = nullptr;
+    shared_ptr<string> jobType_ {};
     // The ID of the media asset.
     // 
     // This parameter is required.
-    std::shared_ptr<string> mediaId_ = nullptr;
+    shared_ptr<string> mediaId_ {};
   };
 
   } // namespace Models

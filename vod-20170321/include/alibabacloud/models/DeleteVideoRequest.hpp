@@ -32,29 +32,29 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->referenceIds_ == nullptr
-        && return this->videoIds_ == nullptr; };
+        && this->videoIds_ == nullptr; };
     // referenceIds Field Functions 
     bool hasReferenceIds() const { return this->referenceIds_ != nullptr;};
     void deleteReferenceIds() { this->referenceIds_ = nullptr;};
-    inline string referenceIds() const { DARABONBA_PTR_GET_DEFAULT(referenceIds_, "") };
+    inline string getReferenceIds() const { DARABONBA_PTR_GET_DEFAULT(referenceIds_, "") };
     inline DeleteVideoRequest& setReferenceIds(string referenceIds) { DARABONBA_PTR_SET_VALUE(referenceIds_, referenceIds) };
 
 
     // videoIds Field Functions 
     bool hasVideoIds() const { return this->videoIds_ != nullptr;};
     void deleteVideoIds() { this->videoIds_ = nullptr;};
-    inline string videoIds() const { DARABONBA_PTR_GET_DEFAULT(videoIds_, "") };
+    inline string getVideoIds() const { DARABONBA_PTR_GET_DEFAULT(videoIds_, "") };
     inline DeleteVideoRequest& setVideoIds(string videoIds) { DARABONBA_PTR_SET_VALUE(videoIds_, videoIds) };
 
 
   protected:
-    std::shared_ptr<string> referenceIds_ = nullptr;
+    shared_ptr<string> referenceIds_ {};
     // The list of video IDs. Separate multiple IDs with commas (,). A maximum of 20 IDs can be specified. You can obtain a video ID in one of the following ways:
     // 
     // *   If the video is uploaded by using the [ApsaraVideo VOD console](https://vod.console.aliyun.com), log on to the console and choose **Media Files** > **Audio/Video** to view the ID of the video.
     // *   If the video is uploaded by calling the [CreateUploadVideo](https://help.aliyun.com/document_detail/55407.html) operation, the video ID is the VideoId value in the response.
     // *   You can also call the [SearchMedia](https://help.aliyun.com/document_detail/86044.html) operation to obtain the video ID, which is the VideoId value in the response.
-    std::shared_ptr<string> videoIds_ = nullptr;
+    shared_ptr<string> videoIds_ {};
   };
 
   } // namespace Models

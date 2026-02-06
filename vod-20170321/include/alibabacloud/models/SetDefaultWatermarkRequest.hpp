@@ -33,7 +33,7 @@ namespace Models
     // watermarkId Field Functions 
     bool hasWatermarkId() const { return this->watermarkId_ != nullptr;};
     void deleteWatermarkId() { this->watermarkId_ = nullptr;};
-    inline string watermarkId() const { DARABONBA_PTR_GET_DEFAULT(watermarkId_, "") };
+    inline string getWatermarkId() const { DARABONBA_PTR_GET_DEFAULT(watermarkId_, "") };
     inline SetDefaultWatermarkRequest& setWatermarkId(string watermarkId) { DARABONBA_PTR_SET_VALUE(watermarkId_, watermarkId) };
 
 
@@ -44,7 +44,7 @@ namespace Models
     // *   Obtain the watermark template ID from the response to the [ListWatermark](~~ListWatermark~~) operation that you call to query all watermark templates within your account.
     // 
     // This parameter is required.
-    std::shared_ptr<string> watermarkId_ = nullptr;
+    shared_ptr<string> watermarkId_ {};
   };
 
   } // namespace Models

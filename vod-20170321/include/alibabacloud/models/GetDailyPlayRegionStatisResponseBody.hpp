@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_GETDAILYPLAYREGIONSTATISRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/GetDailyPlayRegionStatisResponseBodyDailyPlayRegionStatisList.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -37,22 +36,64 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class DailyPlayRegionStatisList : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const DailyPlayRegionStatisList& obj) { 
+        DARABONBA_PTR_TO_JSON(Date, date_);
+        DARABONBA_PTR_TO_JSON(FileUrl, fileUrl_);
+      };
+      friend void from_json(const Darabonba::Json& j, DailyPlayRegionStatisList& obj) { 
+        DARABONBA_PTR_FROM_JSON(Date, date_);
+        DARABONBA_PTR_FROM_JSON(FileUrl, fileUrl_);
+      };
+      DailyPlayRegionStatisList() = default ;
+      DailyPlayRegionStatisList(const DailyPlayRegionStatisList &) = default ;
+      DailyPlayRegionStatisList(DailyPlayRegionStatisList &&) = default ;
+      DailyPlayRegionStatisList(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~DailyPlayRegionStatisList() = default ;
+      DailyPlayRegionStatisList& operator=(const DailyPlayRegionStatisList &) = default ;
+      DailyPlayRegionStatisList& operator=(DailyPlayRegionStatisList &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->date_ == nullptr
+        && this->fileUrl_ == nullptr; };
+      // date Field Functions 
+      bool hasDate() const { return this->date_ != nullptr;};
+      void deleteDate() { this->date_ = nullptr;};
+      inline string getDate() const { DARABONBA_PTR_GET_DEFAULT(date_, "") };
+      inline DailyPlayRegionStatisList& setDate(string date) { DARABONBA_PTR_SET_VALUE(date_, date) };
+
+
+      // fileUrl Field Functions 
+      bool hasFileUrl() const { return this->fileUrl_ != nullptr;};
+      void deleteFileUrl() { this->fileUrl_ = nullptr;};
+      inline string getFileUrl() const { DARABONBA_PTR_GET_DEFAULT(fileUrl_, "") };
+      inline DailyPlayRegionStatisList& setFileUrl(string fileUrl) { DARABONBA_PTR_SET_VALUE(fileUrl_, fileUrl) };
+
+
+    protected:
+      shared_ptr<string> date_ {};
+      shared_ptr<string> fileUrl_ {};
+    };
+
     virtual bool empty() const override { return this->dailyPlayRegionStatisList_ == nullptr
-        && return this->emptyDates_ == nullptr && return this->failDates_ == nullptr && return this->requestId_ == nullptr; };
+        && this->emptyDates_ == nullptr && this->failDates_ == nullptr && this->requestId_ == nullptr; };
     // dailyPlayRegionStatisList Field Functions 
     bool hasDailyPlayRegionStatisList() const { return this->dailyPlayRegionStatisList_ != nullptr;};
     void deleteDailyPlayRegionStatisList() { this->dailyPlayRegionStatisList_ = nullptr;};
-    inline const vector<GetDailyPlayRegionStatisResponseBodyDailyPlayRegionStatisList> & dailyPlayRegionStatisList() const { DARABONBA_PTR_GET_CONST(dailyPlayRegionStatisList_, vector<GetDailyPlayRegionStatisResponseBodyDailyPlayRegionStatisList>) };
-    inline vector<GetDailyPlayRegionStatisResponseBodyDailyPlayRegionStatisList> dailyPlayRegionStatisList() { DARABONBA_PTR_GET(dailyPlayRegionStatisList_, vector<GetDailyPlayRegionStatisResponseBodyDailyPlayRegionStatisList>) };
-    inline GetDailyPlayRegionStatisResponseBody& setDailyPlayRegionStatisList(const vector<GetDailyPlayRegionStatisResponseBodyDailyPlayRegionStatisList> & dailyPlayRegionStatisList) { DARABONBA_PTR_SET_VALUE(dailyPlayRegionStatisList_, dailyPlayRegionStatisList) };
-    inline GetDailyPlayRegionStatisResponseBody& setDailyPlayRegionStatisList(vector<GetDailyPlayRegionStatisResponseBodyDailyPlayRegionStatisList> && dailyPlayRegionStatisList) { DARABONBA_PTR_SET_RVALUE(dailyPlayRegionStatisList_, dailyPlayRegionStatisList) };
+    inline const vector<GetDailyPlayRegionStatisResponseBody::DailyPlayRegionStatisList> & getDailyPlayRegionStatisList() const { DARABONBA_PTR_GET_CONST(dailyPlayRegionStatisList_, vector<GetDailyPlayRegionStatisResponseBody::DailyPlayRegionStatisList>) };
+    inline vector<GetDailyPlayRegionStatisResponseBody::DailyPlayRegionStatisList> getDailyPlayRegionStatisList() { DARABONBA_PTR_GET(dailyPlayRegionStatisList_, vector<GetDailyPlayRegionStatisResponseBody::DailyPlayRegionStatisList>) };
+    inline GetDailyPlayRegionStatisResponseBody& setDailyPlayRegionStatisList(const vector<GetDailyPlayRegionStatisResponseBody::DailyPlayRegionStatisList> & dailyPlayRegionStatisList) { DARABONBA_PTR_SET_VALUE(dailyPlayRegionStatisList_, dailyPlayRegionStatisList) };
+    inline GetDailyPlayRegionStatisResponseBody& setDailyPlayRegionStatisList(vector<GetDailyPlayRegionStatisResponseBody::DailyPlayRegionStatisList> && dailyPlayRegionStatisList) { DARABONBA_PTR_SET_RVALUE(dailyPlayRegionStatisList_, dailyPlayRegionStatisList) };
 
 
     // emptyDates Field Functions 
     bool hasEmptyDates() const { return this->emptyDates_ != nullptr;};
     void deleteEmptyDates() { this->emptyDates_ = nullptr;};
-    inline const vector<string> & emptyDates() const { DARABONBA_PTR_GET_CONST(emptyDates_, vector<string>) };
-    inline vector<string> emptyDates() { DARABONBA_PTR_GET(emptyDates_, vector<string>) };
+    inline const vector<string> & getEmptyDates() const { DARABONBA_PTR_GET_CONST(emptyDates_, vector<string>) };
+    inline vector<string> getEmptyDates() { DARABONBA_PTR_GET(emptyDates_, vector<string>) };
     inline GetDailyPlayRegionStatisResponseBody& setEmptyDates(const vector<string> & emptyDates) { DARABONBA_PTR_SET_VALUE(emptyDates_, emptyDates) };
     inline GetDailyPlayRegionStatisResponseBody& setEmptyDates(vector<string> && emptyDates) { DARABONBA_PTR_SET_RVALUE(emptyDates_, emptyDates) };
 
@@ -60,8 +101,8 @@ namespace Models
     // failDates Field Functions 
     bool hasFailDates() const { return this->failDates_ != nullptr;};
     void deleteFailDates() { this->failDates_ = nullptr;};
-    inline const vector<string> & failDates() const { DARABONBA_PTR_GET_CONST(failDates_, vector<string>) };
-    inline vector<string> failDates() { DARABONBA_PTR_GET(failDates_, vector<string>) };
+    inline const vector<string> & getFailDates() const { DARABONBA_PTR_GET_CONST(failDates_, vector<string>) };
+    inline vector<string> getFailDates() { DARABONBA_PTR_GET(failDates_, vector<string>) };
     inline GetDailyPlayRegionStatisResponseBody& setFailDates(const vector<string> & failDates) { DARABONBA_PTR_SET_VALUE(failDates_, failDates) };
     inline GetDailyPlayRegionStatisResponseBody& setFailDates(vector<string> && failDates) { DARABONBA_PTR_SET_RVALUE(failDates_, failDates) };
 
@@ -69,15 +110,15 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetDailyPlayRegionStatisResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<vector<GetDailyPlayRegionStatisResponseBodyDailyPlayRegionStatisList>> dailyPlayRegionStatisList_ = nullptr;
-    std::shared_ptr<vector<string>> emptyDates_ = nullptr;
-    std::shared_ptr<vector<string>> failDates_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<vector<GetDailyPlayRegionStatisResponseBody::DailyPlayRegionStatisList>> dailyPlayRegionStatisList_ {};
+    shared_ptr<vector<string>> emptyDates_ {};
+    shared_ptr<vector<string>> failDates_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

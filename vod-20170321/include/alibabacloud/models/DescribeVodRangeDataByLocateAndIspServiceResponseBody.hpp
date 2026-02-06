@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->jsonResult_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // jsonResult Field Functions 
     bool hasJsonResult() const { return this->jsonResult_ != nullptr;};
     void deleteJsonResult() { this->jsonResult_ = nullptr;};
-    inline string jsonResult() const { DARABONBA_PTR_GET_DEFAULT(jsonResult_, "") };
+    inline string getJsonResult() const { DARABONBA_PTR_GET_DEFAULT(jsonResult_, "") };
     inline DescribeVodRangeDataByLocateAndIspServiceResponseBody& setJsonResult(string jsonResult) { DARABONBA_PTR_SET_VALUE(jsonResult_, jsonResult) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeVodRangeDataByLocateAndIspServiceResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The returned result. The value is in the JSON format. These parameters indicate the following information in sequence: UNIX time, region, ISP, distribution of HTTP status codes, response time, bandwidth (bit/s), average response rate, page views, cache hit ratio, and request hit ratio.
-    std::shared_ptr<string> jsonResult_ = nullptr;
+    shared_ptr<string> jsonResult_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

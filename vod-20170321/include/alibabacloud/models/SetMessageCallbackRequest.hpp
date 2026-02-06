@@ -46,95 +46,95 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->authKey_ == nullptr && return this->authSwitch_ == nullptr && return this->callbackType_ == nullptr && return this->callbackURL_ == nullptr && return this->eventTypeList_ == nullptr
-        && return this->mnsEndpoint_ == nullptr && return this->mnsQueueName_ == nullptr && return this->ownerAccount_ == nullptr; };
+        && this->authKey_ == nullptr && this->authSwitch_ == nullptr && this->callbackType_ == nullptr && this->callbackURL_ == nullptr && this->eventTypeList_ == nullptr
+        && this->mnsEndpoint_ == nullptr && this->mnsQueueName_ == nullptr && this->ownerAccount_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline SetMessageCallbackRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // authKey Field Functions 
     bool hasAuthKey() const { return this->authKey_ != nullptr;};
     void deleteAuthKey() { this->authKey_ = nullptr;};
-    inline string authKey() const { DARABONBA_PTR_GET_DEFAULT(authKey_, "") };
+    inline string getAuthKey() const { DARABONBA_PTR_GET_DEFAULT(authKey_, "") };
     inline SetMessageCallbackRequest& setAuthKey(string authKey) { DARABONBA_PTR_SET_VALUE(authKey_, authKey) };
 
 
     // authSwitch Field Functions 
     bool hasAuthSwitch() const { return this->authSwitch_ != nullptr;};
     void deleteAuthSwitch() { this->authSwitch_ = nullptr;};
-    inline string authSwitch() const { DARABONBA_PTR_GET_DEFAULT(authSwitch_, "") };
+    inline string getAuthSwitch() const { DARABONBA_PTR_GET_DEFAULT(authSwitch_, "") };
     inline SetMessageCallbackRequest& setAuthSwitch(string authSwitch) { DARABONBA_PTR_SET_VALUE(authSwitch_, authSwitch) };
 
 
     // callbackType Field Functions 
     bool hasCallbackType() const { return this->callbackType_ != nullptr;};
     void deleteCallbackType() { this->callbackType_ = nullptr;};
-    inline string callbackType() const { DARABONBA_PTR_GET_DEFAULT(callbackType_, "") };
+    inline string getCallbackType() const { DARABONBA_PTR_GET_DEFAULT(callbackType_, "") };
     inline SetMessageCallbackRequest& setCallbackType(string callbackType) { DARABONBA_PTR_SET_VALUE(callbackType_, callbackType) };
 
 
     // callbackURL Field Functions 
     bool hasCallbackURL() const { return this->callbackURL_ != nullptr;};
     void deleteCallbackURL() { this->callbackURL_ = nullptr;};
-    inline string callbackURL() const { DARABONBA_PTR_GET_DEFAULT(callbackURL_, "") };
+    inline string getCallbackURL() const { DARABONBA_PTR_GET_DEFAULT(callbackURL_, "") };
     inline SetMessageCallbackRequest& setCallbackURL(string callbackURL) { DARABONBA_PTR_SET_VALUE(callbackURL_, callbackURL) };
 
 
     // eventTypeList Field Functions 
     bool hasEventTypeList() const { return this->eventTypeList_ != nullptr;};
     void deleteEventTypeList() { this->eventTypeList_ = nullptr;};
-    inline string eventTypeList() const { DARABONBA_PTR_GET_DEFAULT(eventTypeList_, "") };
+    inline string getEventTypeList() const { DARABONBA_PTR_GET_DEFAULT(eventTypeList_, "") };
     inline SetMessageCallbackRequest& setEventTypeList(string eventTypeList) { DARABONBA_PTR_SET_VALUE(eventTypeList_, eventTypeList) };
 
 
     // mnsEndpoint Field Functions 
     bool hasMnsEndpoint() const { return this->mnsEndpoint_ != nullptr;};
     void deleteMnsEndpoint() { this->mnsEndpoint_ = nullptr;};
-    inline string mnsEndpoint() const { DARABONBA_PTR_GET_DEFAULT(mnsEndpoint_, "") };
+    inline string getMnsEndpoint() const { DARABONBA_PTR_GET_DEFAULT(mnsEndpoint_, "") };
     inline SetMessageCallbackRequest& setMnsEndpoint(string mnsEndpoint) { DARABONBA_PTR_SET_VALUE(mnsEndpoint_, mnsEndpoint) };
 
 
     // mnsQueueName Field Functions 
     bool hasMnsQueueName() const { return this->mnsQueueName_ != nullptr;};
     void deleteMnsQueueName() { this->mnsQueueName_ = nullptr;};
-    inline string mnsQueueName() const { DARABONBA_PTR_GET_DEFAULT(mnsQueueName_, "") };
+    inline string getMnsQueueName() const { DARABONBA_PTR_GET_DEFAULT(mnsQueueName_, "") };
     inline SetMessageCallbackRequest& setMnsQueueName(string mnsQueueName) { DARABONBA_PTR_SET_VALUE(mnsQueueName_, mnsQueueName) };
 
 
     // ownerAccount Field Functions 
     bool hasOwnerAccount() const { return this->ownerAccount_ != nullptr;};
     void deleteOwnerAccount() { this->ownerAccount_ = nullptr;};
-    inline string ownerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
+    inline string getOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
     inline SetMessageCallbackRequest& setOwnerAccount(string ownerAccount) { DARABONBA_PTR_SET_VALUE(ownerAccount_, ownerAccount) };
 
 
   protected:
     // The ID of the application. If you leave this parameter empty, the default value **app-1000000** is used.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The authentication key. The key can be up to 32 characters in length and must contain uppercase letters, lowercase letters, and digits. This parameter takes effect only when you set CallbackType to **HTTP**.
-    std::shared_ptr<string> authKey_ = nullptr;
+    shared_ptr<string> authKey_ {};
     // Specifies whether to enable callback authentication. This parameter takes effect only when you set CallbackType to **HTTP**. Valid values:
     // 
     // *   **on**
     // *   **off**
-    std::shared_ptr<string> authSwitch_ = nullptr;
+    shared_ptr<string> authSwitch_ {};
     // The callback method. Valid values:
     // 
     // *   **HTTP**
     // *   **Simple Message Queue(formerly MNS)**
-    std::shared_ptr<string> callbackType_ = nullptr;
+    shared_ptr<string> callbackType_ {};
     // The callback URL. This parameter is required if you set CallbackType to **HTTP**. The callback URL cannot exceed 256 bytes in length. You can specify only one callback URL.
-    std::shared_ptr<string> callbackURL_ = nullptr;
+    shared_ptr<string> callbackURL_ {};
     // The type of the callback event. If you do not set this parameter, notifications for all types of events are disabled. If you set this parameter to **ALL**, notifications for all types of events are enabled. You can specify the event types for which notifications are enabled. Separate multiple event types with commas (,). For more information about the valid values of this parameter, see [Overview](https://help.aliyun.com/document_detail/55627.html).
-    std::shared_ptr<string> eventTypeList_ = nullptr;
+    shared_ptr<string> eventTypeList_ {};
     // The public endpoint of Message Service (MNS). This parameter only takes effect when the CallbackType parameter is set to **Simple Message Queue(formerly MNS)**. To obtain the public endpoint, log on to the [Simple Message Queue(formerly MNS) console](https://account.aliyun.com/login/login.html) and click **Get Endpoint** in the upper-right corner of the Topics page. For more information, see [Endpoint](https://help.aliyun.com/document_detail/27480.html).
-    std::shared_ptr<string> mnsEndpoint_ = nullptr;
+    shared_ptr<string> mnsEndpoint_ {};
     // The name of the Simple Message Queue(formerly MNS). You can obtain the name of the Simple Message Queue(formerly MNS) on the **Queues** page in the [Simple Message Queue(formerly MNS) console](https://account.aliyun.com/login/login.html). This parameter is required when you set CallbackType to **Simple Message Queue(formerly MNS)**.
-    std::shared_ptr<string> mnsQueueName_ = nullptr;
-    std::shared_ptr<string> ownerAccount_ = nullptr;
+    shared_ptr<string> mnsQueueName_ {};
+    shared_ptr<string> ownerAccount_ {};
   };
 
   } // namespace Models

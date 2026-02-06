@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->storageLocation_ == nullptr && return this->storageType_ == nullptr; };
+        && this->storageLocation_ == nullptr && this->storageType_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline AddVodStorageForAppRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // storageLocation Field Functions 
     bool hasStorageLocation() const { return this->storageLocation_ != nullptr;};
     void deleteStorageLocation() { this->storageLocation_ = nullptr;};
-    inline string storageLocation() const { DARABONBA_PTR_GET_DEFAULT(storageLocation_, "") };
+    inline string getStorageLocation() const { DARABONBA_PTR_GET_DEFAULT(storageLocation_, "") };
     inline AddVodStorageForAppRequest& setStorageLocation(string storageLocation) { DARABONBA_PTR_SET_VALUE(storageLocation_, storageLocation) };
 
 
     // storageType Field Functions 
     bool hasStorageType() const { return this->storageType_ != nullptr;};
     void deleteStorageType() { this->storageType_ = nullptr;};
-    inline string storageType() const { DARABONBA_PTR_GET_DEFAULT(storageType_, "") };
+    inline string getStorageType() const { DARABONBA_PTR_GET_DEFAULT(storageType_, "") };
     inline AddVodStorageForAppRequest& setStorageType(string storageType) { DARABONBA_PTR_SET_VALUE(storageType_, storageType) };
 
 
@@ -60,11 +60,11 @@ namespace Models
     // The IDs of applications. You can obtain the application ID from the `AppId` parameter in the response to the [CreateAppInfo](~~CreateAppInfo~~) or [ListAppInfo](~~ListAppInfo~~) operation.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The address of an Object Storage Service (OSS) bucket. This parameter does not take effect. You can call this operation to add only VOD buckets.
-    std::shared_ptr<string> storageLocation_ = nullptr;
+    shared_ptr<string> storageLocation_ {};
     // The storage class. Default value: **vod_oss_bucket**.
-    std::shared_ptr<string> storageType_ = nullptr;
+    shared_ptr<string> storageType_ {};
   };
 
   } // namespace Models

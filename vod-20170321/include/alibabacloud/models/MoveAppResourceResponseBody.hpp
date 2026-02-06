@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->failedResourceIds_ == nullptr
-        && return this->nonExistResourceIds_ == nullptr && return this->requestId_ == nullptr; };
+        && this->nonExistResourceIds_ == nullptr && this->requestId_ == nullptr; };
     // failedResourceIds Field Functions 
     bool hasFailedResourceIds() const { return this->failedResourceIds_ != nullptr;};
     void deleteFailedResourceIds() { this->failedResourceIds_ = nullptr;};
-    inline const vector<string> & failedResourceIds() const { DARABONBA_PTR_GET_CONST(failedResourceIds_, vector<string>) };
-    inline vector<string> failedResourceIds() { DARABONBA_PTR_GET(failedResourceIds_, vector<string>) };
+    inline const vector<string> & getFailedResourceIds() const { DARABONBA_PTR_GET_CONST(failedResourceIds_, vector<string>) };
+    inline vector<string> getFailedResourceIds() { DARABONBA_PTR_GET(failedResourceIds_, vector<string>) };
     inline MoveAppResourceResponseBody& setFailedResourceIds(const vector<string> & failedResourceIds) { DARABONBA_PTR_SET_VALUE(failedResourceIds_, failedResourceIds) };
     inline MoveAppResourceResponseBody& setFailedResourceIds(vector<string> && failedResourceIds) { DARABONBA_PTR_SET_RVALUE(failedResourceIds_, failedResourceIds) };
 
@@ -48,8 +48,8 @@ namespace Models
     // nonExistResourceIds Field Functions 
     bool hasNonExistResourceIds() const { return this->nonExistResourceIds_ != nullptr;};
     void deleteNonExistResourceIds() { this->nonExistResourceIds_ = nullptr;};
-    inline const vector<string> & nonExistResourceIds() const { DARABONBA_PTR_GET_CONST(nonExistResourceIds_, vector<string>) };
-    inline vector<string> nonExistResourceIds() { DARABONBA_PTR_GET(nonExistResourceIds_, vector<string>) };
+    inline const vector<string> & getNonExistResourceIds() const { DARABONBA_PTR_GET_CONST(nonExistResourceIds_, vector<string>) };
+    inline vector<string> getNonExistResourceIds() { DARABONBA_PTR_GET(nonExistResourceIds_, vector<string>) };
     inline MoveAppResourceResponseBody& setNonExistResourceIds(const vector<string> & nonExistResourceIds) { DARABONBA_PTR_SET_VALUE(nonExistResourceIds_, nonExistResourceIds) };
     inline MoveAppResourceResponseBody& setNonExistResourceIds(vector<string> && nonExistResourceIds) { DARABONBA_PTR_SET_RVALUE(nonExistResourceIds_, nonExistResourceIds) };
 
@@ -57,17 +57,17 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline MoveAppResourceResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The IDs of the resources that failed to be migrated.
-    std::shared_ptr<vector<string>> failedResourceIds_ = nullptr;
+    shared_ptr<vector<string>> failedResourceIds_ {};
     // The IDs of the resources that were not found.
-    std::shared_ptr<vector<string>> nonExistResourceIds_ = nullptr;
+    shared_ptr<vector<string>> nonExistResourceIds_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

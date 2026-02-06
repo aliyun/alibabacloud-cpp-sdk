@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->materialIds_ == nullptr
-        && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->projectId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr; };
+        && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->projectId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr; };
     // materialIds Field Functions 
     bool hasMaterialIds() const { return this->materialIds_ != nullptr;};
     void deleteMaterialIds() { this->materialIds_ = nullptr;};
-    inline string materialIds() const { DARABONBA_PTR_GET_DEFAULT(materialIds_, "") };
+    inline string getMaterialIds() const { DARABONBA_PTR_GET_DEFAULT(materialIds_, "") };
     inline SetEditingProjectMaterialsRequest& setMaterialIds(string materialIds) { DARABONBA_PTR_SET_VALUE(materialIds_, materialIds) };
 
 
     // ownerAccount Field Functions 
     bool hasOwnerAccount() const { return this->ownerAccount_ != nullptr;};
     void deleteOwnerAccount() { this->ownerAccount_ = nullptr;};
-    inline string ownerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
+    inline string getOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
     inline SetEditingProjectMaterialsRequest& setOwnerAccount(string ownerAccount) { DARABONBA_PTR_SET_VALUE(ownerAccount_, ownerAccount) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline string ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, "") };
+    inline string getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, "") };
     inline SetEditingProjectMaterialsRequest& setOwnerId(string ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline string projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, "") };
+    inline string getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, "") };
     inline SetEditingProjectMaterialsRequest& setProjectId(string projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline SetEditingProjectMaterialsRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline string resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, "") };
+    inline string getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, "") };
     inline SetEditingProjectMaterialsRequest& setResourceOwnerId(string resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
@@ -87,15 +87,15 @@ namespace Models
     // The ID of the media asset. You can specify IDs of media assets such as videos, images, or auxiliary media assets. Separate multiple IDs with commas (,).
     // 
     // This parameter is required.
-    std::shared_ptr<string> materialIds_ = nullptr;
-    std::shared_ptr<string> ownerAccount_ = nullptr;
-    std::shared_ptr<string> ownerId_ = nullptr;
+    shared_ptr<string> materialIds_ {};
+    shared_ptr<string> ownerAccount_ {};
+    shared_ptr<string> ownerId_ {};
     // The ID of the online editing project.
     // 
     // This parameter is required.
-    std::shared_ptr<string> projectId_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<string> resourceOwnerId_ = nullptr;
+    shared_ptr<string> projectId_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<string> resourceOwnerId_ {};
   };
 
   } // namespace Models

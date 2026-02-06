@@ -33,7 +33,7 @@ namespace Models
     // transcodeTemplateGroupId Field Functions 
     bool hasTranscodeTemplateGroupId() const { return this->transcodeTemplateGroupId_ != nullptr;};
     void deleteTranscodeTemplateGroupId() { this->transcodeTemplateGroupId_ = nullptr;};
-    inline string transcodeTemplateGroupId() const { DARABONBA_PTR_GET_DEFAULT(transcodeTemplateGroupId_, "") };
+    inline string getTranscodeTemplateGroupId() const { DARABONBA_PTR_GET_DEFAULT(transcodeTemplateGroupId_, "") };
     inline GetTranscodeTemplateGroupRequest& setTranscodeTemplateGroupId(string transcodeTemplateGroupId) { DARABONBA_PTR_SET_VALUE(transcodeTemplateGroupId_, transcodeTemplateGroupId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the transcoding template group.
     // 
     // This parameter is required.
-    std::shared_ptr<string> transcodeTemplateGroupId_ = nullptr;
+    shared_ptr<string> transcodeTemplateGroupId_ {};
   };
 
   } // namespace Models

@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appName_ == nullptr
-        && return this->description_ == nullptr && return this->resourceGroupId_ == nullptr; };
+        && this->description_ == nullptr && this->resourceGroupId_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
-    inline string appName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
+    inline string getAppName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
     inline CreateAppInfoRequest& setAppName(string appName) { DARABONBA_PTR_SET_VALUE(appName_, appName) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateAppInfoRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline CreateAppInfoRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
@@ -63,14 +63,14 @@ namespace Models
     // *   The value must be encoded in UTF-8.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appName_ = nullptr;
+    shared_ptr<string> appName_ {};
     // The description of the application.
     // 
     // *   The description can contain up to 512 characters in length.
     // *   The value must be encoded in UTF-8.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The resource group ID.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
   };
 
   } // namespace Models

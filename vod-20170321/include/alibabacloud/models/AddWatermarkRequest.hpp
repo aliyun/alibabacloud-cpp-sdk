@@ -38,50 +38,50 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->fileUrl_ == nullptr && return this->name_ == nullptr && return this->type_ == nullptr && return this->watermarkConfig_ == nullptr; };
+        && this->fileUrl_ == nullptr && this->name_ == nullptr && this->type_ == nullptr && this->watermarkConfig_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline AddWatermarkRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // fileUrl Field Functions 
     bool hasFileUrl() const { return this->fileUrl_ != nullptr;};
     void deleteFileUrl() { this->fileUrl_ = nullptr;};
-    inline string fileUrl() const { DARABONBA_PTR_GET_DEFAULT(fileUrl_, "") };
+    inline string getFileUrl() const { DARABONBA_PTR_GET_DEFAULT(fileUrl_, "") };
     inline AddWatermarkRequest& setFileUrl(string fileUrl) { DARABONBA_PTR_SET_VALUE(fileUrl_, fileUrl) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline AddWatermarkRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline AddWatermarkRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
     // watermarkConfig Field Functions 
     bool hasWatermarkConfig() const { return this->watermarkConfig_ != nullptr;};
     void deleteWatermarkConfig() { this->watermarkConfig_ = nullptr;};
-    inline string watermarkConfig() const { DARABONBA_PTR_GET_DEFAULT(watermarkConfig_, "") };
+    inline string getWatermarkConfig() const { DARABONBA_PTR_GET_DEFAULT(watermarkConfig_, "") };
     inline AddWatermarkRequest& setWatermarkConfig(string watermarkConfig) { DARABONBA_PTR_SET_VALUE(watermarkConfig_, watermarkConfig) };
 
 
   protected:
     // The ID of the application. Default value: **app-1000000**. If you have activated the multi-application service, specify the ID of the application to add the watermark template in the specified application. For more information, see [Overview](https://help.aliyun.com/document_detail/113600.html).
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The URL of the watermark file. The URL must be an Object Storage Service (OSS) URL and cannot contain the information used for URL signing.
     // 
     // > *   This parameter is required if you set `Type` to `Image`.
     // > *  You can obtain the URL from the `FileURL` parameter in the response to the [CreateUploadAttachedMedia](~~CreateUploadAttachedMedia~~) operation that you call to upload the watermark image to ApsaraVideo VOD.
-    std::shared_ptr<string> fileUrl_ = nullptr;
+    shared_ptr<string> fileUrl_ {};
     // The name of the watermark template.
     // 
     // *   Only letters and digits are supported.
@@ -89,18 +89,18 @@ namespace Models
     // *   The value must be encoded in UTF-8.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The type of the watermark template. Valid values:
     // 
     // *   **Image** (default): image watermark template
     // *   **Text**: text watermark template
     // 
     // This parameter is required.
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
     // The configuration information of the watermark such as the display position and special effects. The value must be a JSON string. The configuration parameters for image and text watermarks are different. For more information about the parameter structure, see [WatermarkConfig](~~98618#section-h01-44s-2lr~~).
     // 
     // This parameter is required.
-    std::shared_ptr<string> watermarkConfig_ = nullptr;
+    shared_ptr<string> watermarkConfig_ {};
   };
 
   } // namespace Models

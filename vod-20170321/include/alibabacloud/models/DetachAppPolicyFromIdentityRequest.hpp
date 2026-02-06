@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->identityName_ == nullptr && return this->identityType_ == nullptr && return this->policyNames_ == nullptr; };
+        && this->identityName_ == nullptr && this->identityType_ == nullptr && this->policyNames_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline DetachAppPolicyFromIdentityRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // identityName Field Functions 
     bool hasIdentityName() const { return this->identityName_ != nullptr;};
     void deleteIdentityName() { this->identityName_ = nullptr;};
-    inline string identityName() const { DARABONBA_PTR_GET_DEFAULT(identityName_, "") };
+    inline string getIdentityName() const { DARABONBA_PTR_GET_DEFAULT(identityName_, "") };
     inline DetachAppPolicyFromIdentityRequest& setIdentityName(string identityName) { DARABONBA_PTR_SET_VALUE(identityName_, identityName) };
 
 
     // identityType Field Functions 
     bool hasIdentityType() const { return this->identityType_ != nullptr;};
     void deleteIdentityType() { this->identityType_ = nullptr;};
-    inline string identityType() const { DARABONBA_PTR_GET_DEFAULT(identityType_, "") };
+    inline string getIdentityType() const { DARABONBA_PTR_GET_DEFAULT(identityType_, "") };
     inline DetachAppPolicyFromIdentityRequest& setIdentityType(string identityType) { DARABONBA_PTR_SET_VALUE(identityType_, identityType) };
 
 
     // policyNames Field Functions 
     bool hasPolicyNames() const { return this->policyNames_ != nullptr;};
     void deletePolicyNames() { this->policyNames_ = nullptr;};
-    inline string policyNames() const { DARABONBA_PTR_GET_DEFAULT(policyNames_, "") };
+    inline string getPolicyNames() const { DARABONBA_PTR_GET_DEFAULT(policyNames_, "") };
     inline DetachAppPolicyFromIdentityRequest& setPolicyNames(string policyNames) { DARABONBA_PTR_SET_VALUE(policyNames_, policyNames) };
 
 
@@ -70,21 +70,21 @@ namespace Models
     // 
     // *   Default value: **app-1000000**.
     // *   For more information, see [Overview](https://help.aliyun.com/document_detail/113600.html).
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The ID of the RAM user or the name of the RAM role.
     // 
     // *   Specifies the ID of the RAM user for this parameter if you set IdentityType to RamUser.
     // *   Specifies the name of the RAM role for this parameter if you set IdentityType to RamRole.
     // 
     // This parameter is required.
-    std::shared_ptr<string> identityName_ = nullptr;
+    shared_ptr<string> identityName_ {};
     // The type of the identity. Valid values:
     // 
     // *   **RamUser**: RAM user
     // *   **RamRole**: RAM role
     // 
     // This parameter is required.
-    std::shared_ptr<string> identityType_ = nullptr;
+    shared_ptr<string> identityType_ {};
     // The name of the policy. Separate multiple names with commas (,). Only system policies are supported.
     // 
     // *   **VODAppFullAccess**: permissions to manage all resources in an application
@@ -92,7 +92,7 @@ namespace Models
     // *   **VODAppAdministratorAccess**: permissions of the application administrator
     // 
     // This parameter is required.
-    std::shared_ptr<string> policyNames_ = nullptr;
+    shared_ptr<string> policyNames_ {};
   };
 
   } // namespace Models

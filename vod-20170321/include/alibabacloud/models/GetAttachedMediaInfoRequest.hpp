@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->authTimeout_ == nullptr
-        && return this->mediaIds_ == nullptr && return this->outputType_ == nullptr; };
+        && this->mediaIds_ == nullptr && this->outputType_ == nullptr; };
     // authTimeout Field Functions 
     bool hasAuthTimeout() const { return this->authTimeout_ != nullptr;};
     void deleteAuthTimeout() { this->authTimeout_ = nullptr;};
-    inline int64_t authTimeout() const { DARABONBA_PTR_GET_DEFAULT(authTimeout_, 0L) };
+    inline int64_t getAuthTimeout() const { DARABONBA_PTR_GET_DEFAULT(authTimeout_, 0L) };
     inline GetAttachedMediaInfoRequest& setAuthTimeout(int64_t authTimeout) { DARABONBA_PTR_SET_VALUE(authTimeout_, authTimeout) };
 
 
     // mediaIds Field Functions 
     bool hasMediaIds() const { return this->mediaIds_ != nullptr;};
     void deleteMediaIds() { this->mediaIds_ = nullptr;};
-    inline string mediaIds() const { DARABONBA_PTR_GET_DEFAULT(mediaIds_, "") };
+    inline string getMediaIds() const { DARABONBA_PTR_GET_DEFAULT(mediaIds_, "") };
     inline GetAttachedMediaInfoRequest& setMediaIds(string mediaIds) { DARABONBA_PTR_SET_VALUE(mediaIds_, mediaIds) };
 
 
     // outputType Field Functions 
     bool hasOutputType() const { return this->outputType_ != nullptr;};
     void deleteOutputType() { this->outputType_ = nullptr;};
-    inline string outputType() const { DARABONBA_PTR_GET_DEFAULT(outputType_, "") };
+    inline string getOutputType() const { DARABONBA_PTR_GET_DEFAULT(outputType_, "") };
     inline GetAttachedMediaInfoRequest& setOutputType(string outputType) { DARABONBA_PTR_SET_VALUE(outputType_, outputType) };
 
 
@@ -72,19 +72,19 @@ namespace Models
     //     *   Minimum value: **1**.
     //     *   The maximum value for a media asset stored in the VOD bucket is **2592000** (30 days) and the maximum value for a media asset stored in an OSS bucket is **129600** (36 hours). The maximum value is limited to reduce security risks of the origin.
     //     *   Default value: If you do not set this parameter, the default value **3600** is used.
-    std::shared_ptr<int64_t> authTimeout_ = nullptr;
+    shared_ptr<int64_t> authTimeout_ {};
     // The ID of the auxiliary media asset.
     // 
     // *   Separate multiple IDs with commas (,). You can specify up to 20 IDs.
     // *   You can obtain the ID from the response to the [CreateUploadAttachedMedia](~~CreateUploadAttachedMedia~~) operation that you call to obtain the upload URL and credential.
     // 
     // This parameter is required.
-    std::shared_ptr<string> mediaIds_ = nullptr;
+    shared_ptr<string> mediaIds_ {};
     // The type of the media asset URL. Valid values:
     // 
     // *   **oss**
     // *   **cdn** (default)
-    std::shared_ptr<string> outputType_ = nullptr;
+    shared_ptr<string> outputType_ {};
   };
 
   } // namespace Models

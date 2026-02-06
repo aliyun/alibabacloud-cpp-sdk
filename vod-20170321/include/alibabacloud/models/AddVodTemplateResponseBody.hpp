@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->vodTemplateId_ == nullptr; };
+        && this->vodTemplateId_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline AddVodTemplateResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // vodTemplateId Field Functions 
     bool hasVodTemplateId() const { return this->vodTemplateId_ != nullptr;};
     void deleteVodTemplateId() { this->vodTemplateId_ = nullptr;};
-    inline string vodTemplateId() const { DARABONBA_PTR_GET_DEFAULT(vodTemplateId_, "") };
+    inline string getVodTemplateId() const { DARABONBA_PTR_GET_DEFAULT(vodTemplateId_, "") };
     inline AddVodTemplateResponseBody& setVodTemplateId(string vodTemplateId) { DARABONBA_PTR_SET_VALUE(vodTemplateId_, vodTemplateId) };
 
 
   protected:
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The ID of the snapshot template. You can call the [SubmitSnapshotJob](https://help.aliyun.com/document_detail/72213.html) operation to submit snapshot jobs.
-    std::shared_ptr<string> vodTemplateId_ = nullptr;
+    shared_ptr<string> vodTemplateId_ {};
   };
 
   } // namespace Models

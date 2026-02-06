@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->mediaId_ == nullptr
-        && return this->projectId_ == nullptr && return this->requestId_ == nullptr; };
+        && this->projectId_ == nullptr && this->requestId_ == nullptr; };
     // mediaId Field Functions 
     bool hasMediaId() const { return this->mediaId_ != nullptr;};
     void deleteMediaId() { this->mediaId_ = nullptr;};
-    inline string mediaId() const { DARABONBA_PTR_GET_DEFAULT(mediaId_, "") };
+    inline string getMediaId() const { DARABONBA_PTR_GET_DEFAULT(mediaId_, "") };
     inline ProduceEditingProjectVideoResponseBody& setMediaId(string mediaId) { DARABONBA_PTR_SET_VALUE(mediaId_, mediaId) };
 
 
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline string projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, "") };
+    inline string getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, "") };
     inline ProduceEditingProjectVideoResponseBody& setProjectId(string projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ProduceEditingProjectVideoResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
@@ -61,11 +61,11 @@ namespace Models
     // 
     // > *   This parameter is returned for each request.
     // > *   If a value is returned for this parameter, the video production task is being asynchronously processed.
-    std::shared_ptr<string> mediaId_ = nullptr;
+    shared_ptr<string> mediaId_ {};
     // The ID of the online editing project.
-    std::shared_ptr<string> projectId_ = nullptr;
+    shared_ptr<string> projectId_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

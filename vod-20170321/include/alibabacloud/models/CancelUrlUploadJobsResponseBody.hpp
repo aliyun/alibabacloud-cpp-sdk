@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->canceledJobs_ == nullptr
-        && return this->nonExists_ == nullptr && return this->requestId_ == nullptr; };
+        && this->nonExists_ == nullptr && this->requestId_ == nullptr; };
     // canceledJobs Field Functions 
     bool hasCanceledJobs() const { return this->canceledJobs_ != nullptr;};
     void deleteCanceledJobs() { this->canceledJobs_ = nullptr;};
-    inline const vector<string> & canceledJobs() const { DARABONBA_PTR_GET_CONST(canceledJobs_, vector<string>) };
-    inline vector<string> canceledJobs() { DARABONBA_PTR_GET(canceledJobs_, vector<string>) };
+    inline const vector<string> & getCanceledJobs() const { DARABONBA_PTR_GET_CONST(canceledJobs_, vector<string>) };
+    inline vector<string> getCanceledJobs() { DARABONBA_PTR_GET(canceledJobs_, vector<string>) };
     inline CancelUrlUploadJobsResponseBody& setCanceledJobs(const vector<string> & canceledJobs) { DARABONBA_PTR_SET_VALUE(canceledJobs_, canceledJobs) };
     inline CancelUrlUploadJobsResponseBody& setCanceledJobs(vector<string> && canceledJobs) { DARABONBA_PTR_SET_RVALUE(canceledJobs_, canceledJobs) };
 
@@ -48,8 +48,8 @@ namespace Models
     // nonExists Field Functions 
     bool hasNonExists() const { return this->nonExists_ != nullptr;};
     void deleteNonExists() { this->nonExists_ = nullptr;};
-    inline const vector<string> & nonExists() const { DARABONBA_PTR_GET_CONST(nonExists_, vector<string>) };
-    inline vector<string> nonExists() { DARABONBA_PTR_GET(nonExists_, vector<string>) };
+    inline const vector<string> & getNonExists() const { DARABONBA_PTR_GET_CONST(nonExists_, vector<string>) };
+    inline vector<string> getNonExists() { DARABONBA_PTR_GET(nonExists_, vector<string>) };
     inline CancelUrlUploadJobsResponseBody& setNonExists(const vector<string> & nonExists) { DARABONBA_PTR_SET_VALUE(nonExists_, nonExists) };
     inline CancelUrlUploadJobsResponseBody& setNonExists(vector<string> && nonExists) { DARABONBA_PTR_SET_RVALUE(nonExists_, nonExists) };
 
@@ -57,17 +57,17 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CancelUrlUploadJobsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The IDs of canceled jobs.
-    std::shared_ptr<vector<string>> canceledJobs_ = nullptr;
+    shared_ptr<vector<string>> canceledJobs_ {};
     // The jobs that do not exist.
-    std::shared_ptr<vector<string>> nonExists_ = nullptr;
+    shared_ptr<vector<string>> nonExists_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

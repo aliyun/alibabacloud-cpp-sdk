@@ -44,61 +44,61 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cateId_ == nullptr
-        && return this->coverURL_ == nullptr && return this->description_ == nullptr && return this->referenceId_ == nullptr && return this->tags_ == nullptr && return this->title_ == nullptr
-        && return this->userData_ == nullptr && return this->videoId_ == nullptr; };
+        && this->coverURL_ == nullptr && this->description_ == nullptr && this->referenceId_ == nullptr && this->tags_ == nullptr && this->title_ == nullptr
+        && this->userData_ == nullptr && this->videoId_ == nullptr; };
     // cateId Field Functions 
     bool hasCateId() const { return this->cateId_ != nullptr;};
     void deleteCateId() { this->cateId_ = nullptr;};
-    inline int64_t cateId() const { DARABONBA_PTR_GET_DEFAULT(cateId_, 0L) };
+    inline int64_t getCateId() const { DARABONBA_PTR_GET_DEFAULT(cateId_, 0L) };
     inline UpdateVideoInfoRequest& setCateId(int64_t cateId) { DARABONBA_PTR_SET_VALUE(cateId_, cateId) };
 
 
     // coverURL Field Functions 
     bool hasCoverURL() const { return this->coverURL_ != nullptr;};
     void deleteCoverURL() { this->coverURL_ = nullptr;};
-    inline string coverURL() const { DARABONBA_PTR_GET_DEFAULT(coverURL_, "") };
+    inline string getCoverURL() const { DARABONBA_PTR_GET_DEFAULT(coverURL_, "") };
     inline UpdateVideoInfoRequest& setCoverURL(string coverURL) { DARABONBA_PTR_SET_VALUE(coverURL_, coverURL) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline UpdateVideoInfoRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // referenceId Field Functions 
     bool hasReferenceId() const { return this->referenceId_ != nullptr;};
     void deleteReferenceId() { this->referenceId_ = nullptr;};
-    inline string referenceId() const { DARABONBA_PTR_GET_DEFAULT(referenceId_, "") };
+    inline string getReferenceId() const { DARABONBA_PTR_GET_DEFAULT(referenceId_, "") };
     inline UpdateVideoInfoRequest& setReferenceId(string referenceId) { DARABONBA_PTR_SET_VALUE(referenceId_, referenceId) };
 
 
     // tags Field Functions 
     bool hasTags() const { return this->tags_ != nullptr;};
     void deleteTags() { this->tags_ = nullptr;};
-    inline string tags() const { DARABONBA_PTR_GET_DEFAULT(tags_, "") };
+    inline string getTags() const { DARABONBA_PTR_GET_DEFAULT(tags_, "") };
     inline UpdateVideoInfoRequest& setTags(string tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
 
 
     // title Field Functions 
     bool hasTitle() const { return this->title_ != nullptr;};
     void deleteTitle() { this->title_ = nullptr;};
-    inline string title() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
+    inline string getTitle() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
     inline UpdateVideoInfoRequest& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
 
 
     // userData Field Functions 
     bool hasUserData() const { return this->userData_ != nullptr;};
     void deleteUserData() { this->userData_ = nullptr;};
-    inline string userData() const { DARABONBA_PTR_GET_DEFAULT(userData_, "") };
+    inline string getUserData() const { DARABONBA_PTR_GET_DEFAULT(userData_, "") };
     inline UpdateVideoInfoRequest& setUserData(string userData) { DARABONBA_PTR_SET_VALUE(userData_, userData) };
 
 
     // videoId Field Functions 
     bool hasVideoId() const { return this->videoId_ != nullptr;};
     void deleteVideoId() { this->videoId_ = nullptr;};
-    inline string videoId() const { DARABONBA_PTR_GET_DEFAULT(videoId_, "") };
+    inline string getVideoId() const { DARABONBA_PTR_GET_DEFAULT(videoId_, "") };
     inline UpdateVideoInfoRequest& setVideoId(string videoId) { DARABONBA_PTR_SET_VALUE(videoId_, videoId) };
 
 
@@ -108,34 +108,34 @@ namespace Models
     // *   Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com). In the left-side navigation pane, choose **Configuration Management** > **Media Management** > **Categories** to view the category ID of the media file.
     // *   View the value of the CateId parameter returned by the [AddCategory](https://help.aliyun.com/document_detail/56401.html) operation that you called to create a category.
     // *   View the value of the CateId parameter returned by the [GetCategories](https://help.aliyun.com/document_detail/56406.html) operation that you called to query a category.
-    std::shared_ptr<int64_t> cateId_ = nullptr;
+    shared_ptr<int64_t> cateId_ {};
     // The URL of the audio/video thumbnail.
-    std::shared_ptr<string> coverURL_ = nullptr;
+    shared_ptr<string> coverURL_ {};
     // The description of the audio or video file.
     // 
     // *   The description can be up to 1,024 bytes in length.
     // *   The value is encoded in UTF-8.
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<string> referenceId_ = nullptr;
+    shared_ptr<string> description_ {};
+    shared_ptr<string> referenceId_ {};
     // The tags of the media file.
     // 
     // *   Each tag can be up to 32 bytes in length. You can specify up to 16 tags.
     // *   Separate multiple tags with commas (,).
     // *   The value is encoded in UTF-8.
-    std::shared_ptr<string> tags_ = nullptr;
+    shared_ptr<string> tags_ {};
     // The title of the audio or video file.
     // 
     // *   The name cannot exceed 128 bytes.
     // *   The value is encoded in UTF-8.
-    std::shared_ptr<string> title_ = nullptr;
+    shared_ptr<string> title_ {};
     // Custom settings. This is a JSON string that supports message callbacks, upload acceleration, and other settings. For more information, please refer to [UserData](https://help.aliyun.com/document_detail/86952.html).
-    std::shared_ptr<string> userData_ = nullptr;
+    shared_ptr<string> userData_ {};
     // The ID of the audio or video file. Perform the following operations to obtain the storage address:
     // 
     // *   Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com). In the left-side navigation pane, choose **Media Files** > **Audio/Video**. On the Video and Audio page, view the ID of the audio or video file. This method is applicable to files that are uploaded by using the ApsaraVideo VOD console.
     // *   Obtain the value of VideoId from the response to the [CreateUploadVideo](https://help.aliyun.com/document_detail/55407.html) operation that you called to obtain the upload URL and credential.
     // *   View the value of the VideoId parameter returned by the [SearchMedia](https://help.aliyun.com/document_detail/86044.html) operation that you called to query media information after the audio or video file is uploaded.
-    std::shared_ptr<string> videoId_ = nullptr;
+    shared_ptr<string> videoId_ {};
   };
 
   } // namespace Models

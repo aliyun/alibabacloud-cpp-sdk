@@ -46,68 +46,68 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cateId_ == nullptr
-        && return this->endTime_ == nullptr && return this->pageNo_ == nullptr && return this->pageSize_ == nullptr && return this->referenceIds_ == nullptr && return this->sortBy_ == nullptr
-        && return this->startTime_ == nullptr && return this->status_ == nullptr && return this->storageLocation_ == nullptr; };
+        && this->endTime_ == nullptr && this->pageNo_ == nullptr && this->pageSize_ == nullptr && this->referenceIds_ == nullptr && this->sortBy_ == nullptr
+        && this->startTime_ == nullptr && this->status_ == nullptr && this->storageLocation_ == nullptr; };
     // cateId Field Functions 
     bool hasCateId() const { return this->cateId_ != nullptr;};
     void deleteCateId() { this->cateId_ = nullptr;};
-    inline int64_t cateId() const { DARABONBA_PTR_GET_DEFAULT(cateId_, 0L) };
+    inline int64_t getCateId() const { DARABONBA_PTR_GET_DEFAULT(cateId_, 0L) };
     inline GetVideoListRequest& setCateId(int64_t cateId) { DARABONBA_PTR_SET_VALUE(cateId_, cateId) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline GetVideoListRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // pageNo Field Functions 
     bool hasPageNo() const { return this->pageNo_ != nullptr;};
     void deletePageNo() { this->pageNo_ = nullptr;};
-    inline int32_t pageNo() const { DARABONBA_PTR_GET_DEFAULT(pageNo_, 0) };
+    inline int32_t getPageNo() const { DARABONBA_PTR_GET_DEFAULT(pageNo_, 0) };
     inline GetVideoListRequest& setPageNo(int32_t pageNo) { DARABONBA_PTR_SET_VALUE(pageNo_, pageNo) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline GetVideoListRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // referenceIds Field Functions 
     bool hasReferenceIds() const { return this->referenceIds_ != nullptr;};
     void deleteReferenceIds() { this->referenceIds_ = nullptr;};
-    inline string referenceIds() const { DARABONBA_PTR_GET_DEFAULT(referenceIds_, "") };
+    inline string getReferenceIds() const { DARABONBA_PTR_GET_DEFAULT(referenceIds_, "") };
     inline GetVideoListRequest& setReferenceIds(string referenceIds) { DARABONBA_PTR_SET_VALUE(referenceIds_, referenceIds) };
 
 
     // sortBy Field Functions 
     bool hasSortBy() const { return this->sortBy_ != nullptr;};
     void deleteSortBy() { this->sortBy_ = nullptr;};
-    inline string sortBy() const { DARABONBA_PTR_GET_DEFAULT(sortBy_, "") };
+    inline string getSortBy() const { DARABONBA_PTR_GET_DEFAULT(sortBy_, "") };
     inline GetVideoListRequest& setSortBy(string sortBy) { DARABONBA_PTR_SET_VALUE(sortBy_, sortBy) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline GetVideoListRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline GetVideoListRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // storageLocation Field Functions 
     bool hasStorageLocation() const { return this->storageLocation_ != nullptr;};
     void deleteStorageLocation() { this->storageLocation_ = nullptr;};
-    inline string storageLocation() const { DARABONBA_PTR_GET_DEFAULT(storageLocation_, "") };
+    inline string getStorageLocation() const { DARABONBA_PTR_GET_DEFAULT(storageLocation_, "") };
     inline GetVideoListRequest& setStorageLocation(string storageLocation) { DARABONBA_PTR_SET_VALUE(storageLocation_, storageLocation) };
 
 
@@ -117,21 +117,21 @@ namespace Models
     // *   Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com). In the left-side navigation pane, choose **Configuration Management** > **Media Management** > **Categories** to view the category ID.
     // *   Obtain the value of CateId from the response to the [AddCategory](https://help.aliyun.com/document_detail/56401.html) operation.
     // *   Obtain the value of CateId from the response to the [GetCategories](https://help.aliyun.com/document_detail/56406.html) operation.
-    std::shared_ptr<int64_t> cateId_ = nullptr;
+    shared_ptr<int64_t> cateId_ {};
     // The end of the time range to query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
-    std::shared_ptr<string> endTime_ = nullptr;
+    shared_ptr<string> endTime_ {};
     // The number of the page to return. Default value: **1**.
-    std::shared_ptr<int32_t> pageNo_ = nullptr;
+    shared_ptr<int32_t> pageNo_ {};
     // The number of entries to return on each page. Default value: **10**. Maximum value: **100**.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    std::shared_ptr<string> referenceIds_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<string> referenceIds_ {};
     // The sorting method of the results. Valid values:
     // 
     // *   **CreationTime:Desc** (default): The results are sorted in reverse chronological order based on the creation time.
     // *   **CreationTime:Asc**: The results are sorted in chronological order based on the creation time.
-    std::shared_ptr<string> sortBy_ = nullptr;
+    shared_ptr<string> sortBy_ {};
     // The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
-    std::shared_ptr<string> startTime_ = nullptr;
+    shared_ptr<string> startTime_ {};
     // The status of the video. You can specify multiple video statuses and separate them with commas (,). Valid values:
     // 
     // *   **Uploading**: The video is being uploaded.
@@ -145,9 +145,9 @@ namespace Models
     // *   **ProduceFail**: The video failed to be produced.
     // 
     // For more information about each video status, see the "Status: the status of a video" section of the [Basic data types](~~52839#section-p7c-jgy-070~~) topic.
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
     // The storage address of the media file.
-    std::shared_ptr<string> storageLocation_ = nullptr;
+    shared_ptr<string> storageLocation_ {};
   };
 
   } // namespace Models

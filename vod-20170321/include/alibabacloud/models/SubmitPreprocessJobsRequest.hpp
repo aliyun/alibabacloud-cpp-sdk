@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->preprocessType_ == nullptr
-        && return this->videoId_ == nullptr; };
+        && this->videoId_ == nullptr; };
     // preprocessType Field Functions 
     bool hasPreprocessType() const { return this->preprocessType_ != nullptr;};
     void deletePreprocessType() { this->preprocessType_ = nullptr;};
-    inline string preprocessType() const { DARABONBA_PTR_GET_DEFAULT(preprocessType_, "") };
+    inline string getPreprocessType() const { DARABONBA_PTR_GET_DEFAULT(preprocessType_, "") };
     inline SubmitPreprocessJobsRequest& setPreprocessType(string preprocessType) { DARABONBA_PTR_SET_VALUE(preprocessType_, preprocessType) };
 
 
     // videoId Field Functions 
     bool hasVideoId() const { return this->videoId_ != nullptr;};
     void deleteVideoId() { this->videoId_ = nullptr;};
-    inline string videoId() const { DARABONBA_PTR_GET_DEFAULT(videoId_, "") };
+    inline string getVideoId() const { DARABONBA_PTR_GET_DEFAULT(videoId_, "") };
     inline SubmitPreprocessJobsRequest& setVideoId(string videoId) { DARABONBA_PTR_SET_VALUE(videoId_, videoId) };
 
 
@@ -51,7 +51,7 @@ namespace Models
     // The preprocessing type. Set the value to **LivePreprocess**. LivePreprocess specifies that the video is preprocessed in the production studio.
     // 
     // This parameter is required.
-    std::shared_ptr<string> preprocessType_ = nullptr;
+    shared_ptr<string> preprocessType_ {};
     // The ID of the video. You can use one of the following methods to obtain the ID:
     // 
     // *   After you upload a video in the ApsaraVideo VOD console, you can log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com) and choose **Media Files** > **Audio/Video** to view the ID of the video.
@@ -59,7 +59,7 @@ namespace Models
     // *   Obtain the VideoId from the response to the [SearchMedia](https://help.aliyun.com/document_detail/86044.html) operation that you call to query videos.
     // 
     // This parameter is required.
-    std::shared_ptr<string> videoId_ = nullptr;
+    shared_ptr<string> videoId_ {};
   };
 
   } // namespace Models

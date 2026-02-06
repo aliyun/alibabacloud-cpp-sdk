@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->authTimeout_ == nullptr
-        && return this->imageId_ == nullptr && return this->outputType_ == nullptr; };
+        && this->imageId_ == nullptr && this->outputType_ == nullptr; };
     // authTimeout Field Functions 
     bool hasAuthTimeout() const { return this->authTimeout_ != nullptr;};
     void deleteAuthTimeout() { this->authTimeout_ = nullptr;};
-    inline int64_t authTimeout() const { DARABONBA_PTR_GET_DEFAULT(authTimeout_, 0L) };
+    inline int64_t getAuthTimeout() const { DARABONBA_PTR_GET_DEFAULT(authTimeout_, 0L) };
     inline GetImageInfoRequest& setAuthTimeout(int64_t authTimeout) { DARABONBA_PTR_SET_VALUE(authTimeout_, authTimeout) };
 
 
     // imageId Field Functions 
     bool hasImageId() const { return this->imageId_ != nullptr;};
     void deleteImageId() { this->imageId_ = nullptr;};
-    inline string imageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
+    inline string getImageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
     inline GetImageInfoRequest& setImageId(string imageId) { DARABONBA_PTR_SET_VALUE(imageId_, imageId) };
 
 
     // outputType Field Functions 
     bool hasOutputType() const { return this->outputType_ != nullptr;};
     void deleteOutputType() { this->outputType_ = nullptr;};
-    inline string outputType() const { DARABONBA_PTR_GET_DEFAULT(outputType_, "") };
+    inline string getOutputType() const { DARABONBA_PTR_GET_DEFAULT(outputType_, "") };
     inline GetImageInfoRequest& setOutputType(string outputType) { DARABONBA_PTR_SET_VALUE(outputType_, outputType) };
 
 
@@ -72,7 +72,7 @@ namespace Models
     //     *   Minimum value: 1.
     //     *   If you store the image in the VOD bucket, the maximum value of this parameter is **2592000** (30 days). If you store the image in an OSS bucket, the maximum value of this parameter is **129600** (36 hours). The maximum value is limited to reduce security risks of the origin.
     //     *   Default value: 3600.
-    std::shared_ptr<int64_t> authTimeout_ = nullptr;
+    shared_ptr<int64_t> authTimeout_ {};
     // The ID of the image. You can use one of the following methods to obtain the ID:
     // 
     // *   Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com/). In the left-side navigation pane, choose Media Files > Image. On the Image page, view the image ID.
@@ -80,12 +80,12 @@ namespace Models
     // *   Obtain the image ID from the response to the [SearchMedia](~~SearchMedia~~) operation that you call to query the image.
     // 
     // This parameter is required.
-    std::shared_ptr<string> imageId_ = nullptr;
+    shared_ptr<string> imageId_ {};
     // The type of the output image URL. Valid values:
     // 
     // *   oss: OSS URL
     // *   cdn: CDN URL
-    std::shared_ptr<string> outputType_ = nullptr;
+    shared_ptr<string> outputType_ {};
   };
 
   } // namespace Models

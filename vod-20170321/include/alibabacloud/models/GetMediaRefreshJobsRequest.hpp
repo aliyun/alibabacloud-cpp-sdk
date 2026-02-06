@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->mediaId_ == nullptr
-        && return this->mediaRefreshJobId_ == nullptr; };
+        && this->mediaRefreshJobId_ == nullptr; };
     // mediaId Field Functions 
     bool hasMediaId() const { return this->mediaId_ != nullptr;};
     void deleteMediaId() { this->mediaId_ = nullptr;};
-    inline string mediaId() const { DARABONBA_PTR_GET_DEFAULT(mediaId_, "") };
+    inline string getMediaId() const { DARABONBA_PTR_GET_DEFAULT(mediaId_, "") };
     inline GetMediaRefreshJobsRequest& setMediaId(string mediaId) { DARABONBA_PTR_SET_VALUE(mediaId_, mediaId) };
 
 
     // mediaRefreshJobId Field Functions 
     bool hasMediaRefreshJobId() const { return this->mediaRefreshJobId_ != nullptr;};
     void deleteMediaRefreshJobId() { this->mediaRefreshJobId_ = nullptr;};
-    inline string mediaRefreshJobId() const { DARABONBA_PTR_GET_DEFAULT(mediaRefreshJobId_, "") };
+    inline string getMediaRefreshJobId() const { DARABONBA_PTR_GET_DEFAULT(mediaRefreshJobId_, "") };
     inline GetMediaRefreshJobsRequest& setMediaRefreshJobId(string mediaRefreshJobId) { DARABONBA_PTR_SET_VALUE(mediaRefreshJobId_, mediaRefreshJobId) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The ID of the media file. It is the value of the `MediaIds` parameter that you specify when you call the [RefreshMediaPlayUrls](~~RefreshMediaPlayUrls~~) operation. You can specify only one media ID.
     // 
     // If you leave this parameter empty, information about all media files in the refresh or prefetch job specified by `MediaRefreshJobId` is returned. If you set this parameter, only the information about the specified media file is returned.``
-    std::shared_ptr<string> mediaId_ = nullptr;
+    shared_ptr<string> mediaId_ {};
     // The ID of the refresh or prefetch job. It is the value of the MediaRefreshJobId parameter that is returned from the call to the [RefreshMediaPlayUrls](~~RefreshMediaPlayUrls~~) operation.
     // 
     // This parameter is required.
-    std::shared_ptr<string> mediaRefreshJobId_ = nullptr;
+    shared_ptr<string> mediaRefreshJobId_ {};
   };
 
   } // namespace Models

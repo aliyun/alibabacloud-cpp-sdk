@@ -33,13 +33,13 @@ namespace Models
     // securityGroupName Field Functions 
     bool hasSecurityGroupName() const { return this->securityGroupName_ != nullptr;};
     void deleteSecurityGroupName() { this->securityGroupName_ = nullptr;};
-    inline string securityGroupName() const { DARABONBA_PTR_GET_DEFAULT(securityGroupName_, "") };
+    inline string getSecurityGroupName() const { DARABONBA_PTR_GET_DEFAULT(securityGroupName_, "") };
     inline ListAuditSecurityIpRequest& setSecurityGroupName(string securityGroupName) { DARABONBA_PTR_SET_VALUE(securityGroupName_, securityGroupName) };
 
 
   protected:
     // The name of the review security group in which you want to query IP addresses. If you do not specify this parameter, IP addresses in all review security groups are queried.
-    std::shared_ptr<string> securityGroupName_ = nullptr;
+    shared_ptr<string> securityGroupName_ {};
   };
 
   } // namespace Models

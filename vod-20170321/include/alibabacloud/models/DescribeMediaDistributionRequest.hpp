@@ -36,47 +36,47 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->endTime_ == nullptr
-        && return this->interval_ == nullptr && return this->startTime_ == nullptr && return this->storageClass_ == nullptr; };
+        && this->interval_ == nullptr && this->startTime_ == nullptr && this->storageClass_ == nullptr; };
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline DescribeMediaDistributionRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // interval Field Functions 
     bool hasInterval() const { return this->interval_ != nullptr;};
     void deleteInterval() { this->interval_ = nullptr;};
-    inline string interval() const { DARABONBA_PTR_GET_DEFAULT(interval_, "") };
+    inline string getInterval() const { DARABONBA_PTR_GET_DEFAULT(interval_, "") };
     inline DescribeMediaDistributionRequest& setInterval(string interval) { DARABONBA_PTR_SET_VALUE(interval_, interval) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline DescribeMediaDistributionRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // storageClass Field Functions 
     bool hasStorageClass() const { return this->storageClass_ != nullptr;};
     void deleteStorageClass() { this->storageClass_ = nullptr;};
-    inline string storageClass() const { DARABONBA_PTR_GET_DEFAULT(storageClass_, "") };
+    inline string getStorageClass() const { DARABONBA_PTR_GET_DEFAULT(storageClass_, "") };
     inline DescribeMediaDistributionRequest& setStorageClass(string storageClass) { DARABONBA_PTR_SET_VALUE(storageClass_, storageClass) };
 
 
   protected:
     // The end of the time range to query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. The maximum time range to query is 6 months.
-    std::shared_ptr<string> endTime_ = nullptr;
+    shared_ptr<string> endTime_ {};
     // The statistical interval. Default value: day. Valid values:
     // 
     // *   hour: natural hour of the start and end time.
     // *   day: natural day of the start and end time.
     // *   week: natural week of the start and end time.
     // *   month: natural month of the start and end time.
-    std::shared_ptr<string> interval_ = nullptr;
+    shared_ptr<string> interval_ {};
     // The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. The maximum time range to query is 6 months.
-    std::shared_ptr<string> startTime_ = nullptr;
+    shared_ptr<string> startTime_ {};
     // The hierarchical storage type. Valid values:
     // 
     // *   Standard
@@ -88,7 +88,7 @@ namespace Models
     // *   SourceColdArchive
     // *   Changing
     // *   SourceChanging
-    std::shared_ptr<string> storageClass_ = nullptr;
+    shared_ptr<string> storageClass_ {};
   };
 
   } // namespace Models

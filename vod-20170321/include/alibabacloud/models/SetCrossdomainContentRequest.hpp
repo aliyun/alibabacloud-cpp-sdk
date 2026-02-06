@@ -42,54 +42,54 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->content_ == nullptr
-        && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->resourceRealOwnerId_ == nullptr
-        && return this->storageLocation_ == nullptr; };
+        && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->resourceRealOwnerId_ == nullptr
+        && this->storageLocation_ == nullptr; };
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
-    inline string content() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
+    inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
     inline SetCrossdomainContentRequest& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
 
 
     // ownerAccount Field Functions 
     bool hasOwnerAccount() const { return this->ownerAccount_ != nullptr;};
     void deleteOwnerAccount() { this->ownerAccount_ = nullptr;};
-    inline string ownerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
+    inline string getOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
     inline SetCrossdomainContentRequest& setOwnerAccount(string ownerAccount) { DARABONBA_PTR_SET_VALUE(ownerAccount_, ownerAccount) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline string ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, "") };
+    inline string getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, "") };
     inline SetCrossdomainContentRequest& setOwnerId(string ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline SetCrossdomainContentRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline string resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, "") };
+    inline string getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, "") };
     inline SetCrossdomainContentRequest& setResourceOwnerId(string resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // resourceRealOwnerId Field Functions 
     bool hasResourceRealOwnerId() const { return this->resourceRealOwnerId_ != nullptr;};
     void deleteResourceRealOwnerId() { this->resourceRealOwnerId_ = nullptr;};
-    inline string resourceRealOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceRealOwnerId_, "") };
+    inline string getResourceRealOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceRealOwnerId_, "") };
     inline SetCrossdomainContentRequest& setResourceRealOwnerId(string resourceRealOwnerId) { DARABONBA_PTR_SET_VALUE(resourceRealOwnerId_, resourceRealOwnerId) };
 
 
     // storageLocation Field Functions 
     bool hasStorageLocation() const { return this->storageLocation_ != nullptr;};
     void deleteStorageLocation() { this->storageLocation_ = nullptr;};
-    inline string storageLocation() const { DARABONBA_PTR_GET_DEFAULT(storageLocation_, "") };
+    inline string getStorageLocation() const { DARABONBA_PTR_GET_DEFAULT(storageLocation_, "") };
     inline SetCrossdomainContentRequest& setStorageLocation(string storageLocation) { DARABONBA_PTR_SET_VALUE(storageLocation_, storageLocation) };
 
 
@@ -97,17 +97,17 @@ namespace Models
     // The content of the cross-domain policy file. The file must be in the XML format and can contain up to 2,048 characters.
     // 
     // This parameter is required.
-    std::shared_ptr<string> content_ = nullptr;
-    std::shared_ptr<string> ownerAccount_ = nullptr;
-    std::shared_ptr<string> ownerId_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<string> resourceOwnerId_ = nullptr;
+    shared_ptr<string> content_ {};
+    shared_ptr<string> ownerAccount_ {};
+    shared_ptr<string> ownerId_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<string> resourceOwnerId_ {};
     // The ID of the resource owner.
-    std::shared_ptr<string> resourceRealOwnerId_ = nullptr;
+    shared_ptr<string> resourceRealOwnerId_ {};
     // The URL of the Object Storage Service (OSS) bucket.
     // 
     // This parameter is required.
-    std::shared_ptr<string> storageLocation_ = nullptr;
+    shared_ptr<string> storageLocation_ {};
   };
 
   } // namespace Models

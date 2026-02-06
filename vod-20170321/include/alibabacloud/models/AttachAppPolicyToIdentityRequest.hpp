@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->identityName_ == nullptr && return this->identityType_ == nullptr && return this->policyNames_ == nullptr; };
+        && this->identityName_ == nullptr && this->identityType_ == nullptr && this->policyNames_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline AttachAppPolicyToIdentityRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // identityName Field Functions 
     bool hasIdentityName() const { return this->identityName_ != nullptr;};
     void deleteIdentityName() { this->identityName_ = nullptr;};
-    inline string identityName() const { DARABONBA_PTR_GET_DEFAULT(identityName_, "") };
+    inline string getIdentityName() const { DARABONBA_PTR_GET_DEFAULT(identityName_, "") };
     inline AttachAppPolicyToIdentityRequest& setIdentityName(string identityName) { DARABONBA_PTR_SET_VALUE(identityName_, identityName) };
 
 
     // identityType Field Functions 
     bool hasIdentityType() const { return this->identityType_ != nullptr;};
     void deleteIdentityType() { this->identityType_ = nullptr;};
-    inline string identityType() const { DARABONBA_PTR_GET_DEFAULT(identityType_, "") };
+    inline string getIdentityType() const { DARABONBA_PTR_GET_DEFAULT(identityType_, "") };
     inline AttachAppPolicyToIdentityRequest& setIdentityType(string identityType) { DARABONBA_PTR_SET_VALUE(identityType_, identityType) };
 
 
     // policyNames Field Functions 
     bool hasPolicyNames() const { return this->policyNames_ != nullptr;};
     void deletePolicyNames() { this->policyNames_ = nullptr;};
-    inline string policyNames() const { DARABONBA_PTR_GET_DEFAULT(policyNames_, "") };
+    inline string getPolicyNames() const { DARABONBA_PTR_GET_DEFAULT(policyNames_, "") };
     inline AttachAppPolicyToIdentityRequest& setPolicyNames(string policyNames) { DARABONBA_PTR_SET_VALUE(policyNames_, policyNames) };
 
 
@@ -69,21 +69,21 @@ namespace Models
     // The ID of the application. Default value: **app-1000000**. For more information, see [Multi-application service](https://help.aliyun.com/document_detail/113600.html).
     // 
     // > This parameter is optional only if you set the policy name to VODAppAdministratorAccess.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The ID of the RAM user or the name of the RAM role.
     // 
     // *   Specify the ID of the RAM user when the IdentityType parameter is set to RamUser.
     // *   Specify the name of the RAM role when the IdentityType parameter is set to RamRole.
     // 
     // This parameter is required.
-    std::shared_ptr<string> identityName_ = nullptr;
+    shared_ptr<string> identityName_ {};
     // The type of the identity. Valid values:
     // 
     // *   **RamUser**: a RAM user
     // *   **RamRole**: a RAM role
     // 
     // This parameter is required.
-    std::shared_ptr<string> identityType_ = nullptr;
+    shared_ptr<string> identityType_ {};
     // The name of the policy. Only system policies are supported. Separate multiple policy names with commas (,). Valid values:
     // 
     // *   **VODAppFullAccess**: permissions to manage all resources in an application.
@@ -91,7 +91,7 @@ namespace Models
     // *   **VODAppAdministratorAccess**: permissions of the application administrator.
     // 
     // This parameter is required.
-    std::shared_ptr<string> policyNames_ = nullptr;
+    shared_ptr<string> policyNames_ {};
   };
 
   } // namespace Models

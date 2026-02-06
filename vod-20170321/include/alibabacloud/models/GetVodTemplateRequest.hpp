@@ -33,7 +33,7 @@ namespace Models
     // vodTemplateId Field Functions 
     bool hasVodTemplateId() const { return this->vodTemplateId_ != nullptr;};
     void deleteVodTemplateId() { this->vodTemplateId_ = nullptr;};
-    inline string vodTemplateId() const { DARABONBA_PTR_GET_DEFAULT(vodTemplateId_, "") };
+    inline string getVodTemplateId() const { DARABONBA_PTR_GET_DEFAULT(vodTemplateId_, "") };
     inline GetVodTemplateRequest& setVodTemplateId(string vodTemplateId) { DARABONBA_PTR_SET_VALUE(vodTemplateId_, vodTemplateId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the snapshot template.
     // 
     // This parameter is required.
-    std::shared_ptr<string> vodTemplateId_ = nullptr;
+    shared_ptr<string> vodTemplateId_ {};
   };
 
   } // namespace Models

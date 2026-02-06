@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->jobIds_ == nullptr
-        && return this->transcodeTaskId_ == nullptr; };
+        && this->transcodeTaskId_ == nullptr; };
     // jobIds Field Functions 
     bool hasJobIds() const { return this->jobIds_ != nullptr;};
     void deleteJobIds() { this->jobIds_ = nullptr;};
-    inline string jobIds() const { DARABONBA_PTR_GET_DEFAULT(jobIds_, "") };
+    inline string getJobIds() const { DARABONBA_PTR_GET_DEFAULT(jobIds_, "") };
     inline GetTranscodeTaskRequest& setJobIds(string jobIds) { DARABONBA_PTR_SET_VALUE(jobIds_, jobIds) };
 
 
     // transcodeTaskId Field Functions 
     bool hasTranscodeTaskId() const { return this->transcodeTaskId_ != nullptr;};
     void deleteTranscodeTaskId() { this->transcodeTaskId_ = nullptr;};
-    inline string transcodeTaskId() const { DARABONBA_PTR_GET_DEFAULT(transcodeTaskId_, "") };
+    inline string getTranscodeTaskId() const { DARABONBA_PTR_GET_DEFAULT(transcodeTaskId_, "") };
     inline GetTranscodeTaskRequest& setTranscodeTaskId(string transcodeTaskId) { DARABONBA_PTR_SET_VALUE(transcodeTaskId_, transcodeTaskId) };
 
 
@@ -51,12 +51,12 @@ namespace Models
     // Transcoding job ID. Supports up to 10 IDs, and multiple IDs should be separated by a comma (,). You can obtain this value in the following ways:
     // 
     // When initiating a transcoding task through the [SubmitTranscodeJobs](https://help.aliyun.com/document_detail/454920.html) interface, it is the value of the returned parameter JobId.
-    std::shared_ptr<string> jobIds_ = nullptr;
+    shared_ptr<string> jobIds_ {};
     // The ID of the transcoding task. You can use one of the following methods to obtain the ID:
     // 
     // *   Obtain the value of TranscodeTaskId from the response to the [SubmitTranscodeJobs](https://help.aliyun.com/document_detail/68570.html) operation.
     // *   Obtain the value of TranscodeTaskId from the response to the [ListTranscodeTask](https://help.aliyun.com/document_detail/109120.html) operation.
-    std::shared_ptr<string> transcodeTaskId_ = nullptr;
+    shared_ptr<string> transcodeTaskId_ {};
   };
 
   } // namespace Models

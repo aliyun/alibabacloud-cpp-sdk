@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->forbiddenMediaIds_ == nullptr
-        && return this->mediaRefreshJobId_ == nullptr && return this->nonExistMediaIds_ == nullptr && return this->requestId_ == nullptr; };
+        && this->mediaRefreshJobId_ == nullptr && this->nonExistMediaIds_ == nullptr && this->requestId_ == nullptr; };
     // forbiddenMediaIds Field Functions 
     bool hasForbiddenMediaIds() const { return this->forbiddenMediaIds_ != nullptr;};
     void deleteForbiddenMediaIds() { this->forbiddenMediaIds_ = nullptr;};
-    inline string forbiddenMediaIds() const { DARABONBA_PTR_GET_DEFAULT(forbiddenMediaIds_, "") };
+    inline string getForbiddenMediaIds() const { DARABONBA_PTR_GET_DEFAULT(forbiddenMediaIds_, "") };
     inline RefreshMediaPlayUrlsResponseBody& setForbiddenMediaIds(string forbiddenMediaIds) { DARABONBA_PTR_SET_VALUE(forbiddenMediaIds_, forbiddenMediaIds) };
 
 
     // mediaRefreshJobId Field Functions 
     bool hasMediaRefreshJobId() const { return this->mediaRefreshJobId_ != nullptr;};
     void deleteMediaRefreshJobId() { this->mediaRefreshJobId_ = nullptr;};
-    inline string mediaRefreshJobId() const { DARABONBA_PTR_GET_DEFAULT(mediaRefreshJobId_, "") };
+    inline string getMediaRefreshJobId() const { DARABONBA_PTR_GET_DEFAULT(mediaRefreshJobId_, "") };
     inline RefreshMediaPlayUrlsResponseBody& setMediaRefreshJobId(string mediaRefreshJobId) { DARABONBA_PTR_SET_VALUE(mediaRefreshJobId_, mediaRefreshJobId) };
 
 
     // nonExistMediaIds Field Functions 
     bool hasNonExistMediaIds() const { return this->nonExistMediaIds_ != nullptr;};
     void deleteNonExistMediaIds() { this->nonExistMediaIds_ = nullptr;};
-    inline string nonExistMediaIds() const { DARABONBA_PTR_GET_DEFAULT(nonExistMediaIds_, "") };
+    inline string getNonExistMediaIds() const { DARABONBA_PTR_GET_DEFAULT(nonExistMediaIds_, "") };
     inline RefreshMediaPlayUrlsResponseBody& setNonExistMediaIds(string nonExistMediaIds) { DARABONBA_PTR_SET_VALUE(nonExistMediaIds_, nonExistMediaIds) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline RefreshMediaPlayUrlsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The IDs of the media files that cannot be operated on. In most cases, media files cannot be operated on because you are not authorized to perform the operations. For more information, see [Overview](https://help.aliyun.com/document_detail/113600.html).
-    std::shared_ptr<string> forbiddenMediaIds_ = nullptr;
+    shared_ptr<string> forbiddenMediaIds_ {};
     // The ID of the refresh or prefetch task.
-    std::shared_ptr<string> mediaRefreshJobId_ = nullptr;
+    shared_ptr<string> mediaRefreshJobId_ {};
     // The IDs of the media files that do not exist.
-    std::shared_ptr<string> nonExistMediaIds_ = nullptr;
+    shared_ptr<string> nonExistMediaIds_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

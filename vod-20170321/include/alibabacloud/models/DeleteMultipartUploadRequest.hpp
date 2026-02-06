@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->mediaId_ == nullptr
-        && return this->mediaType_ == nullptr && return this->ownerAccount_ == nullptr; };
+        && this->mediaType_ == nullptr && this->ownerAccount_ == nullptr; };
     // mediaId Field Functions 
     bool hasMediaId() const { return this->mediaId_ != nullptr;};
     void deleteMediaId() { this->mediaId_ = nullptr;};
-    inline string mediaId() const { DARABONBA_PTR_GET_DEFAULT(mediaId_, "") };
+    inline string getMediaId() const { DARABONBA_PTR_GET_DEFAULT(mediaId_, "") };
     inline DeleteMultipartUploadRequest& setMediaId(string mediaId) { DARABONBA_PTR_SET_VALUE(mediaId_, mediaId) };
 
 
     // mediaType Field Functions 
     bool hasMediaType() const { return this->mediaType_ != nullptr;};
     void deleteMediaType() { this->mediaType_ = nullptr;};
-    inline string mediaType() const { DARABONBA_PTR_GET_DEFAULT(mediaType_, "") };
+    inline string getMediaType() const { DARABONBA_PTR_GET_DEFAULT(mediaType_, "") };
     inline DeleteMultipartUploadRequest& setMediaType(string mediaType) { DARABONBA_PTR_SET_VALUE(mediaType_, mediaType) };
 
 
     // ownerAccount Field Functions 
     bool hasOwnerAccount() const { return this->ownerAccount_ != nullptr;};
     void deleteOwnerAccount() { this->ownerAccount_ = nullptr;};
-    inline string ownerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
+    inline string getOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
     inline DeleteMultipartUploadRequest& setOwnerAccount(string ownerAccount) { DARABONBA_PTR_SET_VALUE(ownerAccount_, ownerAccount) };
 
 
@@ -64,12 +64,12 @@ namespace Models
     // *   Obtain the value of VideoId from the response to the [SearchMedia](https://help.aliyun.com/document_detail/86044.html) operation that you called to query media information after the audio or video file is uploaded.
     // 
     // This parameter is required.
-    std::shared_ptr<string> mediaId_ = nullptr;
+    shared_ptr<string> mediaId_ {};
     // The type of the media file. Set the value to **video**. video indicates audio and video files.
     // 
     // This parameter is required.
-    std::shared_ptr<string> mediaType_ = nullptr;
-    std::shared_ptr<string> ownerAccount_ = nullptr;
+    shared_ptr<string> mediaType_ {};
+    shared_ptr<string> ownerAccount_ {};
   };
 
   } // namespace Models

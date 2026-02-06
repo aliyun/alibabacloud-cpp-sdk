@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->jobIds_ == nullptr
-        && return this->uploadUrls_ == nullptr; };
+        && this->uploadUrls_ == nullptr; };
     // jobIds Field Functions 
     bool hasJobIds() const { return this->jobIds_ != nullptr;};
     void deleteJobIds() { this->jobIds_ = nullptr;};
-    inline string jobIds() const { DARABONBA_PTR_GET_DEFAULT(jobIds_, "") };
+    inline string getJobIds() const { DARABONBA_PTR_GET_DEFAULT(jobIds_, "") };
     inline CancelUrlUploadJobsRequest& setJobIds(string jobIds) { DARABONBA_PTR_SET_VALUE(jobIds_, jobIds) };
 
 
     // uploadUrls Field Functions 
     bool hasUploadUrls() const { return this->uploadUrls_ != nullptr;};
     void deleteUploadUrls() { this->uploadUrls_ = nullptr;};
-    inline string uploadUrls() const { DARABONBA_PTR_GET_DEFAULT(uploadUrls_, "") };
+    inline string getUploadUrls() const { DARABONBA_PTR_GET_DEFAULT(uploadUrls_, "") };
     inline CancelUrlUploadJobsRequest& setUploadUrls(string uploadUrls) { DARABONBA_PTR_SET_VALUE(uploadUrls_, uploadUrls) };
 
 
@@ -54,12 +54,12 @@ namespace Models
     // *   Separate multiple IDs with commas (,).
     // 
     // >  You must specify either JobIds or UploadUrls. If you specify both the JobIds and UploadUrls parameters, only the value of the JobIds parameter takes effect.
-    std::shared_ptr<string> jobIds_ = nullptr;
+    shared_ptr<string> jobIds_ {};
     // The upload URLs of source video files. Separate multiple URLs with commas (,). You can specify a maximum of 10 URLs.
     // 
     // > *   You must encode the URLs before you use the URLs.
     // > *   You must specify either JobIds or UploadUrls. If you specify both the JobIds and UploadUrls parameters, only the value of the JobIds parameter takes effect.
-    std::shared_ptr<string> uploadUrls_ = nullptr;
+    shared_ptr<string> uploadUrls_ {};
   };
 
   } // namespace Models

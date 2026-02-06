@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->jobId_ == nullptr
-        && return this->jobType_ == nullptr; };
+        && this->jobType_ == nullptr; };
     // jobId Field Functions 
     bool hasJobId() const { return this->jobId_ != nullptr;};
     void deleteJobId() { this->jobId_ = nullptr;};
-    inline string jobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
+    inline string getJobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
     inline GetJobDetailRequest& setJobId(string jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
 
 
     // jobType Field Functions 
     bool hasJobType() const { return this->jobType_ != nullptr;};
     void deleteJobType() { this->jobType_ = nullptr;};
-    inline string jobType() const { DARABONBA_PTR_GET_DEFAULT(jobType_, "") };
+    inline string getJobType() const { DARABONBA_PTR_GET_DEFAULT(jobType_, "") };
     inline GetJobDetailRequest& setJobType(string jobType) { DARABONBA_PTR_SET_VALUE(jobType_, jobType) };
 
 
@@ -51,7 +51,7 @@ namespace Models
     // The ID of the task.
     // 
     // This parameter is required.
-    std::shared_ptr<string> jobId_ = nullptr;
+    shared_ptr<string> jobId_ {};
     // The task type. Valid values:
     // 
     // *   transcode
@@ -59,7 +59,7 @@ namespace Models
     // *   ai
     // 
     // This parameter is required.
-    std::shared_ptr<string> jobType_ = nullptr;
+    shared_ptr<string> jobType_ {};
   };
 
   } // namespace Models

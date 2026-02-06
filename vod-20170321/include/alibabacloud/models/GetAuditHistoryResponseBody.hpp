@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_GETAUDITHISTORYRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/GetAuditHistoryResponseBodyHistories.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -37,49 +36,128 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Histories : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Histories& obj) { 
+        DARABONBA_PTR_TO_JSON(Auditor, auditor_);
+        DARABONBA_PTR_TO_JSON(Comment, comment_);
+        DARABONBA_PTR_TO_JSON(CreationTime, creationTime_);
+        DARABONBA_PTR_TO_JSON(Reason, reason_);
+        DARABONBA_PTR_TO_JSON(Status, status_);
+      };
+      friend void from_json(const Darabonba::Json& j, Histories& obj) { 
+        DARABONBA_PTR_FROM_JSON(Auditor, auditor_);
+        DARABONBA_PTR_FROM_JSON(Comment, comment_);
+        DARABONBA_PTR_FROM_JSON(CreationTime, creationTime_);
+        DARABONBA_PTR_FROM_JSON(Reason, reason_);
+        DARABONBA_PTR_FROM_JSON(Status, status_);
+      };
+      Histories() = default ;
+      Histories(const Histories &) = default ;
+      Histories(Histories &&) = default ;
+      Histories(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Histories() = default ;
+      Histories& operator=(const Histories &) = default ;
+      Histories& operator=(Histories &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->auditor_ == nullptr
+        && this->comment_ == nullptr && this->creationTime_ == nullptr && this->reason_ == nullptr && this->status_ == nullptr; };
+      // auditor Field Functions 
+      bool hasAuditor() const { return this->auditor_ != nullptr;};
+      void deleteAuditor() { this->auditor_ = nullptr;};
+      inline string getAuditor() const { DARABONBA_PTR_GET_DEFAULT(auditor_, "") };
+      inline Histories& setAuditor(string auditor) { DARABONBA_PTR_SET_VALUE(auditor_, auditor) };
+
+
+      // comment Field Functions 
+      bool hasComment() const { return this->comment_ != nullptr;};
+      void deleteComment() { this->comment_ = nullptr;};
+      inline string getComment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
+      inline Histories& setComment(string comment) { DARABONBA_PTR_SET_VALUE(comment_, comment) };
+
+
+      // creationTime Field Functions 
+      bool hasCreationTime() const { return this->creationTime_ != nullptr;};
+      void deleteCreationTime() { this->creationTime_ = nullptr;};
+      inline string getCreationTime() const { DARABONBA_PTR_GET_DEFAULT(creationTime_, "") };
+      inline Histories& setCreationTime(string creationTime) { DARABONBA_PTR_SET_VALUE(creationTime_, creationTime) };
+
+
+      // reason Field Functions 
+      bool hasReason() const { return this->reason_ != nullptr;};
+      void deleteReason() { this->reason_ = nullptr;};
+      inline string getReason() const { DARABONBA_PTR_GET_DEFAULT(reason_, "") };
+      inline Histories& setReason(string reason) { DARABONBA_PTR_SET_VALUE(reason_, reason) };
+
+
+      // status Field Functions 
+      bool hasStatus() const { return this->status_ != nullptr;};
+      void deleteStatus() { this->status_ = nullptr;};
+      inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+      inline Histories& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+    protected:
+      // The reviewer.
+      shared_ptr<string> auditor_ {};
+      // The review comments, which are provided by the reviewer.
+      shared_ptr<string> comment_ {};
+      // The time when the review record was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      shared_ptr<string> creationTime_ {};
+      // The reason why the video failed the review. If the video failed the review, specify the reason.
+      shared_ptr<string> reason_ {};
+      // The manual review result. Valid values:
+      // - **Normal**: The video can be played.
+      // - **Blocked**: The video is blocked.
+      shared_ptr<string> status_ {};
+    };
+
     virtual bool empty() const override { return this->histories_ == nullptr
-        && return this->requestId_ == nullptr && return this->status_ == nullptr && return this->total_ == nullptr; };
+        && this->requestId_ == nullptr && this->status_ == nullptr && this->total_ == nullptr; };
     // histories Field Functions 
     bool hasHistories() const { return this->histories_ != nullptr;};
     void deleteHistories() { this->histories_ = nullptr;};
-    inline const vector<GetAuditHistoryResponseBodyHistories> & histories() const { DARABONBA_PTR_GET_CONST(histories_, vector<GetAuditHistoryResponseBodyHistories>) };
-    inline vector<GetAuditHistoryResponseBodyHistories> histories() { DARABONBA_PTR_GET(histories_, vector<GetAuditHistoryResponseBodyHistories>) };
-    inline GetAuditHistoryResponseBody& setHistories(const vector<GetAuditHistoryResponseBodyHistories> & histories) { DARABONBA_PTR_SET_VALUE(histories_, histories) };
-    inline GetAuditHistoryResponseBody& setHistories(vector<GetAuditHistoryResponseBodyHistories> && histories) { DARABONBA_PTR_SET_RVALUE(histories_, histories) };
+    inline const vector<GetAuditHistoryResponseBody::Histories> & getHistories() const { DARABONBA_PTR_GET_CONST(histories_, vector<GetAuditHistoryResponseBody::Histories>) };
+    inline vector<GetAuditHistoryResponseBody::Histories> getHistories() { DARABONBA_PTR_GET(histories_, vector<GetAuditHistoryResponseBody::Histories>) };
+    inline GetAuditHistoryResponseBody& setHistories(const vector<GetAuditHistoryResponseBody::Histories> & histories) { DARABONBA_PTR_SET_VALUE(histories_, histories) };
+    inline GetAuditHistoryResponseBody& setHistories(vector<GetAuditHistoryResponseBody::Histories> && histories) { DARABONBA_PTR_SET_RVALUE(histories_, histories) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetAuditHistoryResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline GetAuditHistoryResponseBody& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // total Field Functions 
     bool hasTotal() const { return this->total_ != nullptr;};
     void deleteTotal() { this->total_ = nullptr;};
-    inline int64_t total() const { DARABONBA_PTR_GET_DEFAULT(total_, 0L) };
+    inline int64_t getTotal() const { DARABONBA_PTR_GET_DEFAULT(total_, 0L) };
     inline GetAuditHistoryResponseBody& setTotal(int64_t total) { DARABONBA_PTR_SET_VALUE(total_, total) };
 
 
   protected:
     // The review records.
-    std::shared_ptr<vector<GetAuditHistoryResponseBodyHistories>> histories_ = nullptr;
+    shared_ptr<vector<GetAuditHistoryResponseBody::Histories>> histories_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The manual review result. Valid values:
     // - **Normal**: The video can be played.
     // - **Blocked**: The video is blocked.
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
     // The total number of review records.
-    std::shared_ptr<int64_t> total_ = nullptr;
+    shared_ptr<int64_t> total_ {};
   };
 
   } // namespace Models

@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->force_ == nullptr
-        && return this->objectPath_ == nullptr && return this->objectType_ == nullptr && return this->ownerId_ == nullptr && return this->securityToken_ == nullptr; };
+        && this->objectPath_ == nullptr && this->objectType_ == nullptr && this->ownerId_ == nullptr && this->securityToken_ == nullptr; };
     // force Field Functions 
     bool hasForce() const { return this->force_ != nullptr;};
     void deleteForce() { this->force_ = nullptr;};
-    inline bool force() const { DARABONBA_PTR_GET_DEFAULT(force_, false) };
+    inline bool getForce() const { DARABONBA_PTR_GET_DEFAULT(force_, false) };
     inline RefreshVodObjectCachesRequest& setForce(bool force) { DARABONBA_PTR_SET_VALUE(force_, force) };
 
 
     // objectPath Field Functions 
     bool hasObjectPath() const { return this->objectPath_ != nullptr;};
     void deleteObjectPath() { this->objectPath_ = nullptr;};
-    inline string objectPath() const { DARABONBA_PTR_GET_DEFAULT(objectPath_, "") };
+    inline string getObjectPath() const { DARABONBA_PTR_GET_DEFAULT(objectPath_, "") };
     inline RefreshVodObjectCachesRequest& setObjectPath(string objectPath) { DARABONBA_PTR_SET_VALUE(objectPath_, objectPath) };
 
 
     // objectType Field Functions 
     bool hasObjectType() const { return this->objectType_ != nullptr;};
     void deleteObjectType() { this->objectType_ = nullptr;};
-    inline string objectType() const { DARABONBA_PTR_GET_DEFAULT(objectType_, "") };
+    inline string getObjectType() const { DARABONBA_PTR_GET_DEFAULT(objectType_, "") };
     inline RefreshVodObjectCachesRequest& setObjectType(string objectType) { DARABONBA_PTR_SET_VALUE(objectType_, objectType) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline RefreshVodObjectCachesRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
-    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
     inline RefreshVodObjectCachesRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
@@ -79,20 +79,20 @@ namespace Models
     // 
     // *   **true**: refreshes all resources in the directory. If you set this parameter to true, when the requested content matches the resource in the directory, the POP retrieves the resource from the origin server, returns the resource to the client, and caches the resource.
     // *   **false** (default): refreshes the changed resources in the directory. If you set this parameter to false, when the requested content matches the resource in the directory, the POP obtains the Last-Modified parameter of the resource from the origin server. If the value of the obtained Last-Modified parameter is the same as that of the cached resource, the cached resource is returned. Otherwise, the POP retrieves the resource from the origin server, returns the resource to the client, and caches the resource.
-    std::shared_ptr<bool> force_ = nullptr;
+    shared_ptr<bool> force_ {};
     // The URL of the file to be prefetched. Separate multiple URLs with line breaks (\\n or \\r\\n).
     // 
     // This parameter is required.
-    std::shared_ptr<string> objectPath_ = nullptr;
+    shared_ptr<string> objectPath_ {};
     // The type of the object that you want to refresh. Valid values:
     // 
     // *   **File** (default): refreshes one or more files.
     // *   **Directory**: refreshes the files in specified directories.
     // *   **Regex**: refreshes content based on regular expressions.
     // *   **IgnoreParams**: removes the question mark (?) and parameters after the question mark (?) in a request URL and refreshes content. After you call this operation with the request URL submitted, the system compares the submitted URL with the URL of the cached resource without specific parameters. If the URLs match, the POPs refresh the cached resource.
-    std::shared_ptr<string> objectType_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
-    std::shared_ptr<string> securityToken_ = nullptr;
+    shared_ptr<string> objectType_ {};
+    shared_ptr<int64_t> ownerId_ {};
+    shared_ptr<string> securityToken_ {};
   };
 
   } // namespace Models

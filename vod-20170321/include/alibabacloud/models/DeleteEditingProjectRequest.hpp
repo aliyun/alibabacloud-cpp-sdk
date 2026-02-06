@@ -38,51 +38,51 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ownerAccount_ == nullptr
-        && return this->ownerId_ == nullptr && return this->projectIds_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr; };
+        && this->ownerId_ == nullptr && this->projectIds_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr; };
     // ownerAccount Field Functions 
     bool hasOwnerAccount() const { return this->ownerAccount_ != nullptr;};
     void deleteOwnerAccount() { this->ownerAccount_ = nullptr;};
-    inline string ownerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
+    inline string getOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
     inline DeleteEditingProjectRequest& setOwnerAccount(string ownerAccount) { DARABONBA_PTR_SET_VALUE(ownerAccount_, ownerAccount) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline string ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, "") };
+    inline string getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, "") };
     inline DeleteEditingProjectRequest& setOwnerId(string ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // projectIds Field Functions 
     bool hasProjectIds() const { return this->projectIds_ != nullptr;};
     void deleteProjectIds() { this->projectIds_ = nullptr;};
-    inline string projectIds() const { DARABONBA_PTR_GET_DEFAULT(projectIds_, "") };
+    inline string getProjectIds() const { DARABONBA_PTR_GET_DEFAULT(projectIds_, "") };
     inline DeleteEditingProjectRequest& setProjectIds(string projectIds) { DARABONBA_PTR_SET_VALUE(projectIds_, projectIds) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline DeleteEditingProjectRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline string resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, "") };
+    inline string getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, "") };
     inline DeleteEditingProjectRequest& setResourceOwnerId(string resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
   protected:
-    std::shared_ptr<string> ownerAccount_ = nullptr;
-    std::shared_ptr<string> ownerId_ = nullptr;
+    shared_ptr<string> ownerAccount_ {};
+    shared_ptr<string> ownerId_ {};
     // The ID of the online editing project. Separate multiple IDs with commas (,).
     // 
     // This parameter is required.
-    std::shared_ptr<string> projectIds_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<string> resourceOwnerId_ = nullptr;
+    shared_ptr<string> projectIds_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<string> resourceOwnerId_ {};
   };
 
   } // namespace Models

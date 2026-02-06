@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->storageLocation_ == nullptr; };
+        && this->storageLocation_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline AddVodStorageForAppResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // storageLocation Field Functions 
     bool hasStorageLocation() const { return this->storageLocation_ != nullptr;};
     void deleteStorageLocation() { this->storageLocation_ = nullptr;};
-    inline string storageLocation() const { DARABONBA_PTR_GET_DEFAULT(storageLocation_, "") };
+    inline string getStorageLocation() const { DARABONBA_PTR_GET_DEFAULT(storageLocation_, "") };
     inline AddVodStorageForAppResponseBody& setStorageLocation(string storageLocation) { DARABONBA_PTR_SET_VALUE(storageLocation_, storageLocation) };
 
 
   protected:
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The address of the VOD bucket.
-    std::shared_ptr<string> storageLocation_ = nullptr;
+    shared_ptr<string> storageLocation_ {};
   };
 
   } // namespace Models

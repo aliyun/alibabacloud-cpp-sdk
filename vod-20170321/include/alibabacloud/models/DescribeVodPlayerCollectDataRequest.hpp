@@ -44,79 +44,79 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->endTime_ == nullptr && return this->interval_ == nullptr && return this->metrics_ == nullptr && return this->os_ == nullptr && return this->period_ == nullptr
-        && return this->startTime_ == nullptr && return this->terminalType_ == nullptr; };
+        && this->endTime_ == nullptr && this->interval_ == nullptr && this->metrics_ == nullptr && this->os_ == nullptr && this->period_ == nullptr
+        && this->startTime_ == nullptr && this->terminalType_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline DescribeVodPlayerCollectDataRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline DescribeVodPlayerCollectDataRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // interval Field Functions 
     bool hasInterval() const { return this->interval_ != nullptr;};
     void deleteInterval() { this->interval_ = nullptr;};
-    inline string interval() const { DARABONBA_PTR_GET_DEFAULT(interval_, "") };
+    inline string getInterval() const { DARABONBA_PTR_GET_DEFAULT(interval_, "") };
     inline DescribeVodPlayerCollectDataRequest& setInterval(string interval) { DARABONBA_PTR_SET_VALUE(interval_, interval) };
 
 
     // metrics Field Functions 
     bool hasMetrics() const { return this->metrics_ != nullptr;};
     void deleteMetrics() { this->metrics_ = nullptr;};
-    inline string metrics() const { DARABONBA_PTR_GET_DEFAULT(metrics_, "") };
+    inline string getMetrics() const { DARABONBA_PTR_GET_DEFAULT(metrics_, "") };
     inline DescribeVodPlayerCollectDataRequest& setMetrics(string metrics) { DARABONBA_PTR_SET_VALUE(metrics_, metrics) };
 
 
     // os Field Functions 
     bool hasOs() const { return this->os_ != nullptr;};
     void deleteOs() { this->os_ = nullptr;};
-    inline string os() const { DARABONBA_PTR_GET_DEFAULT(os_, "") };
+    inline string getOs() const { DARABONBA_PTR_GET_DEFAULT(os_, "") };
     inline DescribeVodPlayerCollectDataRequest& setOs(string os) { DARABONBA_PTR_SET_VALUE(os_, os) };
 
 
     // period Field Functions 
     bool hasPeriod() const { return this->period_ != nullptr;};
     void deletePeriod() { this->period_ = nullptr;};
-    inline string period() const { DARABONBA_PTR_GET_DEFAULT(period_, "") };
+    inline string getPeriod() const { DARABONBA_PTR_GET_DEFAULT(period_, "") };
     inline DescribeVodPlayerCollectDataRequest& setPeriod(string period) { DARABONBA_PTR_SET_VALUE(period_, period) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline DescribeVodPlayerCollectDataRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // terminalType Field Functions 
     bool hasTerminalType() const { return this->terminalType_ != nullptr;};
     void deleteTerminalType() { this->terminalType_ = nullptr;};
-    inline string terminalType() const { DARABONBA_PTR_GET_DEFAULT(terminalType_, "") };
+    inline string getTerminalType() const { DARABONBA_PTR_GET_DEFAULT(terminalType_, "") };
     inline DescribeVodPlayerCollectDataRequest& setTerminalType(string terminalType) { DARABONBA_PTR_SET_VALUE(terminalType_, terminalType) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // This parameter is required.
-    std::shared_ptr<string> endTime_ = nullptr;
+    shared_ptr<string> endTime_ {};
     // This parameter is required.
-    std::shared_ptr<string> interval_ = nullptr;
+    shared_ptr<string> interval_ {};
     // This parameter is required.
-    std::shared_ptr<string> metrics_ = nullptr;
-    std::shared_ptr<string> os_ = nullptr;
-    std::shared_ptr<string> period_ = nullptr;
+    shared_ptr<string> metrics_ {};
+    shared_ptr<string> os_ {};
+    shared_ptr<string> period_ {};
     // This parameter is required.
-    std::shared_ptr<string> startTime_ = nullptr;
+    shared_ptr<string> startTime_ {};
     // This parameter is required.
-    std::shared_ptr<string> terminalType_ = nullptr;
+    shared_ptr<string> terminalType_ {};
   };
 
   } // namespace Models

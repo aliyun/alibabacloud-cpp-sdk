@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->appName_ == nullptr && return this->description_ == nullptr && return this->status_ == nullptr; };
+        && this->appName_ == nullptr && this->description_ == nullptr && this->status_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline UpdateAppInfoRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
-    inline string appName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
+    inline string getAppName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
     inline UpdateAppInfoRequest& setAppName(string appName) { DARABONBA_PTR_SET_VALUE(appName_, appName) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline UpdateAppInfoRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline UpdateAppInfoRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
@@ -72,22 +72,22 @@ namespace Models
     // *   For more information, see [Overview](https://help.aliyun.com/document_detail/113600.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The name of the application.
     // 
     // *   The name can contain up to 128 characters in length, including Chinese letters, digits, and periods (.), dash (-), and at character (@).
     // *   The name can contain only UTF-8 characters.
-    std::shared_ptr<string> appName_ = nullptr;
+    shared_ptr<string> appName_ {};
     // The description of the application.
     // 
     // *   The description can contain up to 512 characters in length.
     // *   The description can contain only UTF-8 characters.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The status of the application. Valid values:
     // 
     // *   **Normal**
     // *   **Disable**
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models

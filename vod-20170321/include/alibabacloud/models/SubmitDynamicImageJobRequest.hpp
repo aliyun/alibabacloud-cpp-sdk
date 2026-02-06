@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dynamicImageTemplateId_ == nullptr
-        && return this->overrideParams_ == nullptr && return this->videoId_ == nullptr; };
+        && this->overrideParams_ == nullptr && this->videoId_ == nullptr; };
     // dynamicImageTemplateId Field Functions 
     bool hasDynamicImageTemplateId() const { return this->dynamicImageTemplateId_ != nullptr;};
     void deleteDynamicImageTemplateId() { this->dynamicImageTemplateId_ = nullptr;};
-    inline string dynamicImageTemplateId() const { DARABONBA_PTR_GET_DEFAULT(dynamicImageTemplateId_, "") };
+    inline string getDynamicImageTemplateId() const { DARABONBA_PTR_GET_DEFAULT(dynamicImageTemplateId_, "") };
     inline SubmitDynamicImageJobRequest& setDynamicImageTemplateId(string dynamicImageTemplateId) { DARABONBA_PTR_SET_VALUE(dynamicImageTemplateId_, dynamicImageTemplateId) };
 
 
     // overrideParams Field Functions 
     bool hasOverrideParams() const { return this->overrideParams_ != nullptr;};
     void deleteOverrideParams() { this->overrideParams_ = nullptr;};
-    inline string overrideParams() const { DARABONBA_PTR_GET_DEFAULT(overrideParams_, "") };
+    inline string getOverrideParams() const { DARABONBA_PTR_GET_DEFAULT(overrideParams_, "") };
     inline SubmitDynamicImageJobRequest& setOverrideParams(string overrideParams) { DARABONBA_PTR_SET_VALUE(overrideParams_, overrideParams) };
 
 
     // videoId Field Functions 
     bool hasVideoId() const { return this->videoId_ != nullptr;};
     void deleteVideoId() { this->videoId_ = nullptr;};
-    inline string videoId() const { DARABONBA_PTR_GET_DEFAULT(videoId_, "") };
+    inline string getVideoId() const { DARABONBA_PTR_GET_DEFAULT(videoId_, "") };
     inline SubmitDynamicImageJobRequest& setVideoId(string videoId) { DARABONBA_PTR_SET_VALUE(videoId_, videoId) };
 
 
@@ -60,9 +60,9 @@ namespace Models
     // The ID of the frame animation template.
     // 
     // This parameter is required.
-    std::shared_ptr<string> dynamicImageTemplateId_ = nullptr;
+    shared_ptr<string> dynamicImageTemplateId_ {};
     // The override parameter. Specify the value in the JSON format. For more information, see [Parameters for media processing](https://help.aliyun.com/document_detail/98618.html). You can use this parameter to override configurations in the animated image template. For more information, see the "DynamicImageTemplateConfig: the configurations of an animated sticker template" section of the [Basic data types](https://help.aliyun.com/document_detail/52839.html) topic.
-    std::shared_ptr<string> overrideParams_ = nullptr;
+    shared_ptr<string> overrideParams_ {};
     // The ID of the video. You can use one of the following methods to obtain the ID:
     // 
     // *   Log on to the [ApsaraVideo VOD](https://vod.console.aliyun.com) console. In the left-side navigation pane, choose **Media Files** > **Audio/Video**. On the Video and Audio page, view the ID of the media file. This method is applicable to files that are uploaded by using the ApsaraVideo VOD console.
@@ -70,7 +70,7 @@ namespace Models
     // *   Obtain the value of VideoId from the response to the [SearchMedia](https://help.aliyun.com/document_detail/86044.html) operation after you upload media files.
     // 
     // This parameter is required.
-    std::shared_ptr<string> videoId_ = nullptr;
+    shared_ptr<string> videoId_ {};
   };
 
   } // namespace Models

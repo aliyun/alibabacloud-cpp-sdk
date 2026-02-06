@@ -33,7 +33,7 @@ namespace Models
     // updateContent Field Functions 
     bool hasUpdateContent() const { return this->updateContent_ != nullptr;};
     void deleteUpdateContent() { this->updateContent_ = nullptr;};
-    inline string updateContent() const { DARABONBA_PTR_GET_DEFAULT(updateContent_, "") };
+    inline string getUpdateContent() const { DARABONBA_PTR_GET_DEFAULT(updateContent_, "") };
     inline UpdateImageInfosRequest& setUpdateContent(string updateContent) { DARABONBA_PTR_SET_VALUE(updateContent_, updateContent) };
 
 
@@ -43,7 +43,7 @@ namespace Models
     // >  The values of the nested parameters Title, Description, and Tags under the UpdateContent parameter cannot contain emoticons.
     // 
     // This parameter is required.
-    std::shared_ptr<string> updateContent_ = nullptr;
+    shared_ptr<string> updateContent_ {};
   };
 
   } // namespace Models

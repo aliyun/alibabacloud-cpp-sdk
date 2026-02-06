@@ -44,96 +44,96 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->endTime_ == nullptr && return this->interval_ == nullptr && return this->ownerId_ == nullptr && return this->region_ == nullptr && return this->specification_ == nullptr
-        && return this->startTime_ == nullptr && return this->storage_ == nullptr; };
+        && this->endTime_ == nullptr && this->interval_ == nullptr && this->ownerId_ == nullptr && this->region_ == nullptr && this->specification_ == nullptr
+        && this->startTime_ == nullptr && this->storage_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline DescribeVodTranscodeDataRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline DescribeVodTranscodeDataRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // interval Field Functions 
     bool hasInterval() const { return this->interval_ != nullptr;};
     void deleteInterval() { this->interval_ = nullptr;};
-    inline string interval() const { DARABONBA_PTR_GET_DEFAULT(interval_, "") };
+    inline string getInterval() const { DARABONBA_PTR_GET_DEFAULT(interval_, "") };
     inline DescribeVodTranscodeDataRequest& setInterval(string interval) { DARABONBA_PTR_SET_VALUE(interval_, interval) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline DescribeVodTranscodeDataRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // region Field Functions 
     bool hasRegion() const { return this->region_ != nullptr;};
     void deleteRegion() { this->region_ = nullptr;};
-    inline string region() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
+    inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
     inline DescribeVodTranscodeDataRequest& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
     // specification Field Functions 
     bool hasSpecification() const { return this->specification_ != nullptr;};
     void deleteSpecification() { this->specification_ = nullptr;};
-    inline string specification() const { DARABONBA_PTR_GET_DEFAULT(specification_, "") };
+    inline string getSpecification() const { DARABONBA_PTR_GET_DEFAULT(specification_, "") };
     inline DescribeVodTranscodeDataRequest& setSpecification(string specification) { DARABONBA_PTR_SET_VALUE(specification_, specification) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline DescribeVodTranscodeDataRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // storage Field Functions 
     bool hasStorage() const { return this->storage_ != nullptr;};
     void deleteStorage() { this->storage_ = nullptr;};
-    inline string storage() const { DARABONBA_PTR_GET_DEFAULT(storage_, "") };
+    inline string getStorage() const { DARABONBA_PTR_GET_DEFAULT(storage_, "") };
     inline DescribeVodTranscodeDataRequest& setStorage(string storage) { DARABONBA_PTR_SET_VALUE(storage_, storage) };
 
 
   protected:
     // The ID of the application. You can specify this parameter to query the transcoding statistics of a specific application. By default, the transcoding statistics of all applications is returned. You can obtain the application ID from the `AppId` parameter in the response to the [CreateAppInfo](~~CreateAppInfo~~) operation.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The end of the time range to query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
     // 
     // This parameter is required.
-    std::shared_ptr<string> endTime_ = nullptr;
+    shared_ptr<string> endTime_ {};
     // The interval at which you want to query data. Valid values:
     // 
     // *   **day**: days
     // *   **hour**: hours
-    std::shared_ptr<string> interval_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<string> interval_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // The region in which you want to query data. If you leave this parameter empty, data in all regions is returned. Separate multiple regions with commas (,). Valid values:
     // 
     // *   **cn-shanghai**: China (Shanghai)
     // *   **cn-beijing**: China (Beijing)
     // *   **eu-central-1**: Germany (Frankfurt)
     // *   **ap-southeast-1**: Singapore
-    std::shared_ptr<string> region_ = nullptr;
+    shared_ptr<string> region_ {};
     // The transcoding specification. If you leave this parameter empty, data of all transcoding specifications is returned. Separate multiple transcoding specifications with commas (,). Valid values:
     // 
     // *   **Audio**: audio transcoding
     // *   **Segmentation**: container format conversion
     // *   **H264.LD**, **H264.SD**, **H264.HD**, **H264.2K**, **H264.4K**, and more
-    std::shared_ptr<string> specification_ = nullptr;
+    shared_ptr<string> specification_ {};
     // The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
     // 
     // This parameter is required.
-    std::shared_ptr<string> startTime_ = nullptr;
+    shared_ptr<string> startTime_ {};
     // The name of the Object Storage Service (OSS) bucket. If you leave this parameter empty, data of all buckets is returned. Separate multiple bucket names with commas (,).
-    std::shared_ptr<string> storage_ = nullptr;
+    shared_ptr<string> storage_ {};
   };
 
   } // namespace Models

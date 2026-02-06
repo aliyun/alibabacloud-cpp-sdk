@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->mediaIds_ == nullptr
-        && return this->restoreDays_ == nullptr && return this->restoreTier_ == nullptr && return this->scope_ == nullptr; };
+        && this->restoreDays_ == nullptr && this->restoreTier_ == nullptr && this->scope_ == nullptr; };
     // mediaIds Field Functions 
     bool hasMediaIds() const { return this->mediaIds_ != nullptr;};
     void deleteMediaIds() { this->mediaIds_ = nullptr;};
-    inline string mediaIds() const { DARABONBA_PTR_GET_DEFAULT(mediaIds_, "") };
+    inline string getMediaIds() const { DARABONBA_PTR_GET_DEFAULT(mediaIds_, "") };
     inline RestoreMediaRequest& setMediaIds(string mediaIds) { DARABONBA_PTR_SET_VALUE(mediaIds_, mediaIds) };
 
 
     // restoreDays Field Functions 
     bool hasRestoreDays() const { return this->restoreDays_ != nullptr;};
     void deleteRestoreDays() { this->restoreDays_ = nullptr;};
-    inline string restoreDays() const { DARABONBA_PTR_GET_DEFAULT(restoreDays_, "") };
+    inline string getRestoreDays() const { DARABONBA_PTR_GET_DEFAULT(restoreDays_, "") };
     inline RestoreMediaRequest& setRestoreDays(string restoreDays) { DARABONBA_PTR_SET_VALUE(restoreDays_, restoreDays) };
 
 
     // restoreTier Field Functions 
     bool hasRestoreTier() const { return this->restoreTier_ != nullptr;};
     void deleteRestoreTier() { this->restoreTier_ = nullptr;};
-    inline string restoreTier() const { DARABONBA_PTR_GET_DEFAULT(restoreTier_, "") };
+    inline string getRestoreTier() const { DARABONBA_PTR_GET_DEFAULT(restoreTier_, "") };
     inline RestoreMediaRequest& setRestoreTier(string restoreTier) { DARABONBA_PTR_SET_VALUE(restoreTier_, restoreTier) };
 
 
     // scope Field Functions 
     bool hasScope() const { return this->scope_ != nullptr;};
     void deleteScope() { this->scope_ = nullptr;};
-    inline string scope() const { DARABONBA_PTR_GET_DEFAULT(scope_, "") };
+    inline string getScope() const { DARABONBA_PTR_GET_DEFAULT(scope_, "") };
     inline RestoreMediaRequest& setScope(string scope) { DARABONBA_PTR_SET_VALUE(scope_, scope) };
 
 
@@ -73,20 +73,20 @@ namespace Models
     // *   Obtain the value of VideoId from the response to the SearchMedia operation that you call to query the media ID after the media asset is uploaded.
     // 
     // This parameter is required.
-    std::shared_ptr<string> mediaIds_ = nullptr;
+    shared_ptr<string> mediaIds_ {};
     // The number of days during which media assets remain in the restored state. Default value: 1. The maximum validity period of a restored Archive media asset is 7 days and the maximum validity period of a restored Cold Archive media asset is 365 days.
-    std::shared_ptr<string> restoreDays_ = nullptr;
+    shared_ptr<string> restoreDays_ {};
     // The restoration priority. This parameter is required only when you restore a Cold Archive media file. Valid values:
     // 
     // *   **Expedited**: The file is restored within 1 hour.
     // *   **Standard**: The file is restored within 2 to 5 hours.
     // *   **Bulk**: The file is restored within 5 to 12 hours.
-    std::shared_ptr<string> restoreTier_ = nullptr;
+    shared_ptr<string> restoreTier_ {};
     // The modification range. Valid values:
     // 
     // *   **All**: restores all resources, including the source files and transcoded streams.
     // *   **SourceFile**: restores only the source files.
-    std::shared_ptr<string> scope_ = nullptr;
+    shared_ptr<string> scope_ {};
   };
 
   } // namespace Models

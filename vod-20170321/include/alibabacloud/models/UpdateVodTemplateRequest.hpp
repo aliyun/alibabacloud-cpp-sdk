@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->name_ == nullptr
-        && return this->templateConfig_ == nullptr && return this->vodTemplateId_ == nullptr; };
+        && this->templateConfig_ == nullptr && this->vodTemplateId_ == nullptr; };
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline UpdateVodTemplateRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // templateConfig Field Functions 
     bool hasTemplateConfig() const { return this->templateConfig_ != nullptr;};
     void deleteTemplateConfig() { this->templateConfig_ = nullptr;};
-    inline string templateConfig() const { DARABONBA_PTR_GET_DEFAULT(templateConfig_, "") };
+    inline string getTemplateConfig() const { DARABONBA_PTR_GET_DEFAULT(templateConfig_, "") };
     inline UpdateVodTemplateRequest& setTemplateConfig(string templateConfig) { DARABONBA_PTR_SET_VALUE(templateConfig_, templateConfig) };
 
 
     // vodTemplateId Field Functions 
     bool hasVodTemplateId() const { return this->vodTemplateId_ != nullptr;};
     void deleteVodTemplateId() { this->vodTemplateId_ = nullptr;};
-    inline string vodTemplateId() const { DARABONBA_PTR_GET_DEFAULT(vodTemplateId_, "") };
+    inline string getVodTemplateId() const { DARABONBA_PTR_GET_DEFAULT(vodTemplateId_, "") };
     inline UpdateVodTemplateRequest& setVodTemplateId(string vodTemplateId) { DARABONBA_PTR_SET_VALUE(vodTemplateId_, vodTemplateId) };
 
 
@@ -61,13 +61,13 @@ namespace Models
     // 
     // *   The name can be up to 128 bytes in length.
     // *   The value must be encoded in UTF-8.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The configurations of the snapshot template. The value is a JSON-formatted string. For more information about the data structure, see the "SnapshotTemplateConfig" section of the [Media processing parameters](https://help.aliyun.com/document_detail/98618.html) topic.
-    std::shared_ptr<string> templateConfig_ = nullptr;
+    shared_ptr<string> templateConfig_ {};
     // The ID of the snapshot template.
     // 
     // This parameter is required.
-    std::shared_ptr<string> vodTemplateId_ = nullptr;
+    shared_ptr<string> vodTemplateId_ {};
   };
 
   } // namespace Models

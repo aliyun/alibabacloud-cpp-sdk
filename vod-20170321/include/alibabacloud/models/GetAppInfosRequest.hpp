@@ -33,7 +33,7 @@ namespace Models
     // appIds Field Functions 
     bool hasAppIds() const { return this->appIds_ != nullptr;};
     void deleteAppIds() { this->appIds_ = nullptr;};
-    inline string appIds() const { DARABONBA_PTR_GET_DEFAULT(appIds_, "") };
+    inline string getAppIds() const { DARABONBA_PTR_GET_DEFAULT(appIds_, "") };
     inline GetAppInfosRequest& setAppIds(string appIds) { DARABONBA_PTR_SET_VALUE(appIds_, appIds) };
 
 
@@ -44,7 +44,7 @@ namespace Models
     // *   Separate application IDs with commas (,).
     // 
     // This parameter is required.
-    std::shared_ptr<string> appIds_ = nullptr;
+    shared_ptr<string> appIds_ {};
   };
 
   } // namespace Models

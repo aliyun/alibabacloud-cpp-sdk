@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->refreshTaskId_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // refreshTaskId Field Functions 
     bool hasRefreshTaskId() const { return this->refreshTaskId_ != nullptr;};
     void deleteRefreshTaskId() { this->refreshTaskId_ = nullptr;};
-    inline string refreshTaskId() const { DARABONBA_PTR_GET_DEFAULT(refreshTaskId_, "") };
+    inline string getRefreshTaskId() const { DARABONBA_PTR_GET_DEFAULT(refreshTaskId_, "") };
     inline RefreshVodObjectCachesResponseBody& setRefreshTaskId(string refreshTaskId) { DARABONBA_PTR_SET_VALUE(refreshTaskId_, refreshTaskId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline RefreshVodObjectCachesResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
@@ -51,9 +51,9 @@ namespace Models
     // The ID of the refresh task. Multiple IDs are separated by commas (,). Refresh tasks are merged based on the following rules:
     // 
     // If the tasks are set for the same accelerated domain name, submitted within the same second, and refresh content based on URLs instead of directories, the tasks IDs are merged into the same task ID (RefreshTaskId). If the number of these tasks exceeds 2,000, every 2,000 tasks IDs are merged into the same task ID (RefreshTaskId).
-    std::shared_ptr<string> refreshTaskId_ = nullptr;
+    shared_ptr<string> refreshTaskId_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

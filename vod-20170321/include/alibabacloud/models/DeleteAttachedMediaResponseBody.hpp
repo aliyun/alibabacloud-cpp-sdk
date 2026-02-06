@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->nonExistMediaIds_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // nonExistMediaIds Field Functions 
     bool hasNonExistMediaIds() const { return this->nonExistMediaIds_ != nullptr;};
     void deleteNonExistMediaIds() { this->nonExistMediaIds_ = nullptr;};
-    inline const vector<string> & nonExistMediaIds() const { DARABONBA_PTR_GET_CONST(nonExistMediaIds_, vector<string>) };
-    inline vector<string> nonExistMediaIds() { DARABONBA_PTR_GET(nonExistMediaIds_, vector<string>) };
+    inline const vector<string> & getNonExistMediaIds() const { DARABONBA_PTR_GET_CONST(nonExistMediaIds_, vector<string>) };
+    inline vector<string> getNonExistMediaIds() { DARABONBA_PTR_GET(nonExistMediaIds_, vector<string>) };
     inline DeleteAttachedMediaResponseBody& setNonExistMediaIds(const vector<string> & nonExistMediaIds) { DARABONBA_PTR_SET_VALUE(nonExistMediaIds_, nonExistMediaIds) };
     inline DeleteAttachedMediaResponseBody& setNonExistMediaIds(vector<string> && nonExistMediaIds) { DARABONBA_PTR_SET_RVALUE(nonExistMediaIds_, nonExistMediaIds) };
 
@@ -46,15 +46,15 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DeleteAttachedMediaResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The IDs of the auxiliary media assets that failed to be deleted.
-    std::shared_ptr<vector<string>> nonExistMediaIds_ = nullptr;
+    shared_ptr<vector<string>> nonExistMediaIds_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

@@ -32,28 +32,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->templateType_ == nullptr; };
+        && this->templateType_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline ListVodTemplateRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // templateType Field Functions 
     bool hasTemplateType() const { return this->templateType_ != nullptr;};
     void deleteTemplateType() { this->templateType_ = nullptr;};
-    inline string templateType() const { DARABONBA_PTR_GET_DEFAULT(templateType_, "") };
+    inline string getTemplateType() const { DARABONBA_PTR_GET_DEFAULT(templateType_, "") };
     inline ListVodTemplateRequest& setTemplateType(string templateType) { DARABONBA_PTR_SET_VALUE(templateType_, templateType) };
 
 
   protected:
     // The ID of the application. Set the value to **app-1000000**. For more information, see [Overview](https://help.aliyun.com/document_detail/113600.html).
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The type of the template. Set the value to **Snapshot**.
     // 
     // This parameter is required.
-    std::shared_ptr<string> templateType_ = nullptr;
+    shared_ptr<string> templateType_ {};
   };
 
   } // namespace Models

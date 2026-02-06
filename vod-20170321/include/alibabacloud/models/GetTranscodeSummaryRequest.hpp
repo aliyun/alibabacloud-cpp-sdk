@@ -33,7 +33,7 @@ namespace Models
     // videoIds Field Functions 
     bool hasVideoIds() const { return this->videoIds_ != nullptr;};
     void deleteVideoIds() { this->videoIds_ = nullptr;};
-    inline string videoIds() const { DARABONBA_PTR_GET_DEFAULT(videoIds_, "") };
+    inline string getVideoIds() const { DARABONBA_PTR_GET_DEFAULT(videoIds_, "") };
     inline GetTranscodeSummaryRequest& setVideoIds(string videoIds) { DARABONBA_PTR_SET_VALUE(videoIds_, videoIds) };
 
 
@@ -45,7 +45,7 @@ namespace Models
     // *   Obtain the value of VideoId by calling the [SearchMedia](https://help.aliyun.com/document_detail/86044.html) operation. This method is applicable to files that have been uploaded.
     // 
     // This parameter is required.
-    std::shared_ptr<string> videoIds_ = nullptr;
+    shared_ptr<string> videoIds_ {};
   };
 
   } // namespace Models

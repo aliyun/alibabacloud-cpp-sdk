@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ips_ == nullptr
-        && return this->operateMode_ == nullptr && return this->securityGroupName_ == nullptr; };
+        && this->operateMode_ == nullptr && this->securityGroupName_ == nullptr; };
     // ips Field Functions 
     bool hasIps() const { return this->ips_ != nullptr;};
     void deleteIps() { this->ips_ = nullptr;};
-    inline string ips() const { DARABONBA_PTR_GET_DEFAULT(ips_, "") };
+    inline string getIps() const { DARABONBA_PTR_GET_DEFAULT(ips_, "") };
     inline SetAuditSecurityIpRequest& setIps(string ips) { DARABONBA_PTR_SET_VALUE(ips_, ips) };
 
 
     // operateMode Field Functions 
     bool hasOperateMode() const { return this->operateMode_ != nullptr;};
     void deleteOperateMode() { this->operateMode_ = nullptr;};
-    inline string operateMode() const { DARABONBA_PTR_GET_DEFAULT(operateMode_, "") };
+    inline string getOperateMode() const { DARABONBA_PTR_GET_DEFAULT(operateMode_, "") };
     inline SetAuditSecurityIpRequest& setOperateMode(string operateMode) { DARABONBA_PTR_SET_VALUE(operateMode_, operateMode) };
 
 
     // securityGroupName Field Functions 
     bool hasSecurityGroupName() const { return this->securityGroupName_ != nullptr;};
     void deleteSecurityGroupName() { this->securityGroupName_ = nullptr;};
-    inline string securityGroupName() const { DARABONBA_PTR_GET_DEFAULT(securityGroupName_, "") };
+    inline string getSecurityGroupName() const { DARABONBA_PTR_GET_DEFAULT(securityGroupName_, "") };
     inline SetAuditSecurityIpRequest& setSecurityGroupName(string securityGroupName) { DARABONBA_PTR_SET_VALUE(securityGroupName_, securityGroupName) };
 
 
@@ -63,7 +63,7 @@ namespace Models
     // *   CIDR block: 192.168.0.1/24. /24 indicates that the prefix of the CIDR block is 24 bits in length. You can replace 24 with a value that ranges `from 1 to 32`.
     // 
     // This parameter is required.
-    std::shared_ptr<string> ips_ = nullptr;
+    shared_ptr<string> ips_ {};
     // The operation type. Valid values:
     // 
     // *   **Append** (default): adds the IP addresses to the original whitelist.
@@ -71,9 +71,9 @@ namespace Models
     // *   **Delete**: removes the IP addresses from the original whitelist.
     // 
     // >  If the value that you specify is invalid, the default value is used.
-    std::shared_ptr<string> operateMode_ = nullptr;
+    shared_ptr<string> operateMode_ {};
     // The name of the review security group. Default value: **Default**. You can specify a maximum of 10 review security groups.
-    std::shared_ptr<string> securityGroupName_ = nullptr;
+    shared_ptr<string> securityGroupName_ {};
   };
 
   } // namespace Models
