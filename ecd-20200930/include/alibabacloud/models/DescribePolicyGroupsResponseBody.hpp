@@ -52,6 +52,9 @@ namespace Models
         DARABONBA_PTR_TO_JSON(CameraRedirect, cameraRedirect_);
         DARABONBA_PTR_TO_JSON(ClientControlMenu, clientControlMenu_);
         DARABONBA_PTR_TO_JSON(ClientCreateSnapshot, clientCreateSnapshot_);
+        DARABONBA_PTR_TO_JSON(ClientHibernate, clientHibernate_);
+        DARABONBA_PTR_TO_JSON(ClientRestart, clientRestart_);
+        DARABONBA_PTR_TO_JSON(ClientShutdown, clientShutdown_);
         DARABONBA_PTR_TO_JSON(ClientTypes, clientTypes_);
         DARABONBA_PTR_TO_JSON(Clipboard, clipboard_);
         DARABONBA_PTR_TO_JSON(ColorEnhancement, colorEnhancement_);
@@ -84,6 +87,9 @@ namespace Models
         DARABONBA_PTR_TO_JSON(FileTransferSpeedLocation, fileTransferSpeedLocation_);
         DARABONBA_PTR_TO_JSON(GpuAcceleration, gpuAcceleration_);
         DARABONBA_PTR_TO_JSON(HoverConfigMsg, hoverConfigMsg_);
+        DARABONBA_PTR_TO_JSON(HoverHibernate, hoverHibernate_);
+        DARABONBA_PTR_TO_JSON(HoverRestart, hoverRestart_);
+        DARABONBA_PTR_TO_JSON(HoverShutdown, hoverShutdown_);
         DARABONBA_PTR_TO_JSON(Html5Access, html5Access_);
         DARABONBA_PTR_TO_JSON(Html5FileTransfer, html5FileTransfer_);
         DARABONBA_PTR_TO_JSON(InternetCommunicationProtocol, internetCommunicationProtocol_);
@@ -184,6 +190,9 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(CameraRedirect, cameraRedirect_);
         DARABONBA_PTR_FROM_JSON(ClientControlMenu, clientControlMenu_);
         DARABONBA_PTR_FROM_JSON(ClientCreateSnapshot, clientCreateSnapshot_);
+        DARABONBA_PTR_FROM_JSON(ClientHibernate, clientHibernate_);
+        DARABONBA_PTR_FROM_JSON(ClientRestart, clientRestart_);
+        DARABONBA_PTR_FROM_JSON(ClientShutdown, clientShutdown_);
         DARABONBA_PTR_FROM_JSON(ClientTypes, clientTypes_);
         DARABONBA_PTR_FROM_JSON(Clipboard, clipboard_);
         DARABONBA_PTR_FROM_JSON(ColorEnhancement, colorEnhancement_);
@@ -216,6 +225,9 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(FileTransferSpeedLocation, fileTransferSpeedLocation_);
         DARABONBA_PTR_FROM_JSON(GpuAcceleration, gpuAcceleration_);
         DARABONBA_PTR_FROM_JSON(HoverConfigMsg, hoverConfigMsg_);
+        DARABONBA_PTR_FROM_JSON(HoverHibernate, hoverHibernate_);
+        DARABONBA_PTR_FROM_JSON(HoverRestart, hoverRestart_);
+        DARABONBA_PTR_FROM_JSON(HoverShutdown, hoverShutdown_);
         DARABONBA_PTR_FROM_JSON(Html5Access, html5Access_);
         DARABONBA_PTR_FROM_JSON(Html5FileTransfer, html5FileTransfer_);
         DARABONBA_PTR_FROM_JSON(InternetCommunicationProtocol, internetCommunicationProtocol_);
@@ -990,31 +1002,32 @@ namespace Models
 
       virtual bool empty() const override { return this->academicProxy_ == nullptr
         && this->adminAccess_ == nullptr && this->appContentProtection_ == nullptr && this->authorizeAccessPolicyRules_ == nullptr && this->authorizeSecurityPolicyRules_ == nullptr && this->autoReconnect_ == nullptr
-        && this->cameraRedirect_ == nullptr && this->clientControlMenu_ == nullptr && this->clientCreateSnapshot_ == nullptr && this->clientTypes_ == nullptr && this->clipboard_ == nullptr
-        && this->colorEnhancement_ == nullptr && this->cpdDriveClipboard_ == nullptr && this->cpuDownGradeDuration_ == nullptr && this->cpuOverload_ == nullptr && this->cpuProcessors_ == nullptr
-        && this->cpuProtectedMode_ == nullptr && this->cpuRateLimit_ == nullptr && this->cpuSampleDuration_ == nullptr && this->cpuSingleRateLimit_ == nullptr && this->desktopCount_ == nullptr
-        && this->desktopGroupCount_ == nullptr && this->deviceConnectHint_ == nullptr && this->deviceRedirects_ == nullptr && this->deviceRules_ == nullptr && this->diskOverload_ == nullptr
-        && this->displayMode_ == nullptr && this->domainList_ == nullptr && this->domainResolveRule_ == nullptr && this->domainResolveRuleType_ == nullptr && this->edsCount_ == nullptr
-        && this->endUserApplyAdminCoordinate_ == nullptr && this->endUserGroupCoordinate_ == nullptr && this->externalDrive_ == nullptr && this->fileMigrate_ == nullptr && this->fileTransfer_ == nullptr
-        && this->fileTransferAddress_ == nullptr && this->fileTransferSpeed_ == nullptr && this->fileTransferSpeedLocation_ == nullptr && this->gpuAcceleration_ == nullptr && this->hoverConfigMsg_ == nullptr
-        && this->html5Access_ == nullptr && this->html5FileTransfer_ == nullptr && this->internetCommunicationProtocol_ == nullptr && this->internetPrinter_ == nullptr && this->localDrive_ == nullptr
-        && this->maxReconnectTime_ == nullptr && this->memoryDownGradeDuration_ == nullptr && this->memoryOverload_ == nullptr && this->memoryProcessors_ == nullptr && this->memoryProtectedMode_ == nullptr
-        && this->memoryRateLimit_ == nullptr && this->memorySampleDuration_ == nullptr && this->memorySingleRateLimit_ == nullptr && this->mobileRestart_ == nullptr && this->mobileSafeMenu_ == nullptr
-        && this->mobileShutdown_ == nullptr && this->mobileWuyingKeeper_ == nullptr && this->mobileWyAssistant_ == nullptr && this->modelLibrary_ == nullptr && this->multiScreen_ == nullptr
-        && this->name_ == nullptr && this->netRedirect_ == nullptr && this->netRedirectRule_ == nullptr && this->policyGroupId_ == nullptr && this->policyGroupType_ == nullptr
-        && this->policyStatus_ == nullptr && this->portProxy_ == nullptr && this->preemptLogin_ == nullptr && this->preemptLoginUsers_ == nullptr && this->printerRedirection_ == nullptr
-        && this->qualityEnhancement_ == nullptr && this->recordContent_ == nullptr && this->recordContentExpires_ == nullptr && this->recordEventDuration_ == nullptr && this->recordEventFileExts_ == nullptr
-        && this->recordEventFilePaths_ == nullptr && this->recordEventLevels_ == nullptr && this->recordEventRegisters_ == nullptr && this->recording_ == nullptr && this->recordingAudio_ == nullptr
-        && this->recordingDuration_ == nullptr && this->recordingEndTime_ == nullptr && this->recordingExpires_ == nullptr && this->recordingFps_ == nullptr && this->recordingStartTime_ == nullptr
-        && this->recordingUserNotify_ == nullptr && this->recordingUserNotifyMessage_ == nullptr && this->remoteCoordinate_ == nullptr && this->resetDesktop_ == nullptr && this->resolutionDpi_ == nullptr
-        && this->resolutionHeight_ == nullptr && this->resolutionModel_ == nullptr && this->resolutionWidth_ == nullptr && this->resourceGroupCount_ == nullptr && this->resourceRegionId_ == nullptr
-        && this->safeMenu_ == nullptr && this->scope_ == nullptr && this->scopeValue_ == nullptr && this->screenDisplayMode_ == nullptr && this->smoothEnhancement_ == nullptr
-        && this->statusMonitor_ == nullptr && this->streamingMode_ == nullptr && this->targetFps_ == nullptr && this->usbRedirect_ == nullptr && this->usbSupplyRedirectRule_ == nullptr
-        && this->useTime_ == nullptr && this->videoEncAvgKbps_ == nullptr && this->videoEncMaxQP_ == nullptr && this->videoEncMinQP_ == nullptr && this->videoEncPeakKbps_ == nullptr
-        && this->videoEncPolicy_ == nullptr && this->videoRedirect_ == nullptr && this->visualQuality_ == nullptr && this->watermark_ == nullptr && this->watermarkAntiCam_ == nullptr
-        && this->watermarkColor_ == nullptr && this->watermarkCustomText_ == nullptr && this->watermarkDegree_ == nullptr && this->watermarkFontSize_ == nullptr && this->watermarkFontStyle_ == nullptr
-        && this->watermarkPower_ == nullptr && this->watermarkRowAmount_ == nullptr && this->watermarkSecurity_ == nullptr && this->watermarkShadow_ == nullptr && this->watermarkTransparency_ == nullptr
-        && this->watermarkTransparencyValue_ == nullptr && this->watermarkType_ == nullptr && this->wuyingKeeper_ == nullptr && this->wyAssistant_ == nullptr; };
+        && this->cameraRedirect_ == nullptr && this->clientControlMenu_ == nullptr && this->clientCreateSnapshot_ == nullptr && this->clientHibernate_ == nullptr && this->clientRestart_ == nullptr
+        && this->clientShutdown_ == nullptr && this->clientTypes_ == nullptr && this->clipboard_ == nullptr && this->colorEnhancement_ == nullptr && this->cpdDriveClipboard_ == nullptr
+        && this->cpuDownGradeDuration_ == nullptr && this->cpuOverload_ == nullptr && this->cpuProcessors_ == nullptr && this->cpuProtectedMode_ == nullptr && this->cpuRateLimit_ == nullptr
+        && this->cpuSampleDuration_ == nullptr && this->cpuSingleRateLimit_ == nullptr && this->desktopCount_ == nullptr && this->desktopGroupCount_ == nullptr && this->deviceConnectHint_ == nullptr
+        && this->deviceRedirects_ == nullptr && this->deviceRules_ == nullptr && this->diskOverload_ == nullptr && this->displayMode_ == nullptr && this->domainList_ == nullptr
+        && this->domainResolveRule_ == nullptr && this->domainResolveRuleType_ == nullptr && this->edsCount_ == nullptr && this->endUserApplyAdminCoordinate_ == nullptr && this->endUserGroupCoordinate_ == nullptr
+        && this->externalDrive_ == nullptr && this->fileMigrate_ == nullptr && this->fileTransfer_ == nullptr && this->fileTransferAddress_ == nullptr && this->fileTransferSpeed_ == nullptr
+        && this->fileTransferSpeedLocation_ == nullptr && this->gpuAcceleration_ == nullptr && this->hoverConfigMsg_ == nullptr && this->hoverHibernate_ == nullptr && this->hoverRestart_ == nullptr
+        && this->hoverShutdown_ == nullptr && this->html5Access_ == nullptr && this->html5FileTransfer_ == nullptr && this->internetCommunicationProtocol_ == nullptr && this->internetPrinter_ == nullptr
+        && this->localDrive_ == nullptr && this->maxReconnectTime_ == nullptr && this->memoryDownGradeDuration_ == nullptr && this->memoryOverload_ == nullptr && this->memoryProcessors_ == nullptr
+        && this->memoryProtectedMode_ == nullptr && this->memoryRateLimit_ == nullptr && this->memorySampleDuration_ == nullptr && this->memorySingleRateLimit_ == nullptr && this->mobileRestart_ == nullptr
+        && this->mobileSafeMenu_ == nullptr && this->mobileShutdown_ == nullptr && this->mobileWuyingKeeper_ == nullptr && this->mobileWyAssistant_ == nullptr && this->modelLibrary_ == nullptr
+        && this->multiScreen_ == nullptr && this->name_ == nullptr && this->netRedirect_ == nullptr && this->netRedirectRule_ == nullptr && this->policyGroupId_ == nullptr
+        && this->policyGroupType_ == nullptr && this->policyStatus_ == nullptr && this->portProxy_ == nullptr && this->preemptLogin_ == nullptr && this->preemptLoginUsers_ == nullptr
+        && this->printerRedirection_ == nullptr && this->qualityEnhancement_ == nullptr && this->recordContent_ == nullptr && this->recordContentExpires_ == nullptr && this->recordEventDuration_ == nullptr
+        && this->recordEventFileExts_ == nullptr && this->recordEventFilePaths_ == nullptr && this->recordEventLevels_ == nullptr && this->recordEventRegisters_ == nullptr && this->recording_ == nullptr
+        && this->recordingAudio_ == nullptr && this->recordingDuration_ == nullptr && this->recordingEndTime_ == nullptr && this->recordingExpires_ == nullptr && this->recordingFps_ == nullptr
+        && this->recordingStartTime_ == nullptr && this->recordingUserNotify_ == nullptr && this->recordingUserNotifyMessage_ == nullptr && this->remoteCoordinate_ == nullptr && this->resetDesktop_ == nullptr
+        && this->resolutionDpi_ == nullptr && this->resolutionHeight_ == nullptr && this->resolutionModel_ == nullptr && this->resolutionWidth_ == nullptr && this->resourceGroupCount_ == nullptr
+        && this->resourceRegionId_ == nullptr && this->safeMenu_ == nullptr && this->scope_ == nullptr && this->scopeValue_ == nullptr && this->screenDisplayMode_ == nullptr
+        && this->smoothEnhancement_ == nullptr && this->statusMonitor_ == nullptr && this->streamingMode_ == nullptr && this->targetFps_ == nullptr && this->usbRedirect_ == nullptr
+        && this->usbSupplyRedirectRule_ == nullptr && this->useTime_ == nullptr && this->videoEncAvgKbps_ == nullptr && this->videoEncMaxQP_ == nullptr && this->videoEncMinQP_ == nullptr
+        && this->videoEncPeakKbps_ == nullptr && this->videoEncPolicy_ == nullptr && this->videoRedirect_ == nullptr && this->visualQuality_ == nullptr && this->watermark_ == nullptr
+        && this->watermarkAntiCam_ == nullptr && this->watermarkColor_ == nullptr && this->watermarkCustomText_ == nullptr && this->watermarkDegree_ == nullptr && this->watermarkFontSize_ == nullptr
+        && this->watermarkFontStyle_ == nullptr && this->watermarkPower_ == nullptr && this->watermarkRowAmount_ == nullptr && this->watermarkSecurity_ == nullptr && this->watermarkShadow_ == nullptr
+        && this->watermarkTransparency_ == nullptr && this->watermarkTransparencyValue_ == nullptr && this->watermarkType_ == nullptr && this->wuyingKeeper_ == nullptr && this->wyAssistant_ == nullptr; };
       // academicProxy Field Functions 
       bool hasAcademicProxy() const { return this->academicProxy_ != nullptr;};
       void deleteAcademicProxy() { this->academicProxy_ = nullptr;};
@@ -1080,6 +1093,27 @@ namespace Models
       void deleteClientCreateSnapshot() { this->clientCreateSnapshot_ = nullptr;};
       inline string getClientCreateSnapshot() const { DARABONBA_PTR_GET_DEFAULT(clientCreateSnapshot_, "") };
       inline DescribePolicyGroups& setClientCreateSnapshot(string clientCreateSnapshot) { DARABONBA_PTR_SET_VALUE(clientCreateSnapshot_, clientCreateSnapshot) };
+
+
+      // clientHibernate Field Functions 
+      bool hasClientHibernate() const { return this->clientHibernate_ != nullptr;};
+      void deleteClientHibernate() { this->clientHibernate_ = nullptr;};
+      inline string getClientHibernate() const { DARABONBA_PTR_GET_DEFAULT(clientHibernate_, "") };
+      inline DescribePolicyGroups& setClientHibernate(string clientHibernate) { DARABONBA_PTR_SET_VALUE(clientHibernate_, clientHibernate) };
+
+
+      // clientRestart Field Functions 
+      bool hasClientRestart() const { return this->clientRestart_ != nullptr;};
+      void deleteClientRestart() { this->clientRestart_ = nullptr;};
+      inline string getClientRestart() const { DARABONBA_PTR_GET_DEFAULT(clientRestart_, "") };
+      inline DescribePolicyGroups& setClientRestart(string clientRestart) { DARABONBA_PTR_SET_VALUE(clientRestart_, clientRestart) };
+
+
+      // clientShutdown Field Functions 
+      bool hasClientShutdown() const { return this->clientShutdown_ != nullptr;};
+      void deleteClientShutdown() { this->clientShutdown_ = nullptr;};
+      inline string getClientShutdown() const { DARABONBA_PTR_GET_DEFAULT(clientShutdown_, "") };
+      inline DescribePolicyGroups& setClientShutdown(string clientShutdown) { DARABONBA_PTR_SET_VALUE(clientShutdown_, clientShutdown) };
 
 
       // clientTypes Field Functions 
@@ -1314,6 +1348,27 @@ namespace Models
       void deleteHoverConfigMsg() { this->hoverConfigMsg_ = nullptr;};
       inline string getHoverConfigMsg() const { DARABONBA_PTR_GET_DEFAULT(hoverConfigMsg_, "") };
       inline DescribePolicyGroups& setHoverConfigMsg(string hoverConfigMsg) { DARABONBA_PTR_SET_VALUE(hoverConfigMsg_, hoverConfigMsg) };
+
+
+      // hoverHibernate Field Functions 
+      bool hasHoverHibernate() const { return this->hoverHibernate_ != nullptr;};
+      void deleteHoverHibernate() { this->hoverHibernate_ = nullptr;};
+      inline string getHoverHibernate() const { DARABONBA_PTR_GET_DEFAULT(hoverHibernate_, "") };
+      inline DescribePolicyGroups& setHoverHibernate(string hoverHibernate) { DARABONBA_PTR_SET_VALUE(hoverHibernate_, hoverHibernate) };
+
+
+      // hoverRestart Field Functions 
+      bool hasHoverRestart() const { return this->hoverRestart_ != nullptr;};
+      void deleteHoverRestart() { this->hoverRestart_ = nullptr;};
+      inline string getHoverRestart() const { DARABONBA_PTR_GET_DEFAULT(hoverRestart_, "") };
+      inline DescribePolicyGroups& setHoverRestart(string hoverRestart) { DARABONBA_PTR_SET_VALUE(hoverRestart_, hoverRestart) };
+
+
+      // hoverShutdown Field Functions 
+      bool hasHoverShutdown() const { return this->hoverShutdown_ != nullptr;};
+      void deleteHoverShutdown() { this->hoverShutdown_ = nullptr;};
+      inline string getHoverShutdown() const { DARABONBA_PTR_GET_DEFAULT(hoverShutdown_, "") };
+      inline DescribePolicyGroups& setHoverShutdown(string hoverShutdown) { DARABONBA_PTR_SET_VALUE(hoverShutdown_, hoverShutdown) };
 
 
       // html5Access Field Functions 
@@ -1985,6 +2040,9 @@ namespace Models
       shared_ptr<string> cameraRedirect_ {};
       shared_ptr<string> clientControlMenu_ {};
       shared_ptr<string> clientCreateSnapshot_ {};
+      shared_ptr<string> clientHibernate_ {};
+      shared_ptr<string> clientRestart_ {};
+      shared_ptr<string> clientShutdown_ {};
       // The logon method control rules to limit the type of the Alibaba Cloud Workspace client used by end users to connect to cloud computers.
       shared_ptr<vector<DescribePolicyGroups::ClientTypes>> clientTypes_ {};
       // The permissions on the clipboard.
@@ -2088,6 +2146,9 @@ namespace Models
       // *   on
       shared_ptr<string> gpuAcceleration_ {};
       shared_ptr<string> hoverConfigMsg_ {};
+      shared_ptr<string> hoverHibernate_ {};
+      shared_ptr<string> hoverRestart_ {};
+      shared_ptr<string> hoverShutdown_ {};
       // Specifies whether to allow web client access.
       // 
       // Valid values:
