@@ -544,6 +544,64 @@ CreateCloudResourceResponse Client::createCloudResource(const CreateCloudResourc
 }
 
 /**
+ * @summary 添加云产品接入的扩展证书
+ *
+ * @param request CreateCloudResourceExtensionCertRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateCloudResourceExtensionCertResponse
+ */
+CreateCloudResourceExtensionCertResponse Client::createCloudResourceExtensionCertWithOptions(const CreateCloudResourceExtensionCertRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCertId()) {
+    query["CertId"] = request.getCertId();
+  }
+
+  if (!!request.hasCloudResourceId()) {
+    query["CloudResourceId"] = request.getCloudResourceId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.getResourceManagerResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateCloudResourceExtensionCert"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateCloudResourceExtensionCertResponse>();
+}
+
+/**
+ * @summary 添加云产品接入的扩展证书
+ *
+ * @param request CreateCloudResourceExtensionCertRequest
+ * @return CreateCloudResourceExtensionCertResponse
+ */
+CreateCloudResourceExtensionCertResponse Client::createCloudResourceExtensionCert(const CreateCloudResourceExtensionCertRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createCloudResourceExtensionCertWithOptions(request, runtime);
+}
+
+/**
  * @summary 创建防护对象
  *
  * @param tmpReq CreateDefenseResourceRequest
@@ -1787,6 +1845,64 @@ DeleteCloudResourceResponse Client::deleteCloudResourceWithOptions(const DeleteC
 DeleteCloudResourceResponse Client::deleteCloudResource(const DeleteCloudResourceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteCloudResourceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除云产品接入的扩展证书
+ *
+ * @param request DeleteCloudResourceExtensionCertRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteCloudResourceExtensionCertResponse
+ */
+DeleteCloudResourceExtensionCertResponse Client::deleteCloudResourceExtensionCertWithOptions(const DeleteCloudResourceExtensionCertRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCertId()) {
+    query["CertId"] = request.getCertId();
+  }
+
+  if (!!request.hasCloudResourceId()) {
+    query["CloudResourceId"] = request.getCloudResourceId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.getResourceManagerResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteCloudResourceExtensionCert"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteCloudResourceExtensionCertResponse>();
+}
+
+/**
+ * @summary 删除云产品接入的扩展证书
+ *
+ * @param request DeleteCloudResourceExtensionCertRequest
+ * @return DeleteCloudResourceExtensionCertResponse
+ */
+DeleteCloudResourceExtensionCertResponse Client::deleteCloudResourceExtensionCert(const DeleteCloudResourceExtensionCertRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteCloudResourceExtensionCertWithOptions(request, runtime);
 }
 
 /**
@@ -12585,6 +12701,64 @@ ModifyCloudResourceCertResponse Client::modifyCloudResourceCertWithOptions(const
 ModifyCloudResourceCertResponse Client::modifyCloudResourceCert(const ModifyCloudResourceCertRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifyCloudResourceCertWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改云产品接入的默认证书
+ *
+ * @param request ModifyCloudResourceDefaultCertRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyCloudResourceDefaultCertResponse
+ */
+ModifyCloudResourceDefaultCertResponse Client::modifyCloudResourceDefaultCertWithOptions(const ModifyCloudResourceDefaultCertRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCertId()) {
+    query["CertId"] = request.getCertId();
+  }
+
+  if (!!request.hasCloudResourceId()) {
+    query["CloudResourceId"] = request.getCloudResourceId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.getResourceManagerResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyCloudResourceDefaultCert"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyCloudResourceDefaultCertResponse>();
+}
+
+/**
+ * @summary 修改云产品接入的默认证书
+ *
+ * @param request ModifyCloudResourceDefaultCertRequest
+ * @return ModifyCloudResourceDefaultCertResponse
+ */
+ModifyCloudResourceDefaultCertResponse Client::modifyCloudResourceDefaultCert(const ModifyCloudResourceDefaultCertRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyCloudResourceDefaultCertWithOptions(request, runtime);
 }
 
 /**

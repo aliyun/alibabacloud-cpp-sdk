@@ -27,6 +27,9 @@
 #include <alibabacloud/models/CreateCloudResourceShrinkRequest.hpp>
 #include <alibabacloud/models/CreateCloudResourceResponseBody.hpp>
 #include <alibabacloud/models/CreateCloudResourceResponse.hpp>
+#include <alibabacloud/models/CreateCloudResourceExtensionCertRequest.hpp>
+#include <alibabacloud/models/CreateCloudResourceExtensionCertResponseBody.hpp>
+#include <alibabacloud/models/CreateCloudResourceExtensionCertResponse.hpp>
 #include <alibabacloud/models/CreateDefenseResourceRequest.hpp>
 #include <alibabacloud/models/CreateDefenseResourceShrinkRequest.hpp>
 #include <alibabacloud/models/CreateDefenseResourceResponseBody.hpp>
@@ -83,6 +86,9 @@
 #include <alibabacloud/models/DeleteCloudResourceRequest.hpp>
 #include <alibabacloud/models/DeleteCloudResourceResponseBody.hpp>
 #include <alibabacloud/models/DeleteCloudResourceResponse.hpp>
+#include <alibabacloud/models/DeleteCloudResourceExtensionCertRequest.hpp>
+#include <alibabacloud/models/DeleteCloudResourceExtensionCertResponseBody.hpp>
+#include <alibabacloud/models/DeleteCloudResourceExtensionCertResponse.hpp>
 #include <alibabacloud/models/DeleteDefenseResourceRequest.hpp>
 #include <alibabacloud/models/DeleteDefenseResourceResponseBody.hpp>
 #include <alibabacloud/models/DeleteDefenseResourceResponse.hpp>
@@ -603,6 +609,9 @@
 #include <alibabacloud/models/ModifyCloudResourceCertRequest.hpp>
 #include <alibabacloud/models/ModifyCloudResourceCertResponseBody.hpp>
 #include <alibabacloud/models/ModifyCloudResourceCertResponse.hpp>
+#include <alibabacloud/models/ModifyCloudResourceDefaultCertRequest.hpp>
+#include <alibabacloud/models/ModifyCloudResourceDefaultCertResponseBody.hpp>
+#include <alibabacloud/models/ModifyCloudResourceDefaultCertResponse.hpp>
 #include <alibabacloud/models/ModifyDefaultHttpsRequest.hpp>
 #include <alibabacloud/models/ModifyDefaultHttpsResponseBody.hpp>
 #include <alibabacloud/models/ModifyDefaultHttpsResponse.hpp>

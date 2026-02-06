@@ -157,6 +157,23 @@ namespace WafOpenapi20211001
       Models::CreateCloudResourceResponse createCloudResource(const Models::CreateCloudResourceRequest &request);
 
       /**
+       * @summary 添加云产品接入的扩展证书
+       *
+       * @param request CreateCloudResourceExtensionCertRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateCloudResourceExtensionCertResponse
+       */
+      Models::CreateCloudResourceExtensionCertResponse createCloudResourceExtensionCertWithOptions(const Models::CreateCloudResourceExtensionCertRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 添加云产品接入的扩展证书
+       *
+       * @param request CreateCloudResourceExtensionCertRequest
+       * @return CreateCloudResourceExtensionCertResponse
+       */
+      Models::CreateCloudResourceExtensionCertResponse createCloudResourceExtensionCert(const Models::CreateCloudResourceExtensionCertRequest &request);
+
+      /**
        * @summary 创建防护对象
        *
        * @param tmpReq CreateDefenseResourceRequest
@@ -465,6 +482,23 @@ namespace WafOpenapi20211001
        * @return DeleteCloudResourceResponse
        */
       Models::DeleteCloudResourceResponse deleteCloudResource(const Models::DeleteCloudResourceRequest &request);
+
+      /**
+       * @summary 删除云产品接入的扩展证书
+       *
+       * @param request DeleteCloudResourceExtensionCertRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteCloudResourceExtensionCertResponse
+       */
+      Models::DeleteCloudResourceExtensionCertResponse deleteCloudResourceExtensionCertWithOptions(const Models::DeleteCloudResourceExtensionCertRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除云产品接入的扩展证书
+       *
+       * @param request DeleteCloudResourceExtensionCertRequest
+       * @return DeleteCloudResourceExtensionCertResponse
+       */
+      Models::DeleteCloudResourceExtensionCertResponse deleteCloudResourceExtensionCert(const Models::DeleteCloudResourceExtensionCertRequest &request);
 
       /**
        * @summary 删除单个防护对象
@@ -3402,6 +3436,23 @@ namespace WafOpenapi20211001
        * @return ModifyCloudResourceCertResponse
        */
       Models::ModifyCloudResourceCertResponse modifyCloudResourceCert(const Models::ModifyCloudResourceCertRequest &request);
+
+      /**
+       * @summary 修改云产品接入的默认证书
+       *
+       * @param request ModifyCloudResourceDefaultCertRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyCloudResourceDefaultCertResponse
+       */
+      Models::ModifyCloudResourceDefaultCertResponse modifyCloudResourceDefaultCertWithOptions(const Models::ModifyCloudResourceDefaultCertRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改云产品接入的默认证书
+       *
+       * @param request ModifyCloudResourceDefaultCertRequest
+       * @return ModifyCloudResourceDefaultCertResponse
+       */
+      Models::ModifyCloudResourceDefaultCertResponse modifyCloudResourceDefaultCert(const Models::ModifyCloudResourceDefaultCertRequest &request);
 
       /**
        * @summary Modifies the default Secure Sockets Layer (SSL) and Transport Layer Security (TLS) settings.
