@@ -16,6 +16,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreateFlowRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Categories, categories_);
       DARABONBA_PTR_TO_JSON(CustSpaceId, custSpaceId_);
+      DARABONBA_PTR_TO_JSON(EndpointUri, endpointUri_);
       DARABONBA_PTR_TO_JSON(FlowName, flowName_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
@@ -24,6 +25,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, CreateFlowRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Categories, categories_);
       DARABONBA_PTR_FROM_JSON(CustSpaceId, custSpaceId_);
+      DARABONBA_PTR_FROM_JSON(EndpointUri, endpointUri_);
       DARABONBA_PTR_FROM_JSON(FlowName, flowName_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
@@ -41,7 +43,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->categories_ == nullptr
-        && this->custSpaceId_ == nullptr && this->flowName_ == nullptr && this->ownerId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr; };
+        && this->custSpaceId_ == nullptr && this->endpointUri_ == nullptr && this->flowName_ == nullptr && this->ownerId_ == nullptr && this->resourceOwnerAccount_ == nullptr
+        && this->resourceOwnerId_ == nullptr; };
     // categories Field Functions 
     bool hasCategories() const { return this->categories_ != nullptr;};
     void deleteCategories() { this->categories_ = nullptr;};
@@ -56,6 +59,13 @@ namespace Models
     void deleteCustSpaceId() { this->custSpaceId_ = nullptr;};
     inline string getCustSpaceId() const { DARABONBA_PTR_GET_DEFAULT(custSpaceId_, "") };
     inline CreateFlowRequest& setCustSpaceId(string custSpaceId) { DARABONBA_PTR_SET_VALUE(custSpaceId_, custSpaceId) };
+
+
+    // endpointUri Field Functions 
+    bool hasEndpointUri() const { return this->endpointUri_ != nullptr;};
+    void deleteEndpointUri() { this->endpointUri_ = nullptr;};
+    inline string getEndpointUri() const { DARABONBA_PTR_GET_DEFAULT(endpointUri_, "") };
+    inline CreateFlowRequest& setEndpointUri(string endpointUri) { DARABONBA_PTR_SET_VALUE(endpointUri_, endpointUri) };
 
 
     // flowName Field Functions 
@@ -90,6 +100,7 @@ namespace Models
     // This parameter is required.
     shared_ptr<vector<string>> categories_ {};
     shared_ptr<string> custSpaceId_ {};
+    shared_ptr<string> endpointUri_ {};
     // This parameter is required.
     shared_ptr<string> flowName_ {};
     shared_ptr<int64_t> ownerId_ {};

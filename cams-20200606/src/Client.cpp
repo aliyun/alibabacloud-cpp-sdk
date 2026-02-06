@@ -1985,6 +1985,10 @@ CreateFlowResponse Client::createFlowWithOptions(const CreateFlowRequest &tmpReq
     query["CustSpaceId"] = request.getCustSpaceId();
   }
 
+  if (!!request.hasEndpointUri()) {
+    query["EndpointUri"] = request.getEndpointUri();
+  }
+
   if (!!request.hasFlowName()) {
     query["FlowName"] = request.getFlowName();
   }
@@ -8279,6 +8283,10 @@ ModifyFlowResponse Client::modifyFlowWithOptions(const ModifyFlowRequest &tmpReq
 
   if (!!request.hasCustSpaceId()) {
     query["CustSpaceId"] = request.getCustSpaceId();
+  }
+
+  if (!!request.hasEndpointUri()) {
+    query["EndpointUri"] = request.getEndpointUri();
   }
 
   if (!!request.hasFlowId()) {

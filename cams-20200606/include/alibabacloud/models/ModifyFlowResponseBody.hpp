@@ -42,11 +42,13 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
         DARABONBA_PTR_TO_JSON(Categories, categories_);
+        DARABONBA_PTR_TO_JSON(EndpointUri, endpointUri_);
         DARABONBA_PTR_TO_JSON(FlowId, flowId_);
         DARABONBA_PTR_TO_JSON(FlowName, flowName_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(Categories, categories_);
+        DARABONBA_PTR_FROM_JSON(EndpointUri, endpointUri_);
         DARABONBA_PTR_FROM_JSON(FlowId, flowId_);
         DARABONBA_PTR_FROM_JSON(FlowName, flowName_);
       };
@@ -62,7 +64,7 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->categories_ == nullptr
-        && this->flowId_ == nullptr && this->flowName_ == nullptr; };
+        && this->endpointUri_ == nullptr && this->flowId_ == nullptr && this->flowName_ == nullptr; };
       // categories Field Functions 
       bool hasCategories() const { return this->categories_ != nullptr;};
       void deleteCategories() { this->categories_ = nullptr;};
@@ -70,6 +72,13 @@ namespace Models
       inline vector<string> getCategories() { DARABONBA_PTR_GET(categories_, vector<string>) };
       inline Data& setCategories(const vector<string> & categories) { DARABONBA_PTR_SET_VALUE(categories_, categories) };
       inline Data& setCategories(vector<string> && categories) { DARABONBA_PTR_SET_RVALUE(categories_, categories) };
+
+
+      // endpointUri Field Functions 
+      bool hasEndpointUri() const { return this->endpointUri_ != nullptr;};
+      void deleteEndpointUri() { this->endpointUri_ = nullptr;};
+      inline string getEndpointUri() const { DARABONBA_PTR_GET_DEFAULT(endpointUri_, "") };
+      inline Data& setEndpointUri(string endpointUri) { DARABONBA_PTR_SET_VALUE(endpointUri_, endpointUri) };
 
 
       // flowId Field Functions 
@@ -89,6 +98,7 @@ namespace Models
     protected:
       // The categories of the Flow.
       shared_ptr<vector<string>> categories_ {};
+      shared_ptr<string> endpointUri_ {};
       // The Flow ID.
       shared_ptr<string> flowId_ {};
       // The Flow name.

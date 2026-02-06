@@ -43,6 +43,7 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
         DARABONBA_PTR_TO_JSON(Categories, categories_);
         DARABONBA_PTR_TO_JSON(DataApiVersion, dataApiVersion_);
+        DARABONBA_PTR_TO_JSON(EndpointUri, endpointUri_);
         DARABONBA_PTR_TO_JSON(FlowId, flowId_);
         DARABONBA_PTR_TO_JSON(FlowName, flowName_);
         DARABONBA_PTR_TO_JSON(JSONVersion, JSONVersion_);
@@ -53,6 +54,7 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(Categories, categories_);
         DARABONBA_PTR_FROM_JSON(DataApiVersion, dataApiVersion_);
+        DARABONBA_PTR_FROM_JSON(EndpointUri, endpointUri_);
         DARABONBA_PTR_FROM_JSON(FlowId, flowId_);
         DARABONBA_PTR_FROM_JSON(FlowName, flowName_);
         DARABONBA_PTR_FROM_JSON(JSONVersion, JSONVersion_);
@@ -72,8 +74,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->categories_ == nullptr
-        && this->dataApiVersion_ == nullptr && this->flowId_ == nullptr && this->flowName_ == nullptr && this->JSONVersion_ == nullptr && this->previewUrl_ == nullptr
-        && this->previewUrlExpires_ == nullptr && this->status_ == nullptr; };
+        && this->dataApiVersion_ == nullptr && this->endpointUri_ == nullptr && this->flowId_ == nullptr && this->flowName_ == nullptr && this->JSONVersion_ == nullptr
+        && this->previewUrl_ == nullptr && this->previewUrlExpires_ == nullptr && this->status_ == nullptr; };
       // categories Field Functions 
       bool hasCategories() const { return this->categories_ != nullptr;};
       void deleteCategories() { this->categories_ = nullptr;};
@@ -88,6 +90,13 @@ namespace Models
       void deleteDataApiVersion() { this->dataApiVersion_ = nullptr;};
       inline string getDataApiVersion() const { DARABONBA_PTR_GET_DEFAULT(dataApiVersion_, "") };
       inline Data& setDataApiVersion(string dataApiVersion) { DARABONBA_PTR_SET_VALUE(dataApiVersion_, dataApiVersion) };
+
+
+      // endpointUri Field Functions 
+      bool hasEndpointUri() const { return this->endpointUri_ != nullptr;};
+      void deleteEndpointUri() { this->endpointUri_ = nullptr;};
+      inline string getEndpointUri() const { DARABONBA_PTR_GET_DEFAULT(endpointUri_, "") };
+      inline Data& setEndpointUri(string endpointUri) { DARABONBA_PTR_SET_VALUE(endpointUri_, endpointUri) };
 
 
       // flowId Field Functions 
@@ -137,6 +146,7 @@ namespace Models
       shared_ptr<vector<string>> categories_ {};
       // The version number of the API.
       shared_ptr<string> dataApiVersion_ {};
+      shared_ptr<string> endpointUri_ {};
       // The Flow ID.
       shared_ptr<string> flowId_ {};
       // The Flow name.
