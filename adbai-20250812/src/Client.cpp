@@ -160,6 +160,56 @@ CreateEmbodiedAIPlatformResponse Client::createEmbodiedAIPlatform(const CreateEm
 }
 
 /**
+ * @summary 删除具身智能平台
+ *
+ * @param request DeleteEmbodiedAIPlatformRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteEmbodiedAIPlatformResponse
+ */
+DeleteEmbodiedAIPlatformResponse Client::deleteEmbodiedAIPlatformWithOptions(const DeleteEmbodiedAIPlatformRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasPlatformName()) {
+    query["PlatformName"] = request.getPlatformName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteEmbodiedAIPlatform"},
+    {"version" , "2025-08-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteEmbodiedAIPlatformResponse>();
+}
+
+/**
+ * @summary 删除具身智能平台
+ *
+ * @param request DeleteEmbodiedAIPlatformRequest
+ * @return DeleteEmbodiedAIPlatformResponse
+ */
+DeleteEmbodiedAIPlatformResponse Client::deleteEmbodiedAIPlatform(const DeleteEmbodiedAIPlatformRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteEmbodiedAIPlatformWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询具身智能平台
  *
  * @param request DescribeEmbodiedAIPlatformsRequest

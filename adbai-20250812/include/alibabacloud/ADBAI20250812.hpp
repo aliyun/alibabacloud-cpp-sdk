@@ -55,6 +55,23 @@ namespace ADBAI20250812
       Models::CreateEmbodiedAIPlatformResponse createEmbodiedAIPlatform(const Models::CreateEmbodiedAIPlatformRequest &request);
 
       /**
+       * @summary 删除具身智能平台
+       *
+       * @param request DeleteEmbodiedAIPlatformRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteEmbodiedAIPlatformResponse
+       */
+      Models::DeleteEmbodiedAIPlatformResponse deleteEmbodiedAIPlatformWithOptions(const Models::DeleteEmbodiedAIPlatformRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除具身智能平台
+       *
+       * @param request DeleteEmbodiedAIPlatformRequest
+       * @return DeleteEmbodiedAIPlatformResponse
+       */
+      Models::DeleteEmbodiedAIPlatformResponse deleteEmbodiedAIPlatform(const Models::DeleteEmbodiedAIPlatformRequest &request);
+
+      /**
        * @summary 查询具身智能平台
        *
        * @param request DescribeEmbodiedAIPlatformsRequest
