@@ -284,6 +284,56 @@ CreateLogoTaskResponse Client::createLogoTask(const CreateLogoTaskRequest &reque
 }
 
 /**
+ * @summary 创建素材中心文件夹
+ *
+ * @param request CreateMaterialDirectoryRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateMaterialDirectoryResponse
+ */
+CreateMaterialDirectoryResponse Client::createMaterialDirectoryWithOptions(const CreateMaterialDirectoryRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasParentDirectoryId()) {
+    query["ParentDirectoryId"] = request.getParentDirectoryId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateMaterialDirectory"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateMaterialDirectoryResponse>();
+}
+
+/**
+ * @summary 创建素材中心文件夹
+ *
+ * @param request CreateMaterialDirectoryRequest
+ * @return CreateMaterialDirectoryResponse
+ */
+CreateMaterialDirectoryResponse Client::createMaterialDirectory(const CreateMaterialDirectoryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createMaterialDirectoryWithOptions(request, runtime);
+}
+
+/**
  * @summary Delete the SSL certificate of a domain
  *
  * @param request DeleteAppDomainCertificateRequest
@@ -373,6 +423,100 @@ DeleteAppDomainRedirectResponse Client::deleteAppDomainRedirectWithOptions(const
 DeleteAppDomainRedirectResponse Client::deleteAppDomainRedirect(const DeleteAppDomainRedirectRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteAppDomainRedirectWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除素材中心文件夹
+ *
+ * @param request DeleteMaterialDirectoryRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteMaterialDirectoryResponse
+ */
+DeleteMaterialDirectoryResponse Client::deleteMaterialDirectoryWithOptions(const DeleteMaterialDirectoryRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasDirectoryId()) {
+    query["DirectoryId"] = request.getDirectoryId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteMaterialDirectory"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteMaterialDirectoryResponse>();
+}
+
+/**
+ * @summary 删除素材中心文件夹
+ *
+ * @param request DeleteMaterialDirectoryRequest
+ * @return DeleteMaterialDirectoryResponse
+ */
+DeleteMaterialDirectoryResponse Client::deleteMaterialDirectory(const DeleteMaterialDirectoryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteMaterialDirectoryWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除素材生产任务
+ *
+ * @param tmpReq DeleteMaterialTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteMaterialTaskResponse
+ */
+DeleteMaterialTaskResponse Client::deleteMaterialTaskWithOptions(const DeleteMaterialTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DeleteMaterialTaskShrinkRequest request = DeleteMaterialTaskShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasTaskIds()) {
+    request.setTaskIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTaskIds(), "TaskIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasTaskIdsShrink()) {
+    query["TaskIds"] = request.getTaskIdsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteMaterialTask"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteMaterialTaskResponse>();
+}
+
+/**
+ * @summary 删除素材生产任务
+ *
+ * @param request DeleteMaterialTaskRequest
+ * @return DeleteMaterialTaskResponse
+ */
+DeleteMaterialTaskResponse Client::deleteMaterialTask(const DeleteMaterialTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteMaterialTaskWithOptions(request, runtime);
 }
 
 /**
@@ -481,6 +625,58 @@ DispatchConsoleAPIForPartnerResponse Client::dispatchConsoleAPIForPartnerWithOpt
 DispatchConsoleAPIForPartnerResponse Client::dispatchConsoleAPIForPartner(const DispatchConsoleAPIForPartnerRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return dispatchConsoleAPIForPartnerWithOptions(request, runtime);
+}
+
+/**
+ * @summary 导出素材文件
+ *
+ * @param tmpReq ExportMaterialFileRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ExportMaterialFileResponse
+ */
+ExportMaterialFileResponse Client::exportMaterialFileWithOptions(const ExportMaterialFileRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ExportMaterialFileShrinkRequest request = ExportMaterialFileShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasFileIds()) {
+    request.setFileIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFileIds(), "FileIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasFileIdsShrink()) {
+    query["FileIds"] = request.getFileIdsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ExportMaterialFile"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ExportMaterialFileResponse>();
+}
+
+/**
+ * @summary 导出素材文件
+ *
+ * @param request ExportMaterialFileRequest
+ * @return ExportMaterialFileResponse
+ */
+ExportMaterialFileResponse Client::exportMaterialFile(const ExportMaterialFileRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return exportMaterialFileWithOptions(request, runtime);
 }
 
 /**
@@ -1088,6 +1284,272 @@ ModifyAppInstanceSpecResponse Client::modifyAppInstanceSpec(const ModifyAppInsta
 }
 
 /**
+ * @summary 修改素材中心文件夹
+ *
+ * @param request ModifyMaterialDirectoryRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyMaterialDirectoryResponse
+ */
+ModifyMaterialDirectoryResponse Client::modifyMaterialDirectoryWithOptions(const ModifyMaterialDirectoryRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasDirectoryId()) {
+    query["DirectoryId"] = request.getDirectoryId();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyMaterialDirectory"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyMaterialDirectoryResponse>();
+}
+
+/**
+ * @summary 修改素材中心文件夹
+ *
+ * @param request ModifyMaterialDirectoryRequest
+ * @return ModifyMaterialDirectoryResponse
+ */
+ModifyMaterialDirectoryResponse Client::modifyMaterialDirectory(const ModifyMaterialDirectoryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyMaterialDirectoryWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改素材文件
+ *
+ * @param request ModifyMaterialFileRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyMaterialFileResponse
+ */
+ModifyMaterialFileResponse Client::modifyMaterialFileWithOptions(const ModifyMaterialFileRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasFileId()) {
+    query["FileId"] = request.getFileId();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyMaterialFile"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyMaterialFileResponse>();
+}
+
+/**
+ * @summary 修改素材文件
+ *
+ * @param request ModifyMaterialFileRequest
+ * @return ModifyMaterialFileResponse
+ */
+ModifyMaterialFileResponse Client::modifyMaterialFile(const ModifyMaterialFileRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyMaterialFileWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改素材文件状态
+ *
+ * @param tmpReq ModifyMaterialFileStatusRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyMaterialFileStatusResponse
+ */
+ModifyMaterialFileStatusResponse Client::modifyMaterialFileStatusWithOptions(const ModifyMaterialFileStatusRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ModifyMaterialFileStatusShrinkRequest request = ModifyMaterialFileStatusShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasFileIds()) {
+    request.setFileIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFileIds(), "FileIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasFileIdsShrink()) {
+    query["FileIds"] = request.getFileIdsShrink();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyMaterialFileStatus"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyMaterialFileStatusResponse>();
+}
+
+/**
+ * @summary 修改素材文件状态
+ *
+ * @param request ModifyMaterialFileStatusRequest
+ * @return ModifyMaterialFileStatusResponse
+ */
+ModifyMaterialFileStatusResponse Client::modifyMaterialFileStatus(const ModifyMaterialFileStatusRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyMaterialFileStatusWithOptions(request, runtime);
+}
+
+/**
+ * @summary 移动素材中心文件夹
+ *
+ * @param request MoveMaterialDirectoryRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return MoveMaterialDirectoryResponse
+ */
+MoveMaterialDirectoryResponse Client::moveMaterialDirectoryWithOptions(const MoveMaterialDirectoryRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasDirectoryId()) {
+    query["DirectoryId"] = request.getDirectoryId();
+  }
+
+  if (!!request.hasParentDirectoryId()) {
+    query["ParentDirectoryId"] = request.getParentDirectoryId();
+  }
+
+  if (!!request.hasSortNum()) {
+    query["SortNum"] = request.getSortNum();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "MoveMaterialDirectory"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<MoveMaterialDirectoryResponse>();
+}
+
+/**
+ * @summary 移动素材中心文件夹
+ *
+ * @param request MoveMaterialDirectoryRequest
+ * @return MoveMaterialDirectoryResponse
+ */
+MoveMaterialDirectoryResponse Client::moveMaterialDirectory(const MoveMaterialDirectoryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return moveMaterialDirectoryWithOptions(request, runtime);
+}
+
+/**
+ * @summary 移动素材文件
+ *
+ * @param tmpReq MoveMaterialFileRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return MoveMaterialFileResponse
+ */
+MoveMaterialFileResponse Client::moveMaterialFileWithOptions(const MoveMaterialFileRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  MoveMaterialFileShrinkRequest request = MoveMaterialFileShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasFileIds()) {
+    request.setFileIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFileIds(), "FileIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasDirectoryId()) {
+    query["DirectoryId"] = request.getDirectoryId();
+  }
+
+  if (!!request.hasFileIdsShrink()) {
+    query["FileIds"] = request.getFileIdsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "MoveMaterialFile"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<MoveMaterialFileResponse>();
+}
+
+/**
+ * @summary 移动素材文件
+ *
+ * @param request MoveMaterialFileRequest
+ * @return MoveMaterialFileResponse
+ */
+MoveMaterialFileResponse Client::moveMaterialFile(const MoveMaterialFileRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return moveMaterialFileWithOptions(request, runtime);
+}
+
+/**
  * @summary 合作伙伴操作应用
  *
  * @param request OperateAppInstanceForPartnerRequest
@@ -1185,6 +1647,416 @@ OperateAppServiceForPartnerResponse Client::operateAppServiceForPartnerWithOptio
 OperateAppServiceForPartnerResponse Client::operateAppServiceForPartner(const OperateAppServiceForPartnerRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return operateAppServiceForPartnerWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询素材中心文件夹树结构
+ *
+ * @param request QueryMaterialDirectoryTreeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryMaterialDirectoryTreeResponse
+ */
+QueryMaterialDirectoryTreeResponse Client::queryMaterialDirectoryTreeWithOptions(const QueryMaterialDirectoryTreeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasHiddenPublic()) {
+    query["HiddenPublic"] = request.getHiddenPublic();
+  }
+
+  if (!!request.hasRoot()) {
+    query["Root"] = request.getRoot();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryMaterialDirectoryTree"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryMaterialDirectoryTreeResponse>();
+}
+
+/**
+ * @summary 查询素材中心文件夹树结构
+ *
+ * @param request QueryMaterialDirectoryTreeRequest
+ * @return QueryMaterialDirectoryTreeResponse
+ */
+QueryMaterialDirectoryTreeResponse Client::queryMaterialDirectoryTree(const QueryMaterialDirectoryTreeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryMaterialDirectoryTreeWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询素材文件详情
+ *
+ * @param request QueryMaterialFileDetailRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryMaterialFileDetailResponse
+ */
+QueryMaterialFileDetailResponse Client::queryMaterialFileDetailWithOptions(const QueryMaterialFileDetailRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasFileId()) {
+    query["FileId"] = request.getFileId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryMaterialFileDetail"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryMaterialFileDetailResponse>();
+}
+
+/**
+ * @summary 查询素材文件详情
+ *
+ * @param request QueryMaterialFileDetailRequest
+ * @return QueryMaterialFileDetailResponse
+ */
+QueryMaterialFileDetailResponse Client::queryMaterialFileDetail(const QueryMaterialFileDetailRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryMaterialFileDetailWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询素材文件列表
+ *
+ * @param tmpReq QueryMaterialFileListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryMaterialFileListResponse
+ */
+QueryMaterialFileListResponse Client::queryMaterialFileListWithOptions(const QueryMaterialFileListRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  QueryMaterialFileListShrinkRequest request = QueryMaterialFileListShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasStatusList()) {
+    request.setStatusListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getStatusList(), "StatusList", "json"));
+  }
+
+  if (!!tmpReq.hasSuffixList()) {
+    request.setSuffixListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSuffixList(), "SuffixList", "json"));
+  }
+
+  if (!!tmpReq.hasTypeList()) {
+    request.setTypeListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTypeList(), "TypeList", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasDirectoryId()) {
+    query["DirectoryId"] = request.getDirectoryId();
+  }
+
+  if (!!request.hasMaxFileSize()) {
+    query["MaxFileSize"] = request.getMaxFileSize();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasMinFileSize()) {
+    query["MinFileSize"] = request.getMinFileSize();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasOrderColumn()) {
+    query["OrderColumn"] = request.getOrderColumn();
+  }
+
+  if (!!request.hasOrderType()) {
+    query["OrderType"] = request.getOrderType();
+  }
+
+  if (!!request.hasPageNum()) {
+    query["PageNum"] = request.getPageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasStatusListShrink()) {
+    query["StatusList"] = request.getStatusListShrink();
+  }
+
+  if (!!request.hasSuffixListShrink()) {
+    query["SuffixList"] = request.getSuffixListShrink();
+  }
+
+  if (!!request.hasTypeListShrink()) {
+    query["TypeList"] = request.getTypeListShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryMaterialFileList"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryMaterialFileListResponse>();
+}
+
+/**
+ * @summary 查询素材文件列表
+ *
+ * @param request QueryMaterialFileListRequest
+ * @return QueryMaterialFileListResponse
+ */
+QueryMaterialFileListResponse Client::queryMaterialFileList(const QueryMaterialFileListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryMaterialFileListWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询素材中心文件概要信息
+ *
+ * @param tmpReq QueryMaterialFileSummaryInfoRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryMaterialFileSummaryInfoResponse
+ */
+QueryMaterialFileSummaryInfoResponse Client::queryMaterialFileSummaryInfoWithOptions(const QueryMaterialFileSummaryInfoRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  QueryMaterialFileSummaryInfoShrinkRequest request = QueryMaterialFileSummaryInfoShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasStatusList()) {
+    request.setStatusListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getStatusList(), "StatusList", "json"));
+  }
+
+  if (!!tmpReq.hasTypeList()) {
+    request.setTypeListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTypeList(), "TypeList", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasDirectoryId()) {
+    query["DirectoryId"] = request.getDirectoryId();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasOrderColumn()) {
+    query["OrderColumn"] = request.getOrderColumn();
+  }
+
+  if (!!request.hasOrderType()) {
+    query["OrderType"] = request.getOrderType();
+  }
+
+  if (!!request.hasPageNum()) {
+    query["PageNum"] = request.getPageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasStatusListShrink()) {
+    query["StatusList"] = request.getStatusListShrink();
+  }
+
+  if (!!request.hasTypeListShrink()) {
+    query["TypeList"] = request.getTypeListShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryMaterialFileSummaryInfo"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryMaterialFileSummaryInfoResponse>();
+}
+
+/**
+ * @summary 查询素材中心文件概要信息
+ *
+ * @param request QueryMaterialFileSummaryInfoRequest
+ * @return QueryMaterialFileSummaryInfoResponse
+ */
+QueryMaterialFileSummaryInfoResponse Client::queryMaterialFileSummaryInfo(const QueryMaterialFileSummaryInfoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryMaterialFileSummaryInfoWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询素材生产任务详情
+ *
+ * @param request QueryMaterialTaskDetailRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryMaterialTaskDetailResponse
+ */
+QueryMaterialTaskDetailResponse Client::queryMaterialTaskDetailWithOptions(const QueryMaterialTaskDetailRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTaskId()) {
+    query["TaskId"] = request.getTaskId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryMaterialTaskDetail"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryMaterialTaskDetailResponse>();
+}
+
+/**
+ * @summary 查询素材生产任务详情
+ *
+ * @param request QueryMaterialTaskDetailRequest
+ * @return QueryMaterialTaskDetailResponse
+ */
+QueryMaterialTaskDetailResponse Client::queryMaterialTaskDetail(const QueryMaterialTaskDetailRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryMaterialTaskDetailWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询素材生产任务列表
+ *
+ * @param tmpReq QueryMaterialTaskListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryMaterialTaskListResponse
+ */
+QueryMaterialTaskListResponse Client::queryMaterialTaskListWithOptions(const QueryMaterialTaskListRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  QueryMaterialTaskListShrinkRequest request = QueryMaterialTaskListShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasStatusList()) {
+    request.setStatusListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getStatusList(), "StatusList", "json"));
+  }
+
+  if (!!tmpReq.hasTaskTypeList()) {
+    request.setTaskTypeListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTaskTypeList(), "TaskTypeList", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasOrderColumn()) {
+    query["OrderColumn"] = request.getOrderColumn();
+  }
+
+  if (!!request.hasOrderType()) {
+    query["OrderType"] = request.getOrderType();
+  }
+
+  if (!!request.hasPageNum()) {
+    query["PageNum"] = request.getPageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasStatusListShrink()) {
+    query["StatusList"] = request.getStatusListShrink();
+  }
+
+  if (!!request.hasTaskTypeListShrink()) {
+    query["TaskTypeList"] = request.getTaskTypeListShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryMaterialTaskList"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryMaterialTaskListResponse>();
+}
+
+/**
+ * @summary 查询素材生产任务列表
+ *
+ * @param request QueryMaterialTaskListRequest
+ * @return QueryMaterialTaskListResponse
+ */
+QueryMaterialTaskListResponse Client::queryMaterialTaskList(const QueryMaterialTaskListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryMaterialTaskListWithOptions(request, runtime);
 }
 
 /**
@@ -1520,6 +2392,52 @@ SetAppDomainCertificateResponse Client::setAppDomainCertificate(const SetAppDoma
 }
 
 /**
+ * @summary 提交素材生产任务
+ *
+ * @param request SubmitMaterialTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SubmitMaterialTaskResponse
+ */
+SubmitMaterialTaskResponse Client::submitMaterialTaskWithOptions(const SubmitMaterialTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTaskParam()) {
+    query["TaskParam"] = request.getTaskParam();
+  }
+
+  if (!!request.hasTaskType()) {
+    query["TaskType"] = request.getTaskType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SubmitMaterialTask"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SubmitMaterialTaskResponse>();
+}
+
+/**
+ * @summary 提交素材生产任务
+ *
+ * @param request SubmitMaterialTaskRequest
+ * @return SubmitMaterialTaskResponse
+ */
+SubmitMaterialTaskResponse Client::submitMaterialTask(const SubmitMaterialTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return submitMaterialTaskWithOptions(request, runtime);
+}
+
+/**
  * @summary 合作伙伴同步应用实例
  *
  * @param tmpReq SyncAppInstanceForPartnerRequest
@@ -1627,6 +2545,60 @@ UnbindAppDomainResponse Client::unbindAppDomainWithOptions(const UnbindAppDomain
 UnbindAppDomainResponse Client::unbindAppDomain(const UnbindAppDomainRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return unbindAppDomainWithOptions(request, runtime);
+}
+
+/**
+ * @summary 上传素材文件
+ *
+ * @param request UploadMaterialFileRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UploadMaterialFileResponse
+ */
+UploadMaterialFileResponse Client::uploadMaterialFileWithOptions(const UploadMaterialFileRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasDirectoryId()) {
+    query["DirectoryId"] = request.getDirectoryId();
+  }
+
+  if (!!request.hasFileUrl()) {
+    query["FileUrl"] = request.getFileUrl();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UploadMaterialFile"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UploadMaterialFileResponse>();
+}
+
+/**
+ * @summary 上传素材文件
+ *
+ * @param request UploadMaterialFileRequest
+ * @return UploadMaterialFileResponse
+ */
+UploadMaterialFileResponse Client::uploadMaterialFile(const UploadMaterialFileRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return uploadMaterialFileWithOptions(request, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace WebsiteBuild20250429

@@ -89,6 +89,23 @@ namespace WebsiteBuild20250429
       Models::CreateLogoTaskResponse createLogoTask(const Models::CreateLogoTaskRequest &request);
 
       /**
+       * @summary 创建素材中心文件夹
+       *
+       * @param request CreateMaterialDirectoryRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateMaterialDirectoryResponse
+       */
+      Models::CreateMaterialDirectoryResponse createMaterialDirectoryWithOptions(const Models::CreateMaterialDirectoryRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建素材中心文件夹
+       *
+       * @param request CreateMaterialDirectoryRequest
+       * @return CreateMaterialDirectoryResponse
+       */
+      Models::CreateMaterialDirectoryResponse createMaterialDirectory(const Models::CreateMaterialDirectoryRequest &request);
+
+      /**
        * @summary Delete the SSL certificate of a domain
        *
        * @param request DeleteAppDomainCertificateRequest
@@ -123,6 +140,40 @@ namespace WebsiteBuild20250429
       Models::DeleteAppDomainRedirectResponse deleteAppDomainRedirect(const Models::DeleteAppDomainRedirectRequest &request);
 
       /**
+       * @summary 删除素材中心文件夹
+       *
+       * @param request DeleteMaterialDirectoryRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteMaterialDirectoryResponse
+       */
+      Models::DeleteMaterialDirectoryResponse deleteMaterialDirectoryWithOptions(const Models::DeleteMaterialDirectoryRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除素材中心文件夹
+       *
+       * @param request DeleteMaterialDirectoryRequest
+       * @return DeleteMaterialDirectoryResponse
+       */
+      Models::DeleteMaterialDirectoryResponse deleteMaterialDirectory(const Models::DeleteMaterialDirectoryRequest &request);
+
+      /**
+       * @summary 删除素材生产任务
+       *
+       * @param tmpReq DeleteMaterialTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteMaterialTaskResponse
+       */
+      Models::DeleteMaterialTaskResponse deleteMaterialTaskWithOptions(const Models::DeleteMaterialTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除素材生产任务
+       *
+       * @param request DeleteMaterialTaskRequest
+       * @return DeleteMaterialTaskResponse
+       */
+      Models::DeleteMaterialTaskResponse deleteMaterialTask(const Models::DeleteMaterialTaskRequest &request);
+
+      /**
        * @summary Query the DNS resolution records of a domain
        *
        * @param request DescribeAppDomainDnsRecordRequest
@@ -155,6 +206,23 @@ namespace WebsiteBuild20250429
        * @return DispatchConsoleAPIForPartnerResponse
        */
       Models::DispatchConsoleAPIForPartnerResponse dispatchConsoleAPIForPartner(const Models::DispatchConsoleAPIForPartnerRequest &request);
+
+      /**
+       * @summary 导出素材文件
+       *
+       * @param tmpReq ExportMaterialFileRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ExportMaterialFileResponse
+       */
+      Models::ExportMaterialFileResponse exportMaterialFileWithOptions(const Models::ExportMaterialFileRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 导出素材文件
+       *
+       * @param request ExportMaterialFileRequest
+       * @return ExportMaterialFileResponse
+       */
+      Models::ExportMaterialFileResponse exportMaterialFile(const Models::ExportMaterialFileRequest &request);
 
       /**
        * @summary Query Application Instance Details
@@ -344,6 +412,91 @@ namespace WebsiteBuild20250429
       Models::ModifyAppInstanceSpecResponse modifyAppInstanceSpec(const Models::ModifyAppInstanceSpecRequest &request);
 
       /**
+       * @summary 修改素材中心文件夹
+       *
+       * @param request ModifyMaterialDirectoryRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyMaterialDirectoryResponse
+       */
+      Models::ModifyMaterialDirectoryResponse modifyMaterialDirectoryWithOptions(const Models::ModifyMaterialDirectoryRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改素材中心文件夹
+       *
+       * @param request ModifyMaterialDirectoryRequest
+       * @return ModifyMaterialDirectoryResponse
+       */
+      Models::ModifyMaterialDirectoryResponse modifyMaterialDirectory(const Models::ModifyMaterialDirectoryRequest &request);
+
+      /**
+       * @summary 修改素材文件
+       *
+       * @param request ModifyMaterialFileRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyMaterialFileResponse
+       */
+      Models::ModifyMaterialFileResponse modifyMaterialFileWithOptions(const Models::ModifyMaterialFileRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改素材文件
+       *
+       * @param request ModifyMaterialFileRequest
+       * @return ModifyMaterialFileResponse
+       */
+      Models::ModifyMaterialFileResponse modifyMaterialFile(const Models::ModifyMaterialFileRequest &request);
+
+      /**
+       * @summary 修改素材文件状态
+       *
+       * @param tmpReq ModifyMaterialFileStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyMaterialFileStatusResponse
+       */
+      Models::ModifyMaterialFileStatusResponse modifyMaterialFileStatusWithOptions(const Models::ModifyMaterialFileStatusRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改素材文件状态
+       *
+       * @param request ModifyMaterialFileStatusRequest
+       * @return ModifyMaterialFileStatusResponse
+       */
+      Models::ModifyMaterialFileStatusResponse modifyMaterialFileStatus(const Models::ModifyMaterialFileStatusRequest &request);
+
+      /**
+       * @summary 移动素材中心文件夹
+       *
+       * @param request MoveMaterialDirectoryRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return MoveMaterialDirectoryResponse
+       */
+      Models::MoveMaterialDirectoryResponse moveMaterialDirectoryWithOptions(const Models::MoveMaterialDirectoryRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 移动素材中心文件夹
+       *
+       * @param request MoveMaterialDirectoryRequest
+       * @return MoveMaterialDirectoryResponse
+       */
+      Models::MoveMaterialDirectoryResponse moveMaterialDirectory(const Models::MoveMaterialDirectoryRequest &request);
+
+      /**
+       * @summary 移动素材文件
+       *
+       * @param tmpReq MoveMaterialFileRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return MoveMaterialFileResponse
+       */
+      Models::MoveMaterialFileResponse moveMaterialFileWithOptions(const Models::MoveMaterialFileRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 移动素材文件
+       *
+       * @param request MoveMaterialFileRequest
+       * @return MoveMaterialFileResponse
+       */
+      Models::MoveMaterialFileResponse moveMaterialFile(const Models::MoveMaterialFileRequest &request);
+
+      /**
        * @summary 合作伙伴操作应用
        *
        * @param request OperateAppInstanceForPartnerRequest
@@ -376,6 +529,108 @@ namespace WebsiteBuild20250429
        * @return OperateAppServiceForPartnerResponse
        */
       Models::OperateAppServiceForPartnerResponse operateAppServiceForPartner(const Models::OperateAppServiceForPartnerRequest &request);
+
+      /**
+       * @summary 查询素材中心文件夹树结构
+       *
+       * @param request QueryMaterialDirectoryTreeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryMaterialDirectoryTreeResponse
+       */
+      Models::QueryMaterialDirectoryTreeResponse queryMaterialDirectoryTreeWithOptions(const Models::QueryMaterialDirectoryTreeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询素材中心文件夹树结构
+       *
+       * @param request QueryMaterialDirectoryTreeRequest
+       * @return QueryMaterialDirectoryTreeResponse
+       */
+      Models::QueryMaterialDirectoryTreeResponse queryMaterialDirectoryTree(const Models::QueryMaterialDirectoryTreeRequest &request);
+
+      /**
+       * @summary 查询素材文件详情
+       *
+       * @param request QueryMaterialFileDetailRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryMaterialFileDetailResponse
+       */
+      Models::QueryMaterialFileDetailResponse queryMaterialFileDetailWithOptions(const Models::QueryMaterialFileDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询素材文件详情
+       *
+       * @param request QueryMaterialFileDetailRequest
+       * @return QueryMaterialFileDetailResponse
+       */
+      Models::QueryMaterialFileDetailResponse queryMaterialFileDetail(const Models::QueryMaterialFileDetailRequest &request);
+
+      /**
+       * @summary 查询素材文件列表
+       *
+       * @param tmpReq QueryMaterialFileListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryMaterialFileListResponse
+       */
+      Models::QueryMaterialFileListResponse queryMaterialFileListWithOptions(const Models::QueryMaterialFileListRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询素材文件列表
+       *
+       * @param request QueryMaterialFileListRequest
+       * @return QueryMaterialFileListResponse
+       */
+      Models::QueryMaterialFileListResponse queryMaterialFileList(const Models::QueryMaterialFileListRequest &request);
+
+      /**
+       * @summary 查询素材中心文件概要信息
+       *
+       * @param tmpReq QueryMaterialFileSummaryInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryMaterialFileSummaryInfoResponse
+       */
+      Models::QueryMaterialFileSummaryInfoResponse queryMaterialFileSummaryInfoWithOptions(const Models::QueryMaterialFileSummaryInfoRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询素材中心文件概要信息
+       *
+       * @param request QueryMaterialFileSummaryInfoRequest
+       * @return QueryMaterialFileSummaryInfoResponse
+       */
+      Models::QueryMaterialFileSummaryInfoResponse queryMaterialFileSummaryInfo(const Models::QueryMaterialFileSummaryInfoRequest &request);
+
+      /**
+       * @summary 查询素材生产任务详情
+       *
+       * @param request QueryMaterialTaskDetailRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryMaterialTaskDetailResponse
+       */
+      Models::QueryMaterialTaskDetailResponse queryMaterialTaskDetailWithOptions(const Models::QueryMaterialTaskDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询素材生产任务详情
+       *
+       * @param request QueryMaterialTaskDetailRequest
+       * @return QueryMaterialTaskDetailResponse
+       */
+      Models::QueryMaterialTaskDetailResponse queryMaterialTaskDetail(const Models::QueryMaterialTaskDetailRequest &request);
+
+      /**
+       * @summary 查询素材生产任务列表
+       *
+       * @param tmpReq QueryMaterialTaskListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryMaterialTaskListResponse
+       */
+      Models::QueryMaterialTaskListResponse queryMaterialTaskListWithOptions(const Models::QueryMaterialTaskListRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询素材生产任务列表
+       *
+       * @param request QueryMaterialTaskListRequest
+       * @return QueryMaterialTaskListResponse
+       */
+      Models::QueryMaterialTaskListResponse queryMaterialTaskList(const Models::QueryMaterialTaskListRequest &request);
 
       /**
        * @summary Refresh ticket
@@ -463,6 +718,23 @@ namespace WebsiteBuild20250429
       Models::SetAppDomainCertificateResponse setAppDomainCertificate(const Models::SetAppDomainCertificateRequest &request);
 
       /**
+       * @summary 提交素材生产任务
+       *
+       * @param request SubmitMaterialTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SubmitMaterialTaskResponse
+       */
+      Models::SubmitMaterialTaskResponse submitMaterialTaskWithOptions(const Models::SubmitMaterialTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 提交素材生产任务
+       *
+       * @param request SubmitMaterialTaskRequest
+       * @return SubmitMaterialTaskResponse
+       */
+      Models::SubmitMaterialTaskResponse submitMaterialTask(const Models::SubmitMaterialTaskRequest &request);
+
+      /**
        * @summary 合作伙伴同步应用实例
        *
        * @param tmpReq SyncAppInstanceForPartnerRequest
@@ -495,6 +767,23 @@ namespace WebsiteBuild20250429
        * @return UnbindAppDomainResponse
        */
       Models::UnbindAppDomainResponse unbindAppDomain(const Models::UnbindAppDomainRequest &request);
+
+      /**
+       * @summary 上传素材文件
+       *
+       * @param request UploadMaterialFileRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UploadMaterialFileResponse
+       */
+      Models::UploadMaterialFileResponse uploadMaterialFileWithOptions(const Models::UploadMaterialFileRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 上传素材文件
+       *
+       * @param request UploadMaterialFileRequest
+       * @return UploadMaterialFileResponse
+       */
+      Models::UploadMaterialFileResponse uploadMaterialFile(const Models::UploadMaterialFileRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace WebsiteBuild20250429
