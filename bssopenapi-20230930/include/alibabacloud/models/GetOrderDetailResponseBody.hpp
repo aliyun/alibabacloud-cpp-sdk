@@ -496,7 +496,6 @@ namespace Models
 
 
             protected:
-              // apiCode
               shared_ptr<string> apiCode_ {};
               shared_ptr<BillModuleConfigItem::BillModuleProperties> billModuleProperties_ {};
               shared_ptr<string> code_ {};

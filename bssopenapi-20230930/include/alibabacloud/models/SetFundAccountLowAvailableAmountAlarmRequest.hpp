@@ -49,6 +49,7 @@ namespace Models
 
   protected:
     shared_ptr<int64_t> fundAccountId_ {};
+    // This parameter is required.
     shared_ptr<string> thresholdAmount_ {};
   };
 
