@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ByMonth, byMonth_);
       DARABONBA_PTR_TO_JSON(EndDate, endDate_);
       DARABONBA_PTR_TO_JSON(Label, label_);
+      DARABONBA_PTR_TO_JSON(Query, query_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ResourceType, resourceType_);
       DARABONBA_PTR_TO_JSON(ServiceCode, serviceCode_);
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ByMonth, byMonth_);
       DARABONBA_PTR_FROM_JSON(EndDate, endDate_);
       DARABONBA_PTR_FROM_JSON(Label, label_);
+      DARABONBA_PTR_FROM_JSON(Query, query_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ResourceType, resourceType_);
       DARABONBA_PTR_FROM_JSON(ServiceCode, serviceCode_);
@@ -46,8 +48,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->byMonth_ == nullptr
-        && this->endDate_ == nullptr && this->label_ == nullptr && this->regionId_ == nullptr && this->resourceType_ == nullptr && this->serviceCode_ == nullptr
-        && this->startDate_ == nullptr && this->subUid_ == nullptr && this->type_ == nullptr; };
+        && this->endDate_ == nullptr && this->label_ == nullptr && this->query_ == nullptr && this->regionId_ == nullptr && this->resourceType_ == nullptr
+        && this->serviceCode_ == nullptr && this->startDate_ == nullptr && this->subUid_ == nullptr && this->type_ == nullptr; };
     // byMonth Field Functions 
     bool hasByMonth() const { return this->byMonth_ != nullptr;};
     void deleteByMonth() { this->byMonth_ = nullptr;};
@@ -67,6 +69,13 @@ namespace Models
     void deleteLabel() { this->label_ = nullptr;};
     inline string getLabel() const { DARABONBA_PTR_GET_DEFAULT(label_, "") };
     inline GetCipStatsRequest& setLabel(string label) { DARABONBA_PTR_SET_VALUE(label_, label) };
+
+
+    // query Field Functions 
+    bool hasQuery() const { return this->query_ != nullptr;};
+    void deleteQuery() { this->query_ = nullptr;};
+    inline string getQuery() const { DARABONBA_PTR_GET_DEFAULT(query_, "") };
+    inline GetCipStatsRequest& setQuery(string query) { DARABONBA_PTR_SET_VALUE(query_, query) };
 
 
     // regionId Field Functions 
@@ -115,6 +124,7 @@ namespace Models
     shared_ptr<bool> byMonth_ {};
     shared_ptr<string> endDate_ {};
     shared_ptr<string> label_ {};
+    shared_ptr<string> query_ {};
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceType_ {};
     shared_ptr<string> serviceCode_ {};

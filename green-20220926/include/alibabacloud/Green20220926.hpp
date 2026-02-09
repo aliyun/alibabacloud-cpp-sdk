@@ -208,7 +208,7 @@ namespace Green20220926
       Models::CreateCallbackResponse createCallback(const Models::CreateCallbackRequest &request);
 
       /**
-       * @summary 在线测试
+       * @summary Online Test
        *
        * @param request CreateOnlineTestRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -217,7 +217,7 @@ namespace Green20220926
       Models::CreateOnlineTestResponse createOnlineTestWithOptions(const Models::CreateOnlineTestRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 在线测试
+       * @summary Online Test
        *
        * @param request CreateOnlineTestRequest
        * @return CreateOnlineTestResponse
@@ -361,7 +361,7 @@ namespace Green20220926
       Models::DeleteKeywordLibResponse deleteKeywordLib(const Models::DeleteKeywordLibRequest &request);
 
       /**
-       * @summary 删除在线测试接口
+       * @summary Delete online test
        *
        * @param request DeleteOnlineTestRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -370,7 +370,7 @@ namespace Green20220926
       Models::DeleteOnlineTestResponse deleteOnlineTestWithOptions(const Models::DeleteOnlineTestRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除在线测试接口
+       * @summary Delete online test
        *
        * @param request DeleteOnlineTestRequest
        * @return DeleteOnlineTestResponse
@@ -599,7 +599,7 @@ namespace Green20220926
       Models::GetBucketsListResponse getBucketsList(const Models::GetBucketsListRequest &request);
 
       /**
-       * @summary 查询调用量
+       * @summary Query Call Volume
        *
        * @param request GetCipStatsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -608,7 +608,7 @@ namespace Green20220926
       Models::GetCipStatsResponse getCipStatsWithOptions(const Models::GetCipStatsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询调用量
+       * @summary Query Call Volume
        *
        * @param request GetCipStatsRequest
        * @return GetCipStatsResponse
@@ -1186,7 +1186,7 @@ namespace Green20220926
       Models::ModifyCallbackResponse modifyCallback(const Models::ModifyCallbackRequest &request);
 
       /**
-       * @summary 保存特性配置
+       * @summary Save Feature Configuration
        *
        * @param request ModifyFeatureConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1195,7 +1195,7 @@ namespace Green20220926
       Models::ModifyFeatureConfigResponse modifyFeatureConfigWithOptions(const Models::ModifyFeatureConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 保存特性配置
+       * @summary Save Feature Configuration
        *
        * @param request ModifyFeatureConfigRequest
        * @return ModifyFeatureConfigResponse
@@ -1220,7 +1220,7 @@ namespace Green20220926
       Models::ModifyServiceInfoResponse modifyServiceInfo(const Models::ModifyServiceInfoRequest &request);
 
       /**
-       * @summary oss扫描结果查询
+       * @summary OSS scan result query
        *
        * @param tmpReq OssCheckResultListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1229,7 +1229,7 @@ namespace Green20220926
       Models::OssCheckResultListResponse ossCheckResultListWithOptions(const Models::OssCheckResultListRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary oss扫描结果查询
+       * @summary OSS scan result query
        *
        * @param request OssCheckResultListRequest
        * @return OssCheckResultListResponse

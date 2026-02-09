@@ -763,7 +763,7 @@ CreateCallbackResponse Client::createCallback(const CreateCallbackRequest &reque
 }
 
 /**
- * @summary 在线测试
+ * @summary Online Test
  *
  * @param request CreateOnlineTestRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -806,7 +806,7 @@ CreateOnlineTestResponse Client::createOnlineTestWithOptions(const CreateOnlineT
 }
 
 /**
- * @summary 在线测试
+ * @summary Online Test
  *
  * @param request CreateOnlineTestRequest
  * @return CreateOnlineTestResponse
@@ -1279,7 +1279,7 @@ DeleteKeywordLibResponse Client::deleteKeywordLib(const DeleteKeywordLibRequest 
 }
 
 /**
- * @summary 删除在线测试接口
+ * @summary Delete online test
  *
  * @param request DeleteOnlineTestRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1314,7 +1314,7 @@ DeleteOnlineTestResponse Client::deleteOnlineTestWithOptions(const DeleteOnlineT
 }
 
 /**
- * @summary 删除在线测试接口
+ * @summary Delete online test
  *
  * @param request DeleteOnlineTestRequest
  * @return DeleteOnlineTestResponse
@@ -2055,7 +2055,7 @@ GetBucketsListResponse Client::getBucketsList(const GetBucketsListRequest &reque
 }
 
 /**
- * @summary 查询调用量
+ * @summary Query Call Volume
  *
  * @param request GetCipStatsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2064,6 +2064,10 @@ GetBucketsListResponse Client::getBucketsList(const GetBucketsListRequest &reque
 GetCipStatsResponse Client::getCipStatsWithOptions(const GetCipStatsRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasQuery()) {
+    query["Query"] = request.getQuery();
+  }
+
   if (!!request.hasRegionId()) {
     query["RegionId"] = request.getRegionId();
   }
@@ -2120,7 +2124,7 @@ GetCipStatsResponse Client::getCipStatsWithOptions(const GetCipStatsRequest &req
 }
 
 /**
- * @summary 查询调用量
+ * @summary Query Call Volume
  *
  * @param request GetCipStatsRequest
  * @return GetCipStatsResponse
@@ -3866,16 +3870,18 @@ FutureGenerator<LlmStreamChatResponse> Client::llmStreamChatWithSSE(const LlmStr
   }).get<map<string, string>>());
   FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
   for (SSEResponse resp : sseResp) {
-    json data = json(json::parse(resp.getEvent().getData()));
-json     __retrun = json(json({
-      {"statusCode" , resp.getStatusCode()},
-      {"headers" , resp.getHeaders()},
-      {"body" , Darabonba::Core::merge(data,
-          {"RequestId" , resp.getEvent().getId()},
-          {"Message" , resp.getEvent().getEvent()}
-      )}
-    })).get<LlmStreamChatResponse>();
+    if (!!resp.hasEvent() && !!resp.getEvent().hasData()) {
+      json data = json(json::parse(resp.getEvent().getData()));
+json       __retrun = json(json({
+        {"statusCode" , resp.getStatusCode()},
+        {"headers" , resp.getHeaders()},
+        {"id" , resp.getEvent().getId()},
+        {"event" , resp.getEvent().getEvent()},
+        {"body" , data}
+      })).get<LlmStreamChatResponse>();
 return Darabonba::FutureGenerator<json>(__retrun);
+    }
+
   }
 }
 
@@ -4052,7 +4058,7 @@ ModifyCallbackResponse Client::modifyCallback(const ModifyCallbackRequest &reque
 }
 
 /**
- * @summary 保存特性配置
+ * @summary Save Feature Configuration
  *
  * @param request ModifyFeatureConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4109,7 +4115,7 @@ ModifyFeatureConfigResponse Client::modifyFeatureConfigWithOptions(const ModifyF
 }
 
 /**
- * @summary 保存特性配置
+ * @summary Save Feature Configuration
  *
  * @param request ModifyFeatureConfigRequest
  * @return ModifyFeatureConfigResponse
@@ -4180,7 +4186,7 @@ ModifyServiceInfoResponse Client::modifyServiceInfo(const ModifyServiceInfoReque
 }
 
 /**
- * @summary oss扫描结果查询
+ * @summary OSS scan result query
  *
  * @param tmpReq OssCheckResultListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4249,7 +4255,7 @@ OssCheckResultListResponse Client::ossCheckResultListWithOptions(const OssCheckR
 }
 
 /**
- * @summary oss扫描结果查询
+ * @summary OSS scan result query
  *
  * @param request OssCheckResultListRequest
  * @return OssCheckResultListResponse
