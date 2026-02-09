@@ -90,6 +90,7 @@ namespace Models
   protected:
     shared_ptr<vector<GlobalPageItem>> pageItems_ {};
     shared_ptr<GlobalQueryContext> queryContext_ {};
+    // requestId
     shared_ptr<string> requestId_ {};
     shared_ptr<vector<GlobalSceneItem>> sceneItems_ {};
     shared_ptr<GlobalSearchInformation> searchInformation_ {};
